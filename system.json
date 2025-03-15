@@ -1,0 +1,55 @@
+{
+  "id": "exalted2e",
+  "title": "Exalted Second Edition",
+  "description": "Foundry VTT implementation for Second Edition Exalted.",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": 12,
+    "verified": 12
+  },
+  "authors": [{
+    "name": "Alediran",
+    "url": "https://github.com/Alediran/exalted2e",
+    "email": "alediran@gmail.com",
+    "discord": "YOUR DISCORD USERNAME HERE"
+  }],
+  "esmodules": ["exalted2e.mjs"],
+  "styles": ["styles/system-styles.css"],
+  "packs": [{
+    "name": "monsters",
+    "label": "Antagonists",
+    "type": "Actor"
+  },
+  {
+    "name": "items",
+    "label": "Panoply",
+    "type": "Item"
+  }],
+  "languages": [{
+    "lang": "en",
+    "name": "English",
+    "path": "lang/en.json"
+  }],
+  "documentTypes": {
+    "Actor": {
+      "hero": { "htmlFields": ["background.biography"] },
+      "villain": { "htmlFields": ["background.biography"] },
+      "pawn": {}
+    },
+    "Item": {
+      "weapon": {},
+      "spell": {}
+    }
+  },
+  "socket": false,
+  "initiative": "1d10",
+  "grid": {
+    "distance": 1,
+    "units": "yd"
+  },
+  "primaryTokenAttribute": "resources.personal",
+  "secondaryTokenAttribute": "resources.peripheral",
+  "url": "https://github.com/Alediran/exalted2e",
+  "manifest": "https://github.com/Alediran/exalted2e/system.json",
+  "download": "https://github.com/Alediran/exalted2e/archive.zip"
+}
