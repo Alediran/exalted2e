@@ -1,16 +1,15 @@
 {
-  "name": "boilerplate",
-  "version": "2.0.0",
-  "description": "CSS compiler for the Boilerplate system",
+  "name": "exalted2e",
+  "version": "1.0.0",
+  "description": "CSS compiler for the Exalted 2e system",
   "scripts": {
-    "build": "sass src/scss/boilerplate.scss css/boilerplate.css --style=expanded --no-source-map",
-    "watch": "sass src/scss/boilerplate.scss css/boilerplate.css --style=expanded --source-map --watch",
-    "generate": "node src/generate-boilerplate-system.mjs"
+    "build": "sass src/scss/exalted2e.scss css/exalted2e.css --style=expanded --no-source-map",
+    "watch": "sass src/scss/exalted2e.scss css/exalted2e.css --style=expanded --source-map --watch"
   },
   "browserslist": [
     "last 3 versions"
   ],
-  "author": "Asacolips",
+  "author": "Alediran",
   "license": "MIT",
   "private": true,
   "devDependencies": {
