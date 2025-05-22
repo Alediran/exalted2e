@@ -1,55 +1,47 @@
 {
   "id": "exalted2e",
   "title": "Exalted Second Edition",
-  "description": "Foundry VTT implementation for Second Edition Exalted.",
+  "description": "Exalted Second Edition implementation for FoundryVTT",
+  "authors": [
+    {
+      "name": "Alediran",
+      "discord": "alediran"
+    }
+  ],
+  "url": "https://github.com/Alediran/exalted2e",
+  "license": "LICENSE.txt",
+  "readme": "README.md",
+  "bugs": "https://github.com/Alediran/exalted2e/issues",
+  "changelog": "CHANGELOG.md",
+  "media": [
+    {
+      "type": "setup",
+      "url": "systems/exalted2e/assets/anvil-impact.png",
+      "thumbnail": "systems/exalted2e/assets/anvil-impact.png"
+    }
+  ],
   "version": "1.0.0",
   "compatibility": {
-    "minimum": 12,
-    "verified": 12
+    "minimum": 13,
+    "verified": 13
   },
-  "authors": [{
-    "name": "Alediran",
-    "url": "https://github.com/Alediran/exalted2e",
-    "email": "alediran@gmail.com",
-    "discord": "YOUR DISCORD USERNAME HERE"
-  }],
-  "esmodules": ["exalted2e.mjs"],
-  "styles": ["styles/system-styles.css"],
-  "packs": [{
-    "name": "monsters",
-    "label": "Antagonists",
-    "type": "Actor"
-  },
-  {
-    "name": "items",
-    "label": "Panoply",
-    "type": "Item"
-  }],
-  "languages": [{
-    "lang": "en",
-    "name": "English",
-    "path": "lang/en.json"
-  }],
-  "documentTypes": {
-    "Actor": {
-      "hero": { "htmlFields": ["background.biography"] },
-      "villain": { "htmlFields": ["background.biography"] },
-      "pawn": {}
-    },
-    "Item": {
-      "weapon": {},
-      "spell": {}
+  "esmodules": ["module/exalted2e.mjs"],
+  "styles": ["css/exalted2e.css"],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
     }
-  },
+  ],
+  "packs": [],
+  "packFolders": [],
   "socket": false,
-  "initiative": "1d10",
-  "grid": {
-    "distance": 1,
-    "units": "yd"
-  },
-  "primaryTokenAttribute": "resources.personal",
-  "secondaryTokenAttribute": "resources.peripheral",
-  "url": "https://github.com/Alediran/exalted2e",
-  "manifest": "https://github.com/Alediran/exalted2e/system.json",
-  "download": "https://github.com/Alediran/exalted2e/archive.zip"
+  "manifest": "Replace this with a link to the /latest release system.json so people can receive updates after they've installed the system",
+  "download": "This must link to a .zip file of the current version",
+  "background": "systems/exalted2e/assets/anvil-impact.png",
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "power"
 }
