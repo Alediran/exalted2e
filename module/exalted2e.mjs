@@ -7,6 +7,8 @@ import { ExaltedSecondItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { EXALTED2E } from "./helpers/config.mjs";
+import ExaltedSecondCharacter from "./data/actor-character.mjs";
+import ExaltedSecondNPC from "./data/actor-npc.mjs";
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -16,9 +18,17 @@ Hooks.once("init", function () {
   // Add utility classes to the global game object so that they're more easily
   // accessible in global contexts.
   game.exalted2e = {
-    ExaltedSecondActor,
-    ExaltedSecondItem,
+    entities: {
+      ExaltedSecondActor,
+      ExaltedSecondItem,
+    },
     rollItemMacro,
+  };
+
+  //Set Data Models
+  CONFIG.Actor.dataModels = {
+    character: ExaltedSecondCharacter,
+    npc: ExaltedSecondNPC,
   };
 
   // Add custom constants for configuration.
@@ -29,7 +39,7 @@ Hooks.once("init", function () {
    * @type {String}
    */
   CONFIG.Combat.initiative = {
-    formula: "1d20 + @abilities.dex.mod",
+    formula: "(@attributes.wits.value + @abilities.awareness.value)d10x10cs>=7",
     decimals: 2,
   };
 

@@ -1,23 +1,29 @@
 export const EXALTED2E = {};
 
 /**
- * The set of Ability Scores used within the system.
+ * The set of Attribute Scores used within the system.
  * @type {Object}
  */
-EXALTED2E.abilities = {
-  str: "EXALTED2E.Ability.Str.long",
-  dex: "EXALTED2E.Ability.Dex.long",
-  con: "EXALTED2E.Ability.Con.long",
-  int: "EXALTED2E.Ability.Int.long",
-  wis: "EXALTED2E.Ability.Wis.long",
-  cha: "EXALTED2E.Ability.Cha.long",
+EXALTED2E.attributes = {
+  str: "EXALTED2E.Attribute.Str.long",
+  dex: "EXALTED2E.Attribute.Dex.long",
+  sta: "EXALTED2E.Attribute.Sta.long",
+  cha: "EXALTED2E.Attribute.Cha.long",
+  man: "EXALTED2E.Attribute.Man.long",
+  app: "EXALTED2E.Attribute.App.long",
+  per: "EXALTED2E.Attribute.Per.long",
+  int: "EXALTED2E.Attribute.Int.long",
+  wit: "EXALTED2E.Attribute.Wit.long",
 };
 
-EXALTED2E.abilityAbbreviations = {
-  str: "EXALTED2E.Ability.Str.abbr",
-  dex: "EXALTED2E.Ability.Dex.abbr",
-  con: "EXALTED2E.Ability.Con.abbr",
-  int: "EXALTED2E.Ability.Int.abbr",
-  wis: "EXALTED2E.Ability.Wis.abbr",
-  cha: "EXALTED2E.Ability.Cha.abbr",
+EXALTED2E.attributeAbbreviations = {
+  str: "EXALTED2E.Attribute.Str.abbr",
+  dex: "EXALTED2E.Attribute.Dex.abbr",
+  sta: "EXALTED2E.Attribute.Sta.abbr",
+  cha: "EXALTED2E.Attribute.Cha.abbr",
+  man: "EXALTED2E.Attribute.Man.abbr",
+  app: "EXALTED2E.Attribute.App.abbr",
+  per: "EXALTED2E.Attribute.Per.abbr",
+  int: "EXALTED2E.Attribute.Int.abbr",
+  wit: "EXALTED2E.Attribute.Wit.abbr",
 };
