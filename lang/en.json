@@ -10,7 +10,13 @@
     },
     "SheetLabels": {
       "Actor": "Exalted Actor Sheet",
-      "Item": "Exalted Item Sheet"
+      "Item": "Exalted Item Sheet",
+      "Name": "Name",
+      "Concept": "Concept",
+      "Type": "Type",
+      "Caste": "Caste",
+      "Motivation": "Motivation",
+      "Anima": "Anima"
     },
     "Item": {
       "Spell": {

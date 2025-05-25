@@ -7,16 +7,16 @@ import {
 } from "../template/data-schema.mjs";
 import ExaltedSecondDataModel from "./base-model.mjs";
 
+const fields = foundry.data.fields;
+
 export default class ExaltedSecondActorBase extends ExaltedSecondDataModel {
   static defineSchema() {
-    const fields = foundry.data.fields;
-
     return {
-      type: new fields.StringField({ initial: "mortal" }),
-      caste: new fields.StringField({ initial: "" }),
-      concept: new fields.StringField({ initial: "" }),
-      motivation: new fields.StringField({ initial: "" }),
-      anima: new fields.StringField({ initial: "" }),
+      type: new fields.StringField({ initial: "solar" }),
+      caste: new fields.StringField({ initial: "Dawn" }),
+      concept: new fields.StringField({ initial: "Placeholder" }),
+      motivation: new fields.StringField({ initial: "Win" }),
+      anima: new fields.StringField({ initial: "Blue Jay" }),
       attributes: new fields.SchemaField({
         strength: attributeField("physical"),
         charisma: attributeField("social"),

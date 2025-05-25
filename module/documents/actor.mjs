@@ -10,6 +10,10 @@ export class ExaltedSecondActor extends Actor {
     // prepareBaseData(), prepareEmbeddedDocuments() (including active effects),
     // prepareDerivedData().
     super.prepareData();
+    const actorData = this;
+
+    this._prepareCharacterData(actorData);
+    this._prepareNpcData(actorData);
   }
 
   /** @override */
@@ -34,8 +38,8 @@ export class ExaltedSecondActor extends Actor {
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
-    this._prepareCharacterData(actorData);
-    this._prepareNpcData(actorData);
+    this._prepareCharacterDerivedData(actorData);
+    this._prepareNpcDerivedData(actorData);
   }
 
   /**
@@ -46,14 +50,14 @@ export class ExaltedSecondActor extends Actor {
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
-
-    // Loop through ability scores, and add their modifiers to our sheet output.
-    for (let [key, ability] of Object.entries(systemData.abilities)) {
-      // Calculate the modifier using d20 rules.
-      ability.mod = Math.floor((ability.value - 10) / 2);
-    }
   }
 
+  _prepareCharacterDerivedData(actorData) {
+    if (actorData.type !== "character") return;
+
+    // Make modifications to data here. For example:
+    const systemData = actorData.system;
+  }
   /**
    * Prepare NPC type specific data.
    */
@@ -62,7 +66,13 @@ export class ExaltedSecondActor extends Actor {
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
-    systemData.xp = systemData.cr * systemData.cr * 100;
+  }
+
+  _prepareNpcDerivedData(actorData) {
+    if (actorData.type !== "npc") return;
+
+    // Make modifications to data here. For example:
+    const systemData = actorData.system;
   }
 
   /**

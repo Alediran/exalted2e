@@ -29,6 +29,13 @@
   flex: 2;
 }
 
+.flex-h-gap-5 {
+  column-gap: 5px;
+}
+.flex-h-gap-10 {
+  column-gap: 10px;
+}
+
 // Alignment styles.
 .align-left {
   justify-content: flex-start;
