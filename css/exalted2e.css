@@ -260,6 +260,23 @@
 .exalted2e .tox .tox-edit-area {
   padding: 0 8px;
 }
+.exalted2e .solar .horizontal-line-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* space between lines and text */
+  font-variant: small-caps;
+  font-size: large;
+}
+.exalted2e .solar .horizontal-line-container .line {
+  flex: 1;
+  height: 1px;
+  background-color: #9f9275; /* black line */
+}
+.exalted2e .solar .horizontal-line-container .line .text {
+  white-space: nowrap;
+  padding: 0 10px;
+}
 .exalted2e .resource-label {
   font-weight: bold;
 }

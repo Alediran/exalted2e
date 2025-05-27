@@ -1,6 +1,7 @@
 // Export Actors
 export { default as ExaltedSecondActorBase } from "./base-actor.mjs";
-export { default as ExaltedSecondCharacter } from "./actor-character.mjs";
+export { default as ExaltedSecondSolarCharacter } from "./actor-solar.mjs";
+export { default as ExaltedSecondLunarCharacter } from "./actor-lunar.mjs";
 export { default as ExaltedSecondNPC } from "./actor-npc.mjs";
 
 // Export Items

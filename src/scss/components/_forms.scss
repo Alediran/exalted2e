@@ -53,3 +53,23 @@
     padding: 0 8px;
   }
 }
+
+.solar .horizontal-line-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* space between lines and text */
+  font-variant: small-caps;
+  font-size: large;
+}
+
+.solar .horizontal-line-container .line {
+  flex: 1;
+  height: 1px;
+  background-color: $color-gold; /* black line */
+}
+
+.solar .horizontal-line-container .line .text {
+  white-space: nowrap;
+  padding: 0 10px;
+}

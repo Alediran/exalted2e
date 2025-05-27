@@ -1,15 +1,42 @@
 {
   "EXALTED2E": {
-    "Ability": {
-      "Str": { "long": "Strength", "abbr": "str" },
-      "Con": { "long": "Constitution", "abbr": "con" },
-      "Sta": { "long": "Stamina", "abbr": "sta" },
-      "Cha": { "long": "Charisma", "abbr": "cha" },
-      "Man": { "long": "Manipulation", "abbr": "man" },
-      "App": { "long": "Appeareance", "abbr": "app" },
-      "Per": { "long": "Perception", "abbr": "per" },
-      "Int": { "long": "Inteligence", "abbr": "int" },
-      "Wit": { "long": "Wits", "abbr": "wit" }
+    "Attributes": {
+      "Strength": { "long": "Strength", "abbr": "str" },
+      "Dexterity": { "long": "Dexterity", "abbr": "dex" },
+      "Stamina": { "long": "Stamina", "abbr": "sta" },
+      "Charisma": { "long": "Charisma", "abbr": "cha" },
+      "Manipulation": { "long": "Manipulation", "abbr": "man" },
+      "Appearance": { "long": "Appearance", "abbr": "app" },
+      "Perception": { "long": "Perception", "abbr": "per" },
+      "Intelligence": { "long": "Intelligence", "abbr": "int" },
+      "Wits": { "long": "Wits", "abbr": "wit" }
+    },
+    "Abilities": {
+      "Archery": { "long": "Archery", "abbr": "arch" },
+      "Athletics": { "long": "Athletics", "abbr": "ath" },
+      "Awareness": { "long": "Awareness", "abbr": "awa" },
+      "Bureaucracy": { "long": "Bureaucracy", "abbr": "bure" },
+      "Craft": { "long": "Craft", "abbr": "craft" },
+      "Dodge": { "long": "Dodge", "abbr": "dodge" },
+      "Integrity": { "long": "Integrity", "abbr": "intg" },
+      "Investigation": { "long": "Investigation", "abbr": "inv" },
+      "Larceny": { "long": "Larceny", "abbr": "lar" },
+      "Linguistics": { "long": "Linguistics", "abbr": "ling" },
+      "Lore": { "long": "Lore", "abbr": "lore" },
+      "MartialArts": { "long": "MartialArts", "abbr": "ma" },
+      "Medicine": { "long": "Medicine", "abbr": "med" },
+      "Melee": { "long": "Melee", "abbr": "melee" },
+      "Occult": { "long": "Occult", "abbr": "occ" },
+      "Performance": { "long": "Performance", "abbr": "per" },
+      "Presence": { "long": "Presence", "abbr": "pre" },
+      "Resistance": { "long": "Resistance", "abbr": "res" },
+      "Ride": { "long": "Ride", "abbr": "ride" },
+      "Sail": { "long": "Sail", "abbr": "sail" },
+      "Socialize": { "long": "Socialize", "abbr": "soc" },
+      "Stealth": { "long": "Stealth", "abbr": "stea" },
+      "Survival": { "long": "Survival", "abbr": "surv" },
+      "Thrown": { "long": "Thrown", "abbr": "thr" },
+      "War": { "long": "War", "abbr": "war" }
     },
     "SheetLabels": {
       "Actor": "Exalted Actor Sheet",
@@ -22,7 +49,9 @@
       "Anima": "Anima",
       "Bio": "Biography",
       "Charms": "Charms",
-      "Details": "Details"
+      "Details": "Details",
+      "Attributes": "Attributes",
+      "Abilities": "Abilities"
     },
     "Item": {
       "Spell": {

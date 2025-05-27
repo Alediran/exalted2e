@@ -7,7 +7,8 @@ import { ExaltedSecondItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { EXALTED2E } from "./helpers/config.mjs";
-import ExaltedSecondCharacter from "./data/actor-character.mjs";
+import ExaltedSecondSolarCharacter from "./data/actor-solar.mjs";
+import ExaltedSecondLunarCharacter from "./data/actor-lunar.mjs";
 import ExaltedSecondNPC from "./data/actor-npc.mjs";
 
 /* -------------------------------------------- */
@@ -27,8 +28,8 @@ Hooks.once("init", function () {
 
   //Set Data Models
   CONFIG.Actor.dataModels = {
-    character: ExaltedSecondCharacter,
-    npc: ExaltedSecondNPC,
+    solar: ExaltedSecondSolarCharacter,
+    lunar: ExaltedSecondLunarCharacter,
   };
 
   // Add custom constants for configuration.
@@ -57,7 +58,7 @@ Hooks.once("init", function () {
     "core",
     foundry.appv1.sheets.ActorSheet
   );
-  console.log("Actors ", foundry.documents.collections.Actors);
+
   foundry.documents.collections.Actors.registerSheet(
     "exalted2e",
     ExaltedSecondActorSheet,

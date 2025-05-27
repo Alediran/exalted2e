@@ -72,6 +72,9 @@ export default class ExaltedSecondActorBase extends ExaltedSecondDataModel {
         total: new fields.NumberField({ initial: 0 }),
       }),
       biography: new fields.HTMLField({ initial: "" }),
+      configuration: new fields.SchemaField({
+        isNpc: new fields.BooleanField({ initial: false }),
+      }),
     };
   }
 }

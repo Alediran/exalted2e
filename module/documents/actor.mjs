@@ -46,15 +46,11 @@ export class ExaltedSecondActor extends Actor {
    * Prepare Character type specific data
    */
   _prepareCharacterData(actorData) {
-    if (actorData.type !== "character") return;
-
     // Make modifications to data here. For example:
     const systemData = actorData.system;
   }
 
   _prepareCharacterDerivedData(actorData) {
-    if (actorData.type !== "character") return;
-
     // Make modifications to data here. For example:
     const systemData = actorData.system;
   }
@@ -62,14 +58,14 @@ export class ExaltedSecondActor extends Actor {
    * Prepare NPC type specific data.
    */
   _prepareNpcData(actorData) {
-    if (actorData.type !== "npc") return;
+    if (!actorData.system.configuration.isNpc) return;
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
   }
 
   _prepareNpcDerivedData(actorData) {
-    if (actorData.type !== "npc") return;
+    if (!actorData.system.configuration.isNpc) return;
 
     // Make modifications to data here. For example:
     const systemData = actorData.system;
@@ -92,16 +88,12 @@ export class ExaltedSecondActor extends Actor {
   /**
    * Prepare character roll data.
    */
-  _getCharacterRollData(data) {
-    if (this.type !== "character") return;
-  }
+  _getCharacterRollData(data) {}
 
   /**
    * Prepare NPC roll data.
    */
   _getNpcRollData(data) {
-    if (this.type !== "npc") return;
-
     // Process additional NPC data here.
   }
 }

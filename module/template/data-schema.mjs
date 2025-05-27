@@ -1,6 +1,6 @@
 const fields = foundry.data.fields;
 
-export function attributeField(type) {
+export function attributeField(type, key) {
   return new fields.SchemaField({
     favored: new fields.BooleanField({ initial: false }),
     caste: new fields.BooleanField({ initial: false }),

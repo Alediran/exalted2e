@@ -31,7 +31,7 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
         },
       ],
     },
-    classes: ["exalted2e", "actor", "character"],
+    classes: ["exalted2e", "actor"],
     dragDrop: [{ dragSelector: "[data-drag]", dropSelector: null }],
     form: {
       //handler: this._myFormHandler,
@@ -61,6 +61,7 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
       template: "systems/exalted2e/templates/actor/tabs.hbs",
     },
     details: {
+      classes: ["solar"],
       container: { classes: ["tab-body"], id: "tabs" },
       template: "systems/exalted2e/templates/actor/parts/actor-details.hbs",
       scrollable: [""],
@@ -94,11 +95,6 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
       options.position.height = 620;
       options.position.width = 560;
     }*/
-
-    switch (this.document.type) {
-      case "solar":
-        options.parts.push();
-    }
   }
 
   /** @override */
@@ -171,16 +167,8 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
         ),
     };
 
-    // Prepare character data and items.
-    if (actorData.type == "character") {
-      this._prepareItems(context);
-      this._prepareCharacterData(context);
-    }
-
-    // Prepare NPC data and items.
-    if (actorData.type == "npc") {
-      this._prepareItems(context);
-    }
+    this._prepareItems(context);
+    this._prepareCharacterData(context);
 
     // Prepare active effects
     context.effects = prepareActiveEffectCategories(
@@ -198,8 +186,15 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
    * @param {object} context The context object to mutate
    */
   _prepareCharacterData(context) {
+    debugger;
     // This is where you can enrich character-specific editor fields
     // or setup anything else that's specific to this type
+    for (let [key, attr] of Object.entries(context.actor.system.attributes)) {
+      attr.name = game.i18n.localize(CONFIG.EXALTED2E.attributes[key]);
+    }
+    /* for (let [key, ability] of Object.entries(context.actor.system.abilities)) {
+      ability.name = CONFIG.EXALTED2E.Abilities[key];
+    }*/
   }
 
   /**
@@ -293,7 +288,6 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
   }
 
   async _renderTabs(context, options) {
-    debugger;
     const html = $(this.element);
     const nav = document.createElement("nav");
     nav.classList.add("tabs", "tabs-right");
