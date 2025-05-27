@@ -6,10 +6,12 @@
 export const preloadHandlebarsTemplates = async function () {
   return foundry.applications.handlebars.loadTemplates([
     // Actor partials.
+    "systems/exalted2e/templates/actor/parts/actor-biography.hbs",
+    "systems/exalted2e/templates/actor/parts/actor-charms.hbs",
+    "systems/exalted2e/templates/actor/parts/actor-details.hbs",
+    "systems/exalted2e/templates/actor/parts/actor-effects.hbs",
     "systems/exalted2e/templates/actor/parts/actor-features.hbs",
     "systems/exalted2e/templates/actor/parts/actor-items.hbs",
-    "systems/exalted2e/templates/actor/parts/actor-spells.hbs",
-    "systems/exalted2e/templates/actor/parts/actor-effects.hbs",
     // Item partials
     "systems/exalted2e/templates/item/parts/item-effects.hbs",
   ]);

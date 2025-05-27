@@ -48,9 +48,22 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
     return `${game.i18n.localize(this.actor.name)}`;
   }
 
+  get type() {
+    return this.document.type;
+  }
+
   static PARTS = {
     header: {
       template: `systems/exalted2e/templates/actor/actor-header.hbs`,
+    },
+    tabs: {
+      classes: ["tabs-right"],
+      template: "systems/exalted2e/templates/actor/tabs.hbs",
+    },
+    details: {
+      container: { classes: ["tab-body"], id: "tabs" },
+      template: "systems/exalted2e/templates/actor/parts/actor-details.hbs",
+      scrollable: [""],
     },
     charms: {
       container: { classes: ["tab-body"], id: "tabs" },
@@ -61,10 +74,6 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
       container: { classes: ["tab-body"], id: "tabs" },
       template: "systems/exalted2e/templates/actor/parts/actor-biography.hbs",
       scrollable: [""],
-    },
-    tabs: {
-      classes: ["tabs-right"],
-      template: "systems/exalted2e/templates/actor/tabs.hbs",
     },
   };
 
@@ -85,6 +94,11 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
       options.position.height = 620;
       options.position.width = 560;
     }*/
+
+    switch (this.document.type) {
+      case "solar":
+        options.parts.push();
+    }
   }
 
   /** @override */
@@ -98,7 +112,7 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
     const actorData = this.document.toObject(false);
 
     // Default tab for first time it's rendered this session
-    if (!this.tabGroups.primary) this.tabGroups.primary = "charms";
+    if (!this.tabGroups.primary) this.tabGroups.primary = "details";
 
     const context = {
       // Add the actor's data to context.data for easier access, as well as flags.
@@ -115,6 +129,15 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
       dtypes: ["String", "Number", "Boolean"],
 
       tabs: [
+        {
+          id: "details",
+          group: "primary",
+          icon: "fas fa-regular fa-dice-d10",
+          cssClass: `item control${
+            this.tabGroups.primary === "details" ? " active" : ""
+          }`,
+          tooltip: `${game.i18n.localize("EXALTED2E.SheetLabels.Details")}`,
+        },
         {
           id: "charms",
           group: "primary",
