@@ -53,16 +53,32 @@ Hooks.once("init", function () {
   CONFIG.ActiveEffect.legacyTransferral = false;
 
   // Register sheet application classes
-  Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("exalted2e", ExaltedSecondActorSheet, {
-    makeDefault: true,
-    label: "EXALTED2E.SheetLabels.Actor",
-  });
-  Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("exalted2e", ExaltedSecondItemSheet, {
-    makeDefault: true,
-    label: "EXALTED2E.SheetLabels.Item",
-  });
+  foundry.documents.collections.Actors.unregisterSheet(
+    "core",
+    foundry.appv1.sheets.ActorSheet
+  );
+  console.log("Actors ", foundry.documents.collections.Actors);
+  foundry.documents.collections.Actors.registerSheet(
+    "exalted2e",
+    ExaltedSecondActorSheet,
+    {
+      makeDefault: true,
+      label: "EXALTED2E.SheetLabels.Actor",
+    }
+  );
+
+  foundry.documents.collections.Items.unregisterSheet(
+    "core",
+    foundry.appv1.sheets.ItemSheet
+  );
+  foundry.documents.collections.Items.registerSheet(
+    "exalted2e",
+    ExaltedSecondItemSheet,
+    {
+      makeDefault: true,
+      label: "EXALTED2E.SheetLabels.Item",
+    }
+  );
 
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();

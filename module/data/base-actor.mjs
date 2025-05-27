@@ -12,7 +12,6 @@ const fields = foundry.data.fields;
 export default class ExaltedSecondActorBase extends ExaltedSecondDataModel {
   static defineSchema() {
     return {
-      type: new fields.StringField({ initial: "solar" }),
       caste: new fields.StringField({ initial: "Dawn" }),
       concept: new fields.StringField({ initial: "Placeholder" }),
       motivation: new fields.StringField({ initial: "Win" }),

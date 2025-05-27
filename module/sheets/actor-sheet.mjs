@@ -1,7 +1,4 @@
-import {
-  onManageActiveEffect,
-  prepareActiveEffectCategories,
-} from "../helpers/effects.mjs";
+import { prepareActiveEffectCategories } from "../helpers/effects.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -34,10 +31,12 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
         },
       ],
     },
-    classes: ["exalted2e", "sheet", "actor"],
+    classes: ["exalted2e", "actor", "character"],
     dragDrop: [{ dragSelector: "[data-drag]", dropSelector: null }],
     form: {
+      //handler: this._myFormHandler,
       submitOnChange: true,
+      // closeOnSubmit: false,
     },
     position: { width: 800, height: 1061 },
     actions: {
@@ -51,25 +50,23 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
 
   static PARTS = {
     header: {
-      template: `systems/exalted2e/templates/actor/actor-header.html`,
+      template: `systems/exalted2e/templates/actor/actor-header.hbs`,
     },
-    tabs: { template: "systems/exalted2e/templates/actor/tabs.html" },
+    charms: {
+      container: { classes: ["tab-body"], id: "tabs" },
+      template: "systems/exalted2e/templates/actor/parts/actor-charms.hbs",
+      scrollable: [""],
+    },
+    biography: {
+      container: { classes: ["tab-body"], id: "tabs" },
+      template: "systems/exalted2e/templates/actor/parts/actor-biography.hbs",
+      scrollable: [""],
+    },
+    tabs: {
+      classes: ["tabs-right"],
+      template: "systems/exalted2e/templates/actor/tabs.hbs",
+    },
   };
-
-  /*
-  
-  static get defaultOptions() {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      tabs: [
-        {
-          navSelector: ".sheet-tabs",
-          contentSelector: ".sheet-body",
-          initial: "features",
-        },
-      ],
-    });
-  }
-  */
 
   /* -------------------------------------------- */
   _initializeApplicationOptions(options) {
@@ -96,27 +93,60 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
     // the context variable to see the structure, but some key properties for
     // sheets are the actor object, the data object, whether or not it's
     // editable, the items array, and the effects array.
-    const context = super._prepareContext(_options);
 
     // Use a safe clone of the actor data for further operations.
     const actorData = this.document.toObject(false);
 
-    // Add the actor's data to context.data for easier access, as well as flags.
-    context.system = actorData.system;
-    context.flags = actorData.flags;
-    context.isEditable = true;
+    // Default tab for first time it's rendered this session
+    if (!this.tabGroups.primary) this.tabGroups.primary = "charms";
 
-    // Adding a pointer to CONFIG.EXALTED2E
-    context.config = CONFIG.EXALTED2E;
+    const context = {
+      // Add the actor's data to context.data for easier access, as well as flags.
+      isEditable: true,
+      isOwner: actorData.isOwner,
+      limited: actorData.limited,
+      actor: actorData,
+      system: actorData.system,
+      flags: actorData.flags,
 
-    context.tabs = [
-      {
-        id: "biography",
-        group: "primary",
-        label: "Ex2.Bio",
-        //cssClass: this.tabGroups['primary'] === 'biography' ? 'active' : '',
-      },
-    ];
+      // Adding a pointer to CONFIG.EXALTED2E
+      config: CONFIG.EXALTED2E,
+      castes: CONFIG.EXALTED2E.castes[actorData.type],
+      dtypes: ["String", "Number", "Boolean"],
+
+      tabs: [
+        {
+          id: "charms",
+          group: "primary",
+          icon: "fas fa-list",
+          cssClass: `item control${
+            this.tabGroups.primary === "charms" ? " active" : ""
+          }`,
+          tooltip: `${game.i18n.localize("EXALTED2E.SheetLabels.Charms")}`,
+        },
+        {
+          id: "biography",
+          group: "primary",
+          icon: "fas fa-book",
+          cssClass: `item control${
+            this.tabGroups.primary === "biography" ? " active" : ""
+          }`,
+          tooltip: `${game.i18n.localize("EXALTED2E.SheetLabels.Bio")}`,
+        },
+      ],
+      enrichedBiography:
+        await foundry.applications.ux.TextEditor.implementation.enrichHTML(
+          this.actor.system.biography,
+          {
+            // Whether to show secret blocks in the finished html
+            secrets: this.document.isOwner,
+            // Data to fill in for inline rolls
+            rollData: this.actor.getRollData(),
+            // Relative UUID resolution
+            relativeTo: this.actor,
+          }
+        ),
+    };
 
     // Prepare character data and items.
     if (actorData.type == "character") {
@@ -128,23 +158,6 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
     if (actorData.type == "npc") {
       this._prepareItems(context);
     }
-
-    // Enrich biography info for display
-    // Enrichment turns text like `[[/r 1d20]]` into buttons
-    context.enrichedBiography =
-      await foundry.applications.ux.TextEditor.implementation.enrichHTML(
-        this.actor.system.biography,
-        {
-          // Whether to show secret blocks in the finished html
-          secrets: this.document.isOwner,
-          // Necessary in v11, can be removed in v12
-          async: true,
-          // Data to fill in for inline rolls
-          rollData: this.actor.getRollData(),
-          // Relative UUID resolution
-          relativeTo: this.actor,
-        }
-      );
 
     // Prepare active effects
     context.effects = prepareActiveEffectCategories(
@@ -175,7 +188,7 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
     // Initialize containers.
     const gear = [];
     const features = [];
-    const spells = {};
+    const charms = [];
 
     // Iterate through items, allocating to containers
     for (let i of this.document.items) {
@@ -189,9 +202,9 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
         features.push(i);
       }
       // Append to spells.
-      else if (i.type === "spell") {
+      else if (i.type === "charm") {
         if (i.system.spellLevel != undefined) {
-          spells[i.system.spellLevel].push(i);
+          charms[i.system.spellLevel].push(i);
         }
       }
     }
@@ -199,11 +212,12 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
     // Assign and return
     context.gear = gear;
     context.features = features;
-    context.spells = spells;
+    context.charms = charms;
   }
 
   async _preparePartContext(partId, context) {
-    //context.tab = context.tabs.find((item) => item.id === partId);
+    console.log("Part Context is ", context);
+    context.tab = context.tabs.find((item) => item.id === partId);
     return context;
   }
 
@@ -213,30 +227,13 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
   /* -------------------------------------------- */
 
   /** @override */
-  _onRender(context, options) {
+  async _onRender(context, options) {
     this.#dragDrop.forEach((d) => d.bind(this.element));
+    //await this._renderTabs(context, options);
     // -------------------------------------------------------------
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
 
-    this.element.querySelectorAll(".list-ability").forEach((element) => {
-      element.addEventListener("change", async (ev) => {
-        const itemElement = ev.currentTarget.closest(".item");
-        const itemID = itemElement?.dataset.itemId;
-        const newNumber = parseInt(ev.currentTarget.value);
-
-        if (itemID) {
-          await this.actor.updateEmbeddedDocuments("Item", [
-            {
-              _id: itemID,
-              system: {
-                points: newNumber,
-              },
-            },
-          ]);
-        }
-      });
-    });
     // Add Inventory Item
     /*html.on("click", ".item-create", this._onItemCreate.bind(this));
 
@@ -270,6 +267,39 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
         li.addEventListener("dragstart", handler, false);
       });
     }*/
+  }
+
+  async _renderTabs(context, options) {
+    debugger;
+    const html = $(this.element);
+    const nav = document.createElement("nav");
+    nav.classList.add("tabs", "tabs-right");
+    nav.dataset.group = "primary";
+    nav.append(
+      context.tabs.map(({ tab, label, icon, svg }) => {
+        const item = document.createElement("a");
+        item.classList.add("item", "control");
+        item.dataset.group = "primary";
+        item.dataset.tab = tab;
+        item.dataset.tooltip = label;
+        item.setAttribute("aria-label", label);
+        if (icon) item.innerHTML = `<i class="${icon}"></i>`;
+        else if (svg)
+          item.innerHTML = `<dnd5e-icon src="systems/dnd5e/icons/svg/${svg}.svg"></dnd5e-icon>`;
+        return item;
+      })
+    );
+
+    html[0].insertAdjacentElement("afterbegin", nav);
+
+    this._tabs = options.tabs.map((t) => {
+      t.callback = this._onChangeTab.bind(this);
+      if (this._tabs?.[0]?.active !== t.initial)
+        t.initial = this._tabs?.[0]?.active ?? t.initial;
+      return new Tabs(t);
+    });
+
+    return html;
   }
 
   /**
@@ -475,5 +505,10 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
       left: this.position.left + 10,
     });
     return fp.browse();
+  }
+
+  static async _myFormHandler(event, form, formData) {
+    console.log("Submit ", event, form, formData);
+    // Do things with the returned FormData
   }
 }

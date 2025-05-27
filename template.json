@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character", "npc"]
+    "types": ["solar", "lunar", "sidereal", "abyssal", "infernal", "alchemical", "terrestrial", "hero", "npc"]
   },
   "Item": {
     "types": ["item", "background", "charm"]

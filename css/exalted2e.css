@@ -212,6 +212,9 @@
 }
 
 /* Styles limited to Exalted 2e sheets */
+.exalted2e {
+  overflow: visible;
+}
 .exalted2e .item-form {
   font-family: "Roboto", sans-serif;
 }
@@ -371,4 +374,101 @@
 }
 .exalted2e .effects .item .effect-controls {
   border: none;
+}
+.exalted2e .window-content {
+  box-shadow: none;
+  overflow: visible;
+}
+.exalted2e .window-content nav.tabs {
+  --tab-full-width: 44px;
+  --tab-inactive-width: 38px;
+  top: calc(100px + 1rem);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  z-index: -1;
+  border: none;
+}
+.exalted2e .window-content nav.tabs > .item {
+  --icon-size: 14px;
+  width: 44px;
+  height: 40px;
+  position: relative;
+  align-items: center;
+  background: #000;
+  color: #9f9275;
+  --icon-fill: #9f9275;
+  border: 1px solid transparent;
+  transition: all 250ms ease;
+  flex: none;
+}
+.exalted2e .window-content nav.tabs > .item:not([hidden]) {
+  display: flex;
+}
+.exalted2e .window-content nav.tabs > .item i {
+  font-size: var(--font-size-14);
+  margin: 0;
+}
+.exalted2e .window-content nav.tabs > .item.active,
+.exalted2e .window-content nav.tabs > .item:hover {
+  text-shadow: none;
+  border-color: #9f9275;
+  box-shadow: 0 0 6px #9f9275;
+}
+.exalted2e .window-content nav.tabs > .item::after {
+  content: "";
+  position: absolute;
+  border: 1px solid #9f9275;
+  pointer-events: none;
+}
+.exalted2e .window-content nav.tabs.tabs-left {
+  contain: content;
+  right: 100%;
+  align-items: flex-end;
+}
+.exalted2e .window-content nav.tabs.tabs-left > .item {
+  padding-inline-start: 12px;
+  justify-content: start;
+  border-radius: 8px 0 0 8px;
+  margin-inline-end: -6px;
+}
+.exalted2e .window-content nav.tabs.tabs-left > .item::after {
+  inset: 4px 0 4px 4px;
+  border-radius: 5px 0 0 5px;
+  border-inline-end: none;
+}
+.exalted2e .window-content nav.tabs.tabs-left > .item.active,
+.exalted2e .window-content nav.tabs.tabs-left > .item:hover {
+  margin: 0;
+}
+.exalted2e .window-content nav.tabs.tabs-right {
+  contain: content;
+  left: 100%;
+  align-items: flex-start;
+}
+.exalted2e .window-content nav.tabs.tabs-right > .item {
+  padding-inline-end: 12px;
+  justify-content: end;
+  border-radius: 0 8px 8px 0;
+  margin-inline-start: -6px;
+}
+.exalted2e .window-content nav.tabs.tabs-right > .item::after {
+  inset: 4px 4px 4px 0;
+  border-radius: 0 5px 5px 0;
+  border-inline-start: none;
+}
+.exalted2e .window-content nav.tabs.tabs-right > .item.active,
+.exalted2e .window-content nav.tabs.tabs-right > .item:hover {
+  margin: 0;
+}
+
+.exalted2e::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: 0;
+  border: 1px solid #9f9275;
+  box-shadow: 0 0 20px var(--color-shadow-dark);
+  border-radius: 5px;
 }

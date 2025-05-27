@@ -3,10 +3,13 @@
     "Ability": {
       "Str": { "long": "Strength", "abbr": "str" },
       "Con": { "long": "Constitution", "abbr": "con" },
-      "Dex": { "long": "Dexterity", "abbr": "dex" },
-      "Int": { "long": "Intelligence", "abbr": "int" },
-      "Wis": { "long": "Wisdom", "abbr": "wis" },
-      "Cha": { "long": "Charisma", "abbr": "cha" }
+      "Sta": { "long": "Stamina", "abbr": "sta" },
+      "Cha": { "long": "Charisma", "abbr": "cha" },
+      "Man": { "long": "Manipulation", "abbr": "man" },
+      "App": { "long": "Appeareance", "abbr": "app" },
+      "Per": { "long": "Perception", "abbr": "per" },
+      "Int": { "long": "Inteligence", "abbr": "int" },
+      "Wit": { "long": "Wits", "abbr": "wit" }
     },
     "SheetLabels": {
       "Actor": "Exalted Actor Sheet",
@@ -16,7 +19,9 @@
       "Type": "Type",
       "Caste": "Caste",
       "Motivation": "Motivation",
-      "Anima": "Anima"
+      "Anima": "Anima",
+      "Bio": "Biography",
+      "Charms": "Charms"
     },
     "Item": {
       "Spell": {
@@ -30,12 +35,25 @@
       "Temporary": "Temporary Effects",
       "Passive": "Passive Effects",
       "Inactive": "Inactive Effects"
-    }
+    },
+    "Solar": {
+      "Dawn": "Dawn",
+      "Zenith": "Zenith",
+      "Twilight": "Twilight",
+      "Night": "Night",
+      "Eclipse": "Eclipse"
+    }    
   },
-
   "TYPES": {
     "Actor": {
-      "character": "Character",
+      "hero": "Heroic Mortal",
+      "solar": "Solar",
+      "lunar": "Lunar",
+      "sidereal": "Sidereal",
+      "abyssal": "Abyssal",
+      "terrestrial": "Terrestrial",
+      "infernal": "Infernal",
+      "alchemical": "Alchemical",
       "npc": "NPC"
     },
     "Item": {

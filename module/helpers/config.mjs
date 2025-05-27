@@ -27,3 +27,13 @@ EXALTED2E.attributeAbbreviations = {
   int: "EXALTED2E.Attribute.Int.abbr",
   wit: "EXALTED2E.Attribute.Wit.abbr",
 };
+
+EXALTED2E.castes = {
+  solar: {
+    dawn: "EXALTED2E.Solar.Dawn",
+    zenith: "EXALTED2E.Solar.Zenith",
+    twilight: "EXALTED2E.Solar.Twilight",
+    night: "EXALTED2E.Solar.Night",
+    eclipse: "EXALTED2E.Solar.Eclipse",
+  },
+};

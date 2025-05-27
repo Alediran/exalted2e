@@ -1,0 +1,88 @@
+.window-content {
+  box-shadow: none;
+  overflow: visible;
+}
+
+.window-content nav.tabs {
+  --tab-full-width: 44px;
+  --tab-inactive-width: 38px;
+  top: calc($header-height + 1rem);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  z-index: -1;
+  border: none;
+}
+.window-content nav.tabs > .item {
+  --icon-size: 14px;
+  width: $tab-full-width;
+  height: 40px;
+  position: relative;
+  align-items: center;
+  background: $color-black;
+  color: $color-gold;
+  --icon-fill: #9f9275;
+  border: 1px solid transparent;
+  transition: all 250ms ease;
+  flex: none;
+}
+.window-content nav.tabs > .item:not([hidden]) {
+  display: flex;
+}
+.window-content nav.tabs > .item i {
+  font-size: var(--font-size-14);
+  margin: 0;
+}
+.window-content nav.tabs > .item.active,
+.window-content nav.tabs > .item:hover {
+  text-shadow: none;
+  border-color: $color-gold;
+  box-shadow: 0 0 6px $color-gold;
+}
+.window-content nav.tabs > .item::after {
+  content: "";
+  position: absolute;
+  border: 1px solid $color-gold;
+  pointer-events: none;
+}
+.window-content nav.tabs.tabs-left {
+  contain: content;
+  right: 100%;
+  align-items: flex-end;
+}
+.window-content nav.tabs.tabs-left > .item {
+  padding-inline-start: 12px;
+  justify-content: start;
+  border-radius: 8px 0 0 8px;
+  margin-inline-end: calc(($tab-full-width - $tab-inactive-width) * -1);
+}
+.window-content nav.tabs.tabs-left > .item::after {
+  inset: 4px 0 4px 4px;
+  border-radius: 5px 0 0 5px;
+  border-inline-end: none;
+}
+.window-content nav.tabs.tabs-left > .item.active,
+.window-content nav.tabs.tabs-left > .item:hover {
+  margin: 0;
+}
+.window-content nav.tabs.tabs-right {
+  contain: content;
+  left: 100%;
+  align-items: flex-start;
+}
+.window-content nav.tabs.tabs-right > .item {
+  padding-inline-end: 12px;
+  justify-content: end;
+  border-radius: 0 8px 8px 0;
+  margin-inline-start: calc(($tab-full-width - $tab-inactive-width) * -1);
+}
+.window-content nav.tabs.tabs-right > .item::after {
+  inset: 4px 4px 4px 0;
+  border-radius: 0 5px 5px 0;
+  border-inline-start: none;
+}
+.window-content nav.tabs.tabs-right > .item.active,
+.window-content nav.tabs.tabs-right > .item:hover {
+  margin: 0;
+}

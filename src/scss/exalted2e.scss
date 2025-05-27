@@ -14,8 +14,21 @@
 
 /* Styles limited to Exalted 2e sheets */
 .exalted2e {
+  overflow: visible;
+  
   @import 'components/forms';
   @import 'components/resource';
   @import 'components/items';
   @import 'components/effects';
+  @import 'components/tabs';
+}
+
+.exalted2e::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: 0;
+  border: $border-gold;
+  box-shadow: 0 0 20px var(--color-shadow-dark);
+  border-radius: 5px;
 }
