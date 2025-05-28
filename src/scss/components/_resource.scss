@@ -1,3 +1,53 @@
 .resource-label {
   font-weight: bold;
 }
+
+.solar .resource-value .resource-value-step {
+  height: 14px;
+  width: 14px;
+  border: 1px solid $color-gold;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.solar .resource-value .resource-value-step.active {
+  background-color: $color-gold;
+}
+
+.solar .resource-value .resource-value-empty {
+  height: 14px;
+  width: 14px;
+  border: 1px solid $color-gold;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%);
+}
+
+.solar .resource-counter .resource-counter-step {
+  border: 1px solid $color-gold;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.solar .resource-counter .resource-counter-step[data-state="-"] {
+  background-color: #147c14;
+}
+
+.solar .resource-counter .resource-counter-step[data-state="/"] {
+  background: linear-gradient(135deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%);
+}
+
+.solar .resource-counter .resource-counter-step[data-state=x] {
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%);
+}
+
+.solar .resource-counter .resource-counter-step[data-state="*"] {
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(90deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(180deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%);
+}
+
+.flex-group-center:not(.flexrow) .resource-value,
+.flex-group-center:not(.flexrow) .resource-counter {
+  margin-top: 5px;
+}

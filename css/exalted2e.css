@@ -280,6 +280,47 @@
 .exalted2e .resource-label {
   font-weight: bold;
 }
+.exalted2e .solar .resource-value .resource-value-step {
+  height: 14px;
+  width: 14px;
+  border: 1px solid #9f9275;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.exalted2e .solar .resource-value .resource-value-step.active {
+  background-color: #9f9275;
+}
+.exalted2e .solar .resource-value .resource-value-empty {
+  height: 14px;
+  width: 14px;
+  border: 1px solid #9f9275;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%);
+}
+.exalted2e .solar .resource-counter .resource-counter-step {
+  border: 1px solid #9f9275;
+  display: inline-block;
+  cursor: pointer;
+}
+.exalted2e .solar .resource-counter .resource-counter-step[data-state="-"] {
+  background-color: #147c14;
+}
+.exalted2e .solar .resource-counter .resource-counter-step[data-state="/"] {
+  background: linear-gradient(135deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%);
+}
+.exalted2e .solar .resource-counter .resource-counter-step[data-state=x] {
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%);
+}
+.exalted2e .solar .resource-counter .resource-counter-step[data-state="*"] {
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(90deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(180deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%);
+}
+.exalted2e .flex-group-center:not(.flexrow) .resource-value,
+.exalted2e .flex-group-center:not(.flexrow) .resource-counter {
+  margin-top: 5px;
+}
 .exalted2e .items-header {
   height: 28px;
   margin: 2px 0;

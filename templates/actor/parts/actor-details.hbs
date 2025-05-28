@@ -5,8 +5,17 @@
   
   {{#each system.attributes as |attribute key|}}
   <div>
+    <div class="attribute flexrow flex-center">
+      <label for="system.attributes.{{key}}.value" class="resource-label" data-roll="{{attribute.value}}"
+        data-label="{{attribute.name}}" style="text-align:start;">{{localize attribute.name}}
+      </label>
+      <div class="resource-value" data-value="{{attribute.value}}" data-name="system.attributes.{{key}}.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
   </div>
-    {{localize attribute.name}}
   {{/each}}
   <div class="horizontal-line-container">
     <span class="line" ></span>{{localize 'EXALTED2E.SheetLabels.Abilities'}}<span class="line" ></span>

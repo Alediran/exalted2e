@@ -4,7 +4,7 @@ export function attributeField(type, key) {
   return new fields.SchemaField({
     favored: new fields.BooleanField({ initial: false }),
     caste: new fields.BooleanField({ initial: false }),
-    min: new fields.NumberField({ initial: 1 }),
+    min: new fields.NumberField({ initial: 0 }),
     value: new fields.NumberField({ initial: 1 }),
     type: new fields.StringField({ initial: type }),
     upgrade: new fields.NumberField({ initial: 0 }),

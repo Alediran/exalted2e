@@ -34,13 +34,12 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
     classes: ["exalted2e", "actor"],
     dragDrop: [{ dragSelector: "[data-drag]", dropSelector: null }],
     form: {
-      //handler: this._myFormHandler,
       submitOnChange: true,
-      // closeOnSubmit: false,
     },
     position: { width: 800, height: 1061 },
     actions: {
       onEditImage: this._onEditImage,
+      dotCounterChange: this._onDotCounterChange,
     },
   };
 
@@ -186,15 +185,14 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
    * @param {object} context The context object to mutate
    */
   _prepareCharacterData(context) {
-    debugger;
     // This is where you can enrich character-specific editor fields
     // or setup anything else that's specific to this type
     for (let [key, attr] of Object.entries(context.actor.system.attributes)) {
       attr.name = game.i18n.localize(CONFIG.EXALTED2E.attributes[key]);
     }
-    /* for (let [key, ability] of Object.entries(context.actor.system.abilities)) {
-      ability.name = CONFIG.EXALTED2E.Abilities[key];
-    }*/
+    for (let [key, ability] of Object.entries(context.actor.system.abilities)) {
+      ability.name = CONFIG.EXALTED2E.abilities[key];
+    }
   }
 
   /**
@@ -247,6 +245,8 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
   /** @override */
   async _onRender(context, options) {
     this.#dragDrop.forEach((d) => d.bind(this.element));
+    this._setupDotCounters(this.element);
+    this._setupSquareCounters(this.element);
     //await this._renderTabs(context, options);
     // -------------------------------------------------------------
     // Everything below here is only needed if the sheet is editable
@@ -524,8 +524,139 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
     return fp.browse();
   }
 
-  static async _myFormHandler(event, form, formData) {
-    console.log("Submit ", event, form, formData);
-    // Do things with the returned FormData
+  _assignToActorField(fields, value) {
+    const actorData = foundry.utils.duplicate(this.actor);
+    // update actor owned items
+    if (fields.length === 2 && fields[0] === "items") {
+      for (const i of actorData.items) {
+        if (fields[1] === i._id) {
+          i.data.points = value;
+          break;
+        }
+      }
+    } else {
+      const lastField = fields.pop();
+      if (
+        fields.reduce((data, field) => data[field], actorData)[lastField] ===
+          1 &&
+        value === 1
+      ) {
+        fields.reduce((data, field) => data[field], actorData)[lastField] = 0;
+      } else {
+        fields.reduce((data, field) => data[field], actorData)[lastField] =
+          value;
+      }
+    }
+    this.actor.update(actorData);
+  }
+
+  static _onDotCounterChange(event, target) {
+    const parent = target.parentNode;
+    const itemID = target.dataset.id;
+    const fieldStrings = parent.dataset.name;
+    const fields = fieldStrings.split(".");
+
+    const min = this.actor[fields[0]][fields[1]][fields[2]].min; //gets the minimum value for this field
+    const index = Number(target.dataset.index);
+
+    const steps = parent.querySelectorAll(".resource-value-step");
+    const currentValue = parent.querySelectorAll(
+      ".resource-value-step.active"
+    ).length;
+    const newValue = index + 1;
+
+    if (
+      index < 0 ||
+      index > steps.length ||
+      (currentValue === min && newValue === min) //prevents from going below the minimum value
+    ) {
+      return;
+    }
+
+    steps.forEach((step) => {
+      step.classList.remove("active");
+    });
+
+    steps.forEach((step, i) => {
+      if (i <= index) {
+        step.classList.add("active");
+      }
+    });
+
+    if (itemID) {
+      const item = this.actor.items.get(itemID);
+      let newVal = index + 1;
+      if (index === 0 && item.system.points === 1) {
+        newVal = 0;
+      }
+      if (item) {
+        this.actor.updateEmbeddedDocuments("Item", [
+          {
+            _id: itemID,
+            system: {
+              points: newVal,
+            },
+          },
+        ]);
+      }
+    } else {
+      this._assignToActorField(fields, index + 1);
+    }
+  }
+
+  _setupDotCounters(element) {
+    const actorData = foundry.utils.duplicate(this.actor);
+    // Handle .resource-value
+    element.querySelectorAll(".resource-value").forEach((resourceEl) => {
+      const value = Number(resourceEl.dataset.value);
+      const steps = resourceEl.querySelectorAll(".resource-value-step");
+      steps.forEach((stepEl, i) => {
+        if (i + 1 <= value) {
+          stepEl.classList.add("active");
+          //stepEl.style.backgroundColor = this._getExaltColour(actorData.type);
+        }
+      });
+    });
+
+    // Handle .resource-value-static
+    element.querySelectorAll(".resource-value-static").forEach((resourceEl) => {
+      const value = Number(resourceEl.dataset.value);
+      const steps = resourceEl.querySelectorAll(".resource-value-static-step");
+      steps.forEach((stepEl, i) => {
+        if (i + 1 <= value) {
+          stepEl.classList.add("active");
+          stepEl.style.backgroundColor = this._getExaltColour(actorData.type);
+        }
+      });
+    });
+  }
+
+  _setupSquareCounters(element) {
+    element.querySelectorAll(".resource-counter").forEach((counterEl) => {
+      const data = counterEl.dataset;
+      const states = parseCounterStates(data.states);
+
+      const halfs = Number(data[states["/"]]) || 0;
+      const crossed = Number(data[states["x"]]) || 0;
+      const stars = Number(data[states["*"]]) || 0;
+
+      const values = new Array(stars + crossed + halfs);
+      values.fill("*", 0, stars);
+      values.fill("x", stars, stars + crossed);
+      values.fill("/", stars + crossed, stars + crossed + halfs);
+
+      const steps = counterEl.querySelectorAll(".resource-counter-step");
+      steps.forEach((step) => {
+        const index = Number(step.dataset.index);
+        step.dataset.state = index < values.length ? values[index] : "";
+      });
+    });
+  }
+
+  _getExaltColour(type) {
+    switch (type) {
+      case "solar":
+        return "#9f9275";
+    }
   }
 }

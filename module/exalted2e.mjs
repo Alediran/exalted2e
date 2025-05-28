@@ -113,6 +113,27 @@ Handlebars.registerHelper("default", function (value, options) {
   return true; ///We can add condition if needs
 });
 
+Handlebars.registerHelper("numLoop", function (num, options) {
+  let ret = "";
+
+  for (let i = 0, j = num; i < j; i++) {
+    ret = ret + options?.fn(i);
+  }
+
+  return ret;
+});
+
+Handlebars.registerHelper(
+  "numLoopCertainStart",
+  function (num, startNum, options) {
+    let ret = "";
+    for (let i = startNum, j = num + startNum; i < j; i++) {
+      ret = ret + options.fn(i);
+    }
+    return ret;
+  }
+);
+
 /* -------------------------------------------- */
 /*  Ready Hook                                  */
 /* -------------------------------------------- */
