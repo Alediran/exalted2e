@@ -1,3 +1,295 @@
-<div>
-  Solar Abilities asd
+<div class="abilities grid grid-3col">
+  <div class="dawn">
+    <div class="text-uppercase align-center">{{localize 'EXALTED2E.Solar.Dawn'}}</div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.archery.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.archery.favored}} />
+      <label for="system.abilities.archery.value" class="resource-label" data-roll="{{system.abilities.archery.value}}"
+        data-label="{{system.abilities.archery.name}}" style="text-align:start;">{{localize system.abilities.archery.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.archery.value}}" data-name="system.abilities.archery.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.martialarts.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.martialarts.favored}} />
+      <label for="system.abilities.martialarts.value" class="resource-label" data-roll="{{system.abilities.martialarts.value}}"
+        data-label="{{system.abilities.martialarts.name}}" style="text-align:start;">{{localize system.abilities.martialarts.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.martialarts.value}}" data-name="system.abilities.martialarts.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.melee.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.melee.favored}} />
+      <label for="system.abilities.melee.value" class="resource-label" data-roll="{{system.abilities.melee.value}}"
+        data-label="{{system.abilities.melee.name}}" style="text-align:start;">{{localize system.abilities.melee.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.melee.value}}" data-name="system.abilities.melee.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.thrown.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.thrown.favored}} />
+      <label for="system.abilities.thrown.value" class="resource-label" data-roll="{{system.abilities.thrown.value}}"
+        data-label="{{system.abilities.thrown.name}}" style="text-align:start;">{{localize system.abilities.thrown.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.thrown.value}}" data-name="system.abilities.thrown.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.war.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.war.favored}} />
+      <label for="system.abilities.war.value" class="resource-label" data-roll="{{system.abilities.war.value}}"
+        data-label="{{system.abilities.war.name}}" style="text-align:start;">{{localize system.abilities.war.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.war.value}}" data-name="system.abilities.war.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+  </div>
+  <div class="zenith">
+    <div class="text-uppercase align-center">{{localize 'EXALTED2E.Solar.Zenith'}}</div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.integrity.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.integrity.favored}} />
+      <label for="system.abilities.integrity.value" class="resource-label" data-roll="{{system.abilities.integrity.value}}"
+        data-label="{{system.abilities.integrity.name}}" style="text-align:start;">{{localize system.abilities.integrity.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.integrity.value}}" data-name="system.abilities.integrity.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.performance.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.performance.favored}} />
+      <label for="system.abilities.performance.value" class="resource-label" data-roll="{{system.abilities.performance.value}}"
+        data-label="{{system.abilities.performance.name}}" style="text-align:start;">{{localize system.abilities.performance.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.performance.value}}" data-name="system.abilities.performance.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.presence.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.presence.favored}} />
+      <label for="system.abilities.presence.value" class="resource-label" data-roll="{{system.abilities.presence.value}}"
+        data-label="{{system.abilities.presence.name}}" style="text-align:start;">{{localize system.abilities.presence.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.presence.value}}" data-name="system.abilities.presence.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.resistance.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.resistance.favored}} />
+      <label for="system.abilities.resistance.value" class="resource-label" data-roll="{{system.abilities.resistance.value}}"
+        data-label="{{system.abilities.resistance.name}}" style="text-align:start;">{{localize system.abilities.resistance.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.resistance.value}}" data-name="system.abilities.resistance.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.survival.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.survival.favored}} />
+      <label for="system.abilities.survival.value" class="resource-label" data-roll="{{system.abilities.survival.value}}"
+        data-label="{{system.abilities.survival.name}}" style="text-align:start;">{{localize system.abilities.survival.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.survival.value}}" data-name="system.abilities.survival.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+  </div>
+  <div class="twilight">
+    <div class="text-uppercase align-center">{{localize 'EXALTED2E.Solar.Twilight'}}</div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.craft.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.craft.favored}} />
+      <label for="system.abilities.craft.value" class="resource-label" data-roll="{{system.abilities.craft.value}}"
+        data-label="{{system.abilities.craft.name}}" style="text-align:start;">{{localize system.abilities.craft.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.craft.value}}" data-name="system.abilities.craft.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.investigation.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.investigation.favored}} />
+      <label for="system.abilities.investigation.value" class="resource-label" data-roll="{{system.abilities.investigation.value}}"
+        data-label="{{system.abilities.investigation.name}}" style="text-align:start;">{{localize system.abilities.investigation.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.investigation.value}}" data-name="system.abilities.investigation.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.lore.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.lore.favored}} />
+      <label for="system.abilities.lore.value" class="resource-label" data-roll="{{system.abilities.lore.value}}"
+        data-label="{{system.abilities.lore.name}}" style="text-align:start;">{{localize system.abilities.lore.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.lore.value}}" data-name="system.abilities.lore.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.medicine.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.medicine.favored}} />
+      <label for="system.abilities.medicine.value" class="resource-label" data-roll="{{system.abilities.medicine.value}}"
+        data-label="{{system.abilities.medicine.name}}" style="text-align:start;">{{localize system.abilities.medicine.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.medicine.value}}" data-name="system.abilities.medicine.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.occult.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.occult.favored}} />
+      <label for="system.abilities.occult.value" class="resource-label" data-roll="{{system.abilities.occult.value}}"
+        data-label="{{system.abilities.occult.name}}" style="text-align:start;">{{localize system.abilities.occult.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.occult.value}}" data-name="system.abilities.occult.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+  </div>
+  <div class="night">
+    <div class="text-uppercase align-center">{{localize 'EXALTED2E.Solar.Night'}}</div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.athletics.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.athletics.favored}} />
+      <label for="system.abilities.athletics.value" class="resource-label" data-roll="{{system.abilities.athletics.value}}"
+        data-label="{{system.abilities.athletics.name}}" style="text-align:start;">{{localize system.abilities.athletics.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.athletics.value}}" data-name="system.abilities.athletics.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.awareness.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.awareness.favored}} />
+      <label for="system.abilities.awareness.value" class="resource-label" data-roll="{{system.abilities.awareness.value}}"
+        data-label="{{system.abilities.awareness.name}}" style="text-align:start;">{{localize system.abilities.awareness.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.awareness.value}}" data-name="system.abilities.awareness.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.dodge.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.dodge.favored}} />
+      <label for="system.abilities.dodge.value" class="resource-label" data-roll="{{system.abilities.dodge.value}}"
+        data-label="{{system.abilities.dodge.name}}" style="text-align:start;">{{localize system.abilities.dodge.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.dodge.value}}" data-name="system.abilities.dodge.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.larceny.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.larceny.favored}} />
+      <label for="system.abilities.larceny.value" class="resource-label" data-roll="{{system.abilities.larceny.value}}"
+        data-label="{{system.abilities.larceny.name}}" style="text-align:start;">{{localize system.abilities.larceny.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.larceny.value}}" data-name="system.abilities.larceny.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.stealth.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.stealth.favored}} />
+      <label for="system.abilities.stealth.value" class="resource-label" data-roll="{{system.abilities.stealth.value}}"
+        data-label="{{system.abilities.stealth.name}}" style="text-align:start;">{{localize system.abilities.stealth.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.stealth.value}}" data-name="system.abilities.stealth.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+  </div>
+  <div class="eclipse">
+    <div class="text-uppercase align-center">{{localize 'EXALTED2E.Solar.Eclipse'}}</div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.bureaucracy.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.bureaucracy.favored}} />
+      <label for="system.abilities.bureaucracy.value" class="resource-label" data-roll="{{system.abilities.bureaucracy.value}}"
+        data-label="{{system.abilities.bureaucracy.name}}" style="text-align:start;">{{localize system.abilities.bureaucracy.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.bureaucracy.value}}" data-name="system.abilities.bureaucracy.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.linguistics.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.linguistics.favored}} />
+      <label for="system.abilities.linguistics.value" class="resource-label" data-roll="{{system.abilities.linguistics.value}}"
+        data-label="{{system.abilities.linguistics.name}}" style="text-align:start;">{{localize system.abilities.linguistics.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.linguistics.value}}" data-name="system.abilities.linguistics.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.ride.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.ride.favored}} />
+      <label for="system.abilities.ride.value" class="resource-label" data-roll="{{system.abilities.ride.value}}"
+        data-label="{{system.abilities.ride.name}}" style="text-align:start;">{{localize system.abilities.ride.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.ride.value}}" data-name="system.abilities.ride.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.sail.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.sail.favored}} />
+      <label for="system.abilities.sail.value" class="resource-label" data-roll="{{system.abilities.sail.value}}"
+        data-label="{{system.abilities.sail.name}}" style="text-align:start;">{{localize system.abilities.sail.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.sail.value}}" data-name="system.abilities.sail.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+    <div class="ability flexrow flex-center">
+      <input class="attribute-checkbox flex0" name="system.abilities.socialize.favored" type="checkbox" style="width: 20px;" {{checked system.abilities.socialize.favored}} />
+      <label for="system.abilities.socialize.value" class="resource-label" data-roll="{{system.abilities.socialize.value}}"
+        data-label="{{system.abilities.socialize.name}}" style="text-align:start;">{{localize system.abilities.socialize.name}}
+      </label>
+      <div class="resource-value" data-value="{{system.abilities.socialize.value}}" data-name="system.abilities.socialize.value">
+        {{#numLoop 5}}
+        <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+        {{/numLoop}}
+      </div>
+    </div>
+  </div>
+  <div class="specialties">
+    <div class="text-uppercase align-center">{{localize 'EXALTED2E.SheetLabels.Specialties'}}</div>
+  </div>
 </div>

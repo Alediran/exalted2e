@@ -36,7 +36,7 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
     form: {
       submitOnChange: true,
     },
-    position: { width: 800, height: 1061 },
+    position: { width: 818, height: 1061 },
     actions: {
       onEditImage: this._onEditImage,
       dotCounterChange: this._onDotCounterChange,
@@ -53,27 +53,30 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
 
   static PARTS = {
     header: {
+      classes: ["sheet-header"],
       template: `systems/exalted2e/templates/actor/actor-header.hbs`,
     },
-    tabs: {
-      classes: ["tabs-right"],
-      template: "systems/exalted2e/templates/actor/tabs.hbs",
-    },
     details: {
-      classes: ["solar"],
+      classes: ["solar", "sheet-body"],
       container: { classes: ["tab-body"], id: "tabs" },
       template: "systems/exalted2e/templates/actor/parts/actor-details.hbs",
       scrollable: [""],
     },
     charms: {
+      classes: ["sheet-body"],
       container: { classes: ["tab-body"], id: "tabs" },
       template: "systems/exalted2e/templates/actor/parts/actor-charms.hbs",
       scrollable: [""],
     },
     biography: {
+      classes: ["sheet-body"],
       container: { classes: ["tab-body"], id: "tabs" },
       template: "systems/exalted2e/templates/actor/parts/actor-biography.hbs",
       scrollable: [""],
+    },
+    tabs: {
+      classes: ["tabs-right"],
+      template: "systems/exalted2e/templates/actor/tabs.hbs",
     },
   };
 
@@ -247,7 +250,7 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
     this.#dragDrop.forEach((d) => d.bind(this.element));
     this._setupDotCounters(this.element);
     this._setupSquareCounters(this.element);
-    //await this._renderTabs(context, options);
+    this._renderTabs(context, options);
     // -------------------------------------------------------------
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
@@ -287,35 +290,12 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
     }*/
   }
 
-  async _renderTabs(context, options) {
-    const html = $(this.element);
-    const nav = document.createElement("nav");
-    nav.classList.add("tabs", "tabs-right");
-    nav.dataset.group = "primary";
-    nav.append(
-      context.tabs.map(({ tab, label, icon, svg }) => {
-        const item = document.createElement("a");
-        item.classList.add("item", "control");
-        item.dataset.group = "primary";
-        item.dataset.tab = tab;
-        item.dataset.tooltip = label;
-        item.setAttribute("aria-label", label);
-        if (icon) item.innerHTML = `<i class="${icon}"></i>`;
-        else if (svg)
-          item.innerHTML = `<dnd5e-icon src="systems/dnd5e/icons/svg/${svg}.svg"></dnd5e-icon>`;
-        return item;
-      })
-    );
+  _renderTabs(context, options) {
+    debugger;
+    const html = $(this.element)[0];
+    const tabs = html.querySelector(".tabs.tabs-right");
 
-    html[0].insertAdjacentElement("afterbegin", nav);
-
-    this._tabs = options.tabs.map((t) => {
-      t.callback = this._onChangeTab.bind(this);
-      if (this._tabs?.[0]?.active !== t.initial)
-        t.initial = this._tabs?.[0]?.active ?? t.initial;
-      return new Tabs(t);
-    });
-
+    html.appendChild(tabs);
     return html;
   }
 

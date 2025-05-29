@@ -3,9 +3,9 @@
 }
 
 .sheet-header {
-  flex: 0 auto;
+  flex: 0 0 100px;
   overflow: hidden;
-  display: flex;
+  display: grid;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -38,9 +38,22 @@
   flex: 0;
 }
 
-.sheet-body,
+.sheet-body {
+  flex: 1;
+  position: relative;
+}
+
+.sheet-body .main-content {
+  overflow: hidden auto;
+  inset: 0;
+  padding: 8px;
+  padding-inline-end: 0;
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+}
 .sheet-body .tab,
 .sheet-body .tab .editor {
+  position: relative;
   height: 100%;
 }
 

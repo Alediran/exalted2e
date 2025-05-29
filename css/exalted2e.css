@@ -211,6 +211,10 @@
   text-align: center;
 }
 
+.text-uppercase {
+  text-transform: uppercase;
+}
+
 /* Styles limited to Exalted 2e sheets */
 .exalted2e {
   overflow: visible;
@@ -219,9 +223,9 @@
   font-family: "Roboto", sans-serif;
 }
 .exalted2e .sheet-header {
-  flex: 0 auto;
+  flex: 0 0 100px;
   overflow: hidden;
-  display: flex;
+  display: grid;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -249,9 +253,21 @@
 .exalted2e .sheet-tabs {
   flex: 0;
 }
-.exalted2e .sheet-body,
+.exalted2e .sheet-body {
+  flex: 1;
+  position: relative;
+}
+.exalted2e .sheet-body .main-content {
+  overflow: hidden auto;
+  inset: 0;
+  padding: 8px;
+  padding-inline-end: 0;
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+}
 .exalted2e .sheet-body .tab,
 .exalted2e .sheet-body .tab .editor {
+  position: relative;
   height: 100%;
 }
 .exalted2e .tox .tox-editor-container {
@@ -435,11 +451,8 @@
 }
 .exalted2e .window-content {
   box-shadow: none;
-  overflow: visible;
 }
-.exalted2e .window-content nav.tabs {
-  --tab-full-width: 44px;
-  --tab-inactive-width: 38px;
+.exalted2e nav.tabs {
   top: calc(100px + 1rem);
   position: absolute;
   display: flex;
@@ -448,7 +461,7 @@
   z-index: -1;
   border: none;
 }
-.exalted2e .window-content nav.tabs > .item {
+.exalted2e nav.tabs > .item {
   --icon-size: 14px;
   width: 44px;
   height: 40px;
@@ -461,63 +474,63 @@
   transition: all 250ms ease;
   flex: none;
 }
-.exalted2e .window-content nav.tabs > .item:not([hidden]) {
+.exalted2e nav.tabs > .item:not([hidden]) {
   display: flex;
 }
-.exalted2e .window-content nav.tabs > .item i {
+.exalted2e nav.tabs > .item i {
   font-size: var(--font-size-14);
   margin: 0;
 }
-.exalted2e .window-content nav.tabs > .item.active,
-.exalted2e .window-content nav.tabs > .item:hover {
+.exalted2e nav.tabs > .item.active,
+.exalted2e nav.tabs > .item:hover {
   text-shadow: none;
   border-color: #9f9275;
   box-shadow: 0 0 6px #9f9275;
 }
-.exalted2e .window-content nav.tabs > .item::after {
+.exalted2e nav.tabs > .item::after {
   content: "";
   position: absolute;
   border: 1px solid #9f9275;
   pointer-events: none;
 }
-.exalted2e .window-content nav.tabs.tabs-left {
+.exalted2e nav.tabs.tabs-left {
   contain: content;
   right: 100%;
   align-items: flex-end;
 }
-.exalted2e .window-content nav.tabs.tabs-left > .item {
+.exalted2e nav.tabs.tabs-left > .item {
   padding-inline-start: 12px;
   justify-content: start;
   border-radius: 8px 0 0 8px;
   margin-inline-end: -6px;
 }
-.exalted2e .window-content nav.tabs.tabs-left > .item::after {
+.exalted2e nav.tabs.tabs-left > .item::after {
   inset: 4px 0 4px 4px;
   border-radius: 5px 0 0 5px;
   border-inline-end: none;
 }
-.exalted2e .window-content nav.tabs.tabs-left > .item.active,
-.exalted2e .window-content nav.tabs.tabs-left > .item:hover {
+.exalted2e nav.tabs.tabs-left > .item.active,
+.exalted2e nav.tabs.tabs-left > .item:hover {
   margin: 0;
 }
-.exalted2e .window-content nav.tabs.tabs-right {
+.exalted2e nav.tabs.tabs-right {
   contain: content;
   left: 100%;
   align-items: flex-start;
 }
-.exalted2e .window-content nav.tabs.tabs-right > .item {
+.exalted2e nav.tabs.tabs-right > .item {
   padding-inline-end: 12px;
   justify-content: end;
   border-radius: 0 8px 8px 0;
   margin-inline-start: -6px;
 }
-.exalted2e .window-content nav.tabs.tabs-right > .item::after {
+.exalted2e nav.tabs.tabs-right > .item::after {
   inset: 4px 4px 4px 0;
   border-radius: 0 5px 5px 0;
   border-inline-start: none;
 }
-.exalted2e .window-content nav.tabs.tabs-right > .item.active,
-.exalted2e .window-content nav.tabs.tabs-right > .item:hover {
+.exalted2e nav.tabs.tabs-right > .item.active,
+.exalted2e nav.tabs.tabs-right > .item:hover {
   margin: 0;
 }
 

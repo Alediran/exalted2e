@@ -11,11 +11,11 @@
 @import 'global/window';
 @import 'global/grid';
 @import 'global/flex';
+@import 'global/text';
 
 /* Styles limited to Exalted 2e sheets */
-.exalted2e {
+.exalted2e {  
   overflow: visible;
-  
   @import 'components/forms';
   @import 'components/resource';
   @import 'components/items';

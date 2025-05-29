@@ -1,11 +1,8 @@
 .window-content {
   box-shadow: none;
-  overflow: visible;
 }
 
-.window-content nav.tabs {
-  --tab-full-width: 44px;
-  --tab-inactive-width: 38px;
+nav.tabs {
   top: calc($header-height + 1rem);
   position: absolute;
   display: flex;
@@ -14,7 +11,7 @@
   z-index: -1;
   border: none;
 }
-.window-content nav.tabs > .item {
+nav.tabs > .item {
   --icon-size: 14px;
   width: $tab-full-width;
   height: 40px;
@@ -27,62 +24,62 @@
   transition: all 250ms ease;
   flex: none;
 }
-.window-content nav.tabs > .item:not([hidden]) {
+nav.tabs > .item:not([hidden]) {
   display: flex;
 }
-.window-content nav.tabs > .item i {
+nav.tabs > .item i {
   font-size: var(--font-size-14);
   margin: 0;
 }
-.window-content nav.tabs > .item.active,
-.window-content nav.tabs > .item:hover {
+nav.tabs > .item.active,
+nav.tabs > .item:hover {
   text-shadow: none;
   border-color: $color-gold;
   box-shadow: 0 0 6px $color-gold;
 }
-.window-content nav.tabs > .item::after {
+nav.tabs > .item::after {
   content: "";
   position: absolute;
   border: 1px solid $color-gold;
   pointer-events: none;
 }
-.window-content nav.tabs.tabs-left {
+nav.tabs.tabs-left {
   contain: content;
   right: 100%;
   align-items: flex-end;
 }
-.window-content nav.tabs.tabs-left > .item {
+nav.tabs.tabs-left > .item {
   padding-inline-start: 12px;
   justify-content: start;
   border-radius: 8px 0 0 8px;
   margin-inline-end: calc(($tab-full-width - $tab-inactive-width) * -1);
 }
-.window-content nav.tabs.tabs-left > .item::after {
+nav.tabs.tabs-left > .item::after {
   inset: 4px 0 4px 4px;
   border-radius: 5px 0 0 5px;
   border-inline-end: none;
 }
-.window-content nav.tabs.tabs-left > .item.active,
-.window-content nav.tabs.tabs-left > .item:hover {
+nav.tabs.tabs-left > .item.active,
+nav.tabs.tabs-left > .item:hover {
   margin: 0;
 }
-.window-content nav.tabs.tabs-right {
+nav.tabs.tabs-right {
   contain: content;
   left: 100%;
   align-items: flex-start;
 }
-.window-content nav.tabs.tabs-right > .item {
+nav.tabs.tabs-right > .item {
   padding-inline-end: 12px;
   justify-content: end;
   border-radius: 0 8px 8px 0;
   margin-inline-start: calc(($tab-full-width - $tab-inactive-width) * -1);
 }
-.window-content nav.tabs.tabs-right > .item::after {
+nav.tabs.tabs-right > .item::after {
   inset: 4px 4px 4px 0;
   border-radius: 0 5px 5px 0;
   border-inline-start: none;
 }
-.window-content nav.tabs.tabs-right > .item.active,
-.window-content nav.tabs.tabs-right > .item:hover {
+nav.tabs.tabs-right > .item.active,
+nav.tabs.tabs-right > .item:hover {
   margin: 0;
 }

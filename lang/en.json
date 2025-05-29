@@ -23,7 +23,7 @@
       "Larceny": { "long": "Larceny", "abbr": "lar" },
       "Linguistics": { "long": "Linguistics", "abbr": "ling" },
       "Lore": { "long": "Lore", "abbr": "lore" },
-      "MartialArts": { "long": "MartialArts", "abbr": "ma" },
+      "MartialArts": { "long": "Martial Arts", "abbr": "ma" },
       "Medicine": { "long": "Medicine", "abbr": "med" },
       "Melee": { "long": "Melee", "abbr": "melee" },
       "Occult": { "long": "Occult", "abbr": "occ" },
@@ -51,7 +51,9 @@
       "Charms": "Charms",
       "Details": "Details",
       "Attributes": "Attributes",
-      "Abilities": "Abilities"
+      "Abilities": "Abilities",
+      "Specialties": "Specialties",
+      "Advantages": "Advantages"
     },
     "Item": {
       "Spell": {
