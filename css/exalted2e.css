@@ -534,6 +534,11 @@
   margin: 0;
 }
 
+.exalted2e.sheet {
+  min-width: 622px;
+  min-height: 500px;
+}
+
 .exalted2e::after {
   content: "";
   position: absolute;
