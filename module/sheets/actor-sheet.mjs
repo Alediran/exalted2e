@@ -57,7 +57,7 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
       template: `systems/exalted2e/templates/actor/actor-header.hbs`,
     },
     details: {
-      classes: ["solar", "sheet-body"],
+      classes: ["sheet-body"],
       container: { classes: ["tab-body"], id: "tabs" },
       template: "systems/exalted2e/templates/actor/parts/actor-details.hbs",
       scrollable: [""],
@@ -250,7 +250,8 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
     this.#dragDrop.forEach((d) => d.bind(this.element));
     this._setupDotCounters(this.element);
     this._setupSquareCounters(this.element);
-    this._renderTabs(context, options);
+    this._setupSheetTheme();
+    //this._renderTabs(context, options);
     // -------------------------------------------------------------
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
@@ -290,12 +291,19 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
     }*/
   }
 
+  _setupSheetTheme() {
+    const html = $(this.element)[0];
+    const sheetBody = html.querySelector(".sheet-body");
+
+    html.classList.add(this.type);
+    sheetBody.classList.add(this.type);
+  }
+
   _renderTabs(context, options) {
-    debugger;
     const html = $(this.element)[0];
     const tabs = html.querySelector(".tabs.tabs-right");
 
-    html.appendChild(tabs);
+    //html.appendChild(tabs);
     return html;
   }
 
@@ -593,7 +601,6 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
       steps.forEach((stepEl, i) => {
         if (i + 1 <= value) {
           stepEl.classList.add("active");
-          //stepEl.style.backgroundColor = this._getExaltColour(actorData.type);
         }
       });
     });

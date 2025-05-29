@@ -1,0 +1,23 @@
+.solar.sheet-body {
+  scrollbar-color: $color-gold var(--color-scrollbar-track);
+}
+
+.solar .horizontal-line-container .line {
+  background-color: $color-gold; /* black line */
+}
+
+.solar .resource-value .resource-value-step {  
+  border: $border-gold;
+}
+
+.solar .resource-value .resource-value-step.active {
+  background-color: $color-gold;
+}
+
+.solar .resource-value .resource-value-empty {  
+  border: $border-gold;
+}
+
+.solar .resource-counter .resource-counter-step {
+  border: $border-gold;
+}

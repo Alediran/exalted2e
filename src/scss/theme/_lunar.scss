@@ -1,0 +1,23 @@
+.lunar.sheet-body {
+  scrollbar-color: $color-moonsilver var(--color-scrollbar-track);
+}
+
+.lunar .horizontal-line-container .line {
+  background-color: $color-moonsilver; /* black line */
+}
+
+.lunar .resource-value .resource-value-step {  
+  border: $border-moonsilver;
+}
+
+.lunar .resource-value .resource-value-step.active {
+  background-color: $color-moonsilver;
+}
+
+.lunar .resource-value .resource-value-empty {  
+  border: $border-moonsilver;
+}
+
+.lunar .resource-counter .resource-counter-step {
+  border: $border-moonsilver;
+}

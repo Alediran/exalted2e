@@ -224,8 +224,7 @@
 }
 .exalted2e .sheet-header {
   flex: 0 0 100px;
-  overflow: hidden;
-  display: grid;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -255,10 +254,7 @@
 }
 .exalted2e .sheet-body {
   flex: 1;
-  position: relative;
-}
-.exalted2e .sheet-body .main-content {
-  overflow: hidden auto;
+  overflow-y: auto;
   inset: 0;
   padding: 8px;
   padding-inline-end: 0;
@@ -276,7 +272,7 @@
 .exalted2e .tox .tox-edit-area {
   padding: 0 8px;
 }
-.exalted2e .solar .horizontal-line-container {
+.exalted2e .horizontal-line-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -284,53 +280,46 @@
   font-variant: small-caps;
   font-size: large;
 }
-.exalted2e .solar .horizontal-line-container .line {
+.exalted2e .horizontal-line-container .line {
   flex: 1;
   height: 1px;
-  background-color: #9f9275; /* black line */
 }
-.exalted2e .solar .horizontal-line-container .line .text {
+.exalted2e .horizontal-line-container .line .text {
   white-space: nowrap;
   padding: 0 10px;
 }
 .exalted2e .resource-label {
   font-weight: bold;
 }
-.exalted2e .solar .resource-value .resource-value-step {
+.exalted2e .resource-value .resource-value-step {
   height: 14px;
   width: 14px;
-  border: 1px solid #9f9275;
   display: inline-block;
   border-radius: 50%;
   cursor: pointer;
 }
-.exalted2e .solar .resource-value .resource-value-step.active {
-  background-color: #9f9275;
-}
-.exalted2e .solar .resource-value .resource-value-empty {
+.exalted2e .resource-value .resource-value-empty {
   height: 14px;
   width: 14px;
-  border: 1px solid #9f9275;
   display: inline-block;
   border-radius: 50%;
   cursor: pointer;
   background: linear-gradient(45deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%);
 }
-.exalted2e .solar .resource-counter .resource-counter-step {
-  border: 1px solid #9f9275;
+.exalted2e .resource-counter .resource-counter-step {
   display: inline-block;
   cursor: pointer;
 }
-.exalted2e .solar .resource-counter .resource-counter-step[data-state="-"] {
+.exalted2e .resource-counter .resource-counter-step[data-state="-"] {
   background-color: #147c14;
 }
-.exalted2e .solar .resource-counter .resource-counter-step[data-state="/"] {
+.exalted2e .resource-counter .resource-counter-step[data-state="/"] {
   background: linear-gradient(135deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%);
 }
-.exalted2e .solar .resource-counter .resource-counter-step[data-state=x] {
+.exalted2e .resource-counter .resource-counter-step[data-state=x] {
   background: linear-gradient(45deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%);
 }
-.exalted2e .solar .resource-counter .resource-counter-step[data-state="*"] {
+.exalted2e .resource-counter .resource-counter-step[data-state="*"] {
   background: linear-gradient(45deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(90deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(180deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%);
 }
 .exalted2e .flex-group-center:not(.flexrow) .resource-value,
@@ -533,9 +522,45 @@
 .exalted2e nav.tabs.tabs-right > .item:hover {
   margin: 0;
 }
+.exalted2e .solar.sheet-body {
+  scrollbar-color: #9f9275 var(--color-scrollbar-track);
+}
+.exalted2e .solar .horizontal-line-container .line {
+  background-color: #9f9275; /* black line */
+}
+.exalted2e .solar .resource-value .resource-value-step {
+  border: 1px solid #9f9275;
+}
+.exalted2e .solar .resource-value .resource-value-step.active {
+  background-color: #9f9275;
+}
+.exalted2e .solar .resource-value .resource-value-empty {
+  border: 1px solid #9f9275;
+}
+.exalted2e .solar .resource-counter .resource-counter-step {
+  border: 1px solid #9f9275;
+}
+.exalted2e .lunar.sheet-body {
+  scrollbar-color: #d8d6cb var(--color-scrollbar-track);
+}
+.exalted2e .lunar .horizontal-line-container .line {
+  background-color: #d8d6cb; /* black line */
+}
+.exalted2e .lunar .resource-value .resource-value-step {
+  border: 1px solid #d8d6cb;
+}
+.exalted2e .lunar .resource-value .resource-value-step.active {
+  background-color: #d8d6cb;
+}
+.exalted2e .lunar .resource-value .resource-value-empty {
+  border: 1px solid #d8d6cb;
+}
+.exalted2e .lunar .resource-counter .resource-counter-step {
+  border: 1px solid #d8d6cb;
+}
 
 .exalted2e.sheet {
-  min-width: 622px;
+  min-width: 651px;
   min-height: 500px;
 }
 
@@ -544,7 +569,14 @@
   position: absolute;
   pointer-events: none;
   inset: 0;
-  border: 1px solid #9f9275;
   box-shadow: 0 0 20px var(--color-shadow-dark);
   border-radius: 5px;
+}
+
+.sheet.actor.solar {
+  border: 1px solid #9f9275;
+}
+
+.sheet.actor.lunar {
+  border: 1px solid #d8d6cb;
 }

@@ -21,18 +21,32 @@
   @import 'components/items';
   @import 'components/effects';
   @import 'components/tabs';
+
+  //Styles for coloring based on Actor Type
+  @import 'theme/solar';
+  @import 'theme/lunar';
 }
 
 .exalted2e.sheet {
-  min-width: 622px;
+  min-width: 651px;
   min-height: 500px;
 }
+
 .exalted2e::after {
   content: "";
   position: absolute;
   pointer-events: none;
   inset: 0;
-  border: $border-gold;
   box-shadow: 0 0 20px var(--color-shadow-dark);
   border-radius: 5px;
+}
+
+
+//Border Color for the Sheets
+.sheet.actor.solar {  
+  border: $border-gold;
+}
+
+.sheet.actor.lunar {  
+  border: $border-moonsilver;
 }

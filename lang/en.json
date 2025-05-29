@@ -74,7 +74,13 @@
       "Twilight": "Twilight",
       "Night": "Night",
       "Eclipse": "Eclipse"
-    }    
+    },
+    "Lunar": {
+      "Full": "Full Moon",
+      "Changing": "Changing Moon",
+      "No": "No Moon",
+      "Casteless": "Casteless"
+    }
   },
   "TYPES": {
     "Actor": {

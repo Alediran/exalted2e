@@ -4,12 +4,11 @@
 
 .sheet-header {
   flex: 0 0 100px;
-  overflow: hidden;
-  display: grid;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin-bottom: 10px;
+  margin-bottom: 10px;  
 
   .profile-img {
     flex: 0 0 100px;
@@ -40,17 +39,14 @@
 
 .sheet-body {
   flex: 1;
-  position: relative;
-}
-
-.sheet-body .main-content {
-  overflow: hidden auto;
+  overflow-y: auto;
   inset: 0;
   padding: 8px;
   padding-inline-end: 0;
   scrollbar-width: thin;
   scrollbar-gutter: stable;
 }
+
 .sheet-body .tab,
 .sheet-body .tab .editor {
   position: relative;
@@ -67,7 +63,7 @@
   }
 }
 
-.solar .horizontal-line-container {
+.horizontal-line-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,13 +72,12 @@
   font-size: large;
 }
 
-.solar .horizontal-line-container .line {
+.horizontal-line-container .line {
   flex: 1;
   height: 1px;
-  background-color: $color-gold; /* black line */
 }
 
-.solar .horizontal-line-container .line .text {
+.horizontal-line-container .line .text {
   white-space: nowrap;
   padding: 0 10px;
 }

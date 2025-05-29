@@ -13,7 +13,7 @@ export const preloadHandlebarsTemplates = async function () {
     "systems/exalted2e/templates/actor/parts/actor-features.hbs",
     "systems/exalted2e/templates/actor/parts/actor-items.hbs",
     "systems/exalted2e/templates/actor/parts/actor-solar-abilities.hbs",
-
+    "systems/exalted2e/templates/actor/parts/actor-lunar-abilities.hbs",
     // Item partials
     "systems/exalted2e/templates/item/parts/item-effects.hbs",
   ]);

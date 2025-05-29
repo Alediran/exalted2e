@@ -64,4 +64,10 @@ EXALTED2E.castes = {
     night: "EXALTED2E.Solar.Night",
     eclipse: "EXALTED2E.Solar.Eclipse",
   },
+  lunar: {
+    full: "EXALTED2E.Lunar.Full",
+    changing: "EXALTED2E.Lunar.Changing",
+    no: "EXALTED2E.Lunar.No",
+    casteless: "EXALTED2E.Lunar.Casteless",
+  },
 };
