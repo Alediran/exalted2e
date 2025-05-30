@@ -251,7 +251,7 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
     this._setupDotCounters(this.element);
     this._setupSquareCounters(this.element);
     this._setupSheetTheme();
-    //this._renderTabs(context, options);
+    this.organizeMainContent();
     // -------------------------------------------------------------
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
@@ -299,12 +299,27 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
     sheetBody.classList.add(this.type);
   }
 
-  _renderTabs(context, options) {
+  organizeMainContent() {
     const html = $(this.element)[0];
-    const tabs = html.querySelector(".tabs.tabs-right");
 
-    //html.appendChild(tabs);
-    return html;
+    let mainContent = html.querySelector(".main-content");
+    if (!mainContent && html.querySelector(".tab-body")) {
+      mainContent = document.createElement("div");
+      mainContent.classList.add("main-content");
+      mainContent.dataset.containerId = "main";
+      this.element.querySelector(".tab-body").after(mainContent);
+    }
+    if (mainContent) {
+      // Move .main-content into .sheet-body
+      const sheetBody = document.createElement("div");
+      sheetBody.classList.add("sheet-body");
+      mainContent.after(sheetBody);
+      sheetBody.replaceChildren(mainContent);
+
+      // Move .tab-body into .main-content
+      const tabBody = html.querySelector(".tab-body");
+      if (tabBody) mainContent.append(tabBody);
+    }
   }
 
   /**

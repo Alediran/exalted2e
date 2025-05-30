@@ -50,3 +50,34 @@
 .sheet.actor.lunar {  
   border: $border-moonsilver;
 }
+
+//Colors for the Tabs
+//Solar
+.exalted2e.solar nav.tabs > .item {  
+  color: $color-gold;
+}
+
+.exalted2e.solar nav.tabs > .item:hover {  
+  border-color: $color-gold;
+  box-shadow: 0 0 6px $color-gold;
+}
+
+.exalted2e.solar nav.tabs > .item::after {
+  border: 1px solid $color-gold;
+  border-left: none;
+}
+
+//Lunar
+.exalted2e.lunar nav.tabs > .item {  
+  color: $color-moonsilver;
+}
+
+.exalted2e.lunar nav.tabs > .item:hover {  
+  border-color: $color-moonsilver;
+  box-shadow: 0 0 6px $color-moonsilver;
+}
+
+.exalted2e.lunar nav.tabs > .item::after {
+  border: 1px solid $color-gold;
+  border-left: none;
+}

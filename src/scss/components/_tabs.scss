@@ -1,5 +1,7 @@
 .window-content {
   box-shadow: none;
+  overflow: visible;
+  height: 300px;
 }
 
 nav.tabs {
@@ -10,6 +12,7 @@ nav.tabs {
   gap: 0.25rem;
   z-index: -1;
   border: none;
+  border-left: solid 1px transparent;
 }
 nav.tabs > .item {
   --icon-size: 14px;
@@ -18,7 +21,6 @@ nav.tabs > .item {
   position: relative;
   align-items: center;
   background: $color-black;
-  color: $color-gold;
   --icon-fill: #9f9275;
   border: 1px solid transparent;
   transition: all 250ms ease;
@@ -34,13 +36,10 @@ nav.tabs > .item i {
 nav.tabs > .item.active,
 nav.tabs > .item:hover {
   text-shadow: none;
-  border-color: $color-gold;
-  box-shadow: 0 0 6px $color-gold;
 }
 nav.tabs > .item::after {
   content: "";
   position: absolute;
-  border: 1px solid $color-gold;
   pointer-events: none;
 }
 nav.tabs.tabs-left {

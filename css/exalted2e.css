@@ -254,9 +254,9 @@
 }
 .exalted2e .sheet-body {
   flex: 1;
-  overflow-y: auto;
   inset: 0;
   padding: 8px;
+  overflow-y: auto;
   padding-inline-end: 0;
   scrollbar-width: thin;
   scrollbar-gutter: stable;
@@ -440,6 +440,8 @@
 }
 .exalted2e .window-content {
   box-shadow: none;
+  overflow: visible;
+  height: 300px;
 }
 .exalted2e nav.tabs {
   top: calc(100px + 1rem);
@@ -449,6 +451,7 @@
   gap: 0.25rem;
   z-index: -1;
   border: none;
+  border-left: solid 1px transparent;
 }
 .exalted2e nav.tabs > .item {
   --icon-size: 14px;
@@ -457,7 +460,6 @@
   position: relative;
   align-items: center;
   background: #000;
-  color: #9f9275;
   --icon-fill: #9f9275;
   border: 1px solid transparent;
   transition: all 250ms ease;
@@ -473,13 +475,10 @@
 .exalted2e nav.tabs > .item.active,
 .exalted2e nav.tabs > .item:hover {
   text-shadow: none;
-  border-color: #9f9275;
-  box-shadow: 0 0 6px #9f9275;
 }
 .exalted2e nav.tabs > .item::after {
   content: "";
   position: absolute;
-  border: 1px solid #9f9275;
   pointer-events: none;
 }
 .exalted2e nav.tabs.tabs-left {
@@ -558,6 +557,9 @@
 .exalted2e .lunar .resource-counter .resource-counter-step {
   border: 1px solid #d8d6cb;
 }
+.exalted2e .lunar nav.tabs > .item {
+  color: #d8d6cb;
+}
 
 .exalted2e.sheet {
   min-width: 651px;
@@ -579,4 +581,32 @@
 
 .sheet.actor.lunar {
   border: 1px solid #d8d6cb;
+}
+
+.exalted2e.solar nav.tabs > .item {
+  color: #9f9275;
+}
+
+.exalted2e.solar nav.tabs > .item:hover {
+  border-color: #9f9275;
+  box-shadow: 0 0 6px #9f9275;
+}
+
+.exalted2e.solar nav.tabs > .item::after {
+  border: 1px solid #9f9275;
+  border-left: none;
+}
+
+.exalted2e.lunar nav.tabs > .item {
+  color: #d8d6cb;
+}
+
+.exalted2e.lunar nav.tabs > .item:hover {
+  border-color: #d8d6cb;
+  box-shadow: 0 0 6px #d8d6cb;
+}
+
+.exalted2e.lunar nav.tabs > .item::after {
+  border: 1px solid #9f9275;
+  border-left: none;
 }
