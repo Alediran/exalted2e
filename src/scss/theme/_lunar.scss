@@ -3,7 +3,7 @@
 }
 
 .lunar .horizontal-line-container .line {
-  background-color: $color-moonsilver; /* black line */
+  background-color: $color-moonsilver;
 }
 
 .lunar .resource-value .resource-value-step {  
@@ -24,4 +24,16 @@
 
 .lunar nav.tabs > .item {  
   color: $color-moonsilver;
+}
+
+.lunar .resource-counter .resource-counter-step[data-state="/"] {
+  background: linear-gradient(135deg, transparent 0%, transparent 43%, $color-moonsilver 45%, $color-moonsilver 55%, transparent 57%, transparent 100%);
+}
+
+.lunar .resource-counter .resource-counter-step[data-state=x] {
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, $color-moonsilver 45%, $color-moonsilver 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, $color-moonsilver 45%, $color-moonsilver 55%, transparent 57%, transparent 100%);
+}
+
+.lunar .resource-counter .resource-counter-step[data-state="*"] {
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, $color-moonsilver 45%, $color-moonsilver 55%, transparent 57%, transparent 100%), linear-gradient(90deg, transparent 0%, transparent 43%, $color-moonsilver 45%, $color-moonsilver 55%, transparent 57%, transparent 100%), linear-gradient(180deg, transparent 0%, transparent 43%, $color-moonsilver 45%, $color-moonsilver 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, $color-moonsilver 45%, $color-moonsilver 55%, transparent 57%, transparent 100%);
 }

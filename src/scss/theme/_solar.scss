@@ -3,7 +3,7 @@
 }
 
 .solar .horizontal-line-container .line {
-  background-color: $color-gold; /* black line */
+  background-color: $color-gold;
 }
 
 .solar .resource-value .resource-value-step {  
@@ -20,4 +20,16 @@
 
 .solar .resource-counter .resource-counter-step {
   border: $border-gold;
+}
+
+.solar .resource-counter .resource-counter-step[data-state="/"] {
+  background: linear-gradient(135deg, transparent 0%, transparent 43%, $color-gold 45%, $color-gold 55%, transparent 57%, transparent 100%);
+}
+
+.solar .resource-counter .resource-counter-step[data-state=x] {
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, $color-gold 45%, $color-gold 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, $color-gold 45%, $color-gold 55%, transparent 57%, transparent 100%);
+}
+
+.solar .resource-counter .resource-counter-step[data-state="*"] {
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, $color-gold 45%, $color-gold 55%, transparent 57%, transparent 100%), linear-gradient(90deg, transparent 0%, transparent 43%, $color-gold 45%, $color-gold 55%, transparent 57%, transparent 100%), linear-gradient(180deg, transparent 0%, transparent 43%, $color-gold 45%, $color-gold 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, $color-gold 45%, $color-gold 55%, transparent 57%, transparent 100%);
 }

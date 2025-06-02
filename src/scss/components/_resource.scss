@@ -5,11 +5,15 @@
 .resource-value .resource-value-step {
   height: 14px;
   width: 14px;
+  margin-right: 3px;
   display: inline-block;
   border-radius: 50%;
   cursor: pointer;
 }
 
+.resource-value.center {
+  text-align: center;
+}
 
 .resource-value .resource-value-empty {
   height: 14px;
@@ -22,6 +26,7 @@
 
 .resource-counter .resource-counter-step {
   display: inline-block;
+  margin-right: 3px;
   cursor: pointer;
 }
 
@@ -29,19 +34,16 @@
   background-color: #147c14;
 }
 
-.resource-counter .resource-counter-step[data-state="/"] {
-  background: linear-gradient(135deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%);
-}
-
-.resource-counter .resource-counter-step[data-state=x] {
-  background: linear-gradient(45deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%);
-}
-
-.resource-counter .resource-counter-step[data-state="*"] {
-  background: linear-gradient(45deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(90deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(180deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%);
+.resource-counter.center {
+  text-align: center;
 }
 
 .flex-group-center:not(.flexrow) .resource-value,
 .flex-group-center:not(.flexrow) .resource-counter {
   margin-top: 5px;
+}
+
+.non-health-boxes {
+  height: 14px;
+  width: 14px;
 }

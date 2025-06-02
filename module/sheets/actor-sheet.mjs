@@ -1,4 +1,5 @@
 import { prepareActiveEffectCategories } from "../helpers/effects.mjs";
+import { getValue, parseCounterStates } from "../helpers/utils.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -40,6 +41,7 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
     actions: {
       onEditImage: this._onEditImage,
       dotCounterChange: this._onDotCounterChange,
+      squareCounterChange: this._onSquareCounterChange,
     },
   };
 
@@ -528,6 +530,7 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
   }
 
   _assignToActorField(fields, value) {
+    debugger;
     const actorData = foundry.utils.duplicate(this.actor);
     // update actor owned items
     if (fields.length === 2 && fields[0] === "items") {
@@ -559,7 +562,10 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
     const fieldStrings = parent.dataset.name;
     const fields = fieldStrings.split(".");
 
-    const min = this.actor[fields[0]][fields[1]][fields[2]].min; //gets the minimum value for this field
+    debugger;
+    const minFields = [...fields.slice(0, -1), "min"];
+
+    const min = getValue(this.actor, minFields); //gets the minimum value for this field
     const index = Number(target.dataset.index);
 
     const steps = parent.querySelectorAll(".resource-value-step");
@@ -633,8 +639,102 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
     });
   }
 
+  static _onSquareCounterChange(event, target) {
+    debugger;
+    const index = Number(target.dataset.index);
+    const parent = target.parentNode;
+    const data = parent.dataset;
+    const states = parseCounterStates(data.states);
+    const fields = data.name.split(".");
+    const steps = parent.querySelectorAll(".resource-counter-step");
+
+    if (index < 0 || index > steps.length) {
+      return;
+    }
+
+    const currentState = steps[index].dataset.state;
+    if (steps[index].dataset.type) {
+      let value = getValue(this.actor, fields);
+      const maxValue = getValue(this.actor, [
+        ...fields.slice(0, -1),
+        "current",
+      ]);
+
+      if (index + 1 > maxValue) {
+        return;
+      }
+
+      if (currentState === "") {
+        for (const step of steps) {
+          if (step.dataset.state === "") {
+            step.dataset.state = "x";
+            value++;
+            break;
+          }
+        }
+      } else {
+        for (const step of steps) {
+          if (step.dataset.state === "x") {
+            step.dataset.state = "";
+            value--;
+            break;
+          }
+        }
+      }
+
+      this._assignToActorField(fields, value);
+    } else {
+      if (currentState === "") {
+        for (const step of steps) {
+          if (step.dataset.state === "") {
+            step.dataset.state = "/";
+            data["bashing"] = Number(data["bashing"]) + 1;
+            break;
+          }
+        }
+      }
+      if (currentState === "/") {
+        for (const step of steps) {
+          if (step.dataset.state === "/") {
+            step.dataset.state = "x";
+            data["lethal"] = Number(data["lethal"]) + 1;
+            data["bashing"] = Number(data["bashing"]) - 1;
+            break;
+          }
+        }
+      }
+      if (currentState === "x") {
+        for (const step of steps) {
+          if (step.dataset.state === "x") {
+            step.dataset.state = "*";
+            data["aggravated"] = Number(data["aggravated"]) + 1;
+            data["lethal"] = Number(data["lethal"]) - 1;
+            break;
+          }
+        }
+      }
+      if (currentState === "*") {
+        for (const step of steps) {
+          if (step.dataset.state === "*") {
+            step.dataset.state = "";
+            data["aggravated"] = Number(data["aggravated"]) - 1;
+            break;
+          }
+        }
+      }
+    }
+
+    const newValue = Object.values(states).reduce(function (obj, k) {
+      obj[k] = Number(data[k]) || 0;
+      return obj;
+    }, {});
+
+    this._assignToActorField(fields, newValue);
+  }
+
   _setupSquareCounters(element) {
     element.querySelectorAll(".resource-counter").forEach((counterEl) => {
+      debugger;
       const data = counterEl.dataset;
       const states = parseCounterStates(data.states);
 

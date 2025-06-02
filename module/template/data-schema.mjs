@@ -40,8 +40,8 @@ export function valueField(initial, max) {
 export function resourceField(initial, max) {
   return new fields.SchemaField({
     min: new fields.NumberField({ initial: 0 }),
-    value: new fields.NumberField({ initial, max }),
+    current: new fields.NumberField({ initial, max }),
     max: new fields.NumberField({ initial: max }),
-    temp: new fields.NumberField({ initial: 0 }),
+    value: new fields.NumberField({ initial: 0 }),
   });
 }

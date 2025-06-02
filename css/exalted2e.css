@@ -294,9 +294,13 @@
 .exalted2e .resource-value .resource-value-step {
   height: 14px;
   width: 14px;
+  margin-right: 3px;
   display: inline-block;
   border-radius: 50%;
   cursor: pointer;
+}
+.exalted2e .resource-value.center {
+  text-align: center;
 }
 .exalted2e .resource-value .resource-value-empty {
   height: 14px;
@@ -308,23 +312,22 @@
 }
 .exalted2e .resource-counter .resource-counter-step {
   display: inline-block;
+  margin-right: 3px;
   cursor: pointer;
 }
 .exalted2e .resource-counter .resource-counter-step[data-state="-"] {
   background-color: #147c14;
 }
-.exalted2e .resource-counter .resource-counter-step[data-state="/"] {
-  background: linear-gradient(135deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%);
-}
-.exalted2e .resource-counter .resource-counter-step[data-state=x] {
-  background: linear-gradient(45deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%);
-}
-.exalted2e .resource-counter .resource-counter-step[data-state="*"] {
-  background: linear-gradient(45deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(90deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(180deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, black 45%, black 55%, transparent 57%, transparent 100%);
+.exalted2e .resource-counter.center {
+  text-align: center;
 }
 .exalted2e .flex-group-center:not(.flexrow) .resource-value,
 .exalted2e .flex-group-center:not(.flexrow) .resource-counter {
   margin-top: 5px;
+}
+.exalted2e .non-health-boxes {
+  height: 14px;
+  width: 14px;
 }
 .exalted2e .items-header {
   height: 28px;
@@ -525,7 +528,7 @@
   scrollbar-color: #9f9275 var(--color-scrollbar-track);
 }
 .exalted2e .solar .horizontal-line-container .line {
-  background-color: #9f9275; /* black line */
+  background-color: #9f9275;
 }
 .exalted2e .solar .resource-value .resource-value-step {
   border: 1px solid #9f9275;
@@ -539,11 +542,20 @@
 .exalted2e .solar .resource-counter .resource-counter-step {
   border: 1px solid #9f9275;
 }
+.exalted2e .solar .resource-counter .resource-counter-step[data-state="/"] {
+  background: linear-gradient(135deg, transparent 0%, transparent 43%, #9f9275 45%, #9f9275 55%, transparent 57%, transparent 100%);
+}
+.exalted2e .solar .resource-counter .resource-counter-step[data-state=x] {
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, #9f9275 45%, #9f9275 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, #9f9275 45%, #9f9275 55%, transparent 57%, transparent 100%);
+}
+.exalted2e .solar .resource-counter .resource-counter-step[data-state="*"] {
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, #9f9275 45%, #9f9275 55%, transparent 57%, transparent 100%), linear-gradient(90deg, transparent 0%, transparent 43%, #9f9275 45%, #9f9275 55%, transparent 57%, transparent 100%), linear-gradient(180deg, transparent 0%, transparent 43%, #9f9275 45%, #9f9275 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, #9f9275 45%, #9f9275 55%, transparent 57%, transparent 100%);
+}
 .exalted2e .lunar.sheet-body {
   scrollbar-color: #d8d6cb var(--color-scrollbar-track);
 }
 .exalted2e .lunar .horizontal-line-container .line {
-  background-color: #d8d6cb; /* black line */
+  background-color: #d8d6cb;
 }
 .exalted2e .lunar .resource-value .resource-value-step {
   border: 1px solid #d8d6cb;
@@ -560,9 +572,18 @@
 .exalted2e .lunar nav.tabs > .item {
   color: #d8d6cb;
 }
+.exalted2e .lunar .resource-counter .resource-counter-step[data-state="/"] {
+  background: linear-gradient(135deg, transparent 0%, transparent 43%, #d8d6cb 45%, #d8d6cb 55%, transparent 57%, transparent 100%);
+}
+.exalted2e .lunar .resource-counter .resource-counter-step[data-state=x] {
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, #d8d6cb 45%, #d8d6cb 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, #d8d6cb 45%, #d8d6cb 55%, transparent 57%, transparent 100%);
+}
+.exalted2e .lunar .resource-counter .resource-counter-step[data-state="*"] {
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, #d8d6cb 45%, #d8d6cb 55%, transparent 57%, transparent 100%), linear-gradient(90deg, transparent 0%, transparent 43%, #d8d6cb 45%, #d8d6cb 55%, transparent 57%, transparent 100%), linear-gradient(180deg, transparent 0%, transparent 43%, #d8d6cb 45%, #d8d6cb 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, #d8d6cb 45%, #d8d6cb 55%, transparent 57%, transparent 100%);
+}
 
 .exalted2e.sheet {
-  min-width: 651px;
+  min-width: 731px;
   min-height: 500px;
 }
 

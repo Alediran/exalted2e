@@ -30,5 +30,29 @@
     <div class="horizontal-line-container">
       <span class="line" ></span>{{localize 'EXALTED2E.SheetLabels.Advantages'}}<span class="line" ></span>
     </div>
-  
+    
+    <div class="grid grid-3col">
+      <div class="horizontal-line-container"> <!-- Left Column -->
+        <span class="line" ></span>{{localize 'EXALTED2E.SheetLabels.Anima'}}<span class="line" ></span>
+        
+      </div>
+      <div class=""> <!-- Middle Column -->
+        <div class="horizontal-line-container">
+          <span class="line" ></span>{{localize 'EXALTED2E.SheetLabels.Willpower'}}<span class="line" ></span>
+        </div>
+        <div class="resource-value center" data-value="{{system.willpower.current}}" data-name="system.willpower.current">
+          {{#numLoop 10}}
+            <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+          {{/numLoop}}
+        </div>
+        <div class="resource-counter center" data-states="x:value" data-value="{{system.willpower.value}}" data-name="system.willpower.value">
+          {{#numLoop 10}}
+            <span data-action="squareCounterChange" class="resource-counter-step non-health-boxes" data-type="willpower" data-index="{{this}}" data-state=""></span>
+          {{/numLoop}}
+        </div>
+      </div> <!-- Middle Column -->
+      <div class="horizontal-line-container">
+        <span class="line" ></span>{{localize 'EXALTED2E.SheetLabels.Virtues'}}<span class="line" ></span>
+      </div>
+    </div>
 </section>
