@@ -1,3 +1,4 @@
+import { valueField } from "../template/data-schema.mjs";
 import ExaltedSecondActorBase from "./base-actor.mjs";
 
 export default class ExaltedSecondSolarCharacter extends ExaltedSecondActorBase {
@@ -6,7 +7,14 @@ export default class ExaltedSecondSolarCharacter extends ExaltedSecondActorBase 
     const requiredInteger = { required: true, nullable: false, integer: true };
     const schema = super.defineSchema();
 
-    return schema;
+    const result = {
+      ...schema,
+      personal: valueField(0, 0),
+      peripheral: valueField(0, 0),
+    };
+
+    debugger;
+    return result;
   }
 
   prepareDerivedData() {

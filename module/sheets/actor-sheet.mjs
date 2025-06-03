@@ -530,7 +530,6 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
   }
 
   _assignToActorField(fields, value) {
-    debugger;
     const actorData = foundry.utils.duplicate(this.actor);
     // update actor owned items
     if (fields.length === 2 && fields[0] === "items") {
@@ -562,7 +561,6 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
     const fieldStrings = parent.dataset.name;
     const fields = fieldStrings.split(".");
 
-    debugger;
     const minFields = [...fields.slice(0, -1), "min"];
 
     const min = getValue(this.actor, minFields); //gets the minimum value for this field
@@ -640,7 +638,6 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
   }
 
   static _onSquareCounterChange(event, target) {
-    debugger;
     const index = Number(target.dataset.index);
     const parent = target.parentNode;
     const data = parent.dataset;
@@ -734,7 +731,6 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
 
   _setupSquareCounters(element) {
     element.querySelectorAll(".resource-counter").forEach((counterEl) => {
-      debugger;
       const data = counterEl.dataset;
       const states = parseCounterStates(data.states);
 

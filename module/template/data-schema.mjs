@@ -33,7 +33,7 @@ export function specialtyField(ability, name) {
 export function valueField(initial, max) {
   return new fields.SchemaField({
     min: new fields.NumberField({ initial: 0 }),
-    value: new fields.NumberField({ initial, max }),
+    current: new fields.NumberField({ initial, max }),
     max: new fields.NumberField({ initial: max }),
   });
 }

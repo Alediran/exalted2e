@@ -48,6 +48,12 @@ export class ExaltedSecondActor extends Actor {
   _prepareCharacterData(actorData) {
     // Make modifications to data here. For example:
     const systemData = actorData.system;
+
+    switch (actorData.type) {
+      case "solar":
+        this._prepareSolarData(systemData);
+        break;
+    }
   }
 
   _prepareCharacterDerivedData(actorData) {
@@ -95,5 +101,29 @@ export class ExaltedSecondActor extends Actor {
    */
   _getNpcRollData(data) {
     // Process additional NPC data here.
+  }
+
+  /* Calculations for each type of caracter */
+  _prepareSolarData(data) {
+    debugger;
+    //Only runs the first time
+    if (data.personal.max === 0) {
+      const personal = data.essence.current * 3 + data.willpower.current;
+      data.personal.current = personal;
+      data.personal.max = personal;
+    }
+
+    if (data.peripheral.max === 0) {
+      const peripheral =
+        data.essence.current * 7 +
+        data.willpower.current +
+        data.virtues.compassion.current +
+        data.virtues.conviction.current +
+        data.virtues.temperance.current +
+        data.virtues.valor.current;
+
+      data.peripheral.current = peripheral;
+      data.peripheral.max = peripheral;
+    }
   }
 }

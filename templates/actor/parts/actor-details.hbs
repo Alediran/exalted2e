@@ -32,11 +32,27 @@
     </div>
     
     <div class="grid grid-3col">
-      <div class="horizontal-line-container"> <!-- Left Column -->
-        <span class="line" ></span>{{localize 'EXALTED2E.SheetLabels.Anima'}}<span class="line" ></span>
-        
+      <div class="flexcol"> <!-- Left Column -->
+        <div class="horizontal-line-container">
+          <span class="line" ></span>{{localize 'EXALTED2E.SheetLabels.Anima'}}<span class="line" ></span>
+        </div>
+        <div>Placeholder Anima effect description</div>
+        <div class="horizontal-line-container">
+          <span class="line" ></span>{{localize 'EXALTED2E.SheetLabels.LimitBreak'}}<span class="line" ></span>
+        </div>
+        <div class="resource-counter center" data-states="x:value" data-value="{{system.limit.value}}" data-name="system.limit.value">
+          {{#numLoop 10}}
+            <span data-action="squareCounterChange" class="resource-counter-step non-health-boxes" data-type="limit" data-index="{{this}}" data-state=""></span>
+          {{/numLoop}}
+        </div>
+        <div class="horizontal-line-container">
+          <span class="line" ></span>{{localize 'EXALTED2E.SheetLabels.VirtueFlaw'}}<span class="line"></span>
+        </div>
+        <div>
+          <input id="limit.flaw" name="system.limit.flaw" type="text" value="{{system.limit.flaw}}" placeholder="" />
+        </div>
       </div>
-      <div class=""> <!-- Middle Column -->
+      <div class="flexcol"> <!-- Middle Column -->
         <div class="horizontal-line-container">
           <span class="line" ></span>{{localize 'EXALTED2E.SheetLabels.Willpower'}}<span class="line" ></span>
         </div>
@@ -50,9 +66,73 @@
             <span data-action="squareCounterChange" class="resource-counter-step non-health-boxes" data-type="willpower" data-index="{{this}}" data-state=""></span>
           {{/numLoop}}
         </div>
-      </div> <!-- Middle Column -->
-      <div class="horizontal-line-container">
-        <span class="line" ></span>{{localize 'EXALTED2E.SheetLabels.Virtues'}}<span class="line" ></span>
+      </div> <!-- Right Column -->
+      <div class="flexcol">
+        <div class="horizontal-line-container">
+          <span class="line" ></span>{{localize 'EXALTED2E.SheetLabels.Virtues'}}<span class="line" ></span>
+        </div>
+        <div class="grid grid-2col">
+          <div class="subtitle">
+            <span>{{localize 'EXALTED2E.SheetLabels.Compassion'}}</span>
+            <div class="resource-value center" data-value="{{system.virtues.compassion.current}}" data-name="system.virtues.compassion.current">
+              {{#numLoop 5}}
+                <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+              {{/numLoop}}
+            </div>
+            <div class="resource-counter center" data-states="x:value" data-value="{{system.virtues.compassion.value}}" data-name="system.virtues.compassion.value">
+              {{#numLoop 5}}
+                <span data-action="squareCounterChange" class="resource-counter-step non-health-boxes" data-type="compassion" data-index="{{this}}" data-state=""></span>
+              {{/numLoop}}
+            </div>
+          </div>
+          <div class="subtitle">
+            <span>{{localize 'EXALTED2E.SheetLabels.Conviction'}}</span>
+            <div class="resource-value center" data-value="{{system.virtues.conviction.current}}" data-name="system.virtues.conviction.current">
+              {{#numLoop 5}}
+                <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+              {{/numLoop}}
+            </div>
+            <div class="resource-counter center" data-states="x:value" data-value="{{system.virtues.conviction.value}}" data-name="system.virtues.conviction.value">
+              {{#numLoop 5}}
+                <span data-action="squareCounterChange" class="resource-counter-step non-health-boxes" data-type="conviction" data-index="{{this}}" data-state=""></span>
+              {{/numLoop}}
+            </div>
+          </div>
+          <div class="subtitle">
+            <span>{{localize 'EXALTED2E.SheetLabels.Temperance'}}</span>
+            <div class="resource-value center" data-value="{{system.virtues.temperance.current}}" data-name="system.virtues.temperance.current">
+              {{#numLoop 5}}
+                <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+              {{/numLoop}}
+            </div>
+            <div class="resource-counter center" data-states="x:value" data-value="{{system.virtues.temperance.value}}" data-name="system.virtues.temperance.value">
+              {{#numLoop 5}}
+                <span data-action="squareCounterChange" class="resource-counter-step non-health-boxes" data-type="temperance" data-index="{{this}}" data-state=""></span>
+              {{/numLoop}}
+            </div>
+          </div>
+          <div class="subtitle">
+            <span>{{localize 'EXALTED2E.SheetLabels.Valor'}}</span>
+            <div class="resource-value center" data-value="{{system.virtues.valor.current}}" data-name="system.virtues.valor.current">
+              {{#numLoop 5}}
+                <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+              {{/numLoop}}
+            </div>
+            <div class="resource-counter center" data-states="x:value" data-value="{{system.virtues.valor.value}}" data-name="system.virtues.valor.value">
+              {{#numLoop 5}}
+                <span data-action="squareCounterChange" class="resource-counter-step non-health-boxes" data-type="valor" data-index="{{this}}" data-state=""></span>
+              {{/numLoop}}
+            </div>
+          </div>
+        </div>
+        <div class="horizontal-line-container">
+          <span class="line" ></span>{{localize 'EXALTED2E.SheetLabels.Essence'}}<span class="line" ></span>
+        </div>
+        <div class="resource-value center" data-value="{{system.essence.current}}" data-name="system.essence.current">
+          {{#numLoop system.essence.max}}
+            <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
+          {{/numLoop}}
+        </div>
       </div>
     </div>
 </section>

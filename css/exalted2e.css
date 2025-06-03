@@ -288,6 +288,10 @@
   white-space: nowrap;
   padding: 0 10px;
 }
+.exalted2e .subtitle {
+  font-variant: small-caps;
+  text-align: center;
+}
 .exalted2e .resource-label {
   font-weight: bold;
 }

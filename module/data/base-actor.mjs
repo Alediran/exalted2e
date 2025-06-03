@@ -13,9 +13,9 @@ export default class ExaltedSecondActorBase extends ExaltedSecondDataModel {
   static defineSchema() {
     return {
       caste: new fields.StringField({ initial: "Dawn" }),
-      concept: new fields.StringField({ initial: "Placeholder" }),
-      motivation: new fields.StringField({ initial: "Win" }),
-      anima: new fields.StringField({ initial: "Blue Jay" }),
+      concept: new fields.StringField({ initial: "" }),
+      motivation: new fields.StringField({ initial: "" }),
+      anima: new fields.StringField({ initial: "" }),
       attributes: new fields.SchemaField({
         strength: attributeField("physical"),
         charisma: attributeField("social"),
@@ -62,9 +62,10 @@ export default class ExaltedSecondActorBase extends ExaltedSecondDataModel {
         valor: resourceField(1, 5),
       }),
       willpower: resourceField(2, 10),
-      essence: valueField(1, 5),
+      essence: valueField(1, 6),
       limit: new fields.SchemaField({
         value: new fields.NumberField({ initial: 0 }),
+        max: new fields.NumberField({ initial: 10 }),
         flaw: new fields.StringField({ initial: "" }),
       }),
       experience: new fields.SchemaField({
