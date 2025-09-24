@@ -34,6 +34,16 @@
   background-color: #147c14;
 }
 
+.resource-counter .resource-favored {
+  display: inline-block;
+  margin-right: 3px;
+  cursor: pointer;
+}
+
+.resource-counter.leftbox {
+  text-align: left;
+  width: 20px;
+}
 .resource-counter.center {
   text-align: center;
 }

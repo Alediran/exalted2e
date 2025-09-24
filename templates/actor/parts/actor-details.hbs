@@ -54,7 +54,7 @@
       </div>
       <div class="flexcol"> <!-- Middle Column -->
         <div class="horizontal-line-container">
-          <span class="line" ></span>{{localize 'EXALTED2E.SheetLabels.Willpower'}}<span class="line" ></span>
+          <span class="line"></span>{{localize 'EXALTED2E.SheetLabels.Willpower'}}<span class="line"></span>
         </div>
         <div class="resource-value center" data-value="{{system.willpower.current}}" data-name="system.willpower.current">
           {{#numLoop 10}}
@@ -65,6 +65,12 @@
           {{#numLoop 10}}
             <span data-action="squareCounterChange" class="resource-counter-step non-health-boxes" data-type="willpower" data-index="{{this}}" data-state=""></span>
           {{/numLoop}}
+        </div>
+        <div class="horizontal-line-container">
+          <span class="line"></span>{{localize 'EXALTED2E.SheetLabels.Soak'}}<span class="line"></span>
+        </div>
+        <div class="align-center">
+          {{localize 'EXALTED2E.SheetLabels.Bashing'}} <span class="underlined">{{system.soak.bashing}}</span> {{localize 'EXALTED2E.SheetLabels.Lethal'}} <span class="underlined">{{system.soak.lethal}}</span> {{localize 'EXALTED2E.SheetLabels.Aggravated'}} <span class="underlined">{{system.soak.aggravated}}</span>
         </div>
       </div> <!-- Right Column -->
       <div class="flexcol">
@@ -131,7 +137,15 @@
         <div class="resource-value center" data-value="{{system.essence.current}}" data-name="system.essence.current">
           {{#numLoop system.essence.max}}
             <span data-action="dotCounterChange" class="resource-value-step" data-index="{{this}}"></span>
-          {{/numLoop}}
+          {{/numLoop}}          
+          <div class="lowercaps align-left" data-value="{{system.personal.value}}" data-name="system.personal.value">
+            {{localize 'EXALTED2E.SheetLabels.Personal'}}
+            <input id="personal.value" class="moteInput" name="system.personal.value" type="number" value="{{system.personal.value}}" min="0" max="{{system.personal.max}}" /> | <span class="underlined">{{system.personal.max}}</span>
+          </div>
+          <div class="lowercaps align-left">
+            {{localize 'EXALTED2E.SheetLabels.Peripheral'}}
+            <input id="peripheral.current" class="moteInput" name="system.peripheral.current" type="number" value="{{system.peripheral.value}}" min="0" max="{{system.peripheral.max}}" /> | <span class="underlined">{{system.peripheral.max}}</span>
+          </div>          
         </div>
       </div>
     </div>

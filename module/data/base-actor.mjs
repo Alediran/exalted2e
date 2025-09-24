@@ -63,10 +63,10 @@ export default class ExaltedSecondActorBase extends ExaltedSecondDataModel {
       }),
       willpower: resourceField(2, 10),
       essence: valueField(1, 6),
-      limit: new fields.SchemaField({
-        value: new fields.NumberField({ initial: 0 }),
-        max: new fields.NumberField({ initial: 10 }),
-        flaw: new fields.StringField({ initial: "" }),
+      soak: new fields.SchemaField({
+        bashing: new fields.NumberField({ initial: 0 }),
+        lethal: new fields.NumberField({ initial: 0 }),
+        aggravated: new fields.NumberField({ initial: 0 }),
       }),
       experience: new fields.SchemaField({
         current: new fields.NumberField({ initial: 0 }),

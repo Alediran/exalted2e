@@ -215,6 +215,14 @@
   text-transform: uppercase;
 }
 
+.left {
+  text-align: left;
+}
+
+.lowercaps {
+  font-variant: small-caps;
+}
+
 /* Styles limited to Exalted 2e sheets */
 .exalted2e {
   overflow: visible;
@@ -292,6 +300,13 @@
   font-variant: small-caps;
   text-align: center;
 }
+.exalted2e .underlined {
+  text-decoration: underline;
+}
+.exalted2e .moteInput {
+  width: 35px;
+  height: 20px;
+}
 .exalted2e .resource-label {
   font-weight: bold;
 }
@@ -321,6 +336,15 @@
 }
 .exalted2e .resource-counter .resource-counter-step[data-state="-"] {
   background-color: #147c14;
+}
+.exalted2e .resource-counter .resource-favored {
+  display: inline-block;
+  margin-right: 3px;
+  cursor: pointer;
+}
+.exalted2e .resource-counter.leftbox {
+  text-align: left;
+  width: 20px;
 }
 .exalted2e .resource-counter.center {
   text-align: center;
@@ -546,6 +570,12 @@
 .exalted2e .solar .resource-counter .resource-counter-step {
   border: 1px solid #9f9275;
 }
+.exalted2e .solar .resource-counter .resource-favored {
+  border: 1px solid #9f9275;
+}
+.exalted2e .solar .resource-counter .resource-favored.caste {
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, #9f9275 45%, #9f9275 55%, transparent 57%, transparent 100%), linear-gradient(90deg, transparent 0%, transparent 43%, #9f9275 45%, #9f9275 55%, transparent 57%, transparent 100%), linear-gradient(180deg, transparent 0%, transparent 43%, #9f9275 45%, #9f9275 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, #9f9275 45%, #9f9275 55%, transparent 57%, transparent 100%);
+}
 .exalted2e .solar .resource-counter .resource-counter-step[data-state="/"] {
   background: linear-gradient(135deg, transparent 0%, transparent 43%, #9f9275 45%, #9f9275 55%, transparent 57%, transparent 100%);
 }
@@ -571,6 +601,9 @@
   border: 1px solid #d8d6cb;
 }
 .exalted2e .lunar .resource-counter .resource-counter-step {
+  border: 1px solid #d8d6cb;
+}
+.exalted2e .lunar .resource-counter .resource-favored {
   border: 1px solid #d8d6cb;
 }
 .exalted2e .lunar nav.tabs > .item {

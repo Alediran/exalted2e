@@ -1,3 +1,5 @@
+import { cleanCasteAbilities } from "../helpers/utils.mjs";
+
 /**
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
@@ -59,6 +61,17 @@ export class ExaltedSecondActor extends Actor {
   _prepareCharacterDerivedData(actorData) {
     // Make modifications to data here. For example:
     const systemData = actorData.system;
+
+    switch (actorData.type) {
+      case "solar":
+        this._prepareDerivedSolarData(systemData);
+        break;
+    }
+
+    systemData.soak.bashing = systemData.attributes.stamina.value;
+    systemData.soak.lethal = Math.floor(
+      systemData.attributes.stamina.value / 2
+    );
   }
   /**
    * Prepare NPC type specific data.
@@ -105,25 +118,46 @@ export class ExaltedSecondActor extends Actor {
 
   /* Calculations for each type of caracter */
   _prepareSolarData(data) {
-    debugger;
-    //Only runs the first time
-    if (data.personal.max === 0) {
-      const personal = data.essence.current * 3 + data.willpower.current;
-      data.personal.current = personal;
-      data.personal.max = personal;
-    }
+    cleanCasteAbilities(data);
 
-    if (data.peripheral.max === 0) {
-      const peripheral =
-        data.essence.current * 7 +
-        data.willpower.current +
-        data.virtues.compassion.current +
-        data.virtues.conviction.current +
-        data.virtues.temperance.current +
-        data.virtues.valor.current;
-
-      data.peripheral.current = peripheral;
-      data.peripheral.max = peripheral;
+    switch (data.caste.toLowerCase()) {
+      case "dawn":
+        data.abilities.archery.caste = true;
+        data.abilities.martialarts.caste = true;
+        data.abilities.melee.caste = true;
+        data.abilities.thrown.caste = true;
+        data.abilities.war.caste = true;
+        break;
+      case "zenith":
+        data.abilities.integrity.caste = true;
+        data.abilities.performance.caste = true;
+        data.abilities.presence.caste = true;
+        data.abilities.resistance.caste = true;
+        data.abilities.survival.caste = true;
+        break;
+      case "twilight":
+        data.abilities.craft.caste = true;
+        data.abilities.investigation.caste = true;
+        data.abilities.lore.caste = true;
+        data.abilities.medicine.caste = true;
+        data.abilities.occult.caste = true;
+        break;
+      case "night":
+        data.abilities.athletics.caste = true;
+        data.abilities.awareness.caste = true;
+        data.abilities.dodge.caste = true;
+        data.abilities.larceny.caste = true;
+        data.abilities.stealth.caste = true;
+        break;
+      case "eclipse":
+        data.abilities.bureaucracy.caste = true;
+        data.abilities.linguistics.caste = true;
+        data.abilities.ride.caste = true;
+        data.abilities.sail.caste = true;
+        data.abilities.socialize.caste = true;
+        break;
     }
   }
+
+  _prepareDerivedSolarData(data) {}
 }

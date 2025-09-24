@@ -1,4 +1,4 @@
-import { valueField } from "../template/data-schema.mjs";
+import { resourceField } from "../template/data-schema.mjs";
 import ExaltedSecondActorBase from "./base-actor.mjs";
 
 export default class ExaltedSecondSolarCharacter extends ExaltedSecondActorBase {
@@ -9,16 +9,39 @@ export default class ExaltedSecondSolarCharacter extends ExaltedSecondActorBase 
 
     const result = {
       ...schema,
-      personal: valueField(0, 0),
-      peripheral: valueField(0, 0),
+      limit: new fields.SchemaField({
+        value: new fields.NumberField({ initial: 0 }),
+        max: new fields.NumberField({ initial: 10 }),
+        flaw: new fields.StringField({ initial: "" }),
+      }),
+      personal: resourceField(0, 0),
+      peripheral: resourceField(0, 0),
     };
 
-    debugger;
     return result;
   }
 
   prepareDerivedData() {
+    debugger;
     // Loop through ability scores, and add their modifiers to our sheet output.
+    if (this.personal.max === 0) {
+      const personal = this.essence.current * 3 + this.willpower.current;
+      this.personal.value = personal;
+      this.personal.max = personal;
+    }
+
+    if (this.peripheral.max === 0) {
+      const peripheral =
+        this.essence.current * 7 +
+        this.willpower.current +
+        this.virtues.compassion.current +
+        this.virtues.conviction.current +
+        this.virtues.temperance.current +
+        this.virtues.valor.current;
+
+      this.peripheral.value = peripheral;
+      this.peripheral.max = peripheral;
+    }
   }
 
   getRollData() {

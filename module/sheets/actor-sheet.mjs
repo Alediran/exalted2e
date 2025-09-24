@@ -42,6 +42,7 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
       onEditImage: this._onEditImage,
       dotCounterChange: this._onDotCounterChange,
       squareCounterChange: this._onSquareCounterChange,
+      favoredChange: this._onFavoredChange,
     },
   };
 
@@ -237,7 +238,6 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
   }
 
   async _preparePartContext(partId, context) {
-    console.log("Part Context is ", context);
     context.tab = context.tabs.find((item) => item.id === partId);
     return context;
   }
@@ -252,6 +252,7 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
     this.#dragDrop.forEach((d) => d.bind(this.element));
     this._setupDotCounters(this.element);
     this._setupSquareCounters(this.element);
+    this._setupCasteFavored(this.element);
     this._setupSheetTheme();
     this.organizeMainContent();
     // -------------------------------------------------------------
@@ -749,6 +750,29 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
         step.dataset.state = index < values.length ? values[index] : "";
       });
     });
+  }
+
+  _setupCasteFavored(element) {
+    element.querySelectorAll(".ability").forEach((ability) => {
+      const checkbox = ability.querySelector(".resource-favored");
+      const value = Boolean(checkbox.dataset.value);
+
+      checkbox.dataset.state = value === true ? "x" : "";
+    });
+  }
+
+  static _onFavoredChange(event, target) {
+    const parent = target.parentNode;
+    const data = parent.dataset;
+    const fields = data.name.split(".");
+    const isCaste = getValue(this.actor, [...fields, "caste"]);
+
+    if (!isCaste) {
+      const newValue = !getValue(this.actor, [...fields, "favored"]);
+
+      target.dataset.state = newValue ? "x" : "";
+      this._assignToActorField([...fields, "favored"], newValue);
+    }
   }
 
   _getExaltColour(type) {

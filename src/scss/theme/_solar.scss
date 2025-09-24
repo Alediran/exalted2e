@@ -22,6 +22,14 @@
   border: $border-gold;
 }
 
+.solar .resource-counter .resource-favored {
+  border: $border-gold;
+}
+
+.solar .resource-counter .resource-favored.caste {
+  background: linear-gradient(45deg, transparent 0%, transparent 43%, $color-gold 45%, $color-gold 55%, transparent 57%, transparent 100%), linear-gradient(90deg, transparent 0%, transparent 43%, $color-gold 45%, $color-gold 55%, transparent 57%, transparent 100%), linear-gradient(180deg, transparent 0%, transparent 43%, $color-gold 45%, $color-gold 55%, transparent 57%, transparent 100%), linear-gradient(135deg, transparent 0%, transparent 43%, $color-gold 45%, $color-gold 55%, transparent 57%, transparent 100%);
+}
+
 .solar .resource-counter .resource-counter-step[data-state="/"] {
   background: linear-gradient(135deg, transparent 0%, transparent 43%, $color-gold 45%, $color-gold 55%, transparent 57%, transparent 100%);
 }
