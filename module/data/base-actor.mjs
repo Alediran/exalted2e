@@ -63,6 +63,7 @@ export default class ExaltedSecondActorBase extends ExaltedSecondDataModel {
       }),
       willpower: resourceField(2, 10),
       essence: valueField(1, 6),
+      commited: new fields.NumberField({ initial: 0 }),
       soak: new fields.SchemaField({
         bashing: new fields.NumberField({ initial: 0 }),
         lethal: new fields.NumberField({ initial: 0 }),

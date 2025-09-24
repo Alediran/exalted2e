@@ -36,7 +36,7 @@
         <div class="horizontal-line-container">
           <span class="line" ></span>{{localize 'EXALTED2E.SheetLabels.Anima'}}<span class="line" ></span>
         </div>
-        <div>Placeholder Anima effect description</div>
+        <div>{{ system.animaPower }}</div>
         <div class="horizontal-line-container">
           <span class="line" ></span>{{localize 'EXALTED2E.SheetLabels.LimitBreak'}}<span class="line" ></span>
         </div>
@@ -145,7 +145,11 @@
           <div class="lowercaps align-left">
             {{localize 'EXALTED2E.SheetLabels.Peripheral'}}
             <input id="peripheral.current" class="moteInput" name="system.peripheral.current" type="number" value="{{system.peripheral.value}}" min="0" max="{{system.peripheral.max}}" /> | <span class="underlined">{{system.peripheral.max}}</span>
-          </div>          
+          </div>   
+          <div class="lowercaps align-left">
+            {{localize 'EXALTED2E.SheetLabels.Commited'}}
+            <span class="underlined">{{system.commited}}</span>
+          </div>           
         </div>
       </div>
     </div>

@@ -65,6 +65,7 @@
       "Essence": "Essence",
       "Personal": "Personal",
       "Peripheral": "Peripheral",
+      "Commited": "Commited",
       "Soak": "Soak",
       "Bashing": "Bashing",
       "Lethal": "Lethal",
@@ -85,10 +86,15 @@
     },
     "Solar": {
       "Dawn": "Dawn",
+      "DawnAnima": "By spending five motes of Essence, the character may appear glorious and terrifying until the end of the scene (or until she decides to let the effect dissipate). She appears taller and fiercer, with a terrible visage, burning eyes and a deadly, rending grasp. This effect comes into play automatically once the Solar spends 11+ motes of Peripheral Essence.",
       "Zenith": "Zenith",
+      "ZenithAnima": "Zenith",
       "Twilight": "Twilight",
+      "TwilightAnima": "Twilight",
       "Night": "Night",
-      "Eclipse": "Eclipse"
+      "NightAnima": "Night",
+      "Eclipse": "Eclipse",
+      "EclipseAnima": "Night"
     },
     "Lunar": {
       "Full": "Full Moon",
