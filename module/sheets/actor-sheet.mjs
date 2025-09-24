@@ -755,9 +755,9 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
   _setupCasteFavored(element) {
     element.querySelectorAll(".ability").forEach((ability) => {
       const checkbox = ability.querySelector(".resource-favored");
-      const value = Boolean(checkbox.dataset.value);
+      const value = checkbox.dataset.value === "true";
 
-      checkbox.dataset.state = value === true ? "x" : "";
+      checkbox.dataset.state = value ? "x" : "";
     });
   }
 

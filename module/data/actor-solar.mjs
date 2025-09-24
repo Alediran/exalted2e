@@ -22,15 +22,15 @@ export default class ExaltedSecondSolarCharacter extends ExaltedSecondActorBase 
   }
 
   prepareDerivedData() {
-    debugger;
     // Loop through ability scores, and add their modifiers to our sheet output.
     if (this.personal.max === 0) {
+      //Calculates Solar Personal Pool Max
       const personal = this.essence.current * 3 + this.willpower.current;
-      this.personal.value = personal;
       this.personal.max = personal;
     }
 
     if (this.peripheral.max === 0) {
+      //Calculates Solar Peripheral Pool Max
       const peripheral =
         this.essence.current * 7 +
         this.willpower.current +
@@ -39,7 +39,6 @@ export default class ExaltedSecondSolarCharacter extends ExaltedSecondActorBase 
         this.virtues.temperance.current +
         this.virtues.valor.current;
 
-      this.peripheral.value = peripheral;
       this.peripheral.max = peripheral;
     }
   }
