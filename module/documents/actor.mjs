@@ -42,6 +42,7 @@ export class ExaltedSecondActor extends Actor {
     // things organized.
     this._prepareCharacterDerivedData(actorData);
     this._prepareNpcDerivedData(actorData);
+    this._addAnimaPower(actorData);
   }
 
   /**
@@ -157,6 +158,15 @@ export class ExaltedSecondActor extends Actor {
         data.abilities.socialize.caste = true;
         break;
     }
+  }
+
+  _addAnimaPower(data) {
+    /*const caste = this.caste?.charAt(0).toUpperCase() + this.caste?.slice(1);
+
+    if (caste === "") return; //No Caste to assign an Anima
+    data.animaPower = {};
+
+    debugger;*/
   }
 
   _prepareDerivedSolarData(data) {}

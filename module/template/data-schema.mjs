@@ -37,11 +37,23 @@ export function valueField(initial, max) {
     max: new fields.NumberField({ initial: max }),
   });
 }
+
 export function resourceField(initial, max) {
   return new fields.SchemaField({
     min: new fields.NumberField({ initial: 0 }),
     current: new fields.NumberField({ initial, max }),
     max: new fields.NumberField({ initial: max }),
     value: new fields.NumberField({ initial: 0 }),
+  });
+}
+
+export function costField() {
+  return new fields.SchemaField({
+    motes: new fields.NumberField({ initial: 0 }),
+    willpower: new fields.NumberField({ initial: 0 }),
+    bhl: new fields.NumberField({ initial: 0 }),
+    lhl: new fields.NumberField({ initial: 0 }),
+    ahl: new fields.NumberField({ initial: 0 }),
+    xp: new fields.NumberField({ initial: 0 }),
   });
 }

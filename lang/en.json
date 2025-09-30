@@ -69,7 +69,8 @@
       "Soak": "Soak",
       "Bashing": "Bashing",
       "Lethal": "Lethal",
-      "Aggravated": "Aggravated"
+      "Aggravated": "Aggravated",
+      "Effects": "Effects"
     },
     "Item": {
       "Spell": {
@@ -86,7 +87,8 @@
     },
     "Solar": {
       "Dawn": "Dawn",
-      "DawnAnima": "By spending five motes of Essence, the character may appear glorious and terrifying until the end of the scene (or until she decides to let the effect dissipate). She appears taller and fiercer, with a terrible visage, burning eyes and a deadly, rending grasp. This effect comes into play automatically once the Solar spends 11+ motes of Peripheral Essence.",
+      "DawnAnimaShort": "By spending five motes of Essence, the character may appear glorious and terrifying until the end of the scene (or until she decides to let the effect dissipate). She appears taller and fiercer, with a terrible visage, burning eyes and a deadly, rending grasp. This effect comes into play automatically once the Solar spends 11+ motes of Peripheral Essence.",
+      "DawnAnimaLong": "By spending five motes of Essence, the character may appear glorious and terrifying until the end of the scene (or until she decides to let the effect dissipate). She appears taller and fiercer, with a terrible visage, burning eyes and a deadly, rending grasp. This effect comes into play automatically once the Solar spends 11+ motes of Peripheral Essence. While this power is in effect, the character exudes a fear aura which causes all opponents attempting to attack or oppose her (socially or physically) to suffer a -1 external penalty on all attack rolls. This unnatural Emotion effect costs five points of Willpower to ignore for the rest of the scene. The Dawn's terrifying glory unbound also disrupts attempts at coordinating attacks against her, increasing the difficulty to arrange such attacks by 2. Additionally, the immense Essence pressure within the character's anima slows all incoming attacks, increasing the character's DVs by 2. Finally, Solars of the Dawn Caste are immune to all fear-based Emotion effects while their anima power is active. If a complementary mass combat unit is forced to check for rout because of the Dawn Caste's actions while this anima is active, they suffer a -2 external penalty to the roll.",
       "Zenith": "Zenith",
       "ZenithAnima": "Zenith",
       "Twilight": "Twilight",
@@ -116,9 +118,12 @@
       "npc": "NPC"
     },
     "Item": {
+      "background": "Background",
       "item": "Item",
       "feature": "Feature",
-      "spell": "Spell"
+      "spell": "Spell",
+      "charm": "Charm",
+      "artifact": "Artifact"
     }
   }
 }

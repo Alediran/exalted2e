@@ -14,7 +14,10 @@ export default class ExaltedSecondSolarCharacter extends ExaltedSecondActorBase 
         max: new fields.NumberField({ initial: 10 }),
         flaw: new fields.StringField({ initial: "" }),
       }),
-      animaPower: new fields.StringField({ initial: "" }),
+      animaPower: new fields.SchemaField({
+        id: new fields.StringField({ initial: "" }),
+        long: new fields.StringField({ initial: "" }),
+      }),
       personal: resourceField(0, 0),
       peripheral: resourceField(0, 0),
     };
@@ -42,14 +45,6 @@ export default class ExaltedSecondSolarCharacter extends ExaltedSecondActorBase 
 
       this.peripheral.max = peripheral;
     }
-
-    this.animaPower = game.i18n.localize(
-      "EXALTED2E.Solar." +
-        this.caste.charAt(0).toUpperCase() +
-        this.caste.slice(1) +
-        "Anima"
-    );
-    debugger;
   }
 
   getRollData() {

@@ -77,6 +77,12 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
       template: "systems/exalted2e/templates/actor/parts/actor-biography.hbs",
       scrollable: [""],
     },
+    effects: {
+      classes: ["sheet-body"],
+      container: { classes: ["tab-body"], id: "tabs" },
+      template: "systems/exalted2e/templates/actor/parts/actor-effects.hbs",
+      scrollable: [""],
+    },
     tabs: {
       classes: ["tabs-right"],
       template: "systems/exalted2e/templates/actor/tabs.hbs",
@@ -156,6 +162,15 @@ export class ExaltedSecondActorSheet extends HandlebarsApplicationMixin(
             this.tabGroups.primary === "biography" ? " active" : ""
           }`,
           tooltip: `${game.i18n.localize("EXALTED2E.SheetLabels.Bio")}`,
+        },
+        {
+          id: "effects",
+          group: "primary",
+          icon: "fa-solid fa-hurricane",
+          cssClass: `item control${
+            this.tabGroups.primary === "effects" ? " active" : ""
+          }`,
+          tooltip: `${game.i18n.localize("EXALTED2E.SheetLabels.Effects")}`,
         },
       ],
       enrichedBiography:

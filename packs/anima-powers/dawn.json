@@ -1,0 +1,33 @@
+{
+  "_id": "XgEqL1kFApUbl5Z2",
+  "img": "systems/exalted2e/icons/anima/dawn.webp",
+  "name": "Dawn Caste Anima Power",
+  "system": {
+    "description": {
+      "short": "EXALTED2E.Solar.DawnAnimaShort",
+      "long": "EXALTED2E.Solar.DawnAnimaLong"
+    },
+    "duration": { 
+      "expiry": "scene-end"
+    },
+    "rules": {
+      "effects": [
+        {
+          "affects": "enemies",
+          "uuid": "Compendium.exalted2e.charm-effects.Effect: Dawn Anima"
+        },
+        {
+          "key": "FlatModifier",
+          "selector": "dv",
+          "value": 2
+        }
+      ],
+      "key": "Aura",
+      "radius": 100,
+      "traits": [
+        "magical"
+      ]
+    }
+  },
+  "type": "charm"
+}

@@ -3,6 +3,6 @@
     "types": ["solar", "lunar", "sidereal", "abyssal", "infernal", "alchemical", "terrestrial", "hero"]
   },
   "Item": {
-    "types": ["item", "background", "charm"]
+    "types": ["artifact", "item", "background", "charm"]
   }
 }

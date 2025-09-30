@@ -34,7 +34,21 @@
       "path": "lang/en.json"
     }
   ],
-  "packs": [],
+  "packs": [
+    {
+      "name": "anima-powers",
+      "label": "Anima Powers",
+      "path": "packs/anima-powers",
+      "type": "Item",
+      "banner": "",
+      "system": "exalted2e",
+      "ownership": {
+          "PLAYER": "OBSERVER",
+          "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    }
+  ],
   "packFolders": [],
   "socket": false,
   "manifest": "Replace this with a link to the /latest release system.json so people can receive updates after they've installed the system",

@@ -7,9 +7,14 @@ import { ExaltedSecondItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { EXALTED2E } from "./helpers/config.mjs";
+
+// Import Data classes.
 import ExaltedSecondSolarCharacter from "./data/actor-solar.mjs";
 import ExaltedSecondLunarCharacter from "./data/actor-lunar.mjs";
 import ExaltedSecondNPC from "./data/actor-npc.mjs";
+
+import ExaltedSecondItemCharm from "./data/item-charm.mjs";
+import ExaltedSecondSpell from "./data/item-spell.mjs";
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -30,6 +35,11 @@ Hooks.once("init", function () {
   CONFIG.Actor.dataModels = {
     solar: ExaltedSecondSolarCharacter,
     lunar: ExaltedSecondLunarCharacter,
+  };
+
+  CONFIG.Item.dataModels = {
+    charm: ExaltedSecondItemCharm,
+    spell: ExaltedSecondSpell,
   };
 
   // Add custom constants for configuration.
