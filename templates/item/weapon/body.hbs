@@ -48,16 +48,23 @@
       <div class="field-group"><label>{{localize "EX2E.Range"}}</label>
         <input type="number" name="system.modes.{{mIdx}}.range"      value="{{mode.range}}"      min="0"  max="400" {{#unless @root.isEditable}}readonly{{/unless}}></div>
       <div class="field-group"><label>{{localize "EX2E.MinStrength"}}</label>
-        <input type="number" name="system.modes.{{mIdx}}.minStrength"    value="{{mode.minStrength}}"    min="0" max="10" {{#unless @root.isEditable}}readonly{{/unless}}></div>
+        {{dotRating name=(concat "system.modes." mIdx ".minStrength")    value=mode.minStrength    max=5 min=0}}</div>
       <div class="field-group"><label>{{localize "EX2E.MinDexterity"}}</label>
-        <input type="number" name="system.modes.{{mIdx}}.minDexterity"   value="{{mode.minDexterity}}"   min="0" max="10" {{#unless @root.isEditable}}readonly{{/unless}}></div>
+        {{dotRating name=(concat "system.modes." mIdx ".minDexterity")   value=mode.minDexterity   max=5 min=0}}</div>
       <div class="field-group"><label>{{localize "EX2E.MinMartialArts"}}</label>
-        <input type="number" name="system.modes.{{mIdx}}.minMartialArts" value="{{mode.minMartialArts}}" min="0" max="10" {{#unless @root.isEditable}}readonly{{/unless}}></div>
+        {{dotRating name=(concat "system.modes." mIdx ".minMartialArts") value=mode.minMartialArts max=5 min=0}}</div>
     </div>
 
     <!-- Per-mode tags -->
     <div class="tags-block" style="margin-top:8px">
-      <label>{{localize "EX2E.Tags"}}</label>
+      <div class="tags-header">
+        <label>{{localize "EX2E.Tags"}}</label>
+        {{#if @root.isEditable}}
+          <button data-action="addTag" data-mode-index="{{mIdx}}">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        {{/if}}
+      </div>
       <div class="tags-list">
         {{#each mode.tags as |tag tIdx|}}
         <span class="keyword-tag-edit">
@@ -67,13 +74,12 @@
             {{/each}}
           </select>
           {{#if @root.isEditable}}
-          <button data-action="removeTag" data-mode-index="{{mIdx}}" data-index="{{tIdx}}">✕</button>
+          <button data-action="removeTag" data-mode-index="{{mIdx}}" data-index="{{tIdx}}">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
           {{/if}}
         </span>
         {{/each}}
-        {{#if @root.isEditable}}
-        <button data-action="addTag" data-mode-index="{{mIdx}}">+ Tag</button>
-        {{/if}}
       </div>
     </div>
   </div>

@@ -91,4 +91,38 @@ export class WeaponSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     await this.document.update({ "system.modes": null });
     await this.document.update({ "system.modes": modes });
   }
+
+  _onRender(context, options) {
+    this.element.querySelectorAll(".dot-rating .dot").forEach(dot => {
+      dot.addEventListener("click", this.#onDotClick.bind(this));
+    });
+  }
+
+  async #onDotClick(event) {
+    if (!this.isEditable) return;
+    const pip      = event.currentTarget;
+    const track    = pip.closest(".dot-rating");
+    const name     = track?.dataset.name;
+    if (!name) return;
+
+    const clicked  = parseInt(pip.dataset.value);
+    const current  = parseInt(track.dataset.current ?? 0);
+    const min      = parseInt(track.dataset.min ?? 0);
+    const newVal   = (clicked === current) ? min : clicked;
+
+    // ArrayField paths (system.modes.<i>.<field>) need clone-then-replace
+    const modeMatch = name.match(/^system\.modes\.(\d+)\.(\w+)$/);
+    if (modeMatch) {
+      const idx   = parseInt(modeMatch[1]);
+      const field = modeMatch[2];
+      const modes = foundry.utils.deepClone(this.document.system.modes ?? []);
+      if (!modes[idx]) return;
+      modes[idx][field] = newVal;
+      await this.document.update({ "system.modes": null });
+      await this.document.update({ "system.modes": modes });
+      return;
+    }
+
+    await this.document.update({ [name]: newVal });
+  }
 }

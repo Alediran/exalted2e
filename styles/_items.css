@@ -92,3 +92,12 @@
 .mode-name-input {
   width: 90%;
 }
+
+.tags-block .tags-header {
+  display: flex;
+  gap: 5px;
+}
+
+.tags-block .tags-header label {
+  align-content: center;
+}
