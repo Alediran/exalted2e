@@ -82,9 +82,10 @@
           <span class="pool-sep">/</span>
           <span class="pool-max">{{system.motes.peripheral.max}}</span>
         </div>
-        <div class="mote-pool-block mote-pool-committed">
+        <div class="mote-pool-block mote-pool-committed"
+             title="{{localize 'EX2E.Committed'}}: {{system.motes.personal.totalCommitted}} {{localize 'EX2E.MotesPersonal'}} / {{system.motes.peripheral.totalCommitted}} {{localize 'EX2E.MotesPeripheral'}}">
           <span class="pool-label">{{localize "EX2E.Committed"}}</span>
-          <span class="pool-sep">{{system.motes.personal.committed}}/{{system.motes.peripheral.committed}}</span>
+          <span class="pool-sep">{{system.motes.personal.totalCommitted}}/{{system.motes.peripheral.totalCommitted}}</span>
         </div>
       </div>
     </div>

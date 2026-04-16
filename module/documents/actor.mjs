@@ -55,7 +55,35 @@ export class ExaltedActor extends Actor {
     if (this.type === "character") {
       this._applyArmorSoak(systemData);
       this._applyWeaponStats(systemData);
+      this._applyArtifactCommitment(systemData);
     }
+  }
+
+  /**
+   * Sum attunement costs of every attuned artifact (weapons + armor) and
+   * expose them as derived commitment totals. Artifacts always commit to the
+   * peripheral pool — the two pools are interchangeable for this purpose.
+   *
+   * Stored fields (manual / charm commitments):
+   *   motes.personal.committed, motes.peripheral.committed
+   * Derived:
+   *   motes.personal.artifactCommitted, motes.peripheral.artifactCommitted
+   *   motes.personal.totalCommitted,    motes.peripheral.totalCommitted
+   */
+  _applyArtifactCommitment(systemData) {
+    let artifactPeripheral = 0;
+    for (const item of this.items) {
+      if ((item.type === "weapon" || item.type === "armor")
+          && item.system.artifact && item.system.attuned) {
+        artifactPeripheral += item.system.attunementCost ?? 0;
+      }
+    }
+
+    systemData.motes.personal.artifactCommitted   = 0;
+    systemData.motes.peripheral.artifactCommitted = artifactPeripheral;
+
+    systemData.motes.personal.totalCommitted   = (systemData.motes.personal.committed   ?? 0);
+    systemData.motes.peripheral.totalCommitted = (systemData.motes.peripheral.committed ?? 0) + artifactPeripheral;
   }
 
   /**
