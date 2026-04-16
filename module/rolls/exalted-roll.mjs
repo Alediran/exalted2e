@@ -258,10 +258,19 @@ export class ExaltedRoll {
 
     // Determine ability: ranged uses archery, thrown uses thrown, else melee
     const isMelee = wSys.effectiveRange === 0;
-    const ability  = isMelee ? "melee" : (wSys.tags?.includes("Thrown") ? "thrown" : "archery");
-    const abilVal  = sys.abilities[ability]?.value ?? 0;
-    const attrVal  = sys.attributes.dexterity.value;
-    const strVal   = sys.attributes.strength.value;
+    const baseAbility = isMelee ? "melee" : (wSys.tags?.includes("Thrown") ? "thrown" : "archery");
+    const baseAbilVal = sys.abilities[baseAbility]?.value ?? 0;
+    // Tag-driven Martial Arts handling:
+    //   - Natural: weapon MUST be wielded with Martial Arts (forced).
+    //   - Martial Arts: use the higher of the base weapon ability or Martial Arts.
+    const hasNaturalTag = wSys.tags?.includes("Natural");
+    const hasMATag      = wSys.tags?.includes("Martial Arts");
+    const maVal         = sys.abilities.martialArts?.value ?? 0;
+    const useMA         = hasNaturalTag || (hasMATag && maVal > baseAbilVal);
+    const ability       = useMA ? "martialArts" : baseAbility;
+    const abilVal       = useMA ? maVal         : baseAbilVal;
+    const attrVal   = sys.attributes.dexterity.value;
+    const strVal    = sys.attributes.strength.value;
 
     // Attack pool = Dexterity + Ability + Weapon Accuracy
     const basePool = attrVal + abilVal + wSys.effectiveAccuracy;
@@ -283,10 +292,16 @@ export class ExaltedRoll {
 
     let keyVal = 0;
     switch (exaltType) {
-      case "lunar": case "alchemical":
-        keyVal = attrVal; break;
-      case "solar": case "abyssal": case "infernal": default:
-        keyVal = attrVal + abilVal; break;
+      case "lunar": 
+      case "alchemical":
+        keyVal = attrVal; 
+        break;
+      case "solar": 
+      case "abyssal": 
+      case "infernal": 
+      default:
+        keyVal = attrVal + abilVal; 
+        break;
     }
     const firstExcMax  = keyVal;
     const secondExcMax = Math.ceil(keyVal / 2);
