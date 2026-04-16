@@ -1,0 +1,137 @@
+const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
+
+/**
+ * AttackDialog – Collects attack configuration: target DV, stunt, excellencies.
+ * Used by ExaltedRoll.rollAttack().
+ */
+export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
+
+  static DEFAULT_OPTIONS = {
+    id:      "ex2e-attack-dialog",
+    tag:     "dialog",
+    classes: ["exalted2e", "roll-dialog"],
+    position: { width: 360, height: "auto" },
+    window: {
+      title:     "EX2E.AttackRoll",
+      resizable: false
+    },
+    actions: {
+      confirmAttack: AttackDialog.#onConfirmAttack
+    }
+  };
+
+  static PARTS = {
+    form: {
+      template: "systems/exalted2e/templates/dialog/attack-dialog.hbs"
+    }
+  };
+
+  constructor(options = {}, resolve) {
+    super(options);
+    this._resolve  = resolve;
+    this._resolved = false;
+    this._data     = {
+      pool:           options.pool           ?? 1,
+      stunt:          options.stunt          ?? 0,
+      moteType:       options.moteType       ?? "peripheral",
+      excellency:     options.excellency     ?? { first: false, second: false, third: false },
+      firstExcMax:    options.firstExcMax    ?? 0,
+      secondExcMax:   options.secondExcMax   ?? 0,
+      targetDodgeDV:  options.targetDodgeDV   ?? null,
+      targetParryDV:  options.targetParryDV  ?? null,
+      targetName:     options.targetName     ?? null,
+      hasTarget:      options.targetDodgeDV !== null && options.targetDodgeDV !== undefined,
+      targetBestDV:   (options.targetDodgeDV !== null && options.targetDodgeDV !== undefined)
+                        ? Math.max(options.targetDodgeDV, options.targetParryDV ?? 0)
+                        : null
+    };
+  }
+
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+    return {
+      ...context,
+      ...this._data,
+      stuntChoices: {
+        0: game.i18n.localize("EX2E.NoStunt"),
+        1: game.i18n.localize("EX2E.Stunt1"),
+        2: game.i18n.localize("EX2E.Stunt2"),
+        3: game.i18n.localize("EX2E.Stunt3")
+      },
+      moteTypeChoices: {
+        personal:   game.i18n.localize("EX2E.MotesPersonal"),
+        peripheral: game.i18n.localize("EX2E.MotesPeripheral")
+      }
+    };
+  }
+
+  _onRender(context, options) {
+    const el = this.element;
+    const firstExcInput  = el.querySelector("[name='firstExcDice']");
+    const secondExcInput = el.querySelector("[name='secondExcSucc']");
+    const thirdExcCheck  = el.querySelector("[name='useThirdExc']");
+    const totalCostEl    = el.querySelector(".exc-total-cost");
+
+    let currentFirstExcMax  = this._data.firstExcMax;
+    let currentSecondExcMax = this._data.secondExcMax;
+
+    const enforceExcCap = () => {
+      if (!firstExcInput || !secondExcInput) return;
+      const firstVal  = parseInt(firstExcInput.value)  || 0;
+      const secondVal = (parseInt(secondExcInput.value) || 0) * 2;
+      const secondAllowed = Math.min(currentSecondExcMax, Math.floor((currentFirstExcMax - firstVal) / 2));
+      const firstAllowed  = Math.min(currentFirstExcMax, currentFirstExcMax - secondVal);
+      secondExcInput.max = Math.max(0, secondAllowed);
+      firstExcInput.max  = Math.max(0, firstAllowed);
+      const firstMaxEl  = el.querySelector(".exc-first-max");
+      const secondMaxEl = el.querySelector(".exc-second-max");
+      if (firstMaxEl)  firstMaxEl.textContent  = Math.max(0, firstAllowed);
+      if (secondMaxEl) secondMaxEl.textContent = Math.max(0, secondAllowed);
+      if (firstVal > firstAllowed)  firstExcInput.value  = Math.max(0, firstAllowed);
+      if ((parseInt(secondExcInput.value) || 0) > secondAllowed) secondExcInput.value = Math.max(0, secondAllowed);
+    };
+
+    const updateTotal = () => {
+      enforceExcCap();
+      if (!totalCostEl) return;
+      const firstCost  = parseInt(firstExcInput?.value)  || 0;
+      const secondCost = (parseInt(secondExcInput?.value) || 0) * 2;
+      const thirdCost  = thirdExcCheck?.checked ? 4 : 0;
+      totalCostEl.textContent = firstCost + secondCost + thirdCost;
+    };
+
+    firstExcInput?.addEventListener("input", updateTotal);
+    secondExcInput?.addEventListener("input", updateTotal);
+    thirdExcCheck?.addEventListener("change", updateTotal);
+    updateTotal();
+  }
+
+  static #onConfirmAttack(event, target) {
+    const form = this.element.querySelector("form");
+    const fd   = new FormDataExtended(form);
+    const data = fd.object;
+
+    this._resolved = true;
+    this._resolve({
+      pool:          parseInt(data.pool)     || this._data.pool,
+      targetDV:      data.targetDV !== undefined ? (parseInt(data.targetDV) || 0) : (this._data.targetBestDV ?? 0),
+      stunt:         parseInt(data.stunt)    || 0,
+      moteType:      data.moteType           || "peripheral",
+      firstExcDice:  parseInt(data.firstExcDice)  || 0,
+      secondExcSucc: parseInt(data.secondExcSucc) || 0,
+      useThirdExc:   !!data.useThirdExc
+    });
+    this.close();
+  }
+
+  _onClose(options) {
+    if (!this._resolved) this._resolve(null);
+  }
+
+  static async prompt(options = {}) {
+    return new Promise(resolve => {
+      const dialog = new AttackDialog(options, resolve);
+      dialog.render({ force: true });
+    });
+  }
+}

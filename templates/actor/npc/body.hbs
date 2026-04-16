@@ -1,0 +1,138 @@
+<div class="sheet-body npc-body">
+
+  <!-- Combat Stats -->
+  <h2 class="section-header">{{localize "EX2E.Combat"}}</h2>
+  <div class="combat-stat-grid">
+    <div class="stat-item">
+      <span class="stat-label">{{localize "EX2E.JoinBattle"}}</span>
+      <button class="roll-btn" data-action="rollPool"
+              data-pool="{{system.combat.joinBattle}}" data-flavor="Join Battle">
+        {{system.combat.joinBattle}}⚄
+      </button>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">{{localize "EX2E.DodgeDV"}}</span>
+      <span class="stat-value">{{system.combat.dodgeDV}}</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">{{localize "EX2E.ParryDV"}}</span>
+      <span class="stat-value">{{system.combat.parryDV}}</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">{{localize "EX2E.Hardness"}}</span>
+      <span class="stat-value">{{system.combat.hardness}}</span>
+    </div>
+  </div>
+
+  <!-- Soak -->
+  <div class="soak-row">
+    <strong>{{localize "EX2E.Soak"}}:</strong>
+    B{{system.combat.soak.bashing}} / L{{system.combat.soak.lethal}} / A{{system.combat.soak.aggravated}}
+  </div>
+
+  <!-- Pools -->
+  <h2 class="section-header">{{localize "EX2E.DicePools"}}</h2>
+  <div class="combat-stat-grid">
+    <div class="stat-item">
+      <span class="stat-label">{{localize "EX2E.Combat"}}</span>
+      <button class="roll-btn" data-action="rollPool"
+              data-pool="{{system.pools.combat}}" data-flavor="Combat Roll">
+        {{system.pools.combat}}⚄
+      </button>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">{{localize "EX2E.SocialPool"}}</span>
+      <button class="roll-btn" data-action="rollPool"
+              data-pool="{{system.pools.social}}" data-flavor="Social Roll">
+        {{system.pools.social}}⚄
+      </button>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">{{localize "EX2E.PhysicalPool"}}</span>
+      <button class="roll-btn" data-action="rollPool"
+              data-pool="{{system.pools.physical}}" data-flavor="Physical Roll">
+        {{system.pools.physical}}⚄
+      </button>
+    </div>
+  </div>
+
+  {{#if isEditable}}
+  <!-- Edit combat stats directly -->
+  <details class="stat-edit-block">
+    <summary>Edit Stats</summary>
+    <div class="stat-edit-grid">
+      <div class="field-group"><label>{{localize "EX2E.JoinBattle"}}</label>
+        <input type="number" name="system.combat.joinBattle" value="{{system.combat.joinBattle}}" min="0" max="30"></div>
+      <div class="field-group"><label>{{localize "EX2E.DodgeDV"}}</label>
+        <input type="number" name="system.combat.dodgeDV"    value="{{system.combat.dodgeDV}}"    min="0" max="15"></div>
+      <div class="field-group"><label>{{localize "EX2E.ParryDV"}}</label>
+        <input type="number" name="system.combat.parryDV"    value="{{system.combat.parryDV}}"    min="0" max="15"></div>
+      <div class="field-group"><label>{{localize "EX2E.Hardness"}}</label>
+        <input type="number" name="system.combat.hardness"   value="{{system.combat.hardness}}"   min="0" max="20"></div>
+      <div class="field-group"><label>{{localize "EX2E.SoakBashing"}}</label>
+        <input type="number" name="system.combat.soak.bashing"    value="{{system.combat.soak.bashing}}"    min="0"></div>
+      <div class="field-group"><label>{{localize "EX2E.SoakLethal"}}</label>
+        <input type="number" name="system.combat.soak.lethal"     value="{{system.combat.soak.lethal}}"     min="0"></div>
+      <div class="field-group"><label>{{localize "EX2E.SoakAggravated"}}</label>
+        <input type="number" name="system.combat.soak.aggravated" value="{{system.combat.soak.aggravated}}"  min="0"></div>
+      <div class="field-group"><label>{{localize "EX2E.CombatPool"}}</label>
+        <input type="number" name="system.pools.combat"   value="{{system.pools.combat}}"  min="0"></div>
+      <div class="field-group"><label>{{localize "EX2E.SocialPool"}}</label>
+        <input type="number" name="system.pools.social"   value="{{system.pools.social}}"  min="0"></div>
+      <div class="field-group"><label>{{localize "EX2E.PhysicalPool"}}</label>
+        <input type="number" name="system.pools.physical" value="{{system.pools.physical}}" min="0"></div>
+    </div>
+  </details>
+  {{/if}}
+
+  <!-- Health Track -->
+  <h2 class="section-header">{{localize "EX2E.Health"}}</h2>
+  {{healthTrack health=system.health}}
+  <div class="health-info">
+    <span>Total Boxes:
+      {{#if isEditable}}
+      <input type="number" name="system.health.totalBoxes" value="{{system.health.totalBoxes}}" min="1" max="50" style="width:50px">
+      {{else}}{{system.health.totalBoxes}}{{/if}}
+    </span>
+  </div>
+  {{#if isEditable}}
+  <div class="damage-controls">
+    <button class="damage-btn bashing"    data-action="applyDamage" data-damage-type="bashing"    data-amount="1">+1B</button>
+    <button class="damage-btn lethal"     data-action="applyDamage" data-damage-type="lethal"     data-amount="1">+1L</button>
+    <button class="damage-btn aggravated" data-action="applyDamage" data-damage-type="aggravated" data-amount="1">+1A</button>
+    <button class="damage-btn heal"       data-action="healDamage"  data-amount="1">{{localize "EX2E.Heal"}} 1</button>
+  </div>
+  {{/if}}
+
+  <!-- Charms -->
+  <h2 class="section-header">{{localize "EX2E.CharmsPowers"}}</h2>
+  {{#if isEditable}}
+  <button class="btn-add-item" data-action="createItem" data-type="charm">+ {{localize "EX2E.AddCharm"}}</button>
+  {{/if}}
+  {{#each charms as |c|}}
+  <div class="item-row" data-item-id="{{c.id}}">
+    <img class="item-img" src="{{c.img}}" alt="{{c.name}}">
+    <span class="item-name">{{c.name}}</span>
+    <div class="item-controls">
+      <button data-action="sendItemToChat">💬</button>
+      {{#if ../isEditable}}
+      <button data-action="editItem">✏️</button>
+      <button data-action="deleteItem">🗑</button>
+      {{/if}}
+    </div>
+  </div>
+  {{/each}}
+
+  <!-- Notes -->
+  <h2 class="section-header">{{localize "EX2E.NotesPowers"}}</h2>
+  <div class="editor-container">
+    {{#if isEditable}}
+    <prose-mirror name="system.powers" data-document-uuid="{{actor.uuid}}" value="{{system.powers}}" collaborate="true" toggled="true">
+      {{{enrichedPowers}}}
+    </prose-mirror>
+    {{else}}
+    <div class="editor-content">{{{enrichedPowers}}}</div>
+    {{/if}}
+  </div>
+
+</div>

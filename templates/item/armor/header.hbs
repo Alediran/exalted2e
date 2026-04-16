@@ -1,0 +1,15 @@
+<div class="item-header armor-header">
+  <img class="item-portrait" src="{{item.img}}" alt="{{item.name}}"
+       data-action="editImage" {{#unless isEditable}}disabled{{/unless}}>
+  <div class="item-header-fields">
+    <input class="item-name-input" type="text" name="name" value="{{item.name}}"
+           {{#unless isEditable}}readonly{{/unless}}>
+    <div class="armor-stat-summary">
+      Soak B{{system.effectiveSoak.bashing}}/L{{system.effectiveSoak.lethal}}/A{{system.effectiveSoak.aggravated}}
+      · Hard {{system.effectiveHardness}} · Mob {{system.effectiveMobilityPenalty}} · Fat {{system.effectiveFatiguePenalty}}
+    </div>
+    {{#if system.artifact}}
+    <span class="keyword-tag">Artifact{{#if system.magicalMaterial}} · {{localize (lookup config.magicalMaterials system.magicalMaterial)}}{{/if}}</span>
+    {{/if}}
+  </div>
+</div>

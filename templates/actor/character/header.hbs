@@ -1,0 +1,107 @@
+<div class="character-header">
+  <!-- Portrait -->
+  <div class="portrait-frame">
+    <img class="actor-portrait" src="{{actor.img}}" alt="{{actor.name}}"
+         data-action="editImage" {{#unless isEditable}}disabled{{/unless}}>
+    <div class="anima-banner anima-{{system.anima}}"></div>
+  </div>
+
+  <!-- Name & Identity -->
+  <div class="header-fields">
+    <div class="identity-row">
+      <input class="actor-name" type="text" name="name" value="{{actor.name}}"
+             placeholder="Character Name" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+
+    <div class="identity-row">
+      <!-- Concept -->
+      <div class="field-group">
+        <label>{{localize "EX2E.Concept"}}</label>
+        <input type="text" name="system.concept" value="{{system.concept}}"
+               placeholder="Concept..." {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+      <!-- Exalt Type -->
+      <div class="field-group">
+        <label>{{localize "EX2E.ExaltType"}}</label>
+        <select name="system.exaltType" {{#unless isEditable}}disabled{{/unless}}>
+          {{#each exaltTypeChoices}}
+          <option value="{{this.value}}" {{#if (eq this.value ../system.exaltType)}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <!-- Caste -->
+      {{#if availableCastes.length}}
+      <div class="field-group">
+        <label>{{localize "EX2E.Caste"}}</label>
+        <select name="system.caste" {{#unless isEditable}}disabled{{/unless}}>
+          <option value="">—</option>
+          {{#each availableCastes}}
+          <option value="{{this.value}}" {{#if (eq this.value ../system.caste)}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+      </div>
+      {{/if}}
+      <!-- Motivation -->
+      <div class="field-group" style="flex:1">
+        <label>{{localize "EX2E.Motivation"}}</label>
+        <input type="text" name="system.motivation" value="{{system.motivation}}"
+               placeholder="Motivation..." {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+    </div>
+
+    <!-- Essence / Willpower / Motes row -->
+    <div class="essence-row">
+      <!-- Essence -->
+      <div class="field-group essence-group">
+        <label>{{localize "EX2E.EssencePermanent"}}</label>
+        <div class="essence-display">
+          {{dotRating name="system.essence.value" value=system.essence.value max=5 min=1}}
+        </div>
+      </div>
+      <!-- Willpower: permanent (dots) + temporal (boxes) -->
+      <div class="field-group willpower-group">
+        <label>{{localize "EX2E.Willpower"}}</label>
+        {{dotRating name="system.willpower.max" value=system.willpower.max max=10 min=system.willpower.minPermanent}}
+        {{boxRating name="system.willpower.value" value=system.willpower.value max=system.willpower.max total=10 min=0}}
+      </div>
+      <!-- Mote Pools -->
+      <div class="field-group mote-pools">
+        <div class="mote-pool-block">
+          <span class="pool-label">{{localize "EX2E.MotesPersonal"}}</span>
+          <input class="mote-value-input" type="number" data-pool="personal" data-field="value"
+                value="{{system.motes.personal.value}}" min="0" max="{{system.motes.personal.max}}"
+                {{#unless isEditable}}readonly{{/unless}}>
+          <span class="pool-sep">/</span>
+          <span class="pool-max">{{system.motes.personal.max}}</span>
+          {{#if system.motes.personal.committed}}
+          <span class="pool-committed">({{system.motes.personal.committed}} comm.)</span>
+          {{/if}}
+        </div>
+        <div class="mote-pool-block">
+          <span class="pool-label">{{localize "EX2E.MotesPeripheral"}}</span>
+          <input class="mote-value-input" type="number" data-pool="peripheral" data-field="value"
+                value="{{system.motes.peripheral.value}}" min="0" max="{{system.motes.peripheral.max}}"
+                {{#unless isEditable}}readonly{{/unless}}>
+          <span class="pool-sep">/</span>
+          <span class="pool-max">{{system.motes.peripheral.max}}</span>
+          {{#if system.motes.peripheral.committed}}
+          <span class="pool-committed">({{system.motes.peripheral.committed}} comm.)</span>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+   
+
+    <!-- Limit / Clarity Track (hidden for mortals) -->
+    {{#unless (eq system.exaltType "mortal")}}
+    <div class="limit-row">
+      {{#if (eq system.exaltType "alchemical")}}
+      <label>{{localize "EX2E.Clarity"}} {{system.limit.value}}/10</label>
+      {{else}}
+      <label>{{localize "EX2E.Limit"}} {{system.limit.value}}/10</label>
+      {{/if}}
+      {{limitTrack value=system.limit.value name="system.limit.value"}}
+    </div>
+    {{/unless}}
+  </div>
+</div>

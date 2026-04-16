@@ -1,0 +1,34 @@
+{{!-- Default abilities layout: 5 ability groups + specialties = 6 columns (two rows of three) --}}
+<h2 class="section-header">{{localize "EX2E.Abilities"}}</h2>
+<div class="ability-columns">
+  {{#each abilityGroups as |group|}}
+    <div class="ability-column {{#if group.isCurrentCaste}}ability-column--active{{/if}}">
+
+      <div class="ability-column-header">{{group.label}}</div>
+
+      {{#each group.abilities as |ab|}}
+        <div class="ability-row {{#if ab.caste}}caste-ability{{else if ab.favored}}favored-ability{{/if}}">
+
+          <button class="ability-flag ability-flag--{{#if ab.caste}}caste{{else if ab.favored}}favored{{else}}none{{/if}}"
+                  data-action="cycleAbilityFlag" data-ability="{{ab.key}}"
+                  title="{{#if ab.caste}}{{localize 'EX2E.AbilityCaste'}}{{else if ab.favored}}{{localize 'EX2E.AbilityFavored'}}{{else}}—{{/if}}"
+                  {{#unless @root.isEditable}}disabled{{/unless}}>
+          </button>
+
+          <div class="ability-info">
+            <div class="ability-top">          
+              <button class="ability-name" data-action="rollAbility" data-ability="{{ab.key}}"
+                      title="Roll {{ab.label}}">{{ab.label}}</button>
+            </div>
+            {{dotRating name=(concat ab.fieldBase ".value") value=ab.value max=5 min=0}}
+          </div>
+
+        </div>
+      {{/each}}
+
+    </div>
+  {{/each}}
+
+  {{!-- Specialties column --}}
+  {{> "systems/exalted2e/templates/actor/character/specialties-section.hbs"}}
+</div>

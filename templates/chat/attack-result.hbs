@@ -1,0 +1,66 @@
+<div class="ex2e-roll-card ex2e-attack-card"
+     data-actor-id="{{actorId}}" data-target-id="{{targetId}}"
+     data-damage-pool="{{rawDamagePool}}" data-damage-type="{{damageType}}"
+     data-overwhelming="{{overwhelming}}">
+  <div class="roll-header">
+    {{#if actorName}}<span class="roll-actor">{{actorName}}</span>{{/if}}
+    <span class="roll-flavor">{{weaponName}} — {{localize "EX2E.AttackRoll"}}</span>
+    {{#if moteCost}}<span class="roll-cost">−{{moteCost}}m ({{moteType}})</span>{{/if}}
+    {{#if stunt}}<span class="roll-stunt">{{stunt}}-die Stunt</span>{{/if}}
+  </div>
+
+  <div class="dice-results">
+    {{#each dice as |d|}}
+    <div class="die-result {{d.cls}}" title="{{#if (eq d.cls 'double-success')}}Double Success!{{else if (eq d.cls 'success')}}Success{{else if (eq d.cls 'one')}}One (−1){{else}}Miss{{/if}}">
+      {{d.face}}
+    </div>
+    {{/each}}
+  </div>
+
+  <div class="pool-summary">
+    {{pool}}d10 {{localize "EX2E.AttackRoll"}}
+    {{#if firstExcDice}} · +{{firstExcDice}} <abbr title="First Excellency">1st Exc.</abbr>{{/if}}
+    {{#if usedThirdExcellency}} · <abbr title="Third Excellency: failures rerolled">3rd Exc. ↺</abbr>{{/if}}
+  </div>
+
+  {{#if secondExcSuccesses}}
+  <div class="exc-bonus-row">+{{secondExcSuccesses}} <abbr title="Second Excellency">2nd Exc.</abbr></div>
+  {{/if}}
+
+  <div class="attack-resolution">
+    <div class="attack-vs">
+      <span>{{successes}} {{localize "EX2E.Successes"}} vs {{localize "EX2E.TargetDV"}} {{targetDV}}{{#if targetName}} ({{targetName}}){{/if}}</span>
+    </div>
+
+    {{#if hit}}
+    <div class="roll-result success">
+      <span class="result-label success-label">{{localize "EX2E.Hit"}} — {{threshold}} {{localize "EX2E.Threshold"}}</span>
+    </div>
+    <div class="damage-pool-info">
+      {{localize "EX2E.DamagePool"}}: {{threshold}} + {{weaponDamage}}{{damageTypeLabel}}
+      {{#if addStrength}} + {{strengthValue}} Str{{/if}}
+      = <strong>{{rawDamagePool}}d10</strong>
+    </div>
+
+    {{!-- Damage roll section: soak input + roll button --}}
+    <div class="damage-roll-section">
+      <div class="damage-soak-row">
+        <label>{{localize "EX2E.Soak"}}</label>
+        <label class="soak-input">{{targetSoak}}</label>
+      </div>
+      <button class="btn-roll btn-roll-damage">
+        <i class="fa-solid fa-burst"></i> {{localize "EX2E.RollDamage"}}
+      </button>
+    </div>
+
+    {{else if botch}}
+    <div class="roll-result botch">
+      <span class="result-label botch-label">Botch</span>
+    </div>
+    {{else}}
+    <div class="roll-result failure">
+      <span class="result-label failure-label">{{localize "EX2E.Miss"}}</span>
+    </div>
+    {{/if}}
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="item-header knack-header">
+  <img class="item-portrait" src="{{item.img}}" alt="{{item.name}}"
+       data-action="editImage" {{#unless isEditable}}disabled{{/unless}}>
+  <div class="item-header-fields">
+    <input class="item-name-input" type="text" name="name" value="{{item.name}}"
+           {{#unless isEditable}}readonly{{/unless}}>
+    <div class="charm-identity-row">
+      {{localize "EX2E.Knack"}}
+      {{#if system.keywords.length}}
+      · {{#each system.keywords as |kw|}}<span class="keyword-tag">{{kw}}</span> {{/each}}
+      {{/if}}
+    </div>
+  </div>
+</div>

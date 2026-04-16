@@ -1,0 +1,61 @@
+const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
+  const sheets = foundry.applications.sheets;
+  const api    = foundry.applications.api;
+  return { ItemSheetV2: sheets.ItemSheetV2, HandlebarsApplicationMixin: api.HandlebarsApplicationMixin };
+})();
+
+export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
+
+  static DEFAULT_OPTIONS = {
+    classes:  ["exalted2e", "item", "generic"],
+    position: { width: 440, height: 420 },
+    window: { resizable: true },
+    form: { submitOnChange: true, closeOnSubmit: false }
+  };
+
+  get title() {
+    return `${game.i18n.localize(this.item.name)}`;
+  }
+
+  static PARTS = {
+    header: { template: "systems/exalted2e/templates/item/generic/header.hbs" },
+    body:   { template: "systems/exalted2e/templates/item/generic/body.hbs" }
+  };
+
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+    const item    = this.document;
+    const sys     = item.system;
+
+    // Build type-specific choices
+    let typeChoices = {};
+    if (item.type === "intimacy") {
+      typeChoices = {
+        intimacyType: [
+          { value: "tie",       label: game.i18n.localize("EX2E.IntimacyTie") },
+          { value: "principle", label: game.i18n.localize("EX2E.IntimacyPrinciple") }
+        ],
+        intensity: [
+          { value: "minor",    label: game.i18n.localize("EX2E.IntensityMinor") },
+          { value: "major",    label: game.i18n.localize("EX2E.IntensityMajor") },
+          { value: "defining", label: game.i18n.localize("EX2E.IntensityDefining") }
+        ]
+      };
+    }
+    if (item.type === "meritflaw") {
+      typeChoices = {
+        meritFlawType: [
+          { value: "merit", label: game.i18n.localize("EX2E.MeritFlawMerit") },
+          { value: "flaw",  label: game.i18n.localize("EX2E.MeritFlawFlaw") }
+        ]
+      };
+    }
+
+    const enrichedDescription = await TextEditor.enrichHTML(sys.description, {
+      secrets: this.document.isOwner, relativeTo: this.document
+    });
+
+    const useIntimacyIntensity = game.settings.get("exalted2e", "useIntimacyIntensity");
+    return { ...context, item, system: sys, typeChoices, isEditable: this.isEditable, enrichedDescription, useIntimacyIntensity };
+  }
+}

@@ -1,0 +1,97 @@
+<div class="tab {{cssClass}}" data-tab="tabCharms" data-group="sheet">
+  <div class="sheet-body">
+
+    <div class="section-toolbar">
+      <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.TabCharms"}}</h2>
+      {{#if isEditable}}
+      <button class="btn-add-item" data-action="createItem" data-type="charm"
+              title="{{localize 'EX2E.AddCharm'}}">
+        <i class="fa-solid fa-plus"></i> {{localize "EX2E.AddCharm"}}
+      </button>
+      {{/if}}
+    </div>
+
+    {{#if charms.length}}
+    <div class="charms-list">
+      {{#each charms as |charm|}}
+      <div class="charm-row item-row {{#if charm.system.active}}charm-active{{/if}}"
+           data-item-id="{{charm.id}}">
+        <img class="item-img" src="{{charm.img}}" alt="{{charm.name}}">
+        <span class="item-name charm-name">
+          {{charm.name}}
+          <span class="charm-meta">
+            {{charm.system.cost.motes}}m
+            {{#if charm.system.cost.willpower}}+{{charm.system.cost.willpower}}wp{{/if}}
+            · {{charm.system.duration}}
+          </span>
+        </span>
+        <!-- Keywords -->
+        {{#if charm.system.keywords.length}}
+        <span class="charm-keywords">
+          {{#each charm.system.keywords as |kw|}}
+          <span class="keyword-tag">{{kw}}</span>
+          {{/each}}
+        </span>
+        {{/if}}
+        <div class="item-controls">
+          <button data-action="activateCharm" title="{{localize 'EX2E.ActivateCharm'}}">⚡</button>
+          <button data-action="sendItemToChat" title="{{localize 'EX2E.SendToChat'}}">💬</button>
+          {{#if ../isEditable}}
+          <button data-action="editItem"   title="Edit">✏️</button>
+          <button data-action="deleteItem" title="Delete">🗑</button>
+          {{/if}}
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    {{else}}
+    <p class="empty-msg">{{localize "EX2E.NoCharms"}}</p>
+    {{/if}}
+
+    {{!-- Knacks section (Lunar only) --}}
+    {{#if isLunar}}
+    <div class="section-toolbar" style="margin-top:16px">
+      <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Knacks"}}</h2>
+      {{#if isEditable}}
+      <button class="btn-add-item" data-action="createItem" data-type="knack"
+              title="{{localize 'EX2E.AddKnack'}}">
+        <i class="fa-solid fa-plus"></i> {{localize "EX2E.AddKnack"}}
+      </button>
+      {{/if}}
+    </div>
+
+    {{#if knacks.length}}
+    <div class="charms-list">
+      {{#each knacks as |knack|}}
+      <div class="charm-row item-row" data-item-id="{{knack.id}}">
+        <img class="item-img" src="{{knack.img}}" alt="{{knack.name}}">
+        <span class="item-name charm-name">
+          {{knack.name}}
+          <span class="charm-meta">
+            {{localize "EX2E.Essence"}} {{knack.system.essence}}
+          </span>
+        </span>
+        {{#if knack.system.keywords.length}}
+        <span class="charm-keywords">
+          {{#each knack.system.keywords as |kw|}}
+          <span class="keyword-tag">{{kw}}</span>
+          {{/each}}
+        </span>
+        {{/if}}
+        <div class="item-controls">
+          <button data-action="sendItemToChat" title="{{localize 'EX2E.SendToChat'}}">💬</button>
+          {{#if ../isEditable}}
+          <button data-action="editItem" title="Edit">✏️</button>
+          <button data-action="deleteItem" title="Delete">🗑</button>
+          {{/if}}
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    {{else}}
+    <p class="empty-msg">{{localize "EX2E.NoKnacks"}}</p>
+    {{/if}}
+    {{/if}}
+
+  </div>
+</div>

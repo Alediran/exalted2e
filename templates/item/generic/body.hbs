@@ -1,0 +1,62 @@
+<div class="sheet-body generic-body">
+
+  {{#if (eq item.type "background")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.Rating"}}</label>
+    {{dotRating name="system.value" value=system.value max=5 min=0}}
+  </div>
+  <div class="field-group" style="margin-top:8px">
+    <label>{{localize "EX2E.Notes"}}</label>
+    <input type="text" name="system.notes" value="{{system.notes}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  {{/if}}
+
+  {{#if (eq item.type "intimacy")}}
+  {{#if useIntimacyIntensity}}
+  <div class="field-group">
+    <label>{{localize "EX2E.Type"}}</label>
+    <select name="system.intimacyType" {{#unless isEditable}}disabled{{/unless}}>
+      {{#each typeChoices.intimacyType}}
+      <option value="{{this.value}}" {{#if (eq this.value ../system.intimacyType)}}selected{{/if}}>{{this.label}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Intensity"}}</label>
+    <select name="system.intensity" {{#unless isEditable}}disabled{{/unless}}>
+      {{#each typeChoices.intensity}}
+      <option value="{{this.value}}" {{#if (eq this.value ../system.intensity)}}selected{{/if}}>{{this.label}}</option>
+      {{/each}}
+    </select>
+  </div>
+  {{/if}}
+  {{/if}}
+
+  {{#if (eq item.type "meritflaw")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.MeritOrFlaw"}}</label>
+    <select name="system.meritFlawType" {{#unless isEditable}}disabled{{/unless}}>
+      {{#each typeChoices.meritFlawType}}
+      <option value="{{this.value}}" {{#if (eq this.value ../system.meritFlawType)}}selected{{/if}}>{{this.label}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Rating"}}</label>
+    {{dotRating name="system.value" value=system.value max=5 min=1}}
+  </div>
+  {{/if}}
+
+  <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
+  <div class="editor-container">
+    {{#if isEditable}}
+    <prose-mirror name="system.description" data-document-uuid="{{item.uuid}}" value="{{system.description}}" collaborate="true" toggled="true">
+      {{{enrichedDescription}}}
+    </prose-mirror>
+    {{else}}
+    <div class="editor-content">{{{enrichedDescription}}}</div>
+    {{/if}}
+  </div>
+
+</div>

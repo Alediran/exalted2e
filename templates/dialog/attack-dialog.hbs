@@ -1,0 +1,76 @@
+<form class="ex2e-roll-dialog" autocomplete="off">
+  <div class="dialog-content">
+
+    <input type="hidden" name="pool" value="{{pool}}">
+
+    <div class="field-group">
+      <label>{{localize "EX2E.AttackPool"}}</label>
+      <span class="pool-display">{{pool}}d10 {{#if hasTarget}}vs {{localize "EX2E.DodgeDV"}} {{targetDodgeDV}} / {{localize "EX2E.ParryDV"}} {{targetParryDV}}{{/if}}</span>
+    </div>
+
+    {{#unless hasTarget}}
+    <div class="field-group">
+      <label>{{localize "EX2E.TargetDV"}}</label>
+      <input type="number" name="targetDV" value="0" min="0" max="30" autofocus>
+    </div>
+    {{/unless}}
+
+    <div class="field-group">
+      <label>{{localize "EX2E.StuntBonus"}}</label>
+      <select name="stunt">
+        {{#each stuntChoices as |label value|}}
+        <option value="{{@key}}" {{#if (eq @key ../stunt)}}selected{{/if}}>{{this}}</option>
+        {{/each}}
+      </select>
+    </div>
+
+    {{#if excellency.first}}
+    <div class="field-group excellency-section exc-first-section">
+      <label>{{localize "EX2E.FirstExcellency"}} <span class="exc-cost-tag">1m/{{localize "EX2E.Die"}}</span></label>
+      <div class="exc-input-row">
+        <input type="number" name="firstExcDice" value="0" min="0" max="{{firstExcMax}}" class="exc-input">
+        <span class="exc-limit">/ <span class="exc-first-max">{{firstExcMax}}</span></span>
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if excellency.second}}
+    <div class="field-group excellency-section exc-second-section">
+      <label>{{localize "EX2E.SecondExcellency"}} <span class="exc-cost-tag">2m/{{localize "EX2E.Success"}}</span></label>
+      <div class="exc-input-row">
+        <input type="number" name="secondExcSucc" value="0" min="0" max="{{secondExcMax}}" class="exc-input">
+        <span class="exc-limit">/ <span class="exc-second-max">{{secondExcMax}}</span></span>
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if excellency.third}}
+    <div class="field-group excellency-section exc-third-section">
+      <label>{{localize "EX2E.ThirdExcellency"}} <span class="exc-cost-tag">4m</span></label>
+      <label class="exc-checkbox-label">
+        <input type="checkbox" name="useThirdExc"> {{localize "EX2E.RerollFailures"}}
+      </label>
+    </div>
+    {{/if}}
+
+    <div class="field-group">
+      <label>{{localize "EX2E.MoteType"}}</label>
+      <select name="moteType">
+        {{#each moteTypeChoices as |label value|}}
+        <option value="{{@key}}" {{#if (eq @key ../moteType)}}selected{{/if}}>{{this}}</option>
+        {{/each}}
+      </select>
+    </div>
+
+    <div class="field-group exc-total-row">
+      <span class="exc-total-label">{{localize "EX2E.TotalMoteCost"}}</span>
+      <span class="exc-total-cost">0</span>m
+    </div>
+
+  </div>
+  <footer class="form-footer">
+    <button type="button" class="btn-roll" data-action="confirmAttack">
+      <i class="fa-solid fa-crosshairs"></i> {{localize "EX2E.Attack"}}
+    </button>
+  </footer>
+</form>

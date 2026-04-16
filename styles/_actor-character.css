@@ -1,0 +1,492 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Per-Exalt-Type Color Themes
+   Each block redefines the gold palette CSS variables on the sheet root so
+   that every child element (dots, tabs, headers, borders, glows) inherits
+   the right accent colour automatically.  Backgrounds are always black.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── SOLAR ── Gold (already the :root defaults; restated for clarity) ───── */
+.exalted2e.actor.character[data-exalt-type="solar"] {
+  --ex2e-gold-bright:  #ffe066;
+  --ex2e-gold-main:    #c9a227;
+  --ex2e-gold-mid:     #a07820;
+  --ex2e-gold-dark:    #5c4510;
+  --ex2e-gold-shadow:  rgba(92, 69, 16, 0.4);
+  --ex2e-glow-gold:    0 0 8px rgba(201, 162, 39, 0.55);
+  --ex2e-solar-color:  #f0a500;
+  --ex2e-bg-hover:     rgba(201, 162, 39, 0.06);
+  --ex2e-border-color: rgba(92, 69, 16, 0.6);
+}
+
+/* ── LUNAR ── Silver-blue ─────────────────────────────────────────────────── */
+.exalted2e.actor.character[data-exalt-type="lunar"] {
+  --ex2e-gold-bright:  #d8eaf8;
+  --ex2e-gold-main:    #8aaac8;
+  --ex2e-gold-mid:     #5a7a9a;
+  --ex2e-gold-dark:    #2a3a50;
+  --ex2e-gold-shadow:  rgba(42, 58, 80, 0.4);
+  --ex2e-glow-gold:    0 0 8px rgba(138, 170, 200, 0.55);
+  --ex2e-solar-color:  #8aaac8;
+  --ex2e-bg-hover:     rgba(138, 170, 200, 0.06);
+  --ex2e-border-color: rgba(42, 58, 80, 0.6);
+}
+
+/* ── TERRESTRIAL ── Jade green ──────────────────────────────────────────── */
+.exalted2e.actor.character[data-exalt-type="terrestrial"] {
+  --ex2e-gold-bright:  #a8ddb8;
+  --ex2e-gold-main:    #4a9068;
+  --ex2e-gold-mid:     #327050;
+  --ex2e-gold-dark:    #1a3e28;
+  --ex2e-gold-shadow:  rgba(26, 62, 40, 0.4);
+  --ex2e-glow-gold:    0 0 8px rgba(74, 144, 104, 0.55);
+  --ex2e-solar-color:  #4a9068;
+  --ex2e-bg-hover:     rgba(74, 144, 104, 0.06);
+  --ex2e-border-color: rgba(26, 62, 40, 0.6);
+}
+
+/* ── ABYSSAL ── Deep crimson ────────────────────────────────────────────── */
+.exalted2e.actor.character[data-exalt-type="abyssal"] {
+  --ex2e-gold-bright:  #e87070;
+  --ex2e-gold-main:    #a01818;
+  --ex2e-gold-mid:     #780f0f;
+  --ex2e-gold-dark:    #3a0505;
+  --ex2e-gold-shadow:  rgba(58, 5, 5, 0.4);
+  --ex2e-glow-gold:    0 0 8px rgba(160, 24, 24, 0.6);
+  --ex2e-solar-color:  #a01818;
+  --ex2e-bg-hover:     rgba(160, 24, 24, 0.06);
+  --ex2e-border-color: rgba(58, 5, 5, 0.6);
+}
+
+/* ── INFERNAL ── Viridian / poison green ───────────────────────────────── */
+.exalted2e.actor.character[data-exalt-type="infernal"] {
+  --ex2e-gold-bright:  #90d870;
+  --ex2e-gold-main:    #4a8030;
+  --ex2e-gold-mid:     #326020;
+  --ex2e-gold-dark:    #182e10;
+  --ex2e-gold-shadow:  rgba(24, 46, 16, 0.4);
+  --ex2e-glow-gold:    0 0 8px rgba(74, 128, 48, 0.6);
+  --ex2e-solar-color:  #4a8030;
+  --ex2e-bg-hover:     rgba(74, 128, 48, 0.06);
+  --ex2e-border-color: rgba(24, 46, 16, 0.6);
+}
+
+/* ── MORTAL ── Warm grey ────────────────────────────────────────────────── */
+.exalted2e.actor.character[data-exalt-type="mortal"] {
+  --ex2e-gold-bright:  #c8bca8;
+  --ex2e-gold-main:    #887868;
+  --ex2e-gold-mid:     #685848;
+  --ex2e-gold-dark:    #302820;
+  --ex2e-gold-shadow:  rgba(48, 40, 32, 0.4);
+  --ex2e-glow-gold:    0 0 8px rgba(136, 120, 104, 0.4);
+  --ex2e-solar-color:  #887868;
+  --ex2e-bg-hover:     rgba(136, 120, 104, 0.06);
+  --ex2e-border-color: rgba(48, 40, 32, 0.6);
+}
+
+/* ── SIDEREAL — per caste ──────────────────────────────────────────────── */
+
+/* Journeys — amber / road-dust orange */
+.exalted2e.actor.character[data-exalt-type="sidereal"][data-caste="journeys"] {
+  --ex2e-gold-bright:  #f8c060;
+  --ex2e-gold-main:    #c87820;
+  --ex2e-gold-mid:     #a05810;
+  --ex2e-gold-dark:    #4a2808;
+  --ex2e-gold-shadow:  rgba(74, 40, 8, 0.4);
+  --ex2e-glow-gold:    0 0 8px rgba(200, 120, 32, 0.55);
+  --ex2e-solar-color:  #c87820;
+  --ex2e-bg-hover:     rgba(200, 120, 32, 0.06);
+  --ex2e-border-color: rgba(74, 40, 8, 0.6);
+}
+
+/* Serenity — azure */
+.exalted2e.actor.character[data-exalt-type="sidereal"][data-caste="serenity"] {
+  --ex2e-gold-bright:  #80d4f8;
+  --ex2e-gold-main:    #1090c8;
+  --ex2e-gold-mid:     #006090;
+  --ex2e-gold-dark:    #003050;
+  --ex2e-gold-shadow:  rgba(0, 48, 80, 0.4);
+  --ex2e-glow-gold:    0 0 8px rgba(16, 144, 200, 0.55);
+  --ex2e-solar-color:  #1090c8;
+  --ex2e-bg-hover:     rgba(16, 144, 200, 0.06);
+  --ex2e-border-color: rgba(0, 48, 80, 0.6);
+}
+
+/* Battles — war crimson */
+.exalted2e.actor.character[data-exalt-type="sidereal"][data-caste="battles"] {
+  --ex2e-gold-bright:  #f08080;
+  --ex2e-gold-main:    #c02828;
+  --ex2e-gold-mid:     #901818;
+  --ex2e-gold-dark:    #480808;
+  --ex2e-gold-shadow:  rgba(72, 8, 8, 0.4);
+  --ex2e-glow-gold:    0 0 8px rgba(192, 40, 40, 0.6);
+  --ex2e-solar-color:  #c02828;
+  --ex2e-bg-hover:     rgba(192, 40, 40, 0.06);
+  --ex2e-border-color: rgba(72, 8, 8, 0.6);
+}
+
+/* Secrets — green */
+.exalted2e.actor.character[data-exalt-type="sidereal"][data-caste="secrets"] {
+  --ex2e-gold-bright:  #80e090;
+  --ex2e-gold-main:    #30a848;
+  --ex2e-gold-mid:     #1a7030;
+  --ex2e-gold-dark:    #0a3818;
+  --ex2e-gold-shadow:  rgba(10, 56, 24, 0.4);
+  --ex2e-glow-gold:    0 0 8px rgba(48, 168, 72, 0.55);
+  --ex2e-solar-color:  #30a848;
+  --ex2e-bg-hover:     rgba(48, 168, 72, 0.06);
+  --ex2e-border-color: rgba(10, 56, 24, 0.6);
+}
+
+/* Endings — violet */
+.exalted2e.actor.character[data-exalt-type="sidereal"][data-caste="endings"] {
+  --ex2e-gold-bright:  #d090f0;
+  --ex2e-gold-main:    #8030c0;
+  --ex2e-gold-mid:     #5a1890;
+  --ex2e-gold-dark:    #280858;
+  --ex2e-gold-shadow:  rgba(40, 8, 88, 0.4);
+  --ex2e-glow-gold:    0 0 8px rgba(128, 48, 192, 0.55);
+  --ex2e-solar-color:  #8030c0;
+  --ex2e-bg-hover:     rgba(128, 48, 192, 0.06);
+  --ex2e-border-color: rgba(40, 8, 88, 0.6);
+}
+
+/* ── Sidereal fallback (no caste yet chosen) — cool silver-white ───────── */
+.exalted2e.actor.character[data-exalt-type="sidereal"] {
+  --ex2e-gold-bright:  #e0e8f0;
+  --ex2e-gold-main:    #9090b0;
+  --ex2e-gold-mid:     #686890;
+  --ex2e-gold-dark:    #282840;
+  --ex2e-gold-shadow:  rgba(40, 40, 64, 0.4);
+  --ex2e-glow-gold:    0 0 8px rgba(144, 144, 176, 0.5);
+  --ex2e-solar-color:  #9090b0;
+  --ex2e-bg-hover:     rgba(144, 144, 176, 0.06);
+  --ex2e-border-color: rgba(40, 40, 64, 0.6);
+}
+/* Caste-specific rules above are more specific and override the fallback. */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Ability Flag Button  (single tri-state: none / favored / caste)
+
+   NOTE: All selectors are prefixed with .exalted2e so they have specificity
+   (0,2,0) = 20 and beat the base reset ".exalted2e button" at (0,1,1) = 11.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.exalted2e .ability-flag {
+  display:       inline-block;
+  width:         14px;
+  height:        14px;
+  min-width:     14px;   /* prevent flex from crushing it */
+  min-height:    14px;
+  max-height:    14px;
+  border-radius: 50%;
+  border:        1.5px solid var(--ex2e-gold-dark);
+  background:    #1a1a1a;  /* slightly lighter than pure black so it's visible */
+  cursor:        pointer;
+  flex-shrink:   0;
+  padding:       0;
+  box-sizing:    border-box;
+  transition:    background var(--ex2e-transition-fast),
+                 border-color var(--ex2e-transition-fast),
+                 box-shadow var(--ex2e-transition-fast),
+                 transform var(--ex2e-transition-fast);
+}
+
+.exalted2e .ability-flag:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+/* none state — visible dim ring */
+.exalted2e .ability-flag.ability-flag--none {
+  background:   #1a1a1a;
+  border-color: var(--ex2e-gold-dark);
+}
+.exalted2e .ability-flag.ability-flag--none:not(:disabled):hover {
+  border-color: var(--ex2e-gold-main);
+  background:   #2a2a2a;
+}
+
+/* favored state — filled circle in theme mid-colour */
+.exalted2e .ability-flag.ability-flag--favored {
+  background:   var(--ex2e-gold-mid);
+  border-color: var(--ex2e-gold-main);
+  box-shadow:   0 0 5px rgba(0,0,0,0.5);
+}
+.exalted2e .ability-flag.ability-flag--favored:not(:disabled):hover {
+  box-shadow: var(--ex2e-glow-gold);
+  transform:  scale(1.15);
+}
+
+/* caste state — bright rotated diamond */
+.exalted2e .ability-flag.ability-flag--caste {
+  background:    var(--ex2e-gold-main);
+  border-color:  var(--ex2e-gold-bright);
+  border-radius: 3px;
+  transform:     rotate(45deg);
+  box-shadow:    var(--ex2e-glow-gold);
+}
+.exalted2e .ability-flag.ability-flag--caste:not(:disabled):hover {
+  background: var(--ex2e-gold-bright);
+  transform:  rotate(45deg) scale(1.2);
+}
+
+/* Ability name coloring inherits theme */
+.caste-ability .ability-name  {
+  color:       var(--ex2e-gold-bright);
+  font-weight: 600;
+}
+.favored-ability .ability-name {
+  color: var(--ex2e-gold-main);
+}
+
+/* ── Essence dots use theme solar-color ─────────────────────────────────── */
+.exalted2e.actor.character .essence-group .dot-rating .dot.filled {
+  background:   var(--ex2e-solar-color);
+  border-color: var(--ex2e-gold-bright);
+  box-shadow:   0 0 6px color-mix(in srgb, var(--ex2e-solar-color) 60%, transparent);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Ability Columns Layout
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.ability-columns {
+  display:        flex;
+  flex-direction: row;
+  flex-wrap:      wrap;
+  gap:            var(--ex2e-gap-sm);
+  align-items:    start;
+  margin-bottom:  var(--ex2e-gap-lg);
+}
+
+/* Ability column stack */
+.ability-stack {
+  display: flex;
+  flex-direction: column; /* Stacks its children vertically */
+  gap: 6px;
+}
+
+/* Individual column */
+.ability-column {
+  flex:           1 1 calc(33.333% - var(--ex2e-gap-sm));
+  min-width:      0;
+  display:        flex;
+  flex-direction: column;
+  gap:            1px;
+  padding:        var(--ex2e-gap-sm);
+  background:     var(--ex2e-bg-panel);
+  border:         1px solid var(--ex2e-border-color);
+  border-radius:  var(--ex2e-border-radius);
+}
+
+/* Active-caste column: highlighted border + faint glow */
+.ability-column--active {
+  border-color: var(--ex2e-gold-main);
+  box-shadow:   inset 0 0 12px rgba(0,0,0,0.3), 0 0 6px color-mix(in srgb, var(--ex2e-gold-main) 30%, transparent);
+}
+
+/* Column header */
+.ability-column-header {
+  font-family:     var(--ex2e-font-title);
+  font-size:       var(--ex2e-font-size-base);
+  color:           var(--ex2e-gold-main);
+  text-transform:  uppercase;
+  letter-spacing:  0.1em;
+  border-bottom:   1px solid var(--ex2e-gold-dark);
+  padding-bottom:  4px;
+  margin-bottom:   var(--ex2e-gap-xs);
+  text-align:      center;
+  height:          20px;
+}
+.ability-column--active .ability-column-header {
+  color:       var(--ex2e-gold-bright);
+  text-shadow: var(--ex2e-glow-gold);
+}
+
+/* Ability row inside a column: compact horizontal layout */
+.ability-column .ability-row {
+  display:       flex;
+  gap:           4px;
+  padding:       3px 2px;
+  border-radius: var(--ex2e-border-radius);
+  border-bottom: none;
+  transition:    background var(--ex2e-transition-fast);
+}
+.ability-column .ability-row:hover { background: var(--ex2e-bg-hover); }
+
+/* ability-info: name + dots stacked */
+.ability-info {
+  display:        flex;
+  flex-direction: row;
+  gap:            2px;
+  flex:           1;
+  min-width:      0;
+}
+
+.ability-top {
+  min-width: 100px;
+}
+
+.ability-column .ability-name {
+  flex:          1;
+  font-family:   var(--ex2e-font-body);
+  font-size:     var(--ex2e-font-size-base);
+  color:         var(--ex2e-text-primary);
+  white-space:   nowrap;
+  overflow:      hidden;
+  text-overflow: ellipsis;
+  min-width:     0;
+  line-height:   1.2;
+}
+
+.ability-column .ability-name:hover {
+  color:        var(--ex2e-gold-main);
+}
+
+/* Caste/favored colouring inside columns */
+.ability-column .caste-ability .ability-name  { color: var(--ex2e-gold-bright); font-weight: 600; }
+.ability-column .favored-ability .ability-name { color: var(--ex2e-gold-main); }
+
+/* Dots are smaller inside columns */
+.ability-column .dot-rating .dot {
+  width:  11px;
+  height: 11px;
+}
+
+/* Roll button smaller inside columns */
+.ability-column .roll-btn {
+  width:    18px;
+  height:   18px;
+  font-size: 9px;
+  flex-shrink: 0;
+}
+
+/* Specialties inside columns */
+.specialty-list {
+  display:        flex;
+  flex-direction: column;
+  gap:            2px;
+  padding-left:   2px;
+}
+
+.specialty-row {
+  display:     flex;
+  align-items: center;
+  gap:         3px;
+}
+
+.specialty-text {
+  font-size:  var(--ex2e-font-size-xs);
+  font-style: italic;
+  color:      var(--ex2e-text-muted);
+}
+
+/* Add-specialty button inside columns */
+.ability-column .btn-add-specialty {
+  font-size:   var(--ex2e-font-size-xs);
+  color:       var(--ex2e-text-muted);
+  padding:     0 2px;
+  margin-left: auto;
+  border: none;
+  background: none;
+}
+.ability-column .btn-add-specialty:hover { color: var(--ex2e-success); }
+
+
+.ability-column .btn-remove-specialty {
+  font-size: var(--ex2e-font-size-xs);
+  color:     var(--ex2e-text-muted);
+  padding:   0 2px;
+}
+.ability-column .btn-remove-specialty:hover { color: var(--ex2e-dmg-lethal); }
+
+/* Specialty inputs in columns */
+.ability-column .specialty-name {
+  font-size:  var(--ex2e-font-size-xs) !important;
+  padding:    1px 3px !important;
+  width:      80px;
+}
+
+
+/* ── Specialty column (inside .ability-columns) ───────────────────────────── */
+
+/* Specialty section inlined inside an ability column (four-column layout) */
+.specialty-column-section {
+  margin-top:   var(--ex2e-gap-md);
+  padding-top:  var(--ex2e-gap-sm);
+  border-top:   1px solid var(--ex2e-gold-dark);
+}
+
+.specialty-column .ability-column-header {
+  display: flex;
+  align-items: center;
+}
+
+/* Cap specialty column height and scroll when content overflows */
+.specialty-ability-groups {
+  min-height: 174px;
+  max-height: 174px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Four-column layout (Lunar/Alchemical): different height for specialties */
+.ability-columns--four .specialty-ability-groups {
+  min-height: 130px;
+  max-height: 130px;
+}
+
+.specialty-column .specialty-ability-group,
+.specialty-column-section .specialty-ability-group {
+  margin-bottom: 0px;
+}
+
+.specialty-column .specialty-ability-label,
+.specialty-column-section .specialty-ability-label {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  color:          var(--ex2e-gold-main);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top:     var(--ex2e-gap-xs);
+}
+
+.specialty-column .specialty-row,
+.specialty-column-section .specialty-row {
+  display:     flex;
+  align-items: center;
+  gap:         4px;
+  padding:     1px 0;
+}
+
+.specialty-column .specialty-text,
+.specialty-column-section .specialty-text {
+  font-size: var(--ex2e-font-size-sm);
+  color:     var(--ex2e-text-primary);
+}
+
+.specialty-column .specialty-name,
+.specialty-column-section .specialty-name {
+  font-size: var(--ex2e-font-size-xs) !important;
+  padding:   1px 3px !important;
+  width:     80px;
+}
+
+/* Specialty dot ratings are smaller to fit in the compact row */
+.specialty-column .dot-rating .dot,
+.specialty-column-section .dot-rating .dot {
+  width:  9px;
+  height: 9px;
+}
+
+/* ── Incapacitated pulse ─────────────────────────────────────────────────── */
+.health-box.incapacitated {
+  background:   rgba(192, 57, 43, 0.3);
+  border-color: var(--ex2e-dmg-lethal);
+  animation:    incapPulse 2s ease-in-out infinite;
+}
+
+@keyframes incapPulse {
+  0%,100% { box-shadow: none; }
+  50%     { box-shadow: 0 0 8px rgba(192, 57, 43, 0.6); }
+}

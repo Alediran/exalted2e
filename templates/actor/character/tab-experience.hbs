@@ -1,0 +1,38 @@
+<div class="tab {{cssClass}}" data-tab="tabExperience" data-group="sheet">
+  <div class="sheet-body">
+
+    <h2 class="section-header">{{localize "EX2E.Experience"}}</h2>
+    <div class="xp-tracker">
+      <div class="field-group">
+        <label>{{localize "EX2E.CurrentXP"}}</label>
+        <input type="number" name="system.experience.value"
+               value="{{system.experience.value}}" min="0"
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.TotalXPEarned"}}</label>
+        <input type="number" name="system.experience.total"
+               value="{{system.experience.total}}" min="0"
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+    </div>
+
+    <!-- XP Cost Reference Table -->
+    <h2 class="section-header" style="margin-top:20px">{{localize "EX2E.XPCosts"}}</h2>
+    <table class="xp-table">
+      <thead><tr><th>Trait</th><th>Caste/Favoured</th><th>Other</th></tr></thead>
+      <tbody>
+        <tr><td>Attribute</td><td>4×new rating</td><td>4×new rating</td></tr>
+        <tr><td>Ability</td><td>1×new rating</td><td>2×new rating</td></tr>
+        <tr><td>Speciality</td><td>1</td><td>2</td></tr>
+        <tr><td>Charm</td><td>8</td><td>10</td></tr>
+        <tr><td>Virtue</td><td colspan="2">3×new rating</td></tr>
+        <tr><td>Willpower</td><td colspan="2">2×new rating</td></tr>
+        <tr><td>Essence</td><td colspan="2">7×new rating</td></tr>
+        <tr><td>Background</td><td colspan="2">3×new rating</td></tr>
+        <tr><td>Spell</td><td>8 (terrestrial) / 10 (celestial) / 12 (solar)</td><td>same</td></tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

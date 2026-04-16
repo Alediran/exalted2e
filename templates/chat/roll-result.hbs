@@ -1,0 +1,32 @@
+<div class="ex2e-roll-card">
+  <div class="roll-header">
+    {{#if actorName}}<span class="roll-actor">{{actorName}}</span>{{/if}}
+    {{#if flavor}}<span class="roll-flavor">{{flavor}}</span>{{/if}}
+    {{#if moteCost}}<span class="roll-cost">−{{moteCost}}m ({{moteType}})</span>{{/if}}
+    {{#if stunt}}<span class="roll-stunt">{{stunt}}-die Stunt</span>{{/if}}
+  </div>
+
+  <div class="dice-results">
+    {{#each dice as |d|}}
+    <div class="die-result {{d.cls}}" title="{{#if (eq d.cls 'double-success')}}Double Success!{{else if (eq d.cls 'success')}}Success{{else if (eq d.cls 'one')}}One (−1){{else}}Miss{{/if}}">
+      {{d.face}}
+    </div>
+    {{/each}}
+  </div>
+
+  <div class="pool-summary">
+    {{pool}}d10 rolled
+    {{#if ones}} · {{ones}} one{{#if (gt ones 1)}}s{{/if}}{{/if}}
+    {{#if specialty}} · <abbr title="Specialty: {{specialty.name}}">{{specialty.name}}</abbr> (+{{specialty.value}}){{/if}}
+    {{#if firstExcDice}} · +{{firstExcDice}} <abbr title="First Excellency">1st Exc.</abbr>{{/if}}
+    {{#if usedThirdExcellency}} · <abbr title="Third Excellency: failures rerolled">3rd Exc. ↺</abbr>{{/if}}
+  </div>
+
+  {{#if secondExcSuccesses}}
+  <div class="exc-bonus-row">+{{secondExcSuccesses}} <abbr title="Second Excellency">2nd Exc.</abbr></div>
+  {{/if}}
+
+  <div class="roll-result {{resultClass}}">
+    <span class="result-label {{resultClass}}-label">{{resultLabel}}</span>
+  </div>
+</div>

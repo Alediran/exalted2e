@@ -1,0 +1,25 @@
+{{!-- Shared specialties content: header + grouped specialty rows --}}
+<div class="ability-column specialty-column">
+  <div class="ability-column-header">
+    {{localize "EX2E.Specialties"}}
+    {{#if @root.isEditable}}
+      <button class="btn-add-specialty" data-action="addSpecialty" title="{{localize 'EX2E.AddSpecialty'}}">+</button>
+    {{/if}}
+  </div>
+  <div class="specialty-ability-groups">
+    {{#each @root.specialtiesSection as |ab|}}
+      <div class="specialty-ability-group">
+        {{#each ab.specialties as |spec|}}
+          <div class="specialty-row">
+            <div class="specialty-ability-label">{{ab.label}} ({{spec.name}})</div>
+            {{dotRating name=(concat ab.fieldBase ".specialties." @index ".value") value=spec.value max=3 min=1}}
+            {{#if @root.isEditable}}
+              <button class="btn-remove-specialty" data-action="removeSpecialty"
+                      data-ability="{{ab.key}}" data-index="{{@index}}" title="Remove">✕</button>
+            {{/if}}
+          </div>
+        {{/each}}
+      </div>
+    {{/each}}
+  </div>
+</div>

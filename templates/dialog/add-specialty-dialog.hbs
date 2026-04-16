@@ -1,0 +1,24 @@
+<form class="ex2e-add-specialty-dialog" autocomplete="off">
+  <div class="dialog-content">
+
+    <div class="field-group">
+      <label>{{localize "EX2E.Ability"}}</label>
+      <select name="ability">
+        {{#each abilities as |ab|}}
+        <option value="{{ab.value}}">{{ab.label}}</option>
+        {{/each}}
+      </select>
+    </div>
+
+    <div class="field-group">
+      <label>{{localize "EX2E.SpecialtyName"}}</label>
+      <input type="text" name="specialtyName" placeholder="{{localize 'EX2E.SpecialtyName'}}..." autofocus>
+    </div>
+
+  </div>
+  <footer class="form-footer">
+    <button type="button" class="btn-roll" data-action="confirmAdd">
+      <i class="fa-solid fa-plus"></i> {{localize "EX2E.AddSpecialty"}}
+    </button>
+  </footer>
+</form>

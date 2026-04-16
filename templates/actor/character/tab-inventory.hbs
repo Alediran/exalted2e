@@ -1,0 +1,135 @@
+<div class="tab {{cssClass}}" data-tab="tabInventory" data-group="sheet">
+  <div class="sheet-body">
+
+    <!-- ═══════ WEAPONS ═══════ -->
+    <div class="section-toolbar">
+      <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Weapons"}}</h2>
+      {{#if isEditable}}
+      <button class="btn-add-item" data-action="createItem" data-type="weapon">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      {{/if}}
+    </div>
+    {{#each weapons as |w|}}
+    <div class="item-row" data-item-id="{{w.id}}">
+      <img class="item-img" src="{{w.img}}" alt="{{w.name}}">
+      <span class="item-name">{{w.name}}</span>
+      <span class="item-stat">Spd {{w.system.effectiveSpeed}}</span>
+      <span class="item-stat">Acc {{w.system.accuracyLabel}}</span>
+      <span class="item-stat">Dmg {{w.system.damageLabel}}</span>
+      <span class="item-stat">Def {{w.system.defenseLabel}}</span>
+      <span class="item-stat">Rate {{w.system.effectiveRate}}</span>
+      {{#if (gt w.system.effectiveRange 0)}}<span class="item-stat">Range {{w.system.effectiveRange}}</span>{{/if}}
+      <div class="item-controls">
+        <button data-action="toggleEquip" title="{{#if w.system.equipped}}Unequip{{else}}Equip{{/if}}">
+          {{#if w.system.equipped}}🗡{{else}}○{{/if}}
+        </button>
+        {{#if ../isEditable}}
+        <button data-action="editItem">✏️</button>
+        <button data-action="deleteItem">🗑</button>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
+
+    <!-- ═══════ ARMOR ═══════ -->
+    <div class="section-toolbar" style="margin-top:16px">
+      <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Armor"}}</h2>
+      {{#if isEditable}}
+      <button class="btn-add-item" data-action="createItem" data-type="armor">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      {{/if}}
+    </div>
+    {{#each armors as |a|}}
+    <div class="item-row" data-item-id="{{a.id}}">
+      <img class="item-img" src="{{a.img}}" alt="{{a.name}}">
+      <span class="item-name">{{a.name}}</span>
+      <span class="item-stat">B{{a.system.effectiveSoak.bashing}}/L{{a.system.effectiveSoak.lethal}}/A{{a.system.effectiveSoak.aggravated}}</span>
+      <span class="item-stat">Hard {{a.system.effectiveHardness}}</span>
+      <span class="item-stat">Mob {{a.system.effectiveMobilityPenalty}}</span>
+      <div class="item-controls">
+        <button data-action="toggleEquip">{{#if a.system.equipped}}🛡{{else}}○{{/if}}</button>
+        {{#if ../isEditable}}
+        <button data-action="editItem">✏️</button>
+        <button data-action="deleteItem">🗑</button>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
+
+    <!-- ═══════ BACKGROUNDS ═══════ -->
+    <div class="section-toolbar" style="margin-top:16px">
+      <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Backgrounds"}}</h2>
+      {{#if isEditable}}
+      <button class="btn-add-item" data-action="createItem" data-type="background">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      {{/if}}
+    </div>
+    {{#each backgrounds as |bg|}}
+    <div class="item-row" data-item-id="{{bg.id}}">
+      <img class="item-img" src="{{bg.img}}" alt="{{bg.name}}">
+      <span class="item-name">{{bg.name}}</span>
+      {{dotRating name="" value=bg.system.value max=5 min=0}}
+      <div class="item-controls">
+        {{#if ../isEditable}}
+        <button data-action="editItem">✏️</button>
+        <button data-action="deleteItem">🗑</button>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
+
+    <!-- ═══════ INTIMACIES ═══════ -->
+    <div class="section-toolbar" style="margin-top:16px">
+      <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Intimacies"}}</h2>
+      {{#if isEditable}}
+      <button class="btn-add-item" data-action="createItem" data-type="intimacy">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      {{/if}}
+    </div>
+    {{#each intimacies as |int|}}
+    <div class="item-row" data-item-id="{{int.id}}">
+      <img class="item-img" src="{{int.img}}" alt="{{int.name}}">
+      <span class="item-name">{{int.name}}</span>
+      {{#if @root.useIntimacyIntensity}}
+      <span class="keyword-tag">{{int.system.intimacyType}}</span>
+      <span class="keyword-tag">{{int.system.intensity}}</span>
+      {{/if}}
+      <div class="item-controls">
+        {{#if ../isEditable}}
+        <button data-action="editItem">✏️</button>
+        <button data-action="deleteItem">🗑</button>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
+
+    <!-- ═══════ MERITS / FLAWS ═══════ -->
+    <div class="section-toolbar" style="margin-top:16px">
+      <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.MeritsAndFlaws"}}</h2>
+      {{#if isEditable}}
+      <button class="btn-add-item" data-action="createItem" data-type="meritflaw">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      {{/if}}
+    </div>
+    {{#each meritflaws as |mf|}}
+    <div class="item-row" data-item-id="{{mf.id}}">
+      <img class="item-img" src="{{mf.img}}" alt="{{mf.name}}">
+      <span class="item-name {{#if (eq mf.system.meritFlawType 'flaw')}}flaw-name{{/if}}">{{mf.name}}</span>
+      <span class="keyword-tag">{{mf.system.meritFlawType}}</span>
+      {{dotRating name="" value=mf.system.value max=5 min=1}}
+      <div class="item-controls">
+        {{#if ../isEditable}}
+        <button data-action="editItem">✏️</button>
+        <button data-action="deleteItem">🗑</button>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
+
+  </div>
+</div>

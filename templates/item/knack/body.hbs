@@ -1,0 +1,53 @@
+<div class="sheet-body knack-body">
+
+  <div class="charm-stats-grid">
+    <div class="field-group">
+      <label>{{localize "EX2E.MinEssence"}}</label>
+      <input type="number" name="system.essence" value="{{system.essence}}" min="1" max="10"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  <!-- Prerequisites -->
+  <div class="field-group" style="margin-top:10px">
+    <label>{{localize "EX2E.Prerequisites"}}</label>
+    <input type="text" name="system.prerequisites" value="{{system.prerequisites}}"
+           placeholder="e.g. Changing Moon Caste or Wits 3+..." style="width:100%"
+           {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+
+  <!-- Keywords -->
+  <div class="keywords-block" style="margin-top:10px">
+    <label>{{localize "EX2E.Keywords"}}</label>
+    <div class="keywords-list">
+      {{#each system.keywords as |kw idx|}}
+      <span class="keyword-tag-edit">
+        <select name="system.keywords.{{idx}}" {{#unless @root.isEditable}}disabled{{/unless}}>
+          {{#each @root.allKeywords as |opt|}}
+          <option value="{{opt}}" {{#if (eq opt kw)}}selected{{/if}}>{{opt}}</option>
+          {{/each}}
+        </select>
+        {{#if @root.isEditable}}
+        <button data-action="removeKeyword" data-index="{{idx}}">✕</button>
+        {{/if}}
+      </span>
+      {{/each}}
+      {{#if isEditable}}
+      <button data-action="addKeyword">+ Add</button>
+      {{/if}}
+    </div>
+  </div>
+
+  <!-- Description -->
+  <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
+  <div class="editor-container">
+    {{#if isEditable}}
+    <prose-mirror name="system.description" data-document-uuid="{{item.uuid}}" value="{{system.description}}" collaborate="true" toggled="true">
+      {{{enrichedDescription}}}
+    </prose-mirror>
+    {{else}}
+    <div class="editor-content">{{{enrichedDescription}}}</div>
+    {{/if}}
+  </div>
+
+</div>

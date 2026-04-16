@@ -1,0 +1,105 @@
+/* ── Base / Reset for Exalted 2e UI ─────────────────────────────────────── */
+
+.exalted2e *,
+.exalted2e *::before,
+.exalted2e *::after {
+  box-sizing: border-box;
+}
+
+.exalted2e {
+  font-family: var(--ex2e-font-body);
+  font-size:   var(--ex2e-font-size-base);
+  color:       var(--ex2e-text-primary);
+  background:  var(--ex2e-bg-dark);
+}
+
+/* Remove default button chrome — but preserve Foundry's window header controls */
+.exalted2e button:not(.header-control) {
+  font-family: var(--ex2e-font-ui);
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* Restore Foundry defaults for window header buttons and title */
+.exalted2e .window-header button,
+.exalted2e button.header-control {
+  cursor: pointer;
+}
+
+/* Standard inputs */
+.exalted2e input[type="text"],
+.exalted2e input[type="number"],
+.exalted2e select,
+.exalted2e textarea {
+  background:    var(--ex2e-bg-panel);
+  border:        1px solid var(--ex2e-border-color);
+  border-radius: var(--ex2e-border-radius);
+  color:         var(--ex2e-text-primary);
+  font-family:   var(--ex2e-font-body);
+  font-size:     var(--ex2e-font-size-base);
+  padding:       2px 6px;
+  transition:    border-color var(--ex2e-transition-fast), box-shadow var(--ex2e-transition-fast);
+}
+
+.exalted2e input:focus,
+.exalted2e select:focus,
+.exalted2e textarea:focus {
+  outline: none;
+  border-color: var(--ex2e-gold-main);
+  box-shadow: 0 0 4px rgba(201, 162, 39, 0.3);
+}
+
+.exalted2e select option {
+  background: var(--ex2e-bg-panel);
+  color:      var(--ex2e-text-primary);
+}
+
+/* Headings */
+.exalted2e h1, .exalted2e h2, .exalted2e h3 {
+  font-family: var(--ex2e-font-title);
+  color:       var(--ex2e-gold-main);
+  letter-spacing: 0.05em;
+}
+
+/* Paragraph text */
+.exalted2e p {
+  line-height: 1.5;
+  color: var(--ex2e-text-secondary);
+}
+
+/* Empty state message */
+.exalted2e .empty-msg {
+  color:      var(--ex2e-text-muted);
+  font-style: italic;
+  padding:    var(--ex2e-gap-md);
+  text-align: center;
+}
+
+/* Scrollbar styling */
+.exalted2e ::-webkit-scrollbar {
+  width:  6px;
+  height: 6px;
+}
+.exalted2e ::-webkit-scrollbar-track {
+  background: var(--ex2e-bg-darkest);
+}
+.exalted2e ::-webkit-scrollbar-thumb {
+  background:    var(--ex2e-gold-dark);
+  border-radius: 3px;
+}
+
+/* Links */
+.exalted2e a {
+  color:           var(--ex2e-gold-main);
+  text-decoration: none;
+}
+.exalted2e a:hover {
+  color:           var(--ex2e-gold-bright);
+  text-decoration: underline;
+}
+
+/* Google Fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');

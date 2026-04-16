@@ -1,0 +1,128 @@
+<div class="tab {{cssClass}}" data-tab="tabCombat" data-group="sheet">
+  <div class="sheet-body">
+
+    <!-- ═══════════════ HEALTH LEVELS ═══════════════ -->
+    <h2 class="section-header">{{localize "EX2E.HealthLevels"}}</h2>
+
+    {{healthTrack health=system.health}}
+
+    <div class="health-info">
+      <span class="wound-penalty-label">{{localize "EX2E.WoundPenalty"}}:
+        <strong>{{#if system.health.incapacitated}}Incapacitated{{else}}{{system.health.woundPenalty}}{{/if}}</strong>
+      </span>
+      <span class="damage-tally">
+        <span class="dmg-bashing">{{system.health.bashing}}B</span> /
+        <span class="dmg-lethal">{{system.health.lethal}}L</span> /
+        <span class="dmg-aggravated">{{system.health.aggravated}}A</span>
+      </span>
+    </div>
+
+    {{#if isEditable}}
+    <div class="damage-controls">
+      <button class="damage-btn bashing" data-action="applyDamage"
+              data-damage-type="bashing" data-amount="1">+1 Bashing</button>
+      <button class="damage-btn lethal" data-action="applyDamage"
+              data-damage-type="lethal" data-amount="1">+1 Lethal</button>
+      <button class="damage-btn aggravated" data-action="applyDamage"
+              data-damage-type="aggravated" data-amount="1">+1 Aggravated</button>
+      <button class="damage-btn heal" data-action="healDamage"
+              data-amount="1">Heal 1</button>
+    </div>
+    <div class="field-group" style="margin-top:8px">
+      <label>{{localize "EX2E.BonusHealthLevels"}}</label>
+      <input type="number" name="system.health.bonus" value="{{system.health.bonus}}"
+             min="0" max="10" style="width:60px">
+    </div>
+    {{/if}}
+
+    <!-- ═══════════════ DERIVED COMBAT STATS ═══════════════ -->
+    <h2 class="section-header">{{localize "EX2E.CombatStats"}}</h2>
+    <div class="combat-stat-grid">
+      <div class="stat-item">
+        <span class="stat-label">{{localize "EX2E.DodgeDV"}}</span>
+        <span class="stat-value">{{system.dodgeDV}}</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">{{localize "EX2E.JoinBattle"}}</span>
+        <span class="stat-value">
+          <button class="roll-btn" data-action="rollPool"
+                  data-pool="{{system.joinBattle}}"
+                  data-flavor="{{localize 'EX2E.JoinBattle'}}">{{system.joinBattle}}⚄</button>
+        </span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">{{localize "EX2E.Movement"}}</span>
+        <span class="stat-value">{{system.movement}}</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">{{localize "EX2E.Dash"}}</span>
+        <span class="stat-value">{{system.dash}}</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════ SOAK ═══════════════ -->
+    <h2 class="section-header">{{localize "EX2E.Soak"}}</h2>
+    <div class="soak-grid">
+      <div class="soak-row">
+        <span class="soak-label">Bashing Soak:</span>
+        <strong>{{system.totalSoak.bashing}}</strong>
+        <span class="soak-natural">({{system.naturalSoak.bashing}} natural)</span>
+      </div>
+      <div class="soak-row">
+        <span class="soak-label">Lethal Soak:</span>
+        <strong>{{system.totalSoak.lethal}}</strong>
+        <span class="soak-natural">({{system.naturalSoak.lethal}} natural)</span>
+      </div>
+      <div class="soak-row">
+        <span class="soak-label">Aggravated Soak:</span>
+        <strong>{{system.totalSoak.aggravated}}</strong>
+      </div>
+      {{#if system.hardness}}
+      <div class="soak-row">
+        <span class="soak-label">Hardness:</span>
+        <strong>{{system.hardness}}</strong>
+      </div>
+      {{/if}}
+      {{#if system.armorName}}
+      <div class="soak-row">
+        <span class="soak-label">Armor:</span>
+        <em>{{system.armorName}}</em>
+        {{#if system.mobilityPenalty}}
+        <span class="penalty">Mobility {{system.mobilityPenalty}}</span>
+        {{/if}}
+      </div>
+      {{/if}}
+    </div>
+
+    <!-- ═══════════════ EQUIPPED WEAPONS ═══════════════ -->
+    <h2 class="section-header">{{localize "EX2E.Weapons"}}</h2>
+    {{#if system.equippedWeapons.length}}
+    <table class="weapon-table">
+      <thead>
+        <tr>
+          <th>Name</th><th>Spd</th><th>Acc</th><th>Dmg</th><th>Def</th><th>Rate</th><th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each system.equippedWeapons as |w|}}
+        <tr data-weapon-id="{{w.id}}">
+          <td>{{w.name}}</td>
+          <td>{{w.speed}}</td>
+          <td>{{w.accuracy}}</td>
+          <td>{{w.damage}}</td>
+          <td>{{w.defense}}</td>
+          <td>{{w.rate}}</td>
+          <td>
+            <button class="roll-btn" data-action="rollAttack"
+                    title="{{localize 'EX2E.AttackRoll'}}">⚔</button>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{else}}
+    <p class="empty-msg"><em>No weapons equipped.</em></p>
+    {{/if}}
+
+  </div><!-- .sheet-body -->
+</div><!-- .tab -->

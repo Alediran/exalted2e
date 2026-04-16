@@ -1,0 +1,558 @@
+/* ── Sheet Window Chrome ─────────────────────────────────────────────────── */
+
+.exalted2e.sheet {
+  background: var(--ex2e-bg-dark);
+  border:     1px solid var(--ex2e-gold-dark);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.9), inset 0 0 60px rgba(13,10,7,0.3);
+  color:      var(--ex2e-text-primary);
+  overflow:   visible;            /* allow vertical tabs to extend beyond the window edge */
+  min-width: 653px;
+  min-height: 539px;
+}
+
+/* Foundry's window-content must also not clip the tabs */
+.exalted2e.sheet .window-content {
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+}
+
+.exalted2e.sheet .window-header {
+  background:    linear-gradient(180deg, var(--ex2e-bg-darkest) 0%, var(--ex2e-bg-dark) 100%);
+  border-bottom: 1px solid var(--ex2e-gold-dark);
+}
+
+.exalted2e.sheet .window-title {
+  font-family:    var(--ex2e-font-title);
+  color:          var(--ex2e-gold-main);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size:      var(--ex2e-font-size-md);
+}
+
+.exalted2e.sheet.npc .window-content,
+.exalted2e.sheet.item .window-content {
+  overflow: auto;
+}
+
+/* ApplicationV2 outer form */
+.exalted2e.sheet .application-form,
+.exalted2e.sheet > form {
+  display:        flex;
+  flex-direction: column;
+  height:         100%;
+  overflow:       hidden;
+  background:     var(--ex2e-bg-dark);
+  position:       relative;       /* anchor for absolutely-positioned tabs */
+}
+
+/* ── CHARACTER HEADER ────────────────────────────────────────────────────── */
+.character-header {
+  display:        flex;
+  gap:            var(--ex2e-gap-lg);
+  padding:        var(--ex2e-gap-lg);
+  background:     linear-gradient(135deg, var(--ex2e-bg-darkest) 0%, var(--ex2e-bg-medium) 100%);
+  border-bottom:  2px solid var(--ex2e-gold-dark);
+  flex-shrink:    0;
+}
+
+/* Portrait */
+.portrait-frame {
+  position:    relative;
+  flex-shrink: 0;
+  width:  100px;
+  height: 100px;
+}
+
+.actor-portrait {
+  width:  100%;
+  height: 100%;
+  object-fit:   cover;
+  border-radius: var(--ex2e-border-radius);
+  border:       2px solid var(--ex2e-gold-dark);
+  box-shadow:   var(--ex2e-shadow-md), 0 0 12px rgba(201,162,39,0.15);
+  cursor:       pointer;
+  transition:   border-color var(--ex2e-transition-fast), box-shadow var(--ex2e-transition-fast);
+}
+.actor-portrait:hover {
+  border-color: var(--ex2e-gold-main);
+  box-shadow:   var(--ex2e-shadow-md), var(--ex2e-glow-gold);
+}
+
+/* Anima banner overlay */
+.anima-banner {
+  position: absolute;
+  inset:    0;
+  border-radius: var(--ex2e-border-radius);
+  pointer-events: none;
+  opacity:  0;
+  transition: opacity 0.5s ease;
+}
+.anima-banner.anima-glowing {
+  opacity:    0.15;
+  background: radial-gradient(circle, gold, transparent 70%);
+}
+.anima-banner.anima-burning {
+  opacity:    0.30;
+  background: radial-gradient(circle, gold, orange, transparent 70%);
+}
+.anima-banner.anima-bonfire {
+  opacity:    0.50;
+  background: radial-gradient(circle, #fff9c4, gold, orange, transparent 70%);
+  animation:  animaFlicker 1.5s ease-in-out infinite alternate;
+}
+.anima-banner.anima-iconic {
+  opacity:    0.70;
+  background: radial-gradient(circle, white, #fff9c4, gold, orange, transparent 70%);
+  animation:  animaFlicker 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes animaFlicker {
+  from { opacity: 0.50; }
+  to   { opacity: 0.72; }
+}
+
+/* Actor name input */
+.actor-name {
+  font-family:    var(--ex2e-font-title);
+  font-size:      var(--ex2e-font-size-xl);
+  color:          var(--ex2e-gold-bright);
+  background:     transparent;
+  border:         none;
+  border-bottom:  1px solid var(--ex2e-gold-dark);
+  width:          100%;
+  text-shadow:    0 0 10px rgba(255,215,0,0.2);
+  letter-spacing: 0.05em;
+  padding:        0 0 2px;
+  margin-bottom:  var(--ex2e-gap-sm);
+}
+.actor-name:focus {
+  outline:      none;
+  border-bottom-color: var(--ex2e-gold-main);
+}
+
+/* Header fields layout */
+.header-fields {
+  flex:           1;
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--ex2e-gap-sm);
+  min-width:      0;
+}
+
+.identity-row {
+  display:     flex;
+  gap:         var(--ex2e-gap-md);
+  align-items: center;
+  flex-wrap:   wrap;
+}
+
+.essence-row {
+  display:     flex;
+  gap:         var(--ex2e-gap-xl);
+  align-items: center;
+  flex-wrap:   wrap;
+}
+
+.mote-pools {
+  display:   flex;
+  gap:       var(--ex2e-gap-sm);
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.limit-row {
+  display:     flex;
+  align-items: center;
+  gap:         var(--ex2e-gap-sm);
+  font-family: var(--ex2e-font-ui);
+  font-size:   var(--ex2e-font-size-xs);
+  color:       var(--ex2e-text-muted);
+}
+
+.wp-row {
+  display:     flex;
+  align-items: center;
+  gap:         var(--ex2e-gap-sm);
+}
+
+.wp-fraction {
+  font-family: var(--ex2e-font-ui);
+  font-size:   var(--ex2e-font-size-xs);
+  color:       var(--ex2e-text-muted);
+  margin-left: 4px;
+}
+
+/* ── TAB NAVIGATION (vertical, right side) ──────────────────────────────── */
+
+.exalted2e nav.tabs {
+  top:            calc(100px + 1rem);  /* below the header */
+  position:       absolute;
+  display:        flex;
+  flex-direction: column;
+  gap:            0.25rem;
+  z-index:        -1;
+  border:         none;
+  border-left:    solid 1px transparent;
+  contain:        content;
+  left:           100%;               /* flush with the right edge of the window */
+  align-items:    flex-start;
+}
+
+.exalted2e nav.tabs > a {
+  --icon-size:    14px;
+  width:          44px;
+  height:         40px;
+  display:        flex;
+  align-items:    center;
+  justify-content: center;
+  padding-inline-end: 12px;
+  background:     var(--ex2e-bg-darkest);
+  border:         1px solid var(--ex2e-gold-dark);
+  border-left:    none;
+  border-radius:  0 8px 8px 0;
+  margin-inline-start: -6px;
+  color:          var(--ex2e-text-muted);
+  cursor:         pointer;
+  flex:           none;
+  transition:     all 250ms ease;
+}
+
+.exalted2e nav.tabs > a i {
+  font-size: var(--ex2e-font-size-sm);
+  margin:    0;
+}
+
+.exalted2e nav.tabs > a:hover {
+  color:      var(--ex2e-text-secondary);
+  background: var(--ex2e-bg-medium);
+  margin:     0;
+}
+
+.exalted2e nav.tabs > a.active {
+  color:         var(--ex2e-gold-main);
+  background:    var(--ex2e-bg-panel);
+  border-color:  var(--ex2e-gold-main);
+  border-left:   none;
+  text-shadow:   0 0 6px rgba(201,162,39,0.4);
+  margin:        0;
+  z-index:       1;
+}
+
+/*To align the Navigation tabs to the right */
+.exalted2e nav.tabs.tabs-right {
+  contain: content;
+  left: 100%;
+  align-items: flex-start;
+}
+.exalted2e nav.tabs.tabs-right > .item {
+  padding-inline-end: 12px;
+  justify-content: end;
+  border-radius: 0 8px 8px 0;
+  margin-inline-start: -6px;
+}
+.exalted2e nav.tabs.tabs-right > .item::after {
+  inset: 4px 4px 4px 0;
+  border-radius: 0 5px 5px 0;
+  border-inline-start: none;
+}
+.exalted2e nav.tabs.tabs-right > .item.active,
+.exalted2e nav.tabs.tabs-right > .item:hover {
+  margin: 0;
+}
+
+/* ── SHEET BODY ──────────────────────────────────────────────────────────── */
+
+.sheet-body {
+  min-height: 500px;
+}
+
+/* Tab panels */
+.exalted2e .tab          { display: none; }
+.exalted2e .tab.active   { 
+  display: block; 
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 700px;
+  flex-grow: 1;
+  min-height: 0;
+  padding-right: 5px;
+}
+
+/* ── ITEM SHEET HEADER ───────────────────────────────────────────────────── */
+.item-header {
+  display:      flex;
+  gap:          var(--ex2e-gap-lg);
+  padding:      var(--ex2e-gap-lg);
+  background:   linear-gradient(135deg, var(--ex2e-bg-darkest) 0%, var(--ex2e-bg-medium) 100%);
+  border-bottom: 1px solid var(--ex2e-gold-dark);
+  flex-shrink:  0;
+}
+
+.item-portrait {
+  width:  64px;
+  height: 64px;
+  object-fit:    cover;
+  border-radius: var(--ex2e-border-radius);
+  border:        2px solid var(--ex2e-gold-dark);
+  flex-shrink:   0;
+  cursor:        pointer;
+}
+.item-portrait:hover { border-color: var(--ex2e-gold-main); }
+
+.item-header-fields {
+  flex:           1;
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--ex2e-gap-sm);
+  justify-content: center;
+}
+
+.item-name-input {
+  font-family:    var(--ex2e-font-title) !important;
+  font-size:      var(--ex2e-font-size-lg) !important;
+  color:          var(--ex2e-gold-bright) !important;
+  background:     transparent !important;
+  border:         none !important;
+  border-bottom:  1px solid var(--ex2e-gold-dark) !important;
+  letter-spacing: 0.04em;
+  padding:        0 !important;
+}
+
+.charm-identity-row,
+.weapon-stat-summary,
+.armor-stat-summary {
+  font-family: var(--ex2e-font-ui);
+  font-size:   var(--ex2e-font-size-xs);
+  color:       var(--ex2e-text-muted);
+}
+
+.charm-cost-summary {
+  font-family: var(--ex2e-font-ui);
+  font-size:   var(--ex2e-font-size-sm);
+  color:       var(--ex2e-text-secondary);
+}
+
+/* ── VARIOUS ITEM BODY GRIDS ─────────────────────────────────────────────── */
+.charm-stats-grid,
+.weapon-stats-grid,
+.armor-stats-grid {
+  display:               grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap:                   var(--ex2e-gap-md);
+  padding:               var(--ex2e-gap-sm) 0;
+}
+
+.charm-active { border-left: 3px solid var(--ex2e-gold-main); }
+.charm-meta   { font-size: var(--ex2e-font-size-xs); color: var(--ex2e-text-muted); margin-left: 6px; }
+
+/* ── HEALTH INFO ─────────────────────────────────────────────────────────── */
+.health-info {
+  display:  flex;
+  gap:      var(--ex2e-gap-xl);
+  padding:  4px 0;
+  font-size: var(--ex2e-font-size-sm);
+}
+.wound-penalty-label { color: var(--ex2e-text-secondary); }
+.dmg-bashing    { color: var(--ex2e-dmg-bashing); }
+.dmg-lethal     { color: var(--ex2e-dmg-lethal); }
+.dmg-aggravated { color: var(--ex2e-dmg-aggravated); }
+
+/* ── FLAW NAME COLORING ──────────────────────────────────────────────────── */
+.flaw-name { color: var(--ex2e-dmg-lethal); font-style: italic; }
+
+/* ── NPC SHEET BODY ──────────────────────────────────────────────────────── */
+.npc-body { padding: var(--ex2e-gap-lg); }
+
+.npc-header .actor-name { font-size: var(--ex2e-font-size-lg); }
+
+/* ── STAT EDIT BLOCK ─────────────────────────────────────────────────────── */
+.stat-edit-block > summary {
+  cursor:      pointer;
+  font-family: var(--ex2e-font-ui);
+  font-size:   var(--ex2e-font-size-sm);
+  color:       var(--ex2e-text-muted);
+  padding:     var(--ex2e-gap-sm) 0;
+  user-select: none;
+}
+.stat-edit-grid {
+  display:               grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap:                   var(--ex2e-gap-md);
+  padding:               var(--ex2e-gap-md) 0;
+}
+
+/* ── EDITOR CONTAINERS ───────────────────────────────────────────────────── */
+.editor-container {
+  background:    var(--ex2e-bg-panel);
+  border:        1px solid var(--ex2e-border-color);
+  border-radius: var(--ex2e-border-radius);
+  min-height:    120px;
+}
+
+/* ── ATTRIBUTE SECTION ───────────────────────────────────────────────────── */
+.attributes-section {
+  display:               grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:                   var(--ex2e-gap-xl);
+  margin-bottom:         var(--ex2e-gap-lg);
+}
+
+.attribute-group .group-label {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  color:          var(--ex2e-gold-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom:  var(--ex2e-gap-sm);
+  border-bottom:  1px solid var(--ex2e-gold-dark);
+  padding-bottom: 2px;
+}
+
+.attribute-row {
+  display:     flex;
+  align-items: center;
+  gap:         var(--ex2e-gap-sm);
+  padding:     3px 0;
+}
+
+.attribute-label {
+  min-width:   100px;
+  font-family: var(--ex2e-font-body);
+  font-size:   var(--ex2e-font-size-base);
+  color:       var(--ex2e-text-primary);
+}
+
+/* ── ABILITIES ───────────────────────────────────────────────────────────── */
+.abilities-list {
+  display:               grid;
+  grid-template-columns: 1fr 1fr;
+  gap:                   2px var(--ex2e-gap-lg);
+}
+
+.ability-row {
+  display:       flex;
+  align-items:   center;
+  gap:           var(--ex2e-gap-sm);
+  padding:       2px var(--ex2e-gap-sm);
+  border-radius: var(--ex2e-border-radius);
+  transition:    background var(--ex2e-transition-fast);
+}
+.ability-row:hover { background: var(--ex2e-bg-hover); }
+
+.caste-ability .ability-name  { color: var(--ex2e-gold-bright); font-weight: 600; }
+.favored-ability .ability-name{ color: var(--ex2e-gold-main); }
+
+.ability-name {
+  min-width:   105px;
+  font-family: var(--ex2e-font-body);
+  font-size:   var(--ex2e-font-size-base);
+  color:       var(--ex2e-text-primary);
+}
+
+
+.specialties {
+  display:        flex;
+  flex-direction: column;
+  gap:            2px;
+  margin-left:    auto;
+}
+
+.specialty-row    { display: flex; align-items: center; gap: 4px; }
+.specialty-name   { font-size: var(--ex2e-font-size-xs); width: 100px; }
+
+.btn-add-specialty, .btn-remove-specialty {
+  background:  none;
+  border:      none;
+  cursor:      pointer;
+  font-size:   var(--ex2e-font-size-xs);
+  color:       var(--ex2e-text-muted);
+  padding:     1px 3px;
+  transition:  color var(--ex2e-transition-fast);
+}
+.btn-add-specialty:hover    { color: var(--ex2e-success); }
+.btn-remove-specialty:hover { color: var(--ex2e-dmg-lethal); }
+
+/* ── VIRTUES ─────────────────────────────────────────────────────────────── */
+.virtues-section {
+  display:               grid;
+  grid-template-columns: 1fr 1fr;
+  gap:                   var(--ex2e-gap-sm) var(--ex2e-gap-xl);
+  margin-bottom:         var(--ex2e-gap-lg);
+}
+
+.virtue-row {
+  align-items: center;
+  gap:         var(--ex2e-gap-sm);
+  padding:     3px 0;
+}
+
+.virtue-row .virtue-label {
+  font-family: var(--ex2e-font-body);
+  color:       var(--ex2e-text-primary);
+  text-align: left;
+}
+
+.virtue-row .virtue-label:hover {
+  color:        var(--ex2e-gold-main);
+}
+
+.virtue-tracks {
+  display:        flex;
+  flex-direction: column;
+  gap:            2px;
+}
+
+/* Willpower dual tracks: stack dots over boxes, aligned 1:1 */
+.willpower-group {
+  display:        flex;
+  flex-direction: column;
+  gap:            2px;
+}
+
+.willpower-group label {
+  margin-bottom: 0;
+}
+
+.willpower-group .dot-rating,
+.willpower-group .box-rating {
+  display: flex;
+  gap:     3px;
+}
+
+.willpower-group .dot-rating .dot,
+.willpower-group .box-rating .box {
+  width:      13px;
+  height:     13px;
+  flex-shrink: 0;
+}
+
+/* ── TAGS / KEYWORDS ─────────────────────────────────────────────────────── */
+.keywords-list, .tags-list {
+  display:   flex;
+  flex-wrap: wrap;
+  gap:       var(--ex2e-gap-sm);
+  padding:   var(--ex2e-gap-sm) 0;
+}
+
+.keyword-tag-edit {
+  display:     inline-flex;
+  align-items: center;
+  gap:         3px;
+}
+
+/* ── CHECKBOX FIELD ──────────────────────────────────────────────────────── */
+.checkbox-field label {
+  display:     flex;
+  align-items: center;
+  gap:         6px;
+  cursor:      pointer;
+  color:       var(--ex2e-text-secondary);
+}
+
+/* ── CHARM ACTIVE GLOW ───────────────────────────────────────────────────── */
+.charm-active {
+  box-shadow: inset 2px 0 0 var(--ex2e-gold-main);
+  background: rgba(201,162,39,0.04);
+}

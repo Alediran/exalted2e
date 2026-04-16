@@ -1,0 +1,36 @@
+<div class="item-header charm-header">
+  <img class="item-portrait" src="{{item.img}}" alt="{{item.name}}"
+       data-action="editImage" {{#unless isEditable}}disabled{{/unless}}>
+  <div class="item-header-fields">
+    <input class="item-name-input" type="text" name="name" value="{{item.name}}"
+           {{#unless isEditable}}readonly{{/unless}}>
+    <div class="charm-identity-row">
+      <!-- Exalt Type -->
+      <div class="field-group">
+        <label>{{localize "EX2E.ExaltType"}}</label>
+        <select name="system.exaltType" {{#unless isEditable}}disabled{{/unless}}>
+          {{#each exaltTypes}}
+          <option value="{{this.value}}" {{#if (eq this.value ../system.exaltType)}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <!-- Ability -->
+      <div class="field-group">
+        <label>{{localize "EX2E.Ability"}}</label>
+        <select name="system.ability" {{#unless isEditable}}disabled{{/unless}}>
+          {{#each abilities}}
+          <option value="{{this.value}}" {{#if (eq this.value ../system.ability)}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+    <!-- Cost Summary -->
+    <div class="charm-cost-summary">
+      <strong>Cost:</strong>
+      {{system.cost.motes}}m
+      {{#if system.cost.willpower}} +{{system.cost.willpower}}wp{{/if}}
+      &nbsp;·&nbsp; <strong>Type:</strong> {{system.charmType}}
+      &nbsp;·&nbsp; <strong>Duration:</strong> {{system.duration}}
+    </div>
+  </div>
+</div>

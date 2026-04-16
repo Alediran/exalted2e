@@ -1,0 +1,96 @@
+<div class="sheet-body charm-body">
+
+  <div class="charm-stats-grid">
+    <!-- Cost -->
+    <div class="field-group">
+      <label>{{localize "EX2E.Motes"}}</label>
+      <input type="number" name="system.cost.motes" value="{{system.cost.motes}}" min="0"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.Willpower"}}</label>
+      <input type="number" name="system.cost.willpower" value="{{system.cost.willpower}}" min="0"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    <!-- Min Requirements -->
+    <div class="field-group">
+      <label>{{localize "EX2E.MinEssence"}}</label>
+      <input type="number" name="system.essence" value="{{system.essence}}" min="1" max="10"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.MinAbility"}}</label>
+      <input type="number" name="system.minAbility" value="{{system.minAbility}}" min="0" max="5"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    <!-- Type -->
+    <div class="field-group">
+      <label>{{localize "EX2E.CharmType"}}</label>
+      <select name="system.charmType" {{#unless isEditable}}disabled{{/unless}}>
+        {{#each charmTypes}}
+        <option value="{{this.value}}" {{#if (eq this.value ../system.charmType)}}selected{{/if}}>{{this.label}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <!-- Duration -->
+    <div class="field-group">
+      <label>{{localize "EX2E.Duration"}}</label>
+      <select name="system.duration" {{#unless isEditable}}disabled{{/unless}}>
+        {{#each durations}}
+        <option value="{{this.value}}" {{#if (eq this.value ../system.duration)}}selected{{/if}}>{{this.label}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <!-- Excellency -->
+    <div class="field-group">
+      <label>{{localize "EX2E.Excellency"}}</label>
+      <select name="system.excellency" {{#unless isEditable}}disabled{{/unless}}>
+        {{#each excellencies}}
+        <option value="{{this.value}}" {{#if (eq this.value ../system.excellency)}}selected{{/if}}>{{this.label}}</option>
+        {{/each}}
+      </select>
+    </div>
+  </div>
+
+  <!-- Prerequisites -->
+  <div class="field-group" style="margin-top:10px">
+    <label>{{localize "EX2E.Prerequisites"}}</label>
+    <input type="text" name="system.prerequisites" value="{{system.prerequisites}}"
+           placeholder="e.g. Hungry Tiger Technique..." style="width:100%"
+           {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+
+  <!-- Keywords -->
+  <div class="keywords-block" style="margin-top:10px">
+    <label>{{localize "EX2E.Keywords"}}</label>
+    <div class="keywords-list">
+      {{#each system.keywords as |kw idx|}}
+      <span class="keyword-tag-edit">
+        <select name="system.keywords.{{idx}}" {{#unless @root.isEditable}}disabled{{/unless}}>
+          {{#each @root.allKeywords as |opt|}}
+          <option value="{{opt}}" {{#if (eq opt kw)}}selected{{/if}}>{{opt}}</option>
+          {{/each}}
+        </select>
+        {{#if @root.isEditable}}
+        <button data-action="removeKeyword" data-index="{{idx}}">✕</button>
+        {{/if}}
+      </span>
+      {{/each}}
+      {{#if isEditable}}
+      <button data-action="addKeyword">+ Add</button>
+      {{/if}}
+    </div>
+  </div>
+
+  <!-- Description -->
+  <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
+  <div class="editor-container">
+    {{#if isEditable}}
+    <prose-mirror name="system.description" data-document-uuid="{{item.uuid}}" value="{{system.description}}" collaborate="true" toggled="true">
+      {{{enrichedDescription}}}
+    </prose-mirror>
+    {{else}}
+    <div class="editor-content">{{{enrichedDescription}}}</div>
+    {{/if}}
+  </div>
+</div>

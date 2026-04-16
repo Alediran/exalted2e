@@ -1,0 +1,74 @@
+<div class="sheet-body armor-body">
+  <div class="armor-stats-grid">
+    <div class="field-group"><label>{{localize "EX2E.BashingSoak"}}</label>
+      <input type="number" name="system.soak.bashing"    value="{{system.soak.bashing}}"    min="0" {{#unless isEditable}}readonly{{/unless}}></div>
+    <div class="field-group"><label>{{localize "EX2E.LethalSoak"}}</label>
+      <input type="number" name="system.soak.lethal"     value="{{system.soak.lethal}}"     min="0" {{#unless isEditable}}readonly{{/unless}}></div>
+    <div class="field-group"><label>{{localize "EX2E.AggravatedSoak"}}</label>
+      <input type="number" name="system.soak.aggravated" value="{{system.soak.aggravated}}"  min="0" {{#unless isEditable}}readonly{{/unless}}></div>
+    <div class="field-group"><label>{{localize "EX2E.Hardness"}}</label>
+      <input type="number" name="system.hardness"        value="{{system.hardness}}"        min="0" {{#unless isEditable}}readonly{{/unless}}></div>
+    <div class="field-group"><label>{{localize "EX2E.MobilityPenalty"}}</label>
+      <input type="number" name="system.mobilityPenalty" value="{{system.mobilityPenalty}}" min="-4" max="0" {{#unless isEditable}}readonly{{/unless}}></div>
+    <div class="field-group"><label>{{localize "EX2E.FatiguePenalty"}}</label>
+      <input type="number" name="system.fatiguePenalty"  value="{{system.fatiguePenalty}}"  min="-4" max="0" {{#unless isEditable}}readonly{{/unless}}></div>
+  </div>
+
+  <div class="field-group checkbox-field" style="margin-top:8px">
+    <label><input type="checkbox" name="system.artifact" {{#if system.artifact}}checked{{/if}}
+                  {{#unless isEditable}}disabled{{/unless}}> {{localize "EX2E.ArtifactArmor"}}</label>
+  </div>
+  {{#if system.artifact}}
+  <div class="field-group">
+    <label>{{localize "EX2E.MagicalMaterial"}}</label>
+    <select name="system.magicalMaterial" {{#unless isEditable}}disabled{{/unless}}>
+      <option value="">—</option>
+      {{#each magicalMaterials}}
+      <option value="{{this.value}}" {{#if (eq this.value ../system.magicalMaterial)}}selected{{/if}}>{{this.label}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <div class="field-group">
+    <label>{{localize "EX2E.AttunementCost"}}</label>
+    <input type="number" name="system.attunementCost" value="{{system.attunementCost}}"
+           min="0" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group checkbox-field">
+    <label><input type="checkbox" name="system.attuned" {{#if system.attuned}}checked{{/if}}
+                  {{#unless isEditable}}disabled{{/unless}}> {{localize "EX2E.CurrentlyAttuned"}}</label>
+  </div>
+  {{/if}}
+
+  <!-- Tags -->
+  <div class="tags-block" style="margin-top:10px">
+    <label>{{localize "EX2E.Tags"}}</label>
+    <div class="tags-list">
+      {{#each system.tags as |tag idx|}}
+      <span class="keyword-tag-edit">
+        <select name="system.tags.{{idx}}" {{#unless @root.isEditable}}disabled{{/unless}}>
+          {{#each @root.allTags as |opt|}}
+          <option value="{{opt}}" {{#if (eq opt tag)}}selected{{/if}}>{{opt}}</option>
+          {{/each}}
+        </select>
+        {{#if @root.isEditable}}
+        <button data-action="removeTag" data-index="{{idx}}">✕</button>
+        {{/if}}
+      </span>
+      {{/each}}
+      {{#if isEditable}}
+      <button data-action="addTag">+ Tag</button>
+      {{/if}}
+    </div>
+  </div>
+
+  <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
+  <div class="editor-container">
+    {{#if isEditable}}
+    <prose-mirror name="system.description" data-document-uuid="{{item.uuid}}" value="{{system.description}}" collaborate="true" toggled="true">
+      {{{enrichedDescription}}}
+    </prose-mirror>
+    {{else}}
+    <div class="editor-content">{{{enrichedDescription}}}</div>
+    {{/if}}
+  </div>
+</div>

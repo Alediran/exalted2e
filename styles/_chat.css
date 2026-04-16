@@ -1,0 +1,196 @@
+/* ── Chat Roll Card ───────────────────────────────────────────────────────── */
+
+.ex2e-roll-card {
+  background:    linear-gradient(135deg, var(--ex2e-bg-darkest) 0%, var(--ex2e-bg-medium) 100%);
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: var(--ex2e-border-radius-lg);
+  padding:       var(--ex2e-gap-md);
+  font-family:   var(--ex2e-font-body);
+  color:         var(--ex2e-text-primary);
+}
+
+.roll-header {
+  display:       flex;
+  flex-wrap:     wrap;
+  gap:           var(--ex2e-gap-sm);
+  border-bottom: 1px solid var(--ex2e-gold-shadow);
+  padding-bottom: var(--ex2e-gap-sm);
+  margin-bottom: var(--ex2e-gap-sm);
+}
+
+.roll-actor {
+  font-family: var(--ex2e-font-title);
+  color:       var(--ex2e-gold-main);
+  font-weight: bold;
+}
+
+.roll-flavor {
+  color:      var(--ex2e-text-secondary);
+  font-style: italic;
+}
+
+.roll-cost  { color: var(--ex2e-dmg-lethal);   font-size: var(--ex2e-font-size-sm); }
+.roll-stunt { color: var(--ex2e-success);       font-size: var(--ex2e-font-size-sm); }
+
+/* Dice results row */
+.dice-results {
+  display:   flex;
+  flex-wrap: wrap;
+  gap:       4px;
+  padding:   var(--ex2e-gap-sm) 0;
+}
+
+.die-result {
+  display:       inline-flex;
+  align-items:   center;
+  justify-content: center;
+  width:         28px;
+  height:        28px;
+  border-radius: 4px;
+  border:        1px solid var(--ex2e-border-color);
+  background:    var(--ex2e-bg-panel);
+  font-family:   var(--ex2e-font-ui);
+  font-size:     var(--ex2e-font-size-base);
+  font-weight:   bold;
+  color:         var(--ex2e-text-muted);
+  transition:    all var(--ex2e-transition-fast);
+}
+
+.die-result.success {
+  background:  rgba(39,174,96,0.18);
+  border-color: var(--ex2e-success);
+  color:       var(--ex2e-success);
+}
+
+.die-result.double-success {
+  background:  rgba(243,156,18,0.18);
+  border-color: var(--ex2e-double-success);
+  color:       var(--ex2e-double-success);
+  box-shadow:  0 0 6px rgba(243,156,18,0.4);
+}
+
+.die-result.one {
+  background:  rgba(231,76,60,0.12);
+  border-color: var(--ex2e-dmg-lethal);
+  color:       var(--ex2e-dmg-lethal);
+}
+
+.pool-summary {
+  font-family: var(--ex2e-font-ui);
+  font-size:   var(--ex2e-font-size-xs);
+  color:       var(--ex2e-text-muted);
+  padding:     2px 0;
+}
+
+/* Result banner */
+.roll-result {
+  display:         flex;
+  justify-content: center;
+  align-items:     center;
+  padding:         var(--ex2e-gap-sm);
+  border-radius:   var(--ex2e-border-radius);
+  margin-top:      var(--ex2e-gap-sm);
+  border:          1px solid transparent;
+}
+
+.roll-result.success {
+  background:  rgba(39,174,96,0.08);
+  border-color: var(--ex2e-success);
+}
+
+.roll-result.failure {
+  background:  rgba(127,140,141,0.08);
+  border-color: var(--ex2e-text-muted);
+}
+
+.roll-result.botch {
+  background:  rgba(142,68,173,0.10);
+  border-color: var(--ex2e-botch);
+}
+
+.result-label {
+  font-family:    var(--ex2e-font-title);
+  font-size:      var(--ex2e-font-size-lg);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.success-label { color: var(--ex2e-success);    text-shadow: 0 0 8px rgba(39,174,96,0.5); }
+.failure-label { color: var(--ex2e-text-muted); }
+.botch-label   { color: var(--ex2e-botch);      text-shadow: 0 0 8px rgba(142,68,173,0.5); }
+
+/* ── Attack result card ──────────────────────────────────────────────────── */
+
+.ex2e-attack-card .attack-resolution {
+  margin-top:    var(--ex2e-gap-sm);
+  padding-top:   var(--ex2e-gap-sm);
+  border-top:    1px solid var(--ex2e-gold-dark);
+}
+
+.ex2e-attack-card .attack-vs {
+  text-align:    center;
+  font-size:     var(--ex2e-font-size-sm);
+  color:         var(--ex2e-text-secondary);
+  margin-bottom: var(--ex2e-gap-xs);
+}
+
+.ex2e-attack-card .damage-pool-info {
+  text-align:    center;
+  font-size:     var(--ex2e-font-size-sm);
+  color:         var(--ex2e-text-secondary);
+  margin-top:    var(--ex2e-gap-xs);
+  padding:       var(--ex2e-gap-xs) var(--ex2e-gap-sm);
+  background:    var(--ex2e-bg-panel);
+  border-radius: var(--ex2e-border-radius);
+}
+
+.ex2e-attack-card .damage-roll-section {
+  display:        flex;
+  align-items:    center;
+  gap:            var(--ex2e-gap-sm);
+  margin-top:     var(--ex2e-gap-sm);
+  justify-content: center;
+}
+
+.ex2e-attack-card .damage-soak-row {
+  display:     flex;
+  align-items: center;
+  gap:         4px;
+  font-size:   var(--ex2e-font-size-sm);
+}
+
+.ex2e-attack-card .damage-soak-row .soak-input {
+  width:      50px;
+  text-align: center;
+}
+
+.ex2e-attack-card .btn-roll-damage {
+  font-size: var(--ex2e-font-size-xs);
+  padding:   4px 12px;
+}
+
+.ex2e-attack-card .damage-result {
+  text-align: center;
+}
+
+.ex2e-attack-card .damage-result .dice-results {
+  justify-content: center;
+  margin-bottom: var(--ex2e-gap-xs);
+}
+
+.ex2e-attack-card .damage-summary {
+  font-size: var(--ex2e-font-size-xs);
+  color:     var(--ex2e-text-muted);
+  margin-bottom: var(--ex2e-gap-xs);
+}
+
+.ex2e-attack-card .btn-apply-damage {
+  margin-top:  var(--ex2e-gap-sm);
+  font-size:   var(--ex2e-font-size-xs);
+  padding:     4px 12px;
+}
+
+.ex2e-attack-card .btn-apply-damage:disabled {
+  opacity: 0.5;
+  cursor:  default;
+}

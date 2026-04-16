@@ -1,0 +1,79 @@
+<div class="tab {{cssClass}}" data-tab="tabMain" data-group="sheet">
+  <div class="sheet-body">
+
+    <!-- ═══════════════ ATTRIBUTES ═══════════════ -->
+    <h2 class="section-header">{{localize "EX2E.Attributes"}}</h2>
+    <div class="attributes-section">
+
+      <!-- Physical -->
+      <div class="attribute-group">
+        <div class="group-label">{{localize "EX2E.AttrGroupPhysical"}}</div>
+        {{#each (array "strength" "dexterity" "stamina") as |attrKey|}}
+        <div class="attribute-row">
+          <span class="attribute-label">{{localizeAttribute attrKey}}</span>
+          {{dotRating name=(concat "system.attributes." attrKey ".value")
+                      value=(lookup (lookup ../system.attributes attrKey) "value")
+                      max=5 min=1}}
+        </div>
+        {{/each}}
+      </div>
+
+      <!-- Social -->
+      <div class="attribute-group">
+        <div class="group-label">{{localize "EX2E.AttrGroupSocial"}}</div>
+        {{#each (array "charisma" "manipulation" "appearance") as |attrKey|}}
+        <div class="attribute-row">
+          <span class="attribute-label">{{localizeAttribute attrKey}}</span>
+          {{dotRating name=(concat "system.attributes." attrKey ".value")
+                      value=(lookup (lookup ../system.attributes attrKey) "value")
+                      max=5 min=1}}
+        </div>
+        {{/each}}
+      </div>
+
+      <!-- Mental -->
+      <div class="attribute-group">
+        <div class="group-label">{{localize "EX2E.AttrGroupMental"}}</div>
+        {{#each (array "perception" "intelligence" "wits") as |attrKey|}}
+        <div class="attribute-row">
+          <span class="attribute-label">{{localizeAttribute attrKey}}</span>
+          {{dotRating name=(concat "system.attributes." attrKey ".value")
+                      value=(lookup (lookup ../system.attributes attrKey) "value")
+                      max=5 min=1}}
+        </div>
+        {{/each}}
+      </div>
+    </div>
+
+    <!-- ═══════════════ ABILITIES ═══════════════ -->
+    {{#if useFourColumnAbilities}}
+    {{> "systems/exalted2e/templates/actor/character/abilities-four.hbs"}}
+    {{else}}
+    {{> "systems/exalted2e/templates/actor/character/abilities-default.hbs"}}
+    {{/if}}
+
+    <!-- ═══════════════ VIRTUES ═══════════════ -->
+    <h2 class="section-header">{{localize "EX2E.Virtues"}}</h2>
+    <div class="virtues-section">
+      {{#each (array "compassion" "temperance" "conviction" "valor") as |v|}}
+      <div class="virtue-row">
+        <button class="virtue-label" data-action="rollPool"
+                data-pool="{{lookup (lookup ../system.virtues v) 'value'}}"
+                data-flavor="{{localize (concat 'EX2E.Virtue' (capitalize v))}}">{{localize (concat "EX2E.Virtue" (capitalize v))}}</button>
+        <div class="virtue-tracks">
+          {{dotRating name=(concat "system.virtues." v ".value")
+                      value=(lookup (lookup ../system.virtues v) "value")
+                      max=5 min=1}}
+          {{boxRating name=(concat "system.virtues." v ".current")
+                      value=(lookup (lookup ../system.virtues v) "current")
+                      max=(lookup (lookup ../system.virtues v) "value")
+                      total=5
+                      min=0}}
+        </div>
+        
+      </div>
+      {{/each}}
+    </div>
+
+  </div><!-- .sheet-body -->
+</div><!-- .tab -->

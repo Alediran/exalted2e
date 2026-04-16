@@ -1,0 +1,46 @@
+<div class="character-header npc-header">
+  <div class="portrait-frame">
+    <img class="actor-portrait" src="{{actor.img}}" alt="{{actor.name}}"
+         data-action="editImage" {{#unless isEditable}}disabled{{/unless}}>
+  </div>
+  <div class="header-fields">
+    <input class="actor-name" type="text" name="name" value="{{actor.name}}"
+           {{#unless isEditable}}readonly{{/unless}}>
+    <div class="identity-row">
+      <div class="field-group">
+        <label>{{localize "EX2E.NpcType"}}</label>
+        <input type="text" name="system.npcType" value="{{system.npcType}}"
+               placeholder="e.g. Mortal, Spirit, Demon..."
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.Concept"}}</label>
+        <input type="text" name="system.concept" value="{{system.concept}}"
+               placeholder="Concept..." {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.Essence"}}</label>
+        <input type="number" name="system.essence.value" value="{{system.essence.value}}"
+               min="1" max="10" style="width:50px" {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+    </div>
+    <!-- Willpower -->
+    <div class="wp-row">
+      <span class="pool-label">Willpower {{system.willpower.value}}/{{system.willpower.max}}</span>
+      {{willpowerTrack value=system.willpower.value max=system.willpower.max name="system.willpower.value"}}
+    </div>
+    <!-- Motes -->
+    <div class="mote-pools">
+      <div class="field-group">
+        <label>{{localize "EX2E.Motes"}}</label>
+        <input type="number" name="system.motes.value" value="{{system.motes.value}}"
+               min="0" max="{{system.motes.max}}" style="width:60px"
+               {{#unless isEditable}}readonly{{/unless}}>
+        <span>/</span>
+        <input type="number" name="system.motes.max" value="{{system.motes.max}}"
+               min="0" max="300" style="width:60px"
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+    </div>
+  </div>
+</div>

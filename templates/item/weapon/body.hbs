@@ -1,0 +1,83 @@
+<div class="sheet-body weapon-body">
+  <div class="weapon-stats-grid">
+    <div class="field-group"><label>{{localize "EX2E.Speed"}}</label>
+      <input type="number" name="system.speed"   value="{{system.speed}}"   min="0" max="10" {{#unless isEditable}}readonly{{/unless}}></div>
+    <div class="field-group"><label>{{localize "EX2E.Accuracy"}}</label>
+      <input type="number" name="system.accuracy" value="{{system.accuracy}}" min="-5" max="10" {{#unless isEditable}}readonly{{/unless}}></div>
+    <div class="field-group"><label>{{localize "EX2E.Damage"}}</label>
+      <input type="number" name="system.damage"   value="{{system.damage}}"   min="0" max="20" {{#unless isEditable}}readonly{{/unless}}></div>
+    <div class="field-group"><label>{{localize "EX2E.Type"}}</label>
+      <select name="system.damageType" {{#unless isEditable}}disabled{{/unless}}>
+        {{#each damageTypes}}
+        <option value="{{this.value}}" {{#if (eq this.value ../system.damageType)}}selected{{/if}}>{{this.label}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="field-group"><label>{{localize "EX2E.Defense"}}</label>
+      <input type="number" name="system.defense"  value="{{system.defense}}"  min="-5" max="10" {{#unless isEditable}}readonly{{/unless}}></div>
+    <div class="field-group"><label>{{localize "EX2E.Rate"}}</label>
+      <input type="number" name="system.rate"     value="{{system.rate}}"     min="0" max="10" {{#unless isEditable}}readonly{{/unless}}></div>
+    <div class="field-group"><label>{{localize "EX2E.Range"}}</label>
+      <input type="number" name="system.range"    value="{{system.range}}"    min="0" max="400" {{#unless isEditable}}readonly{{/unless}}></div>
+  </div>
+
+  <!-- Artifact / Attunement -->
+  <div class="field-group checkbox-field" style="margin-top:8px">
+    <label><input type="checkbox" name="system.artifact" {{#if system.artifact}}checked{{/if}}
+                  {{#unless isEditable}}disabled{{/unless}}> {{localize "EX2E.ArtifactWeapon"}}</label>
+  </div>
+  {{#if system.artifact}}
+  <div class="field-group">
+    <label>{{localize "EX2E.MagicalMaterial"}}</label>
+    <select name="system.magicalMaterial" {{#unless isEditable}}disabled{{/unless}}>
+      <option value="">—</option>
+      {{#each magicalMaterials}}
+      <option value="{{this.value}}" {{#if (eq this.value ../system.magicalMaterial)}}selected{{/if}}>{{this.label}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <div class="field-group">
+    <label>{{localize "EX2E.AttunementCost"}}</label>
+    <input type="number" name="system.attunementCost" value="{{system.attunementCost}}"
+           min="0" max="20" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group checkbox-field">
+    <label><input type="checkbox" name="system.attuned" {{#if system.attuned}}checked{{/if}}
+                  {{#unless isEditable}}disabled{{/unless}}> {{localize "EX2E.CurrentlyAttuned"}}</label>
+  </div>
+  {{/if}}
+
+  <!-- Tags -->
+  <div class="tags-block" style="margin-top:10px">
+    <label>{{localize "EX2E.Tags"}}</label>
+    <div class="tags-list">
+      {{#each system.tags as |tag idx|}}
+      <span class="keyword-tag-edit">
+        <select name="system.tags.{{idx}}" {{#unless @root.isEditable}}disabled{{/unless}}>
+          {{#each @root.allTags as |opt|}}
+          <option value="{{opt}}" {{#if (eq opt tag)}}selected{{/if}}>{{opt}}</option>
+          {{/each}}
+        </select>
+        {{#if @root.isEditable}}
+        <button data-action="removeTag" data-index="{{idx}}">✕</button>
+        {{/if}}
+      </span>
+      {{/each}}
+      {{#if isEditable}}
+      <button data-action="addTag">+ Tag</button>
+      {{/if}}
+    </div>
+  </div>
+
+  <!-- Description -->
+  <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
+  <div class="editor-container">
+    {{#if isEditable}}
+    <prose-mirror name="system.description" data-document-uuid="{{item.uuid}}" value="{{system.description}}" collaborate="true" toggled="true">
+      {{{enrichedDescription}}}
+    </prose-mirror>
+    {{else}}
+    <div class="editor-content">{{{enrichedDescription}}}</div>
+    {{/if}}
+  </div>
+</div>

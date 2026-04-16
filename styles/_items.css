@@ -1,0 +1,75 @@
+/* ── Item Sheet Styles ───────────────────────────────────────────────────── */
+
+.exalted2e.item.charm .item-header {
+  background: linear-gradient(135deg, #0a0d0f 0%, #111820 100%);
+  border-color: rgba(80, 130, 200, 0.5);
+}
+.exalted2e.item.charm .item-name-input { color: #8bc4f0 !important; }
+
+.exalted2e.item.weapon .item-header {
+  background: linear-gradient(135deg, #0f0a0a 0%, #1c1010 100%);
+  border-color: rgba(180, 60, 60, 0.5);
+}
+.exalted2e.item.weapon .item-name-input { color: #e08080 !important; }
+
+.exalted2e.item.armor .item-header {
+  background: linear-gradient(135deg, #0a0f0a 0%, #101c10 100%);
+  border-color: rgba(60, 140, 80, 0.5);
+}
+.exalted2e.item.armor .item-name-input { color: #80c880 !important; }
+
+/* Item card in chat */
+.ex2e-item-card {
+  background:    linear-gradient(135deg, var(--ex2e-bg-darkest) 0%, var(--ex2e-bg-medium) 100%);
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: var(--ex2e-border-radius-lg);
+  padding:       var(--ex2e-gap-md);
+  font-family:   var(--ex2e-font-body);
+  color:         var(--ex2e-text-primary);
+}
+
+.item-card-header {
+  display:      flex;
+  gap:          var(--ex2e-gap-md);
+  align-items:  center;
+  margin-bottom: var(--ex2e-gap-sm);
+  padding-bottom: var(--ex2e-gap-sm);
+  border-bottom: 1px solid var(--ex2e-gold-shadow);
+}
+
+.item-card-img {
+  width:  40px;
+  height: 40px;
+  border-radius: var(--ex2e-border-radius);
+  border:  1px solid var(--ex2e-gold-dark);
+  object-fit: cover;
+}
+
+.item-card-title h3 {
+  font-family: var(--ex2e-font-title);
+  color:       var(--ex2e-gold-bright);
+  margin:      0 0 2px;
+  font-size:   var(--ex2e-font-size-md);
+}
+
+.item-card-actor {
+  font-size:  var(--ex2e-font-size-xs);
+  color:      var(--ex2e-text-muted);
+  font-style: italic;
+  margin-right: 6px;
+}
+
+.item-card-stats {
+  display:       flex;
+  gap:           var(--ex2e-gap-lg);
+  flex-wrap:     wrap;
+  font-size:     var(--ex2e-font-size-sm);
+  color:         var(--ex2e-text-secondary);
+  margin-bottom: var(--ex2e-gap-sm);
+}
+
+.item-card-description {
+  font-size:   var(--ex2e-font-size-base);
+  color:       var(--ex2e-text-primary);
+  line-height: 1.5;
+}

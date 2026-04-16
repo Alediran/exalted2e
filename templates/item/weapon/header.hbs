@@ -1,0 +1,19 @@
+<div class="item-header weapon-header">
+  <img class="item-portrait" src="{{item.img}}" alt="{{item.name}}"
+       data-action="editImage" {{#unless isEditable}}disabled{{/unless}}>
+  <div class="item-header-fields">
+    <input class="item-name-input" type="text" name="name" value="{{item.name}}"
+           {{#unless isEditable}}readonly{{/unless}}>
+    <div class="weapon-stat-summary">
+      Spd {{system.effectiveSpeed}} · Acc {{system.accuracyLabel}} · Dmg {{system.damageLabel}}
+      · Def {{system.defenseLabel}} · Rate {{system.effectiveRate}}
+      {{#if system.range}} · Range {{system.effectiveRange}}{{/if}}
+    </div>
+    {{#if system.artifact}}
+    <span class="keyword-tag" style="margin-top:4px">Artifact{{#if system.magicalMaterial}} · {{localize (lookup config.magicalMaterials system.magicalMaterial)}}{{/if}}</span>
+    {{/if}}
+    {{#if system.attuned}}
+    <span class="keyword-tag" style="color:var(--ex2e-gold-main);margin-top:4px">Attuned</span>
+    {{/if}}
+  </div>
+</div>

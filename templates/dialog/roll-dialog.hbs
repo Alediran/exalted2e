@@ -1,0 +1,95 @@
+<form class="ex2e-roll-dialog" autocomplete="off">
+  <div class="dialog-content">
+
+    {{!-- Hidden pool so it is always submitted even without a visible input --}}
+    <input type="hidden" name="pool" value="{{pool}}">
+
+    {{#if attributeChoices.length}}
+    <div class="field-group">
+      <label>{{localize "EX2E.Attribute"}}</label>
+      <select name="attribute">
+        {{#each attributeChoices as |choice|}}
+        <option value="{{choice.value}}" {{#if (eq choice.value ../attribute)}}selected{{/if}}>{{choice.label}}</option>
+        {{/each}}
+      </select>
+    </div>
+    {{/if}}
+
+    {{#if specialties.length}}
+    <div class="field-group">
+      <label>{{localize "EX2E.Specialty"}}</label>
+      <select name="specialty">
+        <option value="">{{localize "EX2E.NoSpecialty"}}</option>
+        {{#each specialties as |spec|}}
+        <option value="{{@index}}">{{spec.name}} (+{{spec.value}} {{#if (gt spec.value 1)}}{{localize "EX2E.Dice"}}{{else}}{{localize "EX2E.Die"}}{{/if}})</option>
+        {{/each}}
+      </select>
+    </div>
+    {{/if}}
+
+    <div class="field-group">
+      <label>{{localize "EX2E.Flavor"}}</label>
+      <input type="text" name="flavor" value="{{flavor}}" placeholder="Roll description...">
+    </div>
+
+    <div class="field-group">
+      <label>{{localize "EX2E.StuntBonus"}}</label>
+      <select name="stunt">
+        {{#each stuntChoices as |label value|}}
+        <option value="{{@key}}" {{#if (eq @key ../stunt)}}selected{{/if}}>{{this}}</option>
+        {{/each}}
+      </select>
+    </div>
+
+    {{!-- ── Excellency sections (shown only when the actor owns the charm) ── --}}
+
+    {{#if excellency.first}}
+    <div class="field-group excellency-section exc-first-section">
+      <label>{{localize "EX2E.FirstExcellency"}} <span class="exc-cost-tag">1m/{{localize "EX2E.Die"}}</span></label>
+      <div class="exc-input-row">
+        <input type="number" name="firstExcDice" value="0" min="0" max="{{firstExcMax}}" class="exc-input">
+        <span class="exc-limit">/ <span class="exc-first-max">{{firstExcMax}}</span></span>
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if excellency.second}}
+    <div class="field-group excellency-section exc-second-section">
+      <label>{{localize "EX2E.SecondExcellency"}} <span class="exc-cost-tag">2m/{{localize "EX2E.Success"}}</span></label>
+      <div class="exc-input-row">
+        <input type="number" name="secondExcSucc" value="0" min="0" max="{{secondExcMax}}" class="exc-input">
+        <span class="exc-limit">/ <span class="exc-second-max">{{secondExcMax}}</span></span>
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if excellency.third}}
+    <div class="field-group excellency-section exc-third-section">
+      <label>{{localize "EX2E.ThirdExcellency"}} <span class="exc-cost-tag">4m</span></label>
+      <label class="exc-checkbox-label">
+        <input type="checkbox" name="useThirdExc"> {{localize "EX2E.RerollFailures"}}
+      </label>
+    </div>
+    {{/if}}
+
+    <div class="field-group">
+      <label>{{localize "EX2E.MoteType"}}</label>
+      <select name="moteType">
+        {{#each moteTypeChoices as |label value|}}
+        <option value="{{@key}}" {{#if (eq @key ../moteType)}}selected{{/if}}>{{this}}</option>
+        {{/each}}
+      </select>
+    </div>
+
+    <div class="field-group exc-total-row">
+      <span class="exc-total-label">{{localize "EX2E.TotalMoteCost"}}</span>
+      <span class="exc-total-cost">{{moteCost}} </span>
+    </div>
+
+  </div>
+  <footer class="form-footer">
+    <button type="button" class="btn-roll" data-action="confirmRoll">
+      <i class="fa-solid fa-dice"></i> {{localize "EX2E.Roll"}}
+    </button>
+  </footer>
+</form>

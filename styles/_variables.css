@@ -1,0 +1,65 @@
+/* ── Exalted 2e Design Tokens ─────────────────────────────────────────── */
+:root {
+  /* ── Gold Palette (Solar defaults) ───────────────────────────────────── */
+  --ex2e-gold-bright:  #ffe066;
+  --ex2e-gold-main:    #c9a227;
+  --ex2e-gold-mid:     #a07820;
+  --ex2e-gold-dark:    #5c4510;
+  --ex2e-gold-shadow:  rgba(92, 69, 16, 0.4);
+
+  /* ── Solar / Anima ─────────────────────────────────────────────────────── */
+  --ex2e-solar-color:  #f0a500;
+  --ex2e-anima-glow:   rgba(240, 165, 0, 0.35);
+
+  /* ── Background Scale — pure black base ───────────────────────────────── */
+  --ex2e-bg-darkest: #000000;
+  --ex2e-bg-dark:    #050505;
+  --ex2e-bg-medium:  #0e0e0e;
+  --ex2e-bg-panel:   #141414;
+  --ex2e-bg-hover:   rgba(201, 162, 39, 0.06);
+
+  /* ── Text ──────────────────────────────────────────────────────────────── */
+  --ex2e-text-primary:   #e8dcc8;
+  --ex2e-text-secondary: #b8a88a;
+  --ex2e-text-muted:     #7a6a50;
+
+  /* ── Damage ─────────────────────────────────────────────────────────────── */
+  --ex2e-dmg-bashing:    #5b9bd5;
+  --ex2e-dmg-lethal:     #c0392b;
+  --ex2e-dmg-aggravated: #6c3483;
+
+  /* ── Dice Results ────────────────────────────────────────────────────────── */
+  --ex2e-success:        #27ae60;
+  --ex2e-double-success: #f39c12;
+  --ex2e-failure:        #7f8c8d;
+  --ex2e-botch:          #8e44ad;
+
+  /* ── Borders / Glows ─────────────────────────────────────────────────────── */
+  --ex2e-border-color:   rgba(92, 69, 16, 0.6);
+  --ex2e-glow-gold:      0 0 8px rgba(201, 162, 39, 0.5);
+  --ex2e-shadow-md:      0 2px 8px rgba(0, 0, 0, 0.6);
+
+  /* ── Spacing ─────────────────────────────────────────────────────────────── */
+  --ex2e-gap-xs: 3px;
+  --ex2e-gap-sm: 6px;
+  --ex2e-gap-md: 10px;
+  --ex2e-gap-lg: 16px;
+  --ex2e-gap-xl: 24px;
+
+  /* ── Typography ──────────────────────────────────────────────────────────── */
+  --ex2e-font-title: "Cinzel", "Times New Roman", serif;
+  --ex2e-font-body:  "Crimson Text", "Palatino Linotype", Georgia, serif;
+  --ex2e-font-ui:    "Cinzel", "Trebuchet MS", sans-serif;
+
+  --ex2e-font-size-xs:   10px;
+  --ex2e-font-size-sm:   12px;
+  --ex2e-font-size-base: 14px;
+  --ex2e-font-size-md:   15px;
+  --ex2e-font-size-lg:   17px;
+  --ex2e-font-size-xl:   22px;
+
+  /* ── Misc ─────────────────────────────────────────────────────────────────── */
+  --ex2e-border-radius:    4px;
+  --ex2e-border-radius-lg: 8px;
+  --ex2e-transition-fast:  0.15s ease;
+}

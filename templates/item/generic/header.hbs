@@ -1,0 +1,9 @@
+<div class="item-header generic-header">
+  <img class="item-portrait" src="{{item.img}}" alt="{{item.name}}"
+       data-action="editImage" {{#unless isEditable}}disabled{{/unless}}>
+  <div class="item-header-fields">
+    <input class="item-name-input" type="text" name="name" value="{{item.name}}"
+           {{#unless isEditable}}readonly{{/unless}}>
+    <span class="keyword-tag">{{item.type}}</span>
+  </div>
+</div>

@@ -1,0 +1,124 @@
+/* ── Roll Dialog ─────────────────────────────────────────────────────────── */
+
+.exalted2e.roll-dialog {
+  background: var(--ex2e-bg-dark);
+  border:     1px solid var(--ex2e-gold-dark);
+  color:      var(--ex2e-text-primary);
+}
+
+.ex2e-roll-dialog {
+  display:        flex;
+  flex-direction: column;
+  gap:            0;
+}
+
+.ex2e-roll-dialog .dialog-content {
+  padding:        var(--ex2e-gap-lg);
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--ex2e-gap-md);
+}
+
+.ex2e-roll-dialog .form-footer {
+  display:         flex;
+  justify-content: center;
+  padding:         var(--ex2e-gap-md) var(--ex2e-gap-lg);
+  border-top:      1px solid var(--ex2e-gold-dark);
+  background:      var(--ex2e-bg-darkest);
+}
+
+.btn-roll {
+  display:        inline-flex;
+  align-items:    center;
+  gap:            var(--ex2e-gap-sm);
+  padding:        6px 24px;
+  border:         1px solid var(--ex2e-gold-main);
+  border-radius:  20px;
+  background:     linear-gradient(135deg, var(--ex2e-bg-panel) 0%, var(--ex2e-bg-medium) 100%);
+  color:          var(--ex2e-gold-bright);
+  font-family:    var(--ex2e-font-title);
+  font-size:      var(--ex2e-font-size-md);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor:         pointer;
+  transition:     all var(--ex2e-transition-fast);
+}
+
+.btn-roll:hover {
+  background:  var(--ex2e-gold-dark);
+  box-shadow:  var(--ex2e-glow-gold);
+  transform:   translateY(-1px);
+}
+
+/* ── Excellency sections ─────────────────────────────────────────────────── */
+
+.ex2e-roll-dialog .excellency-section {
+  border-left: 2px solid var(--ex2e-gold-dark);
+  padding-left: var(--ex2e-gap-md);
+  background: color-mix(in srgb, var(--ex2e-gold-dark) 8%, transparent);
+  border-radius: 0 4px 4px 0;
+}
+
+.ex2e-roll-dialog .exc-cost-tag {
+  font-size:    0.75em;
+  opacity:      0.7;
+  font-family:  var(--ex2e-font-body);
+  font-weight:  normal;
+  margin-left:  4px;
+}
+
+.ex2e-roll-dialog .exc-input-row {
+  display:     flex;
+  align-items: center;
+  gap:         var(--ex2e-gap-sm);
+}
+
+.ex2e-roll-dialog .exc-input {
+  width: 64px;
+}
+
+.ex2e-roll-dialog .exc-limit {
+  font-size: 0.85em;
+  opacity:   0.6;
+}
+
+.ex2e-roll-dialog .exc-checkbox-label {
+  display:     flex;
+  align-items: center;
+  gap:         var(--ex2e-gap-sm);
+  font-size:   0.9em;
+  cursor:      pointer;
+}
+
+.ex2e-roll-dialog .exc-total-row {
+  display:         flex;
+  justify-content: space-between;
+  align-items:     center;
+  font-size:       0.85em;
+  opacity:         0.75;
+  border-top:      1px solid var(--ex2e-gold-dark);
+  padding-top:     var(--ex2e-gap-sm);
+  margin-top:      calc(-1 * var(--ex2e-gap-sm));
+}
+
+.ex2e-roll-dialog .exc-total-cost {
+  font-weight: bold;
+  color:       var(--ex2e-gold-bright);
+}
+
+/* ── Roll result card – Excellency extras ─────────────────────────────────── */
+
+.ex2e-roll-dialog .target-dv-detail {
+  font-size: 0.8em;
+  opacity:   0.65;
+  margin-top: 2px;
+}
+
+.ex2e-roll-card .exc-bonus-row {
+  text-align:  center;
+  font-size:   0.8em;
+  color:       var(--ex2e-gold-bright);
+  margin-top:  -4px;
+  margin-bottom: 2px;
+  opacity:     0.85;
+}

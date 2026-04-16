@@ -1,0 +1,21 @@
+<div class="ex2e-item-card">
+  <div class="item-card-header">
+    <img src="{{item.img}}" alt="{{item.name}}" class="item-card-img">
+    <div class="item-card-title">
+      <h3>{{item.name}}</h3>
+      {{#if actor}}<span class="item-card-actor">{{actor.name}}</span>{{/if}}
+      <span class="keyword-tag">{{item.type}}</span>
+    </div>
+  </div>
+  {{#if (eq item.type "charm")}}
+  <div class="item-card-stats">
+    <span><strong>Cost:</strong> {{item.system.cost.motes}}m
+      {{#if item.system.cost.willpower}}+{{item.system.cost.willpower}}wp{{/if}}</span>
+    <span><strong>Type:</strong> {{item.system.charmType}}</span>
+    <span><strong>Duration:</strong> {{item.system.duration}}</span>
+  </div>
+  {{/if}}
+  <div class="item-card-description">
+    {{{item.system.description}}}
+  </div>
+</div>

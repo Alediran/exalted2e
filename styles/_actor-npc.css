@@ -1,0 +1,10 @@
+/* ── NPC Sheet Styles ────────────────────────────────────────────────────── */
+
+.exalted2e.actor.npc .character-header {
+  background: linear-gradient(135deg, #0e0c10 0%, #1a1520 100%);
+  border-color: rgba(120, 80, 160, 0.5);
+}
+
+.exalted2e.actor.npc .actor-name { color: #d4b8f0; }
+
+.exalted2e.actor.npc .section-header { color: #b890e0; border-bottom-color: rgba(120,80,160,0.5); }
