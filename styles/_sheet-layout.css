@@ -507,6 +507,70 @@
   gap:            2px;
 }
 
+/* Virtue Flaw slot: input-styled lookup/clear row */
+.virtue-flaw-row {
+  grid-column: 1 / -1;
+  display:     flex;
+  align-items: center;
+  gap:         var(--ex2e-gap-sm);
+  padding:     6px 0 3px;
+  border-top:  1px solid var(--ex2e-gold-shadow);
+  margin-top:  var(--ex2e-gap-sm);
+}
+.virtue-flaw-label {
+  font-family: var(--ex2e-font-body);
+  color:       var(--ex2e-text-primary);
+  flex:        0 0 auto;
+}
+.virtue-flaw-input-group {
+  display:     flex;
+  align-items: stretch;
+  flex:        1;
+  min-width:   0;
+}
+.virtue-flaw-input {
+  flex:          1;
+  min-width:     0;
+  background:    var(--ex2e-bg-darkest);
+  border:        1px solid var(--ex2e-gold-shadow);
+  border-right:  none;
+  border-radius: var(--ex2e-border-radius-sm) 0 0 var(--ex2e-border-radius-sm);
+  padding:       2px 6px;
+  font-family:   var(--ex2e-font-body);
+  font-size:     var(--ex2e-font-size-sm);
+  color:         var(--ex2e-text-primary);
+  text-align:    left;
+  line-height:   1.6;
+  height:        auto;
+  cursor:        pointer;
+  overflow:      hidden;
+  text-overflow: ellipsis;
+  white-space:   nowrap;
+}
+.virtue-flaw-input.virtue-flaw-empty {
+  color:  var(--ex2e-text-muted);
+  cursor: default;
+}
+.virtue-flaw-input.virtue-flaw-open:hover { color: var(--ex2e-gold-main); }
+
+.virtue-flaw-lookup,
+.virtue-flaw-clear {
+  background:  var(--ex2e-bg-medium);
+  border:      1px solid var(--ex2e-gold-shadow);
+  border-left: none;
+  color:       var(--ex2e-text-muted);
+  padding:     0 8px;
+  cursor:      pointer;
+  transition:  color var(--ex2e-transition-fast);
+}
+.virtue-flaw-lookup:hover { color: var(--ex2e-gold-main); }
+.virtue-flaw-clear:hover  { color: var(--ex2e-dmg-lethal); }
+.virtue-flaw-clear { border-radius: 0 var(--ex2e-border-radius-sm) var(--ex2e-border-radius-sm) 0; }
+/* When only the lookup is present, round the right side */
+.virtue-flaw-input-group .virtue-flaw-lookup:last-child {
+  border-radius: 0 var(--ex2e-border-radius-sm) var(--ex2e-border-radius-sm) 0;
+}
+
 /* Willpower dual tracks: stack dots over boxes, aligned 1:1 */
 .willpower-group {
   display:        flex;

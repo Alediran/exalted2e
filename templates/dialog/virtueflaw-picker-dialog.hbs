@@ -1,0 +1,47 @@
+<form class="ex2e-virtueflaw-picker" autocomplete="off">
+  <div class="picker-filters">
+    <div class="field-group">
+      <label>{{localize "EX2E.ExaltType"}}</label>
+      <select name="exaltType">
+        {{#each exaltTypes as |et|}}
+        <option value="{{et.value}}" {{#if (eq et.value ../exaltType)}}selected{{/if}}>{{et.label}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="field-group" style="flex:1">
+      <label>{{localize "EX2E.Search"}}</label>
+      <input type="search" name="search" value="{{search}}" placeholder="{{localize 'EX2E.SearchName'}}" autofocus>
+    </div>
+  </div>
+
+  <div class="picker-list">
+    {{#if entries.length}}
+    <table class="picker-table">
+      <thead>
+        <tr>
+          <th>{{localize "EX2E.Name"}}</th>
+          <th>{{localize "EX2E.BaseVirtue"}}</th>
+          <th>{{localize "EX2E.Source"}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each entries as |e|}}
+        <tr class="picker-row {{#if e.selected}}selected{{/if}}" data-action="selectEntry" data-uuid="{{e.uuid}}">
+          <td><img class="picker-img" src="{{e.img}}" alt=""> {{e.name}}</td>
+          <td>{{lookup ../virtueLabels e.baseVirtue}}</td>
+          <td>{{e.source}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{else}}
+    <p class="empty-msg"><em>{{localize "EX2E.NoVirtueFlaws"}}</em></p>
+    {{/if}}
+  </div>
+
+  <footer class="form-footer">
+    <button type="button" class="btn-roll" data-action="confirmPick" {{#unless hasSelection}}disabled{{/unless}}>
+      <i class="fa-solid fa-check"></i> {{localize "EX2E.Select"}}
+    </button>
+  </footer>
+</form>

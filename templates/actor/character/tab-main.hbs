@@ -70,9 +70,34 @@
                       total=5
                       min=0}}
         </div>
-        
+
       </div>
       {{/each}}
+
+      <!-- Virtue Flaw (input-style lookup slot) -->
+      <div class="virtue-flaw-row"{{#if virtueFlaw}} data-item-id="{{virtueFlaw.id}}"{{/if}}>
+        <span class="virtue-flaw-label">{{localize "EX2E.VirtueFlaw"}}</span>
+        <div class="virtue-flaw-input-group">
+          {{#if virtueFlaw}}
+          <button type="button" class="virtue-flaw-input virtue-flaw-open" data-action="editItem"
+                  title="{{localize 'EX2E.SheetVirtueFlaw'}}">{{virtueFlaw.name}}</button>
+          {{else}}
+          <span class="virtue-flaw-input virtue-flaw-empty">—</span>
+          {{/if}}
+          {{#if isEditable}}
+          <button type="button" class="virtue-flaw-lookup" data-action="pickVirtueFlaw"
+                  title="{{localize 'EX2E.LookupVirtueFlaw'}}">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          {{#if virtueFlaw}}
+          <button type="button" class="virtue-flaw-clear" data-action="clearVirtueFlaw"
+                  title="{{localize 'EX2E.Clear'}}">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          {{/if}}
+          {{/if}}
+        </div>
+      </div>
     </div>
 
   </div><!-- .sheet-body -->

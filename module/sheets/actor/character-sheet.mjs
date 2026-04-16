@@ -39,7 +39,9 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       sendItemToChat:      CharacterSheet.#onSendItemToChat,
       rollPool:            CharacterSheet.#onRollPool,
       cycleAbilityFlag:    CharacterSheet.#onCycleAbilityFlag,
-      rollAttack:          CharacterSheet.#onRollAttack
+      rollAttack:          CharacterSheet.#onRollAttack,
+      pickVirtueFlaw:      CharacterSheet.#onPickVirtueFlaw,
+      clearVirtueFlaw:     CharacterSheet.#onClearVirtueFlaw
     }
   };
 
@@ -126,6 +128,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const backgrounds= actor.items.filter(i => i.type === "background") .sort((a,b) => a.name.localeCompare(b.name));
     const intimacies = actor.items.filter(i => i.type === "intimacy")   .sort((a,b) => a.name.localeCompare(b.name));
     const meritflaws = actor.items.filter(i => i.type === "meritflaw")  .sort((a,b) => a.name.localeCompare(b.name));
+    const virtueFlaw = actor.items.find(i => i.type === "virtueflaw") ?? null;
 
     return {
       ...context,
@@ -146,6 +149,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       backgrounds,
       intimacies,
       meritflaws,
+      virtueFlaw,
       isEditable: this.isEditable,
       useIntimacyIntensity: game.settings.get("exalted2e", "useIntimacyIntensity")
     };
@@ -444,6 +448,27 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const itemId = target.closest("[data-item-id]")?.dataset.itemId;
     const item   = this.document.items.get(itemId);
     if (item?.type === "charm") await item.activateCharm();
+  }
+
+  static async #onPickVirtueFlaw(event, target) {
+    const { VirtueFlawPickerDialog } = await import("../../dialogs/virtueflaw-picker-dialog.mjs");
+    const choice = await VirtueFlawPickerDialog.prompt({ exaltType: this.document.system.exaltType });
+    if (!choice?.uuid) return;
+
+    const source = await fromUuid(choice.uuid);
+    if (!source) return;
+
+    // Remove any existing virtue flaw (single-slot)
+    const existing = this.document.items.filter(i => i.type === "virtueflaw");
+    if (existing.length) await this.document.deleteEmbeddedDocuments("Item", existing.map(i => i.id));
+
+    await this.document.createEmbeddedDocuments("Item", [source.toObject()]);
+  }
+
+  static async #onClearVirtueFlaw(event, target) {
+    const existing = this.document.items.filter(i => i.type === "virtueflaw");
+    if (!existing.length) return;
+    await this.document.deleteEmbeddedDocuments("Item", existing.map(i => i.id));
   }
 
   static async #onToggleEquip(event, target) {

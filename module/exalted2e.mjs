@@ -177,6 +177,7 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/dialog/roll-dialog.hbs",
     "systems/exalted2e/templates/dialog/add-specialty-dialog.hbs",
     "systems/exalted2e/templates/dialog/attack-dialog.hbs",
+    "systems/exalted2e/templates/dialog/virtueflaw-picker-dialog.hbs",
     "systems/exalted2e/templates/chat/attack-result.hbs"
   ];
   return loadTemplates(templatePaths);
