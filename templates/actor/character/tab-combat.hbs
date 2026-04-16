@@ -105,7 +105,7 @@
       </thead>
       <tbody>
         {{#each system.equippedWeapons as |w|}}
-        <tr data-weapon-id="{{w.id}}">
+        <tr data-weapon-id="{{w.id}}" data-mode-index="{{w.modeIndex}}">
           <td>{{w.name}}</td>
           <td>{{w.speed}}</td>
           <td>{{w.accuracy}}</td>

@@ -4,10 +4,15 @@
   <div class="item-header-fields">
     <input class="item-name-input" type="text" name="name" value="{{item.name}}"
            {{#unless isEditable}}readonly{{/unless}}>
-    <div class="weapon-stat-summary">
-      Spd {{system.effectiveSpeed}} · Acc {{system.accuracyLabel}} · Dmg {{system.damageLabel}}
-      · Def {{system.defenseLabel}} · Rate {{system.effectiveRate}}
-      {{#if system.range}} · Range {{system.effectiveRange}}{{/if}}
+    <div class="weapon-mode-summaries">
+      {{#each system.modes as |mode|}}
+      <div class="weapon-stat-summary">
+        <strong>{{mode.name}}:</strong>
+        Spd {{mode.effectiveSpeed}} · Acc {{mode.accuracyLabel}} · Dmg {{mode.damageLabel}}
+        · Def {{mode.defenseLabel}} · Rate {{mode.effectiveRate}}
+        {{#if mode.range}} · Range {{mode.effectiveRange}}{{/if}}
+      </div>
+      {{/each}}
     </div>
     {{#if system.artifact}}
     <span class="keyword-tag" style="margin-top:4px">Artifact{{#if system.magicalMaterial}} · {{localize (lookup config.magicalMaterials system.magicalMaterial)}}{{/if}}</span>

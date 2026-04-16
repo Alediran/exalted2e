@@ -10,12 +10,14 @@ export class WeaponSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
 
   static DEFAULT_OPTIONS = {
     classes:  ["exalted2e", "item", "weapon"],
-    position: { width: 480, height: 520 },
+    position: { width: 480, height: 620 },
     window: { resizable: true },
     form: { submitOnChange: true, closeOnSubmit: false },
     actions: {
-      addTag:    WeaponSheet.#onAddTag,
-      removeTag: WeaponSheet.#onRemoveTag
+      addMode:    WeaponSheet.#onAddMode,
+      removeMode: WeaponSheet.#onRemoveMode,
+      addTag:     WeaponSheet.#onAddTag,
+      removeTag:  WeaponSheet.#onRemoveTag
     }
   };
 
@@ -55,16 +57,38 @@ export class WeaponSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     };
   }
 
+  static async #onAddMode(event, target) {
+    const modes = foundry.utils.deepClone(this.document.system.modes ?? []);
+    modes.push({ name: `Mode ${modes.length + 1}` });
+    await this.document.update({ "system.modes": modes });
+  }
+
+  static async #onRemoveMode(event, target) {
+    const idx = parseInt(target.dataset.index);
+    const modes = foundry.utils.deepClone(this.document.system.modes ?? []);
+    if (modes.length <= 1) return;                     // always keep at least one mode
+    modes.splice(idx, 1);
+    await this.document.update({ "system.modes": null });
+    await this.document.update({ "system.modes": modes });
+  }
+
   static async #onAddTag(event, target) {
-    const tags = foundry.utils.deepClone(this.document.system.tags ?? []);
-    tags.push(EX2E.weaponTags[0] ?? "");
-    await this.document.update({ "system.tags": tags });
+    const modeIdx = parseInt(target.dataset.modeIndex);
+    const modes = foundry.utils.deepClone(this.document.system.modes ?? []);
+    if (!modes[modeIdx]) return;
+    modes[modeIdx].tags = [...(modes[modeIdx].tags ?? []), EX2E.weaponTags[0] ?? ""];
+    await this.document.update({ "system.modes": modes });
   }
 
   static async #onRemoveTag(event, target) {
-    const idx  = parseInt(target.dataset.index);
-    const tags = foundry.utils.deepClone(this.document.system.tags ?? []);
-    tags.splice(idx, 1);
-    await this.document.update({ "system.tags": tags });
+    const modeIdx = parseInt(target.dataset.modeIndex);
+    const tagIdx  = parseInt(target.dataset.index);
+    const modes   = foundry.utils.deepClone(this.document.system.modes ?? []);
+    if (!modes[modeIdx]) return;
+    const tags = [...(modes[modeIdx].tags ?? [])];
+    tags.splice(tagIdx, 1);
+    modes[modeIdx].tags = tags;
+    await this.document.update({ "system.modes": null });
+    await this.document.update({ "system.modes": modes });
   }
 }

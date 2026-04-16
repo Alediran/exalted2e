@@ -82,22 +82,28 @@ export class ExaltedActor extends Actor {
   }
 
   /**
-   * Collect stats from the first equipped weapon for display on the sheet.
+   * Build one row per (equipped weapon, mode of use) for the combat tab.
    */
   _applyWeaponStats(systemData) {
     const equipped = this.items.filter(i => i.type === "weapon" && i.system.equipped);
-    systemData.equippedWeapons = equipped.map(w => ({
-      id:           w.id,
-      name:         w.name,
-      speed:        w.system.effectiveSpeed,
-      accuracy:     w.system.accuracyLabel,
-      damage:       w.system.damageLabel,
-      defense:      w.system.defenseLabel,
-      rate:         w.system.effectiveRate,
-      range:        w.system.effectiveRange
-      // Attack pool = relevant Attribute + Ability + weapon accuracy modifier
-      // Resolved fully in sheet context; stored here for convenience.
-    }));
+    const rows = [];
+    for (const w of equipped) {
+      const modes = w.system.modes ?? [];
+      modes.forEach((mode, modeIndex) => {
+        rows.push({
+          id:         w.id,
+          modeIndex,
+          name:       modes.length > 1 ? `${w.name} — ${mode.name}` : w.name,
+          speed:      mode.effectiveSpeed,
+          accuracy:   mode.accuracyLabel,
+          damage:     mode.damageLabel,
+          defense:    mode.defenseLabel,
+          rate:       mode.effectiveRate,
+          range:      mode.effectiveRange
+        });
+      });
+    }
+    systemData.equippedWeapons = rows;
   }
 
   // ── Convenience Helpers ────────────────────────────────────────────────

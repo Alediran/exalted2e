@@ -351,9 +351,11 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   static async #onRollAttack(event, target) {
-    const weaponId = target.closest("[data-weapon-id]")?.dataset.weaponId;
+    const row = target.closest("[data-weapon-id]");
+    const weaponId  = row?.dataset.weaponId;
+    const modeIndex = parseInt(row?.dataset.modeIndex) || 0;
     if (!weaponId) return;
-    await ExaltedRoll.rollAttack(this.document, weaponId);
+    await ExaltedRoll.rollAttack(this.document, weaponId, { modeIndex });
   }
 
   static async #onAddSpecialty(event, target) {

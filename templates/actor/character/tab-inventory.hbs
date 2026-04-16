@@ -14,12 +14,7 @@
     <div class="item-row" data-item-id="{{w.id}}">
       <img class="item-img" src="{{w.img}}" alt="{{w.name}}">
       <span class="item-name">{{w.name}}</span>
-      <span class="item-stat">Spd {{w.system.effectiveSpeed}}</span>
-      <span class="item-stat">Acc {{w.system.accuracyLabel}}</span>
-      <span class="item-stat">Dmg {{w.system.damageLabel}}</span>
-      <span class="item-stat">Def {{w.system.defenseLabel}}</span>
-      <span class="item-stat">Rate {{w.system.effectiveRate}}</span>
-      {{#if (gt w.system.effectiveRange 0)}}<span class="item-stat">Range {{w.system.effectiveRange}}</span>{{/if}}
+      <span class="item-stat">{{w.system.modes.length}} {{#if (eq w.system.modes.length 1)}}{{localize "EX2E.Mode"}}{{else}}{{localize "EX2E.Modes"}}{{/if}}</span>
       <div class="item-controls">
         <button data-action="toggleEquip" title="{{#if w.system.equipped}}Unequip{{else}}Equip{{/if}}">
           {{#if w.system.equipped}}🗡{{else}}○{{/if}}

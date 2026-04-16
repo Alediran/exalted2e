@@ -73,3 +73,22 @@
   color:       var(--ex2e-text-primary);
   line-height: 1.5;
 }
+
+.weapon-mode {  
+  border-bottom: 1px solid var(--ex2e-gold-dark);
+  margin-bottom: 3px;
+  padding: 5px;
+}
+.weapon-mode .mode-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.weapon-mode .mode-header .btn-remove-mode {
+  height: 11.44px;
+}
+
+.mode-name-input {
+  width: 90%;
+}

@@ -243,8 +243,9 @@ export class ExaltedRoll {
    * the resulting threshold and damage pool in chat.
    *
    * @param {ExaltedActor} actor
-   * @param {string}       weaponId  The equipped weapon's item ID
+   * @param {string}       weaponId         The equipped weapon's item ID
    * @param {object}       [options]
+   * @param {number}       [options.modeIndex=0]  Which mode of the weapon to use
    */
   static async rollAttack(actor, weaponId, options = {}) {
     const { AttackDialog } = await import("./attack-dialog.mjs");
@@ -256,15 +257,20 @@ export class ExaltedRoll {
     const sys  = actor.system;
     const wSys = weapon.system;
 
+    // Resolve the selected mode of use
+    const modeIndex = Math.max(0, Math.min(options.modeIndex ?? 0, (wSys.modes?.length ?? 1) - 1));
+    const mode      = wSys.modes?.[modeIndex];
+    if (!mode) return null;
+
     // Determine ability: ranged uses archery, thrown uses thrown, else melee
-    const isMelee = wSys.effectiveRange === 0;
-    const baseAbility = isMelee ? "melee" : (wSys.tags?.includes("Thrown") ? "thrown" : "archery");
+    const isMelee = mode.effectiveRange === 0;
+    const baseAbility = isMelee ? "melee" : (mode.tags?.includes("Thrown") ? "thrown" : "archery");
     const baseAbilVal = sys.abilities[baseAbility]?.value ?? 0;
     // Tag-driven Martial Arts handling:
     //   - Natural: weapon MUST be wielded with Martial Arts (forced).
     //   - Martial Arts: use the higher of the base weapon ability or Martial Arts.
-    const hasNaturalTag = wSys.tags?.includes("Natural");
-    const hasMATag      = wSys.tags?.includes("Martial Arts");
+    const hasNaturalTag = mode.tags?.includes("Natural");
+    const hasMATag      = mode.tags?.includes("Martial Arts");
     const maVal         = sys.abilities.martialArts?.value ?? 0;
     const useMA         = hasNaturalTag || (hasMATag && maVal > baseAbilVal);
     const ability       = useMA ? "martialArts" : baseAbility;
@@ -273,7 +279,7 @@ export class ExaltedRoll {
     const strVal    = sys.attributes.strength.value;
 
     // Attack pool = Dexterity + Ability + Weapon Accuracy
-    const basePool = attrVal + abilVal + wSys.effectiveAccuracy;
+    const basePool = attrVal + abilVal + mode.effectiveAccuracy;
 
     // Wound penalty reduces pool
     const woundPenalty = sys.health?.woundPenalty ?? 0;
@@ -345,9 +351,10 @@ export class ExaltedRoll {
     }
 
     // Build and evaluate the attack roll
+    const displayName = (wSys.modes?.length ?? 1) > 1 ? `${weapon.name} — ${mode.name}` : weapon.name;
     const attackRoll = new ExaltedRoll({
       pool:               pool + firstExcDice,
-      flavor:             `${weapon.name} — ${game.i18n.localize("EX2E.AttackRoll")}`,
+      flavor:             `${displayName} — ${game.i18n.localize("EX2E.AttackRoll")}`,
       actorName:          actor.name,
       stunt:              dialogResult.stunt,
       moteCost:           totalMoteCost,
@@ -365,9 +372,9 @@ export class ExaltedRoll {
 
     // Damage pool = threshold + weapon damage + Strength (melee only)
     const addStrength   = isMelee;
-    const rawDamagePool = hit ? threshold + wSys.effectiveDamage + (addStrength ? strVal : 0) : 0;
-    const typeSuffix = wSys.damageType === "lethal" ? "L" : wSys.damageType === "aggravated" ? "A" : "B";
-    const overwhelmingSuffix = wSys.tags?.includes("Overwhelming") ? `/${wSys.overwhelming ?? 1}` : "";
+    const rawDamagePool = hit ? threshold + mode.effectiveDamage + (addStrength ? strVal : 0) : 0;
+    const typeSuffix = mode.damageType === "lethal" ? "L" : mode.damageType === "aggravated" ? "A" : "B";
+    const overwhelmingSuffix = mode.tags?.includes("Overwhelming") ? `/${mode.overwhelming ?? 1}` : "";
     const damageTypeLabel = `${typeSuffix}${overwhelmingSuffix}`;
 
     // Resolve target soak for the damage type (auto-fill if target exists)
@@ -379,9 +386,9 @@ export class ExaltedRoll {
         targetId = targetActor.id;
         const tSys = targetActor.system;
         if (targetActor.type === "character") {
-          targetSoak = tSys.totalSoak?.[wSys.damageType] ?? 0;
+          targetSoak = tSys.totalSoak?.[mode.damageType] ?? 0;
         } else if (targetActor.type === "npc") {
-          targetSoak = tSys.combat?.soak?.[wSys.damageType] ?? 0;
+          targetSoak = tSys.combat?.soak?.[mode.damageType] ?? 0;
         }
       }
     }
@@ -394,7 +401,7 @@ export class ExaltedRoll {
       botch:               result.botch,
       actorId:             actor.id,
       actorName:           actor.name,
-      weaponName:          weapon.name,
+      weaponName:          displayName,
       stunt:               dialogResult.stunt,
       moteCost:            totalMoteCost,
       moteType:            dialogResult.moteType,
@@ -407,13 +414,13 @@ export class ExaltedRoll {
       targetSoak,
       threshold:           Math.max(0, threshold),
       hit,
-      weaponDamage:        wSys.effectiveDamage,
-      damageType:          wSys.damageType,
+      weaponDamage:        mode.effectiveDamage,
+      damageType:          mode.damageType,
       damageTypeLabel,
       addStrength:         addStrength && hit,
       strengthValue:       strVal,
       rawDamagePool,
-      overwhelming:        wSys.overwhelming ?? 1
+      overwhelming:        mode.overwhelming ?? 1
     };
 
     const content = await foundry.applications.handlebars.renderTemplate(

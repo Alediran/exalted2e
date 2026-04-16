@@ -1,36 +1,86 @@
 <div class="sheet-body weapon-body">
-  <div class="weapon-stats-grid">
-    <div class="field-group"><label>{{localize "EX2E.Speed"}}</label>
-      <input type="number" name="system.speed"   value="{{system.speed}}"   min="0" max="10" {{#unless isEditable}}readonly{{/unless}}></div>
-    <div class="field-group"><label>{{localize "EX2E.Accuracy"}}</label>
-      <input type="number" name="system.accuracy" value="{{system.accuracy}}" min="-5" max="10" {{#unless isEditable}}readonly{{/unless}}></div>
-    <div class="field-group"><label>{{localize "EX2E.Damage"}}</label>
-      <input type="number" name="system.damage"   value="{{system.damage}}"   min="0" max="20" {{#unless isEditable}}readonly{{/unless}}></div>
-    <div class="field-group"><label>{{localize "EX2E.Type"}}</label>
-      <select name="system.damageType" {{#unless isEditable}}disabled{{/unless}}>
-        {{#each damageTypes}}
-        <option value="{{this.value}}" {{#if (eq this.value ../system.damageType)}}selected{{/if}}>{{this.label}}</option>
-        {{/each}}
-      </select>
-    </div>
-    <div class="field-group"><label>{{localize "EX2E.Overwhelming"}}</label>
-      <input type="number" name="system.overwhelming" value="{{system.overwhelming}}" min="0" max="20" {{#unless isEditable}}readonly{{/unless}}></div>
-    <div class="field-group"><label>{{localize "EX2E.Defense"}}</label>
-      <input type="number" name="system.defense"  value="{{system.defense}}"  min="-5" max="10" {{#unless isEditable}}readonly{{/unless}}></div>
-    <div class="field-group"><label>{{localize "EX2E.Rate"}}</label>
-      <input type="number" name="system.rate"     value="{{system.rate}}"     min="0" max="10" {{#unless isEditable}}readonly{{/unless}}></div>
-    <div class="field-group"><label>{{localize "EX2E.Range"}}</label>
-      <input type="number" name="system.range"    value="{{system.range}}"    min="0" max="400" {{#unless isEditable}}readonly{{/unless}}></div>
-    <div class="field-group"><label>{{localize "EX2E.MinStrength"}}</label>
-      <input type="number" name="system.minStrength"    value="{{system.minStrength}}"    min="0" max="10" {{#unless isEditable}}readonly{{/unless}}></div>
-    <div class="field-group"><label>{{localize "EX2E.MinDexterity"}}</label>
-      <input type="number" name="system.minDexterity"   value="{{system.minDexterity}}"   min="0" max="10" {{#unless isEditable}}readonly{{/unless}}></div>
-    <div class="field-group"><label>{{localize "EX2E.MinMartialArts"}}</label>
-      <input type="number" name="system.minMartialArts" value="{{system.minMartialArts}}" min="0" max="10" {{#unless isEditable}}readonly{{/unless}}></div>
+
+  <!-- ═══════════════ MODES OF USE ═══════════════ -->
+  <div class="section-toolbar">
+    <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Modes"}}</h2>
+    {{#if isEditable}}
+    <button class="btn-add-item" data-action="addMode" title="{{localize 'EX2E.AddMode'}}">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+    {{/if}}
   </div>
 
-  <!-- Artifact / Attunement -->
-  <div class="field-group checkbox-field" style="margin-top:8px">
+  {{#each system.modes as |mode mIdx|}}
+  <div class="weapon-mode" data-mode-index="{{mIdx}}">
+    <div class="mode-header">
+      <input type="text" class="mode-name-input" name="system.modes.{{mIdx}}.name"
+             value="{{mode.name}}" placeholder="{{localize 'EX2E.ModeName'}}"
+             {{#unless @root.isEditable}}readonly{{/unless}}>
+      {{#if @root.isEditable}}
+      {{#if (gt @root.system.modes.length 1)}}
+      <button class="btn-remove-mode" data-action="removeMode" data-index="{{mIdx}}" title="{{localize 'EX2E.RemoveMode'}}">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      {{/if}}
+      {{/if}}
+    </div>
+
+    <div class="weapon-stats-grid">
+      <div class="field-group"><label>{{localize "EX2E.Speed"}}</label>
+        <input type="number" name="system.modes.{{mIdx}}.speed"      value="{{mode.speed}}"      min="0"  max="10"  {{#unless @root.isEditable}}readonly{{/unless}}></div>
+      <div class="field-group"><label>{{localize "EX2E.Accuracy"}}</label>
+        <input type="number" name="system.modes.{{mIdx}}.accuracy"   value="{{mode.accuracy}}"   min="-5" max="10"  {{#unless @root.isEditable}}readonly{{/unless}}></div>
+      <div class="field-group"><label>{{localize "EX2E.Damage"}}</label>
+        <input type="number" name="system.modes.{{mIdx}}.damage"     value="{{mode.damage}}"     min="0"  max="20"  {{#unless @root.isEditable}}readonly{{/unless}}></div>
+      <div class="field-group"><label>{{localize "EX2E.Type"}}</label>
+        <select name="system.modes.{{mIdx}}.damageType" {{#unless @root.isEditable}}disabled{{/unless}}>
+          {{#each @root.damageTypes}}
+          <option value="{{this.value}}" {{#if (eq this.value mode.damageType)}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="field-group"><label>{{localize "EX2E.Overwhelming"}}</label>
+        <input type="number" name="system.modes.{{mIdx}}.overwhelming" value="{{mode.overwhelming}}" min="0" max="20" {{#unless @root.isEditable}}readonly{{/unless}}></div>
+      <div class="field-group"><label>{{localize "EX2E.Defense"}}</label>
+        <input type="number" name="system.modes.{{mIdx}}.defense"    value="{{mode.defense}}"    min="-5" max="10"  {{#unless @root.isEditable}}readonly{{/unless}}></div>
+      <div class="field-group"><label>{{localize "EX2E.Rate"}}</label>
+        <input type="number" name="system.modes.{{mIdx}}.rate"       value="{{mode.rate}}"       min="0"  max="10"  {{#unless @root.isEditable}}readonly{{/unless}}></div>
+      <div class="field-group"><label>{{localize "EX2E.Range"}}</label>
+        <input type="number" name="system.modes.{{mIdx}}.range"      value="{{mode.range}}"      min="0"  max="400" {{#unless @root.isEditable}}readonly{{/unless}}></div>
+      <div class="field-group"><label>{{localize "EX2E.MinStrength"}}</label>
+        <input type="number" name="system.modes.{{mIdx}}.minStrength"    value="{{mode.minStrength}}"    min="0" max="10" {{#unless @root.isEditable}}readonly{{/unless}}></div>
+      <div class="field-group"><label>{{localize "EX2E.MinDexterity"}}</label>
+        <input type="number" name="system.modes.{{mIdx}}.minDexterity"   value="{{mode.minDexterity}}"   min="0" max="10" {{#unless @root.isEditable}}readonly{{/unless}}></div>
+      <div class="field-group"><label>{{localize "EX2E.MinMartialArts"}}</label>
+        <input type="number" name="system.modes.{{mIdx}}.minMartialArts" value="{{mode.minMartialArts}}" min="0" max="10" {{#unless @root.isEditable}}readonly{{/unless}}></div>
+    </div>
+
+    <!-- Per-mode tags -->
+    <div class="tags-block" style="margin-top:8px">
+      <label>{{localize "EX2E.Tags"}}</label>
+      <div class="tags-list">
+        {{#each mode.tags as |tag tIdx|}}
+        <span class="keyword-tag-edit">
+          <select name="system.modes.{{mIdx}}.tags.{{tIdx}}" {{#unless @root.isEditable}}disabled{{/unless}}>
+            {{#each @root.allTags as |opt|}}
+            <option value="{{opt}}" {{#if (eq opt tag)}}selected{{/if}}>{{opt}}</option>
+            {{/each}}
+          </select>
+          {{#if @root.isEditable}}
+          <button data-action="removeTag" data-mode-index="{{mIdx}}" data-index="{{tIdx}}">✕</button>
+          {{/if}}
+        </span>
+        {{/each}}
+        {{#if @root.isEditable}}
+        <button data-action="addTag" data-mode-index="{{mIdx}}">+ Tag</button>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+  {{/each}}
+
+  <!-- ═══════════════ ARTIFACT / ATTUNEMENT ═══════════════ -->
+  <div class="field-group checkbox-field" style="margin-top:12px">
     <label><input type="checkbox" name="system.artifact" {{#if system.artifact}}checked{{/if}}
                   {{#unless isEditable}}disabled{{/unless}}> {{localize "EX2E.ArtifactWeapon"}}</label>
   </div>
@@ -40,7 +90,7 @@
     <select name="system.magicalMaterial" {{#unless isEditable}}disabled{{/unless}}>
       <option value="">—</option>
       {{#each magicalMaterials}}
-      <option value="{{this.value}}" {{#if (eq this.value ../system.magicalMaterial)}}selected{{/if}}>{{this.label}}</option>
+      <option value="{{this.value}}" {{#if (eq this.value system.magicalMaterial)}}selected{{/if}}>{{this.label}}</option>
       {{/each}}
     </select>
   </div>
@@ -55,29 +105,7 @@
   </div>
   {{/if}}
 
-  <!-- Tags -->
-  <div class="tags-block" style="margin-top:10px">
-    <label>{{localize "EX2E.Tags"}}</label>
-    <div class="tags-list">
-      {{#each system.tags as |tag idx|}}
-      <span class="keyword-tag-edit">
-        <select name="system.tags.{{idx}}" {{#unless @root.isEditable}}disabled{{/unless}}>
-          {{#each @root.allTags as |opt|}}
-          <option value="{{opt}}" {{#if (eq opt tag)}}selected{{/if}}>{{opt}}</option>
-          {{/each}}
-        </select>
-        {{#if @root.isEditable}}
-        <button data-action="removeTag" data-index="{{idx}}">✕</button>
-        {{/if}}
-      </span>
-      {{/each}}
-      {{#if isEditable}}
-      <button data-action="addTag">+ Tag</button>
-      {{/if}}
-    </div>
-  </div>
-
-  <!-- Description -->
+  <!-- ═══════════════ DESCRIPTION ═══════════════ -->
   <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
   <div class="editor-container">
     {{#if isEditable}}
