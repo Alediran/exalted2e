@@ -1,0 +1,18 @@
+{
+  "Actor": {
+    "types": ["character", "npc"],
+    "templates": {},
+    "character": {},
+    "npc": {}
+  },
+  "Item": {
+    "types": ["charm", "weapon", "armor", "background", "intimacy", "meritflaw"],
+    "templates": {},
+    "charm": {},
+    "weapon": {},
+    "armor": {},
+    "background": {},
+    "intimacy": {},
+    "meritflaw": {}
+  }
+}

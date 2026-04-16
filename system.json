@@ -1,0 +1,51 @@
+{
+  "id": "exalted2e",
+  "title": "Exalted Second Edition",
+  "description": "An unofficial Foundry VTT game system for Exalted 2nd Edition by White Wolf / Onyx Path Publishing.",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13",
+    "maximum": "13"
+  },
+  "authors": [
+    {
+      "name": "Community",
+      "discord": ""
+    }
+  ],
+  "esmodules": [
+    "module/exalted2e.mjs"
+  ],
+  "styles": [
+    "styles/_variables.css",
+    "styles/_base.css",
+    "styles/_components.css",
+    "styles/_sheet-layout.css",
+    "styles/_actor-character.css",
+    "styles/_actor-npc.css",
+    "styles/_items.css",
+    "styles/_chat.css",
+    "styles/_dialog.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "es",
+      "name": "Español",
+      "path": "lang/es.json"
+    }
+  ],
+  "socket": false,
+  "initiative": "(@attributes.wits.value + @attributes.perception.value)d10cs>=7",
+  "grid": {
+    "distance": 1,
+    "units": "yd"
+  },
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "motes.peripheral"
+}
