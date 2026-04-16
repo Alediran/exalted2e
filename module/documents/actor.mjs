@@ -84,6 +84,11 @@ export class ExaltedActor extends Actor {
 
     systemData.motes.personal.totalCommitted   = (systemData.motes.personal.committed   ?? 0);
     systemData.motes.peripheral.totalCommitted = (systemData.motes.peripheral.committed ?? 0) + artifactPeripheral;
+
+    // Effective maximum = total max reduced by what's locked in commitments.
+    // Displayed in the UI and enforced by spendMotes.
+    systemData.motes.personal.effectiveMax   = Math.max(0, (systemData.motes.personal.max   ?? 0) - systemData.motes.personal.totalCommitted);
+    systemData.motes.peripheral.effectiveMax = Math.max(0, (systemData.motes.peripheral.max ?? 0) - systemData.motes.peripheral.totalCommitted);
   }
 
   /**

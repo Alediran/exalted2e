@@ -66,21 +66,23 @@
       </div>
       <!-- Mote Pools -->
       <div class="field-group mote-pools">
-        <div class="mote-pool-block">
+        <div class="mote-pool-block"
+             title="{{localize 'EX2E.MotesPersonal'}} {{system.motes.personal.value}} / {{system.motes.personal.effectiveMax}} ({{localize 'EX2E.Total'}} {{system.motes.personal.max}})">
           <span class="pool-label">{{localize "EX2E.MotesPersonal"}}</span>
           <input class="mote-value-input" type="number" data-pool="personal" data-field="value"
-                value="{{system.motes.personal.value}}" min="0" max="{{system.motes.personal.max}}"
+                value="{{system.motes.personal.value}}" min="0" max="{{system.motes.personal.effectiveMax}}"
                 {{#unless isEditable}}readonly{{/unless}}>
           <span class="pool-sep">/</span>
-          <span class="pool-max">{{system.motes.personal.max}}</span>
+          <span class="pool-max">{{system.motes.personal.effectiveMax}}</span>
         </div>
-        <div class="mote-pool-block">
+        <div class="mote-pool-block"
+             title="{{localize 'EX2E.MotesPeripheral'}} {{system.motes.peripheral.value}} / {{system.motes.peripheral.effectiveMax}} ({{localize 'EX2E.Total'}} {{system.motes.peripheral.max}})">
           <span class="pool-label">{{localize "EX2E.MotesPeripheral"}}</span>
           <input class="mote-value-input" type="number" data-pool="peripheral" data-field="value"
-                value="{{system.motes.peripheral.value}}" min="0" max="{{system.motes.peripheral.max}}"
+                value="{{system.motes.peripheral.value}}" min="0" max="{{system.motes.peripheral.effectiveMax}}"
                 {{#unless isEditable}}readonly{{/unless}}>
           <span class="pool-sep">/</span>
-          <span class="pool-max">{{system.motes.peripheral.max}}</span>
+          <span class="pool-max">{{system.motes.peripheral.effectiveMax}}</span>
         </div>
         <div class="mote-pool-block mote-pool-committed"
              title="{{localize 'EX2E.Committed'}}: {{system.motes.personal.totalCommitted}} {{localize 'EX2E.MotesPersonal'}} / {{system.motes.peripheral.totalCommitted}} {{localize 'EX2E.MotesPeripheral'}}">

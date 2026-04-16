@@ -336,7 +336,7 @@
 .mote-pool-committed .pool-label { color: var(--ex2e-dmg-lethal); }
 
 .mote-value-input {
-  width:       32px !important;
+  width:       40px !important;
   text-align:  center;
   background:  transparent !important;
   border:      none !important;
