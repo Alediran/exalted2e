@@ -327,6 +327,14 @@
   font-style: italic;
 }
 
+/* Committed-motes block visually distinct from the spent-pool blocks */
+.mote-pool-committed {
+  border-color: var(--ex2e-gold-shadow);
+  background:   var(--ex2e-bg-darkest);
+  opacity:      0.9;
+}
+.mote-pool-committed .pool-label { color: var(--ex2e-dmg-lethal); }
+
 .mote-value-input {
   width:       32px !important;
   text-align:  center;

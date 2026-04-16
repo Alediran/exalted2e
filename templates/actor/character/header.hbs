@@ -73,9 +73,6 @@
                 {{#unless isEditable}}readonly{{/unless}}>
           <span class="pool-sep">/</span>
           <span class="pool-max">{{system.motes.personal.max}}</span>
-          {{#if system.motes.personal.committed}}
-          <span class="pool-committed">({{system.motes.personal.committed}} comm.)</span>
-          {{/if}}
         </div>
         <div class="mote-pool-block">
           <span class="pool-label">{{localize "EX2E.MotesPeripheral"}}</span>
@@ -84,9 +81,10 @@
                 {{#unless isEditable}}readonly{{/unless}}>
           <span class="pool-sep">/</span>
           <span class="pool-max">{{system.motes.peripheral.max}}</span>
-          {{#if system.motes.peripheral.committed}}
-          <span class="pool-committed">({{system.motes.peripheral.committed}} comm.)</span>
-          {{/if}}
+        </div>
+        <div class="mote-pool-block mote-pool-committed">
+          <span class="pool-label">{{localize "EX2E.Committed"}}</span>
+          <span class="pool-sep">{{system.motes.personal.committed}}/{{system.motes.peripheral.committed}}</span>
         </div>
       </div>
     </div>
