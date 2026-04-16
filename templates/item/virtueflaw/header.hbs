@@ -1,0 +1,13 @@
+<div class="item-header virtueflaw-header">
+  <img class="item-portrait" src="{{item.img}}" alt="{{item.name}}"
+       data-action="editImage" {{#unless isEditable}}disabled{{/unless}}>
+  <div class="item-header-fields">
+    <input class="item-name-input" type="text" name="name" value="{{item.name}}"
+           {{#unless isEditable}}readonly{{/unless}}>
+    <div class="charm-identity-row">
+      {{localize "EX2E.VirtueFlaw"}}
+      · <span class="keyword-tag">{{localize (lookup config.exaltTypes system.exaltType)}}</span>
+      · <span class="keyword-tag">{{localize (lookup config.virtues system.baseVirtue)}}</span>
+    </div>
+  </div>
+</div>

@@ -15,6 +15,7 @@ import { BackgroundData }   from "./data/item/background-data.mjs";
 import { IntimacyData }     from "./data/item/intimacy-data.mjs";
 import { MeritFlawData }    from "./data/item/meritflaw-data.mjs";
 import { KnackData }        from "./data/item/knack-data.mjs";
+import { VirtueFlawData }   from "./data/item/virtueflaw-data.mjs";
 import { CharacterSheet }   from "./sheets/actor/character-sheet.mjs";
 import { NpcSheet }         from "./sheets/actor/npc-sheet.mjs";
 import { CharmSheet }       from "./sheets/item/charm-sheet.mjs";
@@ -22,6 +23,7 @@ import { WeaponSheet }      from "./sheets/item/weapon-sheet.mjs";
 import { ArmorSheet }       from "./sheets/item/armor-sheet.mjs";
 import { GenericItemSheet } from "./sheets/item/generic-item-sheet.mjs";
 import { KnackSheet }      from "./sheets/item/knack-sheet.mjs";
+import { VirtueFlawSheet } from "./sheets/item/virtueflaw-sheet.mjs";
 import { registerHandlebarsHelpers } from "./helpers/handlebars.mjs";
 
 // ── Init Hook ──────────────────────────────────────────────────────────────
@@ -47,7 +49,8 @@ Hooks.once("init", function () {
     background: BackgroundData,
     intimacy:   IntimacyData,
     meritflaw:  MeritFlawData,
-    knack:      KnackData
+    knack:      KnackData,
+    virtueflaw: VirtueFlawData
   };
 
   // ── Sheet Registration ──────────────────────────────────────────────────
@@ -88,6 +91,11 @@ Hooks.once("init", function () {
     types:     ["knack"],
     makeDefault: true,
     label:     "EX2E.SheetKnack"
+  });
+  Items.registerSheet("exalted2e", VirtueFlawSheet, {
+    types:     ["virtueflaw"],
+    makeDefault: true,
+    label:     "EX2E.SheetVirtueFlaw"
   });
 
   // ── System Settings ─────────────────────────────────────────────────────
@@ -161,6 +169,8 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/item/generic/body.hbs",
     "systems/exalted2e/templates/item/knack/header.hbs",
     "systems/exalted2e/templates/item/knack/body.hbs",
+    "systems/exalted2e/templates/item/virtueflaw/header.hbs",
+    "systems/exalted2e/templates/item/virtueflaw/body.hbs",
     // Chat / Dialogs
     "systems/exalted2e/templates/chat/roll-result.hbs",
     "systems/exalted2e/templates/chat/item-card.hbs",

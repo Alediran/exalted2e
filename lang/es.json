@@ -235,6 +235,12 @@
     "NoKnacks":          "Sin Trucos",
     "SheetKnack":        "Hoja de Truco",
 
+    "NewVirtueflaw":     "Nuevo Defecto de Virtud",
+    "VirtueFlaw":        "Defecto de Virtud",
+    "VirtueFlaws":       "Defectos de Virtud",
+    "BaseVirtue":        "Virtud Base",
+    "SheetVirtueFlaw":   "Hoja de Defecto de Virtud",
+
     "SheetCharacter":  "Hoja de Personaje",
     "SheetNpc":        "Hoja de PNJ",
     "SheetCharm":      "Hoja de Encantamiento",
@@ -336,6 +342,8 @@
       "background": "Trasfondo",
       "intimacy": "Intimidad",
       "meritflaw": "Mérito/Defecto",
+      "knack":      "Truco",
+      "virtueflaw": "Defecto de Virtud",
       "item":   "Objeto"
     }
   }

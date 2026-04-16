@@ -235,6 +235,12 @@
     "NoKnacks":          "No Knacks",
     "SheetKnack":        "Knack Sheet",
 
+    "NewVirtueflaw":     "New Virtue Flaw",
+    "VirtueFlaw":        "Virtue Flaw",
+    "VirtueFlaws":       "Virtue Flaws",
+    "BaseVirtue":        "Base Virtue",
+    "SheetVirtueFlaw":   "Virtue Flaw Sheet",
+
     "SheetCharacter":  "Character Sheet",
     "SheetNpc":        "NPC Sheet",
     "SheetCharm":      "Charm Sheet",
@@ -336,6 +342,8 @@
       "background": "Background",
       "intimacy": "Intimacy",
       "meritflaw": "Merit/Flaw",
+      "knack":      "Knack",
+      "virtueflaw": "Virtue Flaw",
       "item":   "Item"
     }
   }

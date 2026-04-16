@@ -1,0 +1,31 @@
+<div class="sheet-body virtueflaw-body">
+
+  <div class="field-group">
+    <label>{{localize "EX2E.ExaltType"}}</label>
+    <select name="system.exaltType" {{#unless isEditable}}disabled{{/unless}}>
+      {{#each exaltTypes}}
+      <option value="{{this.value}}" {{#if (eq this.value ../system.exaltType)}}selected{{/if}}>{{this.label}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div class="field-group" style="margin-top:8px">
+    <label>{{localize "EX2E.BaseVirtue"}}</label>
+    <select name="system.baseVirtue" {{#unless isEditable}}disabled{{/unless}}>
+      {{#each virtues}}
+      <option value="{{this.value}}" {{#if (eq this.value ../system.baseVirtue)}}selected{{/if}}>{{this.label}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
+  <div class="editor-container">
+    {{#if isEditable}}
+    <prose-mirror name="system.description" data-document-uuid="{{item.uuid}}" value="{{system.description}}" collaborate="true" toggled="true">
+      {{{enrichedDescription}}}
+    </prose-mirror>
+    {{else}}
+    <div class="editor-content">{{{enrichedDescription}}}</div>
+    {{/if}}
+  </div>
+</div>

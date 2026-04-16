@@ -267,6 +267,9 @@
 .sheet-body {
   min-height: 500px;
 }
+.sheet-body.virtueflaw-body {
+  min-height: 300px;
+}
 
 /* Tab panels */
 .exalted2e .tab          { display: none; }
