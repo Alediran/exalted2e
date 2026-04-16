@@ -351,7 +351,9 @@ export class ExaltedRoll {
     // Damage pool = threshold + weapon damage + Strength (melee only)
     const addStrength   = isMelee;
     const rawDamagePool = hit ? threshold + wSys.effectiveDamage + (addStrength ? strVal : 0) : 0;
-    const damageTypeLabel = wSys.damageType === "lethal" ? "L" : wSys.damageType === "aggravated" ? "A" : "B";
+    const typeSuffix = wSys.damageType === "lethal" ? "L" : wSys.damageType === "aggravated" ? "A" : "B";
+    const overwhelmingSuffix = wSys.tags?.includes("Overwhelming") ? `/${wSys.overwhelming ?? 1}` : "";
+    const damageTypeLabel = `${typeSuffix}${overwhelmingSuffix}`;
 
     // Resolve target soak for the damage type (auto-fill if target exists)
     let targetSoak = 0;
@@ -396,7 +398,7 @@ export class ExaltedRoll {
       addStrength:         addStrength && hit,
       strengthValue:       strVal,
       rawDamagePool,
-      overwhelming:        0  // TODO: weapon overwhelming value when implemented
+      overwhelming:        wSys.overwhelming ?? 1
     };
 
     const content = await foundry.applications.handlebars.renderTemplate(

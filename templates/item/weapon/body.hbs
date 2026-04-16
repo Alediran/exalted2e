@@ -13,12 +13,20 @@
         {{/each}}
       </select>
     </div>
+    <div class="field-group"><label>{{localize "EX2E.Overwhelming"}}</label>
+      <input type="number" name="system.overwhelming" value="{{system.overwhelming}}" min="0" max="20" {{#unless isEditable}}readonly{{/unless}}></div>
     <div class="field-group"><label>{{localize "EX2E.Defense"}}</label>
       <input type="number" name="system.defense"  value="{{system.defense}}"  min="-5" max="10" {{#unless isEditable}}readonly{{/unless}}></div>
     <div class="field-group"><label>{{localize "EX2E.Rate"}}</label>
       <input type="number" name="system.rate"     value="{{system.rate}}"     min="0" max="10" {{#unless isEditable}}readonly{{/unless}}></div>
     <div class="field-group"><label>{{localize "EX2E.Range"}}</label>
       <input type="number" name="system.range"    value="{{system.range}}"    min="0" max="400" {{#unless isEditable}}readonly{{/unless}}></div>
+    <div class="field-group"><label>{{localize "EX2E.MinStrength"}}</label>
+      <input type="number" name="system.minStrength"    value="{{system.minStrength}}"    min="0" max="10" {{#unless isEditable}}readonly{{/unless}}></div>
+    <div class="field-group"><label>{{localize "EX2E.MinDexterity"}}</label>
+      <input type="number" name="system.minDexterity"   value="{{system.minDexterity}}"   min="0" max="10" {{#unless isEditable}}readonly{{/unless}}></div>
+    <div class="field-group"><label>{{localize "EX2E.MinMartialArts"}}</label>
+      <input type="number" name="system.minMartialArts" value="{{system.minMartialArts}}" min="0" max="10" {{#unless isEditable}}readonly{{/unless}}></div>
   </div>
 
   <!-- Artifact / Attunement -->
