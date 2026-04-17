@@ -59,26 +59,27 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     },
     tabMain: {
       template: "systems/exalted2e/templates/actor/character/tab-main.hbs",
-      scrollable: [".tab"]
+      scrollable: [""]
     },
     tabCombat: {
       template: "systems/exalted2e/templates/actor/character/tab-combat.hbs",
-      scrollable: [".tab"]
+      scrollable: [""]
     },
     tabCharms: {
       template: "systems/exalted2e/templates/actor/character/tab-charms.hbs",
-      scrollable: [".tab"]
+      scrollable: [""]
     },
     tabInventory: {
       template: "systems/exalted2e/templates/actor/character/tab-inventory.hbs",
-      scrollable: [".tab"]
+      scrollable: [""]
     },
     tabBiography: {
       template: "systems/exalted2e/templates/actor/character/tab-biography.hbs",
-      scrollable: [".tab"]
+      scrollable: [""]
     },
     tabExperience: {
-      template: "systems/exalted2e/templates/actor/character/tab-experience.hbs"
+      template: "systems/exalted2e/templates/actor/character/tab-experience.hbs",
+      scrollable: [""]
     }
   };
 
