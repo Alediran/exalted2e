@@ -208,24 +208,50 @@ Hooks.on("renderChatMessage", (message, html) => {
         ui.notifications.warn(game.i18n.localize("EX2E.DefenseNotAllowed"));
         return;
       }
-      const dv = defenseType === "dodge" ? attack.targetDodgeDV : attack.targetParryDV;
+      const baseDV = defenseType === "dodge" ? attack.targetDodgeDV : attack.targetParryDV;
 
       // Filter the defender's Reflexive Step-2 Charms and pass them to the
       // dialog. The dialog opens every time the defender picks a defense —
       // it doubles as the confirmation step and renders an empty-state
-      // message when no applicable charms exist.
-      const step2Charms = targetActor.items.filter(i =>
+      // message when no applicable charms exist.      
+      const allStep2 = targetActor.items.filter(i =>
         i.type === "charm" &&
         i.system.charmType === "reflexive" &&
         (i.system.steps ?? []).includes(2)
       );
 
+      // Determine the ability key relevant to this defense so we can locate
+      // matching Excellency charms. Ability-based exalts key excellencies to
+      // the ability (dodge / melee / martialArts); Lunars & Alchemicals key
+      // them to the attribute (dexterity).
+      const tSys        = targetActor.system;
+      const isAttrBased = ["lunar", "alchemical"].includes(tSys.exaltType);
+      const dex         = tSys.attributes?.dexterity?.value ?? 0;
+      const meleeVal    = tSys.abilities?.melee?.value       ?? 0;
+      const maVal       = tSys.abilities?.martialArts?.value ?? 0;
+      const abilKey     = isAttrBased ? "dexterity"
+                        : defenseType === "dodge" ? "dodge"
+                        : (maVal > meleeVal ? "martialArts" : "melee");
+      const abilVal     = isAttrBased ? 0 : (tSys.abilities?.[abilKey]?.value ?? 0);
+      const keyVal      = dex + abilVal;
+
+      // Pull the First/Second Excellency charms keyed to this ability out of
+      // the regular list so they render as input sections instead of
+      // checkboxes (mirrors the Attack Dialog's pattern).
+      const firstExcCharm  = allStep2.find(c => c.system.excellency === "first"  && c.system.ability === abilKey);
+      const secondExcCharm = allStep2.find(c => c.system.excellency === "second" && c.system.ability === abilKey);
+      const excIds         = new Set([firstExcCharm, secondExcCharm].filter(Boolean).map(c => c.id));
+      const regularCharms  = allStep2.filter(c => !excIds.has(c.id));
+
       const { Step2DefenseDialog } = await import("./dialogs/step2-defense-dialog.mjs");
       const result = await Step2DefenseDialog.prompt({
-        charms:      step2Charms,
+        charms:       regularCharms,
         defenseType,
-        dv,
-        targetName:  attack.targetName
+        dv:           baseDV,
+        targetName:   attack.targetName,
+        excellency:   { first: !!firstExcCharm, second: !!secondExcCharm },
+        firstExcMax:  keyVal,
+        secondExcMax: Math.ceil(keyVal / 2)
       });
       if (!result) return;                          // user cancelled
 
@@ -236,6 +262,36 @@ Hooks.on("renderChatMessage", (message, html) => {
         const ok = await charm.activateCharm();
         if (ok) activatedNames.push(charm.name);
       }
+
+      // Spend Excellency motes directly. charm.activateCharm() only pays the
+      // fixed charm cost; Excellency cost is per die/success, collected from
+      // the dialog inputs.
+      const firstExcDice  = result.firstExcDice  ?? 0;
+      const secondExcSucc = result.secondExcSucc ?? 0;
+      const excMoteCost   = firstExcDice + (secondExcSucc * 2);
+      if (excMoteCost > 0) {
+        const spent = await targetActor.spendMotes(excMoteCost, result.moteType);
+        if (!spent) return;
+        if (firstExcCharm  && firstExcDice  > 0) activatedNames.push(firstExcCharm.name);
+        if (secondExcCharm && secondExcSucc > 0) activatedNames.push(secondExcCharm.name);
+      }
+
+      // First Excellency adds dice to a roll — for a defensive DV, we roll
+      // the purchased dice and only the resulting successes (10 = 2, 7-9 = 1)
+      // bump the DV. Post the roll so the attacker can see what came up.
+      let firstExcSuccesses = 0;
+      if (firstExcDice > 0) {
+        const excRoll = new Roll(`${firstExcDice}d10`);
+        await excRoll.evaluate();
+        for (const r of excRoll.terms[0].results) {
+          if (r.result === 10)     firstExcSuccesses += 2;
+          else if (r.result >= 7)  firstExcSuccesses += 1;
+        }
+      }
+
+      // Second Excellency adds its successes directly; Third is not applied
+      // to DVs here (no defensive reroll semantics).
+      const dv = baseDV + firstExcSuccesses + secondExcSucc;
 
       const newAttack = {
         ...attack,

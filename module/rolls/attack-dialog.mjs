@@ -62,7 +62,6 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     const el = this.element;
     const firstExcInput  = el.querySelector("[name='firstExcDice']");
     const secondExcInput = el.querySelector("[name='secondExcSucc']");
-    const thirdExcCheck  = el.querySelector("[name='useThirdExc']");
     const totalCostEl    = el.querySelector(".exc-total-cost");
 
     let currentFirstExcMax  = this._data.firstExcMax;
@@ -89,13 +88,11 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       if (!totalCostEl) return;
       const firstCost  = parseInt(firstExcInput?.value)  || 0;
       const secondCost = (parseInt(secondExcInput?.value) || 0) * 2;
-      const thirdCost  = thirdExcCheck?.checked ? 4 : 0;
-      totalCostEl.textContent = firstCost + secondCost + thirdCost;
+      totalCostEl.textContent = firstCost + secondCost;
     };
 
     firstExcInput?.addEventListener("input", updateTotal);
     secondExcInput?.addEventListener("input", updateTotal);
-    thirdExcCheck?.addEventListener("change", updateTotal);
     updateTotal();
   }
 
@@ -110,8 +107,7 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       stunt:         parseInt(data.stunt)    || 0,
       moteType:      data.moteType           || "peripheral",
       firstExcDice:  parseInt(data.firstExcDice)  || 0,
-      secondExcSucc: parseInt(data.secondExcSucc) || 0,
-      useThirdExc:   !!data.useThirdExc
+      secondExcSucc: parseInt(data.secondExcSucc) || 0
     });
     this.close();
   }

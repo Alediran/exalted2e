@@ -288,10 +288,11 @@ export class ExaltedRoll {
     const exaltType   = sys.exaltType ?? "";
     const isAttrBased = ["lunar", "alchemical"].includes(exaltType);
     const allCharms   = actor.items.filter(i => i.type === "charm");
+    // Third Excellency is not available at the attack roll (Step 3); it's
+    // used in Steps 4 and 6 — wired up separately on the attack result card.
     const detectExc = (key) => ({
       first:  allCharms.some(c => c.system.excellency === "first"  && c.system.ability === key),
-      second: allCharms.some(c => c.system.excellency === "second" && c.system.ability === key),
-      third:  allCharms.some(c => c.system.excellency === "third"  && c.system.ability === key)
+      second: allCharms.some(c => c.system.excellency === "second" && c.system.ability === key)
     });
     const excellency = isAttrBased ? detectExc("dexterity") : detectExc(ability);
 
@@ -344,11 +345,10 @@ export class ExaltedRoll {
     });
     if (!dialogResult) return null;
 
-    // Mote costs
+    // Mote costs (First/Second Excellency only — Third is not used at Step 3)
     const firstExcDice       = dialogResult.firstExcDice  ?? 0;
     const secondExcSuccesses = dialogResult.secondExcSucc ?? 0;
-    const useThirdExcellency = dialogResult.useThirdExc   ?? false;
-    const totalMoteCost      = firstExcDice + (secondExcSuccesses * 2) + (useThirdExcellency ? 4 : 0);
+    const totalMoteCost      = firstExcDice + (secondExcSuccesses * 2);
 
     if (totalMoteCost > 0 && actor.type === "character") {
       const spent = await actor.spendMotes(totalMoteCost, dialogResult.moteType);
@@ -365,8 +365,7 @@ export class ExaltedRoll {
       moteCost:           totalMoteCost,
       moteType:           dialogResult.moteType,
       firstExcDice,
-      secondExcSuccesses,
-      useThirdExcellency
+      secondExcSuccesses
     });
     const result = await attackRoll.evaluate();
 
@@ -389,7 +388,6 @@ export class ExaltedRoll {
       moteType:            dialogResult.moteType,
       firstExcDice,
       secondExcSuccesses,
-      usedThirdExcellency: useThirdExcellency,
       weaponDamage:        mode.effectiveDamage,
       damageType:          mode.damageType,
       damageTypeLabel:     `${typeSuffix}${overwhelmingSuffix}`,
