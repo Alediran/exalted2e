@@ -61,11 +61,14 @@
 }
 
 .box-rating .box.disabled {
-  background:   var(--ex2e-bg-darkest);
-  border-color: var(--ex2e-bg-medium);
-  opacity:      0.3;
-  cursor:       default;
+  background:     var(--ex2e-bg-darkest);
+  border-style:   dashed;
   pointer-events: none;
+}
+
+.box-rating .box.disabled:hover {
+  border-color: var(--ex2e-bg-medium);
+  box-shadow:   none;
 }
 
 /* ── HEALTH TRACK ────────────────────────────────────────────────────────── */

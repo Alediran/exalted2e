@@ -270,8 +270,11 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const newValue = parseInt(pip.dataset.value);
     const min      = parseInt(track?.dataset.min ?? 0);
     const current  = parseInt(track?.dataset.current ?? 0);
-    // Only the first pip toggles to minimum; any other pip sets its own value.
-    const val      = (newValue === 1 && current === 1) ? min : newValue;
+    // Only the first pip toggles to minimum; any other pip sets its own value,
+    // clamped to the track's declared minimum.
+    const val      = (newValue === 1 && current === 1)
+      ? min
+      : Math.max(min, newValue);
     if (!name) return;
 
     // ArrayField elements can't be updated by index path — null-then-set to force replace
