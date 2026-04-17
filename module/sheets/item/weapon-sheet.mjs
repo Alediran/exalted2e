@@ -108,7 +108,8 @@ export class WeaponSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const clicked  = parseInt(pip.dataset.value);
     const current  = parseInt(track.dataset.current ?? 0);
     const min      = parseInt(track.dataset.min ?? 0);
-    const newVal   = (clicked === current) ? min : clicked;
+    // Only the first pip toggles to minimum; any other pip sets its own value.
+    const newVal   = (clicked === 1 && current === 1) ? min : clicked;
 
     // ArrayField paths (system.modes.<i>.<field>) need clone-then-replace
     const modeMatch = name.match(/^system\.modes\.(\d+)\.(\w+)$/);
