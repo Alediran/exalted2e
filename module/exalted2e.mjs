@@ -245,13 +245,19 @@ Hooks.on("renderChatMessage", (message, html) => {
 
       const { Step2DefenseDialog } = await import("./dialogs/step2-defense-dialog.mjs");
       const result = await Step2DefenseDialog.prompt({
-        charms:       regularCharms,
+        charms:        regularCharms,
         defenseType,
-        dv:           baseDV,
-        targetName:   attack.targetName,
-        excellency:   { first: !!firstExcCharm, second: !!secondExcCharm },
-        firstExcMax:  keyVal,
-        secondExcMax: Math.ceil(keyVal / 2)
+        dv:            baseDV,
+        targetName:    attack.targetName,
+        excellency:    { first: !!firstExcCharm, second: !!secondExcCharm },
+        firstExcMax:   keyVal,
+        secondExcMax:  Math.ceil(keyVal / 2),
+        firstExcLabel: firstExcCharm
+          ? `${firstExcCharm.name} (${game.i18n.localize("EX2E.FirstExcellency")})`
+          : game.i18n.localize("EX2E.FirstExcellency"),
+        secondExcLabel: secondExcCharm
+          ? `${secondExcCharm.name} (${game.i18n.localize("EX2E.SecondExcellency")})`
+          : game.i18n.localize("EX2E.SecondExcellency")
       });
       if (!result) return;                          // user cancelled
 

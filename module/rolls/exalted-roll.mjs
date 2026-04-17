@@ -291,10 +291,17 @@ export class ExaltedRoll {
     // Third Excellency is not available at the attack roll (Step 3); it's
     // used in Steps 4 and 6 — wired up separately on the attack result card.
     const detectExc = (key) => ({
-      first:  allCharms.some(c => c.system.excellency === "first"  && c.system.ability === key),
-      second: allCharms.some(c => c.system.excellency === "second" && c.system.ability === key)
+      first:  allCharms.find(c => c.system.excellency === "first"  && c.system.ability === key) ?? null,
+      second: allCharms.find(c => c.system.excellency === "second" && c.system.ability === key) ?? null
     });
-    const excellency = isAttrBased ? detectExc("dexterity") : detectExc(ability);
+    const excCharms  = isAttrBased ? detectExc("dexterity") : detectExc(ability);
+    const excellency = { first: !!excCharms.first, second: !!excCharms.second };
+    const firstExcLabel  = excCharms.first
+      ? `${excCharms.first.name} (${game.i18n.localize("EX2E.FirstExcellency")})`
+      : game.i18n.localize("EX2E.FirstExcellency");
+    const secondExcLabel = excCharms.second
+      ? `${excCharms.second.name} (${game.i18n.localize("EX2E.SecondExcellency")})`
+      : game.i18n.localize("EX2E.SecondExcellency");
 
     let keyVal = 0;
     switch (exaltType) {
@@ -341,7 +348,8 @@ export class ExaltedRoll {
     }
 
     const dialogResult = await AttackDialog.prompt({
-      pool, excellency, firstExcMax, secondExcMax
+      pool, excellency, firstExcMax, secondExcMax,
+      firstExcLabel, secondExcLabel
     });
     if (!dialogResult) return null;
 

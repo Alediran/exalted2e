@@ -39,13 +39,15 @@ export class Step2DefenseDialog extends HandlebarsApplicationMixin(ApplicationV2
     this._resolve  = resolve;
     this._resolved = false;
     this._data = {
-      charms:       options.charms       ?? [],
-      defenseType:  options.defenseType  ?? "dodge",
-      dv:           options.dv           ?? 0,
-      targetName:   options.targetName   ?? null,
-      excellency:   options.excellency   ?? { first: false, second: false },
-      firstExcMax:  options.firstExcMax  ?? 0,
-      secondExcMax: options.secondExcMax ?? 0
+      charms:         options.charms         ?? [],
+      defenseType:    options.defenseType    ?? "dodge",
+      dv:             options.dv             ?? 0,
+      targetName:     options.targetName     ?? null,
+      excellency:     options.excellency     ?? { first: false, second: false },
+      firstExcMax:    options.firstExcMax    ?? 0,
+      secondExcMax:   options.secondExcMax   ?? 0,
+      firstExcLabel:  options.firstExcLabel  ?? game.i18n.localize("EX2E.FirstExcellency"),
+      secondExcLabel: options.secondExcLabel ?? game.i18n.localize("EX2E.SecondExcellency")
     };
   }
 
@@ -70,6 +72,8 @@ export class Step2DefenseDialog extends HandlebarsApplicationMixin(ApplicationV2
       hasExcellency:  !!(exc.first || exc.second),
       firstExcMax:    this._data.firstExcMax,
       secondExcMax:   this._data.secondExcMax,
+      firstExcLabel:  this._data.firstExcLabel,
+      secondExcLabel: this._data.secondExcLabel,
       moteTypeChoices: {
         personal:   game.i18n.localize("EX2E.MotesPersonal"),
         peripheral: game.i18n.localize("EX2E.MotesPeripheral")
