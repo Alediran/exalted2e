@@ -177,6 +177,7 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/dialog/roll-dialog.hbs",
     "systems/exalted2e/templates/dialog/add-specialty-dialog.hbs",
     "systems/exalted2e/templates/dialog/attack-dialog.hbs",
+    "systems/exalted2e/templates/dialog/step2-defense-dialog.hbs",
     "systems/exalted2e/templates/dialog/virtueflaw-picker-dialog.hbs",
     "systems/exalted2e/templates/chat/attack-result.hbs"
   ];
@@ -208,7 +209,39 @@ Hooks.on("renderChatMessage", (message, html) => {
         return;
       }
       const dv = defenseType === "dodge" ? attack.targetDodgeDV : attack.targetParryDV;
-      const newAttack = { ...attack, defense: { type: defenseType, dv } };
+
+      // Filter the defender's Reflexive Step-2 Charms and pass them to the
+      // dialog. The dialog opens every time the defender picks a defense —
+      // it doubles as the confirmation step and renders an empty-state
+      // message when no applicable charms exist.
+      const step2Charms = targetActor.items.filter(i =>
+        i.type === "charm" &&
+        i.system.charmType === "reflexive" &&
+        (i.system.steps ?? []).includes(2)
+      );
+
+      const { Step2DefenseDialog } = await import("./dialogs/step2-defense-dialog.mjs");
+      const result = await Step2DefenseDialog.prompt({
+        charms:      step2Charms,
+        defenseType,
+        dv,
+        targetName:  attack.targetName
+      });
+      if (!result) return;                          // user cancelled
+
+      const activatedNames = [];
+      for (const id of result.charmIds) {
+        const charm = targetActor.items.get(id);
+        if (!charm) continue;
+        const ok = await charm.activateCharm();
+        if (ok) activatedNames.push(charm.name);
+      }
+
+      const newAttack = {
+        ...attack,
+        defense:       { type: defenseType, dv },
+        defenseCharms: activatedNames
+      };
 
       const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
       const content = await renderAttackCardContent(newAttack);

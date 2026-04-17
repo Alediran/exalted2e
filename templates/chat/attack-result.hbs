@@ -35,6 +35,13 @@
       <span>{{successes}} {{localize "EX2E.Successes"}} vs {{localize defenseLabelKey}} {{targetDV}}{{#if targetName}} ({{targetName}}){{/if}}</span>
     </div>
 
+    {{#if defenseCharms.length}}
+    <div class="defense-charms">
+      <span class="defense-charms-label">{{localize "EX2E.Step2CharmsUsed"}}:</span>
+      {{#each defenseCharms}}<span class="charm-chip">{{this}}</span>{{/each}}
+    </div>
+    {{/if}}
+
     {{#if hit}}
     <div class="roll-result success">
       <span class="result-label success-label">{{localize "EX2E.Hit"}} — {{threshold}} {{localize "EX2E.Threshold"}}</span>

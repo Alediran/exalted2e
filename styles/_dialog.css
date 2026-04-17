@@ -22,9 +22,74 @@
 .ex2e-roll-dialog .form-footer {
   display:         flex;
   justify-content: center;
+  gap:             var(--ex2e-gap-md);
   padding:         var(--ex2e-gap-md) var(--ex2e-gap-lg);
   border-top:      1px solid var(--ex2e-gold-dark);
   background:      var(--ex2e-bg-darkest);
+}
+
+/* ── Step 2 Defense Dialog ──────────────────────────────────────────────── */
+
+.step2-defense-dialog .defense-header {
+  display:         flex;
+  align-items:     baseline;
+  justify-content: space-between;
+  padding-bottom:  var(--ex2e-gap-sm);
+  border-bottom:   1px solid var(--ex2e-gold-dark);
+}
+.step2-defense-dialog .defense-dv {
+  font-family: var(--ex2e-font-title);
+  color:       var(--ex2e-gold-bright);
+  font-size:   var(--ex2e-font-size-lg);
+}
+.step2-defense-dialog .defense-target {
+  color:     var(--ex2e-text-muted);
+  font-size: var(--ex2e-font-size-sm);
+}
+.step2-defense-dialog .defense-instruction {
+  margin:    0;
+  font-size: var(--ex2e-font-size-sm);
+  color:     var(--ex2e-text-secondary);
+}
+.step2-defense-dialog .step2-charm-list {
+  list-style: none;
+  margin:     0;
+  padding:    0;
+  display:        flex;
+  flex-direction: column;
+  gap:            4px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+.step2-defense-dialog .step2-charm-label {
+  display:     flex;
+  align-items: center;
+  gap:         var(--ex2e-gap-sm);
+  padding:     4px 8px;
+  border:      1px solid var(--ex2e-border-color);
+  border-radius: var(--ex2e-border-radius);
+  cursor:      pointer;
+  transition:  background var(--ex2e-transition-fast),
+               border-color var(--ex2e-transition-fast);
+}
+.step2-defense-dialog .step2-charm-label:hover {
+  background:   var(--ex2e-bg-hover);
+  border-color: var(--ex2e-gold-dark);
+}
+.step2-defense-dialog .charm-name {
+  flex: 1;
+  color: var(--ex2e-text-primary);
+}
+.step2-defense-dialog .charm-cost {
+  font-family: var(--ex2e-font-ui);
+  font-size:   var(--ex2e-font-size-xs);
+  color:       var(--ex2e-text-muted);
+}
+.step2-defense-dialog .no-charms {
+  margin:    0;
+  font-size: var(--ex2e-font-size-sm);
+  color:     var(--ex2e-text-muted);
+  text-align: center;
 }
 
 .btn-roll {

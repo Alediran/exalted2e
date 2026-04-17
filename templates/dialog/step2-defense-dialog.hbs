@@ -1,0 +1,36 @@
+<form class="ex2e-roll-dialog step2-defense-dialog" autocomplete="off">
+  <div class="dialog-content">
+
+    <div class="field-group defense-header">
+      <label>{{localize defenseLabelKey}}</label>
+      <span class="defense-dv">{{dv}}{{#if targetName}} <span class="defense-target">({{targetName}})</span>{{/if}}</span>
+    </div>
+
+    <p class="defense-instruction">{{localize "EX2E.Step2CharmsPrompt"}}</p>
+
+    {{#if charms.length}}
+    <ul class="step2-charm-list">
+      {{#each charms as |c|}}
+      <li class="step2-charm-row">
+        <label class="step2-charm-label">
+          <input type="checkbox" name="charm-{{c.id}}">
+          <span class="charm-name">{{c.name}}</span>
+          {{#if c.costLabel}}<span class="charm-cost">{{c.costLabel}}</span>{{/if}}
+        </label>
+      </li>
+      {{/each}}
+    </ul>
+    {{else}}
+    <p class="no-charms">{{localize "EX2E.NoStep2Charms"}}</p>
+    {{/if}}
+
+  </div>
+  <footer class="form-footer">
+    <button type="button" class="btn-roll" data-action="cancel">
+      <i class="fa-solid fa-xmark"></i> {{localize "EX2E.Cancel"}}
+    </button>
+    <button type="button" class="btn-roll" data-action="confirm">
+      <i class="fa-solid fa-shield"></i> {{localize "EX2E.ConfirmDefense"}}
+    </button>
+  </footer>
+</form>

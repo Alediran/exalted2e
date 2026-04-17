@@ -134,6 +134,26 @@
   margin-bottom: var(--ex2e-gap-xs);
 }
 
+.ex2e-attack-card .defense-charms {
+  display:       flex;
+  flex-wrap:     wrap;
+  align-items:   center;
+  gap:           4px;
+  justify-content: center;
+  font-size:     var(--ex2e-font-size-xs);
+  color:         var(--ex2e-text-muted);
+  margin-bottom: var(--ex2e-gap-xs);
+}
+.ex2e-attack-card .defense-charms-label { text-transform: uppercase; letter-spacing: 0.05em; }
+.ex2e-attack-card .defense-charms .charm-chip {
+  padding:        1px 7px;
+  border:         1px solid var(--ex2e-gold-dark);
+  border-radius:  10px;
+  background:     var(--ex2e-bg-panel);
+  color:          var(--ex2e-text-secondary);
+  font-family:    var(--ex2e-font-ui);
+}
+
 .ex2e-attack-card .damage-pool-info {
   text-align:    center;
   font-size:     var(--ex2e-font-size-sm);
