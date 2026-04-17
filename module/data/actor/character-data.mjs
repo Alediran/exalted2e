@@ -181,12 +181,39 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
   }
 
   _prepareCombatStats() {
-    const a = this.attributes;
+    const a  = this.attributes;
     const ab = this.abilities;
-    // Dodge DV = (Dex + Dodge) / 2, round up
-    this.dodgeDV    = Math.ceil((a.dexterity.value + ab.dodge.value) / 2);
-    // Parry DV = (Dex + Ability + weapon defence) / 2 — base without weapon
-    this.parryDVBase = Math.ceil(a.dexterity.value / 2);
+    // Essence 2+ rounds DVs up, otherwise round down.
+    const halve = (n) => this.essence.value > 1 ? Math.ceil(n / 2) : Math.floor(n / 2);
+
+    // Dodge DV = (Dex + Dodge) / 2
+    this.dodgeDV = halve(a.dexterity.value + ab.dodge.value + this.essence.value);
+
+    // Parry DV — unarmed baseline uses Martial Arts, no weapon defence bonus.
+    const meleeVal = ab.melee?.value        ?? 0;
+    const maVal    = ab.martialArts?.value  ?? 0;
+    this.parryDVBase = halve(a.dexterity.value + maVal);
+
+    // Best weapon parry across all equipped melee modes:
+    //   (Dex + (Melee | Martial Arts) + weapon defence) / 2
+    // Martial Arts is used when the mode has the Natural tag (mandatory)
+    // or the Martial Arts tag and MA exceeds Melee.
+    let bestWeaponParry = 0;
+    for (const item of this.parent?.items ?? []) {
+      if (item.type !== "weapon" || !item.system.equipped) continue;
+      for (const mode of item.system.modes ?? []) {
+        if ((mode.effectiveRange ?? mode.range ?? 0) !== 0) continue;
+        const hasNatural = mode.tags?.includes("Natural");
+        const hasMA      = mode.tags?.includes("Martial Arts");
+        const abilVal    = hasNatural ? maVal
+                         : (hasMA && maVal > meleeVal) ? maVal
+                         : meleeVal;
+        const parry = halve(a.dexterity.value + abilVal + (mode.effectiveDefense ?? 0));
+        if (parry > bestWeaponParry) bestWeaponParry = parry;
+      }
+    }
+    this.parryDV = Math.max(this.parryDVBase, bestWeaponParry);
+
     // Join Battle = Wits + Awareness
     this.joinBattle  = a.wits.value + ab.awareness.value;
     // Movement = Dex

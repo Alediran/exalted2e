@@ -328,8 +328,8 @@ export class ExaltedRoll {
         targetName = targetActor.name;
         const tSys = targetActor.system;
         if (targetActor.type === "character") {
-          targetDodgeDV = tSys.dodgeDV        ?? 0;
-          targetParryDV = tSys.parryDVBase    ?? 0;
+          targetDodgeDV = tSys.dodgeDV ?? 0;
+          targetParryDV = tSys.parryDV ?? tSys.parryDVBase ?? 0;
           targetSoak    = tSys.totalSoak?.[mode.damageType] ?? 0;
         } else if (targetActor.type === "npc") {
           targetDodgeDV = tSys.combat?.dodgeDV ?? 0;

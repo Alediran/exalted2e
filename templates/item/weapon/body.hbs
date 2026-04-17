@@ -48,10 +48,13 @@
       <div class="field-group"><label>{{localize "EX2E.Range"}}</label>
         <input type="number" name="system.modes.{{mIdx}}.range"      value="{{mode.range}}"      min="0"  max="400" {{#unless @root.isEditable}}readonly{{/unless}}></div>
       <div class="field-group"><label>{{localize "EX2E.MinStrength"}}</label>
+        <input type="hidden" name="system.modes.{{mIdx}}.minStrength" value="{{mode.minStrength}}">
         {{dotRating name=(concat "system.modes." mIdx ".minStrength")    value=mode.minStrength    max=5 min=0}}</div>
       <div class="field-group"><label>{{localize "EX2E.MinDexterity"}}</label>
+        <input type="hidden" name="system.modes.{{mIdx}}.minDexterity" value="{{mode.minDexterity}}">
         {{dotRating name=(concat "system.modes." mIdx ".minDexterity")   value=mode.minDexterity   max=5 min=0}}</div>
       <div class="field-group"><label>{{localize "EX2E.MinMartialArts"}}</label>
+        <input type="hidden" name="system.modes.{{mIdx}}.minMartialArts" value="{{mode.minMartialArts}}">
         {{dotRating name=(concat "system.modes." mIdx ".minMartialArts") value=mode.minMartialArts max=5 min=0}}</div>
     </div>
 
@@ -96,7 +99,7 @@
     <select name="system.magicalMaterial" {{#unless isEditable}}disabled{{/unless}}>
       <option value="">—</option>
       {{#each magicalMaterials}}
-      <option value="{{this.value}}" {{#if (eq this.value system.magicalMaterial)}}selected{{/if}}>{{this.label}}</option>
+      <option value="{{this.value}}" {{#if (eq this.value @root.system.magicalMaterial)}}selected{{/if}}>{{this.label}}</option>
       {{/each}}
     </select>
   </div>
