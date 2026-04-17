@@ -150,6 +150,11 @@ export function registerHandlebarsHelpers() {
   Handlebars.registerHelper("add", (a, b) => Number(a) + Number(b));
   Handlebars.registerHelper("sub", (a, b) => Number(a) - Number(b));
 
+  // ── includes ──────────────────────────────────────────────────────────
+  Handlebars.registerHelper("includes", (arr, item) =>
+    Array.isArray(arr) && arr.includes(item)
+  );
+
   // ── times ─────────────────────────────────────────────────────────────
   // {{#times 5}} ... {{/times}}
   Handlebars.registerHelper("times", function(n, block) {

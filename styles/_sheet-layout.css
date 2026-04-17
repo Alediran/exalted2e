@@ -350,6 +350,108 @@
 .charm-active { border-left: 3px solid var(--ex2e-gold-main); }
 .charm-meta   { font-size: var(--ex2e-font-size-xs); color: var(--ex2e-text-muted); margin-left: 6px; }
 
+/* ── CHARM ATTACK-STEP SELECTOR (dropdown) ───────────────────────────────── */
+.charm-steps .steps-dropdown {
+  position: relative;
+  height: 100%;
+}
+.charm-steps .steps-summary {
+  list-style:    none;
+  padding:       4px 8px;
+  min-height:    26px;
+  height: 100%;
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: 3px;
+  background:    var(--ex2e-bg-darkest);
+  color:         var(--ex2e-text-primary);
+  font-family:   var(--ex2e-font-ui);
+  font-size:     var(--ex2e-font-size-sm);
+  display:       flex;
+  align-items:   center;
+  gap:           6px;
+  cursor:        pointer;
+  user-select:   none;
+}
+.charm-steps .steps-summary::-webkit-details-marker { display: none; }
+.charm-steps .steps-summary::after {
+  content:     "\25BE";
+  margin-left: auto;
+  color:       var(--ex2e-gold-main);
+  transition:  transform var(--ex2e-transition-fast);
+}
+.charm-steps .steps-dropdown[open] .steps-summary::after { transform: rotate(180deg); }
+.charm-steps .steps-summary-text {
+  overflow:      hidden;
+  text-overflow: ellipsis;
+  white-space:   nowrap;
+}
+.charm-steps .steps-menu {
+  position:      absolute;
+  top:           100%;
+  left:          0;
+  right:         0;
+  z-index:       10;
+  margin-top:    2px;
+  padding:       4px;
+  background:    var(--ex2e-bg-panel);
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: 3px;
+  box-shadow:    0 4px 12px rgba(0, 0, 0, 0.5);
+  display:       flex;
+  flex-direction: column;
+  gap:           2px;
+  max-height:    240px;
+  overflow-y:    auto;
+}
+.charm-steps .step-option {
+  display:       flex;
+  align-items:   center;
+  justify-content: start;
+  padding-left: 5px !important;
+  gap:           8px;
+  padding:       4px 8px;
+  background:    transparent;
+  border:        none;
+  color:         var(--ex2e-text-primary);
+  font-family:   var(--ex2e-font-ui);
+  font-size:     var(--ex2e-font-size-sm);
+  text-align:    left;
+  border-radius: 3px;
+  cursor:        pointer;
+  transition:    background var(--ex2e-transition-fast);
+}
+.charm-steps .step-option:hover:not(:disabled) {
+  background: var(--ex2e-bg-hover);
+}
+.charm-steps .step-option:disabled {
+  cursor:  default;
+  opacity: 0.6;
+}
+.charm-steps .step-checkbox {
+  width:         14px;
+  height:        14px;
+  border:        1.5px solid var(--ex2e-gold-dark);
+  border-radius: 2px;
+  background:    var(--ex2e-bg-darkest);
+  flex-shrink:   0;
+  display:       inline-flex;
+  align-items:   center;
+  justify-content: center;
+  transition:    background var(--ex2e-transition-fast),
+                 border-color var(--ex2e-transition-fast);
+}
+.charm-steps .step-option.active .step-checkbox {
+  background:   var(--ex2e-gold-main);
+  border-color: var(--ex2e-gold-bright);
+}
+.charm-steps .step-option.active .step-checkbox::after {
+  content:     "\2713";
+  color:       var(--ex2e-bg-darkest);
+  font-size:   10px;
+  font-weight: bold;
+  line-height: 1;
+}
+
 /* ── HEALTH INFO ─────────────────────────────────────────────────────────── */
 .health-info {
   display:  flex;
@@ -607,6 +709,15 @@
   display:     inline-flex;
   align-items: center;
   gap:         3px;
+}
+
+.keywords-block .tags-header {
+  display: flex;
+  gap: 5px;
+}
+
+.keywords-block .tags-header label {
+  align-content: center;
 }
 
 /* ── CHECKBOX FIELD ──────────────────────────────────────────────────────── */

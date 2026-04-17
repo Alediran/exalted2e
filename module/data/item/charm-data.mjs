@@ -22,6 +22,15 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       duration:   new fields.StringField({ initial: "instant",      blank: false }),
       keywords:   new fields.ArrayField(new fields.StringField({ blank: true })),
 
+      // ── Type-specific Options ────────────────────────────────────────────
+      // Speed applies to Simple charms (default 6, some may be lower).
+      speed:      new fields.NumberField({ initial: 6, min: 3, max: 6, integer: true }),
+      // Steps apply to Reflexive charms — which attack-resolution steps (1–10)
+      // the charm may be used in.
+      steps:      new fields.ArrayField(
+        new fields.NumberField({ min: 1, max: 9, integer: true })
+      ),
+
       // ── Prerequisites ────────────────────────────────────────────────────
       prerequisites: new fields.StringField({ initial: "", blank: true }),
 

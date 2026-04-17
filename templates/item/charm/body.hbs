@@ -32,6 +32,37 @@
         {{/each}}
       </select>
     </div>
+    <!-- Charm-Type Specific Options -->
+    {{#if (eq system.charmType "simple")}}
+    <div class="field-group">
+      <label>{{localize "EX2E.Speed"}}</label>
+      <input type="number" name="system.speed" value="{{system.speed}}" min="3" max="6"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    {{/if}}
+    {{#if (eq system.charmType "reflexive")}}
+    <div class="field-group charm-steps">
+      <label>{{localize "EX2E.AttackSteps"}}</label>
+      <details class="steps-dropdown">
+        <summary class="steps-summary">
+          <span class="steps-summary-text">
+            {{#if system.steps.length}}{{#each system.steps}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}{{else}}—{{/if}}
+          </span>
+        </summary>
+        <div class="steps-menu">
+          {{#each (array 1 2 3 4 5 6 7 8 9) as |step|}}
+          <button type="button"
+                  class="step-option {{#if (includes @root.system.steps step)}}active{{/if}}"
+                  data-action="toggleStep" data-step="{{step}}"
+                  {{#unless @root.isEditable}}disabled{{/unless}}>
+            <span class="step-checkbox"></span>
+            <span class="step-option-label">{{step}}</span>
+          </button>
+          {{/each}}
+        </div>
+      </details>
+    </div>
+    {{/if}}
     <!-- Duration -->
     <div class="field-group">
       <label>{{localize "EX2E.Duration"}}</label>
@@ -41,7 +72,8 @@
         {{/each}}
       </select>
     </div>
-    <!-- Excellency -->
+    <!-- Excellency (only for Reflexive charms) -->
+    {{#if (eq system.charmType "reflexive")}}
     <div class="field-group">
       <label>{{localize "EX2E.Excellency"}}</label>
       <select name="system.excellency" {{#unless isEditable}}disabled{{/unless}}>
@@ -50,6 +82,7 @@
         {{/each}}
       </select>
     </div>
+    {{/if}}
   </div>
 
   <!-- Prerequisites -->
@@ -62,7 +95,14 @@
 
   <!-- Keywords -->
   <div class="keywords-block" style="margin-top:10px">
-    <label>{{localize "EX2E.Keywords"}}</label>
+    <div class="tags-header">
+      <label>{{localize "EX2E.Keywords"}}</label>
+      {{#if isEditable}}
+        <button data-action="addKeyword">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      {{/if}}
+    </div>
     <div class="keywords-list">
       {{#each system.keywords as |kw idx|}}
       <span class="keyword-tag-edit">
@@ -76,9 +116,6 @@
         {{/if}}
       </span>
       {{/each}}
-      {{#if isEditable}}
-      <button data-action="addKeyword">+ Add</button>
-      {{/if}}
     </div>
   </div>
 

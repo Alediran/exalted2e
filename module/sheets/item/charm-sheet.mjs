@@ -8,6 +8,10 @@ const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
 
 export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
 
+  // Persists the Attack-Steps dropdown's open state across re-renders
+  // (each step toggle triggers a document update and re-render).
+  _stepsOpen = false;
+
   static DEFAULT_OPTIONS = {
     classes:  ["exalted2e", "item", "charm"],
     position: { width: 540, height: 560 },
@@ -15,7 +19,8 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     form: { submitOnChange: true, closeOnSubmit: false },
     actions: {
       addKeyword:    CharmSheet.#onAddKeyword,
-      removeKeyword: CharmSheet.#onRemoveKeyword
+      removeKeyword: CharmSheet.#onRemoveKeyword,
+      toggleStep:    CharmSheet.#onToggleStep
     }
   };
 
@@ -67,5 +72,25 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const keywords = foundry.utils.deepClone(this.document.system.keywords ?? []);
     keywords.splice(idx, 1);
     await this.document.update({ "system.keywords": keywords });
+  }
+
+  static async #onToggleStep(event, target) {
+    const step  = parseInt(target.dataset.step);
+    const steps = foundry.utils.deepClone(this.document.system.steps ?? []);
+    const idx   = steps.indexOf(step);
+    if (idx >= 0) steps.splice(idx, 1);
+    else {
+      steps.push(step);
+      steps.sort((a, b) => a - b);
+    }
+    await this.document.update({ "system.steps": steps });
+  }
+
+  _onRender(context, options) {
+    super._onRender(context, options);
+    const details = this.element.querySelector("details.steps-dropdown");
+    if (!details) return;
+    if (this._stepsOpen) details.setAttribute("open", "");
+    details.addEventListener("toggle", () => { this._stepsOpen = details.open; });
   }
 }
