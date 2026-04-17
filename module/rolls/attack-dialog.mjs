@@ -36,14 +36,7 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       moteType:       options.moteType       ?? "peripheral",
       excellency:     options.excellency     ?? { first: false, second: false, third: false },
       firstExcMax:    options.firstExcMax    ?? 0,
-      secondExcMax:   options.secondExcMax   ?? 0,
-      targetDodgeDV:  options.targetDodgeDV   ?? null,
-      targetParryDV:  options.targetParryDV  ?? null,
-      targetName:     options.targetName     ?? null,
-      hasTarget:      options.targetDodgeDV !== null && options.targetDodgeDV !== undefined,
-      targetBestDV:   (options.targetDodgeDV !== null && options.targetDodgeDV !== undefined)
-                        ? Math.max(options.targetDodgeDV, options.targetParryDV ?? 0)
-                        : null
+      secondExcMax:   options.secondExcMax   ?? 0
     };
   }
 
@@ -114,7 +107,6 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     this._resolved = true;
     this._resolve({
       pool:          parseInt(data.pool)     || this._data.pool,
-      targetDV:      data.targetDV !== undefined ? (parseInt(data.targetDV) || 0) : (this._data.targetBestDV ?? 0),
       stunt:         parseInt(data.stunt)    || 0,
       moteType:      data.moteType           || "peripheral",
       firstExcDice:  parseInt(data.firstExcDice)  || 0,

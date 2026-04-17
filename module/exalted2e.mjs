@@ -192,7 +192,55 @@ Hooks.once("ready", function () {
 Hooks.on("renderChatMessage", (message, html) => {
   // Resolve the raw DOM element (html may be jQuery or HTMLElement)
   const el = html instanceof HTMLElement ? html : html[0] ?? html;
-  
+
+  // ── Defense picker on attack cards ────────────────────────────────────
+  // Target's owner (or GM) picks Dodge or Parry; writes the choice into
+  // message flags and re-renders the card into its resolved state.
+  el.querySelectorAll?.(".btn-defend").forEach(btn => {
+    btn.addEventListener("click", async (ev) => {
+      const defenseType = ev.currentTarget.dataset.defenseType;
+      const attack      = message.flags?.exalted2e?.attack;
+      if (!attack || attack.defense) return;
+
+      const targetActor = attack.targetId ? game.actors.get(attack.targetId) : null;
+      if (!targetActor?.testUserPermission(game.user, "OWNER")) {
+        ui.notifications.warn(game.i18n.localize("EX2E.DefenseNotAllowed"));
+        return;
+      }
+      const dv = defenseType === "dodge" ? attack.targetDodgeDV : attack.targetParryDV;
+      const newAttack = { ...attack, defense: { type: defenseType, dv } };
+
+      const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
+      const content = await renderAttackCardContent(newAttack);
+      await message.update({
+        content,
+        flags: { exalted2e: { attack: newAttack } }
+      });
+    });
+  });
+
+  // ── Manual DV resolve (no target selected) ────────────────────────────
+  // GM enters a DV in the card's input and clicks Resolve; the card is
+  // re-rendered against that DV.
+  el.querySelector?.(".btn-resolve-manual")?.addEventListener("click", async (ev) => {
+    const card    = ev.currentTarget.closest(".ex2e-attack-card");
+    const input   = card?.querySelector(".manual-dv-input");
+    const attack  = message.flags?.exalted2e?.attack;
+    if (!attack || attack.defense) return;
+    if (!game.user.isGM) {
+      ui.notifications.warn(game.i18n.localize("EX2E.DefenseNotAllowed"));
+      return;
+    }
+    const dv = Math.max(0, parseInt(input?.value) || 0);
+    const newAttack = { ...attack, defense: { type: "manual", dv } };
+    const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
+    const content = await renderAttackCardContent(newAttack);
+    await message.update({
+      content,
+      flags: { exalted2e: { attack: newAttack } }
+    });
+  });
+
   // "Roll Damage" button on attack result cards
   el.querySelector?.(".btn-roll-damage")?.addEventListener("click", async (event) => {
     const card       = event.currentTarget.closest(".ex2e-attack-card");

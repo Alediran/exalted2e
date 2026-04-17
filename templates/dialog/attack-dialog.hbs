@@ -5,15 +5,8 @@
 
     <div class="field-group">
       <label>{{localize "EX2E.AttackPool"}}</label>
-      <span class="pool-display">{{pool}}d10 {{#if hasTarget}}vs {{localize "EX2E.DodgeDV"}} {{targetDodgeDV}} / {{localize "EX2E.ParryDV"}} {{targetParryDV}}{{/if}}</span>
+      <span class="pool-display">{{pool}}d10</span>
     </div>
-
-    {{#unless hasTarget}}
-    <div class="field-group">
-      <label>{{localize "EX2E.TargetDV"}}</label>
-      <input type="number" name="targetDV" value="0" min="0" max="30" autofocus>
-    </div>
-    {{/unless}}
 
     <div class="field-group">
       <label>{{localize "EX2E.StuntBonus"}}</label>

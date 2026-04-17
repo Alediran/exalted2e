@@ -106,8 +106,10 @@
            min="0" max="20" {{#unless isEditable}}readonly{{/unless}}>
   </div>
   <div class="field-group checkbox-field">
-    <label><input type="checkbox" name="system.attuned" {{#if system.attuned}}checked{{/if}}
-                  {{#unless isEditable}}disabled{{/unless}}> {{localize "EX2E.CurrentlyAttuned"}}</label>
+    <label>
+      <input type="checkbox" name="system.attuned" {{#if system.attuned}}checked{{/if}}
+        {{#unless isEditable}}disabled{{/unless}}> {{localize "EX2E.CurrentlyAttuned"}}
+    </label>
   </div>
   {{/if}}
 

@@ -249,7 +249,6 @@ export class ExaltedRoll {
    */
   static async rollAttack(actor, weaponId, options = {}) {
     const { AttackDialog } = await import("./attack-dialog.mjs");
-    const { EX2E }         = await import("../config.mjs");
 
     const weapon = actor.items.get(weaponId);
     if (!weapon || weapon.type !== "weapon") return null;
@@ -312,30 +311,36 @@ export class ExaltedRoll {
     const firstExcMax  = keyVal;
     const secondExcMax = Math.ceil(keyVal / 2);
 
-    // Check for a targeted token and resolve both DVs
+    // Capture a snapshot of the targeted token's defensive stats (both DVs
+    // and the soak matching the weapon's damage type). This snapshot travels
+    // in the chat message flags so the defender has everything they need
+    // to resolve the attack even if the target selection changes later.
     let targetDodgeDV = null;
     let targetParryDV = null;
     let targetName    = null;
+    let targetId      = null;
+    let targetSoak    = 0;
     const targets = game.user.targets;
     if (targets.size > 0) {
-      const targetToken = targets.first();
-      const targetActor = targetToken?.actor;
+      const targetActor = targets.first()?.actor;
       if (targetActor) {
+        targetId   = targetActor.id;
         targetName = targetActor.name;
         const tSys = targetActor.system;
         if (targetActor.type === "character") {
-          targetDodgeDV = tSys.dodgeDV ?? 0;
-          targetParryDV = tSys.parryDVBase ?? 0;
+          targetDodgeDV = tSys.dodgeDV        ?? 0;
+          targetParryDV = tSys.parryDVBase    ?? 0;
+          targetSoak    = tSys.totalSoak?.[mode.damageType] ?? 0;
         } else if (targetActor.type === "npc") {
           targetDodgeDV = tSys.combat?.dodgeDV ?? 0;
           targetParryDV = tSys.combat?.parryDV ?? 0;
+          targetSoak    = tSys.combat?.soak?.[mode.damageType] ?? 0;
         }
       }
     }
 
     const dialogResult = await AttackDialog.prompt({
-      pool, excellency, firstExcMax, secondExcMax,
-      targetDodgeDV, targetParryDV, targetName
+      pool, excellency, firstExcMax, secondExcMax
     });
     if (!dialogResult) return null;
 
@@ -365,76 +370,84 @@ export class ExaltedRoll {
     });
     const result = await attackRoll.evaluate();
 
-    // Attack resolution
-    const targetDV  = dialogResult.targetDV;
-    const threshold = result.successes - targetDV;
-    const hit       = threshold > 0;
-
-    // Damage pool = threshold + weapon damage + Strength (melee only)
-    const addStrength   = isMelee;
-    const rawDamagePool = hit ? threshold + mode.effectiveDamage + (addStrength ? strVal : 0) : 0;
-    const typeSuffix = mode.damageType === "lethal" ? "L" : mode.damageType === "aggravated" ? "A" : "B";
-    const overwhelmingSuffix = mode.tags?.includes("Overwhelming") ? `/${mode.overwhelming ?? 1}` : "";
-    const damageTypeLabel = `${typeSuffix}${overwhelmingSuffix}`;
-
-    // Resolve target soak for the damage type (auto-fill if target exists)
-    let targetSoak = 0;
-    let targetId   = null;
-    if (targetName && targets.size > 0) {
-      const targetActor = targets.first()?.actor;
-      if (targetActor) {
-        targetId = targetActor.id;
-        const tSys = targetActor.system;
-        if (targetActor.type === "character") {
-          targetSoak = tSys.totalSoak?.[mode.damageType] ?? 0;
-        } else if (targetActor.type === "npc") {
-          targetSoak = tSys.combat?.soak?.[mode.damageType] ?? 0;
-        }
-      }
-    }
-
-    // Render attack result chat card
-    const templateData = {
+    // Attack data snapshot — stored on the chat message as flags. The card
+    // starts in "defense pending" state; the defender picks Dodge or Parry
+    // (or the GM enters a manual DV when no target is selected), at which
+    // point the card is re-rendered with hit/miss and damage.
+    const typeSuffix          = mode.damageType === "lethal" ? "L" : mode.damageType === "aggravated" ? "A" : "B";
+    const overwhelmingSuffix  = mode.tags?.includes("Overwhelming") ? `/${mode.overwhelming ?? 1}` : "";
+    const attack = {
+      actorId:             actor.id,
+      actorName:           actor.name,
+      weaponName:          displayName,
       dice:                result.diceDetails,
       pool:                result.pool,
       successes:           result.successes,
       botch:               result.botch,
-      actorId:             actor.id,
-      actorName:           actor.name,
-      weaponName:          displayName,
       stunt:               dialogResult.stunt,
       moteCost:            totalMoteCost,
       moteType:            dialogResult.moteType,
       firstExcDice,
-      secondExcSuccesses:  secondExcSuccesses,
+      secondExcSuccesses,
       usedThirdExcellency: useThirdExcellency,
-      targetDV,
-      targetName,
-      targetId,
-      targetSoak,
-      threshold:           Math.max(0, threshold),
-      hit,
       weaponDamage:        mode.effectiveDamage,
       damageType:          mode.damageType,
-      damageTypeLabel,
-      addStrength:         addStrength && hit,
+      damageTypeLabel:     `${typeSuffix}${overwhelmingSuffix}`,
+      addStrength:         isMelee,
       strengthValue:       strVal,
-      rawDamagePool,
-      overwhelming:        mode.overwhelming ?? 1
+      overwhelming:        mode.overwhelming ?? 1,
+      targetId,
+      targetName,
+      targetDodgeDV,
+      targetParryDV,
+      targetSoak,
+      defense:             null
     };
 
-    const content = await foundry.applications.handlebars.renderTemplate(
-      "systems/exalted2e/templates/chat/attack-result.hbs",
-      templateData
-    );
+    const content = await renderAttackCardContent(attack);
 
     return ChatMessage.create({
       content,
-      rolls:  [result.foundryRoll],
-      sound:  CONFIG.sounds.dice,
-      speaker: ChatMessage.getSpeaker({ actor })
+      rolls:   [result.foundryRoll],
+      sound:   CONFIG.sounds.dice,
+      speaker: ChatMessage.getSpeaker({ actor }),
+      flags:   { exalted2e: { attack } }
     });
   }
+}
+
+/**
+ * Render the attack-result chat card from a stored attack snapshot.
+ *
+ * Computes defense-dependent fields (threshold, hit, raw damage pool) when
+ * the defender has chosen a defense, and returns HTML ready to post or
+ * update into a ChatMessage. Shared between the initial post (pre-defense)
+ * and the re-render triggered when the defender picks Dodge or Parry.
+ *
+ * @param {object} attack  Snapshot stored in flags.exalted2e.attack
+ * @returns {Promise<string>} Rendered HTML
+ */
+export async function renderAttackCardContent(attack) {
+  const data = { ...attack, defenseChosen: !!attack.defense };
+  if (attack.defense) {
+    const threshold = Math.max(0, attack.successes - attack.defense.dv);
+    const hit       = threshold > 0;
+    data.threshold     = threshold;
+    data.hit           = hit;
+    data.targetDV      = attack.defense.dv;
+    data.rawDamagePool = hit
+      ? threshold + attack.weaponDamage + (attack.addStrength ? attack.strengthValue : 0)
+      : 0;
+    data.defenseLabelKey = {
+      dodge:  "EX2E.DodgeDV",
+      parry:  "EX2E.ParryDV",
+      manual: "EX2E.TargetDV"
+    }[attack.defense.type] ?? "EX2E.TargetDV";
+  }
+  return foundry.applications.handlebars.renderTemplate(
+    "systems/exalted2e/templates/chat/attack-result.hbs",
+    data
+  );
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

@@ -294,6 +294,8 @@
     "Damage":            "Damage",
     "Type":              "Type",
     "Defense":           "Defense",
+    "Resolve":           "Resolve",
+    "DefenseNotAllowed": "Only the target's owner or the GM can pick a defense.",
     "Rate":              "Rate",
     "Range":             "Range",
     "MinStrength":       "Min Strength",

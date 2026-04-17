@@ -28,8 +28,11 @@
   {{/if}}
 
   <div class="attack-resolution">
+
+  {{#if defenseChosen}}
+    {{!-- Resolved view: defender has chosen defense, show hit/miss + damage --}}
     <div class="attack-vs">
-      <span>{{successes}} {{localize "EX2E.Successes"}} vs {{localize "EX2E.TargetDV"}} {{targetDV}}{{#if targetName}} ({{targetName}}){{/if}}</span>
+      <span>{{successes}} {{localize "EX2E.Successes"}} vs {{localize defenseLabelKey}} {{targetDV}}{{#if targetName}} ({{targetName}}){{/if}}</span>
     </div>
 
     {{#if hit}}
@@ -42,7 +45,7 @@
       = <strong>{{rawDamagePool}}d10</strong>
     </div>
 
-    {{!-- Damage roll section: soak input + roll button --}}
+    {{!-- Damage roll section: soak + roll button --}}
     <div class="damage-roll-section">
       <div class="damage-soak-row">
         <label>{{localize "EX2E.Soak"}}</label>
@@ -52,7 +55,6 @@
         <i class="fa-solid fa-burst"></i> {{localize "EX2E.RollDamage"}}
       </button>
     </div>
-
     {{else if botch}}
     <div class="roll-result botch">
       <span class="result-label botch-label">Botch</span>
@@ -62,5 +64,32 @@
       <span class="result-label failure-label">{{localize "EX2E.Miss"}}</span>
     </div>
     {{/if}}
+
+  {{else}}
+    {{!-- Pre-defense view: defender picks their defense (or GM enters DV) --}}
+    <div class="attack-vs">
+      <span>{{successes}} {{localize "EX2E.Successes"}}{{#if targetName}} → {{targetName}}{{/if}}</span>
+    </div>
+
+    {{#if targetId}}
+    <div class="defense-buttons">
+      <button class="btn-roll btn-defend" data-defense-type="dodge">
+        <i class="fa-solid fa-person-running"></i> {{localize "EX2E.DodgeDV"}} {{targetDodgeDV}}
+      </button>
+      <button class="btn-roll btn-defend" data-defense-type="parry">
+        <i class="fa-solid fa-shield"></i> {{localize "EX2E.ParryDV"}} {{targetParryDV}}
+      </button>
+    </div>
+    {{else}}
+    <div class="defense-manual">
+      <label>{{localize "EX2E.TargetDV"}}</label>
+      <input type="number" class="manual-dv-input" min="0" max="30" value="0">
+      <button class="btn-roll btn-resolve-manual">
+        <i class="fa-solid fa-gavel"></i> {{localize "EX2E.Resolve"}}
+      </button>
+    </div>
+    {{/if}}
+  {{/if}}
+
   </div>
 </div>

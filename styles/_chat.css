@@ -169,6 +169,34 @@
   padding:   4px 12px;
 }
 
+.ex2e-attack-card .defense-buttons {
+  display:         flex;
+  gap:             var(--ex2e-gap-sm);
+  justify-content: center;
+  flex-wrap:       wrap;
+  margin-top:      var(--ex2e-gap-sm);
+}
+
+.ex2e-attack-card .btn-defend,
+.ex2e-attack-card .btn-resolve-manual {
+  font-size: var(--ex2e-font-size-xs);
+  padding:   4px 12px;
+}
+
+.ex2e-attack-card .defense-manual {
+  display:         flex;
+  align-items:     center;
+  gap:             var(--ex2e-gap-sm);
+  justify-content: center;
+  margin-top:      var(--ex2e-gap-sm);
+  font-size:       var(--ex2e-font-size-sm);
+}
+
+.ex2e-attack-card .manual-dv-input {
+  width:      60px;
+  text-align: center;
+}
+
 .ex2e-attack-card .damage-result {
   text-align: center;
 }
