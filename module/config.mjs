@@ -165,7 +165,7 @@ EX2E.errataMagicalMaterialArmorBonuses = {
 }
 
 EX2E.weaponTags = [
-  "Two-handed", "Bow", "Clinch Enhancer", "Disarming", "Flame type", "Lance type", "Martial Arts", 
+  "Two-handed", "Bow", "Clinch", "Clinch Enhancer", "Disarming", "Flame type", "Lance type", "Martial Arts",
   "Natural", "Overwhelming", "Piercing", "Reach", "Single Shot", "Thrown"
 ];
 

@@ -42,10 +42,16 @@ export class ExaltedItem extends Item {
   }
 
   /**
-   * Return committed motes to the pool if the artifact is deleted while
-   * attuned.
+   * Block deletion of the system-managed Unarmed Attacks weapon, and return
+   * committed motes to the pool if an attuned artifact is deleted.
    */
   async _preDelete(options, user) {
+    // The Unarmed Attacks weapon is part of every character by design —
+    // refuse to delete it regardless of who triggered the delete.
+    if (this.type === "weapon" && this.getFlag("exalted2e", "unarmed")) {
+      ui.notifications.warn(game.i18n.localize("EX2E.CannotRemoveUnarmed"));
+      return false;
+    }
     await super._preDelete(options, user);
     const actor = this.actor;
     if (!actor || actor.type !== "character") return;
