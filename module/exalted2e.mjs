@@ -241,7 +241,18 @@ Hooks.on("renderChatMessage", (message, html) => {
       const firstExcCharm  = allStep2.find(c => c.system.excellency === "first"  && c.system.ability === abilKey);
       const secondExcCharm = allStep2.find(c => c.system.excellency === "second" && c.system.ability === abilKey);
       const excIds         = new Set([firstExcCharm, secondExcCharm].filter(Boolean).map(c => c.id));
-      const regularCharms  = allStep2.filter(c => !excIds.has(c.id));
+
+      // Only offer charms keyed to abilities that actually apply to this
+      // defense: Dodge charms for Dodge, Melee/Martial Arts for Parry.
+      // Lunars & Alchemicals key defensive charms to Dexterity.
+      const relevantAbilities = isAttrBased
+        ? new Set(["dexterity"])
+        : defenseType === "dodge"
+          ? new Set(["dodge"])
+          : new Set(["melee", "martialArts"]);
+      const regularCharms = allStep2.filter(c =>
+        !excIds.has(c.id) && relevantAbilities.has(c.system.ability)
+      );
 
       const { Step2DefenseDialog } = await import("./dialogs/step2-defense-dialog.mjs");
       const result = await Step2DefenseDialog.prompt({
