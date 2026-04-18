@@ -134,6 +134,36 @@
   margin-bottom: var(--ex2e-gap-xs);
 }
 
+.ex2e-attack-card .step-pending-label {
+  text-align:     center;
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  color:          var(--ex2e-gold-main);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top:     var(--ex2e-gap-sm);
+}
+
+.ex2e-attack-card .third-exc-reroll {
+  display:         flex;
+  justify-content: center;
+  align-items:     center;
+  gap:             var(--ex2e-gap-sm);
+  margin-top:      var(--ex2e-gap-xs);
+}
+
+.ex2e-attack-card .btn-skip {
+  padding: 4px 10px;
+}
+.ex2e-attack-card .btn-skip i {
+  margin: 0;
+}
+.ex2e-attack-card .btn-attacker-reroll,
+.ex2e-attack-card .btn-defender-reroll {
+  font-size: var(--ex2e-font-size-xs);
+  padding:   4px 12px;
+}
+
 .ex2e-attack-card .defense-charms {
   display:       flex;
   flex-wrap:     wrap;

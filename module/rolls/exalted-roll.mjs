@@ -290,11 +290,12 @@ export class ExaltedRoll {
     const allCharms   = actor.items.filter(i => i.type === "charm");
     // Third Excellency is not available at the attack roll (Step 3); it's
     // used in Steps 4 and 6 — wired up separately on the attack result card.
+    const excKey = isAttrBased ? "dexterity" : ability;
     const detectExc = (key) => ({
       first:  allCharms.find(c => c.system.excellency === "first"  && c.system.ability === key) ?? null,
       second: allCharms.find(c => c.system.excellency === "second" && c.system.ability === key) ?? null
     });
-    const excCharms  = isAttrBased ? detectExc("dexterity") : detectExc(ability);
+    const excCharms  = detectExc(excKey);
     const excellency = { first: !!excCharms.first, second: !!excCharms.second };
     const firstExcLabel  = excCharms.first
       ? `${excCharms.first.name} (${game.i18n.localize("EX2E.FirstExcellency")})`
@@ -302,6 +303,12 @@ export class ExaltedRoll {
     const secondExcLabel = excCharms.second
       ? `${excCharms.second.name} (${game.i18n.localize("EX2E.SecondExcellency")})`
       : game.i18n.localize("EX2E.SecondExcellency");
+
+    // Third Excellency availability (checked at Step 4 reroll time, but the
+    // charm has to exist up-front so the button can appear on the card).
+    const attackerHasThirdExc = allCharms.some(c =>
+      c.system.excellency === "third" && c.system.ability === excKey
+    );
 
     let keyVal = 0;
     switch (exaltType) {
@@ -323,11 +330,16 @@ export class ExaltedRoll {
     // and the soak matching the weapon's damage type). This snapshot travels
     // in the chat message flags so the defender has everything they need
     // to resolve the attack even if the target selection changes later.
-    let targetDodgeDV = null;
-    let targetParryDV = null;
-    let targetName    = null;
-    let targetId      = null;
-    let targetSoak    = 0;
+    let targetDodgeDV  = null;
+    let targetParryDV  = null;
+    let targetName     = null;
+    let targetId       = null;
+    let targetSoak     = 0;
+    let targetHardness = 0;
+    // Soak has a value per damage type (bashing/lethal/aggravated). Hardness
+    // is a single stat but only applies against bashing or lethal attacks —
+    // aggravated damage bypasses Hardness entirely.
+    const ignoresHardness = mode.damageType === "aggravated";
     const targets = game.user.targets;
     if (targets.size > 0) {
       const targetActor = targets.first()?.actor;
@@ -336,13 +348,15 @@ export class ExaltedRoll {
         targetName = targetActor.name;
         const tSys = targetActor.system;
         if (targetActor.type === "character") {
-          targetDodgeDV = tSys.dodgeDV ?? 0;
-          targetParryDV = tSys.parryDV ?? tSys.parryDVBase ?? 0;
-          targetSoak    = tSys.totalSoak?.[mode.damageType] ?? 0;
+          targetDodgeDV  = tSys.dodgeDV ?? 0;
+          targetParryDV  = tSys.parryDV ?? tSys.parryDVBase ?? 0;
+          targetSoak     = tSys.totalSoak?.[mode.damageType] ?? 0;
+          targetHardness = ignoresHardness ? 0 : (tSys.hardness ?? 0);
         } else if (targetActor.type === "npc") {
-          targetDodgeDV = tSys.combat?.dodgeDV ?? 0;
-          targetParryDV = tSys.combat?.parryDV ?? 0;
-          targetSoak    = tSys.combat?.soak?.[mode.damageType] ?? 0;
+          targetDodgeDV  = tSys.combat?.dodgeDV ?? 0;
+          targetParryDV  = tSys.combat?.parryDV ?? 0;
+          targetSoak     = tSys.combat?.soak?.[mode.damageType] ?? 0;
+          targetHardness = ignoresHardness ? 0 : (tSys.combat?.hardness ?? 0);
         }
       }
     }
@@ -396,6 +410,8 @@ export class ExaltedRoll {
       moteType:            dialogResult.moteType,
       firstExcDice,
       secondExcSuccesses,
+      attackerHasThirdExc,
+      attackerExcKey:      excKey,
       weaponDamage:        mode.effectiveDamage,
       damageType:          mode.damageType,
       damageTypeLabel:     `${typeSuffix}${overwhelmingSuffix}`,
@@ -407,6 +423,7 @@ export class ExaltedRoll {
       targetDodgeDV,
       targetParryDV,
       targetSoak,
+      targetHardness,
       defense:             null
     };
 
@@ -444,11 +461,40 @@ export async function renderAttackCardContent(attack) {
     data.rawDamagePool = hit
       ? threshold + attack.weaponDamage + (attack.addStrength ? attack.strengthValue : 0)
       : 0;
+
+    // Step 8: Hardness check. If the target's Hardness exceeds the raw
+    // damage pool the attack is stopped — no damage roll, no soak applied.
+    data.hardnessStops = hit && (attack.targetHardness ?? 0) > data.rawDamagePool;
     data.defenseLabelKey = {
       dodge:  "EX2E.DodgeDV",
       parry:  "EX2E.ParryDV",
       manual: "EX2E.TargetDV"
     }[attack.defense.type] ?? "EX2E.TargetDV";
+
+    // Step 4 / Step 5 gating. Each side is eligible if it has a Third-Exc
+    // charm for the relevant ability AND spent nothing on First/Second Exc.
+    // A step is complete when it's either not eligible, the charm was used,
+    // or the side explicitly skipped. Step 5 only opens once Step 4 closes;
+    // the hit/miss/damage section is gated until both steps are complete.
+    const attackerEligible = !!attack.attackerHasThirdExc
+      && (attack.firstExcDice       ?? 0) === 0
+      && (attack.secondExcSuccesses ?? 0) === 0;
+    const defenderEligible = !!attack.defenderHasThirdExc
+      && (attack.defenderFirstExcDice ?? 0) === 0
+      && (attack.defenderSecondExcSucc ?? 0) === 0;
+
+    const step4Complete = !attackerEligible
+                       || !!attack.thirdExcUsedByAttacker
+                       || !!attack.step4Passed;
+    const step5Complete = step4Complete && (
+                          !defenderEligible
+                       || !!attack.thirdExcUsedByDefender
+                       || !!attack.step5Passed
+                       );
+
+    data.showAttackerReroll = !step4Complete;
+    data.showDefenderReroll = step4Complete && !step5Complete;
+    data.showResolution     = step4Complete && step5Complete;
   }
   return foundry.applications.handlebars.renderTemplate(
     "systems/exalted2e/templates/chat/attack-result.hbs",

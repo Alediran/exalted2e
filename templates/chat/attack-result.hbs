@@ -41,34 +41,67 @@
     </div>
     {{/if}}
 
-    {{#if hit}}
-    <div class="roll-result success">
-      <span class="result-label success-label">{{localize "EX2E.Hit"}} — {{threshold}} {{localize "EX2E.Threshold"}}</span>
-    </div>
-    <div class="damage-pool-info">
-      {{localize "EX2E.DamagePool"}}: {{threshold}} + {{weaponDamage}}{{damageTypeLabel}}
-      {{#if addStrength}} + {{strengthValue}} Str{{/if}}
-      = <strong>{{rawDamagePool}}d10</strong>
-    </div>
-
-    {{!-- Damage roll section: soak + roll button --}}
-    <div class="damage-roll-section">
-      <div class="damage-soak-row">
-        <label>{{localize "EX2E.Soak"}}</label>
-        <label class="soak-input">{{targetSoak}}</label>
+    {{#if showResolution}}
+      {{#if hit}}
+      <div class="roll-result success">
+        <span class="result-label success-label">{{localize "EX2E.Hit"}} — {{threshold}} {{localize "EX2E.Threshold"}}</span>
       </div>
-      <button class="btn-roll btn-roll-damage">
-        <i class="fa-solid fa-burst"></i> {{localize "EX2E.RollDamage"}}
-      </button>
-    </div>
-    {{else if botch}}
-    <div class="roll-result botch">
-      <span class="result-label botch-label">Botch</span>
-    </div>
-    {{else}}
-    <div class="roll-result failure">
-      <span class="result-label failure-label">{{localize "EX2E.Miss"}}</span>
-    </div>
+      <div class="damage-pool-info">
+        {{localize "EX2E.DamagePool"}}: {{weaponDamage}}{{damageTypeLabel}} + {{threshold}}
+        {{#if addStrength}} + {{strengthValue}} Str{{/if}}
+        = <strong>{{rawDamagePool}}d10 {{damageTypeLabel}}</strong>
+      </div>
+
+      {{#if hardnessStops}}
+      <div class="roll-result failure hardness-absorbed">
+        <span class="result-label failure-label">{{localize "EX2E.HardnessStopsAttack"}} ({{localize "EX2E.Hardness"}} {{targetHardness}})</span>
+      </div>
+      {{else}}
+      {{!-- Damage roll section: hardness + soak + roll button --}}
+      <div class="damage-roll-section">
+        <div class="damage-soak-row">
+          {{#if targetHardness}}<label title="{{localize 'EX2E.Hardness'}}">{{localize "EX2E.Hardness"}} {{targetHardness}}</label>{{/if}}
+          <label>{{localize "EX2E.Soak"}}</label>
+          <label class="soak-input">{{targetSoak}}</label>
+        </div>
+        <button class="btn-roll btn-roll-damage">
+          <i class="fa-solid fa-burst"></i> {{localize "EX2E.RollDamage"}}
+        </button>
+      </div>
+      {{/if}}
+      {{else if botch}}
+      <div class="roll-result botch">
+        <span class="result-label botch-label">Botch</span>
+      </div>
+      {{else}}
+      <div class="roll-result failure">
+        <span class="result-label failure-label">{{localize "EX2E.Miss"}}</span>
+      </div>
+      {{/if}}
+    {{else if showAttackerReroll}}
+      <div class="step-pending-label">{{localize "EX2E.Step4Pending"}}</div>
+      <div class="third-exc-reroll">
+        <button class="btn-roll btn-attacker-reroll">
+          <i class="fa-solid fa-arrows-rotate"></i> {{localize "EX2E.AttackerReroll"}}
+        </button>
+        <button class="btn-roll btn-skip btn-attacker-pass"
+                title="{{localize 'EX2E.SkipStep'}}"
+                aria-label="{{localize 'EX2E.SkipStep'}}">
+          <i class="fa-solid fa-forward-step"></i>
+        </button>
+      </div>
+    {{else if showDefenderReroll}}
+      <div class="step-pending-label">{{localize "EX2E.Step5Pending"}}</div>
+      <div class="third-exc-reroll">
+        <button class="btn-roll btn-defender-reroll">
+          <i class="fa-solid fa-arrows-rotate"></i> {{localize "EX2E.DefenderReroll"}}
+        </button>
+        <button class="btn-roll btn-skip btn-defender-pass"
+                title="{{localize 'EX2E.SkipStep'}}"
+                aria-label="{{localize 'EX2E.SkipStep'}}">
+          <i class="fa-solid fa-forward-step"></i>
+        </button>
+      </div>
     {{/if}}
 
   {{else}}

@@ -296,13 +296,24 @@ Hooks.on("renderChatMessage", (message, html) => {
       }
 
       // Second Excellency adds its successes directly; Third is not applied
-      // to DVs here (no defensive reroll semantics).
+      // to DVs here — it's used at Step 5 via the reroll button.
       const dv = baseDV + firstExcSuccesses + secondExcSucc;
+
+      // Record defender-side Step-5 (Third Excellency reroll) eligibility.
+      const defenderHasThirdExc = targetActor.items.some(c =>
+        c.type === "charm" &&
+        c.system.excellency === "third" &&
+        c.system.ability === abilKey
+      );
 
       const newAttack = {
         ...attack,
-        defense:       { type: defenseType, dv },
-        defenseCharms: activatedNames
+        defense:                { type: defenseType, dv },
+        defenseCharms:          activatedNames,
+        defenderHasThirdExc,
+        defenderExcKey:         abilKey,
+        defenderFirstExcDice:   firstExcDice,
+        defenderSecondExcSucc:  secondExcSucc
       };
 
       const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
@@ -328,6 +339,160 @@ Hooks.on("renderChatMessage", (message, html) => {
     }
     const dv = Math.max(0, parseInt(input?.value) || 0);
     const newAttack = { ...attack, defense: { type: "manual", dv } };
+    const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
+    const content = await renderAttackCardContent(newAttack);
+    await message.update({
+      content,
+      flags: { exalted2e: { attack: newAttack } }
+    });
+  });
+
+  // ── Step 4: Attacker Third-Excellency reroll ──────────────────────────
+  // Attacker spends 4m to reroll the attack roll's failures (face < 7).
+  // One-shot, and only when First/Second Excellency wasn't used.
+  const recomputeDiceStats = (dice) => {
+    let rawSuccesses = 0;
+    let ones = 0;
+    for (const d of dice) {
+      if (d.face === 10)     { d.succs = 2; d.cls = "double-success"; rawSuccesses += 2; }
+      else if (d.face >= 7)  { d.succs = 1; d.cls = "success";        rawSuccesses += 1; }
+      else if (d.face === 1) { d.succs = 0; d.cls = "one"; ones += 1; }
+      else                   { d.succs = 0; d.cls = "miss"; }
+    }
+    return {
+      dice,
+      successes: Math.max(0, rawSuccesses),
+      botch:     rawSuccesses <= 0 && ones > 0
+    };
+  };
+
+  el.querySelector?.(".btn-attacker-reroll")?.addEventListener("click", async () => {
+    const attack = message.flags?.exalted2e?.attack;
+    if (!attack || !attack.defense) return;
+    const attacker = game.actors.get(attack.actorId);
+    if (!attacker?.testUserPermission(game.user, "OWNER")) {
+      ui.notifications.warn(game.i18n.localize("EX2E.DefenseNotAllowed"));
+      return;
+    }
+
+    // Find the attacker's Third Excellency charm so we pay its actual cost
+    // (motes + willpower) rather than a hard-coded value.
+    const thirdExcCharm = attacker.items.find(c =>
+      c.type === "charm" &&
+      c.system.excellency === "third" &&
+      c.system.ability === attack.attackerExcKey
+    );
+    if (!thirdExcCharm) return;
+    const ok = await thirdExcCharm.activateCharm();
+    if (!ok) return;
+
+    const newDice = attack.dice.map(d => ({ ...d }));
+    const failIdxs = newDice
+      .map((d, i) => d.face < 7 ? i : -1)
+      .filter(i => i >= 0);
+
+    if (failIdxs.length > 0) {
+      const roll = new Roll(`${failIdxs.length}d10`);
+      await roll.evaluate();
+      const faces = roll.terms[0].results.map(r => r.result);
+      failIdxs.forEach((idx, i) => { newDice[idx].face = faces[i]; });
+      await roll.toMessage({
+        speaker: ChatMessage.getSpeaker({ actor: attacker }),
+        flavor:  `${game.i18n.localize("EX2E.ThirdExcellency")} — ${game.i18n.localize("EX2E.AttackRoll")}`,
+        sound:   CONFIG.sounds.dice
+      });
+    }
+
+    const { dice: finalDice, successes, botch } = recomputeDiceStats(newDice);
+    const newAttack = {
+      ...attack,
+      dice:      finalDice,
+      successes,
+      botch,
+      thirdExcUsedByAttacker: true
+    };
+    const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
+    const content = await renderAttackCardContent(newAttack);
+    await message.update({
+      content,
+      flags: { exalted2e: { attack: newAttack } }
+    });
+  });
+
+  // ── Step 5: Defender Third-Excellency DV bump ────────────────────────
+  // Defender spends 4m to add floor(ability / 2) to their committed DV.
+  // The ability is whichever was used to defend (dodge / melee / MA, or
+  // dexterity for Lunars & Alchemicals) — stored as `defenderExcKey`.
+  el.querySelector?.(".btn-defender-reroll")?.addEventListener("click", async () => {
+    const attack = message.flags?.exalted2e?.attack;
+    if (!attack || !attack.defense) return;
+    const defender = game.actors.get(attack.targetId);
+    if (!defender?.testUserPermission(game.user, "OWNER")) {
+      ui.notifications.warn(game.i18n.localize("EX2E.DefenseNotAllowed"));
+      return;
+    }
+    // Find the defender's Third Excellency charm so we pay its actual cost
+    // (motes + willpower) rather than a hard-coded value.
+    const thirdExcCharm = defender.items.find(c =>
+      c.type === "charm" &&
+      c.system.excellency === "third" &&
+      c.system.ability === attack.defenderExcKey
+    );
+    if (!thirdExcCharm) return;
+    const ok = await thirdExcCharm.activateCharm();
+    if (!ok) return;
+
+    // Resolve the ability value from the key captured at defense-commit.
+    const sys = defender.system;
+    const key = attack.defenderExcKey;
+    const abilityValue = sys.attributes?.[key]?.value
+                      ?? sys.abilities?.[key]?.value
+                      ?? 0;
+    const dvBonus = Math.floor(abilityValue / 2);
+
+    const newAttack = {
+      ...attack,
+      defense: { ...attack.defense, dv: (attack.defense.dv ?? 0) + dvBonus },
+      thirdExcUsedByDefender: true
+    };
+    const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
+    const content = await renderAttackCardContent(newAttack);
+    await message.update({
+      content,
+      flags: { exalted2e: { attack: newAttack } }
+    });
+  });
+
+  // ── Skip-step buttons ────────────────────────────────────────────────
+  // Attacker skips Step 4 (no Third-Exc reroll); defender skips Step 5 (no
+  // DV bump). Advancing either flag lets renderAttackCardContent unlock
+  // the next step or the final hit/miss/damage section.
+  el.querySelector?.(".btn-attacker-pass")?.addEventListener("click", async () => {
+    const attack = message.flags?.exalted2e?.attack;
+    if (!attack || !attack.defense) return;
+    const attacker = game.actors.get(attack.actorId);
+    if (!attacker?.testUserPermission(game.user, "OWNER")) {
+      ui.notifications.warn(game.i18n.localize("EX2E.DefenseNotAllowed"));
+      return;
+    }
+    const newAttack = { ...attack, step4Passed: true };
+    const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
+    const content = await renderAttackCardContent(newAttack);
+    await message.update({
+      content,
+      flags: { exalted2e: { attack: newAttack } }
+    });
+  });
+
+  el.querySelector?.(".btn-defender-pass")?.addEventListener("click", async () => {
+    const attack = message.flags?.exalted2e?.attack;
+    if (!attack || !attack.defense) return;
+    const defender = game.actors.get(attack.targetId);
+    if (!defender?.testUserPermission(game.user, "OWNER")) {
+      ui.notifications.warn(game.i18n.localize("EX2E.DefenseNotAllowed"));
+      return;
+    }
+    const newAttack = { ...attack, step5Passed: true };
     const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
     const content = await renderAttackCardContent(newAttack);
     await message.update({
