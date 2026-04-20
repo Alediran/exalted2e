@@ -61,9 +61,11 @@ export class FormulaBuilderDialog extends HandlebarsApplicationMixin(Application
       label: game.i18n.localize(EX2E.abilityLabels[key] ?? key)
     }));
 
+    // `@essence` / `@willpower` at the root collide with the system's
+    // schema objects, so the dotted path is the reliable one here.
     const otherTokens = [
-      { token: "@essence",   label: game.i18n.localize("EX2E.Essence") },
-      { token: "@willpower", label: game.i18n.localize("EX2E.Willpower") }
+      { token: "@essence.value",   label: game.i18n.localize("EX2E.Essence") },
+      { token: "@willpower.value", label: game.i18n.localize("EX2E.Willpower") }
     ];
 
     const operatorTokens = ["+", "−", "*", "/", "(", ")"].map(t => ({ token: t === "−" ? "-" : t, label: t }));

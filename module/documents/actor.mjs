@@ -39,11 +39,13 @@ export class ExaltedActor extends Actor {
     for (const [key, ab] of Object.entries(s.abilities ?? {})) {
       data[key] = ab?.value ?? 0;
     }
-    // Essence / Willpower / Health wound penalty.
-    data.essence      = s.essence?.value    ?? 0;
-    data.ess          = data.essence;
-    data.willpower    = s.willpower?.value  ?? 0;
-    data.wp           = data.willpower;
+    // NOTE: `@essence` and `@willpower` already exist on roll data as
+    // schema objects ({value, max}) — we can't overwrite those root keys
+    // with plain numbers because the TypeDataModel setter rejects the
+    // coercion silently. Use distinct aliases instead; formulas can also
+    // always reference the nested path directly (`@essence.value`).
+    data.ess          = s.essence?.value    ?? 0;
+    data.wp           = s.willpower?.value  ?? 0;
     data.woundPenalty = s.health?.woundPenalty ?? 0;
     return data;
   }
