@@ -1,0 +1,89 @@
+<form class="ex2e-roll-dialog formula-builder-dialog" autocomplete="off">
+  <div class="dialog-content">
+
+    <p class="formula-header">
+      {{#if fieldName}}<strong>{{fieldName}}</strong>{{/if}}
+      {{#if actorName}} — {{actorName}}{{/if}}
+    </p>
+
+    <div class="field-group">
+      <label>{{localize "EX2E.Formula"}}</label>
+      <div class="formula-input-row">
+        <input type="text" name="formula" value="{{formula}}"
+               placeholder="@str + @essence / 2"
+               autofocus>
+        <button type="button" class="btn-formula-clear" data-action="clear"
+                data-tooltip="{{localize 'EX2E.FormulaClear'}}">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="formula-preview">
+      <span class="formula-preview-label">{{localize "EX2E.FormulaPreview"}}:</span>
+      <span class="formula-preview-value">{{#if (eq preview null)}}—{{else}}{{preview}}{{/if}}</span>
+    </div>
+
+    <div class="formula-palette">
+
+      <section class="formula-section">
+        <h4>{{localize "EX2E.Attributes"}}</h4>
+        <div class="token-row">
+          {{#each attributeTokens as |t|}}
+          <button type="button" class="token-btn" data-action="insertToken" data-token="{{t.token}}">
+            {{t.label}}
+          </button>
+          {{/each}}
+        </div>
+      </section>
+
+      <section class="formula-section">
+        <h4>{{localize "EX2E.Abilities"}}</h4>
+        <div class="token-row">
+          {{#each abilityTokens as |t|}}
+          <button type="button" class="token-btn" data-action="insertToken" data-token="{{t.token}}">
+            {{t.label}}
+          </button>
+          {{/each}}
+        </div>
+      </section>
+
+      <section class="formula-section">
+        <h4>{{localize "EX2E.Other"}}</h4>
+        <div class="token-row">
+          {{#each otherTokens as |t|}}
+          <button type="button" class="token-btn" data-action="insertToken" data-token="{{t.token}}">
+            {{t.label}}
+          </button>
+          {{/each}}
+        </div>
+      </section>
+
+      <section class="formula-section">
+        <h4>{{localize "EX2E.Operators"}}</h4>
+        <div class="token-row">
+          {{#each operatorTokens as |t|}}
+          <button type="button" class="token-btn token-op" data-action="insertToken" data-token="{{t.token}}">
+            {{t.label}}
+          </button>
+          {{/each}}
+          {{#each functionTokens as |t|}}
+          <button type="button" class="token-btn token-fn" data-action="insertToken" data-token="{{t.token}}">
+            {{t.label}}
+          </button>
+          {{/each}}
+        </div>
+      </section>
+
+    </div>
+
+  </div>
+  <footer class="form-footer">
+    <button type="button" class="btn-roll" data-action="cancel">
+      <i class="fa-solid fa-xmark"></i> {{localize "EX2E.Cancel"}}
+    </button>
+    <button type="button" class="btn-roll" data-action="confirm">
+      <i class="fa-solid fa-floppy-disk"></i> {{localize "EX2E.Save"}}
+    </button>
+  </footer>
+</form>

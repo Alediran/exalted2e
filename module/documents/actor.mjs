@@ -12,6 +12,43 @@ export class ExaltedActor extends Actor {
   }
 
   /**
+   * Roll-data short aliases so formulas in Charm attack stats (and any
+   * other author-entered math) can reference attributes / abilities /
+   * essence / willpower by three-letter tokens like `@str`, `@ess`,
+   * `@melee` without having to spell out `@attributes.strength.value`.
+   *
+   * Foundry's Roll.replaceFormulaData consumes this map; anything the
+   * author types is looked up against it.
+   */
+  getRollData() {
+    const data = super.getRollData();
+    const s = this.system ?? {};
+    // Attribute shorthands.
+    const a = s.attributes ?? {};
+    const attr = (key) => a[key]?.value ?? 0;
+    data.str = attr("strength");
+    data.dex = attr("dexterity");
+    data.sta = attr("stamina");
+    data.cha = attr("charisma");
+    data.man = attr("manipulation");
+    data.app = attr("appearance");
+    data.per = attr("perception");
+    data.int = attr("intelligence");
+    data.wit = attr("wits");
+    // Every ability value exposed by its key (e.g. `@melee`, `@archery`).
+    for (const [key, ab] of Object.entries(s.abilities ?? {})) {
+      data[key] = ab?.value ?? 0;
+    }
+    // Essence / Willpower / Health wound penalty.
+    data.essence      = s.essence?.value    ?? 0;
+    data.ess          = data.essence;
+    data.willpower    = s.willpower?.value  ?? 0;
+    data.wp           = data.willpower;
+    data.woundPenalty = s.health?.woundPenalty ?? 0;
+    return data;
+  }
+
+  /**
    * When the caste changes for an ability-based exalt, auto-set the caste
    * flag on all abilities that belong to the new caste's group.
    */

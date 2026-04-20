@@ -53,20 +53,24 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       //                          tracks the lifetime; both vanish when the AE
       //                          is deleted (via charm deactivation, sheet
       //                          action, or Foundry's duration expiry).
+      // Stat values are stored as strings so they can hold either a plain
+      // integer ("3") or a formula ("@str + @essence / 2"). They get
+      // resolved to integers in ExaltedItem#_buildCharmWeaponData using
+      // the actor's roll data.
       attack: new fields.SchemaField({
         enabled:        new fields.BooleanField({ initial: false }),
         name:           new fields.StringField({ initial: "" }),
-        speed:          new fields.NumberField({ initial: 5, min: 0,  max: 10,  integer: true }),
-        accuracy:       new fields.NumberField({ initial: 0, min: -5, max: 10,  integer: true }),
-        damage:         new fields.NumberField({ initial: 1, min: 0,  max: 20,  integer: true }),
+        speed:          new fields.StringField({ initial: "5" }),
+        accuracy:       new fields.StringField({ initial: "0" }),
+        damage:         new fields.StringField({ initial: "1" }),
         damageType:     new fields.StringField({ initial: "lethal", choices: ["bashing","lethal","aggravated"] }),
-        overwhelming:   new fields.NumberField({ initial: 1, min: 0,  max: 20,  integer: true }),
-        defense:        new fields.NumberField({ initial: 0, min: -5, max: 10,  integer: true }),
-        rate:           new fields.NumberField({ initial: 1, min: 0,  max: 10,  integer: true }),
-        range:          new fields.NumberField({ initial: 0, min: 0,  max: 400, integer: true }),
-        minStrength:    new fields.NumberField({ initial: 0, min: 0,  max: 10,  integer: true }),
-        minDexterity:   new fields.NumberField({ initial: 0, min: 0,  max: 10,  integer: true }),
-        minMartialArts: new fields.NumberField({ initial: 0, min: 0,  max: 10,  integer: true }),
+        overwhelming:   new fields.StringField({ initial: "1" }),
+        defense:        new fields.StringField({ initial: "0" }),
+        rate:           new fields.StringField({ initial: "1" }),
+        range:          new fields.StringField({ initial: "0" }),
+        minStrength:    new fields.StringField({ initial: "0" }),
+        minDexterity:   new fields.StringField({ initial: "0" }),
+        minMartialArts: new fields.StringField({ initial: "0" }),
         tags:           new fields.ArrayField(new fields.StringField({ blank: true }))
       })
     };

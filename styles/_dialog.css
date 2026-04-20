@@ -92,6 +92,106 @@
   text-align: center;
 }
 
+/* ── Formula Builder dialog ────────────────────────────────────────────── */
+
+.formula-builder-dialog .formula-header {
+  margin: 0 0 var(--ex2e-gap-sm) 0;
+  color:  var(--ex2e-text-secondary);
+  font-size: var(--ex2e-font-size-sm);
+}
+.formula-builder-dialog .formula-input-row {
+  display:     flex;
+  align-items: center;
+  gap:         var(--ex2e-gap-sm);
+}
+.formula-builder-dialog .formula-input-row input[name="formula"] {
+  flex: 1;
+  font-family: var(--ex2e-font-ui);
+}
+.formula-builder-dialog .btn-formula-clear {
+  padding:       2px 8px;
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: 3px;
+  background:    var(--ex2e-bg-darkest);
+  color:         var(--ex2e-text-secondary);
+  cursor:        pointer;
+}
+.formula-builder-dialog .btn-formula-clear:hover {
+  background: var(--ex2e-bg-hover);
+  color:      var(--ex2e-gold-main);
+}
+.formula-builder-dialog .formula-preview {
+  display:        flex;
+  align-items:    baseline;
+  gap:            var(--ex2e-gap-sm);
+  padding:        4px var(--ex2e-gap-sm);
+  margin-top:     var(--ex2e-gap-sm);
+  background:     var(--ex2e-bg-darkest);
+  border:         1px solid var(--ex2e-gold-dark);
+  border-radius:  var(--ex2e-border-radius-sm);
+  font-size:      var(--ex2e-font-size-sm);
+}
+.formula-builder-dialog .formula-preview-label { color: var(--ex2e-text-secondary); }
+.formula-builder-dialog .formula-preview-value {
+  color:       var(--ex2e-gold-bright);
+  font-weight: bold;
+  font-family: var(--ex2e-font-ui);
+}
+.formula-builder-dialog .formula-palette {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--ex2e-gap-sm);
+  margin-top:     var(--ex2e-gap-md);
+}
+.formula-builder-dialog .formula-section h4 {
+  margin:         0 0 4px 0;
+  font-family:    var(--ex2e-font-title);
+  font-size:      var(--ex2e-font-size-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color:          var(--ex2e-gold-main);
+}
+.formula-builder-dialog .token-row {
+  display:   flex;
+  flex-wrap: wrap;
+  gap:       4px;
+}
+.formula-builder-dialog .token-btn {
+  padding:       2px 8px;
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: 3px;
+  background:    var(--ex2e-bg-darkest);
+  color:         var(--ex2e-text-secondary);
+  font-family:   var(--ex2e-font-ui);
+  font-size:     var(--ex2e-font-size-xs);
+  cursor:        pointer;
+  transition:    background var(--ex2e-transition-fast), color var(--ex2e-transition-fast);
+}
+.formula-builder-dialog .token-btn:hover {
+  background: var(--ex2e-bg-hover);
+  color:      var(--ex2e-gold-bright);
+}
+.formula-builder-dialog .token-btn.token-op { min-width: 32px; text-align: center; }
+
+/* fx button beside each formula input in the charm Attack tab. */
+.exalted2e.item.charm .formula-field-row {
+  display:     flex;
+  align-items: center;
+  gap:         4px;
+}
+.exalted2e.item.charm .formula-field-row input { flex: 1; }
+.exalted2e.item.charm .btn-fx {
+  padding:       2px 8px;
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: 3px;
+  background:    var(--ex2e-bg-darkest);
+  color:         var(--ex2e-gold-bright);
+  cursor:        pointer;
+}
+.exalted2e.item.charm .btn-fx:hover {
+  background: var(--ex2e-gold-dark);
+}
+
 /* ── Attack Dialog: Supplemental/Simple charm picker ───────────────────── */
 
 .ex2e-roll-dialog .attack-charm-picker .attack-charm-list {

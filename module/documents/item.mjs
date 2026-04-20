@@ -196,6 +196,9 @@ export class ExaltedItem extends Item {
   _buildCharmWeaponData() {
     const a = this.system.attack ?? {};
     const displayName = a.name?.trim() ? a.name : this.name;
+    const rollData = this.actor?.getRollData?.() ?? {};
+    const num = (formula, fallback = 0) => evaluateCharmFormula(formula, rollData, fallback);
+
     return {
       name: displayName,
       type: "weapon",
@@ -209,17 +212,17 @@ export class ExaltedItem extends Item {
         artifact:  false,
         modes: [{
           name:           displayName,
-          speed:          a.speed          ?? 5,
-          accuracy:       a.accuracy       ?? 0,
-          damage:         a.damage         ?? 1,
+          speed:          num(a.speed,          5),
+          accuracy:       num(a.accuracy,       0),
+          damage:         num(a.damage,         1),
           damageType:     a.damageType     ?? "lethal",
-          overwhelming:   a.overwhelming   ?? 1,
-          defense:        a.defense        ?? 0,
-          rate:           a.rate           ?? 1,
-          range:          a.range          ?? 0,
-          minStrength:    a.minStrength    ?? 0,
-          minDexterity:   a.minDexterity   ?? 0,
-          minMartialArts: a.minMartialArts ?? 0,
+          overwhelming:   num(a.overwhelming,   1),
+          defense:        num(a.defense,        0),
+          rate:           num(a.rate,           1),
+          range:          num(a.range,          0),
+          minStrength:    num(a.minStrength,    0),
+          minDexterity:   num(a.minDexterity,   0),
+          minMartialArts: num(a.minMartialArts, 0),
           tags:           [...(a.tags ?? [])]
         }]
       }
@@ -243,5 +246,28 @@ export class ExaltedItem extends Item {
       : ChatMessage.getSpeaker();
 
     return ChatMessage.create({ content, speaker });
+  }
+}
+
+/**
+ * Resolve a charm-attack formula (e.g. `"@str + @essence / 2"`) against
+ * the given actor roll-data to an integer. Plain numbers short-circuit;
+ * empty strings return `fallback`. Parse / eval failures log a warning
+ * and fall back as well — a broken formula shouldn't block charm use.
+ */
+export function evaluateCharmFormula(formula, rollData, fallback = 0) {
+  if (formula === null || formula === undefined || formula === "") return fallback;
+  if (typeof formula === "number") return Math.floor(formula);
+  const s = String(formula).trim();
+  if (s === "") return fallback;
+  // Plain integer / decimal — skip Roll machinery.
+  if (/^-?\d+(?:\.\d+)?$/.test(s)) return Math.floor(Number(s));
+  try {
+    const substituted = Roll.replaceFormulaData(s, rollData ?? {}, { missing: "0", warn: false });
+    const value       = Roll.safeEval(substituted);
+    return Number.isFinite(value) ? Math.floor(value) : fallback;
+  } catch (err) {
+    console.warn("[EX2E] Charm formula failed:", formula, err);
+    return fallback;
   }
 }

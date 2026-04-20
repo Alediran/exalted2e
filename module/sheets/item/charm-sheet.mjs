@@ -21,11 +21,12 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     window: { resizable: true },
     form: { submitOnChange: true, closeOnSubmit: false },
     actions: {
-      addKeyword:    CharmSheet.#onAddKeyword,
-      removeKeyword: CharmSheet.#onRemoveKeyword,
-      toggleStep:    CharmSheet.#onToggleStep,
-      addAttackTag:  CharmSheet.#onAddAttackTag,
-      removeAttackTag: CharmSheet.#onRemoveAttackTag
+      addKeyword:      CharmSheet.#onAddKeyword,
+      removeKeyword:   CharmSheet.#onRemoveKeyword,
+      toggleStep:      CharmSheet.#onToggleStep,
+      addAttackTag:    CharmSheet.#onAddAttackTag,
+      removeAttackTag: CharmSheet.#onRemoveAttackTag,
+      openFormula:     CharmSheet.#onOpenFormula
     }
   };
 
@@ -128,6 +129,27 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const tags = foundry.utils.deepClone(this.document.system.attack?.tags ?? []);
     tags.splice(idx, 1);
     await this.document.update({ "system.attack.tags": tags });
+  }
+
+  /**
+   * Open the Formula Builder dialog for a specific attack-stat input.
+   * `data-path` on the button tells us which field to target; the
+   * dialog resolves with the edited formula (or null on cancel), which
+   * we persist via the normal document update path.
+   */
+  static async #onOpenFormula(event, target) {
+    const path  = target.dataset.path;
+    const label = target.dataset.label ?? "";
+    if (!path) return;
+    const current = foundry.utils.getProperty(this.document, path) ?? "";
+    const { FormulaBuilderDialog } = await import("../../dialogs/formula-builder-dialog.mjs");
+    const result = await FormulaBuilderDialog.prompt({
+      formula:   String(current),
+      fieldName: label,
+      actor:     this.document.actor ?? null
+    });
+    if (result === null) return;
+    await this.document.update({ [path]: result });
   }
 
   _onRender(context, options) {

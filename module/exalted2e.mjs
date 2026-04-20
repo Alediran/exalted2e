@@ -199,6 +199,7 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/dialog/counterattack-dialog.hbs",
     "systems/exalted2e/templates/dialog/finish-turn-dialog.hbs",
     "systems/exalted2e/templates/dialog/flurry-declaration-dialog.hbs",
+    "systems/exalted2e/templates/dialog/formula-builder-dialog.hbs",
     "systems/exalted2e/templates/dialog/virtueflaw-picker-dialog.hbs",
     "systems/exalted2e/templates/chat/attack-result.hbs",
     "systems/exalted2e/templates/chat/flurry-declared.hbs"
