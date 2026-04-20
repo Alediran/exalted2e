@@ -1,30 +1,12 @@
 /* ── Item Sheet Styles ───────────────────────────────────────────────────── */
 
-/* Charm sheet tab strip (General / Attack). */
-.exalted2e.item.charm .sheet-tabs {
-  display: flex;
-  gap:     var(--ex2e-gap-md);
-  padding: 4px var(--ex2e-gap-md);
-  border-bottom: 1px solid var(--ex2e-gold-dark);
-  background: var(--ex2e-bg-darkest);
-}
-.exalted2e.item.charm .sheet-tabs a {
-  display:      inline-flex;
-  align-items:  center;
-  gap:          var(--ex2e-gap-sm);
-  padding:      3px 10px;
-  border:       1px solid transparent;
-  border-radius: 3px;
-  color:        var(--ex2e-text-secondary);
-  font-size:    var(--ex2e-font-size-sm);
-  cursor:       pointer;
-}
-.exalted2e.item.charm .sheet-tabs a:hover { color: var(--ex2e-gold-bright); }
-.exalted2e.item.charm .sheet-tabs a.active {
-  color:        var(--ex2e-gold-bright);
-  border-color: var(--ex2e-gold-dark);
-  background:   var(--ex2e-bg-panel);
-}
+/* Charm sheet: let the vertical tab strip extend past the item-sheet's
+   normal scroll clipping so the icons sit flush against the right edge
+   exactly like the character sheet. Scrolling stays on the individual
+   tab bodies (each PART is scrollable) — the outer window doesn't need
+   to scroll itself. */
+.exalted2e.sheet.item.charm .window-content { overflow: visible; }
+.exalted2e.sheet.item.charm             { overflow: visible; }
 
 .exalted2e.item.charm .charm-attack-body { padding: var(--ex2e-gap-md); }
 .exalted2e.item.charm .attack-enable-row {

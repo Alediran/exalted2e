@@ -35,7 +35,10 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
 
   static PARTS = {
     header:     { template: "systems/exalted2e/templates/item/charm/header.hbs" },
-    tabs:       { template: "systems/exalted2e/templates/item/charm/tabs.hbs" },
+    tabs: {
+      classes: ["tabs-right"],
+      template: "systems/exalted2e/templates/item/charm/tabs.hbs"
+    },
     tabGeneral: { template: "systems/exalted2e/templates/item/charm/tab-general.hbs", scrollable: [""] },
     tabAttack:  { template: "systems/exalted2e/templates/item/charm/tab-attack.hbs",  scrollable: [""] }
   };
