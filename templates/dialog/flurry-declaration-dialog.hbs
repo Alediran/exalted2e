@@ -18,7 +18,9 @@
       <div class="flurry-row" data-index="{{i}}">
         <select name="actions.{{i}}.actionKey" class="flurry-col-name">
           {{#each @root.actionOptions as |opt|}}
-          <option value="{{opt.key}}" {{#if (eq opt.key ../a.actionKey)}}selected{{/if}}>{{opt.label}}</option>
+          <option value="{{opt.key}}"
+                  {{#if opt.disabled}}disabled{{/if}}
+                  {{#if (eq opt.key ../a.actionKey)}}selected{{/if}}>{{opt.label}}</option>
           {{/each}}
         </select>
         <input type="number"
@@ -39,6 +41,17 @@
                 aria-label="{{localize 'EX2E.Remove'}}">
           <i class="fa-solid fa-xmark"></i>
         </button>
+      </div>
+      {{!-- Draw-weapon picker: only interactive when this row's action is Draw. --}}
+      <div class="flurry-draw-row {{#unless (eq a.actionKey @root.drawActionKey)}}hidden{{/unless}}"
+           data-index="{{i}}">
+        <label>{{localize "EX2E.FlurryDrawWeapon"}}</label>
+        <select name="actions.{{i}}.weaponId">
+          <option value="">{{localize "EX2E.FlurryDrawNone"}}</option>
+          {{#each @root.unequippedWeapons as |w|}}
+          <option value="{{w.id}}" {{#if (eq w.id ../a.weaponId)}}selected{{/if}}>{{w.name}}</option>
+          {{/each}}
+        </select>
       </div>
       {{/each}}
     </div>

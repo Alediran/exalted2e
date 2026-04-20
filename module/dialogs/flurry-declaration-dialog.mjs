@@ -52,7 +52,8 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
     super(options);
     this._resolve   = resolve;
     this._resolved  = false;
-    this._actorName = options.actorName ?? "";
+    this._actor     = options.actor     ?? null;
+    this._actorName = options.actorName ?? this._actor?.name ?? "";
     // Flurries need at least 2 actions; prime the UI with two Attack rows.
     this._actions = [this._rowFromAction(defaultFlurryActionKey()),
                      this._rowFromAction(defaultFlurryActionKey())];
@@ -61,22 +62,69 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
   /** Build a row seeded from a config action key. Speed/dvMod are overridable. */
   _rowFromAction(key) {
     const a = EX2E.actions[key] ?? EX2E.actions[defaultFlurryActionKey()] ?? { speed: 5, dvMod: 0 };
-    return { actionKey: key, speed: a.speed, dvMod: a.dvMod };
+    return { actionKey: key, speed: a.speed, dvMod: a.dvMod, weaponId: "" };
+  }
+
+  /**
+   * Compose the dropdown's option list: shared flurry-eligible actions plus
+   * one entry per (weapon, mode) the actor owns. Sheathed-weapon modes are
+   * emitted with `disabled: true` so they render greyed out.
+   */
+  _buildActionOptions() {
+    const core = EX2E.getActionList().filter(a => a.isFlurry);
+    const weaponOpts = [];
+    for (const w of (this._actor?.items ?? [])) {
+      if (w.type !== "weapon") continue;
+      const modes = w.system.modes ?? [];
+      modes.forEach((mode, idx) => {
+        const label = modes.length > 1 ? `${w.name} — ${mode.name}` : w.name;
+        weaponOpts.push({
+          key:      `weapon:${w.id}:${idx}`,
+          label,
+          // Attack Speed for the mode; fall back to raw speed if derived isn't present.
+          speed:    mode.effectiveSpeed ?? mode.speed ?? 5,
+          // Attacks carry a baseline -1 DV penalty in this system — user can override per row.
+          dvMod:    1,
+          preset:   false,
+          isFlurry: true,
+          disabled: !w.system.equipped
+        });
+      });
+    }
+    return [...core, ...weaponOpts];
+  }
+
+  /**
+   * Weapons eligible for the per-row "Draw" picker: owned weapons that are
+   * not currently equipped, excluding the auto-generated Unarmed Attacks
+   * (always available, nothing to draw).
+   */
+  _buildUnequippedWeapons() {
+    const list = [];
+    for (const w of (this._actor?.items ?? [])) {
+      if (w.type !== "weapon") continue;
+      if (w.system.equipped) continue;
+      if (w.getFlag("exalted2e", "unarmed")) continue;
+      list.push({ id: w.id, name: w.name });
+    }
+    return list;
   }
 
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
     const n = this._actions.length;
-    // Localized action options for the per-row dropdown. Canon forbids
-    // some actions (Guard, Aim, Inactive…) from appearing in a flurry, so
-    // filter them out via the `isFlurry` flag carried on the config entry.
-    const actionOptions = EX2E.getActionList().filter(a => a.isFlurry);
+    // Cache the computed lists so the dropdown-change handler can resolve
+    // speed/dvMod for weapon-mode keys (which aren't in EX2E.actions).
+    this._actionOptions     = this._buildActionOptions();
+    this._unequippedWeapons = this._buildUnequippedWeapons();
     return {
       ...context,
-      actorName:     this._actorName,
-      actions:       this._actions,
-      actionOptions,
-      canRemove:     n > 2,
+      actorName:         this._actorName,
+      actions:           this._actions,
+      actionOptions:     this._actionOptions,
+      unequippedWeapons: this._unequippedWeapons,
+      drawActionKey:     "draw",
+      canRemove:         n > 2,
       // Live preview so the player sees what the flurry will cost before
       // committing to it.
       preview: {
@@ -90,8 +138,9 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
 
   /**
    * Wire the per-row action dropdown so picking a preset repopulates the
-   * Speed and DV Mod inputs for that row. Manual edits to either field are
-   * preserved until the dropdown is changed again.
+   * Speed and DV Mod inputs for that row and toggles the Draw-weapon picker.
+   * Manual edits to either input are preserved until the dropdown changes
+   * again.
    */
   _onRender(context, options) {
     const form = this.element.querySelector("form");
@@ -99,13 +148,20 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
     form.querySelectorAll(".flurry-row[data-index] [name$='.actionKey']").forEach(select => {
       select.addEventListener("change", (ev) => {
         const key = ev.currentTarget.value;
-        const cfg = EX2E.actions[key];
-        if (!cfg) return;
+        const opt = this._actionOptions?.find(o => o.key === key);
         const row = ev.currentTarget.closest(".flurry-row");
-        const speedInput = row?.querySelector("[name$='.speed']");
-        const dvInput    = row?.querySelector("[name$='.dvMod']");
-        if (speedInput) speedInput.value = cfg.speed;
-        if (dvInput)    dvInput.value    = cfg.dvMod;
+        const idx = row?.dataset.index;
+        if (opt) {
+          const speedInput = row?.querySelector("[name$='.speed']");
+          const dvInput    = row?.querySelector("[name$='.dvMod']");
+          if (speedInput) speedInput.value = opt.speed;
+          if (dvInput)    dvInput.value    = opt.dvMod;
+        }
+        // Toggle the Draw-weapon picker associated with this row.
+        const drawRow = idx !== undefined
+          ? form.querySelector(`.flurry-draw-row[data-index='${idx}']`)
+          : null;
+        if (drawRow) drawRow.classList.toggle("hidden", key !== "draw");
       });
     });
   }
@@ -117,10 +173,17 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
     const rows = form.querySelectorAll(".flurry-row[data-index]");
     const next = [];
     rows.forEach((row) => {
+      const idx = row.dataset.index;
+      // Draw rows render their weapon picker as a sibling .flurry-draw-row;
+      // only that sibling actually exists in the DOM, so look it up by index.
+      const drawRow = idx !== undefined
+        ? form.querySelector(`.flurry-draw-row[data-index='${idx}']`)
+        : null;
       next.push({
         actionKey: row.querySelector("[name$='.actionKey']")?.value ?? defaultFlurryActionKey(),
         speed:     parseInt(row.querySelector("[name$='.speed']")?.value) || 0,
-        dvMod:     parseInt(row.querySelector("[name$='.dvMod']")?.value) || 0
+        dvMod:     parseInt(row.querySelector("[name$='.dvMod']")?.value) || 0,
+        weaponId:  drawRow?.querySelector("[name$='.weaponId']")?.value ?? ""
       });
     });
     if (next.length > 0) this._actions = next;
@@ -140,7 +203,7 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
     this.render();
   }
 
-  static #onConfirm(event, target) {
+  static async #onConfirm(event, target) {
     this._syncFromForm();
     if (this._actions.length < 2) {
       ui.notifications.warn(game.i18n.localize("EX2E.FlurryMinTwoActions"));
@@ -152,19 +215,52 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
     const maxDvMod    = this._actions.reduce((m, a) => Math.max(m, a.dvMod ?? 0), 0);
     const dvPenalty   = maxDvMod + (count - 1);
 
+    // Any Draw row with a selected weapon equips that weapon now. Doing it
+    // at declaration lets the player roll attack actions later in the same
+    // flurry against weapons they just drew.
+    if (this._actor) {
+      const drawnIds = new Set(
+        this._actions
+          .filter(a => a.actionKey === "draw" && a.weaponId)
+          .map(a => a.weaponId)
+      );
+      const updates = [];
+      for (const id of drawnIds) {
+        const w = this._actor.items.get(id);
+        if (w && !w.system.equipped) {
+          updates.push({ _id: id, "system.equipped": true });
+        }
+      }
+      if (updates.length > 0) {
+        await this._actor.updateEmbeddedDocuments("Item", updates);
+      }
+    }
+
     this._resolved = true;
     this._resolve({
-      // Preserve actionKey and resolve a label at declaration time so the
-      // flurry flag reads naturally later (e.g. in tooltips / audit logs).
+      // Preserve actionKey + any drawn weaponId so the flurry flag reads
+      // naturally later (tooltips / audit logs / Finish Turn bookkeeping).
       actions: this._actions.map(a => ({
         actionKey: a.actionKey,
-        name:      game.i18n.localize(EX2E.actions[a.actionKey]?.labelKey ?? a.actionKey),
+        name:      this._labelForActionKey(a.actionKey),
         speed:     a.speed,
-        dvMod:     a.dvMod
+        dvMod:     a.dvMod,
+        weaponId:  a.weaponId ?? ""
       })),
       count, dicePenalty, speed, dvPenalty
     });
     this.close();
+  }
+
+  /**
+   * Resolve a display label for any action key — core config entry, or a
+   * `weapon:<id>:<modeIndex>` key pointing at one of the actor's weapon modes.
+   */
+  _labelForActionKey(key) {
+    const cfg = EX2E.actions[key];
+    if (cfg) return game.i18n.localize(cfg.labelKey);
+    const opt = this._actionOptions?.find(o => o.key === key);
+    return opt?.label ?? key;
   }
 
   static #onCancel(event, target) {

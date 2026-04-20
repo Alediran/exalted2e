@@ -383,7 +383,7 @@ Hooks.on("renderCombatTracker", (app, html, _data) => {
         flurryBtn.innerHTML = `<i class="fa-solid fa-burst"></i> ${game.i18n.localize("EX2E.FlurryDeclare")}`;
         flurryBtn.addEventListener("click", async () => {
           const { FlurryDeclarationDialog } = await import("./dialogs/flurry-declaration-dialog.mjs");
-          const result = await FlurryDeclarationDialog.prompt({ actorName: current.actor.name });
+          const result = await FlurryDeclarationDialog.prompt({ actor: current.actor });
           if (!result) return;
           // Stamp the DV penalty as an effect (cleared automatically at this
           // combatant's next turn via dvRefreshable), and record the flurry
