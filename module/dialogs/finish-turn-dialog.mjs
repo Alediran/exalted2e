@@ -1,3 +1,5 @@
+import { EX2E } from "../config.mjs";
+
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
 /**
@@ -47,12 +49,11 @@ export class FinishTurnDialog extends HandlebarsApplicationMixin(ApplicationV2) 
       combatantName: this._data.combatantName,
       currentTick:   this._data.currentTick,
       defaultSpeed:  this._data.defaultSpeed,
-      presets: [
-        { speed: 3, labelKey: "EX2E.ActionGuard" },
-        { speed: 5, labelKey: "EX2E.ActionMove"  },
-        { speed: 5, labelKey: "EX2E.ActionAim"   },
-        { speed: 6, labelKey: "EX2E.ActionSimple" }
-      ]
+      // Presets are sourced from the shared action config so Finish Turn
+      // and the Flurry dialog stay in lock-step on Speeds.
+      presets: Object.entries(EX2E.actions)
+        .filter(([, a]) => a.preset)
+        .map(([key, a]) => ({ key, speed: a.speed, labelKey: a.labelKey }))
     };
   }
 

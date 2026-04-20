@@ -16,11 +16,11 @@
 
       {{#each actions as |a i|}}
       <div class="flurry-row" data-index="{{i}}">
-        <input type="text"
-               name="actions.{{i}}.name"
-               class="flurry-col-name"
-               value="{{a.name}}"
-               placeholder="{{localize 'EX2E.FlurryActionPlaceholder'}}">
+        <select name="actions.{{i}}.actionKey" class="flurry-col-name">
+          {{#each @root.actionOptions as |opt|}}
+          <option value="{{opt.key}}" {{#if (eq opt.key ../a.actionKey)}}selected{{/if}}>{{opt.label}}</option>
+          {{/each}}
+        </select>
         <input type="number"
                name="actions.{{i}}.speed"
                class="flurry-col-speed"

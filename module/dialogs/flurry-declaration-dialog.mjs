@@ -1,4 +1,16 @@
+import { EX2E } from "../config.mjs";
+
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
+
+/**
+ * Default action key seeded into new rows when the dialog opens. Resolved
+ * lazily so edits to EX2E.actions don't require changing this constant —
+ * the first action flagged `isFlurry: true` in config wins.
+ */
+function defaultFlurryActionKey() {
+  const entry = Object.entries(EX2E.actions).find(([, a]) => a.isFlurry);
+  return entry?.[0] ?? Object.keys(EX2E.actions)[0];
+}
 
 /**
  * FlurryDeclarationDialog — lets the active combatant lay out every action
@@ -41,21 +53,30 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
     this._resolve   = resolve;
     this._resolved  = false;
     this._actorName = options.actorName ?? "";
-    // Flurries need at least 2 actions; prime the UI with two blank rows.
-    this._actions = [
-      { name: "", speed: 5, dvMod: 0 },
-      { name: "", speed: 5, dvMod: 0 }
-    ];
+    // Flurries need at least 2 actions; prime the UI with two Attack rows.
+    this._actions = [this._rowFromAction(defaultFlurryActionKey()),
+                     this._rowFromAction(defaultFlurryActionKey())];
+  }
+
+  /** Build a row seeded from a config action key. Speed/dvMod are overridable. */
+  _rowFromAction(key) {
+    const a = EX2E.actions[key] ?? EX2E.actions[defaultFlurryActionKey()] ?? { speed: 5, dvMod: 0 };
+    return { actionKey: key, speed: a.speed, dvMod: a.dvMod };
   }
 
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
     const n = this._actions.length;
+    // Localized action options for the per-row dropdown. Canon forbids
+    // some actions (Guard, Aim, Inactive…) from appearing in a flurry, so
+    // filter them out via the `isFlurry` flag carried on the config entry.
+    const actionOptions = EX2E.getActionList().filter(a => a.isFlurry);
     return {
       ...context,
-      actorName: this._actorName,
-      actions:   this._actions,
-      canRemove: n > 2,
+      actorName:     this._actorName,
+      actions:       this._actions,
+      actionOptions,
+      canRemove:     n > 2,
       // Live preview so the player sees what the flurry will cost before
       // committing to it.
       preview: {
@@ -67,17 +88,39 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
     };
   }
 
+  /**
+   * Wire the per-row action dropdown so picking a preset repopulates the
+   * Speed and DV Mod inputs for that row. Manual edits to either field are
+   * preserved until the dropdown is changed again.
+   */
+  _onRender(context, options) {
+    const form = this.element.querySelector("form");
+    if (!form) return;
+    form.querySelectorAll(".flurry-row[data-index] [name$='.actionKey']").forEach(select => {
+      select.addEventListener("change", (ev) => {
+        const key = ev.currentTarget.value;
+        const cfg = EX2E.actions[key];
+        if (!cfg) return;
+        const row = ev.currentTarget.closest(".flurry-row");
+        const speedInput = row?.querySelector("[name$='.speed']");
+        const dvInput    = row?.querySelector("[name$='.dvMod']");
+        if (speedInput) speedInput.value = cfg.speed;
+        if (dvInput)    dvInput.value    = cfg.dvMod;
+      });
+    });
+  }
+
   /** Read every row's current input values back into the in-memory action list. */
   _syncFromForm() {
     const form = this.element.querySelector("form");
     if (!form) return;
-    const rows = form.querySelectorAll(".flurry-row");
+    const rows = form.querySelectorAll(".flurry-row[data-index]");
     const next = [];
-    rows.forEach((row, idx) => {
+    rows.forEach((row) => {
       next.push({
-        name:  row.querySelector("[name$='.name']")?.value ?? "",
-        speed: parseInt(row.querySelector("[name$='.speed']")?.value) || 0,
-        dvMod: parseInt(row.querySelector("[name$='.dvMod']")?.value) || 0
+        actionKey: row.querySelector("[name$='.actionKey']")?.value ?? defaultFlurryActionKey(),
+        speed:     parseInt(row.querySelector("[name$='.speed']")?.value) || 0,
+        dvMod:     parseInt(row.querySelector("[name$='.dvMod']")?.value) || 0
       });
     });
     if (next.length > 0) this._actions = next;
@@ -85,7 +128,7 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
 
   static #onAddAction(event, target) {
     this._syncFromForm();
-    this._actions.push({ name: "", speed: 5, dvMod: 0 });
+    this._actions.push(this._rowFromAction(defaultFlurryActionKey()));
     this.render();
   }
 
@@ -111,7 +154,14 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
 
     this._resolved = true;
     this._resolve({
-      actions: this._actions.map(a => ({ ...a })),
+      // Preserve actionKey and resolve a label at declaration time so the
+      // flurry flag reads naturally later (e.g. in tooltips / audit logs).
+      actions: this._actions.map(a => ({
+        actionKey: a.actionKey,
+        name:      game.i18n.localize(EX2E.actions[a.actionKey]?.labelKey ?? a.actionKey),
+        speed:     a.speed,
+        dvMod:     a.dvMod
+      })),
       count, dicePenalty, speed, dvPenalty
     });
     this.close();
