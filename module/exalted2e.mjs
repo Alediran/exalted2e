@@ -284,12 +284,23 @@ Hooks.on("renderCombatTracker", (app, html, _data) => {
   }
 
   // Encounter-phase detection drives which buttons appear:
-  //   • Phase 1 (no JB rolled):       Roll Join Battle visible, Begin Encounter hidden
-  //   • Phase 2 (JB rolled, !started): Begin Encounter visible (Foundry default)
-  //   • Phase 3 (started):             Finish Turn visible
-  const jbRolled = combat.combatants.some(c =>
-    c.initiative !== null && c.initiative !== undefined
-  );
+  //   • Phase 1 (not all combatants have JB yet): Roll JB buttons visible,
+  //     Begin Encounter hidden. Players rolling individually via Foundry's
+  //     per-combatant button keeps us in Phase 1 until everyone's rolled.
+  //   • Phase 2 (everyone has JB, not started): Begin Encounter visible
+  //     (Foundry default)
+  //   • Phase 3 (started): Finish Turn visible
+  //
+  // We key phase detection off our own `joinBattleSuccesses` flag rather
+  // than `initiative`, because Foundry can auto-populate initiative=0 when
+  // combatants are created (auto-roll setting + null formula), which would
+  // otherwise trip us into Phase 2 prematurely.
+  const combatants = combat.combatants.contents ?? [...combat.combatants];
+  const hasCombatants = combatants.length > 0;
+  const jbRolled = hasCombatants && combatants.every(c => {
+    const s = c.flags?.exalted2e?.joinBattleSuccesses;
+    return typeof s === "number";
+  });
   const started = combat.started;
 
   // Phase 1 — strip Foundry's Begin Encounter button until JB is rolled.
@@ -311,7 +322,7 @@ Hooks.on("renderCombatTracker", (app, html, _data) => {
   if (!anchorParent) return;
 
   // Clear any ex2e button from a previous render before re-adding this phase's.
-  el.querySelectorAll(".ex2e-jb-btn, .ex2e-finish-turn-btn").forEach(b => b.remove());
+  el.querySelectorAll(".ex2e-jb-btn, .ex2e-jb-npc-btn, .ex2e-finish-turn-btn").forEach(b => b.remove());
 
   const insertBtn = (btn) => {
     if (endBtn && anchorParent.contains(endBtn)) {
@@ -321,8 +332,19 @@ Hooks.on("renderCombatTracker", (app, html, _data) => {
     }
   };
 
-  if (!jbRolled && game.user.isGM) {
-    // Phase 1: Roll Join Battle (GM drives it for every combatant).
+  if (!jbRolled && hasCombatants && game.user.isGM) {
+    // Phase 1: two Roll Join Battle buttons. Insert the NPC-only one first
+    // so insertBefore(endBtn) leaves them in the order [NPC JB, All JB, End].
+    const npcJbBtn = document.createElement("button");
+    npcJbBtn.type = "button";
+    npcJbBtn.classList.add("combat-control", "ex2e-jb-npc-btn");
+    npcJbBtn.title = game.i18n.localize("EX2E.RollJoinBattleNPC");
+    npcJbBtn.innerHTML = `<i class="fa-solid fa-skull"></i> ${game.i18n.localize("EX2E.RollJoinBattleNPC")}`;
+    npcJbBtn.addEventListener("click", async () => {
+      await combat.rollJoinBattleForNPCs();
+    });
+    insertBtn(npcJbBtn);
+
     const jbBtn = document.createElement("button");
     jbBtn.type = "button";
     // `combat-control` is Foundry's own tracker-button class — it gives the

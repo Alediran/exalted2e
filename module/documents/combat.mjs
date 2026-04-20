@@ -40,36 +40,72 @@ export class ExaltedCombat extends Combat {
   }
 
   /**
-   * Roll Join Battle (Wits + Awareness) for every combatant in this combat,
-   * then assign each combatant's initial tick as `maxSuccesses - mySuccesses`
-   * so the winner acts on tick 0.
+   * Override Foundry's per-combatant Roll Initiative entry point so that
+   * clicking the d20 on a combatant row, or the Roll All button, funnels
+   * through our Join Battle logic (Wits + Awareness, store raw successes,
+   * recompute every combatant's tick relative to the current max).
+   *
+   * @param {string|string[]} ids  One id, or an array of combatant ids.
    */
-  async rollJoinBattle() {
+  async rollInitiative(ids, options = {}) {
     const { ExaltedRoll } = await import("../rolls/exalted-roll.mjs");
+    const idList = typeof ids === "string" ? [ids] : (Array.isArray(ids) ? ids : []);
 
-    const rolls = [];
-    for (const combatant of this.combatants) {
-      const actor = combatant.actor;
-      if (!actor) continue;
-      const pool = this._joinBattlePoolFor(actor);
+    for (const id of idList) {
+      const combatant = this.combatants.get(id);
+      if (!combatant?.actor) continue;
+      const pool = this._joinBattlePoolFor(combatant.actor);
       const roll = new ExaltedRoll({
         pool,
         flavor:    game.i18n.localize("EX2E.JoinBattle"),
-        actorName: actor.name
+        actorName: combatant.actor.name
       });
       const result = await roll.evaluate();
-      await result.toMessage({ speaker: ChatMessage.getSpeaker({ actor }) });
-      rolls.push({ combatant, successes: result.successes });
+      await result.toMessage({ speaker: ChatMessage.getSpeaker({ actor: combatant.actor }) });
+      await combatant.setFlag("exalted2e", "joinBattleSuccesses", result.successes);
     }
-    if (rolls.length === 0) return;
 
-    const maxSuccesses = Math.max(...rolls.map(r => r.successes));
-    const updates = rolls.map(({ combatant, successes }) => ({
-      _id:        combatant.id,
-      initiative: maxSuccesses - successes
+    await this._recomputeTicks();
+    return this;
+  }
+
+  /**
+   * Rebuild every rolled combatant's tick so the highest JB successes sits
+   * at tick 0 and the rest fall at `max − theirs` ticks later. Called after
+   * every Join Battle roll so late-arriving rolls adjust the standings.
+   */
+  async _recomputeTicks() {
+    const entries = [];
+    for (const c of this.combatants) {
+      const s = c.getFlag("exalted2e", "joinBattleSuccesses");
+      if (typeof s === "number") entries.push({ id: c.id, successes: s });
+    }
+    if (entries.length === 0) return;
+
+    const max = Math.max(...entries.map(e => e.successes));
+    const updates = entries.map(({ id, successes }) => ({
+      _id:        id,
+      initiative: max - successes
     }));
     await this.updateEmbeddedDocuments("Combatant", updates);
-    await this.update({ turn: 0 });
+  }
+
+  /** Roll Join Battle for every combatant in this combat. */
+  async rollJoinBattle() {
+    const ids = this.combatants.map(c => c.id);
+    return this.rollInitiative(ids);
+  }
+
+  /** Roll Join Battle only for combatants whose actor isn't player-owned. */
+  async rollJoinBattleForNPCs() {
+    const ids = this.combatants
+      .filter(c => c.actor && !c.actor.hasPlayerOwner)
+      .map(c => c.id);
+    if (ids.length === 0) {
+      ui.notifications.info(game.i18n.localize("EX2E.NoNPCsToRoll"));
+      return this;
+    }
+    return this.rollInitiative(ids);
   }
 
   /**
