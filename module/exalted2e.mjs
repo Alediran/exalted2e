@@ -560,11 +560,21 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       if (!result) return;                          // user cancelled
 
       const activatedNames = [];
+      // Track if the defender activated a Perfect Dodge / Perfect Parry
+      // matching the chosen defense type. If so, the attack auto-misses —
+      // Perfect Defenses trump Unblockable / Undodgeable and everything
+      // downstream (no rerolls, no counterattacks, no damage).
+      let perfectDefenseCharm = null;
+      const perfectKeyword = defenseType === "parry" ? "Perfect Parry" : "Perfect Dodge";
       for (const id of result.charmIds) {
         const charm = targetActor.items.get(id);
         if (!charm) continue;
         const ok = await charm.activateCharm();
-        if (ok) activatedNames.push(charm.name);
+        if (!ok) continue;
+        activatedNames.push(charm.name);
+        if (!perfectDefenseCharm && (charm.system.keywords ?? []).includes(perfectKeyword)) {
+          perfectDefenseCharm = charm.name;
+        }
       }
 
       // Spend Excellency motes directly. charm.activateCharm() only pays the
@@ -618,7 +628,8 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
         defenderExcKey:           abilKey,
         defenderFirstExcDice:     firstExcDice,
         defenderSecondExcSucc:    secondExcSucc,
-        defenderHasCounterattack
+        defenderHasCounterattack,
+        perfectDefenseCharm
       };
 
       const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");

@@ -40,6 +40,24 @@
     </div>
     {{/if}}
 
+    {{#if hasCharms}}
+    <div class="field-group attack-charm-picker">
+      <label>{{localize "EX2E.AttackCharms"}}</label>
+      <ul class="attack-charm-list">
+        {{#each charms as |c|}}
+        <li class="attack-charm-row">
+          <label class="attack-charm-label">
+            <input type="checkbox" name="charm-{{c.id}}" value="true">
+            <span class="charm-name">{{c.name}}</span>
+            {{#if c.tagLabel}}<span class="charm-kw">{{c.tagLabel}}</span>{{/if}}
+            {{#if c.costLabel}}<span class="charm-cost">{{c.costLabel}}</span>{{/if}}
+          </label>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+    {{/if}}
+
     <div class="field-group">
       <label>{{localize "EX2E.MoteType"}}</label>
       <select name="moteType">

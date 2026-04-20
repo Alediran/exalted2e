@@ -39,15 +39,40 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       secondExcMax:   options.secondExcMax   ?? 0,
       firstExcLabel:  options.firstExcLabel  ?? game.i18n.localize("EX2E.FirstExcellency"),
       secondExcLabel: options.secondExcLabel ?? game.i18n.localize("EX2E.SecondExcellency"),
-      flurryPenalty:  options.flurryPenalty  ?? 0
+      flurryPenalty:  options.flurryPenalty  ?? 0,
+      // Non-Excellency attack charms (Supplemental / Simple) keyed to the
+      // ability being rolled. Rendered as a checkbox list so the attacker
+      // can activate Unblockable / Undodgeable (and similar) alongside the
+      // attack roll.
+      charms:         options.charms         ?? []
     };
   }
 
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
+    // Project each charm down to the fields the template needs — name, cost
+    // label, and the keywords array so the UI can flag Unblockable /
+    // Undodgeable picks.
+    const charms = this._data.charms.map(c => {
+      const cost = c.system?.cost ?? {};
+      const parts = [];
+      if (cost.motes)        parts.push(`${cost.motes}m`);
+      if (cost.willpower)    parts.push(`${cost.willpower}wp`);
+      if (cost.healthLevels) parts.push(`${cost.healthLevels}hl`);
+      const keywords = c.system?.keywords ?? [];
+      return {
+        id:          c.id,
+        name:        c.name,
+        costLabel:   parts.join(" · "),
+        keywords,
+        tagLabel:    keywords.filter(k => k === "Unblockable" || k === "Undodgeable").join(", ")
+      };
+    });
     return {
       ...context,
       ...this._data,
+      charms,
+      hasCharms: charms.length > 0,
       stuntChoices: {
         0: game.i18n.localize("EX2E.NoStunt"),
         1: game.i18n.localize("EX2E.Stunt1"),
@@ -104,13 +129,19 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     const fd   = new foundry.applications.ux.FormDataExtended(form);
     const data = fd.object;
 
+    // Collect ticked charm checkboxes — each has name="charm-<id>".
+    const charmIds = Object.keys(data)
+      .filter(k => k.startsWith("charm-") && data[k])
+      .map(k => k.slice("charm-".length));
+
     this._resolved = true;
     this._resolve({
       pool:          parseInt(data.pool)     || this._data.pool,
       stunt:         parseInt(data.stunt)    || 0,
       moteType:      data.moteType           || "peripheral",
       firstExcDice:  parseInt(data.firstExcDice)  || 0,
-      secondExcSucc: parseInt(data.secondExcSucc) || 0
+      secondExcSucc: parseInt(data.secondExcSucc) || 0,
+      charmIds
     });
     this.close();
   }

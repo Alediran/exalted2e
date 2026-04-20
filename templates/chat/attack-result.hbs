@@ -26,6 +26,13 @@
   <div class="exc-bonus-row">+{{secondExcSuccesses}} <abbr title="Second Excellency">2nd Exc.</abbr></div>
   {{/if}}
 
+  {{#if attackCharms.length}}
+  <div class="defense-charms attack-charms">
+    <span class="defense-charms-label">{{localize "EX2E.AttackCharmsUsed"}}:</span>
+    {{#each attackCharms}}<span class="charm-chip">{{this}}</span>{{/each}}
+  </div>
+  {{/if}}
+
   <div class="attack-resolution">
 
   {{#if defenseChosen}}
@@ -41,7 +48,14 @@
     </div>
     {{/if}}
 
-    {{#if showResolution}}
+    {{#if perfectDefense}}
+      <div class="roll-result failure perfect-defense">
+        <span class="result-label failure-label">
+          <i class="fa-solid fa-shield-halved"></i>
+          {{localize "EX2E.PerfectDefense"}} — {{perfectDefenseCharm}}
+        </span>
+      </div>
+    {{else if showResolution}}
       {{#if hit}}
       <div class="roll-result success">
         <span class="result-label success-label">{{localize "EX2E.Hit"}} — {{threshold}} {{localize "EX2E.Threshold"}}</span>
@@ -131,11 +145,27 @@
 
     {{#if targetId}}
     <div class="defense-buttons">
-      <button class="btn-roll btn-defend" data-defense-type="dodge">
-        <i class="fa-solid fa-person-running"></i> {{localize "EX2E.DodgeDV"}} {{targetDodgeDV}}
+      <button class="btn-roll btn-defend {{#if undodgeable}}is-nullified{{/if}}"
+              data-defense-type="dodge"
+              {{#if undodgeable}}data-tooltip="{{localize 'EX2E.Undodgeable'}}"{{/if}}>
+        <i class="fa-solid fa-person-running"></i>
+        {{localize "EX2E.DodgeDV"}}
+        {{#if undodgeable}}
+          <s>{{targetBaseDodgeDV}}</s> 0
+        {{else}}
+          {{targetDodgeDV}}
+        {{/if}}
       </button>
-      <button class="btn-roll btn-defend" data-defense-type="parry">
-        <i class="fa-solid fa-shield"></i> {{localize "EX2E.ParryDV"}} {{targetParryDV}}
+      <button class="btn-roll btn-defend {{#if unblockable}}is-nullified{{/if}}"
+              data-defense-type="parry"
+              {{#if unblockable}}data-tooltip="{{localize 'EX2E.Unblockable'}}"{{/if}}>
+        <i class="fa-solid fa-shield"></i>
+        {{localize "EX2E.ParryDV"}}
+        {{#if unblockable}}
+          <s>{{targetBaseParryDV}}</s> 0
+        {{else}}
+          {{targetParryDV}}
+        {{/if}}
       </button>
     </div>
     {{else}}

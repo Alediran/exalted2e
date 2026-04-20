@@ -394,12 +394,45 @@ export class ExaltedRoll {
       }
     }
 
+    // Non-Excellency attack charms: every Supplemental keyed to the rolled
+    // ability, plus Reflexive charms flagged as triggering in Step 1
+    // (attack declaration). Simple and Extra Action charms are standalone
+    // actions and can't supplement an attack; Permanent charms are always
+    // active; Reflexive charms without Step 1 fire elsewhere in the pipeline.
+    const attackCharms = allCharms.filter(c => {
+      if (c.system.ability !== ability) return false;
+      if (c.system.excellency === "first"
+       || c.system.excellency === "second"
+       || c.system.excellency === "third") return false;
+      const t = c.system.charmType;
+      if (t === "supplemental") return true;
+      if (t === "reflexive" && (c.system.steps ?? []).includes(1)) return true;
+      return false;
+    });
+
     const dialogResult = await AttackDialog.prompt({
       pool, excellency, firstExcMax, secondExcMax,
       firstExcLabel, secondExcLabel,
-      flurryPenalty
+      flurryPenalty,
+      charms: attackCharms
     });
     if (!dialogResult) return null;
+
+    // Activate each selected Supplemental/Simple charm. `activateCharm`
+    // handles mote/willpower spending and sustained-toggle bookkeeping;
+    // a truthy return means the cost was paid.
+    const activatedCharms = [];
+    const activatedKeywords = new Set();
+    for (const id of (dialogResult.charmIds ?? [])) {
+      const c = actor.items.get(id);
+      if (!c) continue;
+      const ok = await c.activateCharm();
+      if (!ok) continue;
+      activatedCharms.push({ id: c.id, name: c.name });
+      for (const kw of (c.system.keywords ?? [])) activatedKeywords.add(kw);
+    }
+    const unblockable = activatedKeywords.has("Unblockable");
+    const undodgeable = activatedKeywords.has("Undodgeable");
 
     // Mote costs (First/Second Excellency only — Third is not used at Step 3)
     const firstExcDice       = dialogResult.firstExcDice  ?? 0;
@@ -410,6 +443,15 @@ export class ExaltedRoll {
       const spent = await actor.spendMotes(totalMoteCost, dialogResult.moteType);
       if (!spent) return null;
     }
+
+    // Apply Unblockable / Undodgeable to the target-snapshot DVs. We keep
+    // the pre-zero values under `targetBase*DV` so the card can strike
+    // them through for transparency, and overwrite the live DV with 0 so
+    // downstream hit/miss math works without special-casing.
+    const targetBaseDodgeDV = targetDodgeDV;
+    const targetBaseParryDV = targetParryDV;
+    if (undodgeable) targetDodgeDV = 0;
+    if (unblockable) targetParryDV = 0;
 
     // Build and evaluate the attack roll
     const displayName = (wSys.modes?.length ?? 1) > 1 ? `${weapon.name} — ${mode.name}` : weapon.name;
@@ -456,8 +498,13 @@ export class ExaltedRoll {
       targetName,
       targetDodgeDV,
       targetParryDV,
+      targetBaseDodgeDV,
+      targetBaseParryDV,
+      unblockable,
+      undodgeable,
       targetSoak,
       targetHardness,
+      attackCharms:            activatedCharms.map(c => c.name),
       isCounterattack:         !!options.isCounterattack,
       originalAttackMessageId: options.originalAttackMessageId ?? null,
       defense:             null
@@ -489,10 +536,16 @@ export class ExaltedRoll {
 export async function renderAttackCardContent(attack) {
   const data = { ...attack, defenseChosen: !!attack.defense };
   if (attack.defense) {
+    // Perfect Dodge / Perfect Parry short-circuit: attack auto-misses,
+    // every downstream step (rerolls, counterattacks, damage) is skipped.
+    // Keep the snapshot honest — threshold stays computed off the real
+    // DV so the card still reads "N vs DV" — but hit is forced false.
+    const perfectDefense = !!attack.perfectDefenseCharm;
     const threshold = Math.max(0, attack.successes - attack.defense.dv);
-    const hit       = threshold > 0;
+    const hit       = !perfectDefense && threshold > 0;
     data.threshold     = threshold;
     data.hit           = hit;
+    data.perfectDefense = perfectDefense;
     data.targetDV      = attack.defense.dv;
     data.rawDamagePool = hit
       ? threshold + attack.weaponDamage + (attack.addStrength ? attack.strengthValue : 0)
@@ -512,10 +565,13 @@ export async function renderAttackCardContent(attack) {
     // A step is complete when it's either not eligible, the charm was used,
     // or the side explicitly skipped. Step 5 only opens once Step 4 closes;
     // the hit/miss/damage section is gated until both steps are complete.
-    const attackerEligible = !!attack.attackerHasThirdExc
+    // A perfect defense skips every downstream resolution step.
+    const attackerEligible = !perfectDefense
+      && !!attack.attackerHasThirdExc
       && (attack.firstExcDice       ?? 0) === 0
       && (attack.secondExcSuccesses ?? 0) === 0;
-    const defenderEligible = !!attack.defenderHasThirdExc
+    const defenderEligible = !perfectDefense
+      && !!attack.defenderHasThirdExc
       && (attack.defenderFirstExcDice ?? 0) === 0
       && (attack.defenderSecondExcSucc ?? 0) === 0;
 
@@ -537,6 +593,7 @@ export async function renderAttackCardContent(attack) {
     // at least one charm with the Counterattack keyword. Step 9 is complete
     // once the counterattack has been triggered or the defender skipped.
     const step9Applicable = step5Complete
+                         && !perfectDefense
                          && (data.hit ?? false)
                          && !data.hardnessStops
                          && !attack.isCounterattack

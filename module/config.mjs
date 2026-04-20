@@ -165,8 +165,8 @@ EX2E.errataMagicalMaterialArmorBonuses = {
 }
 
 EX2E.weaponTags = [
-  "Two-handed", "Bow", "Clinch", "Disarming", "Flame type", "Lance type", "Martial Arts",
-  "Natural", "Overwhelming", "Piercing", "Reach", "Single Shot", "Thrown"
+  "Bow", "Clinch", "Disarming", "Flame type", "Lance type", "Martial Arts",
+  "Natural", "Overwhelming", "Piercing", "Reach", "Single Shot", "Thrown", "Two-handed"
 ];
 
 EX2E.armorTags = [
@@ -175,39 +175,31 @@ EX2E.armorTags = [
 
 // ── Charm Keywords ──────────────────────────────────────────────────────
 // Predefined list for autocomplete / dropdown suggestions on Charm sheets.
+// Alphabetised and deduped — source categories preserved in comments below
+// for reference (Avatar is Abyssal, Axiomatic is Alchemical, etc.).
 EX2E.charmKeywords = [
-  // Combo
-  "Combo-OK", "Combo-Basic", "Combo-Permanent",
-  // Solar
-  "Dawn", 
-  // Lunar
-  "Fury-OK", "Gift",
-  // Sidereal
-  "Fate" , "Maiden", "Prayer Strip", "Virtue",
-  // Terrestrial
-  "Cooperative", "Elemental",
-  // Abyssal
-  "Avatar", "Mirror", "Spectral", "Taint",
-  // Infernal
-  "Blasphemy", "Desecration", "Messianic", "Sorcerous", "Velocity", "Heretical",
-  // Alchemical
-  "Axiomatic", "Exemplar", "Internal", "Variable",
-  // Visibility
-  "Obvious",
-  // Stacking
-  "Stackable", "Merged",
-  // Social influence
-  "Compulsion", "Emotion", "Illusion", "Servitude", "Training", "Rage",
-  // Physical effects
-  "Crippling", "Knockback", "Poison", "Shaping", "Sickness", "Touch",
-  // Combat
-  "Counterattack", "Perfect Attack", "Perfect Defense",
-  // Domain
-  "Martial", "Martial-ready", "Social", "War", "Enhanced",
-  // Special
-  "Form-type", "Holy", "Mirror", "Native", "Overdrive", "Wyld", "Form-Enhancing", "Monstrous", "Mount (any)", "Mount (Mundane)", "Native", "Overdrive", "Reactor"
-  // Exalt-specific
-  
+  "Avatar", "Axiomatic",
+  "Blasphemy",
+  "Combo-Basic", "Combo-OK", "Combo-Permanent", "Compulsion", "Cooperative",
+  "Counterattack", "Crippling",
+  "Dawn", "Desecration",
+  "Elemental", "Emotion", "Enhanced", "Exemplar", 
+  "Fate", "Form-Enhancing", "Form-type", "Fury-OK",
+  "Gift",
+  "Heretical", "Holy",
+  "Illusion", "Internal",
+  "Knockback",
+  "Maiden", "Martial", "Martial-ready", "Merged", "Messianic", "Mirror", "Monstrous",
+  "Mount (Mundane)", "Mount (any)",
+  "Native",
+  "Obvious", "Overdrive",
+  "Perfect Dodge", "Perfect Parry", "Poison", "Prayer Strip",
+  "Rage", "Reactor",
+  "Servitude", "Shaping", "Sickness", "Social", "Sorcerous", "Spectral", "Stackable",
+  "Taint", "Touch", "Training",
+  "Unblockable", "Unbreakable", "Undodgeable", 
+  "Variable", "Velocity", "Virtue",
+  "War", "Wyld"
 ];
 
 EX2E.anima = {

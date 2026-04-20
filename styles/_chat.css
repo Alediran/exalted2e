@@ -273,6 +273,20 @@
   cursor:  default;
 }
 
+/* Unblockable / Undodgeable visual: keep the button clickable (defender may
+   still have a Perfect Defense), but show the DV as struck-through 0. */
+.ex2e-attack-card .btn-defend.is-nullified {
+  position: relative;
+}
+.ex2e-attack-card .btn-defend.is-nullified s {
+  opacity: 0.55;
+  margin-right: 4px;
+}
+.ex2e-attack-card .roll-result.perfect-defense {
+  border-color: var(--ex2e-gold-main);
+  color:        var(--ex2e-gold-bright);
+}
+
 /* ── Flurry Declaration card ──────────────────────────────────────────── */
 
 .ex2e-flurry-card .flurry-card-summary {
