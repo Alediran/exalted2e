@@ -1,0 +1,47 @@
+<form class="ex2e-roll-dialog counterattack-dialog" autocomplete="off">
+  <div class="dialog-content">
+
+    <p class="counterattack-instruction">
+      {{localize "EX2E.CounterattackPrompt"}}{{#if targetName}} — {{targetName}}{{/if}}
+    </p>
+
+    <div class="field-group">
+      <label>{{localize "EX2E.CounterattackCharm"}}</label>
+      {{#if charms.length}}
+      <div class="counterattack-charm-list">
+        {{#each charms as |c index|}}
+        <label class="counterattack-row">
+          <input type="radio" name="charmId" value="{{c.id}}" {{#if (eq index 0)}}checked{{/if}}>
+          <span class="charm-name">{{c.name}}</span>
+          {{#if c.costLabel}}<span class="charm-cost">{{c.costLabel}}</span>{{/if}}
+        </label>
+        {{/each}}
+      </div>
+      {{else}}
+      <p class="no-charms">{{localize "EX2E.NoCounterattackCharms"}}</p>
+      {{/if}}
+    </div>
+
+    <div class="field-group">
+      <label>{{localize "EX2E.CounterattackWeapon"}}</label>
+      {{#if weaponModes.length}}
+      <select name="weaponMode">
+        {{#each weaponModes as |wm|}}
+        <option value="{{wm.weaponId}}::{{wm.modeIndex}}">{{wm.label}}</option>
+        {{/each}}
+      </select>
+      {{else}}
+      <p class="no-charms">{{localize "EX2E.NoEquippedWeapons"}}</p>
+      {{/if}}
+    </div>
+
+  </div>
+  <footer class="form-footer">
+    <button type="button" class="btn-roll" data-action="cancel">
+      <i class="fa-solid fa-xmark"></i> {{localize "EX2E.Cancel"}}
+    </button>
+    <button type="button" class="btn-roll" data-action="confirm">
+      <i class="fa-solid fa-hand-fist"></i> {{localize "EX2E.Counterattack"}}
+    </button>
+  </footer>
+</form>

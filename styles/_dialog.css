@@ -92,6 +92,48 @@
   text-align: center;
 }
 
+/* ── Counterattack Dialog ──────────────────────────────────────────────── */
+
+.counterattack-dialog .counterattack-instruction {
+  margin:    0;
+  font-size: var(--ex2e-font-size-sm);
+  color:     var(--ex2e-text-secondary);
+}
+.counterattack-dialog .counterattack-charm-list {
+  display:        flex;
+  flex-direction: column;
+  gap:            4px;
+  max-height:     200px;
+  overflow-y:     auto;
+}
+.counterattack-dialog .counterattack-row {
+  display:       flex;
+  align-items:   center;
+  gap:           var(--ex2e-gap-sm);
+  padding:       4px 8px;
+  border:        1px solid var(--ex2e-border-color);
+  border-radius: var(--ex2e-border-radius);
+  cursor:        pointer;
+  transition:    background var(--ex2e-transition-fast),
+                 border-color var(--ex2e-transition-fast);
+}
+.counterattack-dialog .counterattack-row:hover {
+  background:   var(--ex2e-bg-hover);
+  border-color: var(--ex2e-gold-dark);
+}
+.counterattack-dialog .charm-name { flex: 1; color: var(--ex2e-text-primary); }
+.counterattack-dialog .charm-cost {
+  font-family: var(--ex2e-font-ui);
+  font-size:   var(--ex2e-font-size-xs);
+  color:       var(--ex2e-text-muted);
+}
+.counterattack-dialog .no-charms {
+  margin:    0;
+  font-size: var(--ex2e-font-size-sm);
+  color:     var(--ex2e-text-muted);
+  text-align: center;
+}
+
 .btn-roll {
   display:        inline-flex;
   align-items:    center;

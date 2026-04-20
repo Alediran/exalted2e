@@ -56,8 +56,27 @@
       <div class="roll-result failure hardness-absorbed">
         <span class="result-label failure-label">{{localize "EX2E.HardnessStopsAttack"}} ({{localize "EX2E.Hardness"}} {{targetHardness}})</span>
       </div>
-      {{else}}
-      {{!-- Damage roll section: hardness + soak + roll button --}}
+      {{else if showCounterattack}}
+      {{!-- Step 9: Counterattack offered to the defender --}}
+      <div class="step-pending-label">{{localize "EX2E.Step9Pending"}}</div>
+      <div class="third-exc-reroll">
+        <button class="btn-roll btn-counterattack">
+          <i class="fa-solid fa-hand-fist"></i> {{localize "EX2E.Counterattack"}}
+        </button>
+        <button class="btn-roll btn-skip btn-skip-counterattack"
+                title="{{localize 'EX2E.SkipStep'}}"
+                aria-label="{{localize 'EX2E.SkipStep'}}">
+          <i class="fa-solid fa-forward-step"></i>
+        </button>
+      </div>
+      {{else if showRollDamage}}
+      {{#if counterattackCharm}}
+      <div class="defense-charms">
+        <span class="defense-charms-label">{{localize "EX2E.CounterattackUsed"}}:</span>
+        <span class="charm-chip">{{counterattackCharm}}</span>
+      </div>
+      {{/if}}
+      {{!-- Step 10: hardness + soak + roll button --}}
       <div class="damage-roll-section">
         <div class="damage-soak-row">
           {{#if targetHardness}}<label title="{{localize 'EX2E.Hardness'}}">{{localize "EX2E.Hardness"}} {{targetHardness}}</label>{{/if}}

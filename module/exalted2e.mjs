@@ -178,6 +178,7 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/dialog/add-specialty-dialog.hbs",
     "systems/exalted2e/templates/dialog/attack-dialog.hbs",
     "systems/exalted2e/templates/dialog/step2-defense-dialog.hbs",
+    "systems/exalted2e/templates/dialog/counterattack-dialog.hbs",
     "systems/exalted2e/templates/dialog/virtueflaw-picker-dialog.hbs",
     "systems/exalted2e/templates/chat/attack-result.hbs"
   ];
@@ -383,14 +384,21 @@ Hooks.on("renderChatMessage", (message, html) => {
         c.system.ability === abilKey
       );
 
+      // Record defender-side Step-9 (Counterattack) eligibility.
+      const defenderHasCounterattack = targetActor.items.some(c =>
+        c.type === "charm" &&
+        (c.system.keywords ?? []).includes("Counterattack")
+      );
+
       const newAttack = {
         ...attack,
-        defense:                { type: defenseType, dv },
-        defenseCharms:          activatedNames,
+        defense:                  { type: defenseType, dv },
+        defenseCharms:            activatedNames,
         defenderHasThirdExc,
-        defenderExcKey:         abilKey,
-        defenderFirstExcDice:   firstExcDice,
-        defenderSecondExcSucc:  secondExcSucc
+        defenderExcKey:           abilKey,
+        defenderFirstExcDice:     firstExcDice,
+        defenderSecondExcSucc:    secondExcSucc,
+        defenderHasCounterattack
       };
 
       const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
@@ -570,6 +578,94 @@ Hooks.on("renderChatMessage", (message, html) => {
       return;
     }
     const newAttack = { ...attack, step5Passed: true };
+    const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
+    const content = await renderAttackCardContent(newAttack);
+    await message.update({
+      content,
+      flags: { exalted2e: { attack: newAttack } }
+    });
+  });
+
+  // ── Step 9: Counterattack ────────────────────────────────────────────
+  // Defender activates a Counterattack-keyword charm and fires a reflexive
+  // attack back at the original attacker. The resulting attack card is
+  // flagged `isCounterattack` so it doesn't offer its own Step 9.
+  el.querySelector?.(".btn-counterattack")?.addEventListener("click", async () => {
+    const attack = message.flags?.exalted2e?.attack;
+    if (!attack || !attack.defense) return;
+    const defender = game.actors.get(attack.targetId);
+    if (!defender?.testUserPermission(game.user, "OWNER")) {
+      ui.notifications.warn(game.i18n.localize("EX2E.DefenseNotAllowed"));
+      return;
+    }
+    const originalAttacker = game.actors.get(attack.actorId);
+    if (!originalAttacker) {
+      ui.notifications.warn(`[EX2E] Original attacker (id=${attack.actorId}) not found.`);
+      return;
+    }
+
+    const charms = defender.items.filter(i =>
+      i.type === "charm" && (i.system.keywords ?? []).includes("Counterattack")
+    );
+    const equippedWeapons = defender.items.filter(i =>
+      i.type === "weapon" && i.system.equipped
+    );
+    const weaponModes = equippedWeapons.flatMap(w =>
+      (w.system.modes ?? []).map((mode, idx) => ({
+        weaponId:  w.id,
+        modeIndex: idx,
+        label:     (w.system.modes.length > 1) ? `${w.name} — ${mode.name}` : w.name
+      }))
+    );
+
+    const { CounterattackDialog } = await import("./dialogs/counterattack-dialog.mjs");
+    const result = await CounterattackDialog.prompt({
+      charms,
+      weaponModes,
+      targetName: originalAttacker.name
+    });
+    if (!result) return;
+
+    const charm = defender.items.get(result.charmId);
+    if (!charm) return;
+    const ok = await charm.activateCharm();
+    if (!ok) return;
+
+    // Fire the counterattack. It will post its own attack card, flagged so
+    // it can't recursively offer Step 9 on itself.
+    const { ExaltedRoll } = await import("./rolls/exalted-roll.mjs");
+    const counterMessage = await ExaltedRoll.rollAttack(defender, result.weaponId, {
+      modeIndex:               result.modeIndex,
+      isCounterattack:         true,
+      originalAttackMessageId: message.id,
+      explicitTargetActor:     originalAttacker
+    });
+
+    // Mark the original attack as having triggered its counterattack so the
+    // Step 9 buttons disappear and Roll Damage unlocks.
+    const newAttack = {
+      ...attack,
+      counterattackTriggered: true,
+      counterattackMessageId: counterMessage?.id ?? null,
+      counterattackCharm:     charm.name
+    };
+    const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
+    const content = await renderAttackCardContent(newAttack);
+    await message.update({
+      content,
+      flags: { exalted2e: { attack: newAttack } }
+    });
+  });
+
+  el.querySelector?.(".btn-skip-counterattack")?.addEventListener("click", async () => {
+    const attack = message.flags?.exalted2e?.attack;
+    if (!attack || !attack.defense) return;
+    const defender = game.actors.get(attack.targetId);
+    if (!defender?.testUserPermission(game.user, "OWNER")) {
+      ui.notifications.warn(game.i18n.localize("EX2E.DefenseNotAllowed"));
+      return;
+    }
+    const newAttack = { ...attack, step9Passed: true };
     const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
     const content = await renderAttackCardContent(newAttack);
     await message.update({

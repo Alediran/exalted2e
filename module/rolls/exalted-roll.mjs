@@ -340,24 +340,25 @@ export class ExaltedRoll {
     // is a single stat but only applies against bashing or lethal attacks —
     // aggravated damage bypasses Hardness entirely.
     const ignoresHardness = mode.damageType === "aggravated";
-    const targets = game.user.targets;
-    if (targets.size > 0) {
-      const targetActor = targets.first()?.actor;
-      if (targetActor) {
-        targetId   = targetActor.id;
-        targetName = targetActor.name;
-        const tSys = targetActor.system;
-        if (targetActor.type === "character") {
-          targetDodgeDV  = tSys.dodgeDV ?? 0;
-          targetParryDV  = tSys.parryDV ?? tSys.parryDVBase ?? 0;
-          targetSoak     = tSys.totalSoak?.[mode.damageType] ?? 0;
-          targetHardness = ignoresHardness ? 0 : (tSys.hardness ?? 0);
-        } else if (targetActor.type === "npc") {
-          targetDodgeDV  = tSys.combat?.dodgeDV ?? 0;
-          targetParryDV  = tSys.combat?.parryDV ?? 0;
-          targetSoak     = tSys.combat?.soak?.[mode.damageType] ?? 0;
-          targetHardness = ignoresHardness ? 0 : (tSys.combat?.hardness ?? 0);
-        }
+    // Counterattacks pass the target actor directly (the original attacker);
+    // normal attacks take the currently targeted token.
+    const targetActor = options.explicitTargetActor
+                     ?? game.user.targets.first()?.actor
+                     ?? null;
+    if (targetActor) {
+      targetId   = targetActor.id;
+      targetName = targetActor.name;
+      const tSys = targetActor.system;
+      if (targetActor.type === "character") {
+        targetDodgeDV  = tSys.dodgeDV ?? 0;
+        targetParryDV  = tSys.parryDV ?? tSys.parryDVBase ?? 0;
+        targetSoak     = tSys.totalSoak?.[mode.damageType] ?? 0;
+        targetHardness = ignoresHardness ? 0 : (tSys.hardness ?? 0);
+      } else if (targetActor.type === "npc") {
+        targetDodgeDV  = tSys.combat?.dodgeDV ?? 0;
+        targetParryDV  = tSys.combat?.parryDV ?? 0;
+        targetSoak     = tSys.combat?.soak?.[mode.damageType] ?? 0;
+        targetHardness = ignoresHardness ? 0 : (tSys.combat?.hardness ?? 0);
       }
     }
 
@@ -424,6 +425,8 @@ export class ExaltedRoll {
       targetParryDV,
       targetSoak,
       targetHardness,
+      isCounterattack:         !!options.isCounterattack,
+      originalAttackMessageId: options.originalAttackMessageId ?? null,
       defense:             null
     };
 
@@ -495,6 +498,21 @@ export async function renderAttackCardContent(attack) {
     data.showAttackerReroll = !step4Complete;
     data.showDefenderReroll = step4Complete && !step5Complete;
     data.showResolution     = step4Complete && step5Complete;
+
+    // Step 9: Counterattack. Offered when Step 8 passes (hit, not stopped by
+    // hardness), the card isn't itself a counterattack, and the defender has
+    // at least one charm with the Counterattack keyword. Step 9 is complete
+    // once the counterattack has been triggered or the defender skipped.
+    const step9Applicable = step5Complete
+                         && (data.hit ?? false)
+                         && !data.hardnessStops
+                         && !attack.isCounterattack
+                         && !!attack.defenderHasCounterattack;
+    const step9Complete = !step9Applicable
+                       || !!attack.counterattackTriggered
+                       || !!attack.step9Passed;
+    data.showCounterattack = step9Applicable && !step9Complete;
+    data.showRollDamage    = (data.hit ?? false) && !data.hardnessStops && step9Complete;
   }
   return foundry.applications.handlebars.renderTemplate(
     "systems/exalted2e/templates/chat/attack-result.hbs",
