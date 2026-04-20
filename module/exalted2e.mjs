@@ -275,64 +275,90 @@ Hooks.on("renderCombatTracker", (app, html, _data) => {
   const combat = app.viewed;
   if (!combat) return;
 
-  // Avoid re-injecting on re-render by keying off our own class.
-  if (el.querySelector(".ex2e-combat-controls")) return;
+  // Exalted 2e uses tick-based initiative, so Foundry's default
+  // Previous/Next Round and Previous/Next Turn buttons don't map onto the
+  // rules. Remove them on every render; "Finish Turn" replaces them.
+  for (const action of ["previousRound", "previousTurn", "nextTurn", "nextRound"]) {
+    el.querySelectorAll(`[data-action='${action}'], [data-control='${action}']`)
+      .forEach(btn => btn.remove());
+  }
 
-  // Anchor the controls immediately above the End Encounter button. Fall
-  // back to the tracker header if that button can't be located (e.g. if
-  // Foundry changes the DOM between versions).
-  const endBtn = el.querySelector("[data-application-part='footer']")
-              ?? el.querySelector(".combat-controls");
+  // Encounter-phase detection drives which buttons appear:
+  //   • Phase 1 (no JB rolled):       Roll Join Battle visible, Begin Encounter hidden
+  //   • Phase 2 (JB rolled, !started): Begin Encounter visible (Foundry default)
+  //   • Phase 3 (started):             Finish Turn visible
+  const jbRolled = combat.combatants.some(c =>
+    c.initiative !== null && c.initiative !== undefined
+  );
+  const started = combat.started;
+
+  // Phase 1 — strip Foundry's Begin Encounter button until JB is rolled.
+  if (!jbRolled) {
+    el.querySelectorAll(`[data-action='startCombat'], [data-control='startCombat']`)
+      .forEach(btn => btn.remove());
+  }
+
+  // Anchor our phase-specific button inside the tracker's controls area.
+  // Foundry v13 renders controls inside a footer part; older markup used a
+  // `.combat-controls` element. Fall back progressively so the button always
+  // has a home even if the DOM shifts.
+  const endBtn = el.querySelector("[data-action='endCombat']")
+              ?? el.querySelector(".combat-control-end");
   const anchorParent = endBtn?.parentElement
+                    ?? el.querySelector("[data-application-part='footer']")
                     ?? el.querySelector(".combat-controls")
-                    ?? el.querySelector("header.combat-tracker-header");
+                    ?? el.querySelector("footer");
   if (!anchorParent) return;
 
-  const bar = document.createElement("div");
-  bar.classList.add("ex2e-combat-controls");
+  // Clear any ex2e button from a previous render before re-adding this phase's.
+  el.querySelectorAll(".ex2e-jb-btn, .ex2e-finish-turn-btn").forEach(b => b.remove());
 
-  if (game.user.isGM) {
+  const insertBtn = (btn) => {
+    if (endBtn && anchorParent.contains(endBtn)) {
+      anchorParent.insertBefore(btn, endBtn);
+    } else {
+      anchorParent.appendChild(btn);
+    }
+  };
+
+  if (!jbRolled && game.user.isGM) {
+    // Phase 1: Roll Join Battle (GM drives it for every combatant).
     const jbBtn = document.createElement("button");
     jbBtn.type = "button";
-    jbBtn.classList.add("ex2e-jb-btn");
+    // `combat-control` is Foundry's own tracker-button class — it gives the
+    // button the native sidebar look.
+    jbBtn.classList.add("combat-control", "ex2e-jb-btn");
     jbBtn.title = game.i18n.localize("EX2E.JoinBattle");
     jbBtn.innerHTML = `<i class="fa-solid fa-dice-d10"></i> ${game.i18n.localize("EX2E.RollJoinBattle")}`;
     jbBtn.addEventListener("click", async () => {
       await combat.rollJoinBattle();
     });
-    bar.appendChild(jbBtn);
-  }
-
-  const current = combat.combatant;
-  debugger;
-  const canFinish = current
-    && (game.user.isGM || current.actor?.testUserPermission(game.user, "OWNER"));
-  if (canFinish) {
-    const finishBtn = document.createElement("button");
-    finishBtn.type = "button";
-    finishBtn.classList.add("ex2e-finish-turn-btn");
-    finishBtn.title = game.i18n.localize("EX2E.FinishTurn");
-    finishBtn.innerHTML = `<i class="fa-solid fa-forward-step"></i> ${game.i18n.localize("EX2E.FinishTurn")}`;
-    finishBtn.addEventListener("click", async () => {
-      const { FinishTurnDialog } = await import("./dialogs/finish-turn-dialog.mjs");
-      const speed = await FinishTurnDialog.prompt({
-        combatantName: current.name,
-        currentTick:   current.initiative ?? 0,
-        defaultSpeed:  5
+    insertBtn(jbBtn);
+  } else if (started) {
+    // Phase 3: Finish Turn — visible to the active combatant's owner / GM.
+    const current = combat.combatant;
+    const canFinish = current
+      && (game.user.isGM || current.actor?.testUserPermission(game.user, "OWNER"));
+    if (canFinish) {
+      const finishBtn = document.createElement("button");
+      finishBtn.type = "button";
+      finishBtn.classList.add("combat-control", "ex2e-finish-turn-btn");
+      finishBtn.title = game.i18n.localize("EX2E.FinishTurn");
+      finishBtn.innerHTML = `<i class="fa-solid fa-forward-step"></i> ${game.i18n.localize("EX2E.FinishTurn")}`;
+      finishBtn.addEventListener("click", async () => {
+        const { FinishTurnDialog } = await import("./dialogs/finish-turn-dialog.mjs");
+        const speed = await FinishTurnDialog.prompt({
+          combatantName: current.name,
+          currentTick:   current.initiative ?? 0,
+          defaultSpeed:  5
+        });
+        if (speed === null) return;
+        await combat.advanceCurrentByTicks(speed);
       });
-      if (speed === null) return;
-      await combat.advanceCurrentByTicks(speed);
-    });
-    bar.appendChild(finishBtn);
-  }
-
-  if (bar.childElementCount > 0) {
-    if (endBtn && anchorParent.contains(endBtn)) {
-      anchorParent.insertBefore(bar, endBtn);
-    } else {
-      anchorParent.appendChild(bar);
+      insertBtn(finishBtn);
     }
   }
+  // Phase 2: nothing to inject — Foundry's native Begin Encounter is visible.
 });
 
 // ── Chat Listeners ─────────────────────────────────────────────────────────
