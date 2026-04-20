@@ -29,12 +29,17 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
 
   static DEFAULT_OPTIONS = {
     id:       "ex2e-flurry-declaration-dialog",
-    tag:      "dialog",
+    // Intentionally NOT `tag: "dialog"`. ApplicationV2's position code
+    // miscomputes `left` when it writes through a native modal <dialog>
+    // element that also has `height: "auto"`, which left the dialog
+    // stuck off-axis. Using the standard Foundry window frame instead
+    // gives us predictable, draggable positioning.
     classes:  ["exalted2e", "roll-dialog"],
     position: { width: 440, height: "auto" },
     window:   {
-      title:     "EX2E.FlurryTitle",
-      resizable: false
+      title:        "EX2E.FlurryTitle",
+      resizable:    false,
+      minimizable:  false
     },
     actions: {
       addAction:    FlurryDeclarationDialog.#onAddAction,
