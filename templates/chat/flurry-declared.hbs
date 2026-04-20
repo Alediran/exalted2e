@@ -1,0 +1,39 @@
+<div class="ex2e-roll-card ex2e-flurry-card" data-actor-id="{{actorId}}">
+  <div class="roll-header">
+    <span class="roll-actor">{{actorName}}</span>
+    <span class="roll-flavor">{{localize "EX2E.FlurryDeclared"}}</span>
+  </div>
+
+  <div class="flurry-card-summary">
+    <div><strong>{{localize "EX2E.FlurryActions"}}:</strong> {{count}}</div>
+    <div><strong>{{localize "EX2E.FlurryDicePenalty"}}:</strong> −{{dicePenalty}}</div>
+    <div><strong>{{localize "EX2E.FlurrySpeed"}}:</strong> {{speed}}</div>
+    <div><strong>{{localize "EX2E.FlurryDvPenalty"}}:</strong> −{{dvPenalty}}</div>
+  </div>
+
+  <ol class="flurry-card-actions">
+    {{#each actions as |a i|}}
+    <li class="flurry-card-action">
+      <div class="action-line">
+        <span class="action-index">{{add i 1}}.</span>
+        <span class="action-label">{{a.name}}</span>
+        <span class="action-stats">Spd {{a.speed}} · −{{a.dvMod}} DV</span>
+      </div>
+      {{#if a.isAttack}}
+      <button type="button"
+              class="btn-flurry-attack"
+              data-actor-id="{{@root.actorId}}"
+              data-weapon-id="{{a.weaponId}}"
+              data-mode-index="{{a.modeIndex}}">
+        <i class="fa-solid fa-crosshairs"></i> {{localize "EX2E.AttackRoll"}}
+      </button>
+      {{else if a.isDraw}}
+      <div class="action-detail">
+        <i class="fa-solid fa-hand-fist"></i>
+        {{#if a.drawnWeaponName}}{{a.drawnWeaponName}}{{else}}{{localize "EX2E.FlurryDrawUnspecified"}}{{/if}}
+      </div>
+      {{/if}}
+    </li>
+    {{/each}}
+  </ol>
+</div>

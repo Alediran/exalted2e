@@ -341,17 +341,39 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
       }
     }
 
-    this._resolved = true;
-    this._resolve({
-      // Preserve actionKey + any drawn weaponId so the flurry flag reads
-      // naturally later (tooltips / audit logs / Finish Turn bookkeeping).
-      actions: this._actions.map(a => ({
+    // Enrich each action with the metadata the chat card / downstream
+    // consumers need: attack actions carry weaponId + modeIndex so a chat
+    // button can fire rollAttack; draw actions carry the drawn weapon's
+    // name for display.
+    const enrichedActions = this._actions.map(a => {
+      const base = {
         actionKey: a.actionKey,
         name:      this._labelForActionKey(a.actionKey),
         speed:     a.speed,
         dvMod:     a.dvMod,
         weaponId:  a.weaponId ?? ""
-      })),
+      };
+      if (a.actionKey?.startsWith("weapon:")) {
+        const [, weaponId, modeIdxStr] = a.actionKey.split(":");
+        return {
+          ...base,
+          isAttack:  true,
+          weaponId,
+          modeIndex: parseInt(modeIdxStr) || 0
+        };
+      }
+      if (a.actionKey === "draw") {
+        const weapon = a.weaponId ? this._actor?.items.get(a.weaponId) : null;
+        return { ...base, isDraw: true, drawnWeaponName: weapon?.name ?? "" };
+      }
+      return base;
+    });
+
+    this._resolved = true;
+    this._resolve({
+      actions:  enrichedActions,
+      actorId:   this._actor?.id ?? null,
+      actorName: this._actor?.name ?? this._actorName,
       count, dicePenalty, speed, dvPenalty
     });
     this.close();

@@ -196,7 +196,8 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/dialog/finish-turn-dialog.hbs",
     "systems/exalted2e/templates/dialog/flurry-declaration-dialog.hbs",
     "systems/exalted2e/templates/dialog/virtueflaw-picker-dialog.hbs",
-    "systems/exalted2e/templates/chat/attack-result.hbs"
+    "systems/exalted2e/templates/chat/attack-result.hbs",
+    "systems/exalted2e/templates/chat/flurry-declared.hbs"
   ];
   return foundry.applications.handlebars.loadTemplates(templatePaths);
 }
@@ -401,6 +402,26 @@ Hooks.on("renderCombatTracker", (app, html, _data) => {
             speed:       result.speed,
             dvPenalty:   result.dvPenalty
           });
+          // Post a chat card summarising the flurry. Attack-typed actions
+          // in the card carry buttons that kick off each attack roll using
+          // the normal pipeline (rollAttack picks the dice penalty up from
+          // the combatant flag we just set).
+          const flurryCardContent = await foundry.applications.handlebars.renderTemplate(
+            "systems/exalted2e/templates/chat/flurry-declared.hbs",
+            {
+              actorId:     current.actor.id,
+              actorName:   current.actor.name,
+              actions:     result.actions,
+              count:       result.count,
+              dicePenalty: result.dicePenalty,
+              speed:       result.speed,
+              dvPenalty:   result.dvPenalty
+            }
+          );
+          await ChatMessage.create({
+            content: flurryCardContent,
+            speaker: ChatMessage.getSpeaker({ actor: current.actor })
+          });
         });
         insertBtn(flurryBtn);
       }
@@ -438,6 +459,26 @@ Hooks.on("renderCombatTracker", (app, html, _data) => {
 Hooks.on("renderChatMessageHTML", (message, html) => {
   // Resolve the raw DOM element (html may be jQuery or HTMLElement)
   const el = html instanceof HTMLElement ? html : html[0] ?? html;
+
+  // ── Flurry card attack buttons ────────────────────────────────────────
+  // Each attack-typed action in a declared flurry gets its own button that
+  // kicks off the normal attack roll flow. The dice penalty is applied by
+  // rollAttack through the combatant's flurry flag, so nothing extra is
+  // required here beyond dispatching to it.
+  el.querySelectorAll?.(".btn-flurry-attack").forEach(btn => {
+    btn.addEventListener("click", async (ev) => {
+      const actorId   = ev.currentTarget.dataset.actorId;
+      const weaponId  = ev.currentTarget.dataset.weaponId;
+      const modeIndex = parseInt(ev.currentTarget.dataset.modeIndex) || 0;
+      const actor     = actorId ? game.actors.get(actorId) : null;
+      if (!actor?.testUserPermission(game.user, "OWNER")) {
+        ui.notifications.warn(game.i18n.localize("EX2E.NotOwner"));
+        return;
+      }
+      const { ExaltedRoll } = await import("./rolls/exalted-roll.mjs");
+      await ExaltedRoll.rollAttack(actor, weaponId, { modeIndex });
+    });
+  });
 
   // ── Defense picker on attack cards ────────────────────────────────────
   // Target's owner (or GM) picks Dodge or Parry; writes the choice into
