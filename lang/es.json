@@ -356,6 +356,8 @@
     "FlurryDrawUnspecified":     "Sin arma seleccionada",
     "FlurryDeclared":            "declaró una Ráfaga",
     "NotOwner":                  "No tienes permiso para hacer eso.",
+    "PickTargetPrompt":          "Haz clic en un token para elegir el objetivo del ataque. Clic derecho o Esc para cancelar.",
+    "PickTargetNoToken":         "No hay ningún token ahí — haz clic en un token o clic derecho para cancelar.",
     "Remove":                    "Eliminar",
     "UnarmedAttacks":    "Ataques Desarmados",
     "UnarmedClinch":     "Agarre",

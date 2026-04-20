@@ -350,10 +350,17 @@ export class ExaltedRoll {
     // aggravated damage bypasses Hardness entirely.
     const ignoresHardness = mode.damageType === "aggravated";
     // Counterattacks pass the target actor directly (the original attacker);
-    // normal attacks take the currently targeted token.
-    const targetActor = options.explicitTargetActor
-                     ?? game.user.targets.first()?.actor
-                     ?? null;
+    // normal attacks take the currently targeted token, and if nothing is
+    // targeted yet we hand the attacker's user a canvas picker to click a
+    // victim. Right-click / Esc cancels the attack.
+    let targetActor = options.explicitTargetActor
+                   ?? game.user.targets.first()?.actor
+                   ?? null;
+    if (!targetActor && !options.isCounterattack) {
+      const { pickTargetActor } = await import("../helpers/targeting.mjs");
+      targetActor = await pickTargetActor();
+      if (!targetActor) return null; // cancelled
+    }
     if (targetActor) {
       targetId   = targetActor.id;
       targetName = targetActor.name;

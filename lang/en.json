@@ -356,6 +356,8 @@
     "FlurryDrawUnspecified":     "No weapon selected",
     "FlurryDeclared":            "declared a Flurry",
     "NotOwner":                  "You don't have permission to do that.",
+    "PickTargetPrompt":          "Click a token to select your attack target. Right-click or Esc to cancel.",
+    "PickTargetNoToken":         "No token there — click on a token, or right-click to cancel.",
     "Remove":                    "Remove",
     "UnarmedAttacks":    "Unarmed Attacks",
     "UnarmedClinch":     "Clinch",

@@ -1,5 +1,13 @@
 /* ── Base / Reset for Exalted 2e UI ─────────────────────────────────────── */
 
+/* Crosshair cursor while the attack-target picker is active.
+   Applied to <body> in helpers/targeting.mjs; `!important` beats Foundry's
+   own canvas cursor overrides. */
+body.ex2e-picking-target,
+body.ex2e-picking-target * {
+  cursor: crosshair !important;
+}
+
 .exalted2e *,
 .exalted2e *::before,
 .exalted2e *::after {
