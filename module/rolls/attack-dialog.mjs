@@ -38,7 +38,8 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       firstExcMax:    options.firstExcMax    ?? 0,
       secondExcMax:   options.secondExcMax   ?? 0,
       firstExcLabel:  options.firstExcLabel  ?? game.i18n.localize("EX2E.FirstExcellency"),
-      secondExcLabel: options.secondExcLabel ?? game.i18n.localize("EX2E.SecondExcellency")
+      secondExcLabel: options.secondExcLabel ?? game.i18n.localize("EX2E.SecondExcellency"),
+      flurryPenalty:  options.flurryPenalty  ?? 0
     };
   }
 

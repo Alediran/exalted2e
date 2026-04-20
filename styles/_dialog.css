@@ -163,6 +163,75 @@
   color:      var(--ex2e-gold-main);
 }
 
+/* ── Flurry Declaration Dialog ─────────────────────────────────────────── */
+
+.flurry-dialog .flurry-header {
+  margin:    0 0 var(--ex2e-gap-sm) 0;
+  font-size: var(--ex2e-font-size-sm);
+  color:     var(--ex2e-text-secondary);
+}
+.flurry-dialog .flurry-rows {
+  display:        flex;
+  flex-direction: column;
+  gap:            4px;
+}
+.flurry-dialog .flurry-row {
+  display:        grid;
+  grid-template-columns: 1fr 64px 64px 28px;
+  gap:            var(--ex2e-gap-sm);
+  align-items:    center;
+}
+.flurry-dialog .flurry-row-header {
+  font-size:     var(--ex2e-font-size-xs);
+  color:         var(--ex2e-gold-main);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--ex2e-gold-dark);
+}
+.flurry-dialog .flurry-row input[type="number"] { text-align: center; }
+.flurry-dialog .btn-row {
+  padding:       2px 6px;
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: 3px;
+  background:    var(--ex2e-bg-darkest);
+  color:         var(--ex2e-text-secondary);
+  cursor:        pointer;
+}
+.flurry-dialog .btn-row[disabled] { opacity: 0.4; cursor: not-allowed; }
+.flurry-dialog .btn-row:not([disabled]):hover {
+  background: var(--ex2e-bg-hover);
+  color:      var(--ex2e-gold-main);
+}
+.flurry-dialog .flurry-add-row { margin-top: var(--ex2e-gap-sm); }
+.flurry-dialog .flurry-add-row .btn-preset {
+  padding:       2px 8px;
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: 3px;
+  background:    var(--ex2e-bg-darkest);
+  color:         var(--ex2e-text-secondary);
+  font-family:   var(--ex2e-font-ui);
+  font-size:     var(--ex2e-font-size-xs);
+  cursor:        pointer;
+}
+.flurry-dialog .flurry-add-row .btn-preset:hover {
+  background: var(--ex2e-bg-hover);
+  color:      var(--ex2e-gold-main);
+}
+.flurry-dialog .flurry-preview {
+  display:        grid;
+  grid-template-columns: 1fr 1fr;
+  gap:            4px var(--ex2e-gap-md);
+  padding:        var(--ex2e-gap-sm);
+  margin-top:     var(--ex2e-gap-sm);
+  background:     var(--ex2e-bg-darkest);
+  border:         1px solid var(--ex2e-gold-dark);
+  border-radius:  var(--ex2e-border-radius-sm);
+  font-size:      var(--ex2e-font-size-sm);
+  color:          var(--ex2e-text-secondary);
+}
+.flurry-dialog .flurry-preview strong { color: var(--ex2e-gold-bright); }
+
 
 .btn-roll {
   display:        inline-flex;

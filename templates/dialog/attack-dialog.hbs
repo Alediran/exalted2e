@@ -6,6 +6,9 @@
     <div class="field-group">
       <label>{{localize "EX2E.AttackPool"}}</label>
       <span class="pool-display">{{pool}}d10</span>
+      {{#if flurryPenalty}}
+      <span class="pool-note">({{localize "EX2E.Flurry"}}: −{{flurryPenalty}})</span>
+      {{/if}}
     </div>
 
     <div class="field-group">

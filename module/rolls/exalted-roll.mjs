@@ -282,7 +282,16 @@ export class ExaltedRoll {
 
     // Wound penalty reduces pool
     const woundPenalty = sys.health?.woundPenalty ?? 0;
-    const pool = Math.max(0, basePool + woundPenalty);
+
+    // Flurry dice penalty: if this actor has declared a flurry this turn,
+    // every attack in the flurry suffers -(N − 1) dice (internal penalty).
+    // The declaration lives on the combatant, not the actor, so we look up
+    // the active combat's entry for this actor.
+    const flurryFlag   = game.combat?.combatants?.find(c => c.actorId === actor.id)
+                           ?.getFlag("exalted2e", "flurry") ?? null;
+    const flurryPenalty = flurryFlag?.dicePenalty ?? 0;
+
+    const pool = Math.max(0, basePool + woundPenalty - flurryPenalty);
 
     // Excellency detection (same pattern as rollAttributeAbility)
     const exaltType   = sys.exaltType ?? "";
@@ -349,14 +358,14 @@ export class ExaltedRoll {
       targetId   = targetActor.id;
       targetName = targetActor.name;
       const tSys = targetActor.system;
+      // DVs go through the actor's current getters so any active effect
+      // penalties (flurry, onslaught, etc.) are reflected in the snapshot.
+      targetDodgeDV = targetActor.currentDodgeDV ?? 0;
+      targetParryDV = targetActor.currentParryDV ?? 0;
       if (targetActor.type === "character") {
-        targetDodgeDV  = tSys.dodgeDV ?? 0;
-        targetParryDV  = tSys.parryDV ?? tSys.parryDVBase ?? 0;
         targetSoak     = tSys.totalSoak?.[mode.damageType] ?? 0;
         targetHardness = ignoresHardness ? 0 : (tSys.hardness ?? 0);
       } else if (targetActor.type === "npc") {
-        targetDodgeDV  = tSys.combat?.dodgeDV ?? 0;
-        targetParryDV  = tSys.combat?.parryDV ?? 0;
         targetSoak     = tSys.combat?.soak?.[mode.damageType] ?? 0;
         targetHardness = ignoresHardness ? 0 : (tSys.combat?.hardness ?? 0);
       }
@@ -364,7 +373,8 @@ export class ExaltedRoll {
 
     const dialogResult = await AttackDialog.prompt({
       pool, excellency, firstExcMax, secondExcMax,
-      firstExcLabel, secondExcLabel
+      firstExcLabel, secondExcLabel,
+      flurryPenalty
     });
     if (!dialogResult) return null;
 

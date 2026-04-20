@@ -194,6 +194,7 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/dialog/step2-defense-dialog.hbs",
     "systems/exalted2e/templates/dialog/counterattack-dialog.hbs",
     "systems/exalted2e/templates/dialog/finish-turn-dialog.hbs",
+    "systems/exalted2e/templates/dialog/flurry-declaration-dialog.hbs",
     "systems/exalted2e/templates/dialog/virtueflaw-picker-dialog.hbs",
     "systems/exalted2e/templates/chat/attack-result.hbs"
   ];
@@ -330,7 +331,7 @@ Hooks.on("renderCombatTracker", (app, html, _data) => {
   if (!anchorParent) return;
 
   // Clear any ex2e button from a previous render before re-adding this phase's.
-  el.querySelectorAll(".ex2e-jb-btn, .ex2e-jb-npc-btn, .ex2e-finish-turn-btn").forEach(b => b.remove());
+  el.querySelectorAll(".ex2e-jb-btn, .ex2e-jb-npc-btn, .ex2e-finish-turn-btn, .ex2e-flurry-btn").forEach(b => b.remove());
 
   const insertBtn = (btn) => {
     if (endBtn && anchorParent.contains(endBtn)) {
@@ -365,17 +366,59 @@ Hooks.on("renderCombatTracker", (app, html, _data) => {
     });
     insertBtn(jbBtn);
   } else if (started) {
-    // Phase 3: Finish Turn — visible to the active combatant's owner / GM.
+    // Phase 3: Declare Flurry + Finish Turn — visible to the active combatant's owner / GM.
     const current = combat.combatant;
     const canFinish = current
       && (game.user.isGM || current.actor?.testUserPermission(game.user, "OWNER"));
     if (canFinish) {
+      const flurry = current.flags?.exalted2e?.flurry ?? null;
+
+      // Declare Flurry — only offered while no flurry is active for this turn.
+      // Inserted first so visual order reads: [Declare Flurry] [Finish Turn] [End].
+      if (!flurry && current.actor) {
+        const flurryBtn = document.createElement("button");
+        flurryBtn.type = "button";
+        flurryBtn.classList.add("combat-control", "ex2e-flurry-btn");
+        flurryBtn.title = game.i18n.localize("EX2E.FlurryDeclare");
+        flurryBtn.innerHTML = `<i class="fa-solid fa-burst"></i> ${game.i18n.localize("EX2E.FlurryDeclare")}`;
+        flurryBtn.addEventListener("click", async () => {
+          const { FlurryDeclarationDialog } = await import("./dialogs/flurry-declaration-dialog.mjs");
+          const result = await FlurryDeclarationDialog.prompt({ actorName: current.actor.name });
+          if (!result) return;
+          // Stamp the DV penalty as an effect (cleared automatically at this
+          // combatant's next turn via dvRefreshable), and record the flurry
+          // on the combatant so rollAttack picks up the dice penalty and
+          // Finish Turn uses the correct Speed.
+          if (result.dvPenalty > 0) {
+            await current.actor.applyDVPenalty("flurry", result.dvPenalty, {
+              label: game.i18n.format("EX2E.FlurryDvPenaltyLabel", { n: result.count })
+            });
+          }
+          await current.setFlag("exalted2e", "flurry", {
+            actions:     result.actions,
+            count:       result.count,
+            dicePenalty: result.dicePenalty,
+            speed:       result.speed,
+            dvPenalty:   result.dvPenalty
+          });
+        });
+        insertBtn(flurryBtn);
+      }
+
       const finishBtn = document.createElement("button");
       finishBtn.type = "button";
       finishBtn.classList.add("combat-control", "ex2e-finish-turn-btn");
-      finishBtn.title = game.i18n.localize("EX2E.FinishTurn");
-      finishBtn.innerHTML = `<i class="fa-solid fa-forward-step"></i> ${game.i18n.localize("EX2E.FinishTurn")}`;
+      const finishLabel = flurry
+        ? game.i18n.format("EX2E.FinishFlurryTurn", { speed: flurry.speed })
+        : game.i18n.localize("EX2E.FinishTurn");
+      finishBtn.title = finishLabel;
+      finishBtn.innerHTML = `<i class="fa-solid fa-forward-step"></i> ${finishLabel}`;
       finishBtn.addEventListener("click", async () => {
+        // A declared flurry locks in its Speed up front — skip the dialog.
+        if (flurry) {
+          await combat.advanceCurrentByTicks(flurry.speed);
+          return;
+        }
         const { FinishTurnDialog } = await import("./dialogs/finish-turn-dialog.mjs");
         const speed = await FinishTurnDialog.prompt({
           combatantName: current.name,

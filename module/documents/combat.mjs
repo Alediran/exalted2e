@@ -112,6 +112,10 @@ export class ExaltedCombat extends Combat {
    * Advance the current combatant's tick by `speed` (the Speed of whatever
    * action they just performed), re-sort the tracker, and hand the turn to
    * whoever has the lowest tick now.
+   *
+   * Also clears the finishing combatant's flurry flag (if any) and refreshes
+   * the DV penalties on whoever becomes active next — that's the canonical
+   * "DVs refresh at the start of your action" step.
    */
   async advanceCurrentByTicks(speed) {
     const current = this.combatant;
@@ -119,9 +123,39 @@ export class ExaltedCombat extends Combat {
     const safeSpeed = Math.max(0, Math.floor(Number(speed) || 0));
     const newTick = (current.initiative ?? 0) + safeSpeed;
     await current.update({ initiative: newTick });
+    // Clear any flurry declaration on the combatant whose turn just ended.
+    if (current.getFlag("exalted2e", "flurry")) {
+      await current.unsetFlag("exalted2e", "flurry");
+    }
     // `turn` is an index into the sorted combatants array; whoever sits at
     // index 0 after the re-sort is the new active combatant.
     await this.update({ turn: 0 });
+    await this._refreshActiveCombatantDVs();
+  }
+
+  /**
+   * Delete every DV-refreshable ActiveEffect on the currently active
+   * combatant's actor. Called at the top of each tick (new action begins).
+   */
+  async _refreshActiveCombatantDVs() {
+    const actor = this.combatant?.actor;
+    if (!actor) return;
+    const toDelete = actor.effects
+      .filter(e => e.flags?.exalted2e?.dvRefreshable === true)
+      .map(e => e.id);
+    if (toDelete.length > 0) {
+      await actor.deleteEmbeddedDocuments("ActiveEffect", toDelete);
+    }
+  }
+
+  /**
+   * When combat starts we drop directly into tick 0's owner acting, so
+   * piggy-back the DV refresh on the transition too.
+   */
+  async startCombat() {
+    const result = await super.startCombat();
+    await this._refreshActiveCombatantDVs();
+    return result;
   }
 
   /** Wits + Awareness for characters / combat.joinBattle for NPCs. */

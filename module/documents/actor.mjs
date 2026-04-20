@@ -57,6 +57,92 @@ export class ExaltedActor extends Actor {
       this._applyWeaponStats(systemData);
       this._applyArtifactCommitment(systemData);
     }
+
+    // ── Aggregate DV penalties carried by ActiveEffects ───────────────────
+    this._aggregateDVPenalties(systemData);
+  }
+
+  /**
+   * Collect every DV penalty currently attached to this actor and expose it
+   * as a typed array on `system.dvPenalties`.
+   *
+   * Each penalty lives as a flag on an ActiveEffect:
+   *   flags.exalted2e.dvPenalty      = { type: string, value: number }
+   *   flags.exalted2e.dvRefreshable  = true   // cleared at turn start
+   *
+   * Keeping the data on the effect (rather than summed onto a stored base
+   * field) lets us preserve the type — future charms that grant immunity to
+   * a particular penalty category can filter the list before it's applied.
+   */
+  _aggregateDVPenalties(systemData) {
+    const penalties = [];
+    for (const eff of this.effects) {
+      if (eff.disabled) continue;
+      const p = eff.flags?.exalted2e?.dvPenalty;
+      if (!p || typeof p.value !== "number" || !p.type) continue;
+      penalties.push({ type: p.type, value: p.value, effectId: eff.id, label: eff.name });
+    }
+    systemData.dvPenalties = penalties;
+  }
+
+  /** Sum of every non-immune DV penalty. */
+  get dvPenaltyTotal() {
+    const penalties = this.system?.dvPenalties ?? [];
+    // Immunity plumbing (future): charms can stash `flags.exalted2e.dvImmunities`
+    // on this actor, and those types get filtered out here.
+    const immunities = new Set(this.getFlag("exalted2e", "dvImmunities") ?? []);
+    let total = 0;
+    for (const p of penalties) {
+      if (immunities.has(p.type)) continue;
+      total += p.value;
+    }
+    return total;
+  }
+
+  /** DV after current penalties, never below 0. */
+  get currentDodgeDV() {
+    const s = this.system;
+    const base = this.type === "character" ? (s.dodgeDV ?? 0)
+               : this.type === "npc"       ? (s.combat?.dodgeDV ?? 0)
+               : 0;
+    return Math.max(0, base - this.dvPenaltyTotal);
+  }
+
+  get currentParryDV() {
+    const s = this.system;
+    const base = this.type === "character" ? (s.parryDV ?? s.parryDVBase ?? 0)
+               : this.type === "npc"       ? (s.combat?.parryDV ?? 0)
+               : 0;
+    return Math.max(0, base - this.dvPenaltyTotal);
+  }
+
+  /**
+   * Create an ActiveEffect that records a DV penalty of the given type and
+   * magnitude on this actor. The effect is flagged refreshable so the combat
+   * document clears it at the start of this actor's next turn.
+   *
+   * @param {string} type    Penalty category, e.g. "flurry", "onslaught".
+   * @param {number} value   Positive magnitude (penalty to DV).
+   * @param {object} [opts]
+   * @param {string} [opts.label]  Human-readable effect name (defaults to the type).
+   * @param {string} [opts.icon]   Status icon path.
+   */
+  async applyDVPenalty(type, value, { label, icon } = {}) {
+    if (!type || !Number.isFinite(value) || value <= 0) return null;
+    const effectData = {
+      name: label ?? type,
+      img:  icon  ?? "icons/svg/shield.svg",
+      flags: {
+        exalted2e: {
+          dvPenalty:     { type, value },
+          dvRefreshable: true
+        }
+      },
+      disabled: false,
+      transfer: false
+    };
+    const created = await this.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    return created?.[0] ?? null;
   }
 
   /**

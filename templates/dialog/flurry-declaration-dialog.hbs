@@ -1,0 +1,68 @@
+<form class="ex2e-roll-dialog flurry-dialog" autocomplete="off">
+  <div class="dialog-content">
+
+    <p class="flurry-header">
+      {{#if actorName}}<strong>{{actorName}}</strong> — {{/if}}
+      {{localize "EX2E.FlurryIntro"}}
+    </p>
+
+    <div class="flurry-rows">
+      <div class="flurry-row flurry-row-header">
+        <span class="flurry-col-name">{{localize "EX2E.FlurryActionName"}}</span>
+        <span class="flurry-col-speed">{{localize "EX2E.ActionSpeed"}}</span>
+        <span class="flurry-col-dvmod">{{localize "EX2E.FlurryDvMod"}}</span>
+        <span class="flurry-col-remove"></span>
+      </div>
+
+      {{#each actions as |a i|}}
+      <div class="flurry-row" data-index="{{i}}">
+        <input type="text"
+               name="actions.{{i}}.name"
+               class="flurry-col-name"
+               value="{{a.name}}"
+               placeholder="{{localize 'EX2E.FlurryActionPlaceholder'}}">
+        <input type="number"
+               name="actions.{{i}}.speed"
+               class="flurry-col-speed"
+               value="{{a.speed}}"
+               min="0" max="20">
+        <input type="number"
+               name="actions.{{i}}.dvMod"
+               class="flurry-col-dvmod"
+               value="{{a.dvMod}}"
+               min="0" max="10">
+        <button type="button"
+                class="flurry-col-remove btn-row"
+                data-action="removeAction"
+                data-index="{{i}}"
+                {{#unless @root.canRemove}}disabled{{/unless}}
+                aria-label="{{localize 'EX2E.Remove'}}">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      {{/each}}
+    </div>
+
+    <div class="flurry-add-row">
+      <button type="button" class="btn-preset" data-action="addAction">
+        <i class="fa-solid fa-plus"></i> {{localize "EX2E.FlurryAddAction"}}
+      </button>
+    </div>
+
+    <div class="flurry-preview">
+      <div><strong>{{localize "EX2E.FlurryActions"}}:</strong> {{preview.count}}</div>
+      <div><strong>{{localize "EX2E.FlurryDicePenalty"}}:</strong> −{{preview.dicePenalty}}</div>
+      <div><strong>{{localize "EX2E.FlurrySpeed"}}:</strong> {{preview.speed}}</div>
+      <div><strong>{{localize "EX2E.FlurryDvPenalty"}}:</strong> −{{preview.dvPenalty}}</div>
+    </div>
+
+  </div>
+  <footer class="form-footer">
+    <button type="button" class="btn-roll" data-action="cancel">
+      <i class="fa-solid fa-xmark"></i> {{localize "EX2E.Cancel"}}
+    </button>
+    <button type="button" class="btn-roll" data-action="confirm">
+      <i class="fa-solid fa-burst"></i> {{localize "EX2E.FlurryDeclare"}}
+    </button>
+  </footer>
+</form>
