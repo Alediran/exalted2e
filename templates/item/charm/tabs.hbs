@@ -1,0 +1,10 @@
+<nav class="tabs sheet-tabs" aria-roledescription="Charm Sheet Tabs">
+  {{#each tabs as |tab|}}
+  <a data-action="tab" data-group="{{tab.group}}" data-tab="{{tab.id}}"
+     {{#if tab.cssClass}}class="{{tab.cssClass}}"{{/if}}
+     {{#if tab.label}}data-tooltip="{{tab.label}}"{{/if}}>
+    {{#if tab.icon}}<i class="{{tab.icon}}" inert></i>{{/if}}
+    <span class="tab-label">{{tab.label}}</span>
+  </a>
+  {{/each}}
+</nav>

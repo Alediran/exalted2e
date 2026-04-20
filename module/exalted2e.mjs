@@ -176,6 +176,9 @@ async function _preloadTemplates() {
     // Items
     "systems/exalted2e/templates/item/charm/header.hbs",
     "systems/exalted2e/templates/item/charm/body.hbs",
+    "systems/exalted2e/templates/item/charm/tabs.hbs",
+    "systems/exalted2e/templates/item/charm/tab-general.hbs",
+    "systems/exalted2e/templates/item/charm/tab-attack.hbs",
     "systems/exalted2e/templates/item/weapon/header.hbs",
     "systems/exalted2e/templates/item/weapon/body.hbs",
     "systems/exalted2e/templates/item/armor/header.hbs",
@@ -259,6 +262,25 @@ Hooks.on("createActor", async (actor, _options, userId) => {
   // in multi-client sessions.
   if (userId !== game.user.id) return;
   await _ensureUnarmedWeapon(actor);
+});
+
+// Tear down a charm-spawned weapon when its tracking ActiveEffect is
+// deleted — whether that happens because the charm was toggled off, the
+// Effects tab trashed it, or Foundry's duration system expired it. We
+// also flip the charm's `active` back to false so the toggleable state
+// doesn't lie about having live effects.
+Hooks.on("deleteActiveEffect", async (effect, _options, userId) => {
+  if (userId !== game.user.id) return;
+  const charmId = effect.flags?.exalted2e?.charmSource;
+  if (!charmId) return;
+  const actor = effect.parent;
+  if (!actor || !actor.deleteEmbeddedDocuments) return;
+  const weaponIds = actor.items
+    .filter(i => i.type === "weapon" && i.getFlag("exalted2e", "charmSource") === charmId)
+    .map(i => i.id);
+  if (weaponIds.length) await actor.deleteEmbeddedDocuments("Item", weaponIds);
+  const charm = actor.items.get(charmId);
+  if (charm?.system?.active) await charm.update({ "system.active": false });
 });
 
 // ── Ready Hook ─────────────────────────────────────────────────────────────

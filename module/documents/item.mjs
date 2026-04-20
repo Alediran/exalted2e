@@ -53,6 +53,11 @@ export class ExaltedItem extends Item {
       return false;
     }
     await super._preDelete(options, user);
+    // Deleting a charm that spawned weapon artifacts: tear them down too
+    // so we don't leave orphaned weapons equipped on the actor.
+    if (this.type === "charm" && this.system?.attack?.enabled && this.actor) {
+      await this._removeCharmWeaponArtifacts();
+    }
     const actor = this.actor;
     if (!actor || actor.type !== "character") return;
     if (this.type !== "weapon" && this.type !== "armor") return;
@@ -77,29 +82,148 @@ export class ExaltedItem extends Item {
     const actor = this.actor;
     if (!actor) return false;
 
-    const cost     = this.system.cost;
+    const sys      = this.system;
+    const cost     = sys.cost;
     const motePool = "peripheral";  // default pool; chosen at activation time
+    const isToggleable = ["oneScene", "indefinite"].includes(sys.duration);
+    // For toggleable charms, activation is a flip — we only charge motes /
+    // create attack effects when turning ON, and skip those when turning OFF.
+    const turningOff = isToggleable && sys.active;
 
     // Spend motes (spendMotes checks both pools and warns if insufficient)
-    if (cost.motes > 0) {
+    if (!turningOff && cost.motes > 0) {
       const spent = await actor.spendMotes(cost.motes, motePool);
       if (!spent) return false;
     }
 
     // Spend willpower
-    if (cost.willpower > 0) {
+    if (!turningOff && cost.willpower > 0) {
       const wp = actor.system.willpower;
       await actor.update({ "system.willpower.value": Math.max(0, wp.value - cost.willpower) });
     }
 
+    // Weapon-like attack side effects — only when the Attack tab is enabled.
+    if (sys.attack?.enabled) {
+      if (turningOff) {
+        await this._removeCharmWeaponArtifacts();
+      } else if (sys.duration === "instant") {
+        // Fire the attack roll right now using a transient weapon. The
+        // attack card snapshots stats, so deleting the temp weapon
+        // afterwards doesn't affect downstream resolution.
+        await this._rollCharmInstantAttack();
+      } else {
+        await this._spawnCharmWeaponArtifacts();
+      }
+    }
+
     // Toggle active state for sustained Charms
-    if (["oneScene", "indefinite"].includes(this.system.duration)) {
-      await this.update({ "system.active": !this.system.active });
+    if (isToggleable) {
+      await this.update({ "system.active": !sys.active });
     }
 
     // Send to chat
     await this.sendToChat();
     return true;
+  }
+
+  /**
+   * Build a transient weapon item from the charm's attack block, run a full
+   * attack through ExaltedRoll.rollAttack using it, then delete the item.
+   * The attack card flags snapshot the mode's stats so removal is safe.
+   */
+  async _rollCharmInstantAttack() {
+    const actor = this.actor;
+    if (!actor) return;
+    const weaponData = this._buildCharmWeaponData();
+    const [weapon] = await actor.createEmbeddedDocuments("Item", [weaponData]);
+    try {
+      const { ExaltedRoll } = await import("../rolls/exalted-roll.mjs");
+      await ExaltedRoll.rollAttack(actor, weapon.id, { modeIndex: 0 });
+    } finally {
+      await weapon.delete();
+    }
+  }
+
+  /**
+   * Spawn a persistent weapon item + a tracking ActiveEffect on the actor.
+   * Both carry `flags.exalted2e.charmSource = <charmId>` so we can find and
+   * remove them when the charm deactivates (or via the Effects tab).
+   */
+  async _spawnCharmWeaponArtifacts() {
+    const actor = this.actor;
+    if (!actor) return;
+    // If we've already spawned for this charm (double-activation, sheet
+    // re-renders, etc.), don't stack duplicates.
+    const alreadySpawned = actor.items.some(
+      i => i.type === "weapon" && i.getFlag("exalted2e", "charmSource") === this.id
+    );
+    if (alreadySpawned) return;
+
+    const weaponData = this._buildCharmWeaponData();
+    weaponData.system.equipped = true;
+    await actor.createEmbeddedDocuments("Item", [weaponData]);
+    await actor.createEmbeddedDocuments("ActiveEffect", [{
+      name: `${this.name} — ${game.i18n.localize("EX2E.CharmWeapon")}`,
+      img:  this.img || "icons/svg/sword.svg",
+      flags: { exalted2e: {
+        charmSource:   this.id,
+        charmDuration: this.system.duration
+      } },
+      disabled: false,
+      transfer: false
+    }]);
+  }
+
+  /**
+   * Find and delete every weapon / AE tagged with this charm as its source.
+   * Called when the charm toggles off, is deleted, or when the tracking AE
+   * is deleted manually (see exalted2e.mjs pre-delete hook).
+   */
+  async _removeCharmWeaponArtifacts() {
+    const actor = this.actor;
+    if (!actor) return;
+    const weaponIds = actor.items
+      .filter(i => i.type === "weapon" && i.getFlag("exalted2e", "charmSource") === this.id)
+      .map(i => i.id);
+    const effectIds = actor.effects
+      .filter(e => e.flags?.exalted2e?.charmSource === this.id)
+      .map(e => e.id);
+    if (weaponIds.length) await actor.deleteEmbeddedDocuments("Item",         weaponIds);
+    if (effectIds.length) await actor.deleteEmbeddedDocuments("ActiveEffect", effectIds);
+  }
+
+  /** Shape the charm's attack config into a weapon item's creation data. */
+  _buildCharmWeaponData() {
+    const a = this.system.attack ?? {};
+    const displayName = a.name?.trim() ? a.name : this.name;
+    return {
+      name: displayName,
+      type: "weapon",
+      img:  this.img || "icons/svg/sword.svg",
+      flags: { exalted2e: {
+        charmSource:   this.id,
+        charmDuration: this.system.duration
+      } },
+      system: {
+        equipped:  false,
+        artifact:  false,
+        modes: [{
+          name:           displayName,
+          speed:          a.speed          ?? 5,
+          accuracy:       a.accuracy       ?? 0,
+          damage:         a.damage         ?? 1,
+          damageType:     a.damageType     ?? "lethal",
+          overwhelming:   a.overwhelming   ?? 1,
+          defense:        a.defense        ?? 0,
+          rate:           a.rate           ?? 1,
+          range:          a.range          ?? 0,
+          minStrength:    a.minStrength    ?? 0,
+          minDexterity:   a.minDexterity   ?? 0,
+          minMartialArts: a.minMartialArts ?? 0,
+          tags:           [...(a.tags ?? [])]
+        }]
+      }
+    };
   }
 
   /**

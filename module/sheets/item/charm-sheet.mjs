@@ -12,15 +12,20 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   // (each step toggle triggers a document update and re-render).
   _stepsOpen = false;
 
+  /** Current tab group state. Defaults to the General tab. */
+  tabGroups = { sheet: "tabGeneral" };
+
   static DEFAULT_OPTIONS = {
     classes:  ["exalted2e", "item", "charm"],
-    position: { width: 540, height: 560 },
+    position: { width: 540, height: 600 },
     window: { resizable: true },
     form: { submitOnChange: true, closeOnSubmit: false },
     actions: {
       addKeyword:    CharmSheet.#onAddKeyword,
       removeKeyword: CharmSheet.#onRemoveKeyword,
-      toggleStep:    CharmSheet.#onToggleStep
+      toggleStep:    CharmSheet.#onToggleStep,
+      addAttackTag:  CharmSheet.#onAddAttackTag,
+      removeAttackTag: CharmSheet.#onRemoveAttackTag
     }
   };
 
@@ -29,8 +34,10 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   }
 
   static PARTS = {
-    header: { template: "systems/exalted2e/templates/item/charm/header.hbs" },
-    body:   { template: "systems/exalted2e/templates/item/charm/body.hbs", scrollable: [".sheet-body"] }
+    header:     { template: "systems/exalted2e/templates/item/charm/header.hbs" },
+    tabs:       { template: "systems/exalted2e/templates/item/charm/tabs.hbs" },
+    tabGeneral: { template: "systems/exalted2e/templates/item/charm/tab-general.hbs", scrollable: [""] },
+    tabAttack:  { template: "systems/exalted2e/templates/item/charm/tab-attack.hbs",  scrollable: [""] }
   };
 
   async _prepareContext(options) {
@@ -38,11 +45,17 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const item    = this.document;
     const sys     = item.system;
 
+    const tabs = {
+      tabGeneral: { id: "tabGeneral", group: "sheet", icon: "fa-solid fa-scroll",      label: game.i18n.localize("EX2E.TabGeneral"), cssClass: this.tabGroups.sheet === "tabGeneral" ? "active" : "" },
+      tabAttack:  { id: "tabAttack",  group: "sheet", icon: "fa-solid fa-crosshairs",  label: game.i18n.localize("EX2E.TabAttack"),  cssClass: this.tabGroups.sheet === "tabAttack"  ? "active" : "" }
+    };
+
     return {
       ...context,
       item,
       system:       sys,
       config:       EX2E,
+      tabs,
       charmTypes:   Object.entries(EX2E.charmTypes).map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
       durations:    Object.entries(EX2E.durations).map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
       exaltTypes:   Object.entries(EX2E.exaltTypes).map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
@@ -53,12 +66,27 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         { value: "second", label: game.i18n.localize("EX2E.SecondExcellency") },
         { value: "third",  label: game.i18n.localize("EX2E.ThirdExcellency") }
       ],
+      damageTypes: [
+        { value: "bashing",    label: game.i18n.localize("EX2E.DamageBashing") },
+        { value: "lethal",     label: game.i18n.localize("EX2E.DamageLethal") },
+        { value: "aggravated", label: game.i18n.localize("EX2E.DamageAggravated") }
+      ],
+      weaponTags:   EX2E.weaponTags,
       allKeywords:  EX2E.charmKeywords,
       isEditable:   this.isEditable,
       enrichedDescription: await TextEditor.enrichHTML(sys.description, {
         secrets: this.document.isOwner, relativeTo: this.document
       })
     };
+  }
+
+  async _preparePartContext(partId, context, options) {
+    context = await super._preparePartContext(partId, context, options);
+    context.partId = partId;
+    if (partId.startsWith("tab")) {
+      context.cssClass = this.tabGroups.sheet === partId ? "active" : "";
+    }
+    return context;
   }
 
   static async #onAddKeyword(event, target) {
@@ -84,6 +112,19 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       steps.sort((a, b) => a - b);
     }
     await this.document.update({ "system.steps": steps });
+  }
+
+  static async #onAddAttackTag(event, target) {
+    const tags = foundry.utils.deepClone(this.document.system.attack?.tags ?? []);
+    tags.push(EX2E.weaponTags[0] ?? "");
+    await this.document.update({ "system.attack.tags": tags });
+  }
+
+  static async #onRemoveAttackTag(event, target) {
+    const idx  = parseInt(target.dataset.index);
+    const tags = foundry.utils.deepClone(this.document.system.attack?.tags ?? []);
+    tags.splice(idx, 1);
+    await this.document.update({ "system.attack.tags": tags });
   }
 
   _onRender(context, options) {

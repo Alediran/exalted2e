@@ -1,5 +1,57 @@
 /* ── Item Sheet Styles ───────────────────────────────────────────────────── */
 
+/* Charm sheet tab strip (General / Attack). */
+.exalted2e.item.charm .sheet-tabs {
+  display: flex;
+  gap:     var(--ex2e-gap-md);
+  padding: 4px var(--ex2e-gap-md);
+  border-bottom: 1px solid var(--ex2e-gold-dark);
+  background: var(--ex2e-bg-darkest);
+}
+.exalted2e.item.charm .sheet-tabs a {
+  display:      inline-flex;
+  align-items:  center;
+  gap:          var(--ex2e-gap-sm);
+  padding:      3px 10px;
+  border:       1px solid transparent;
+  border-radius: 3px;
+  color:        var(--ex2e-text-secondary);
+  font-size:    var(--ex2e-font-size-sm);
+  cursor:       pointer;
+}
+.exalted2e.item.charm .sheet-tabs a:hover { color: var(--ex2e-gold-bright); }
+.exalted2e.item.charm .sheet-tabs a.active {
+  color:        var(--ex2e-gold-bright);
+  border-color: var(--ex2e-gold-dark);
+  background:   var(--ex2e-bg-panel);
+}
+
+.exalted2e.item.charm .charm-attack-body { padding: var(--ex2e-gap-md); }
+.exalted2e.item.charm .attack-enable-row {
+  display:      flex;
+  align-items:  center;
+  gap:          var(--ex2e-gap-sm);
+  font-size:    var(--ex2e-font-size-sm);
+  margin-bottom: var(--ex2e-gap-sm);
+}
+.exalted2e.item.charm .attack-help {
+  font-size: var(--ex2e-font-size-xs);
+  color:     var(--ex2e-text-muted);
+  margin:    0 0 var(--ex2e-gap-md) 0;
+}
+.exalted2e.item.charm .charm-attack-grid {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   var(--ex2e-gap-sm);
+}
+.exalted2e.item.charm .charm-attack-tags .tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+
+
 .exalted2e.item.charm .item-header {
   background: linear-gradient(135deg, #0a0d0f 0%, #111820 100%);
   border-color: rgba(80, 130, 200, 0.5);
