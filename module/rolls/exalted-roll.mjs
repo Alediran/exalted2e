@@ -361,6 +361,22 @@ export class ExaltedRoll {
       targetActor = await pickTargetActor();
       if (!targetActor) return null; // cancelled
     }
+    // Range check — abort the attack if the chosen target is beyond the
+    // weapon mode's reach. Counterattacks skip this (they come from the
+    // victim of the original attack, which is always in range by virtue
+    // of having been attacked). `checkAttackRange` returns null when
+    // tokens aren't placed on a scene, in which case we pass through.
+    if (targetActor && !options.isCounterattack) {
+      const { checkAttackRange } = await import("../helpers/targeting.mjs");
+      const rangeInfo = checkAttackRange(mode, actor, targetActor);
+      if (rangeInfo && !rangeInfo.inRange) {
+        ui.notifications.warn(game.i18n.format("EX2E.TargetOutOfRange", {
+          distance: Math.round(rangeInfo.distance),
+          max:      rangeInfo.maxRange
+        }));
+        return null;
+      }
+    }
     if (targetActor) {
       targetId   = targetActor.id;
       targetName = targetActor.name;

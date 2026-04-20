@@ -78,3 +78,49 @@ export async function pickTargetActor() {
     window.addEventListener("keydown",     onKeyDown,     true);
   });
 }
+
+/**
+ * Resolve the placed Token for an actor on the current scene. Prefers the
+ * token the actor is represented by in the active combat, otherwise the
+ * first active token on any scene.
+ */
+function _tokenForActor(actor) {
+  const combatant = game.combat?.combatants?.find(c => c.actorId === actor?.id);
+  const linked    = combatant?.token?.object;
+  if (linked) return linked;
+  return actor?.getActiveTokens?.()[0] ?? null;
+}
+
+/**
+ * Check whether the target is within the firing weapon-mode's reach.
+ *
+ * Melee (effectiveRange === 0): must be within 1 grid cell — or 2 if the
+ * mode carries the "Reach" tag.
+ * Ranged: straight-line scene distance must be ≤ `effectiveRange`. The
+ * weapon's range value is assumed to be in the scene's configured units;
+ * scenes authored in feet/yards just need the weapon's range to match.
+ *
+ * @returns {{inRange: boolean, distance: number, spaces: number, maxRange: number}}
+ *          `null` if tokens aren't available (no scene / unplaced actors) —
+ *          callers should treat null as "can't verify, allow through".
+ */
+export function checkAttackRange(mode, attackerActor, targetActor) {
+  const attackerToken = _tokenForActor(attackerActor);
+  const targetToken   = _tokenForActor(targetActor);
+  if (!attackerToken || !targetToken) return null;
+
+  const path = canvas.grid.measurePath([
+    { x: attackerToken.center.x, y: attackerToken.center.y },
+    { x: targetToken.center.x,   y: targetToken.center.y   }
+  ]);
+  const distance = path?.distance ?? 0;
+  const spaces   = path?.spaces   ?? 0;
+
+  const rangeVal = mode?.effectiveRange ?? mode?.range ?? 0;
+  if (rangeVal === 0) {
+    const hasReach = mode?.tags?.includes("Reach");
+    const maxSpaces = hasReach ? 2 : 1;
+    return { inRange: spaces <= maxSpaces, distance, spaces, maxRange: maxSpaces };
+  }
+  return { inRange: distance <= rangeVal, distance, spaces, maxRange: rangeVal };
+}
