@@ -141,6 +141,11 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
    * Speed and DV Mod inputs for that row and toggles the Draw-weapon picker.
    * Manual edits to either input are preserved until the dropdown changes
    * again.
+   *
+   * Also attaches a change listener to every Draw-row weapon picker so
+   * declaring (or changing) a Draw target re-evaluates which weapon-mode
+   * options are disabled across all rows — attack modes for a drawn weapon
+   * become selectable in the same flurry regardless of action order.
    */
   _onRender(context, options) {
     const form = this.element.querySelector("form");
@@ -162,7 +167,50 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
           ? form.querySelector(`.flurry-draw-row[data-index='${idx}']`)
           : null;
         if (drawRow) drawRow.classList.toggle("hidden", key !== "draw");
+        // Changing an action key can add or remove a Draw (e.g. row switches
+        // from "draw" to an attack mode), so re-evaluate disabled states.
+        this._updateDisabledStates();
       });
+    });
+    form.querySelectorAll(".flurry-draw-row [name$='.weaponId']").forEach(select => {
+      select.addEventListener("change", () => this._updateDisabledStates());
+    });
+    // Apply once on mount so any initial state is reflected (harmless no-op
+    // for the default two-row state).
+    this._updateDisabledStates();
+  }
+
+  /**
+   * Reconcile the `disabled` attribute on every weapon-mode option across
+   * the form: a weapon's modes are selectable when the weapon is currently
+   * equipped OR some row in this same flurry declares a Draw for it.
+   * Ordering of actions in the flurry does not matter — the flurry is a set.
+   */
+  _updateDisabledStates() {
+    const form = this.element?.querySelector("form");
+    if (!form) return;
+
+    // Collect the weapon IDs being drawn in this flurry right now.
+    const drawnIds = new Set();
+    form.querySelectorAll(".flurry-row[data-index]").forEach(row => {
+      const key = row.querySelector("[name$='.actionKey']")?.value;
+      if (key !== "draw") return;
+      const idx = row.dataset.index;
+      const drawRow = form.querySelector(`.flurry-draw-row[data-index='${idx}']`);
+      const wid = drawRow?.querySelector("[name$='.weaponId']")?.value;
+      if (wid) drawnIds.add(wid);
+    });
+
+    // Toggle disabled on every weapon:<id>:<mode> option. Equipped weapons
+    // stay enabled unconditionally; sheathed ones are enabled iff drawn.
+    form.querySelectorAll(".flurry-row[data-index] [name$='.actionKey'] option").forEach(opt => {
+      const key = opt.value;
+      if (!key || !key.startsWith("weapon:")) return;
+      const [, wid] = key.split(":");
+      const weapon = this._actor?.items.get(wid);
+      if (!weapon) return;
+      const available = weapon.system.equipped || drawnIds.has(wid);
+      opt.disabled = !available;
     });
   }
 
