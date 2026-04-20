@@ -134,6 +134,63 @@
   text-align: center;
 }
 
+/* ── Finish Turn Dialog ────────────────────────────────────────────────── */
+
+.finish-turn-dialog .finish-turn-header {
+  margin:    0;
+  font-size: var(--ex2e-font-size-sm);
+  color:     var(--ex2e-text-secondary);
+}
+.finish-turn-dialog .finish-turn-presets {
+  display:   flex;
+  flex-wrap: wrap;
+  gap:       4px;
+}
+.finish-turn-dialog .btn-preset {
+  padding:       2px 8px;
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: 3px;
+  background:    var(--ex2e-bg-darkest);
+  color:         var(--ex2e-text-secondary);
+  font-family:   var(--ex2e-font-ui);
+  font-size:     var(--ex2e-font-size-xs);
+  cursor:        pointer;
+  transition:    background var(--ex2e-transition-fast),
+                 color var(--ex2e-transition-fast);
+}
+.finish-turn-dialog .btn-preset:hover {
+  background: var(--ex2e-bg-hover);
+  color:      var(--ex2e-gold-main);
+}
+
+/* ── Combat Tracker Controls ──────────────────────────────────────────── */
+
+.ex2e-combat-controls {
+  display:         flex;
+  gap:             var(--ex2e-gap-sm);
+  padding:         var(--ex2e-gap-xs) var(--ex2e-gap-sm);
+  justify-content: center;
+  flex-wrap:       wrap;
+}
+.ex2e-combat-controls button {
+  padding:        2px 10px;
+  border:         1px solid var(--ex2e-gold-dark);
+  border-radius:  3px;
+  background:     var(--ex2e-bg-panel);
+  color:          var(--ex2e-gold-main);
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor:         pointer;
+  transition:     all var(--ex2e-transition-fast);
+}
+.ex2e-combat-controls button:hover {
+  background:   var(--ex2e-gold-dark);
+  color:        var(--ex2e-gold-bright);
+  box-shadow:   var(--ex2e-glow-gold);
+}
+
 .btn-roll {
   display:        inline-flex;
   align-items:    center;

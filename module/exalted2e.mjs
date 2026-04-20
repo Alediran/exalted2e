@@ -6,6 +6,7 @@
 import { EX2E }             from "./config.mjs";
 import { ExaltedActor }     from "./documents/actor.mjs";
 import { ExaltedItem }      from "./documents/item.mjs";
+import { ExaltedCombat }    from "./documents/combat.mjs";
 import { CharacterData }    from "./data/actor/character-data.mjs";
 import { NpcData }          from "./data/actor/npc-data.mjs";
 import { CharmData }        from "./data/item/charm-data.mjs";
@@ -34,8 +35,13 @@ Hooks.once("init", function () {
   game.exalted2e = { EX2E };
 
   // ── Document Classes ────────────────────────────────────────────────────
-  CONFIG.Actor.documentClass = ExaltedActor;
-  CONFIG.Item.documentClass  = ExaltedItem;
+  CONFIG.Actor.documentClass  = ExaltedActor;
+  CONFIG.Item.documentClass   = ExaltedItem;
+  CONFIG.Combat.documentClass = ExaltedCombat;
+  // Initiative is driven by Join Battle (Wits + Awareness) and the tick
+  // advance after each action — Foundry's built-in per-combatant roll isn't
+  // used, so give it a null formula.
+  CONFIG.Combat.initiative = { formula: "0", decimals: 0 };
 
   // ── Data Models ─────────────────────────────────────────────────────────
   CONFIG.Actor.dataModels = {
@@ -54,45 +60,45 @@ Hooks.once("init", function () {
   };
 
   // ── Sheet Registration ──────────────────────────────────────────────────
-  Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("exalted2e", CharacterSheet, {
+  foundry.documents.collections.Actors.unregisterSheet("core", foundry.appv1.sheets.ActorSheet);
+  foundry.documents.collections.Actors.registerSheet("exalted2e", CharacterSheet, {
     types:     ["character"],
     makeDefault: true,
     label:     "EX2E.SheetCharacter"
   });
-  Actors.registerSheet("exalted2e", NpcSheet, {
+  foundry.documents.collections.Actors.registerSheet("exalted2e", NpcSheet, {
     types:     ["npc"],
     makeDefault: true,
     label:     "EX2E.SheetNpc"
   });
 
-  Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("exalted2e", CharmSheet, {
+  foundry.documents.collections.Items.unregisterSheet("core", foundry.appv1.sheets.ItemSheet);
+  foundry.documents.collections.Items.registerSheet("exalted2e", CharmSheet, {
     types:     ["charm"],
     makeDefault: true,
     label:     "EX2E.SheetCharm"
   });
-  Items.registerSheet("exalted2e", WeaponSheet, {
+  foundry.documents.collections.Items.registerSheet("exalted2e", WeaponSheet, {
     types:     ["weapon"],
     makeDefault: true,
     label:     "EX2E.SheetWeapon"
   });
-  Items.registerSheet("exalted2e", ArmorSheet, {
+  foundry.documents.collections.Items.registerSheet("exalted2e", ArmorSheet, {
     types:     ["armor"],
     makeDefault: true,
     label:     "EX2E.SheetArmor"
   });
-  Items.registerSheet("exalted2e", GenericItemSheet, {
+  foundry.documents.collections.Items.registerSheet("exalted2e", GenericItemSheet, {
     types:     ["background", "intimacy", "meritflaw"],
     makeDefault: true,
     label:     "EX2E.SheetGenericItem"
   });
-  Items.registerSheet("exalted2e", KnackSheet, {
+  foundry.documents.collections.Items.registerSheet("exalted2e", KnackSheet, {
     types:     ["knack"],
     makeDefault: true,
     label:     "EX2E.SheetKnack"
   });
-  Items.registerSheet("exalted2e", VirtueFlawSheet, {
+  foundry.documents.collections.Items.registerSheet("exalted2e", VirtueFlawSheet, {
     types:     ["virtueflaw"],
     makeDefault: true,
     label:     "EX2E.SheetVirtueFlaw"
@@ -179,10 +185,11 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/dialog/attack-dialog.hbs",
     "systems/exalted2e/templates/dialog/step2-defense-dialog.hbs",
     "systems/exalted2e/templates/dialog/counterattack-dialog.hbs",
+    "systems/exalted2e/templates/dialog/finish-turn-dialog.hbs",
     "systems/exalted2e/templates/dialog/virtueflaw-picker-dialog.hbs",
     "systems/exalted2e/templates/chat/attack-result.hbs"
   ];
-  return loadTemplates(templatePaths);
+  return foundry.applications.handlebars.loadTemplates(templatePaths);
 }
 
 // ── Unarmed Attacks ────────────────────────────────────────────────────────
@@ -256,8 +263,80 @@ Hooks.once("ready", async function () {
   }
 });
 
+// ── Combat Tracker Controls ────────────────────────────────────────────────
+// Inject two Exalted-specific buttons into the combat tracker:
+//   • Join Battle — GM rolls Wits+Awareness for every combatant and assigns
+//     each one's starting tick.
+//   • Finish Turn — opens a Speed prompt, advances the current combatant's
+//     tick, and re-sorts the tracker.
+Hooks.on("renderCombatTracker", (app, html, _data) => {
+  const el = html instanceof HTMLElement ? html : (html?.[0] ?? html);
+  if (!el?.querySelector) return;
+  const combat = app.viewed;
+  if (!combat) return;
+
+  // Avoid re-injecting on re-render by keying off our own class.
+  if (el.querySelector(".ex2e-combat-controls")) return;
+
+  // Anchor the controls immediately above the End Encounter button. Fall
+  // back to the tracker header if that button can't be located (e.g. if
+  // Foundry changes the DOM between versions).
+  const endBtn = el.querySelector("[data-application-part='footer']")
+              ?? el.querySelector(".combat-controls");
+  const anchorParent = endBtn?.parentElement
+                    ?? el.querySelector(".combat-controls")
+                    ?? el.querySelector("header.combat-tracker-header");
+  if (!anchorParent) return;
+
+  const bar = document.createElement("div");
+  bar.classList.add("ex2e-combat-controls");
+
+  if (game.user.isGM) {
+    const jbBtn = document.createElement("button");
+    jbBtn.type = "button";
+    jbBtn.classList.add("ex2e-jb-btn");
+    jbBtn.title = game.i18n.localize("EX2E.JoinBattle");
+    jbBtn.innerHTML = `<i class="fa-solid fa-dice-d10"></i> ${game.i18n.localize("EX2E.RollJoinBattle")}`;
+    jbBtn.addEventListener("click", async () => {
+      await combat.rollJoinBattle();
+    });
+    bar.appendChild(jbBtn);
+  }
+
+  const current = combat.combatant;
+  debugger;
+  const canFinish = current
+    && (game.user.isGM || current.actor?.testUserPermission(game.user, "OWNER"));
+  if (canFinish) {
+    const finishBtn = document.createElement("button");
+    finishBtn.type = "button";
+    finishBtn.classList.add("ex2e-finish-turn-btn");
+    finishBtn.title = game.i18n.localize("EX2E.FinishTurn");
+    finishBtn.innerHTML = `<i class="fa-solid fa-forward-step"></i> ${game.i18n.localize("EX2E.FinishTurn")}`;
+    finishBtn.addEventListener("click", async () => {
+      const { FinishTurnDialog } = await import("./dialogs/finish-turn-dialog.mjs");
+      const speed = await FinishTurnDialog.prompt({
+        combatantName: current.name,
+        currentTick:   current.initiative ?? 0,
+        defaultSpeed:  5
+      });
+      if (speed === null) return;
+      await combat.advanceCurrentByTicks(speed);
+    });
+    bar.appendChild(finishBtn);
+  }
+
+  if (bar.childElementCount > 0) {
+    if (endBtn && anchorParent.contains(endBtn)) {
+      anchorParent.insertBefore(bar, endBtn);
+    } else {
+      anchorParent.appendChild(bar);
+    }
+  }
+});
+
 // ── Chat Listeners ─────────────────────────────────────────────────────────
-Hooks.on("renderChatMessage", (message, html) => {
+Hooks.on("renderChatMessageHTML", (message, html) => {
   // Resolve the raw DOM element (html may be jQuery or HTMLElement)
   const el = html instanceof HTMLElement ? html : html[0] ?? html;
 

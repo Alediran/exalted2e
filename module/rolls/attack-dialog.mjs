@@ -100,7 +100,7 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
 
   static #onConfirmAttack(event, target) {
     const form = this.element.querySelector("form");
-    const fd   = new FormDataExtended(form);
+    const fd   = new foundry.applications.ux.FormDataExtended(form);
     const data = fd.object;
 
     this._resolved = true;

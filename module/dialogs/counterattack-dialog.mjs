@@ -59,7 +59,7 @@ export class CounterattackDialog extends HandlebarsApplicationMixin(ApplicationV
 
   static #onConfirm(event, target) {
     const form = this.element.querySelector("form");
-    const fd   = new FormDataExtended(form);
+    const fd   = new foundry.applications.ux.FormDataExtended(form);
     const data = fd.object;
 
     const charmId = data.charmId;

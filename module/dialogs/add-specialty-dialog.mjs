@@ -45,7 +45,7 @@ export class AddSpecialtyDialog extends HandlebarsApplicationMixin(ApplicationV2
 
   static #onConfirmAdd(event, target) {
     const form = this.element.querySelector("form");
-    const fd   = new FormDataExtended(form);
+    const fd   = new foundry.applications.ux.FormDataExtended(form);
     const data = fd.object;
 
     const ability       = data.ability?.trim()       || "";

@@ -171,7 +171,7 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   /** Called when the Roll button is clicked via data-action="confirmRoll". */
   static #onConfirmRoll(event, target) {
     const form = this.element.querySelector("form");
-    const fd   = new FormDataExtended(form);
+    const fd   = new foundry.applications.ux.FormDataExtended(form);
     const data = fd.object;
 
     const firstExcDice  = parseInt(data.firstExcDice)  || 0;
