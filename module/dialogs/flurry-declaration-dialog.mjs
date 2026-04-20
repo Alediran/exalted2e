@@ -220,11 +220,17 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
   }
 
   /**
-   * Sweep the live DOM: recompute which weapon IDs the flurry is drawing,
-   * toggle `option.disabled` on every weapon-mode option accordingly, and
-   * if any row's currently-selected option has become disabled, reset that
-   * row in-place to the default flurry action (updating its Speed / DV Mod
-   * inputs and hiding its Draw picker).
+   * Sweep the live DOM: recompute which weapon IDs the flurry is drawing
+   * and how many times each weapon-mode is being used, then toggle
+   * `option.disabled` on every weapon-mode option accordingly. If any
+   * row's currently-selected option has become disabled, reset that row
+   * in-place to the default flurry action.
+   *
+   * A weapon-mode option is selectable in a given `<select>` iff:
+   *   1) the weapon is currently equipped OR drawn somewhere in the flurry
+   *   2) the OTHER rows in the flurry have used this mode fewer than
+   *      `mode.effectiveRate` times (keeping Punch-rate-3 / Kick-rate-2
+   *      style limits honoured)
    */
   _updateRowValidity() {
     const form = this.element?.querySelector("form");
@@ -234,24 +240,40 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
 
     // Drawn weapons = every row whose action is "draw" with a picked weaponId.
     const drawnIds = new Set();
+    // Usage count per weapon:<id>:<mode> key across every row in the flurry.
+    const usage = new Map();
     form.querySelectorAll(".flurry-row[data-index]").forEach(row => {
       const k = row.querySelector("[name$='.actionKey']")?.value;
-      if (k !== "draw") return;
-      const idx = row.dataset.index;
-      const drawRow = form.querySelector(`.flurry-draw-row[data-index='${idx}']`);
-      const wid = drawRow?.querySelector("[name$='.weaponId']")?.value;
-      if (wid) drawnIds.add(wid);
+      if (k?.startsWith("weapon:")) {
+        usage.set(k, (usage.get(k) ?? 0) + 1);
+      }
+      if (k === "draw") {
+        const idx = row.dataset.index;
+        const drawRow = form.querySelector(`.flurry-draw-row[data-index='${idx}']`);
+        const wid = drawRow?.querySelector("[name$='.weaponId']")?.value;
+        if (wid) drawnIds.add(wid);
+      }
     });
 
     form.querySelectorAll(".flurry-row[data-index] [name$='.actionKey']").forEach(select => {
+      const selectValue = select.value;
       // 1) Refresh disabled state on every weapon:<id>:<mode> option.
       select.querySelectorAll("option").forEach(opt => {
         const key = opt.value;
         if (!key || !key.startsWith("weapon:")) return;
-        const [, wid] = key.split(":");
+        const [, wid, modeIdxStr] = key.split(":");
         const weapon = this._actor?.items.get(wid);
         if (!weapon) return;
-        opt.disabled = !(weapon.system.equipped || drawnIds.has(wid));
+        const mode = weapon.system.modes?.[parseInt(modeIdxStr)];
+        const rate = Math.max(1, mode?.effectiveRate ?? mode?.rate ?? 1);
+        const total     = usage.get(key) ?? 0;
+        // Count uses OTHER than this select's own current pick — lets the
+        // row keep rendering its existing selection even when the mode is
+        // fully spent across the flurry.
+        const otherUses = (selectValue === key) ? total - 1 : total;
+        const equipOk = weapon.system.equipped || drawnIds.has(wid);
+        const rateOk  = otherUses < rate;
+        opt.disabled = !(equipOk && rateOk);
       });
 
       // 2) If the currently selected option is now disabled, reset the row.
