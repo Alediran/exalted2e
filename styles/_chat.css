@@ -287,6 +287,20 @@
   color:        var(--ex2e-gold-bright);
 }
 
+.ex2e-attack-card .holy-upgrade-note {
+  display:        flex;
+  align-items:    center;
+  gap:            var(--ex2e-gap-sm);
+  padding:        4px var(--ex2e-gap-sm);
+  margin:         var(--ex2e-gap-xs) 0;
+  border:         1px solid var(--ex2e-gold-main);
+  border-radius:  var(--ex2e-border-radius-sm);
+  background:     color-mix(in srgb, var(--ex2e-gold-main) 14%, transparent);
+  color:          var(--ex2e-gold-bright);
+  font-size:      var(--ex2e-font-size-xs);
+}
+.ex2e-attack-card .holy-upgrade-note i { color: var(--ex2e-gold-bright); }
+
 /* ── Flurry Declaration card ──────────────────────────────────────────── */
 
 .ex2e-flurry-card .flurry-card-summary {

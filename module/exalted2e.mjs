@@ -151,6 +151,19 @@ Hooks.once("init", function () {
   // ── CONFIG Additions ────────────────────────────────────────────────────
   CONFIG.EX2E = EX2E;
 
+  // ── Status Effects ──────────────────────────────────────────────────────
+  // Creature of Darkness — a permanent character trait (demons, undead,
+  // hungry ghosts, warped infernals, etc.) that makes Holy-keyword attacks
+  // inflict aggravated damage instead of lethal. Registered as a token
+  // status so a GM can toggle it from the HUD; the attack pipeline reads
+  // it via `actor.statuses.has("creatureOfDarkness")`.
+  CONFIG.statusEffects ??= [];
+  CONFIG.statusEffects.push({
+    id:   "creatureOfDarkness",
+    name: "EX2E.CreatureOfDarkness",
+    img:  "icons/svg/cowled.svg"
+  });
+
   console.log("Exalted 2e | System initialised.");
 });
 

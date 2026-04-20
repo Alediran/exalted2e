@@ -465,6 +465,30 @@ export class ExaltedRoll {
     if (undodgeable) targetDodgeDV = 0;
     if (unblockable) targetParryDV = 0;
 
+    // Holy vs Creature of Darkness: Holy-keyword attacks (charm-sourced
+    // or baked into the weapon mode's tags) against a CoD-flagged target
+    // upgrade damage to aggravated — bashing and lethal alike. Aggravated
+    // also bypasses Hardness, and soak looks up a different column — so
+    // we re-read both off the final damage type before the card snapshot.
+    const isHolyAttack  = activatedKeywords.has("Holy")
+                       || (mode.tags ?? []).includes("Holy");
+    const targetIsCoD   = targetActor?.statuses?.has("creatureOfDarkness") ?? false;
+    let finalDamageType = mode.damageType;
+    let holyUpgraded    = false;
+    if (isHolyAttack && targetIsCoD) {
+      finalDamageType = "aggravated";
+      holyUpgraded    = true;
+      if (targetActor) {
+        const tSys = targetActor.system;
+        if (targetActor.type === "character") {
+          targetSoak = tSys.totalSoak?.[finalDamageType] ?? 0;
+        } else if (targetActor.type === "npc") {
+          targetSoak = tSys.combat?.soak?.[finalDamageType] ?? 0;
+        }
+        targetHardness = 0; // aggravated always ignores Hardness
+      }
+    }
+
     // Build and evaluate the attack roll
     const displayName = (wSys.modes?.length ?? 1) > 1 ? `${weapon.name} — ${mode.name}` : weapon.name;
     const attackRoll = new ExaltedRoll({
@@ -483,7 +507,7 @@ export class ExaltedRoll {
     // starts in "defense pending" state; the defender picks Dodge or Parry
     // (or the GM enters a manual DV when no target is selected), at which
     // point the card is re-rendered with hit/miss and damage.
-    const typeSuffix          = mode.damageType === "lethal" ? "L" : mode.damageType === "aggravated" ? "A" : "B";
+    const typeSuffix          = finalDamageType === "lethal" ? "L" : finalDamageType === "aggravated" ? "A" : "B";
     const overwhelmingSuffix  = mode.tags?.includes("Overwhelming") ? `/${mode.overwhelming ?? 1}` : "";
     const attack = {
       actorId:             actor.id,
@@ -501,8 +525,12 @@ export class ExaltedRoll {
       attackerHasThirdExc,
       attackerExcKey:      excKey,
       weaponDamage:        mode.effectiveDamage,
-      damageType:          mode.damageType,
+      damageType:          finalDamageType,
       damageTypeLabel:     `${typeSuffix}${overwhelmingSuffix}`,
+      // Originating type before the Holy-vs-CoD upgrade, plus a flag the
+      // card uses to surface the upgrade. Unset for normal attacks.
+      originalDamageType:  holyUpgraded ? mode.damageType : null,
+      holyUpgraded,
       // Instant-duration charm attacks publish their full damage value —
       // Strength isn't auto-added, same spirit as the accuracy rule above.
       // Longer-duration charms drop a real weapon and get the default
