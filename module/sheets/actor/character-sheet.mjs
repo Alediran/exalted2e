@@ -41,7 +41,11 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       cycleAbilityFlag:    CharacterSheet.#onCycleAbilityFlag,
       rollAttack:          CharacterSheet.#onRollAttack,
       pickVirtueFlaw:      CharacterSheet.#onPickVirtueFlaw,
-      clearVirtueFlaw:     CharacterSheet.#onClearVirtueFlaw
+      clearVirtueFlaw:     CharacterSheet.#onClearVirtueFlaw,
+      editEffect:          CharacterSheet.#onEditEffect,
+      deleteEffect:        CharacterSheet.#onDeleteEffect,
+      toggleEffect:        CharacterSheet.#onToggleEffect,
+      createEffect:        CharacterSheet.#onCreateEffect
     }
   };
 
@@ -80,6 +84,10 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     tabExperience: {
       template: "systems/exalted2e/templates/actor/character/tab-experience.hbs",
       scrollable: [""]
+    },
+    tabEffects: {
+      template: "systems/exalted2e/templates/actor/character/tab-effects.hbs",
+      scrollable: [""]
     }
   };
 
@@ -100,7 +108,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       tabCharms:    { id: "tabCharms",    group: "sheet", icon: "fa-solid fa-sun",            label: game.i18n.localize("EX2E.TabCharms"),     cssClass: this.tabGroups.sheet === "tabCharms"     ? "active" : "" },
       tabInventory: { id: "tabInventory", group: "sheet", icon: "fa-solid fa-suitcase",       label: game.i18n.localize("EX2E.TabInventory"),  cssClass: this.tabGroups.sheet === "tabInventory"  ? "active" : "" },
       tabBiography: { id: "tabBiography", group: "sheet", icon: "fa-solid fa-book",           label: game.i18n.localize("EX2E.TabBiography"),  cssClass: this.tabGroups.sheet === "tabBiography"  ? "active" : "" },
-      tabExperience:{ id: "tabExperience",group: "sheet", icon: "fa-solid fa-graduation-cap", label: game.i18n.localize("EX2E.TabExperience"), cssClass: this.tabGroups.sheet === "tabExperience" ? "active" : "" }
+      tabExperience:{ id: "tabExperience",group: "sheet", icon: "fa-solid fa-graduation-cap", label: game.i18n.localize("EX2E.TabExperience"), cssClass: this.tabGroups.sheet === "tabExperience" ? "active" : "" },
+      tabEffects:   { id: "tabEffects",   group: "sheet", icon: "fa-solid fa-wand-sparkles",  label: game.i18n.localize("EX2E.TabEffects"),    cssClass: this.tabGroups.sheet === "tabEffects"    ? "active" : "" }
     };
 
     // Build available castes for the current exalt type
@@ -131,6 +140,12 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const meritflaws = actor.items.filter(i => i.type === "meritflaw")  .sort((a,b) => a.name.localeCompare(b.name));
     const virtueFlaw = actor.items.find(i => i.type === "virtueflaw") ?? null;
 
+    // Effects — split into temporal (durationed or turn-refreshable) and
+    // permanent buckets. The DV-refresh machinery we ship flags its AEs
+    // with `exalted2e.dvRefreshable` even though they don't carry a
+    // formal duration, so we treat those as temporal here.
+    const effects = this._buildEffectsData(actor);
+
     return {
       ...context,
       actor,
@@ -151,9 +166,41 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       intimacies,
       meritflaws,
       virtueFlaw,
+      effects,
       isEditable: this.isEditable,
       useIntimacyIntensity: game.settings.get("exalted2e", "useIntimacyIntensity")
     };
+  }
+
+  /**
+   * Build the Effects-tab payload. Splits the actor's ActiveEffects into
+   * `temporal` (any with a duration OR flagged dvRefreshable) and
+   * `permanent` (everything else).
+   */
+  _buildEffectsData(actor) {
+    const temporal = [];
+    const permanent = [];
+    for (const eff of actor.effects) {
+      const refreshable = !!eff.flags?.exalted2e?.dvRefreshable;
+      const entry = {
+        id:           eff.id,
+        name:         eff.name,
+        img:          eff.img || "icons/svg/aura.svg",
+        disabled:     eff.disabled,
+        // For turn-refreshable effects there's no formal duration — label
+        // them with a localized "Until next turn" string so the row isn't
+        // blank. Otherwise fall back to Foundry's built-in duration label.
+        durationLabel: refreshable
+          ? game.i18n.localize("EX2E.EffectUntilNextTurn")
+          : (eff.duration?.label ?? "")
+      };
+      const isTemporal = refreshable || eff.isTemporary;
+      (isTemporal ? temporal : permanent).push(entry);
+    }
+    const byName = (a, b) => a.name.localeCompare(b.name);
+    temporal.sort(byName);
+    permanent.sort(byName);
+    return { temporal, permanent };
   }
 
   /**
@@ -481,6 +528,42 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const item   = this.document.items.get(itemId);
     if (!item) return;
     await item.update({ "system.equipped": !item.system.equipped });
+  }
+
+  // ── Active Effects tab handlers ──────────────────────────────────────────
+
+  static async #onCreateEffect(event, target) {
+    const created = await this.document.createEmbeddedDocuments("ActiveEffect", [{
+      name: game.i18n.localize("EX2E.NewEffect"),
+      img:  "icons/svg/aura.svg",
+      disabled: true   // opens disabled so the GM/player finishes editing before it applies
+    }]);
+    created[0]?.sheet?.render({ force: true });
+  }
+
+  static async #onEditEffect(event, target) {
+    const effectId = target.closest("[data-effect-id]")?.dataset.effectId;
+    const effect   = this.document.effects.get(effectId);
+    effect?.sheet?.render({ force: true });
+  }
+
+  static async #onDeleteEffect(event, target) {
+    const effectId = target.closest("[data-effect-id]")?.dataset.effectId;
+    const effect   = this.document.effects.get(effectId);
+    if (!effect) return;
+    const confirmed = await foundry.applications.api.DialogV2.confirm({
+      window: { title: game.i18n.localize("EX2E.DeleteEffectConfirm").replace("{name}", effect.name) },
+      yes: { label: game.i18n.localize("Yes"), icon: "fa-solid fa-trash" },
+      no:  { label: game.i18n.localize("No"),  icon: "fa-solid fa-times" }
+    });
+    if (confirmed) await effect.delete();
+  }
+
+  static async #onToggleEffect(event, target) {
+    const effectId = target.closest("[data-effect-id]")?.dataset.effectId;
+    const effect   = this.document.effects.get(effectId);
+    if (!effect) return;
+    await effect.update({ disabled: !effect.disabled });
   }
 
   static async #onSendItemToChat(event, target) {

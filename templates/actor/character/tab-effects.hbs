@@ -1,0 +1,77 @@
+<div class="tab {{cssClass}}" data-tab="tabEffects" data-group="sheet">
+  <div class="sheet-body ex2e-effects">
+
+    <header class="effects-header">
+      <h2 class="section-header">{{localize "EX2E.TabEffects"}}</h2>
+      {{#if isEditable}}
+      <button type="button" class="btn-effect-add" data-action="createEffect">
+        <i class="fa-solid fa-plus"></i> {{localize "EX2E.NewEffect"}}
+      </button>
+      {{/if}}
+    </header>
+
+    {{!-- Temporal effects: AEs with a duration or flagged dvRefreshable. --}}
+    <section class="effects-section">
+      <h3 class="section-subheader">{{localize "EX2E.EffectsTemporal"}}</h3>
+      {{#if effects.temporal.length}}
+      <ul class="effects-list">
+        {{#each effects.temporal as |eff|}}
+        <li class="effect-row {{#if eff.disabled}}is-disabled{{/if}}" data-effect-id="{{eff.id}}">
+          <img src="{{eff.img}}" alt="" class="effect-icon">
+          <span class="effect-name">{{eff.name}}</span>
+          {{#if eff.durationLabel}}<span class="effect-duration">{{eff.durationLabel}}</span>{{/if}}
+          {{#if @root.isEditable}}
+          <div class="effect-controls">
+            <a data-action="toggleEffect"
+               data-tooltip="{{#if eff.disabled}}{{localize 'EX2E.EffectEnable'}}{{else}}{{localize 'EX2E.EffectDisable'}}{{/if}}">
+              <i class="fa-solid {{#if eff.disabled}}fa-toggle-off{{else}}fa-toggle-on{{/if}}"></i>
+            </a>
+            <a data-action="editEffect" data-tooltip="{{localize 'EX2E.Edit'}}">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+            <a data-action="deleteEffect" data-tooltip="{{localize 'EX2E.Delete'}}">
+              <i class="fa-solid fa-trash"></i>
+            </a>
+          </div>
+          {{/if}}
+        </li>
+        {{/each}}
+      </ul>
+      {{else}}
+      <p class="effects-empty">{{localize "EX2E.EffectsNoneTemporal"}}</p>
+      {{/if}}
+    </section>
+
+    {{!-- Permanent effects: anything with no duration + not dvRefreshable. --}}
+    <section class="effects-section">
+      <h3 class="section-subheader">{{localize "EX2E.EffectsPermanent"}}</h3>
+      {{#if effects.permanent.length}}
+      <ul class="effects-list">
+        {{#each effects.permanent as |eff|}}
+        <li class="effect-row {{#if eff.disabled}}is-disabled{{/if}}" data-effect-id="{{eff.id}}">
+          <img src="{{eff.img}}" alt="" class="effect-icon">
+          <span class="effect-name">{{eff.name}}</span>
+          {{#if @root.isEditable}}
+          <div class="effect-controls">
+            <a data-action="toggleEffect"
+               data-tooltip="{{#if eff.disabled}}{{localize 'EX2E.EffectEnable'}}{{else}}{{localize 'EX2E.EffectDisable'}}{{/if}}">
+              <i class="fa-solid {{#if eff.disabled}}fa-toggle-off{{else}}fa-toggle-on{{/if}}"></i>
+            </a>
+            <a data-action="editEffect" data-tooltip="{{localize 'EX2E.Edit'}}">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+            <a data-action="deleteEffect" data-tooltip="{{localize 'EX2E.Delete'}}">
+              <i class="fa-solid fa-trash"></i>
+            </a>
+          </div>
+          {{/if}}
+        </li>
+        {{/each}}
+      </ul>
+      {{else}}
+      <p class="effects-empty">{{localize "EX2E.EffectsNonePermanent"}}</p>
+      {{/if}}
+    </section>
+
+  </div>
+</div>

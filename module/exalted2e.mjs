@@ -169,6 +169,7 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/actor/character/tab-inventory.hbs",
     "systems/exalted2e/templates/actor/character/tab-biography.hbs",
     "systems/exalted2e/templates/actor/character/tab-experience.hbs",
+    "systems/exalted2e/templates/actor/character/tab-effects.hbs",
     // Actor – NPC
     "systems/exalted2e/templates/actor/npc/header.hbs",
     "systems/exalted2e/templates/actor/npc/body.hbs",
