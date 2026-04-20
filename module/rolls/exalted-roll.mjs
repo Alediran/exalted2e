@@ -277,8 +277,20 @@ export class ExaltedRoll {
     const attrVal   = sys.attributes.dexterity.value;
     const strVal    = sys.attributes.strength.value;
 
-    // Attack pool = Dexterity + Ability + Weapon Accuracy
-    const basePool = attrVal + abilVal + mode.effectiveAccuracy;
+    // Attack pool.
+    //   • Regular weapon: pool = Dexterity + Ability + weapon Accuracy bonus.
+    //   • Instant-duration charm attack: the charm's accuracy formula IS
+    //     the full dice pool (canon charm descriptions quote the whole
+    //     pool, not a modifier). Adding Dex + Ability on top would
+    //     double-count, and the damage formula is likewise the full
+    //     pre-threshold damage (no auto-Strength bonus).
+    //   • Longer-duration charm attack: spawns a real weapon, so the
+    //     normal flow applies — charm authors write stats the same way
+    //     they would for any weapon.
+    const isInstantCharmAttack = weapon.getFlag("exalted2e", "charmDuration") === "instant";
+    const basePool = isInstantCharmAttack
+      ? mode.effectiveAccuracy
+      : (attrVal + abilVal + mode.effectiveAccuracy);
 
     // Wound penalty reduces pool
     const woundPenalty = sys.health?.woundPenalty ?? 0;
@@ -491,7 +503,11 @@ export class ExaltedRoll {
       weaponDamage:        mode.effectiveDamage,
       damageType:          mode.damageType,
       damageTypeLabel:     `${typeSuffix}${overwhelmingSuffix}`,
-      addStrength:         isMelee,
+      // Instant-duration charm attacks publish their full damage value —
+      // Strength isn't auto-added, same spirit as the accuracy rule above.
+      // Longer-duration charms drop a real weapon and get the default
+      // melee-adds-Strength behaviour.
+      addStrength:         isMelee && !isInstantCharmAttack,
       strengthValue:       strVal,
       overwhelming:        mode.overwhelming ?? 1,
       targetId,
