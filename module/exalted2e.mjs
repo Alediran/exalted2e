@@ -42,6 +42,14 @@ Hooks.once("init", function () {
   // advance after each action — Foundry's built-in per-combatant roll isn't
   // used, so give it a null formula.
   CONFIG.Combat.initiative = { formula: "0", decimals: 0 };
+  // Swap the default d20 on the per-combatant Roll Initiative button for a d10
+  // — Exalted rolls d10 pools. Foundry ships d10-grey.svg; no highlight
+  // variant exists, so we reuse it for hover (the :hover drop-shadow still
+  // makes the button feel interactive).
+  CONFIG.Combat.initiativeIcon = {
+    icon:  "/systems/exalted2e/assets/icons/d10.svg",
+    hover: "/systems/exalted2e/assets/icons/d10-highlight.svg"
+  };
 
   // ── Data Models ─────────────────────────────────────────────────────────
   CONFIG.Actor.dataModels = {
