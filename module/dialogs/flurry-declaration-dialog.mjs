@@ -67,10 +67,13 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
 
   /**
    * Compose the dropdown's option list: shared flurry-eligible actions plus
-   * one entry per (weapon, mode) the actor owns. Sheathed-weapon modes are
-   * emitted with `disabled: true` so they render greyed out.
+   * one entry per (weapon, mode) the actor owns. A sheathed weapon's modes
+   * are enabled if any row in the flurry is drawing that weapon — ordering
+   * of actions doesn't matter; the flurry is a set.
+   *
+   * @param {Set<string>} [drawnIds]  Weapon IDs drawn by the current flurry.
    */
-  _buildActionOptions() {
+  _buildActionOptions(drawnIds = new Set()) {
     const core = EX2E.getActionList().filter(a => a.isFlurry);
     const weaponOpts = [];
     for (const w of (this._actor?.items ?? [])) {
@@ -87,11 +90,41 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
           dvMod:    1,
           preset:   false,
           isFlurry: true,
-          disabled: !w.system.equipped
+          disabled: !w.system.equipped && !drawnIds.has(w.id)
         });
       });
     }
     return [...core, ...weaponOpts];
+  }
+
+  /** Set of weapon IDs every `draw` row in this._actions is targeting. */
+  _collectDrawnIds() {
+    const s = new Set();
+    for (const a of this._actions) {
+      if (a.actionKey === "draw" && a.weaponId) s.add(a.weaponId);
+    }
+    return s;
+  }
+
+  /**
+   * If any row still points at a weapon-mode that is no longer available
+   * (weapon got un-drawn, or was deleted), reset that row to the default
+   * flurry action so the declaration stays internally consistent.
+   */
+  _normalizeActions(drawnIds) {
+    const fallbackKey = defaultFlurryActionKey();
+    const fallbackCfg = EX2E.actions[fallbackKey] ?? { speed: 5, dvMod: 0 };
+    for (const a of this._actions) {
+      if (!a.actionKey?.startsWith("weapon:")) continue;
+      const [, wid] = a.actionKey.split(":");
+      const weapon  = this._actor?.items.get(wid);
+      const available = !!weapon && (weapon.system.equipped || drawnIds.has(wid));
+      if (available) continue;
+      a.actionKey = fallbackKey;
+      a.speed     = fallbackCfg.speed;
+      a.dvMod     = fallbackCfg.dvMod;
+      a.weaponId  = "";
+    }
   }
 
   /**
@@ -112,10 +145,17 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
 
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
+    // First normalize the in-memory action set against the current drawn
+    // set — any row whose selected attack mode has gone unavailable (its
+    // Draw was removed or retargeted) is reset to the default flurry
+    // action. Do this before the options list is built so the rendered
+    // `<select>` values match reality.
+    const drawnIds = this._collectDrawnIds();
+    this._normalizeActions(drawnIds);
     const n = this._actions.length;
     // Cache the computed lists so the dropdown-change handler can resolve
     // speed/dvMod for weapon-mode keys (which aren't in EX2E.actions).
-    this._actionOptions     = this._buildActionOptions();
+    this._actionOptions     = this._buildActionOptions(drawnIds);
     this._unequippedWeapons = this._buildUnequippedWeapons();
     return {
       ...context,
@@ -138,14 +178,12 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
 
   /**
    * Wire the per-row action dropdown so picking a preset repopulates the
-   * Speed and DV Mod inputs for that row and toggles the Draw-weapon picker.
-   * Manual edits to either input are preserved until the dropdown changes
-   * again.
+   * Speed and DV Mod inputs for that row.
    *
-   * Also attaches a change listener to every Draw-row weapon picker so
-   * declaring (or changing) a Draw target re-evaluates which weapon-mode
-   * options are disabled across all rows — attack modes for a drawn weapon
-   * become selectable in the same flurry regardless of action order.
+   * An action-key change or a Draw weapon-picker change can alter the set
+   * of available weapon modes — handled by re-rendering the dialog so
+   * `_prepareContext` can rebuild option lists and `_normalizeActions` can
+   * reset any rows now pointing at an unavailable weapon mode.
    */
   _onRender(context, options) {
     const form = this.element.querySelector("form");
@@ -155,62 +193,24 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
         const key = ev.currentTarget.value;
         const opt = this._actionOptions?.find(o => o.key === key);
         const row = ev.currentTarget.closest(".flurry-row");
-        const idx = row?.dataset.index;
         if (opt) {
           const speedInput = row?.querySelector("[name$='.speed']");
           const dvInput    = row?.querySelector("[name$='.dvMod']");
           if (speedInput) speedInput.value = opt.speed;
           if (dvInput)    dvInput.value    = opt.dvMod;
         }
-        // Toggle the Draw-weapon picker associated with this row.
-        const drawRow = idx !== undefined
-          ? form.querySelector(`.flurry-draw-row[data-index='${idx}']`)
-          : null;
-        if (drawRow) drawRow.classList.toggle("hidden", key !== "draw");
-        // Changing an action key can add or remove a Draw (e.g. row switches
-        // from "draw" to an attack mode), so re-evaluate disabled states.
-        this._updateDisabledStates();
+        // Switching into or out of "draw", or choosing any weapon-mode key,
+        // can shift which other weapon modes are available — re-render so
+        // disabled states and row normalisation both catch up.
+        this._syncFromForm();
+        this.render();
       });
     });
     form.querySelectorAll(".flurry-draw-row [name$='.weaponId']").forEach(select => {
-      select.addEventListener("change", () => this._updateDisabledStates());
-    });
-    // Apply once on mount so any initial state is reflected (harmless no-op
-    // for the default two-row state).
-    this._updateDisabledStates();
-  }
-
-  /**
-   * Reconcile the `disabled` attribute on every weapon-mode option across
-   * the form: a weapon's modes are selectable when the weapon is currently
-   * equipped OR some row in this same flurry declares a Draw for it.
-   * Ordering of actions in the flurry does not matter — the flurry is a set.
-   */
-  _updateDisabledStates() {
-    const form = this.element?.querySelector("form");
-    if (!form) return;
-
-    // Collect the weapon IDs being drawn in this flurry right now.
-    const drawnIds = new Set();
-    form.querySelectorAll(".flurry-row[data-index]").forEach(row => {
-      const key = row.querySelector("[name$='.actionKey']")?.value;
-      if (key !== "draw") return;
-      const idx = row.dataset.index;
-      const drawRow = form.querySelector(`.flurry-draw-row[data-index='${idx}']`);
-      const wid = drawRow?.querySelector("[name$='.weaponId']")?.value;
-      if (wid) drawnIds.add(wid);
-    });
-
-    // Toggle disabled on every weapon:<id>:<mode> option. Equipped weapons
-    // stay enabled unconditionally; sheathed ones are enabled iff drawn.
-    form.querySelectorAll(".flurry-row[data-index] [name$='.actionKey'] option").forEach(opt => {
-      const key = opt.value;
-      if (!key || !key.startsWith("weapon:")) return;
-      const [, wid] = key.split(":");
-      const weapon = this._actor?.items.get(wid);
-      if (!weapon) return;
-      const available = weapon.system.equipped || drawnIds.has(wid);
-      opt.disabled = !available;
+      select.addEventListener("change", () => {
+        this._syncFromForm();
+        this.render();
+      });
     });
   }
 
