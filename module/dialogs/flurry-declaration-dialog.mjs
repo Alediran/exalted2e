@@ -177,13 +177,12 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
   }
 
   /**
-   * Wire the per-row action dropdown so picking a preset repopulates the
-   * Speed and DV Mod inputs for that row.
-   *
-   * An action-key change or a Draw weapon-picker change can alter the set
-   * of available weapon modes — handled by re-rendering the dialog so
-   * `_prepareContext` can rebuild option lists and `_normalizeActions` can
-   * reset any rows now pointing at an unavailable weapon mode.
+   * Wire each action dropdown (repopulates the row's Speed + DV Mod and
+   * toggles the Draw picker) and each Draw weapon picker (re-evaluates
+   * cross-row availability). Both end in `_updateRowValidity`, which
+   * updates disabled states and resets any row whose selection has gone
+   * stale — all done in-place on the current DOM so the user's selection
+   * doesn't get stomped by a concurrent re-render.
    */
   _onRender(context, options) {
     const form = this.element.querySelector("form");
@@ -193,24 +192,77 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
         const key = ev.currentTarget.value;
         const opt = this._actionOptions?.find(o => o.key === key);
         const row = ev.currentTarget.closest(".flurry-row");
+        const idx = row?.dataset.index;
         if (opt) {
           const speedInput = row?.querySelector("[name$='.speed']");
           const dvInput    = row?.querySelector("[name$='.dvMod']");
           if (speedInput) speedInput.value = opt.speed;
           if (dvInput)    dvInput.value    = opt.dvMod;
         }
-        // Switching into or out of "draw", or choosing any weapon-mode key,
-        // can shift which other weapon modes are available — re-render so
-        // disabled states and row normalisation both catch up.
-        this._syncFromForm();
-        this.render();
+        const drawRow = idx !== undefined
+          ? form.querySelector(`.flurry-draw-row[data-index='${idx}']`)
+          : null;
+        if (drawRow) drawRow.classList.toggle("hidden", key !== "draw");
+        this._updateRowValidity();
       });
     });
     form.querySelectorAll(".flurry-draw-row [name$='.weaponId']").forEach(select => {
-      select.addEventListener("change", () => {
-        this._syncFromForm();
-        this.render();
+      select.addEventListener("change", () => this._updateRowValidity());
+    });
+    // Seed with one pass so any initial state (e.g. after add/remove) is
+    // consistent with the current draw declarations.
+    this._updateRowValidity();
+  }
+
+  /**
+   * Sweep the live DOM: recompute which weapon IDs the flurry is drawing,
+   * toggle `option.disabled` on every weapon-mode option accordingly, and
+   * if any row's currently-selected option has become disabled, reset that
+   * row in-place to the default flurry action (updating its Speed / DV Mod
+   * inputs and hiding its Draw picker).
+   */
+  _updateRowValidity() {
+    const form = this.element?.querySelector("form");
+    if (!form) return;
+    const fallbackKey = defaultFlurryActionKey();
+    const fallbackCfg = EX2E.actions[fallbackKey] ?? { speed: 5, dvMod: 0 };
+
+    // Drawn weapons = every row whose action is "draw" with a picked weaponId.
+    const drawnIds = new Set();
+    form.querySelectorAll(".flurry-row[data-index]").forEach(row => {
+      const k = row.querySelector("[name$='.actionKey']")?.value;
+      if (k !== "draw") return;
+      const idx = row.dataset.index;
+      const drawRow = form.querySelector(`.flurry-draw-row[data-index='${idx}']`);
+      const wid = drawRow?.querySelector("[name$='.weaponId']")?.value;
+      if (wid) drawnIds.add(wid);
+    });
+
+    form.querySelectorAll(".flurry-row[data-index] [name$='.actionKey']").forEach(select => {
+      // 1) Refresh disabled state on every weapon:<id>:<mode> option.
+      select.querySelectorAll("option").forEach(opt => {
+        const key = opt.value;
+        if (!key || !key.startsWith("weapon:")) return;
+        const [, wid] = key.split(":");
+        const weapon = this._actor?.items.get(wid);
+        if (!weapon) return;
+        opt.disabled = !(weapon.system.equipped || drawnIds.has(wid));
       });
+
+      // 2) If the currently selected option is now disabled, reset the row.
+      const current = select.options[select.selectedIndex];
+      if (!current?.disabled) return;
+      select.value = fallbackKey;
+      const row        = select.closest(".flurry-row");
+      const speedInput = row?.querySelector("[name$='.speed']");
+      const dvInput    = row?.querySelector("[name$='.dvMod']");
+      if (speedInput) speedInput.value = fallbackCfg.speed;
+      if (dvInput)    dvInput.value    = fallbackCfg.dvMod;
+      const idx = row?.dataset.index;
+      const drawRow = idx !== undefined
+        ? form.querySelector(`.flurry-draw-row[data-index='${idx}']`)
+        : null;
+      if (drawRow) drawRow.classList.toggle("hidden", fallbackKey !== "draw");
     });
   }
 
