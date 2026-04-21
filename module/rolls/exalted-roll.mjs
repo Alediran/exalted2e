@@ -443,6 +443,18 @@ export class ExaltedRoll {
       activatedCharms.push({ id: c.id, name: c.name });
       for (const kw of (c.system.keywords ?? [])) activatedKeywords.add(kw);
     }
+    // Charm-spawned weapons (instant or longer-duration) inherit keywords
+    // from the charm that created them — the weapon IS that charm, so its
+    // keywords apply to every attack it makes. This is how Holy lands in
+    // `activatedKeywords` when the attack came from the charm's own
+    // Activate button rather than a supplemental tick in the dialog.
+    const sourceCharmId = weapon.getFlag("exalted2e", "charmSource");
+    const sourceCharm   = sourceCharmId ? actor.items.get(sourceCharmId) : null;
+    if (sourceCharm) {
+      for (const kw of (sourceCharm.system.keywords ?? [])) {
+        activatedKeywords.add(kw);
+      }
+    }
     const unblockable = activatedKeywords.has("Unblockable");
     const undodgeable = activatedKeywords.has("Undodgeable");
 
@@ -465,13 +477,13 @@ export class ExaltedRoll {
     if (undodgeable) targetDodgeDV = 0;
     if (unblockable) targetParryDV = 0;
 
-    // Holy vs Creature of Darkness: Holy-keyword attacks (charm-sourced
-    // or baked into the weapon mode's tags) against a CoD-flagged target
-    // upgrade damage to aggravated — bashing and lethal alike. Aggravated
-    // also bypasses Hardness, and soak looks up a different column — so
-    // we re-read both off the final damage type before the card snapshot.
-    const isHolyAttack  = activatedKeywords.has("Holy")
-                       || (mode.tags ?? []).includes("Holy");
+    // Holy vs Creature of Darkness: a charm activated for this attack
+    // carrying the Holy keyword upgrades damage to aggravated against a
+    // CoD-flagged target — bashing and lethal alike. (Weapons never carry
+    // Holy in 2e; only Charms do, so we don't inspect mode.tags.)
+    // Aggravated also bypasses Hardness, and soak looks up a different
+    // column — both re-read off the final damage type below.
+    const isHolyAttack  = activatedKeywords.has("Holy");
     // CoD is carried as a non-status ActiveEffect flag so the trait stays
     // invisible to observers (no token HUD icon). Check for any enabled
     // effect on the target that advertises it.

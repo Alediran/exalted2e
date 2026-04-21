@@ -310,21 +310,24 @@ export class ExaltedActor extends Actor {
 
   /**
    * Spend motes from the given pool. If the pool doesn't have enough,
-   * the remainder spills over to the other pool. Returns false and warns
-   * the user if both pools combined don't cover the cost.
+   * the remainder spills over to the other pool.
+   *
    * @param {number} amount
    * @param {"personal"|"peripheral"} pool
-   * @returns {Promise<boolean>} true if motes were spent, false if insufficient
+   * @returns {Promise<null | {fromPrimary:number, fromSecondary:number, primaryPool:string, secondaryPool:string}>}
+   *     Per-pool breakdown on success (truthy), null on insufficient funds
+   *     (with a user warning emitted). Callers that only care about
+   *     success/failure still work — null is falsy, the object is truthy.
    */
   async spendMotes(amount, pool = "peripheral") {
-    if (this.type !== "character") return false;
+    if (this.type !== "character") return null;
     const primary   = this.system.motes[pool];
     const otherKey  = pool === "peripheral" ? "personal" : "peripheral";
     const secondary = this.system.motes[otherKey];
 
     if (primary.value + secondary.value < amount) {
       ui.notifications.warn(game.i18n.localize("EX2E.NotEnoughMotes"));
-      return false;
+      return null;
     }
 
     const fromPrimary   = Math.min(primary.value, amount);
@@ -335,7 +338,12 @@ export class ExaltedActor extends Actor {
       [`system.motes.${pool}.value`]:    primary.value - fromPrimary,
       [`system.motes.${otherKey}.value`]: secondary.value - fromSecondary
     });
-    return true;
+    return {
+      fromPrimary,
+      fromSecondary,
+      primaryPool:   pool,
+      secondaryPool: otherKey
+    };
   }
 
   /**

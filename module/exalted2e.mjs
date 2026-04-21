@@ -607,6 +607,102 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
   // Resolve the raw DOM element (html may be jQuery or HTMLElement)
   const el = html instanceof HTMLElement ? html : html[0] ?? html;
 
+  // ── Reverse charm activation ──────────────────────────────────────────
+  // Reverses everything the charm's activation ledger (stored on the
+  // message's flags) recorded: refunds motes to the pools they came
+  // from, restores willpower, flips sustained charms back off, tears
+  // down spawned weapon artifacts, and disables the button so we don't
+  // double-refund on subsequent clicks.
+  el.querySelector?.(".btn-reverse-charm")?.addEventListener("click", async (ev) => {
+    const record = message.flags?.exalted2e?.charmActivation;
+    if (!record || record.reversed) return;
+
+    const actor = record.actorId ? game.actors.get(record.actorId) : null;
+    if (!actor?.testUserPermission(game.user, "OWNER")) {
+      ui.notifications.warn(game.i18n.localize("EX2E.NotOwner"));
+      return;
+    }
+
+    const ledger = record.ledger ?? {};
+    const updates = {};
+
+    // Refund motes back to the exact pools they were drawn from.
+    const mb = ledger.moteBreakdown;
+    if (mb && (mb.fromPrimary > 0 || mb.fromSecondary > 0)) {
+      const primary   = actor.system.motes?.[mb.primaryPool]   ?? { value: 0, max: 0 };
+      const secondary = actor.system.motes?.[mb.secondaryPool] ?? { value: 0, max: 0 };
+      updates[`system.motes.${mb.primaryPool}.value`]   = Math.min(primary.max   ?? 0, (primary.value   ?? 0) + (mb.fromPrimary   ?? 0));
+      updates[`system.motes.${mb.secondaryPool}.value`] = Math.min(secondary.max ?? 0, (secondary.value ?? 0) + (mb.fromSecondary ?? 0));
+    }
+
+    // Refund willpower (capped at max).
+    const wpRefund = Number(ledger.willpower) || 0;
+    if (wpRefund > 0) {
+      const wp = actor.system.willpower ?? { value: 0, max: 0 };
+      updates["system.willpower.value"] = Math.min(wp.max ?? 0, (wp.value ?? 0) + wpRefund);
+    }
+
+    // Refund XP (capped at `total`, the earned-XP ceiling).
+    const xpRefund = Number(ledger.xp) || 0;
+    if (xpRefund > 0) {
+      const xp = actor.system.experience ?? { value: 0, total: 0 };
+      updates["system.experience.value"] = Math.min(xp.total ?? 0, (xp.value ?? 0) + xpRefund);
+    }
+
+    // Heal each health-type column by the exact amount the activation
+    // inflicted. We write the whole `system.health` object in one go so
+    // prepareDerivedData runs a single reconcile pass.
+    const bRefund = Number(ledger.bashing)    || 0;
+    const lRefund = Number(ledger.lethal)     || 0;
+    const aRefund = Number(ledger.aggravated) || 0;
+    if (bRefund > 0 || lRefund > 0 || aRefund > 0) {
+      const h = foundry.utils.deepClone(actor.system.health ?? {});
+      if (bRefund > 0) h.bashing    = Math.max(0, (h.bashing    ?? 0) - bRefund);
+      if (lRefund > 0) h.lethal     = Math.max(0, (h.lethal     ?? 0) - lRefund);
+      if (aRefund > 0) h.aggravated = Math.max(0, (h.aggravated ?? 0) - aRefund);
+      updates["system.health"] = h;
+    }
+
+    if (Object.keys(updates).length > 0) await actor.update(updates);
+
+    // Undo toggle state and weapon artifacts on the charm itself.
+    const charm = record.charmId ? actor.items.get(record.charmId) : null;
+    if (charm) {
+      if (ledger.toggledOn && charm.system.active) {
+        await charm.update({ "system.active": false });
+      } else if (ledger.toggledOff && !charm.system.active) {
+        await charm.update({ "system.active": true });
+      }
+      if (ledger.spawnedWeapon) {
+        await charm._removeCharmWeaponArtifacts();
+      }
+    }
+
+    // Mark the record so the button can't fire again and the card's
+    // Reverse row can be visually retired via the renderer below.
+    await message.update({
+      flags: { exalted2e: { charmActivation: { ...record, reversed: true } } }
+    });
+
+    // Visually retire the button in place (no full rerender needed).
+    const btn = ev.currentTarget;
+    btn.disabled = true;
+    btn.classList.add("is-reversed");
+    btn.innerHTML = `<i class="fa-solid fa-check"></i> ${game.i18n.localize("EX2E.CharmReversed")}`;
+    ui.notifications.info(game.i18n.localize("EX2E.CharmReversed"));
+  });
+
+  // Retire the button on subsequent renders if the record was already
+  // reversed (e.g. message reload after a refund).
+  if (message.flags?.exalted2e?.charmActivation?.reversed) {
+    const btn = el.querySelector(".btn-reverse-charm");
+    if (btn) {
+      btn.disabled = true;
+      btn.classList.add("is-reversed");
+      btn.innerHTML = `<i class="fa-solid fa-check"></i> ${game.i18n.localize("EX2E.CharmReversed")}`;
+    }
+  }
+
   // ── Flurry card attack buttons ────────────────────────────────────────
   // Each attack-typed action in a declared flurry gets its own button that
   // kicks off the normal attack roll flow. The dice penalty is applied by
@@ -1068,6 +1164,23 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     const formula = `${effectivePool}d10`;
     const roll    = new Roll(formula);
     await roll.evaluate();
+
+    // Fire the standard dice-roll feedback: Dice So Nice 3D animation
+    // when the module is installed, and the vanilla dice sound otherwise
+    // (DSN suppresses the sound automatically). Without this the damage
+    // roll feels silent because the result is spliced into an existing
+    // chat card rather than posted as its own roll message.
+    if (game.dice3d?.showForRoll) {
+      await game.dice3d.showForRoll(roll, game.user, true);
+    } else {
+      const audio = foundry.audio?.AudioHelper ?? globalThis.AudioHelper;
+      audio?.play({
+        src:      CONFIG.sounds.dice,
+        volume:   game.settings.get("core", "globalInterfaceVolume") ?? 0.8,
+        autoplay: true,
+        loop:     false
+      }, true);
+    }
 
     const dice = roll.terms[0].results.map(r => r.result);
     let rawDamage = 0;

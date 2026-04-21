@@ -11,10 +11,16 @@ export class CharmData extends foundry.abstract.TypeDataModel {
 
       // ── Cost ────────────────────────────────────────────────────────────
       cost: new fields.SchemaField({
-        motes:      new fields.NumberField({ initial: 0, min: 0, max: 50, integer: true }),
-        willpower:  new fields.NumberField({ initial: 0, min: 0, max: 5,  integer: true }),
-        healthLevels: new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
-        xp:         new fields.NumberField({ initial: 0, min: 0, max: 50, integer: true })
+        motes:            new fields.NumberField({ initial: 0, min: 0, max: 50, integer: true }),
+        willpower:        new fields.NumberField({ initial: 0, min: 0, max: 5,  integer: true }),
+        // Per-type health-level costs — each one inflicts that many damage
+        // boxes of its kind on the caster when the charm activates. Some
+        // charms (e.g. thaumaturgic rites, dark pacts) explicitly choose
+        // which kind of wound they deal.
+        bashingHealth:    new fields.NumberField({ initial: 0, min: 0, max: 5,  integer: true }),
+        lethalHealth:     new fields.NumberField({ initial: 0, min: 0, max: 5,  integer: true }),
+        aggravatedHealth: new fields.NumberField({ initial: 0, min: 0, max: 5,  integer: true }),
+        xp:               new fields.NumberField({ initial: 0, min: 0, max: 50, integer: true })
       }),
 
       // ── Type / Duration ──────────────────────────────────────────────────

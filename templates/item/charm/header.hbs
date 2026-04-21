@@ -29,6 +29,10 @@
       <strong>Cost:</strong>
       {{system.cost.motes}}m
       {{#if system.cost.willpower}} +{{system.cost.willpower}}wp{{/if}}
+      {{#if system.cost.bashingHealth}} +{{system.cost.bashingHealth}}hl(B){{/if}}
+      {{#if system.cost.lethalHealth}} +{{system.cost.lethalHealth}}hl(L){{/if}}
+      {{#if system.cost.aggravatedHealth}} +{{system.cost.aggravatedHealth}}hl(A){{/if}}
+      {{#if system.cost.xp}} +{{system.cost.xp}}xp{{/if}}
       &nbsp;·&nbsp; <strong>Type:</strong> {{system.charmType}}
       &nbsp;·&nbsp; <strong>Duration:</strong> {{system.duration}}
     </div>

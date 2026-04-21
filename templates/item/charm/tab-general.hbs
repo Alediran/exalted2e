@@ -12,15 +12,35 @@
       <input type="number" name="system.cost.willpower" value="{{system.cost.willpower}}" min="0"
              {{#unless isEditable}}readonly{{/unless}}>
     </div>
-    <!-- Min Requirements -->
     <div class="field-group">
-      <label>{{localize "EX2E.MinEssence"}}</label>
-      <input type="number" name="system.essence" value="{{system.essence}}" min="1" max="10"
+      <label>{{localize "EX2E.CostBashingHealth"}}</label>
+      <input type="number" name="system.cost.bashingHealth" value="{{system.cost.bashingHealth}}" min="0"
              {{#unless isEditable}}readonly{{/unless}}>
     </div>
     <div class="field-group">
+      <label>{{localize "EX2E.CostLethalHealth"}}</label>
+      <input type="number" name="system.cost.lethalHealth" value="{{system.cost.lethalHealth}}" min="0"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.CostAggravatedHealth"}}</label>
+      <input type="number" name="system.cost.aggravatedHealth" value="{{system.cost.aggravatedHealth}}" min="0"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.CostExperience"}}</label>
+      <input type="number" name="system.cost.xp" value="{{system.cost.xp}}" min="0"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    <!-- Min Requirements -->
+    <div class="field-group">
       <label>{{localize "EX2E.MinAbility"}}</label>
       <input type="number" name="system.minAbility" value="{{system.minAbility}}" min="0" max="5"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.MinEssence"}}</label>
+      <input type="number" name="system.essence" value="{{system.essence}}" min="1" max="10"
              {{#unless isEditable}}readonly{{/unless}}>
     </div>
     <!-- Type -->

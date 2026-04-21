@@ -83,23 +83,85 @@ export class ExaltedItem extends Item {
     if (!actor) return false;
 
     const sys      = this.system;
-    const cost     = sys.cost;
+    const cost     = sys.cost ?? {};
     const motePool = "peripheral";  // default pool; chosen at activation time
     const isToggleable = ["oneScene", "indefinite"].includes(sys.duration);
     // For toggleable charms, activation is a flip — we only charge motes /
     // create attack effects when turning ON, and skip those when turning OFF.
     const turningOff = isToggleable && sys.active;
 
-    // Spend motes (spendMotes checks both pools and warns if insufficient)
-    if (!turningOff && cost.motes > 0) {
-      const spent = await actor.spendMotes(cost.motes, motePool);
-      if (!spent) return false;
+    // Coerce costs to numbers defensively — form inputs occasionally round-trip
+    // as strings, and `"1" > 0` is fine but `wp.value - "1"` is NaN.
+    const n = (v) => Math.max(0, Math.floor(Number(v) || 0));
+    const moteCost        = n(cost.motes);
+    const willpowerCost   = n(cost.willpower);
+    const bashingCost     = n(cost.bashingHealth);
+    const lethalCost      = n(cost.lethalHealth);
+    const aggravatedCost  = n(cost.aggravatedHealth);
+    const xpCost          = n(cost.xp);
+
+    // Track what we actually spent so the chat card's Reverse button can
+    // refund precisely what came out. Each field is recorded only when
+    // the activation actually incurred that cost.
+    const ledger = {
+      moteBreakdown: null,
+      willpower:     0,
+      bashing:       0,
+      lethal:        0,
+      aggravated:    0,
+      xp:            0,
+      toggledOn:     false,
+      toggledOff:    false,
+      spawnedWeapon: false,
+      rolledInstant: false
+    };
+
+    // Experience costs are irrecoverable in-world, so we prompt the user
+    // before going through with them. A "No" aborts the activation
+    // entirely — no motes / willpower / health consumed either.
+    if (!turningOff && xpCost > 0) {
+      const confirmed = await foundry.applications.api.DialogV2.confirm({
+        window: { title: game.i18n.localize("EX2E.CharmXPConfirmTitle") },
+        content: `<p>${game.i18n.format("EX2E.CharmXPConfirmBody", {
+          name: this.name, xp: xpCost
+        })}</p>`,
+        yes: { label: game.i18n.localize("EX2E.Confirm"), icon: "fa-solid fa-check" },
+        no:  { label: game.i18n.localize("EX2E.Cancel"),  icon: "fa-solid fa-xmark"  }
+      });
+      if (!confirmed) return false;
     }
 
-    // Spend willpower
-    if (!turningOff && cost.willpower > 0) {
-      const wp = actor.system.willpower;
-      await actor.update({ "system.willpower.value": Math.max(0, wp.value - cost.willpower) });
+    // Spend motes (spendMotes returns per-pool breakdown on success, null
+    // if the pools combined couldn't cover the cost)
+    if (!turningOff && moteCost > 0) {
+      const breakdown = await actor.spendMotes(moteCost, motePool);
+      if (!breakdown) return false;
+      ledger.moteBreakdown = breakdown;
+    }
+
+    // Spend willpower in a single update against the live value.
+    if (!turningOff && willpowerCost > 0) {
+      const currentWp = Number(actor.system.willpower?.value) || 0;
+      await actor.update({
+        "system.willpower.value": Math.max(0, currentWp - willpowerCost)
+      });
+      ledger.willpower = willpowerCost;
+    }
+
+    // Apply health-level costs per type. We use applyDamage sequentially
+    // so the actor's wound-cap / incapacitation logic runs once per
+    // damage injection — aligning charm self-harm with ordinary damage.
+    if (!turningOff && bashingCost    > 0) { await actor.applyDamage(bashingCost,    "bashing");    ledger.bashing    = bashingCost; }
+    if (!turningOff && lethalCost     > 0) { await actor.applyDamage(lethalCost,     "lethal");     ledger.lethal     = lethalCost; }
+    if (!turningOff && aggravatedCost > 0) { await actor.applyDamage(aggravatedCost, "aggravated"); ledger.aggravated = aggravatedCost; }
+
+    // Spend experience — `experience.value` is the current pool.
+    if (!turningOff && xpCost > 0) {
+      const currentXp = Number(actor.system.experience?.value) || 0;
+      await actor.update({
+        "system.experience.value": Math.max(0, currentXp - xpCost)
+      });
+      ledger.xp = xpCost;
     }
 
     // Weapon-like attack side effects — only when the Attack tab is enabled.
@@ -111,18 +173,23 @@ export class ExaltedItem extends Item {
         // attack card snapshots stats, so deleting the temp weapon
         // afterwards doesn't affect downstream resolution.
         await this._rollCharmInstantAttack();
+        ledger.rolledInstant = true;
       } else {
         await this._spawnCharmWeaponArtifacts();
+        ledger.spawnedWeapon = true;
       }
     }
 
     // Toggle active state for sustained Charms
     if (isToggleable) {
       await this.update({ "system.active": !sys.active });
+      ledger.toggledOn  = !turningOff;
+      ledger.toggledOff = turningOff;
     }
 
-    // Send to chat
-    await this.sendToChat();
+    // Send to chat with the activation ledger stamped on the message so
+    // the Reverse button (added in item-card.hbs) can undo everything.
+    await this.sendToChat({ activation: ledger });
     return true;
   }
 
@@ -231,11 +298,20 @@ export class ExaltedItem extends Item {
 
   /**
    * Send this item's description as a chat message.
+   *
+   * @param {object} [options]
+   * @param {object} [options.activation] Ledger of what a charm activation
+   *   spent / toggled, stamped onto the message's flags so the card's
+   *   Reverse button can undo it later. Shape:
+   *     { moteBreakdown, willpower, toggledOn, toggledOff,
+   *       spawnedWeapon, rolledInstant }
    */
-  async sendToChat() {
+  async sendToChat({ activation = null } = {}) {
     const templateData = {
       item:  this,
-      actor: this.actor
+      actor: this.actor,
+      activation,
+      canReverse: !!activation && !!this.actor
     };
     const content = await foundry.applications.handlebars.renderTemplate(
       "systems/exalted2e/templates/chat/item-card.hbs",
@@ -245,7 +321,17 @@ export class ExaltedItem extends Item {
       ? ChatMessage.getSpeaker({ actor: this.actor })
       : ChatMessage.getSpeaker();
 
-    return ChatMessage.create({ content, speaker });
+    const flags = activation
+      ? { exalted2e: {
+          charmActivation: {
+            charmId:  this.id,
+            actorId:  this.actor?.id ?? null,
+            ledger:   activation,
+            reversed: false
+          }
+        } }
+      : {};
+    return ChatMessage.create({ content, speaker, flags });
   }
 }
 
