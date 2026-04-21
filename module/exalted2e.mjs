@@ -151,19 +151,6 @@ Hooks.once("init", function () {
   // ── CONFIG Additions ────────────────────────────────────────────────────
   CONFIG.EX2E = EX2E;
 
-  // ── Status Effects ──────────────────────────────────────────────────────
-  // Creature of Darkness — a permanent character trait (demons, undead,
-  // hungry ghosts, warped infernals, etc.) that makes Holy-keyword attacks
-  // inflict aggravated damage instead of lethal. Registered as a token
-  // status so a GM can toggle it from the HUD; the attack pipeline reads
-  // it via `actor.statuses.has("creatureOfDarkness")`.
-  CONFIG.statusEffects ??= [];
-  CONFIG.statusEffects.push({
-    id:   "creatureOfDarkness",
-    name: "EX2E.CreatureOfDarkness",
-    img:  "icons/svg/cowled.svg"
-  });
-
   console.log("Exalted 2e | System initialised.");
 });
 
@@ -278,6 +265,17 @@ Hooks.on("createActor", async (actor, _options, userId) => {
   await _ensureUnarmedWeapon(actor);
 });
 
+// Gate the deletion of effects flagged `gmOnlyRemoval`. Flaws seeded
+// from the effects compendium (Creature of Darkness and friends) cannot
+// be shaken off by the player on whose sheet they live — only the GM
+// can clear them. `preDelete*` hooks cancel by returning false.
+Hooks.on("preDeleteActiveEffect", (effect, options, userId) => {
+  if (game.users.get(userId)?.isGM) return;
+  if (!effect.flags?.exalted2e?.gmOnlyRemoval) return;
+  ui.notifications.warn(game.i18n.localize("EX2E.EffectGMOnlyRemoval"));
+  return false;
+});
+
 // Tear down a charm-spawned weapon when its tracking ActiveEffect is
 // deleted — whether that happens because the charm was toggled off, the
 // Effects tab trashed it, or Foundry's duration system expired it. We
@@ -308,6 +306,118 @@ Hooks.once("ready", async function () {
     if (_hasUnarmedWeapon(actor)) continue;
     await actor.createEmbeddedDocuments("Item", [_unarmedWeaponData()]);
   }
+  await _seedEffectsCompendium();
+});
+
+/**
+ * Seed the `effects` compendium with built-in Exalted 2e condition
+ * wrappers the first time a GM boots the system. Each entry is a
+ * lightweight Item with its real payload carried as an embedded
+ * ActiveEffect flagged `transfer: true`, so dragging the item onto an
+ * actor applies the effect (see the preCreateItem hook below, which
+ * discards the wrapper item and keeps only the effect).
+ *
+ * Additional wrappers can be appended to `_EFFECT_WRAPPER_SEEDS`.
+ */
+const _EFFECT_WRAPPER_SEEDS = [
+  {
+    name: "EX2E.CreatureOfDarkness",
+    img:  "icons/svg/cowled.svg",
+    // Canonically a Flaw — it has no in-game cost but cannot be shaken off.
+    meritFlawType: "flaw",
+    effect: {
+      // Detection is flag-based rather than status-based so the token HUD
+      // doesn't advertise the trait — CoD is supposed to be invisible to
+      // observers. `gmOnlyRemoval` is enforced by the preDeleteActiveEffect
+      // hook below.
+      flags: {
+        exalted2e: {
+          creatureOfDarkness: true,
+          gmOnlyRemoval:      true
+        }
+      },
+      description: "Holy-keyword attacks deal aggravated damage to this character instead of bashing or lethal."
+    }
+  }
+];
+
+async function _seedEffectsCompendium() {
+  const pack = game.packs.get("exalted2e.effects");
+  if (!pack) return;
+  const existing = await pack.getIndex();
+  // Skip the seed pass if every expected entry already exists (indexed by name).
+  const existingNames = new Set(existing.map(e => e.name));
+  const todo = _EFFECT_WRAPPER_SEEDS.filter(s =>
+    !existingNames.has(game.i18n.localize(s.name))
+  );
+  if (todo.length === 0) return;
+
+  // The pack may be locked by default; unlock for seeding.
+  const wasLocked = pack.locked;
+  if (wasLocked) await pack.configure({ locked: false });
+  try {
+    for (const seed of todo) {
+      const localizedName = game.i18n.localize(seed.name);
+      await Item.create({
+        name:  localizedName,
+        type:  "meritflaw",
+        img:   seed.img,
+        flags: { exalted2e: { effectWrapper: true } },
+        system: {
+          meritFlawType: seed.meritFlawType ?? "merit",
+          description:   seed.effect.description ?? ""
+        },
+        effects: [{
+          name:     localizedName,
+          img:      seed.img,
+          // Permanent duration — no rounds / turns / seconds set.
+          duration: {},
+          // Flag-driven rather than status-driven, so nothing surfaces on
+          // the token HUD (`statuses` is intentionally omitted).
+          flags:    seed.effect.flags ?? {},
+          transfer: true,
+          disabled: false
+        }]
+      }, { pack: "exalted2e.effects" });
+    }
+    console.log(`Exalted 2e | Seeded ${todo.length} effect wrapper(s) into the effects compendium.`);
+  } finally {
+    if (wasLocked) await pack.configure({ locked: true });
+  }
+}
+
+/**
+ * When an effect-wrapper item is dropped onto an actor, hijack the
+ * creation: spawn the wrapper's embedded ActiveEffects directly on the
+ * actor and cancel the item creation itself. Keeps the actor sheet from
+ * accumulating bookkeeping "merit/flaw" entries that only exist to
+ * carry the real effect payload.
+ */
+Hooks.on("preCreateItem", (item, data, options, userId) => {
+  if (userId !== game.user.id) return;
+  const actor = item.parent;
+  if (!actor) return;
+  const isWrapper = data.flags?.exalted2e?.effectWrapper
+                 ?? item.getFlag("exalted2e", "effectWrapper");
+  if (!isWrapper) return;
+
+  const effects = (data.effects ?? []).map(e => {
+    const clone = foundry.utils.deepClone(e);
+    delete clone._id;
+    return clone;
+  });
+  if (effects.length > 0) {
+    // Fire-and-forget: preCreate hooks are synchronous. The creation
+    // happens off the critical path, and cancelling below prevents the
+    // wrapper item itself from ever landing on the actor.
+    actor.createEmbeddedDocuments("ActiveEffect", effects);
+    const label = game.i18n.localize(item.name ?? "");
+    ui.notifications.info(game.i18n.format("EX2E.EffectAppliedFromWrapper", {
+      name:  label,
+      actor: actor.name
+    }));
+  }
+  return false;
 });
 
 // ── Combat Tracker Controls ────────────────────────────────────────────────

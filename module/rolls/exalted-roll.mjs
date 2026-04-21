@@ -472,7 +472,13 @@ export class ExaltedRoll {
     // we re-read both off the final damage type before the card snapshot.
     const isHolyAttack  = activatedKeywords.has("Holy")
                        || (mode.tags ?? []).includes("Holy");
-    const targetIsCoD   = targetActor?.statuses?.has("creatureOfDarkness") ?? false;
+    // CoD is carried as a non-status ActiveEffect flag so the trait stays
+    // invisible to observers (no token HUD icon). Check for any enabled
+    // effect on the target that advertises it.
+    debugger;
+    const targetIsCoD   = !!targetActor?.effects?.some(
+      e => !e.disabled && e.flags?.exalted2e?.creatureOfDarkness === true
+    );
     let finalDamageType = mode.damageType;
     let holyUpgraded    = false;
     if (isHolyAttack && targetIsCoD) {

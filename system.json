@@ -40,6 +40,15 @@
       "path": "lang/es.json"
     }
   ],
+  "packs": [
+    {
+      "name": "effects",
+      "label": "Exalted 2e Effects",
+      "path": "packs/effects",
+      "type": "Item",
+      "system": "exalted2e"
+    }
+  ],
   "socket": false,
   "initiative": "(@attributes.wits.value + @attributes.perception.value)d10cs>=7",
   "grid": {
