@@ -31,6 +31,8 @@ export class ActionQuickbar {
   constructor() {
     this._root = null;
     this._submenu = null;
+    this._moveOverlay = null;
+    this._moveOverlayPending = null;
     this._build();
     // Close the attack-mode submenu on any outside click.
     document.addEventListener("click", (ev) => {
@@ -93,9 +95,13 @@ export class ActionQuickbar {
   _hide() {
     this._root.classList.add("hidden");
     this._hideSubmenu();
+    this._hideMoveRange();
   }
 
   _render(combat, current) {
+    // A re-render destroys old buttons before their mouseleave can fire —
+    // clear any lingering reach preview so it can't orphan on the canvas.
+    this._hideMoveRange();
     const actor   = current.actor;
     const pending = current.flags?.exalted2e?.pendingAction ?? null;
     const flurry  = current.flags?.exalted2e?.flurry ?? null;
@@ -187,10 +193,16 @@ export class ActionQuickbar {
     });
 
     this._root.querySelectorAll(".qb-action").forEach(btn => {
+      const key = btn.dataset.actionKey;
       btn.addEventListener("click", () => {
-        const key = btn.dataset.actionKey;
         this._handleAction(key, actor, current);
       });
+      // Move / Dash hover — paint a reach circle on the canvas so the
+      // player can gauge whether they'll close the distance in one action.
+      if (key === "move" || key === "dash") {
+        btn.addEventListener("mouseenter", () => this._showMoveRange(actor, key));
+        btn.addEventListener("mouseleave", () => this._hideMoveRange());
+      }
     });
 
     this._root.querySelector(".qb-flurry")?.addEventListener("click", async () => {
@@ -312,6 +324,76 @@ export class ActionQuickbar {
       content,
       speaker: ChatMessage.getSpeaker({ actor })
     });
+  }
+
+  // ── Move / Dash reach preview ─────────────────────────────────────────
+  /**
+   * Render a client-only MeasuredTemplate centered on the active
+   * combatant's token, radius equal to their Move (Dex) or Dash (Dex + 3)
+   * distance. Using Foundry's native template gives us the scene's proper
+   * distance unit, grid-aware fill highlighting, and the built-in distance
+   * ruler for free.
+   *
+   * The template is never saved to the scene — we hand-instantiate the
+   * document + object pair and parent the object under
+   * `canvas.templates.preview` so it lives only on this client's canvas
+   * until `_hideMoveRange` tears it down.
+   */
+  async _showMoveRange(actor, key) {
+    this._hideMoveRange();
+    if (!canvas?.ready || !canvas.scene) return;
+    const token = actor?.getActiveTokens?.()[0];
+    if (!token) return;
+
+    const sys = actor.system ?? {};
+    const dex = sys.attributes?.dexterity?.value ?? 0;
+    const distance = key === "dash"
+      ? (sys.dash ?? (dex + 3))
+      : (sys.movement ?? dex);
+    if (distance <= 0) return;
+
+    const color = key === "dash" ? "#f0a500" : "#ffe066";
+    const DocClass = CONFIG.MeasuredTemplate.documentClass;
+    const ObjClass = CONFIG.MeasuredTemplate.objectClass;
+    const doc = new DocClass({
+      t:           "circle",
+      user:        game.user.id,
+      x:           token.center.x,
+      y:           token.center.y,
+      distance,
+      direction:   0,
+      fillColor:   color,
+      borderColor: color,
+      hidden:      false,
+      flags:       { exalted2e: { movePreview: true } }
+    }, { parent: canvas.scene });
+
+    // Track the pending show so a fast hover→leave doesn't orphan a
+    // half-drawn template on the canvas.
+    const token_id = Symbol("ex2e-move-preview");
+    this._moveOverlayPending = token_id;
+
+    const template = new ObjClass(doc);
+    await template.draw();
+
+    // If the user already moved off the button while draw() was awaiting,
+    // discard this template instead of attaching it.
+    if (this._moveOverlayPending !== token_id) {
+      template.destroy({ children: true });
+      return;
+    }
+
+    canvas.templates.preview.addChild(template);
+    this._moveOverlay = template;
+    this._moveOverlayPending = null;
+  }
+
+  _hideMoveRange() {
+    this._moveOverlayPending = null;
+    if (!this._moveOverlay) return;
+    this._moveOverlay.parent?.removeChild(this._moveOverlay);
+    this._moveOverlay.destroy({ children: true });
+    this._moveOverlay = null;
   }
 
   _equippedModes(actor) {
