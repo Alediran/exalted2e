@@ -470,7 +470,16 @@
     "PrerequisitesPlaceholder":      "e.g. Hungry Tiger Technique...",
     "KnackPrerequisitesPlaceholder": "e.g. Changing Moon Caste or Wits 3+...",
     "AddKeyword":                    "+ Add",
-    "OriginalAttackerNotFound":      "[EX2E] Original attacker (id={id}) not found."
+    "OriginalAttackerNotFound":      "[EX2E] Original attacker (id={id}) not found.",
+
+    "ActionDeclared":                "Action Declared",
+    "DvPenalty":                     "DV penalty",
+    "QuickbarAttackTooltip":         "Pick an attack mode",
+    "QuickbarNoEquipped":            "No weapon equipped",
+    "QuickbarActionTooltip":         "{name} · Spd {speed} · −{dv} DV",
+    "QuickbarActionDvLabel":         "{name} (action)",
+    "QuickbarPendingLabel":          "Declared: {name} · Spd {speed} · −{dv} DV",
+    "QuickbarFlurryLocked":          "Flurry locked · Spd {speed} · −{dv} DV"
   },
   "TYPES": {
     "Actor": {

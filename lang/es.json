@@ -470,7 +470,16 @@
     "PrerequisitesPlaceholder":      "ej. Técnica del Tigre Hambriento...",
     "KnackPrerequisitesPlaceholder": "ej. Casta Luna Menguante o Astucia 3+...",
     "AddKeyword":                    "+ Añadir",
-    "OriginalAttackerNotFound":      "[EX2E] Atacante original (id={id}) no encontrado."
+    "OriginalAttackerNotFound":      "[EX2E] Atacante original (id={id}) no encontrado.",
+
+    "ActionDeclared":                "Acción Declarada",
+    "DvPenalty":                     "Penal. DV",
+    "QuickbarAttackTooltip":         "Selecciona un modo de ataque",
+    "QuickbarNoEquipped":            "Sin arma equipada",
+    "QuickbarActionTooltip":         "{name} · Vel {speed} · −{dv} DV",
+    "QuickbarActionDvLabel":         "{name} (acción)",
+    "QuickbarPendingLabel":          "Declarado: {name} · Vel {speed} · −{dv} DV",
+    "QuickbarFlurryLocked":          "Ráfaga fijada · Vel {speed} · −{dv} DV"
   },
   "TYPES": {
     "Actor": {

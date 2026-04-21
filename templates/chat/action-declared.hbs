@@ -1,0 +1,18 @@
+<div class="ex2e-roll-card ex2e-action-card">
+  <div class="roll-header">
+    <span class="roll-actor">{{actorName}}</span>
+    <span class="roll-flavor">{{localize "EX2E.ActionDeclared"}}</span>
+  </div>
+
+  <div class="action-card-summary">
+    <div class="action-line">
+      <span class="action-label">{{label}}</span>
+    </div>
+    <div class="action-stats">
+      <span><strong>{{localize "EX2E.Speed"}}:</strong> {{speed}}</span>
+      {{#if dvPenalty}}
+      <span><strong>{{localize "EX2E.DvPenalty"}}:</strong> −{{dvPenalty}}</span>
+      {{/if}}
+    </div>
+  </div>
+</div>

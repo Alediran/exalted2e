@@ -127,6 +127,10 @@ export class ExaltedCombat extends Combat {
     if (current.getFlag("exalted2e", "flurry")) {
       await current.unsetFlag("exalted2e", "flurry");
     }
+    // Same for a single-action declaration from the quickbar.
+    if (current.getFlag("exalted2e", "pendingAction")) {
+      await current.unsetFlag("exalted2e", "pendingAction");
+    }
     // `turn` is an index into the sorted combatants array; whoever sits at
     // index 0 after the re-sort is the new active combatant.
     await this.update({ turn: 0 });

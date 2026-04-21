@@ -26,6 +26,7 @@ import { GenericItemSheet } from "./sheets/item/generic-item-sheet.mjs";
 import { KnackSheet }      from "./sheets/item/knack-sheet.mjs";
 import { VirtueFlawSheet } from "./sheets/item/virtueflaw-sheet.mjs";
 import { registerHandlebarsHelpers } from "./helpers/handlebars.mjs";
+import { ActionQuickbar, finishTurnFor } from "./ui/action-quickbar.mjs";
 
 // ── Init Hook ──────────────────────────────────────────────────────────────
 Hooks.once("init", function () {
@@ -202,7 +203,8 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/dialog/formula-builder-dialog.hbs",
     "systems/exalted2e/templates/dialog/virtueflaw-picker-dialog.hbs",
     "systems/exalted2e/templates/chat/attack-result.hbs",
-    "systems/exalted2e/templates/chat/flurry-declared.hbs"
+    "systems/exalted2e/templates/chat/flurry-declared.hbs",
+    "systems/exalted2e/templates/chat/action-declared.hbs"
   ];
   return foundry.applications.handlebars.loadTemplates(templatePaths);
 }
@@ -298,6 +300,28 @@ Hooks.on("deleteActiveEffect", async (effect, _options, userId) => {
 // ── Ready Hook ─────────────────────────────────────────────────────────────
 Hooks.once("ready", async function () {
   console.log("Exalted 2e | System ready.");
+
+  // Action quickbar — one instance per client, refreshed from combat /
+  // combatant / active-effect hooks below.
+  ActionQuickbar.instance.refresh();
+  const qbRefresh = () => ActionQuickbar.instance.refresh();
+  Hooks.on("updateCombat",      qbRefresh);
+  Hooks.on("createCombat",      qbRefresh);
+  Hooks.on("deleteCombat",      qbRefresh);
+  Hooks.on("combatStart",       qbRefresh);
+  Hooks.on("combatTurn",        qbRefresh);
+  Hooks.on("createCombatant",   qbRefresh);
+  Hooks.on("deleteCombatant",   qbRefresh);
+  Hooks.on("updateCombatant",   qbRefresh);
+  // Reflect DV-penalty AE changes (e.g., after rolling an attack, or
+  // when a flurry DV AE is stamped) so the pending indicator updates.
+  Hooks.on("createActiveEffect", qbRefresh);
+  Hooks.on("deleteActiveEffect", qbRefresh);
+  // Weapon equip toggles during a turn should re-evaluate the attack submenu.
+  Hooks.on("updateItem",        qbRefresh);
+  Hooks.on("createItem",        qbRefresh);
+  Hooks.on("deleteItem",        qbRefresh);
+
   // Migration: back-fill unarmed attacks onto existing characters that
   // pre-date this feature. GM-only to avoid write races.
   if (!game.user.isGM) return;
@@ -582,19 +606,10 @@ Hooks.on("renderCombatTracker", (app, html, _data) => {
       finishBtn.title = finishLabel;
       finishBtn.innerHTML = `<i class="fa-solid fa-forward-step"></i> ${finishLabel}`;
       finishBtn.addEventListener("click", async () => {
-        // A declared flurry locks in its Speed up front — skip the dialog.
-        if (flurry) {
-          await combat.advanceCurrentByTicks(flurry.speed);
-          return;
-        }
-        const { FinishTurnDialog } = await import("./dialogs/finish-turn-dialog.mjs");
-        const speed = await FinishTurnDialog.prompt({
-          combatantName: current.name,
-          currentTick:   current.initiative ?? 0,
-          defaultSpeed:  5
-        });
-        if (speed === null) return;
-        await combat.advanceCurrentByTicks(speed);
+        // Shared with the action quickbar: prefers a declared flurry's
+        // Speed, then a pendingAction flag from the quickbar, and finally
+        // falls back to the manual FinishTurnDialog.
+        await finishTurnFor(combat, current);
       });
       insertBtn(finishBtn);
     }

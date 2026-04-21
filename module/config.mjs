@@ -289,23 +289,24 @@ EX2E.abilityGroups = {
 // preset strip (common single-action cases). All actions are selectable in
 // the Flurry dialog row dropdown.
 EX2E.actions = {
-  guard:       { labelKey: "EX2E.ActionGuard",       speed: 3, dvMod: 0, preset: true, isFlurry: false  },
-  move:        { labelKey: "EX2E.ActionMove",        speed: 0, dvMod: 0, preset: true, isFlurry: true  },
-  dash:        { labelKey: "EX2E.ActionDash",        speed: 3, dvMod: 2, preset: true, isFlurry: true  },
-  aim:         { labelKey: "EX2E.ActionAim",         speed: 5, dvMod: 2, preset: true, isFlurry: false  },
-  simpleCharm: { labelKey: "EX2E.ActionSimple",      speed: 6, dvMod: 1, preset: true, isFlurry: true  },
-  draw:        { labelKey: "EX2E.ActionDraw",        speed: 5, dvMod: 1, preset: false, isFlurry: true },
-  rise:        { labelKey: "EX2E.ActionRise",        speed: 5, dvMod: 2, preset: false, isFlurry: true },
-  jump:        { labelKey: "EX2E.ActionJump",        speed: 5, dvMod: 2, preset: false, isFlurry: true },
-  coordinate:  { labelKey: "EX2E.ActionCoordinate",  speed: 5, dvMod: 2, preset: false, isFlurry: true },
-  inactive:    { labelKey: "EX2E.ActionInactive",    speed: 5, dvMod: 0, preset: false, isFlurry: false }
+  guard:       { labelKey: "EX2E.ActionGuard",       icon: "fa-solid fa-shield",             speed: 3, dvMod: 0, preset: true,  isFlurry: false },
+  move:        { labelKey: "EX2E.ActionMove",        icon: "fa-solid fa-person-walking",     speed: 0, dvMod: 0, preset: true,  isFlurry: true  },
+  dash:        { labelKey: "EX2E.ActionDash",        icon: "fa-solid fa-person-running",     speed: 3, dvMod: 2, preset: true,  isFlurry: true  },
+  aim:         { labelKey: "EX2E.ActionAim",         icon: "fa-solid fa-bullseye",           speed: 5, dvMod: 2, preset: true,  isFlurry: false },
+  simpleCharm: { labelKey: "EX2E.ActionSimple",      icon: "fa-solid fa-wand-sparkles",      speed: 6, dvMod: 1, preset: true,  isFlurry: true  },
+  draw:        { labelKey: "EX2E.ActionDraw",        icon: "fa-solid fa-hand-fist",          speed: 5, dvMod: 1, preset: false, isFlurry: true  },
+  rise:        { labelKey: "EX2E.ActionRise",        icon: "fa-solid fa-arrow-up-from-bracket", speed: 5, dvMod: 2, preset: false, isFlurry: true },
+  jump:        { labelKey: "EX2E.ActionJump",        icon: "fa-solid fa-up-long",            speed: 5, dvMod: 2, preset: false, isFlurry: true  },
+  coordinate:  { labelKey: "EX2E.ActionCoordinate",  icon: "fa-solid fa-users",              speed: 5, dvMod: 2, preset: false, isFlurry: true  },
+  inactive:    { labelKey: "EX2E.ActionInactive",    icon: "fa-solid fa-pause",              speed: 5, dvMod: 0, preset: false, isFlurry: false }
 };
 
-/** List view of EX2E.actions as [{ key, label, speed, dvMod, preset, isFlurry }] (localized). */
+/** List view of EX2E.actions as [{ key, label, icon, speed, dvMod, preset, isFlurry }] (localized). */
 EX2E.getActionList = function () {
   return Object.entries(EX2E.actions).map(([key, a]) => ({
     key,
     label:    game.i18n.localize(a.labelKey),
+    icon:     a.icon ?? "",
     speed:    a.speed,
     dvMod:    a.dvMod,
     preset:   !!a.preset,
