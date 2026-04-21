@@ -8,9 +8,15 @@
   z-index: 60;
 
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   gap: 4px;
   padding: 4px 6px;
+
+  /* Cap the width so the bar never spills under Foundry's right sidebar;
+     buttons wrap to a second row on narrow viewports. */
+  max-width: 45vw;
 
   background: var(--ex2e-bg-panel, #141414);
   border: 1px solid var(--ex2e-border-color, rgba(92, 69, 16, 0.6));
