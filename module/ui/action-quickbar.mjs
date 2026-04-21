@@ -64,6 +64,27 @@ export class ActionQuickbar {
       || current.actor.testUserPermission(game.user, "OWNER");
     if (!canAct) return this._hide();
 
+    const currentTick = combat.currentTick;
+    const initiative  = current.initiative ?? 0;
+    const acted       = !!current.flags?.exalted2e?.actedThisTick;
+    const committed   = current.flags?.exalted2e?.committedAction ?? null;
+
+    // Mid-action (initiative is past the wheel): only show a bar if the
+    // committed action is abortable and hasn't been aborted yet.
+    if (initiative > currentTick) {
+      if (committed?.abortable && !committed?.aborted) {
+        this._renderAbortOnly(current, committed);
+        this._show();
+      } else {
+        this._hide();
+      }
+      return;
+    }
+
+    // Already committed this tick — waiting for GM's Next Tick.
+    if (acted) return this._hide();
+
+    // Free and eligible: full quickbar.
     this._render(combat, current);
     this._show();
   }
@@ -245,6 +266,54 @@ export class ActionQuickbar {
     this._submenu.replaceChildren();
   }
 
+  // ── Abort-only render (mid-action, abortable) ─────────────────────────
+  _renderAbortOnly(current, committed) {
+    const indicator = document.createElement("div");
+    indicator.classList.add("qb-pending");
+    indicator.textContent = game.i18n.format("EX2E.QuickbarInProgressLabel", {
+      name: committed.label || "",
+      tick: current.initiative ?? 0
+    });
+
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.classList.add("qb-btn", "qb-abort");
+    btn.title = game.i18n.localize("EX2E.AbortActionTooltip");
+    btn.innerHTML = `<i class="fa-solid fa-ban"></i> ${game.i18n.localize("EX2E.AbortAction")}`;
+    btn.addEventListener("click", async () => {
+      await this._handleAbort(current, committed);
+    });
+
+    this._root.replaceChildren(indicator, btn);
+  }
+
+  async _handleAbort(current, committed) {
+    const actor = current.actor;
+    if (!actor) return;
+    // Mark the committed action aborted — downstream action-specific
+    // effects (e.g. Aim's dice bonus, once it lands) read this and skip
+    // applying. The unspent ticks and DV penalty stay per Exalted RAW.
+    await current.setFlag("exalted2e", "committedAction", {
+      ...committed,
+      aborted: true
+    });
+    const content = await foundry.applications.handlebars.renderTemplate(
+      "systems/exalted2e/templates/chat/action-declared.hbs",
+      {
+        actorName: actor.name,
+        label:     game.i18n.format("EX2E.ActionAbortedLabel", {
+          name: committed.label || ""
+        }),
+        speed:     committed.speed  ?? 0,
+        dvPenalty: committed.dvPenalty ?? 0
+      }
+    );
+    await ChatMessage.create({
+      content,
+      speaker: ChatMessage.getSpeaker({ actor })
+    });
+  }
+
   _equippedModes(actor) {
     const out = [];
     for (const w of (actor?.items ?? [])) {
@@ -300,6 +369,7 @@ export class ActionQuickbar {
       label,
       speed:     cfg.speed,
       dvPenalty: cfg.dvMod,
+      abortable: !!cfg.abortable,
       dvEffectId
     });
     await this._postActionCard(actor, { label, speed: cfg.speed, dvPenalty: cfg.dvMod });
@@ -320,6 +390,7 @@ export class ActionQuickbar {
       label:     mode.label,
       speed:     mode.speed,
       dvPenalty: mode.dvMod,
+      abortable: false,
       weaponId:  mode.weaponId,
       modeIndex: mode.modeIndex,
       dvEffectId

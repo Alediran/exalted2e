@@ -479,7 +479,16 @@
     "QuickbarActionTooltip":         "{name} · Vel {speed} · −{dv} DV",
     "QuickbarActionDvLabel":         "{name} (acción)",
     "QuickbarPendingLabel":          "Declarado: {name} · Vel {speed} · −{dv} DV",
-    "QuickbarFlurryLocked":          "Ráfaga fijada · Vel {speed} · −{dv} DV"
+    "QuickbarFlurryLocked":          "Ráfaga fijada · Vel {speed} · −{dv} DV",
+    "QuickbarInProgressLabel":       "En curso: {name} — se resuelve en tick {tick}",
+
+    "CurrentTickLabel":              "Tick {tick}",
+    "CurrentTickTooltip":            "Tick actual de la rueda",
+    "NextTick":                      "Siguiente Tick",
+    "NextTickTooltip":               "Avanza la rueda un tick",
+    "AbortAction":                   "Abortar",
+    "AbortActionTooltip":            "Abortar la acción en curso para reaccionar. Los ticks pendientes y la penalización de DV se pierden.",
+    "ActionAbortedLabel":            "Abortado: {name}"
   },
   "TYPES": {
     "Actor": {

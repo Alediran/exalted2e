@@ -479,7 +479,16 @@
     "QuickbarActionTooltip":         "{name} · Spd {speed} · −{dv} DV",
     "QuickbarActionDvLabel":         "{name} (action)",
     "QuickbarPendingLabel":          "Declared: {name} · Spd {speed} · −{dv} DV",
-    "QuickbarFlurryLocked":          "Flurry locked · Spd {speed} · −{dv} DV"
+    "QuickbarFlurryLocked":          "Flurry locked · Spd {speed} · −{dv} DV",
+    "QuickbarInProgressLabel":       "In progress: {name} — resolves on tick {tick}",
+
+    "CurrentTickLabel":              "Tick {tick}",
+    "CurrentTickTooltip":            "Current wheel tick",
+    "NextTick":                      "Next Tick",
+    "NextTickTooltip":               "Advance the wheel by one tick",
+    "AbortAction":                   "Abort",
+    "AbortActionTooltip":            "Abort the in-progress action to take a reflexive response. Unspent ticks and DV penalty are lost.",
+    "ActionAbortedLabel":            "Aborted: {name}"
   },
   "TYPES": {
     "Actor": {

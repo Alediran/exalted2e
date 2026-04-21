@@ -503,7 +503,7 @@ Hooks.on("renderCombatTracker", (app, html, _data) => {
   if (!anchorParent) return;
 
   // Clear any ex2e button from a previous render before re-adding this phase's.
-  el.querySelectorAll(".ex2e-jb-btn, .ex2e-jb-npc-btn, .ex2e-finish-turn-btn, .ex2e-flurry-btn").forEach(b => b.remove());
+  el.querySelectorAll(".ex2e-jb-btn, .ex2e-jb-npc-btn, .ex2e-finish-turn-btn, .ex2e-flurry-btn, .ex2e-next-tick-btn, .ex2e-tick-badge").forEach(b => b.remove());
 
   const insertBtn = (btn) => {
     if (endBtn && anchorParent.contains(endBtn)) {
@@ -538,10 +538,39 @@ Hooks.on("renderCombatTracker", (app, html, _data) => {
     });
     insertBtn(jbBtn);
   } else if (started) {
-    // Phase 3: Declare Flurry + Finish Turn — visible to the active combatant's owner / GM.
+    // Phase 3: wheel-based tick system. Everyone sees a Tick badge; the GM
+    // also gets a Next Tick button. The active combatant's owner / GM sees
+    // Declare Flurry + Finish Turn for committing the declared action.
+
+    // Tick badge — plain span, not a button. Shown to all users.
+    const tickBadge = document.createElement("span");
+    tickBadge.classList.add("ex2e-tick-badge");
+    tickBadge.title = game.i18n.localize("EX2E.CurrentTickTooltip");
+    tickBadge.innerHTML = `<i class="fa-solid fa-circle-dot"></i> ${game.i18n.format("EX2E.CurrentTickLabel", { tick: combat.currentTick })}`;
+    insertBtn(tickBadge);
+
+    // Next Tick — GM only. Advances the wheel by one.
+    if (game.user.isGM) {
+      const nextTickBtn = document.createElement("button");
+      nextTickBtn.type = "button";
+      nextTickBtn.classList.add("combat-control", "ex2e-next-tick-btn");
+      nextTickBtn.title = game.i18n.localize("EX2E.NextTickTooltip");
+      nextTickBtn.innerHTML = `<i class="fa-solid fa-clock-rotate-left"></i> ${game.i18n.localize("EX2E.NextTick")}`;
+      nextTickBtn.addEventListener("click", async () => {
+        await combat.advanceWheel();
+      });
+      insertBtn(nextTickBtn);
+    }
+
     const current = combat.combatant;
-    const canFinish = current
+    const owned = current
       && (game.user.isGM || current.actor?.testUserPermission(game.user, "OWNER"));
+    // The combatant is eligible to commit only when they're free
+    // (initiative <= currentTick) and haven't already acted this tick.
+    const currentTick = combat.currentTick;
+    const isFree = current && (current.initiative ?? 0) <= currentTick;
+    const hasActed = !!current?.flags?.exalted2e?.actedThisTick;
+    const canFinish = owned && isFree && !hasActed;
     if (canFinish) {
       const flurry = current.flags?.exalted2e?.flurry ?? null;
 

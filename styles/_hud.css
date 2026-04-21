@@ -80,6 +80,35 @@
   border-radius: 3px;
 }
 
+.ex2e-action-quickbar .qb-abort {
+  color: var(--ex2e-dmg-lethal, #c0392b);
+  border-color: var(--ex2e-dmg-lethal, #c0392b);
+}
+
+.ex2e-action-quickbar .qb-abort:hover:not(:disabled) {
+  background: rgba(192, 57, 43, 0.12);
+  color: #ff6b5a;
+  border-color: #ff6b5a;
+}
+
+/* ── Combat-tracker tick badge ────────────────────────────────────────── */
+
+.ex2e-tick-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  margin-right: 4px;
+  border: 1px solid var(--ex2e-gold-mid, #a07820);
+  border-radius: 10px;
+  background: var(--ex2e-bg-medium, #0e0e0e);
+  color: var(--ex2e-gold-bright, #ffe066);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
 /* ── Attack-mode popover ──────────────────────────────────────────────── */
 
 .ex2e-action-submenu {
