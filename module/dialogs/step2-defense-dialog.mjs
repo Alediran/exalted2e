@@ -63,9 +63,12 @@ export class Step2DefenseDialog extends HandlebarsApplicationMixin(ApplicationV2
       charms:       this._data.charms.map(c => {
         const cost = c.system.cost ?? {};
         const parts = [];
-        if (cost.motes)        parts.push(`${cost.motes}m`);
-        if (cost.willpower)    parts.push(`${cost.willpower}wp`);
-        if (cost.healthLevels) parts.push(`${cost.healthLevels}hl`);
+        if (cost.motes)            parts.push(`${cost.motes}m`);
+        if (cost.willpower)        parts.push(`${cost.willpower}wp`);
+        if (cost.bashingHealth)    parts.push(`${cost.bashingHealth}hl(B)`);
+        if (cost.lethalHealth)     parts.push(`${cost.lethalHealth}hl(L)`);
+        if (cost.aggravatedHealth) parts.push(`${cost.aggravatedHealth}hl(A)`);
+        if (cost.xp)               parts.push(`${cost.xp}xp`);
         return { id: c.id, name: c.name, costLabel: parts.join(" · ") };
       }),
       excellency:     exc,

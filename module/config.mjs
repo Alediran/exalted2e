@@ -313,17 +313,6 @@ EX2E.getActionList = function () {
   }));
 };
 
-// Health level definitions (label, wound penalty)
-EX2E.healthLevels = [
-  { label: "-0",  penalty: 0 },
-  { label: "-1",  penalty: -1 },
-  { label: "-1",  penalty: -1 },
-  { label: "-2",  penalty: -2 },
-  { label: "-2",  penalty: -2 },
-  { label: "-4",  penalty: -4 },
-  { label: "Inc", penalty: -0 }
-];
-
 // ── Active Bonus Table Helpers ──────────────────────────────────────────
 // These return the correct bonus table based on the "Use Errata Materials" setting.
 // Errata tables are sparse (only overridden materials); base table fills the gaps.
