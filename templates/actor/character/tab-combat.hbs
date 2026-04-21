@@ -4,7 +4,7 @@
     <!-- ═══════════════ HEALTH LEVELS ═══════════════ -->
     <h2 class="section-header">{{localize "EX2E.HealthLevels"}}</h2>
 
-    {{healthTrack health=system.health}}
+    {{healthTrack health=system.health exaltType=system.exaltType}}
 
     <div class="health-info">
       <span class="wound-penalty-label">{{localize "EX2E.WoundPenalty"}}:
@@ -28,10 +28,22 @@
       <button class="damage-btn heal" data-action="healDamage"
               data-amount="1">Heal 1</button>
     </div>
-    <div class="field-group" style="margin-top:8px">
+    <div class="bonus-health-grid" style="margin-top:8px">
       <label>{{localize "EX2E.BonusHealthLevels"}}</label>
-      <input type="number" name="system.health.bonus" value="{{system.health.bonus}}"
-             min="0" max="10" style="width:60px">
+      <div class="bonus-health-inputs">
+        <label class="bonus-health-cell">
+          <span>−0</span>
+          <input type="number" name="system.health.bonus.zero" value="{{system.health.bonus.zero}}" min="0" max="20">
+        </label>
+        <label class="bonus-health-cell">
+          <span>−1</span>
+          <input type="number" name="system.health.bonus.one" value="{{system.health.bonus.one}}" min="0" max="20">
+        </label>
+        <label class="bonus-health-cell">
+          <span>−2</span>
+          <input type="number" name="system.health.bonus.two" value="{{system.health.bonus.two}}" min="0" max="20">
+        </label>
+      </div>
     </div>
     {{/if}}
 

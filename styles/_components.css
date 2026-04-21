@@ -72,12 +72,68 @@
 }
 
 /* ── HEALTH TRACK ────────────────────────────────────────────────────────── */
+/* Row-per-penalty-level layout. Each row has a gold label column and a
+   boxes column; the boxes column chunks into lines of up to 10 boxes so
+   wide tracks don't run off-screen, and each line right-aligns so partial
+   lines settle against the track's right edge. */
+.health-track-rows {
+  display:        flex;
+  flex-direction: column;
+  gap:            4px;
+  padding:        var(--ex2e-gap-sm) 0;
+}
+.health-row {
+  display:               grid;
+  grid-template-columns: 40px 1fr;
+  gap:                   var(--ex2e-gap-sm);
+  align-items:           center;
+}
+.health-row-label {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-sm);
+  color:          var(--ex2e-gold-main);
+  text-align:     right;
+  font-weight:    bold;
+  letter-spacing: 0.04em;
+}
+.health-row-boxes {
+  display:        flex;
+  flex-direction: column;
+  gap:            3px;
+}
+.health-row-line {
+  display:         flex;
+  gap:             4px;
+  justify-content: flex-end;
+}
+
+/* Legacy flat track — still used anywhere that calls the old helper
+   without per-level data; safe to leave alongside the row layout. */
 .health-track {
   display:   flex;
   gap:       4px;
   flex-wrap: wrap;
   padding:   var(--ex2e-gap-sm) 0;
 }
+
+/* Bonus health-level editor: label + three compact inputs laid out as a row. */
+.bonus-health-grid {
+  display:     flex;
+  align-items: center;
+  gap:         var(--ex2e-gap-sm);
+}
+.bonus-health-inputs {
+  display: flex;
+  gap:     8px;
+}
+.bonus-health-cell {
+  display:     inline-flex;
+  align-items: center;
+  gap:         4px;
+  font-size:   var(--ex2e-font-size-xs);
+  color:       var(--ex2e-text-secondary);
+}
+.bonus-health-cell input { width: 48px; }
 
 .health-box {
   width:  36px;

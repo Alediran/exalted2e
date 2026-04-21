@@ -277,10 +277,16 @@ export class ExaltedActor extends Actor {
     const h = foundry.utils.deepClone(this.system.health);
     h[type] = Math.max(0, h[type] + amount);
 
-    // Cap total damage at total boxes
-    const totalBoxes = this.type === "character"
-      ? (7 + h.bonus)
-      : h.totalBoxes;
+    // Cap total damage at total boxes. For characters, bonus is a
+    // per-level object (-0 / -1 / -2); NPCs carry a flat totalBoxes.
+    let totalBoxes;
+    if (this.type === "character") {
+      const b = h.bonus ?? { zero: 0, one: 0, two: 0 };
+      const bonusTotal = (b.zero ?? 0) + (b.one ?? 0) + (b.two ?? 0);
+      totalBoxes = 7 + bonusTotal;
+    } else {
+      totalBoxes = h.totalBoxes;
+    }
     const totalDmg = h.aggravated + h.lethal + h.bashing;
     if (totalDmg > totalBoxes) {
       const excess = totalDmg - totalBoxes;

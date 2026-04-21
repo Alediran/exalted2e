@@ -43,36 +43,81 @@ export function registerHandlebarsHelpers() {
   });
 
   // ── healthTrack ────────────────────────────────────────────────────────
-  // Renders the Exalted health track with damage types shown.
+  // Renders the Exalted health track as one row per penalty level. Each
+  // row carries a label column (-0 / -1 / -2 / -4 / Inc) and a box
+  // column; box lines wrap every 10 boxes and right-align within the
+  // column so partial lines settle flush with the track's right edge.
+  //
+  // -0 / -1 / -2 accept bonus boxes via `health.bonus.{zero,one,two}`;
+  // -4 and Incapacitated are always one box each.
+  //
   // Usage: {{healthTrack health=system.health}}
   Handlebars.registerHelper("healthTrack", function(options) {
-    const { health } = options.hash;
-    const totalBoxes = health.totalBoxes ?? 7;
+    const { health, exaltType } = options.hash;
+    const bonus = health.bonus ?? { zero: 0, one: 0, two: 0 };
+    const zeroCount = 1 + (bonus.zero ?? 0);
+    const oneCount  = 2 + (bonus.one  ?? 0);
+    const twoCount  = 2 + (bonus.two  ?? 0);
+    const totalBoxes = zeroCount + oneCount + twoCount + 1 /* -4 */ + 1 /* Inc */;
+
     const agg    = Math.min(health.aggravated ?? 0, totalBoxes);
     const lethal = Math.min(health.lethal     ?? 0, totalBoxes - agg);
     const bash   = Math.min(health.bashing    ?? 0, totalBoxes - agg - lethal);
 
-    const levelLabels = ["-0", "-1", "-1", "-2", "-2", "-4", "Inc"];
+    const levels = [
+      { label: "-0",  count: zeroCount },
+      { label: "-1",  count: oneCount  },
+      { label: "-2",  count: twoCount  },
+      { label: "-4",  count: 1         },
+      { label: "Inc", count: 1         }
+    ];
 
-    let html = '<div class="health-track">';
-    for (let i = 0; i < totalBoxes; i++) {
-      let dmgClass = "empty";
-      let dmgLabel = "";
-      if (i < agg) {
-        dmgClass = "aggravated";
-        dmgLabel = "X";
-      } else if (i < agg + lethal) {
-        dmgClass = "lethal";
-        dmgLabel = "/";
-      } else if (i < agg + lethal + bash) {
-        dmgClass = "bashing";
-        dmgLabel = "\\";
+    // Lunars can take Ox-Body twice as many times at each tier, so their
+    // rows can stretch well past 5 boxes; give them a 10-box line before
+    // wrapping. Everyone else (including NPCs where `exaltType` is unset)
+    // wraps at 5 boxes — keeps the track readable on a narrow sheet.
+    const MAX_PER_LINE = exaltType === "lunar" ? 10 : 5;
+    let globalIndex = 0;
+    let html = '<div class="health-track-rows">';
+
+    for (const level of levels) {
+      html += `<div class="health-row">`;
+      html += `<div class="health-row-label">${level.label}</div>`;
+      html += `<div class="health-row-boxes">`;
+
+      // Collect boxes, chunking at MAX_PER_LINE so each resulting line
+      // can be right-aligned independently.
+      const lines = [];
+      let currentLine = [];
+      for (let j = 0; j < level.count; j++) {
+        let dmgClass = "empty";
+        let dmgLabel = "";
+        if (globalIndex < agg) {
+          dmgClass = "aggravated";
+          dmgLabel = "X";
+        } else if (globalIndex < agg + lethal) {
+          dmgClass = "lethal";
+          dmgLabel = "/";
+        } else if (globalIndex < agg + lethal + bash) {
+          dmgClass = "bashing";
+          dmgLabel = "\\";
+        }
+        currentLine.push(
+          `<div class="health-box ${dmgClass}" data-index="${globalIndex}" title="${level.label}">`
+          + `<span class="box-mark">${dmgLabel}</span></div>`
+        );
+        globalIndex++;
+        if (currentLine.length >= MAX_PER_LINE) {
+          lines.push(currentLine);
+          currentLine = [];
+        }
       }
-      const levelLabel = i < levelLabels.length ? levelLabels[i] : "";
-      html += `<div class="health-box ${dmgClass}" data-index="${i}" title="${levelLabel}">
-        <span class="box-label">${levelLabel}</span>
-        <span class="box-mark">${dmgLabel}</span>
-      </div>`;
+      if (currentLine.length > 0) lines.push(currentLine);
+
+      for (const line of lines) {
+        html += `<div class="health-row-line">${line.join("")}</div>`;
+      }
+      html += `</div></div>`;
     }
     html += "</div>";
     return new Handlebars.SafeString(html);

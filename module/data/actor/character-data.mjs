@@ -112,11 +112,18 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 
       // ── Health ─────────────────────────────────────────────────────────────
       // damage: bashing (b), lethal (l), aggravated (a) – total boxes = 7 base
+      // + bonus boxes. Extra boxes are tracked per penalty level so charms
+      // can grow specific tiers of the track. -4 and Incapacitated always
+      // stay at one box each — only -0 / -1 / -2 accept bonuses.
       health: new fields.SchemaField({
         bashing:    new fields.NumberField({ initial: 0, min: 0, max: 20, integer: true }),
         lethal:     new fields.NumberField({ initial: 0, min: 0, max: 20, integer: true }),
         aggravated: new fields.NumberField({ initial: 0, min: 0, max: 20, integer: true }),
-        bonus:      new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true })
+        bonus: new fields.SchemaField({
+          zero: new fields.NumberField({ initial: 0, min: 0, max: 20, integer: true }),
+          one:  new fields.NumberField({ initial: 0, min: 0, max: 20, integer: true }),
+          two:  new fields.NumberField({ initial: 0, min: 0, max: 20, integer: true })
+        })
       }),
 
       // ── Experience ─────────────────────────────────────────────────────────
@@ -168,16 +175,29 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 
   _prepareHealthData() {
     const h = this.health;
-    const totalBoxes = 7 + h.bonus;
+    // Per-level box counts: -0, -1, -2 accept bonuses; -4 and Incap are
+    // always a single box each regardless of charm / effect bonuses.
+    const b = h.bonus ?? { zero: 0, one: 0, two: 0 };
+    const zeroCount = 1 + (b.zero ?? 0);
+    const oneCount  = 2 + (b.one  ?? 0);
+    const twoCount  = 2 + (b.two  ?? 0);
+    const totalBoxes  = zeroCount + oneCount + twoCount + 1 /* -4 */ + 1 /* Incap */;
     const totalDamage = h.aggravated + h.lethal + h.bashing;
-    h.totalBoxes = totalBoxes;
+    h.totalBoxes  = totalBoxes;
     h.totalDamage = Math.min(totalDamage, totalBoxes);
+    // Cumulative counts so consumers (health-track helper, wound penalty)
+    // can locate which level a given filled-box index belongs to.
+    h.levelCounts = { zero: zeroCount, one: oneCount, two: twoCount };
 
-    // Wound penalty based on first filled box index
+    // Wound penalty = the penalty tier of the most-recently-filled box.
     const filled = Math.min(totalDamage, totalBoxes);
-    const woundPenalties = [0, -1, -1, -2, -2, -4, null]; // null = incapacitated
-    h.woundPenalty = woundPenalties[Math.min(filled, 6)] ?? null;
-    h.incapacitated = filled >= totalBoxes;
+    let penalty  = 0;
+    if      (filled > zeroCount + oneCount + twoCount + 1) penalty = null;   // Incap
+    else if (filled > zeroCount + oneCount + twoCount)     penalty = -4;
+    else if (filled > zeroCount + oneCount)                penalty = -2;
+    else if (filled > zeroCount)                           penalty = -1;
+    h.woundPenalty   = penalty;
+    h.incapacitated  = filled >= totalBoxes;
   }
 
   _prepareCombatStats() {
