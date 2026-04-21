@@ -10,13 +10,13 @@
       <div class="field-group">
         <label>{{localize "EX2E.NpcType"}}</label>
         <input type="text" name="system.npcType" value="{{system.npcType}}"
-               placeholder="e.g. Mortal, Spirit, Demon..."
+               placeholder="{{localize 'EX2E.NpcTypePlaceholder'}}"
                {{#unless isEditable}}readonly{{/unless}}>
       </div>
       <div class="field-group">
         <label>{{localize "EX2E.Concept"}}</label>
         <input type="text" name="system.concept" value="{{system.concept}}"
-               placeholder="Concept..." {{#unless isEditable}}readonly{{/unless}}>
+               placeholder="{{localize 'EX2E.ConceptPlaceholder'}}" {{#unless isEditable}}readonly{{/unless}}>
       </div>
       <div class="field-group">
         <label>{{localize "EX2E.Essence"}}</label>
@@ -26,7 +26,7 @@
     </div>
     <!-- Willpower -->
     <div class="wp-row">
-      <span class="pool-label">Willpower {{system.willpower.value}}/{{system.willpower.max}}</span>
+      <span class="pool-label">{{localize "EX2E.Willpower"}} {{system.willpower.value}}/{{system.willpower.max}}</span>
       {{willpowerTrack value=system.willpower.value max=system.willpower.max name="system.willpower.value"}}
     </div>
     <!-- Motes -->

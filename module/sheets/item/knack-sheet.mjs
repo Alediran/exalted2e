@@ -38,7 +38,6 @@ export class KnackSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       item,
       system:       sys,
       config:       EX2E,
-      allKeywords:  EX2E.knackKeywords,
       isEditable:   this.isEditable,
       enrichedDescription: await TextEditor.enrichHTML(sys.description, {
         secrets: this.document.isOwner, relativeTo: this.document

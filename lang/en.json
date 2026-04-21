@@ -460,7 +460,17 @@
     "CharmsPowers":      "Charms / Powers",
     "NotesPowers":       "Notes / Powers",
     "NpcType":           "Type",
-    "Essence":           "Essence"
+    "Essence":           "Essence",
+
+    "ActorNamePlaceholder":          "Character Name",
+    "ConceptPlaceholder":            "Concept...",
+    "MotivationPlaceholder":         "Motivation...",
+    "NpcTypePlaceholder":            "e.g. Mortal, Spirit, Demon...",
+    "RollDescriptionPlaceholder":    "Roll description...",
+    "PrerequisitesPlaceholder":      "e.g. Hungry Tiger Technique...",
+    "KnackPrerequisitesPlaceholder": "e.g. Changing Moon Caste or Wits 3+...",
+    "AddKeyword":                    "+ Add",
+    "OriginalAttackerNotFound":      "[EX2E] Original attacker (id={id}) not found."
   },
   "TYPES": {
     "Actor": {

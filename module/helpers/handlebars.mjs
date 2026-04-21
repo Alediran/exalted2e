@@ -164,23 +164,12 @@ export function registerHandlebarsHelpers() {
     return new Handlebars.SafeString(html);
   });
 
-  // ── localizeAbility ───────────────────────────────────────────────────
-  Handlebars.registerHelper("localizeAbility", function(key) {
-    const labelKey = EX2E.abilityLabels[key];
-    return labelKey ? game.i18n.localize(labelKey) : key;
-  });
-
   // ── localizeAttribute ─────────────────────────────────────────────────
   Handlebars.registerHelper("localizeAttribute", function(key) {
     for (const group of Object.values(EX2E.attributes)) {
       if (group[key]) return game.i18n.localize(group[key]);
     }
     return key;
-  });
-
-  // ── concatClasses ─────────────────────────────────────────────────────
-  Handlebars.registerHelper("concatClasses", function(...args) {
-    return args.filter(a => typeof a === "string").join(" ");
   });
 
   // ── gt / gte / lt / lte / eq ──────────────────────────────────────────
@@ -199,27 +188,6 @@ export function registerHandlebarsHelpers() {
   Handlebars.registerHelper("includes", (arr, item) =>
     Array.isArray(arr) && arr.includes(item)
   );
-
-  // ── times ─────────────────────────────────────────────────────────────
-  // {{#times 5}} ... {{/times}}
-  Handlebars.registerHelper("times", function(n, block) {
-    let result = "";
-    for (let i = 0; i < n; i++) result += block.fn(i);
-    return result;
-  });
-
-  // ── range ─────────────────────────────────────────────────────────────
-  Handlebars.registerHelper("range", function(from, to, options) {
-    let result = "";
-    for (let i = from; i <= to; i++) result += options.fn(i);
-    return result;
-  });
-
-  // ── objectEntries ─────────────────────────────────────────────────────
-  Handlebars.registerHelper("objectEntries", function(obj, block) {
-    if (typeof obj !== "object" || obj === null) return "";
-    return Object.entries(obj).map(([key, value]) => block.fn({ key, value })).join("");
-  });
 
   // ── array ─────────────────────────────────────────────────────────────
   // Creates an array from arguments: {{#each (array "a" "b" "c")}}

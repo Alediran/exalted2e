@@ -460,7 +460,17 @@
     "CharmsPowers":      "Encantos / Poderes",
     "NotesPowers":       "Notas / Poderes",
     "NpcType":           "Tipo",
-    "Essence":           "Esencia"
+    "Essence":           "Esencia",
+
+    "ActorNamePlaceholder":          "Nombre del Personaje",
+    "ConceptPlaceholder":            "Concepto...",
+    "MotivationPlaceholder":         "Motivación...",
+    "NpcTypePlaceholder":            "ej. Mortal, Espíritu, Demonio...",
+    "RollDescriptionPlaceholder":    "Descripción de la tirada...",
+    "PrerequisitesPlaceholder":      "ej. Técnica del Tigre Hambriento...",
+    "KnackPrerequisitesPlaceholder": "ej. Casta Luna Menguante o Astucia 3+...",
+    "AddKeyword":                    "+ Añadir",
+    "OriginalAttackerNotFound":      "[EX2E] Atacante original (id={id}) no encontrado."
   },
   "TYPES": {
     "Actor": {

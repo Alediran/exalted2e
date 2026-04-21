@@ -12,7 +12,7 @@
   <div class="field-group" style="margin-top:10px">
     <label>{{localize "EX2E.Prerequisites"}}</label>
     <input type="text" name="system.prerequisites" value="{{system.prerequisites}}"
-           placeholder="e.g. Changing Moon Caste or Wits 3+..." style="width:100%"
+           placeholder="{{localize 'EX2E.KnackPrerequisitesPlaceholder'}}" style="width:100%"
            {{#unless isEditable}}readonly{{/unless}}>
   </div>
 
@@ -33,7 +33,7 @@
       </span>
       {{/each}}
       {{#if isEditable}}
-      <button data-action="addKeyword">+ Add</button>
+      <button data-action="addKeyword">{{localize "EX2E.AddKeyword"}}</button>
       {{/if}}
     </div>
   </div>

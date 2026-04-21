@@ -1073,7 +1073,7 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     }
     const originalAttacker = game.actors.get(attack.actorId);
     if (!originalAttacker) {
-      ui.notifications.warn(`[EX2E] Original attacker (id=${attack.actorId}) not found.`);
+      ui.notifications.warn(game.i18n.format("EX2E.OriginalAttackerNotFound", { id: attack.actorId }));
       return;
     }
 
