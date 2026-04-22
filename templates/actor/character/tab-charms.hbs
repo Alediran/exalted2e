@@ -31,6 +31,13 @@
               {{/if}}
             {{/if}}
           {{/with}}
+          {{#if (eq charm.system.excellency "first")}}
+          <span class="charm-excellency-badge" title="{{localize 'EX2E.FirstExcellency'}}">I</span>
+          {{else if (eq charm.system.excellency "second")}}
+          <span class="charm-excellency-badge" title="{{localize 'EX2E.SecondExcellency'}}">II</span>
+          {{else if (eq charm.system.excellency "third")}}
+          <span class="charm-excellency-badge" title="{{localize 'EX2E.ThirdExcellency'}}">III</span>
+          {{/if}}
           {{charm.name}}
           <span class="charm-meta">
             {{charm.system.cost.motes}}m

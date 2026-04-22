@@ -241,3 +241,21 @@
 .charm-group-header:first-child {
   margin-top: 4px;
 }
+
+.charm-excellency-badge {
+  display: inline-block;
+  min-width: 18px;
+  padding: 1px 5px;
+  margin-right: 4px;
+  border: 1px solid var(--ex2e-gold-mid, #a07820);
+  border-radius: 8px;
+  background: var(--ex2e-bg-medium, #0e0e0e);
+  color: var(--ex2e-gold-bright, #ffe066);
+  font-size: 10px;
+  font-weight: 700;
+  font-family: var(--ex2e-font-ui, "Signika", sans-serif);
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+}
