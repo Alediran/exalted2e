@@ -10,11 +10,9 @@ const fields = foundry.data.fields;
  *                    lives in the sheet layer, not here.
  *   • "necromancy" — Shadowlands (1), Labyrinth (2), Void (3) circles.
  *
- * Cost, duration, and keywords mirror CharmData so the chat-card and
- * activation-ledger machinery built for charms can resolve spell casts
- * without a parallel pipeline. A ritual-shape spell has the same data
- * layout as a simple-shape one — only the flavour text and cast-time
- * description differ, which players sort out at the table.
+ * Cost + duration mirror CharmData so the chat-card and activation-
+ * ledger machinery built for charms can resolve spell casts without a
+ * parallel pipeline.
  */
 export class SpellData extends foundry.abstract.TypeDataModel {
   static defineSchema() {
@@ -41,14 +39,9 @@ export class SpellData extends foundry.abstract.TypeDataModel {
         xp:               new fields.NumberField({ initial: 0,  min: 0, max: 50,  integer: true })
       }),
 
-      // ── Shape / Duration / Target ─────────────────────────────────────
-      shape:      new fields.StringField({
-        initial: "simple",
-        choices: ["simple", "ritual"]
-      }),
+      // ── Duration / Target ─────────────────────────────────────────────
       duration:   new fields.StringField({ initial: "instant", blank: false }),
       target:     new fields.StringField({ initial: "", blank: true }),
-      keywords:   new fields.ArrayField(new fields.StringField({ blank: true })),
 
       // ── Description ────────────────────────────────────────────────────
       description: new fields.HTMLField({ initial: "" })

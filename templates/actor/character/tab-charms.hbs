@@ -107,13 +107,6 @@
             · {{spell.system.duration}}
           </span>
         </span>
-        {{#if spell.system.keywords.length}}
-        <span class="charm-keywords">
-          {{#each spell.system.keywords as |kw|}}
-          <span class="keyword-tag">{{kw}}</span>
-          {{/each}}
-        </span>
-        {{/if}}
         <div class="item-controls">
           <button data-action="activateCharm" title="{{localize 'EX2E.CastSpell'}}">⚡</button>
           <button data-action="sendItemToChat" title="{{localize 'EX2E.SendToChat'}}">💬</button>

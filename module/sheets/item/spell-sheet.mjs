@@ -17,11 +17,7 @@ export class SpellSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     classes:  ["exalted2e", "item", "spell"],
     position: { width: 520, height: 520 },
     window: { resizable: true },
-    form: { submitOnChange: true, closeOnSubmit: false },
-    actions: {
-      addKeyword:    SpellSheet.#onAddKeyword,
-      removeKeyword: SpellSheet.#onRemoveKeyword
-    }
+    form: { submitOnChange: true, closeOnSubmit: false }
   };
 
   get title() { return this.document.name; }
@@ -46,14 +42,9 @@ export class SpellSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         { value: "necromancy", label: game.i18n.localize("EX2E.TraditionNecromancy") }
       ],
       circleChoices: this._circleChoicesFor(sys.tradition),
-      shapeChoices: [
-        { value: "simple", label: game.i18n.localize("EX2E.SpellShapeSimple") },
-        { value: "ritual", label: game.i18n.localize("EX2E.SpellShapeRitual") }
-      ],
       durations: Object.entries(EX2E.durations).map(([k,v]) => ({
         value: k, label: game.i18n.localize(v)
       })),
-      allKeywords: EX2E.charmKeywords,
       isEditable:  this.isEditable,
       enrichedDescription: await TextEditor.enrichHTML(sys.description, {
         secrets: this.document.isOwner, relativeTo: this.document
@@ -76,16 +67,4 @@ export class SpellSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     }));
   }
 
-  static async #onAddKeyword(event, target) {
-    const keywords = foundry.utils.deepClone(this.document.system.keywords ?? []);
-    keywords.push(EX2E.charmKeywords[0] ?? "");
-    await this.document.update({ "system.keywords": keywords });
-  }
-
-  static async #onRemoveKeyword(event, target) {
-    const idx = parseInt(target.dataset.index);
-    const keywords = foundry.utils.deepClone(this.document.system.keywords ?? []);
-    keywords.splice(idx, 1);
-    await this.document.update({ "system.keywords": keywords });
-  }
 }

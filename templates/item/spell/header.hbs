@@ -23,15 +23,6 @@
           {{/each}}
         </select>
       </div>
-
-      <div class="field-group">
-        <label>{{localize "EX2E.SpellShape"}}</label>
-        <select name="system.shape" {{#unless isEditable}}disabled{{/unless}}>
-          {{#each shapeChoices}}
-          <option value="{{value}}" {{#if (eq value ../system.shape)}}selected{{/if}}>{{label}}</option>
-          {{/each}}
-        </select>
-      </div>
     </div>
 
     <!-- Cost summary (mirrors charm header) -->
