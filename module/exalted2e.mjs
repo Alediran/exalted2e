@@ -338,6 +338,28 @@ Hooks.once("ready", async function () {
     if (_hasUnarmedWeapon(actor)) continue;
     await actor.createEmbeddedDocuments("Item", [_unarmedWeaponData()]);
   }
+
+  // Migration: assign stable charmUids to any charms that pre-date the
+  // field. Runs once per world load; the inner loops are no-ops once
+  // every charm has a uid.
+  for (const actor of game.actors) {
+    const updates = [];
+    for (const item of actor.items) {
+      if (item.type !== "charm") continue;
+      if (item.system.charmUid) continue;
+      updates.push({ _id: item.id, "system.charmUid": foundry.utils.randomID() });
+    }
+    if (updates.length > 0) {
+      await actor.updateEmbeddedDocuments("Item", updates);
+    }
+  }
+  const worldCharms = game.items.filter(i => i.type === "charm" && !i.system.charmUid);
+  if (worldCharms.length > 0) {
+    await Item.updateDocuments(worldCharms.map(i => ({
+      _id: i.id, "system.charmUid": foundry.utils.randomID()
+    })));
+  }
+
   await _seedEffectsCompendium();
 });
 
@@ -427,6 +449,15 @@ async function _seedEffectsCompendium() {
  */
 Hooks.on("preCreateItem", (item, data, options, userId) => {
   if (userId !== game.user.id) return;
+
+  // Assign a stable charmUid on any new charm that doesn't already have
+  // one. Fires for both world-level and actor-embedded charms. Imports
+  // from a compendium carry the source's uid forward, which is exactly
+  // what we want — prereqs stay linked across the copy.
+  if (item.type === "charm" && !data.system?.charmUid) {
+    item.updateSource({ "system.charmUid": foundry.utils.randomID() });
+  }
+
   const actor = item.parent;
   if (!actor) return;
   const isWrapper = data.flags?.exalted2e?.effectWrapper

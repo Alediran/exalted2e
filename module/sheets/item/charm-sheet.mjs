@@ -87,6 +87,15 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         { value: "charm",         label: game.i18n.localize("EX2E.PrereqTypeCharm") },
         { value: "anyExcellency", label: game.i18n.localize("EX2E.PrereqTypeAnyExcellency") }
       ],
+      // Owned-charm list powers the prereq name-input's datalist — picking
+      // a suggestion auto-fills the paired charmUid so renames stay safe.
+      // Empty in compendium/unowned context; the input degrades to plain
+      // name-entry and matching falls back to name.
+      ownedCharmOptions: (item.actor?.items ?? [])
+        .filter(i => i.type === "charm" && i.id !== item.id)
+        .map(i => ({ uid: i.system?.charmUid ?? "", name: i.name }))
+        .filter(o => o.uid)
+        .sort((a, b) => a.name.localeCompare(b.name)),
       isEditable:   this.isEditable,
       enrichedDescription: await TextEditor.enrichHTML(sys.description, {
         secrets: this.document.isOwner, relativeTo: this.document
@@ -142,13 +151,13 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   }
 
   // ── Prerequisite editing ────────────────────────────────────────────────
-  // Per CLAUDE.md: Foundry's ArrayField updates don't reliably patch a
+  // Foundry's ArrayField updates don't reliably patch a
   // specific index, so every mutation clones the full list and writes the
   // whole path.
 
   static async #onAddPrereqGroup(event, target) {
     const groups = foundry.utils.deepClone(this.document.system.prereqGroups ?? []);
-    groups.push({ alternatives: [{ type: "charm", charmName: "" }] });
+    groups.push({ alternatives: [{ type: "charm", charmUid: "", charmName: "" }] });
     await this.document.update({ "system.prereqGroups": groups });
   }
 
@@ -165,7 +174,7 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     if (!Number.isFinite(gi)) return;
     const groups = foundry.utils.deepClone(this.document.system.prereqGroups ?? []);
     if (!groups[gi]) return;
-    (groups[gi].alternatives ??= []).push({ type: "charm", charmName: "" });
+    (groups[gi].alternatives ??= []).push({ type: "charm", charmUid: "", charmName: "" });
     await this.document.update({ "system.prereqGroups": groups });
   }
 
@@ -205,9 +214,31 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
 
   _onRender(context, options) {
     super._onRender(context, options);
+
+    // Keep the Attack-Steps <details> open across re-renders.
     const details = this.element.querySelector("details.steps-dropdown");
-    if (!details) return;
-    if (this._stepsOpen) details.setAttribute("open", "");
-    details.addEventListener("toggle", () => { this._stepsOpen = details.open; });
+    if (details) {
+      if (this._stepsOpen) details.setAttribute("open", "");
+      details.addEventListener("toggle", () => { this._stepsOpen = details.open; });
+    }
+
+    // Prereq charm-name inputs are paired with a hidden charmUid input.
+    // When the user picks a suggestion from the datalist (or types a name
+    // that matches an owned charm exactly), resolve the uid and write it
+    // into the hidden input BEFORE the form-wide submit fires. Capture
+    // phase puts us ahead of ApplicationV2's form listeners.
+    const byName = new Map(
+      (context.ownedCharmOptions ?? []).map(o =>
+        [String(o.name ?? "").trim().toLowerCase(), o.uid]
+      )
+    );
+    this.element.querySelectorAll(".prereq-charm-name").forEach(input => {
+      input.addEventListener("change", (ev) => {
+        const uidField = ev.currentTarget.parentElement?.querySelector(".prereq-charm-uid");
+        if (!uidField) return;
+        const typed = String(ev.currentTarget.value ?? "").trim().toLowerCase();
+        uidField.value = byName.get(typed) ?? "";
+      }, true); // capture phase — run before the form-submit handler
+    });
   }
 }

@@ -28,10 +28,21 @@ function _norm(s) {
 /**
  * Decide whether a single alternative is satisfied by an actor's owned
  * charms. Excludes the hosting charm from the pool (a charm cannot be its
- * own prerequisite, and in practice its name would satisfy itself).
+ * own prerequisite).
+ *
+ * For `type: "charm"` alternatives we match by stable `system.charmUid`
+ * when one is stored on the alt (which is the normal case — the sheet's
+ * picker captures it on selection). A blank `charmUid` falls back to
+ * case-insensitive name match for compendium-authored prereqs that
+ * haven't been rewired through a UID-aware picker, and for data authored
+ * before charmUids existed.
  */
 function _altSatisfied(alt, hostCharm, ownedCharms) {
   if (alt.type === "charm") {
+    const wantUid = String(alt.charmUid ?? "").trim();
+    if (wantUid) {
+      return ownedCharms.some(c => c.system?.charmUid === wantUid);
+    }
     const want = _norm(alt.charmName);
     if (!want) return false;
     return ownedCharms.some(c => _norm(c.name) === want);
@@ -78,11 +89,13 @@ export function areCharmPrereqsMet(charm, actor) {
 
 /**
  * Human-readable description of a single group. "X or Y or Z" for OR
- * groups; a bare name for singletons.
+ * groups; a bare name for singletons. When `actor` is provided, charm
+ * alternatives with a `charmUid` resolve their label from the actor's
+ * current charm name (so post-rename displays stay current).
  */
-export function describeGroup(group) {
+export function describeGroup(group, actor = null) {
   const alts = group?.alternatives ?? [];
-  const parts = alts.map(_altLabel).filter(Boolean);
+  const parts = alts.map(a => _altLabel(a, actor)).filter(Boolean);
   if (parts.length === 0) return "";
   if (parts.length === 1) return parts[0];
   return parts.join(` ${game.i18n.localize("EX2E.PrereqOr")} `);
@@ -92,19 +105,24 @@ export function describeGroup(group) {
  * Flat comma-separated list of every alternative across every group.
  * Used by the read-only charm sheet display.
  */
-export function describeAllPrereqs(charm) {
+export function describeAllPrereqs(charm, actor = null) {
   const groups = charm.system?.prereqGroups ?? [];
   const labels = [];
   for (const g of groups) {
     for (const a of (g.alternatives ?? [])) {
-      const label = _altLabel(a);
+      const label = _altLabel(a, actor ?? charm.actor ?? null);
       if (label) labels.push(label);
     }
   }
   return labels.join(", ");
 }
 
-function _altLabel(alt) {
+function _altLabel(alt, actor = null) {
   if (alt?.type === "anyExcellency") return game.i18n.localize("EX2E.PrereqAnyExcellency");
+  const uid = String(alt?.charmUid ?? "").trim();
+  if (uid && actor) {
+    const match = actor.items.find(i => i.type === "charm" && i.system?.charmUid === uid);
+    if (match?.name) return match.name;
+  }
   return (alt?.charmName ?? "").trim();
 }

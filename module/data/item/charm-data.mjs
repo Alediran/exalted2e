@@ -4,6 +4,11 @@ export class CharmData extends foundry.abstract.TypeDataModel {
   static defineSchema() {
     return {
       // ── Identity ────────────────────────────────────────────────────────
+      // Stable internal identifier assigned on creation (preCreateItem
+      // hook in exalted2e.mjs) and via ready-time migration for
+      // pre-existing charms. Used by the prereq-matching machinery so
+      // renames don't break prerequisites.
+      charmUid:     new fields.StringField({ initial: "", blank: true }),
       exaltType:    new fields.StringField({ initial: "solar", blank: true }),
       ability:      new fields.StringField({ initial: "melee", blank: true }),
       essence:      new fields.NumberField({ initial: 1, min: 1, max: 10, integer: true }),
@@ -50,6 +55,10 @@ export class CharmData extends foundry.abstract.TypeDataModel {
             initial: "charm",
             choices: ["charm", "anyExcellency"]
           }),
+          // Canonical reference: the target charm's `system.charmUid`.
+          // `charmName` is kept as a display label and as a name-based
+          // fallback for prereqs authored before UIDs were in place.
+          charmUid:  new fields.StringField({ initial: "", blank: true }),
           charmName: new fields.StringField({ initial: "", blank: true })
         }))
       })),

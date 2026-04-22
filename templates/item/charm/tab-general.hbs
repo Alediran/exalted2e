@@ -140,8 +140,14 @@
             {{/each}}
           </select>
           {{#if (eq alt.type "charm")}}
-          <input type="text" name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.charmName"
-                 value="{{alt.charmName}}" placeholder="{{localize 'EX2E.PrereqCharmNamePlaceholder'}}">
+          <input type="text" class="prereq-charm-name"
+                 name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.charmName"
+                 value="{{alt.charmName}}" placeholder="{{localize 'EX2E.PrereqCharmNamePlaceholder'}}"
+                 {{#if @root.ownedCharmOptions.length}}list="ex2e-prereq-charms"{{/if}}
+                 autocomplete="off">
+          <input type="hidden" class="prereq-charm-uid"
+                 name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.charmUid"
+                 value="{{alt.charmUid}}">
           {{else}}
           <span class="prereq-any-exc-label">{{localize "EX2E.PrereqAnyExcellencyHint"}}</span>
           {{/if}}
@@ -161,6 +167,14 @@
       <div class="prereq-readonly">
         {{#if prereqSummary}}{{prereqSummary}}{{else}}—{{/if}}
       </div>
+    {{/if}}
+
+    {{#if ownedCharmOptions.length}}
+    <datalist id="ex2e-prereq-charms">
+      {{#each ownedCharmOptions as |opt|}}
+      <option value="{{opt.name}}" data-uid="{{opt.uid}}"></option>
+      {{/each}}
+    </datalist>
     {{/if}}
   </div>
 
