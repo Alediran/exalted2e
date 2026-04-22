@@ -81,9 +81,12 @@ export class TickWheel {
       slotCombatants[slot].push(c);
     }
 
-    const nextTickBtn = game.user.isGM
-      ? `<button type="button" class="tw-next-tick" title="${game.i18n.localize("EX2E.NextTickTooltip")}" aria-label="${game.i18n.localize("EX2E.NextTick")}">
-           <i class="fa-solid fa-clock-rotate-left"></i>
+    const gmControls = game.user.isGM
+      ? `<button type="button" class="tw-end-combat" title="${game.i18n.localize("EX2E.EndEncounterTooltip")}" aria-label="${game.i18n.localize("EX2E.EndEncounter")}">
+           <i class="fa-solid fa-flag-checkered"></i>
+         </button>
+         <button type="button" class="tw-next-tick" title="${game.i18n.localize("EX2E.NextTickTooltip")}" aria-label="${game.i18n.localize("EX2E.NextTick")}">
+           <i class="fa-solid fa-rotate-right"></i>
          </button>`
       : "";
 
@@ -96,7 +99,7 @@ export class TickWheel {
       </div>
       <div class="tw-svg-wrap">
         ${this._buildSvg(wheelTick, slotCombatants)}
-        ${nextTickBtn}
+        ${gmControls}
       </div>
       <div class="tw-footer">
         ${game.i18n.format("EX2E.TickWheelCycleLabel", {
@@ -111,6 +114,10 @@ export class TickWheel {
     });
     this._root.querySelector(".tw-next-tick")?.addEventListener("click", async () => {
       await combat.advanceWheel();
+    });
+    this._root.querySelector(".tw-end-combat")?.addEventListener("click", async () => {
+      // `endCombat()` shows Foundry's native confirmation dialog.
+      await combat.endCombat();
     });
   }
 
