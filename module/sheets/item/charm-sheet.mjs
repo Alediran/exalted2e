@@ -59,6 +59,20 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       tabAttack:  { id: "tabAttack",  group: "sheet", icon: "fa-solid fa-crosshairs",  label: game.i18n.localize("EX2E.TabAttack"),  cssClass: this.tabGroups.sheet === "tabAttack"  ? "active" : "" }
     };
 
+    // Lunars and Alchemicals key their charms to Attributes; every other
+    // exalt type keys to Abilities. Both use the same `system.ability`
+    // field — only the dropdown contents and the field label change.
+    const usesAttribute = ["lunar", "alchemical"].includes(sys.exaltType);
+    const attributeOptions = [];
+    for (const group of Object.values(EX2E.attributes)) {
+      for (const [key, labelKey] of Object.entries(group)) {
+        attributeOptions.push({ value: key, label: game.i18n.localize(labelKey) });
+      }
+    }
+    const abilityOptions = EX2E.abilities.map(k => ({
+      value: k, label: game.i18n.localize(EX2E.abilityLabels[k] ?? k)
+    }));
+
     return {
       ...context,
       item,
@@ -68,7 +82,12 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       charmTypes:   Object.entries(EX2E.charmTypes).map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
       durations:    Object.entries(EX2E.durations).map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
       exaltTypes:   Object.entries(EX2E.exaltTypes).map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
-      abilities:    EX2E.abilities.map(k => ({ value: k, label: game.i18n.localize(EX2E.abilityLabels[k] ?? k) })),
+      usesAttribute,
+      // `abilities` is the charm-key dropdown — its contents swap between
+      // ability and attribute lists based on `usesAttribute`.
+      abilities:    usesAttribute ? attributeOptions : abilityOptions,
+      abilityFieldLabel:    game.i18n.localize(usesAttribute ? "EX2E.Attribute"    : "EX2E.Ability"),
+      minAbilityFieldLabel: game.i18n.localize(usesAttribute ? "EX2E.MinAttribute" : "EX2E.MinAbility"),
       excellencies: [
         { value: "",       label: game.i18n.localize("EX2E.ExcellencyNone") },
         { value: "first",  label: game.i18n.localize("EX2E.FirstExcellency") },

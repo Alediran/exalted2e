@@ -14,9 +14,9 @@
           {{/each}}
         </select>
       </div>
-      <!-- Ability -->
+      <!-- Ability / Attribute (swaps based on the charm's exaltType) -->
       <div class="field-group">
-        <label>{{localize "EX2E.Ability"}}</label>
+        <label>{{abilityFieldLabel}}</label>
         <select name="system.ability" {{#unless isEditable}}disabled{{/unless}}>
           {{#each abilities}}
           <option value="{{this.value}}" {{#if (eq this.value ../system.ability)}}selected{{/if}}>{{this.label}}</option>
