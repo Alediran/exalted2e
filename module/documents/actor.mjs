@@ -185,6 +185,32 @@ export class ExaltedActor extends Actor {
   }
 
   /**
+   * Stamp (or bump) the onslaught penalty on this actor. RAW: any time a
+   * character is attacked, they accrue +1 DV penalty until their next
+   * action. Multiple attacks in the same tick cycle stack onto a single
+   * AE so the effects list stays readable; `_aggregateDVPenalties` reads
+   * the `value` field directly. Auto-cleared by `advanceWheel` when the
+   * defender's initiative comes up (the standard DV refresh).
+   */
+  async addOnslaught() {
+    const existing = this.effects.find(e =>
+      !e.disabled && e.flags?.exalted2e?.dvPenalty?.type === "onslaught"
+    );
+    if (existing) {
+      const next = (existing.flags.exalted2e.dvPenalty.value ?? 0) + 1;
+      await existing.update({
+        name: game.i18n.format("EX2E.OnslaughtEffect", { n: next }),
+        "flags.exalted2e.dvPenalty.value": next
+      });
+      return existing;
+    }
+    return this.applyDVPenalty("onslaught", 1, {
+      label: game.i18n.format("EX2E.OnslaughtEffect", { n: 1 }),
+      icon:  "icons/svg/hazard.svg"
+    });
+  }
+
+  /**
    * Sum attunement costs of every attuned artifact (weapons + armor) and
    * expose them as derived commitment totals. Artifacts always commit to the
    * peripheral pool — the two pools are interchangeable for this purpose.

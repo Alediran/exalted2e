@@ -404,6 +404,12 @@ export class ExaltedRoll {
         targetSoak     = tSys.combat?.soak?.[mode.damageType] ?? 0;
         targetHardness = ignoresHardness ? 0 : (tSys.combat?.hardness ?? 0);
       }
+      // Onslaught: RAW, a defender accrues +1 DV penalty every time they
+      // are attacked (hit, miss, perfect-defended — it all triggers).
+      // Applied AFTER the DV snapshot above so this attack's resolution
+      // uses the pre-bump DVs; the next attack will see the bumped total.
+      // Cleared by advanceWheel when the defender becomes free again.
+      await targetActor.addOnslaught();
     }
 
     // Non-Excellency attack charms: every Supplemental keyed to the rolled
