@@ -483,6 +483,8 @@
     "NextTickTooltip":               "Advance the wheel by one tick",
     "EndEncounter":                  "End Encounter",
     "EndEncounterTooltip":           "End the current combat",
+    "BeginEncounter":                "Begin Encounter",
+    "BeginEncounterTooltip":         "Start the combat once every combatant has rolled Join Battle",
     "AbortAction":                   "Abort",
     "AbortActionTooltip":            "Abort the in-progress action to take a reflexive response. Unspent ticks and DV penalty are lost.",
     "ActionAbortedLabel":            "Aborted: {name}",

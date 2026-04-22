@@ -1,4 +1,4 @@
-import { ensureCombatHUD } from "./action-quickbar.mjs";
+import { ensureCombatHUDLeftColumn } from "./action-quickbar.mjs";
 
 /**
  * TickWheel — collapsible visual battle wheel (0..6 slots) anchored to the
@@ -25,12 +25,13 @@ export class TickWheel {
   }
 
   _build() {
-    const hud = ensureCombatHUD();
+    const col = ensureCombatHUDLeftColumn();
     const root = document.createElement("div");
     root.id = "ex2e-tick-wheel";
     root.classList.add("ex2e-tick-wheel", "hidden");
-    // Insert before any existing bar so the wheel is on the left.
-    hud.insertBefore(root, hud.firstChild);
+    // Wheel sits at the bottom of the left column; the JB panel (if any)
+    // slots in above it via its own _build.
+    col.appendChild(root);
     this._root = root;
   }
 

@@ -28,6 +28,7 @@ import { VirtueFlawSheet } from "./sheets/item/virtueflaw-sheet.mjs";
 import { registerHandlebarsHelpers } from "./helpers/handlebars.mjs";
 import { ActionQuickbar } from "./ui/action-quickbar.mjs";
 import { TickWheel }                      from "./ui/tick-wheel.mjs";
+import { JoinBattlePanel }                from "./ui/join-battle-panel.mjs";
 
 // ── Init Hook ──────────────────────────────────────────────────────────────
 Hooks.once("init", function () {
@@ -301,13 +302,16 @@ Hooks.on("deleteActiveEffect", async (effect, _options, userId) => {
 Hooks.once("ready", async function () {
   console.log("Exalted 2e | System ready.");
 
-  // Action quickbar + tick wheel — one instance of each per client,
-  // refreshed from the same combat / combatant / active-effect hooks.
+  // Action quickbar + tick wheel + JB panel — one instance of each per
+  // client, refreshed from the same combat / combatant / active-effect
+  // hooks. The JB panel is phase-1 only, the wheel and bar are phase-3.
   ActionQuickbar.instance.refresh();
   TickWheel.instance.refresh();
+  JoinBattlePanel.instance.refresh();
   const hudRefresh = () => {
     ActionQuickbar.instance.refresh();
     TickWheel.instance.refresh();
+    JoinBattlePanel.instance.refresh();
   };
   Hooks.on("updateCombat",      hudRefresh);
   Hooks.on("createCombat",      hudRefresh);
@@ -481,65 +485,17 @@ Hooks.on("renderCombatTracker", (app, html, _data) => {
   // combatants are created (auto-roll setting + null formula), which would
   // otherwise trip us into Phase 2 prematurely.
   const combatants = combat.combatants.contents ?? [...combat.combatants];
-  const hasCombatants = combatants.length > 0;
-  const jbRolled = hasCombatants && combatants.every(c => {
+  const jbRolled = combatants.length > 0 && combatants.every(c => {
     const s = c.flags?.exalted2e?.joinBattleSuccesses;
     return typeof s === "number";
   });
 
   // Phase 1 — strip Foundry's Begin Encounter button until JB is rolled.
+  // The JB roll buttons themselves live in the Join Battle HUD panel, so
+  // this is the only thing left to do in the tracker DOM.
   if (!jbRolled) {
     el.querySelectorAll(`[data-action='startCombat'], [data-control='startCombat']`)
       .forEach(btn => btn.remove());
-  }
-
-  // Anchor our phase-specific button inside the tracker's controls area.
-  // Foundry v13 renders controls inside a footer part; older markup used a
-  // `.combat-controls` element. Fall back progressively so the button always
-  // has a home even if the DOM shifts.
-  const endBtn = el.querySelector("[data-action='endCombat']")
-              ?? el.querySelector(".combat-control-end");
-  const anchorParent = endBtn?.parentElement
-                    ?? el.querySelector("[data-application-part='footer']")
-                    ?? el.querySelector(".combat-controls")
-                    ?? el.querySelector("footer");
-  if (!anchorParent) return;
-
-  // Clear any ex2e button from a previous render before re-adding this phase's.
-  el.querySelectorAll(".ex2e-jb-btn, .ex2e-jb-npc-btn").forEach(b => b.remove());
-
-  const insertBtn = (btn) => {
-    if (endBtn && anchorParent.contains(endBtn)) {
-      anchorParent.insertBefore(btn, endBtn);
-    } else {
-      anchorParent.appendChild(btn);
-    }
-  };
-
-  if (!jbRolled && hasCombatants && game.user.isGM) {
-    // Phase 1: two Roll Join Battle buttons. Insert the NPC-only one first
-    // so insertBefore(endBtn) leaves them in the order [NPC JB, All JB, End].
-    const npcJbBtn = document.createElement("button");
-    npcJbBtn.type = "button";
-    npcJbBtn.classList.add("combat-control", "ex2e-jb-npc-btn");
-    npcJbBtn.title = game.i18n.localize("EX2E.RollJoinBattleNPC");
-    npcJbBtn.innerHTML = `<i class="fa-solid fa-skull"></i> ${game.i18n.localize("EX2E.RollJoinBattleNPC")}`;
-    npcJbBtn.addEventListener("click", async () => {
-      await combat.rollJoinBattleForNPCs();
-    });
-    insertBtn(npcJbBtn);
-
-    const jbBtn = document.createElement("button");
-    jbBtn.type = "button";
-    // `combat-control` is Foundry's own tracker-button class — it gives the
-    // button the native sidebar look.
-    jbBtn.classList.add("combat-control", "ex2e-jb-btn");
-    jbBtn.title = game.i18n.localize("EX2E.JoinBattle");
-    jbBtn.innerHTML = `<i class="fa-solid fa-dice-d10"></i> ${game.i18n.localize("EX2E.RollJoinBattle")}`;
-    jbBtn.addEventListener("click", async () => {
-      await combat.rollJoinBattle();
-    });
-    insertBtn(jbBtn);
   }
   // Phase 2: native Begin Encounter is visible.
   // Phase 3: wheel UI + action quickbar handle all in-combat controls;

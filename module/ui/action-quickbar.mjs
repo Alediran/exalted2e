@@ -2,7 +2,7 @@ import { EX2E } from "../config.mjs";
 
 /**
  * Lazily create (or return) the shared bottom-HUD flex container that
- * hosts the tick wheel (left) and the action quickbar (right). A shared
+ * hosts the wheel column (left) and the action quickbar (right). A shared
  * parent is simpler than manually matching two fixed-position elements.
  */
 export function ensureCombatHUD() {
@@ -14,6 +14,21 @@ export function ensureCombatHUD() {
     document.body.appendChild(hud);
   }
   return hud;
+}
+
+/**
+ * Lazily create (or return) the left column inside the combat HUD. The
+ * column stacks the Join Battle panel (top) above the tick wheel (bottom).
+ */
+export function ensureCombatHUDLeftColumn() {
+  const hud = ensureCombatHUD();
+  let col = hud.querySelector(":scope > .ex2e-hud-left-col");
+  if (!col) {
+    col = document.createElement("div");
+    col.classList.add("ex2e-hud-left-col");
+    hud.insertBefore(col, hud.firstChild);
+  }
+  return col;
 }
 
 /**

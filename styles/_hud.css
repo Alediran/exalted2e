@@ -16,6 +16,69 @@
 
 .ex2e-combat-hud > * { pointer-events: auto; }
 
+.ex2e-hud-left-col {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+}
+
+/* ── Join Battle HUD panel ───────────────────────────────────────────── */
+
+.ex2e-jb-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px;
+
+  background: var(--ex2e-bg-panel, #141414);
+  border: 1px solid var(--ex2e-border-color, rgba(92, 69, 16, 0.6));
+  border-radius: 6px;
+  box-shadow: var(--ex2e-shadow-md, 0 2px 8px rgba(0, 0, 0, 0.6));
+  color: var(--ex2e-text-primary, #e8dcc8);
+  font-family: "Signika", sans-serif;
+  font-size: 11px;
+}
+
+.ex2e-jb-panel.hidden { display: none; }
+
+.ex2e-jb-panel .jb-title {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 10px;
+  color: var(--ex2e-gold-bright, #ffe066);
+  text-align: center;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--ex2e-border-color, rgba(92, 69, 16, 0.6));
+}
+
+.ex2e-jb-panel .jb-row {
+  display: flex;
+  gap: 4px;
+}
+
+.ex2e-jb-panel .jb-row .jb-btn { flex: 1; justify-content: center; }
+
+.ex2e-jb-panel .jb-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  line-height: 1;
+
+  background: var(--ex2e-bg-medium, #0e0e0e);
+  border: 1px solid var(--ex2e-gold-mid, #a07820);
+  border-radius: 3px;
+  color: var(--ex2e-gold-bright, #ffe066);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.ex2e-jb-panel .jb-btn:hover {
+  background: var(--ex2e-bg-hover, rgba(201, 162, 39, 0.06));
+  border-color: var(--ex2e-gold-bright, #ffe066);
+}
+
 /* ── Action Quickbar ─────────────────────────────────────────────────────── */
 
 .ex2e-action-quickbar {

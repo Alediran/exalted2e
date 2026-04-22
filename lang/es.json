@@ -483,6 +483,8 @@
     "NextTickTooltip":               "Avanza la rueda un tick",
     "EndEncounter":                  "Terminar Encuentro",
     "EndEncounterTooltip":           "Finaliza el combate actual",
+    "BeginEncounter":                "Comenzar Encuentro",
+    "BeginEncounterTooltip":         "Inicia el combate una vez que todos hayan tirado Unirse a la Batalla",
     "AbortAction":                   "Abortar",
     "AbortActionTooltip":            "Abortar la acción en curso para reaccionar. Los ticks pendientes y la penalización de DV se pierden.",
     "ActionAbortedLabel":            "Abortado: {name}",
