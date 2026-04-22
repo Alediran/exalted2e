@@ -145,6 +145,30 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         missing: missing.map(m => m.label).filter(Boolean).join("; ")
       };
     }
+
+    // Group charms by their `system.ability` key. Ability-based exalts
+    // store an ability (melee/brawl/…); Lunars and Alchemicals store an
+    // attribute (strength/wits/…). Both live on the same field, so one
+    // grouping pass covers both — labels are resolved against a combined
+    // ability + attribute label map.
+    const attrLabelByKey = {};
+    for (const group of Object.values(EX2E.attributes)) {
+      for (const [key, labelKey] of Object.entries(group)) attrLabelByKey[key] = labelKey;
+    }
+    const labelForCharmAbility = (key) => {
+      if (!key) return game.i18n.localize("EX2E.Uncategorized");
+      const labelKey = EX2E.abilityLabels[key] ?? attrLabelByKey[key];
+      return labelKey ? game.i18n.localize(labelKey) : key;
+    };
+    const buckets = new Map();
+    for (const c of charms) {
+      const k = c.system?.ability ?? "";
+      if (!buckets.has(k)) buckets.set(k, []);
+      buckets.get(k).push(c);
+    }
+    const charmGroups = [...buckets.entries()]
+      .map(([key, list]) => ({ key, label: labelForCharmAbility(key), charms: list }))
+      .sort((a, b) => a.label.localeCompare(b.label));
     const knacks     = actor.items.filter(i => i.type === "knack")      .sort((a,b) => a.name.localeCompare(b.name));
     const weapons    = actor.items.filter(i => i.type === "weapon")     .sort((a,b) => a.name.localeCompare(b.name));
     const armors     = actor.items.filter(i => i.type === "armor")      .sort((a,b) => a.name.localeCompare(b.name));
@@ -171,6 +195,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       useFourColumnAbilities: ["lunar", "alchemical"].includes(sys.exaltType),
       exaltTypeChoices: Object.entries(EX2E.exaltTypes).map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
       charms,
+      charmGroups,
       charmPrereqs,
       knacks,
       isLunar: sys.exaltType === "lunar",

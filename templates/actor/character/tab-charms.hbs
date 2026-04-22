@@ -12,8 +12,10 @@
     </div>
 
     {{#if charms.length}}
+    {{#each charmGroups as |group|}}
+    <h3 class="charm-group-header">{{group.label}}</h3>
     <div class="charms-list">
-      {{#each charms as |charm|}}
+      {{#each group.charms as |charm|}}
       <div class="charm-row item-row {{#if charm.system.active}}charm-active{{/if}}"
            data-item-id="{{charm.id}}">
         <img class="item-img" src="{{charm.img}}" alt="{{charm.name}}">
@@ -47,7 +49,7 @@
         <div class="item-controls">
           <button data-action="activateCharm" title="{{localize 'EX2E.ActivateCharm'}}">⚡</button>
           <button data-action="sendItemToChat" title="{{localize 'EX2E.SendToChat'}}">💬</button>
-          {{#if ../isEditable}}
+          {{#if @root.isEditable}}
           <button data-action="editItem"   title="Edit">✏️</button>
           <button data-action="deleteItem" title="Delete">🗑</button>
           {{/if}}
@@ -55,6 +57,7 @@
       </div>
       {{/each}}
     </div>
+    {{/each}}
     {{else}}
     <p class="empty-msg">{{localize "EX2E.NoCharms"}}</p>
     {{/if}}

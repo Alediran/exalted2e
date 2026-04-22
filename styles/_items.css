@@ -226,3 +226,18 @@
   margin-right: 4px;
   font-size: 11px;
 }
+
+.charm-group-header {
+  margin: 12px 0 4px;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ex2e-gold-bright, #ffe066);
+  border-bottom: 1px solid var(--ex2e-gold-mid, #a07820);
+}
+
+.charm-group-header:first-child {
+  margin-top: 4px;
+}
