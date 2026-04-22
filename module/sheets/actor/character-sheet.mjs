@@ -1,5 +1,6 @@
 import { EX2E }          from "../../config.mjs";
 import { ExaltedRoll }   from "../../rolls/exalted-roll.mjs";
+import { evaluateCharmPrereqs } from "../../helpers/charm-prereqs.mjs";
 
 const { ActorSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -132,6 +133,18 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     // Prepare items grouped by type
     const charms     = actor.items.filter(i => i.type === "charm")      .sort((a,b) => a.name.localeCompare(b.name));
+    // Per-charm prereq status, keyed by id, so the Charms tab can flag
+    // unmet prerequisites without re-evaluating in the template.
+    const charmPrereqs = {};
+    for (const c of charms) {
+      const report  = evaluateCharmPrereqs(c, actor);
+      const missing = report.filter(r => !r.satisfied);
+      charmPrereqs[c.id] = {
+        has:     report.length > 0,
+        met:     missing.length === 0,
+        missing: missing.map(m => m.label).filter(Boolean).join("; ")
+      };
+    }
     const knacks     = actor.items.filter(i => i.type === "knack")      .sort((a,b) => a.name.localeCompare(b.name));
     const weapons    = actor.items.filter(i => i.type === "weapon")     .sort((a,b) => a.name.localeCompare(b.name));
     const armors     = actor.items.filter(i => i.type === "armor")      .sort((a,b) => a.name.localeCompare(b.name));
@@ -158,6 +171,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       useFourColumnAbilities: ["lunar", "alchemical"].includes(sys.exaltType),
       exaltTypeChoices: Object.entries(EX2E.exaltTypes).map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
       charms,
+      charmPrereqs,
       knacks,
       isLunar: sys.exaltType === "lunar",
       weapons,

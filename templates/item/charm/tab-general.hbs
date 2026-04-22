@@ -106,11 +106,62 @@
   </div>
 
   <!-- Prerequisites -->
-  <div class="field-group" style="margin-top:10px">
-    <label>{{localize "EX2E.Prerequisites"}}</label>
-    <input type="text" name="system.prerequisites" value="{{system.prerequisites}}"
-           placeholder="{{localize 'EX2E.PrerequisitesPlaceholder'}}" style="width:100%"
-           {{#unless isEditable}}readonly{{/unless}}>
+  <div class="prereqs-block" style="margin-top:10px">
+    <div class="tags-header">
+      <label>{{localize "EX2E.Prerequisites"}}</label>
+      {{#if isEditable}}
+        <button type="button" data-action="addPrereqGroup" title="{{localize 'EX2E.PrereqAddGroup'}}">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      {{/if}}
+    </div>
+
+    {{#if isEditable}}
+      {{#each system.prereqGroups as |group gIdx|}}
+      <div class="prereq-group" data-group-index="{{gIdx}}">
+        <div class="prereq-group-header">
+          <span class="prereq-group-label">
+            {{#if (gt group.alternatives.length 1)}}
+              {{localize "EX2E.PrereqGroupOneOf"}}
+            {{else}}
+              {{localize "EX2E.PrereqGroupMustHave"}}
+            {{/if}}
+          </span>
+          <button type="button" data-action="removePrereqGroup" data-group-index="{{gIdx}}"
+                  title="{{localize 'EX2E.PrereqRemoveGroup'}}">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        {{#each group.alternatives as |alt aIdx|}}
+        <div class="prereq-alt" data-group-index="{{gIdx}}" data-alt-index="{{aIdx}}">
+          <select name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.type">
+            {{#each @root.prereqAltTypes as |opt|}}
+            <option value="{{opt.value}}" {{#if (eq opt.value alt.type)}}selected{{/if}}>{{opt.label}}</option>
+            {{/each}}
+          </select>
+          {{#if (eq alt.type "charm")}}
+          <input type="text" name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.charmName"
+                 value="{{alt.charmName}}" placeholder="{{localize 'EX2E.PrereqCharmNamePlaceholder'}}">
+          {{else}}
+          <span class="prereq-any-exc-label">{{localize "EX2E.PrereqAnyExcellencyHint"}}</span>
+          {{/if}}
+          <button type="button" data-action="removePrereqAlt"
+                  data-group-index="{{gIdx}}" data-alt-index="{{aIdx}}"
+                  title="{{localize 'EX2E.PrereqRemoveAlternative'}}">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        {{/each}}
+        <button type="button" class="prereq-add-alt" data-action="addPrereqAlt" data-group-index="{{gIdx}}">
+          <i class="fa-solid fa-plus"></i> {{localize "EX2E.PrereqAddAlternative"}}
+        </button>
+      </div>
+      {{/each}}
+    {{else}}
+      <div class="prereq-readonly">
+        {{#if prereqSummary}}{{prereqSummary}}{{else}}—{{/if}}
+      </div>
+    {{/if}}
   </div>
 
   <!-- Keywords -->

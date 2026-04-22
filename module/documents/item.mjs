@@ -90,6 +90,22 @@ export class ExaltedItem extends Item {
     // create attack effects when turning ON, and skip those when turning OFF.
     const turningOff = isToggleable && sys.active;
 
+    // Soft prerequisite check: warn (non-blocking) if any prereq group has
+    // no satisfying owned charm. Homebrew / house-rule builds can always
+    // activate regardless, so this is informational, not gating.
+    if (!turningOff) {
+      const { evaluateCharmPrereqs } = await import("../helpers/charm-prereqs.mjs");
+      const report = evaluateCharmPrereqs(this, actor);
+      const missing = report.filter(r => !r.satisfied);
+      if (missing.length > 0) {
+        const missingLabels = missing.map(m => m.label || "?").join("; ");
+        ui.notifications.warn(game.i18n.format("EX2E.PrereqMissingToast", {
+          charm:   this.name,
+          missing: missingLabels
+        }));
+      }
+    }
+
     // Coerce costs to numbers defensively — form inputs occasionally round-trip
     // as strings, and `"1" > 0` is fine but `wp.value - "1"` is NaN.
     const n = (v) => Math.max(0, Math.floor(Number(v) || 0));

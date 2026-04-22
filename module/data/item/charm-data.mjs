@@ -38,7 +38,21 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       ),
 
       // ── Prerequisites ────────────────────────────────────────────────────
-      prerequisites: new fields.StringField({ initial: "", blank: true }),
+      // Each group is an AND; within a group, alternatives OR together. So
+      // "X and Y" is two groups of one alt each; "X or Y" is one group with
+      // two alts; "Any Excellency plus X" is two groups (an anyExcellency
+      // group + a charm group). Matching is name-based, case-insensitive,
+      // trimmed. `anyExcellency` alternatives are auto-scoped to the
+      // hosting charm's own `ability` field.
+      prereqGroups: new fields.ArrayField(new fields.SchemaField({
+        alternatives: new fields.ArrayField(new fields.SchemaField({
+          type:      new fields.StringField({
+            initial: "charm",
+            choices: ["charm", "anyExcellency"]
+          }),
+          charmName: new fields.StringField({ initial: "", blank: true })
+        }))
+      })),
 
       // ── Description ──────────────────────────────────────────────────────
       description: new fields.HTMLField({ initial: "" }),

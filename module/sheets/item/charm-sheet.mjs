@@ -1,4 +1,5 @@
 import { EX2E } from "../../config.mjs";
+import { describeAllPrereqs } from "../../helpers/charm-prereqs.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -21,12 +22,16 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     window: { resizable: true },
     form: { submitOnChange: true, closeOnSubmit: false },
     actions: {
-      addKeyword:      CharmSheet.#onAddKeyword,
-      removeKeyword:   CharmSheet.#onRemoveKeyword,
-      toggleStep:      CharmSheet.#onToggleStep,
-      addAttackTag:    CharmSheet.#onAddAttackTag,
-      removeAttackTag: CharmSheet.#onRemoveAttackTag,
-      openFormula:     CharmSheet.#onOpenFormula
+      addKeyword:       CharmSheet.#onAddKeyword,
+      removeKeyword:    CharmSheet.#onRemoveKeyword,
+      toggleStep:       CharmSheet.#onToggleStep,
+      addAttackTag:     CharmSheet.#onAddAttackTag,
+      removeAttackTag:  CharmSheet.#onRemoveAttackTag,
+      openFormula:      CharmSheet.#onOpenFormula,
+      addPrereqGroup:   CharmSheet.#onAddPrereqGroup,
+      removePrereqGroup:CharmSheet.#onRemovePrereqGroup,
+      addPrereqAlt:     CharmSheet.#onAddPrereqAlt,
+      removePrereqAlt:  CharmSheet.#onRemovePrereqAlt
     }
   };
 
@@ -77,6 +82,11 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       ],
       weaponTags:   EX2E.weaponTags,
       allKeywords:  EX2E.charmKeywords,
+      prereqSummary: describeAllPrereqs(item),
+      prereqAltTypes: [
+        { value: "charm",         label: game.i18n.localize("EX2E.PrereqTypeCharm") },
+        { value: "anyExcellency", label: game.i18n.localize("EX2E.PrereqTypeAnyExcellency") }
+      ],
       isEditable:   this.isEditable,
       enrichedDescription: await TextEditor.enrichHTML(sys.description, {
         secrets: this.document.isOwner, relativeTo: this.document
@@ -129,6 +139,47 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const tags = foundry.utils.deepClone(this.document.system.attack?.tags ?? []);
     tags.splice(idx, 1);
     await this.document.update({ "system.attack.tags": tags });
+  }
+
+  // ── Prerequisite editing ────────────────────────────────────────────────
+  // Per CLAUDE.md: Foundry's ArrayField updates don't reliably patch a
+  // specific index, so every mutation clones the full list and writes the
+  // whole path.
+
+  static async #onAddPrereqGroup(event, target) {
+    const groups = foundry.utils.deepClone(this.document.system.prereqGroups ?? []);
+    groups.push({ alternatives: [{ type: "charm", charmName: "" }] });
+    await this.document.update({ "system.prereqGroups": groups });
+  }
+
+  static async #onRemovePrereqGroup(event, target) {
+    const gi = parseInt(target.dataset.groupIndex);
+    if (!Number.isFinite(gi)) return;
+    const groups = foundry.utils.deepClone(this.document.system.prereqGroups ?? []);
+    groups.splice(gi, 1);
+    await this.document.update({ "system.prereqGroups": groups });
+  }
+
+  static async #onAddPrereqAlt(event, target) {
+    const gi = parseInt(target.dataset.groupIndex);
+    if (!Number.isFinite(gi)) return;
+    const groups = foundry.utils.deepClone(this.document.system.prereqGroups ?? []);
+    if (!groups[gi]) return;
+    (groups[gi].alternatives ??= []).push({ type: "charm", charmName: "" });
+    await this.document.update({ "system.prereqGroups": groups });
+  }
+
+  static async #onRemovePrereqAlt(event, target) {
+    const gi = parseInt(target.dataset.groupIndex);
+    const ai = parseInt(target.dataset.altIndex);
+    if (!Number.isFinite(gi) || !Number.isFinite(ai)) return;
+    const groups = foundry.utils.deepClone(this.document.system.prereqGroups ?? []);
+    if (!groups[gi]?.alternatives) return;
+    groups[gi].alternatives.splice(ai, 1);
+    // If the group has no alternatives left, drop the empty group so the UI
+    // stays tidy; otherwise a stray "One of:" with nothing inside is ugly.
+    if (groups[gi].alternatives.length === 0) groups.splice(gi, 1);
+    await this.document.update({ "system.prereqGroups": groups });
   }
 
   /**

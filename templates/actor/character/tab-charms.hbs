@@ -18,6 +18,17 @@
            data-item-id="{{charm.id}}">
         <img class="item-img" src="{{charm.img}}" alt="{{charm.name}}">
         <span class="item-name charm-name">
+          {{#with (lookup @root.charmPrereqs charm.id) as |p|}}
+            {{#if p.has}}
+              {{#if p.met}}
+              <i class="fa-solid fa-circle-check charm-prereq-ok"
+                 title="{{localize 'EX2E.PrereqMet'}}"></i>
+              {{else}}
+              <i class="fa-solid fa-triangle-exclamation charm-prereq-missing"
+                 title="{{p.missing}}"></i>
+              {{/if}}
+            {{/if}}
+          {{/with}}
           {{charm.name}}
           <span class="charm-meta">
             {{charm.system.cost.motes}}m
