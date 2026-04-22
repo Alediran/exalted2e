@@ -10,6 +10,7 @@ import { ExaltedCombat }    from "./documents/combat.mjs";
 import { CharacterData }    from "./data/actor/character-data.mjs";
 import { NpcData }          from "./data/actor/npc-data.mjs";
 import { CharmData }        from "./data/item/charm-data.mjs";
+import { SpellData }        from "./data/item/spell-data.mjs";
 import { WeaponData }       from "./data/item/weapon-data.mjs";
 import { ArmorData }        from "./data/item/armor-data.mjs";
 import { BackgroundData }   from "./data/item/background-data.mjs";
@@ -20,6 +21,7 @@ import { VirtueFlawData }   from "./data/item/virtueflaw-data.mjs";
 import { CharacterSheet }   from "./sheets/actor/character-sheet.mjs";
 import { NpcSheet }         from "./sheets/actor/npc-sheet.mjs";
 import { CharmSheet }       from "./sheets/item/charm-sheet.mjs";
+import { SpellSheet }       from "./sheets/item/spell-sheet.mjs";
 import { WeaponSheet }      from "./sheets/item/weapon-sheet.mjs";
 import { ArmorSheet }       from "./sheets/item/armor-sheet.mjs";
 import { GenericItemSheet } from "./sheets/item/generic-item-sheet.mjs";
@@ -61,6 +63,7 @@ Hooks.once("init", function () {
   };
   CONFIG.Item.dataModels = {
     charm:      CharmData,
+    spell:      SpellData,
     weapon:     WeaponData,
     armor:      ArmorData,
     background: BackgroundData,
@@ -88,6 +91,11 @@ Hooks.once("init", function () {
     types:     ["charm"],
     makeDefault: true,
     label:     "EX2E.SheetCharm"
+  });
+  foundry.documents.collections.Items.registerSheet("exalted2e", SpellSheet, {
+    types:     ["spell"],
+    makeDefault: true,
+    label:     "EX2E.SheetSpell"
   });
   foundry.documents.collections.Items.registerSheet("exalted2e", WeaponSheet, {
     types:     ["weapon"],
@@ -179,6 +187,8 @@ async function _preloadTemplates() {
     // Items
     "systems/exalted2e/templates/item/charm/header.hbs",
     "systems/exalted2e/templates/item/charm/body.hbs",
+    "systems/exalted2e/templates/item/spell/header.hbs",
+    "systems/exalted2e/templates/item/spell/body.hbs",
     "systems/exalted2e/templates/item/charm/tabs.hbs",
     "systems/exalted2e/templates/item/charm/tab-general.hbs",
     "systems/exalted2e/templates/item/charm/tab-attack.hbs",
@@ -339,15 +349,17 @@ Hooks.once("ready", async function () {
     await actor.createEmbeddedDocuments("Item", [_unarmedWeaponData()]);
   }
 
-  // Migration: assign stable charmUids to any charms that pre-date the
-  // field. Runs once per world load; the inner loops are no-ops once
-  // every charm has a uid.
+  // Migration: assign stable uids to any charms or spells that pre-date
+  // the field. Runs once per world load; the inner loops are no-ops once
+  // every item has a uid.
   for (const actor of game.actors) {
     const updates = [];
     for (const item of actor.items) {
-      if (item.type !== "charm") continue;
-      if (item.system.charmUid) continue;
-      updates.push({ _id: item.id, "system.charmUid": foundry.utils.randomID() });
+      if (item.type === "charm" && !item.system.charmUid) {
+        updates.push({ _id: item.id, "system.charmUid": foundry.utils.randomID() });
+      } else if (item.type === "spell" && !item.system.spellUid) {
+        updates.push({ _id: item.id, "system.spellUid": foundry.utils.randomID() });
+      }
     }
     if (updates.length > 0) {
       await actor.updateEmbeddedDocuments("Item", updates);
@@ -357,6 +369,12 @@ Hooks.once("ready", async function () {
   if (worldCharms.length > 0) {
     await Item.updateDocuments(worldCharms.map(i => ({
       _id: i.id, "system.charmUid": foundry.utils.randomID()
+    })));
+  }
+  const worldSpells = game.items.filter(i => i.type === "spell" && !i.system.spellUid);
+  if (worldSpells.length > 0) {
+    await Item.updateDocuments(worldSpells.map(i => ({
+      _id: i.id, "system.spellUid": foundry.utils.randomID()
     })));
   }
 
@@ -456,6 +474,11 @@ Hooks.on("preCreateItem", (item, data, options, userId) => {
   // what we want — prereqs stay linked across the copy.
   if (item.type === "charm" && !data.system?.charmUid) {
     item.updateSource({ "system.charmUid": foundry.utils.randomID() });
+  }
+  // Same treatment for spells so prereq / cross-reference plumbing we add
+  // later can rely on a stable id.
+  if (item.type === "spell" && !data.system?.spellUid) {
+    item.updateSource({ "system.spellUid": foundry.utils.randomID() });
   }
 
   const actor = item.parent;

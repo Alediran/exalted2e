@@ -1,0 +1,94 @@
+<div class="sheet-body spell-body">
+
+  <!-- Cost grid -->
+  <div class="cost-grid">
+    <div class="field-group">
+      <label>{{localize "EX2E.Motes"}}</label>
+      <input type="number" name="system.cost.motes" value="{{system.cost.motes}}" min="0" max="100"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.Willpower"}}</label>
+      <input type="number" name="system.cost.willpower" value="{{system.cost.willpower}}" min="0" max="5"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.CostBashingHealth"}}</label>
+      <input type="number" name="system.cost.bashingHealth" value="{{system.cost.bashingHealth}}" min="0" max="5"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.CostLethalHealth"}}</label>
+      <input type="number" name="system.cost.lethalHealth" value="{{system.cost.lethalHealth}}" min="0" max="5"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.CostAggravatedHealth"}}</label>
+      <input type="number" name="system.cost.aggravatedHealth" value="{{system.cost.aggravatedHealth}}" min="0" max="5"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.CostExperience"}}</label>
+      <input type="number" name="system.cost.xp" value="{{system.cost.xp}}" min="0" max="50"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  <!-- Resolution -->
+  <h2 class="section-header">{{localize "EX2E.SpellResolution"}}</h2>
+  <div class="spell-resolution-grid">
+    <div class="field-group">
+      <label>{{localize "EX2E.Duration"}}</label>
+      <select name="system.duration" {{#unless isEditable}}disabled{{/unless}}>
+        {{#each durations}}
+        <option value="{{value}}" {{#if (eq value ../system.duration)}}selected{{/if}}>{{label}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="field-group" style="flex:1">
+      <label>{{localize "EX2E.SpellTarget"}}</label>
+      <input type="text" name="system.target" value="{{system.target}}"
+             placeholder="{{localize 'EX2E.SpellTargetPlaceholder'}}"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  <!-- Keywords (reuse charm keyword palette) -->
+  <div class="keywords-block" style="margin-top:10px">
+    <div class="tags-header">
+      <label>{{localize "EX2E.Keywords"}}</label>
+      {{#if isEditable}}
+        <button data-action="addKeyword">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      {{/if}}
+    </div>
+    <div class="keywords-list">
+      {{#each system.keywords as |kw idx|}}
+      <span class="keyword-tag-edit">
+        <select name="system.keywords.{{idx}}" {{#unless @root.isEditable}}disabled{{/unless}}>
+          {{#each @root.allKeywords as |opt|}}
+          <option value="{{opt}}" {{#if (eq opt kw)}}selected{{/if}}>{{opt}}</option>
+          {{/each}}
+        </select>
+        {{#if @root.isEditable}}
+        <button data-action="removeKeyword" data-index="{{idx}}">✕</button>
+        {{/if}}
+      </span>
+      {{/each}}
+    </div>
+  </div>
+
+  <!-- Description -->
+  <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
+  <div class="editor-container">
+    {{#if isEditable}}
+    <prose-mirror name="system.description" data-document-uuid="{{item.uuid}}" value="{{system.description}}" collaborate="true" toggled="true">
+      {{{enrichedDescription}}}
+    </prose-mirror>
+    {{else}}
+    <div class="editor-content">{{{enrichedDescription}}}</div>
+    {{/if}}
+  </div>
+
+</div>

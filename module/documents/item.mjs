@@ -106,78 +106,28 @@ export class ExaltedItem extends Item {
       }
     }
 
-    // Coerce costs to numbers defensively — form inputs occasionally round-trip
-    // as strings, and `"1" > 0` is fine but `wp.value - "1"` is NaN.
-    const n = (v) => Math.max(0, Math.floor(Number(v) || 0));
-    const moteCost        = n(cost.motes);
-    const willpowerCost   = n(cost.willpower);
-    const bashingCost     = n(cost.bashingHealth);
-    const lethalCost      = n(cost.lethalHealth);
-    const aggravatedCost  = n(cost.aggravatedHealth);
-    const xpCost          = n(cost.xp);
-
-    // Track what we actually spent so the chat card's Reverse button can
-    // refund precisely what came out. Each field is recorded only when
-    // the activation actually incurred that cost.
-    const ledger = {
-      moteBreakdown: null,
-      willpower:     0,
-      bashing:       0,
-      lethal:        0,
-      aggravated:    0,
-      xp:            0,
-      toggledOn:     false,
-      toggledOff:    false,
-      spawnedWeapon: false,
-      rolledInstant: false
-    };
-
-    // Experience costs are irrecoverable in-world, so we prompt the user
-    // before going through with them. A "No" aborts the activation
-    // entirely — no motes / willpower / health consumed either.
-    if (!turningOff && xpCost > 0) {
-      const confirmed = await foundry.applications.api.DialogV2.confirm({
-        window: { title: game.i18n.localize("EX2E.CharmXPConfirmTitle") },
-        content: `<p>${game.i18n.format("EX2E.CharmXPConfirmBody", {
-          name: this.name, xp: xpCost
-        })}</p>`,
-        yes: { label: game.i18n.localize("EX2E.Confirm"), icon: "fa-solid fa-check" },
-        no:  { label: game.i18n.localize("EX2E.Cancel"),  icon: "fa-solid fa-xmark"  }
-      });
-      if (!confirmed) return false;
-    }
-
-    // Spend motes (spendMotes returns per-pool breakdown on success, null
-    // if the pools combined couldn't cover the cost)
-    if (!turningOff && moteCost > 0) {
-      const breakdown = await actor.spendMotes(moteCost, motePool);
-      if (!breakdown) return false;
-      ledger.moteBreakdown = breakdown;
-    }
-
-    // Spend willpower in a single update against the live value.
-    if (!turningOff && willpowerCost > 0) {
-      const currentWp = Number(actor.system.willpower?.value) || 0;
-      await actor.update({
-        "system.willpower.value": Math.max(0, currentWp - willpowerCost)
-      });
-      ledger.willpower = willpowerCost;
-    }
-
-    // Apply health-level costs per type. We use applyDamage sequentially
-    // so the actor's wound-cap / incapacitation logic runs once per
-    // damage injection — aligning charm self-harm with ordinary damage.
-    if (!turningOff && bashingCost    > 0) { await actor.applyDamage(bashingCost,    "bashing");    ledger.bashing    = bashingCost; }
-    if (!turningOff && lethalCost     > 0) { await actor.applyDamage(lethalCost,     "lethal");     ledger.lethal     = lethalCost; }
-    if (!turningOff && aggravatedCost > 0) { await actor.applyDamage(aggravatedCost, "aggravated"); ledger.aggravated = aggravatedCost; }
-
-    // Spend experience — `experience.value` is the current pool.
-    if (!turningOff && xpCost > 0) {
-      const currentXp = Number(actor.system.experience?.value) || 0;
-      await actor.update({
-        "system.experience.value": Math.max(0, currentXp - xpCost)
-      });
-      ledger.xp = xpCost;
+    // Spend all resource costs up front. Shared with castSpell() so both
+    // paths use the same resolution order + XP confirmation + ledger shape.
+    // When turning a sustained charm OFF, we skip spending entirely — the
+    // original commit already paid its costs, and toggling back off is
+    // a free action.
+    let ledger;
+    if (turningOff) {
+      ledger = {
+        moteBreakdown: null, willpower: 0, bashing: 0, lethal: 0,
+        aggravated: 0, xp: 0,
+        toggledOn: false, toggledOff: false,
+        spawnedWeapon: false, rolledInstant: false
+      };
+    } else {
+      ledger = await this._spendActivationCosts(cost, { motePool });
+      if (!ledger) return false;
+      // Charm-specific ledger flags that _spendActivationCosts doesn't know
+      // about live alongside the shared ones.
+      ledger.toggledOn     = false;
+      ledger.toggledOff    = false;
+      ledger.spawnedWeapon = false;
+      ledger.rolledInstant = false;
     }
 
     // Weapon-like attack side effects — only when the Attack tab is enabled.
@@ -207,6 +157,128 @@ export class ExaltedItem extends Item {
     // the Reverse button (added in item-card.hbs) can undo everything.
     await this.sendToChat({ activation: ledger });
     return true;
+  }
+
+  /**
+   * Cast this spell on the owning actor: soft-check initiation against the
+   * spell's circle, spend motes / willpower / health / XP via the shared
+   * activation ledger, and post the chat card with a Reverse button.
+   *
+   * Initiation is informational only — a toast fires when the caster's
+   * initiation is below the spell's circle, but casting continues
+   * (homebrew / rules-of-cool, and matches the prereq soft-warn pattern).
+   *
+   * @returns {Promise<boolean>} true if the cast succeeded, false if the
+   *                             user aborted an XP confirmation or motes
+   *                             couldn't cover the cost.
+   */
+  async castSpell() {
+    if (this.type !== "spell") return false;
+    const actor = this.actor;
+    if (!actor) return false;
+
+    const sys = this.system;
+
+    const tradKey    = sys.tradition === "necromancy" ? "necromancy" : "sorcery";
+    const initiation = Number(actor.system?.[tradKey]?.initiation ?? 0);
+    if (initiation < sys.circle) {
+      ui.notifications.warn(game.i18n.format("EX2E.SpellInitiationWarning", {
+        spell:    this.name,
+        required: sys.circle,
+        current:  initiation
+      }));
+    }
+
+    const ledger = await this._spendActivationCosts(sys.cost ?? {});
+    if (!ledger) return false;
+
+    await this.sendToChat({ activation: ledger });
+    return true;
+  }
+
+  /**
+   * Shared activation-cost resolver for charms and spells. Spends in a
+   * fixed order (XP confirmation → motes → willpower → health → XP) and
+   * returns a ledger the chat card's Reverse button can undo field-by-
+   * field. Returns null on any hard failure (user cancelled XP confirm,
+   * motes couldn't be paid); partial spends are not possible — every
+   * mutation here is contingent on the whole chain succeeding.
+   *
+   * Charm-only ledger flags (toggledOn/Off, spawnedWeapon, rolledInstant)
+   * are added by the caller since they're attack-block / sustain
+   * bookkeeping; this helper only handles the pure resource side.
+   *
+   * @param {object} cost  The item's `system.cost` object.
+   * @param {object} [opts]
+   * @param {string} [opts.motePool="peripheral"]  Which pool motes come from.
+   * @param {boolean}[opts.skipXpConfirm=false]    Skip the XP confirmation.
+   * @returns {Promise<object|null>} Ledger, or null on abort/failure.
+   */
+  async _spendActivationCosts(cost, { motePool = "peripheral", skipXpConfirm = false } = {}) {
+    const actor = this.actor;
+    if (!actor) return null;
+
+    const n = (v) => Math.max(0, Math.floor(Number(v) || 0));
+    const moteCost       = n(cost.motes);
+    const willpowerCost  = n(cost.willpower);
+    const bashingCost    = n(cost.bashingHealth);
+    const lethalCost     = n(cost.lethalHealth);
+    const aggravatedCost = n(cost.aggravatedHealth);
+    const xpCost         = n(cost.xp);
+
+    const ledger = {
+      moteBreakdown: null,
+      willpower:     0,
+      bashing:       0,
+      lethal:        0,
+      aggravated:    0,
+      xp:            0
+    };
+
+    // XP is irrecoverable in-world — confirm before touching anything.
+    if (!skipXpConfirm && xpCost > 0) {
+      const confirmed = await foundry.applications.api.DialogV2.confirm({
+        window: { title: game.i18n.localize("EX2E.CharmXPConfirmTitle") },
+        content: `<p>${game.i18n.format("EX2E.CharmXPConfirmBody", {
+          name: this.name, xp: xpCost
+        })}</p>`,
+        yes: { label: game.i18n.localize("EX2E.Confirm"), icon: "fa-solid fa-check" },
+        no:  { label: game.i18n.localize("EX2E.Cancel"),  icon: "fa-solid fa-xmark"  }
+      });
+      if (!confirmed) return null;
+    }
+
+    // Motes (spendMotes returns per-pool breakdown on success, null if pools can't cover).
+    if (moteCost > 0) {
+      const breakdown = await actor.spendMotes(moteCost, motePool);
+      if (!breakdown) return null;
+      ledger.moteBreakdown = breakdown;
+    }
+
+    // Willpower.
+    if (willpowerCost > 0) {
+      const currentWp = Number(actor.system.willpower?.value) || 0;
+      await actor.update({
+        "system.willpower.value": Math.max(0, currentWp - willpowerCost)
+      });
+      ledger.willpower = willpowerCost;
+    }
+
+    // Health costs — sequential so wound-cap / incapacitation runs per bucket.
+    if (bashingCost    > 0) { await actor.applyDamage(bashingCost,    "bashing");    ledger.bashing    = bashingCost; }
+    if (lethalCost     > 0) { await actor.applyDamage(lethalCost,     "lethal");     ledger.lethal     = lethalCost; }
+    if (aggravatedCost > 0) { await actor.applyDamage(aggravatedCost, "aggravated"); ledger.aggravated = aggravatedCost; }
+
+    // XP last.
+    if (xpCost > 0) {
+      const currentXp = Number(actor.system.experience?.value) || 0;
+      await actor.update({
+        "system.experience.value": Math.max(0, currentXp - xpCost)
+      });
+      ledger.xp = xpCost;
+    }
+
+    return ledger;
   }
 
   /**

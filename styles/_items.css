@@ -242,6 +242,42 @@
   margin-top: 4px;
 }
 
+.spell-section-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.spell-initiation-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--ex2e-text-secondary, #b8a88a);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.spell-initiation-label .dot-rating {
+  gap: 2px;
+}
+
+.spell-identity-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.spell-identity-row .field-group {
+  flex: 1;
+}
+
+.spell-resolution-grid {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+
 .charm-excellency-badge {
   display: inline-block;
   min-width: 18px;

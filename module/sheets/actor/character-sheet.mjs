@@ -169,6 +169,67 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const charmGroups = [...buckets.entries()]
       .map(([key, list]) => ({ key, label: labelForCharmAbility(key), charms: list }))
       .sort((a, b) => a.label.localeCompare(b.label));
+
+    // Spells — shown as a sub-section under the Charms tab, grouped by
+    // tradition (Sorcery / Necromancy) then by circle. Alchemicals flavour
+    // their Sorcery as "Procedures"; that's a display-only swap here.
+    const spells = actor.items.filter(i => i.type === "spell")
+      .sort((a, b) => (a.system?.circle ?? 0) - (b.system?.circle ?? 0) || a.name.localeCompare(b.name));
+    const sorceryLabelKey = sys.exaltType === "alchemical"
+      ? "EX2E.TraditionProcedures"
+      : "EX2E.TraditionSorcery";
+    const SORCERY_CIRCLES = {
+      1: game.i18n.localize("EX2E.CircleTerrestrial"),
+      2: game.i18n.localize("EX2E.CircleCelestial"),
+      3: game.i18n.localize("EX2E.CircleSolar")
+    };
+    const NECROMANCY_CIRCLES = {
+      1: game.i18n.localize("EX2E.CircleShadowlands"),
+      2: game.i18n.localize("EX2E.CircleLabyrinth"),
+      3: game.i18n.localize("EX2E.CircleVoid")
+    };
+    const spellGroups = { sorcery: [], necromancy: [] };
+    const spellBuckets = { sorcery: new Map(), necromancy: new Map() };
+    for (const s of spells) {
+      const trad = s.system?.tradition === "necromancy" ? "necromancy" : "sorcery";
+      const circle = Math.max(1, Math.min(3, Number(s.system?.circle) || 1));
+      if (!spellBuckets[trad].has(circle)) spellBuckets[trad].set(circle, []);
+      spellBuckets[trad].get(circle).push(s);
+    }
+    const buildSpellGroups = (trad, circleLabels) => {
+      return [...spellBuckets[trad].entries()]
+        .sort(([a], [b]) => a - b)
+        .map(([circle, list]) => ({ circle, label: circleLabels[circle], spells: list }));
+    };
+    spellGroups.sorcery    = buildSpellGroups("sorcery",    SORCERY_CIRCLES);
+    spellGroups.necromancy = buildSpellGroups("necromancy", NECROMANCY_CIRCLES);
+    const spellSections = [
+      {
+        tradition: "sorcery",
+        label:     game.i18n.localize(sorceryLabelKey),
+        initiation: sys.sorcery?.initiation ?? 0,
+        initiationPath: "system.sorcery.initiation",
+        groups:    spellGroups.sorcery
+      },
+      {
+        tradition: "necromancy",
+        label:     game.i18n.localize("EX2E.TraditionNecromancy"),
+        initiation: sys.necromancy?.initiation ?? 0,
+        initiationPath: "system.necromancy.initiation",
+        groups:    spellGroups.necromancy
+      }
+    ];
+    // Per-spell "circle too high for this caster's initiation" flag, so
+    // the template can show a warning indicator without re-reading the
+    // initiation level for each row.
+    const spellInitStatus = {};
+    for (const s of spells) {
+      const trad = s.system?.tradition === "necromancy" ? "necromancy" : "sorcery";
+      const req  = Math.max(1, Number(s.system?.circle) || 1);
+      const cur  = Number(sys[trad]?.initiation ?? 0);
+      spellInitStatus[s.id] = { ok: cur >= req, required: req, current: cur };
+    }
+
     const knacks     = actor.items.filter(i => i.type === "knack")      .sort((a,b) => a.name.localeCompare(b.name));
     const weapons    = actor.items.filter(i => i.type === "weapon")     .sort((a,b) => a.name.localeCompare(b.name));
     const armors     = actor.items.filter(i => i.type === "armor")      .sort((a,b) => a.name.localeCompare(b.name));
@@ -197,6 +258,9 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       charms,
       charmGroups,
       charmPrereqs,
+      spells,
+      spellSections,
+      spellInitStatus,
       knacks,
       isLunar: sys.exaltType === "lunar",
       weapons,
@@ -514,7 +578,13 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static async #onCreateItem(event, target) {
     const type    = target.dataset.type ?? "charm";
     const name    = game.i18n.localize(`EX2E.New${type.charAt(0).toUpperCase() + type.slice(1)}`);
-    await Item.create({ name, type }, { parent: this.document });
+    const data    = { name, type };
+    // Spells let the Add button pick a starting tradition via data-tradition
+    // so a new spell landing in the Necromancy section isn't Sorcery by default.
+    if (type === "spell" && target.dataset.tradition) {
+      data.system = { tradition: target.dataset.tradition };
+    }
+    await Item.create(data, { parent: this.document });
   }
 
   static async #onEditItem(event, target) {
@@ -539,6 +609,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const itemId = target.closest("[data-item-id]")?.dataset.itemId;
     const item   = this.document.items.get(itemId);
     if (item?.type === "charm") await item.activateCharm();
+    else if (item?.type === "spell") await item.castSpell();
   }
 
   static async #onPickVirtueFlaw(event, target) {

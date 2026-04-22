@@ -50,6 +50,23 @@
       "system": "exalted2e"
     }
   ],
+  "documentTypes": {
+    "Actor": {
+      "character": {},
+      "npc":       {}
+    },
+    "Item": {
+      "charm":      {},
+      "spell":      {},
+      "weapon":     {},
+      "armor":      {},
+      "background": {},
+      "intimacy":   {},
+      "meritflaw":  {},
+      "knack":      {},
+      "virtueflaw": {}
+    }
+  },
   "socket": false,
   "initiative": "(@attributes.wits.value + @attributes.perception.value)d10cs>=7",
   "grid": {

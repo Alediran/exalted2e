@@ -132,6 +132,18 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         total: new fields.NumberField({ initial: 0, min: 0, integer: true })
       }),
 
+      // ── Sorcery / Necromancy Initiation ────────────────────────────────────
+      // initiation: 0 = uninitiated, 1 = Terrestrial / Shadowlands,
+      //             2 = Celestial / Labyrinth, 3 = Solar / Void.
+      // Alchemicals have the same tiers; their display label on the sheet
+      // just swaps "Sorcery" → "Procedures" at the template layer.
+      sorcery: new fields.SchemaField({
+        initiation: new fields.NumberField({ initial: 0, min: 0, max: 3, integer: true })
+      }),
+      necromancy: new fields.SchemaField({
+        initiation: new fields.NumberField({ initial: 0, min: 0, max: 3, integer: true })
+      }),
+
       // ── Biography / Notes ──────────────────────────────────────────────────
       biography:  new fields.HTMLField({ initial: "" }),
       notes:      new fields.HTMLField({ initial: "" }),

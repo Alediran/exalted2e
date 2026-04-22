@@ -1,0 +1,48 @@
+<div class="item-header spell-header">
+  <img class="item-portrait" src="{{item.img}}" alt="{{item.name}}"
+       data-action="editImage" {{#unless isEditable}}disabled{{/unless}}>
+  <div class="item-header-fields">
+    <input class="item-name-input" type="text" name="name" value="{{item.name}}"
+           {{#unless isEditable}}readonly{{/unless}}>
+
+    <div class="spell-identity-row">
+      <div class="field-group">
+        <label>{{localize "EX2E.SpellTradition"}}</label>
+        <select name="system.tradition" {{#unless isEditable}}disabled{{/unless}}>
+          {{#each traditionChoices}}
+          <option value="{{value}}" {{#if (eq value ../system.tradition)}}selected{{/if}}>{{label}}</option>
+          {{/each}}
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label>{{localize "EX2E.SpellCircle"}}</label>
+        <select name="system.circle" {{#unless isEditable}}disabled{{/unless}}>
+          {{#each circleChoices}}
+          <option value="{{value}}" {{#if (eq value ../system.circle)}}selected{{/if}}>{{label}}</option>
+          {{/each}}
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label>{{localize "EX2E.SpellShape"}}</label>
+        <select name="system.shape" {{#unless isEditable}}disabled{{/unless}}>
+          {{#each shapeChoices}}
+          <option value="{{value}}" {{#if (eq value ../system.shape)}}selected{{/if}}>{{label}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+
+    <!-- Cost summary (mirrors charm header) -->
+    <div class="charm-cost-summary">
+      <strong>{{localize "EX2E.Cost"}}:</strong>
+      {{system.cost.motes}}m
+      {{#if system.cost.willpower}}+{{system.cost.willpower}}wp{{/if}}
+      {{#if system.cost.bashingHealth}}+{{system.cost.bashingHealth}}hl(B){{/if}}
+      {{#if system.cost.lethalHealth}}+{{system.cost.lethalHealth}}hl(L){{/if}}
+      {{#if system.cost.aggravatedHealth}}+{{system.cost.aggravatedHealth}}hl(A){{/if}}
+      {{#if system.cost.xp}}+{{system.cost.xp}}xp{{/if}}
+    </div>
+  </div>
+</div>
