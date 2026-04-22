@@ -488,7 +488,13 @@
     "NextTickTooltip":               "Avanza la rueda un tick",
     "AbortAction":                   "Abortar",
     "AbortActionTooltip":            "Abortar la acción en curso para reaccionar. Los ticks pendientes y la penalización de DV se pierden.",
-    "ActionAbortedLabel":            "Abortado: {name}"
+    "ActionAbortedLabel":            "Abortado: {name}",
+
+    "TickWheelTitle":                "Rueda de Batalla",
+    "TickWheelTickShort":            "Tick",
+    "TickWheelExpand":               "Mostrar la rueda de batalla",
+    "TickWheelCollapse":             "Ocultar la rueda de batalla",
+    "TickWheelCycleLabel":           "Ciclo {cycle} · Tick {tick}"
   },
   "TYPES": {
     "Actor": {

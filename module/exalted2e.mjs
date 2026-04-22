@@ -27,6 +27,7 @@ import { KnackSheet }      from "./sheets/item/knack-sheet.mjs";
 import { VirtueFlawSheet } from "./sheets/item/virtueflaw-sheet.mjs";
 import { registerHandlebarsHelpers } from "./helpers/handlebars.mjs";
 import { ActionQuickbar, finishTurnFor } from "./ui/action-quickbar.mjs";
+import { TickWheel }                      from "./ui/tick-wheel.mjs";
 
 // ── Init Hook ──────────────────────────────────────────────────────────────
 Hooks.once("init", function () {
@@ -301,22 +302,26 @@ Hooks.on("deleteActiveEffect", async (effect, _options, userId) => {
 Hooks.once("ready", async function () {
   console.log("Exalted 2e | System ready.");
 
-  // Action quickbar — one instance per client, refreshed from combat /
-  // combatant / active-effect hooks below.
+  // Action quickbar + tick wheel — one instance of each per client,
+  // refreshed from the same combat / combatant / active-effect hooks.
   ActionQuickbar.instance.refresh();
-  const qbRefresh = () => ActionQuickbar.instance.refresh();
-  Hooks.on("updateCombat",      qbRefresh);
-  Hooks.on("createCombat",      qbRefresh);
-  Hooks.on("deleteCombat",      qbRefresh);
-  Hooks.on("combatStart",       qbRefresh);
-  Hooks.on("combatTurn",        qbRefresh);
-  Hooks.on("createCombatant",   qbRefresh);
-  Hooks.on("deleteCombatant",   qbRefresh);
-  Hooks.on("updateCombatant",   qbRefresh);
+  TickWheel.instance.refresh();
+  const hudRefresh = () => {
+    ActionQuickbar.instance.refresh();
+    TickWheel.instance.refresh();
+  };
+  Hooks.on("updateCombat",      hudRefresh);
+  Hooks.on("createCombat",      hudRefresh);
+  Hooks.on("deleteCombat",      hudRefresh);
+  Hooks.on("combatStart",       hudRefresh);
+  Hooks.on("combatTurn",        hudRefresh);
+  Hooks.on("createCombatant",   hudRefresh);
+  Hooks.on("deleteCombatant",   hudRefresh);
+  Hooks.on("updateCombatant",   hudRefresh);
   // Reflect DV-penalty AE changes (e.g., after rolling an attack, or
   // when a flurry DV AE is stamped) so the pending indicator updates.
-  Hooks.on("createActiveEffect", qbRefresh);
-  Hooks.on("deleteActiveEffect", qbRefresh);
+  Hooks.on("createActiveEffect", hudRefresh);
+  Hooks.on("deleteActiveEffect", hudRefresh);
   // Weapon equip toggles during a turn should re-evaluate the attack submenu.
   Hooks.on("updateItem",        qbRefresh);
   Hooks.on("createItem",        qbRefresh);

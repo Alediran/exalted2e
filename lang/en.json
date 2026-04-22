@@ -488,7 +488,13 @@
     "NextTickTooltip":               "Advance the wheel by one tick",
     "AbortAction":                   "Abort",
     "AbortActionTooltip":            "Abort the in-progress action to take a reflexive response. Unspent ticks and DV penalty are lost.",
-    "ActionAbortedLabel":            "Aborted: {name}"
+    "ActionAbortedLabel":            "Aborted: {name}",
+
+    "TickWheelTitle":                "Battle Wheel",
+    "TickWheelTickShort":            "Tick",
+    "TickWheelExpand":               "Show the battle wheel",
+    "TickWheelCollapse":             "Hide the battle wheel",
+    "TickWheelCycleLabel":           "Cycle {cycle} · Tick {tick}"
   },
   "TYPES": {
     "Actor": {

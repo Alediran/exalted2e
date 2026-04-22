@@ -206,7 +206,25 @@ export class ExaltedCombat extends Combat {
    */
   async advanceWheel() {
     if (!game.user.isGM) return;
-    const newTick = this.currentTick + 1;
+    const oldTick = this.currentTick;
+    const newTick = oldTick + 1;
+
+    // House rule: any free-but-unacted combatant at wheel-advance time is
+    // treated as having taken a 1-tick pass action. Bumps their initiative
+    // to `oldTick + 1` so they stay aligned with the wheel instead of
+    // falling behind. Move-only characters (who committed Move this tick)
+    // have actedThisTick set, so they're skipped.
+    const passUpdates = [];
+    for (const c of this.combatants) {
+      if (c.getFlag("exalted2e", "actedThisTick")) continue;
+      const init = Number.isFinite(c.initiative) ? c.initiative : 0;
+      if (init > oldTick) continue;
+      passUpdates.push({ _id: c.id, initiative: oldTick + 1 });
+    }
+    if (passUpdates.length > 0) {
+      await this.updateEmbeddedDocuments("Combatant", passUpdates);
+    }
+
     await this.setFlag("exalted2e", "currentTick", newTick);
 
     // Batch-clear actedThisTick; unsetFlag-per-combatant would be slower.

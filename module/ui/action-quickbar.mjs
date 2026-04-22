@@ -1,6 +1,22 @@
 import { EX2E } from "../config.mjs";
 
 /**
+ * Lazily create (or return) the shared bottom-HUD flex container that
+ * hosts the tick wheel (left) and the action quickbar (right). A shared
+ * parent is simpler than manually matching two fixed-position elements.
+ */
+export function ensureCombatHUD() {
+  let hud = document.getElementById("ex2e-combat-hud");
+  if (!hud) {
+    hud = document.createElement("div");
+    hud.id = "ex2e-combat-hud";
+    hud.classList.add("ex2e-combat-hud");
+    document.body.appendChild(hud);
+  }
+  return hud;
+}
+
+/**
  * ActionQuickbar — floating HUD bar (anchored above Foundry's hotbar) that
  * exposes every combat action to the active combatant's owner (or GM).
  *
@@ -44,15 +60,18 @@ export class ActionQuickbar {
   }
 
   _build() {
+    const hud = ensureCombatHUD();
+
     const root = document.createElement("div");
     root.id = "ex2e-action-quickbar";
     root.classList.add("ex2e-action-quickbar", "hidden");
-    document.body.appendChild(root);
+    hud.appendChild(root);
     this._root = root;
 
     const submenu = document.createElement("div");
     submenu.classList.add("ex2e-action-submenu");
     submenu.hidden = true;
+    // The popover needs to overflow the HUD bounds, so it lives on body.
     document.body.appendChild(submenu);
     this._submenu = submenu;
   }

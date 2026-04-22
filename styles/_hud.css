@@ -1,12 +1,24 @@
-/* ── Action Quickbar ─────────────────────────────────────────────────────── */
+/* ── Shared Combat HUD wrapper ───────────────────────────────────────────── */
 
-.ex2e-action-quickbar {
+.ex2e-combat-hud {
   position: fixed;
   bottom: 80px;           /* sits above Foundry's standard hotbar */
   left: 50%;
   transform: translateX(-50%);
   z-index: 60;
 
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+
+  pointer-events: none;   /* let children opt-in; empty gap doesn't eat clicks */
+}
+
+.ex2e-combat-hud > * { pointer-events: auto; }
+
+/* ── Action Quickbar ─────────────────────────────────────────────────────── */
+
+.ex2e-action-quickbar {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -26,8 +38,6 @@
   font-family: "Signika", sans-serif;
   font-size: 12px;
   color: var(--ex2e-text-primary, #e8dcc8);
-
-  pointer-events: auto;
 }
 
 .ex2e-action-quickbar.hidden { display: none; }
@@ -157,6 +167,171 @@
 }
 
 .ex2e-action-submenu .qb-attack-mode .mode-stats {
+  color: var(--ex2e-text-muted, #7a6a50);
+  font-size: 10px;
+}
+
+/* ── Tick Wheel ──────────────────────────────────────────────────────────── */
+
+.ex2e-tick-wheel {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px;
+
+  background: var(--ex2e-bg-panel, #141414);
+  border: 1px solid var(--ex2e-border-color, rgba(92, 69, 16, 0.6));
+  border-radius: 6px;
+  box-shadow: var(--ex2e-shadow-md, 0 2px 8px rgba(0, 0, 0, 0.6));
+  color: var(--ex2e-text-primary, #e8dcc8);
+  font-family: "Signika", sans-serif;
+  font-size: 11px;
+}
+
+.ex2e-tick-wheel.hidden { display: none; }
+
+.ex2e-tick-wheel.collapsed {
+  padding: 2px;
+}
+
+.ex2e-tick-wheel .tw-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 0 2px;
+}
+
+.ex2e-tick-wheel .tw-title {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 10px;
+  color: var(--ex2e-gold-bright, #ffe066);
+}
+
+.ex2e-tick-wheel .tw-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  background: var(--ex2e-bg-medium, #0e0e0e);
+  border: 1px solid var(--ex2e-border-color, rgba(92, 69, 16, 0.6));
+  border-radius: 3px;
+  color: var(--ex2e-gold-bright, #ffe066);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.ex2e-tick-wheel .tw-toggle:hover {
+  background: var(--ex2e-bg-hover, rgba(201, 162, 39, 0.06));
+  border-color: var(--ex2e-gold-main, #c9a227);
+}
+
+.ex2e-tick-wheel .tw-tick {
+  font-weight: 700;
+}
+
+.ex2e-tick-wheel .tw-svg-wrap {
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+
+.ex2e-tick-wheel .tw-next-tick {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--ex2e-bg-medium, #0e0e0e);
+  border: 1px solid var(--ex2e-gold-mid, #a07820);
+  border-radius: 50%;
+  color: var(--ex2e-gold-bright, #ffe066);
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+}
+
+.ex2e-tick-wheel .tw-next-tick:hover {
+  background: var(--ex2e-bg-hover, rgba(201, 162, 39, 0.06));
+  border-color: var(--ex2e-gold-bright, #ffe066);
+  box-shadow: 0 0 6px rgba(255, 224, 102, 0.5);
+}
+
+.ex2e-tick-wheel .tw-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.ex2e-tick-wheel .tw-ring {
+  fill: none;
+  stroke: rgba(201, 162, 39, 0.18);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+.ex2e-tick-wheel .tw-slot {
+  fill: var(--ex2e-bg-medium, #0e0e0e);
+  stroke: var(--ex2e-border-color, rgba(92, 69, 16, 0.6));
+  stroke-width: 1.5;
+}
+
+.ex2e-tick-wheel .tw-slot-current {
+  fill: rgba(201, 162, 39, 0.22);
+  stroke: var(--ex2e-gold-bright, #ffe066);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 4px rgba(255, 224, 102, 0.6));
+}
+
+.ex2e-tick-wheel .tw-slot-label {
+  fill: var(--ex2e-text-secondary, #b8a88a);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.ex2e-tick-wheel .tw-slot-label-current {
+  fill: var(--ex2e-gold-bright, #ffe066);
+}
+
+.ex2e-tick-wheel .tw-combatant {
+  stroke: #000;
+  stroke-width: 1;
+}
+
+.ex2e-tick-wheel .tw-combatant-pc  { fill: #6ec3ff; }
+.ex2e-tick-wheel .tw-combatant-npc { fill: #c0392b; }
+
+.ex2e-tick-wheel .tw-slot-overflow {
+  fill: var(--ex2e-text-muted, #7a6a50);
+  font-size: 9px;
+}
+
+.ex2e-tick-wheel .tw-hub {
+  fill: var(--ex2e-bg-darkest, #000);
+  stroke: var(--ex2e-gold-mid, #a07820);
+  stroke-width: 1;
+}
+
+.ex2e-tick-wheel .tw-hub-label {
+  fill: var(--ex2e-text-muted, #7a6a50);
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.ex2e-tick-wheel .tw-hub-value {
+  fill: var(--ex2e-gold-bright, #ffe066);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.ex2e-tick-wheel .tw-footer {
+  text-align: center;
   color: var(--ex2e-text-muted, #7a6a50);
   font-size: 10px;
 }
