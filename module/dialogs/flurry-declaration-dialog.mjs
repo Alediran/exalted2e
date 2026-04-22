@@ -162,6 +162,7 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
     // speed/dvMod for weapon-mode keys (which aren't in EX2E.actions).
     this._actionOptions     = this._buildActionOptions(drawnIds);
     this._unequippedWeapons = this._buildUnequippedWeapons();
+
     return {
       ...context,
       actorName:         this._actorName,
@@ -171,14 +172,60 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
       drawActionKey:     "draw",
       canRemove:         n > 2,
       // Live preview so the player sees what the flurry will cost before
-      // committing to it.
-      preview: {
-        count:       n,
-        dicePenalty: n - 1,
-        speed:       this._actions.reduce((m, a) => Math.max(m, a.speed ?? 0), 0),
-        dvPenalty:   this._actions.reduce((m, a) => Math.max(m, a.dvMod ?? 0), 0) + (n - 1)
-      }
+      // committing to it. Recomputed in-place by `_updatePreview` as the
+      // user edits rows.
+      preview: this._computePreview()
     };
+  }
+
+  /**
+   * Pure function over `this._actions`: returns the flurry's resolved
+   * count / dice penalty / speed / DV penalty. Quick-draw flurries (a
+   * Draw row paired with its weapon attack) use the MIN speed of the two
+   * rows instead of the MAX — a Speed-5 Draw plus a Speed-5 Punch still
+   * resolves on tick 5 rather than tick 10.
+   */
+  _computePreview() {
+    const n = this._actions.length;
+    debugger;
+    const drawWeaponId = this._actions.find(a => a.actionKey === "draw")?.weaponId ?? ''; //grabbing the weaponId to be sure Quick Draw uses it during the action flurry
+    const isQuickDraw = n === 2
+      && this._actions.every(a => a.actionKey === "draw" || a.actionKey?.startsWith(`weapon:${drawWeaponId}`));
+
+    const speed = isQuickDraw
+      ? this._actions.reduce((m, a) => Math.min(m, a.speed ?? 5), Infinity)
+      : this._actions.reduce((m, a) => Math.max(m, a.speed ?? 0), 0);
+    const maxDv = this._actions.reduce((m, a) => Math.max(m, a.dvMod ?? 0), 0);
+    return {
+      count:       n,
+      dicePenalty: Math.max(0, n - 1),
+      speed:       Number.isFinite(speed) ? speed : 0,
+      dvPenalty:   maxDv + Math.max(0, n - 1)
+    };
+  }
+
+  /**
+   * Sync the live DOM back into `this._actions`, recompute the preview,
+   * and patch the preview panel in place. Called on every input change
+   * so speed / DV / quick-draw feedback stays current without a full
+   * re-render (which would drop the user's focus / selection).
+   */
+  _updatePreview() {
+    this._syncFromForm();
+    const preview = this._computePreview();
+    const form = this.element?.querySelector("form");
+    const panel = form?.querySelector(".flurry-preview");
+    if (!panel) return;
+    const nodes = panel.querySelectorAll("[data-preview]");
+    nodes.forEach(node => {
+      const key = node.dataset.preview;
+      const val = preview[key];
+      if (val === undefined) return;
+      // Keep the original "label: value" layout — only replace the numeric
+      // tail (everything after the last whitespace) or the whole text if
+      // no label is present.
+      node.textContent = String(val);
+    });
   }
 
   /**
@@ -209,14 +256,25 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
           : null;
         if (drawRow) drawRow.classList.toggle("hidden", key !== "draw");
         this._updateRowValidity();
+        this._updatePreview();
       });
     });
     form.querySelectorAll(".flurry-draw-row [name$='.weaponId']").forEach(select => {
-      select.addEventListener("change", () => this._updateRowValidity());
+      select.addEventListener("change", () => {
+        this._updateRowValidity();
+        this._updatePreview();
+      });
     });
+    // Manual edits to per-row Speed / DV Mod should also refresh the
+    // preview — a player might hand-tune either.
+    form.querySelectorAll(".flurry-row[data-index] [name$='.speed'], .flurry-row[data-index] [name$='.dvMod']")
+      .forEach(input => {
+        input.addEventListener("input", () => this._updatePreview());
+      });
     // Seed with one pass so any initial state (e.g. after add/remove) is
     // consistent with the current draw declarations.
     this._updateRowValidity();
+    this._updatePreview();
   }
 
   /**
@@ -336,12 +394,9 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
       ui.notifications.warn(game.i18n.localize("EX2E.FlurryMinTwoActions"));
       return;
     }
-    const count       = this._actions.length;
-    const dicePenalty = count - 1;
-    const speed       = this._actions.reduce((m, a) => Math.max(m, a.speed ?? 0), 0);
-    const maxDvMod    = this._actions.reduce((m, a) => Math.max(m, a.dvMod ?? 0), 0);
-    const dvPenalty   = maxDvMod + (count - 1);
-
+    // One source of truth — the confirmed flurry must match the preview.
+    const { count, dicePenalty, speed, dvPenalty } = this._computePreview();
+    
     // Any Draw row with a selected weapon equips that weapon now. Doing it
     // at declaration lets the player roll attack actions later in the same
     // flurry against weapons they just drew.
