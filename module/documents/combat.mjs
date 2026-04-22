@@ -85,7 +85,12 @@ export class ExaltedCombat extends Combat {
       });
       const result = await roll.evaluate();
       await result.toMessage({ speaker: ChatMessage.getSpeaker({ actor: combatant.actor }) });
-      await combatant.setFlag("exalted2e", "joinBattleSuccesses", result.successes);
+      // Store both successes and the botch flag — `_recomputeTicks` forces
+      // botchers onto tick 6 regardless of the usual max-theirs math.
+      await combatant.update({
+        "flags.exalted2e.joinBattleSuccesses": result.successes,
+        "flags.exalted2e.joinBattleBotched":   !!result.botch
+      });
     }
 
     await this._recomputeTicks();
@@ -101,16 +106,18 @@ export class ExaltedCombat extends Combat {
     const entries = [];
     for (const c of this.combatants) {
       const s = c.getFlag("exalted2e", "joinBattleSuccesses");
-      if (typeof s === "number") entries.push({ id: c.id, successes: s });
+      if (typeof s !== "number") continue;
+      const botched = !!c.getFlag("exalted2e", "joinBattleBotched");
+      entries.push({ id: c.id, successes: s, botched });
     }
     if (entries.length === 0) return;
 
-    // Canonical wheel cap: botchers and anyone >=6 behind the winner land on
-    // tick 6. Clamp here so the tick range stays 0..6 as displayed.
+    // Canonical wheel cap: botchers land on tick 6 regardless of the math;
+    // everyone else lands at max-theirs, clamped to 6.
     const max = Math.max(...entries.map(e => e.successes));
-    const updates = entries.map(({ id, successes }) => ({
+    const updates = entries.map(({ id, successes, botched }) => ({
       _id:        id,
-      initiative: Math.min(6, max - successes)
+      initiative: botched ? 6 : Math.min(6, max - successes)
     }));
     await this.updateEmbeddedDocuments("Combatant", updates);
   }
