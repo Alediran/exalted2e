@@ -65,11 +65,12 @@ export class ActionQuickbar {
     this._moveOverlay = null;
     this._moveOverlayPending = null;
     this._build();
-    // Close the attack-mode submenu on any outside click.
+    // Close the popover submenu on any outside click. Both the Attack and
+    // Cast Spell buttons open it, so either one keeps it open.
     document.addEventListener("click", (ev) => {
       if (!this._submenu || this._submenu.hidden) return;
       if (this._submenu.contains(ev.target)) return;
-      if (ev.target.closest(".qb-attack")) return;
+      if (ev.target.closest(".qb-attack") || ev.target.closest(".qb-cast")) return;
       this._hideSubmenu();
     });
   }
@@ -156,6 +157,10 @@ export class ActionQuickbar {
 
     for (const [key, cfg] of Object.entries(EX2E.actions)) {
       pieces.push(this._actionButton(key, cfg));
+      // Cast Spell slots in right after the Simple Charm action — it
+      // occupies an equivalent conceptual spot (another Simple-shape
+      // activation) and the menu pattern matches the Attack button.
+      if (key === "simpleCharm") pieces.push(this._castSpellButton(actor));
     }
 
     pieces.push(this._flurryButton(flurry));
@@ -190,6 +195,20 @@ export class ActionQuickbar {
     if (modes.length === 0) {
       btn.disabled = true;
       btn.title = game.i18n.localize("EX2E.QuickbarNoEquipped");
+    }
+    return btn;
+  }
+
+  _castSpellButton(actor) {
+    const spells = this._ownedSpells(actor);
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.classList.add("qb-btn", "qb-cast");
+    btn.title = game.i18n.localize("EX2E.QuickbarCastTooltip");
+    btn.innerHTML = `<i class="fa-solid fa-hat-wizard"></i> ${game.i18n.localize("EX2E.ActionCast")} <i class="fa-solid fa-caret-up"></i>`;
+    if (spells.length === 0) {
+      btn.disabled = true;
+      btn.title = game.i18n.localize("EX2E.QuickbarNoSpells");
     }
     return btn;
   }
@@ -233,6 +252,11 @@ export class ActionQuickbar {
     this._root.querySelector(".qb-attack")?.addEventListener("click", (ev) => {
       ev.stopPropagation();
       this._toggleAttackSubmenu(ev.currentTarget, actor, current);
+    });
+
+    this._root.querySelector(".qb-cast")?.addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      this._toggleSpellsSubmenu(ev.currentTarget, actor);
     });
 
     this._root.querySelectorAll(".qb-action").forEach(btn => {
@@ -321,6 +345,66 @@ export class ActionQuickbar {
     this._submenu.replaceChildren();
   }
 
+  // ── Cast Spell submenu ─────────────────────────────────────────────────
+  /**
+   * Popover list of every spell the actor knows. Clicking a row fires
+   * `spell.castSpell()`, which handles cost spending, the initiation
+   * soft-warning, and the chat card on its own — no quickbar bookkeeping
+   * needed (spells aren't pendingAction-style declarations).
+   */
+  _toggleSpellsSubmenu(btn, actor) {
+    if (!this._submenu.hidden) { this._hideSubmenu(); return; }
+    const spells = this._ownedSpells(actor);
+    if (spells.length === 0) return;
+
+    this._submenu.replaceChildren(
+      ...spells.map(s => {
+        const row = document.createElement("button");
+        row.type = "button";
+        row.classList.add("qb-attack-mode");
+        const cost = s.system?.cost ?? {};
+        const costParts = [];
+        if (cost.motes)            costParts.push(`${cost.motes}m`);
+        if (cost.willpower)        costParts.push(`${cost.willpower}wp`);
+        if (cost.bashingHealth)    costParts.push(`${cost.bashingHealth}hl(B)`);
+        if (cost.lethalHealth)     costParts.push(`${cost.lethalHealth}hl(L)`);
+        if (cost.aggravatedHealth) costParts.push(`${cost.aggravatedHealth}hl(A)`);
+        if (cost.xp)               costParts.push(`${cost.xp}xp`);
+        const costLabel = costParts.join(" ") || "—";
+        row.innerHTML = `<span class="mode-label">${s.name}</span><span class="mode-stats">${costLabel}</span>`;
+        row.addEventListener("click", (ev) => {
+          ev.stopPropagation();
+          this._hideSubmenu();
+          s.castSpell();
+        });
+        return row;
+      })
+    );
+
+    const br = btn.getBoundingClientRect();
+    this._submenu.hidden = false;
+    const sw = this._submenu.offsetWidth;
+    this._submenu.style.left = `${Math.max(8, br.left + br.width / 2 - sw / 2)}px`;
+    this._submenu.style.bottom = `${window.innerHeight - br.top + 6}px`;
+  }
+
+  /** Actor's spells, sorted by tradition → circle → name for the submenu. */
+  _ownedSpells(actor) {
+    const list = [];
+    for (const i of (actor?.items ?? [])) {
+      if (i.type === "spell") list.push(i);
+    }
+    return list.sort((a, b) => {
+      const ta = a.system?.tradition ?? "";
+      const tb = b.system?.tradition ?? "";
+      if (ta !== tb) return ta.localeCompare(tb);
+      const ca = Number(a.system?.circle) || 0;
+      const cb = Number(b.system?.circle) || 0;
+      if (ca !== cb) return ca - cb;
+      return a.name.localeCompare(b.name);
+    });
+  }
+
   // ── Passive render (no-combat, mid-action non-abortable, acted, etc.) ─
   /**
    * Render the bar in a stateless "browsing" mode: all action buttons are
@@ -341,19 +425,25 @@ export class ActionQuickbar {
     pieces.push(this._attackButton(actor));
     for (const [key, cfg] of Object.entries(EX2E.actions)) {
       pieces.push(this._actionButton(key, cfg));
+      if (key === "simpleCharm") pieces.push(this._castSpellButton(actor));
     }
     this._root.replaceChildren(...pieces);
     this._wirePassive(actor);
   }
 
   _wirePassive(actor) {
-    // Attack remains functional out of combat — it's useful for ad-hoc
-    // rolls (Social Combat / Mass Combat will wire more in later). When
-    // `current` is null, `_handleAttack` skips the combatant flag writes.
+    // Attack + Cast Spell remain functional out of combat — they each
+    // resolve costs / rolls on the target item itself, no combatant
+    // bookkeeping required.
     this._root.querySelector(".qb-attack")?.addEventListener("click", (ev) => {
       ev.stopPropagation();
       if (!actor) return;
       this._toggleAttackSubmenu(ev.currentTarget, actor, null);
+    });
+    this._root.querySelector(".qb-cast")?.addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      if (!actor) return;
+      this._toggleSpellsSubmenu(ev.currentTarget, actor);
     });
     if (!actor) return;
     this._root.querySelectorAll(".qb-action").forEach(btn => {

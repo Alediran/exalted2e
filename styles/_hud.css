@@ -146,6 +146,7 @@
 }
 
 .ex2e-action-quickbar .qb-attack,
+.ex2e-action-quickbar .qb-cast,
 .ex2e-action-quickbar .qb-flurry,
 .ex2e-action-quickbar .qb-finish {
   color: var(--ex2e-gold-bright, #ffe066);
