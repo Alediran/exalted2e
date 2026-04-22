@@ -276,35 +276,6 @@
   text-align: center;
 }
 
-/* ── Finish Turn Dialog ────────────────────────────────────────────────── */
-
-.finish-turn-dialog .finish-turn-header {
-  margin:    0;
-  font-size: var(--ex2e-font-size-sm);
-  color:     var(--ex2e-text-secondary);
-}
-.finish-turn-dialog .finish-turn-presets {
-  display:   flex;
-  flex-wrap: wrap;
-  gap:       4px;
-}
-.finish-turn-dialog .btn-preset {
-  padding:       2px 8px;
-  border:        1px solid var(--ex2e-gold-dark);
-  border-radius: 3px;
-  background:    var(--ex2e-bg-darkest);
-  color:         var(--ex2e-text-secondary);
-  font-family:   var(--ex2e-font-ui);
-  font-size:     var(--ex2e-font-size-xs);
-  cursor:        pointer;
-  transition:    background var(--ex2e-transition-fast),
-                 color var(--ex2e-transition-fast);
-}
-.finish-turn-dialog .btn-preset:hover {
-  background: var(--ex2e-bg-hover);
-  color:      var(--ex2e-gold-main);
-}
-
 /* ── Flurry Declaration Dialog ─────────────────────────────────────────── */
 
 .flurry-dialog .flurry-header {

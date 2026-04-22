@@ -34,7 +34,7 @@ export function ensureCombatHUD() {
  *                     penalty as a refreshable AE, and stamps pendingAction.
  *
  * Finish Turn consumes in this order: declared flurry → pendingAction →
- * FinishTurnDialog fallback.
+ * 1-tick pass (if nothing was declared).
  */
 export class ActionQuickbar {
   static _instance = null;
@@ -519,9 +519,14 @@ export class ActionQuickbar {
 
 /**
  * Shared Finish-Turn resolver used by both the quickbar and the combat
- * tracker's Finish Turn button. Priority: flurry flag → pendingAction flag
- * → FinishTurnDialog. Any pending flag is cleared by
- * ExaltedCombat.advanceCurrentByTicks.
+ * tracker's Finish Turn button. Priority:
+ *   • flurry flag       → commit by the flurry's Speed
+ *   • pendingAction     → commit by the declared action's Speed
+ *   • nothing declared  → commit a 1-tick pass (same rule applied when
+ *                         the GM advances the wheel past an unacted
+ *                         combatant)
+ *
+ * Declaration flags are cleared by `ExaltedCombat.advanceCurrentByTicks`.
  */
 export async function finishTurnFor(combat, current) {
   const flurry  = current.flags?.exalted2e?.flurry ?? null;
@@ -530,16 +535,6 @@ export async function finishTurnFor(combat, current) {
     return;
   }
   const pending = current.flags?.exalted2e?.pendingAction ?? null;
-  if (pending) {
-    await combat.advanceCurrentByTicks(pending.speed);
-    return;
-  }
-  const { FinishTurnDialog } = await import("../dialogs/finish-turn-dialog.mjs");
-  const speed = await FinishTurnDialog.prompt({
-    combatantName: current.name,
-    currentTick:   current.initiative ?? 0,
-    defaultSpeed:  5
-  });
-  if (speed === null) return;
+  const speed = pending ? (pending.speed ?? 0) : 1;
   await combat.advanceCurrentByTicks(speed);
 }

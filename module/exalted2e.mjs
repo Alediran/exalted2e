@@ -199,7 +199,6 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/dialog/attack-dialog.hbs",
     "systems/exalted2e/templates/dialog/step2-defense-dialog.hbs",
     "systems/exalted2e/templates/dialog/counterattack-dialog.hbs",
-    "systems/exalted2e/templates/dialog/finish-turn-dialog.hbs",
     "systems/exalted2e/templates/dialog/flurry-declaration-dialog.hbs",
     "systems/exalted2e/templates/dialog/formula-builder-dialog.hbs",
     "systems/exalted2e/templates/dialog/virtueflaw-picker-dialog.hbs",
@@ -641,8 +640,8 @@ Hooks.on("renderCombatTracker", (app, html, _data) => {
       finishBtn.innerHTML = `<i class="fa-solid fa-forward-step"></i> ${finishLabel}`;
       finishBtn.addEventListener("click", async () => {
         // Shared with the action quickbar: prefers a declared flurry's
-        // Speed, then a pendingAction flag from the quickbar, and finally
-        // falls back to the manual FinishTurnDialog.
+        // Speed, then a pendingAction flag from the quickbar, else
+        // commits a 1-tick pass.
         await finishTurnFor(combat, current);
       });
       insertBtn(finishBtn);
