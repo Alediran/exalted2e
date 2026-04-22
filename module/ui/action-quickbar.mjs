@@ -92,37 +92,46 @@ export class ActionQuickbar {
   }
 
   refresh() {
+    // The bar is permanent — it stays visible even when there's no active
+    // combatant so players can reference their action list out of combat
+    // and so future social/mass-combat modes have a home. Only the bar's
+    // CONTENT varies with state.
     const combat = game.combat;
-    if (!combat?.started) return this._hide();
-    const current = combat.combatant;
-    if (!current?.actor) return this._hide();
-    const canAct = game.user.isGM
-      || current.actor.testUserPermission(game.user, "OWNER");
-    if (!canAct) return this._hide();
+    const current = combat?.started ? combat.combatant : null;
+    const ownsActive = !!current?.actor
+      && (game.user.isGM || current.actor.testUserPermission(game.user, "OWNER"));
 
-    const currentTick = combat.currentTick;
-    const initiative  = current.initiative ?? 0;
-    const acted       = !!current.flags?.exalted2e?.actedThisTick;
-    const committed   = current.flags?.exalted2e?.committedAction ?? null;
+    this._show();
 
-    // Mid-action (initiative is past the wheel): only show a bar if the
-    // committed action is abortable and hasn't been aborted yet.
-    if (initiative > currentTick) {
-      if (committed?.abortable && !committed?.aborted) {
-        this._renderAbortOnly(current, committed);
-        this._show();
-      } else {
-        this._hide();
+    if (ownsActive) {
+      const currentTick = combat.currentTick;
+      const initiative  = current.initiative ?? 0;
+      const acted       = !!current.flags?.exalted2e?.actedThisTick;
+      const committed   = current.flags?.exalted2e?.committedAction ?? null;
+
+      // Mid-action: abortable → abort-only bar; otherwise passive.
+      if (initiative > currentTick) {
+        if (committed?.abortable && !committed?.aborted) {
+          this._renderAbortOnly(current, committed);
+        } else {
+          this._renderPassive(current.actor);
+        }
+        return;
       }
+
+      // Already committed this tick — passive until GM advances.
+      if (acted) { this._renderPassive(current.actor); return; }
+
+      // Free and eligible: full combat bar.
+      this._render(combat, current);
       return;
     }
 
-    // Already committed this tick — waiting for GM's Next Tick.
-    if (acted) return this._hide();
-
-    // Free and eligible: full quickbar.
-    this._render(combat, current);
-    this._show();
+    // Out of combat, or combat exists but this user doesn't own the
+    // active combatant. Fall back to their assigned character so the
+    // Attack submenu + Move/Dash hover previews still have a token to
+    // work with.
+    this._renderPassive(game.user.character ?? null);
   }
 
   _show() { this._root.classList.remove("hidden"); }
@@ -312,6 +321,52 @@ export class ActionQuickbar {
     this._submenu.replaceChildren();
   }
 
+  // ── Passive render (no-combat, mid-action non-abortable, acted, etc.) ─
+  /**
+   * Render the bar in a stateless "browsing" mode: all action buttons are
+   * shown for reference and the Attack submenu still fires `rollAttack`
+   * against the given actor, but the Flurry / Finish Turn / pending
+   * indicator are hidden and the generic action buttons have no click
+   * handler. Move / Dash hover previews stay live because they only need
+   * an actor's token to draw.
+   *
+   * @param {ExaltedActor|null} actor  Acting actor — may be null (GM with
+   *                                   no assigned character and no active
+   *                                   combatant); in that case Attack and
+   *                                   previews simply no-op.
+   */
+  _renderPassive(actor) {
+    this._hideMoveRange();
+    const pieces = [];
+    pieces.push(this._attackButton(actor));
+    for (const [key, cfg] of Object.entries(EX2E.actions)) {
+      pieces.push(this._actionButton(key, cfg));
+    }
+    this._root.replaceChildren(...pieces);
+    this._wirePassive(actor);
+  }
+
+  _wirePassive(actor) {
+    // Attack remains functional out of combat — it's useful for ad-hoc
+    // rolls (Social Combat / Mass Combat will wire more in later). When
+    // `current` is null, `_handleAttack` skips the combatant flag writes.
+    this._root.querySelector(".qb-attack")?.addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      if (!actor) return;
+      this._toggleAttackSubmenu(ev.currentTarget, actor, null);
+    });
+    if (!actor) return;
+    this._root.querySelectorAll(".qb-action").forEach(btn => {
+      const key = btn.dataset.actionKey;
+      if (key === "move" || key === "dash") {
+        btn.addEventListener("mouseenter", () => this._showMoveRange(actor, key));
+        btn.addEventListener("mouseleave", () => this._hideMoveRange());
+      }
+      // Click handlers for generic actions land when Social / Mass Combat
+      // modes ship; for now the buttons are reference-only in passive mode.
+    });
+  }
+
   // ── Abort-only render (mid-action, abortable) ─────────────────────────
   _renderAbortOnly(current, committed) {
     const indicator = document.createElement("div");
@@ -492,25 +547,30 @@ export class ActionQuickbar {
   }
 
   async _handleAttack(mode, actor, current) {
-    await this._clearPendingAction(actor, current);
+    // In passive mode (no active owned combatant) we skip the combatant
+    // bookkeeping — no DV penalty, no pendingAction, no committedAction —
+    // and just fire the attack roll for out-of-combat convenience.
+    if (current) {
+      await this._clearPendingAction(actor, current);
 
-    let dvEffectId = null;
-    if (mode.dvMod > 0) {
-      const eff = await actor.applyDVPenalty("attack", mode.dvMod, {
-        label: game.i18n.format("EX2E.QuickbarActionDvLabel", { name: mode.label })
+      let dvEffectId = null;
+      if (mode.dvMod > 0) {
+        const eff = await actor.applyDVPenalty("attack", mode.dvMod, {
+          label: game.i18n.format("EX2E.QuickbarActionDvLabel", { name: mode.label })
+        });
+        dvEffectId = eff?.id ?? null;
+      }
+      await current.setFlag("exalted2e", "pendingAction", {
+        actionKey: "attack",
+        label:     mode.label,
+        speed:     mode.speed,
+        dvPenalty: mode.dvMod,
+        abortable: false,
+        weaponId:  mode.weaponId,
+        modeIndex: mode.modeIndex,
+        dvEffectId
       });
-      dvEffectId = eff?.id ?? null;
     }
-    await current.setFlag("exalted2e", "pendingAction", {
-      actionKey: "attack",
-      label:     mode.label,
-      speed:     mode.speed,
-      dvPenalty: mode.dvMod,
-      abortable: false,
-      weaponId:  mode.weaponId,
-      modeIndex: mode.modeIndex,
-      dvEffectId
-    });
     const { ExaltedRoll } = await import("../rolls/exalted-roll.mjs");
     await ExaltedRoll.rollAttack(actor, mode.weaponId, { modeIndex: mode.modeIndex });
   }
