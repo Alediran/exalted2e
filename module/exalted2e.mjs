@@ -348,9 +348,9 @@ Hooks.once("ready", async function () {
   Hooks.on("createActiveEffect", hudRefresh);
   Hooks.on("deleteActiveEffect", hudRefresh);
   // Weapon equip toggles during a turn should re-evaluate the attack submenu.
-  Hooks.on("updateItem",        qbRefresh);
-  Hooks.on("createItem",        qbRefresh);
-  Hooks.on("deleteItem",        qbRefresh);
+  Hooks.on("updateItem",        hudRefresh);
+  Hooks.on("createItem",        hudRefresh);
+  Hooks.on("deleteItem",        hudRefresh);
 
   // Migration: back-fill unarmed attacks onto existing characters that
   // pre-date this feature. GM-only to avoid write races.

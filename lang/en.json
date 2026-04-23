@@ -536,6 +536,8 @@
     "RiseSucceededClear":            "stood up (no enemy adjacent)",
     "RiseSucceededContested":        "stood up ({successes} vs Difficulty 2)",
     "RiseFailedContested":           "failed to rise ({successes} vs Difficulty 2) — still prone",
+    "AimAtLabel":                    "Aim ({target})",
+    "AimAbortedPenaltyLabel":        "Aborted Aim (−2 internal)",
 
     "TickWheelTitle":                "Battle Wheel",
     "TickWheelTickShort":            "Tick",

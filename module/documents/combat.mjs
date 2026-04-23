@@ -156,6 +156,28 @@ export class ExaltedCombat extends Combat {
     if (!current) return;
     const safeSpeed = Math.max(0, Math.floor(Number(speed) || 0));
 
+    // Sticky DV AEs (Aim, Guard, etc.) survive the prior abortable
+    // action's own refresh but must clear at the end of whatever we
+    // commit NEXT. Flip them to non-sticky here so the upcoming
+    // `advanceWheel` refresh tears them down alongside the new action's
+    // DV AE. Runs before the flurry/pending snapshots so we don't touch
+    // the freshly-stamped abortable DV AE for THIS action.
+    if (current.actor) {
+      const stickies = current.actor.effects.filter(e =>
+        e.flags?.exalted2e?.dvSticky === true
+        && e.flags?.exalted2e?.dvRefreshable === true
+      );
+      for (const ae of stickies) {
+        // Only flip AEs stamped by a PRIOR commit. The DV AE created as
+        // part of the current declaration (the one whose id matches the
+        // pendingAction we're about to snapshot) stays sticky — it's
+        // the new abortable action's own penalty.
+        const currentDvId = current.getFlag("exalted2e", "pendingAction")?.dvEffectId;
+        if (ae.id === currentDvId) continue;
+        await ae.update({ "flags.exalted2e.dvSticky": false });
+      }
+    }
+
     // Snapshot the action that's being committed so the Abort button has
     // something to read after the pendingAction / flurry declaration is
     // cleared. Flurries aren't abortable; single actions inherit their
@@ -199,6 +221,43 @@ export class ExaltedCombat extends Combat {
     if (current.getFlag("exalted2e", "pendingAction")) {
       updates["flags.exalted2e.-=pendingAction"] = null;
     }
+
+    // ── Aim state transitions ───────────────────────────────────────────
+    // Continuing aim (re-aim, same target) keeps the aim flag. Attacking
+    // the aimed target consumes the aim (bonus already applied in
+    // rollAttack). Anything else is a divert — the aim aborts and the
+    // character eats a -2 internal penalty on subsequent actions.
+    const aim = current.getFlag("exalted2e", "aim") ?? null;
+    if (aim && pending) {
+      const sameTarget         = pending.targetActorId === aim.targetActorId;
+      const isAimContinuation  = pending.actionKey === "aim"    && sameTarget;
+      const isAimedAttack      = pending.actionKey === "attack" && sameTarget;
+      if (isAimedAttack) {
+        updates["flags.exalted2e.-=aim"] = null;
+      } else if (!isAimContinuation) {
+        updates["flags.exalted2e.-=aim"] = null;
+        if (current.actor) {
+          await current.actor.applyInternalPenalty(2, {
+            type:  "all",
+            label: game.i18n.localize("EX2E.AimAbortedPenaltyLabel"),
+            icon:  "icons/svg/ruins.svg"
+          });
+        }
+      }
+    } else if (aim && flurry) {
+      // Flurry commits break aim in MVP (the flurry might or might not
+      // include an attack on the aimed target; handling that inside the
+      // flurry resolver is future work).
+      updates["flags.exalted2e.-=aim"] = null;
+      if (current.actor) {
+        await current.actor.applyInternalPenalty(2, {
+          type:  "all",
+          label: game.i18n.localize("EX2E.AimAbortedPenaltyLabel"),
+          icon:  "icons/svg/ruins.svg"
+        });
+      }
+    }
+
     await current.update(updates);
     // `turn = 0` rehydrates `combat.combatant` to whoever is first in the
     // freshly-sorted list (next free-and-unacted combatant).
@@ -259,10 +318,16 @@ export class ExaltedCombat extends Combat {
     await this.update({ turn: 0 });
   }
 
-  /** Delete every dvRefreshable ActiveEffect on the given actor. */
+  /**
+   * Delete every dvRefreshable ActiveEffect on the given actor, except
+   * those flagged as sticky (Aim / Guard etc.). Sticky AEs survive this
+   * refresh — they're flipped to non-sticky at the combatant's NEXT
+   * commit, so they clear on the action-after-the-abortable one.
+   */
   async _refreshDVsFor(actor) {
     const toDelete = actor.effects
-      .filter(e => e.flags?.exalted2e?.dvRefreshable === true)
+      .filter(e => e.flags?.exalted2e?.dvRefreshable === true
+                && e.flags?.exalted2e?.dvSticky      !== true)
       .map(e => e.id);
     if (toDelete.length > 0) {
       await actor.deleteEmbeddedDocuments("ActiveEffect", toDelete);

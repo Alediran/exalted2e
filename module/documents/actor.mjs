@@ -151,6 +151,52 @@ export class ExaltedActor extends Actor {
     return total;
   }
 
+  /**
+   * Same shape as `externalPenaltyFor` but for internal penalties. Both
+   * subtract from dice pools today; tracking them separately matters
+   * later for charm interactions (some charms reduce external penalties
+   * but never internal ones).
+   *
+   * Internal penalty AEs are flagged:
+   *   flags.exalted2e.internalPenalty = { value: number, type: string }
+   * The current consumer is the "aborted Aim" -2 applied when a
+   * character walks away from their designated target.
+   */
+  internalPenaltyFor(type = "physical") {
+    let total = 0;
+    for (const eff of this.effects) {
+      if (eff.disabled) continue;
+      const p = eff.flags?.exalted2e?.internalPenalty;
+      if (!p || !Number.isFinite(p.value)) continue;
+      if (p.type !== "all" && p.type !== type) continue;
+      total += p.value;
+    }
+    return total;
+  }
+
+  /**
+   * Convenience: stamp an internal penalty as a refreshable AE that
+   * clears at the next DV refresh. Mirrors `applyDVPenalty` for the
+   * external-penalty / DV story.
+   */
+  async applyInternalPenalty(value, { type = "all", label, icon } = {}) {
+    if (!Number.isFinite(value) || value <= 0) return null;
+    const effectData = {
+      name: label ?? type,
+      img:  icon  ?? "icons/svg/regen.svg",
+      flags: {
+        exalted2e: {
+          internalPenalty: { type, value },
+          dvRefreshable:   true
+        }
+      },
+      disabled: false,
+      transfer: false
+    };
+    const created = await this.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    return created?.[0] ?? null;
+  }
+
   /** Sum of every non-immune DV penalty. */
   get dvPenaltyTotal() {
     const penalties = this.system?.dvPenalties ?? [];
@@ -193,7 +239,7 @@ export class ExaltedActor extends Actor {
    * @param {string} [opts.label]  Human-readable effect name (defaults to the type).
    * @param {string} [opts.icon]   Status icon path.
    */
-  async applyDVPenalty(type, value, { label, icon } = {}) {
+  async applyDVPenalty(type, value, { label, icon, sticky = false } = {}) {
     if (!type || !Number.isFinite(value) || value <= 0) return null;
     const effectData = {
       name: label ?? type,
@@ -201,7 +247,12 @@ export class ExaltedActor extends Actor {
       flags: {
         exalted2e: {
           dvPenalty:     { type, value },
-          dvRefreshable: true
+          dvRefreshable: true,
+          // Sticky DV penalties survive the usual "refresh on your next
+          // action's tick" clear-out — abortable actions (Aim, Guard)
+          // need their DV penalty to persist until the next DIFFERENT
+          // action's speed elapses. Flipped to false at the next commit.
+          dvSticky:      !!sticky
         }
       },
       disabled: false,

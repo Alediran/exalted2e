@@ -95,6 +95,7 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     const secondExcInput = el.querySelector("[name='secondExcSucc']");
     const totalCostEl    = el.querySelector(".exc-total-cost");
 
+    debugger;
     let currentFirstExcMax  = this._data.firstExcMax;
     let currentSecondExcMax = this._data.secondExcMax;
 

@@ -617,6 +617,9 @@ export class ActionQuickbar {
     // Rise has its own pre-commit flow (adjacent-enemy check, optional
     // Dex + Dodge roll) that decides whether Prone clears on commit.
     if (key === "rise") return this._handleRise(actor, current, cfg);
+    // Aim needs a target-picker and per-combatant aim-state
+    // bookkeeping — offloaded to its own handler.
+    if (key === "aim")  return this._handleAim(actor, current, cfg);
     const label = game.i18n.localize(cfg.labelKey);
 
     await this._clearPendingAction(actor, current);
@@ -624,7 +627,12 @@ export class ActionQuickbar {
     let dvEffectId = null;
     if (cfg.dvMod > 0) {
       const eff = await actor.applyDVPenalty(key, cfg.dvMod, {
-        label: game.i18n.format("EX2E.QuickbarActionDvLabel", { name: label })
+        label: game.i18n.format("EX2E.QuickbarActionDvLabel", { name: label }),
+        // Abortable actions (Aim, Guard) carry their DV penalty past
+        // their own resolution — it only clears at the end of the
+        // action-after-next. `advanceCurrentByTicks` flips the sticky
+        // bit off at the next commit.
+        sticky: !!cfg.abortable
       });
       dvEffectId = eff?.id ?? null;
     }
@@ -662,7 +670,7 @@ export class ActionQuickbar {
       const roll = await ExaltedRoll.rollAttributeAbility(actor, "dexterity", "dodge", {
         flavor: game.i18n.localize("EX2E.RiseRollFlavor")
       });
-      debugger;
+
       if (!roll) return; // User cancelled the roll dialog — abort the whole action.
       const successes = roll.successes ?? 0;
       succeeded = successes >= 2;
@@ -704,6 +712,68 @@ export class ActionQuickbar {
     });
   }
 
+  /**
+   * Aim flow. Opens the canvas picker to choose a target, then stamps
+   * an aim-state flag on the combatant and the normal abortable
+   * pendingAction / sticky-DV pair. If Aim was already active against
+   * the same target (re-aim), the existing aim's startTick + sticky DV
+   * AE are preserved — no stacking, no fresh start. Aiming at a
+   * different target resets both.
+   *
+   * Cancelling the target picker aborts the whole click (nothing
+   * stamped). No-range check: the user said Aim has no reach limit.
+   */
+  async _handleAim(actor, current, cfg) {
+    if (!current) return; // Aim needs a combat context to track state
+    const { pickTargetActor } = await import("../helpers/targeting.mjs");
+    const target = await pickTargetActor();
+    if (!target) return;
+
+    const label = game.i18n.format("EX2E.AimAtLabel", { target: target.name });
+    await this._clearPendingAction(actor, current);
+
+    // Preserve continuity when re-aiming at the same target.
+    const existingAim = current.flags?.exalted2e?.aim ?? null;
+    const continuing  = existingAim && existingAim.targetActorId === target.id;
+    const currentTick = game.combat?.currentTick ?? 0;
+    const startTick   = continuing ? (existingAim.startTick ?? currentTick) : currentTick;
+
+    // Reuse the existing sticky aim DV AE if continuing; otherwise
+    // stamp a fresh one (any old aim DV that was aimed at a different
+    // target will be flipped non-sticky at the next commit).
+    let dvEffectId = null;
+    const existingAimDv = continuing
+      ? actor.effects.find(e =>
+          e.flags?.exalted2e?.dvSticky === true
+          && e.flags?.exalted2e?.dvPenalty?.type === "aim")
+      : null;
+    if (existingAimDv) {
+      dvEffectId = existingAimDv.id;
+    } else if (cfg.dvMod > 0) {
+      const eff = await actor.applyDVPenalty("aim", cfg.dvMod, {
+        label:  game.i18n.format("EX2E.QuickbarActionDvLabel", { name: label }),
+        sticky: true
+      });
+      dvEffectId = eff?.id ?? null;
+    }
+
+    await current.setFlag("exalted2e", "aim", {
+      targetActorId: target.id,
+      startTick
+    });
+    await current.setFlag("exalted2e", "pendingAction", {
+      actionKey:     "aim",
+      label,
+      speed:         cfg.speed,
+      dvPenalty:     cfg.dvMod,
+      abortable:     true,
+      targetActorId: target.id,
+      dvEffectId
+    });
+
+    await this._postActionCard(actor, { label, speed: cfg.speed, dvPenalty: cfg.dvMod });
+  }
+
   async _handleAttack(mode, actor, current) {
     // In passive mode (no active owned combatant) we skip the combatant
     // bookkeeping — no DV penalty, no pendingAction, no committedAction —
@@ -731,6 +801,18 @@ export class ActionQuickbar {
     }
     const { ExaltedRoll } = await import("../rolls/exalted-roll.mjs");
     await ExaltedRoll.rollAttack(actor, mode.weaponId, { modeIndex: mode.modeIndex });
+
+    // After rollAttack resolves its target (via pickTargetActor or the
+    // pre-existing user target), capture the target's id on pendingAction
+    // so the commit path can detect "attacking the aimed target" and
+    // consume the aim flag instead of treating it as a divert.
+    if (current) {
+      const targetId = game.user.targets.first()?.actor?.id;
+      const pending  = current.flags?.exalted2e?.pendingAction ?? null;
+      if (targetId && pending?.actionKey === "attack") {
+        await current.setFlag("exalted2e", "pendingAction", { ...pending, targetActorId: targetId });
+      }
+    }
   }
 
   async _postActionCard(actor, data) {

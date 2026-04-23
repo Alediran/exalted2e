@@ -41,6 +41,9 @@ export class ExaltedRoll {
     this.secondExcSuccesses = options.secondExcSuccesses ?? 0;
     this.useThirdExcellency = options.useThirdExcellency ?? false;
     this.specialty          = options.specialty          ?? null;
+    // External penalty subtracts from successes after the roll (does NOT
+    // touch the pool, and does NOT affect botch detection).
+    this.externalPenalty    = options.externalPenalty    ?? 0;
 
     // Stunt adds extra dice (pool already includes 1st Excellency dice)
     this.totalPool = this.pool + this.stunt;
@@ -81,7 +84,8 @@ export class ExaltedRoll {
       firstExcDice:        this.firstExcDice,
       secondExcSuccesses:  this.secondExcSuccesses,
       usedThirdExcellency: this.useThirdExcellency,
-      specialty:           this.specialty
+      specialty:           this.specialty,
+      externalPenalty:     this.externalPenalty
     });
   }
 
@@ -120,22 +124,25 @@ export class ExaltedRoll {
     // Base pool — raw attribute + ability, before any penalties.
     const rawPool = attrVal + abilVal;
 
-    // External penalties (Prone today; extensible): subtract when the
-    // selected attribute falls into the penalty's category. For this
-    // entry point we key off "physical" vs. non-physical. Social /
-    // Mental categories can follow the same pattern when we need them.
+    // Penalties from active effects split by category:
+    //   • Internal (aborted-Aim -2, etc.) reduces the DICE POOL — fed to
+    //     the dialog so the pool display tracks the selected attribute.
+    //   • External (Prone -1, etc.) reduces SUCCESSES after the roll
+    //     resolves — applied on the ExaltedRoll via `externalPenalty`.
+    //   Both only apply when the selected attribute is physical today;
+    //   Social / Mental categories plug into the same machinery later.
     const physicalKeys = new Set(Object.keys(EX2E.attributes.physical));
     const externalPhysicalPenalty = actor.externalPenaltyFor?.("physical") ?? 0;
-    // Per-attribute penalty map the dialog reads when the user flips the
-    // attribute — so a Prone caster flipping to a mental roll drops the
-    // penalty mid-dialog.
+    const internalPhysicalPenalty = actor.internalPenaltyFor?.("physical") ?? 0;
+    // Per-attribute pool modifier (internal penalties only) — flipping
+    // mid-dialog to a mental attribute drops the penalty live.
     const poolPenaltyByAttr = Object.fromEntries(
       Object.entries(
         Object.assign({}, ...Object.values(EX2E.attributes))
-      ).map(([k]) => [k, physicalKeys.has(k) ? -externalPhysicalPenalty : 0])
+      ).map(([k]) => [k, physicalKeys.has(k) ? -internalPhysicalPenalty : 0])
     );
-    const initialPenalty = physicalKeys.has(defaultAttr) ? -externalPhysicalPenalty : 0;
-    const basePool    = Math.max(0, rawPool + initialPenalty);
+    const initialPoolPenalty = physicalKeys.has(defaultAttr) ? -internalPhysicalPenalty : 0;
+    const basePool    = Math.max(0, rawPool + initialPoolPenalty);
 
     // Specialties for the ability (filter entries with no name)
     const specialties = (sys.abilities[ability]?.specialties ?? []).filter(s => s?.name?.trim());
@@ -203,7 +210,6 @@ export class ExaltedRoll {
       ? Object.fromEntries(attributeChoices.map(c => [c.value, Math.ceil((attributeValues[c.value] ?? 0) / 2)]))
       : null;
 
-      debugger;
     const dialogResult = await RollDialog.prompt({
       pool:                basePool,
       attribute:           defaultAttr,
@@ -241,6 +247,11 @@ export class ExaltedRoll {
       if (!spent) return null;
     }
 
+    // External penalty that applies to this roll's successes — only when
+    // the attribute finally picked in the dialog is physical.
+    const finalAttr = dialogResult.attribute ?? defaultAttr;
+    const externalSuccessPenalty = physicalKeys.has(finalAttr) ? externalPhysicalPenalty : 0;
+
     const exRoll = new ExaltedRoll({
       pool:               dialogResult.pool + firstExcDice,
       flavor:             dialogResult.flavor,
@@ -251,7 +262,8 @@ export class ExaltedRoll {
       firstExcDice:       firstExcDice,
       secondExcSuccesses: secondExcSuccesses,
       useThirdExcellency: useThirdExcellency,
-      specialty:          dialogResult.specialty ?? ""
+      specialty:          dialogResult.specialty ?? "",
+      externalPenalty:    externalSuccessPenalty
     });
 
     // Evaluate once, post the chat card with the evaluated result, and
@@ -259,7 +271,6 @@ export class ExaltedRoll {
     // (e.g., Rise-from-Prone checks against Difficulty 2). `ExaltedRoll`
     // itself never carries the successes — the tally lives on the
     // ExaltedRollResult returned by evaluate().
-    debugger;
     const result = await exRoll.evaluate();
     await result.toMessage({ speaker: ChatMessage.getSpeaker({ actor }) });
     return result;
@@ -328,16 +339,36 @@ export class ExaltedRoll {
     // every attack in the flurry suffers -(N − 1) dice (internal penalty).
     // The declaration lives on the combatant, not the actor, so we look up
     // the active combat's entry for this actor.
-    const flurryFlag   = game.combat?.combatants?.find(c => c.actorId === actor.id)
-                           ?.getFlag("exalted2e", "flurry") ?? null;
-    const flurryPenalty = flurryFlag?.dicePenalty ?? 0;
+    const attackerCombatant = game.combat?.combatants?.find(c => c.actorId === actor.id) ?? null;
+    const flurryFlag        = attackerCombatant?.getFlag("exalted2e", "flurry") ?? null;
+    const flurryPenalty     = flurryFlag?.dicePenalty ?? 0;
 
-    // External penalties from active effects — Prone (-1) is the canon
-    // first consumer. Attacks are always physical rolls, so this category
-    // is fixed here.
+    // Counterattacks pass the target actor directly (the original attacker);
+    // normal attacks take the currently targeted token, and if nothing is
+    // targeted yet we hand the attacker's user a canvas picker to click a
+    // victim. Right-click / Esc cancels the attack.
+    let targetActor = options.explicitTargetActor
+      ?? game.user.targets.first()?.actor
+      ?? null;
+
+    // Aim bonus: if the attacker is currently aiming at THIS target,
+    // every tick since aim started adds a die (cap +3).
+    const aimFlag  = attackerCombatant?.getFlag("exalted2e", "aim") ?? null;
+    const aimMatch = aimFlag && targetActor && aimFlag.targetActorId === targetActor.id;
+    const elapsed  = aimMatch
+      ? Math.max(0, (game.combat?.currentTick ?? 0) - (aimFlag.startTick ?? 0))
+      : 0;
+    const aimBonus = aimMatch ? Math.min(3, elapsed) : 0;
+
+    // Internal + external penalties from active effects. Attacks are
+    // always physical, so the category is fixed here.
+    //   • Internal (e.g., aborted-Aim -2) reduces the dice pool.
+    //   • External (e.g., Prone -1) reduces the success tally after
+    //     the roll resolves — applied below, post-threshold.
+    const internalPenalty = actor.internalPenaltyFor?.("physical") ?? 0;
     const externalPenalty = actor.externalPenaltyFor?.("physical") ?? 0;
 
-    const pool = Math.max(0, basePool + woundPenalty - flurryPenalty - externalPenalty);
+    const pool = Math.max(0, basePool + woundPenalty - flurryPenalty - internalPenalty + aimBonus);
 
     // Excellency detection (same pattern as rollAttributeAbility)
     const exaltType   = sys.exaltType ?? "";
@@ -395,13 +426,7 @@ export class ExaltedRoll {
     // is a single stat but only applies against bashing or lethal attacks —
     // aggravated damage bypasses Hardness entirely.
     const ignoresHardness = mode.damageType === "aggravated";
-    // Counterattacks pass the target actor directly (the original attacker);
-    // normal attacks take the currently targeted token, and if nothing is
-    // targeted yet we hand the attacker's user a canvas picker to click a
-    // victim. Right-click / Esc cancels the attack.
-    let targetActor = options.explicitTargetActor
-                   ?? game.user.targets.first()?.actor
-                   ?? null;
+
     if (!targetActor && !options.isCounterattack) {
       const { pickTargetActor } = await import("../helpers/targeting.mjs");
       targetActor = await pickTargetActor();
@@ -524,10 +549,10 @@ export class ExaltedRoll {
     // Aggravated also bypasses Hardness, and soak looks up a different
     // column — both re-read off the final damage type below.
     const isHolyAttack  = activatedKeywords.has("Holy");
+    
     // CoD is carried as a non-status ActiveEffect flag so the trait stays
     // invisible to observers (no token HUD icon). Check for any enabled
     // effect on the target that advertises it.
-    debugger;
     const targetIsCoD   = !!targetActor?.effects?.some(
       e => !e.disabled && e.flags?.exalted2e?.creatureOfDarkness === true
     );
@@ -567,13 +592,19 @@ export class ExaltedRoll {
     // point the card is re-rendered with hit/miss and damage.
     const typeSuffix          = finalDamageType === "lethal" ? "L" : finalDamageType === "aggravated" ? "A" : "B";
     const overwhelmingSuffix  = mode.tags?.includes("Overwhelming") ? `/${mode.overwhelming ?? 1}` : "";
+    // External penalties (Prone etc.) reduce the SUCCESS tally after the
+    // roll — not the pool. Botch detection still reads the unmodified
+    // rawSuccesses, so a Prone attacker can still botch even when their
+    // display successes would otherwise be non-negative.
+    const displaySuccesses = Math.max(0, (result.successes ?? 0) - externalPenalty);
     const attack = {
       actorId:             actor.id,
       actorName:           actor.name,
       weaponName:          displayName,
       dice:                result.diceDetails,
       pool:                result.pool,
-      successes:           result.successes,
+      successes:           displaySuccesses,
+      externalPenalty,
       botch:               result.botch,
       stunt:               dialogResult.stunt,
       moteCost:            totalMoteCost,
@@ -732,6 +763,9 @@ export class ExaltedRollResult {
     this.secondExcSuccesses  = options.secondExcSuccesses  ?? 0;
     this.usedThirdExcellency = options.usedThirdExcellency ?? false;
     this.specialty           = options.specialty            ?? null;
+    // External penalty — subtracted from the displayed success tally
+    // post-roll. Botch detection is unaffected (reads rawSuccesses).
+    this.externalPenalty     = options.externalPenalty      ?? 0;
 
     // ── Count successes from dice ────────────────────────────────────────
     this.rawSuccesses = 0;
@@ -761,7 +795,11 @@ export class ExaltedRollResult {
     // Second Excellency successes are added after dice (and can prevent botch)
     this.rawSuccesses += this.secondExcSuccesses;
 
-    this.successes = Math.max(0, this.rawSuccesses);
+    // External penalty reduces the displayed success tally, not raw.
+    // Botch / failure / success still read rawSuccesses so a Prone
+    // roller can't turn a botch into a mere failure by "hiding" 1s
+    // behind the penalty.
+    this.successes = Math.max(0, this.rawSuccesses - (this.externalPenalty ?? 0));
     this.botch     = this.rawSuccesses <= 0 && this.ones > 0;
     this.failure   = this.rawSuccesses <= 0 && !this.botch;
     this.success   = this.rawSuccesses > 0;

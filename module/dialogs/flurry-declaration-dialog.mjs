@@ -187,7 +187,6 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
    */
   _computePreview() {
     const n = this._actions.length;
-    debugger;
     const drawWeaponId = this._actions.find(a => a.actionKey === "draw")?.weaponId ?? ''; //grabbing the weaponId to be sure Quick Draw uses it during the action flurry
     const isQuickDraw = n === 2
       && this._actions.every(a => a.actionKey === "draw" || a.actionKey?.startsWith(`weapon:${drawWeaponId}`));
