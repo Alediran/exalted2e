@@ -674,9 +674,14 @@
   flex-direction: column;
   gap: 8px;
   height: 100%;
+  min-height: 0;
 }
 .ex2e-xp-costs-config-body {
   flex: 1 1 auto;
+  min-height: 0;           /* allow the flex child to shrink below its
+                              content size so the scrollbar kicks in */
+  overflow-y: auto;
+  padding-right: 4px;
 }
 .ex2e-xp-costs-config-body .xp-costs-intro {
   margin: 0 0 12px;
@@ -718,6 +723,7 @@
   justify-content: space-between;
   gap: 8px;
   padding-top: 8px;
+  flex: 0 0 auto;          /* pin to the bottom even when content scrolls */
 }
 .ex2e-xp-costs-config .form-footer button.ex2e-danger {
   background: rgba(180, 40, 40, 0.15);
