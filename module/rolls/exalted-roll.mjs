@@ -102,6 +102,66 @@ export class ExaltedRoll {
   // ── Static Factory Methods ──────────────────────────────────────────────
 
   /**
+   * Roll an arbitrary dice pool for an actor, honouring the standard
+   * penalty stack: wound penalty (universal), internal penalty for the
+   * given category (subtracts dice), external penalty for the given
+   * category (subtracts successes post-roll). Used by every non-dialog
+   * entry point — attribute-only rolls, custom pool buttons on the
+   * sheets, Join Battle — so they all go through the same penalty-aware
+   * pipeline.
+   *
+   * Category values: "physical" | "social" | "mental" | "all". "all"
+   * matches only penalties whose own type is "all" (wound + aborted-Aim
+   * etc.); it doesn't match physical-specific penalties like Prone.
+   *
+   * @param {ExaltedActor} actor
+   * @param {object} [opts]
+   * @param {number} [opts.pool=0]       Base pool before penalties.
+   * @param {string} [opts.flavor=""]    Chat flavor text.
+   * @param {string} [opts.category="all"]
+   * @returns {Promise<ExaltedRollResult>}
+   */
+  static async rollPool(actor, { pool = 0, flavor = "", category = "all" } = {}) {
+    const internal = actor.internalPenaltyFor?.(category) ?? 0;
+    const external = actor.externalPenaltyFor?.(category) ?? 0;
+    const wound    = Number(actor.system?.health?.woundPenalty) || 0;
+
+    const finalPool = Math.max(0, (pool ?? 0) + wound - internal);
+
+    const roll = new ExaltedRoll({
+      pool:            finalPool,
+      flavor,
+      actorName:       actor.name,
+      externalPenalty: external
+    });
+    const result = await roll.evaluate();
+    await result.toMessage({ speaker: ChatMessage.getSpeaker({ actor }) });
+    return result;
+  }
+
+  /**
+   * Roll a bare attribute (no ability, no dialog) with automatic
+   * category detection from the attribute's group in EX2E.attributes.
+   * Delegates to `rollPool` for the penalty handling.
+   */
+  static async rollAttribute(actor, attributeKey, { flavor } = {}) {
+    const { EX2E } = await import("../config.mjs");
+    const val = actor.system?.attributes?.[attributeKey]?.value ?? 0;
+    let category = "all";
+    for (const [group, attrs] of Object.entries(EX2E.attributes ?? {})) {
+      if (attrs[attributeKey]) { category = group; break; }
+    }
+    const defaultFlavor = game.i18n.localize(
+      `EX2E.Attr${attributeKey.charAt(0).toUpperCase() + attributeKey.slice(1)}`
+    );
+    return this.rollPool(actor, {
+      pool:   val,
+      flavor: flavor ?? defaultFlavor,
+      category
+    });
+  }
+
+  /**
    * Build a dice pool from an actor's attribute + ability and roll it,
    * optionally showing a configuration dialog first.
    *

@@ -478,13 +478,10 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static async #onRollAttribute(event, target) {
     const attrKey = target.dataset.attribute;
     if (!attrKey) return;
-    const attrVal = this.document.system.attributes[attrKey]?.value ?? 0;
-    const roll    = new ExaltedRoll({
-      pool:      attrVal,
-      flavor:    game.i18n.localize(`EX2E.Attr${attrKey.charAt(0).toUpperCase() + attrKey.slice(1)}`),
-      actorName: this.document.name
-    });
-    await roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor: this.document }) });
+    // Delegates to ExaltedRoll.rollAttribute so wound / internal /
+    // external penalties apply; category is auto-detected from the
+    // attribute's group in EX2E.attributes.
+    await ExaltedRoll.rollAttribute(this.document, attrKey);
   }
 
   static async #onRollAbility(event, target) {
@@ -503,10 +500,13 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   static async #onRollPool(event, target) {
-    const pool = parseInt(target.dataset.pool) || 0;
-    const flavor = target.dataset.flavor ?? "";
-    const roll = new ExaltedRoll({ pool, flavor, actorName: this.document.name });
-    await roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor: this.document }) });
+    const pool     = parseInt(target.dataset.pool) || 0;
+    const flavor   = target.dataset.flavor   ?? "";
+    // Buttons can opt into a specific penalty category via
+    // data-category="physical|social|mental|all"; default "all" matches
+    // only universal penalties (wound + any "all"-typed effects).
+    const category = target.dataset.category ?? "all";
+    await ExaltedRoll.rollPool(this.document, { pool, flavor, category });
   }
 
   static async #onRollAttack(event, target) {

@@ -61,10 +61,10 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   static async #onRollPool(event, target) {
-    const pool   = parseInt(target.dataset.pool) || 1;
-    const flavor = target.dataset.flavor ?? "";
-    const roll   = new ExaltedRoll({ pool, flavor, actorName: this.document.name });
-    await roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor: this.document }) });
+    const pool     = parseInt(target.dataset.pool) || 1;
+    const flavor   = target.dataset.flavor   ?? "";
+    const category = target.dataset.category ?? "all";
+    await ExaltedRoll.rollPool(this.document, { pool, flavor, category });
   }
 
   static async #onApplyDamage(event, target) {

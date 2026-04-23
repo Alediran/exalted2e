@@ -78,13 +78,14 @@ export class ExaltedCombat extends Combat {
       const combatant = this.combatants.get(id);
       if (!combatant?.actor) continue;
       const pool = this._joinBattlePoolFor(combatant.actor);
-      const roll = new ExaltedRoll({
+      // Join Battle is Wits + Awareness (mental category). Going through
+      // rollPool means any mental-category / universal penalties (and
+      // wound) are honoured on the roll.
+      const result = await ExaltedRoll.rollPool(combatant.actor, {
         pool,
-        flavor:    game.i18n.localize("EX2E.JoinBattle"),
-        actorName: combatant.actor.name
+        flavor:   game.i18n.localize("EX2E.JoinBattle"),
+        category: "mental"
       });
-      const result = await roll.evaluate();
-      await result.toMessage({ speaker: ChatMessage.getSpeaker({ actor: combatant.actor }) });
       // Store both successes and the botch flag — `_recomputeTicks` forces
       // botchers onto tick 6 regardless of the usual max-theirs math.
       await combatant.update({
