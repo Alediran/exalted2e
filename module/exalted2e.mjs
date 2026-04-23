@@ -161,6 +161,15 @@ Hooks.once("init", function () {
     default: true
   });
 
+  game.settings.register("exalted2e", "theCircleSeeded", {
+    name:    "EX2E.SettingTheCircleSeeded",
+    hint:    "EX2E.SettingTheCircleSeededHint",
+    scope:   "world",
+    config:  false,   // hidden — internal seed tracker
+    type:    Boolean,
+    default: false
+  });
+
   // ── Handlebars Helpers ──────────────────────────────────────────────────
   registerHandlebarsHelpers();
 
@@ -399,6 +408,7 @@ Hooks.once("ready", async function () {
   }
 
   await _seedEffectsCompendium();
+  await _seedTheCircleFolder();
 });
 
 /**
@@ -479,6 +489,57 @@ async function _seedEffectsCompendium() {
 }
 
 /**
+ * Flag-based lookup for The Circle folder. Returns the Folder document
+ * or null if the folder was never seeded (or the GM deleted it).
+ * Survives renames because we key on the `exalted2e.theCircle` flag,
+ * not on the folder's display name.
+ */
+function _getTheCircleFolder() {
+  return game.folders?.find(f =>
+    f.type === "Actor" && f.getFlag("exalted2e", "theCircle")) ?? null;
+}
+
+/**
+ * True if `folderId` points to The Circle, or to any descendant
+ * (sub-folder) of The Circle. Walks the parent pointer chain.
+ * Returns false if `folderId` is null / unresolved, or if The Circle
+ * doesn't currently exist in the world.
+ */
+function _isInTheCircle(folderId) {
+  if (!folderId) return false;
+  const circle = _getTheCircleFolder();
+  if (!circle) return false;
+  let cur = game.folders?.get(folderId);
+  while (cur) {
+    if (cur.id === circle.id) return true;
+    cur = cur.folder ?? null;
+  }
+  return false;
+}
+
+/**
+ * Create the "The Circle" Actor folder on first GM load of a world.
+ * Tracked via the world setting `theCircleSeeded`; once true, we never
+ * re-create the folder, even if the GM deleted it (respects GM intent).
+ * For dev/testing, flip the setting back to false in the console and
+ * reload.
+ */
+async function _seedTheCircleFolder() {
+  if (game.settings.get("exalted2e", "theCircleSeeded")) return;
+  try {
+    await Folder.create({
+      name:  game.i18n.localize("EX2E.TheCircleFolderName"),
+      type:  "Actor",
+      color: "#d4af37",
+      flags: { exalted2e: { theCircle: true } }
+    });
+    await game.settings.set("exalted2e", "theCircleSeeded", true);
+  } catch (err) {
+    console.warn("[EX2E] Failed to seed The Circle folder:", err);
+  }
+}
+
+/**
  * When an effect-wrapper item is dropped onto an actor, hijack the
  * creation: spawn the wrapper's embedded ActiveEffects directly on the
  * actor and cancel the item creation itself. Keeps the actor sheet from
@@ -524,6 +585,48 @@ Hooks.on("preCreateItem", (item, data, options, userId) => {
     }));
   }
   return false;
+});
+
+/**
+ * When a new Actor is created inside The Circle (including nested
+ * sub-folders), auto-configure its prototype token as linked and
+ * Friendly. Applies to any actor type — the folder is the marker for
+ * "this is a PC-side actor", independent of the Foundry `type` field.
+ *
+ * Uses `updateSource` (same lifecycle phase as preCreate) so the new
+ * config lands atomically with the rest of the creation payload.
+ */
+Hooks.on("preCreateActor", (actor, data, options, userId) => {
+  if (userId !== game.user.id) return;
+  if (!_isInTheCircle(data.folder)) return;
+  actor.updateSource({
+    "prototypeToken.actorLink":   true,
+    "prototypeToken.disposition": CONST.TOKEN_DISPOSITIONS.FRIENDLY
+  });
+});
+
+/**
+ * When an existing Actor is moved into The Circle (including any of
+ * its sub-folders) from outside, auto-configure the prototype token —
+ * same rules as the creation path. Asymmetric by design: moving out
+ * of The Circle does NOT revert the config, and sub-folder reshuffles
+ * inside The Circle do not re-fire.
+ *
+ * Mutates `changes` in place so the folder move and the prototype-token
+ * tweaks persist atomically — no cascading update, no re-entry.
+ */
+Hooks.on("preUpdateActor", (actor, changes, options, userId) => {
+  if (userId !== game.user.id) return;
+  if (!("folder" in changes)) return;
+  const enteringCircle = _isInTheCircle(changes.folder);
+  const wasInCircle    = _isInTheCircle(actor.folder?.id ?? null);
+  if (!enteringCircle || wasInCircle) return;
+  foundry.utils.mergeObject(changes, {
+    prototypeToken: {
+      actorLink:   true,
+      disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY
+    }
+  });
 });
 
 // ── Combat Tracker Controls ────────────────────────────────────────────────

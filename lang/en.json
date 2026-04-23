@@ -346,6 +346,9 @@
     "SettingIntimacyIntensityHint": "When enabled, intimacies have an intensity rating (Minor, Major, Defining) as in Exalted 3rd Edition. This is a popular house rule for 2nd Edition.",
     "SettingAutoApplyDamage":       "Auto-Apply Damage",
     "SettingAutoApplyDamageHint":   "When enabled, damage from attack rolls is automatically applied to the target. When disabled, a manual Apply Damage button is shown instead.",
+    "TheCircleFolderName":          "The Circle",
+    "SettingTheCircleSeeded":       "Seed The Circle Folder",
+    "SettingTheCircleSeededHint":   "Internal flag: whether this world has already had its 'The Circle' folder seeded.",
     "DamageApplied":                "Damage Applied",
 
     "Attack":            "Attack",
