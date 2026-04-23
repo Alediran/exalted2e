@@ -1,0 +1,177 @@
+const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
+  const sheets = foundry.applications.sheets;
+  const api    = foundry.applications.api;
+  return { ItemSheetV2: sheets.ItemSheetV2, HandlebarsApplicationMixin: api.HandlebarsApplicationMixin };
+})();
+
+export class ComboSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
+
+  static DEFAULT_OPTIONS = {
+    classes:  ["exalted2e", "item", "combo"],
+    position: { width: 520, height: 560 },
+    window:   { resizable: true },
+    form:     { submitOnChange: true, closeOnSubmit: false },
+    actions:  {
+      addCharm:    ComboSheet.#onAddCharm,
+      removeCharm: ComboSheet.#onRemoveCharm,
+      moveUp:      ComboSheet.#onMoveUp,
+      moveDown:    ComboSheet.#onMoveDown
+    }
+  };
+
+  get title() { return this.document.name; }
+
+  static PARTS = {
+    header: { template: "systems/exalted2e/templates/item/combo/header.hbs" },
+    body:   { template: "systems/exalted2e/templates/item/combo/body.hbs", scrollable: [".sheet-body"] }
+  };
+
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+    const item    = this.document;
+    const sys     = item.system;
+    const actor   = item.actor;
+
+    // Resolve each charmUid to an owned charm (by stable UID). Missing
+    // UIDs get rendered as "broken" rows so the user can prune them.
+    const byUid = new Map();
+    if (actor) {
+      for (const i of actor.items) {
+        if (i.type !== "charm") continue;
+        const uid = i.system?.charmUid;
+        if (uid) byUid.set(uid, i);
+      }
+    }
+    const rows = (sys.charmUids ?? []).map((uid, index) => {
+      const charm = byUid.get(uid) ?? null;
+      return {
+        index,
+        uid,
+        resolved: !!charm,
+        id:       charm?.id ?? "",
+        name:     charm?.name ?? game.i18n.localize("EX2E.ComboBroken"),
+        img:      charm?.img  ?? "icons/svg/hazard.svg",
+        costMeta: charm ? this._charmCostMeta(charm) : ""
+      };
+    });
+
+    return {
+      ...context,
+      item,
+      system:      sys,
+      rows,
+      hasActor:    !!actor,
+      isEditable:  this.isEditable,
+      enrichedDescription: await TextEditor.enrichHTML(sys.description ?? "", {
+        secrets: this.document.isOwner, relativeTo: this.document
+      })
+    };
+  }
+
+  /** One-line cost preview like `5m 1wp` for a resolved charm row. */
+  _charmCostMeta(charm) {
+    const c = charm.system?.cost ?? {};
+    const parts = [];
+    if (c.motes)            parts.push(`${c.motes}m`);
+    if (c.willpower)        parts.push(`+${c.willpower}wp`);
+    if (c.bashingHealth)    parts.push(`${c.bashingHealth}b`);
+    if (c.lethalHealth)     parts.push(`${c.lethalHealth}l`);
+    if (c.aggravatedHealth) parts.push(`${c.aggravatedHealth}a`);
+    if (c.xp)               parts.push(`${c.xp}xp`);
+    return parts.join(" ");
+  }
+
+  _onRender(context, options) {
+    super._onRender?.(context, options);
+    if (!this.isEditable) return;
+
+    // Accept drops anywhere over the sheet body (description + charm list),
+    // not just on a specific row.
+    const dd = new foundry.applications.ux.DragDrop({
+      dropSelector: ".combo-body",
+      permissions:  { drop: () => this.isEditable },
+      callbacks:    { drop: this._onDrop.bind(this) }
+    });
+    dd.bind(this.element);
+  }
+
+  async _onDrop(event) {
+    event.preventDefault();
+    const raw = event.dataTransfer?.getData("text/plain");
+    if (!raw) return;
+    let data;
+    try { data = JSON.parse(raw); } catch { return; }
+
+    if (data?.type !== "Item") return;
+
+    const dropped = await fromUuid(data.uuid);
+    if (!dropped) return;
+
+    if (dropped.type !== "charm") {
+      ui.notifications.warn(game.i18n.localize("EX2E.ComboOnlyCharms"));
+      return;
+    }
+
+    const actor = this.document.actor;
+    if (!actor || dropped.actor?.id !== actor.id) {
+      ui.notifications.warn(game.i18n.localize("EX2E.ComboDropFromSameActorOnly"));
+      return;
+    }
+
+    const uid = dropped.system?.charmUid;
+    if (!uid) return;
+
+    const existing = this.document.system.charmUids ?? [];
+    if (existing.includes(uid)) return;   // no-op on duplicate
+
+    await this.document.update({ "system.charmUids": [...existing, uid] });
+  }
+
+  static async #onAddCharm(event, target) {
+    const actor = this.document.actor;
+    if (!actor) {
+      ui.notifications.warn(game.i18n.localize("EX2E.ComboUnownedPlaceholder"));
+      return;
+    }
+    const existing = new Set(this.document.system.charmUids ?? []);
+    const candidates = actor.items
+      .filter(i => i.type === "charm" && i.system?.charmUid && !existing.has(i.system.charmUid))
+      .map(i => ({ uid: i.system.charmUid, name: i.name, img: i.img }))
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    const { ComboCharmPickerDialog } = await import("../../dialogs/combo-charm-picker-dialog.mjs");
+    const picked = await ComboCharmPickerDialog.prompt({ candidates });
+    if (!picked?.length) return;
+
+    // Append — Foundry's array-element merge is unreliable, so clone and
+    // rewrite the full array path (matches the pattern documented in
+    // CLAUDE.md under "ArrayField updates").
+    const next = [...(this.document.system.charmUids ?? []), ...picked];
+    await this.document.update({ "system.charmUids": next });
+  }
+
+  static async #onRemoveCharm(event, target) {
+    const idx = parseInt(target.dataset.index);
+    if (!Number.isFinite(idx)) return;
+    const next = foundry.utils.deepClone(this.document.system.charmUids ?? []);
+    next.splice(idx, 1);
+    await this.document.update({ "system.charmUids": next });
+  }
+
+  static async #onMoveUp(event, target) {
+    const idx = parseInt(target.dataset.index);
+    if (!Number.isFinite(idx) || idx <= 0) return;
+    const next = foundry.utils.deepClone(this.document.system.charmUids ?? []);
+    [next[idx - 1], next[idx]] = [next[idx], next[idx - 1]];
+    await this.document.update({ "system.charmUids": next });
+  }
+
+  static async #onMoveDown(event, target) {
+    const idx = parseInt(target.dataset.index);
+    if (!Number.isFinite(idx)) return;
+    const next = foundry.utils.deepClone(this.document.system.charmUids ?? []);
+    if (idx >= next.length - 1) return;
+    [next[idx], next[idx + 1]] = [next[idx + 1], next[idx]];
+    await this.document.update({ "system.charmUids": next });
+  }
+}

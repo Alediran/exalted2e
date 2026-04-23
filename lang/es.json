@@ -254,6 +254,7 @@
 
     "DeleteItemConfirm": "¿Eliminar {name}? Esta acción no se puede deshacer.",
     "NewCharm":          "Nuevo Encantamiento",
+    "Charms":            "Encantamientos",
     "NewWeapon":         "Nueva Arma",
     "NewArmor":          "Nueva Armadura",
     "NewBackground":     "Nuevo Trasfondo",
@@ -288,6 +289,32 @@
     "AddKnack":          "Añadir Truco",
     "NoKnacks":          "Sin Trucos",
     "SheetKnack":        "Hoja de Truco",
+
+    "NewCombo":                       "Nuevo Combo",
+    "Combo":                          "Combo",
+    "Combos":                         "Combos",
+    "AddCombo":                       "Añadir Combo",
+    "NoCombos":                       "Sin Combos",
+    "NoComboCharms":                  "Sin charms",
+    "SheetCombo":                     "Hoja de Combo",
+    "ComboAddCharm":                  "Añadir Charm",
+    "ComboRemoveCharm":               "Quitar",
+    "ComboMoveUp":                    "Subir",
+    "ComboMoveDown":                  "Bajar",
+    "ComboBroken":                    "Charm no encontrado",
+    "ComboPreflightTitle":            "Activar Combo: {name}",
+    "ComboPreflightWillActivate":     "Se activarán",
+    "ComboPreflightAlreadyActive":    "Ya activos (omitidos)",
+    "ComboPreflightMissing":          "No encontrados (omitidos)",
+    "ComboPreflightTotal":            "Coste total",
+    "ComboPreflightNothingToDo":      "Todos los charms de este Combo están activos o no se encuentran.",
+    "ComboActivate":                  "Activar Combo",
+    "ComboHeaderMessage":             "{actor} activa el Combo: {name}",
+    "ComboDropFromSameActorOnly":     "Un Combo solo puede referenciar charms del mismo personaje.",
+    "ComboOnlyCharms":                "Solo se pueden añadir Charms a un Combo.",
+    "ComboPickerTitle":               "Añadir Charms al Combo",
+    "ComboPickerEmpty":               "Este personaje no tiene charms para añadir.",
+    "ComboUnownedPlaceholder":        "Abre este Combo desde un personaje para editar sus charms.",
 
     "NewVirtueflaw":     "Nuevo Defecto de Virtud",
     "VirtueFlaw":        "Defecto de Virtud",
@@ -560,6 +587,7 @@
       "meritflaw": "Mérito/Defecto",
       "knack":      "Truco",
       "virtueflaw": "Defecto de Virtud",
+      "combo":  "Combo",
       "item":   "Objeto"
     }
   }

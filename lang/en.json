@@ -254,6 +254,7 @@
 
     "DeleteItemConfirm": "Delete {name}? This cannot be undone.",
     "NewCharm":          "New Charm",
+    "Charms":            "Charms",
     "NewWeapon":         "New Weapon",
     "NewArmor":          "New Armor",
     "NewBackground":     "New Background",
@@ -265,6 +266,32 @@
     "AddKnack":          "Add Knack",
     "NoKnacks":          "No Knacks",
     "SheetKnack":        "Knack Sheet",
+
+    "NewCombo":                       "New Combo",
+    "Combo":                          "Combo",
+    "Combos":                         "Combos",
+    "AddCombo":                       "Add Combo",
+    "NoCombos":                       "No Combos",
+    "NoComboCharms":                  "No charms yet",
+    "SheetCombo":                     "Combo Sheet",
+    "ComboAddCharm":                  "Add Charm",
+    "ComboRemoveCharm":               "Remove",
+    "ComboMoveUp":                    "Move Up",
+    "ComboMoveDown":                  "Move Down",
+    "ComboBroken":                    "Missing charm",
+    "ComboPreflightTitle":            "Activate Combo: {name}",
+    "ComboPreflightWillActivate":     "Will activate",
+    "ComboPreflightAlreadyActive":    "Already active (skipped)",
+    "ComboPreflightMissing":          "Missing (skipped)",
+    "ComboPreflightTotal":            "Total cost",
+    "ComboPreflightNothingToDo":      "Every charm in this Combo is either already active or missing.",
+    "ComboActivate":                  "Activate Combo",
+    "ComboHeaderMessage":             "{actor} activates Combo: {name}",
+    "ComboDropFromSameActorOnly":     "Combos can only reference charms owned by the same character.",
+    "ComboOnlyCharms":                "Only Charm items can be added to a Combo.",
+    "ComboPickerTitle":               "Add Charms to Combo",
+    "ComboPickerEmpty":               "This character has no charms to add.",
+    "ComboUnownedPlaceholder":        "Open on an actor to edit charms.",
 
     "NewSpell":              "New Spell",
     "AddSpell":              "Add Spell",
@@ -560,6 +587,7 @@
       "meritflaw": "Merit/Flaw",
       "knack":      "Knack",
       "virtueflaw": "Virtue Flaw",
+      "combo":  "Combo",
       "item":   "Item"
     }
   }

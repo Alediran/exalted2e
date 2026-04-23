@@ -295,3 +295,22 @@
   letter-spacing: 0.04em;
   vertical-align: middle;
 }
+
+.combo-icon-strip {
+  display: inline-flex;
+  gap: 2px;
+  align-items: center;
+}
+.combo-icon-strip .combo-strip-img {
+  width: 22px;
+  height: 22px;
+  object-fit: cover;
+  border: 1px solid var(--color-border-light-tertiary, #8884);
+  border-radius: 3px;
+}
+.combo-charm-row.broken .item-img {
+  filter: grayscale(1) brightness(0.7);
+}
+.combo-charm-row.broken .fa-triangle-exclamation {
+  color: #c44;
+}

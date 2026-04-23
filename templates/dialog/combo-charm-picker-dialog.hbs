@@ -1,0 +1,23 @@
+<form class="ex2e-combo-charm-picker" autocomplete="off">
+  <div class="dialog-content">
+    {{#if candidates.length}}
+    <div class="combo-picker-list" style="max-height:340px; overflow:auto">
+      {{#each candidates as |c|}}
+      <label class="combo-picker-row" style="display:flex; gap:8px; padding:4px 2px">
+        <input type="checkbox" name="uid:{{c.uid}}">
+        <img src="{{c.img}}" alt="{{c.name}}" style="width:24px; height:24px; object-fit:cover">
+        <span style="flex:1">{{c.name}}</span>
+      </label>
+      {{/each}}
+    </div>
+    {{else}}
+    <p class="empty-msg">{{localize "EX2E.ComboPickerEmpty"}}</p>
+    {{/if}}
+  </div>
+  <footer class="form-footer">
+    <button type="button" class="btn-roll" data-action="confirmPick"
+            {{#unless candidates.length}}disabled{{/unless}}>
+      <i class="fa-solid fa-plus"></i> {{localize "EX2E.ComboAddCharm"}}
+    </button>
+  </footer>
+</form>

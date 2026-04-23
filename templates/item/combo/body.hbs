@@ -1,0 +1,56 @@
+<div class="sheet-body combo-body">
+
+  {{!-- Description --}}
+  <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
+  <div class="editor-container">
+    {{#if isEditable}}
+    <prose-mirror name="system.description" data-document-uuid="{{item.uuid}}"
+                  value="{{system.description}}" collaborate="true" toggled="true">
+      {{{enrichedDescription}}}
+    </prose-mirror>
+    {{else}}
+    <div class="editor-content">{{{enrichedDescription}}}</div>
+    {{/if}}
+  </div>
+
+  {{!-- Charms --}}
+  <div class="section-toolbar" style="margin-top:16px">
+    <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Charms"}}</h2>
+    {{#if hasActor}}{{#if isEditable}}
+    <button class="btn-add-item" data-action="addCharm"
+            title="{{localize 'EX2E.ComboAddCharm'}}">
+      <i class="fa-solid fa-plus"></i> {{localize "EX2E.ComboAddCharm"}}
+    </button>
+    {{/if}}{{/if}}
+  </div>
+
+  {{#unless hasActor}}
+    <p class="empty-msg">{{localize "EX2E.ComboUnownedPlaceholder"}}</p>
+  {{else}}
+    <div class="combo-charm-list">
+      {{#each rows as |row|}}
+      <div class="combo-charm-row {{#unless row.resolved}}broken{{/unless}}" data-index="{{row.index}}">
+        <img class="item-img" src="{{row.img}}" alt="{{row.name}}">
+        <span class="item-name">
+          {{#unless row.resolved}}<i class="fa-solid fa-triangle-exclamation" title="{{row.uid}}"></i> {{/unless}}
+          {{row.name}}
+          {{#if row.costMeta}}<span class="charm-meta">{{row.costMeta}}</span>{{/if}}
+        </span>
+        {{#if @root.isEditable}}
+        <div class="item-controls">
+          <button type="button" data-action="moveUp"      data-index="{{row.index}}"
+                  title="{{localize 'EX2E.ComboMoveUp'}}">▲</button>
+          <button type="button" data-action="moveDown"    data-index="{{row.index}}"
+                  title="{{localize 'EX2E.ComboMoveDown'}}">▼</button>
+          <button type="button" data-action="removeCharm" data-index="{{row.index}}"
+                  title="{{localize 'EX2E.ComboRemoveCharm'}}">🗑</button>
+        </div>
+        {{/if}}
+      </div>
+      {{else}}
+      <p class="empty-msg">{{localize "EX2E.NoComboCharms"}}</p>
+      {{/each}}
+    </div>    
+  {{/unless}}
+
+</div>

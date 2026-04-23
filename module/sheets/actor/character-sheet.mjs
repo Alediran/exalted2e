@@ -36,6 +36,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       editItem:            CharacterSheet.#onEditItem,
       deleteItem:          CharacterSheet.#onDeleteItem,
       activateCharm:       CharacterSheet.#onActivateCharm,
+      activateCombo:       CharacterSheet.#onActivateCombo,
       toggleEquip:         CharacterSheet.#onToggleEquip,
       sendItemToChat:      CharacterSheet.#onSendItemToChat,
       rollPool:            CharacterSheet.#onRollPool,
@@ -238,6 +239,53 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const meritflaws = actor.items.filter(i => i.type === "meritflaw")  .sort((a,b) => a.name.localeCompare(b.name));
     const virtueFlaw = actor.items.find(i => i.type === "virtueflaw") ?? null;
 
+    // ── Combos (errata edition) — saved charm packets. ─────────────────
+    const combos = actor.items.filter(i => i.type === "combo")
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    const byUid = new Map();
+    for (const c of charms) {
+      const uid = c.system?.charmUid;
+      if (uid) byUid.set(uid, c);
+    }
+    const comboRows = combos.map(combo => {
+      const uids      = combo.system?.charmUids ?? [];
+      const resolved  = [];
+      let missingCount = 0;
+      for (const uid of uids) {
+        const charm = byUid.get(uid);
+        if (charm) resolved.push(charm);
+        else       missingCount++;
+      }
+      const preview = { motes: 0, willpower: 0, bashing: 0, lethal: 0, aggravated: 0, xp: 0 };
+      for (const charm of resolved) {
+        const c = charm.system?.cost ?? {};
+        preview.motes      += Number(c.motes)            || 0;
+        preview.willpower  += Number(c.willpower)        || 0;
+        preview.bashing    += Number(c.bashingHealth)    || 0;
+        preview.lethal     += Number(c.lethalHealth)     || 0;
+        preview.aggravated += Number(c.aggravatedHealth) || 0;
+        preview.xp         += Number(c.xp)               || 0;
+      }
+      const bits = [];
+      if (preview.motes)      bits.push(`${preview.motes}m`);
+      if (preview.willpower)  bits.push(`${preview.willpower}wp`);
+      if (preview.bashing)    bits.push(`${preview.bashing}b`);
+      if (preview.lethal)     bits.push(`${preview.lethal}l`);
+      if (preview.aggravated) bits.push(`${preview.aggravated}a`);
+      if (preview.xp)         bits.push(`${preview.xp}xp`);
+      return {
+        id:           combo.id,
+        name:         combo.name,
+        img:          combo.img,
+        iconStrip:    resolved.slice(0, 6).map(c => ({ id: c.id, name: c.name, img: c.img })),
+        totalCount:   uids.length,
+        missingCount,
+        costPreview:  bits.join(" "),
+        canActivate:  resolved.length > 0
+      };
+    });
+
     // Effects — split into temporal (durationed or turn-refreshable) and
     // permanent buckets. The DV-refresh machinery we ship flags its AEs
     // with `exalted2e.dvRefreshable` even though they don't carry a
@@ -262,6 +310,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       spellSections,
       spellInitStatus,
       knacks,
+      combos: comboRows,
       isLunar: sys.exaltType === "lunar",
       weapons,
       armors,
@@ -610,6 +659,12 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const item   = this.document.items.get(itemId);
     if (item?.type === "charm") await item.activateCharm();
     else if (item?.type === "spell") await item.castSpell();
+  }
+
+  static async #onActivateCombo(event, target) {
+    const itemId = target.closest("[data-item-id]")?.dataset.itemId;
+    const item   = this.document.items.get(itemId);
+    if (item?.type === "combo") await item.activateCombo();
   }
 
   static async #onPickVirtueFlaw(event, target) {

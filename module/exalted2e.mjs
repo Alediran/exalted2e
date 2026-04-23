@@ -28,6 +28,7 @@ import { ArmorSheet }       from "./sheets/item/armor-sheet.mjs";
 import { GenericItemSheet } from "./sheets/item/generic-item-sheet.mjs";
 import { KnackSheet }      from "./sheets/item/knack-sheet.mjs";
 import { VirtueFlawSheet } from "./sheets/item/virtueflaw-sheet.mjs";
+import { ComboSheet }       from "./sheets/item/combo-sheet.mjs";
 import { registerHandlebarsHelpers } from "./helpers/handlebars.mjs";
 import { ActionQuickbar } from "./ui/action-quickbar.mjs";
 import { TickWheel }                      from "./ui/tick-wheel.mjs";
@@ -123,6 +124,11 @@ Hooks.once("init", function () {
     types:     ["virtueflaw"],
     makeDefault: true,
     label:     "EX2E.SheetVirtueFlaw"
+  });
+  foundry.documents.collections.Items.registerSheet("exalted2e", ComboSheet, {
+    types:     ["combo"],
+    makeDefault: true,
+    label:     "EX2E.SheetCombo"
   });
 
   // ── System Settings ─────────────────────────────────────────────────────

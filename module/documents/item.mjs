@@ -75,9 +75,17 @@ export class ExaltedItem extends Item {
 
   /**
    * Activate this charm on the owning actor, spending motes as required.
+   *
+   * @param {object}  [opts]
+   * @param {boolean} [opts.skipXpConfirm=false] Suppress the XP confirmation
+   *     dialog — Combo activation funnels the total XP into a single
+   *     up-front confirm, so per-charm confirms would be double-prompting.
+   * @param {string}  [opts.via=null] Diagnostic tag stamped into the
+   *     activation ledger (`ledger.via`). Currently only "combo" is used;
+   *     reserved for a possible future consolidated-Reverse path.
    * @returns {Promise<boolean>} true if activation succeeded.
    */
-  async activateCharm() {
+  async activateCharm({ skipXpConfirm = false, via = null } = {}) {
     if (this.type !== "charm") return false;
     const actor = this.actor;
     if (!actor) return false;
@@ -117,10 +125,11 @@ export class ExaltedItem extends Item {
         moteBreakdown: null, willpower: 0, bashing: 0, lethal: 0,
         aggravated: 0, xp: 0,
         toggledOn: false, toggledOff: false,
-        spawnedWeapon: false, rolledInstant: false
+        spawnedWeapon: false, rolledInstant: false,
+        via
       };
     } else {
-      ledger = await this._spendActivationCosts(cost, { motePool });
+      ledger = await this._spendActivationCosts(cost, { motePool, skipXpConfirm });
       if (!ledger) return false;
       // Charm-specific ledger flags that _spendActivationCosts doesn't know
       // about live alongside the shared ones.
@@ -128,6 +137,7 @@ export class ExaltedItem extends Item {
       ledger.toggledOff    = false;
       ledger.spawnedWeapon = false;
       ledger.rolledInstant = false;
+      ledger.via           = via;
     }
 
     // Weapon-like attack side effects — only when the Attack tab is enabled.
@@ -345,6 +355,139 @@ export class ExaltedItem extends Item {
       .map(e => e.id);
     if (weaponIds.length) await actor.deleteEmbeddedDocuments("Item",         weaponIds);
     if (effectIds.length) await actor.deleteEmbeddedDocuments("ActiveEffect", effectIds);
+  }
+
+  /**
+   * Activate this Combo: plan which owned charms will fire vs. skip,
+   * show a single preflight dialog with aggregate cost + XP confirm,
+   * post a header chat card, then iterate each planned charm through
+   * the existing `activateCharm({ skipXpConfirm: true, via: "combo" })`
+   * pipeline so each keeps its own chat card + Reverse button.
+   *
+   * Returns true if the user confirmed and at least one activation ran
+   * (or the header-only case when everything was skippable), false if
+   * the user cancelled.
+   */
+  async activateCombo() {
+    if (this.type !== "combo") return false;
+    const actor = this.actor;
+    if (!actor) return false;
+
+    // Escape user-controlled strings (charm names, actor/combo names,
+    // raw UIDs) before they land in dialog / chat HTML.
+    const esc = s => String(s ?? "").replace(/[&<>"']/g, c =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[c]));
+
+    // Resolve charmUids → owned charms by stable UID.
+    const byUid = new Map();
+    for (const i of actor.items) {
+      if (i.type !== "charm") continue;
+      const uid = i.system?.charmUid;
+      if (uid) byUid.set(uid, i);
+    }
+
+    const planned  = [];  // { charm }
+    const skipped  = [];  // { charm }
+    const missing  = [];  // { uid }
+
+    for (const uid of (this.system.charmUids ?? [])) {
+      const charm = byUid.get(uid);
+      if (!charm) { missing.push({ uid }); continue; }
+      const isToggleable = ["oneScene", "indefinite"].includes(charm.system?.duration);
+      if (isToggleable && charm.system?.active) {
+        skipped.push({ charm });
+      } else {
+        planned.push({ charm });
+      }
+    }
+
+    // Aggregate cost totals over the planned set.
+    const total = { motes: 0, willpower: 0, bashing: 0, lethal: 0, aggravated: 0, xp: 0 };
+    for (const { charm } of planned) {
+      const c = charm.system?.cost ?? {};
+      total.motes      += Number(c.motes)            || 0;
+      total.willpower  += Number(c.willpower)        || 0;
+      total.bashing    += Number(c.bashingHealth)    || 0;
+      total.lethal     += Number(c.lethalHealth)     || 0;
+      total.aggravated += Number(c.aggravatedHealth) || 0;
+      total.xp         += Number(c.xp)               || 0;
+    }
+
+    // Build the preflight body.
+    const sectionList = (items, mapFn) =>
+      items.length ? `<ul style="margin:4px 0 10px 18px">${items.map(mapFn).join("")}</ul>` : "";
+    const costBits = [];
+    if (total.motes)      costBits.push(`${total.motes}m`);
+    if (total.willpower)  costBits.push(`${total.willpower}wp`);
+    if (total.bashing)    costBits.push(`${total.bashing}b`);
+    if (total.lethal)     costBits.push(`${total.lethal}l`);
+    if (total.aggravated) costBits.push(`${total.aggravated}a`);
+    if (total.xp)         costBits.push(`${total.xp}xp`);
+    const costLine = costBits.length ? costBits.join(", ") : "—";
+
+    const charmCost = (charm) => {
+      const c = charm.system?.cost ?? {};
+      const bits = [];
+      if (c.motes)            bits.push(`${c.motes}m`);
+      if (c.willpower)        bits.push(`+${c.willpower}wp`);
+      if (c.bashingHealth)    bits.push(`${c.bashingHealth}b`);
+      if (c.lethalHealth)     bits.push(`${c.lethalHealth}l`);
+      if (c.aggravatedHealth) bits.push(`${c.aggravatedHealth}a`);
+      if (c.xp)               bits.push(`${c.xp}xp`);
+      return bits.length ? ` (${bits.join(" ")})` : "";
+    };
+
+    const content = `
+      ${planned.length ? `<h4>${game.i18n.localize("EX2E.ComboPreflightWillActivate")}</h4>${
+        sectionList(planned, ({ charm }) =>
+          `<li>${esc(charm.name)}${charmCost(charm)}</li>`)
+      }` : ""}
+      ${skipped.length ? `<h4>${game.i18n.localize("EX2E.ComboPreflightAlreadyActive")}</h4>${
+        sectionList(skipped, ({ charm }) =>
+          `<li>${esc(charm.name)}</li>`)
+      }` : ""}
+      ${missing.length ? `<h4>${game.i18n.localize("EX2E.ComboPreflightMissing")}</h4>${
+        sectionList(missing, ({ uid }) =>
+          `<li title="${esc(uid)}">${game.i18n.localize("EX2E.ComboBroken")}</li>`)
+      }` : ""}
+      ${planned.length === 0
+        ? `<p><em>${game.i18n.localize("EX2E.ComboPreflightNothingToDo")}</em></p>`
+        : `<p><strong>${game.i18n.localize("EX2E.ComboPreflightTotal")}:</strong> ${costLine}</p>`}
+    `;
+
+    const confirmed = await foundry.applications.api.DialogV2.confirm({
+      window:  { title: game.i18n.format("EX2E.ComboPreflightTitle", { name: this.name }) },
+      content,
+      yes: { label: game.i18n.localize("EX2E.ComboActivate"), icon: "fa-solid fa-bolt" },
+      no:  { label: game.i18n.localize("EX2E.Cancel"),        icon: "fa-solid fa-xmark" }
+    });
+    if (!confirmed) return false;
+
+    // Header chat card — compact summary of what's about to fire.
+    const linesHtml = [
+      ...planned.map(({ charm }) =>
+        `<li>${esc(charm.name)}${charmCost(charm)}</li>`),
+      ...skipped.map(({ charm }) =>
+        `<li><em>${esc(charm.name)} — ${
+          game.i18n.localize("EX2E.ComboPreflightAlreadyActive")}</em></li>`),
+      ...missing.map(() =>
+        `<li><em>${game.i18n.localize("EX2E.ComboBroken")}</em></li>`)
+    ].join("");
+    const headerMessage = game.i18n.format("EX2E.ComboHeaderMessage", {
+      actor: esc(actor.name), name: esc(this.name)
+    });
+    await ChatMessage.create({
+      content: `<div class="ex2e-combo-header"><h3>${headerMessage}</h3>
+                <ul style="margin:4px 0 0 18px">${linesHtml}</ul></div>`,
+      speaker: ChatMessage.getSpeaker({ actor })
+    });
+
+    // Fire each planned charm through the existing pipeline.
+    for (const { charm } of planned) {
+      await charm.activateCharm({ skipXpConfirm: true, via: "combo" });
+    }
+
+    return true;
   }
 
   /** Shape the charm's attack config into a weapon item's creation data. */
