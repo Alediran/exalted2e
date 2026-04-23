@@ -29,6 +29,7 @@ import { GenericItemSheet } from "./sheets/item/generic-item-sheet.mjs";
 import { KnackSheet }      from "./sheets/item/knack-sheet.mjs";
 import { VirtueFlawSheet } from "./sheets/item/virtueflaw-sheet.mjs";
 import { ComboSheet }       from "./sheets/item/combo-sheet.mjs";
+import { XpCostsConfigDialog } from "./dialogs/xp-costs-config-dialog.mjs";
 import { registerHandlebarsHelpers } from "./helpers/handlebars.mjs";
 import { ActionQuickbar } from "./ui/action-quickbar.mjs";
 import { TickWheel }                      from "./ui/tick-wheel.mjs";
@@ -170,6 +171,27 @@ Hooks.once("init", function () {
     default: false
   });
 
+  // ── XP Cost Engine Config ──────────────────────────────────────────────
+  // Stored as a single nested object so overrides per field can live
+  // alongside one another; anything absent falls through to the defaults
+  // baked into helpers/xp-cost-defaults.mjs.
+  game.settings.register("exalted2e", "xpCosts", {
+    name:    "EX2E.XpCostsConfigTitle",
+    scope:   "world",
+    config:  false,   // surfaced via the menu below instead of a checkbox
+    type:    Object,
+    default: {}
+  });
+
+  game.settings.registerMenu("exalted2e", "xpCostsMenu", {
+    name:       "EX2E.XpCostsConfigTitle",
+    label:      "EX2E.XpCostsConfigButton",
+    hint:       "EX2E.XpCostsConfigHint",
+    icon:       "fa-solid fa-coins",
+    type:       XpCostsConfigDialog,
+    restricted: true   // GM-only
+  });
+
   // ── Handlebars Helpers ──────────────────────────────────────────────────
   registerHandlebarsHelpers();
 
@@ -242,6 +264,7 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/dialog/flurry-declaration-dialog.hbs",
     "systems/exalted2e/templates/dialog/formula-builder-dialog.hbs",
     "systems/exalted2e/templates/dialog/virtueflaw-picker-dialog.hbs",
+    "systems/exalted2e/templates/dialog/xp-costs-config-dialog.hbs",
     "systems/exalted2e/templates/chat/attack-result.hbs",
     "systems/exalted2e/templates/chat/flurry-declared.hbs",
     "systems/exalted2e/templates/chat/action-declared.hbs"
