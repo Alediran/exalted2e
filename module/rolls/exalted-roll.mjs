@@ -134,14 +134,19 @@ export class ExaltedRoll {
     const physicalKeys = new Set(Object.keys(EX2E.attributes.physical));
     const externalPhysicalPenalty = actor.externalPenaltyFor?.("physical") ?? 0;
     const internalPhysicalPenalty = actor.internalPenaltyFor?.("physical") ?? 0;
-    // Per-attribute pool modifier (internal penalties only) — flipping
-    // mid-dialog to a mental attribute drops the penalty live.
+    // Wound penalty is universal — applies to every action regardless of
+    // attribute category. `system.health.woundPenalty` is stored as a
+    // negative integer (e.g., -1, -2, -4), so adding it reduces the pool.
+    const woundPenalty = Number(sys.health?.woundPenalty) || 0;
+    // Per-attribute pool modifier: internal physical penalty on physical
+    // attributes only; wound penalty on everything. Flipping mid-dialog
+    // to a mental attribute correctly drops the physical penalty.
     const poolPenaltyByAttr = Object.fromEntries(
       Object.entries(
         Object.assign({}, ...Object.values(EX2E.attributes))
-      ).map(([k]) => [k, physicalKeys.has(k) ? -internalPhysicalPenalty : 0])
+      ).map(([k]) => [k, (physicalKeys.has(k) ? -internalPhysicalPenalty : 0) + woundPenalty])
     );
-    const initialPoolPenalty = physicalKeys.has(defaultAttr) ? -internalPhysicalPenalty : 0;
+    const initialPoolPenalty = (physicalKeys.has(defaultAttr) ? -internalPhysicalPenalty : 0) + woundPenalty;
     const basePool    = Math.max(0, rawPool + initialPoolPenalty);
 
     // Specialties for the ability (filter entries with no name)

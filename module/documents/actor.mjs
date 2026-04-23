@@ -171,6 +171,15 @@ export class ExaltedActor extends Actor {
       if (p.type !== "all" && p.type !== type) continue;
       total += p.value;
     }
+    // Armor mobility penalty is a structural internal penalty on
+    // physical actions — stored as a negative integer on the actor by
+    // `_applyArmorSoak`, so flip the sign to get the deduction magnitude.
+    // Fatigue is a separate "scene-level stamina check" mechanic in RAW
+    // and not a flat pool deduction; skipped here.
+    if (type === "physical") {
+      const mob = Number(this.system?.mobilityPenalty) || 0;
+      if (mob < 0) total += -mob;
+    }
     return total;
   }
 
