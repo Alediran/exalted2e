@@ -9,6 +9,15 @@ const { ActorSheetV2, HandlebarsApplicationMixin } = (() => {
 })();
 
 /**
+ * True when the current user is an Assistant GM or GM. Used to gate the
+ * Purchase Mode toggle button and the purchase-log edit/delete controls.
+ * Players and Trusted Players never see the button.
+ */
+function _canTogglePurchaseMode() {
+  return game.user.role >= CONST.USER_ROLES.ASSISTANT;
+}
+
+/**
  * CharacterSheet – full multi-tab sheet for Exalted PC characters.
  */
 export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
@@ -42,6 +51,9 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       deleteItem:          CharacterSheet.#onDeleteItem,
       activateCharm:       CharacterSheet.#onActivateCharm,
       activateCombo:       CharacterSheet.#onActivateCombo,
+      togglePurchaseMode:  CharacterSheet.#onTogglePurchaseMode,
+      editPurchaseEntry:    CharacterSheet.#onEditPurchaseEntry,
+      deletePurchaseEntry:  CharacterSheet.#onDeletePurchaseEntry,
       toggleEquip:         CharacterSheet.#onToggleEquip,
       sendItemToChat:      CharacterSheet.#onSendItemToChat,
       rollPool:            CharacterSheet.#onRollPool,
@@ -297,6 +309,25 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     // formal duration, so we treat those as temporal here.
     const effects = this._buildEffectsData(actor);
 
+    // ── Purchase log (Experience tab) ─────────────────────────────────
+    const rawLog = sys.purchaseLog ?? [];
+    const totalEarned = Number(sys.experience?.total ?? 0);
+    let runningSum = 0;
+    const purchaseLogRows = rawLog.map((e, i) => {
+      runningSum += Number(e.xpCost) || 0;
+      return {
+        index:      i,
+        dateText:   new Date(e.timestamp || 0).toLocaleString(),
+        traitLabel: e.traitLabel,
+        oldValue:   e.oldValue,
+        newValue:   e.newValue,
+        xpCost:     e.xpCost,
+        note:       e.note,
+        overdraft:  runningSum > totalEarned
+      };
+    }).reverse();   // newest-first
+    const isGamemaster = game.user.isGM;
+
     return {
       ...context,
       actor,
@@ -324,6 +355,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       meritflaws,
       virtueFlaw,
       effects,
+      purchaseLogRows,
+      isGamemaster,
       isEditable: this.isEditable,
       useIntimacyIntensity: game.settings.get("exalted2e", "useIntimacyIntensity")
     };
@@ -468,6 +501,30 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         else              this._collapsedGroups.add(key);
       });
     });
+
+    // Purchase Mode header button — injected into the window chrome to
+    // the left of the built-in Controls dropdown. Visible to GM +
+    // Assistant GM only. ApplicationV2 re-renders preserve the window
+    // chrome, so the button persists across re-renders — we upsert its
+    // visual state on every render instead of bailing out when it
+    // already exists, or the icon/tooltip would go stale after toggling.
+    if (_canTogglePurchaseMode()) {
+      const header = this.element.querySelector(".window-header");
+      const controls = header?.querySelector(".header-control");
+      if (header && controls) {
+        const locked = !!this.document.system.purchaseLocked;
+        let btn = header.querySelector(".ex2e-purchase-toggle");
+        if (!btn) {
+          btn = document.createElement("button");
+          btn.type = "button";
+          btn.dataset.action = "togglePurchaseMode";
+          controls.before(btn);
+        }
+        btn.className = "header-control ex2e-purchase-toggle" + (locked ? " active" : "");
+        btn.title = game.i18n.localize(locked ? "EX2E.PurchaseModeOn" : "EX2E.PurchaseModeOff");
+        btn.innerHTML = `<i class="fa-solid ${locked ? "fa-lock" : "fa-lock-open"}"></i>`;
+      }
+    }
   }
 
   // ── Dot / Box Click ─────────────────────────────────────────────────────
@@ -683,6 +740,71 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const itemId = target.closest("[data-item-id]")?.dataset.itemId;
     const item   = this.document.items.get(itemId);
     if (item?.type === "combo") await item.activateCombo();
+  }
+
+  static async #onTogglePurchaseMode(event, target) {
+    if (!_canTogglePurchaseMode()) return;
+    const cur = this.document.system.purchaseLocked ?? false;
+    await this.document.update({ "system.purchaseLocked": !cur });
+  }
+
+  static async #onEditPurchaseEntry(event, target) {
+    if (!game.user.isGM) return;
+    const idx = parseInt(target.dataset.index, 10);
+    if (!Number.isFinite(idx)) return;
+    const log = foundry.utils.deepClone(this.document.system.purchaseLog ?? []);
+    const entry = log[idx];
+    if (!entry) return;
+
+    const { PurchaseConfirmDialog } = await import("../../dialogs/purchase-confirm-dialog.mjs");
+    const result = await PurchaseConfirmDialog.prompt({
+      actor:        this.document,
+      change:       {
+        traitLabel: entry.traitLabel,
+        oldValue:   entry.oldValue,
+        newValue:   entry.newValue
+      },
+      initialXp:    entry.xpCost,
+      initialNote:  entry.note,
+      showStubHint: false,
+      isEdit:       true
+    });
+    if (result === null) return;
+
+    const xpDelta = result.xpCost - (Number(entry.xpCost) || 0);
+    entry.xpCost = result.xpCost;
+    entry.note   = result.note;
+    log[idx] = entry;
+
+    await this.document.update({
+      "system.purchaseLog":      log,
+      "system.experience.value": (this.document.system.experience.value ?? 0) - xpDelta
+    });
+  }
+
+  static async #onDeletePurchaseEntry(event, target) {
+    if (!game.user.isGM) return;
+    const idx = parseInt(target.dataset.index, 10);
+    if (!Number.isFinite(idx)) return;
+    const log = foundry.utils.deepClone(this.document.system.purchaseLog ?? []);
+    const entry = log[idx];
+    if (!entry) return;
+
+    const confirmed = await foundry.applications.api.DialogV2.confirm({
+      window:  { title: game.i18n.localize("EX2E.Delete") },
+      content: `<p>${game.i18n.format("EX2E.PurchaseLogDeleteConfirm", {
+        xp: entry.xpCost
+      })}</p>`,
+      yes: { label: game.i18n.localize("EX2E.Delete"), icon: "fa-solid fa-trash" },
+      no:  { label: game.i18n.localize("Cancel"),     icon: "fa-solid fa-xmark"  }
+    });
+    if (!confirmed) return;
+
+    log.splice(idx, 1);
+    await this.document.update({
+      "system.purchaseLog":      log,
+      "system.experience.value": (this.document.system.experience.value ?? 0) + (Number(entry.xpCost) || 0)
+    });
   }
 
   static async #onPickVirtueFlaw(event, target) {

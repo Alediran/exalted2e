@@ -17,6 +17,45 @@
       </div>
     </div>
 
+    <h2 class="section-header" style="margin-top:16px">{{localize "EX2E.PurchaseLog"}}</h2>
+    {{#if purchaseLogRows.length}}
+    <table class="purchase-log-table">
+      <thead>
+        <tr>
+          <th>{{localize "EX2E.PurchaseLogDate"}}</th>
+          <th>{{localize "EX2E.PurchaseLogTrait"}}</th>
+          <th>{{localize "EX2E.PurchaseLogChange"}}</th>
+          <th>{{localize "EX2E.PurchaseLogXP"}}</th>
+          <th>{{localize "EX2E.PurchaseLogNote"}}</th>
+          {{#if isGamemaster}}<th></th>{{/if}}
+        </tr>
+      </thead>
+      <tbody>
+        {{#each purchaseLogRows as |row|}}
+        <tr>
+          <td>{{row.dateText}}</td>
+          <td>{{row.traitLabel}}</td>
+          <td>{{row.oldValue}} → {{row.newValue}}</td>
+          <td class="{{#if row.overdraft}}xp-overdraft{{/if}}">{{row.xpCost}}</td>
+          <td>{{row.note}}</td>
+          {{#if @root.isGamemaster}}
+          <td class="purchase-log-actions">
+            <div class="item-controls">
+              <button type="button" data-action="editPurchaseEntry" data-index="{{row.index}}"
+                      title="{{localize 'EX2E.Edit'}}">✏️</button>
+              <button type="button" data-action="deletePurchaseEntry" data-index="{{row.index}}"
+                      title="{{localize 'EX2E.Delete'}}">🗑</button>
+            </div>
+          </td>
+          {{/if}}
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{else}}
+    <p class="empty-msg">{{localize "EX2E.PurchaseLogEmpty"}}</p>
+    {{/if}}
+
     <!-- XP Cost Reference Table -->
     <h2 class="section-header" style="margin-top:20px">{{localize "EX2E.XPCosts"}}</h2>
     <table class="xp-table">

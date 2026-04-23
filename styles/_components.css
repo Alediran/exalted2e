@@ -597,3 +597,73 @@
   text-transform: uppercase;
   color: var(--ex2e-text-muted);
 }
+
+/* ── Purchase Mode header toggle ─────────────────────────────────────── */
+.ex2e-purchase-toggle {
+  cursor: pointer;
+}
+
+.ex2e-purchase-toggle:hover {
+  color: var(--ex2e-gold-bright, #ffe066);
+}
+
+.ex2e-purchase-toggle.active {
+  color: var(--ex2e-gold-bright, #ffe066);
+  text-shadow: 0 0 4px var(--ex2e-gold-main, #d4af37);
+}
+
+/* ── Purchase Mode confirm dialog ────────────────────────────────────── */
+.ex2e-purchase-confirm-dialog .readonly-value {
+  padding: 2px 6px;
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--ex2e-gold-dark, #5c4a1f);
+  border-radius: 3px;
+}
+
+.ex2e-purchase-confirm-dialog .purchase-stub-hint {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  color: var(--ex2e-text-secondary, #b8a88a);
+  font-style: italic;
+}
+
+.ex2e-purchase-confirm-dialog .purchase-overdraft {
+  margin: 6px 0;
+  padding: 4px 6px;
+  color: var(--ex2e-dmg-lethal, #c0392b);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+/* ── Purchase Log table (Experience tab) ─────────────────────────────── */
+.purchase-log-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.purchase-log-table th,
+.purchase-log-table td {
+  padding: 4px 6px;
+  border-bottom: 1px solid var(--ex2e-gold-dark, #5c4a1f);
+  text-align: left;
+}
+
+.purchase-log-table .xp-overdraft {
+  color: var(--ex2e-dmg-lethal, #c0392b);
+  font-weight: 600;
+}
+
+.purchase-log-table .purchase-log-actions {
+  width: 1%;            /* shrink cell to fit its content */
+  white-space: nowrap;  /* keep the two buttons on one line */
+}
+
+.purchase-log-table .purchase-log-actions .item-controls {
+  /* `.item-controls` normally uses `margin-left: auto` to push itself
+     to the right end of a flex row — that's wrong inside a table cell
+     which is neither a flex parent nor has anything to push against. */
+  margin-left: 0;
+}

@@ -128,7 +128,11 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 
       // ── Experience ─────────────────────────────────────────────────────────
       experience: new fields.SchemaField({
-        value: new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        // `min: 0` relaxed so Purchase Mode's overdraft path can persist
+        // negative values when a GM confirms a purchase that exceeds the
+        // character's current XP. `total` stays clamped since it's
+        // cumulative earned XP and cannot go negative.
+        value: new fields.NumberField({ initial: 0, integer: true }),
         total: new fields.NumberField({ initial: 0, min: 0, integer: true })
       }),
 
@@ -147,7 +151,33 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       // ── Biography / Notes ──────────────────────────────────────────────────
       biography:  new fields.HTMLField({ initial: "" }),
       notes:      new fields.HTMLField({ initial: "" }),
-      motivation: new fields.StringField({ initial: "", blank: true })
+      motivation: new fields.StringField({ initial: "", blank: true }),
+
+      // ── Purchase Mode ─────────────────────────────────────────────────────
+      // Per-actor toggle managed by the GM / Assistant GM via a header
+      // button on the character sheet. When true, the sheet locks: field
+      // reductions and XP-costing item deletions are rejected; field
+      // increases and item creations open a Purchase-confirm dialog and
+      // append to `purchaseLog`.
+      purchaseLocked: new fields.BooleanField({ initial: false }),
+
+      // Append-only ledger of trait purchases made while `purchaseLocked`
+      // was true. Entries are kept forever unless a GM explicitly deletes
+      // one via the Experience-tab UI (which also refunds the XP).
+      purchaseLog: new fields.ArrayField(new fields.SchemaField({
+        timestamp:  new fields.NumberField({ integer: true, required: true }),
+        userId:     new fields.StringField({ initial: "", blank: true }),
+        userName:   new fields.StringField({ initial: "", blank: true }),
+        traitPath:  new fields.StringField({ initial: "", blank: true }),
+        traitLabel: new fields.StringField({ initial: "", blank: true }),
+        // `oldValue`/`newValue` are strings so the same schema handles
+        // dot counts ("3"→"4"), item adds ("—"→"Added"), and any future
+        // special values uniformly.
+        oldValue:   new fields.StringField({ initial: "", blank: true }),
+        newValue:   new fields.StringField({ initial: "", blank: true }),
+        xpCost:     new fields.NumberField({ initial: 0, integer: true }),
+        note:       new fields.StringField({ initial: "", blank: true })
+      }))
     };
   }
 

@@ -562,6 +562,19 @@ Hooks.on("preCreateItem", (item, data, options, userId) => {
     item.updateSource({ "system.spellUid": foundry.utils.randomID() });
   }
 
+  // ── Purchase Mode: XP-costing items on locked actors ──────────────────
+  // Flag the item so the async createItem hook below can run the
+  // confirmation flow. preCreateItem is synchronous; we can't `await`
+  // a dialog here, so the item lands with a pending flag and the
+  // post-create handler either strips the flag (on confirm) or
+  // deletes the item (on cancel). Briefly visible but functional.
+  const parentActor = item.parent;
+  if (parentActor?.type === "character" &&
+      parentActor.system?.purchaseLocked &&
+      ["charm", "spell", "knack", "background"].includes(item.type)) {
+    item.updateSource({ "flags.exalted2e.pendingPurchaseConfirm": true });
+  }
+
   const actor = item.parent;
   if (!actor) return;
   const isWrapper = data.flags?.exalted2e?.effectWrapper
@@ -584,6 +597,88 @@ Hooks.on("preCreateItem", (item, data, options, userId) => {
       actor: actor.name
     }));
   }
+  return false;
+});
+
+/**
+ * Purchase Mode — post-persist confirmation for XP-costing item
+ * additions. The sync preCreateItem hook flagged the item as pending;
+ * here we run the async Purchase-confirm dialog and either strip the
+ * flag (on confirm + apply XP + log entry) or delete the item outright.
+ */
+Hooks.on("createItem", async (item, options, userId) => {
+  if (userId !== game.user.id) return;
+  if (!item.getFlag("exalted2e", "pendingPurchaseConfirm")) return;
+  const parent = item.parent;
+  if (!parent) {
+    await item.unsetFlag("exalted2e", "pendingPurchaseConfirm");
+    return;
+  }
+
+  const { PurchaseConfirmDialog } = await import("./dialogs/purchase-confirm-dialog.mjs");
+  const { computeXpCost } = await import("./helpers/xp-costs.mjs");
+
+  const change = {
+    kind:     "item",
+    path:     `item:${item.type}`,
+    oldValue: null,
+    newValue: null,
+    item
+  };
+  const costResult = computeXpCost(parent, change);
+  const result = await PurchaseConfirmDialog.prompt({
+    actor:        parent,
+    change:       {
+      traitLabel: costResult.description,
+      oldValue:   "—",
+      newValue:   "Added"
+    },
+    initialXp:    costResult.xp,
+    initialNote:  "",
+    showStubHint: !costResult.confident,
+    description:  costResult.description
+  });
+
+  if (result === null) {
+    await item.delete();
+    return;
+  }
+
+  const entry = {
+    timestamp:  Date.now(),
+    userId:     game.user.id,
+    userName:   game.user.name,
+    traitPath:  change.path,
+    traitLabel: costResult.description,
+    oldValue:   "—",
+    newValue:   "Added",
+    xpCost:     result.xpCost,
+    note:       result.note
+  };
+  await parent.update({
+    "system.purchaseLog":      [...(parent.system.purchaseLog ?? []), entry],
+    "system.experience.value": (parent.system.experience.value ?? 0) - result.xpCost
+  });
+  await item.unsetFlag("exalted2e", "pendingPurchaseConfirm");
+});
+
+/**
+ * Purchase Mode — block deletion of XP-costing items while the owning
+ * actor is locked. GM toggles the lock off to remove items intentionally.
+ */
+Hooks.on("preDeleteItem", (item, options, userId) => {
+  if (userId !== game.user.id) return;
+  const parent = item.parent;
+  if (parent?.type !== "character") return;
+  if (!parent.system?.purchaseLocked) return;
+  if (!["charm", "spell", "knack", "background"].includes(item.type)) return;
+  // Allow deletion of items still awaiting purchase confirmation —
+  // this is the cancellation cleanup fired by the createItem hook,
+  // not a user-initiated delete from the sheet.
+  if (item.getFlag("exalted2e", "pendingPurchaseConfirm")) return;
+  ui.notifications.warn(game.i18n.format("EX2E.PurchaseLockedItemDelete", {
+    item: item.name
+  }));
   return false;
 });
 
