@@ -18,6 +18,7 @@ import { IntimacyData }     from "./data/item/intimacy-data.mjs";
 import { MeritFlawData }    from "./data/item/meritflaw-data.mjs";
 import { KnackData }        from "./data/item/knack-data.mjs";
 import { VirtueFlawData }   from "./data/item/virtueflaw-data.mjs";
+import { ComboData }        from "./data/item/combo-data.mjs";
 import { CharacterSheet }   from "./sheets/actor/character-sheet.mjs";
 import { NpcSheet }         from "./sheets/actor/npc-sheet.mjs";
 import { CharmSheet }       from "./sheets/item/charm-sheet.mjs";
@@ -70,7 +71,8 @@ Hooks.once("init", function () {
     intimacy:   IntimacyData,
     meritflaw:  MeritFlawData,
     knack:      KnackData,
-    virtueflaw: VirtueFlawData
+    virtueflaw: VirtueFlawData,
+    combo:      ComboData
   };
 
   // ── Sheet Registration ──────────────────────────────────────────────────
