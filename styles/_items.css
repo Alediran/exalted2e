@@ -242,6 +242,24 @@
   margin-top: 4px;
 }
 
+/* Collapsible charm / spell subsection wrapper. Inter-section spacing
+   lives on the <details> element so `:first-child` targets the first
+   group rather than every summary (each of which is first-child of its
+   own <details>). */
+details.charm-group {
+  margin-top: 12px;
+}
+
+details.charm-group:first-of-type {
+  margin-top: 4px;
+}
+
+details.charm-group > summary.charm-group-header {
+  margin: 0 0 4px;
+  cursor: pointer;
+  user-select: none;
+}
+
 .spell-section-toolbar {
   display: flex;
   align-items: center;

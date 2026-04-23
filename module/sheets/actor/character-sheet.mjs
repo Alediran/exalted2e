@@ -13,6 +13,11 @@ const { ActorSheetV2, HandlebarsApplicationMixin } = (() => {
  */
 export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
+  // Persists which charm-group / spell-circle sub-sections the user has
+  // collapsed on the Charms tab across re-renders. Default is "all open"
+  // — entries are added when the user clicks a summary to collapse it.
+  _collapsedGroups = new Set();
+
   static DEFAULT_OPTIONS = {
     classes:  ["exalted2e", "actor", "character"],
     position: { width: 860, height: 720 },
@@ -449,6 +454,19 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     // Mote current value inline edits
     this.element.querySelectorAll(".mote-value-input").forEach(inp => {
       inp.addEventListener("change", this.#onMoteInputChange.bind(this));
+    });
+
+    // Restore per-group collapsed state on the Charms tab and wire the
+    // toggle listener so clicks update the remembered set in place.
+    this.element.querySelectorAll("details.charm-group").forEach(details => {
+      const key = details.dataset.groupKey;
+      if (!key) return;
+      if (this._collapsedGroups.has(key)) details.removeAttribute("open");
+      else                                details.setAttribute("open", "");
+      details.addEventListener("toggle", () => {
+        if (details.open) this._collapsedGroups.delete(key);
+        else              this._collapsedGroups.add(key);
+      });
     });
   }
 
