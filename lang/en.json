@@ -531,6 +531,11 @@
     "AbortActionTooltip":            "Abort the in-progress action to take a reflexive response. Unspent ticks and DV penalty are lost.",
     "ActionAbortedLabel":            "Aborted: {name}",
     "OnslaughtEffect":               "Onslaught −{n}",
+    "StatusProne":                   "Prone",
+    "RiseRollFlavor":                "Rise from Prone (Difficulty 2)",
+    "RiseSucceededClear":            "stood up (no enemy adjacent)",
+    "RiseSucceededContested":        "stood up ({successes} vs Difficulty 2)",
+    "RiseFailedContested":           "failed to rise ({successes} vs Difficulty 2) — still prone",
 
     "TickWheelTitle":                "Battle Wheel",
     "TickWheelTickShort":            "Tick",

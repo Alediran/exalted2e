@@ -162,6 +162,18 @@ Hooks.once("init", function () {
   // ── CONFIG Additions ────────────────────────────────────────────────────
   CONFIG.EX2E = EX2E;
 
+  // Enrich Foundry's built-in Prone status with the 2e "-1 external
+  // penalty on non-reflexive physical actions" rule. Storing it on the
+  // effect's flags means the penalty travels with the AE when Foundry
+  // creates it from the token HUD — the roll pipelines aggregate every
+  // active effect with a `flags.exalted2e.externalPenalty` and subtract.
+  const proneEffect = CONFIG.statusEffects.find(e => e.id === "prone");
+  if (proneEffect) {
+    proneEffect.flags = foundry.utils.mergeObject(proneEffect.flags ?? {}, {
+      exalted2e: { externalPenalty: { value: 1, type: "physical" } }
+    });
+  }
+
   console.log("Exalted 2e | System initialised.");
 });
 

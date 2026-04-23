@@ -124,6 +124,33 @@ export class ExaltedActor extends Actor {
     systemData.dvPenalties = penalties;
   }
 
+  /**
+   * Sum every external penalty on this actor that applies to the given
+   * action category. Each penalty lives on an ActiveEffect's flags as:
+   *   flags.exalted2e.externalPenalty = { value: number, type: string }
+   *
+   * `type` is one of "physical" / "social" / "mental" / "all"; callers
+   * pass the category they're rolling for, and a penalty matches iff its
+   * type equals the category or is "all". Only non-reflexive rolls
+   * (attacks, attribute+ability rolls) should subtract this — passive DV
+   * calculations bypass it by not calling this helper.
+   *
+   * Foundry's built-in Prone status is patched in the init hook to carry
+   * `{ value: 1, type: "physical" }`, which is where the penalty enters
+   * the system — toggling Prone on the token HUD applies and removes it.
+   */
+  externalPenaltyFor(type = "physical") {
+    let total = 0;
+    for (const eff of this.effects) {
+      if (eff.disabled) continue;
+      const p = eff.flags?.exalted2e?.externalPenalty;
+      if (!p || !Number.isFinite(p.value)) continue;
+      if (p.type !== "all" && p.type !== type) continue;
+      total += p.value;
+    }
+    return total;
+  }
+
   /** Sum of every non-immune DV penalty. */
   get dvPenaltyTotal() {
     const penalties = this.system?.dvPenalties ?? [];

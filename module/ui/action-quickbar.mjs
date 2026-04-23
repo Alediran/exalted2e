@@ -614,6 +614,9 @@ export class ActionQuickbar {
   async _handleAction(key, actor, current) {
     const cfg = EX2E.actions[key];
     if (!cfg) return;
+    // Rise has its own pre-commit flow (adjacent-enemy check, optional
+    // Dex + Dodge roll) that decides whether Prone clears on commit.
+    if (key === "rise") return this._handleRise(actor, current, cfg);
     const label = game.i18n.localize(cfg.labelKey);
 
     await this._clearPendingAction(actor, current);
@@ -634,6 +637,71 @@ export class ActionQuickbar {
       dvEffectId
     });
     await this._postActionCard(actor, { label, speed: cfg.speed, dvPenalty: cfg.dvMod });
+  }
+
+  /**
+   * Rise from Prone flow. Canon 2e: if no enemy is within one yard, the
+   * character stands up unopposed; otherwise they must roll Dexterity +
+   * Dodge at Difficulty 2. Either way the Rise action itself costs its
+   * Speed / DV penalty, so the usual pendingAction stamp still fires.
+   *
+   * Failure path: Prone stays on the actor (and continues to impose its
+   * external penalty on their future physical actions).
+   */
+  async _handleRise(actor, current, cfg) {
+    if (!current) return; // Passive / no-combat — quickbar doesn't wire this
+    const label = game.i18n.localize(cfg.labelKey);
+
+    const { hasAdjacentEnemy } = await import("../helpers/targeting.mjs");
+    const contested = hasAdjacentEnemy(actor, 1);
+
+    let succeeded = true;
+    let resultSuffix = "";
+    if (contested) {
+      const { ExaltedRoll } = await import("../rolls/exalted-roll.mjs");
+      const roll = await ExaltedRoll.rollAttributeAbility(actor, "dexterity", "dodge", {
+        flavor: game.i18n.localize("EX2E.RiseRollFlavor")
+      });
+      debugger;
+      if (!roll) return; // User cancelled the roll dialog — abort the whole action.
+      const successes = roll.successes ?? 0;
+      succeeded = successes >= 2;
+      resultSuffix = succeeded
+        ? game.i18n.format("EX2E.RiseSucceededContested", { successes })
+        : game.i18n.format("EX2E.RiseFailedContested",    { successes });
+    } else {
+      resultSuffix = game.i18n.localize("EX2E.RiseSucceededClear");
+    }
+
+    if (succeeded) {
+      // Clear Prone via whichever effect carries the status.
+      const proneEff = actor.effects.find(e => e.statuses?.has?.("prone"));
+      if (proneEff) await proneEff.delete();
+    }
+
+    // Stamp the normal action bookkeeping regardless of success — the Rise
+    // attempt costs Speed 5 / DV 2 either way.
+    await this._clearPendingAction(actor, current);
+    let dvEffectId = null;
+    if (cfg.dvMod > 0) {
+      const eff = await actor.applyDVPenalty("rise", cfg.dvMod, {
+        label: game.i18n.format("EX2E.QuickbarActionDvLabel", { name: label })
+      });
+      dvEffectId = eff?.id ?? null;
+    }
+    await current.setFlag("exalted2e", "pendingAction", {
+      actionKey: "rise",
+      label,
+      speed:     cfg.speed,
+      dvPenalty: cfg.dvMod,
+      abortable: !!cfg.abortable,
+      dvEffectId
+    });
+    await this._postActionCard(actor, {
+      label:     `${label} — ${resultSuffix}`,
+      speed:     cfg.speed,
+      dvPenalty: cfg.dvMod
+    });
   }
 
   async _handleAttack(mode, actor, current) {

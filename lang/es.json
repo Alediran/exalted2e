@@ -531,6 +531,11 @@
     "AbortActionTooltip":            "Abortar la acción en curso para reaccionar. Los ticks pendientes y la penalización de DV se pierden.",
     "ActionAbortedLabel":            "Abortado: {name}",
     "OnslaughtEffect":               "Embate −{n}",
+    "StatusProne":                   "En el suelo",
+    "RiseRollFlavor":                "Levantarse (Dificultad 2)",
+    "RiseSucceededClear":            "se levantó (sin enemigos adyacentes)",
+    "RiseSucceededContested":        "se levantó ({successes} vs Dificultad 2)",
+    "RiseFailedContested":           "no pudo levantarse ({successes} vs Dificultad 2) — sigue en el suelo",
 
     "TickWheelTitle":                "Rueda de Batalla",
     "TickWheelTickShort":            "Tick",

@@ -124,3 +124,49 @@ export function checkAttackRange(mode, attackerActor, targetActor) {
   }
   return { inRange: distance <= rangeVal, distance, spaces, maxRange: rangeVal };
 }
+
+/**
+ * Whether any potentially-hostile token sits within `spaces` grid cells
+ * of the given actor's placed token. Used by the Rise-from-Prone flow to
+ * decide between auto-success and a Dex + Dodge roll.
+ *
+ * A token counts as a threat when its disposition is HOSTILE relative to
+ * the actor's token — so a PC (friendly) scans for hostile NPCs, and an
+ * enemy NPC (hostile) scans for friendly / neutral PCs. The actor's own
+ * token is always excluded.
+ *
+ * Returns `false` if we can't resolve a token for the actor (unplaced /
+ * no scene) — callers should treat that as "nothing nearby" and let the
+ * action proceed unchallenged.
+ *
+ * @param {ExaltedActor} actor
+ * @param {number}       [spaces=1]  Grid-cell reach for the check.
+ * @returns {boolean}
+ */
+export function hasAdjacentEnemy(actor, spaces = 1) {
+  const ownToken = _tokenForActor(actor);
+  if (!ownToken) return false;
+
+  const H = CONST.TOKEN_DISPOSITIONS.HOSTILE;
+  const F = CONST.TOKEN_DISPOSITIONS.FRIENDLY;
+  const ownDisp = ownToken.document?.disposition ?? F;
+
+  for (const other of (canvas.tokens?.placeables ?? [])) {
+    if (other === ownToken) continue;
+    if (!other.actor) continue;
+    const disp = other.document?.disposition;
+    // A token is "hostile relative to us" when the two dispositions are
+    // on opposite sides (hostile vs friendly). Neutrals / secret tokens
+    // are ignored — players shouldn't be forced into a roll by a passive
+    // bystander.
+    const isThreat = (ownDisp === F && disp === H)
+                  || (ownDisp === H && disp === F);
+    if (!isThreat) continue;
+    const path = canvas.grid.measurePath([
+      { x: ownToken.center.x, y: ownToken.center.y },
+      { x: other.center.x,    y: other.center.y    }
+    ]);
+    if ((path?.spaces ?? Infinity) <= spaces) return true;
+  }
+  return false;
+}

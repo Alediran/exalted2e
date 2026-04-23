@@ -55,7 +55,12 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       firstExcMax:         options.firstExcMax         ?? 0,
       secondExcMax:        options.secondExcMax        ?? 0,
       firstExcMaxPerAttr:  options.firstExcMaxPerAttr  ?? null,
-      secondExcMaxPerAttr: options.secondExcMaxPerAttr ?? null
+      secondExcMaxPerAttr: options.secondExcMaxPerAttr ?? null,
+      // Optional per-attribute dice-pool modifier, applied on top of the
+      // attribute + ability + specialty math. External penalties (Prone,
+      // future status effects) land here so the displayed pool tracks
+      // whichever attribute the user picks in the dialog.
+      poolPenaltyByAttr:   options.poolPenaltyByAttr   ?? null
     };
   }
 
@@ -133,7 +138,10 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       const specBonus = (!isNaN(specIdx) && this._data.specialties[specIdx])
         ? (this._data.specialties[specIdx].value ?? 1)
         : 0;
-      const newPool = attrVal + this._data.abilityValue + specBonus;
+      // Per-attribute external penalty (negative or zero) — e.g., Prone
+      // subtracts 1 when a physical attribute is selected, 0 otherwise.
+      const extPenalty = this._data.poolPenaltyByAttr?.[attrSelect.value] ?? 0;
+      const newPool = Math.max(0, attrVal + this._data.abilityValue + specBonus + extPenalty);
       if (poolHidden) poolHidden.value = newPool;
 
       // For attribute-based Excellencies, update sections and max values dynamically

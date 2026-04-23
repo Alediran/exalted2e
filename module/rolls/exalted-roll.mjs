@@ -117,7 +117,25 @@ export class ExaltedRoll {
     const abilVal     = sys.abilities[ability]?.value ?? 0;
     const attrVal     = sys.attributes[defaultAttr]?.value ?? 0;
     const essenceVal  = sys.essence ?? 0;
-    const basePool    = attrVal + abilVal;
+    // Base pool — raw attribute + ability, before any penalties.
+    const rawPool = attrVal + abilVal;
+
+    // External penalties (Prone today; extensible): subtract when the
+    // selected attribute falls into the penalty's category. For this
+    // entry point we key off "physical" vs. non-physical. Social /
+    // Mental categories can follow the same pattern when we need them.
+    const physicalKeys = new Set(Object.keys(EX2E.attributes.physical));
+    const externalPhysicalPenalty = actor.externalPenaltyFor?.("physical") ?? 0;
+    // Per-attribute penalty map the dialog reads when the user flips the
+    // attribute — so a Prone caster flipping to a mental roll drops the
+    // penalty mid-dialog.
+    const poolPenaltyByAttr = Object.fromEntries(
+      Object.entries(
+        Object.assign({}, ...Object.values(EX2E.attributes))
+      ).map(([k]) => [k, physicalKeys.has(k) ? -externalPhysicalPenalty : 0])
+    );
+    const initialPenalty = physicalKeys.has(defaultAttr) ? -externalPhysicalPenalty : 0;
+    const basePool    = Math.max(0, rawPool + initialPenalty);
 
     // Specialties for the ability (filter entries with no name)
     const specialties = (sys.abilities[ability]?.specialties ?? []).filter(s => s?.name?.trim());
@@ -185,6 +203,7 @@ export class ExaltedRoll {
       ? Object.fromEntries(attributeChoices.map(c => [c.value, Math.ceil((attributeValues[c.value] ?? 0) / 2)]))
       : null;
 
+      debugger;
     const dialogResult = await RollDialog.prompt({
       pool:                basePool,
       attribute:           defaultAttr,
@@ -201,9 +220,11 @@ export class ExaltedRoll {
       secondExcMax:        secondExcMax,
       firstExcMaxPerAttr:  firstExcMaxPerAttr,
       secondExcMaxPerAttr: secondExcMaxPerAttr,
+      poolPenaltyByAttr:   poolPenaltyByAttr,
       ...options
     });
 
+    
     if (!dialogResult) return null;
 
     // Total mote cost = base + 1st exc (1m/die) + 2nd exc (2m/success) + 3rd exc (4m)
@@ -233,7 +254,15 @@ export class ExaltedRoll {
       specialty:          dialogResult.specialty ?? ""
     });
 
-    return exRoll.toMessage({ speaker: ChatMessage.getSpeaker({ actor }) });
+    // Evaluate once, post the chat card with the evaluated result, and
+    // hand that result back so callers can inspect `successes` / `botch`
+    // (e.g., Rise-from-Prone checks against Difficulty 2). `ExaltedRoll`
+    // itself never carries the successes — the tally lives on the
+    // ExaltedRollResult returned by evaluate().
+    debugger;
+    const result = await exRoll.evaluate();
+    await result.toMessage({ speaker: ChatMessage.getSpeaker({ actor }) });
+    return result;
   }
 
   // ── Attack Roll ─────────────────────────────────────────────────────────
@@ -303,7 +332,12 @@ export class ExaltedRoll {
                            ?.getFlag("exalted2e", "flurry") ?? null;
     const flurryPenalty = flurryFlag?.dicePenalty ?? 0;
 
-    const pool = Math.max(0, basePool + woundPenalty - flurryPenalty);
+    // External penalties from active effects — Prone (-1) is the canon
+    // first consumer. Attacks are always physical rolls, so this category
+    // is fixed here.
+    const externalPenalty = actor.externalPenaltyFor?.("physical") ?? 0;
+
+    const pool = Math.max(0, basePool + woundPenalty - flurryPenalty - externalPenalty);
 
     // Excellency detection (same pattern as rollAttributeAbility)
     const exaltType   = sys.exaltType ?? "";
