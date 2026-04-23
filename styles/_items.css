@@ -248,6 +248,22 @@
   gap: 10px;
 }
 
+/* Wrap the section title + initiation dots so the bottom border stretches
+   across both, matching Charms / Combos / Knacks where the h2 itself
+   stretches via flex:1. The Add Spell button sits outside this group and
+   therefore stays unburdened by the underline. */
+.spell-section-toolbar .spell-section-title-group {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--ex2e-gold-dark);
+}
+
+.spell-section-toolbar .spell-section-title-group .section-header {
+  border-bottom: none;
+}
+
 .spell-initiation-label {
   display: inline-flex;
   align-items: center;
