@@ -482,12 +482,19 @@ export class ActionQuickbar {
     const actor = current.actor;
     if (!actor) return;
     // Mark the committed action aborted — downstream action-specific
-    // effects (e.g. Aim's dice bonus, once it lands) read this and skip
-    // applying. The unspent ticks and DV penalty stay per Exalted RAW.
-    await current.setFlag("exalted2e", "committedAction", {
-      ...committed,
-      aborted: true
-    });
+    // effects (e.g. Aim's dice bonus) read this and skip applying. The
+    // sticky DV penalty stays per the abortable-action rule; it clears
+    // at the end of whatever the character commits next.
+    // The combatant snaps back to the current wheel tick so they can
+    // pick a new action right away (mid-action is over). Their acted
+    // flag isn't touched — if they already acted this tick, the wheel
+    // still advances normally before they're eligible again.
+    const combat = game.combat;
+    const updates = {
+      "flags.exalted2e.committedAction": { ...committed, aborted: true }
+    };
+    if (combat) updates.initiative = combat.currentTick;
+    await current.update(updates);
     const content = await foundry.applications.handlebars.renderTemplate(
       "systems/exalted2e/templates/chat/action-declared.hbs",
       {
