@@ -12,8 +12,10 @@
  *                       overriding anything shared in general.
  *
  * Formula encoding:
- *   attributeMult / willpowerMult / virtueMult / backgroundMult
- *     → cost per dot = new_rating × mult
+ *   attributeMult / willpowerMult / virtueMult
+ *     → cost per dot = current_rating × mult
+ *   backgroundFlat
+ *     → cost per dot = flat (same price for every dot)
  *   abilityFavoredMult + abilityFavoredSub
  *     → cost per dot (favored/caste) = new_rating × mult − sub
  *   abilityOtherMult
@@ -31,9 +33,9 @@ export const XP_COST_DEFAULTS = Object.freeze({
     attributeMult:  4,   // new × 4 for everyone (Lunar/Alchemical override on caste/favored attrs)
     abilityNewFlat: 3,   // 0 → 1 on any new ability
     specialtyFlat:  3,   // per specialty added
-    willpowerMult:  2,   // new × 2
-    virtueMult:     3,   // new × 3
-    backgroundMult: 3    // per-dot cumulative (3 + 6 + 9 + …)
+    willpowerMult:  2,   // current × 2
+    virtueMult:     3,   // current × 3
+    backgroundFlat: 3    // flat per dot (3 + 3 + 3 + …)
   },
 
   solar: {

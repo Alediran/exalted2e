@@ -101,7 +101,7 @@ function _priceAttribute(actor, key, oldVal, newVal, exaltType, costs) {
     ? _n(costs[exaltType]?.attributeCasteFavoredMult, costs.general.attributeMult)
     : _n(costs.general.attributeMult, 4);
   let xp = 0;
-  for (let n = oldVal + 1; n <= newVal; n++) xp += n * mult;
+  for (let n = oldVal; n < newVal; n++) xp += n * mult;
   // Caste/favored flags aren't yet stored on attributes — flip confidence
   // off on the Lunar/Alchemical branch so the GM verifies.
   return { xp, confident: !usesCaste };
@@ -117,8 +117,8 @@ function _priceAbility(actor, key, oldVal, newVal, exaltType, costs) {
   const favSub      = _n(s.abilityFavoredSub, 0);
   const otherMult   = _n(s.abilityOtherMult, 2);
   let xp = 0;
-  for (let n = oldVal + 1; n <= newVal; n++) {
-    if (n === 1) xp += newFlat;
+  for (let n = oldVal; n < newVal; n++) {
+    if (n === 0) xp += newFlat;
     else if (casteFav) xp += (n * favMult) - favSub;
     else               xp += (n * otherMult);
   }
@@ -135,7 +135,7 @@ function _priceEssence(oldVal, newVal, exaltType, costs) {
   if (newVal <= oldVal) return { xp: 0, confident: true };
   const mult = _n(costs[exaltType]?.essenceMult, 8);
   let xp = 0;
-  for (let n = oldVal + 1; n <= newVal; n++) xp += n * mult;
+  for (let n = oldVal; n < newVal; n++) xp += n * mult;
   return { xp, confident: true };
 }
 
@@ -143,7 +143,7 @@ function _priceWillpower(oldVal, newVal, costs) {
   if (newVal <= oldVal) return { xp: 0, confident: true };
   const mult = _n(costs.general.willpowerMult, 2);
   let xp = 0;
-  for (let n = oldVal + 1; n <= newVal; n++) xp += n * mult;
+  for (let n = oldVal; n < newVal; n++) xp += n * mult;
   return { xp, confident: true };
 }
 
@@ -151,7 +151,7 @@ function _priceVirtue(oldVal, newVal, costs) {
   if (newVal <= oldVal) return { xp: 0, confident: true };
   const mult = _n(costs.general.virtueMult, 3);
   let xp = 0;
-  for (let n = oldVal + 1; n <= newVal; n++) xp += n * mult;
+  for (let n = oldVal; n < newVal; n++) xp += n * mult;
   return { xp, confident: true };
 }
 
@@ -300,10 +300,8 @@ function _priceKnack(exaltType, costs) {
 
 function _priceBackground(bg, costs) {
   const rating = Math.max(0, Number(bg.system?.value ?? 0));
-  const mult   = _n(costs.general.backgroundMult, 3);
-  let xp = 0;
-  for (let n = 1; n <= rating; n++) xp += n * mult;
-  return { xp, confident: true };
+  const flat   = _n(costs.general.backgroundFlat, 3);
+  return { xp: rating * flat, confident: true };
 }
 
 // ─── Classification helpers ────────────────────────────────────────────
@@ -389,8 +387,8 @@ export function priceAstrologicalCollege({ oldRating = 0, newRating = 1 } = {}) 
   const n = Math.max(o, Number(newRating) || 0);
   if (n <= o) return { xp: 0, confident: true };
   let xp = 0;
-  for (let r = o + 1; r <= n; r++) {
-    xp += (r === 1 && o === 0) ? newFee : (r * perMult);
+  for (let r = o; r < n; r++) {
+    xp += (r === 0) ? newFee : (r * perMult);
   }
   return { xp, confident: true };
 }

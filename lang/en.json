@@ -533,7 +533,7 @@
     "XpCostFieldSpecialtyFlat":              "Specialty (flat per added row)",
     "XpCostFieldWillpowerMult":              "Willpower (× new rating)",
     "XpCostFieldVirtueMult":                 "Virtue (× new rating)",
-    "XpCostFieldBackgroundMult":             "Background per dot (× rating, cumulative)",
+    "XpCostFieldBackgroundFlat":             "Background (flat per dot)",
 
     "XpCostFieldEssenceMult":                "Essence (× new rating)",
     "XpCostFieldAttributeCasteFavoredMult":  "Caste/Favored Attribute (× new rating)",

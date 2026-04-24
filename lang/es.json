@@ -533,7 +533,7 @@
     "XpCostFieldSpecialtyFlat":              "Especialidad (fijo por cada añadida)",
     "XpCostFieldWillpowerMult":              "Fuerza de Voluntad (× nuevo valor)",
     "XpCostFieldVirtueMult":                 "Virtud (× nuevo valor)",
-    "XpCostFieldBackgroundMult":             "Trasfondo por punto (× valor, acumulativo)",
+    "XpCostFieldBackgroundFlat":             "Trasfondo (fijo por punto)",
 
     "XpCostFieldEssenceMult":                "Esencia (× nuevo valor)",
     "XpCostFieldAttributeCasteFavoredMult":  "Atributo de Casta/Favorecido (× nuevo valor)",
