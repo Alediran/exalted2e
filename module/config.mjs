@@ -86,6 +86,14 @@ EX2E.castes = {
   mortal:      {}
 };
 
+EX2E.yoziPatrons = {
+  malfeas:              "EX2E.YoziMalfeas",
+  cecelyne:             "EX2E.YoziCecelyne",
+  sheWhoLivesInHerName: "EX2E.YoziSheWhoLives",
+  adorjan:              "EX2E.YoziAdorjan",
+  ebonDragon:           "EX2E.YoziEbonDragon"
+};
+
 EX2E.charmTypes = {
   supplemental: "EX2E.CharmSupplemental",
   reflexive:    "EX2E.CharmReflexive",

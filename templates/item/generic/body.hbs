@@ -13,7 +13,6 @@
   {{/if}}
 
   {{#if (eq item.type "intimacy")}}
-  {{#if useIntimacyIntensity}}
   <div class="field-group">
     <label>{{localize "EX2E.Type"}}</label>
     <select name="system.intimacyType" {{#unless isEditable}}disabled{{/unless}}>
@@ -22,6 +21,24 @@
       {{/each}}
     </select>
   </div>
+
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.IntimacySubject"}}</label>
+    <input type="text" name="system.subject" value="{{system.subject}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.IntimacyPositive"}}</label>
+    <label class="checkbox-inline" style="margin-left:8px">
+      <input type="checkbox" name="system.positive"
+             {{#if system.positive}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      {{#if system.positive}}{{localize "EX2E.IntimacyPositive"}}{{else}}{{localize "EX2E.IntimacyNegative"}}{{/if}}
+    </label>
+  </div>
+
+  {{#if useIntimacyIntensity}}
   <div class="field-group" style="margin-top:6px">
     <label>{{localize "EX2E.Intensity"}}</label>
     <select name="system.intensity" {{#unless isEditable}}disabled{{/unless}}>
@@ -29,6 +46,12 @@
       <option value="{{this.value}}" {{#if (eq this.value ../system.intensity)}}selected{{/if}}>{{this.label}}</option>
       {{/each}}
     </select>
+  </div>
+  {{else}}
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.IntimacyStrength"}}</label>
+    <input type="number" name="system.strength" value="{{system.strength}}"
+           min="0" max="10" step="1" {{#unless isEditable}}readonly{{/unless}}>
   </div>
   {{/if}}
   {{/if}}

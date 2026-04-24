@@ -162,6 +162,38 @@ export class ExaltedActor extends Actor {
     data.ess          = s.essence?.value    ?? 0;
     data.wp           = s.willpower?.value  ?? 0;
     data.woundPenalty = s.health?.woundPenalty ?? 0;
+    // Splat scalars are exposed only under the matching exaltType, so a
+    // Solar never resolves @paradox to 0 silently. Array-shaped splat
+    // data (forms, destinies, slots) is handled through the actor's
+    // items list, not roll data.
+    const splat = s.splat ?? {};
+    switch (s.exaltType) {
+      case "terrestrial":
+        data.breeding = splat.terrestrial?.breeding ?? 0;
+        break;
+      case "sidereal":
+        data.paradox    = splat.sidereal?.paradox    ?? 0;
+        data.arcaneFate = splat.sidereal?.arcaneFate ?? 0;
+        break;
+      case "abyssal":
+        data.resonance = splat.abyssal?.resonance ?? 0;
+        data.whispers  = splat.abyssal?.whispers  ?? 0;
+        break;
+      case "infernal":
+        data.torment       = splat.infernal?.torment       ?? 0;
+        data.actOfVillainy = splat.infernal?.actOfVillainy ?? 0;
+        break;
+      case "alchemical": {
+        const perm = splat.alchemical?.clarity?.permanent ?? 0;
+        const temp = splat.alchemical?.clarity?.temporary ?? 0;
+        data.clarity    = perm + temp;
+        data.dissonance = splat.alchemical?.dissonance ?? 0;
+        break;
+      }
+      // Solar, Lunar, and mortal: no numeric splat scalars to expose.
+      default:
+        break;
+    }
     return data;
   }
 

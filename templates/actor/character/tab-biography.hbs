@@ -23,5 +23,49 @@
       {{/if}}
     </div>
 
+    <h2 class="section-header" style="margin-top:16px">
+      {{localize "EX2E.Intimacies"}}
+      <span class="intimacies-count {{#if system.intimacies.overCapacity}}over-capacity{{/if}}"
+            style="margin-left:8px;font-weight:normal;font-size:0.85em">
+        ({{system.intimacies.count}} / {{system.intimacies.cap}})
+      </span>
+      {{#if isEditable}}
+      <button type="button" class="btn-add-item" data-action="createItem" data-type="intimacy"
+              style="margin-left:8px">
+        <i class="fa-solid fa-plus"></i> {{localize "EX2E.AddIntimacy"}}
+      </button>
+      {{/if}}
+    </h2>
+
+    {{#if system.intimacies.overCapacity}}
+    <p class="warning" style="color:#a33">{{localize "EX2E.IntimacyOverCapacity"}}</p>
+    {{/if}}
+
+    <div class="intimacies-list">
+      {{#each intimacies as |int|}}
+      <div class="item-row" data-item-id="{{int.id}}">
+        <span class="intimacy-direction" style="margin-right:6px">
+          {{#if int.system.positive}}<i class="fa-solid fa-heart" title="{{localize 'EX2E.IntimacyPositive'}}"></i>{{else}}<i class="fa-solid fa-skull" title="{{localize 'EX2E.IntimacyNegative'}}"></i>{{/if}}
+        </span>
+        <span class="item-name">{{int.name}}</span>
+        {{#if int.system.subject}}
+        <span class="intimacy-subject" style="opacity:0.75;margin-left:6px">— {{int.system.subject}}</span>
+        {{/if}}
+        {{#if @root.useIntimacyIntensity}}
+        <span class="keyword-tag" style="margin-left:auto">{{localize (concat "EX2E.Intensity" (capitalize int.system.intensity))}}</span>
+        {{else}}
+        <span class="keyword-tag" style="margin-left:auto">{{int.system.strength}} / {{@root.system.intimacies.maxStrength}}</span>
+        {{/if}}
+        <span class="keyword-tag">{{localize (concat "EX2E.Intimacy" (capitalize int.system.intimacyType))}}</span>
+        <div class="item-controls">
+          {{#if ../isEditable}}
+          <button data-action="editItem">✏️</button>
+          <button data-action="deleteItem">🗑️</button>
+          {{/if}}
+        </div>
+      </div>
+      {{/each}}
+    </div>
+
   </div>
 </div>

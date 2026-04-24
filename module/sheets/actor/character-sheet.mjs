@@ -344,6 +344,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       system:           sys,
       tabs,
       config:           EX2E,
+      yoziPatrons:      Object.entries(EX2E.yoziPatrons).map(([k, v]) => ({ key: k, label: game.i18n.localize(v) })),
       availableCastes,
       abilityGroups,
       specialtiesSection,

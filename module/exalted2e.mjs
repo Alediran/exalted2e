@@ -248,6 +248,7 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/actor/character/abilities-default.hbs",
     "systems/exalted2e/templates/actor/character/abilities-four.hbs",
     "systems/exalted2e/templates/actor/character/specialties-section.hbs",
+    "systems/exalted2e/templates/actor/character/_splat.hbs",
     "systems/exalted2e/templates/actor/character/tab-combat.hbs",
     "systems/exalted2e/templates/actor/character/tab-charms.hbs",
     "systems/exalted2e/templates/actor/character/tab-inventory.hbs",

@@ -148,6 +148,40 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         initiation: new fields.NumberField({ initial: 0, min: 0, max: 3, integer: true })
       }),
 
+      // ── Splat-specific traits ──────────────────────────────────────────────
+      // Solar sub-namespace is intentionally empty: Limit is already on
+      // CharacterData and Solars carry no other splat-level scalars.
+      splat: new fields.SchemaField({
+        solar:       new fields.SchemaField({}),
+        lunar:       new fields.SchemaField({
+          tell: new fields.StringField({ initial: "", blank: true })
+        }),
+        terrestrial: new fields.SchemaField({
+          breeding: new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true })
+        }),
+        sidereal:    new fields.SchemaField({
+          paradox:    new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),
+          arcaneFate: new fields.NumberField({ initial: 0, min: 0, max: 20, integer: true })
+        }),
+        abyssal:     new fields.SchemaField({
+          resonance: new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),
+          whispers:  new fields.NumberField({ initial: 0, min: 0, max: 5,  integer: true })
+        }),
+        infernal:    new fields.SchemaField({
+          patron:        new fields.StringField({ initial: "", blank: true }),
+          urge:          new fields.StringField({ initial: "", blank: true }),
+          torment:       new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),
+          actOfVillainy: new fields.NumberField({ initial: 0, min: 0, max: 20, integer: true })
+        }),
+        alchemical:  new fields.SchemaField({
+          clarity: new fields.SchemaField({
+            permanent: new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),
+            temporary: new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true })
+          }),
+          dissonance: new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true })
+        })
+      }),
+
       // ── Biography / Notes ──────────────────────────────────────────────────
       biography:  new fields.HTMLField({ initial: "" }),
       notes:      new fields.HTMLField({ initial: "" }),
@@ -202,6 +236,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     this._prepareHealthData();
     this._prepareCombatStats();
     this._prepareMoteMaxima();
+    this._prepareIntimacies();
   }
 
   _prepareWillpowerMinimum() {
@@ -336,5 +371,25 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 
     this.motes.personal.max   = personal;
     this.motes.peripheral.max = peripheral;
+  }
+
+  _prepareIntimacies() {
+    const parent = this.parent;
+    if (!parent) return;
+    // Principles don't count toward the Tie cap — canonical in 2.5e and a
+    // defensible read of Classic 2e since Principles are long-term
+    // self-conceptions rather than relationships.
+    const all   = parent.items.filter(i => i.type === "intimacy");
+    const ties  = all.filter(i => i.system?.intimacyType !== "principle");
+    const count = ties.length;
+    const cap   = (this.willpower?.max ?? 0) + (this.virtues?.compassion?.value ?? 0);
+
+    this.intimacies = {
+      count,
+      cap,
+      overCapacity: count > cap,
+      maxStrength:  this.virtues?.conviction?.value ?? 0,
+      useIntensity: game.settings.get("exalted2e", "useIntimacyIntensity")
+    };
   }
 }
