@@ -732,3 +732,62 @@
 .ex2e-xp-costs-config .form-footer button.ex2e-danger:hover {
   background: rgba(180, 40, 40, 0.3);
 }
+
+/* ── Permissions Config Dialog ─────────────────────────────────────── */
+.ex2e-permissions-config-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  min-height: 0;
+}
+.ex2e-permissions-config-body {
+  flex: 1 1 auto;
+  min-height: 0;           /* allow the flex child to shrink below its
+                              content size so the scrollbar kicks in */
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.ex2e-permissions-config-body .permissions-intro {
+  margin: 0 0 12px;
+  font-size: 0.85rem;
+  color: var(--color-text-dark-secondary, #6a5a4a);
+}
+.ex2e-permissions-config-body .form-group {
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  align-items: center;
+  gap: 6px 10px;
+  padding: 8px 12px;
+  margin: 6px 0;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.04);
+}
+.ex2e-permissions-config-body .form-group label {
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+.ex2e-permissions-config-body .form-group select {
+  width: 100%;
+}
+.ex2e-permissions-config-body .form-group .hint {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--color-text-dark-secondary, #6a5a4a);
+}
+.ex2e-permissions-config .form-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: 8px;
+  flex: 0 0 auto;          /* pin to the bottom even when content scrolls */
+}
+.ex2e-permissions-config .form-footer button.ex2e-danger {
+  background: rgba(180, 40, 40, 0.15);
+  border-color: rgba(180, 40, 40, 0.4);
+}
+.ex2e-permissions-config .form-footer button.ex2e-danger:hover {
+  background: rgba(180, 40, 40, 0.3);
+}

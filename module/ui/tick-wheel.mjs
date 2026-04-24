@@ -1,4 +1,5 @@
 import { ensureCombatHUDLeftColumn } from "./action-quickbar.mjs";
+import { ex2eCan } from "../helpers/permissions.mjs";
 
 /**
  * TickWheel — collapsible visual battle wheel (0..6 slots) anchored to the
@@ -82,7 +83,7 @@ export class TickWheel {
       slotCombatants[slot].push(c);
     }
 
-    const gmControls = game.user.isGM
+    const gmControls = ex2eCan("combatFlow")
       ? `<button type="button" class="tw-end-combat" title="${game.i18n.localize("EX2E.EndEncounterTooltip")}" aria-label="${game.i18n.localize("EX2E.EndEncounter")}">
            <i class="fa-solid fa-flag-checkered"></i>
          </button>

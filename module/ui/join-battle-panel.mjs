@@ -1,4 +1,5 @@
 import { ensureCombatHUDLeftColumn } from "./action-quickbar.mjs";
+import { ex2eCan } from "../helpers/permissions.mjs";
 
 /**
  * JoinBattlePanel — phase-1 HUD that surfaces Join Battle controls right
@@ -42,12 +43,12 @@ export class JoinBattlePanel {
     const unrolled = combatants.filter(c =>
       typeof c.flags?.exalted2e?.joinBattleSuccesses !== "number"
     );
-    const isGM = game.user.isGM;
+    const canDriveCombat = ex2eCan("combatFlow");
 
     // Phase 2: every combatant has rolled JB but combat hasn't started.
-    // Offer Begin Encounter to the GM in the same panel area.
+    // Offer Begin Encounter to users who can drive combat flow.
     if (unrolled.length === 0) {
-      if (!isGM) return this._hide();
+      if (!canDriveCombat) return this._hide();
       this._renderBegin(combat);
       this._show();
       return;
@@ -57,18 +58,18 @@ export class JoinBattlePanel {
     const myUnrolled = unrolled.filter(c =>
       !!c.actor?.testUserPermission(game.user, "OWNER")
     );
-    if (!isGM && myUnrolled.length === 0) return this._hide();
+    if (!canDriveCombat && myUnrolled.length === 0) return this._hide();
 
-    this._renderRolls(combat, isGM, myUnrolled);
+    this._renderRolls(combat, canDriveCombat, myUnrolled);
     this._show();
   }
 
-  _renderRolls(combat, isGM, myUnrolled) {
+  _renderRolls(combat, canDriveCombat, myUnrolled) {
     const parts = [
       `<div class="jb-title">${game.i18n.localize("EX2E.JoinBattle")}</div>`
     ];
 
-    if (isGM) {
+    if (canDriveCombat) {
       // Both GM buttons share a row so the panel stays compact.
       parts.push(
         `<div class="jb-row">

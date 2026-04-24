@@ -1,6 +1,7 @@
 import { EX2E }          from "../../config.mjs";
 import { ExaltedRoll }   from "../../rolls/exalted-roll.mjs";
 import { evaluateCharmPrereqs } from "../../helpers/charm-prereqs.mjs";
+import { ex2eCan }       from "../../helpers/permissions.mjs";
 
 const { ActorSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -9,12 +10,14 @@ const { ActorSheetV2, HandlebarsApplicationMixin } = (() => {
 })();
 
 /**
- * True when the current user is an Assistant GM or GM. Used to gate the
- * Purchase Mode toggle button and the purchase-log edit/delete controls.
- * Players and Trusted Players never see the button.
+ * True when the current user meets the configured `purchaseMode`
+ * permission. Used to gate the Purchase Mode toggle, the Current / Total
+ * XP inputs on the Experience tab, and the purchase-log edit / delete
+ * controls. Default threshold is Assistant GM; tune via the Permissions
+ * settings menu.
  */
 function _canTogglePurchaseMode() {
-  return game.user.role >= CONST.USER_ROLES.ASSISTANT;
+  return ex2eCan("purchaseMode");
 }
 
 /**
@@ -326,7 +329,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         overdraft:  runningSum > totalEarned
       };
     }).reverse();   // newest-first
-    const isGamemaster = game.user.isGM;
+    const canEditXp = ex2eCan("purchaseMode");
 
     return {
       ...context,
@@ -356,7 +359,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       virtueFlaw,
       effects,
       purchaseLogRows,
-      isGamemaster,
+      canEditXp,
       isEditable: this.isEditable,
       useIntimacyIntensity: game.settings.get("exalted2e", "useIntimacyIntensity")
     };
@@ -749,7 +752,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   static async #onEditPurchaseEntry(event, target) {
-    if (!game.user.isGM) return;
+    if (!ex2eCan("purchaseMode")) return;
     const idx = parseInt(target.dataset.index, 10);
     if (!Number.isFinite(idx)) return;
     const log = foundry.utils.deepClone(this.document.system.purchaseLog ?? []);
@@ -783,7 +786,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   static async #onDeletePurchaseEntry(event, target) {
-    if (!game.user.isGM) return;
+    if (!ex2eCan("purchaseMode")) return;
     const idx = parseInt(target.dataset.index, 10);
     if (!Number.isFinite(idx)) return;
     const log = foundry.utils.deepClone(this.document.system.purchaseLog ?? []);

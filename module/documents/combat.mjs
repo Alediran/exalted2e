@@ -1,3 +1,5 @@
+import { ex2eCan } from "../helpers/permissions.mjs";
+
 /**
  * ExaltedCombat — wheel-based tick initiative for Exalted 2e.
  *
@@ -272,7 +274,7 @@ export class ExaltedCombat extends Combat {
    * their DV penalty window closes as their next action begins).
    */
   async advanceWheel() {
-    if (!game.user.isGM) return;
+    if (!ex2eCan("combatFlow")) return;
     const oldTick = this.currentTick;
     const newTick = oldTick + 1;
 

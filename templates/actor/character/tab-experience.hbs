@@ -7,13 +7,13 @@
         <label>{{localize "EX2E.CurrentXP"}}</label>
         <input type="number" name="system.experience.value"
                value="{{system.experience.value}}" min="0"
-               {{#unless isEditable}}readonly{{/unless}}>
+               {{#unless canEditXp}}readonly{{/unless}}>
       </div>
       <div class="field-group">
         <label>{{localize "EX2E.TotalXPEarned"}}</label>
         <input type="number" name="system.experience.total"
                value="{{system.experience.total}}" min="0"
-               {{#unless isEditable}}readonly{{/unless}}>
+               {{#unless canEditXp}}readonly{{/unless}}>
       </div>
     </div>
 
@@ -27,7 +27,7 @@
           <th>{{localize "EX2E.PurchaseLogChange"}}</th>
           <th>{{localize "EX2E.PurchaseLogXP"}}</th>
           <th>{{localize "EX2E.PurchaseLogNote"}}</th>
-          {{#if isGamemaster}}<th></th>{{/if}}
+          {{#if canEditXp}}<th></th>{{/if}}
         </tr>
       </thead>
       <tbody>
@@ -38,7 +38,7 @@
           <td>{{row.oldValue}} → {{row.newValue}}</td>
           <td class="{{#if row.overdraft}}xp-overdraft{{/if}}">{{row.xpCost}}</td>
           <td>{{row.note}}</td>
-          {{#if @root.isGamemaster}}
+          {{#if @root.canEditXp}}
           <td class="purchase-log-actions">
             <div class="item-controls">
               <button type="button" data-action="editPurchaseEntry" data-index="{{row.index}}"

@@ -30,7 +30,9 @@ import { KnackSheet }      from "./sheets/item/knack-sheet.mjs";
 import { VirtueFlawSheet } from "./sheets/item/virtueflaw-sheet.mjs";
 import { ComboSheet }       from "./sheets/item/combo-sheet.mjs";
 import { XpCostsConfigDialog } from "./dialogs/xp-costs-config-dialog.mjs";
+import { PermissionsConfigDialog } from "./dialogs/permissions-config-dialog.mjs";
 import { registerHandlebarsHelpers } from "./helpers/handlebars.mjs";
+import { ex2eCan } from "./helpers/permissions.mjs";
 import { ActionQuickbar } from "./ui/action-quickbar.mjs";
 import { TickWheel }                      from "./ui/tick-wheel.mjs";
 import { JoinBattlePanel }                from "./ui/join-battle-panel.mjs";
@@ -183,12 +185,32 @@ Hooks.once("init", function () {
     default: {}
   });
 
+  // ── Permissions ────────────────────────────────────────────────────────
+  // Per-action minimum role, overlaid onto PERMISSION_DEFAULTS. Sparse —
+  // only tweaked keys appear in storage.
+  game.settings.register("exalted2e", "permissions", {
+    name:    "EX2E.PermissionsConfigTitle",
+    scope:   "world",
+    config:  false,
+    type:    Object,
+    default: {}
+  });
+
   game.settings.registerMenu("exalted2e", "xpCostsMenu", {
     name:       "EX2E.XpCostsConfigTitle",
     label:      "EX2E.XpCostsConfigButton",
     hint:       "EX2E.XpCostsConfigHint",
     icon:       "fa-solid fa-coins",
     type:       XpCostsConfigDialog,
+    restricted: true   // GM-only
+  });
+
+  game.settings.registerMenu("exalted2e", "permissionsMenu", {
+    name:       "EX2E.PermissionsConfigTitle",
+    label:      "EX2E.PermissionsConfigButton",
+    hint:       "EX2E.PermissionsConfigHint",
+    icon:       "fa-solid fa-user-shield",
+    type:       PermissionsConfigDialog,
     restricted: true   // GM-only
   });
 
@@ -335,7 +357,8 @@ Hooks.on("createActor", async (actor, _options, userId) => {
 // be shaken off by the player on whose sheet they live — only the GM
 // can clear them. `preDelete*` hooks cancel by returning false.
 Hooks.on("preDeleteActiveEffect", (effect, options, userId) => {
-  if (game.users.get(userId)?.isGM) return;
+  const user = game.users.get(userId);
+  if (ex2eCan("protectedEffects", user)) return;
   if (!effect.flags?.exalted2e?.gmOnlyRemoval) return;
   ui.notifications.warn(game.i18n.localize("EX2E.EffectGMOnlyRemoval"));
   return false;
@@ -1086,7 +1109,7 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     const input   = card?.querySelector(".manual-dv-input");
     const attack  = message.flags?.exalted2e?.attack;
     if (!attack || attack.defense) return;
-    if (!game.user.isGM) {
+    if (!ex2eCan("combatFlow")) {
       ui.notifications.warn(game.i18n.localize("EX2E.DefenseNotAllowed"));
       return;
     }

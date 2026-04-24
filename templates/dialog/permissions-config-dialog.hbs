@@ -1,0 +1,32 @@
+<div class="ex2e-permissions-config-form">
+
+  <div class="ex2e-permissions-config-body">
+
+    <p class="permissions-intro">{{localize "EX2E.PermissionsConfigIntro"}}</p>
+
+    {{#each rows as |row|}}
+    <div class="form-group">
+      <label for="perm-{{row.key}}">{{localize row.labelKey}}</label>
+      <select id="perm-{{row.key}}" name="{{row.name}}">
+        {{#each row.choices as |choice|}}
+        <option value="{{choice.value}}" {{#if choice.selected}}selected{{/if}}>
+          {{localize choice.labelKey}}
+        </option>
+        {{/each}}
+      </select>
+      <p class="hint">{{localize row.descKey}}</p>
+    </div>
+    {{/each}}
+
+  </div>
+
+  <footer class="form-footer">
+    <button type="button" class="ex2e-danger" data-action="resetDefaults">
+      <i class="fa-solid fa-rotate-left"></i> {{localize "EX2E.PermissionsReset"}}
+    </button>
+    <button type="submit">
+      <i class="fa-solid fa-save"></i> {{localize "EX2E.Save"}}
+    </button>
+  </footer>
+
+</div>
