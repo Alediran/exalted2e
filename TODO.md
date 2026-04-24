@@ -81,7 +81,7 @@ Pending features based on Exalted 2nd Edition core rules.
 ## Experience / Purchase Tracking
 - [x] Purchase Mode toggle + enforcement (block reductions, log XP on increases)
 - [x] Purchase log UI on Experience tab
-- [z] XP Cost Engine (spec: docs/superpowers/specs/2026-04-23-xp-cost-engine-design.md — not yet written)
+- [z] XP Cost Engine
 - [ ] Purchase Mode support for NPC-typed actors
 - [ ] Per-trait lock overrides
 
@@ -121,7 +121,7 @@ Pending features based on Exalted 2nd Edition core rules.
 - [ ] Artifact creation rules
 - [ ] Manse / Hearthstone item type
 - [ ] Background mechanical hooks (Backing, Contacts, Resources)
-- [ ] XP cost tables per exalt type (Terrestrial out-of-aspect surcharges, etc.)
+- [x] XP cost tables per exalt type (Terrestrial out-of-aspect surcharges, etc.)
 
 ## Quality of Life
 - [ ] Drag-and-drop items between sheets (partial: effect-wrapper compendium works)

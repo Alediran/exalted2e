@@ -2,6 +2,8 @@ import { EX2E }          from "../../config.mjs";
 import { ExaltedRoll }   from "../../rolls/exalted-roll.mjs";
 import { evaluateCharmPrereqs } from "../../helpers/charm-prereqs.mjs";
 import { ex2eCan }       from "../../helpers/permissions.mjs";
+import { buildXpCostRows } from "../../helpers/xp-cost-table.mjs";
+import { resolveXpCosts }  from "../../helpers/xp-cost-defaults.mjs";
 
 const { ActorSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -331,6 +333,11 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     }).reverse();   // newest-first
     const canEditXp = ex2eCan("purchaseMode");
 
+    // XP cost reference table (Experience tab) — rows built per-exalt from
+    // the resolved xpCosts setting.
+    const xpCosts    = resolveXpCosts(game.settings.get("exalted2e", "xpCosts") ?? {});
+    const xpCostRows = buildXpCostRows(sys.exaltType ?? "solar", xpCosts);
+
     return {
       ...context,
       actor,
@@ -360,6 +367,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       effects,
       purchaseLogRows,
       canEditXp,
+      xpCostRows,
       isEditable: this.isEditable,
       useIntimacyIntensity: game.settings.get("exalted2e", "useIntimacyIntensity")
     };
