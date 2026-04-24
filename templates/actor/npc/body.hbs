@@ -19,6 +19,14 @@
       <span class="stat-value">{{system.combat.parryDV}}</span>
     </div>
     <div class="stat-item">
+      <span class="stat-label">{{localize "EX2E.DodgeMDV"}}</span>
+      <span class="stat-value">{{system.combat.dodgeMDV}}</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">{{localize "EX2E.ParryMDV"}}</span>
+      <span class="stat-value">{{system.combat.parryMDV}}</span>
+    </div>
+    <div class="stat-item">
       <span class="stat-label">{{localize "EX2E.Hardness"}}</span>
       <span class="stat-value">{{system.combat.hardness}}</span>
     </div>
@@ -67,6 +75,10 @@
         <input type="number" name="system.combat.dodgeDV"    value="{{system.combat.dodgeDV}}"    min="0" max="15"></div>
       <div class="field-group"><label>{{localize "EX2E.ParryDV"}}</label>
         <input type="number" name="system.combat.parryDV"    value="{{system.combat.parryDV}}"    min="0" max="15"></div>
+      <div class="field-group"><label>{{localize "EX2E.DodgeMDV"}}</label>
+        <input type="number" name="system.combat.dodgeMDV" value="{{system.combat.dodgeMDV}}" min="0" max="15"></div>
+      <div class="field-group"><label>{{localize "EX2E.ParryMDV"}}</label>
+        <input type="number" name="system.combat.parryMDV" value="{{system.combat.parryMDV}}" min="0" max="15"></div>
       <div class="field-group"><label>{{localize "EX2E.Hardness"}}</label>
         <input type="number" name="system.combat.hardness"   value="{{system.combat.hardness}}"   min="0" max="20"></div>
       <div class="field-group"><label>{{localize "EX2E.SoakBashing"}}</label>

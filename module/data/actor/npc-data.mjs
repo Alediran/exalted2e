@@ -37,6 +37,8 @@ export class NpcData extends foundry.abstract.TypeDataModel {
         joinBattle: new fields.NumberField({ initial: 4, min: 0, max: 20, integer: true }),
         dodgeDV:    new fields.NumberField({ initial: 2, min: 0, max: 15, integer: true }),
         parryDV:    new fields.NumberField({ initial: 2, min: 0, max: 15, integer: true }),
+        dodgeMDV:   new fields.NumberField({ initial: 2, min: 0, max: 15, integer: true }),
+        parryMDV:   new fields.NumberField({ initial: 2, min: 0, max: 15, integer: true }),
         soak: new fields.SchemaField({
           bashing:    new fields.NumberField({ initial: 3, min: 0, max: 20, integer: true }),
           lethal:     new fields.NumberField({ initial: 1, min: 0, max: 20, integer: true }),

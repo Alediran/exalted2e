@@ -323,6 +323,38 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       lethal:  Math.floor(a.stamina.value / 2),
       aggravated: 0
     };
+
+    // MDVs always round DOWN — no Essence-2+ round-up, no errata variant.
+    // The `halve` closure above branches on Essence for physical-DV
+    // rules; do not reuse it here.
+    const halveDown = (n) => Math.floor(n / 2);
+
+    // Dodge MDV = (Willpower.max + Integrity + Essence) / 2, floored.
+    // Integrity specialty is NOT baked in — it applies only when a
+    // matching specialty fits the attack's context, handled at roll
+    // time in a later session. Same convention as Dodge DV.
+    this.dodgeMDV = halveDown(
+      this.willpower.max + ab.integrity.value + this.essence.value
+    );
+
+    // Parry MDV: (max(Charisma, Manipulation) + social ability) / 2,
+    // floored. Precomputed across the four valid social abilities so a
+    // future Step-2 dialog can surface all choices; `best` is the
+    // number the sheet shows today.
+    const bestSocialAttr = Math.max(a.charisma.value, a.manipulation.value);
+    this.parryMDV = {
+      best:            0,
+      byPresence:      halveDown(bestSocialAttr + (ab.presence?.value      ?? 0)),
+      byPerformance:   halveDown(bestSocialAttr + (ab.performance?.value   ?? 0)),
+      byInvestigation: halveDown(bestSocialAttr + (ab.investigation?.value ?? 0)),
+      byBureaucracy:   halveDown(bestSocialAttr + (ab.bureaucracy?.value   ?? 0))
+    };
+    this.parryMDV.best = Math.max(
+      this.parryMDV.byPresence,
+      this.parryMDV.byPerformance,
+      this.parryMDV.byInvestigation,
+      this.parryMDV.byBureaucracy
+    );
   }
 
   _prepareMoteMaxima() {

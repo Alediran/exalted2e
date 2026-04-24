@@ -310,6 +310,7 @@ export class ExaltedActor extends Actor {
 
     // ── Aggregate DV penalties carried by ActiveEffects ───────────────────
     this._aggregateDVPenalties(systemData);
+    this._aggregateMDVPenalties(systemData);
   }
 
   /**
@@ -333,6 +334,23 @@ export class ExaltedActor extends Actor {
       penalties.push({ type: p.type, value: p.value, effectId: eff.id, label: eff.name });
     }
     systemData.dvPenalties = penalties;
+  }
+
+  /**
+   * Mirror of `_aggregateDVPenalties` for mental/social defense. MDV-
+   * reducing AEs persist for their own duration (there is no tick-
+   * based refresh like physical DVs have), so this aggregator does not
+   * pair with any equivalent of `dvRefreshable`.
+   */
+  _aggregateMDVPenalties(systemData) {
+    const penalties = [];
+    for (const eff of this.effects) {
+      if (eff.disabled) continue;
+      const p = eff.flags?.exalted2e?.mdvPenalty;
+      if (!p || typeof p.value !== "number" || !p.type) continue;
+      penalties.push({ type: p.type, value: p.value, effectId: eff.id, label: eff.name });
+    }
+    systemData.mdvPenalties = penalties;
   }
 
   /**
@@ -431,6 +449,18 @@ export class ExaltedActor extends Actor {
     return total;
   }
 
+  /** Sum of every non-immune MDV penalty. */
+  get mdvPenaltyTotal() {
+    const penalties = this.system?.mdvPenalties ?? [];
+    const immunities = new Set(this.getFlag("exalted2e", "mdvImmunities") ?? []);
+    let total = 0;
+    for (const p of penalties) {
+      if (immunities.has(p.type)) continue;
+      total += p.value;
+    }
+    return total;
+  }
+
   /** DV after current penalties, never below 0. */
   get currentDodgeDV() {
     const s = this.system;
@@ -446,6 +476,23 @@ export class ExaltedActor extends Actor {
                : this.type === "npc"       ? (s.combat?.parryDV ?? 0)
                : 0;
     return Math.max(0, base - this.dvPenaltyTotal);
+  }
+
+  /** MDV after current penalties, never below 0. */
+  get currentDodgeMDV() {
+    const s = this.system;
+    const base = this.type === "character" ? (s.dodgeMDV ?? 0)
+               : this.type === "npc"       ? (s.combat?.dodgeMDV ?? 0)
+               : 0;
+    return Math.max(0, base - this.mdvPenaltyTotal);
+  }
+
+  get currentParryMDV() {
+    const s = this.system;
+    const base = this.type === "character" ? (s.parryMDV?.best ?? 0)
+               : this.type === "npc"       ? (s.combat?.parryMDV ?? 0)
+               : 0;
+    return Math.max(0, base - this.mdvPenaltyTotal);
   }
 
   /**
@@ -475,6 +522,30 @@ export class ExaltedActor extends Actor {
           dvSticky:      !!sticky
         }
       },
+      disabled: false,
+      transfer: false
+    };
+    const created = await this.createEmbeddedDocuments("ActiveEffect", [effectData]);
+    return created?.[0] ?? null;
+  }
+
+  /**
+   * Mirror of `applyDVPenalty` for MDVs. No refreshable mechanism —
+   * MDV-reducing AEs stand on their own duration. No `sticky` option
+   * for the same reason.
+   *
+   * @param {string} type   Penalty category (e.g., "emotion", "illusion").
+   * @param {number} value  Positive magnitude.
+   * @param {object} [opts]
+   * @param {string} [opts.label]
+   * @param {string} [opts.icon]
+   */
+  async applyMDVPenalty(type, value, { label, icon } = {}) {
+    if (!type || !Number.isFinite(value) || value <= 0) return null;
+    const effectData = {
+      name: label ?? type,
+      img:  icon  ?? "icons/svg/aura.svg",
+      flags: { exalted2e: { mdvPenalty: { type, value } } },
       disabled: false,
       transfer: false
     };
