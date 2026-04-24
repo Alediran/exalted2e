@@ -597,3 +597,138 @@
   text-transform: uppercase;
   color: var(--ex2e-text-muted);
 }
+
+/* ── Purchase Mode header toggle ─────────────────────────────────────── */
+.ex2e-purchase-toggle {
+  cursor: pointer;
+}
+
+.ex2e-purchase-toggle:hover {
+  color: var(--ex2e-gold-bright, #ffe066);
+}
+
+.ex2e-purchase-toggle.active {
+  color: var(--ex2e-gold-bright, #ffe066);
+  text-shadow: 0 0 4px var(--ex2e-gold-main, #d4af37);
+}
+
+/* ── Purchase Mode confirm dialog ────────────────────────────────────── */
+.ex2e-purchase-confirm-dialog .readonly-value {
+  padding: 2px 6px;
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--ex2e-gold-dark, #5c4a1f);
+  border-radius: 3px;
+}
+
+.ex2e-purchase-confirm-dialog .purchase-stub-hint {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  color: var(--ex2e-text-secondary, #b8a88a);
+  font-style: italic;
+}
+
+.ex2e-purchase-confirm-dialog .purchase-overdraft {
+  margin: 6px 0;
+  padding: 4px 6px;
+  color: var(--ex2e-dmg-lethal, #c0392b);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+/* ── Purchase Log table (Experience tab) ─────────────────────────────── */
+.purchase-log-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.purchase-log-table th,
+.purchase-log-table td {
+  padding: 4px 6px;
+  border-bottom: 1px solid var(--ex2e-gold-dark, #5c4a1f);
+  text-align: left;
+}
+
+.purchase-log-table .xp-overdraft {
+  color: var(--ex2e-dmg-lethal, #c0392b);
+  font-weight: 600;
+}
+
+.purchase-log-table .purchase-log-actions {
+  width: 1%;            /* shrink cell to fit its content */
+  white-space: nowrap;  /* keep the two buttons on one line */
+}
+
+.purchase-log-table .purchase-log-actions .item-controls {
+  /* `.item-controls` normally uses `margin-left: auto` to push itself
+     to the right end of a flex row — that's wrong inside a table cell
+     which is neither a flex parent nor has anything to push against. */
+  margin-left: 0;
+}
+
+/* ── XP Costs Config Dialog ────────────────────────────────────────── */
+.ex2e-xp-costs-config-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  min-height: 0;
+}
+.ex2e-xp-costs-config-body {
+  flex: 1 1 auto;
+  min-height: 0;           /* allow the flex child to shrink below its
+                              content size so the scrollbar kicks in */
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.ex2e-xp-costs-config-body .xp-costs-intro {
+  margin: 0 0 12px;
+  font-size: 0.85rem;
+  color: var(--color-text-dark-secondary, #6a5a4a);
+}
+.ex2e-xp-costs-config-body .xp-costs-section {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.04);
+}
+.ex2e-xp-costs-config-body fieldset.xp-costs-general > legend,
+.ex2e-xp-costs-config-body details.xp-costs-exalt > summary {
+  font-weight: bold;
+  font-size: 0.95rem;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+.ex2e-xp-costs-config-body details.xp-costs-exalt > summary {
+  list-style: revert; /* keep the disclosure triangle */
+}
+.ex2e-xp-costs-config-body .form-group {
+  display: grid;
+  grid-template-columns: 1fr 92px;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0;
+}
+.ex2e-xp-costs-config-body .form-group label {
+  font-size: 0.85rem;
+}
+.ex2e-xp-costs-config-body input[type="number"] {
+  text-align: right;
+}
+.ex2e-xp-costs-config .form-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: 8px;
+  flex: 0 0 auto;          /* pin to the bottom even when content scrolls */
+}
+.ex2e-xp-costs-config .form-footer button.ex2e-danger {
+  background: rgba(180, 40, 40, 0.15);
+  border-color: rgba(180, 40, 40, 0.4);
+}
+.ex2e-xp-costs-config .form-footer button.ex2e-danger:hover {
+  background: rgba(180, 40, 40, 0.3);
+}

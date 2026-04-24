@@ -78,6 +78,13 @@ Pending features based on Exalted 2nd Edition core rules.
 - [x] Effects tab — split into temporal (durationed / dvRefreshable) and permanent
 - [x] Row-per-penalty-level health track with per-level bonus boxes (−0, −1, −2)
 
+## Experience / Purchase Tracking
+- [x] Purchase Mode toggle + enforcement (block reductions, log XP on increases)
+- [x] Purchase log UI on Experience tab
+- [z] XP Cost Engine (spec: docs/superpowers/specs/2026-04-23-xp-cost-engine-design.md — not yet written)
+- [ ] Purchase Mode support for NPC-typed actors
+- [ ] Per-trait lock overrides
+
 ## The Circle / Party Management
 - [x] The Circle folder seeder + auto-configure actors (linked token, Friendly disposition)
   - [ ] Special buttons on the folder (party roll, XP award, rest-and-recover, etc.)

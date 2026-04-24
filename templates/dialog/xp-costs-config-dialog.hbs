@@ -1,0 +1,44 @@
+<div class="ex2e-xp-costs-config-form">
+
+  <div class="ex2e-xp-costs-config-body">
+
+    <p class="xp-costs-intro">{{localize "EX2E.XpCostsConfigHint"}}</p>
+
+    <fieldset class="xp-costs-section xp-costs-general">
+      <legend>{{localize "EX2E.XpCostsGeneral"}}</legend>
+      {{#each general as |row|}}
+      <div class="form-group">
+        <label>{{localize row.labelKey}}</label>
+        <input type="number" name="{{row.name}}"
+               value="{{row.value}}" placeholder="{{row.placeholder}}"
+               step="1" inputmode="numeric">
+      </div>
+      {{/each}}
+    </fieldset>
+
+    {{#each sections as |section|}}
+    <details class="xp-costs-section xp-costs-exalt"{{#if @first}} open{{/if}}>
+      <summary>{{localize section.labelKey}}</summary>
+      {{#each section.rows as |row|}}
+      <div class="form-group">
+        <label>{{localize row.labelKey}}</label>
+        <input type="number" name="{{row.name}}"
+               value="{{row.value}}" placeholder="{{row.placeholder}}"
+               step="1" inputmode="numeric">
+      </div>
+      {{/each}}
+    </details>
+    {{/each}}
+
+  </div>
+
+  <footer class="form-footer">
+    <button type="button" class="ex2e-danger" data-action="resetDefaults">
+      <i class="fa-solid fa-rotate-left"></i> {{localize "EX2E.XpCostsReset"}}
+    </button>
+    <button type="submit">
+      <i class="fa-solid fa-save"></i> {{localize "EX2E.Save"}}
+    </button>
+  </footer>
+
+</div>

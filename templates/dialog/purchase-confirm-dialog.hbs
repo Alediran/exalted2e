@@ -1,0 +1,35 @@
+<form class="ex2e-purchase-confirm-dialog" autocomplete="off">
+  <div class="dialog-content">
+
+    <div class="field-group">
+      <label>{{localize "EX2E.PurchaseConfirmTrait"}}</label>
+      <div class="readonly-value">{{traitLabel}}</div>
+    </div>
+
+    <div class="field-group">
+      <label>{{localize "EX2E.PurchaseConfirmChange"}}</label>
+      <div class="readonly-value">{{oldValue}} → {{newValue}}</div>
+    </div>
+
+    <div class="field-group">
+      <label>{{localize "EX2E.PurchaseConfirmXPCost"}}</label>
+      <input type="number" name="xpCost" value="{{initialXp}}" min="0" step="1" autofocus>
+      {{#if stubHint}}
+      <small class="purchase-stub-hint">{{localize "EX2E.PurchaseConfirmStubHint"}}</small>
+      {{/if}}
+    </div>
+
+    <div class="purchase-overdraft" hidden></div>
+
+    <div class="field-group">
+      <label>{{localize "EX2E.PurchaseConfirmNote"}}</label>
+      <input type="text" name="note" value="{{initialNote}}">
+    </div>
+
+  </div>
+  <footer class="form-footer">
+    <button type="button" class="btn-roll" data-action="confirmPurchase">
+      <i class="fa-solid fa-check"></i> {{localize "EX2E.PurchaseConfirmButton"}}
+    </button>
+  </footer>
+</form>
