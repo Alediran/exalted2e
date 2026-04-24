@@ -62,7 +62,7 @@ export class ComboSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       rows,
       hasActor:    !!actor,
       isEditable:  this.isEditable,
-      enrichedDescription: await TextEditor.enrichHTML(sys.description ?? "", {
+      enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description ?? "", {
         secrets: this.document.isOwner, relativeTo: this.document
       })
     };

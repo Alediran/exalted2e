@@ -39,7 +39,7 @@ export class KnackSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       system:       sys,
       config:       EX2E,
       isEditable:   this.isEditable,
-      enrichedDescription: await TextEditor.enrichHTML(sys.description, {
+      enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description, {
         secrets: this.document.isOwner, relativeTo: this.document
       })
     };

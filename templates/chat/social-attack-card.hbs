@@ -1,0 +1,86 @@
+<div class="chat-card exalted2e social-attack-card">
+  <header class="chat-card-header">
+    <img class="actor-portrait" src="{{attackerImg}}" alt="{{attackerName}}"/>
+    <span class="attacker-name">{{attackerName}}</span>
+    <span class="arrow">→</span>
+    <img class="actor-portrait" src="{{defenderImg}}" alt="{{defenderName}}"/>
+    <span class="defender-name">{{defenderName}}</span>
+  </header>
+
+  <div class="chat-card-body">
+    <div class="line"><strong>{{localize "EX2E.Intent"}}:</strong> {{intentLabel}}</div>
+    {{#if subject}}
+    <div class="line"><strong>{{localize "EX2E.Subject"}}:</strong> {{subject}}</div>
+    {{/if}}
+
+    <div class="line"><strong>{{localize "EX2E.SocialPool"}}:</strong> {{attributeLabel}} {{attributeValue}} + {{abilityLabel}} {{abilityValue}}{{#if stuntDice}} + {{stuntDice}} stunt{{/if}} = {{pool}} dice → {{rollSuccesses}} successes</div>
+
+    <div class="line"><strong>{{localize "EX2E.ModifierClaims"}}:</strong>
+      {{localize "EX2E.ClaimSupporting"}} {{bestSupporting}}, {{localize "EX2E.ClaimOpposing"}} {{bestOpposing}}, {{localize "EX2E.AppearanceDelta"}} {{mdvShiftFromApp}}
+    </div>
+
+    <div class="line"><strong>{{localize "EX2E.EffectiveMDV"}}:</strong> {{baseMDV}} → {{effectiveMDV}}</div>
+
+    <div class="line">
+      <strong>{{localize "EX2E.NetSuccesses"}}:</strong> {{netSuccesses}}
+      &middot;
+      <strong>{{#if hit}}{{localize "EX2E.ResultHit"}}{{else}}{{localize "EX2E.ResultMiss"}}{{/if}}</strong>
+      {{#if hit}}&middot; <strong>{{localize "EX2E.WPToResist"}}:</strong> {{wpToResist}}{{/if}}
+    </div>
+
+    {{#if hit}}
+    {{#unless resolution}}
+    {{#if canRespond}}
+    <div class="social-response-controls">
+      {{#if wpToResist}}
+      <button type="button" class="btn-social-resist"
+              data-wp="{{wpToResist}}"
+              {{#unless canAffordResist}}title="{{localize 'EX2E.InsufficientWillpower'}}"{{/unless}}>
+        {{localize "EX2E.SpendWPToResist" count=wpToResist}}
+      </button>
+      {{/if}}
+      <button type="button" class="btn-social-accept">{{localize "EX2E.AcceptAttack"}}</button>
+    </div>
+    {{/if}}
+    {{/unless}}
+
+    {{#if showErodePicker}}
+    <div class="social-erode-picker">
+      <label>{{localize "EX2E.PickIntimacyToErode"}}</label>
+      <select class="social-erode-select">
+        {{#each defenderIntimacies as |int|}}
+        <option value="{{int.id}}">{{int.name}} — {{int.system.subject}} (str {{int.system.strength}})</option>
+        {{/each}}
+      </select>
+      <button type="button" class="btn-social-erode-confirm">{{localize "EX2E.Confirm"}}</button>
+    </div>
+    {{/if}}
+
+    {{#if resolution}}
+    <div class="social-resolution">
+      {{#if (eq resolution.outcome "resisted")}}
+      <strong>{{localize "EX2E.ResolutionResisted" wp=resolution.wpSpentByDefender}}</strong>
+      {{/if}}
+      {{#if (eq resolution.outcome "accepted-narration")}}
+      <strong>{{#if (eq intent "build")}}{{localize "EX2E.ResolutionAcceptedBuild"}}{{else}}{{localize "EX2E.ResolutionAcceptedCompel"}}{{/if}}</strong>
+      {{/if}}
+      {{#if (eq resolution.outcome "accepted-eroded")}}
+      <strong>{{localize "EX2E.ResolutionEroded" name=resolution.erodedIntimacyName before=resolution.erodedIntimacyStrengthBefore after=resolution.erodedIntimacyStrengthAfter}}</strong>
+      {{/if}}
+    </div>
+
+    {{#if canReverse}}
+    {{#unless reversed}}
+    <div class="social-reverse-row">
+      <button type="button" class="btn-social-reverse">{{localize "EX2E.ReverseSocialAttack"}}</button>
+    </div>
+    {{/unless}}
+    {{/if}}
+
+    {{#if reversed}}
+    <div class="social-resolution reversed"><em>{{localize "EX2E.SocialAttackReversed"}}</em></div>
+    {{/if}}
+    {{/if}}
+    {{/if}}
+  </div>
+</div>

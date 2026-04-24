@@ -46,7 +46,7 @@ export class SpellSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         value: k, label: game.i18n.localize(v)
       })),
       isEditable:  this.isEditable,
-      enrichedDescription: await TextEditor.enrichHTML(sys.description, {
+      enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description, {
         secrets: this.document.isOwner, relativeTo: this.document
       })
     };

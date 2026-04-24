@@ -64,6 +64,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       rollPool:            CharacterSheet.#onRollPool,
       cycleAbilityFlag:    CharacterSheet.#onCycleAbilityFlag,
       rollAttack:          CharacterSheet.#onRollAttack,
+      rollSocialAttack:    CharacterSheet.#onRollSocialAttack,
       pickVirtueFlaw:      CharacterSheet.#onPickVirtueFlaw,
       clearVirtueFlaw:     CharacterSheet.#onClearVirtueFlaw,
       editEffect:          CharacterSheet.#onEditEffect,
@@ -461,8 +462,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         rollData: this.document.getRollData?.() ?? {},
         relativeTo: this.document
       };
-      context.enrichedBiography = await TextEditor.enrichHTML(this.document.system.biography, enrichOpts);
-      context.enrichedNotes     = await TextEditor.enrichHTML(this.document.system.notes, enrichOpts);
+      context.enrichedBiography = await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.biography, enrichOpts);
+      context.enrichedNotes     = await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.notes, enrichOpts);
     }
 
     return context;
@@ -651,6 +652,23 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const modeIndex = parseInt(row?.dataset.modeIndex) || 0;
     if (!weaponId) return;
     await ExaltedRoll.rollAttack(this.document, weaponId, { modeIndex });
+  }
+
+  static async #onRollSocialAttack(event, target) {
+    const { SocialAttackDialog } = await import("../../dialogs/social-attack-dialog.mjs");
+    const { ExaltedRoll }        = await import("../../rolls/exalted-roll.mjs");
+
+    let picked = game.user.targets.first()?.actor ?? null;
+    if (!picked) {
+      const { pickTargetActor } = await import("../../helpers/targeting.mjs");
+      picked = await pickTargetActor();
+      if (!picked) return;
+    }
+
+    const options = await SocialAttackDialog.prompt({ attacker: this.actor, target: picked });
+    if (!options) return;
+
+    await ExaltedRoll.rollSocialAttack(this.actor, options);
   }
 
   static async #onAddSpecialty(event, target) {

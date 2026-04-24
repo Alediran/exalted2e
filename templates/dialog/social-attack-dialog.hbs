@@ -1,0 +1,89 @@
+<form class="social-attack-dialog-form">
+  {{!-- Target --}}
+  <section class="dialog-section">
+    <label class="section-label">{{localize "EX2E.Target"}}</label>
+    {{#if target}}
+    <div class="target-row">
+      <img src="{{target.img}}" alt="{{target.name}}" class="item-img"/>
+      <span class="target-name">{{target.name}}</span>
+      <button type="button" data-action="pickTarget">{{localize "EX2E.PickTarget"}}</button>
+    </div>
+    {{else}}
+    <div class="target-row target-empty">
+      <span>—</span>
+      <button type="button" data-action="pickTarget">{{localize "EX2E.PickTarget"}}</button>
+    </div>
+    {{/if}}
+  </section>
+
+  {{!-- Pool --}}
+  <section class="dialog-section">
+    <label class="section-label">{{localize "EX2E.SocialAttackAttribute"}}</label>
+    <select name="attribute">
+      <option value="charisma"     {{#if (eq attribute "charisma")}}selected{{/if}}>{{localize "EX2E.AttrCharisma"}}</option>
+      <option value="manipulation" {{#if (eq attribute "manipulation")}}selected{{/if}}>{{localize "EX2E.AttrManipulation"}}</option>
+    </select>
+    <label class="section-label">{{localize "EX2E.SocialAttackAbility"}}</label>
+    <select name="ability">
+      <option value="presence"      {{#if (eq ability "presence")}}selected{{/if}}>{{localize "EX2E.AbilityPresence"}}</option>
+      <option value="performance"   {{#if (eq ability "performance")}}selected{{/if}}>{{localize "EX2E.AbilityPerformance"}}</option>
+      <option value="investigation" {{#if (eq ability "investigation")}}selected{{/if}}>{{localize "EX2E.AbilityInvestigation"}}</option>
+      <option value="bureaucracy"   {{#if (eq ability "bureaucracy")}}selected{{/if}}>{{localize "EX2E.AbilityBureaucracy"}}</option>
+    </select>
+  </section>
+
+  {{!-- Intent + subject --}}
+  <section class="dialog-section">
+    <label class="section-label">{{localize "EX2E.SocialIntent"}}</label>
+    <select name="intent">
+      <option value="build"  {{#if (eq intent "build")}}selected{{/if}}>{{localize "EX2E.IntentBuild"}}</option>
+      <option value="erode"  {{#if (eq intent "erode")}}selected{{/if}}>{{localize "EX2E.IntentErode"}}</option>
+      <option value="compel" {{#if (eq intent "compel")}}selected{{/if}}>{{localize "EX2E.IntentCompel"}}</option>
+    </select>
+    <label class="section-label">
+      {{#if (eq intent "build")}}{{localize "EX2E.SubjectBuildLabel"}}
+      {{else if (eq intent "erode")}}{{localize "EX2E.SubjectErodeLabel"}}
+      {{else if (eq intent "compel")}}{{localize "EX2E.SubjectCompelLabel"}}
+      {{else}}{{localize "EX2E.Subject"}}{{/if}}
+    </label>
+    <input type="text" name="subject" value="{{subject}}" class="subject-input"/>
+  </section>
+
+  {{!-- Modifier claims --}}
+  <section class="dialog-section">
+    <label class="section-label">{{localize "EX2E.ModifierClaims"}}</label>
+
+    <div class="claim-row">
+      <span class="claim-header">{{localize "EX2E.ClaimSupporting"}}</span>
+      <label><input type="checkbox" name="supportingIntimacy"   {{#if claims.supportingIntimacy}}checked{{/if}}> {{localize "EX2E.IntimacyTie"}} (−1)</label>
+      <label><input type="checkbox" name="supportingVirtue"     {{#if claims.supportingVirtue}}checked{{/if}}> {{localize "EX2E.Virtues"}} ≥3 (−2)</label>
+      <label><input type="checkbox" name="supportingMotivation" {{#if claims.supportingMotivation}}checked{{/if}}> {{localize "EX2E.Motivation"}} (−3)</label>
+    </div>
+
+    <div class="claim-row">
+      <span class="claim-header">{{localize "EX2E.ClaimOpposing"}}</span>
+      <label><input type="checkbox" name="opposingIntimacy"   {{#if claims.opposingIntimacy}}checked{{/if}}> {{localize "EX2E.IntimacyTie"}} (+1)</label>
+      <label><input type="checkbox" name="opposingVirtue"     {{#if claims.opposingVirtue}}checked{{/if}}> {{localize "EX2E.Virtues"}} ≥3 (+2)</label>
+      <label><input type="checkbox" name="opposingMotivation" {{#if claims.opposingMotivation}}checked{{/if}}> {{localize "EX2E.Motivation"}} (+3)</label>
+    </div>
+
+    <div class="claim-row">
+      <label><input type="checkbox" name="immediateThreat" {{#if claims.immediateThreat}}checked{{/if}}> {{localize "EX2E.ClaimImmediateThreat"}}</label>
+    </div>
+  </section>
+
+  {{!-- Appearance + stunt --}}
+  <section class="dialog-section">
+    <div class="line">{{localize "EX2E.AppearanceDelta"}}: {{appearanceDelta}}</div>
+    <label class="section-label">{{localize "EX2E.StuntDice"}}</label>
+    <select name="stuntDice">
+      {{#each stuntChoices as |label key|}}
+      <option value="{{key}}" {{#if (eq ../stuntDice key)}}selected{{/if}}>{{label}}</option>
+      {{/each}}
+    </select>
+  </section>
+
+  <footer class="dialog-footer">
+    <button type="button" data-action="confirmSocialAttack">{{localize "EX2E.RollSocialAttack"}}</button>
+  </footer>
+</form>

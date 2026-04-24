@@ -290,7 +290,9 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/dialog/xp-costs-config-dialog.hbs",
     "systems/exalted2e/templates/chat/attack-result.hbs",
     "systems/exalted2e/templates/chat/flurry-declared.hbs",
-    "systems/exalted2e/templates/chat/action-declared.hbs"
+    "systems/exalted2e/templates/chat/action-declared.hbs",
+    "systems/exalted2e/templates/chat/social-attack-card.hbs",
+    "systems/exalted2e/templates/dialog/social-attack-dialog.hbs"
   ];
   return foundry.applications.handlebars.loadTemplates(templatePaths);
 }
@@ -1463,11 +1465,212 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     const targetActor = game.actors.get(tId);
     if (targetActor && dmg > 0) {
       await targetActor.applyDamage(dmg, type);
-      
+
       const section = card.querySelector(".damage-result");
       section.removeChild(btn);
 
       await message.update({ content: card.outerHTML });
     }
   });
+
+  // ── Social attack: Spend WP to resist ─────────────────────────────────
+  el.querySelector?.(".btn-social-resist")?.addEventListener("click", async (ev) => {
+    const record = message.flags?.exalted2e?.socialAttack;
+    if (!record || record.resolution || record.reversed) return;
+
+    const defender = game.actors.get(record.defenderId);
+    if (!defender) return;
+    if (!game.user.isGM && !defender.testUserPermission(game.user, "OWNER")) {
+      ui.notifications.warn(game.i18n.localize("EX2E.NotOwnerSocial"));
+      return;
+    }
+
+    const wp = record.wpToResist;
+    const current = defender.system?.willpower?.value ?? 0;
+    if (current < wp) {
+      ui.notifications.warn(game.i18n.localize("EX2E.InsufficientWillpower"));
+      return;
+    }
+
+    await defender.update({ "system.willpower.value": current - wp });
+    await message.update({
+      "flags.exalted2e.socialAttack.resolution": {
+        outcome:                       "resisted",
+        wpSpentByDefender:             wp,
+        erodedIntimacyId:              null,
+        erodedIntimacyStrengthBefore:  null,
+        erodedIntimacyStrengthAfter:   null,
+        erodedIntimacyName:            null
+      }
+    });
+    await _rerenderSocialAttackCard(message);
+  });
+
+  // ── Social attack: Accept ─────────────────────────────────────────────
+  el.querySelector?.(".btn-social-accept")?.addEventListener("click", async (ev) => {
+    const record = message.flags?.exalted2e?.socialAttack;
+    if (!record || record.resolution || record.reversed) return;
+
+    const defender = game.actors.get(record.defenderId);
+    if (!defender) return;
+    if (!game.user.isGM && !defender.testUserPermission(game.user, "OWNER")) {
+      ui.notifications.warn(game.i18n.localize("EX2E.NotOwnerSocial"));
+      return;
+    }
+
+    if (record.intent === "erode") {
+      const hasIntimacies = defender.items.some(i => i.type === "intimacy");
+      if (!hasIntimacies) {
+        await message.update({
+          "flags.exalted2e.socialAttack.resolution": {
+            outcome:                       "accepted-narration",
+            wpSpentByDefender:             0,
+            erodedIntimacyId:              null,
+            erodedIntimacyStrengthBefore:  null,
+            erodedIntimacyStrengthAfter:   null,
+            erodedIntimacyName:            null
+          }
+        });
+      } else {
+        await message.update({ "flags.exalted2e.socialAttack.pendingErodePick": true });
+      }
+    } else {
+      await message.update({
+        "flags.exalted2e.socialAttack.resolution": {
+          outcome:                       "accepted-narration",
+          wpSpentByDefender:             0,
+          erodedIntimacyId:              null,
+          erodedIntimacyStrengthBefore:  null,
+          erodedIntimacyStrengthAfter:   null,
+          erodedIntimacyName:            null
+        }
+      });
+    }
+    await _rerenderSocialAttackCard(message);
+  });
+
+  // ── Social attack: Pick an Intimacy to erode ──────────────────────────
+  el.querySelector?.(".btn-social-erode-confirm")?.addEventListener("click", async (ev) => {
+    const record = message.flags?.exalted2e?.socialAttack;
+    if (!record || record.resolution || record.reversed) return;
+
+    const defender = game.actors.get(record.defenderId);
+    if (!defender) return;
+    if (!game.user.isGM && !defender.testUserPermission(game.user, "OWNER")) {
+      ui.notifications.warn(game.i18n.localize("EX2E.NotOwnerSocial"));
+      return;
+    }
+
+    const select = el.querySelector(".social-erode-select");
+    const intimacyId = select?.value;
+    const intimacy = intimacyId ? defender.items.get(intimacyId) : null;
+    if (!intimacy) return;
+
+    const before = intimacy.system?.strength ?? 0;
+    const after = Math.max(0, before - 1);
+    await intimacy.update({ "system.strength": after });
+
+    await message.update({
+      "flags.exalted2e.socialAttack.resolution": {
+        outcome:                       "accepted-eroded",
+        wpSpentByDefender:             0,
+        erodedIntimacyId:              intimacy.id,
+        erodedIntimacyStrengthBefore:  before,
+        erodedIntimacyStrengthAfter:   after,
+        erodedIntimacyName:            intimacy.name
+      }
+    });
+    await message.update({ "flags.exalted2e.socialAttack.pendingErodePick": false });
+    await _rerenderSocialAttackCard(message);
+  });
+
+  // ── Social attack: Reverse ────────────────────────────────────────────
+  el.querySelector?.(".btn-social-reverse")?.addEventListener("click", async (ev) => {
+    const record = message.flags?.exalted2e?.socialAttack;
+    if (!record || record.reversed) return;
+    const resolution = record.resolution;
+    if (!resolution) {
+      ui.notifications.warn(game.i18n.localize("EX2E.NothingToReverse"));
+      return;
+    }
+
+    const attacker = game.actors.get(record.attackerId);
+    if (!attacker) return;
+    if (!game.user.isGM && !attacker.testUserPermission(game.user, "OWNER")) {
+      ui.notifications.warn(game.i18n.localize("EX2E.NotOwnerSocial"));
+      return;
+    }
+
+    const defender = game.actors.get(record.defenderId);
+
+    if (defender && resolution.wpSpentByDefender > 0) {
+      const current = defender.system?.willpower?.value ?? 0;
+      const max = defender.system?.willpower?.max ?? 10;
+      const restored = Math.min(max, current + resolution.wpSpentByDefender);
+      await defender.update({ "system.willpower.value": restored });
+    }
+
+    if (defender && resolution.erodedIntimacyId && resolution.erodedIntimacyStrengthBefore !== null) {
+      const intimacy = defender.items.get(resolution.erodedIntimacyId);
+      if (intimacy) {
+        await intimacy.update({ "system.strength": resolution.erodedIntimacyStrengthBefore });
+      }
+    }
+
+    await message.update({ "flags.exalted2e.socialAttack.reversed": true });
+    await _rerenderSocialAttackCard(message);
+  });
 });
+
+// ── Social attack re-render helper ─────────────────────────────────────────
+/**
+ * Re-render the social-attack chat card after a state change. Rebuilds
+ * the context by spreading the ledger (which carries the pool-breakdown
+ * fields) and re-computing the live
+ * permission / affordability / picker flags from current actor state.
+ */
+async function _rerenderSocialAttackCard(message) {
+  const record = message.flags?.exalted2e?.socialAttack;
+  if (!record) return;
+
+  const attacker = game.actors.get(record.attackerId);
+  const defender = game.actors.get(record.defenderId);
+  const pendingErodePick = message.flags?.exalted2e?.socialAttack?.pendingErodePick === true;
+
+  const intimacies = defender
+    ? defender.items.filter(i => i.type === "intimacy").map(i => ({
+        id:     i.id,
+        name:   i.name,
+        system: {
+          subject:  i.system?.subject  ?? "",
+          strength: i.system?.strength ?? 0
+        }
+      }))
+    : [];
+
+  const intentLabel = game.i18n.localize({
+    build:  "EX2E.IntentBuild",
+    erode:  "EX2E.IntentErode",
+    compel: "EX2E.IntentCompel"
+  }[record.intent] ?? "EX2E.SocialAttack");
+
+  const cardContext = {
+    ...record,
+    intentLabel,
+    attackerName:     attacker?.name ?? "",
+    attackerImg:      attacker?.img  ?? "",
+    defenderName:     defender?.name ?? "",
+    defenderImg:      defender?.img  ?? "",
+    canRespond:       game.user.isGM || (defender && defender.testUserPermission(game.user, "OWNER")),
+    canAffordResist:  (defender?.system?.willpower?.value ?? 0) >= (record.wpToResist ?? 0),
+    canReverse:       game.user.isGM || (attacker && attacker.testUserPermission(game.user, "OWNER")),
+    defenderIntimacies: intimacies,
+    showErodePicker:  record.intent === "erode" && pendingErodePick && !record.resolution
+  };
+
+  const content = await foundry.applications.handlebars.renderTemplate(
+    "systems/exalted2e/templates/chat/social-attack-card.hbs",
+    cardContext
+  );
+  await message.update({ content });
+}

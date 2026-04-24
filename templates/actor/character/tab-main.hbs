@@ -52,52 +52,94 @@
     {{> "systems/exalted2e/templates/actor/character/abilities-default.hbs"}}
     {{/if}}
 
-    <!-- ═══════════════ VIRTUES ═══════════════ -->
-    <h2 class="section-header">{{localize "EX2E.Virtues"}}</h2>
-    <div class="virtues-section">
-      {{#each (array "compassion" "temperance" "conviction" "valor") as |v|}}
-      <div class="virtue-row">
-        <button class="virtue-label" data-action="rollPool"
-                data-pool="{{lookup (lookup ../system.virtues v) 'value'}}"
-                data-flavor="{{localize (concat 'EX2E.Virtue' (capitalize v))}}">{{localize (concat "EX2E.Virtue" (capitalize v))}}</button>
-        <div class="virtue-tracks">
-          {{dotRating name=(concat "system.virtues." v ".value")
-                      value=(lookup (lookup ../system.virtues v) "value")
-                      max=5 min=1}}
-          {{boxRating name=(concat "system.virtues." v ".current")
-                      value=(lookup (lookup ../system.virtues v) "current")
-                      max=(lookup (lookup ../system.virtues v) "value")
-                      total=5
-                      min=0}}
-        </div>
+    <!-- ═══════════════ VIRTUES + HEALTH + ANIMA (3-column row) ═══════════════ -->
+    <div class="main-tab-triple-row"
+         style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--ex2e-gap-lg); align-items:start;">
 
-      </div>
-      {{/each}}
+      {{!-- Column 1: Virtues 2x2 + Virtue Flaw below --}}
+      <section class="virtues-column">
+        <h2 class="section-header">{{localize "EX2E.Virtues"}}</h2>
+        <div class="virtues-section">
+          {{#each (array "compassion" "temperance" "conviction" "valor") as |v|}}
+          <div class="virtue-row">
+            <button class="virtue-label" data-action="rollPool"
+                    data-pool="{{lookup (lookup ../system.virtues v) 'value'}}"
+                    data-flavor="{{localize (concat 'EX2E.Virtue' (capitalize v))}}">{{localize (concat "EX2E.Virtue" (capitalize v))}}</button>
+            <div class="virtue-tracks">
+              {{dotRating name=(concat "system.virtues." v ".value")
+                          value=(lookup (lookup ../system.virtues v) "value")
+                          max=5 min=1}}
+              {{boxRating name=(concat "system.virtues." v ".current")
+                          value=(lookup (lookup ../system.virtues v) "current")
+                          max=(lookup (lookup ../system.virtues v) "value")
+                          total=5
+                          min=0}}
+            </div>
+          </div>
+          {{/each}}
 
-      <!-- Virtue Flaw (input-style lookup slot) -->
-      <div class="virtue-flaw-row"{{#if virtueFlaw}} data-item-id="{{virtueFlaw.id}}"{{/if}}>
-        <span class="virtue-flaw-label">{{localize "EX2E.VirtueFlaw"}}</span>
-        <div class="virtue-flaw-input-group">
-          {{#if virtueFlaw}}
-          <button type="button" class="virtue-flaw-input virtue-flaw-open" data-action="editItem"
-                  title="{{localize 'EX2E.SheetVirtueFlaw'}}">{{virtueFlaw.name}}</button>
-          {{else}}
-          <span class="virtue-flaw-input virtue-flaw-empty">—</span>
-          {{/if}}
-          {{#if isEditable}}
-          <button type="button" class="virtue-flaw-lookup" data-action="pickVirtueFlaw"
-                  title="{{localize 'EX2E.LookupVirtueFlaw'}}">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-          {{#if virtueFlaw}}
-          <button type="button" class="virtue-flaw-clear" data-action="clearVirtueFlaw"
-                  title="{{localize 'EX2E.Clear'}}">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
-          {{/if}}
-          {{/if}}
+          {{!-- Virtue Flaw as its own section header + input row, spanning the 2x2 grid --}}
+          <div class="virtue-flaw-section" style="grid-column: 1 / -1;"
+               {{#if virtueFlaw}}data-item-id="{{virtueFlaw.id}}"{{/if}}>
+            <h2 class="section-header">{{localize "EX2E.VirtueFlaw"}}</h2>
+            <div class="virtue-flaw-input-group">
+              {{#if virtueFlaw}}
+              <button type="button" class="virtue-flaw-input virtue-flaw-open" data-action="editItem"
+                      title="{{localize 'EX2E.SheetVirtueFlaw'}}">{{virtueFlaw.name}}</button>
+              {{else}}
+              <span class="virtue-flaw-input virtue-flaw-empty">—</span>
+              {{/if}}
+              {{#if isEditable}}
+              <button type="button" class="virtue-flaw-lookup" data-action="pickVirtueFlaw"
+                      title="{{localize 'EX2E.LookupVirtueFlaw'}}">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+              {{#if virtueFlaw}}
+              <button type="button" class="virtue-flaw-clear" data-action="clearVirtueFlaw"
+                      title="{{localize 'EX2E.Clear'}}">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+              {{/if}}
+              {{/if}}
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
+
+      {{!-- Column 2: Health --}}
+      <section class="health-column">
+        <h2 class="section-header">{{localize "EX2E.HealthLevels"}}</h2>
+        {{healthTrack health=system.health exaltType=system.exaltType}}
+        <div class="health-info">
+          <span class="wound-penalty-label">{{localize "EX2E.WoundPenalty"}}:
+            <strong>{{#if system.health.incapacitated}}Incapacitated{{else}}{{system.health.woundPenalty}}{{/if}}</strong>
+          </span>
+          <span class="damage-tally">
+            <span class="dmg-bashing">{{system.health.bashing}}B</span> /
+            <span class="dmg-lethal">{{system.health.lethal}}L</span> /
+            <span class="dmg-aggravated">{{system.health.aggravated}}A</span>
+          </span>
+        </div>
+        {{#if isEditable}}
+        <div class="damage-controls">
+          <button class="damage-btn bashing" data-action="applyDamage"
+                  data-damage-type="bashing" data-amount="1">+1 Bashing</button>
+          <button class="damage-btn lethal" data-action="applyDamage"
+                  data-damage-type="lethal" data-amount="1">+1 Lethal</button>
+          <button class="damage-btn aggravated" data-action="applyDamage"
+                  data-damage-type="aggravated" data-amount="1">+1 Aggravated</button>
+          <button class="damage-btn heal" data-action="healDamage"
+                  data-amount="1">Heal 1</button>
+        </div>
+        {{/if}}
+      </section>
+
+      {{!-- Column 3: Anima placeholder --}}
+      <section class="anima-column">
+        <h2 class="section-header">{{localize "EX2E.Anima"}}</h2>
+        <p class="empty-msg" style="opacity:0.7; font-style:italic;">{{localize "EX2E.AnimaPlaceholder"}}</p>
+      </section>
+
     </div>
 
     <!-- ═══════════════ SPLAT-SPECIFIC TRAITS ═══════════════ -->

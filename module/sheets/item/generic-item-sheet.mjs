@@ -51,7 +51,7 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       };
     }
 
-    const enrichedDescription = await TextEditor.enrichHTML(sys.description, {
+    const enrichedDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description, {
       secrets: this.document.isOwner, relativeTo: this.document
     });
 

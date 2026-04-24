@@ -1,52 +1,6 @@
 <div class="tab {{cssClass}}" data-tab="tabCombat" data-group="sheet">
   <div class="sheet-body">
 
-    <!-- ═══════════════ HEALTH LEVELS ═══════════════ -->
-    <h2 class="section-header">{{localize "EX2E.HealthLevels"}}</h2>
-
-    {{healthTrack health=system.health exaltType=system.exaltType}}
-
-    <div class="health-info">
-      <span class="wound-penalty-label">{{localize "EX2E.WoundPenalty"}}:
-        <strong>{{#if system.health.incapacitated}}Incapacitated{{else}}{{system.health.woundPenalty}}{{/if}}</strong>
-      </span>
-      <span class="damage-tally">
-        <span class="dmg-bashing">{{system.health.bashing}}B</span> /
-        <span class="dmg-lethal">{{system.health.lethal}}L</span> /
-        <span class="dmg-aggravated">{{system.health.aggravated}}A</span>
-      </span>
-    </div>
-
-    {{#if isEditable}}
-    <div class="damage-controls">
-      <button class="damage-btn bashing" data-action="applyDamage"
-              data-damage-type="bashing" data-amount="1">+1 Bashing</button>
-      <button class="damage-btn lethal" data-action="applyDamage"
-              data-damage-type="lethal" data-amount="1">+1 Lethal</button>
-      <button class="damage-btn aggravated" data-action="applyDamage"
-              data-damage-type="aggravated" data-amount="1">+1 Aggravated</button>
-      <button class="damage-btn heal" data-action="healDamage"
-              data-amount="1">Heal 1</button>
-    </div>
-    <div class="bonus-health-grid" style="margin-top:8px">
-      <label>{{localize "EX2E.BonusHealthLevels"}}</label>
-      <div class="bonus-health-inputs">
-        <label class="bonus-health-cell">
-          <span>−0</span>
-          <input type="number" name="system.health.bonus.zero" value="{{system.health.bonus.zero}}" min="0" max="20">
-        </label>
-        <label class="bonus-health-cell">
-          <span>−1</span>
-          <input type="number" name="system.health.bonus.one" value="{{system.health.bonus.one}}" min="0" max="20">
-        </label>
-        <label class="bonus-health-cell">
-          <span>−2</span>
-          <input type="number" name="system.health.bonus.two" value="{{system.health.bonus.two}}" min="0" max="20">
-        </label>
-      </div>
-    </div>
-    {{/if}}
-
     <!-- ═══════════════ DERIVED COMBAT STATS ═══════════════ -->
     <h2 class="section-header">{{localize "EX2E.CombatStats"}}</h2>
     <div class="combat-stat-grid">
@@ -112,6 +66,13 @@
         {{/if}}
       </div>
       {{/if}}
+    </div>
+
+    <!-- ═══════════════ SOCIAL ATTACK ═══════════════ -->
+    <div class="action-button-row">
+      <button type="button" data-action="rollSocialAttack">
+        <i class="fa-solid fa-comments"></i> {{localize "EX2E.SocialAttack"}}
+      </button>
     </div>
 
     <!-- ═══════════════ EQUIPPED WEAPONS ═══════════════ -->

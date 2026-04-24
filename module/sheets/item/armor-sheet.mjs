@@ -41,7 +41,7 @@ export class ArmorSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         label: game.i18n.localize(v)
       })),
       isEditable: this.isEditable,
-      enrichedDescription: await TextEditor.enrichHTML(this.document.system.description, {
+      enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.description, {
         secrets: this.document.isOwner, relativeTo: this.document
       })
     };

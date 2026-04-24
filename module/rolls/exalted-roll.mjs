@@ -718,6 +718,185 @@ export class ExaltedRoll {
       flags:   { exalted2e: { attack } }
     });
   }
+
+  /**
+   * Resolve a social attack against a defender.
+   *
+   * Computes verified modifier claims against the defender's data
+   * (Intimacies, Virtues ≥ 3, Motivation), applies net-sum stacking
+   * across supporting/opposing, subtracts Appearance delta, compares
+   * rolled successes to the effective MDV, and posts a chat card.
+   *
+   * No effects are applied here — the defender's owner (or GM) accepts
+   * or resists via buttons on the posted chat card.
+   */
+  static async rollSocialAttack(attacker, {
+    defender,
+    attribute,
+    ability,
+    intent,
+    subject = "",
+    claims = {},
+    stuntDice = 0
+  } = {}) {
+    if (!attacker || !defender) {
+      ui.notifications.warn(game.i18n.localize("EX2E.NoTargetSelected"));
+      return null;
+    }
+
+    // 1. Verify each claim against defender data.
+    const items = defender.items ?? [];
+    const virtues = defender.system?.virtues ?? {};
+    const motivation = defender.system?.motivation ?? "";
+    const isCharacter = defender.type === "character";
+
+    const verified = {
+      supportingIntimacy:   !!claims.supportingIntimacy &&
+        items.some(i => i.type === "intimacy" && i.system?.positive === true),
+      opposingIntimacy:     !!claims.opposingIntimacy &&
+        items.some(i => i.type === "intimacy" && i.system?.positive === false),
+      supportingVirtue:     !!claims.supportingVirtue &&
+        isCharacter &&
+        Object.values(virtues).some(v => (v?.value ?? 0) >= 3),
+      opposingVirtue:       !!claims.opposingVirtue &&
+        isCharacter &&
+        Object.values(virtues).some(v => (v?.value ?? 0) >= 3),
+      supportingMotivation: !!claims.supportingMotivation &&
+        isCharacter &&
+        !!motivation,
+      opposingMotivation:   !!claims.opposingMotivation &&
+        isCharacter &&
+        !!motivation,
+      immediateThreat:      !!claims.immediateThreat
+    };
+
+    // 2. Net-sum stacking.
+    const supportingValues = [];
+    if (verified.supportingIntimacy)   supportingValues.push(-1);
+    if (verified.supportingVirtue)     supportingValues.push(-2);
+    if (verified.supportingMotivation) supportingValues.push(-3);
+    const bestSupporting = supportingValues.length
+      ? Math.min(...supportingValues)
+      : 0;
+
+    const opposingValues = [];
+    if (verified.opposingIntimacy)   opposingValues.push(1);
+    if (verified.opposingVirtue)     opposingValues.push(2);
+    if (verified.opposingMotivation) opposingValues.push(3);
+    if (verified.immediateThreat)    opposingValues.push(3);
+    const bestOpposing = opposingValues.length
+      ? Math.max(...opposingValues)
+      : 0;
+
+    const stackingMod = bestSupporting + bestOpposing;
+
+    // 3. Appearance shift. Higher attacker App lowers defender MDV.
+    //    NPC actors currently have no Appearance — treat as 0.
+    const attAppVal = attacker.system?.attributes?.appearance?.value ?? 0;
+    const defAppVal = defender.system?.attributes?.appearance?.value ?? 0;
+    const clampedDelta = Math.max(-3, Math.min(3, attAppVal - defAppVal));
+    const mdvShiftFromApp = -clampedDelta;
+
+    // 4. Base and effective MDV. Erode uses Parry MDV (active retort);
+    //    Build and Compel use Dodge MDV (disengagement).
+    const baseMDV = intent === "erode"
+      ? (defender.currentParryMDV ?? 0)
+      : (defender.currentDodgeMDV ?? 0);
+    const effectiveMDV = Math.max(0, baseMDV + stackingMod + mdvShiftFromApp);
+
+    // 5. Roll the attacker's pool.
+    const attributeValue = attacker.system?.attributes?.[attribute]?.value ?? 0;
+    const abilityValue   = attacker.system?.abilities?.[ability]?.value     ?? 0;
+    const pool = attributeValue + abilityValue + (Number(stuntDice) || 0);
+
+    const intentLabel = game.i18n.localize({
+      build:  "EX2E.IntentBuild",
+      erode:  "EX2E.IntentErode",
+      compel: "EX2E.IntentCompel"
+    }[intent] ?? "EX2E.SocialAttack");
+
+    // Compute penalty-adjusted pool the same way rollPool does —
+    // but skip its toMessage call so we post only the social card.
+    const social_internal = attacker.internalPenaltyFor?.("social") ?? 0;
+    const social_external = attacker.externalPenaltyFor?.("social") ?? 0;
+    const social_wound    = Number(attacker.system?.health?.woundPenalty) || 0;
+    const finalPool = Math.max(0, (pool ?? 0) + social_wound - social_internal);
+
+    const roll = new ExaltedRoll({
+      pool:            finalPool,
+      flavor:          intentLabel,
+      actorName:       attacker.name,
+      externalPenalty: social_external
+    });
+    const rollResult = await roll.evaluate();
+
+    // 6. Threshold + outcome.
+    const rollSuccesses = rollResult?.successes ?? 0;
+    const hit = rollSuccesses > effectiveMDV;
+    const netSuccesses = Math.max(0, rollSuccesses - effectiveMDV);
+    const wpToResist = Math.min(5, Math.floor(netSuccesses / 3));
+
+    // 7. Build chat card content.
+    const attributeLabel = game.i18n.localize(
+      `EX2E.Attr${attribute.charAt(0).toUpperCase()}${attribute.slice(1)}`
+    );
+    const abilityLabel = game.i18n.localize(
+      `EX2E.Ability${ability.charAt(0).toUpperCase()}${ability.slice(1)}`
+    );
+
+    const ledger = {
+      attackerId:       attacker.id,
+      defenderId:       defender.id,
+      intent,
+      subject,
+      claimsVerified:   verified,
+      stackingMod,
+      mdvShiftFromApp,
+      baseMDV,
+      effectiveMDV,
+      rollSuccesses,
+      netSuccesses,
+      wpToResist,
+      hit,
+      resolution:       null,
+      reversed:         false,
+      attributeLabel,
+      attributeValue,
+      abilityLabel,
+      abilityValue,
+      stuntDice,
+      pool: finalPool,
+      bestSupporting,
+      bestOpposing
+    };
+
+    const cardContext = {
+      ...ledger,
+      intentLabel,
+      attackerName:     attacker.name,
+      attackerImg:      attacker.img,
+      defenderName:     defender.name,
+      defenderImg:      defender.img,
+      canRespond:       game.user.isGM || defender.testUserPermission(game.user, "OWNER"),
+      canAffordResist:  (defender.system?.willpower?.value ?? 0) >= wpToResist,
+      canReverse:       game.user.isGM || attacker.testUserPermission(game.user, "OWNER"),
+      defenderIntimacies: [],
+      showErodePicker:  false
+    };
+
+    const content = await foundry.applications.handlebars.renderTemplate(
+      "systems/exalted2e/templates/chat/social-attack-card.hbs",
+      cardContext
+    );
+
+    const message = await ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor: attacker }),
+      content,
+      flags: { exalted2e: { socialAttack: ledger } }
+    });
+
+    return message;
+  }
 }
 
 /**

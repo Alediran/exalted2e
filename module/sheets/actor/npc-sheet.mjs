@@ -14,12 +14,13 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     window: { resizable: true },
     form: { submitOnChange: true, closeOnSubmit: false },
     actions: {
-      rollPool:    NpcSheet.#onRollPool,
-      applyDamage: NpcSheet.#onApplyDamage,
-      healDamage:  NpcSheet.#onHealDamage,
-      createItem:  NpcSheet.#onCreateItem,
-      editItem:    NpcSheet.#onEditItem,
-      deleteItem:  NpcSheet.#onDeleteItem
+      rollPool:         NpcSheet.#onRollPool,
+      applyDamage:      NpcSheet.#onApplyDamage,
+      healDamage:       NpcSheet.#onHealDamage,
+      createItem:       NpcSheet.#onCreateItem,
+      editItem:         NpcSheet.#onEditItem,
+      deleteItem:       NpcSheet.#onDeleteItem,
+      rollSocialAttack: NpcSheet.#onRollSocialAttack
     }
   };
 
@@ -41,8 +42,8 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const enrichOpts = { secrets: this.document.isOwner, relativeTo: this.document };
     return {
       ...context, actor, system: sys, charms, isEditable: this.isEditable,
-      enrichedPowers: await TextEditor.enrichHTML(sys.powers, enrichOpts),
-      enrichedNotes:  await TextEditor.enrichHTML(sys.notes, enrichOpts)
+      enrichedPowers: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.powers, enrichOpts),
+      enrichedNotes:  await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.notes, enrichOpts)
     };
   }
 
@@ -90,5 +91,22 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static async #onDeleteItem(event, target) {
     const item = this.document.items.get(target.closest("[data-item-id]")?.dataset.itemId);
     if (item) await item.delete();
+  }
+
+  static async #onRollSocialAttack(event, target) {
+    const { SocialAttackDialog } = await import("../../dialogs/social-attack-dialog.mjs");
+    const { ExaltedRoll }        = await import("../../rolls/exalted-roll.mjs");
+
+    let picked = game.user.targets.first()?.actor ?? null;
+    if (!picked) {
+      const { pickTargetActor } = await import("../../helpers/targeting.mjs");
+      picked = await pickTargetActor();
+      if (!picked) return;
+    }
+
+    const options = await SocialAttackDialog.prompt({ attacker: this.actor, target: picked });
+    if (!options) return;
+
+    await ExaltedRoll.rollSocialAttack(this.actor, options);
   }
 }
