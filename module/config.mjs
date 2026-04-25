@@ -94,6 +94,13 @@ EX2E.yoziPatrons = {
   ebonDragon:           "EX2E.YoziEbonDragon"
 };
 
+// Splats that use the classic Limit mechanic. Resisting unnatural mental
+// influence with Willpower ticks the Limit counter (capped at once per
+// scene per attacker) for these splats only. Abyssal (Resonance),
+// Infernal (Torment), Alchemical (Clarity), and Mortal use different
+// (or no) anti-virtue accumulation rules and are excluded.
+EX2E.LIMIT_ACCRUAL_SPLATS = ["solar", "lunar", "terrestrial", "sidereal"];
+
 EX2E.charmTypes = {
   supplemental: "EX2E.CharmSupplemental",
   reflexive:    "EX2E.CharmReflexive",

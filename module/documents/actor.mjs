@@ -176,24 +176,22 @@ export class ExaltedActor extends Actor {
         data.arcaneFate = splat.sidereal?.arcaneFate ?? 0;
         break;
       case "abyssal":
-        data.resonance = splat.abyssal?.resonance ?? 0;
-        data.whispers  = splat.abyssal?.whispers  ?? 0;
+        data.whispers = splat.abyssal?.whispers ?? 0;
         break;
       case "infernal":
-        data.torment       = splat.infernal?.torment       ?? 0;
         data.actOfVillainy = splat.infernal?.actOfVillainy ?? 0;
         break;
-      case "alchemical": {
-        const perm = splat.alchemical?.clarity?.permanent ?? 0;
-        const temp = splat.alchemical?.clarity?.temporary ?? 0;
-        data.clarity    = perm + temp;
+      case "alchemical":
         data.dissonance = splat.alchemical?.dissonance ?? 0;
         break;
-      }
       // Solar, Lunar, and mortal: no numeric splat scalars to expose.
       default:
         break;
     }
+    // Universal Limit token — every Exalt's anti-virtue counter, regardless
+    // of which splat-variant rules apply (Limit / Resonance / Torment /
+    // Clarity all share `system.limit.value`).
+    data.limit = s.limit?.value ?? 0;
     return data;
   }
 

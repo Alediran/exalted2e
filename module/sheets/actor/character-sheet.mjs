@@ -339,6 +339,16 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const xpCosts    = resolveXpCosts(game.settings.get("exalted2e", "xpCosts") ?? {});
     const xpCostRows = buildXpCostRows(sys.exaltType ?? "solar", xpCosts);
 
+    // Limit label varies by splat
+    const limitLabel = (() => {
+      switch (sys.exaltType) {
+        case "abyssal":    return game.i18n.localize("EX2E.LimitVariantResonance");
+        case "infernal":   return game.i18n.localize("EX2E.LimitVariantTorment");
+        case "alchemical": return game.i18n.localize("EX2E.LimitVariantClarity");
+        default:           return game.i18n.localize("EX2E.Limit");
+      }
+    })();
+
     return {
       ...context,
       actor,
@@ -370,6 +380,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       purchaseLogRows,
       canEditXp,
       xpCostRows,
+      limitLabel,
       isEditable: this.isEditable,
       useIntimacyIntensity: game.settings.get("exalted2e", "useIntimacyIntensity")
     };

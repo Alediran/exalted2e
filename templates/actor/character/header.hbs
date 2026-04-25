@@ -91,18 +91,5 @@
         </div>
       </div>
     </div>
-   
-
-    <!-- Limit / Clarity Track (hidden for mortals) -->
-    {{#unless (eq system.exaltType "mortal")}}
-    <div class="limit-row">
-      {{#if (eq system.exaltType "alchemical")}}
-      <label>{{localize "EX2E.Clarity"}} {{system.limit.value}}/10</label>
-      {{else}}
-      <label>{{localize "EX2E.Limit"}} {{system.limit.value}}/10</label>
-      {{/if}}
-      {{limitTrack value=system.limit.value name="system.limit.value"}}
-    </div>
-    {{/unless}}
   </div>
 </div>

@@ -822,6 +822,18 @@ export class ExaltedRoll {
     const social_wound    = Number(attacker.system?.health?.woundPenalty) || 0;
     const finalPool = Math.max(0, (pool ?? 0) + social_wound - social_internal);
 
+    // Natural-influence drain cap: if this is a non-UMI attack and the
+    // defender's per-attacker scene-drain counter is already ≥ 2, the
+    // attack auto-fails. The dice still roll for display transparency,
+    // but `hit` is forced false below.
+    let autoFailedByNaturalCap = false;
+    if (!claims.unnaturalInfluence) {
+      const drained = defender.flags?.exalted2e?.socialScene?.[attacker.id]?.wpDrainedNatural ?? 0;
+      if (drained >= 2) {
+        autoFailedByNaturalCap = true;
+      }
+    }
+
     const roll = new ExaltedRoll({
       pool:            finalPool,
       flavor:          intentLabel,
@@ -832,9 +844,14 @@ export class ExaltedRoll {
 
     // 6. Threshold + outcome.
     const rollSuccesses = rollResult?.successes ?? 0;
-    const hit = rollSuccesses > effectiveMDV;
+    const hit = (rollSuccesses > effectiveMDV) && !autoFailedByNaturalCap;
     const netSuccesses = Math.max(0, rollSuccesses - effectiveMDV);
-    const wpToResist = Math.min(5, Math.floor(netSuccesses / 3));
+    // Unnatural Mental Influence has a 1 WP minimum base cost to resist
+    // outright, separate from threshold-success cost. RAW: "1-5 WP
+    // depending on power"; hardcoded to 1 here. Charm-specific higher
+    // base costs (1-5) come with A3 charm-keyword integration.
+    const baseResistCost = (claims.unnaturalInfluence && hit) ? 1 : 0;
+    const wpToResist = Math.min(5, baseResistCost + Math.floor(netSuccesses / 3));
 
     // 7. Build chat card content.
     const attributeLabel = game.i18n.localize(
@@ -857,6 +874,8 @@ export class ExaltedRoll {
       rollSuccesses,
       netSuccesses,
       wpToResist,
+      unnaturalInfluence:     !!claims.unnaturalInfluence,
+      autoFailedByNaturalCap,
       hit,
       resolution:       null,
       reversed:         false,

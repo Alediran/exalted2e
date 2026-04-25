@@ -137,6 +137,9 @@
     "Committed":        "Committed",
     "Total":            "Total",
     "Limit":            "Limit",
+    "LimitVariantResonance": "Resonance",
+    "LimitVariantTorment":   "Torment",
+    "LimitVariantClarity":   "Clarity",
     "Clarity":          "Clarity",
 
     "HealthLevels":       "Health Levels",
@@ -718,6 +721,8 @@
     "ClaimSupporting":         "Supporting",
     "ClaimOpposing":           "Opposing",
     "ClaimImmediateThreat":    "Immediate physical threat (+3)",
+    "UnnaturalInfluence":         "Unnatural Mental Influence",
+    "LimitAccruedFromUnnatural":  "{actor} accrues +1 Limit from resisting unnatural influence.",
     "AppearanceDelta":         "Appearance delta",
     "EffectiveMDV":            "Effective MDV",
     "SocialIntent":            "Intent",
@@ -817,7 +822,11 @@
     "TickWheelTickShort":            "Tick",
     "TickWheelExpand":               "Show the battle wheel",
     "TickWheelCollapse":             "Hide the battle wheel",
-    "TickWheelCycleLabel":           "Cycle {cycle} · Tick {tick}"
+    "TickWheelCycleLabel":           "Cycle {cycle} · Tick {tick}",
+
+    "AutoFailedNaturalCap":  "Auto-failed: 2 WP/scene cap reached. ST may override via stunt.",
+    "EndScene":              "End Scene",
+    "SceneEndedToast":       "Social scene ended — drain caps and Limit-accrual flags cleared."
   },
   "TYPES": {
     "Actor": {

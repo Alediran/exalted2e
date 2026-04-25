@@ -137,6 +137,9 @@
     "Committed":        "Comprometidas",
     "Total":            "Total",
     "Limit":            "Límite",
+    "LimitVariantResonance": "Resonancia",
+    "LimitVariantTorment":   "Tormento",
+    "LimitVariantClarity":   "Claridad",
     "Clarity":          "Claridad",
 
     "HealthLevels":       "Niveles de Salud",
@@ -718,6 +721,8 @@
     "ClaimSupporting":         "A favor",
     "ClaimOpposing":           "En contra",
     "ClaimImmediateThreat":    "Amenaza física inmediata (+3)",
+    "UnnaturalInfluence":         "Influencia Mental Antinatural",
+    "LimitAccruedFromUnnatural":  "{actor} acumula +1 Límite al resistir influencia antinatural.",
     "AppearanceDelta":         "Delta de Apariencia",
     "EffectiveMDV":            "MDV Efectivo",
     "SocialIntent":            "Intención",
@@ -817,7 +822,11 @@
     "TickWheelTickShort":            "Tick",
     "TickWheelExpand":               "Mostrar la rueda de batalla",
     "TickWheelCollapse":             "Ocultar la rueda de batalla",
-    "TickWheelCycleLabel":           "Ciclo {cycle} · Tick {tick}"
+    "TickWheelCycleLabel":           "Ciclo {cycle} · Tick {tick}",
+
+    "AutoFailedNaturalCap":  "Auto-fallado: límite de 2 WP/escena alcanzado. La ST puede anularlo con una Proeza.",
+    "EndScene":              "Fin de Escena",
+    "SceneEndedToast":       "Escena social terminada — límites de drenaje y banderas de acumulación de Límite borradas."
   },
   "TYPES": {
     "Actor": {

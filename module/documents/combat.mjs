@@ -363,6 +363,18 @@ export class ExaltedCombat extends Combat {
     return result;
   }
 
+  /**
+   * Override to clear per-scene social-attack state when combat ends.
+   * Mirrors the End Scene button on the JoinBattlePanel — both routes
+   * call `clearSocialScene` to wipe natural-drain counters and
+   * unnatural-Limit-granted flags from every actor.
+   */
+  async endCombat() {
+    const { clearSocialScene } = await import("../ui/social-scene.mjs");
+    await clearSocialScene({ silent: true });
+    return super.endCombat();
+  }
+
   /** Wits + Awareness for characters / combat.joinBattle for NPCs. */
   _joinBattlePoolFor(actor) {
     const s = actor.system ?? {};

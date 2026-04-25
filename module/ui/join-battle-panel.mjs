@@ -10,6 +10,9 @@ import { ex2eCan } from "../helpers/permissions.mjs";
  * combatant still needs a JB roll. Renders:
  *   • Roll Join Battle          (current user's unrolled combatants)
  *   • Roll All / Roll NPCs      (GM only)
+ *
+ * Always renders the End Scene button to any user with combatFlow
+ * permission, regardless of combat state.
  */
 export class JoinBattlePanel {
   static _instance = null;
@@ -36,82 +39,107 @@ export class JoinBattlePanel {
 
   refresh() {
     const combat = game.combat;
-    if (!combat || combat.started) return this._hide();
-    const combatants = combat.combatants.contents ?? [...combat.combatants];
-    if (combatants.length === 0) return this._hide();
-
-    const unrolled = combatants.filter(c =>
-      typeof c.flags?.exalted2e?.joinBattleSuccesses !== "number"
-    );
     const canDriveCombat = ex2eCan("combatFlow");
 
-    // Phase 2: every combatant has rolled JB but combat hasn't started.
-    // Offer Begin Encounter to users who can drive combat flow.
-    if (unrolled.length === 0) {
-      if (!canDriveCombat) return this._hide();
-      this._renderBegin(combat);
-      this._show();
+    // Determine which (if any) JB-phase section to render above End Scene.
+    let topSection = null;  // "rolls" | "begin" | null
+
+    if (combat && !combat.started) {
+      const combatants = combat.combatants.contents ?? [...combat.combatants];
+      if (combatants.length > 0) {
+        const unrolled = combatants.filter(c =>
+          typeof c.flags?.exalted2e?.joinBattleSuccesses !== "number"
+        );
+        if (unrolled.length === 0) {
+          if (canDriveCombat) topSection = "begin";
+        } else {
+          const myUnrolled = unrolled.filter(c =>
+            !!c.actor?.testUserPermission(game.user, "OWNER")
+          );
+          if (canDriveCombat || myUnrolled.length > 0) topSection = "rolls";
+        }
+      }
+    }
+
+    // End Scene visibility — always shown to combat-flow-capable users.
+    const showEndScene = canDriveCombat;
+
+    if (!topSection && !showEndScene) {
+      this._hide();
       return;
     }
 
-    // Phase 1: roll buttons.
-    const myUnrolled = unrolled.filter(c =>
-      !!c.actor?.testUserPermission(game.user, "OWNER")
-    );
-    if (!canDriveCombat && myUnrolled.length === 0) return this._hide();
-
-    this._renderRolls(combat, canDriveCombat, myUnrolled);
+    this._render({ combat, canDriveCombat, topSection, showEndScene });
     this._show();
   }
 
-  _renderRolls(combat, canDriveCombat, myUnrolled) {
-    const parts = [
-      `<div class="jb-title">${game.i18n.localize("EX2E.JoinBattle")}</div>`
-    ];
+  _render({ combat, canDriveCombat, topSection, showEndScene }) {
+    const parts = [];
 
-    if (canDriveCombat) {
-      // Both GM buttons share a row so the panel stays compact.
-      parts.push(
-        `<div class="jb-row">
-           <button type="button" class="jb-btn jb-roll-all" title="${game.i18n.localize("EX2E.RollJoinBattle")}">
+    if (topSection === "rolls") {
+      parts.push(`<div class="jb-title">${game.i18n.localize("EX2E.JoinBattle")}</div>`);
+      if (canDriveCombat) {
+        parts.push(
+          `<div class="jb-row">
+             <button type="button" class="jb-btn jb-roll-all" title="${game.i18n.localize("EX2E.RollJoinBattle")}">
+               <i class="fa-solid fa-dice-d10"></i> ${game.i18n.localize("EX2E.RollJoinBattle")}
+             </button>
+             <button type="button" class="jb-btn jb-roll-npcs" title="${game.i18n.localize("EX2E.RollJoinBattleNPC")}">
+               <i class="fa-solid fa-skull"></i> ${game.i18n.localize("EX2E.RollJoinBattleNPC")}
+             </button>
+           </div>`
+        );
+      } else {
+        parts.push(
+          `<button type="button" class="jb-btn jb-roll-mine" title="${game.i18n.localize("EX2E.RollJoinBattle")}">
              <i class="fa-solid fa-dice-d10"></i> ${game.i18n.localize("EX2E.RollJoinBattle")}
-           </button>
-           <button type="button" class="jb-btn jb-roll-npcs" title="${game.i18n.localize("EX2E.RollJoinBattleNPC")}">
-             <i class="fa-solid fa-skull"></i> ${game.i18n.localize("EX2E.RollJoinBattleNPC")}
+           </button>`
+        );
+      }
+    } else if (topSection === "begin") {
+      parts.push(`<div class="jb-title">${game.i18n.localize("EX2E.JoinBattle")}</div>`);
+      parts.push(
+        `<button type="button" class="jb-btn jb-begin" title="${game.i18n.localize("EX2E.BeginEncounterTooltip")}">
+           <i class="fa-solid fa-flag"></i> ${game.i18n.localize("EX2E.BeginEncounter")}
+         </button>`
+      );
+    }
+
+    if (showEndScene) {
+      parts.push(
+        `<div class="jb-row jb-end-scene-row">
+           <button type="button" class="jb-btn jb-end-scene" title="${game.i18n.localize("EX2E.EndScene")}">
+             <i class="fa-solid fa-flag-checkered"></i> ${game.i18n.localize("EX2E.EndScene")}
            </button>
          </div>`
-      );
-    } else {
-      parts.push(
-        `<button type="button" class="jb-btn jb-roll-mine" title="${game.i18n.localize("EX2E.RollJoinBattle")}">
-           <i class="fa-solid fa-dice-d10"></i> ${game.i18n.localize("EX2E.RollJoinBattle")}
-         </button>`
       );
     }
 
     this._root.innerHTML = parts.join("");
 
+    // Wire click handlers based on which sections rendered.
     this._root.querySelector(".jb-roll-mine")?.addEventListener("click", async () => {
+      if (!combat) return;
+      const combatants = combat.combatants.contents ?? [...combat.combatants];
+      const myUnrolled = combatants.filter(c =>
+        typeof c.flags?.exalted2e?.joinBattleSuccesses !== "number" &&
+        !!c.actor?.testUserPermission(game.user, "OWNER")
+      );
       const ids = myUnrolled.map(c => c.id);
       if (ids.length > 0) await combat.rollInitiative(ids);
     });
     this._root.querySelector(".jb-roll-all")?.addEventListener("click", async () => {
-      await combat.rollJoinBattle();
+      if (combat) await combat.rollJoinBattle();
     });
     this._root.querySelector(".jb-roll-npcs")?.addEventListener("click", async () => {
-      await combat.rollJoinBattleForNPCs();
+      if (combat) await combat.rollJoinBattleForNPCs();
     });
-  }
-
-  _renderBegin(combat) {
-    this._root.innerHTML = `
-      <div class="jb-title">${game.i18n.localize("EX2E.JoinBattle")}</div>
-      <button type="button" class="jb-btn jb-begin" title="${game.i18n.localize("EX2E.BeginEncounterTooltip")}">
-        <i class="fa-solid fa-flag"></i> ${game.i18n.localize("EX2E.BeginEncounter")}
-      </button>
-    `;
     this._root.querySelector(".jb-begin")?.addEventListener("click", async () => {
-      await combat.startCombat();
+      if (combat) await combat.startCombat();
+    });
+    this._root.querySelector(".jb-end-scene")?.addEventListener("click", async () => {
+      const { clearSocialScene } = await import("./social-scene.mjs");
+      await clearSocialScene();
     });
   }
 

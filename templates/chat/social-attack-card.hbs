@@ -28,6 +28,12 @@
       {{#if hit}}&middot; <strong>{{localize "EX2E.WPToResist"}}:</strong> {{wpToResist}}{{/if}}
     </div>
 
+    {{#if autoFailedByNaturalCap}}
+    <div class="line auto-fail-natural-cap" style="color: var(--ex2e-text-muted); font-style: italic;">
+      {{localize "EX2E.AutoFailedNaturalCap"}}
+    </div>
+    {{/if}}
+
     {{#if hit}}
     {{#unless resolution}}
     {{#if canRespond}}

@@ -164,20 +164,14 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
           arcaneFate: new fields.NumberField({ initial: 0, min: 0, max: 20, integer: true })
         }),
         abyssal:     new fields.SchemaField({
-          resonance: new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),
-          whispers:  new fields.NumberField({ initial: 0, min: 0, max: 5,  integer: true })
+          whispers: new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true })
         }),
         infernal:    new fields.SchemaField({
           patron:        new fields.StringField({ initial: "", blank: true }),
           urge:          new fields.StringField({ initial: "", blank: true }),
-          torment:       new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),
           actOfVillainy: new fields.NumberField({ initial: 0, min: 0, max: 20, integer: true })
         }),
         alchemical:  new fields.SchemaField({
-          clarity: new fields.SchemaField({
-            permanent: new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),
-            temporary: new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true })
-          }),
           dissonance: new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true })
         })
       }),

@@ -50,7 +50,8 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
         opposingIntimacy:     false,
         opposingVirtue:       false,
         opposingMotivation:   false,
-        immediateThreat:      false
+        immediateThreat:      false,
+        unnaturalInfluence:   false
       },
       stuntDice:    String(options.stuntDice ?? 0)
     };
@@ -109,7 +110,8 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
         opposingIntimacy:     !!data.opposingIntimacy,
         opposingVirtue:       !!data.opposingVirtue,
         opposingMotivation:   !!data.opposingMotivation,
-        immediateThreat:      !!data.immediateThreat
+        immediateThreat:      !!data.immediateThreat,
+        unnaturalInfluence:   !!data.unnaturalInfluence
       },
       stuntDice: Number(data.stuntDice) || 0
     });

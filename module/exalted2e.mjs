@@ -1503,6 +1503,45 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
         erodedIntimacyName:            null
       }
     });
+
+    // Limit accrual: only for splats that use the classic Limit mechanic.
+    // Other anti-virtue tracks (Resonance/Torment/Clarity) accrue from
+    // their own splat-specific triggers, NOT from resisting unnatural
+    // influence. Mortals have no Limit field worth ticking. The wp > 0
+    // gate is intentional — a future motes-resist charm path (e.g.,
+    // Solar Integrity-Protecting Prana) will set wp = 0 and skip this
+    // block automatically, with no Limit accrued.
+    if (record.unnaturalInfluence
+        && wp > 0
+        && defender.type === "character"
+        && EX2E.LIMIT_ACCRUAL_SPLATS.includes(defender.system.exaltType)) {
+      const sceneFlags    = defender.flags?.exalted2e?.socialScene ?? {};
+      const attackerEntry = sceneFlags[record.attackerId] ?? {};
+      if (!attackerEntry.unnaturalLimitGranted) {
+        const currentLimit = defender.system.limit?.value ?? 0;
+        await defender.update({
+          "system.limit.value": Math.min(10, currentLimit + 1),
+          [`flags.exalted2e.socialScene.${record.attackerId}.unnaturalLimitGranted`]: true
+        });
+        ui.notifications.info(
+          game.i18n.format("EX2E.LimitAccruedFromUnnatural", { actor: defender.name })
+        );
+      }
+    }
+
+    // Natural-influence WP drain counter: tracks cumulative WP this
+    // attacker has drained from this defender via NON-charm social
+    // attacks this scene. Once it reaches 2, future natural attacks
+    // auto-fail at resolution (handled in rollSocialAttack).
+    if (!record.unnaturalInfluence && wp > 0) {
+      const sceneFlags = defender.flags?.exalted2e?.socialScene ?? {};
+      const entry      = sceneFlags[record.attackerId] ?? {};
+      const drained    = (entry.wpDrainedNatural ?? 0) + wp;
+      await defender.update({
+        [`flags.exalted2e.socialScene.${record.attackerId}.wpDrainedNatural`]: drained
+      });
+    }
+
     await _rerenderSocialAttackCard(message);
   });
 
@@ -1620,6 +1659,16 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     await message.update({ "flags.exalted2e.socialAttack.reversed": true });
     await _rerenderSocialAttackCard(message);
   });
+});
+
+// ── Auto-clear social-scene state on combat deletion ──────────────────────
+// `endCombat()` (overridden in ExaltedCombat) handles the normal "End
+// Combat" button flow. This hook covers the parallel path where a GM
+// deletes the combat document directly — both routes funnel through
+// the same `clearSocialScene` helper.
+Hooks.on("deleteCombat", async () => {
+  const { clearSocialScene } = await import("./ui/social-scene.mjs");
+  await clearSocialScene({ silent: true });
 });
 
 // ── Social attack re-render helper ─────────────────────────────────────────
