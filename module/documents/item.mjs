@@ -1,3 +1,6 @@
+import { normalizeCost } from "../rolls/activation-ledger.mjs";
+import { buildCharmWeaponData } from "./charm-weapon-data.mjs";
+
 /**
  * ExaltedItem – extends the base Foundry Item document.
  */
@@ -228,13 +231,9 @@ export class ExaltedItem extends Item {
     const actor = this.actor;
     if (!actor) return null;
 
-    const n = (v) => Math.max(0, Math.floor(Number(v) || 0));
-    const moteCost       = n(cost.motes);
-    const willpowerCost  = n(cost.willpower);
-    const bashingCost    = n(cost.bashingHealth);
-    const lethalCost     = n(cost.lethalHealth);
-    const aggravatedCost = n(cost.aggravatedHealth);
-    const xpCost         = n(cost.xp);
+    const {
+      moteCost, willpowerCost, bashingCost, lethalCost, aggravatedCost, xpCost
+    } = normalizeCost(cost);
 
     const ledger = {
       moteBreakdown: null,
@@ -492,39 +491,14 @@ export class ExaltedItem extends Item {
 
   /** Shape the charm's attack config into a weapon item's creation data. */
   _buildCharmWeaponData() {
-    const a = this.system.attack ?? {};
-    const displayName = a.name?.trim() ? a.name : this.name;
-    const rollData = this.actor?.getRollData?.() ?? {};
-    const num = (formula, fallback = 0) => evaluateCharmFormula(formula, rollData, fallback);
-
-    return {
-      name: displayName,
-      type: "weapon",
-      img:  this.img || "icons/svg/sword.svg",
-      flags: { exalted2e: {
-        charmSource:   this.id,
-        charmDuration: this.system.duration
-      } },
-      system: {
-        equipped:  false,
-        artifact:  false,
-        modes: [{
-          name:           displayName,
-          speed:          num(a.speed,          5),
-          accuracy:       num(a.accuracy,       0),
-          damage:         num(a.damage,         1),
-          damageType:     a.damageType     ?? "lethal",
-          overwhelming:   num(a.overwhelming,   1),
-          defense:        num(a.defense,        0),
-          rate:           num(a.rate,           1),
-          range:          num(a.range,          0),
-          minStrength:    num(a.minStrength,    0),
-          minDexterity:   num(a.minDexterity,   0),
-          minMartialArts: num(a.minMartialArts, 0),
-          tags:           [...(a.tags ?? [])]
-        }]
-      }
-    };
+    return buildCharmWeaponData({
+      attack:   this.system.attack,
+      name:     this.name,
+      img:      this.img,
+      id:       this.id,
+      duration: this.system.duration,
+      rollData: this.actor?.getRollData?.() ?? {}
+    });
   }
 
   /**

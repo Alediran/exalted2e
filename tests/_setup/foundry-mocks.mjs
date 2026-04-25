@@ -25,8 +25,33 @@ globalThis.foundry = {
   utils: {
     deepClone:     obj => structuredClone(obj),
     mergeObject:   (a, b) => Object.assign({}, a, b),
-    flattenObject: () => ({}),
-    expandObject:  () => ({})
+    flattenObject: (obj, prefix = "") => {
+      const out = {};
+      for (const [key, val] of Object.entries(obj ?? {})) {
+        const path = prefix ? `${prefix}.${key}` : key;
+        if (val !== null && typeof val === "object" && !Array.isArray(val)) {
+          Object.assign(out, foundry.utils.flattenObject(val, path));
+        } else {
+          out[path] = val;
+        }
+      }
+      return out;
+    },
+    expandObject: (flat) => {
+      const out = {};
+      for (const [path, val] of Object.entries(flat ?? {})) {
+        const parts = path.split(".");
+        let cursor = out;
+        for (let i = 0; i < parts.length - 1; i++) {
+          if (typeof cursor[parts[i]] !== "object" || cursor[parts[i]] === null) {
+            cursor[parts[i]] = {};
+          }
+          cursor = cursor[parts[i]];
+        }
+        cursor[parts[parts.length - 1]] = val;
+      }
+      return out;
+    }
   },
   applications: {
     handlebars: {
@@ -69,9 +94,43 @@ globalThis.ui = {
   notifications: { info: vi.fn(), warn: vi.fn(), error: vi.fn() }
 };
 
+// ── Document base classes ────────────────────────────────────────────
+// Minimal Item / Actor stand-ins so module files that
+// `class Foo extends Item` can load under Vitest without throwing
+// ReferenceError. Tests don't instantiate these — they exercise
+// exported pure helpers and synthetic data — so the body is empty.
+globalThis.Item  = class _MockItem {};
+globalThis.Actor = class _MockActor {};
+
 // ── Roll ─────────────────────────────────────────────────────────────
 globalThis.Roll = class _MockRoll {
   constructor(formula) { this.formula = formula; }
   async evaluate() { return this; }
   async toMessage() { return null; }
+
+  /**
+   * Substitute @key tokens against a roll-data object. `@a.b.c` walks
+   * the data tree; missing tokens resolve to `opts.missing` (default
+   * "0"). This mirrors Foundry's contract closely enough for charm-
+   * formula tests.
+   */
+  static replaceFormulaData(formula, data, opts = {}) {
+    return String(formula).replace(/@([\w.]+)/g, (_, key) => {
+      const parts = key.split(".");
+      let cursor = data;
+      for (const p of parts) {
+        if (cursor == null) return opts.missing ?? "0";
+        cursor = cursor[p];
+      }
+      return cursor == null ? (opts.missing ?? "0") : String(cursor);
+    });
+  }
+
+  /**
+   * Evaluate an arithmetic expression. Foundry uses a sandboxed parser;
+   * the tests use Function() since they fully control the inputs.
+   */
+  static safeEval(expr) {
+    return Function(`"use strict"; return (${expr});`)();
+  }
 };

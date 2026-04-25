@@ -1,0 +1,220 @@
+import { describe, it, expect } from "vitest";
+import {
+  computeAttackPool,
+  computeAimBonus,
+  computeHolyUpgrade,
+  computeAttackOutcome
+} from "../../module/rolls/attack-math.mjs";
+
+// ── computeAttackPool ────────────────────────────────────────────────
+describe("computeAttackPool", () => {
+  it("regular weapon: pool = attr + abil + accuracy", () => {
+    expect(computeAttackPool({ attrVal: 3, abilVal: 4, accuracy: 2 })).toBe(9);
+  });
+
+  it("instant-charm attack: pool = accuracy only (no Dex + Ability)", () => {
+    expect(computeAttackPool({
+      attrVal: 3, abilVal: 4, accuracy: 10, isInstantCharm: true
+    })).toBe(10);
+  });
+
+  it("wound penalty subtracts (negative value reduces pool)", () => {
+    expect(computeAttackPool({
+      attrVal: 3, abilVal: 4, accuracy: 2, woundPenalty: -2
+    })).toBe(7);
+  });
+
+  it("flurry penalty subtracts (positive value reduces pool)", () => {
+    expect(computeAttackPool({
+      attrVal: 3, abilVal: 4, accuracy: 2, flurryPenalty: 2
+    })).toBe(7);
+  });
+
+  it("internal penalty subtracts (positive value reduces pool)", () => {
+    expect(computeAttackPool({
+      attrVal: 3, abilVal: 4, accuracy: 2, internalPenalty: 2
+    })).toBe(7);
+  });
+
+  it("aim bonus adds to the pool", () => {
+    expect(computeAttackPool({
+      attrVal: 3, abilVal: 4, accuracy: 2, aimBonus: 3
+    })).toBe(12);
+  });
+
+  it("floors at 0 when combined penalties exceed base pool", () => {
+    expect(computeAttackPool({
+      attrVal: 2, abilVal: 1, accuracy: 0,
+      woundPenalty: -4, flurryPenalty: 5
+    })).toBe(0);
+  });
+});
+
+// ── computeAimBonus ──────────────────────────────────────────────────
+describe("computeAimBonus", () => {
+  it("returns 0 when aim flag is missing", () => {
+    expect(computeAimBonus({ aimFlag: null, targetActorId: "T" })).toBe(0);
+  });
+
+  it("returns 0 when aim target does not match current target", () => {
+    expect(computeAimBonus({
+      aimFlag: { targetActorId: "OTHER", startTick: 0 },
+      targetActorId: "T",
+      currentTick: 2
+    })).toBe(0);
+  });
+
+  it("elapsed ticks are capped at +3", () => {
+    expect(computeAimBonus({
+      aimFlag: { targetActorId: "T", startTick: 0 },
+      targetActorId: "T",
+      currentTick: 10
+    })).toBe(3);
+  });
+});
+
+// ── computeHolyUpgrade ───────────────────────────────────────────────
+describe("computeHolyUpgrade", () => {
+  it("non-Holy attack leaves damage type unchanged", () => {
+    expect(computeHolyUpgrade({
+      isHolyAttack: false, targetIsCoD: true, baseDamageType: "lethal"
+    })).toEqual({ finalDamageType: "lethal", holyUpgraded: false });
+  });
+
+  it("Holy vs non-CoD target leaves damage type unchanged", () => {
+    expect(computeHolyUpgrade({
+      isHolyAttack: true, targetIsCoD: false, baseDamageType: "bashing"
+    })).toEqual({ finalDamageType: "bashing", holyUpgraded: false });
+  });
+
+  it("Holy + CoD upgrades lethal to aggravated", () => {
+    expect(computeHolyUpgrade({
+      isHolyAttack: true, targetIsCoD: true, baseDamageType: "lethal"
+    })).toEqual({ finalDamageType: "aggravated", holyUpgraded: true });
+  });
+
+  it("Holy + CoD upgrades bashing to aggravated", () => {
+    expect(computeHolyUpgrade({
+      isHolyAttack: true, targetIsCoD: true, baseDamageType: "bashing"
+    })).toEqual({ finalDamageType: "aggravated", holyUpgraded: true });
+  });
+});
+
+// ── computeAttackOutcome ─────────────────────────────────────────────
+describe("computeAttackOutcome", () => {
+  // Minimal base: produces a valid hit when combined with a defense of dv < successes
+  const baseAttack = {
+    successes:                10,
+    weaponDamage:             3,
+    addStrength:              true,
+    strengthValue:            4,
+    targetHardness:           0,
+    firstExcDice:             0,
+    secondExcSuccesses:       0,
+    attackerHasThirdExc:      false,
+    defenderHasThirdExc:      false,
+    defenderFirstExcDice:     0,
+    defenderSecondExcSucc:    0,
+    isCounterattack:          false,
+    defenderHasCounterattack: false
+  };
+
+  it("no defense chosen → defenseChosen false, no threshold/hit fields", () => {
+    const out = computeAttackOutcome(baseAttack);
+    expect(out.defenseChosen).toBe(false);
+    expect(out.threshold).toBeUndefined();
+    expect(out.hit).toBeUndefined();
+  });
+
+  it("hit with positive threshold: rawDamagePool = threshold + weaponDamage + strengthValue", () => {
+    const out = computeAttackOutcome({
+      ...baseAttack,
+      defense: { type: "dodge", dv: 4 }
+    });
+    expect(out.threshold).toBe(6);                        // 10 - 4
+    expect(out.hit).toBe(true);
+    expect(out.rawDamagePool).toBe(6 + 3 + 4);            // threshold + weaponDmg + str
+  });
+
+  it("miss when successes <= DV", () => {
+    const out = computeAttackOutcome({
+      ...baseAttack,
+      successes: 4,
+      defense: { type: "dodge", dv: 4 }
+    });
+    expect(out.threshold).toBe(0);
+    expect(out.hit).toBe(false);
+    expect(out.rawDamagePool).toBe(0);
+  });
+
+  it("perfect defense forces hit=false even with successes > dv", () => {
+    const out = computeAttackOutcome({
+      ...baseAttack,
+      defense: { type: "dodge", dv: 4 },
+      perfectDefenseCharm: "Seven Shadow Evasion"
+    });
+    expect(out.perfectDefense).toBe(true);
+    expect(out.hit).toBe(false);
+    expect(out.rawDamagePool).toBe(0);
+  });
+
+  it("hardness stops damage when targetHardness > rawDamagePool", () => {
+    const out = computeAttackOutcome({
+      ...baseAttack,
+      weaponDamage:  1,
+      addStrength:   false,
+      targetHardness: 20,
+      defense: { type: "parry", dv: 4 }
+    });
+    expect(out.hit).toBe(true);
+    expect(out.hardnessStops).toBe(true);
+  });
+
+  it("addStrength false excludes strengthValue from rawDamagePool", () => {
+    const out = computeAttackOutcome({
+      ...baseAttack,
+      addStrength: false,
+      defense: { type: "dodge", dv: 4 }
+    });
+    expect(out.rawDamagePool).toBe(6 + 3);                // threshold + weaponDmg, no str
+  });
+
+  it("attacker eligible for Third Exc → showAttackerReroll", () => {
+    const out = computeAttackOutcome({
+      ...baseAttack,
+      attackerHasThirdExc: true,
+      defense: { type: "dodge", dv: 4 }
+    });
+    expect(out.showAttackerReroll).toBe(true);
+    expect(out.showDefenderReroll).toBe(false);
+    expect(out.showResolution).toBe(false);
+  });
+
+  it("attacker ineligible + defender eligible → showDefenderReroll", () => {
+    const out = computeAttackOutcome({
+      ...baseAttack,
+      defenderHasThirdExc: true,
+      defense: { type: "dodge", dv: 4 }
+    });
+    expect(out.showAttackerReroll).toBe(false);
+    expect(out.showDefenderReroll).toBe(true);
+  });
+
+  it("both sides ineligible → showResolution immediately", () => {
+    const out = computeAttackOutcome({
+      ...baseAttack,
+      defense: { type: "dodge", dv: 4 }
+    });
+    expect(out.showResolution).toBe(true);
+  });
+
+  it("hit + defender has Counterattack → showCounterattack true", () => {
+    const out = computeAttackOutcome({
+      ...baseAttack,
+      defenderHasCounterattack: true,
+      defense: { type: "parry", dv: 4 }
+    });
+    expect(out.showCounterattack).toBe(true);
+    expect(out.showRollDamage).toBe(false);               // counterattack blocks damage step
+  });
+});

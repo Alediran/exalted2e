@@ -1,0 +1,85 @@
+import { describe, it, expect } from "vitest";
+import { normalizeCost, planLedgerRefund } from "../../module/rolls/activation-ledger.mjs";
+
+// ── normalizeCost ────────────────────────────────────────────────────
+describe("normalizeCost", () => {
+  it("returns all six fields with zero defaults for an empty cost", () => {
+    expect(normalizeCost({})).toEqual({
+      moteCost: 0, willpowerCost: 0, bashingCost: 0,
+      lethalCost: 0, aggravatedCost: 0, xpCost: 0
+    });
+  });
+
+  it("floors fractions and clamps negatives to zero", () => {
+    expect(normalizeCost({
+      motes: 3.7, willpower: -2, bashingHealth: "bad", lethalHealth: 2.2,
+      aggravatedHealth: null, xp: -5
+    })).toEqual({
+      moteCost: 3, willpowerCost: 0, bashingCost: 0,
+      lethalCost: 2, aggravatedCost: 0, xpCost: 0
+    });
+  });
+
+  it("handles undefined cost argument gracefully", () => {
+    expect(normalizeCost(undefined)).toEqual({
+      moteCost: 0, willpowerCost: 0, bashingCost: 0,
+      lethalCost: 0, aggravatedCost: 0, xpCost: 0
+    });
+  });
+});
+
+// ── planLedgerRefund ─────────────────────────────────────────────────
+describe("planLedgerRefund", () => {
+  it("returns empty updates for an empty ledger", () => {
+    expect(planLedgerRefund({}, { motes: {}, willpower: {}, experience: {}, health: {} }))
+      .toEqual({ updates: {} });
+  });
+
+  it("refunds motes to the recorded pools, capped at each pool max", () => {
+    const ledger = {
+      moteBreakdown: { primaryPool: "personal", secondaryPool: "peripheral", fromPrimary: 5, fromSecondary: 3 }
+    };
+    const sys = {
+      motes: {
+        personal:   { value: 10, max: 13 },
+        peripheral: { value: 32, max: 33 }
+      }
+    };
+    const { updates } = planLedgerRefund(ledger, sys);
+    expect(updates["system.motes.personal.value"]).toBe(13);       // 10 + 5 = 15, capped at 13
+    expect(updates["system.motes.peripheral.value"]).toBe(33);     // 32 + 3 = 35, capped at 33
+  });
+
+  it("refunds willpower capped at max", () => {
+    const ledger = { willpower: 5 };
+    const sys = { willpower: { value: 7, max: 10 } };
+    const { updates } = planLedgerRefund(ledger, sys);
+    expect(updates["system.willpower.value"]).toBe(10);            // 7 + 5 = 12, capped at 10
+  });
+
+  it("refunds XP capped at experience.total", () => {
+    const ledger = { xp: 5 };
+    const sys = { experience: { value: 10, total: 12 } };
+    const { updates } = planLedgerRefund(ledger, sys);
+    expect(updates["system.experience.value"]).toBe(12);           // 10 + 5 = 15, capped at 12
+  });
+
+  it("refunds each health column and does not mutate the source health object", () => {
+    const ledger = { bashing: 2, lethal: 1, aggravated: 1 };
+    const sourceHealth = { bashing: 3, lethal: 2, aggravated: 1, bonus: { zero: 0, one: 0, two: 0 } };
+    const sys = { health: sourceHealth };
+    const { updates } = planLedgerRefund(ledger, sys);
+    const h = updates["system.health"];
+    expect(h).toEqual({ bashing: 1, lethal: 1, aggravated: 0, bonus: { zero: 0, one: 0, two: 0 } });
+    // Non-mutation: the original health object is still at its pre-refund values.
+    expect(sourceHealth.bashing).toBe(3);
+    expect(h).not.toBe(sourceHealth);                              // fresh reference
+  });
+
+  it("floors health at zero on over-refund", () => {
+    const ledger = { bashing: 10 };                                // claims 10 bashing refunded
+    const sys = { health: { bashing: 3, lethal: 0, aggravated: 0 } };
+    const { updates } = planLedgerRefund(ledger, sys);
+    expect(updates["system.health"].bashing).toBe(0);              // floored, not -7
+  });
+});

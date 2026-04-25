@@ -1,119 +1,7 @@
 import { EX2E } from "../config.mjs";
-
-/**
- * Flatten a partial update object into an array of permanent-trait
- * changes, comparing against the actor's current (pre-update) values.
- * Returns `[{ path, label, oldValue, newValue, kind }, ...]` where
- * `kind` is "reduction" or "increase".
- *
- * Paths scanned:
- *   system.attributes.<key>.value         (9 attributes)
- *   system.abilities.<key>.value          (22 abilities)
- *   system.abilities.<key>.specialties    (length delta)
- *   system.essence.value
- *   system.willpower.max
- *   system.virtues.<key>.value
- */
-function _collectPermanentTraitChanges(changed, actor) {
-  const flat = foundry.utils.flattenObject(changed ?? {});
-  const results = [];
-
-  const attrLabel = (key) => {
-    for (const group of Object.values(EX2E.attributes)) {
-      if (key in group) return game.i18n.localize(group[key]);
-    }
-    return key;
-  };
-  const abilityLabel = (key) => game.i18n.localize(EX2E.abilityLabels[key] ?? key);
-  const virtueLabel  = (key) =>
-    game.i18n.localize(`EX2E.Virtue${key.charAt(0).toUpperCase()}${key.slice(1)}`);
-
-  for (const [path, rawNew] of Object.entries(flat)) {
-    let match;
-
-    if ((match = path.match(/^system\.attributes\.(\w+)\.value$/))) {
-      const key = match[1];
-      const oldVal = Number(actor.system.attributes?.[key]?.value ?? 0);
-      const newVal = Number(rawNew);
-      if (newVal === oldVal) continue;
-      results.push({
-        path, label: attrLabel(key), oldValue: oldVal, newValue: newVal,
-        kind: newVal > oldVal ? "increase" : "reduction"
-      });
-      continue;
-    }
-
-    if ((match = path.match(/^system\.abilities\.(\w+)\.value$/))) {
-      const key = match[1];
-      const oldVal = Number(actor.system.abilities?.[key]?.value ?? 0);
-      const newVal = Number(rawNew);
-      if (newVal === oldVal) continue;
-      results.push({
-        path, label: abilityLabel(key), oldValue: oldVal, newValue: newVal,
-        kind: newVal > oldVal ? "increase" : "reduction"
-      });
-      continue;
-    }
-
-    if ((match = path.match(/^system\.essence\.value$/))) {
-      const oldVal = Number(actor.system.essence?.value ?? 0);
-      const newVal = Number(rawNew);
-      if (newVal === oldVal) continue;
-      results.push({
-        path, label: game.i18n.localize("EX2E.EssencePermanent"),
-        oldValue: oldVal, newValue: newVal,
-        kind: newVal > oldVal ? "increase" : "reduction"
-      });
-      continue;
-    }
-
-    if ((match = path.match(/^system\.willpower\.max$/))) {
-      const oldVal = Number(actor.system.willpower?.max ?? 0);
-      const newVal = Number(rawNew);
-      if (newVal === oldVal) continue;
-      results.push({
-        path, label: game.i18n.localize("EX2E.Willpower"),
-        oldValue: oldVal, newValue: newVal,
-        kind: newVal > oldVal ? "increase" : "reduction"
-      });
-      continue;
-    }
-
-    if ((match = path.match(/^system\.virtues\.(\w+)\.value$/))) {
-      const key = match[1];
-      const oldVal = Number(actor.system.virtues?.[key]?.value ?? 0);
-      const newVal = Number(rawNew);
-      if (newVal === oldVal) continue;
-      results.push({
-        path, label: virtueLabel(key), oldValue: oldVal, newValue: newVal,
-        kind: newVal > oldVal ? "increase" : "reduction"
-      });
-      continue;
-    }
-  }
-
-  // Specialties are an array; flatten doesn't produce a scalar for them.
-  // Handle separately by checking the full-array path at system.abilities.<key>.specialties.
-  const expanded = foundry.utils.expandObject(changed ?? {});
-  const abilities = expanded.system?.abilities ?? {};
-  for (const [key, ab] of Object.entries(abilities)) {
-    if (!("specialties" in ab)) continue;
-    const oldList = actor.system.abilities?.[key]?.specialties ?? [];
-    const newList = ab.specialties ?? [];
-    if (newList.length === oldList.length) continue;
-    const label = `${game.i18n.localize("EX2E.Specialties")}: ${
-      game.i18n.localize(EX2E.abilityLabels[key] ?? key)}`;
-    results.push({
-      path: `system.abilities.${key}.specialties`,
-      label,
-      oldValue: oldList.length,
-      newValue: newList.length,
-      kind: newList.length > oldList.length ? "increase" : "reduction"
-    });
-  }
-
-  return results;
-}
+import { clampDamage, healInOrder } from "../rolls/health-math.mjs";
+import { aggregatePenalties, sumPenalties } from "./penalties-math.mjs";
+import { collectPermanentTraitChanges } from "./purchase-mode-math.mjs";
 
 /**
  * ExaltedActor – extends the base Foundry Actor document with
@@ -226,7 +114,7 @@ export class ExaltedActor extends Actor {
     // ── Purchase Mode enforcement ─────────────────────────────────────
     if (!this.system.purchaseLocked) return;
 
-    const changes = _collectPermanentTraitChanges(changed, this);
+    const changes = collectPermanentTraitChanges(changed, this);
     if (changes.length === 0) return;
 
     // Reductions: reject the whole update outright.
@@ -324,14 +212,7 @@ export class ExaltedActor extends Actor {
    * a particular penalty category can filter the list before it's applied.
    */
   _aggregateDVPenalties(systemData) {
-    const penalties = [];
-    for (const eff of this.effects) {
-      if (eff.disabled) continue;
-      const p = eff.flags?.exalted2e?.dvPenalty;
-      if (!p || typeof p.value !== "number" || !p.type) continue;
-      penalties.push({ type: p.type, value: p.value, effectId: eff.id, label: eff.name });
-    }
-    systemData.dvPenalties = penalties;
+    systemData.dvPenalties = aggregatePenalties(this.effects, "dvPenalty");
   }
 
   /**
@@ -341,14 +222,7 @@ export class ExaltedActor extends Actor {
    * pair with any equivalent of `dvRefreshable`.
    */
   _aggregateMDVPenalties(systemData) {
-    const penalties = [];
-    for (const eff of this.effects) {
-      if (eff.disabled) continue;
-      const p = eff.flags?.exalted2e?.mdvPenalty;
-      if (!p || typeof p.value !== "number" || !p.type) continue;
-      penalties.push({ type: p.type, value: p.value, effectId: eff.id, label: eff.name });
-    }
-    systemData.mdvPenalties = penalties;
+    systemData.mdvPenalties = aggregatePenalties(this.effects, "mdvPenalty");
   }
 
   /**
@@ -367,15 +241,7 @@ export class ExaltedActor extends Actor {
    * the system — toggling Prone on the token HUD applies and removes it.
    */
   externalPenaltyFor(type = "physical") {
-    let total = 0;
-    for (const eff of this.effects) {
-      if (eff.disabled) continue;
-      const p = eff.flags?.exalted2e?.externalPenalty;
-      if (!p || !Number.isFinite(p.value)) continue;
-      if (p.type !== "all" && p.type !== type) continue;
-      total += p.value;
-    }
-    return total;
+    return sumPenalties(this.effects, "externalPenalty", type);
   }
 
   /**
@@ -390,14 +256,7 @@ export class ExaltedActor extends Actor {
    * character walks away from their designated target.
    */
   internalPenaltyFor(type = "physical") {
-    let total = 0;
-    for (const eff of this.effects) {
-      if (eff.disabled) continue;
-      const p = eff.flags?.exalted2e?.internalPenalty;
-      if (!p || !Number.isFinite(p.value)) continue;
-      if (p.type !== "all" && p.type !== type) continue;
-      total += p.value;
-    }
+    let total = sumPenalties(this.effects, "internalPenalty", type);
     // Armor mobility penalty is a structural internal penalty on
     // physical actions — stored as a negative integer on the actor by
     // `_applyArmorSoak`, so flip the sign to get the deduction magnitude.
@@ -667,25 +526,17 @@ export class ExaltedActor extends Actor {
   async applyDamage(amount, type) {
     if (this.type !== "character" && this.type !== "npc") return;
 
-    const h = foundry.utils.deepClone(this.system.health);
-    h[type] = Math.max(0, h[type] + amount);
-
-    // Cap total damage at total boxes. For characters, bonus is a
-    // per-level object (-0 / -1 / -2); NPCs carry a flat totalBoxes.
+    // Character totalBoxes derives from per-level bonus; NPC reads flat totalBoxes.
     let totalBoxes;
     if (this.type === "character") {
-      const b = h.bonus ?? { zero: 0, one: 0, two: 0 };
+      const b = this.system.health.bonus ?? { zero: 0, one: 0, two: 0 };
       const bonusTotal = (b.zero ?? 0) + (b.one ?? 0) + (b.two ?? 0);
       totalBoxes = 7 + bonusTotal;
     } else {
-      totalBoxes = h.totalBoxes;
-    }
-    const totalDmg = h.aggravated + h.lethal + h.bashing;
-    if (totalDmg > totalBoxes) {
-      const excess = totalDmg - totalBoxes;
-      h[type] = Math.max(0, h[type] - excess);
+      totalBoxes = this.system.health.totalBoxes;
     }
 
+    const h = clampDamage(this.system.health, type, amount, totalBoxes);
     return this.update({ "system.health": h });
   }
 
@@ -694,16 +545,7 @@ export class ExaltedActor extends Actor {
    * @param {number} amount
    */
   async healDamage(amount) {
-    const h = foundry.utils.deepClone(this.system.health);
-    let remaining = amount;
-
-    // Heal bashing first, then lethal, then aggravated
-    ["bashing", "lethal", "aggravated"].forEach(type => {
-      const heal = Math.min(h[type], remaining);
-      h[type] -= heal;
-      remaining -= heal;
-    });
-
+    const h = healInOrder(this.system.health, amount);
     return this.update({ "system.health": h });
   }
 

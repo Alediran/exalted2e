@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
 import { WeaponData } from "../../module/data/item/weapon-data.mjs";
+import { computeWielderPenalty } from "../../module/data/item/weapon-math.mjs";
 
 afterEach(() => {
   vi.restoreAllMocks();
@@ -118,5 +119,42 @@ describe("WeaponData.prepareDerivedData", () => {
     };
     const result = _prepDerivedData(sys);
     expect(result.modes[0].damageLabel).toBe("5L/3");
+  });
+});
+
+describe("computeWielderPenalty", () => {
+  it("returns 0 when wielder meets every minimum", () => {
+    expect(computeWielderPenalty(
+      { minStrength: 3, minDexterity: 2, minMartialArts: 0 },
+      { strength: 3, dexterity: 2, martialArts: 0 }
+    )).toBe(0);
+  });
+
+  it("docks one die per missing Strength dot", () => {
+    expect(computeWielderPenalty(
+      { minStrength: 4 },
+      { strength: 2 }
+    )).toBe(2);
+  });
+
+  it("accumulates shortfalls across Strength, Dexterity, Martial Arts", () => {
+    expect(computeWielderPenalty(
+      { minStrength: 4, minDexterity: 3, minMartialArts: 2 },
+      { strength: 2, dexterity: 1, martialArts: 0 }
+    )).toBe(2 + 2 + 2);   // 6 missing dots total
+  });
+
+  it("ignores excess wielder dots above the minimum", () => {
+    expect(computeWielderPenalty(
+      { minStrength: 1 },
+      { strength: 5 }
+    )).toBe(0);
+  });
+
+  it("missing wielder stats default to zero (full penalty applied)", () => {
+    expect(computeWielderPenalty(
+      { minStrength: 3, minDexterity: 2 },
+      {}
+    )).toBe(3 + 2);
   });
 });

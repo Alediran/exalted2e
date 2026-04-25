@@ -104,6 +104,86 @@ describe("CharacterData._prepareMoteMaxima", () => {
     expect(result.motes.personal.max).toBe(3 + 7 * 2);                    // 17
     expect(result.motes.peripheral.max).toBe(3 * 4 + 7 * 2 + 4 * 4);      // 42
   });
+
+  it("Terrestrial: personal = ess + wp; peripheral = ess*4 + wp + ΣV", () => {
+    const sys = makeCharacterSystem({
+      exaltType: "terrestrial",
+      essence: { value: 3, max: 3 },
+      willpower: { value: 5, max: 5 },
+      virtues: {
+        compassion: { value: 1, current: 1 },
+        conviction: { value: 2, current: 2 },
+        temperance: { value: 1, current: 1 },
+        valor:      { value: 3, current: 3 }
+      }
+    });
+    const result = _prepDerivedData(sys);
+    expect(result.motes.personal.max).toBe(3 + 5);                  // 8
+    expect(result.motes.peripheral.max).toBe(3 * 4 + 5 + (1 + 2 + 1 + 3));  // 12 + 5 + 7 = 24
+  });
+
+  it("Sidereal: personal = ess*2 + wp; peripheral = ess*6 + wp + ΣV", () => {
+    const sys = makeCharacterSystem({
+      exaltType: "sidereal",
+      essence: { value: 3, max: 3 },
+      willpower: { value: 5, max: 5 },
+      virtues: {
+        compassion: { value: 2, current: 2 },
+        conviction: { value: 2, current: 2 },
+        temperance: { value: 2, current: 2 },
+        valor:      { value: 2, current: 2 }
+      }
+    });
+    const result = _prepDerivedData(sys);
+    expect(result.motes.personal.max).toBe(3 * 2 + 5);              // 11
+    expect(result.motes.peripheral.max).toBe(3 * 6 + 5 + 8);        // 31
+  });
+
+  it("Alchemical: personal = ess*3 + wp; peripheral = ess*5 + wp*3 + maxVirtue*2", () => {
+    // Virtues chosen so maxVirtue*2 (8) and virtueSum (10) diverge — a
+    // regression that swapped the formula to virtueSum would mis-tally.
+    const sys = makeCharacterSystem({
+      exaltType: "alchemical",
+      essence: { value: 3, max: 3 },
+      willpower: { value: 5, max: 5 },
+      virtues: {
+        compassion: { value: 2, current: 2 },
+        conviction: { value: 3, current: 3 },
+        temperance: { value: 1, current: 1 },
+        valor:      { value: 4, current: 4 }
+      }
+    });
+    const result = _prepDerivedData(sys);
+    expect(result.motes.personal.max).toBe(3 * 3 + 5);              // 14
+    expect(result.motes.peripheral.max).toBe(3 * 5 + 5 * 3 + 4 * 2); // 15 + 15 + 8 = 38
+  });
+
+  it("Mortal: personal = ess; peripheral = ess*2", () => {
+    const sys = makeCharacterSystem({
+      exaltType: "mortal",
+      essence: { value: 2, max: 2 }
+    });
+    const result = _prepDerivedData(sys);
+    expect(result.motes.personal.max).toBe(2);
+    expect(result.motes.peripheral.max).toBe(4);
+  });
+
+  it("Abyssal: same formulas as Solar (default branch)", () => {
+    const sys = makeCharacterSystem({
+      exaltType: "abyssal",
+      essence: { value: 3, max: 3 },
+      willpower: { value: 7, max: 7 },
+      virtues: {
+        compassion: { value: 2, current: 2 },
+        conviction: { value: 3, current: 3 },
+        temperance: { value: 1, current: 1 },
+        valor:      { value: 4, current: 4 }
+      }
+    });
+    const result = _prepDerivedData(sys);
+    expect(result.motes.personal.max).toBe(3 * 3 + 7);              // 16
+    expect(result.motes.peripheral.max).toBe(3 * 7 + 7 + 10);       // 38
+  });
 });
 
 describe("CharacterData._prepareWillpowerMinimum", () => {

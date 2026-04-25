@@ -1,4 +1,5 @@
 import { EX2E } from "../../config.mjs";
+import { computeWielderPenalty } from "./weapon-math.mjs";
 
 const fields = foundry.data.fields;
 
@@ -65,9 +66,9 @@ export class WeaponData extends foundry.abstract.TypeDataModel {
       const rangeBonus = mode.tags.includes("Thrown") ? (bonus.thrownRange ?? 0) : (bonus.range ?? 0);
 
       const missingDots = hasWielder
-        ? Math.max(0, (mode.minStrength    ?? 0) - wielderStr)
-        + Math.max(0, (mode.minDexterity   ?? 0) - wielderDex)
-        + Math.max(0, (mode.minMartialArts ?? 0) - wielderMA)
+        ? computeWielderPenalty(mode, {
+            strength: wielderStr, dexterity: wielderDex, martialArts: wielderMA
+          })
         : 0;
 
       mode.wielderPenalty    = missingDots;

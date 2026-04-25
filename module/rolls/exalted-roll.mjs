@@ -6,6 +6,13 @@ import {
   checkNaturalCap,
   computeWpToResist
 } from "./social-attack-math.mjs";
+import { countSuccesses } from "./dice-math.mjs";
+import {
+  computeAttackPool,
+  computeAimBonus,
+  computeHolyUpgrade,
+  computeAttackOutcome
+} from "./attack-math.mjs";
 
 /**
  * ExaltedRoll – Handles the Exalted 2e d10 dice pool mechanic.
@@ -402,11 +409,8 @@ export class ExaltedRoll {
     //     normal flow applies — charm authors write stats the same way
     //     they would for any weapon.
     const isInstantCharmAttack = weapon.getFlag("exalted2e", "charmDuration") === "instant";
-    const basePool = isInstantCharmAttack
-      ? mode.effectiveAccuracy
-      : (attrVal + abilVal + mode.effectiveAccuracy);
 
-    // Wound penalty reduces pool
+    // Wound penalty reduces pool.
     const woundPenalty = sys.health?.woundPenalty ?? 0;
 
     // Flurry dice penalty: if this actor has declared a flurry this turn,
@@ -425,14 +429,16 @@ export class ExaltedRoll {
       ?? game.user.targets.first()?.actor
       ?? null;
 
-    // Aim bonus: if the attacker is currently aiming at THIS target,
-    // every tick since aim started adds a die (cap +3).
+    // Aim bonus: if the attacker is aiming at THIS target, add 1 die per
+    // elapsed tick since aim started (cap +3). Stale when the canvas picker
+    // runs below and chooses a different target — that's pre-existing
+    // behavior and out of this sprint's scope.
     const aimFlag  = attackerCombatant?.getFlag("exalted2e", "aim") ?? null;
-    const aimMatch = aimFlag && targetActor && aimFlag.targetActorId === targetActor.id;
-    const elapsed  = aimMatch
-      ? Math.max(0, (game.combat?.currentTick ?? 0) - (aimFlag.startTick ?? 0))
-      : 0;
-    const aimBonus = aimMatch ? Math.min(3, elapsed) : 0;
+    const aimBonus = computeAimBonus({
+      aimFlag,
+      targetActorId: targetActor?.id ?? null,
+      currentTick:   game.combat?.currentTick ?? 0
+    });
 
     // Internal + external penalties from active effects. Attacks are
     // always physical, so the category is fixed here.
@@ -442,7 +448,12 @@ export class ExaltedRoll {
     const internalPenalty = actor.internalPenaltyFor?.("physical") ?? 0;
     const externalPenalty = actor.externalPenaltyFor?.("physical") ?? 0;
 
-    const pool = Math.max(0, basePool + woundPenalty - flurryPenalty - internalPenalty + aimBonus);
+    const pool = computeAttackPool({
+      attrVal, abilVal,
+      accuracy:       mode.effectiveAccuracy,
+      isInstantCharm: isInstantCharmAttack,
+      woundPenalty, flurryPenalty, internalPenalty, aimBonus
+    });
 
     // Excellency detection (same pattern as rollAttributeAbility)
     const exaltType   = sys.exaltType ?? "";
@@ -623,27 +634,27 @@ export class ExaltedRoll {
     // Aggravated also bypasses Hardness, and soak looks up a different
     // column — both re-read off the final damage type below.
     const isHolyAttack  = activatedKeywords.has("Holy");
-    
+
     // CoD is carried as a non-status ActiveEffect flag so the trait stays
     // invisible to observers (no token HUD icon). Check for any enabled
     // effect on the target that advertises it.
     const targetIsCoD   = !!targetActor?.effects?.some(
       e => !e.disabled && e.flags?.exalted2e?.creatureOfDarkness === true
     );
-    let finalDamageType = mode.damageType;
-    let holyUpgraded    = false;
-    if (isHolyAttack && targetIsCoD) {
-      finalDamageType = "aggravated";
-      holyUpgraded    = true;
-      if (targetActor) {
-        const tSys = targetActor.system;
-        if (targetActor.type === "character") {
-          targetSoak = tSys.totalSoak?.[finalDamageType] ?? 0;
-        } else if (targetActor.type === "npc") {
-          targetSoak = tSys.combat?.soak?.[finalDamageType] ?? 0;
-        }
-        targetHardness = 0; // aggravated always ignores Hardness
+    const upgrade = computeHolyUpgrade({
+      isHolyAttack, targetIsCoD, baseDamageType: mode.damageType
+    });
+    const finalDamageType = upgrade.finalDamageType;
+    const holyUpgraded    = upgrade.holyUpgraded;
+    if (holyUpgraded && targetActor) {
+      // Re-read soak for the upgraded damage column; aggravated ignores Hardness.
+      const tSys = targetActor.system;
+      if (targetActor.type === "character") {
+        targetSoak = tSys.totalSoak?.[finalDamageType] ?? 0;
+      } else if (targetActor.type === "npc") {
+        targetSoak = tSys.combat?.soak?.[finalDamageType] ?? 0;
       }
+      targetHardness = 0;
     }
 
     // Build and evaluate the attack roll
@@ -907,76 +918,7 @@ export class ExaltedRoll {
  * @returns {Promise<string>} Rendered HTML
  */
 export async function renderAttackCardContent(attack) {
-  const data = { ...attack, defenseChosen: !!attack.defense };
-  if (attack.defense) {
-    // Perfect Dodge / Perfect Parry short-circuit: attack auto-misses,
-    // every downstream step (rerolls, counterattacks, damage) is skipped.
-    // Keep the snapshot honest — threshold stays computed off the real
-    // DV so the card still reads "N vs DV" — but hit is forced false.
-    const perfectDefense = !!attack.perfectDefenseCharm;
-    const threshold = Math.max(0, attack.successes - attack.defense.dv);
-    const hit       = !perfectDefense && threshold > 0;
-    data.threshold     = threshold;
-    data.hit           = hit;
-    data.perfectDefense = perfectDefense;
-    data.targetDV      = attack.defense.dv;
-    data.rawDamagePool = hit
-      ? threshold + attack.weaponDamage + (attack.addStrength ? attack.strengthValue : 0)
-      : 0;
-
-    // Step 8: Hardness check. If the target's Hardness exceeds the raw
-    // damage pool the attack is stopped — no damage roll, no soak applied.
-    data.hardnessStops = hit && (attack.targetHardness ?? 0) > data.rawDamagePool;
-    data.defenseLabelKey = {
-      dodge:  "EX2E.DodgeDV",
-      parry:  "EX2E.ParryDV",
-      manual: "EX2E.TargetDV"
-    }[attack.defense.type] ?? "EX2E.TargetDV";
-
-    // Step 4 / Step 5 gating. Each side is eligible if it has a Third-Exc
-    // charm for the relevant ability AND spent nothing on First/Second Exc.
-    // A step is complete when it's either not eligible, the charm was used,
-    // or the side explicitly skipped. Step 5 only opens once Step 4 closes;
-    // the hit/miss/damage section is gated until both steps are complete.
-    // A perfect defense skips every downstream resolution step.
-    const attackerEligible = !perfectDefense
-      && !!attack.attackerHasThirdExc
-      && (attack.firstExcDice       ?? 0) === 0
-      && (attack.secondExcSuccesses ?? 0) === 0;
-    const defenderEligible = !perfectDefense
-      && !!attack.defenderHasThirdExc
-      && (attack.defenderFirstExcDice ?? 0) === 0
-      && (attack.defenderSecondExcSucc ?? 0) === 0;
-
-    const step4Complete = !attackerEligible
-                       || !!attack.thirdExcUsedByAttacker
-                       || !!attack.step4Passed;
-    const step5Complete = step4Complete && (
-                          !defenderEligible
-                       || !!attack.thirdExcUsedByDefender
-                       || !!attack.step5Passed
-                       );
-
-    data.showAttackerReroll = !step4Complete;
-    data.showDefenderReroll = step4Complete && !step5Complete;
-    data.showResolution     = step4Complete && step5Complete;
-
-    // Step 9: Counterattack. Offered when Step 8 passes (hit, not stopped by
-    // hardness), the card isn't itself a counterattack, and the defender has
-    // at least one charm with the Counterattack keyword. Step 9 is complete
-    // once the counterattack has been triggered or the defender skipped.
-    const step9Applicable = step5Complete
-                         && !perfectDefense
-                         && (data.hit ?? false)
-                         && !data.hardnessStops
-                         && !attack.isCounterattack
-                         && !!attack.defenderHasCounterattack;
-    const step9Complete = !step9Applicable
-                       || !!attack.counterattackTriggered
-                       || !!attack.step9Passed;
-    data.showCounterattack = step9Applicable && !step9Complete;
-    data.showRollDamage    = (data.hit ?? false) && !data.hardnessStops && step9Complete;
-  }
+  const data = computeAttackOutcome(attack);
   return foundry.applications.handlebars.renderTemplate(
     "systems/exalted2e/templates/chat/attack-result.hbs",
     data
@@ -1008,29 +950,10 @@ export class ExaltedRollResult {
     this.externalPenalty     = options.externalPenalty      ?? 0;
 
     // ── Count successes from dice ────────────────────────────────────────
-    this.rawSuccesses = 0;
-    this.ones         = 0;
-    this.diceDetails  = [];
-
-    for (const face of this.dice) {
-      let succs = 0;
-      let cls   = "";
-      if (face === 10) {
-        succs = 2;
-        cls   = "double-success";
-        this.rawSuccesses += 2;
-      } else if (face >= 7) {
-        succs = 1;
-        cls   = "success";
-        this.rawSuccesses += 1;
-      } else if (face === 1) {
-        this.ones += 1;
-        cls = "one";
-      } else {
-        cls = "miss";
-      }
-      this.diceDetails.push({ face, succs, cls });
-    }
+    const _tally = countSuccesses(this.dice);
+    this.rawSuccesses = _tally.rawSuccesses;
+    this.ones         = _tally.ones;
+    this.diceDetails  = _tally.details;
 
     // Second Excellency successes are added after dice (and can prevent botch)
     this.rawSuccesses += this.secondExcSuccesses;

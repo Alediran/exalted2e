@@ -36,6 +36,8 @@ import { ex2eCan } from "./helpers/permissions.mjs";
 import { ActionQuickbar } from "./ui/action-quickbar.mjs";
 import { TickWheel }                      from "./ui/tick-wheel.mjs";
 import { JoinBattlePanel }                from "./ui/join-battle-panel.mjs";
+import { countSuccesses } from "./rolls/dice-math.mjs";
+import { planLedgerRefund } from "./rolls/activation-ledger.mjs";
 
 // ── Init Hook ──────────────────────────────────────────────────────────────
 Hooks.once("init", function () {
@@ -845,44 +847,7 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     }
 
     const ledger = record.ledger ?? {};
-    const updates = {};
-
-    // Refund motes back to the exact pools they were drawn from.
-    const mb = ledger.moteBreakdown;
-    if (mb && (mb.fromPrimary > 0 || mb.fromSecondary > 0)) {
-      const primary   = actor.system.motes?.[mb.primaryPool]   ?? { value: 0, max: 0 };
-      const secondary = actor.system.motes?.[mb.secondaryPool] ?? { value: 0, max: 0 };
-      updates[`system.motes.${mb.primaryPool}.value`]   = Math.min(primary.max   ?? 0, (primary.value   ?? 0) + (mb.fromPrimary   ?? 0));
-      updates[`system.motes.${mb.secondaryPool}.value`] = Math.min(secondary.max ?? 0, (secondary.value ?? 0) + (mb.fromSecondary ?? 0));
-    }
-
-    // Refund willpower (capped at max).
-    const wpRefund = Number(ledger.willpower) || 0;
-    if (wpRefund > 0) {
-      const wp = actor.system.willpower ?? { value: 0, max: 0 };
-      updates["system.willpower.value"] = Math.min(wp.max ?? 0, (wp.value ?? 0) + wpRefund);
-    }
-
-    // Refund XP (capped at `total`, the earned-XP ceiling).
-    const xpRefund = Number(ledger.xp) || 0;
-    if (xpRefund > 0) {
-      const xp = actor.system.experience ?? { value: 0, total: 0 };
-      updates["system.experience.value"] = Math.min(xp.total ?? 0, (xp.value ?? 0) + xpRefund);
-    }
-
-    // Heal each health-type column by the exact amount the activation
-    // inflicted. We write the whole `system.health` object in one go so
-    // prepareDerivedData runs a single reconcile pass.
-    const bRefund = Number(ledger.bashing)    || 0;
-    const lRefund = Number(ledger.lethal)     || 0;
-    const aRefund = Number(ledger.aggravated) || 0;
-    if (bRefund > 0 || lRefund > 0 || aRefund > 0) {
-      const h = foundry.utils.deepClone(actor.system.health ?? {});
-      if (bRefund > 0) h.bashing    = Math.max(0, (h.bashing    ?? 0) - bRefund);
-      if (lRefund > 0) h.lethal     = Math.max(0, (h.lethal     ?? 0) - lRefund);
-      if (aRefund > 0) h.aggravated = Math.max(0, (h.aggravated ?? 0) - aRefund);
-      updates["system.health"] = h;
-    }
+    const { updates } = planLedgerRefund(ledger, actor.system);
 
     if (Object.keys(updates).length > 0) await actor.update(updates);
 
@@ -1130,14 +1095,13 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
   // Attacker spends 4m to reroll the attack roll's failures (face < 7).
   // One-shot, and only when First/Second Excellency wasn't used.
   const recomputeDiceStats = (dice) => {
-    let rawSuccesses = 0;
-    let ones = 0;
-    for (const d of dice) {
-      if (d.face === 10)     { d.succs = 2; d.cls = "double-success"; rawSuccesses += 2; }
-      else if (d.face >= 7)  { d.succs = 1; d.cls = "success";        rawSuccesses += 1; }
-      else if (d.face === 1) { d.succs = 0; d.cls = "one"; ones += 1; }
-      else                   { d.succs = 0; d.cls = "miss"; }
-    }
+    const { rawSuccesses, ones, details } = countSuccesses(dice);
+    // Preserve object identity in caller's array by mutating each element
+    // with the fresh tally's succs/cls values.
+    dice.forEach((d, i) => {
+      d.succs = details[i].succs;
+      d.cls   = details[i].cls;
+    });
     return {
       dice,
       successes: Math.max(0, rawSuccesses),

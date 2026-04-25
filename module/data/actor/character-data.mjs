@@ -1,3 +1,5 @@
+import { computeWoundPenalty } from "../../rolls/health-math.mjs";
+
 const fields = foundry.data.fields;
 
 /**
@@ -262,12 +264,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 
     // Wound penalty = the penalty tier of the most-recently-filled box.
     const filled = Math.min(totalDamage, totalBoxes);
-    let penalty  = 0;
-    if      (filled > zeroCount + oneCount + twoCount + 1) penalty = null;   // Incap
-    else if (filled > zeroCount + oneCount + twoCount)     penalty = -4;
-    else if (filled > zeroCount + oneCount)                penalty = -2;
-    else if (filled > zeroCount)                           penalty = -1;
-    h.woundPenalty   = penalty;
+    h.woundPenalty   = computeWoundPenalty(filled, h.levelCounts);
     h.incapacitated  = filled >= totalBoxes;
   }
 

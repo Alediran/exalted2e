@@ -1,4 +1,5 @@
 import { ex2eCan } from "../helpers/permissions.mjs";
+import { sortCombatants, computeTickFromJB, planCommitOnAim } from "../combat/combat-math.mjs";
 
 /**
  * ExaltedCombat — wheel-based tick initiative for Exalted 2e.
@@ -43,25 +44,7 @@ export class ExaltedCombat extends Combat {
    * sort) always lands on a still-eligible combatant while any remain.
    */
   _sortCombatants(a, b) {
-    const aActed = !!a.flags?.exalted2e?.actedThisTick;
-    const bActed = !!b.flags?.exalted2e?.actedThisTick;
-    if (aActed !== bActed) return aActed ? 1 : -1;
-
-    const ai = Number.isFinite(a.initiative) ? a.initiative : Infinity;
-    const bi = Number.isFinite(b.initiative) ? b.initiative : Infinity;
-    if (ai !== bi) return ai - bi;
-
-    const aDex = a.actor?.system?.attributes?.dexterity?.value ?? 0;
-    const bDex = b.actor?.system?.attributes?.dexterity?.value ?? 0;
-    if (aDex !== bDex) return bDex - aDex;                 // higher Dex wins
-
-    const aWits = a.actor?.system?.attributes?.wits?.value ?? 0;
-    const bWits = b.actor?.system?.attributes?.wits?.value ?? 0;
-    if (aWits !== bWits) return bWits - aWits;             // higher Wits wins
-
-    const byName = (a.name ?? "").localeCompare(b.name ?? "");
-    if (byName !== 0) return byName;
-    return (a.id ?? "").localeCompare(b.id ?? "");
+    return sortCombatants(a, b);
   }
 
   /**
@@ -120,7 +103,7 @@ export class ExaltedCombat extends Combat {
     const max = Math.max(...entries.map(e => e.successes));
     const updates = entries.map(({ id, successes, botched }) => ({
       _id:        id,
-      initiative: botched ? 6 : Math.min(6, max - successes)
+      initiative: computeTickFromJB(successes, botched, max)
     }));
     await this.updateEmbeddedDocuments("Combatant", updates);
   }
@@ -226,39 +209,17 @@ export class ExaltedCombat extends Combat {
     }
 
     // ── Aim state transitions ───────────────────────────────────────────
-    // Continuing aim (re-aim, same target) keeps the aim flag. Attacking
-    // the aimed target consumes the aim (bonus already applied in
-    // rollAttack). Anything else is a divert — the aim aborts and the
-    // character eats a -2 internal penalty on subsequent actions.
     const aim = current.getFlag("exalted2e", "aim") ?? null;
-    if (aim && pending) {
-      const sameTarget         = pending.targetActorId === aim.targetActorId;
-      const isAimContinuation  = pending.actionKey === "aim"    && sameTarget;
-      const isAimedAttack      = pending.actionKey === "attack" && sameTarget;
-      if (isAimedAttack) {
-        updates["flags.exalted2e.-=aim"] = null;
-      } else if (!isAimContinuation) {
-        updates["flags.exalted2e.-=aim"] = null;
-        if (current.actor) {
-          await current.actor.applyInternalPenalty(2, {
-            type:  "all",
-            label: game.i18n.localize("EX2E.AimAbortedPenaltyLabel"),
-            icon:  "icons/svg/ruins.svg"
-          });
-        }
-      }
-    } else if (aim && flurry) {
-      // Flurry commits break aim in MVP (the flurry might or might not
-      // include an attack on the aimed target; handling that inside the
-      // flurry resolver is future work).
+    const aimPlan = planCommitOnAim({ pending, flurry, aim });
+    if (aimPlan.clearAim) {
       updates["flags.exalted2e.-=aim"] = null;
-      if (current.actor) {
-        await current.actor.applyInternalPenalty(2, {
-          type:  "all",
-          label: game.i18n.localize("EX2E.AimAbortedPenaltyLabel"),
-          icon:  "icons/svg/ruins.svg"
-        });
-      }
+    }
+    if (aimPlan.applyAbortPenalty && current.actor) {
+      await current.actor.applyInternalPenalty(2, {
+        type:  "all",
+        label: game.i18n.localize("EX2E.AimAbortedPenaltyLabel"),
+        icon:  "icons/svg/ruins.svg"
+      });
     }
 
     await current.update(updates);
