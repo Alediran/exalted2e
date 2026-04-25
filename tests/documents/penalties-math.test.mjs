@@ -37,6 +37,8 @@ describe("aggregatePenalties", () => {
       effect({ id: "no-type",  flagKey: "dvPenalty", value: 2 }),           // missing type
       effect({ id: "no-value", flagKey: "dvPenalty", type: "physical" }),   // missing value
       effect({ id: "non-num",  flagKey: "dvPenalty", type: "physical", value: "two" }),
+      effect({ id: "nan",      flagKey: "dvPenalty", type: "physical", value: NaN }),
+      effect({ id: "inf",      flagKey: "dvPenalty", type: "physical", value: Infinity }),
       effect({ id: "ok",       flagKey: "dvPenalty", type: "all",      value: 1 })
     ], "dvPenalty");
     expect(out.map(p => p.effectId)).toEqual(["ok"]);

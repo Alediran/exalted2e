@@ -79,8 +79,14 @@ export function checkNaturalCap(defender, attackerId, isUnnatural) {
 /**
  * Defender's Willpower cost to resist. Threshold-success math
  * (1 WP per 3 successes over MDV) plus a UMI base cost (hardcoded 1
- * in 3a; charm-driven 1-5 lands with A3). Capped at 5 total. Returns
- * 0 on miss.
+ * in 3a; charm-driven 1-5 lands with A3). Capped at 5 total.
+ *
+ * Returns 0 whenever `hit` is false — including the natural-cap-forced
+ * miss case where `rollSuccesses > effectiveMDV` but the cap pushed
+ * `hit` to false. The pre-refactor code stored a non-zero ledger value
+ * in that branch, but the chat card and Spend-WP button both gate on
+ * `hit`, so the value was never displayed or spent. Behavior the
+ * player observes is unchanged.
  */
 export function computeWpToResist(rollSuccesses, effectiveMDV, isUnnatural, hit) {
   if (!hit) return 0;

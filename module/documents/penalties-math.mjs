@@ -17,7 +17,10 @@ export function aggregatePenalties(effects, flagKey) {
   for (const eff of effects ?? []) {
     if (eff.disabled) continue;
     const p = eff.flags?.exalted2e?.[flagKey];
-    if (!p || typeof p.value !== "number" || !p.type) continue;
+    // Number.isFinite rejects NaN and ±Infinity — both would propagate
+    // garbage through `dvPenaltyTotal` / `mdvPenaltyTotal` if accepted.
+    // Matches the filter used by `sumPenalties` below.
+    if (!p || !Number.isFinite(p.value) || !p.type) continue;
     out.push({ type: p.type, value: p.value, effectId: eff.id, label: eff.name });
   }
   return out;

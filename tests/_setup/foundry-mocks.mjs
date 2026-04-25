@@ -115,14 +115,22 @@ globalThis.Roll = class _MockRoll {
    * formula tests.
    */
   static replaceFormulaData(formula, data, opts = {}) {
-    return String(formula).replace(/@([\w.]+)/g, (_, key) => {
+    return String(formula).replace(/@([\w.]+)/g, (token, key) => {
       const parts = key.split(".");
       let cursor = data;
       for (const p of parts) {
-        if (cursor == null) return opts.missing ?? "0";
+        if (cursor == null) {
+          // Foundry's contract: when `opts.missing` is set, substitute it;
+          // otherwise leave the original `@token` literal in place. The
+          // tests use `{missing: "0"}` for arithmetic substitution, but
+          // a future caller without `missing` should not silently lose
+          // the token.
+          return opts.missing ?? token;
+        }
         cursor = cursor[p];
       }
-      return cursor == null ? (opts.missing ?? "0") : String(cursor);
+      if (cursor == null) return opts.missing ?? token;
+      return String(cursor);
     });
   }
 
