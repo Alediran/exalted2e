@@ -1,3 +1,12 @@
+import {
+  verifyClaims,
+  computeStackingMod,
+  computeMdvShiftFromApp,
+  computeBaseMDV,
+  checkNaturalCap,
+  computeWpToResist
+} from "./social-attack-math.mjs";
+
 /**
  * ExaltedRoll – Handles the Exalted 2e d10 dice pool mechanic.
  *
@@ -745,63 +754,18 @@ export class ExaltedRoll {
     }
 
     // 1. Verify each claim against defender data.
-    const items = defender.items ?? [];
-    const virtues = defender.system?.virtues ?? {};
-    const motivation = defender.system?.motivation ?? "";
-    const isCharacter = defender.type === "character";
-
-    const verified = {
-      supportingIntimacy:   !!claims.supportingIntimacy &&
-        items.some(i => i.type === "intimacy" && i.system?.positive === true),
-      opposingIntimacy:     !!claims.opposingIntimacy &&
-        items.some(i => i.type === "intimacy" && i.system?.positive === false),
-      supportingVirtue:     !!claims.supportingVirtue &&
-        isCharacter &&
-        Object.values(virtues).some(v => (v?.value ?? 0) >= 3),
-      opposingVirtue:       !!claims.opposingVirtue &&
-        isCharacter &&
-        Object.values(virtues).some(v => (v?.value ?? 0) >= 3),
-      supportingMotivation: !!claims.supportingMotivation &&
-        isCharacter &&
-        !!motivation,
-      opposingMotivation:   !!claims.opposingMotivation &&
-        isCharacter &&
-        !!motivation,
-      immediateThreat:      !!claims.immediateThreat
-    };
+    const verified = verifyClaims(claims, defender);
 
     // 2. Net-sum stacking.
-    const supportingValues = [];
-    if (verified.supportingIntimacy)   supportingValues.push(-1);
-    if (verified.supportingVirtue)     supportingValues.push(-2);
-    if (verified.supportingMotivation) supportingValues.push(-3);
-    const bestSupporting = supportingValues.length
-      ? Math.min(...supportingValues)
-      : 0;
-
-    const opposingValues = [];
-    if (verified.opposingIntimacy)   opposingValues.push(1);
-    if (verified.opposingVirtue)     opposingValues.push(2);
-    if (verified.opposingMotivation) opposingValues.push(3);
-    if (verified.immediateThreat)    opposingValues.push(3);
-    const bestOpposing = opposingValues.length
-      ? Math.max(...opposingValues)
-      : 0;
-
-    const stackingMod = bestSupporting + bestOpposing;
+    const stackingMod = computeStackingMod(verified);
 
     // 3. Appearance shift. Higher attacker App lowers defender MDV.
     //    NPC actors currently have no Appearance — treat as 0.
-    const attAppVal = attacker.system?.attributes?.appearance?.value ?? 0;
-    const defAppVal = defender.system?.attributes?.appearance?.value ?? 0;
-    const clampedDelta = Math.max(-3, Math.min(3, attAppVal - defAppVal));
-    const mdvShiftFromApp = -clampedDelta;
+    const mdvShiftFromApp = computeMdvShiftFromApp(attacker, defender);
 
     // 4. Base and effective MDV. Erode uses Parry MDV (active retort);
     //    Build and Compel use Dodge MDV (disengagement).
-    const baseMDV = intent === "erode"
-      ? (defender.currentParryMDV ?? 0)
-      : (defender.currentDodgeMDV ?? 0);
+    const baseMDV = computeBaseMDV(intent, defender);
     const effectiveMDV = Math.max(0, baseMDV + stackingMod + mdvShiftFromApp);
 
     // 5. Roll the attacker's pool.
@@ -826,13 +790,7 @@ export class ExaltedRoll {
     // defender's per-attacker scene-drain counter is already ≥ 2, the
     // attack auto-fails. The dice still roll for display transparency,
     // but `hit` is forced false below.
-    let autoFailedByNaturalCap = false;
-    if (!claims.unnaturalInfluence) {
-      const drained = defender.flags?.exalted2e?.socialScene?.[attacker.id]?.wpDrainedNatural ?? 0;
-      if (drained >= 2) {
-        autoFailedByNaturalCap = true;
-      }
-    }
+    const autoFailedByNaturalCap = checkNaturalCap(defender, attacker.id, !!claims.unnaturalInfluence);
 
     const roll = new ExaltedRoll({
       pool:            finalPool,
@@ -850,8 +808,7 @@ export class ExaltedRoll {
     // outright, separate from threshold-success cost. RAW: "1-5 WP
     // depending on power"; hardcoded to 1 here. Charm-specific higher
     // base costs (1-5) come with A3 charm-keyword integration.
-    const baseResistCost = (claims.unnaturalInfluence && hit) ? 1 : 0;
-    const wpToResist = Math.min(5, baseResistCost + Math.floor(netSuccesses / 3));
+    const wpToResist = computeWpToResist(rollSuccesses, effectiveMDV, !!claims.unnaturalInfluence, hit);
 
     // 7. Build chat card content.
     const attributeLabel = game.i18n.localize(
@@ -860,6 +817,26 @@ export class ExaltedRoll {
     const abilityLabel = game.i18n.localize(
       `EX2E.Ability${ability.charAt(0).toUpperCase()}${ability.slice(1)}`
     );
+
+    // Recompute the best-supporting / best-opposing components for the
+    // chat card display. The aggregate stackingMod is produced by the
+    // helper, but the card breaks out each side individually.
+    const _supportingValues = [];
+    if (verified.supportingIntimacy)   _supportingValues.push(-1);
+    if (verified.supportingVirtue)     _supportingValues.push(-2);
+    if (verified.supportingMotivation) _supportingValues.push(-3);
+    const bestSupporting = _supportingValues.length
+      ? Math.min(..._supportingValues)
+      : 0;
+
+    const _opposingValues = [];
+    if (verified.opposingIntimacy)   _opposingValues.push(1);
+    if (verified.opposingVirtue)     _opposingValues.push(2);
+    if (verified.opposingMotivation) _opposingValues.push(3);
+    if (verified.immediateThreat)    _opposingValues.push(3);
+    const bestOpposing = _opposingValues.length
+      ? Math.max(..._opposingValues)
+      : 0;
 
     const ledger = {
       attackerId:       attacker.id,

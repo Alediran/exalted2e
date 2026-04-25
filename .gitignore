@@ -2,3 +2,6 @@ packs/
 docs/
 .claude/
 CLAUDE.md
+node_modules/
+coverage/
+.vitest-cache/
