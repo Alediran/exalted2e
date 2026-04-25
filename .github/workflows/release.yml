@@ -1,0 +1,135 @@
+# Builds a minified, ready-to-install release zip and publishes it as a
+# GitHub Release asset. Triggered by pushing a tag of the form `v*`
+# (e.g. `v1.0.0`) or by manual workflow dispatch.
+#
+# The git tag is the source of truth for the released version. On a tag
+# push of `vX.Y.Z`, the workflow strips the leading `v` and writes `X.Y.Z`
+# into the release artifacts' `system.json:version`, then injects the
+# `manifest` + `download` URLs that Foundry's auto-update flow consumes.
+# The repo's `system.json` is NEVER modified — only the build artifact.
+#
+# On manual dispatch (no tag), falls back to the version already in
+# `system.json` so you can dry-run a build without tagging.
+#
+# Usage: `git tag v1.0.0 && git push --tags`
+
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run test suite
+        run: npm test
+
+      - name: Determine release version
+        id: meta
+        # On a tag push (vX.Y.Z), strip the leading `v` and use that. On
+        # manual dispatch (no tag), fall back to the version in system.json
+        # so the workflow can dry-run a build without publishing.
+        run: |
+          if [ "$GITHUB_REF_TYPE" = "tag" ] && [[ "$GITHUB_REF_NAME" =~ ^v[0-9] ]]; then
+            VERSION="${GITHUB_REF_NAME#v}"
+            echo "Using tag-derived version: $VERSION"
+          else
+            VERSION=$(node -p "require('./system.json').version")
+            echo "Manual dispatch — falling back to system.json version: $VERSION"
+          fi
+          ZIP_NAME="exalted2e-$VERSION.zip"
+          echo "version=$VERSION"   >> "$GITHUB_OUTPUT"
+          echo "zip_name=$ZIP_NAME" >> "$GITHUB_OUTPUT"
+
+      - name: Inject version + release URLs into system.json
+        run: |
+          node -e '
+            const fs   = require("fs");
+            const sys  = JSON.parse(fs.readFileSync("system.json", "utf8"));
+            const repo = process.env.GITHUB_REPOSITORY;
+            const tag  = process.env.GITHUB_REF_NAME;
+            const zip  = process.env.ZIP_NAME;
+            sys.version  = process.env.VERSION;
+            sys.manifest = `https://github.com/${repo}/releases/latest/download/system.json`;
+            sys.download = `https://github.com/${repo}/releases/download/${tag}/${zip}`;
+            fs.writeFileSync("system.json", JSON.stringify(sys, null, 2) + "\n");
+          '
+        env:
+          VERSION:  ${{ steps.meta.outputs.version }}
+          ZIP_NAME: ${{ steps.meta.outputs.zip_name }}
+
+      - name: Install build-only tools
+        run: npm install --no-save terser clean-css-cli
+
+      - name: Minify JavaScript modules in place
+        # Terser preserves file paths and export names; only function-local
+        # identifiers are mangled. Property names are NOT mangled, so the
+        # codebase's dynamic `actor.system[key]` accesses remain safe.
+        run: |
+          set -euo pipefail
+          find module -name '*.mjs' -type f -print0 | while IFS= read -r -d '' f; do
+            npx --no-install terser "$f" --module --compress --mangle --output "$f"
+          done
+
+      - name: Minify CSS files in place
+        run: |
+          set -euo pipefail
+          find styles -name '*.css' -type f -print0 | while IFS= read -r -d '' f; do
+            npx --no-install cleancss --output "$f" "$f"
+          done
+
+      - name: Stage distribution folder
+        # Mirrors only the files Foundry actually loads. The system folder
+        # name inside the zip MUST match `system.json:id` (= "exalted2e")
+        # so users unzipping into Data/systems/ get the right path.
+        run: |
+          mkdir -p dist/exalted2e
+          rsync -a \
+            --exclude='/.git/' \
+            --exclude='/.github/' \
+            --exclude='/.claude/' \
+            --exclude='/.vscode/' \
+            --exclude='/node_modules/' \
+            --exclude='/dist/' \
+            --exclude='/tests/' \
+            --exclude='/docs/' \
+            --exclude='/CLAUDE.md' \
+            --exclude='/TODO.md' \
+            --exclude='/package.json' \
+            --exclude='/package-lock.json' \
+            --exclude='/vitest.config.mjs' \
+            --exclude='/.gitignore' \
+            ./ dist/exalted2e/
+
+      - name: Create zip archive
+        working-directory: dist
+        run: zip -r "${{ steps.meta.outputs.zip_name }}" exalted2e
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/${{ steps.meta.outputs.zip_name }}
+            system.json
+          name: Exalted 2e ${{ steps.meta.outputs.version }}
+          generate_release_notes: true
