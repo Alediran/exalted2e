@@ -88,9 +88,197 @@ export function checkNaturalCap(defender, attackerId, isUnnatural) {
  * `hit`, so the value was never displayed or spent. Behavior the
  * player observes is unchanged.
  */
-export function computeWpToResist(rollSuccesses, effectiveMDV, isUnnatural, hit) {
+export function computeWpToResist(rollSuccesses, effectiveMDV, isUnnatural, hit, umiCostSum = 0) {
   if (!hit) return 0;
   const netSuccesses   = Math.max(0, rollSuccesses - effectiveMDV);
-  const baseResistCost = isUnnatural ? 1 : 0;
+  const baseResistCost = isUnnatural ? (umiCostSum > 0 ? umiCostSum : 1) : 0;
   return Math.min(5, baseResistCost + Math.floor(netSuccesses / 3));
+}
+
+/**
+ * Excellency caps for an MDV resistance roll. The cap mirrors only the
+ * underlying MDV components an Excellency can actually augment — and which
+ * ones those are depend on the exalt's keying. Per RAW (Core p.193) an
+ * Excellency boost is capped by the (attribute) or (ability) it keys off
+ * of; Willpower and Essence are never Excellency-eligible. Terrestrials
+ * additionally fold the value of a single applicable specialty into their
+ * ability cap.
+ *
+ *   Dodge MDV (build, compel) = (Willpower + Integrity + Essence) / 2
+ *     Has Willpower + Integrity (ability) + Essence — NO attribute.
+ *     - Ability-keyed exalts (Solar/Abyssal/Sidereal/Infernal):
+ *       cap = integrity
+ *     - Terrestrial: cap = integrity + best Integrity specialty.
+ *     - Attribute-keyed exalts (Lunar/Alchemical):
+ *       cap = 0 — the formula has no attribute to excel.
+ *
+ *   Parry MDV (erode) = (max(Cha, Man) + social ability) / 2
+ *     - Ability-keyed: cap = max(Cha, Man) + presence (canonical default;
+ *       performance / investigation / bureaucracy are all RAW-legal but
+ *       presence is the fallback until the attack captures the chosen
+ *       social ability). Terrestrials add the best presence specialty.
+ *     - Attribute-keyed: cap = max(Cha, Man) — only the attribute portion
+ *       is theirs to excel; the ability isn't.
+ *
+ * Specialty handling currently picks the highest-value specialty on the
+ * relevant ability automatically. A future iteration will let the player
+ * pick which specialty applies during a social-combat resolution and
+ * refresh the cap accordingly.
+ *
+ * Returns `{ firstExcMax: 0, secondExcMax: 0 }` when defender has no system data.
+ *
+ * @param {"build"|"compel"|"erode"} intent
+ * @param {object} defender - Foundry actor-shaped object with `.system` and `.type`
+ * @returns {{firstExcMax: number, secondExcMax: number}}
+ */
+export function computeMdvExcellencyCaps(intent, defender) {
+  const sys = defender?.system;
+  if (!sys) return { firstExcMax: 0, secondExcMax: 0 };
+
+  const exaltType     = sys.exaltType ?? "";
+  const isAttrBased   = exaltType === "lunar" || exaltType === "alchemical";
+  const isTerrestrial = exaltType === "terrestrial";
+
+  // Best specialty value for an ability key — Terrestrials only fold this in.
+  // Future: replace auto-max with a per-attack selector populated from the
+  // ability's specialties array.
+  const bestSpecialty = (abilityKey) => {
+    const specs = sys.abilities?.[abilityKey]?.specialties ?? [];
+    return specs.reduce((m, s) => Math.max(m, s?.value ?? 0), 0);
+  };
+
+  let cap = 0;
+  if (intent === "erode") {
+    // Parry MDV path — has both attribute and ability components.
+    const cha = sys.attributes?.charisma?.value     ?? 0;
+    const man = sys.attributes?.manipulation?.value ?? 0;
+    const bestSocialAttr = Math.max(cha, man);
+    if (isAttrBased) {
+      cap = bestSocialAttr;                 // attribute-only — ability isn't theirs
+    } else if (isTerrestrial) {
+      // Terrestrial cap is ability-only + specialty (RAW). Attribute is NOT
+      // included even though the underlying Parry MDV uses it. See project
+      // memory `project_terrestrial_excellency_cap.md`.
+      const presence = sys.abilities?.presence?.value ?? 0;
+      cap = presence + bestSpecialty("presence");
+    } else {
+      const presence = sys.abilities?.presence?.value ?? 0;
+      cap = bestSocialAttr + presence;
+    }
+  } else {
+    // build, compel — Dodge MDV path. No attribute in the formula.
+    if (isAttrBased) {
+      cap = 0;                              // nothing to excel
+    } else {
+      const integrity = sys.abilities?.integrity?.value ?? 0;
+      cap = integrity;                      // ability only — Willpower/Essence not excellency-eligible
+      if (isTerrestrial) cap += bestSpecialty("integrity");
+    }
+  }
+
+  return { firstExcMax: cap, secondExcMax: cap };
+}
+
+/**
+ * Resolve a social-attack Step-2 phase: apply Excellency boosts to MDV,
+ * detect perfect-defense / motes-resist keywords, recompute hit and
+ * wpToResist.
+ *
+ * Inputs are flat primitives + an `activatedKeywords` Set so the function
+ * stays pure and testable. Callers (the orchestrator in exalted2e.mjs)
+ * gather charm activations elsewhere and pass the union of their keywords
+ * here.
+ *
+ * Returns `{ effectiveMDV, hit, wpToResist, perfectDefense, motesResistApplied }`.
+ *
+ *   - perfectDefense ⇒ hit forced false, wpToResist forced 0
+ *   - autoFailedByNaturalCap ⇒ hit forced false, wpToResist forced 0
+ *   - motesResistApplied (UMI hit + the resist keyword) ⇒ wpToResist forced 0,
+ *     hit unchanged. The 3a Limit-accrual block already gates on `wp > 0`,
+ *     so a 0-WP resist skips Limit accrual without further branching.
+ *
+ * @param {object} args
+ * @returns {{effectiveMDV: number, hit: boolean, wpToResist: number,
+ *            perfectDefense: boolean, motesResistApplied: boolean}}
+ */
+export function resolveStep2({
+  rollSuccesses,
+  baseMDV,
+  stackingMod,
+  mdvShiftFromApp,
+  isUnnatural,
+  autoFailedByNaturalCap,
+  firstExcDice = 0,
+  secondExcSucc = 0,
+  activatedKeywords = new Set(),
+  umiCostSum = 0          // 3c-1: per-charm UMI cost sum
+} = {}) {
+  const perfectDefense     = activatedKeywords.has("Perfect Mental Defense");
+  const motesResistApplied = !!isUnnatural && activatedKeywords.has("Resist Unnatural Mental Influence");
+
+  const effectiveMDV = Math.max(
+    0,
+    (baseMDV ?? 0) + (stackingMod ?? 0) + (mdvShiftFromApp ?? 0) + firstExcDice + secondExcSucc
+  );
+
+  const hit = !perfectDefense
+           && !autoFailedByNaturalCap
+           && (rollSuccesses ?? 0) > effectiveMDV;
+
+  let wpToResist = 0;
+  if (hit && !perfectDefense && !motesResistApplied) {
+    wpToResist = computeWpToResist(rollSuccesses ?? 0, effectiveMDV, !!isUnnatural, hit, umiCostSum);
+  }
+
+  return { effectiveMDV, hit, wpToResist, perfectDefense, motesResistApplied };
+}
+
+/**
+ * Aggregate keyword and UMI-cost data from a list of attacker charms picked
+ * in the SocialAttackDialog. Treats undefined input as empty.
+ *
+ * - `keywords` is the deduped list of all keywords across the charms.
+ * - `umiCostSum` is the sum of `umiCost` across charms whose keywords array
+ *   contains "Unnatural Mental Influence". Charms without UMI contribute 0.
+ * - `charmIds` preserves input order (callers use this for ledger
+ *   traceability + Reverse).
+ * - `sourceByKeyword[keyword]` is the id of the FIRST charm in input order
+ *   that carries that keyword (used to attribute the marker AE to a single
+ *   source charm name).
+ *
+ * @param {Array<object>} charms - Foundry item-shaped objects with .id, .name,
+ *                                  .system.keywords[], .system.umiCost
+ * @returns {{
+ *   keywords:        string[],
+ *   umiCostSum:      number,
+ *   charmIds:        string[],
+ *   sourceByKeyword: Record<string,string>
+ * }}
+ */
+export function aggregateAttackerCharms(charms) {
+  const list = Array.isArray(charms) ? charms : [];
+  const keywords        = [];
+  const seenKeyword     = new Set();
+  const sourceByKeyword = {};
+  const charmIds        = [];
+  let   umiCostSum      = 0;
+
+  for (const c of list) {
+    if (!c || !c.id) continue;
+    charmIds.push(c.id);
+    const ks = c.system?.keywords ?? [];
+    for (const k of ks) {
+      if (!k) continue;
+      if (!seenKeyword.has(k)) {
+        seenKeyword.add(k);
+        keywords.push(k);
+        sourceByKeyword[k] = c.id;
+      }
+    }
+    if (ks.includes("Unnatural Mental Influence")) {
+      umiCostSum += Number(c.system?.umiCost) || 0;
+    }
+  }
+
+  return { keywords, umiCostSum, charmIds, sourceByKeyword };
 }

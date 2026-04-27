@@ -72,7 +72,7 @@
     </div>
 
     <div class="claim-row">
-      <label><input type="checkbox" name="unnaturalInfluence" {{#if claims.unnaturalInfluence}}checked{{/if}}> {{localize "EX2E.UnnaturalInfluence"}}</label>
+      <label><input type="checkbox" name="unnaturalInfluence" {{#if claims.unnaturalInfluence}}checked{{/if}}> {{localize "EX2E.UnnaturalInfluence"}} <span class="umi-charm-driven-hint" style="display:none">{{localize "EX2E.UMIChargeChipDriven"}}</span></label>
     </div>
   </section>
 
@@ -85,6 +85,53 @@
       <option value="{{key}}" {{#if (eq ../stuntDice key)}}selected{{/if}}>{{label}}</option>
       {{/each}}
     </select>
+  </section>
+
+  {{!-- 3c-1: Charm picker --}}
+  <section class="dialog-section social-charm-picker">
+    <label class="section-label">{{localize "EX2E.SocialAttackCharmsLabel"}}</label>
+    {{#if hasPickerCharms}}
+      <ul>
+      {{#each pickerCharms}}
+        <li>
+          <label>
+            <input type="checkbox" name="charm-{{this.id}}" data-umi="{{this.isUmi}}" />
+            <strong>{{this.name}}</strong>
+            <span class="charm-cost">{{this.costLabel}}</span>
+            {{#if this.tagLabel}}<span class="charm-tags">[{{this.tagLabel}}]</span>{{/if}}
+          </label>
+        </li>
+      {{/each}}
+      </ul>
+    {{else}}
+      <p class="empty-state">{{localize "EX2E.SocialAttackCharmsEmpty"}}</p>
+    {{/if}}
+  </section>
+
+  {{!-- 3c-1: Excellency block --}}
+  <section class="dialog-section social-excellency">
+    <label class="section-label">{{localize "EX2E.Excellencies"}}</label>
+    <div class="line">
+      <label>{{localize "EX2E.MoteType"}}</label>
+      <select name="moteType">
+        <option value="personal"   {{#if (eq moteType "personal")}}selected{{/if}}>{{lookup moteTypeChoices "personal"}}</option>
+        <option value="peripheral" {{#if (eq moteType "peripheral")}}selected{{/if}}>{{lookup moteTypeChoices "peripheral"}}</option>
+      </select>
+    </div>
+    <div class="line">
+      <label>{{localize "EX2E.FirstExcellency"}}</label>
+      <input type="number" name="firstExcDice" value="{{firstExcDice}}" min="0" max="{{firstExcMax}}" step="1" />
+      <span class="hint">/ <span class="exc-first-max">{{firstExcMax}}</span></span>
+    </div>
+    <div class="line">
+      <label>{{localize "EX2E.SecondExcellency"}}</label>
+      <input type="number" name="secondExcSucc" value="{{secondExcSucc}}" min="0" max="{{secondExcMax}}" step="1" />
+      <span class="hint">/ <span class="exc-second-max">{{secondExcMax}}</span></span>
+    </div>
+    <div class="line">
+      <label>{{localize "EX2E.TotalMoteCost"}}</label>
+      <span class="exc-total-cost">0</span>m
+    </div>
   </section>
 
   <footer class="dialog-footer">

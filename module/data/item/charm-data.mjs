@@ -33,6 +33,11 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       duration:   new fields.StringField({ initial: "instant",      blank: false }),
       keywords:   new fields.ArrayField(new fields.StringField({ blank: true })),
 
+      // Per-charm Unnatural Mental Influence base cost (RAW: 1–5 WP). Only
+      // meaningful when keywords includes "Unnatural Mental Influence".
+      // Aggregated across activated UMI charms in rollSocialAttack.
+      umiCost: new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
+
       // ── Type-specific Options ────────────────────────────────────────────
       // Speed applies to Simple charms (default 6, some may be lower).
       speed:      new fields.NumberField({ initial: 6, min: 3, max: 6, integer: true }),

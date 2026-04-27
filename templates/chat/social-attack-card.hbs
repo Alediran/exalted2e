@@ -8,6 +8,17 @@
   </header>
 
   <div class="chat-card-body">
+    {{#if hasAttackerCharms}}
+    <div class="attacker-charms-row">
+      <strong>{{localize "EX2E.AttackerCharmsActivated"}}:</strong>
+      {{#each attackerCharmNames}}<span class="charm-pill">{{this}}</span>{{/each}}
+    </div>
+    {{/if}}
+
+    {{#if hasAttackerExcellency}}
+    <div class="attacker-excellency-row">{{attackerExcellencyLabel}}</div>
+    {{/if}}
+
     <div class="line"><strong>{{localize "EX2E.Intent"}}:</strong> {{intentLabel}}</div>
     {{#if subject}}
     <div class="line"><strong>{{localize "EX2E.Subject"}}:</strong> {{subject}}</div>
@@ -19,14 +30,38 @@
       {{localize "EX2E.ClaimSupporting"}} {{bestSupporting}}, {{localize "EX2E.ClaimOpposing"}} {{bestOpposing}}, {{localize "EX2E.AppearanceDelta"}} {{mdvShiftFromApp}}
     </div>
 
-    <div class="line"><strong>{{localize "EX2E.EffectiveMDV"}}:</strong> {{baseMDV}} → {{effectiveMDV}}</div>
+    {{#if step2Resolved}}
+    <div class="line"><strong>{{localize "EX2E.EffectiveMDV"}}:</strong> {{baseMDV}} → {{effectiveMDV}}{{#if step2Result.firstExcDice}} (+{{step2Result.firstExcDice}} {{localize "EX2E.FirstExcellency"}}){{/if}}{{#if step2Result.secondExcSucc}} (+{{step2Result.secondExcSucc}} {{localize "EX2E.SecondExcellency"}}){{/if}}</div>
 
     <div class="line">
       <strong>{{localize "EX2E.NetSuccesses"}}:</strong> {{netSuccesses}}
       &middot;
       <strong>{{#if hit}}{{localize "EX2E.ResultHit"}}{{else}}{{localize "EX2E.ResultMiss"}}{{/if}}</strong>
-      {{#if hit}}&middot; <strong>{{localize "EX2E.WPToResist"}}:</strong> {{wpToResist}}{{/if}}
+      {{#if hit}}{{#unless motesResistApplied}}{{#unless perfectDefense}}&middot; <strong>{{localize "EX2E.WPToResist"}}:</strong> {{wpToResist}}{{/unless}}{{/unless}}{{/if}}
     </div>
+
+    {{#if perfectDefense}}
+    <div class="line social-resolved-perfect" style="color: var(--ex2e-text-strong); font-weight: 600;">
+      {{localize "EX2E.SocialResolvedPerfectDefended"}}
+    </div>
+    {{/if}}
+
+    {{#if motesResistApplied}}
+    <div class="line social-resolved-motes" style="color: var(--ex2e-text-strong); font-weight: 600;">
+      {{localize "EX2E.SocialResolvedResistedViaMotes"}}
+    </div>
+    {{/if}}
+    {{else}}
+    <div class="line"><strong>{{localize "EX2E.EffectiveMDV"}}:</strong> {{baseMDV}} → {{preStep2EffectiveMDV}} <em>({{localize "EX2E.SocialAttackStep2Pending"}})</em></div>
+
+    {{#if canDefend}}
+    <div class="social-step2-controls">
+      <button type="button" class="btn-social-step2">
+        <i class="fa-solid fa-shield"></i> {{localize "EX2E.SocialDefendStep2Button"}}
+      </button>
+    </div>
+    {{/if}}
+    {{/if}}
 
     {{#if autoFailedByNaturalCap}}
     <div class="line auto-fail-natural-cap" style="color: var(--ex2e-text-muted); font-style: italic;">
@@ -34,6 +69,7 @@
     </div>
     {{/if}}
 
+    {{#if step2Resolved}}
     {{#if hit}}
     {{#unless resolution}}
     {{#if canRespond}}
@@ -73,6 +109,12 @@
       {{#if (eq resolution.outcome "accepted-eroded")}}
       <strong>{{localize "EX2E.ResolutionEroded" name=resolution.erodedIntimacyName before=resolution.erodedIntimacyStrengthBefore after=resolution.erodedIntimacyStrengthAfter}}</strong>
       {{/if}}
+      {{#if (eq resolution.outcome "perfect-defended")}}
+      <strong>{{localize "EX2E.SocialResolvedPerfectDefended"}}</strong>
+      {{/if}}
+      {{#if (eq resolution.outcome "resisted-via-motes")}}
+      <strong>{{localize "EX2E.SocialResolvedResistedViaMotes"}}</strong>
+      {{/if}}
     </div>
 
     {{#if canReverse}}
@@ -85,6 +127,7 @@
 
     {{#if reversed}}
     <div class="social-resolution reversed"><em>{{localize "EX2E.SocialAttackReversed"}}</em></div>
+    {{/if}}
     {{/if}}
     {{/if}}
     {{/if}}

@@ -38,6 +38,12 @@ import { TickWheel }                      from "./ui/tick-wheel.mjs";
 import { JoinBattlePanel }                from "./ui/join-battle-panel.mjs";
 import { countSuccesses } from "./rolls/dice-math.mjs";
 import { planLedgerRefund } from "./rolls/activation-ledger.mjs";
+import { Step2SocialDefenseDialog } from "./dialogs/step2-social-defense-dialog.mjs";
+import { resolveStep2, computeMdvExcellencyCaps } from "./rolls/social-attack-math.mjs";
+import {
+  applySocialInfluenceEffects,
+  clearSocialInfluenceEffects
+} from "./ui/social-influence-effects.mjs";
 
 // ── Init Hook ──────────────────────────────────────────────────────────────
 Hooks.once("init", function () {
@@ -1437,6 +1443,11 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     }
   });
 
+  // ── Social attack: defender Step-2 ────────────────────────────────────
+  el.querySelector?.(".btn-social-step2")?.addEventListener("click", async (ev) => {
+    await _resolveSocialAttackStep2(message);
+  });
+
   // ── Social attack: Spend WP to resist ─────────────────────────────────
   el.querySelector?.(".btn-social-resist")?.addEventListener("click", async (ev) => {
     const record = message.flags?.exalted2e?.socialAttack;
@@ -1524,6 +1535,11 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     if (record.intent === "erode") {
       const hasIntimacies = defender.items.some(i => i.type === "intimacy");
       if (!hasIntimacies) {
+        const appliedInfluenceEffectIds = await applySocialInfluenceEffects(defender, {
+          attackerId:      record.attackerId,
+          sourceByKeyword: record.attackerSourceByKeyword ?? {},
+          keywords:        record.attackerCharmKeywords  ?? []
+        });
         await message.update({
           "flags.exalted2e.socialAttack.resolution": {
             outcome:                       "accepted-narration",
@@ -1532,12 +1548,18 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
             erodedIntimacyStrengthBefore:  null,
             erodedIntimacyStrengthAfter:   null,
             erodedIntimacyName:            null
-          }
+          },
+          "flags.exalted2e.socialAttack.appliedInfluenceEffectIds": appliedInfluenceEffectIds
         });
       } else {
         await message.update({ "flags.exalted2e.socialAttack.pendingErodePick": true });
       }
     } else {
+      const appliedInfluenceEffectIds = await applySocialInfluenceEffects(defender, {
+        attackerId:      record.attackerId,
+        sourceByKeyword: record.attackerSourceByKeyword ?? {},
+        keywords:        record.attackerCharmKeywords  ?? []
+      });
       await message.update({
         "flags.exalted2e.socialAttack.resolution": {
           outcome:                       "accepted-narration",
@@ -1546,7 +1568,8 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
           erodedIntimacyStrengthBefore:  null,
           erodedIntimacyStrengthAfter:   null,
           erodedIntimacyName:            null
-        }
+        },
+        "flags.exalted2e.socialAttack.appliedInfluenceEffectIds": appliedInfluenceEffectIds
       });
     }
     await _rerenderSocialAttackCard(message);
@@ -1573,6 +1596,11 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     const after = Math.max(0, before - 1);
     await intimacy.update({ "system.strength": after });
 
+    const appliedInfluenceEffectIds = await applySocialInfluenceEffects(defender, {
+      attackerId:      record.attackerId,
+      sourceByKeyword: record.attackerSourceByKeyword ?? {},
+      keywords:        record.attackerCharmKeywords  ?? []
+    });
     await message.update({
       "flags.exalted2e.socialAttack.resolution": {
         outcome:                       "accepted-eroded",
@@ -1581,7 +1609,8 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
         erodedIntimacyStrengthBefore:  before,
         erodedIntimacyStrengthAfter:   after,
         erodedIntimacyName:            intimacy.name
-      }
+      },
+      "flags.exalted2e.socialAttack.appliedInfluenceEffectIds": appliedInfluenceEffectIds
     });
     await message.update({ "flags.exalted2e.socialAttack.pendingErodePick": false });
     await _rerenderSocialAttackCard(message);
@@ -1606,6 +1635,9 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
 
     const defender = game.actors.get(record.defenderId);
 
+    // Refund defender WP (existing 3a behavior — only meaningful for the
+    // "resisted" outcome; perfect-defended and resisted-via-motes both
+    // store wpSpentByDefender = 0).
     if (defender && resolution.wpSpentByDefender > 0) {
       const current = defender.system?.willpower?.value ?? 0;
       const max = defender.system?.willpower?.max ?? 10;
@@ -1613,6 +1645,7 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       await defender.update({ "system.willpower.value": restored });
     }
 
+    // Refund eroded intimacy strength (existing 3a).
     if (defender && resolution.erodedIntimacyId && resolution.erodedIntimacyStrengthBefore !== null) {
       const intimacy = defender.items.get(resolution.erodedIntimacyId);
       if (intimacy) {
@@ -1620,7 +1653,51 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       }
     }
 
-    await message.update({ "flags.exalted2e.socialAttack.reversed": true });
+    // 3b addition: refund defender Excellency motes back to the same pools.
+    const mb = record.defenderMoteSpend;
+    if (defender && mb && (mb.fromPrimary > 0 || mb.fromSecondary > 0)) {
+      const primary   = defender.system.motes?.[mb.primaryPool]   ?? { value: 0, max: 0 };
+      const secondary = defender.system.motes?.[mb.secondaryPool] ?? { value: 0, max: 0 };
+      await defender.update({
+        [`system.motes.${mb.primaryPool}.value`]:
+          Math.min(primary.max ?? 0, (primary.value ?? 0) + (Number(mb.fromPrimary) || 0)),
+        [`system.motes.${mb.secondaryPool}.value`]:
+          Math.min(secondary.max ?? 0, (secondary.value ?? 0) + (Number(mb.fromSecondary) || 0))
+      });
+    }
+
+    // 3c-1: refund attacker Excellency motes (per-pool, capped at max).
+    if (record.attackerExcMoteCost > 0) {
+      const pool    = record.attackerMoteType === "personal" ? "personal" : "peripheral";
+      const current = attacker.system?.motes?.[pool]?.value ?? 0;
+      const max     = attacker.system?.motes?.[pool]?.max   ?? current;
+      const capped  = Math.min(max, current + record.attackerExcMoteCost);
+      await attacker.update({ [`system.motes.${pool}.value`]: capped });
+    }
+
+    // 3c-1: clear marker AEs stamped on Accept.
+    if (defender && Array.isArray(record.appliedInfluenceEffectIds) && record.appliedInfluenceEffectIds.length > 0) {
+      await clearSocialInfluenceEffects(defender, record.appliedInfluenceEffectIds);
+    }
+
+    // Mark reversed AND reset Step-2 / resolution so the card returns to
+    // step2-pending (the user can re-resolve). Per-charm activations
+    // posted during Step-2 have their own Reverse buttons — NOT auto-
+    // reversed here, mirroring physical Step-2 behavior.
+    await message.update({
+      "flags.exalted2e.socialAttack.reversed":                  true,
+      "flags.exalted2e.socialAttack.step2Resolved":             false,
+      "flags.exalted2e.socialAttack.step2Result":               null,
+      "flags.exalted2e.socialAttack.defenderCharmIds":          [],
+      "flags.exalted2e.socialAttack.defenderMoteSpend":         null,
+      "flags.exalted2e.socialAttack.effectiveMDV":              null,
+      "flags.exalted2e.socialAttack.hit":                       null,
+      "flags.exalted2e.socialAttack.wpToResist":                null,
+      "flags.exalted2e.socialAttack.perfectDefense":            false,
+      "flags.exalted2e.socialAttack.motesResistApplied":        false,
+      "flags.exalted2e.socialAttack.resolution":                null,
+      "flags.exalted2e.socialAttack.appliedInfluenceEffectIds": []
+    });
     await _rerenderSocialAttackCard(message);
   });
 });
@@ -1634,6 +1711,158 @@ Hooks.on("deleteCombat", async () => {
   const { clearSocialScene } = await import("./ui/social-scene.mjs");
   await clearSocialScene({ silent: true });
 });
+
+// ── Social attack: defender Step-2 orchestrator ──────────────────────────
+/**
+ * Open the Step-2 social-defense dialog, apply the defender's choices
+ * (charm activations, Excellency mote spend, perfect-defense / motes-resist
+ * keyword detection), and update the chat-card flags with the resolved
+ * hit/wpToResist outcome. Triggers a card rerender at the end.
+ */
+async function _resolveSocialAttackStep2(message) {
+  const record = message.flags?.exalted2e?.socialAttack;
+  // Re-defend after Reverse is allowed: Task 8 resets `step2Resolved` to
+  // false but leaves `reversed: true` as a visual indicator. The atomic
+  // update below clears `reversed` when the new outcome stamps over the
+  // prior one. Bail only on missing record or already-resolved Step-2.
+  if (!record || record.step2Resolved) return;
+
+  const defender = game.actors.get(record.defenderId);
+  if (!defender) return;
+  if (!game.user.isGM && !defender.testUserPermission(game.user, "OWNER")) {
+    ui.notifications.warn(game.i18n.localize("EX2E.NotOwnerSocial"));
+    return;
+  }
+
+  // Collect candidate charms: defender's Reflexive Step-2 charms whose
+  // ability is one of the social-defense kit OR carry a Step-2 social
+  // keyword. Heuristic — refines in 3c when keywords drive attacker
+  // tagging.
+  const SOCIAL_DEFENSE_ABILITIES = new Set([
+    "integrity", "presence", "performance", "investigation", "bureaucracy"
+  ]);
+  const STEP2_KEYWORDS = new Set([
+    "Perfect Mental Defense", "Resist Unnatural Mental Influence"
+  ]);
+  const candidates = defender.items.filter(i => {
+    if (i.type !== "charm") return false;
+    if (i.system?.charmType !== "reflexive") return false;
+    if (!(i.system?.steps ?? []).includes(2)) return false;
+    const ability = i.system?.ability ?? "";
+    if (SOCIAL_DEFENSE_ABILITIES.has(ability)) return true;
+    const kws = i.system?.keywords ?? [];
+    return kws.some(k => STEP2_KEYWORDS.has(k));
+  });
+
+  // Excellency wiring: same pattern as the attacker AttackDialog.
+  const exaltType   = defender.system?.exaltType ?? "";
+  const isAttrBased = exaltType === "lunar" || exaltType === "alchemical";
+  const allCharms   = defender.items.filter(i => i.type === "charm");
+  const excKey      = isAttrBased
+    ? (record.intent === "erode" ? "manipulation" : "stamina")
+    : (record.intent === "erode" ? "presence"     : "integrity");
+  const firstExc    = allCharms.find(c => c.system.excellency === "first"  && c.system.ability === excKey);
+  const secondExc   = allCharms.find(c => c.system.excellency === "second" && c.system.ability === excKey);
+
+  const { firstExcMax, secondExcMax } = computeMdvExcellencyCaps(record.intent, defender);
+
+  const dialogResult = await Step2SocialDefenseDialog.prompt({
+    charms:            candidates,
+    intent:            record.intent,
+    defenderMDV:       record.preStep2EffectiveMDV ?? 0,
+    attackerSuccesses: record.rollSuccesses ?? 0,
+    targetName:        defender.name,
+    excellency:        { first: !!firstExc, second: !!secondExc },
+    firstExcMax,
+    secondExcMax,
+    firstExcLabel:     firstExc?.name  ?? game.i18n.localize("EX2E.FirstExcellency"),
+    secondExcLabel:    secondExc?.name ?? game.i18n.localize("EX2E.SecondExcellency")
+  });
+  if (!dialogResult) return;       // cancelled — card stays in step2-pending
+
+  // Activate each selected charm via the standard activation pipeline —
+  // each charm posts its own card with its own Reverse button.
+  const activatedKeywords = new Set();
+  const activatedCharmIds = [];
+  for (const charmId of dialogResult.charmIds) {
+    const charm = defender.items.get(charmId);
+    if (!charm) continue;
+    await charm.activateCharm({ skipXpConfirm: true, via: "step2-social" });
+    activatedCharmIds.push(charmId);
+    for (const kw of (charm.system?.keywords ?? [])) {
+      activatedKeywords.add(kw);
+    }
+  }
+
+  // Spend defender Excellency motes. firstExcDice = 1m each, secondExcSucc
+  // = 2m each. Use defender.spendMotes for the per-pool breakdown so the
+  // Reverse handler can refund accurately.
+  const totalMoteCost = (dialogResult.firstExcDice ?? 0) + (dialogResult.secondExcSucc ?? 0) * 2;
+  let defenderMoteSpend = null;
+  if (totalMoteCost > 0) {
+    defenderMoteSpend = await defender.spendMotes(totalMoteCost, dialogResult.moteType);
+    // spendMotes emits EX2E.NotEnoughMotes itself on failure; just bail.
+    if (!defenderMoteSpend) return;
+  }
+
+  // Resolve the Step-2 outcome.
+  const resolved = resolveStep2({
+    rollSuccesses:           record.rollSuccesses,
+    baseMDV:                 record.baseMDV,
+    stackingMod:             record.stackingMod,
+    mdvShiftFromApp:         record.mdvShiftFromApp,
+    isUnnatural:             record.unnaturalInfluence,
+    autoFailedByNaturalCap:  record.autoFailedByNaturalCap,
+    firstExcDice:            dialogResult.firstExcDice  ?? 0,
+    secondExcSucc:           dialogResult.secondExcSucc ?? 0,
+    activatedKeywords,
+    umiCostSum:              record.umiCostSum ?? 0
+  });
+
+  // Auto-stamp resolution for perfect-defense and motes-resist outcomes.
+  let resolution = null;
+  if (resolved.perfectDefense) {
+    resolution = {
+      outcome:                       "perfect-defended",
+      wpSpentByDefender:             0,
+      erodedIntimacyId:              null,
+      erodedIntimacyStrengthBefore:  null,
+      erodedIntimacyStrengthAfter:   null,
+      erodedIntimacyName:            null
+    };
+  } else if (resolved.motesResistApplied && resolved.hit) {
+    resolution = {
+      outcome:                       "resisted-via-motes",
+      wpSpentByDefender:             0,
+      erodedIntimacyId:              null,
+      erodedIntimacyStrengthBefore:  null,
+      erodedIntimacyStrengthAfter:   null,
+      erodedIntimacyName:            null
+    };
+  }
+
+  // Update the chat-card flags in one atomic write. `reversed: false`
+  // is included so re-defending after a Reverse correctly clears the
+  // "reversed" indicator from the prior outcome (Task 8 sets reversed
+  // to true on Reverse — this resets it to a fresh state).
+  const updates = {
+    "flags.exalted2e.socialAttack.reversed":           false,
+    "flags.exalted2e.socialAttack.step2Resolved":      true,
+    "flags.exalted2e.socialAttack.step2Result":        dialogResult,
+    "flags.exalted2e.socialAttack.defenderCharmIds":   activatedCharmIds,
+    "flags.exalted2e.socialAttack.defenderMoteSpend":  defenderMoteSpend,
+    "flags.exalted2e.socialAttack.effectiveMDV":       resolved.effectiveMDV,
+    "flags.exalted2e.socialAttack.hit":                resolved.hit,
+    "flags.exalted2e.socialAttack.wpToResist":         resolved.wpToResist,
+    "flags.exalted2e.socialAttack.perfectDefense":     resolved.perfectDefense,
+    "flags.exalted2e.socialAttack.motesResistApplied": resolved.motesResistApplied
+  };
+  if (resolution) {
+    updates["flags.exalted2e.socialAttack.resolution"] = resolution;
+  }
+  await message.update(updates);
+  await _rerenderSocialAttackCard(message);
+}
 
 // ── Social attack re-render helper ─────────────────────────────────────────
 /**
@@ -1674,11 +1903,25 @@ async function _rerenderSocialAttackCard(message) {
     attackerImg:      attacker?.img  ?? "",
     defenderName:     defender?.name ?? "",
     defenderImg:      defender?.img  ?? "",
+    canDefend:        !record.step2Resolved && (game.user.isGM || (defender && defender.testUserPermission(game.user, "OWNER"))),
     canRespond:       game.user.isGM || (defender && defender.testUserPermission(game.user, "OWNER")),
     canAffordResist:  (defender?.system?.willpower?.value ?? 0) >= (record.wpToResist ?? 0),
     canReverse:       game.user.isGM || (attacker && attacker.testUserPermission(game.user, "OWNER")),
     defenderIntimacies: intimacies,
-    showErodePicker:  record.intent === "erode" && pendingErodePick && !record.resolution
+    showErodePicker:  record.intent === "erode" && pendingErodePick && !record.resolution,
+    // 3c-1: derived display fields for attacker activated charms + Excellency
+    attackerCharmNames: (record.attackerCharmIds ?? [])
+      .map(id => attacker?.items?.get(id)?.name)
+      .filter(n => !!n),
+    hasAttackerCharms: (record.attackerCharmIds ?? []).length > 0,
+    hasAttackerExcellency: (record.attackerExcMoteCost ?? 0) > 0,
+    attackerExcellencyLabel: ((record.attackerExcMoteCost ?? 0) > 0)
+      ? game.i18n.format("EX2E.AttackerExcellencyApplied", {
+          dice: record.attackerFirstExcDice  ?? 0,
+          succ: record.attackerSecondExcSucc ?? 0,
+          cost: record.attackerExcMoteCost   ?? 0
+        })
+      : ""
   };
 
   const content = await foundry.applications.handlebars.renderTemplate(

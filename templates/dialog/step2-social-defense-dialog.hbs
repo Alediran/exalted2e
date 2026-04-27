@@ -1,0 +1,79 @@
+<form class="ex2e-roll-dialog step2-social-defense-dialog" autocomplete="off">
+  <div class="dialog-content">
+
+    <div class="field-group defense-header">
+      <label>{{localize "EX2E.EffectiveMDV"}}</label>
+      <span class="defense-dv">{{defenderMDV}}{{#if targetName}} <span class="defense-target">({{targetName}})</span>{{/if}}</span>
+    </div>
+
+    <div class="field-group">
+      <label>{{localize "EX2E.AttackerSuccesses"}}</label>
+      <span>{{attackerSuccesses}} ({{localize intentLabelKey}})</span>
+    </div>
+
+    <p class="defense-instruction">{{localize "EX2E.Step2SocialCharmsPrompt"}}</p>
+
+    {{#if charms.length}}
+    <ul class="step2-charm-list">
+      {{#each charms as |c|}}
+      <li class="step2-charm-row">
+        <label class="step2-charm-label">
+          <input type="checkbox" name="charm-{{c.id}}">
+          <span class="charm-name">{{c.name}}</span>
+          {{#if c.costLabel}}<span class="charm-cost">{{c.costLabel}}</span>{{/if}}
+        </label>
+      </li>
+      {{/each}}
+    </ul>
+    {{else}}
+      {{#unless hasExcellency}}
+      <p class="no-charms">{{localize "EX2E.NoStep2SocialCharms"}}</p>
+      {{/unless}}
+    {{/if}}
+
+    {{#if excellency.first}}
+    <div class="field-group excellency-section exc-first-section">
+      <label>{{firstExcLabel}} <span class="exc-cost-tag">1m/{{localize "EX2E.Die"}}</span></label>
+      <div class="exc-input-row">
+        <input type="number" name="firstExcDice" value="0" min="0" max="{{firstExcMax}}" class="exc-input">
+        <span class="exc-limit">/ <span class="exc-first-max">{{firstExcMax}}</span></span>
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if excellency.second}}
+    <div class="field-group excellency-section exc-second-section">
+      <label>{{secondExcLabel}} <span class="exc-cost-tag">2m/{{localize "EX2E.Success"}}</span></label>
+      <div class="exc-input-row">
+        <input type="number" name="secondExcSucc" value="0" min="0" max="{{secondExcMax}}" class="exc-input">
+        <span class="exc-limit">/ <span class="exc-second-max">{{secondExcMax}}</span></span>
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if hasExcellency}}
+    <div class="field-group">
+      <label>{{localize "EX2E.MoteType"}}</label>
+      <select name="moteType">
+        {{#each moteTypeChoices as |label key|}}
+        <option value="{{@key}}">{{this}}</option>
+        {{/each}}
+      </select>
+    </div>
+
+    <div class="field-group exc-total-row">
+      <span class="exc-total-label">{{localize "EX2E.TotalMoteCost"}}</span>
+      <span class="exc-total-cost">0</span>m
+    </div>
+    {{/if}}
+
+  </div>
+  <footer class="form-footer">
+    <button type="button" class="btn-roll" data-action="cancel">
+      <i class="fa-solid fa-xmark"></i> {{localize "EX2E.Cancel"}}
+    </button>
+    <button type="button" class="btn-roll" data-action="confirm">
+      <i class="fa-solid fa-shield"></i> {{localize "EX2E.ConfirmSocialDefense"}}
+    </button>
+  </footer>
+</form>

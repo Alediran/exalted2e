@@ -4,7 +4,8 @@ import {
   computeMdvShiftFromApp,
   computeBaseMDV,
   checkNaturalCap,
-  computeWpToResist
+  computeWpToResist,
+  aggregateAttackerCharms       // 3c-1
 } from "./social-attack-math.mjs";
 import { countSuccesses } from "./dice-math.mjs";
 import {
@@ -13,6 +14,7 @@ import {
   computeHolyUpgrade,
   computeAttackOutcome
 } from "./attack-math.mjs";
+import { computeAttackExcellencyCaps } from "./excellency-math.mjs";
 
 /**
  * ExaltedRoll – Handles the Exalted 2e d10 dice pool mechanic.
@@ -481,21 +483,10 @@ export class ExaltedRoll {
       c.system.excellency === "third" && c.system.ability === excKey
     );
 
-    let keyVal = 0;
-    switch (exaltType) {
-      case "lunar": 
-      case "alchemical":
-        keyVal = attrVal; 
-        break;
-      case "solar": 
-      case "abyssal": 
-      case "infernal": 
-      default:
-        keyVal = attrVal + abilVal; 
-        break;
-    }
-    const firstExcMax  = keyVal;
-    const secondExcMax = Math.ceil(keyVal / 2);
+    // Physical attacks always key on Dexterity (see attribute lookup
+    // higher in this function). The helper is parameterised on attribute
+    // for the social-attack pipeline, which uses Cha/Man/App.
+    const { firstExcMax, secondExcMax } = computeAttackExcellencyCaps(actor, "dexterity", ability);
 
     // Capture a snapshot of the targeted token's defensive stats (both DVs
     // and the soak matching the weapon's damage type). This snapshot travels
@@ -757,7 +748,12 @@ export class ExaltedRoll {
     intent,
     subject = "",
     claims = {},
-    stuntDice = 0
+    stuntDice = 0,
+    // 3c-1
+    charmIds = [],
+    firstExcDice = 0,
+    secondExcSucc = 0,
+    moteType = "peripheral"
   } = {}) {
     if (!attacker || !defender) {
       ui.notifications.warn(game.i18n.localize("EX2E.NoTargetSelected"));
@@ -774,15 +770,52 @@ export class ExaltedRoll {
     //    NPC actors currently have no Appearance — treat as 0.
     const mdvShiftFromApp = computeMdvShiftFromApp(attacker, defender);
 
-    // 4. Base and effective MDV. Erode uses Parry MDV (active retort);
-    //    Build and Compel use Dodge MDV (disengagement).
+    // 4. Base MDV. preStep2EffectiveMDV is the MDV before defender
+    //    Step-2 charms / Excellencies bump it. The orchestrator
+    //    recomputes the post-Step-2 effectiveMDV via resolveStep2().
     const baseMDV = computeBaseMDV(intent, defender);
-    const effectiveMDV = Math.max(0, baseMDV + stackingMod + mdvShiftFromApp);
+    const preStep2EffectiveMDV = Math.max(0, baseMDV + stackingMod + mdvShiftFromApp);
+
+    // 3c-1: Activate picked charms inline. Each charm's activateCharm posts
+    // its own chat card. Failures (insufficient resources, user cancels XP
+    // confirm) are dropped; their keywords don't propagate.
+    const pickedCharms = (charmIds ?? [])
+      .map(id => attacker.items.get(id))
+      .filter(c => c && c.type === "charm");
+    const actuallyActivated = [];
+    for (const charm of pickedCharms) {
+      try {
+        const result = await charm.activateCharm({ skipXpConfirm: false, via: "social-attack" });
+        if (result !== null && result !== false) actuallyActivated.push(charm);
+      } catch (err) {
+        console.error(`Charm activation failed: ${charm.name}`, err);
+      }
+    }
+
+    // 3c-1: Spend Excellency motes. Aborts the whole attack if the attacker
+    // can't afford it; spendMotes emits its own toast.
+    const excMoteCost = (firstExcDice ?? 0) + (secondExcSucc ?? 0) * 2;
+    if (excMoteCost > 0) {
+      const spent = await attacker.spendMotes(excMoteCost, moteType);
+      if (!spent) return null;
+    }
+
+    // 3c-1: Aggregate attacker-charm keywords and UMI cost.
+    const {
+      keywords:        attackerCharmKeywords,
+      umiCostSum,
+      charmIds:        attackerCharmIds,
+      sourceByKeyword: attackerSourceByKeyword
+    } = aggregateAttackerCharms(actuallyActivated);
+
+    // UMI is forced on if any UMI charm was picked, regardless of manual
+    // checkbox. Falls back to manual claim otherwise.
+    const unnaturalInfluenceFinal = (umiCostSum > 0) || !!claims.unnaturalInfluence;
 
     // 5. Roll the attacker's pool.
     const attributeValue = attacker.system?.attributes?.[attribute]?.value ?? 0;
     const abilityValue   = attacker.system?.abilities?.[ability]?.value     ?? 0;
-    const pool = attributeValue + abilityValue + (Number(stuntDice) || 0);
+    const pool = attributeValue + abilityValue + (Number(stuntDice) || 0) + (firstExcDice ?? 0);
 
     const intentLabel = game.i18n.localize({
       build:  "EX2E.IntentBuild",
@@ -801,25 +834,25 @@ export class ExaltedRoll {
     // defender's per-attacker scene-drain counter is already ≥ 2, the
     // attack auto-fails. The dice still roll for display transparency,
     // but `hit` is forced false below.
-    const autoFailedByNaturalCap = checkNaturalCap(defender, attacker.id, !!claims.unnaturalInfluence);
+    const autoFailedByNaturalCap = checkNaturalCap(defender, attacker.id, unnaturalInfluenceFinal);
 
     const roll = new ExaltedRoll({
-      pool:            finalPool,
-      flavor:          intentLabel,
-      actorName:       attacker.name,
-      externalPenalty: social_external
+      pool:               finalPool,
+      flavor:             intentLabel,
+      actorName:          attacker.name,
+      externalPenalty:    social_external,
+      moteCost:           excMoteCost,
+      moteType:           moteType,
+      firstExcDice,
+      secondExcSuccesses: secondExcSucc
     });
     const rollResult = await roll.evaluate();
 
-    // 6. Threshold + outcome.
+    // 6. Threshold display only — hit / wpToResist are deferred to
+    //    defender Step-2 (orchestrator in exalted2e.mjs computes them
+    //    after charm activations + Excellency mote spend resolve).
     const rollSuccesses = rollResult?.successes ?? 0;
-    const hit = (rollSuccesses > effectiveMDV) && !autoFailedByNaturalCap;
-    const netSuccesses = Math.max(0, rollSuccesses - effectiveMDV);
-    // Unnatural Mental Influence has a 1 WP minimum base cost to resist
-    // outright, separate from threshold-success cost. RAW: "1-5 WP
-    // depending on power"; hardcoded to 1 here. Charm-specific higher
-    // base costs (1-5) come with A3 charm-keyword integration.
-    const wpToResist = computeWpToResist(rollSuccesses, effectiveMDV, !!claims.unnaturalInfluence, hit);
+    const netSuccesses = Math.max(0, rollSuccesses - preStep2EffectiveMDV);
 
     // 7. Build chat card content.
     const attributeLabel = game.i18n.localize(
@@ -850,23 +883,43 @@ export class ExaltedRoll {
       : 0;
 
     const ledger = {
-      attackerId:       attacker.id,
-      defenderId:       defender.id,
+      attackerId:                  attacker.id,
+      defenderId:                  defender.id,
       intent,
       subject,
-      claimsVerified:   verified,
+      claimsVerified:              verified,
       stackingMod,
       mdvShiftFromApp,
       baseMDV,
-      effectiveMDV,
+      preStep2EffectiveMDV,        // displayed in step2-pending phase
       rollSuccesses,
-      netSuccesses,
-      wpToResist,
-      unnaturalInfluence:     !!claims.unnaturalInfluence,
+      netSuccesses,                // recomputed post-Step-2 too; this is a display-only seed
+      unnaturalInfluence:          unnaturalInfluenceFinal,    // 3c-1: charm-or-manual source-of-truth
       autoFailedByNaturalCap,
-      hit,
-      resolution:       null,
-      reversed:         false,
+      // 3c-1: attacker-side fields
+      attackerCharmIds,
+      attackerCharmKeywords,
+      attackerSourceByKeyword,
+      attackerFirstExcDice:        firstExcDice ?? 0,
+      attackerSecondExcSucc:       secondExcSucc ?? 0,
+      attackerExcMoteCost:         excMoteCost,
+      attackerMoteType:            moteType,
+      umiCostSum,
+      appliedInfluenceEffectIds:   [],
+      // Step-2 phase state (filled in by orchestrator)
+      step2Resolved:               false,
+      step2Result:                 null,
+      defenderCharmIds:            [],
+      defenderMoteSpend:           null,
+      // Computed POST-Step-2 (null until step2Resolved)
+      effectiveMDV:                null,
+      hit:                         null,
+      wpToResist:                  null,
+      perfectDefense:              false,
+      motesResistApplied:          false,
+      // Resolution (existing 3a)
+      resolution:                  null,
+      reversed:                    false,
       attributeLabel,
       attributeValue,
       abilityLabel,
@@ -884,8 +937,9 @@ export class ExaltedRoll {
       attackerImg:      attacker.img,
       defenderName:     defender.name,
       defenderImg:      defender.img,
+      canDefend:        game.user.isGM || defender.testUserPermission(game.user, "OWNER"),
       canRespond:       game.user.isGM || defender.testUserPermission(game.user, "OWNER"),
-      canAffordResist:  (defender.system?.willpower?.value ?? 0) >= wpToResist,
+      canAffordResist:  false,                  // Step-2 not yet resolved
       canReverse:       game.user.isGM || attacker.testUserPermission(game.user, "OWNER"),
       defenderIntimacies: [],
       showErodePicker:  false

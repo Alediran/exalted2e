@@ -5,7 +5,10 @@ import {
   computeMdvShiftFromApp,
   computeBaseMDV,
   checkNaturalCap,
-  computeWpToResist
+  computeWpToResist,
+  computeMdvExcellencyCaps,
+  resolveStep2,
+  aggregateAttackerCharms
 } from "../../module/rolls/social-attack-math.mjs";
 import { makeCharacterSystem, makeNpcSystem, makeIntimacy } from "../_helpers/make-actor.mjs";
 
@@ -221,5 +224,240 @@ describe("computeWpToResist", () => {
 
   it("UMI hit caps at 5 even with very high threshold", () => {
     expect(computeWpToResist(50, 5, true, true)).toBe(5);
+  });
+});
+
+// ── computeMdvExcellencyCaps ─────────────────────────────────────────
+describe("computeMdvExcellencyCaps", () => {
+  it("Solar build/compel intent caps at integrity only (Willpower/Essence not excellency-eligible)", () => {
+    const defender = {
+      type: "character",
+      system: makeCharacterSystem({
+        exaltType: "solar",
+        willpower: { value: 7, max: 7 },
+        abilities: { ...makeCharacterSystem().abilities, integrity: {
+          value: 4, defaultAttribute: "", caste: false, favored: false, specialties: []
+        } }
+      })
+    };
+    expect(computeMdvExcellencyCaps("build",  defender)).toEqual({ firstExcMax: 4, secondExcMax: 4 });
+    expect(computeMdvExcellencyCaps("compel", defender)).toEqual({ firstExcMax: 4, secondExcMax: 4 });
+  });
+
+  it("Solar erode intent caps at max(Cha,Man) + presence by default", () => {
+    const defender = {
+      type: "character",
+      system: makeCharacterSystem({
+        exaltType: "solar",
+        attributes: {
+          ...makeCharacterSystem().attributes,
+          charisma: { value: 3 }, manipulation: { value: 5 }
+        },
+        abilities: { ...makeCharacterSystem().abilities, presence: {
+          value: 4, defaultAttribute: "", caste: false, favored: false, specialties: []
+        } }
+      })
+    };
+    // bestSocialAttr = max(3,5) = 5; presence = 4; cap = 9
+    expect(computeMdvExcellencyCaps("erode", defender)).toEqual({ firstExcMax: 9, secondExcMax: 9 });
+  });
+
+  it("Terrestrial folds the best applicable specialty into the cap (build/compel adds Integrity specialty)", () => {
+    const defender = {
+      type: "character",
+      system: makeCharacterSystem({
+        exaltType: "terrestrial",
+        abilities: { ...makeCharacterSystem().abilities, integrity: {
+          value: 3,
+          defaultAttribute: "",
+          caste: false,
+          favored: false,
+          specialties: [{ name: "Stoicism", value: 2 }, { name: "Loyalty", value: 1 }]
+        } }
+      })
+    };
+    // integrity 3 + best specialty 2 = 5
+    expect(computeMdvExcellencyCaps("build",  defender)).toEqual({ firstExcMax: 5, secondExcMax: 5 });
+    expect(computeMdvExcellencyCaps("compel", defender)).toEqual({ firstExcMax: 5, secondExcMax: 5 });
+  });
+
+  it("Terrestrial erode caps at presence + bestSpecialty (NO attribute)", () => {
+    const defender = {
+      type: "character",
+      system: makeCharacterSystem({
+        exaltType: "terrestrial",
+        attributes: {
+          ...makeCharacterSystem().attributes,
+          charisma: { value: 4 }, manipulation: { value: 5 }
+        },
+        abilities: { ...makeCharacterSystem().abilities, presence: {
+          value: 3,
+          defaultAttribute: "",
+          caste: false,
+          favored: false,
+          specialties: [{ name: "Intimidation", value: 2 }]
+        } }
+      })
+    };
+    // presence 3 + best specialty 2 = 5; attribute (5) is ignored
+    expect(computeMdvExcellencyCaps("erode", defender)).toEqual({ firstExcMax: 5, secondExcMax: 5 });
+  });
+
+  it("Lunar (attribute-keyed): build/compel cap = 0 (Dodge MDV has no attribute); erode cap = max(Cha,Man)", () => {
+    // Dodge MDV = (Willpower + Integrity + Essence) / 2 — no attribute in the
+    // formula, so attribute-keyed exalts (Lunar / Alchemical) can't apply
+    // Excellencies to it.
+    // Parry MDV = (max(Cha,Man) + social ability) / 2 — they can excel only
+    // the attribute portion since the ability isn't theirs to add.
+    const defender = {
+      type: "character",
+      system: makeCharacterSystem({
+        exaltType: "lunar",
+        attributes: {
+          ...makeCharacterSystem().attributes,
+          stamina: { value: 4 }, charisma: { value: 3 }, manipulation: { value: 5 }
+        }
+      })
+    };
+    expect(computeMdvExcellencyCaps("build",  defender)).toEqual({ firstExcMax: 0, secondExcMax: 0 });
+    expect(computeMdvExcellencyCaps("compel", defender)).toEqual({ firstExcMax: 0, secondExcMax: 0 });
+    expect(computeMdvExcellencyCaps("erode",  defender)).toEqual({ firstExcMax: 5, secondExcMax: 5 });
+  });
+
+  it("returns zero caps when defender has no system data", () => {
+    expect(computeMdvExcellencyCaps("build",  {})).toEqual({ firstExcMax: 0, secondExcMax: 0 });
+    expect(computeMdvExcellencyCaps("compel", { system: {} })).toEqual({ firstExcMax: 0, secondExcMax: 0 });
+  });
+});
+
+// ── resolveStep2 ────────────────────────────────────────────────────
+describe("resolveStep2", () => {
+  // Defaults: a hit-bound mundane attack with no Step-2 input.
+  const baseArgs = {
+    rollSuccesses:           10,
+    baseMDV:                  4,
+    stackingMod:              0,
+    mdvShiftFromApp:          0,
+    isUnnatural:              false,
+    autoFailedByNaturalCap:   false,
+    firstExcDice:             0,
+    secondExcSucc:            0,
+    activatedKeywords:        new Set()
+  };
+
+  it("perfect defense forces hit=false even when rollSuccesses > effectiveMDV", () => {
+    const out = resolveStep2({
+      ...baseArgs,
+      activatedKeywords: new Set(["Perfect Mental Defense"])
+    });
+    expect(out.perfectDefense).toBe(true);
+    expect(out.hit).toBe(false);
+  });
+
+  it("perfect defense forces wpToResist=0", () => {
+    const out = resolveStep2({
+      ...baseArgs,
+      activatedKeywords: new Set(["Perfect Mental Defense"])
+    });
+    expect(out.wpToResist).toBe(0);
+  });
+
+  it("motes-resist on UMI hit forces wpToResist=0 and motesResistApplied=true", () => {
+    const out = resolveStep2({
+      ...baseArgs,
+      isUnnatural:        true,
+      activatedKeywords:  new Set(["Resist Unnatural Mental Influence"])
+    });
+    expect(out.motesResistApplied).toBe(true);
+    expect(out.hit).toBe(true);                                   // hit still computed
+    expect(out.wpToResist).toBe(0);                               // but no WP to spend
+  });
+
+  it("motes-resist on natural attack is no-op (motesResistApplied=false)", () => {
+    const out = resolveStep2({
+      ...baseArgs,
+      isUnnatural:        false,
+      activatedKeywords:  new Set(["Resist Unnatural Mental Influence"])
+    });
+    expect(out.motesResistApplied).toBe(false);
+    expect(out.wpToResist).toBeGreaterThan(0);                    // normal threshold-success cost
+  });
+
+  it("firstExcDice bumps effectiveMDV", () => {
+    const out = resolveStep2({ ...baseArgs, firstExcDice: 3 });
+    expect(out.effectiveMDV).toBe(7);                             // 4 + 3
+  });
+
+  it("secondExcSucc bumps effectiveMDV", () => {
+    const out = resolveStep2({ ...baseArgs, secondExcSucc: 2 });
+    expect(out.effectiveMDV).toBe(6);                             // 4 + 2
+  });
+
+  it("combined Excellency contributions sum into effectiveMDV", () => {
+    const out = resolveStep2({ ...baseArgs, firstExcDice: 2, secondExcSucc: 3 });
+    expect(out.effectiveMDV).toBe(9);                             // 4 + 2 + 3
+  });
+
+  it("autoFailedByNaturalCap forces hit=false even with no perfect defense", () => {
+    const out = resolveStep2({ ...baseArgs, autoFailedByNaturalCap: true });
+    expect(out.perfectDefense).toBe(false);
+    expect(out.hit).toBe(false);
+    expect(out.wpToResist).toBe(0);                               // hit=false → wpToResist=0
+  });
+});
+
+// ── aggregateAttackerCharms ─────────────────────────────────────────
+function makeCharm({ id = "c1", name = "Charm", keywords = [], umiCost = 1 } = {}) {
+  return { id, name, system: { keywords, umiCost } };
+}
+
+describe("aggregateAttackerCharms", () => {
+  it("empty array returns empty aggregate", () => {
+    expect(aggregateAttackerCharms([])).toEqual({
+      keywords: [], umiCostSum: 0, charmIds: [], sourceByKeyword: {}
+    });
+  });
+
+  it("undefined input is treated as empty", () => {
+    expect(aggregateAttackerCharms(undefined)).toEqual({
+      keywords: [], umiCostSum: 0, charmIds: [], sourceByKeyword: {}
+    });
+  });
+
+  it("single UMI charm with cost 3 -> umiCostSum 3 and UMI keyword", () => {
+    const out = aggregateAttackerCharms([
+      makeCharm({ id: "a", name: "Loom-Snarling Deception", keywords: ["Unnatural Mental Influence"], umiCost: 3 })
+    ]);
+    expect(out.umiCostSum).toBe(3);
+    expect(out.keywords).toContain("Unnatural Mental Influence");
+    expect(out.charmIds).toEqual(["a"]);
+    expect(out.sourceByKeyword["Unnatural Mental Influence"]).toBe("a");
+  });
+
+  it("multiple UMI charms sum their costs", () => {
+    const out = aggregateAttackerCharms([
+      makeCharm({ id: "a", keywords: ["Unnatural Mental Influence"], umiCost: 2 }),
+      makeCharm({ id: "b", keywords: ["Unnatural Mental Influence"], umiCost: 3 })
+    ]);
+    expect(out.umiCostSum).toBe(5);
+  });
+
+  it("collects multiple keywords from a single charm", () => {
+    const out = aggregateAttackerCharms([
+      makeCharm({ id: "a", name: "HTT", keywords: ["Compel", "Unnatural Mental Influence"], umiCost: 2 })
+    ]);
+    expect(out.keywords).toEqual(expect.arrayContaining(["Compel", "Unnatural Mental Influence"]));
+    expect(out.umiCostSum).toBe(2);
+    expect(out.sourceByKeyword.Compel).toBe("a");
+    expect(out.sourceByKeyword["Unnatural Mental Influence"]).toBe("a");
+  });
+
+  it("sourceByKeyword attributes a keyword to the FIRST charm carrying it", () => {
+    const out = aggregateAttackerCharms([
+      makeCharm({ id: "a", name: "First Compel",  keywords: ["Compel"] }),
+      makeCharm({ id: "b", name: "Second Compel", keywords: ["Compel"] })
+    ]);
+    expect(out.sourceByKeyword.Compel).toBe("a");
+    expect(out.charmIds).toEqual(["a", "b"]);
   });
 });

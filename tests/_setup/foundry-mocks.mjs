@@ -6,7 +6,13 @@ import { vi } from "vitest";
 // store config but don't validate — tests exercise prepareDerivedData
 // directly with synthetic system objects, bypassing the schema layer.
 class _MockDataField {
-  constructor(config = {}) { this.config = config; }
+  constructor(config = {}) {
+    this.config = config;
+    // Mirror Foundry's real DataField API surface — actual fields expose
+    // their constructor options as `.options`. Tests inspect this to
+    // assert schema shape (initial, min, max, integer flags).
+    this.options = config;
+  }
 }
 class _MockTypeDataModel {}
 

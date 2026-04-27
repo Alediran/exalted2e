@@ -202,6 +202,12 @@
       </span>
       {{/each}}
     </div>
+    {{#if (includes system.keywords "Unnatural Mental Influence")}}
+    <div class="field-group">
+      <label>{{localize "EX2E.UMICostLabel"}}</label>
+      <input type="number" name="system.umiCost" value="{{system.umiCost}}" min="1" max="5" step="1" {{#unless isEditable}}readonly{{/unless}} />
+    </div>
+    {{/if}}
   </div>
 
   <!-- Description -->
