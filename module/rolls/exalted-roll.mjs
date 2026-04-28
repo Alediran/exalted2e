@@ -7,6 +7,7 @@ import {
   computeWpToResist,
   aggregateAttackerCharms       // 3c-1
 } from "./social-attack-math.mjs";
+import { findCampaign } from "./motivation-break-math.mjs";
 import { countSuccesses } from "./dice-math.mjs";
 import {
   computeAttackPool,
@@ -753,7 +754,9 @@ export class ExaltedRoll {
     charmIds = [],
     firstExcDice = 0,
     secondExcSucc = 0,
-    moteType = "peripheral"
+    moteType = "peripheral",
+    // 3c-2
+    targetMotivation = ""
   } = {}) {
     if (!attacker || !defender) {
       ui.notifications.warn(game.i18n.localize("EX2E.NoTargetSelected"));
@@ -811,6 +814,48 @@ export class ExaltedRoll {
     // UMI is forced on if any UMI charm was picked, regardless of manual
     // checkbox. Falls back to manual claim otherwise.
     const unnaturalInfluenceFinal = (umiCostSum > 0) || !!claims.unnaturalInfluence;
+
+    // 3c-2: Motivation-break campaign create or attach. Bumps attemptCount.
+    // SECURITY: when an active campaign exists for (attacker, defender), use
+    // its stored targetMotivation, NOT the dialog's submitted value — the
+    // dialog's input is readonly when in-progress, but DOM-modification could
+    // bypass that. The campaign tracker is the source of truth.
+    let campaignAttemptCount = 0;
+    let effectiveTargetMotivation = targetMotivation;
+    if (intent === "break-motivation") {
+      const existing = findCampaign(defender, attacker.id);
+      const nowIso = new Date().toISOString();
+      // Active campaign → bump. Otherwise (no record OR stale broken/abandoned)
+      // → create fresh, overwriting the stale record. validateNewCampaign
+      // already rejects "broken target still in place"; reaching here with a
+      // broken/abandoned record means the prior break is no longer in effect.
+      if (!existing || existing.status !== "active") {
+        const newCampaign = {
+          targetMotivation,
+          originalMotivation:  defender.system?.motivation ?? "",
+          attemptCount:        1,
+          successfulHits:      0,
+          defenderPermWpSpent: 0,
+          startedAt:           nowIso,
+          lastAttemptAt:       nowIso,
+          status:              "active",
+          attackerName:        attacker.name
+        };
+        await defender.update({
+          [`flags.exalted2e.motivationBreaks.${attacker.id}`]: newCampaign
+        });
+        campaignAttemptCount = 1;
+      } else {
+        // Active campaign exists — use the stored target (ignore the dialog's
+        // value for follow-up attempts; readonly attribute can be DOM-bypassed).
+        effectiveTargetMotivation = existing.targetMotivation;
+        campaignAttemptCount = (existing.attemptCount ?? 0) + 1;
+        await defender.update({
+          [`flags.exalted2e.motivationBreaks.${attacker.id}.attemptCount`]: campaignAttemptCount,
+          [`flags.exalted2e.motivationBreaks.${attacker.id}.lastAttemptAt`]: nowIso
+        });
+      }
+    }
 
     // 5. Roll the attacker's pool.
     const attributeValue = attacker.system?.attributes?.[attribute]?.value ?? 0;
@@ -906,6 +951,13 @@ export class ExaltedRoll {
       attackerMoteType:            moteType,
       umiCostSum,
       appliedInfluenceEffectIds:   [],
+      // 3c-2: Motivation-break fields
+      isMotivationBreak:           intent === "break-motivation",
+      targetMotivation:            intent === "break-motivation" ? effectiveTargetMotivation : "",
+      campaignAttemptCount,
+      defenderPermWpDelta:         null,
+      brokenInThisAttack:          false,
+      brokenFromMotivation:        null,
       // Step-2 phase state (filled in by orchestrator)
       step2Resolved:               false,
       step2Result:                 null,

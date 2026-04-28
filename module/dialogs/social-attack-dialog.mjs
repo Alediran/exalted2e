@@ -1,4 +1,5 @@
 import { computeAttackExcellencyCaps } from "../rolls/excellency-math.mjs";
+import { findCampaign, validateNewCampaign } from "../rolls/motivation-break-math.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -59,7 +60,9 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       // 3c-1: Excellency block defaults
       moteType:     options.moteType     ?? "peripheral",
       firstExcDice: options.firstExcDice ?? 0,
-      secondExcSucc: options.secondExcSucc ?? 0
+      secondExcSucc: options.secondExcSucc ?? 0,
+      // 3c-2: Motivation-break campaign target
+      targetMotivation: options.targetMotivation ?? ""
     };
   }
 
@@ -110,6 +113,20 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       ? computeAttackExcellencyCaps(a, this._data.attribute, this._data.ability)
       : { firstExcMax: 0, secondExcMax: 0 };
 
+    // 3c-2: detect existing Motivation-break campaign for the (attacker, defender) pair
+    const existingCampaign = (a && t)
+      ? findCampaign(t, a.id)
+      : null;
+    const isBreakIntent = this._data.intent === "break-motivation";
+    const campaignInProgress = isBreakIntent && existingCampaign?.status === "active";
+    const campaignTargetReadOnly = campaignInProgress;
+    const effectiveTargetMotivation = campaignInProgress
+      ? existingCampaign.targetMotivation
+      : this._data.targetMotivation;
+    const campaignProgressLabel = campaignInProgress
+      ? game.i18n.format("EX2E.MotivationBreakCampaignInProgress", { count: existingCampaign.attemptCount ?? 0 })
+      : "";
+
     return {
       ...context,
       ...this._data,
@@ -118,6 +135,11 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       hasPickerCharms: pickerCharms.length > 0,
       firstExcMax,
       secondExcMax,
+      isBreakIntent,
+      campaignInProgress,
+      campaignTargetReadOnly,
+      effectiveTargetMotivation,
+      campaignProgressLabel,
       stuntChoices: {
         0: game.i18n.localize("EX2E.NoStunt"),
         1: game.i18n.localize("EX2E.Stunt1"),
@@ -199,6 +221,16 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       this._data.ability = e.target.value;
       this.render();
     });
+    const intentSelect = el.querySelector("[name='intent']");
+    intentSelect?.addEventListener("change", (e) => {
+      this._data.intent = e.target.value;
+      this.render();
+    });
+    // 3c-2: mirror typed Target Motivation into _data so re-renders preserve it.
+    const targetMotivationInput = el.querySelector("[name='targetMotivation']");
+    targetMotivationInput?.addEventListener("input", (e) => {
+      this._data.targetMotivation = e.target.value;
+    });
 
     updateTotal();
     updateUmiLock();
@@ -221,6 +253,33 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
     if (!this._data.target) {
       ui.notifications.warn(game.i18n.localize("EX2E.NoTargetSelected"));
       return;
+    }
+
+    // 3c-2: Motivation-break validation
+    if ((data.intent || this._data.intent) === "break-motivation") {
+      const validation = validateNewCampaign({
+        attacker:         this._attacker,
+        defender:         this._data.target,
+        targetMotivation: data.targetMotivation ?? this._data.targetMotivation ?? ""
+      });
+      if (!validation.ok) {
+        const reasonKey = {
+          "npc-defender-unsupported": "EX2E.MotivationBreakNpcDefenderUnsupported",
+          "self-attack":              "EX2E.MotivationBreakSelfAttack",
+          "blank-target":             "EX2E.MotivationBreakBlankTarget",
+          "target-equals-current":    "EX2E.MotivationBreakTargetEqualsCurrent",
+          "already-broken":           "EX2E.MotivationBreakAlreadyBroken"
+        }[validation.reason];
+        if (reasonKey) {
+          ui.notifications.warn(game.i18n.localize(reasonKey));
+        } else {
+          // Defensive fallback if validateNewCampaign gains a new reason
+          // string before this map is updated.
+          console.warn(`exalted2e | Unknown Motivation-break validation reason: ${validation.reason}`);
+          ui.notifications.warn(`Cannot start Motivation-break campaign (${validation.reason ?? "unknown reason"}).`);
+        }
+        return;
+      }
     }
 
     // 3c-1: Collect picker charm ids (checkboxes named charm-<id>).
@@ -250,7 +309,9 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       charmIds,
       firstExcDice:  parseInt(data.firstExcDice)  || 0,
       secondExcSucc: parseInt(data.secondExcSucc) || 0,
-      moteType:      data.moteType || "peripheral"
+      moteType:      data.moteType || "peripheral",
+      // 3c-2
+      targetMotivation: data.targetMotivation ?? this._data.targetMotivation ?? ""
     });
     this.close();
   }

@@ -58,9 +58,9 @@ export function computeMdvShiftFromApp(attacker, defender) {
   return clamped === 0 ? 0 : -clamped;
 }
 
-/** Erode hits Parry MDV; build/compel hit Dodge MDV. */
+/** Erode and break-motivation hit Parry MDV; build/compel hit Dodge MDV. */
 export function computeBaseMDV(intent, defender) {
-  return intent === "erode"
+  return (intent === "erode" || intent === "break-motivation")
     ? (defender.currentParryMDV ?? 0)
     : (defender.currentDodgeMDV ?? 0);
 }

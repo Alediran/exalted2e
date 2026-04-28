@@ -114,6 +114,13 @@ export class ExaltedActor extends Actor {
     // ── Purchase Mode enforcement ─────────────────────────────────────
     if (!this.system.purchaseLocked) return;
 
+    // Authorized RAW-driven destructive mutations (e.g., Motivation-break
+    // refusal reducing permanent Willpower; the matching Reverse refund)
+    // pass `bypassPurchaseLock: true` in the update options to skip the
+    // lock check. The handler that initiates the change is responsible
+    // for ensuring the mutation is RAW-justified.
+    if (options?.bypassPurchaseLock) return;
+
     const changes = collectPermanentTraitChanges(changed, this);
     if (changes.length === 0) return;
 

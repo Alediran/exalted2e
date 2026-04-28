@@ -44,6 +44,10 @@ import {
   applySocialInfluenceEffects,
   clearSocialInfluenceEffects
 } from "./ui/social-influence-effects.mjs";
+import {
+  applyRefusalMath,
+  applyRefundMath
+} from "./rolls/motivation-break-math.mjs";
 
 // ── Init Hook ──────────────────────────────────────────────────────────────
 Hooks.once("init", function () {
@@ -1680,6 +1684,64 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       await clearSocialInfluenceEffects(defender, record.appliedInfluenceEffectIds);
     }
 
+    // 3c-2: refund permanent Willpower if the defender refused this attack
+    if (defender && record.defenderPermWpDelta) {
+      const w = defender.system?.willpower ?? { max: 0, value: 0 };
+      const restored = applyRefundMath(
+        w.max ?? 0,
+        w.value ?? 0,
+        record.defenderPermWpDelta.valueDelta ?? 0
+      );
+      await defender.update({
+        "system.willpower.max":   restored.max,
+        "system.willpower.value": restored.value
+      }, { bypassPurchaseLock: true });
+      // Decrement campaign successfulHits + defenderPermWpSpent
+      const attackerId = record.attackerId;
+      const existing   = defender.flags?.exalted2e?.motivationBreaks?.[attackerId];
+      if (existing) {
+        await defender.update({
+          [`flags.exalted2e.motivationBreaks.${attackerId}.successfulHits`]:
+            Math.max(0, (existing.successfulHits ?? 0) - 1),
+          [`flags.exalted2e.motivationBreaks.${attackerId}.defenderPermWpSpent`]:
+            Math.max(0, (existing.defenderPermWpSpent ?? 0) - 1)
+        });
+      }
+    }
+
+    // 3c-2: restore the broken motivation if this attack broke it
+    if (defender && record.brokenInThisAttack) {
+      await defender.update({ "system.motivation": record.brokenFromMotivation ?? "" });
+      const attackerId = record.attackerId;
+      const existing   = defender.flags?.exalted2e?.motivationBreaks?.[attackerId];
+      if (existing) {
+        await defender.update({
+          [`flags.exalted2e.motivationBreaks.${attackerId}.status`]: "active",
+          [`flags.exalted2e.motivationBreaks.${attackerId}.successfulHits`]:
+            Math.max(0, (existing.successfulHits ?? 0) - 1)
+        });
+      }
+    }
+
+    // 3c-2: decrement campaign attemptCount (this attack is being unwound entirely).
+    // If attemptCount reaches 0, unset the campaign flag entirely.
+    if (defender && record.isMotivationBreak) {
+      const attackerId = record.attackerId;
+      const existing   = defender.flags?.exalted2e?.motivationBreaks?.[attackerId];
+      if (existing) {
+        const newCount = Math.max(0, (existing.attemptCount ?? 0) - 1);
+        if (newCount === 0) {
+          await defender.update({
+            [`flags.exalted2e.motivationBreaks.-=${attackerId}`]: null
+          });
+        } else {
+          await defender.update({
+            [`flags.exalted2e.motivationBreaks.${attackerId}.attemptCount`]: newCount
+          });
+        }
+      }
+    }
+
     // Mark reversed AND reset Step-2 / resolution so the card returns to
     // step2-pending (the user can re-resolve). Per-charm activations
     // posted during Step-2 have their own Reverse buttons — NOT auto-
@@ -1696,7 +1758,112 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       "flags.exalted2e.socialAttack.perfectDefense":            false,
       "flags.exalted2e.socialAttack.motesResistApplied":        false,
       "flags.exalted2e.socialAttack.resolution":                null,
-      "flags.exalted2e.socialAttack.appliedInfluenceEffectIds": []
+      "flags.exalted2e.socialAttack.appliedInfluenceEffectIds": [],
+      "flags.exalted2e.socialAttack.defenderPermWpDelta":       null,
+      "flags.exalted2e.socialAttack.brokenInThisAttack":        false,
+      "flags.exalted2e.socialAttack.brokenFromMotivation":      null
+    });
+    await _rerenderSocialAttackCard(message);
+  });
+
+  // ── Social attack: Refuse Motivation Break ─────────────────────────────
+  el.querySelector?.(".btn-motivation-refuse")?.addEventListener("click", async (ev) => {
+    const record = message.flags?.exalted2e?.socialAttack;
+    if (!record || !record.isMotivationBreak) return;
+    if (record.resolution || record.reversed) return;
+
+    const defender = game.actors.get(record.defenderId);
+    if (!defender) return;
+    if (!game.user.isGM && !defender.testUserPermission(game.user, "OWNER")) {
+      ui.notifications.warn(game.i18n.localize("EX2E.NotOwnerSocial"));
+      return;
+    }
+
+    const w = defender.system?.willpower ?? { max: 0, value: 0 };
+    if ((w.max ?? 0) <= 0) {
+      ui.notifications.warn(game.i18n.localize("EX2E.MotivationBreakNoPermWp"));
+      return;
+    }
+
+    const before = { max: w.max, value: w.value };
+    const after  = applyRefusalMath(before.max, before.value);
+    const delta  = {
+      maxDelta:   after.max   - before.max,
+      valueDelta: after.value - before.value
+    };
+
+    await defender.update({
+      "system.willpower.max":   after.max,
+      "system.willpower.value": after.value
+    }, { bypassPurchaseLock: true });
+
+    // Bump campaign tracker successfulHits + defenderPermWpSpent
+    const attackerId = record.attackerId;
+    const existing   = defender.flags?.exalted2e?.motivationBreaks?.[attackerId];
+    if (existing) {
+      await defender.update({
+        [`flags.exalted2e.motivationBreaks.${attackerId}.successfulHits`]:
+          (existing.successfulHits ?? 0) + 1,
+        [`flags.exalted2e.motivationBreaks.${attackerId}.defenderPermWpSpent`]:
+          (existing.defenderPermWpSpent ?? 0) + 1
+      });
+    }
+
+    await message.update({
+      "flags.exalted2e.socialAttack.defenderPermWpDelta": delta,
+      "flags.exalted2e.socialAttack.resolution": {
+        outcome:                       "break-refused",
+        wpSpentByDefender:             0,
+        erodedIntimacyId:              null,
+        erodedIntimacyStrengthBefore:  null,
+        erodedIntimacyStrengthAfter:   null,
+        erodedIntimacyName:            null
+      }
+    });
+    await _rerenderSocialAttackCard(message);
+  });
+
+  // ── Social attack: Break Motivation ────────────────────────────────────
+  el.querySelector?.(".btn-motivation-break")?.addEventListener("click", async (ev) => {
+    const record = message.flags?.exalted2e?.socialAttack;
+    if (!record || !record.isMotivationBreak) return;
+    if (record.resolution || record.reversed) return;
+
+    const defender = game.actors.get(record.defenderId);
+    if (!defender) return;
+    if (!game.user.isGM && !defender.testUserPermission(game.user, "OWNER")) {
+      ui.notifications.warn(game.i18n.localize("EX2E.NotOwnerSocial"));
+      return;
+    }
+
+    const brokenFromMotivation = defender.system?.motivation ?? "";
+    const targetMotivation     = record.targetMotivation ?? "";
+
+    // Flip the defender's motivation
+    await defender.update({ "system.motivation": targetMotivation });
+
+    // Mark campaign as broken + bump successfulHits
+    const attackerId = record.attackerId;
+    const existing   = defender.flags?.exalted2e?.motivationBreaks?.[attackerId];
+    if (existing) {
+      await defender.update({
+        [`flags.exalted2e.motivationBreaks.${attackerId}.status`]:         "broken",
+        [`flags.exalted2e.motivationBreaks.${attackerId}.successfulHits`]:
+          (existing.successfulHits ?? 0) + 1
+      });
+    }
+
+    await message.update({
+      "flags.exalted2e.socialAttack.brokenInThisAttack":   true,
+      "flags.exalted2e.socialAttack.brokenFromMotivation": brokenFromMotivation,
+      "flags.exalted2e.socialAttack.resolution": {
+        outcome:                       "broken",
+        wpSpentByDefender:             0,
+        erodedIntimacyId:              null,
+        erodedIntimacyStrengthBefore:  null,
+        erodedIntimacyStrengthAfter:   null,
+        erodedIntimacyName:            null
+      }
     });
     await _rerenderSocialAttackCard(message);
   });
@@ -1907,6 +2074,35 @@ async function _rerenderSocialAttackCard(message) {
     canRespond:       game.user.isGM || (defender && defender.testUserPermission(game.user, "OWNER")),
     canAffordResist:  (defender?.system?.willpower?.value ?? 0) >= (record.wpToResist ?? 0),
     canReverse:       game.user.isGM || (attacker && attacker.testUserPermission(game.user, "OWNER")),
+    // 3c-2: Motivation-break display flags
+    canRefuse: record.isMotivationBreak
+            && record.step2Resolved
+            && record.hit === true
+            && !record.resolution
+            && (defender?.system?.willpower?.max ?? 0) > 0
+            && (game.user.isGM || (defender && defender.testUserPermission(game.user, "OWNER"))),
+    canBreak: record.isMotivationBreak
+           && record.step2Resolved
+           && record.hit === true
+           && !record.resolution
+           && (game.user.isGM || (defender && defender.testUserPermission(game.user, "OWNER"))),
+    motivationBreakProgressLabel: record.isMotivationBreak
+      ? game.i18n.format("EX2E.MotivationBreakChatCampaignProgress", {
+          count:  record.campaignAttemptCount ?? 0,
+          target: record.targetMotivation     ?? ""
+        })
+      : "",
+    motivationBreakRefusedLabel: record.resolution?.outcome === "break-refused"
+      ? game.i18n.format("EX2E.MotivationBreakResolutionRefused", {
+          defender: defender?.name ?? ""
+        })
+      : "",
+    motivationBreakBrokenLabel: record.resolution?.outcome === "broken"
+      ? game.i18n.format("EX2E.MotivationBreakResolutionBroken", {
+          defender: defender?.name ?? "",
+          target:   record.targetMotivation ?? ""
+        })
+      : "",
     defenderIntimacies: intimacies,
     showErodePicker:  record.intent === "erode" && pendingErodePick && !record.resolution,
     // 3c-1: derived display fields for attacker activated charms + Excellency

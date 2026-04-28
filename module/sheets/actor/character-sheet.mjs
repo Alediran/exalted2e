@@ -70,7 +70,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       editEffect:          CharacterSheet.#onEditEffect,
       deleteEffect:        CharacterSheet.#onDeleteEffect,
       toggleEffect:        CharacterSheet.#onToggleEffect,
-      createEffect:        CharacterSheet.#onCreateEffect
+      createEffect:        CharacterSheet.#onCreateEffect,
+      abandonMotivationCampaign: CharacterSheet.#onAbandonMotivationCampaign
     }
   };
 
@@ -349,6 +350,39 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       }
     })();
 
+    // 3c-2: Active Motivation Campaigns
+    const motivationCampaignsTargetingMe = Object.entries(
+      this.actor.flags?.exalted2e?.motivationBreaks ?? {}
+    ).map(([attackerId, c]) => ({
+      attackerId,
+      otherActorName:      c.attackerName ?? game.actors.get(attackerId)?.name ?? "?",
+      targetMotivation:    c.targetMotivation ?? "",
+      attemptCount:        c.attemptCount      ?? 0,
+      defenderPermWpSpent: c.defenderPermWpSpent ?? 0,
+      status:              c.status ?? "active",
+      attemptsLabel:       game.i18n.format("EX2E.MotivationBreakAttempts", { count: c.attemptCount ?? 0 }),
+      permWpLabel:         game.i18n.format("EX2E.MotivationBreakPermWpSpent", { count: c.defenderPermWpSpent ?? 0 })
+    }));
+
+    const motivationCampaignsImRunning = [];
+    for (const other of game.actors) {
+      const c = other.flags?.exalted2e?.motivationBreaks?.[this.actor.id];
+      if (!c) continue;
+      motivationCampaignsImRunning.push({
+        defenderId:          other.id,
+        otherActorName:      other.name,
+        targetMotivation:    c.targetMotivation ?? "",
+        attemptCount:        c.attemptCount      ?? 0,
+        defenderPermWpSpent: c.defenderPermWpSpent ?? 0,
+        status:              c.status ?? "active",
+        attemptsLabel:       game.i18n.format("EX2E.MotivationBreakAttempts", { count: c.attemptCount ?? 0 }),
+        permWpLabel:         game.i18n.format("EX2E.MotivationBreakPermWpSpent", { count: c.defenderPermWpSpent ?? 0 })
+      });
+    }
+
+    const showMotivationCampaigns = motivationCampaignsTargetingMe.length > 0
+                                  || motivationCampaignsImRunning.length > 0;
+
     return {
       ...context,
       actor,
@@ -381,6 +415,10 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       canEditXp,
       xpCostRows,
       limitLabel,
+      motivationCampaignsTargetingMe,
+      motivationCampaignsImRunning,
+      showMotivationCampaigns,
+      isGM: game.user.isGM,
       isEditable: this.isEditable,
       useIntimacyIntensity: game.settings.get("exalted2e", "useIntimacyIntensity")
     };
@@ -910,6 +948,21 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const effect   = this.document.effects.get(effectId);
     if (!effect) return;
     await effect.update({ disabled: !effect.disabled });
+  }
+
+  // ── Active Motivation Campaigns ────────────────────────────────────────
+  static async #onAbandonMotivationCampaign(event, target) {
+    const defenderId = target.dataset.defenderId;
+    if (!defenderId) return;
+    const defender = game.actors.get(defenderId);
+    if (!defender) return;
+    if (!game.user.isGM) {
+      ui.notifications.warn(game.i18n.localize("EX2E.NotGM"));
+      return;
+    }
+    await defender.update({
+      [`flags.exalted2e.motivationBreaks.${this.actor.id}.status`]: "abandoned"
+    });
   }
 
   static async #onSendItemToChat(event, target) {

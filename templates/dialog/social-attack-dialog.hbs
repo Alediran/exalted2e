@@ -39,6 +39,7 @@
       <option value="build"  {{#if (eq intent "build")}}selected{{/if}}>{{localize "EX2E.IntentBuild"}}</option>
       <option value="erode"  {{#if (eq intent "erode")}}selected{{/if}}>{{localize "EX2E.IntentErode"}}</option>
       <option value="compel" {{#if (eq intent "compel")}}selected{{/if}}>{{localize "EX2E.IntentCompel"}}</option>
+      <option value="break-motivation" {{#if (eq intent "break-motivation")}}selected{{/if}}>{{localize "EX2E.IntentBreakMotivation"}}</option>
     </select>
     <label class="section-label">
       {{#if (eq intent "build")}}{{localize "EX2E.SubjectBuildLabel"}}
@@ -48,6 +49,21 @@
     </label>
     <input type="text" name="subject" value="{{subject}}" class="subject-input"/>
   </section>
+
+  {{!-- 3c-2: Motivation-break target --}}
+  {{#if isBreakIntent}}
+  <section class="dialog-section social-motivation-break">
+    <label class="section-label">{{localize "EX2E.MotivationBreakTargetLabel"}}</label>
+    <input type="text"
+           name="targetMotivation"
+           value="{{effectiveTargetMotivation}}"
+           {{#if campaignTargetReadOnly}}readonly{{/if}}
+           placeholder="{{localize "EX2E.MotivationBreakTargetLabel"}}" />
+    {{#if campaignInProgress}}
+      <p class="hint">{{campaignProgressLabel}}</p>
+    {{/if}}
+  </section>
+  {{/if}}
 
   {{!-- Modifier claims --}}
   <section class="dialog-section">

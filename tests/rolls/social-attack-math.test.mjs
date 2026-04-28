@@ -461,3 +461,48 @@ describe("aggregateAttackerCharms", () => {
     expect(out.charmIds).toEqual(["a", "b"]);
   });
 });
+
+describe("computeBaseMDV with break-motivation intent", () => {
+  it("break-motivation maps to Parry MDV (same as erode)", () => {
+    const defender = {
+      type: "character",
+      items: [],
+      currentParryMDV: 7,    // explicit shorthand for the test — matches what
+      currentDodgeMDV: 4,    // ExaltedActor.currentParryMDV / Dodge return at runtime
+      system: makeCharacterSystem()
+    };
+    expect(computeBaseMDV("break-motivation", defender))
+      .toBe(computeBaseMDV("erode", defender));
+    expect(computeBaseMDV("break-motivation", defender)).toBe(7);
+  });
+
+  it("verifyClaims accepts supportingMotivation/opposingMotivation when intent is break-motivation", () => {
+    // Regression: verifyClaims doesn't gate on intent — it gates on defender type
+    // and presence of motivation. break-motivation reads the same way.
+    const defender = {
+      type: "character",
+      items: [],
+      system: makeCharacterSystem({ motivation: "Vengeance" })
+    };
+    const result = verifyClaims({
+      supportingMotivation: true,
+      opposingMotivation:   true
+    }, defender);
+    expect(result.supportingMotivation).toBe(true);
+    expect(result.opposingMotivation).toBe(true);
+  });
+
+  it("verifyClaims rejects motivation claims when defender is NPC", () => {
+    const defender = {
+      type: "npc",
+      items: [],
+      system: makeNpcSystem()
+    };
+    const result = verifyClaims({
+      supportingMotivation: true,
+      opposingMotivation:   true
+    }, defender);
+    expect(result.supportingMotivation).toBe(false);
+    expect(result.opposingMotivation).toBe(false);
+  });
+});

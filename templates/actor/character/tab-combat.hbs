@@ -105,5 +105,58 @@
     <p class="empty-msg"><em>No weapons equipped.</em></p>
     {{/if}}
 
+    {{!-- 3c-2: Active Motivation Campaigns --}}
+    {{#if showMotivationCampaigns}}
+    <h2 class="section-header">{{localize "EX2E.MotivationBreakSheetSectionTitle"}}</h2>
+    <section class="motivation-break-campaigns">
+
+      {{#if motivationCampaignsTargetingMe.length}}
+      <h3>{{localize "EX2E.MotivationBreakSheetSectionTargetedAtMe"}}</h3>
+      <ul>
+      {{#each motivationCampaignsTargetingMe}}
+        <li class="campaign-row campaign-status-{{this.status}}">
+          <strong>{{this.otherActorName}}</strong> &rarr;
+          "<em>{{this.targetMotivation}}</em>"
+          <span class="campaign-stats">
+            {{this.attemptsLabel}} &middot; {{this.permWpLabel}} &middot;
+            {{#if (eq this.status "active")}}{{localize "EX2E.MotivationBreakStatusActive"}}{{/if}}
+            {{#if (eq this.status "broken")}}{{localize "EX2E.MotivationBreakStatusBroken"}}{{/if}}
+            {{#if (eq this.status "abandoned")}}{{localize "EX2E.MotivationBreakStatusAbandoned"}}{{/if}}
+          </span>
+        </li>
+      {{/each}}
+      </ul>
+      {{/if}}
+
+      {{#if motivationCampaignsImRunning.length}}
+      <h3>{{localize "EX2E.MotivationBreakSheetSectionImRunning"}}</h3>
+      <ul>
+      {{#each motivationCampaignsImRunning}}
+        <li class="campaign-row campaign-status-{{this.status}}">
+          <strong>{{this.otherActorName}}</strong> &rarr;
+          "<em>{{this.targetMotivation}}</em>"
+          <span class="campaign-stats">
+            {{this.attemptsLabel}} &middot; {{this.permWpLabel}} &middot;
+            {{#if (eq this.status "active")}}{{localize "EX2E.MotivationBreakStatusActive"}}{{/if}}
+            {{#if (eq this.status "broken")}}{{localize "EX2E.MotivationBreakStatusBroken"}}{{/if}}
+            {{#if (eq this.status "abandoned")}}{{localize "EX2E.MotivationBreakStatusAbandoned"}}{{/if}}
+          </span>
+          {{#if (eq this.status "active")}}
+          {{#if ../isGM}}
+          <button type="button"
+                  data-action="abandonMotivationCampaign"
+                  data-defender-id="{{this.defenderId}}">
+            {{localize "EX2E.MotivationBreakAbandonButton"}}
+          </button>
+          {{/if}}
+          {{/if}}
+        </li>
+      {{/each}}
+      </ul>
+      {{/if}}
+
+    </section>
+    {{/if}}
+
   </div><!-- .sheet-body -->
 </div><!-- .tab -->

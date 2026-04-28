@@ -8,6 +8,12 @@
   </header>
 
   <div class="chat-card-body">
+    {{#if isMotivationBreak}}
+    <div class="motivation-break-banner" style="font-weight: 600; padding: 4px; background: var(--ex2e-bg-soft, #f5f5f5);">
+      {{motivationBreakProgressLabel}}
+    </div>
+    {{/if}}
+
     {{#if hasAttackerCharms}}
     <div class="attacker-charms-row">
       <strong>{{localize "EX2E.AttackerCharmsActivated"}}:</strong>
@@ -73,6 +79,17 @@
     {{#if hit}}
     {{#unless resolution}}
     {{#if canRespond}}
+    {{#if isMotivationBreak}}
+    {{!-- 3c-2: Motivation-break resolution buttons --}}
+    <div class="motivation-break-buttons">
+      <button type="button" class="btn-motivation-refuse" {{#unless canRefuse}}disabled{{/unless}}>
+        {{localize "EX2E.MotivationBreakRefuseButton"}}
+      </button>
+      <button type="button" class="btn-motivation-break" {{#unless canBreak}}disabled{{/unless}}>
+        {{localize "EX2E.MotivationBreakBreakButton"}}
+      </button>
+    </div>
+    {{else}}
     <div class="social-response-controls">
       {{#if wpToResist}}
       <button type="button" class="btn-social-resist"
@@ -83,6 +100,7 @@
       {{/if}}
       <button type="button" class="btn-social-accept">{{localize "EX2E.AcceptAttack"}}</button>
     </div>
+    {{/if}}
     {{/if}}
     {{/unless}}
 
@@ -114,6 +132,12 @@
       {{/if}}
       {{#if (eq resolution.outcome "resisted-via-motes")}}
       <strong>{{localize "EX2E.SocialResolvedResistedViaMotes"}}</strong>
+      {{/if}}
+      {{#if (eq resolution.outcome "break-refused")}}
+      <strong>{{motivationBreakRefusedLabel}}</strong>
+      {{/if}}
+      {{#if (eq resolution.outcome "broken")}}
+      <strong>{{motivationBreakBrokenLabel}}</strong>
       {{/if}}
     </div>
 
