@@ -160,7 +160,7 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
     const totalCostEl    = el.querySelector(".exc-total-cost");
     const umiCheckbox    = el.querySelector("[name='unnaturalInfluence']");
     const umiHint        = el.querySelector(".umi-charm-driven-hint");
-    const pickerInputs   = el.querySelectorAll(".social-charm-picker input[type='checkbox']");
+    const pickerInputs   = el.querySelectorAll(".attack-charm-picker input[type='checkbox']");
 
     let currentFirstExcMax  = context.firstExcMax;
     let currentSecondExcMax = context.secondExcMax;

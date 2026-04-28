@@ -233,6 +233,137 @@
   font-size:   var(--ex2e-font-size-xs);
   color:       var(--ex2e-text-muted);
 }
+.ex2e-roll-dialog .attack-charm-picker .charm-empty {
+  margin:     0;
+  padding:    var(--ex2e-gap-sm) 0;
+  font-size:  var(--ex2e-font-size-sm);
+  color:      var(--ex2e-text-muted);
+  text-align: center;
+  font-style: italic;
+}
+
+/* ── Social Attack Dialog ───────────────────────────────────────────────── */
+
+/* The social-attack dialog has many sections (target, pool, intent, subject,
+ * motivation-break, claims, appearance, stunt, picker, two Excellency rows,
+ * mote-type, total). Constrain the content area so the form-footer stays
+ * pinned and a scrollbar appears when the body exceeds the viewport. */
+.social-attack-dialog .ex2e-roll-dialog {
+  max-height: calc(100vh - 100px);
+}
+.social-attack-dialog .dialog-content {
+  flex:       1 1 auto;
+  min-height: 0;
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+}
+
+.social-attack-dialog .target-row {
+  display:       flex;
+  align-items:   center;
+  gap:           var(--ex2e-gap-sm);
+  padding:       4px 8px;
+  border:        1px solid var(--ex2e-border-color);
+  border-radius: var(--ex2e-border-radius);
+  background:    var(--ex2e-bg-darkest);
+}
+.social-attack-dialog .target-row.target-empty .target-name {
+  color:      var(--ex2e-text-muted);
+  font-style: italic;
+}
+.social-attack-dialog .target-img {
+  width:         28px;
+  height:        28px;
+  border-radius: 3px;
+  border:        1px solid var(--ex2e-gold-shadow);
+  object-fit:    cover;
+}
+.social-attack-dialog .target-name {
+  flex:        1;
+  color:       var(--ex2e-text-primary);
+  font-family: var(--ex2e-font-ui);
+}
+.social-attack-dialog .btn-pick-target {
+  padding:       2px 8px;
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: 3px;
+  background:    var(--ex2e-bg-darkest);
+  color:         var(--ex2e-text-secondary);
+  font-family:   var(--ex2e-font-ui);
+  font-size:     var(--ex2e-font-size-xs);
+  cursor:        pointer;
+  transition:    background var(--ex2e-transition-fast), color var(--ex2e-transition-fast);
+}
+.social-attack-dialog .btn-pick-target:hover {
+  background: var(--ex2e-bg-hover);
+  color:      var(--ex2e-gold-main);
+}
+
+.social-attack-dialog .claim-group {
+  border:        1px solid var(--ex2e-gold-shadow);
+  border-radius: var(--ex2e-border-radius);
+  background:    color-mix(in srgb, var(--ex2e-gold-dark) 4%, transparent);
+  padding:       var(--ex2e-gap-sm);
+  gap:           4px;
+}
+.social-attack-dialog .claim-row {
+  display:     flex;
+  align-items: center;
+  flex-wrap:   wrap;
+  gap:         var(--ex2e-gap-sm) var(--ex2e-gap-md);
+  font-size:   var(--ex2e-font-size-sm);
+}
+.social-attack-dialog .claim-header {
+  flex:           0 0 auto;
+  min-width:      80px;
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  color:          var(--ex2e-gold-main);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.social-attack-dialog .claim-check {
+  display:      inline-flex;
+  align-items:  center;
+  gap:          4px;
+  color:        var(--ex2e-text-secondary);
+  cursor:       pointer;
+  /* Override field-group label uppercase styling for inline checkbox labels */
+  text-transform: none;
+  letter-spacing: 0;
+  font-size:    var(--ex2e-font-size-sm);
+  font-family:  var(--ex2e-font-body);
+  white-space:  normal;
+}
+.social-attack-dialog .claim-check:hover {
+  color: var(--ex2e-text-primary);
+}
+.social-attack-dialog .claim-modifier {
+  font-family: var(--ex2e-font-ui);
+  font-size:   var(--ex2e-font-size-xs);
+  color:       var(--ex2e-gold-bright);
+  font-weight: bold;
+}
+.social-attack-dialog .umi-charm-driven-hint {
+  font-family: var(--ex2e-font-ui);
+  font-size:   var(--ex2e-font-size-xs);
+  color:       var(--ex2e-gold-main);
+  font-style:  italic;
+  margin-left: 4px;
+}
+
+.social-attack-dialog .social-motivation-break input[name="targetMotivation"][readonly] {
+  opacity:    0.7;
+  background: color-mix(in srgb, var(--ex2e-gold-dark) 6%, var(--ex2e-bg-darkest));
+  cursor:     not-allowed;
+}
+.social-attack-dialog .social-motivation-break .hint {
+  margin:      4px 0 0 0;
+  font-family: var(--ex2e-font-ui);
+  font-size:   var(--ex2e-font-size-xs);
+  color:       var(--ex2e-gold-main);
+  font-style:  italic;
+}
 
 /* ── Counterattack Dialog ──────────────────────────────────────────────── */
 
