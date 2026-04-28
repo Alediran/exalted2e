@@ -3,6 +3,7 @@ import { ExaltedRoll }   from "../../rolls/exalted-roll.mjs";
 import { evaluateCharmPrereqs } from "../../helpers/charm-prereqs.mjs";
 import { ex2eCan }       from "../../helpers/permissions.mjs";
 import { buildXpCostRows } from "../../helpers/xp-cost-table.mjs";
+import { computeSpellCastButtonState } from "../../ui/spell-cast-button.mjs";
 import { resolveXpCosts }  from "../../helpers/xp-cost-defaults.mjs";
 
 const { ActorSheetV2, HandlebarsApplicationMixin } = (() => {
@@ -244,15 +245,25 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         groups:    spellGroups.necromancy
       }
     ];
-    // Per-spell "circle too high for this caster's initiation" flag, so
-    // the template can show a warning indicator without re-reading the
-    // initiation level for each row.
+    // Per-spell "circle too high for this caster's initiation" flag,
+    // used by the template to show a warning indicator next to the
+    // spell name. The activate button itself uses the richer
+    // spellCastButton state below.
     const spellInitStatus = {};
     for (const s of spells) {
       const trad = s.system?.tradition === "necromancy" ? "necromancy" : "sorcery";
       const req  = Math.max(1, Number(s.system?.circle) || 1);
       const cur  = Number(sys[trad]?.initiation ?? 0);
       spellInitStatus[s.id] = { ok: cur >= req, required: req, current: cur };
+    }
+    // Per-spell activate-button state — shared with the spell-sheet's
+    // Cast button via computeSpellCastButtonState. Gates the button
+    // for: insufficient initiation, busy with another action, busy
+    // shaping a different spell, ready-to-cast (this spell), mid-shape
+    // (this spell), insufficient motes, insufficient willpower.
+    const spellCastButton = {};
+    for (const s of spells) {
+      spellCastButton[s.id] = computeSpellCastButtonState(s);
     }
 
     const knacks     = actor.items.filter(i => i.type === "knack")      .sort((a,b) => a.name.localeCompare(b.name));
@@ -401,6 +412,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       spells,
       spellSections,
       spellInitStatus,
+      spellCastButton,
       knacks,
       combos: comboRows,
       isLunar: sys.exaltType === "lunar",
@@ -811,8 +823,16 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static async #onActivateCharm(event, target) {
     const itemId = target.closest("[data-item-id]")?.dataset.itemId;
     const item   = this.document.items.get(itemId);
-    if (item?.type === "charm") await item.activateCharm();
-    else if (item?.type === "spell") await item.castSpell();
+    if (item?.type === "charm") {
+      await item.activateCharm();
+    } else if (item?.type === "spell") {
+      // Route through the shared sorcery cast flow — opens the confirm
+      // dialog, handles shape→shape→cast chain, mote/WP commitment with
+      // refund-on-interrupt. Same code path as the spell item sheet's
+      // Cast button.
+      const { castSpellFlow } = await import("../../ui/cast-spell-flow.mjs");
+      await castSpellFlow(item);
+    }
   }
 
   static async #onActivateCombo(event, target) {

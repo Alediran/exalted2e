@@ -62,9 +62,9 @@ export async function dispatchTickAdvance(combatant, combat) {
  * @param {object}      combatant
  * @param {object|null} pending   — pendingAction flag snapshot
  * @param {object|null} flurry    — flurry flag snapshot
- * @returns {{action: object|null, plan: {clearAction: boolean, applyAbortPenalty: boolean}}}
+ * @returns {Promise<{action: object|null, plan: {clearAction: boolean, applyAbortPenalty: boolean}}>}
  */
-export function planCommitOther(combatant, pending, flurry) {
+export async function planCommitOther(combatant, pending, flurry) {
   const action = combatant.getFlag?.("exalted2e", "multiTickAction") ?? null;
   if (!action) {
     return { action: null, plan: { clearAction: false, applyAbortPenalty: false } };
@@ -73,12 +73,18 @@ export function planCommitOther(combatant, pending, flurry) {
   if (!handler || typeof handler.onCommitOther !== "function") {
     return { action, plan: { clearAction: false, applyAbortPenalty: false } };
   }
-  const plan = handler.onCommitOther(combatant, action, pending, flurry);
+  const plan = await handler.onCommitOther(combatant, action, pending, flurry);
   return { action, plan };
 }
 
 /**
  * Clear the multiTickAction flag from every combatant in the given combat.
+ * Fires onAbort per active multi-tick (so sorcery can refund motes/WP
+ * cleanly when combat ends). Always clears the flag regardless of
+ * handler return — this is a "clear all" operation, not a per-action
+ * decision. Errors in handler.onAbort are caught and logged so a single
+ * bad handler can't block the cleanup.
+ *
  * Called by ExaltedCombat.endCombat() and the deleteCombat hook.
  *
  * @param {object} combat — Foundry Combat document
@@ -86,8 +92,35 @@ export function planCommitOther(combatant, pending, flurry) {
 export async function clearAllMultiTickActions(combat) {
   if (!combat?.combatants) return;
   for (const c of combat.combatants) {
-    if (c.getFlag?.("exalted2e", "multiTickAction")) {
-      await c.update({ "flags.exalted2e.-=multiTickAction": null });
+    const action = c.getFlag?.("exalted2e", "multiTickAction") ?? null;
+    if (!action) continue;
+    const handler = EX2E.multiTickHandlers[action.actionKey];
+    if (typeof handler?.onAbort === "function") {
+      try { await handler.onAbort(c, action, combat); }
+      catch (err) { console.warn("multi-tick onAbort failed during clear", err); }
     }
+    await c.update({ "flags.exalted2e.-=multiTickAction": null });
   }
+}
+
+/**
+ * Quickbar Abort dispatch. Gives the active multi-tick consumer a chance
+ * to clean up its own state (refund committed costs, tear down sticky
+ * AEs). Returns {clearAction} so the caller knows whether to clear the
+ * flag — Aim's onAbort returns false (its abort penalty is applied by
+ * next-commit's planCommitOther, which needs the flag to still be
+ * present). Sorcery's onAbort returns true (refund done now; clear the
+ * flag).
+ *
+ * @param {object} combatant — Foundry Combatant document
+ * @param {object} combat    — Foundry Combat document
+ * @returns {Promise<{clearAction: boolean}>}
+ */
+export async function dispatchAbort(combatant, combat) {
+  const action = combatant.getFlag?.("exalted2e", "multiTickAction") ?? null;
+  if (!action) return { clearAction: false };
+  const handler = EX2E.multiTickHandlers[action.actionKey];
+  if (typeof handler?.onAbort !== "function") return { clearAction: false };
+  const result = await handler.onAbort(combatant, action, combat);
+  return result ?? { clearAction: false };
 }

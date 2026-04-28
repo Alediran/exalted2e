@@ -383,3 +383,20 @@
 .ex2e-flurry-card .btn-flurry-attack:hover {
   background: var(--ex2e-gold-dark);
 }
+
+/* ── Spell-cast chat card ─────────────────────────────────────────── */
+.ex2e-spell-cast-card .spell-name-row {
+  display: flex;
+  justify-content: space-between;
+}
+.ex2e-spell-cast-card .spell-name { font-weight: 600; }
+.ex2e-spell-cast-card .spell-meta {
+  color: var(--ex2e-text-muted, #7a6a50);
+  font-size: 0.85em;
+}
+.ex2e-spell-cast-card .spell-description { margin: 6px 0; }
+.ex2e-spell-cast-card .spell-cost-ledger {
+  display: flex;
+  gap: 12px;
+  font-size: 0.9em;
+}

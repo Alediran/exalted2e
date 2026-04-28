@@ -48,7 +48,8 @@ import {
   applyRefusalMath,
   applyRefundMath
 } from "./rolls/motivation-break-math.mjs";
-import { aimHandler } from "./combat/multi-tick-aim.mjs";
+import { aimHandler }     from "./combat/multi-tick-aim.mjs";
+import { sorceryHandler } from "./combat/multi-tick-sorcery.mjs";
 
 // ── Init Hook ──────────────────────────────────────────────────────────────
 Hooks.once("init", function () {
@@ -230,8 +231,9 @@ Hooks.once("init", function () {
   // ── Multi-tick action handlers ─────────────────────────────────────────
   // Single-slot per combatant; handlers register here so the wheel-tick
   // loop and commit dispatcher can fire onTick / onComplete /
-  // onCommitOther by actionKey.
-  EX2E.multiTickHandlers.aim = aimHandler;
+  // onCommitOther / onAbort by actionKey.
+  EX2E.multiTickHandlers.aim     = aimHandler;
+  EX2E.multiTickHandlers.sorcery = sorceryHandler;
 
   // ── Handlebars Helpers ──────────────────────────────────────────────────
   registerHandlebarsHelpers();
@@ -850,12 +852,18 @@ Hooks.on("renderCombatTracker", (app, html, _data) => {
     const action = c.flags?.exalted2e?.multiTickAction;
     if (!action) continue;
     const handler = EX2E.multiTickHandlers[action.actionKey];
-    const labelKey = handler?.badgeLabelKey ?? "EX2E.MultiTickActionGeneric";
-    const label    = game.i18n.localize(labelKey);
-    const elapsed  = action.ticksElapsed ?? 0;
-    const total    = action.totalTicks   ?? 0;
-    const text     = game.i18n.format("EX2E.MultiTickActionProgress",
-                                       { label, elapsed, total });
+    let text;
+    if (typeof handler?.getBadgeText === "function") {
+      text = handler.getBadgeText(action);
+    } else {
+      // Default: "{label} ({elapsed}/{total})" — Aim path
+      const labelKey = handler?.badgeLabelKey ?? "EX2E.MultiTickActionGeneric";
+      const label    = game.i18n.localize(labelKey);
+      const elapsed  = action.ticksElapsed ?? 0;
+      const total    = action.totalTicks   ?? 0;
+      text = game.i18n.format("EX2E.MultiTickActionProgress",
+                              { label, elapsed, total });
+    }
     // Foundry v13's tracker rows expose `data-combatant-id`; fall back
     // to `data-id` for forward-compat with theme overrides.
     const row = el.querySelector(`[data-combatant-id="${c.id}"]`)

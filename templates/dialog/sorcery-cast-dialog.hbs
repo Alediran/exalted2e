@@ -1,0 +1,40 @@
+<form class="ex2e-roll-dialog" autocomplete="off">
+  <div class="dialog-content">
+
+    <div class="field-group">
+      <label>{{spellName}}</label>
+      <span class="dialog-meta">{{traditionLabel}} · {{circleLabel}}</span>
+    </div>
+
+    <div class="field-group">
+      <label>{{localize "EX2E.Cost"}}</label>
+      <div class="cost-row">
+        <span><strong>{{localize "EX2E.Motes"}}:</strong> {{motesCost}}</span>
+        <span><strong>{{localize "EX2E.Willpower"}}:</strong> {{wpCost}}</span>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label>{{localize "EX2E.MotePool"}}</label>
+      <div class="pool-row">
+        <span>{{localize "EX2E.MotesPeripheral"}}: {{peripheralVal}} / {{peripheralMax}}</span>
+        <span>{{localize "EX2E.MotesPersonal"}}: {{personalVal}} / {{personalMax}}</span>
+        <span>{{localize "EX2E.Willpower"}}: {{wpVal}} / {{wpMax}}</span>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <p class="hint">{{hint}}</p>
+    </div>
+
+  </div>
+
+  <footer class="form-footer">
+    <button type="button" class="btn-cancel" data-action="cancel">
+      <i class="fa-solid fa-xmark"></i> {{localize "EX2E.Cancel"}}
+    </button>
+    <button type="button" class="btn-confirm" data-action="confirm">
+      <i class="fa-solid fa-wand-sparkles"></i> {{localize "EX2E.SpellCastButton"}}
+    </button>
+  </footer>
+</form>

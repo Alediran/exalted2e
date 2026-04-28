@@ -351,6 +351,17 @@ export class ActionQuickbar {
    * `spell.castSpell()`, which handles cost spending, the initiation
    * soft-warning, and the chat card on its own — no quickbar bookkeeping
    * needed (spells aren't pendingAction-style declarations).
+   *
+   * NOTE: this is the LEGACY non-shaping path (immediate spend + chat
+   * card with Reverse). The proper RAW-correct shaping pipeline (Speed-5
+   * shape actions × N circles, Cast Sorcery action, mote commitment with
+   * refund-on-interrupt) is on the spell item sheet's Cast button — see
+   * `SpellSheet.#onCastSpell` in module/sheets/item/spell-sheet.mjs.
+   *
+   * The two paths coexist deliberately at MVP: the quickbar entry is a
+   * convenience for out-of-combat / ad-hoc casts, while the sheet button
+   * drives the proper combat pipeline. A future session may unify or
+   * deprecate this entry once the shaping pipeline is battle-tested.
    */
   _toggleSpellsSubmenu(btn, actor) {
     if (!this._submenu.hidden) { this._hideSubmenu(); return; }
@@ -494,6 +505,19 @@ export class ActionQuickbar {
       "flags.exalted2e.committedAction": { ...committed, aborted: true }
     };
     if (combat) updates.initiative = combat.currentTick;
+
+    // Multi-tick handler abort dispatch — gives the active consumer a
+    // chance to clean up (refund costs, tear down sticky AEs). Aim's
+    // onAbort returns clearAction:false so the flag stays put (its
+    // -2-internal-on-divert is applied by next-commit's planCommitOther,
+    // which needs the flag still present). Sorcery's onAbort refunds
+    // motes/WP + tears down DV AE + returns clearAction:true.
+    const { dispatchAbort } = await import("../combat/multi-tick.mjs");
+    const { clearAction } = await dispatchAbort(current, combat);
+    if (clearAction) {
+      updates["flags.exalted2e.-=multiTickAction"] = null;
+    }
+
     await current.update(updates);
     const content = await foundry.applications.handlebars.renderTemplate(
       "systems/exalted2e/templates/chat/action-declared.hbs",

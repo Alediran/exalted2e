@@ -1,4 +1,5 @@
 import { EX2E } from "../../config.mjs";
+import { computeSpellCastButtonState } from "../../ui/spell-cast-button.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -17,7 +18,10 @@ export class SpellSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     classes:  ["exalted2e", "item", "spell"],
     position: { width: 520, height: 520 },
     window: { resizable: true },
-    form: { submitOnChange: true, closeOnSubmit: false }
+    form: { submitOnChange: true, closeOnSubmit: false },
+    actions: {
+      castSpell: SpellSheet.#onCastSpell
+    }
   };
 
   get title() { return this.document.name; }
@@ -31,6 +35,9 @@ export class SpellSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const context = await super._prepareContext(options);
     const item    = this.document;
     const sys     = item.system;
+
+    // ── Cast button state ──────────────────────────────────────────────
+    const castButton = this._computeCastButtonState();
 
     return {
       ...context,
@@ -48,8 +55,30 @@ export class SpellSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       isEditable:  this.isEditable,
       enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description, {
         secrets: this.document.isOwner, relativeTo: this.document
-      })
+      }),
+      castButton
     };
+  }
+
+  /**
+   * Compute the Cast button's UI state. Delegates to the shared
+   * computeSpellCastButtonState helper so the spell-sheet's button and
+   * the character-sheet's Charms-tab spell-row activate button stay
+   * consistent.
+   */
+  _computeCastButtonState() {
+    return computeSpellCastButtonState(this.document);
+  }
+
+  /**
+   * Cast button click — delegates to the shared cast-spell flow.
+   * The flow handles all branching (continue / cast / first-shape with
+   * dialog) and is also called by the Charms tab spell-row "cast" button
+   * via CharacterSheet.#onActivateCharm.
+   */
+  static async #onCastSpell(_event, _target) {
+    const { castSpellFlow } = await import("../../ui/cast-spell-flow.mjs");
+    await castSpellFlow(this.document);
   }
 
   /**

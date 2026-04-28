@@ -35,5 +35,18 @@
       {{#if system.cost.aggravatedHealth}}+{{system.cost.aggravatedHealth}}hl(A){{/if}}
       {{#if system.cost.xp}}+{{system.cost.xp}}xp{{/if}}
     </div>
+
+    <!-- Cast button (state-aware) -->
+    {{#if castButton.visible}}
+    <div class="spell-cast-row">
+      <button type="button" class="spell-cast-btn"
+              data-action="castSpell"
+              {{#unless castButton.enabled}}disabled{{/unless}}
+              {{#if castButton.tooltip}}data-tooltip="{{castButton.tooltip}}"{{/if}}>
+        <i class="fa-solid fa-wand-sparkles"></i>
+        {{castButton.label}}
+      </button>
+    </div>
+    {{/if}}
   </div>
 </div>

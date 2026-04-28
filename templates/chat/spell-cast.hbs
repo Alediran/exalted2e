@@ -1,0 +1,24 @@
+<div class="ex2e-roll-card ex2e-spell-cast-card">
+  <div class="roll-header">
+    <span class="roll-actor">{{actorName}}</span>
+    <span class="roll-flavor">{{localize "EX2E.SpellCast"}}</span>
+  </div>
+
+  <div class="spell-cast-summary">
+    <div class="spell-name-row">
+      <span class="spell-name">{{spellName}}</span>
+      <span class="spell-meta">{{traditionLabel}} · {{circleLabel}}</span>
+    </div>
+
+    {{#if description}}
+    <div class="spell-description">
+      {{{description}}}
+    </div>
+    {{/if}}
+
+    <div class="spell-cost-ledger">
+      <span><strong>{{localize "EX2E.Motes"}}:</strong> {{motesSpent}} {{motePoolLabel}}</span>
+      <span><strong>{{localize "EX2E.Willpower"}}:</strong> {{wpSpent}}</span>
+    </div>
+  </div>
+</div>

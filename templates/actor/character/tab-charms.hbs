@@ -113,7 +113,14 @@
           </span>
         </span>
         <div class="item-controls">
+          {{#with (lookup @root.spellCastButton spell.id) as |b|}}
+          <button data-action="activateCharm"
+                  title="{{localize 'EX2E.CastSpell'}}"
+                  {{#unless b.enabled}}disabled{{/unless}}
+                  {{#if b.tooltip}}data-tooltip="{{b.tooltip}}"{{/if}}>⚡</button>
+          {{else}}
           <button data-action="activateCharm" title="{{localize 'EX2E.CastSpell'}}">⚡</button>
+          {{/with}}
           <button data-action="sendItemToChat" title="{{localize 'EX2E.SendToChat'}}">💬</button>
           {{#if @root.isEditable}}
           <button data-action="editItem"   title="Edit">✏️</button>

@@ -214,7 +214,7 @@ export class ExaltedCombat extends Combat {
     // handler what to do — clear, apply abort penalty, or both. Aim's
     // handler covers the prior planCommitOnAim semantics; future
     // consumers (sorcery, clinch, warstrider) plug in via the registry.
-    const { plan: mtPlan } = planCommitOther(current, pending, flurry);
+    const { plan: mtPlan } = await planCommitOther(current, pending, flurry);
     if (mtPlan.clearAction) {
       updates["flags.exalted2e.-=multiTickAction"] = null;
     }
