@@ -24,6 +24,30 @@ function findCardElement(messageId) {
 }
 
 /**
+ * Wait for `message.content` to stop changing for `stableMs` milliseconds.
+ *
+ * The auto-apply click handler runs multiple `message.update({content})` calls
+ * (damage section + chain re-render + outer card-rebuild). Polling for the
+ * knockback flag tells us the chain ran, but doesn't tell us whether a later
+ * outer update has already overwritten content. Asserting on a stable content
+ * value catches the Task 5 race regardless of which write is last.
+ */
+async function waitForContentStable(message, { stableMs = 250, timeoutMs = 2000 } = {}) {
+  let lastContent  = message.content;
+  let lastChangeAt = Date.now();
+  const deadline   = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    await new Promise(r => setTimeout(r, 50));
+    if (message.content !== lastContent) {
+      lastContent  = message.content;
+      lastChangeAt = Date.now();
+    } else if (Date.now() - lastChangeAt >= stableMs) {
+      return;
+    }
+  }
+}
+
+/**
  * Override the autoApplyDamage system setting for the duration of one
  * test. Restores via cleanupOnAfter.
  */
@@ -82,13 +106,20 @@ export function registerKnockbackSmoke(context) {
     before(assertTestWorld);
     afterEach(sweep);
 
-    // S1: Auto-apply path — regression for Task 5 race.
-    // The bug was: in the auto-apply branch of the .btn-roll-damage handler,
-    // resolveKnockbackChain ran BEFORE the outer `message.update({content})`,
-    // so the chain's re-rendered content got overwritten. Fix split the
-    // handler into two if-blocks. If the bug returns, the final content
-    // won't include the knockback resolution sub-block.
-    it("auto-apply path runs the chain after persisting damage (regression for Task 5 race)", async function () {
+    // S1: Auto-apply path — happy-path E2E coverage.
+    //
+    // Historical context: a prior session (Task 5 of the knockback plan)
+    // fixed an ordering race where the auto-apply path's outer
+    // `message.update({content: card.outerHTML})` overwrote the chain's
+    // re-rendered content. We attempted to use this test as a regression
+    // guard for that race, but Foundry v13's chat-render pipeline patches
+    // the `.ex2e-attack-card` element in-place when the chain updates
+    // content, so `card.outerHTML` at the outer update already contains
+    // the chain's sub-block — the buggy ordering doesn't manifest as
+    // missing-content in v13. The test instead serves as E2E coverage:
+    // confirm the auto-apply path actually invokes the chain end-to-end
+    // (damage applied, token moved, AE created, content re-rendered).
+    it("auto-apply path runs the chain end-to-end", async function () {
       // Stub strategy:
       //   • The damage roll uses `new Roll(formula).evaluate()` directly —
       //     NOT ExaltedRoll.rollPool. We stub Roll.prototype.evaluate to
@@ -151,11 +182,19 @@ export function registerKnockbackSmoke(context) {
       // The critical regression check: final card content includes the
       // knockback-resolution sub-block CSS class (confirmed in
       // templates/chat/attack-result.hbs line ~190). If the race bug
-      // returns, the chain's re-render gets overwritten and the class
-      // disappears from the persisted content.
+      // returns, an outer message.update({content: card.outerHTML}) runs
+      // AFTER the chain's re-render and overwrites the resolution sub-block.
+      //
+      // We must wait for content to STABILIZE before asserting — the flag
+      // gets set in the middle of the buggy handler (chain runs first,
+      // outer update runs after), so polling for the flag alone resolves
+      // before the bug has had time to manifest. Stability polling reads
+      // the FINAL content regardless of where the chain runs in the
+      // handler.
+      await waitForContentStable(message);
       assert.ok(
         message.content.includes("knockback-resolution"),
-        "card content should contain the .knockback-resolution sub-block (regression for Task 5 race)"
+        "final card content should include the chain's .knockback-resolution sub-block"
       );
     });
 
