@@ -56,7 +56,9 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
         immediateThreat:      false,
         unnaturalInfluence:   false
       },
-      stuntDice:    String(options.stuntDice ?? 0),
+      stuntDice:           String(options.stuntDice ?? 0),
+      advancesMotivation:  options.advancesMotivation ?? false,
+      rewardKind:          options.rewardKind         ?? "motes",
       // 3c-1: Excellency block defaults
       moteType:     options.moteType     ?? "peripheral",
       firstExcDice: options.firstExcDice ?? 0,
@@ -232,8 +234,30 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       this._data.targetMotivation = e.target.value;
     });
 
+    // Mirror stunt fields into _data so re-renders preserve user choices.
+    el.querySelector("[name='stuntAdvancesMotivation']")?.addEventListener("change", (e) => {
+      this._data.advancesMotivation = e.target.checked;
+    });
+    el.querySelectorAll("[name='stuntRewardKind']").forEach(r => {
+      r.addEventListener("change", (e) => {
+        this._data.rewardKind = e.target.value;
+      });
+    });
+
     updateTotal();
     updateUmiLock();
+
+    // Stunt sub-fields driven by the stuntDice selector (not "stunt").
+    const stuntSelect   = el.querySelector("[name='stuntDice']");
+    const motivationRow = el.querySelector(".stunt-motivation-row");
+    const rewardPrefRow = el.querySelector(".stunt-reward-pref-row");
+    const updateStuntFields = () => {
+      const v = parseInt(stuntSelect?.value) || 0;
+      if (motivationRow) motivationRow.style.display = v >= 1 ? "" : "none";
+      if (rewardPrefRow) rewardPrefRow.style.display = v >= 2 ? "" : "none";
+    };
+    stuntSelect?.addEventListener("change", updateStuntFields);
+    updateStuntFields();
   }
 
   static async #onPickTarget(event, target) {
@@ -304,7 +328,9 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
         immediateThreat:      !!data.immediateThreat,
         unnaturalInfluence:   !!data.unnaturalInfluence
       },
-      stuntDice:     Number(data.stuntDice) || 0,
+      stuntDice:          Number(data.stuntDice) || 0,
+      advancesMotivation: !!data.stuntAdvancesMotivation,
+      rewardKind:         data.stuntRewardKind === "willpower" ? "willpower" : "motes",
       // 3c-1
       charmIds,
       firstExcDice:  parseInt(data.firstExcDice)  || 0,

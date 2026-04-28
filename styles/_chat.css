@@ -400,3 +400,31 @@
   gap: 12px;
   font-size: 0.9em;
 }
+
+/* ── Stunt reward chat card ───────────────────────────────────────────── */
+.ex2e-stunt-reward-card .card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--ex2e-gap-sm);
+  font-weight: bold;
+  margin-bottom: var(--ex2e-gap-xs);
+}
+.ex2e-stunt-reward-card .card-header .card-actor {
+  margin-left: auto;
+  font-weight: normal;
+  opacity: 0.8;
+}
+.ex2e-stunt-reward-card .stunt-reward-list {
+  margin: 0;
+  padding-left: 18px;
+}
+.ex2e-stunt-reward-card .stunt-reward-list li {
+  list-style: disc;
+  padding: 1px 0;
+}
+.ex2e-stunt-reward-card .stunt-reward-waste {
+  margin-top: var(--ex2e-gap-xs);
+  font-size: var(--ex2e-font-size-sm);
+  color: var(--ex2e-text-muted);
+  font-style: italic;
+}

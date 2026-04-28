@@ -16,6 +16,7 @@ import {
   computeAttackOutcome
 } from "./attack-math.mjs";
 import { computeAttackExcellencyCaps } from "./excellency-math.mjs";
+import { bankStuntReward } from "../combat/stunt-payment.mjs";
 
 /**
  * ExaltedRoll – Handles the Exalted 2e d10 dice pool mechanic.
@@ -356,7 +357,15 @@ export class ExaltedRoll {
     // itself never carries the successes — the tally lives on the
     // ExaltedRollResult returned by evaluate().
     const result = await exRoll.evaluate();
-    await result.toMessage({ speaker: ChatMessage.getSpeaker({ actor }) });
+    const message = await result.toMessage({ speaker: ChatMessage.getSpeaker({ actor }) });
+    await bankStuntReward(actor, {
+      stunt:              dialogResult.stunt,
+      advancesMotivation: dialogResult.advancesMotivation ?? false,
+      rewardKind:         dialogResult.rewardKind ?? "motes",
+      sourceMessageId:    message?.id ?? null
+    }).catch(err =>
+      console.error("exalted2e | stunt banking failed", err)
+    );
     return result;
   }
 
@@ -722,13 +731,22 @@ export class ExaltedRoll {
 
     const content = await renderAttackCardContent(attack);
 
-    return ChatMessage.create({
+    const message = await ChatMessage.create({
       content,
       rolls:   [result.foundryRoll],
       sound:   CONFIG.sounds.dice,
       speaker: ChatMessage.getSpeaker({ actor }),
       flags:   { exalted2e: { attack } }
     });
+    await bankStuntReward(actor, {
+      stunt:              dialogResult.stunt,
+      advancesMotivation: dialogResult.advancesMotivation ?? false,
+      rewardKind:         dialogResult.rewardKind ?? "motes",
+      sourceMessageId:    message?.id ?? null
+    }).catch(err =>
+      console.error("exalted2e | stunt banking failed", err)
+    );
+    return message;
   }
 
   /**
@@ -750,6 +768,8 @@ export class ExaltedRoll {
     subject = "",
     claims = {},
     stuntDice = 0,
+    advancesMotivation = false,
+    rewardKind = "motes",
     // 3c-1
     charmIds = [],
     firstExcDice = 0,
@@ -1007,6 +1027,15 @@ export class ExaltedRoll {
       content,
       flags: { exalted2e: { socialAttack: ledger } }
     });
+
+    await bankStuntReward(attacker, {
+      stunt:              Number(stuntDice) || 0,
+      advancesMotivation: !!advancesMotivation,
+      rewardKind:         rewardKind === "willpower" ? "willpower" : "motes",
+      sourceMessageId:    message?.id ?? null
+    }).catch(err =>
+      console.error("exalted2e | stunt banking failed", err)
+    );
 
     return message;
   }

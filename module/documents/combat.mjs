@@ -1,6 +1,7 @@
 import { ex2eCan } from "../helpers/permissions.mjs";
 import { sortCombatants, computeTickFromJB } from "../combat/combat-math.mjs";
 import { planCommitOther, dispatchTickAdvance } from "../combat/multi-tick.mjs";
+import { payPendingStuntRewards } from "../combat/stunt-payment.mjs";
 
 /**
  * ExaltedCombat — wheel-based tick initiative for Exalted 2e.
@@ -282,12 +283,15 @@ export class ExaltedCombat extends Combat {
       }
     }
 
-    // Refresh DVs + clear committedAction for anyone whose committed
-    // action lands exactly on the new tick — they're transitioning from
-    // mid-action to free.
+    // Refresh DVs + drain banked stunt rewards + clear committedAction
+    // for anyone whose committed action lands exactly on the new tick —
+    // they're transitioning from mid-action to free.
     for (const c of this.combatants) {
       if (c.initiative !== newTick) continue;
-      if (c.actor) await this._refreshDVsFor(c.actor);
+      if (c.actor) {
+        await this._refreshDVsFor(c.actor);
+        await payPendingStuntRewards(c);
+      }
       if (c.getFlag("exalted2e", "committedAction")) {
         await c.unsetFlag("exalted2e", "committedAction");
       }
@@ -347,6 +351,12 @@ export class ExaltedCombat extends Combat {
   async endCombat() {
     const { clearSocialScene } = await import("../ui/social-scene.mjs");
     const { clearAllMultiTickActions } = await import("../combat/multi-tick.mjs");
+    // Drain killing-blow stunt rewards before combatants are torn down.
+    // A 3-die stunt that ends combat (e.g., the deciding attack) would
+    // otherwise lose its DV-refresh window and silently vanish.
+    for (const c of this.combatants) {
+      if (c.actor) await payPendingStuntRewards(c);
+    }
     await clearSocialScene({ silent: true });
     await clearAllMultiTickActions(this);
     return super.endCombat();

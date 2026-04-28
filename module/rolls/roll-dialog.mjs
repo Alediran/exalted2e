@@ -40,6 +40,8 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       pool:                options.pool                ?? 1,
       flavor:              options.flavor              ?? "",
       stunt:               options.stunt               ?? 0,
+      advancesMotivation:  options.advancesMotivation  ?? false,
+      rewardKind:          options.rewardKind          ?? "motes",
       moteCost:            options.moteCost            ?? 0,
       moteType:            options.moteType            ?? "peripheral",
       actorName:           options.actorName           ?? "",
@@ -174,6 +176,19 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     thirdExcCheck?.addEventListener("change", updateTotal);
 
     updateTotal(); // initialise displayed total
+
+    // Stunt sub-fields: motivation rider always visible at stunt ≥ 1;
+    // motes/WP preference visible at stunt ≥ 2.
+    const stuntSelect   = el.querySelector("[name='stunt']");
+    const motivationRow = el.querySelector(".stunt-motivation-row");
+    const rewardPrefRow = el.querySelector(".stunt-reward-pref-row");
+    const updateStuntFields = () => {
+      const v = parseInt(stuntSelect?.value) || 0;
+      if (motivationRow) motivationRow.style.display = v >= 1 ? "" : "none";
+      if (rewardPrefRow) rewardPrefRow.style.display = v >= 2 ? "" : "none";
+    };
+    stuntSelect?.addEventListener("change", updateStuntFields);
+    updateStuntFields();
   }
 
   /** Called when the Roll button is clicked via data-action="confirmRoll". */
@@ -189,13 +204,15 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
 
     this._resolved = true;
     this._resolve({
-      pool:         parseInt(data.pool)     || this._data.pool,
-      attribute:    data.attribute          || this._data.attribute,
-      flavor:       data.flavor             || this._data.flavor,
-      stunt:        parseInt(data.stunt)    || 0,
-      moteCost:     baseMotes,
-      moteType:     data.moteType           || "peripheral",
-      specialty:    (() => {
+      pool:               parseInt(data.pool)     || this._data.pool,
+      attribute:          data.attribute          || this._data.attribute,
+      flavor:             data.flavor             || this._data.flavor,
+      stunt:              parseInt(data.stunt)    || 0,
+      advancesMotivation: !!data.stuntAdvancesMotivation,
+      rewardKind:         data.stuntRewardKind === "willpower" ? "willpower" : "motes",
+      moteCost:           baseMotes,
+      moteType:           data.moteType           || "peripheral",
+      specialty:          (() => {
         const idx = parseInt(data.specialty);
         return (!isNaN(idx) && this._data.specialties[idx]) ? this._data.specialties[idx] : null;
       })(),

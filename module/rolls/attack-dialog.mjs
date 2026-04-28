@@ -35,9 +35,11 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     this._resolve  = resolve;
     this._resolved = false;
     this._data     = {
-      pool:           options.pool           ?? 1,
-      stunt:          options.stunt          ?? 0,
-      moteType:       options.moteType       ?? "peripheral",
+      pool:                options.pool                ?? 1,
+      stunt:               options.stunt               ?? 0,
+      advancesMotivation:  options.advancesMotivation  ?? false,
+      rewardKind:          options.rewardKind          ?? "motes",
+      moteType:            options.moteType            ?? "peripheral",
       excellency:     options.excellency     ?? { first: false, second: false, third: false },
       firstExcMax:    options.firstExcMax    ?? 0,
       secondExcMax:   options.secondExcMax   ?? 0,
@@ -130,6 +132,17 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     firstExcInput?.addEventListener("input", updateTotal);
     secondExcInput?.addEventListener("input", updateTotal);
     updateTotal();
+
+    const stuntSelect   = el.querySelector("[name='stunt']");
+    const motivationRow = el.querySelector(".stunt-motivation-row");
+    const rewardPrefRow = el.querySelector(".stunt-reward-pref-row");
+    const updateStuntFields = () => {
+      const v = parseInt(stuntSelect?.value) || 0;
+      if (motivationRow) motivationRow.style.display = v >= 1 ? "" : "none";
+      if (rewardPrefRow) rewardPrefRow.style.display = v >= 2 ? "" : "none";
+    };
+    stuntSelect?.addEventListener("change", updateStuntFields);
+    updateStuntFields();
   }
 
   static #onConfirmAttack(event, target) {
@@ -144,11 +157,13 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
 
     this._resolved = true;
     this._resolve({
-      pool:          parseInt(data.pool)     || this._data.pool,
-      stunt:         parseInt(data.stunt)    || 0,
-      moteType:      data.moteType           || "peripheral",
-      firstExcDice:  parseInt(data.firstExcDice)  || 0,
-      secondExcSucc: parseInt(data.secondExcSucc) || 0,
+      pool:               parseInt(data.pool)     || this._data.pool,
+      stunt:              parseInt(data.stunt)    || 0,
+      advancesMotivation: !!data.stuntAdvancesMotivation,
+      rewardKind:         data.stuntRewardKind === "willpower" ? "willpower" : "motes",
+      moteType:           data.moteType           || "peripheral",
+      firstExcDice:       parseInt(data.firstExcDice)  || 0,
+      secondExcSucc:      parseInt(data.secondExcSucc) || 0,
       charmIds
     });
     this.close();

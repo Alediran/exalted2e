@@ -1,0 +1,18 @@
+<div class="ex2e-roll-card ex2e-stunt-reward-card">
+  <div class="card-header">
+    <i class="fa-solid fa-masks-theater"></i>
+    <span class="card-title">{{localize "EX2E.StuntRewardCardTitle"}}</span>
+    {{#if actorName}}<span class="card-actor">{{actorName}}</span>{{/if}}
+  </div>
+  <ul class="stunt-reward-list">
+    {{#each rewards as |r|}}
+    <li>{{localize "EX2E.StuntRewardLine" stunt=r.stunt motes=r.motes wp=r.willpower}}</li>
+    {{/each}}
+  </ul>
+  {{#if hasWaste}}
+  <div class="stunt-reward-waste">
+    {{#if wastedMotes}}<div>{{localize "EX2E.StuntRewardWasted" n=wastedMotes}} ({{localize "EX2E.StuntRewardMotes"}})</div>{{/if}}
+    {{#if wastedWillpower}}<div>{{localize "EX2E.StuntRewardWasted" n=wastedWillpower}} ({{localize "EX2E.StuntRewardWillpower"}})</div>{{/if}}
+  </div>
+  {{/if}}
+</div>

@@ -106,6 +106,21 @@
       </select>
     </div>
 
+    <div class="field-group stunt-motivation-row" style="display:none">
+      <label>
+        <input type="checkbox" name="stuntAdvancesMotivation" {{#if advancesMotivation}}checked{{/if}}>
+        {{localize "EX2E.StuntAdvancesMotivation"}}
+      </label>
+    </div>
+
+    <div class="field-group stunt-reward-pref-row" style="display:none">
+      <label>{{localize "EX2E.StuntRewardPreference"}}</label>
+      <div class="stunt-reward-radio">
+        <label><input type="radio" name="stuntRewardKind" value="motes"     {{#if (eq rewardKind "motes")}}checked{{/if}}> {{localize "EX2E.StuntRewardMotes"}}</label>
+        <label><input type="radio" name="stuntRewardKind" value="willpower" {{#if (eq rewardKind "willpower")}}checked{{/if}}> {{localize "EX2E.StuntRewardWillpower"}}</label>
+      </div>
+    </div>
+
     {{!-- 3c-1: Charm picker --}}
     {{#if hasPickerCharms}}
     <div class="field-group attack-charm-picker">
