@@ -181,6 +181,15 @@ export class ExaltedItem extends Item {
    * initiation is below the spell's circle, but casting continues
    * (homebrew / rules-of-cool, and matches the prereq soft-warn pattern).
    *
+   * @deprecated The system's UI now routes spell casts through the
+   * RAW-correct shaping pipeline (`castSpellFlow` in
+   * `module/ui/cast-spell-flow.mjs`) — Speed-5 shape × N circles, mote
+   * commitment with refund-on-interrupt, Cast Sorcery action,
+   * tradition-correct chat card. This legacy immediate-cast method is
+   * preserved for user-written macros that may still reference
+   * `actor.items.get(id).castSpell()`. Prefer the new flow for
+   * everything else.
+   *
    * @returns {Promise<boolean>} true if the cast succeeded, false if the
    *                             user aborted an XP confirmation or motes
    *                             couldn't cover the cost.

@@ -1,4 +1,5 @@
 import { EX2E } from "../config.mjs";
+import { computeSpellCastButtonState } from "./spell-cast-button.mjs";
 
 /**
  * Lazily create (or return) the shared bottom-HUD flex container that
@@ -347,21 +348,13 @@ export class ActionQuickbar {
 
   // ── Cast Spell submenu ─────────────────────────────────────────────────
   /**
-   * Popover list of every spell the actor knows. Clicking a row fires
-   * `spell.castSpell()`, which handles cost spending, the initiation
-   * soft-warning, and the chat card on its own — no quickbar bookkeeping
-   * needed (spells aren't pendingAction-style declarations).
-   *
-   * NOTE: this is the LEGACY non-shaping path (immediate spend + chat
-   * card with Reverse). The proper RAW-correct shaping pipeline (Speed-5
-   * shape actions × N circles, Cast Sorcery action, mote commitment with
-   * refund-on-interrupt) is on the spell item sheet's Cast button — see
-   * `SpellSheet.#onCastSpell` in module/sheets/item/spell-sheet.mjs.
-   *
-   * The two paths coexist deliberately at MVP: the quickbar entry is a
-   * convenience for out-of-combat / ad-hoc casts, while the sheet button
-   * drives the proper combat pipeline. A future session may unify or
-   * deprecate this entry once the shaping pipeline is battle-tested.
+   * Popover list of every spell the actor knows. Each row is gated by
+   * `computeSpellCastButtonState` (initiation, motes, WP, multi-tick
+   * conflicts), shows the same tooltip as the Charms tab spell row,
+   * and clicks route through the RAW-correct shaping pipeline via
+   * `castSpellFlow`. Both sorcery and necromancy traditions are
+   * handled — the flow reads `spell.system.tradition` to pick the
+   * right initiation field and circle labels.
    */
   _toggleSpellsSubmenu(btn, actor) {
     if (!this._submenu.hidden) { this._hideSubmenu(); return; }
@@ -383,11 +376,23 @@ export class ActionQuickbar {
         if (cost.xp)               costParts.push(`${cost.xp}xp`);
         const costLabel = costParts.join(" ") || "—";
         row.innerHTML = `<span class="mode-label">${s.name}</span><span class="mode-stats">${costLabel}</span>`;
-        row.addEventListener("click", (ev) => {
-          ev.stopPropagation();
-          this._hideSubmenu();
-          s.castSpell();
-        });
+
+        // Per-row gating — same logic as the Charms tab spell row + the
+        // spell item sheet's Cast button. Disabled rows show the tooltip
+        // explaining why (insufficient initiation / motes / WP / busy
+        // with another action / etc.).
+        const btnState = computeSpellCastButtonState(s);
+        if (btnState.visible === false || btnState.enabled === false) {
+          row.disabled = true;
+          if (btnState.tooltip) row.dataset.tooltip = btnState.tooltip;
+        } else {
+          row.addEventListener("click", async (ev) => {
+            ev.stopPropagation();
+            this._hideSubmenu();
+            const { castSpellFlow } = await import("./cast-spell-flow.mjs");
+            await castSpellFlow(s);
+          });
+        }
         return row;
       })
     );
