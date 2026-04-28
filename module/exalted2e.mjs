@@ -482,6 +482,28 @@ Hooks.once("ready", async function () {
   await _seedTheCircleFolder();
 });
 
+// ── Quench (in-Foundry test harness) ──────────────────────────────────────
+// Tests ship with the system bundle but only register when the Quench
+// module is installed and active. Production users pay zero cost — the
+// import never runs without Quench.
+//
+// IMPORTANT: this must run at `init`, not `ready`. Quench fires its
+// `quenchReady` hook from inside its own `ready` handler; if we import
+// the test entry point during our `ready` handler, our `Hooks.once`
+// subscriber may register AFTER `quenchReady` has already fired, in
+// which case the subscriber never runs and the panel shows no batches.
+// Subscribing at `init` puts the once-listener in place before any
+// `ready` handler runs.
+Hooks.once("init", async function () {
+  if (game.modules.get("quench")?.active) {
+    try {
+      await import("../tests/quench/index.mjs");
+    } catch (err) {
+      console.error("Exalted 2e | Quench test harness failed to load", err);
+    }
+  }
+});
+
 /**
  * Seed the `effects` compendium with built-in Exalted 2e condition
  * wrappers the first time a GM boots the system. Each entry is a
