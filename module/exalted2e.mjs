@@ -48,6 +48,7 @@ import {
   applyRefusalMath,
   applyRefundMath
 } from "./rolls/motivation-break-math.mjs";
+import { aimHandler } from "./combat/multi-tick-aim.mjs";
 
 // ── Init Hook ──────────────────────────────────────────────────────────────
 Hooks.once("init", function () {
@@ -225,6 +226,12 @@ Hooks.once("init", function () {
     type:       PermissionsConfigDialog,
     restricted: true   // GM-only
   });
+
+  // ── Multi-tick action handlers ─────────────────────────────────────────
+  // Single-slot per combatant; handlers register here so the wheel-tick
+  // loop and commit dispatcher can fire onTick / onComplete /
+  // onCommitOther by actionKey.
+  EX2E.multiTickHandlers.aim = aimHandler;
 
   // ── Handlebars Helpers ──────────────────────────────────────────────────
   registerHandlebarsHelpers();
@@ -833,6 +840,42 @@ Hooks.on("renderCombatTracker", (app, html, _data) => {
   // Phase 2: native Begin Encounter is visible.
   // Phase 3: wheel UI + action quickbar handle all in-combat controls;
   // only Foundry's own End Encounter remains in the tracker footer.
+
+  // ── Multi-tick action badge ────────────────────────────────────────────
+  // Decorate combatant rows with the active multi-tick action's
+  // progress (e.g., "Aiming (2/3)"). Cheap re-render — the tracker
+  // re-renders on every combatant.update, which is exactly when the
+  // badge needs to refresh.
+  for (const c of combatants) {
+    const action = c.flags?.exalted2e?.multiTickAction;
+    if (!action) continue;
+    const handler = EX2E.multiTickHandlers[action.actionKey];
+    const labelKey = handler?.badgeLabelKey ?? "EX2E.MultiTickActionGeneric";
+    const label    = game.i18n.localize(labelKey);
+    const elapsed  = action.ticksElapsed ?? 0;
+    const total    = action.totalTicks   ?? 0;
+    const text     = game.i18n.format("EX2E.MultiTickActionProgress",
+                                       { label, elapsed, total });
+    // Foundry v13's tracker rows expose `data-combatant-id`; fall back
+    // to `data-id` for forward-compat with theme overrides.
+    const row = el.querySelector(`[data-combatant-id="${c.id}"]`)
+             ?? el.querySelector(`[data-id="${c.id}"]`);
+    if (!row) continue;
+    const nameEl = row.querySelector(".token-name") ?? row.querySelector(".name");
+    if (!nameEl) continue;
+    const badge = document.createElement("span");
+    badge.classList.add("ex2e-mt-badge");
+    badge.textContent = text;
+    nameEl.appendChild(badge);
+  }
+});
+
+// Clear multi-tick action flags whenever a combat is deleted (covers the
+// "End Encounter" → delete path as well as out-of-band deletions).
+Hooks.on("deleteCombat", async (combat) => {
+  if (!combat?.combatants) return;
+  const { clearAllMultiTickActions } = await import("./combat/multi-tick.mjs");
+  await clearAllMultiTickActions(combat);
 });
 
 // ── Chat Listeners ─────────────────────────────────────────────────────────

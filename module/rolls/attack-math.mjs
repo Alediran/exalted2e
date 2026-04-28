@@ -36,18 +36,22 @@ export function computeAttackPool({
 /**
  * Aim bonus = elapsed ticks since aim started, capped at +3.
  *
- * Returns 0 when the aim flag is missing OR when its `targetActorId` doesn't
- * match the current attack target. Otherwise `min(3, max(0, currentTick - startTick))`.
+ * Reads from the new multi-tick container shape: a `multiTickAction`
+ * flag with `actionKey: "aim"` and `state.targetActorId`. Returns 0
+ * when the flag is missing, has a different actionKey, or targets a
+ * different actor than the current attack.
  *
  * @param {object} args
- * @param {object | null} args.aimFlag - `{targetActorId, startTick}` from the attacker's combatant flag
- * @param {string | null} args.targetActorId - The current attack's target actor id
- * @param {number} [args.currentTick=0] - `game.combat.currentTick`
+ * @param {object | null} args.multiTickAction - `flags.exalted2e.multiTickAction` from the attacker's combatant
+ * @param {string | null} args.targetActorId   - The current attack's target actor id
+ * @param {number} [args.currentTick=0]        - `game.combat.currentTick`
  * @returns {number} Bonus dice in [0, 3]
  */
-export function computeAimBonus({ aimFlag, targetActorId, currentTick = 0 } = {}) {
-  if (!aimFlag || aimFlag.targetActorId !== targetActorId) return 0;
-  const elapsed = Math.max(0, (currentTick ?? 0) - (aimFlag.startTick ?? 0));
+export function computeAimBonus({ multiTickAction, targetActorId, currentTick = 0 } = {}) {
+  if (!multiTickAction)                                   return 0;
+  if (multiTickAction.actionKey !== "aim")                return 0;
+  if (multiTickAction.state?.targetActorId !== targetActorId) return 0;
+  const elapsed = Math.max(0, (currentTick ?? 0) - (multiTickAction.startTick ?? 0));
   return Math.min(3, elapsed);
 }
 

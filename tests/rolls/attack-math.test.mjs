@@ -52,21 +52,45 @@ describe("computeAttackPool", () => {
 
 // ── computeAimBonus ──────────────────────────────────────────────────
 describe("computeAimBonus", () => {
-  it("returns 0 when aim flag is missing", () => {
-    expect(computeAimBonus({ aimFlag: null, targetActorId: "T" })).toBe(0);
+  it("returns 0 when multiTickAction is missing", () => {
+    expect(computeAimBonus({ multiTickAction: null, targetActorId: "T" })).toBe(0);
   });
 
-  it("returns 0 when aim target does not match current target", () => {
+  it("returns 0 when actionKey is not 'aim'", () => {
     expect(computeAimBonus({
-      aimFlag: { targetActorId: "OTHER", startTick: 0 },
+      multiTickAction: {
+        actionKey: "charge", state: { targetActorId: "T" }, startTick: 0
+      },
       targetActorId: "T",
       currentTick: 2
     })).toBe(0);
   });
 
+  it("returns 0 when aim target does not match current target", () => {
+    expect(computeAimBonus({
+      multiTickAction: {
+        actionKey: "aim", state: { targetActorId: "OTHER" }, startTick: 0
+      },
+      targetActorId: "T",
+      currentTick: 2
+    })).toBe(0);
+  });
+
+  it("returns elapsed ticks below the cap (mid-cycle)", () => {
+    expect(computeAimBonus({
+      multiTickAction: {
+        actionKey: "aim", state: { targetActorId: "T" }, startTick: 0
+      },
+      targetActorId: "T",
+      currentTick: 2
+    })).toBe(2);
+  });
+
   it("elapsed ticks are capped at +3", () => {
     expect(computeAimBonus({
-      aimFlag: { targetActorId: "T", startTick: 0 },
+      multiTickAction: {
+        actionKey: "aim", state: { targetActorId: "T" }, startTick: 0
+      },
       targetActorId: "T",
       currentTick: 10
     })).toBe(3);

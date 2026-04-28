@@ -436,9 +436,9 @@ export class ExaltedRoll {
     // elapsed tick since aim started (cap +3). Stale when the canvas picker
     // runs below and chooses a different target — that's pre-existing
     // behavior and out of this sprint's scope.
-    const aimFlag  = attackerCombatant?.getFlag("exalted2e", "aim") ?? null;
+    const multiTickAction = attackerCombatant?.getFlag("exalted2e", "multiTickAction") ?? null;
     const aimBonus = computeAimBonus({
-      aimFlag,
+      multiTickAction,
       targetActorId: targetActor?.id ?? null,
       currentTick:   game.combat?.currentTick ?? 0
     });

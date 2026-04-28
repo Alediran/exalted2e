@@ -739,15 +739,18 @@ export class ActionQuickbar {
     const label = game.i18n.format("EX2E.AimAtLabel", { target: target.name });
     await this._clearPendingAction(actor, current);
 
-    // Preserve continuity when re-aiming at the same target.
-    const existingAim = current.flags?.exalted2e?.aim ?? null;
-    const continuing  = existingAim && existingAim.targetActorId === target.id;
+    // Preserve continuity when re-aiming at the same target. We keep
+    // startTick (so computeAimBonus's lazy compute still caps at +3),
+    // cycleCount (so onComplete's "first completion" guard still
+    // suppresses chat after cycle 1), and the existing sticky DV AE
+    // (so the -1 penalty doesn't re-stamp). We RESET ticksElapsed to 0
+    // so the badge shows meaningful per-cycle progress.
+    const existing    = current.flags?.exalted2e?.multiTickAction ?? null;
+    const continuing  = existing?.actionKey === "aim"
+                     && existing?.state?.targetActorId === target.id;
     const currentTick = game.combat?.currentTick ?? 0;
-    const startTick   = continuing ? (existingAim.startTick ?? currentTick) : currentTick;
+    const startTick   = continuing ? (existing.startTick ?? currentTick) : currentTick;
 
-    // Reuse the existing sticky aim DV AE if continuing; otherwise
-    // stamp a fresh one (any old aim DV that was aimed at a different
-    // target will be flipped non-sticky at the next commit).
     let dvEffectId = null;
     const existingAimDv = continuing
       ? actor.effects.find(e =>
@@ -764,9 +767,13 @@ export class ActionQuickbar {
       dvEffectId = eff?.id ?? null;
     }
 
-    await current.setFlag("exalted2e", "aim", {
-      targetActorId: target.id,
-      startTick
+    await current.setFlag("exalted2e", "multiTickAction", {
+      actionKey:    "aim",
+      startTick,
+      totalTicks:   3,
+      ticksElapsed: 0,
+      cycleCount:   continuing ? (existing.cycleCount ?? 0) : 0,
+      state: { targetActorId: target.id, dvEffectId }
     });
     await current.setFlag("exalted2e", "pendingAction", {
       actionKey:     "aim",

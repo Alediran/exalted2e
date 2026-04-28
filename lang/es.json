@@ -861,6 +861,10 @@
     "RiseFailedContested":           "no pudo levantarse ({successes} vs Dificultad 2) — sigue en el suelo",
     "AimAtLabel":                    "Apuntar ({target})",
     "AimAbortedPenaltyLabel":        "Apuntar abortado (−2 interna)",
+    "AimFullyBanked":                "{actor} ha completado su apuntado sobre {target}.",
+    "MultiTickActionAim":            "Apuntando",
+    "MultiTickActionProgress":       "{label} ({elapsed}/{total})",
+    "MultiTickActionGeneric":        "Multi-tic",
 
     "TickWheelTitle":                "Rueda de Batalla",
     "TickWheelTickShort":            "Tick",

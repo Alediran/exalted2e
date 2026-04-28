@@ -1,5 +1,6 @@
 import { ex2eCan } from "../helpers/permissions.mjs";
-import { sortCombatants, computeTickFromJB, planCommitOnAim } from "../combat/combat-math.mjs";
+import { sortCombatants, computeTickFromJB } from "../combat/combat-math.mjs";
+import { planCommitOther, dispatchTickAdvance } from "../combat/multi-tick.mjs";
 
 /**
  * ExaltedCombat — wheel-based tick initiative for Exalted 2e.
@@ -208,13 +209,16 @@ export class ExaltedCombat extends Combat {
       updates["flags.exalted2e.-=pendingAction"] = null;
     }
 
-    // ── Aim state transitions ───────────────────────────────────────────
-    const aim = current.getFlag("exalted2e", "aim") ?? null;
-    const aimPlan = planCommitOnAim({ pending, flurry, aim });
-    if (aimPlan.clearAim) {
-      updates["flags.exalted2e.-=aim"] = null;
+    // ── Multi-tick action commit dispatch ───────────────────────────────
+    // Reads the active multi-tick action (single slot) and asks its
+    // handler what to do — clear, apply abort penalty, or both. Aim's
+    // handler covers the prior planCommitOnAim semantics; future
+    // consumers (sorcery, clinch, warstrider) plug in via the registry.
+    const { plan: mtPlan } = planCommitOther(current, pending, flurry);
+    if (mtPlan.clearAction) {
+      updates["flags.exalted2e.-=multiTickAction"] = null;
     }
-    if (aimPlan.applyAbortPenalty && current.actor) {
+    if (mtPlan.applyAbortPenalty && current.actor) {
       await current.actor.applyInternalPenalty(2, {
         type:  "all",
         label: game.i18n.localize("EX2E.AimAbortedPenaltyLabel"),
@@ -266,6 +270,16 @@ export class ExaltedCombat extends Combat {
     }
     if (clears.length > 0) {
       await this.updateEmbeddedDocuments("Combatant", clears);
+    }
+
+    // Multi-tick action dispatch: bump ticksElapsed (and cycleCount on
+    // boundary), persist, then fire onComplete (boundary only) and
+    // onTick (every tick) per active multi-tick action. Sequential per
+    // combatant — handlers may write to flags / actor state / chat.
+    for (const c of this.combatants) {
+      if (c.getFlag("exalted2e", "multiTickAction")) {
+        await dispatchTickAdvance(c, this);
+      }
     }
 
     // Refresh DVs + clear committedAction for anyone whose committed
@@ -332,7 +346,9 @@ export class ExaltedCombat extends Combat {
    */
   async endCombat() {
     const { clearSocialScene } = await import("../ui/social-scene.mjs");
+    const { clearAllMultiTickActions } = await import("../combat/multi-tick.mjs");
     await clearSocialScene({ silent: true });
+    await clearAllMultiTickActions(this);
     return super.endCombat();
   }
 

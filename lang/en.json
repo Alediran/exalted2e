@@ -861,6 +861,10 @@
     "RiseFailedContested":           "failed to rise ({successes} vs Difficulty 2) — still prone",
     "AimAtLabel":                    "Aim ({target})",
     "AimAbortedPenaltyLabel":        "Aborted Aim (−2 internal)",
+    "AimFullyBanked":                "{actor} has fully banked their aim on {target}.",
+    "MultiTickActionAim":            "Aiming",
+    "MultiTickActionProgress":       "{label} ({elapsed}/{total})",
+    "MultiTickActionGeneric":        "Multi-tick",
 
     "TickWheelTitle":                "Battle Wheel",
     "TickWheelTickShort":            "Tick",

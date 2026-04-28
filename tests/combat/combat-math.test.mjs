@@ -1,8 +1,7 @@
 import { describe, it, expect } from "vitest";
 import {
   sortCombatants,
-  computeTickFromJB,
-  planCommitOnAim
+  computeTickFromJB
 } from "../../module/combat/combat-math.mjs";
 
 // Helper: build a combatant-shaped object with just the fields sortCombatants reads.
@@ -76,48 +75,5 @@ describe("computeTickFromJB", () => {
 
   it("botcher overrides even a zero successes result", () => {
     expect(computeTickFromJB(0, true, 5)).toBe(6);
-  });
-});
-
-// ── planCommitOnAim ──────────────────────────────────────────────────
-describe("planCommitOnAim", () => {
-  it("no aim → no changes", () => {
-    expect(planCommitOnAim({ pending: { actionKey: "attack" }, flurry: null, aim: null }))
-      .toEqual({ clearAim: false, applyAbortPenalty: false });
-  });
-
-  it("aim continuation (re-aim same target) keeps aim flag", () => {
-    const aim     = { targetActorId: "T" };
-    const pending = { actionKey: "aim", targetActorId: "T" };
-    expect(planCommitOnAim({ pending, flurry: null, aim }))
-      .toEqual({ clearAim: false, applyAbortPenalty: false });
-  });
-
-  it("aimed attack (same target) consumes aim without penalty", () => {
-    const aim     = { targetActorId: "T" };
-    const pending = { actionKey: "attack", targetActorId: "T" };
-    expect(planCommitOnAim({ pending, flurry: null, aim }))
-      .toEqual({ clearAim: true, applyAbortPenalty: false });
-  });
-
-  it("attack on a DIFFERENT target is a divert (clear + penalty)", () => {
-    const aim     = { targetActorId: "T" };
-    const pending = { actionKey: "attack", targetActorId: "OTHER" };
-    expect(planCommitOnAim({ pending, flurry: null, aim }))
-      .toEqual({ clearAim: true, applyAbortPenalty: true });
-  });
-
-  it("any non-aim non-attack pending action is a divert (e.g., move)", () => {
-    const aim     = { targetActorId: "T" };
-    const pending = { actionKey: "move", targetActorId: "T" };
-    expect(planCommitOnAim({ pending, flurry: null, aim }))
-      .toEqual({ clearAim: true, applyAbortPenalty: true });
-  });
-
-  it("flurry (with no pending action) breaks aim with penalty", () => {
-    const aim    = { targetActorId: "T" };
-    const flurry = { actions: [] };
-    expect(planCommitOnAim({ pending: null, flurry, aim }))
-      .toEqual({ clearAim: true, applyAbortPenalty: true });
   });
 });
