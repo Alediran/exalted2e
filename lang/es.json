@@ -333,6 +333,15 @@
     "NoKnacks":          "Sin Trucos",
     "SheetKnack":        "Hoja de Truco",
 
+    "Stunned":               "Aturdido",
+    "KnockedBack":           "Empujado {n} yardas",
+    "KnockdownPending":      "Amenaza de derribo",
+    "KnockdownResistRoll":   "Tirar resistencia al derribo",
+    "KnockdownPassed":       "Derribo resistido",
+    "KnockedDown":           "¡Derribado!",
+    "KnockdownAutoFailed":   "Derribado (auto)",
+    "TokenUnplaced":         "(ficha no colocada)",
+
     "NewCombo":                       "Nuevo Combo",
     "Combo":                          "Combo",
     "Combos":                         "Combos",

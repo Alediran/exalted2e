@@ -22,7 +22,7 @@ function modeSchema() {
     minStrength:    new fields.NumberField({ initial: 0, min: 0,  max: 10,  integer: true }),
     minDexterity:   new fields.NumberField({ initial: 0, min: 0,  max: 10,  integer: true }),
     minMartialArts: new fields.NumberField({ initial: 0, min: 0,  max: 10,  integer: true }),
-    tags:           new fields.ArrayField(new fields.StringField({ blank: true }))
+    tags:           new fields.ArrayField(new fields.StringField({ blank: true }), { initial: [] })
   });
 }
 
@@ -31,7 +31,7 @@ export class WeaponData extends foundry.abstract.TypeDataModel {
     return {
       // ── Modes of Use ─────────────────────────────────────────────────────
       modes: new fields.ArrayField(modeSchema(), {
-        initial: [{ name: "" }]
+        initial: [{ name: "", tags: [] }]
       }),
 
       // ── Attunement ───────────────────────────────────────────────────────

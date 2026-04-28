@@ -310,6 +310,15 @@
     "NoKnacks":          "No Knacks",
     "SheetKnack":        "Knack Sheet",
 
+    "Stunned":               "Stunned",
+    "KnockedBack":           "Knocked back {n} yards",
+    "KnockdownPending":      "Knockdown threat",
+    "KnockdownResistRoll":   "Roll Knockdown Resist",
+    "KnockdownPassed":       "Knockdown resisted",
+    "KnockedDown":           "Knocked down!",
+    "KnockdownAutoFailed":   "Knocked down (auto)",
+    "TokenUnplaced":         "(token unplaced)",
+
     "NewCombo":                       "New Combo",
     "Combo":                          "Combo",
     "Combos":                         "Combos",

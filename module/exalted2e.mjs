@@ -50,6 +50,7 @@ import {
 } from "./rolls/motivation-break-math.mjs";
 import { aimHandler }     from "./combat/multi-tick-aim.mjs";
 import { sorceryHandler } from "./combat/multi-tick-sorcery.mjs";
+import { resolveKnockbackChain, onKnockdownResistClick } from "./combat/knockback.mjs";
 
 // ── Init Hook ──────────────────────────────────────────────────────────────
 Hooks.once("init", function () {
@@ -1462,7 +1463,7 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
             ${rawDamage > 0 ? `${rawDamage} ${damageTypeLabel} ${game.i18n.localize("EX2E.Damage")}` : game.i18n.localize("EX2E.NoDamage")}
           </span>
         </div>
-        ${showApplyBtn ? `<button class="btn-roll btn-apply-damage" data-damage="${rawDamage}" data-damage-type="${damageType}" data-target-id="${targetId}"><i class="fa-solid fa-heart-crack"></i> ${game.i18n.localize("EX2E.ApplyDamage")}</button>` : ""}
+        ${showApplyBtn ? `<button class="btn-roll btn-apply-damage" data-damage="${rawDamage}" data-damage-type="${damageType}" data-target-id="${targetId}" data-effective-pool="${effectivePool}"><i class="fa-solid fa-heart-crack"></i> ${game.i18n.localize("EX2E.ApplyDamage")}</button>` : ""}
       </div>`, 'text/html');
 
       section.replaceChildren();
@@ -1479,6 +1480,19 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
 
     // Update the chat message to persist the damage result
     await message.update({ content: card.outerHTML });
+
+    // Chain knockback resolution after the card is persisted (auto-apply only).
+    // Order matches the manual-apply path: outer message.update commits the
+    // damage result first, then the knockback chain re-renders on top with
+    // the knockback / stun resolution sub-blocks.
+    if (rawDamage > 0 && targetId && game.settings.get("exalted2e", "autoApplyDamage")) {
+      const targetActor = game.actors.get(targetId);
+      if (targetActor) {
+        await resolveKnockbackChain(message, { effectivePool, rawDamage }).catch(err =>
+          console.error("exalted2e | knockback chain failed", err)
+        );
+      }
+    }
   });
 
   el.querySelector?.(".btn-apply-damage")?.addEventListener("click", async (applyEvent) => {
@@ -1487,6 +1501,7 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     const dmg  = parseInt(btn.dataset.damage) || 0;
     const type = btn.dataset.damageType || "lethal";
     const tId  = btn.dataset.targetId;
+    const effectivePool = parseInt(btn.dataset.effectivePool) || 0;
     const targetActor = game.actors.get(tId);
     if (targetActor && dmg > 0) {
       await targetActor.applyDamage(dmg, type);
@@ -1495,7 +1510,15 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       section.removeChild(btn);
 
       await message.update({ content: card.outerHTML });
+
+      await resolveKnockbackChain(message, { effectivePool, rawDamage: dmg }).catch(err =>
+        console.error("exalted2e | knockback chain failed", err)
+      );
     }
+  });
+
+  el.querySelector?.(".btn-knockdown-resist")?.addEventListener("click", async () => {
+    await onKnockdownResistClick(message);
   });
 
   // ── Social attack: defender Step-2 ────────────────────────────────────

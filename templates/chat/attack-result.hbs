@@ -186,5 +186,47 @@
     {{/if}}
   {{/if}}
 
+{{#if knockback.fired}}
+<div class="knockback-resolution">
+  <div class="knockback-line">
+    <i class="fa-solid fa-wind"></i>
+    {{localize "EX2E.KnockedBack" n=knockback.distance}}
+    {{#unless knockback.tokenMoved}}<span class="kb-unplaced">{{localize "EX2E.TokenUnplaced"}}</span>{{/unless}}
+  </div>
+
+  {{#if knockback.knockdownPending}}
+  <div class="knockdown-pending">
+    <span class="kd-label">{{localize "EX2E.KnockdownPending"}}</span>
+    <button class="btn-roll btn-knockdown-resist">
+      <i class="fa-solid fa-person-falling"></i>
+      {{localize "EX2E.KnockdownResistRoll"}}
+    </button>
+  </div>
+  {{else if (eq knockback.knockdownResolution "passed")}}
+  <div class="knockdown-resolved success">
+    <i class="fa-solid fa-shield-halved"></i>
+    {{localize "EX2E.KnockdownPassed"}}
+  </div>
+  {{else if (eq knockback.knockdownResolution "knocked-down")}}
+  <div class="knockdown-resolved failure">
+    <i class="fa-solid fa-person-falling-burst"></i>
+    {{localize "EX2E.KnockedDown"}}
+  </div>
+  {{else if (eq knockback.knockdownResolution "auto-knocked-down")}}
+  <div class="knockdown-resolved failure">
+    <i class="fa-solid fa-person-falling-burst"></i>
+    {{localize "EX2E.KnockdownAutoFailed"}}
+  </div>
+  {{/if}}
+</div>
+{{/if}}
+
+{{#if knockback.stunFired}}
+<div class="stun-resolution">
+  <i class="fa-solid fa-stars"></i>
+  {{localize "EX2E.Stunned"}}
+</div>
+{{/if}}
+
   </div>
 </div>

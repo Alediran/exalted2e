@@ -428,3 +428,49 @@
   color: var(--ex2e-text-muted);
   font-style: italic;
 }
+
+/* ── Knockback / Knockdown / Stun resolution ─────────────────────────── */
+.knockback-resolution {
+  margin-top: var(--ex2e-gap-sm);
+  padding-top: var(--ex2e-gap-xs);
+  border-top: 1px dashed var(--ex2e-border-color);
+}
+.knockback-resolution .knockback-line {
+  display: flex;
+  align-items: center;
+  gap: var(--ex2e-gap-xs);
+}
+.knockback-resolution .kb-unplaced {
+  font-size: var(--ex2e-font-size-sm);
+  color: var(--ex2e-text-muted);
+  font-style: italic;
+  margin-left: var(--ex2e-gap-xs);
+}
+.knockback-resolution .knockdown-pending {
+  margin-top: var(--ex2e-gap-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--ex2e-gap-sm);
+}
+.knockback-resolution .knockdown-pending .kd-label {
+  font-style: italic;
+  color: var(--ex2e-text-muted);
+}
+.knockback-resolution .knockdown-resolved {
+  margin-top: var(--ex2e-gap-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--ex2e-gap-xs);
+  font-weight: bold;
+}
+.knockback-resolution .knockdown-resolved.success { color: var(--ex2e-success); }
+.knockback-resolution .knockdown-resolved.failure { color: var(--ex2e-failure); }
+
+.stun-resolution {
+  margin-top: var(--ex2e-gap-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--ex2e-gap-xs);
+  font-style: italic;
+  color: var(--ex2e-text-muted);
+}
