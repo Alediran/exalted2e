@@ -109,6 +109,33 @@ export async function stubCounterattack(returnSequence = []) {
 }
 
 /**
+ * Stub `SocialAttackDialog.prompt` — the attacker-side dialog the
+ * character/NPC sheet handlers open before calling `rollSocialAttack`.
+ * Production reads the resolved object's `attribute`, `ability`, `intent`,
+ * `claims`, `subject`, `stuntDice`, `advancesMotivation`, `rewardKind`,
+ * `charmIds`, `firstExcDice`, `secondExcSucc`, `moteType`, `targetMotivation`,
+ * `unnaturalInfluence`. `null` resolves to "user cancelled".
+ */
+export async function stubSocialAttackDialog(returnSequence = []) {
+  const { SocialAttackDialog } = await import(
+    "../../../module/dialogs/social-attack-dialog.mjs"
+  );
+  return stubDialog(SocialAttackDialog, { returnSequence });
+}
+
+/**
+ * Stub `Step2SocialDefenseDialog.prompt` — the defender-side reflexive
+ * social-defense picker (Stillness of Being / Integrity-Protecting
+ * Prana / etc.) plus mental Excellency dice.
+ */
+export async function stubStep2SocialDefense(returnSequence = []) {
+  const { Step2SocialDefenseDialog } = await import(
+    "../../../module/dialogs/step2-social-defense-dialog.mjs"
+  );
+  return stubDialog(Step2SocialDefenseDialog, { returnSequence });
+}
+
+/**
  * Stub `foundry.applications.api.DialogV2.confirm` — the XP-spend
  * confirmation that activateCharm pops when `cost.xp > 0`. Each call
  * shifts the next boolean from `answers`. Throws on queue exhaustion

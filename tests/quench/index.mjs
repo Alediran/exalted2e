@@ -18,6 +18,9 @@ import { registerAttackPipelineFocused }  from "./combat/attack-pipeline-focused
 import { registerCharmActivation }        from "./combat/charm-activation.mjs";
 import { registerCharmWeaponArtifacts }   from "./combat/charm-weapon-artifacts.mjs";
 import { registerAttackCharmSmoke }       from "./combat/attack-charm-smoke.mjs";
+import { registerSocialAttackFocused }    from "./combat/social-attack-focused.mjs";
+import { registerSocialDefense }          from "./combat/social-defense.mjs";
+import { registerSocialSmoke }            from "./combat/social-smoke.mjs";
 
 Hooks.once("quenchReady", quench => {
   quench.registerBatch("ex2e.knockback.focused",        registerKnockbackFocused,       { displayName: "Knockback (focused)" });
@@ -30,4 +33,7 @@ Hooks.once("quenchReady", quench => {
   quench.registerBatch("ex2e.charm.activation",         registerCharmActivation,        { displayName: "Charm activation lifecycle" });
   quench.registerBatch("ex2e.charm.weapon-artifacts",   registerCharmWeaponArtifacts,   { displayName: "Charm weapon artifacts" });
   quench.registerBatch("ex2e.attack-charm.smoke",       registerAttackCharmSmoke,       { displayName: "Attack + charm (smoke)" });
+  quench.registerBatch("ex2e.social.focused",           registerSocialAttackFocused,    { displayName: "Social attack (focused)" });
+  quench.registerBatch("ex2e.social.defense",           registerSocialDefense,          { displayName: "Social defense + UMI + scene cleanup" });
+  quench.registerBatch("ex2e.social.smoke",             registerSocialSmoke,            { displayName: "Social attack (smoke)" });
 });
