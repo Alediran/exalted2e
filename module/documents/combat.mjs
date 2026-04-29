@@ -262,10 +262,17 @@ export class ExaltedCombat extends Combat {
 
     await this.setFlag("exalted2e", "currentTick", newTick);
 
-    // Batch-clear actedThisTick; unsetFlag-per-combatant would be slower.
+    // Snapshot who acted this tick BEFORE clearing the flag — used below
+    // to gate DV refresh / stunt payout to only the combatants whose
+    // committed action is landing on the new tick (or who took an
+    // explicit Finish-Turn this tick). Without this, a pass-action-bumped
+    // combatant whose initiative was just bumped to newTick would also
+    // get their DVs refreshed, even though they never declared anything.
+    const actedThisTickIds = new Set();
     const clears = [];
     for (const c of this.combatants) {
       if (c.getFlag("exalted2e", "actedThisTick")) {
+        actedThisTickIds.add(c.id);
         clears.push({ _id: c.id, "flags.exalted2e.-=actedThisTick": null });
       }
     }
@@ -285,9 +292,17 @@ export class ExaltedCombat extends Combat {
 
     // Refresh DVs + drain banked stunt rewards + clear committedAction
     // for anyone whose committed action lands exactly on the new tick —
-    // they're transitioning from mid-action to free.
+    // they're transitioning from mid-action to free. A combatant counts
+    // as "landing" only if they have a committedAction snapshot from a
+    // prior commit (long-speed action resolving on a later tick) OR
+    // they actedThisTick (explicit Finish-Turn this round). Pure
+    // pass-action bumps don't count — those combatants never declared
+    // anything, so their DVs shouldn't refresh.
     for (const c of this.combatants) {
       if (c.initiative !== newTick) continue;
+      const landed = !!c.getFlag("exalted2e", "committedAction")
+        || actedThisTickIds.has(c.id);
+      if (!landed) continue;
       if (c.actor) {
         await this._refreshDVsFor(c.actor);
         await payPendingStuntRewards(c);
