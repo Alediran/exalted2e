@@ -100,6 +100,7 @@ export class ExaltedActor extends Actor {
       const exaltType = changed.system?.exaltType ?? this.system.exaltType;
       const attrBased = ["lunar", "alchemical"];
       if (!attrBased.includes(exaltType)) {
+        // Ability-caste auto-assign for ability-based exalts (existing behavior)
         const groupDefs    = EX2E.abilityGroups[exaltType] ?? [];
         const casteGroup   = groupDefs.find(g => g.key === newCaste);
         const casteAbilSet = new Set(casteGroup?.abilities ?? []);
@@ -108,7 +109,39 @@ export class ExaltedActor extends Actor {
           abilUpdates[`system.abilities.${key}.caste`] = casteAbilSet.has(key);
         }
         foundry.utils.mergeObject(changed, foundry.utils.expandObject(abilUpdates));
+      } else {
+        // Attribute-caste auto-assign for Lunar / Alchemical
+        const groupDefs    = EX2E.attributeGroups[exaltType] ?? [];
+        const casteGroup   = groupDefs.find(g => g.key === newCaste);
+        const casteAttrSet = new Set(casteGroup?.attributes ?? []);
+        const attrUpdates  = {};
+        for (const key of EX2E.attributeKeys) {
+          attrUpdates[`system.attributes.${key}.caste`] = casteAttrSet.has(key);
+        }
+        foundry.utils.mergeObject(changed, foundry.utils.expandObject(attrUpdates));
       }
+    }
+
+    // ── Willpower floor: auto-bump willpower.max when virtues raise it ──
+    // RAW: permanent Willpower equals max(stored value, sum of two highest
+    // virtues). Raising a Virtue raises Willpower automatically with no
+    // additional XP — the cost is rolled into the Virtue rise. We persist
+    // the bump silently for both unlocked (free) and locked (Purchase Mode)
+    // flows; locked mode treats the WP bump as a side effect of the Virtue
+    // dialog rather than a separate confirmation.
+    const newVirtues = {
+      compassion: changed.system?.virtues?.compassion?.value ?? this.system.virtues.compassion.value,
+      conviction: changed.system?.virtues?.conviction?.value ?? this.system.virtues.conviction.value,
+      temperance: changed.system?.virtues?.temperance?.value ?? this.system.virtues.temperance.value,
+      valor:      changed.system?.virtues?.valor?.value      ?? this.system.virtues.valor.value
+    };
+    const sortedVirtues = Object.values(newVirtues).sort((a, b) => b - a);
+    const newWpFloor    = (sortedVirtues[0] ?? 0) + (sortedVirtues[1] ?? 0);
+    const currentWpMax  = changed.system?.willpower?.max ?? this.system.willpower.max ?? 0;
+    if (newWpFloor > currentWpMax) {
+      foundry.utils.mergeObject(changed, {
+        system: { willpower: { max: newWpFloor } }
+      });
     }
 
     // ── Purchase Mode enforcement ─────────────────────────────────────

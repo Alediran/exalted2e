@@ -504,6 +504,9 @@
   margin-bottom:         var(--ex2e-gap-lg);
 }
 
+.attribute-group {
+  padding-left: 3px;
+}
 .attribute-group .group-label {
   font-family:    var(--ex2e-font-ui);
   font-size:      var(--ex2e-font-size-xs);

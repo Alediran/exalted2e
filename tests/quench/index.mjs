@@ -27,6 +27,7 @@ import { registerAttunement }             from "./combat/attunement.mjs";
 import { registerResourceEconomySmoke }   from "./combat/resource-economy-smoke.mjs";
 import { registerEffectWrapper }          from "./combat/effect-wrapper.mjs";
 import { registerCombatHudSmoke }         from "./combat/combat-hud-smoke.mjs";
+import { registerCasteAttributes }        from "./combat/caste-attributes.mjs";
 
 Hooks.once("quenchReady", quench => {
   quench.registerBatch("ex2e.knockback.focused",        registerKnockbackFocused,       { displayName: "Knockback (focused)" });
@@ -48,4 +49,5 @@ Hooks.once("quenchReady", quench => {
   quench.registerBatch("ex2e.resource-economy.smoke",   registerResourceEconomySmoke,   { displayName: "Resource economy (smoke)" });
   quench.registerBatch("ex2e.effect-wrapper",           registerEffectWrapper,          { displayName: "Effect-wrapper compendium" });
   quench.registerBatch("ex2e.combat-hud.smoke",         registerCombatHudSmoke,         { displayName: "Combat HUD (smoke)" });
+  quench.registerBatch("ex2e.caste-attributes",        registerCasteAttributes,        { displayName: "Caste attributes" });
 });

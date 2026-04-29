@@ -19,17 +19,17 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       // ── Attributes ─────────────────────────────────────────────────────────
       attributes: new fields.SchemaField({
         // Physical
-        strength:     new fields.SchemaField({ value: new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }) }),
-        dexterity:    new fields.SchemaField({ value: new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }) }),
-        stamina:      new fields.SchemaField({ value: new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }) }),
+        strength:     this.#attributeField(),
+        dexterity:    this.#attributeField(),
+        stamina:      this.#attributeField(),
         // Social
-        charisma:     new fields.SchemaField({ value: new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }) }),
-        manipulation: new fields.SchemaField({ value: new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }) }),
-        appearance:   new fields.SchemaField({ value: new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }) }),
+        charisma:     this.#attributeField(),
+        manipulation: this.#attributeField(),
+        appearance:   this.#attributeField(),
         // Mental
-        perception:   new fields.SchemaField({ value: new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }) }),
-        intelligence: new fields.SchemaField({ value: new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }) }),
-        wits:         new fields.SchemaField({ value: new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }) })
+        perception:   this.#attributeField(),
+        intelligence: this.#attributeField(),
+        wits:         this.#attributeField()
       }),
 
       // ── Abilities ──────────────────────────────────────────────────────────
@@ -156,7 +156,8 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       splat: new fields.SchemaField({
         solar:       new fields.SchemaField({}),
         lunar:       new fields.SchemaField({
-          tell: new fields.StringField({ initial: "", blank: true })
+          tell:         new fields.StringField({ initial: "", blank: true }),
+          activeFormId: new fields.StringField({ initial: "", blank: true })
         }),
         terrestrial: new fields.SchemaField({
           breeding: new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true })
@@ -209,6 +210,15 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         note:       new fields.StringField({ initial: "", blank: true })
       }))
     };
+  }
+
+  /** Helper: schema for a single attribute (mirrors #abilityField shape, minus specialties / defaultAttribute). */
+  static #attributeField(min = 1, max = 5) {
+    return new fields.SchemaField({
+      value:   new fields.NumberField({ initial: 1, min, max, integer: true }),
+      caste:   new fields.BooleanField({ initial: false }),
+      favored: new fields.BooleanField({ initial: false })
+    });
   }
 
   /** Helper: schema for a single ability */

@@ -72,7 +72,12 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       deleteEffect:        CharacterSheet.#onDeleteEffect,
       toggleEffect:        CharacterSheet.#onToggleEffect,
       createEffect:        CharacterSheet.#onCreateEffect,
-      abandonMotivationCampaign: CharacterSheet.#onAbandonMotivationCampaign
+      abandonMotivationCampaign: CharacterSheet.#onAbandonMotivationCampaign,
+      cycleAttributeFlag:  CharacterSheet.#onCycleAttributeFlag,
+      createForm:          CharacterSheet.#onCreateForm,
+      setActiveForm:       CharacterSheet.#onSetActiveForm,
+      editForm:            CharacterSheet.#onEditForm,
+      deleteForm:          CharacterSheet.#onDeleteForm
     }
   };
 
@@ -361,6 +366,11 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       }
     })();
 
+    // Heart's Blood forms (Lunar only)
+    const forms = this.actor.itemTypes?.form ?? this.actor.items.filter(i => i.type === "form");
+    const heartsBloodForms = forms.map(f => ({ id: f.id, name: f.name, formType: f.system.formType }));
+    const activeFormId = sys.splat?.lunar?.activeFormId ?? "";
+
     // 3c-2: Active Motivation Campaigns
     const motivationCampaignsTargetingMe = Object.entries(
       this.actor.flags?.exalted2e?.motivationBreaks ?? {}
@@ -405,6 +415,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       abilityGroups,
       specialtiesSection,
       useFourColumnAbilities: ["lunar", "alchemical"].includes(sys.exaltType),
+      useAttributeCasteUI: ["lunar", "alchemical"].includes(sys.exaltType),
       exaltTypeChoices: Object.entries(EX2E.exaltTypes).map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
       charms,
       charmGroups,
@@ -430,6 +441,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       motivationCampaignsTargetingMe,
       motivationCampaignsImRunning,
       showMotivationCampaigns,
+      heartsBloodForms,
+      activeFormId,
       isGM: game.user.isGM,
       isEditable: this.isEditable,
       useIntimacyIntensity: game.settings.get("exalted2e", "useIntimacyIntensity")
@@ -486,6 +499,11 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     });
 
     // ── Use predefined group definitions for all exalt types ───────────
+    // EX2E.abilityGroups.lunar (war/life/wisdom) and .alchemical
+    // (warfare/labor/learning) are DISPLAY column groupings for the four-
+    // column ability layout, NOT caste-keyed sets. The actual castes for
+    // attribute-based exalts live in EX2E.attributeGroups; ability-caste
+    // auto-assign skips Lunar/Alchemical entirely (in ExaltedActor._preUpdate).
     const groupDefs = EX2E.abilityGroups[sys.exaltType] ?? EX2E.abilityGroups.mortal;
     const groupedKeys = new Set(groupDefs.flatMap(g => g.abilities));
     const ungrouped   = EX2E.abilities.filter(k => !groupedKeys.has(k));
@@ -1017,5 +1035,49 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       [`system.abilities.${abilKey}.favored`]: newFavored,
       [`system.abilities.${abilKey}.caste`]:   newCaste
     });
+  }
+
+  /**
+   * Cycle an attribute's user-facing flag through: none → favored → none.
+   * The `caste` flag is auto-managed by ExaltedActor._preUpdate based on the
+   * current caste — never user-toggleable. Only `favored` cycles via this
+   * handler.
+   */
+  static async #onCycleAttributeFlag(event, target) {
+    const attrKey = target.dataset.attr;
+    if (!attrKey) return;
+    const attr = this.actor.system.attributes?.[attrKey] ?? { caste: false, favored: false };
+    // none → favored → none. Caste is preserved as-is (auto-managed).
+    const newFavored = !attr.favored;
+    await this.actor.update({
+      [`system.attributes.${attrKey}.favored`]: newFavored
+    });
+  }
+
+  // ── Heart's Blood Forms (Lunar) ──────────────────────────────────────────
+
+  static async #onCreateForm(event, target) {
+    const [item] = await this.actor.createEmbeddedDocuments("Item", [{
+      name: game.i18n.localize("EX2E.HeartsBloodForm"),
+      type: "form"
+    }]);
+    if (item) item.sheet.render(true);
+  }
+
+  static async #onSetActiveForm(event, target) {
+    const formId = target.value ?? target.dataset.formId ?? "";
+    await this.actor.update({ "system.splat.lunar.activeFormId": formId });
+  }
+
+  static async #onEditForm(event, target) {
+    const formId = target.dataset.formId;
+    const form = this.actor.items.get(formId);
+    if (form) form.sheet.render(true);
+  }
+
+  static async #onDeleteForm(event, target) {
+    const formId = target.dataset.formId;
+    const form = this.actor.items.get(formId);
+    if (form) await form.delete();
   }
 }

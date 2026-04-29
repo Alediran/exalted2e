@@ -1,0 +1,95 @@
+<form>
+  <!-- Header -->
+  <div class="item-header form-header">
+    <img class="item-portrait" src="{{item.img}}" alt="{{item.name}}"
+         data-action="editImage" {{#unless isEditable}}disabled{{/unless}}>
+    <div class="item-header-fields">
+      <input class="item-name-input" type="text" name="name" value="{{item.name}}"
+             {{#unless isEditable}}readonly{{/unless}}>
+      <div class="form-identity-row">
+        {{localize "EX2E.HeartsBloodForm"}}
+      </div>
+    </div>
+  </div>
+
+  <!-- Form Type -->
+  <div class="field-group" style="margin-top: 12px">
+    <label>{{localize "EX2E.FormType"}}</label>
+    <select name="system.formType" {{#unless isEditable}}disabled{{/unless}}>
+      {{#each formTypes as |t|}}
+      <option value="{{t}}" {{#if (eq t ../system.formType)}}selected{{/if}}>{{localize (concat "EX2E.Form" (capitalize t))}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <!-- Attributes Grid -->
+  <h2 class="section-header">{{localize "EX2E.Attributes"}}</h2>
+  <div class="form-attributes-grid">
+    {{#each (array "strength" "dexterity" "stamina" "charisma" "manipulation" "appearance" "perception" "intelligence" "wits") as |attr|}}
+    <div class="field-group">
+      <label>{{localizeAttribute attr}}</label>
+      <input type="number"
+             name="system.attributes.{{attr}}.value"
+             value="{{lookup (lookup ../system.attributes attr) 'value'}}"
+             min="1" max="10" step="1"
+             {{#unless ../isEditable}}readonly{{/unless}}>
+    </div>
+    {{/each}}
+  </div>
+
+  <!-- Source -->
+  <div class="field-group" style="margin-top: 10px">
+    <label>{{localize "EX2E.FormSource"}}</label>
+    <input type="text" name="system.source" value="{{system.source}}"
+           placeholder="{{localize 'EX2E.FormSourcePlaceholder'}}"
+           style="width: 100%"
+           {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+
+  <!-- Tags -->
+  <div class="field-group" style="margin-top: 6px">
+    <label>{{localize "EX2E.FormTags"}}</label>
+    <input type="text" name="system.tags" value="{{system.tags}}"
+           placeholder="natural-weapon, swimming, …"
+           style="width: 100%"
+           {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+
+  <!-- Mutations Section -->
+  <h2 class="section-header" style="margin-top: 12px">{{localize "EX2E.FormMutations"}}</h2>
+  <div class="form-mutations-list">
+    {{#each system.mutations as |m i|}}
+    <div class="mutation-row" style="display: flex; gap: 6px; margin-bottom: 6px; align-items: center">
+      <input type="text"
+             name="system.mutations.{{i}}.name"
+             value="{{m.name}}"
+             placeholder="{{localize 'EX2E.FormMutationName'}}"
+             style="flex: 1"
+             {{#unless ../isEditable}}readonly{{/unless}}>
+      <select name="system.mutations.{{i}}.category" {{#unless ../isEditable}}disabled{{/unless}}>
+        {{#each ../mutationCategories as |c|}}
+        <option value="{{c}}" {{#if (eq c m.category)}}selected{{/if}}>{{localize (concat "EX2E.FormMutation" (capitalize c))}}</option>
+        {{/each}}
+      </select>
+      {{#if ../isEditable}}
+      <button type="button" data-action="removeMutation" data-index="{{i}}" style="padding: 4px 8px">×</button>
+      {{/if}}
+    </div>
+    {{/each}}
+    {{#if isEditable}}
+    <button type="button" data-action="addMutation" style="margin-top: 6px">+ {{localize "EX2E.AddMutation"}}</button>
+    {{/if}}
+  </div>
+
+  <!-- Description -->
+  <h2 class="section-header" style="margin-top: 12px">{{localize "EX2E.Description"}}</h2>
+  <div class="editor-container">
+    {{#if isEditable}}
+    <prose-mirror name="system.description" data-document-uuid="{{item.uuid}}" value="{{system.description}}" collaborate="true" toggled="true">
+      {{{enrichedDescription}}}
+    </prose-mirror>
+    {{else}}
+    <div class="editor-content">{{{enrichedDescription}}}</div>
+    {{/if}}
+  </div>
+</form>

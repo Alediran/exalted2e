@@ -27,9 +27,9 @@ export function makeCharacterSystem(overrides = {}) {
     anima: "none",
     motivation: "",
     attributes: {
-      strength:     { value: 1 }, dexterity:    { value: 1 }, stamina:    { value: 1 },
-      charisma:     { value: 1 }, manipulation: { value: 1 }, appearance: { value: 1 },
-      perception:   { value: 1 }, intelligence: { value: 1 }, wits:       { value: 1 }
+      strength:     { value: 1, caste: false, favored: false }, dexterity:    { value: 1, caste: false, favored: false }, stamina:    { value: 1, caste: false, favored: false },
+      charisma:     { value: 1, caste: false, favored: false }, manipulation: { value: 1, caste: false, favored: false }, appearance: { value: 1, caste: false, favored: false },
+      perception:   { value: 1, caste: false, favored: false }, intelligence: { value: 1, caste: false, favored: false }, wits:       { value: 1, caste: false, favored: false }
     },
     abilities: Object.fromEntries(ABILITY_KEYS.map(k => [k, _ability()])),
     virtues: {
@@ -50,7 +50,7 @@ export function makeCharacterSystem(overrides = {}) {
     necromancy: { initiation: 0 },
     splat: {
       solar: {},
-      lunar: { tell: "" },
+      lunar: { tell: "", activeFormId: "" },
       terrestrial: { breeding: 0 },
       sidereal: { paradox: 0, arcaneFate: 0 },
       abyssal: { whispers: 0 },

@@ -19,6 +19,7 @@ import { MeritFlawData }    from "./data/item/meritflaw-data.mjs";
 import { KnackData }        from "./data/item/knack-data.mjs";
 import { VirtueFlawData }   from "./data/item/virtueflaw-data.mjs";
 import { ComboData }        from "./data/item/combo-data.mjs";
+import { FormData }         from "./data/item/form-data.mjs";
 import { CharacterSheet }   from "./sheets/actor/character-sheet.mjs";
 import { NpcSheet }         from "./sheets/actor/npc-sheet.mjs";
 import { CharmSheet }       from "./sheets/item/charm-sheet.mjs";
@@ -29,6 +30,7 @@ import { GenericItemSheet } from "./sheets/item/generic-item-sheet.mjs";
 import { KnackSheet }      from "./sheets/item/knack-sheet.mjs";
 import { VirtueFlawSheet } from "./sheets/item/virtueflaw-sheet.mjs";
 import { ComboSheet }       from "./sheets/item/combo-sheet.mjs";
+import { FormSheet }        from "./sheets/item/form-sheet.mjs";
 import { XpCostsConfigDialog } from "./dialogs/xp-costs-config-dialog.mjs";
 import { PermissionsConfigDialog } from "./dialogs/permissions-config-dialog.mjs";
 import { registerHandlebarsHelpers } from "./helpers/handlebars.mjs";
@@ -91,7 +93,8 @@ Hooks.once("init", function () {
     meritflaw:  MeritFlawData,
     knack:      KnackData,
     virtueflaw: VirtueFlawData,
-    combo:      ComboData
+    combo:      ComboData,
+    form:       FormData
   };
 
   // ── Sheet Registration ──────────────────────────────────────────────────
@@ -147,6 +150,11 @@ Hooks.once("init", function () {
     types:     ["combo"],
     makeDefault: true,
     label:     "EX2E.SheetCombo"
+  });
+  foundry.documents.collections.Items.registerSheet("exalted2e", FormSheet, {
+    types:     ["form"],
+    makeDefault: true,
+    label:     "EX2E.SheetForm"
   });
 
   // ── System Settings ─────────────────────────────────────────────────────
@@ -271,6 +279,7 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/actor/character/abilities-four.hbs",
     "systems/exalted2e/templates/actor/character/specialties-section.hbs",
     "systems/exalted2e/templates/actor/character/_splat.hbs",
+    "systems/exalted2e/templates/actor/character/_lunar-heartsblood.hbs",
     "systems/exalted2e/templates/actor/character/tab-combat.hbs",
     "systems/exalted2e/templates/actor/character/tab-charms.hbs",
     "systems/exalted2e/templates/actor/character/tab-inventory.hbs",
@@ -298,6 +307,7 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/item/knack/body.hbs",
     "systems/exalted2e/templates/item/virtueflaw/header.hbs",
     "systems/exalted2e/templates/item/virtueflaw/body.hbs",
+    "systems/exalted2e/templates/item/form-sheet.hbs",
     // Chat / Dialogs
     "systems/exalted2e/templates/chat/roll-result.hbs",
     "systems/exalted2e/templates/chat/item-card.hbs",

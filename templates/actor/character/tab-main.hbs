@@ -9,12 +9,21 @@
       <div class="attribute-group">
         <div class="group-label">{{localize "EX2E.AttrGroupPhysical"}}</div>
         {{#each (array "strength" "dexterity" "stamina") as |attrKey|}}
-        <div class="attribute-row">
+        {{#with (lookup ../system.attributes attrKey) as |attr|}}
+        <div class="attribute-row {{#if attr.caste}}caste-attribute{{else if attr.favored}}favored-attribute{{/if}}">
+          {{#if @root.useAttributeCasteUI}}
+          <button class="attribute-flag attribute-flag--{{#if attr.caste}}caste{{else if attr.favored}}favored{{else}}none{{/if}}"
+                  data-action="cycleAttributeFlag" data-attr="{{attrKey}}"
+                  title="{{#if attr.caste}}{{localize 'EX2E.AttributeCaste'}}{{else if attr.favored}}{{localize 'EX2E.AttributeFavored'}}{{else}}—{{/if}}"
+                  {{#unless @root.isEditable}}disabled{{/unless}}>
+          </button>
+          {{/if}}
           <span class="attribute-label">{{localizeAttribute attrKey}}</span>
           {{dotRating name=(concat "system.attributes." attrKey ".value")
-                      value=(lookup (lookup ../system.attributes attrKey) "value")
+                      value=attr.value
                       max=5 min=1}}
         </div>
+        {{/with}}
         {{/each}}
       </div>
 
@@ -22,12 +31,21 @@
       <div class="attribute-group">
         <div class="group-label">{{localize "EX2E.AttrGroupSocial"}}</div>
         {{#each (array "charisma" "manipulation" "appearance") as |attrKey|}}
-        <div class="attribute-row">
+        {{#with (lookup ../system.attributes attrKey) as |attr|}}
+        <div class="attribute-row {{#if attr.caste}}caste-attribute{{else if attr.favored}}favored-attribute{{/if}}">
+          {{#if @root.useAttributeCasteUI}}
+          <button class="attribute-flag attribute-flag--{{#if attr.caste}}caste{{else if attr.favored}}favored{{else}}none{{/if}}"
+                  data-action="cycleAttributeFlag" data-attr="{{attrKey}}"
+                  title="{{#if attr.caste}}{{localize 'EX2E.AttributeCaste'}}{{else if attr.favored}}{{localize 'EX2E.AttributeFavored'}}{{else}}—{{/if}}"
+                  {{#unless @root.isEditable}}disabled{{/unless}}>
+          </button>
+          {{/if}}
           <span class="attribute-label">{{localizeAttribute attrKey}}</span>
           {{dotRating name=(concat "system.attributes." attrKey ".value")
-                      value=(lookup (lookup ../system.attributes attrKey) "value")
+                      value=attr.value
                       max=5 min=1}}
         </div>
+        {{/with}}
         {{/each}}
       </div>
 
@@ -35,12 +53,21 @@
       <div class="attribute-group">
         <div class="group-label">{{localize "EX2E.AttrGroupMental"}}</div>
         {{#each (array "perception" "intelligence" "wits") as |attrKey|}}
-        <div class="attribute-row">
+        {{#with (lookup ../system.attributes attrKey) as |attr|}}
+        <div class="attribute-row {{#if attr.caste}}caste-attribute{{else if attr.favored}}favored-attribute{{/if}}">
+          {{#if @root.useAttributeCasteUI}}
+          <button class="attribute-flag attribute-flag--{{#if attr.caste}}caste{{else if attr.favored}}favored{{else}}none{{/if}}"
+                  data-action="cycleAttributeFlag" data-attr="{{attrKey}}"
+                  title="{{#if attr.caste}}{{localize 'EX2E.AttributeCaste'}}{{else if attr.favored}}{{localize 'EX2E.AttributeFavored'}}{{else}}—{{/if}}"
+                  {{#unless @root.isEditable}}disabled{{/unless}}>
+          </button>
+          {{/if}}
           <span class="attribute-label">{{localizeAttribute attrKey}}</span>
           {{dotRating name=(concat "system.attributes." attrKey ".value")
-                      value=(lookup (lookup ../system.attributes attrKey) "value")
+                      value=attr.value
                       max=5 min=1}}
         </div>
+        {{/with}}
         {{/each}}
       </div>
     </div>

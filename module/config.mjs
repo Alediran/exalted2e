@@ -21,6 +21,14 @@ EX2E.attributes = {
   }
 };
 
+// Flat list of attribute keys for iteration. Mirrors the shape of
+// `EX2E.abilities` but for attributes.
+EX2E.attributeKeys = [
+  "strength", "dexterity", "stamina",
+  "charisma", "manipulation", "appearance",
+  "perception", "intelligence", "wits"
+];
+
 EX2E.abilities = [
   "archery", "athletics", "awareness", "bureaucracy",
   "craft", "dodge", "integrity", "investigation", "larceny",
@@ -77,7 +85,7 @@ EX2E.exaltTypes = {
 
 EX2E.castes = {
   solar:       { dawn: "EX2E.CasteDawn", zenith: "EX2E.CasteZenith", twilight: "EX2E.CasteTwilight", night: "EX2E.CasteNight", eclipse: "EX2E.CasteEclipse" },
-  lunar:       { full: "EX2E.CasteFullMoon", changing: "EX2E.CasteChangingMoon", no: "EX2E.CasteNoMoon", castleless: "EX2E.Casteless" },
+  lunar:       { full: "EX2E.CasteFullMoon", changing: "EX2E.CasteChangingMoon", no: "EX2E.CasteNoMoon", casteless: "EX2E.CasteCasteless" },
   terrestrial: { air: "EX2E.CasteAir", earth: "EX2E.CasteEarth", fire: "EX2E.CasteFire", water: "EX2E.CasteWater", wood: "EX2E.CasteWood" },
   sidereal:    { journeys: "EX2E.CasteJourneys", serenity: "EX2E.CasteSerenity", battles: "EX2E.CasteBattles", secrets: "EX2E.CasteSecrets", endings: "EX2E.CasteEndings" },
   abyssal:     { dawn: "EX2E.CasteDeathknight_Dusk", zenith: "EX2E.CasteDeathknight_Midnight", twilight: "EX2E.CasteDeathknight_Daybreak", night: "EX2E.CasteDeathknight_Day", eclipse: "EX2E.CasteDeathknight_Moonshadow" },
@@ -292,6 +300,27 @@ EX2E.abilityGroups = {
     { key: "fire",  label: "EX2E.CasteFire",  abilities: ["athletics","dodge","melee","presence","socialize"] },
     { key: "water", label: "EX2E.CasteWater", abilities: ["bureaucracy","investigation","larceny","martialArts","sail"] },
     { key: "wood",  label: "EX2E.CasteWood",  abilities: ["archery","medicine","performance","ride","survival"] }
+  ]
+};
+
+// Caste-attribute mappings for attribute-based exalts. Mirrors the shape
+// of EX2E.abilityGroups but uses attributes instead of abilities. Consumed
+// by ExaltedActor._preUpdate (caste auto-assignment) and the attribute
+// caste/favored badge UI on the character sheet.
+EX2E.attributeGroups = {
+  lunar: [
+    { key: "full",      label: "EX2E.CasteFullMoon",     attributes: ["strength",  "dexterity",    "stamina"] },
+    { key: "changing",  label: "EX2E.CasteChangingMoon", attributes: ["charisma",  "manipulation", "appearance"] },
+    { key: "no",        label: "EX2E.CasteNoMoon",       attributes: ["perception","intelligence", "wits"] },
+    { key: "casteless", label: "EX2E.CasteCasteless",    attributes: [] }
+  ],
+  alchemical: [
+    { key: "orichalcum", label: "EX2E.CasteOrichalcum", attributes: ["strength",  "charisma",     "intelligence"] },
+    { key: "moonsilver", label: "EX2E.CasteMoonsilver", attributes: ["dexterity", "appearance",   "wits"] },
+    { key: "jade",       label: "EX2E.CasteJade",       attributes: ["stamina",   "charisma",     "wits"] },
+    { key: "starmetal",  label: "EX2E.CasteStarmetal",  attributes: ["dexterity", "manipulation", "intelligence"] },
+    { key: "soulsteel",  label: "EX2E.CasteSoulsteel",  attributes: ["stamina",   "manipulation", "perception"] },
+    { key: "adamant",    label: "EX2E.CasteAdamant",    attributes: ["strength",  "appearance",   "perception"] }
   ]
 };
 

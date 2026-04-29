@@ -1,0 +1,30 @@
+<h3 class="subsection-header">{{localize "EX2E.HeartsBlood"}}</h3>
+<div class="heartsblood-section">
+
+  <div class="active-form-row">
+    <label>{{localize "EX2E.ActiveForm"}}:</label>
+    <select name="system.splat.lunar.activeFormId" data-action="setActiveForm" {{#unless isEditable}}disabled{{/unless}}>
+      <option value="" {{#unless activeFormId}}selected{{/unless}}>{{localize "EX2E.HumanShape"}}</option>
+      {{#each heartsBloodForms as |f|}}
+      <option value="{{f.id}}" {{#if (eq f.id ../activeFormId)}}selected{{/if}}>{{f.name}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <ul class="heartsblood-list">
+    {{#each heartsBloodForms as |f|}}
+    <li class="heartsblood-row" data-form-id="{{f.id}}">
+      <span class="form-name">{{f.name}}</span>
+      <span class="form-type">{{f.formType}}</span>
+      <button type="button" data-action="editForm" data-form-id="{{f.id}}">{{localize "EX2E.Edit"}}</button>
+      {{#if @root.isEditable}}
+      <button type="button" data-action="deleteForm" data-form-id="{{f.id}}">{{localize "EX2E.Delete"}}</button>
+      {{/if}}
+    </li>
+    {{/each}}
+  </ul>
+
+  {{#if isEditable}}
+  <button type="button" data-action="createForm">+ {{localize "EX2E.HeartsBloodForm"}}</button>
+  {{/if}}
+</div>

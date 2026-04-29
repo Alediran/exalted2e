@@ -30,7 +30,19 @@ globalThis.foundry = {
   },
   utils: {
     deepClone:     obj => structuredClone(obj),
-    mergeObject:   (a, b) => Object.assign({}, a, b),
+    mergeObject:   (a, b) => {
+      // Deep merge: modifies `a` in place and returns it
+      for (const key in b ?? {}) {
+        if (b.hasOwnProperty(key)) {
+          if (a[key] && typeof a[key] === "object" && typeof b[key] === "object" && !Array.isArray(b[key])) {
+            foundry.utils.mergeObject(a[key], b[key]);
+          } else {
+            a[key] = b[key];
+          }
+        }
+      }
+      return a;
+    },
     flattenObject: (obj, prefix = "") => {
       const out = {};
       for (const [key, val] of Object.entries(obj ?? {})) {

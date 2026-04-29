@@ -239,6 +239,76 @@
   color: var(--ex2e-gold-main);
 }
 
+/* ───────── Attribute caste/favored badges (Lunar / Alchemical) ─────────
+   Mirrors .ability-flag rules above; same shape and colors so the visual
+   language is consistent across abilities and attributes. */
+
+.exalted2e .attribute-flag {
+  display:       inline-block;
+  width:         14px;
+  height:        14px;
+  min-width:     14px;
+  min-height:    14px;
+  max-height:    14px;
+  border-radius: 50%;
+  border:        1.5px solid var(--ex2e-gold-dark);
+  background:    #1a1a1a;
+  cursor:        pointer;
+  flex-shrink:   0;
+  padding:       0;
+  box-sizing:    border-box;
+  margin-right:  6px;
+  transition:    background var(--ex2e-transition-fast),
+                 border-color var(--ex2e-transition-fast),
+                 box-shadow var(--ex2e-transition-fast),
+                 transform var(--ex2e-transition-fast);
+}
+
+.exalted2e .attribute-flag:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.exalted2e .attribute-flag.attribute-flag--none {
+  background:   #1a1a1a;
+  border-color: var(--ex2e-gold-dark);
+}
+.exalted2e .attribute-flag.attribute-flag--none:not(:disabled):hover {
+  border-color: var(--ex2e-gold-main);
+  background:   #2a2a2a;
+}
+
+.exalted2e .attribute-flag.attribute-flag--favored {
+  background:   var(--ex2e-gold-mid);
+  border-color: var(--ex2e-gold-main);
+  box-shadow:   0 0 5px rgba(0,0,0,0.5);
+}
+.exalted2e .attribute-flag.attribute-flag--favored:not(:disabled):hover {
+  box-shadow: var(--ex2e-glow-gold);
+  transform:  scale(1.15);
+}
+
+.exalted2e .attribute-flag.attribute-flag--caste {
+  background:    var(--ex2e-gold-main);
+  border-color:  var(--ex2e-gold-bright);
+  border-radius: 3px;
+  transform:     rotate(45deg);
+  box-shadow:    var(--ex2e-glow-gold);
+}
+.exalted2e .attribute-flag.attribute-flag--caste:not(:disabled):hover {
+  background: var(--ex2e-gold-bright);
+  transform:  rotate(45deg) scale(1.2);
+}
+
+/* Attribute label coloring matches the ability convention */
+.caste-attribute .attribute-label  {
+  color:       var(--ex2e-gold-bright);
+  font-weight: 600;
+}
+.favored-attribute .attribute-label {
+  color: var(--ex2e-gold-main);
+}
+
 /* ── Essence dots use theme solar-color ─────────────────────────────────── */
 .exalted2e.actor.character .essence-group .dot-rating .dot.filled {
   background:   var(--ex2e-solar-color);
