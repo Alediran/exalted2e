@@ -136,6 +136,21 @@ export async function stubStep2SocialDefense(returnSequence = []) {
 }
 
 /**
+ * Stub `PurchaseConfirmDialog.prompt` — the dialog ExaltedActor._preUpdate
+ * opens for each permanent-trait increase under purchaseLocked.
+ *
+ * Real return shape (from PurchaseConfirmDialog.#onConfirm):
+ *   { xpCost: number, note: string }
+ * Or `null` for "user cancelled".
+ */
+export async function stubPurchaseConfirm(returnSequence = []) {
+  const { PurchaseConfirmDialog } = await import(
+    "../../../module/dialogs/purchase-confirm-dialog.mjs"
+  );
+  return stubDialog(PurchaseConfirmDialog, { returnSequence });
+}
+
+/**
  * Stub `foundry.applications.api.DialogV2.confirm` — the XP-spend
  * confirmation that activateCharm pops when `cost.xp > 0`. Each call
  * shifts the next boolean from `answers`. Throws on queue exhaustion

@@ -21,6 +21,7 @@ import { registerAttackCharmSmoke }       from "./combat/attack-charm-smoke.mjs"
 import { registerSocialAttackFocused }    from "./combat/social-attack-focused.mjs";
 import { registerSocialDefense }          from "./combat/social-defense.mjs";
 import { registerSocialSmoke }            from "./combat/social-smoke.mjs";
+import { registerStuntRewards }           from "./combat/stunt-rewards.mjs";
 
 Hooks.once("quenchReady", quench => {
   quench.registerBatch("ex2e.knockback.focused",        registerKnockbackFocused,       { displayName: "Knockback (focused)" });
@@ -36,4 +37,5 @@ Hooks.once("quenchReady", quench => {
   quench.registerBatch("ex2e.social.focused",           registerSocialAttackFocused,    { displayName: "Social attack (focused)" });
   quench.registerBatch("ex2e.social.defense",           registerSocialDefense,          { displayName: "Social defense + UMI + scene cleanup" });
   quench.registerBatch("ex2e.social.smoke",             registerSocialSmoke,            { displayName: "Social attack (smoke)" });
+  quench.registerBatch("ex2e.stunt.rewards",            registerStuntRewards,           { displayName: "Stunt rewards" });
 });
