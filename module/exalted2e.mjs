@@ -291,7 +291,6 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/actor/npc/body.hbs",
     // Items
     "systems/exalted2e/templates/item/charm/header.hbs",
-    "systems/exalted2e/templates/item/charm/body.hbs",
     "systems/exalted2e/templates/item/spell/header.hbs",
     "systems/exalted2e/templates/item/spell/body.hbs",
     "systems/exalted2e/templates/item/charm/tabs.hbs",

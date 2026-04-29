@@ -31,6 +31,13 @@
  */
 export async function editImageAction(event, target) {
   if (!this.isEditable) return;
+  // Module override hook: if a third-party module (e.g., Tokenizer in a
+  // future v2-aware version) patches `_onEditImage` onto the sheet's
+  // prototype, delegate to it. This is the v1 convention several
+  // image-editor modules hook, exposed here as a forward-compat point.
+  if (typeof this._onEditImage === "function") {
+    return this._onEditImage(event, target);
+  }
   const attr = target.dataset.edit ?? "img";
   const current = foundry.utils.getProperty(this.document, attr) ?? "";
   const fp = new foundry.applications.apps.FilePicker.implementation({
