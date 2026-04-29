@@ -62,6 +62,11 @@ globalThis.foundry = {
   applications: {
     handlebars: {
       renderTemplate: vi.fn().mockResolvedValue("<div>mock card</div>")
+    },
+    api: {
+      DialogV2: {
+        confirm: vi.fn().mockResolvedValue(true)
+      }
     }
   }
 };
@@ -103,10 +108,39 @@ globalThis.ui = {
 // ── Document base classes ────────────────────────────────────────────
 // Minimal Item / Actor stand-ins so module files that
 // `class Foo extends Item` can load under Vitest without throwing
-// ReferenceError. Tests don't instantiate these — they exercise
-// exported pure helpers and synthetic data — so the body is empty.
-globalThis.Item  = class _MockItem {};
-globalThis.Actor = class _MockActor {};
+// ReferenceError. Subclasses may call `super._preUpdate(...)` etc. —
+// the no-op methods below ensure those calls resolve cleanly.
+globalThis.Item = class _MockItem {
+  async _preCreate() {}
+  async _preUpdate() {}
+  async _preDelete() {}
+  prepareData() {}
+  prepareDerivedData() {}
+};
+globalThis.Actor = class _MockActor {
+  async _preCreate() {}
+  async _preUpdate() {}
+  async _preDelete() {}
+  prepareData() {}
+  prepareDerivedData() {}
+  getRollData() { return {}; }
+};
+
+// ── Constants ────────────────────────────────────────────────────────
+globalThis.CONST = {
+  USER_ROLES: {
+    GAMEMASTER: 4,
+    ASSISTANT:  3,
+    TRUSTED:    2,
+    PLAYER:     1,
+    NONE:       0
+  },
+  TOKEN_DISPOSITIONS: {
+    FRIENDLY: 1,
+    NEUTRAL:  0,
+    HOSTILE: -1
+  }
+};
 
 // ── Roll ─────────────────────────────────────────────────────────────
 globalThis.Roll = class _MockRoll {
