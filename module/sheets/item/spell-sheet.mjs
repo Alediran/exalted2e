@@ -1,5 +1,6 @@
 import { EX2E } from "../../config.mjs";
 import { computeSpellCastButtonState } from "../../ui/spell-cast-button.mjs";
+import { editImageAction } from "../_edit-image.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -20,6 +21,7 @@ export class SpellSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     window: { resizable: true },
     form: { submitOnChange: true, closeOnSubmit: false },
     actions: {
+      editImage: editImageAction,
       castSpell: SpellSheet.#onCastSpell
     }
   };

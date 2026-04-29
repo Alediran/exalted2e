@@ -348,3 +348,35 @@ details.charm-group > summary.charm-group-header {
 .combo-charm-row.broken .fa-triangle-exclamation {
   color: #c44;
 }
+
+
+/* ── Form (Lunar Heart's Blood) sheet ────────────────────────────────────
+   Form items are exclusively Lunar — apply Lunar moonsilver coloring so the
+   sheet's accent variables match the rest of the Lunar visual language.
+   Mirrors the data-exalt-type="lunar" overrides in _actor-character.css. */
+.exalted2e.item.form {
+  --ex2e-gold-bright:  #d8eaf8;
+  --ex2e-gold-main:    #8aaac8;
+  --ex2e-gold-mid:     #5a7a9a;
+  --ex2e-gold-dark:    #2a3a50;
+  --ex2e-gold-shadow:  rgba(42, 58, 80, 0.4);
+  --ex2e-glow-gold:    0 0 8px rgba(138, 170, 200, 0.55);
+  --ex2e-solar-color:  #8aaac8;
+  --ex2e-bg-hover:     rgba(138, 170, 200, 0.06);
+  --ex2e-border-color: rgba(42, 58, 80, 0.6);
+}
+
+.exalted2e.item.form .form-attributes-grid {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   var(--ex2e-gap-md);
+  margin-top:            var(--ex2e-gap-sm);
+}
+
+.exalted2e.item.form .form-attributes-grid .field-group {
+  display:        flex;
+  flex-direction: column;
+  align-items:    flex-start;
+  gap:            var(--ex2e-gap-xs);
+}
+

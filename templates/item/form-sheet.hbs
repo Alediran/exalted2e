@@ -1,4 +1,4 @@
-<form>
+<div class="form-sheet-root">
   <!-- Header -->
   <div class="item-header form-header">
     <img class="item-portrait" src="{{item.img}}" alt="{{item.name}}"
@@ -22,17 +22,16 @@
     </select>
   </div>
 
-  <!-- Attributes Grid -->
+  <!-- Physical Attributes — only these matter for the shapeshift
+       substitution mechanic; social and mental are always the Lunar's own. -->
   <h2 class="section-header">{{localize "EX2E.Attributes"}}</h2>
   <div class="form-attributes-grid">
-    {{#each (array "strength" "dexterity" "stamina" "charisma" "manipulation" "appearance" "perception" "intelligence" "wits") as |attr|}}
+    {{#each (array "strength" "dexterity" "stamina") as |attr|}}
     <div class="field-group">
       <label>{{localizeAttribute attr}}</label>
-      <input type="number"
-             name="system.attributes.{{attr}}.value"
-             value="{{lookup (lookup ../system.attributes attr) 'value'}}"
-             min="1" max="10" step="1"
-             {{#unless ../isEditable}}readonly{{/unless}}>
+      {{dotRating name=(concat "system.attributes." attr)
+                  value=(lookup ../system.attributes attr)
+                  max=10 min=1}}
     </div>
     {{/each}}
   </div>
@@ -50,7 +49,7 @@
   <div class="field-group" style="margin-top: 6px">
     <label>{{localize "EX2E.FormTags"}}</label>
     <input type="text" name="system.tags" value="{{system.tags}}"
-           placeholder="natural-weapon, swimming, …"
+           placeholder="{{localize 'EX2E.FormTagsPlaceholder'}}"
            style="width: 100%"
            {{#unless isEditable}}readonly{{/unless}}>
   </div>
@@ -92,4 +91,4 @@
     <div class="editor-content">{{{enrichedDescription}}}</div>
     {{/if}}
   </div>
-</form>
+</div>

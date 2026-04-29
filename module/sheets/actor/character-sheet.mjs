@@ -5,6 +5,7 @@ import { ex2eCan }       from "../../helpers/permissions.mjs";
 import { buildXpCostRows } from "../../helpers/xp-cost-table.mjs";
 import { computeSpellCastButtonState } from "../../ui/spell-cast-button.mjs";
 import { resolveXpCosts }  from "../../helpers/xp-cost-defaults.mjs";
+import { editImageAction } from "../_edit-image.mjs";
 
 const { ActorSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -77,7 +78,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       createForm:          CharacterSheet.#onCreateForm,
       setActiveForm:       CharacterSheet.#onSetActiveForm,
       editForm:            CharacterSheet.#onEditForm,
-      deleteForm:          CharacterSheet.#onDeleteForm
+      deleteForm:          CharacterSheet.#onDeleteForm,
+      editImage:           editImageAction
     }
   };
 
@@ -370,6 +372,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const forms = this.actor.itemTypes?.form ?? this.actor.items.filter(i => i.type === "form");
     const heartsBloodForms = forms.map(f => ({ id: f.id, name: f.name, formType: f.system.formType }));
     const activeFormId = sys.splat?.lunar?.activeFormId ?? "";
+    const spiritShapeFormId = sys.splat?.lunar?.spiritShapeFormId ?? "";
 
     // 3c-2: Active Motivation Campaigns
     const motivationCampaignsTargetingMe = Object.entries(
@@ -443,6 +446,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       showMotivationCampaigns,
       heartsBloodForms,
       activeFormId,
+      spiritShapeFormId,
       isGM: game.user.isGM,
       isEditable: this.isEditable,
       useIntimacyIntensity: game.settings.get("exalted2e", "useIntimacyIntensity")

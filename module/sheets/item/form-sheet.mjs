@@ -1,3 +1,5 @@
+import { editImageAction } from "../_edit-image.mjs";
+
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
   const api    = foundry.applications.api;
@@ -17,7 +19,8 @@ export class FormSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     form:     { submitOnChange: true, closeOnSubmit: false },
     actions:  {
       addMutation:    FormSheet.#onAddMutation,
-      removeMutation: FormSheet.#onRemoveMutation
+      removeMutation: FormSheet.#onRemoveMutation,
+      editImage:      editImageAction
     }
   };
 
@@ -43,6 +46,34 @@ export class FormSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         { secrets: this.document.isOwner, relativeTo: this.document }
       )
     };
+  }
+
+  /**
+   * Wire dot-pip click handlers after each render. Mirrors the
+   * CharacterSheet pattern (see #onTrackClick) — clicking pip 1 when the
+   * track's already at 1 toggles down to `min`; otherwise the click sets
+   * the value, clamped to min.
+   */
+  _onRender(context, options) {
+    super._onRender?.(context, options);
+    if (!this.isEditable) return;
+    for (const pip of this.element.querySelectorAll(".dot-rating .dot")) {
+      pip.addEventListener("click", this.#onDotClick.bind(this));
+    }
+  }
+
+  #onDotClick(event) {
+    const pip      = event.currentTarget;
+    const track    = pip.closest(".dot-rating");
+    const name     = track?.dataset.name;
+    const newValue = parseInt(pip.dataset.value);
+    const min      = parseInt(track?.dataset.min ?? 0);
+    const current  = parseInt(track?.dataset.current ?? 0);
+    const val      = (newValue === 1 && current === 1)
+      ? min
+      : Math.max(min, newValue);
+    if (!name) return;
+    this.document.update({ [name]: val });
   }
 
   static async #onAddMutation(event, target) {

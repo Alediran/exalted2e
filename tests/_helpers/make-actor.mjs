@@ -50,7 +50,7 @@ export function makeCharacterSystem(overrides = {}) {
     necromancy: { initiation: 0 },
     splat: {
       solar: {},
-      lunar: { tell: "", activeFormId: "" },
+      lunar: { tell: "", activeFormId: "", spiritShapeFormId: "" },
       terrestrial: { breeding: 0 },
       sidereal: { paradox: 0, arcaneFate: 0 },
       abyssal: { whispers: 0 },

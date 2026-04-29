@@ -343,7 +343,8 @@ EX2E.actions = {
   rise:        { labelKey: "EX2E.ActionRise",        icon: "fa-solid fa-arrow-up-from-bracket", speed: 5, dvMod: 1, preset: false, isFlurry: true, abortable: false },
   jump:        { labelKey: "EX2E.ActionJump",        icon: "fa-solid fa-up-long",            speed: 5, dvMod: 1, preset: false, isFlurry: true,  abortable: false },
   coordinate:  { labelKey: "EX2E.ActionCoordinate",  icon: "fa-solid fa-users",              speed: 5, dvMod: 0, preset: false, isFlurry: true,  abortable: false },
-  inactive:    { labelKey: "EX2E.ActionInactive",    icon: "fa-solid fa-pause",              speed: 5, dvMod: 0, preset: false, isFlurry: false, abortable: false }
+  inactive:    { labelKey: "EX2E.ActionInactive",    icon: "fa-solid fa-pause",              speed: 5, dvMod: 0, preset: false, isFlurry: false, abortable: false },
+  shapeshift:  { labelKey: "EX2E.ActionShapeshift",  icon: "fa-solid fa-paw",                speed: 5, dvMod: 1, preset: true,  isFlurry: false, abortable: false }
 };
 
 /** List view of EX2E.actions as [{ key, label, icon, speed, dvMod, preset, isFlurry }] (localized). */

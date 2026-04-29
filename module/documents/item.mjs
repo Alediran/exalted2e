@@ -61,6 +61,16 @@ export class ExaltedItem extends Item {
     if (this.type === "charm" && this.system?.attack?.enabled && this.actor) {
       await this._removeCharmWeaponArtifacts();
     }
+    // Form item deletion: if this form is the actor's active form or
+    // designated spirit shape, null the dangling reference so the sheet
+    // doesn't show a broken link.
+    if (this.type === "form" && this.actor?.type === "character") {
+      const sys = this.actor.system.splat?.lunar;
+      const updates = {};
+      if (sys?.activeFormId === this.id)      updates["system.splat.lunar.activeFormId"]      = "";
+      if (sys?.spiritShapeFormId === this.id) updates["system.splat.lunar.spiritShapeFormId"] = "";
+      if (Object.keys(updates).length) await this.actor.update(updates);
+    }
     const actor = this.actor;
     if (!actor || actor.type !== "character") return;
     if (this.type !== "weapon" && this.type !== "armor") return;

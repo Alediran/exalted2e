@@ -320,10 +320,12 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/dialog/formula-builder-dialog.hbs",
     "systems/exalted2e/templates/dialog/virtueflaw-picker-dialog.hbs",
     "systems/exalted2e/templates/dialog/xp-costs-config-dialog.hbs",
+    "systems/exalted2e/templates/dialog/shapeshift-dialog.hbs",
     "systems/exalted2e/templates/chat/attack-result.hbs",
     "systems/exalted2e/templates/chat/flurry-declared.hbs",
     "systems/exalted2e/templates/chat/action-declared.hbs",
     "systems/exalted2e/templates/chat/social-attack-card.hbs",
+    "systems/exalted2e/templates/chat/shapeshift-card.hbs",
     "systems/exalted2e/templates/dialog/social-attack-dialog.hbs"
   ];
   return foundry.applications.handlebars.loadTemplates(templatePaths);

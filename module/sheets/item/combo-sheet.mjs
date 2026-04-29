@@ -1,3 +1,5 @@
+import { editImageAction } from "../_edit-image.mjs";
+
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
   const api    = foundry.applications.api;
@@ -12,6 +14,7 @@ export class ComboSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     window:   { resizable: true },
     form:     { submitOnChange: true, closeOnSubmit: false },
     actions:  {
+      editImage:   editImageAction,
       addCharm:    ComboSheet.#onAddCharm,
       removeCharm: ComboSheet.#onRemoveCharm,
       moveUp:      ComboSheet.#onMoveUp,

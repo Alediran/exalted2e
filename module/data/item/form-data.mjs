@@ -13,16 +13,13 @@ export class FormData extends foundry.abstract.TypeDataModel {
         initial: "animal",
         choices: ["human", "animal", "beast", "spirit", "wyldborn"]
       }),
+      // Only physical attributes — these are the only ones the shapeshift
+      // mechanic substitutes. Social and mental attributes always stay the
+      // Lunar's own per RAW.
       attributes: new fields.SchemaField({
-        strength:     new fields.NumberField({ initial: 1, min: 1, max: 10, integer: true }),
-        dexterity:    new fields.NumberField({ initial: 1, min: 1, max: 10, integer: true }),
-        stamina:      new fields.NumberField({ initial: 1, min: 1, max: 10, integer: true }),
-        charisma:     new fields.NumberField({ initial: 1, min: 1, max: 10, integer: true }),
-        manipulation: new fields.NumberField({ initial: 1, min: 1, max: 10, integer: true }),
-        appearance:   new fields.NumberField({ initial: 1, min: 1, max: 10, integer: true }),
-        perception:   new fields.NumberField({ initial: 1, min: 1, max: 10, integer: true }),
-        intelligence: new fields.NumberField({ initial: 1, min: 1, max: 10, integer: true }),
-        wits:         new fields.NumberField({ initial: 1, min: 1, max: 10, integer: true })
+        strength:  new fields.NumberField({ initial: 1, min: 1, max: 10, integer: true }),
+        dexterity: new fields.NumberField({ initial: 1, min: 1, max: 10, integer: true }),
+        stamina:   new fields.NumberField({ initial: 1, min: 1, max: 10, integer: true })
       }),
       tags: new fields.ArrayField(new fields.StringField({ blank: true })),
       mutations: new fields.ArrayField(new fields.SchemaField({

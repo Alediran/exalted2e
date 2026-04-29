@@ -1,4 +1,5 @@
 import { ExaltedRoll } from "../../rolls/exalted-roll.mjs";
+import { editImageAction } from "../_edit-image.mjs";
 
 const { ActorSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -14,6 +15,7 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     window: { resizable: true },
     form: { submitOnChange: true, closeOnSubmit: false },
     actions: {
+      editImage:        editImageAction,
       rollPool:         NpcSheet.#onRollPool,
       applyDamage:      NpcSheet.#onApplyDamage,
       healDamage:       NpcSheet.#onHealDamage,

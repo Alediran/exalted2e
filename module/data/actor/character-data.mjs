@@ -156,8 +156,9 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       splat: new fields.SchemaField({
         solar:       new fields.SchemaField({}),
         lunar:       new fields.SchemaField({
-          tell:         new fields.StringField({ initial: "", blank: true }),
-          activeFormId: new fields.StringField({ initial: "", blank: true })
+          tell:               new fields.StringField({ initial: "", blank: true }),
+          activeFormId:       new fields.StringField({ initial: "", blank: true }),
+          spiritShapeFormId:  new fields.StringField({ initial: "", blank: true })
         }),
         terrestrial: new fields.SchemaField({
           breeding: new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true })
@@ -238,11 +239,37 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
   // ── Derived Data ──────────────────────────────────────────────────────────
 
   prepareDerivedData() {
+    this._applyActiveFormSubstitution(this);
     this._prepareWillpowerMinimum();
     this._prepareHealthData();
     this._prepareCombatStats();
     this._prepareMoteMaxima();
     this._prepareIntimacies();
+  }
+
+  /**
+   * Lunar shapeshift substitution: when an active Heart's Blood form is set,
+   * the form's Strength / Dexterity / Stamina replace the Lunar's in-memory
+   * values. Mental and social attributes are unchanged. Caste/favored flags
+   * are preserved (only `value` is rewritten). RAW per Lunar splatbook:
+   * direct replacement, no caps.
+   *
+   * Persisted `_source.system.attributes.<k>.value` keeps the human-guise
+   * value; only the derived view shows the form's stats.
+   */
+  _applyActiveFormSubstitution(systemData) {
+    if (this.exaltType !== "lunar") return;
+    const formId = systemData.splat?.lunar?.activeFormId;
+    if (!formId) return;
+    const form = this.parent?.items?.get?.(formId);
+    if (!form || form.type !== "form") return;
+    const f = form.system?.attributes ?? {};
+    for (const k of ["strength", "dexterity", "stamina"]) {
+      const v = f[k];
+      if (typeof v === "number" && Number.isFinite(v)) {
+        systemData.attributes[k].value = v;
+      }
+    }
   }
 
   _prepareWillpowerMinimum() {

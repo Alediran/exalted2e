@@ -1,5 +1,6 @@
 import { EX2E } from "../../config.mjs";
 import { describeAllPrereqs } from "../../helpers/charm-prereqs.mjs";
+import { editImageAction } from "../_edit-image.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -22,6 +23,7 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     window: { resizable: true },
     form: { submitOnChange: true, closeOnSubmit: false },
     actions: {
+      editImage:        editImageAction,
       addKeyword:       CharmSheet.#onAddKeyword,
       removeKeyword:    CharmSheet.#onRemoveKeyword,
       toggleStep:       CharmSheet.#onToggleStep,

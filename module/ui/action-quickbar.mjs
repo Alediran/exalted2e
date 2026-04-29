@@ -468,8 +468,17 @@ export class ActionQuickbar {
         btn.addEventListener("mouseenter", () => this._showMoveRange(actor, key));
         btn.addEventListener("mouseleave", () => this._hideMoveRange());
       }
-      // Click handlers for generic actions land when Social / Mass Combat
-      // modes ship; for now the buttons are reference-only in passive mode.
+      // Shapeshift works out of combat too — the dialog opens, motes are
+      // spent, and activeFormId updates. The action commit (DV penalty +
+      // pendingAction flag) only fires when there's a combatant.
+      if (key === "shapeshift") {
+        btn.addEventListener("click", () => {
+          this._handleShapeshift(actor, null, EX2E.actions.shapeshift);
+        });
+      }
+      // Click handlers for other generic actions land when Social / Mass
+      // Combat modes ship; for now the buttons are reference-only in
+      // passive mode.
     });
   }
 
@@ -650,6 +659,9 @@ export class ActionQuickbar {
   async _handleAction(key, actor, current) {
     const cfg = EX2E.actions[key];
     if (!cfg) return;
+    // Shapeshift opens a sub-dialog to pick the target form, then runs the
+    // normal action commit pipeline on confirm.
+    if (key === "shapeshift") return this._handleShapeshift(actor, current, cfg);
     // Rise has its own pre-commit flow (adjacent-enemy check, optional
     // Dex + Dodge roll) that decides whether Prone clears on commit.
     if (key === "rise") return this._handleRise(actor, current, cfg);
@@ -746,6 +758,85 @@ export class ActionQuickbar {
       speed:     cfg.speed,
       dvPenalty: cfg.dvMod
     });
+  }
+
+  /**
+   * Lunar shapeshift flow. Opens ShapeshiftDialog to pick a target form;
+   * on confirm spends the appropriate motes (1m for true forms, 3m for
+   * Heart's Blood), updates the actor's `activeFormId`, posts a chat card,
+   * then runs the normal action commit (Speed 5 / -1 DV penalty / pending
+   * action flag). On cancel: aborts entirely (no flag change, no motes,
+   * no DV penalty).
+   *
+   * Non-Lunars who pick this action see only the Human option at 1m. They
+   * can still commit, but the substitution layer no-ops on non-Lunars.
+   */
+  async _handleShapeshift(actor, current, cfg) {
+    if (!actor) return;
+    const { ShapeshiftDialog } = await import("../dialogs/shapeshift-dialog.mjs");
+    const result = await ShapeshiftDialog.prompt({ actor });
+    if (result === null) return;  // cancelled — abort
+
+    const { targetFormId, cost } = result;
+
+    // Spend motes via the standard overflow-aware path.
+    const breakdown = await actor.spendMotes(cost, "peripheral");
+    if (!breakdown) return;  // insufficient motes — spendMotes already showed warn
+
+    // Apply the form change.
+    await actor.update({ "system.splat.lunar.activeFormId": targetFormId });
+
+    // Look up target form name for the chat card.
+    let targetName;
+    if (!targetFormId) {
+      targetName = game.i18n.localize("EX2E.HumanShape");
+    } else {
+      const form = actor.items.get(targetFormId);
+      targetName = form?.name ?? game.i18n.localize("EX2E.HeartsBloodForm");
+    }
+
+    // Post the shapeshift chat card.
+    const cardContent = await foundry.applications.handlebars.renderTemplate(
+      "systems/exalted2e/templates/chat/shapeshift-card.hbs",
+      {
+        actorName:  actor.name,
+        targetName,
+        cost,
+        toLabel:    targetFormId
+          ? game.i18n.localize("EX2E.ShapeshiftToForm")
+          : game.i18n.localize("EX2E.ShapeshiftToHuman")
+      }
+    );
+    await ChatMessage.create({
+      content: cardContent,
+      speaker: ChatMessage.getSpeaker({ actor })
+    });
+
+    // Out-of-combat: stop here. No action commit (no combatant to flag,
+    // no DV penalty, no Speed bookkeeping). The form change + mote spend
+    // already happened above.
+    if (!current) return;
+
+    // Run the standard action commit (DV penalty + pendingAction flag + action card).
+    const label = game.i18n.localize(cfg.labelKey);
+    await this._clearPendingAction(actor, current);
+    let dvEffectId = null;
+    if (cfg.dvMod > 0) {
+      const eff = await actor.applyDVPenalty("shapeshift", cfg.dvMod, {
+        label: game.i18n.format("EX2E.QuickbarActionDvLabel", { name: label }),
+        sticky: !!cfg.abortable
+      });
+      dvEffectId = eff?.id ?? null;
+    }
+    await current.setFlag("exalted2e", "pendingAction", {
+      actionKey: "shapeshift",
+      label,
+      speed:     cfg.speed,
+      dvPenalty: cfg.dvMod,
+      abortable: !!cfg.abortable,
+      dvEffectId
+    });
+    await this._postActionCard(actor, { label, speed: cfg.speed, dvPenalty: cfg.dvMod });
   }
 
   /**

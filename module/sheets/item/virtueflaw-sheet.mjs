@@ -1,4 +1,5 @@
 import { EX2E } from "../../config.mjs";
+import { editImageAction } from "../_edit-image.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -12,7 +13,10 @@ export class VirtueFlawSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     classes:  ["exalted2e", "item", "virtueflaw"],
     position: { width: 480, height: 420 },
     window: { resizable: true },
-    form: { submitOnChange: true, closeOnSubmit: false }
+    form: { submitOnChange: true, closeOnSubmit: false },
+    actions: {
+      editImage: editImageAction
+    }
   };
 
   get title() {

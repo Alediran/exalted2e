@@ -1,6 +1,16 @@
 <h3 class="subsection-header">{{localize "EX2E.HeartsBlood"}}</h3>
 <div class="heartsblood-section">
 
+  <div class="spirit-shape-row">
+    <label>{{localize "EX2E.SpiritShape"}}:</label>
+    <select name="system.splat.lunar.spiritShapeFormId" {{#unless isEditable}}disabled{{/unless}}>
+      <option value="" {{#unless spiritShapeFormId}}selected{{/unless}}>{{localize "EX2E.SpiritShapeNone"}}</option>
+      {{#each heartsBloodForms as |f|}}
+      <option value="{{f.id}}" {{#if (eq f.id ../spiritShapeFormId)}}selected{{/if}}>{{f.name}}</option>
+      {{/each}}
+    </select>
+  </div>
+
   <div class="active-form-row">
     <label>{{localize "EX2E.ActiveForm"}}:</label>
     <select name="system.splat.lunar.activeFormId" data-action="setActiveForm" {{#unless isEditable}}disabled{{/unless}}>

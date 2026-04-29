@@ -1,4 +1,5 @@
 import { EX2E } from "../../config.mjs";
+import { editImageAction } from "../_edit-image.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -14,6 +15,7 @@ export class KnackSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     window: { resizable: true },
     form: { submitOnChange: true, closeOnSubmit: false },
     actions: {
+      editImage:     editImageAction,
       addKeyword:    KnackSheet.#onAddKeyword,
       removeKeyword: KnackSheet.#onRemoveKeyword
     }

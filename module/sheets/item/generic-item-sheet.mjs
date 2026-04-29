@@ -1,3 +1,5 @@
+import { editImageAction } from "../_edit-image.mjs";
+
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
   const api    = foundry.applications.api;
@@ -10,7 +12,10 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     classes:  ["exalted2e", "item", "generic"],
     position: { width: 440, height: 420 },
     window: { resizable: true },
-    form: { submitOnChange: true, closeOnSubmit: false }
+    form: { submitOnChange: true, closeOnSubmit: false },
+    actions: {
+      editImage: editImageAction
+    }
   };
 
   get title() {

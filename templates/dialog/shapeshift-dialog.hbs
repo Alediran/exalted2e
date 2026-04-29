@@ -1,0 +1,17 @@
+<form>
+  <div class="form-options">
+    {{#each formOptions as |opt i|}}
+    <label class="form-option">
+      <input type="radio" name="targetFormId" value="{{opt.id}}" {{#if (eq i 0)}}checked{{/if}}>
+      <span class="form-name">{{opt.name}}</span>
+      <span class="form-cost">({{opt.cost}}m)</span>
+    </label>
+    {{/each}}
+  </div>
+
+  <div class="dialog-buttons">
+    <button type="button" data-action="confirmShapeshift">
+      {{localize "EX2E.ShapeshiftConfirm"}}
+    </button>
+  </div>
+</form>
