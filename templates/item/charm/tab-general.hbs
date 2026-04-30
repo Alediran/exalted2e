@@ -12,6 +12,7 @@
       <input type="number" name="system.cost.willpower" value="{{system.cost.willpower}}" min="0"
              {{#unless isEditable}}readonly{{/unless}}>
     </div>
+    {{#unless system.isSubmodule}}
     <div class="field-group">
       <label>{{localize "EX2E.CostBashingHealth"}}</label>
       <input type="number" name="system.cost.bashingHealth" value="{{system.cost.bashingHealth}}" min="0"
@@ -27,16 +28,28 @@
       <input type="number" name="system.cost.aggravatedHealth" value="{{system.cost.aggravatedHealth}}" min="0"
              {{#unless isEditable}}readonly{{/unless}}>
     </div>
+    {{/unless}}
+    {{#unless system.isSubmodule}}
     <div class="field-group">
       <label>{{localize "EX2E.CostExperience"}}</label>
       <input type="number" name="system.cost.xp" value="{{system.cost.xp}}" min="0"
              {{#unless isEditable}}readonly{{/unless}}>
     </div>
+    {{/unless}}
+    {{#unless system.isSubmodule}}
     <div class="field-group">
       <label>{{localize "EX2E.EssenceCommitment"}}</label>
       <input type="number" name="system.essenceCommitment" value="{{system.essenceCommitment}}"
              min="0" {{#unless isEditable}}readonly{{/unless}}>
     </div>
+    {{/unless}}
+    {{#if system.isSubmodule}}
+    <div class="field-group">
+      <label>{{localize "EX2E.SubmodulePurchaseXp"}}</label>
+      <input type="number" name="system.purchaseXp" value="{{system.purchaseXp}}"
+             min="0" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    {{/if}}
     <!-- Min Requirements (label swaps to Min Attribute for Lunar/Alchemical) -->
     <div class="field-group">
       <label>{{minAbilityFieldLabel}}</label>
@@ -48,6 +61,7 @@
       <input type="number" name="system.essence" value="{{system.essence}}" min="1" max="10"
              {{#unless isEditable}}readonly{{/unless}}>
     </div>
+    {{#unless system.isSubmodule}}
     <!-- Type -->
     <div class="field-group">
       <label>{{localize "EX2E.CharmType"}}</label>
@@ -88,6 +102,7 @@
       </details>
     </div>
     {{/if}}
+    {{/unless}}
     <!-- Duration -->
     <div class="field-group">
       <label>{{localize "EX2E.Duration"}}</label>
@@ -111,6 +126,7 @@
   </div>
 
   <!-- Prerequisites -->
+  {{#unless system.isSubmodule}}
   <div class="prereqs-block" style="margin-top:10px">
     <div class="tags-header">
       <label>{{localize "EX2E.Prerequisites"}}</label>
@@ -182,6 +198,7 @@
     </datalist>
     {{/if}}
   </div>
+  {{/unless}}
 
   <!-- Keywords -->
   <div class="keywords-block" style="margin-top:10px">

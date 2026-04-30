@@ -347,9 +347,16 @@
   padding:               var(--ex2e-gap-sm) 0;
 }
 
+.submodule-config { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--ex2e-gap-sm); margin-bottom: 10px; }
+
 .charm-active { border-left: 3px solid var(--ex2e-gold-main); }
 .charm-meta   { font-size: var(--ex2e-font-size-xs); color: var(--ex2e-text-muted); margin-left: 6px; }
 .charm-commit { color: var(--ex2e-text-secondary); }
+
+.submodule-list   { padding-left: 28px; border-left: 2px solid var(--ex2e-border-color); margin: 2px 0 4px; }
+.submodule-row    { display: flex; align-items: center; gap: var(--ex2e-gap-sm); padding: 2px 0; font-size: var(--ex2e-font-size-sm); }
+.submodule-name   { flex: 1; color: var(--ex2e-text-secondary); }
+.submodule-inactive .submodule-name { color: var(--ex2e-text-muted); opacity: 0.7; }
 
 /* ── CHARM ATTACK-STEP SELECTOR (dropdown) ───────────────────────────────── */
 .charm-steps .steps-dropdown {

@@ -205,6 +205,11 @@ function _priceCharm(actor, charm, exaltType, costs) {
     return { xp: _n(s.foreignCharm, 16), confident: eclipseLike };
   }
 
+  if (charm.system?.isSubmodule) {
+    const price = charm.system.purchaseXp || _n(s.submodule, 6);
+    return { xp: price, confident: true };
+  }
+
   switch (exaltType) {
     case "solar":
     case "abyssal": {

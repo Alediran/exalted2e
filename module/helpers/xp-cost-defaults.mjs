@@ -99,7 +99,8 @@ export const XP_COST_DEFAULTS = Object.freeze({
     slotDedicated:             4,
     slotUpgrade:               2,
     protocolManMachine:        3,
-    protocolGodMachine:        6
+    protocolGodMachine:        6,
+    submodule:                 6
   },
 
   infernal: {

@@ -83,6 +83,10 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       installed:         new fields.BooleanField({ initial: false }),
       installedSlotType: new fields.StringField({ initial: "", blank: true }),
 
+      isSubmodule:   new fields.BooleanField({ initial: false }),
+      parentCharmId: new fields.StringField({ initial: "", blank: true }),
+      purchaseXp:    new fields.NumberField({ integer: true, min: 0, initial: 0 }),
+
       // ── Weapon-like Attack ────────────────────────────────────────────────
       // A few charms spawn weapon-ish effects (e.g. Glorious Solar Saber).
       // When `enabled` is true the charm carries its own attack stat line.

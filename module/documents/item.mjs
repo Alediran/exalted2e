@@ -103,13 +103,18 @@ export class ExaltedItem extends Item {
     const actor = this.actor;
     if (!actor) return false;
 
+    const isToggleable = ["oneScene", "indefinite"].includes(this.system.duration);
+    const turningOff   = isToggleable && this.system.active;
+
+    if (this.system.isSubmodule && !this.system.effectivelyActive && !turningOff) {
+      ui.notifications.warn(game.i18n.localize("EX2E.SubmoduleNotActive"));
+      return false;
+    }
+
     const sys      = this.system;
     const cost     = sys.cost ?? {};
     const motePool = "peripheral";  // default pool; chosen at activation time
-    const isToggleable = ["oneScene", "indefinite"].includes(sys.duration);
-    // For toggleable charms, activation is a flip — we only charge motes /
-    // create attack effects when turning ON, and skip those when turning OFF.
-    const turningOff = isToggleable && sys.active;
+    // isToggleable and turningOff are already declared above
 
     // Soft prerequisite check: warn (non-blocking) if any prereq group has
     // no satisfying owned charm. Homebrew / house-rule builds can always

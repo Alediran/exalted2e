@@ -95,6 +95,15 @@
                     title="{{localize 'EX2E.Install'}} ({{this.system.essenceCommitment}}m)">⊕</button>
             {{/if}}
           {{/if}}
+          {{#if (eq @root.system.exaltType "alchemical")}}
+          {{#if @root.isEditable}}
+          <button type="button" data-action="createSubmodule"
+                  data-charm-id="{{charm.id}}"
+                  title="{{localize 'EX2E.AddSubmodule'}}">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+          {{/if}}
+          {{/if}}
           <button data-action="activateCharm" title="{{localize 'EX2E.ActivateCharm'}}">⚡</button>
           <button data-action="sendItemToChat" title="{{localize 'EX2E.SendToChat'}}">💬</button>
           {{#if @root.isEditable}}
@@ -103,10 +112,73 @@
           {{/if}}
         </div>
       </div>
+      {{#with (lookup @root.submodulesByParent charm.id) as |subs|}}
+      {{#if subs.length}}
+      <div class="submodule-list">
+        {{#each subs as |sub|}}
+        <div class="submodule-row {{#unless sub.system.effectivelyActive}}submodule-inactive{{/unless}}"
+             data-item-id="{{sub.id}}">
+          <span class="submodule-name">
+            {{#unless sub.system.requirementsMet}}
+            <i class="fa-solid fa-triangle-exclamation charm-prereq-missing"
+               title="{{localize 'EX2E.SubmoduleReqNotMet'}}"></i>
+            {{/unless}}
+            {{#unless sub.system.parentInstalled}}
+            <i class="fa-solid fa-circle-minus charm-prereq-missing"
+               title="{{localize 'EX2E.SubmoduleParentNotInstalled'}}"></i>
+            {{/unless}}
+            {{sub.name}}
+            {{#if sub.system.cost.motes}}
+            <span class="charm-meta">
+              {{sub.system.cost.motes}}m
+              {{#if sub.system.cost.willpower}}+{{sub.system.cost.willpower}}wp{{/if}}
+            </span>
+            {{/if}}
+          </span>
+          <div class="item-controls">
+            {{#unless (eq sub.system.charmType "permanent")}}
+            <button data-action="activateCharm" title="{{localize 'EX2E.ActivateCharm'}}"
+                    {{#unless sub.system.effectivelyActive}}disabled{{/unless}}>⚡</button>
+            {{/unless}}
+            <button data-action="sendItemToChat" title="{{localize 'EX2E.SendToChat'}}">💬</button>
+            {{#if @root.isEditable}}
+            <button data-action="editItem"   title="Edit">✏️</button>
+            <button data-action="deleteItem" title="Delete">🗑</button>
+            {{/if}}
+          </div>
+        </div>
+        {{/each}}
+      </div>
+      {{/if}}
+      {{/with}}
       {{/each}}
     </div>
     </details>
     {{/each}}
+    {{#with (lookup submodulesByParent "__orphan__") as |orphans|}}
+    {{#if orphans.length}}
+    <div class="section-toolbar" style="margin-top:16px">
+      <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.OrphanedSubmodules"}}</h2>
+    </div>
+    <div class="charms-list">
+      {{#each orphans as |sub|}}
+      <div class="charm-row item-row submodule-inactive" data-item-id="{{sub.id}}">
+        <img class="item-img" src="{{sub.img}}" alt="{{sub.name}}">
+        <span class="item-name charm-name">
+          <i class="fa-solid fa-triangle-exclamation charm-prereq-missing"></i>
+          {{sub.name}}
+        </span>
+        <div class="item-controls">
+          {{#if @root.isEditable}}
+          <button data-action="editItem"   title="Edit">✏️</button>
+          <button data-action="deleteItem" title="Delete">🗑</button>
+          {{/if}}
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    {{/if}}
+    {{/with}}
     {{else}}
     <p class="empty-msg">{{localize "EX2E.NoCharms"}}</p>
     {{/if}}

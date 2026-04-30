@@ -86,6 +86,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       addDedicatedSlot:    CharacterSheet.#onAddDedicatedSlot,
       addGeneralSlot:      CharacterSheet.#onAddGeneralSlot,
       upgradeSlot:         CharacterSheet.#onUpgradeSlot,
+      createSubmodule:     CharacterSheet.#onCreateSubmodule,
       editImage:           editImageAction
     }
   };
@@ -202,6 +203,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     };
     const buckets = new Map();
     for (const c of charms) {
+      if (c.system?.isSubmodule) continue;
       const k = c.system?.ability ?? "";
       if (!buckets.has(k)) buckets.set(k, []);
       buckets.get(k).push(c);
@@ -209,6 +211,13 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const charmGroups = [...buckets.entries()]
       .map(([key, list]) => ({ key, label: labelForCharmAbility(key), charms: list }))
       .sort((a, b) => a.label.localeCompare(b.label));
+
+    const submodulesByParent = {};
+    for (const item of charms) {
+      if (!item.system.isSubmodule) continue;
+      const pid = item.system.parentCharmId || "__orphan__";
+      (submodulesByParent[pid] ??= []).push(item);
+    }
 
     // Spells — shown as a sub-section under the Charms tab, grouped by
     // tradition (Sorcery / Necromancy) then by circle. Alchemicals flavour
@@ -433,6 +442,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       exaltTypeChoices: Object.entries(EX2E.exaltTypes).map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
       charms,
       charmGroups,
+      submodulesByParent,
       charmPrereqs,
       spells,
       spellSections,
@@ -1175,5 +1185,16 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         "system.splat.alchemical.generalSlots":   sys.generalSlots   + 1,
       });
     }
+  }
+
+  static async #onCreateSubmodule(event, target) {
+    const charmId = target.dataset.charmId;
+    const charm   = this.actor.items.get(charmId);
+    if (!charm) return;
+    await Item.create({
+      name:   game.i18n.localize("EX2E.NewSubmodule"),
+      type:   "charm",
+      system: { isSubmodule: true, parentCharmId: charmId, exaltType: "alchemical" }
+    }, { parent: this.actor });
   }
 }

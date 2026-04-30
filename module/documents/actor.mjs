@@ -314,8 +314,10 @@ export class ExaltedActor extends Actor {
   }
 
   /**
-   * Compute Alchemical-specific derived data: clarity band modifiers and
-   * installed submodule slot counts. No-ops for non-Alchemical actors.
+   * Compute Alchemical-specific derived data: clarity band modifiers,
+   * installed slot counts, and derived submodule state (`requirementsMet`,
+   * `parentInstalled`, `effectivelyActive`) for each submodule charm.
+   * No-ops for non-Alchemical actors.
    */
   _prepareAlchemicalDerived(systemData) {
     if (systemData.exaltType !== "alchemical") return;
@@ -331,6 +333,20 @@ export class ExaltedActor extends Actor {
     const installed = this.items.filter(i => i.type === "charm" && i.system.installed);
     systemData.dedicatedSlotsUsed = installed.filter(i => i.system.installedSlotType === "dedicated").length;
     systemData.generalSlotsUsed   = installed.filter(i => i.system.installedSlotType === "general").length;
+
+    for (const item of this.items) {
+      if (item.type !== "charm" || !item.system.isSubmodule) continue;
+      const essOk  = systemData.essence.value >= item.system.essence;
+      const attrKey = item.system.ability;
+      const attrOk  = !item.system.minAbility
+        || !(attrKey in systemData.attributes)
+        || systemData.attributes[attrKey].value >= item.system.minAbility;
+      const parent = this.items.get(item.system.parentCharmId);
+      item.system.requirementsMet   = essOk && attrOk;
+      item.system.parentInstalled   = !!parent?.system?.installed;
+      item.system.effectivelyActive = item.system.requirementsMet && item.system.parentInstalled
+        && (item.system.charmType === "permanent" || item.system.active);
+    }
   }
 
   /**

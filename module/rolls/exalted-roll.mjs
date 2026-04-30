@@ -587,9 +587,10 @@ export class ExaltedRoll {
       if (c.system.excellency === "first"
        || c.system.excellency === "second"
        || c.system.excellency === "third") return false;
-      const t = c.system.charmType;
-      if (t === "supplemental") return true;
-      if (t === "reflexive" && (c.system.steps ?? []).includes(1)) return true;
+      const t                = c.system.charmType;
+      const inactiveSubmodule = c.system.isSubmodule && !c.system.effectivelyActive;
+      if (t === "supplemental" && !inactiveSubmodule) return true;
+      if (t === "reflexive" && (c.system.steps ?? []).includes(1) && !inactiveSubmodule) return true;
       return false;
     });
 

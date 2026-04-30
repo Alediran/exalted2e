@@ -6,6 +6,7 @@
            {{#unless isEditable}}readonly{{/unless}}>
     <div class="charm-identity-row">
       <!-- Exalt Type -->
+      {{#unless system.isSubmodule}}
       <div class="field-group">
         <label>{{localize "EX2E.ExaltType"}}</label>
         <select name="system.exaltType" {{#unless isEditable}}disabled{{/unless}}>
@@ -14,6 +15,7 @@
           {{/each}}
         </select>
       </div>
+      {{/unless}}
       <!-- Ability / Attribute (swaps based on the charm's exaltType) -->
       <div class="field-group">
         <label>{{abilityFieldLabel}}</label>
@@ -33,7 +35,7 @@
       {{#if system.cost.lethalHealth}} +{{system.cost.lethalHealth}}hl(L){{/if}}
       {{#if system.cost.aggravatedHealth}} +{{system.cost.aggravatedHealth}}hl(A){{/if}}
       {{#if system.cost.xp}} +{{system.cost.xp}}xp{{/if}}
-      &nbsp;·&nbsp; <strong>Type:</strong> {{system.charmType}}
+      {{#unless system.isSubmodule}}&nbsp;·&nbsp; <strong>Type:</strong> {{system.charmType}}{{/unless}}
       &nbsp;·&nbsp; <strong>Duration:</strong> {{system.duration}}
     </div>
   </div>
