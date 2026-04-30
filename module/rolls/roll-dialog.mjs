@@ -62,7 +62,8 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       // attribute + ability + specialty math. External penalties (Prone,
       // future status effects) land here so the displayed pool tracks
       // whichever attribute the user picks in the dialog.
-      poolPenaltyByAttr:   options.poolPenaltyByAttr   ?? null
+      poolPenaltyByAttr:   options.poolPenaltyByAttr   ?? null,
+      clarityInfo:         options.clarityInfo         ?? null
     };
   }
 

@@ -410,6 +410,12 @@
   background:  var(--ex2e-bg-hover);
 }
 
+/* ── ALCHEMICAL MODULES ─────────────────────────────────────────────────────── */
+.module-slots {
+  display: flex;
+  justify-content: space-between;
+}
+
 /* ── ADD ITEM BUTTON ─────────────────────────────────────────────────────── */
 .btn-add-item {
   display:       inline-flex;

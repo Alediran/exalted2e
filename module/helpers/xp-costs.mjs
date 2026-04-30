@@ -90,6 +90,15 @@ function _priceField(actor, change, exaltType, costs) {
   if ((m = path.match(/^system\.virtues\.(\w+)\.value$/)))
     return _priceVirtue(oldVal, newVal, costs);
 
+  if ((m = path.match(/^system\.splat\.alchemical\.(dedicatedSlots|generalSlots)$/))) {
+    const delta = newVal - oldVal;
+    if (delta <= 0) return { xp: 0, confident: true };
+    const xpPerSlot = m[1] === "dedicatedSlots"
+      ? Number(costs.alchemical?.slotDedicated ?? 4)
+      : Number(costs.alchemical?.slotGeneral   ?? 6);
+    return { xp: xpPerSlot * delta, confident: true };
+  }
+
   return null;
 }
 
@@ -169,12 +178,18 @@ function _priceItem(actor, item, exaltType, costs) {
 }
 
 function _priceCharm(actor, charm, exaltType, costs) {
-  const ability    = charm.system?.ability ?? "";
+  const attrKey    = charm.system?.ability ?? "";
   const charmExalt = charm.system?.exaltType ?? "";
-  const isMA       = ability === "martialArts";
+  const isMA       = attrKey === "martialArts";
   const keywords   = _normKeywords(charm.system?.keywords);
-  const actorAbil  = actor.system?.abilities?.[ability];
-  const casteFav   = !!(actorAbil?.caste || actorAbil?.favored);
+  let casteFav;
+  if (exaltType === "alchemical") {
+    const attr = actor.system?.attributes?.[attrKey];
+    casteFav   = !!(attr?.caste || attr?.favored);
+  } else {
+    const actorAbil = actor.system?.abilities?.[attrKey];
+    casteFav        = !!(actorAbil?.caste || actorAbil?.favored);
+  }
   const caste      = actor.system?.caste ?? "";
   const s          = costs[exaltType] ?? {};
 

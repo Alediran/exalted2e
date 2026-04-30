@@ -226,8 +226,25 @@ export class ExaltedRoll {
         Object.assign({}, ...Object.values(EX2E.attributes))
       ).map(([k]) => [k, (physicalKeys.has(k) ? -internalPhysicalPenalty : 0) + woundPenalty])
     );
-    const initialPoolPenalty = (physicalKeys.has(defaultAttr) ? -internalPhysicalPenalty : 0) + woundPenalty;
-    const basePool    = Math.max(0, rawPool + initialPoolPenalty);
+    // Clarity penalties for Alchemical actors
+    const _clarityMods = sys.clarityModifiers ?? {};
+    const _SOCIAL_ABILITIES = new Set(["presence", "performance", "bureaucracy", "investigation"]);
+    const _MENTAL_ATTR_KEYS = new Set(Object.keys(EX2E.attributes.mental ?? {}));
+    if (sys.exaltType === "alchemical") {
+      if (_SOCIAL_ABILITIES.has(ability) && _clarityMods.socialPenalty > 0) {
+        for (const k of Object.keys(poolPenaltyByAttr)) {
+          poolPenaltyByAttr[k] = (poolPenaltyByAttr[k] ?? 0) - _clarityMods.socialPenalty;
+        }
+      }
+      if (_clarityMods.mentalBonus > 0) {
+        for (const k of _MENTAL_ATTR_KEYS) {
+          if (k in poolPenaltyByAttr) poolPenaltyByAttr[k] = (poolPenaltyByAttr[k] ?? 0) + _clarityMods.mentalBonus;
+        }
+      }
+    }
+    // Recompute base pool after clarity mutations so the dialog receives the
+    // correct starting pool for the default attribute.
+    const basePoolAfterClarity = Math.max(0, rawPool + (poolPenaltyByAttr[defaultAttr] ?? 0));
 
     // Specialties for the ability (filter entries with no name)
     const specialties = (sys.abilities[ability]?.specialties ?? []).filter(s => s?.name?.trim());
@@ -296,7 +313,7 @@ export class ExaltedRoll {
       : null;
 
     const dialogResult = await RollDialog.prompt({
-      pool:                basePool,
+      pool:                basePoolAfterClarity,
       attribute:           defaultAttr,
       attributeChoices:    attributeChoices,
       attributeValues:     attributeValues,
@@ -312,6 +329,9 @@ export class ExaltedRoll {
       firstExcMaxPerAttr:  firstExcMaxPerAttr,
       secondExcMaxPerAttr: secondExcMaxPerAttr,
       poolPenaltyByAttr:   poolPenaltyByAttr,
+      clarityInfo: (sys.exaltType === "alchemical" && (_clarityMods.autochthonBonus ?? 0) > 0)
+        ? { autochthonBonus: _clarityMods.autochthonBonus }
+        : null,
       ...options
     });
 
@@ -893,7 +913,10 @@ export class ExaltedRoll {
     const social_internal = attacker.internalPenaltyFor?.("social") ?? 0;
     const social_external = attacker.externalPenaltyFor?.("social") ?? 0;
     const social_wound    = Number(attacker.system?.health?.woundPenalty) || 0;
-    const finalPool = Math.max(0, (pool ?? 0) + social_wound - social_internal);
+    const social_clarity  = (attacker.system?.exaltType === "alchemical")
+      ? (attacker.system?.clarityModifiers?.socialPenalty ?? 0)
+      : 0;
+    const finalPool = Math.max(0, (pool ?? 0) + social_wound - social_internal - social_clarity);
 
     // Natural-influence drain cap: if this is a non-UMI attack and the
     // defender's per-attacker scene-drain counter is already ≥ 2, the

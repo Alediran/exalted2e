@@ -30,6 +30,7 @@ import { registerCombatHudSmoke }         from "./combat/combat-hud-smoke.mjs";
 import { registerCasteAttributes }        from "./combat/caste-attributes.mjs";
 import { registerShapeshift }              from "./combat/shapeshift.mjs";
 import { registerDBT }                     from "./combat/dbt.mjs";
+import { registerClarity }                 from "./combat/clarity.mjs";
 
 Hooks.once("quenchReady", quench => {
   quench.registerBatch("ex2e.knockback.focused",        registerKnockbackFocused,       { displayName: "Knockback (focused)" });
@@ -54,4 +55,5 @@ Hooks.once("quenchReady", quench => {
   quench.registerBatch("ex2e.caste-attributes",        registerCasteAttributes,        { displayName: "Caste attributes" });
   quench.registerBatch("ex2e.shapeshift",              registerShapeshift,             { displayName: "Lunar shapeshift" });
   quench.registerBatch("ex2e.dbt",                     registerDBT,                    { displayName: "Deadly Beastman Transformation" });
+  quench.registerBatch("ex2e.clarity",                 registerClarity,                { displayName: "Alchemical Clarity & Modules" });
 });

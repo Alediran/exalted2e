@@ -87,6 +87,12 @@
     </div>
     {{/if}}
 
+    {{#if clarityInfo}}
+    <div class="field-group clarity-autochthon-reminder">
+      <span>+{{clarityInfo.autochthonBonus}} {{localize "EX2E.ClarityAutochthonBonus"}}</span>
+    </div>
+    {{/if}}
+
     <div class="field-group">
       <label>{{localize "EX2E.MoteType"}}</label>
       <select name="moteType">

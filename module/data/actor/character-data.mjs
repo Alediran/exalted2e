@@ -1,4 +1,5 @@
 import { computeWoundPenalty } from "../../rolls/health-math.mjs";
+import { computeTotalClarity, computePermanentClarity } from "../../combat/clarity-math.mjs";
 
 const fields = foundry.data.fields;
 
@@ -175,8 +176,13 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
           urge:          new fields.StringField({ initial: "", blank: true }),
           actOfVillainy: new fields.NumberField({ initial: 0, min: 0, max: 20, integer: true })
         }),
-        alchemical:  new fields.SchemaField({
-          dissonance: new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true })
+        alchemical: new fields.SchemaField({
+          clarity: new fields.SchemaField({
+            permanent: new fields.NumberField({ integer: true, min: 0, initial: 0 }),
+            total:     new fields.NumberField({ integer: true, min: 0, initial: 0 })
+          }),
+          dedicatedSlots: new fields.NumberField({ integer: true, min: 0, initial: 4 }),
+          generalSlots:   new fields.NumberField({ integer: true, min: 0, initial: 4 })
         })
       }),
 
@@ -245,6 +251,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     this._prepareCombatStats();
     this._prepareMoteMaxima();
     this._prepareIntimacies();
+    this._prepareAlchemicalClarity();
   }
 
   /**
@@ -451,5 +458,16 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       maxStrength:  this.virtues?.conviction?.value ?? 0,
       useIntensity: game.settings.get("exalted2e", "useIntimacyIntensity")
     };
+  }
+
+  _prepareAlchemicalClarity() {
+    if (this.exaltType !== "alchemical") return;
+    if (!this.parent) return;
+    const exemplarCount = this.parent.items.filter(
+      i => i.type === "charm" && i.system.installed && i.system.keywords?.includes("Exemplar")
+    ).length;
+    const permanent = computePermanentClarity(this.essence.value, exemplarCount);
+    this.splat.alchemical.clarity.permanent = permanent;
+    this.splat.alchemical.clarity.total     = computeTotalClarity(permanent, this.limit.value);
   }
 }

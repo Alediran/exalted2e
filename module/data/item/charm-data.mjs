@@ -78,6 +78,11 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       // ── Activation Tracking ──────────────────────────────────────────────
       active: new fields.BooleanField({ initial: false }),
 
+      // ── Alchemical Module Installation ────────────────────────────────────
+      essenceCommitment: new fields.NumberField({ integer: true, min: 0, initial: 0 }),
+      installed:         new fields.BooleanField({ initial: false }),
+      installedSlotType: new fields.StringField({ initial: "", blank: true }),
+
       // ── Weapon-like Attack ────────────────────────────────────────────────
       // A few charms spawn weapon-ish effects (e.g. Glorious Solar Saber).
       // When `enabled` is true the charm carries its own attack stat line.

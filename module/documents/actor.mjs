@@ -2,6 +2,7 @@ import { EX2E } from "../config.mjs";
 import { clampDamage, healInOrder } from "../rolls/health-math.mjs";
 import { aggregatePenalties, sumPenalties } from "./penalties-math.mjs";
 import { collectPermanentTraitChanges } from "./purchase-mode-math.mjs";
+import { getClarityBand } from "../combat/clarity-math.mjs";
 
 /**
  * ExaltedActor – extends the base Foundry Actor document with
@@ -70,7 +71,6 @@ export class ExaltedActor extends Actor {
         data.actOfVillainy = splat.infernal?.actOfVillainy ?? 0;
         break;
       case "alchemical":
-        data.dissonance = splat.alchemical?.dissonance ?? 0;
         break;
       // Solar, Lunar, and mortal: no numeric splat scalars to expose.
       default:
@@ -284,6 +284,7 @@ export class ExaltedActor extends Actor {
     // ── Aggregate DV penalties carried by ActiveEffects ───────────────────
     this._aggregateDVPenalties(systemData);
     this._aggregateMDVPenalties(systemData);
+    this._prepareAlchemicalDerived(systemData);
   }
 
   /**
@@ -310,6 +311,26 @@ export class ExaltedActor extends Actor {
    */
   _aggregateMDVPenalties(systemData) {
     systemData.mdvPenalties = aggregatePenalties(this.effects, "mdvPenalty");
+  }
+
+  /**
+   * Compute Alchemical-specific derived data: clarity band modifiers and
+   * installed submodule slot counts. No-ops for non-Alchemical actors.
+   */
+  _prepareAlchemicalDerived(systemData) {
+    if (systemData.exaltType !== "alchemical") return;
+    const total = systemData.splat?.alchemical?.clarity?.total ?? 0;
+    const band  = getClarityBand(total);
+    systemData.clarityModifiers = {
+      socialPenalty:      band.socialPenalty,
+      compassionPenalty:  band.compassionPenalty,
+      compassionAutoFail: band.compassionAutoFail,
+      mentalBonus:        band.mentalBonus,
+      autochthonBonus:    band.autochthonBonus,
+    };
+    const installed = this.items.filter(i => i.type === "charm" && i.system.installed);
+    systemData.dedicatedSlotsUsed = installed.filter(i => i.system.installedSlotType === "dedicated").length;
+    systemData.generalSlotsUsed   = installed.filter(i => i.system.installedSlotType === "general").length;
   }
 
   /**
@@ -684,5 +705,66 @@ export class ExaltedActor extends Actor {
     const moteData = this.system.motes[pool];
     const newVal   = Math.min(moteData.max, moteData.value + amount);
     return this.update({ [`system.motes.${pool}.value`]: newVal });
+  }
+
+  /**
+   * True when the charm's linked attribute is a Caste or Favored attribute on this actor.
+   * Used to determine slot assignment during module installation.
+   * @param {ExaltedItem} charm
+   * @returns {boolean}
+   */
+  _isCharmCasteFavored(charm) {
+    const attrKey = charm.system.ability;
+    if (!attrKey) return false;
+    return !!(this.system.attributes?.[attrKey]?.caste || this.system.attributes?.[attrKey]?.favored);
+  }
+
+  /**
+   * Install a Charm as an Alchemical module. Auto-assigns to a dedicated slot
+   * when the Charm is Caste/Favored and dedicated slots are free; otherwise
+   * uses a general slot. Commits motes from the peripheral pool.
+   * @param {string} charmId
+   */
+  async installCharm(charmId) {
+    if (this.system.exaltType !== "alchemical") return;
+    const charm = this.items.get(charmId);
+    if (!charm || charm.system.installed) return;
+
+    const sys          = this.system.splat.alchemical;
+    const dedicatedFree = sys.dedicatedSlots - (this.system.dedicatedSlotsUsed ?? 0);
+    const generalFree   = sys.generalSlots   - (this.system.generalSlotsUsed   ?? 0);
+
+    let slotType;
+    if (this._isCharmCasteFavored(charm) && dedicatedFree > 0) slotType = "dedicated";
+    else if (generalFree > 0)                                  slotType = "general";
+    else {
+      ui.notifications.warn(game.i18n.localize("EX2E.NoSlotsAvailable"));
+      return;
+    }
+
+    const commitment = charm.system.essenceCommitment ?? 0;
+    if (commitment > 0) {
+      const confirmed = await foundry.applications.api.DialogV2.confirm({
+        window:  { title: game.i18n.localize("EX2E.InstallCharm") },
+        content: game.i18n.format("EX2E.InstallCharmConfirm", { name: charm.name, cost: commitment }),
+      });
+      if (!confirmed) return;
+      const spent = await this.spendMotes(commitment, "peripheral");
+      if (!spent) return;
+    }
+    await charm.update({ "system.installed": true, "system.installedSlotType": slotType });
+  }
+
+  /**
+   * Uninstall a Charm module. Returns committed motes to the peripheral pool.
+   * @param {string} charmId
+   */
+  async uninstallCharm(charmId) {
+    if (this.system.exaltType !== "alchemical") return;
+    const charm = this.items.get(charmId);
+    if (!charm || !charm.system.installed) return;
+    const commitment = charm.system.essenceCommitment ?? 0;
+    if (commitment > 0) await this.recoverMotes(commitment, "peripheral");
+    await charm.update({ "system.installed": false, "system.installedSlotType": "" });
   }
 }

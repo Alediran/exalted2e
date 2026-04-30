@@ -224,3 +224,82 @@ describe("CharacterData._prepareIntimacies", () => {
     expect(result.intimacies.maxStrength).toBe(2);            // Conviction
   });
 });
+
+function _makeExemplarCharm(overrides = {}) {
+  return {
+    type: "charm",
+    name: "Test Exemplar",
+    system: {
+      installed: true,
+      keywords:  ["Exemplar"],
+      ...overrides
+    }
+  };
+}
+
+describe("CharacterData._prepareAlchemicalClarity", () => {
+  it("non-alchemical actor: clarity.permanent is not modified", () => {
+    const sys = makeCharacterSystem({
+      exaltType: "solar",
+      essence:   { value: 3, max: 3 },
+      limit:     { value: 2, trigger: "" }
+    });
+    const result = _prepDerivedData(sys);
+    // _prepareAlchemicalClarity returns early, so the fixture value stays
+    expect(result.splat.alchemical.clarity.permanent).toBe(0);
+    expect(result.splat.alchemical.clarity.total).toBe(0);
+  });
+
+  it("Alchemical Ess 3, zero Exemplars, limit 2: permanent=0, total=2", () => {
+    // computePermanentClarity(3, 0) = max(0, 3-5) + 0 = 0
+    // computeTotalClarity(0, 2)     = min(10, 0+2) = 2
+    const sys = makeCharacterSystem({
+      exaltType: "alchemical",
+      essence:   { value: 3, max: 3 },
+      limit:     { value: 2, trigger: "" }
+    });
+    const result = _prepDerivedData(sys);
+    expect(result.splat.alchemical.clarity.permanent).toBe(0);
+    expect(result.splat.alchemical.clarity.total).toBe(2);
+  });
+
+  it("Alchemical Ess 6, zero Exemplars, limit 0: permanent=1, total=1", () => {
+    // computePermanentClarity(6, 0) = max(0, 6-5) + 0 = 1
+    // computeTotalClarity(1, 0)     = min(10, 1+0) = 1
+    const sys = makeCharacterSystem({
+      exaltType: "alchemical",
+      essence:   { value: 6, max: 6 },
+      limit:     { value: 0, trigger: "" }
+    });
+    const result = _prepDerivedData(sys);
+    expect(result.splat.alchemical.clarity.permanent).toBe(1);
+    expect(result.splat.alchemical.clarity.total).toBe(1);
+  });
+
+  it("Alchemical Ess 5, one Exemplar installed, limit 0: permanent=1, total=1", () => {
+    // computePermanentClarity(5, 1) = max(0, 5-5) + 1 = 1
+    // computeTotalClarity(1, 0)     = min(10, 1+0) = 1
+    const sys = makeCharacterSystem({
+      exaltType: "alchemical",
+      essence:   { value: 5, max: 5 },
+      limit:     { value: 0, trigger: "" }
+    });
+    const items = [ _makeExemplarCharm() ];
+    const result = _prepDerivedData(sys, items);
+    expect(result.splat.alchemical.clarity.permanent).toBe(1);
+    expect(result.splat.alchemical.clarity.total).toBe(1);
+  });
+
+  it("cap: permanent=6, limit=7 → total=10 (capped)", () => {
+    // computePermanentClarity(11, 0) = max(0, 11-5) + 0 = 6
+    // computeTotalClarity(6, 7)      = min(10, 6+7) = 10
+    const sys = makeCharacterSystem({
+      exaltType: "alchemical",
+      essence:   { value: 11, max: 11 },
+      limit:     { value: 7, trigger: "" }
+    });
+    const result = _prepDerivedData(sys);
+    expect(result.splat.alchemical.clarity.permanent).toBe(6);
+    expect(result.splat.alchemical.clarity.total).toBe(10);
+  });
+});

@@ -55,7 +55,7 @@ export function makeCharacterSystem(overrides = {}) {
       sidereal: { paradox: 0, arcaneFate: 0 },
       abyssal: { whispers: 0 },
       infernal: { patron: "", urge: "", actOfVillainy: 0 },
-      alchemical: { dissonance: 0 }
+      alchemical: { clarity: { permanent: 0, total: 0 } }
     },
     ...overrides
   };

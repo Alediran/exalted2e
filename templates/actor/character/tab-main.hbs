@@ -170,6 +170,24 @@
                     min=0
                     total=10}}
 
+        {{#if (eq system.exaltType "alchemical")}}
+        <div class="trait-row clarity-permanent-row">
+          <label>{{localize "EX2E.ClarityPermanent"}}</label>
+          <span class="clarity-permanent-value">{{system.splat.alchemical.clarity.permanent}}</span>
+        </div>
+        {{#if (gt system.clarityModifiers.socialPenalty 0)}}
+        <div class="clarity-modifiers-block">
+          <span>−{{system.clarityModifiers.socialPenalty}} {{localize "EX2E.ClaritySocialPenalty"}}</span>
+          <span class="clarity-autochthon">+{{system.clarityModifiers.autochthonBonus}} {{localize "EX2E.ClarityAutochthonBonus"}}</span>
+        </div>
+        {{/if}}
+        {{#if (gt system.clarityModifiers.mentalBonus 0)}}
+        <div class="clarity-modifiers-block">
+          <span>+{{system.clarityModifiers.mentalBonus}} {{localize "EX2E.ClarityMentalBonus"}}</span>
+        </div>
+        {{/if}}
+        {{/if}}
+
         <h2 class="section-header" style="margin-top: var(--ex2e-gap-lg);">{{localize "EX2E.Anima"}}</h2>
         <p class="empty-msg" style="opacity:0.7; font-style:italic;">{{localize "EX2E.AnimaPlaceholder"}}</p>
       </section>

@@ -5,6 +5,7 @@ import { ex2eCan }       from "../../helpers/permissions.mjs";
 import { buildXpCostRows } from "../../helpers/xp-cost-table.mjs";
 import { computeSpellCastButtonState } from "../../ui/spell-cast-button.mjs";
 import { resolveXpCosts }  from "../../helpers/xp-cost-defaults.mjs";
+import { priceAlchemicalCharmSlot } from "../../helpers/xp-costs.mjs";
 import { editImageAction } from "../_edit-image.mjs";
 
 const { ActorSheetV2, HandlebarsApplicationMixin } = (() => {
@@ -80,6 +81,9 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       editForm:            CharacterSheet.#onEditForm,
       deleteForm:          CharacterSheet.#onDeleteForm,
       endDBT:              CharacterSheet.#onEndDBT,
+      installCharm:        CharacterSheet.#onInstallCharm,
+      uninstallCharm:      CharacterSheet.#onUninstallCharm,
+      upgradeSlot:         CharacterSheet.#onUpgradeSlot,
       editImage:           editImageAction
     }
   };
@@ -1093,5 +1097,33 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   static async #onEndDBT(event, target) {
     await this.actor.update({ "system.splat.lunar.activeFormId": "" });
+  }
+
+  static async #onInstallCharm(event, target) {
+    const charmId = target.dataset.charmId;
+    if (!charmId) return;
+    await this.actor.installCharm(charmId);
+  }
+
+  static async #onUninstallCharm(event, target) {
+    const charmId = target.dataset.charmId;
+    if (!charmId) return;
+    await this.actor.uninstallCharm(charmId);
+  }
+
+  static async #onUpgradeSlot(event, target) {
+    const sys = this.actor.system.splat?.alchemical;
+    if (!sys || (sys.dedicatedSlots ?? 0) <= 0) return;
+    const cost = priceAlchemicalCharmSlot("upgrade").xp;
+    const confirmed = await foundry.applications.api.DialogV2.confirm({
+      window:  { title: game.i18n.localize("EX2E.SlotUpgrade") },
+      content: game.i18n.format("EX2E.SlotUpgradeConfirm", { cost }),
+    });
+    if (!confirmed) return;
+    await this.actor.update({
+      "system.splat.alchemical.dedicatedSlots": sys.dedicatedSlots - 1,
+      "system.splat.alchemical.generalSlots":   sys.generalSlots   + 1,
+      "system.experience.value": (this.actor.system.experience?.value ?? 0) - cost
+    }, { bypassPurchaseLock: true });
   }
 }

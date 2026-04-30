@@ -76,13 +76,3 @@
 </div>
 {{/if}}
 
-{{#if (eq system.exaltType "alchemical")}}
-<h2 class="section-header">{{localize "EX2E.Splat"}}</h2>
-<div class="splat-section">
-  <div class="trait-row">
-    <label>{{localize "EX2E.SplatDissonance"}}</label>
-    <input type="number" name="system.splat.alchemical.dissonance" value="{{system.splat.alchemical.dissonance}}"
-           min="0" max="10" step="1" {{#unless isEditable}}readonly{{/unless}}>
-  </div>
-</div>
-{{/if}}

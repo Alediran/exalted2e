@@ -32,6 +32,11 @@
       <input type="number" name="system.cost.xp" value="{{system.cost.xp}}" min="0"
              {{#unless isEditable}}readonly{{/unless}}>
     </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.EssenceCommitment"}}</label>
+      <input type="number" name="system.essenceCommitment" value="{{system.essenceCommitment}}"
+             min="0" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
     <!-- Min Requirements (label swaps to Min Attribute for Lunar/Alchemical) -->
     <div class="field-group">
       <label>{{minAbilityFieldLabel}}</label>

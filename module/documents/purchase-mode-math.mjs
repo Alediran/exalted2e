@@ -95,6 +95,20 @@ export function collectPermanentTraitChanges(changed, actor) {
       });
       continue;
     }
+
+    if ((match = path.match(/^system\.splat\.alchemical\.(dedicatedSlots|generalSlots)$/))) {
+      const key    = match[1];
+      const oldVal = Number(actor.system.splat?.alchemical?.[key] ?? 4);
+      const newVal = Number(rawNew);
+      if (newVal === oldVal) continue;
+      results.push({
+        path,
+        label: game.i18n.localize(key === "dedicatedSlots" ? "EX2E.SlotDedicated" : "EX2E.SlotGeneral"),
+        oldValue: oldVal, newValue: newVal,
+        kind: newVal > oldVal ? "increase" : "reduction"
+      });
+      continue;
+    }
   }
 
   // Specialties are an array; flatten doesn't produce a scalar for them.
