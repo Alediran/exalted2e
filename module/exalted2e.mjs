@@ -442,6 +442,9 @@ Hooks.once("ready", async function () {
   Hooks.on("createCombatant",   hudRefresh);
   Hooks.on("deleteCombatant",   hudRefresh);
   Hooks.on("updateCombatant",   hudRefresh);
+  // Token selection — out-of-combat the quickbar resolves its actor from
+  // the controlled token first, so refresh whenever selection changes.
+  Hooks.on("controlToken",      hudRefresh);
   // Reflect DV-penalty AE changes (e.g., after rolling an attack, or
   // when a flurry DV AE is stamped) so the pending indicator updates.
   Hooks.on("createActiveEffect", hudRefresh);

@@ -216,6 +216,53 @@ export class ExaltedActor extends Actor {
     });
   }
 
+  /**
+   * Post-persist hook. Watches for `splat.lunar.activeFormId` changes and
+   * syncs the actor's prototype token + linked scene tokens to show the
+   * active Heart's Blood form's image (or the actor portrait when
+   * reverting to human guise).
+   */
+  async _onUpdate(changed, options, userId) {
+    await super._onUpdate(changed, options, userId);
+    // Only the initiating user runs the side-effect updates — avoids
+    // every connected client racing to apply the same token changes.
+    if (userId !== game.user.id) return;
+    if (this.type !== "character") return;
+    if (this.system.exaltType !== "lunar") return;
+    if (changed.system?.splat?.lunar?.activeFormId === undefined) return;
+    await this._syncTokenToActiveForm(this.system.splat.lunar.activeFormId);
+  }
+
+  /**
+   * Resolve the image to display for the given active form id (empty =
+   * human guise = actor portrait; non-empty = the form item's image), then
+   * write it to the actor's prototype token AND every existing linked
+   * token across all scenes. Unlinked tokens are left alone — they're
+   * intentionally independent copies, not "this Lunar's body".
+   */
+  async _syncTokenToActiveForm(targetFormId) {
+    let newImg;
+    if (!targetFormId) {
+      newImg = this.img;
+    } else {
+      const form = this.items.get(targetFormId);
+      newImg = form?.img ?? this.img;
+    }
+    if (!newImg) return;
+
+    // Prototype token (template for future placements).
+    await this.update({ "prototypeToken.texture.src": newImg });
+
+    // Existing linked tokens on all scenes.
+    for (const scene of game.scenes ?? []) {
+      for (const token of scene.tokens ?? []) {
+        if (token.actorId === this.id && token.actorLink) {
+          await token.update({ "texture.src": newImg });
+        }
+      }
+    }
+  }
+
   /** @override */
   prepareBaseData() {
     super.prepareBaseData();

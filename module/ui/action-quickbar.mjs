@@ -130,10 +130,14 @@ export class ActionQuickbar {
     }
 
     // Out of combat, or combat exists but this user doesn't own the
-    // active combatant. Fall back to their assigned character so the
-    // Attack submenu + Move/Dash hover previews still have a token to
-    // work with.
-    this._renderPassive(game.user.character ?? null);
+    // active combatant. Resolve the actor by preference:
+    //   1. Currently controlled token (lets a GM with no assigned
+    //      character act on whichever token they've selected — including
+    //      Lunars they want to shapeshift between Heart's Blood forms).
+    //   2. game.user.character (the user's assigned character, if any).
+    //   3. null — buttons render but their click handlers no-op.
+    const selectedActor = canvas.tokens?.controlled?.[0]?.actor ?? null;
+    this._renderPassive(selectedActor ?? game.user.character ?? null);
   }
 
   _show() { this._root.classList.remove("hidden"); }
