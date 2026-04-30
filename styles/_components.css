@@ -450,6 +450,11 @@
   opacity: 0.4;
   cursor:  default;
 }
+.module-slots .dot-rating {
+  display:   flex;
+  flex-wrap: wrap;
+  max-width: 157px; /* 10 × 13px dots + 9 × 3px gaps */
+}
 
 /* ── ADD ITEM BUTTON ─────────────────────────────────────────────────────── */
 .btn-add-item {

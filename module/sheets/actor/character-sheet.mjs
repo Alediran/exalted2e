@@ -83,6 +83,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       endDBT:              CharacterSheet.#onEndDBT,
       installCharm:        CharacterSheet.#onInstallCharm,
       uninstallCharm:      CharacterSheet.#onUninstallCharm,
+      addDedicatedSlot:    CharacterSheet.#onAddDedicatedSlot,
+      addGeneralSlot:      CharacterSheet.#onAddGeneralSlot,
       upgradeSlot:         CharacterSheet.#onUpgradeSlot,
       editImage:           editImageAction
     }
@@ -1111,19 +1113,67 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     await this.actor.uninstallCharm(charmId);
   }
 
+  static async #onAddDedicatedSlot(event, target) {
+    const sys    = this.actor.system.splat?.alchemical;
+    if (!sys) return;
+    const locked = !!this.actor.system.purchaseLocked;
+    if (locked) {
+      const cost = priceAlchemicalCharmSlot("dedicated").xp;
+      const confirmed = await foundry.applications.api.DialogV2.confirm({
+        window:  { title: game.i18n.localize("EX2E.SlotAddDedicated") },
+        content: game.i18n.format("EX2E.SlotAddDedicatedConfirm", { cost }),
+      });
+      if (!confirmed) return;
+      await this.actor.update({
+        "system.splat.alchemical.dedicatedSlots": sys.dedicatedSlots + 1,
+        "system.experience.value": (this.actor.system.experience?.value ?? 0) - cost
+      }, { bypassPurchaseLock: true });
+    } else {
+      await this.actor.update({ "system.splat.alchemical.dedicatedSlots": sys.dedicatedSlots + 1 });
+    }
+  }
+
+  static async #onAddGeneralSlot(event, target) {
+    const sys    = this.actor.system.splat?.alchemical;
+    if (!sys) return;
+    const locked = !!this.actor.system.purchaseLocked;
+    if (locked) {
+      const cost = priceAlchemicalCharmSlot("general").xp;
+      const confirmed = await foundry.applications.api.DialogV2.confirm({
+        window:  { title: game.i18n.localize("EX2E.SlotAddGeneral") },
+        content: game.i18n.format("EX2E.SlotAddGeneralConfirm", { cost }),
+      });
+      if (!confirmed) return;
+      await this.actor.update({
+        "system.splat.alchemical.generalSlots": sys.generalSlots + 1,
+        "system.experience.value": (this.actor.system.experience?.value ?? 0) - cost
+      }, { bypassPurchaseLock: true });
+    } else {
+      await this.actor.update({ "system.splat.alchemical.generalSlots": sys.generalSlots + 1 });
+    }
+  }
+
   static async #onUpgradeSlot(event, target) {
-    const sys = this.actor.system.splat?.alchemical;
+    const sys    = this.actor.system.splat?.alchemical;
     if (!sys || (sys.dedicatedSlots ?? 0) <= 0) return;
-    const cost = priceAlchemicalCharmSlot("upgrade").xp;
-    const confirmed = await foundry.applications.api.DialogV2.confirm({
-      window:  { title: game.i18n.localize("EX2E.SlotUpgrade") },
-      content: game.i18n.format("EX2E.SlotUpgradeConfirm", { cost }),
-    });
-    if (!confirmed) return;
-    await this.actor.update({
-      "system.splat.alchemical.dedicatedSlots": sys.dedicatedSlots - 1,
-      "system.splat.alchemical.generalSlots":   sys.generalSlots   + 1,
-      "system.experience.value": (this.actor.system.experience?.value ?? 0) - cost
-    }, { bypassPurchaseLock: true });
+    const locked = !!this.actor.system.purchaseLocked;
+    if (locked) {
+      const cost = priceAlchemicalCharmSlot("upgrade").xp;
+      const confirmed = await foundry.applications.api.DialogV2.confirm({
+        window:  { title: game.i18n.localize("EX2E.SlotUpgrade") },
+        content: game.i18n.format("EX2E.SlotUpgradeConfirm", { cost }),
+      });
+      if (!confirmed) return;
+      await this.actor.update({
+        "system.splat.alchemical.dedicatedSlots": sys.dedicatedSlots - 1,
+        "system.splat.alchemical.generalSlots":   sys.generalSlots   + 1,
+        "system.experience.value": (this.actor.system.experience?.value ?? 0) - cost
+      }, { bypassPurchaseLock: true });
+    } else {
+      await this.actor.update({
+        "system.splat.alchemical.dedicatedSlots": sys.dedicatedSlots - 1,
+        "system.splat.alchemical.generalSlots":   sys.generalSlots   + 1,
+      });
+    }
   }
 }
