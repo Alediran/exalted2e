@@ -562,6 +562,9 @@ export class ExaltedActor extends Actor {
           && item.system.artifact && item.system.attuned) {
         artifactPeripheral += item.system.attunementCost ?? 0;
       }
+      if (item.type === "charm" && item.system.installed) {
+        artifactPeripheral += item.system.essenceCommitment ?? 0;
+      }
     }
 
     systemData.motes.personal.artifactCommitted   = 0;
@@ -722,7 +725,8 @@ export class ExaltedActor extends Actor {
   /**
    * Install a Charm as an Alchemical module. Auto-assigns to a dedicated slot
    * when the Charm is Caste/Favored and dedicated slots are free; otherwise
-   * uses a general slot. Commits motes from the peripheral pool.
+   * uses a general slot. Essence commitment is derived (like artifact attunement)
+   * — it reduces peripheral effectiveMax while the module is installed.
    * @param {string} charmId
    */
   async installCharm(charmId) {
@@ -749,22 +753,19 @@ export class ExaltedActor extends Actor {
         content: game.i18n.format("EX2E.InstallCharmConfirm", { name: charm.name, cost: commitment }),
       });
       if (!confirmed) return;
-      const spent = await this.spendMotes(commitment, "peripheral");
-      if (!spent) return;
     }
     await charm.update({ "system.installed": true, "system.installedSlotType": slotType });
   }
 
   /**
-   * Uninstall a Charm module. Returns committed motes to the peripheral pool.
+   * Uninstall a Charm module. Releases the peripheral Essence commitment
+   * (derived — effectiveMax recovers on next prepareDerivedData).
    * @param {string} charmId
    */
   async uninstallCharm(charmId) {
     if (this.system.exaltType !== "alchemical") return;
     const charm = this.items.get(charmId);
     if (!charm || !charm.system.installed) return;
-    const commitment = charm.system.essenceCommitment ?? 0;
-    if (commitment > 0) await this.recoverMotes(commitment, "peripheral");
     await charm.update({ "system.installed": false, "system.installedSlotType": "" });
   }
 }

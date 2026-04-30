@@ -412,8 +412,43 @@
 
 /* ── ALCHEMICAL MODULES ─────────────────────────────────────────────────────── */
 .module-slots {
-  display: flex;
+  display:         flex;
+  align-items:     center;
   justify-content: space-between;
+  gap:             var(--ex2e-gap-md);
+  padding:         6px 10px;
+  margin-bottom:   var(--ex2e-gap-sm);
+  background:      var(--ex2e-bg-panel);
+  border:          1px solid var(--ex2e-border-color);
+  border-radius:   var(--ex2e-border-radius);
+}
+.module-slots label {
+  font-family: var(--ex2e-font-ui);
+  font-size:   var(--ex2e-font-size-sm);
+  color:       var(--ex2e-text-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.module-slots button {
+  font-family:   var(--ex2e-font-ui);
+  font-size:     var(--ex2e-font-size-xs);
+  color:         var(--ex2e-text-secondary);
+  background:    transparent;
+  border:        1px solid var(--ex2e-border-color);
+  border-radius: var(--ex2e-border-radius);
+  padding:       2px 8px;
+  cursor:        pointer;
+  white-space:   nowrap;
+  transition:    color var(--ex2e-transition-fast), border-color var(--ex2e-transition-fast), background var(--ex2e-transition-fast);
+}
+.module-slots button:hover:not(:disabled) {
+  color:        var(--ex2e-gold-main);
+  border-color: var(--ex2e-gold-mid);
+  background:   var(--ex2e-bg-hover);
+}
+.module-slots button:disabled {
+  opacity: 0.4;
+  cursor:  default;
 }
 
 /* ── ADD ITEM BUTTON ─────────────────────────────────────────────────────── */

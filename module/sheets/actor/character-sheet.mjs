@@ -826,10 +826,10 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const type    = target.dataset.type ?? "charm";
     const name    = game.i18n.localize(`EX2E.New${type.charAt(0).toUpperCase() + type.slice(1)}`);
     const data    = { name, type };
-    // Spells let the Add button pick a starting tradition via data-tradition
-    // so a new spell landing in the Necromancy section isn't Sorcery by default.
     if (type === "spell" && target.dataset.tradition) {
       data.system = { tradition: target.dataset.tradition };
+    } else if (type === "charm" && target.dataset.exaltType) {
+      data.system = { exaltType: target.dataset.exaltType };
     }
     await Item.create(data, { parent: this.document });
   }
