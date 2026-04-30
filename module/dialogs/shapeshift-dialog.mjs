@@ -6,7 +6,7 @@ const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
  * ShapeshiftDialog — small modal opened by the Shapeshift action handler.
  * Lists Human Guise / Spirit Shape (if set) / each Heart's Blood form,
  * each labelled with its mote cost. User picks one; on confirm returns
- * `{ targetFormId, cost }`. On cancel/close returns `null` (action aborts).
+ * `{ targetFormId, cost, targetFormType }`. On cancel/close returns `null` (action aborts).
  */
 export class ShapeshiftDialog extends HandlebarsApplicationMixin(ApplicationV2) {
 
@@ -36,7 +36,23 @@ export class ShapeshiftDialog extends HandlebarsApplicationMixin(ApplicationV2) 
     const actor = this._actor;
     const sys = actor.system;
     const spiritId = sys.splat?.lunar?.spiritShapeFormId ?? "";
+    const activeFormId = sys.splat?.lunar?.activeFormId ?? "";
     const forms = actor.itemTypes?.form ?? actor.items.filter(i => i.type === "form");
+
+    // DBT option — shown only when the actor owns a knack with enablesDBT:true
+    // AND has a warform item in their Heart's Blood library.
+    const hasDBT = actor.items.some(i => i.type === "knack" && i.system.enablesDBT);
+    const warformItem = forms.find(f => f.system.formType === "warform");
+    let dbtOption = null;
+    let dbtActive = false;
+    if (hasDBT && warformItem) {
+      dbtOption = {
+        id:   warformItem.id,
+        name: warformItem.name,
+        cost: computeShapeshiftCost({ targetFormId: warformItem.id, targetFormType: "warform" })
+      };
+      dbtActive = activeFormId === warformItem.id;
+    }
 
     const formOptions = [
       { id: "", name: game.i18n.localize("EX2E.HumanShape"), cost: 1 }
@@ -53,6 +69,7 @@ export class ShapeshiftDialog extends HandlebarsApplicationMixin(ApplicationV2) 
     }
     for (const f of forms) {
       if (f.id === spiritId) continue;
+      if (f.system.formType === "warform") continue;  // shown via dbtOption instead
       formOptions.push({
         id:   f.id,
         name: f.name,
@@ -60,7 +77,7 @@ export class ShapeshiftDialog extends HandlebarsApplicationMixin(ApplicationV2) 
       });
     }
 
-    return { ...context, formOptions };
+    return { ...context, formOptions, dbtOption, dbtActive };
   }
 
   static #onConfirm(event, target) {
@@ -68,10 +85,11 @@ export class ShapeshiftDialog extends HandlebarsApplicationMixin(ApplicationV2) 
     const fd   = new foundry.applications.ux.FormDataExtended(form).object;
     const targetFormId = String(fd.targetFormId ?? "");
     // Recompute the cost server-side for safety (don't trust the form value).
-    const spiritId = this._actor.system.splat?.lunar?.spiritShapeFormId ?? "";
-    const cost = computeShapeshiftCost({ targetFormId, spiritShapeFormId: spiritId });
+    const spiritId      = this._actor.system.splat?.lunar?.spiritShapeFormId ?? "";
+    const targetFormType = this._actor.items.get(targetFormId)?.system?.formType ?? "";
+    const cost = computeShapeshiftCost({ targetFormId, spiritShapeFormId: spiritId, targetFormType });
     this._resolved = true;
-    this._resolve({ targetFormId, cost });
+    this._resolve({ targetFormId, cost, targetFormType });
     this.close();
   }
 

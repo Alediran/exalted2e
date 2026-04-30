@@ -6,6 +6,7 @@ export class KnackData extends foundry.abstract.TypeDataModel {
       // ── Requirements ──────────────────────────────────────────────────
       essence:      new fields.NumberField({ initial: 1, min: 1, max: 10, integer: true }),
       prerequisites: new fields.StringField({ initial: "", blank: true }),
+      enablesDBT:   new fields.BooleanField({ initial: false }),
 
       // ── Keywords ──────────────────────────────────────────────────────
       keywords: new fields.ArrayField(new fields.StringField({ blank: true })),

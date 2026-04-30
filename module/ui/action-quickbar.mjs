@@ -782,6 +782,9 @@ export class ActionQuickbar {
     if (result === null) return;  // cancelled — abort
 
     const { targetFormId, cost } = result;
+    const targetFormType = result.targetFormType ??
+      (actor.items.get(targetFormId)?.system?.formType ?? "");
+    const isDBT = targetFormType === "warform";
 
     // Spend motes via the standard overflow-aware path.
     const breakdown = await actor.spendMotes(cost, "peripheral");
@@ -806,6 +809,7 @@ export class ActionQuickbar {
         actorName:  actor.name,
         targetName,
         cost,
+        isDBT,
         toLabel:    targetFormId
           ? game.i18n.localize("EX2E.ShapeshiftToForm")
           : game.i18n.localize("EX2E.ShapeshiftToHuman")

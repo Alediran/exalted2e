@@ -5,6 +5,10 @@
     <span class="card-actor">{{actorName}}</span>
   </div>
   <div class="shapeshift-line">
+    {{#if isDBT}}
+    {{localize "EX2E.ShapeshiftCardDBT"}} ({{cost}}m)
+    {{else}}
     {{toLabel}}: <strong>{{targetName}}</strong> ({{cost}}m)
+    {{/if}}
   </div>
 </div>

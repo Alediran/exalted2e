@@ -16,6 +16,14 @@
            {{#unless isEditable}}readonly{{/unless}}>
   </div>
 
+  <!-- DBT unlock flag -->
+  <div class="field-group" style="margin-top:10px">
+    <label>{{localize "EX2E.EnablesDBT"}}</label>
+    <input type="checkbox" name="system.enablesDBT"
+           {{#if system.enablesDBT}}checked{{/if}}
+           {{#unless isEditable}}disabled{{/unless}}>
+  </div>
+
   <!-- Keywords -->
   <div class="keywords-block" style="margin-top:10px">
     <label>{{localize "EX2E.Keywords"}}</label>

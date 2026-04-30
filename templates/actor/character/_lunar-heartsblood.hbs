@@ -1,6 +1,15 @@
 <h3 class="subsection-header">{{localize "EX2E.HeartsBlood"}}</h3>
 <div class="heartsblood-section">
 
+  {{#if dbtActive}}
+  <div class="dbt-active-banner">
+    <span class="dbt-active-label">{{localize "EX2E.DBTActive"}}</span>
+    {{#if isEditable}}
+    <button type="button" data-action="endDBT">{{localize "EX2E.EndDBT"}}</button>
+    {{/if}}
+  </div>
+  {{/if}}
+
   <div class="spirit-shape-row">
     <label>{{localize "EX2E.SpiritShape"}}:</label>
     <select name="system.splat.lunar.spiritShapeFormId" {{#unless isEditable}}disabled{{/unless}}>

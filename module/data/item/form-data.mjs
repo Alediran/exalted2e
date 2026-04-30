@@ -11,7 +11,7 @@ export class FormData extends foundry.abstract.TypeDataModel {
     return {
       formType: new fields.StringField({
         initial: "animal",
-        choices: ["human", "animal", "beast", "spirit", "wyldborn"]
+        choices: ["human", "animal", "beast", "spirit", "wyldborn", "warform"]
       }),
       // Only physical attributes — these are the only ones the shapeshift
       // mechanic substitutes. Social and mental attributes always stay the

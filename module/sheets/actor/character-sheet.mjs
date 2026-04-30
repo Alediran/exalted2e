@@ -79,6 +79,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       setActiveForm:       CharacterSheet.#onSetActiveForm,
       editForm:            CharacterSheet.#onEditForm,
       deleteForm:          CharacterSheet.#onDeleteForm,
+      endDBT:              CharacterSheet.#onEndDBT,
       editImage:           editImageAction
     }
   };
@@ -370,9 +371,13 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     // Heart's Blood forms (Lunar only)
     const forms = this.actor.itemTypes?.form ?? this.actor.items.filter(i => i.type === "form");
-    const heartsBloodForms = forms.map(f => ({ id: f.id, name: f.name, formType: f.system.formType }));
+    const heartsBloodForms = forms
+      .filter(f => f.system.formType !== "warform")
+      .map(f => ({ id: f.id, name: f.name, formType: f.system.formType }));
     const activeFormId = sys.splat?.lunar?.activeFormId ?? "";
     const spiritShapeFormId = sys.splat?.lunar?.spiritShapeFormId ?? "";
+    const warformItem = forms.find(f => f.system.formType === "warform");
+    const dbtActive = !!warformItem && activeFormId === warformItem.id;
 
     // 3c-2: Active Motivation Campaigns
     const motivationCampaignsTargetingMe = Object.entries(
@@ -447,6 +452,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       heartsBloodForms,
       activeFormId,
       spiritShapeFormId,
+      dbtActive,
       isGM: game.user.isGM,
       isEditable: this.isEditable,
       useIntimacyIntensity: game.settings.get("exalted2e", "useIntimacyIntensity")
@@ -1083,5 +1089,9 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const formId = target.dataset.formId;
     const form = this.actor.items.get(formId);
     if (form) await form.delete();
+  }
+
+  static async #onEndDBT(event, target) {
+    await this.actor.update({ "system.splat.lunar.activeFormId": "" });
   }
 }

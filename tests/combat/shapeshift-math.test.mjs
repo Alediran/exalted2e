@@ -21,4 +21,20 @@ describe("computeShapeshiftCost", () => {
   it("charges 1 mote for human guise even when spirit shape is unset", () => {
     expect(computeShapeshiftCost({ targetFormId: "" })).toBe(1);
   });
+
+  it("charges 5 motes for a warform (DBT)", () => {
+    expect(computeShapeshiftCost({ targetFormId: "abc", targetFormType: "warform" })).toBe(5);
+  });
+
+  it("warform check precedes spirit-shape check", () => {
+    expect(computeShapeshiftCost({
+      targetFormId: "abc",
+      spiritShapeFormId: "abc",
+      targetFormType: "warform"
+    })).toBe(5);
+  });
+
+  it("returns 1 for human guise even if targetFormType is warform but id is empty", () => {
+    expect(computeShapeshiftCost({ targetFormId: "", targetFormType: "warform" })).toBe(1);
+  });
 });

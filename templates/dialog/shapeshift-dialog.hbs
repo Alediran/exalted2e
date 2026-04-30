@@ -1,8 +1,19 @@
 <form>
+  {{#if dbtOption}}
+  <div class="dbt-option {{#if dbtActive}}active{{/if}}">
+    <label class="form-option">
+      <input type="radio" name="targetFormId" value="{{dbtOption.id}}" {{#if dbtActive}}checked{{/if}}>
+      <span class="form-name">{{localize "EX2E.DBTOption"}} — {{dbtOption.name}}</span>
+      <span class="form-cost">({{dbtOption.cost}}m)</span>
+    </label>
+  </div>
+  <hr class="dbt-divider">
+  {{/if}}
+
   <div class="form-options">
     {{#each formOptions as |opt i|}}
     <label class="form-option">
-      <input type="radio" name="targetFormId" value="{{opt.id}}" {{#if (eq i 0)}}checked{{/if}}>
+      <input type="radio" name="targetFormId" value="{{opt.id}}" {{#unless ../dbtActive}}{{#if (eq i 0)}}checked{{/if}}{{/unless}}>
       <span class="form-name">{{opt.name}}</span>
       <span class="form-cost">({{opt.cost}}m)</span>
     </label>

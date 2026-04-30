@@ -39,7 +39,7 @@ export class FormSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       item:       this.document,
       system:     this.document.system,
       isEditable: this.isEditable,
-      formTypes:           ["human", "animal", "beast", "spirit", "wyldborn"],
+      formTypes:           ["human", "animal", "beast", "spirit", "wyldborn", "warform"],
       mutationCategories:  ["pox", "affliction", "blight", "abomination"],
       enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(
         this.document.system.description,
