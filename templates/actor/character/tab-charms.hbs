@@ -74,6 +74,7 @@
             {{charm.system.cost.motes}}m
             {{#if charm.system.cost.willpower}}+{{charm.system.cost.willpower}}wp{{/if}}
             · {{charm.system.duration}}
+            {{#if (eq @root.system.exaltType "alchemical")}}{{#if charm.system.installed}}{{#if charm.system.essenceCommitment}}<span class="charm-commit">[{{charm.system.essenceCommitment}}m]</span>{{/if}}{{/if}}{{/if}}
           </span>
         </span>
         <!-- Keywords -->

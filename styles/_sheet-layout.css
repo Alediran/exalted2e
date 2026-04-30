@@ -349,6 +349,7 @@
 
 .charm-active { border-left: 3px solid var(--ex2e-gold-main); }
 .charm-meta   { font-size: var(--ex2e-font-size-xs); color: var(--ex2e-text-muted); margin-left: 6px; }
+.charm-commit { color: var(--ex2e-text-secondary); }
 
 /* ── CHARM ATTACK-STEP SELECTOR (dropdown) ───────────────────────────────── */
 .charm-steps .steps-dropdown {
