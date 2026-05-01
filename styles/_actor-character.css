@@ -560,3 +560,11 @@
   0%,100% { box-shadow: none; }
   50%     { box-shadow: 0 0 8px rgba(192, 57, 43, 0.6); }
 }
+
+.resonance-eruption-warning {
+  color: #c02020;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 2px;
+}

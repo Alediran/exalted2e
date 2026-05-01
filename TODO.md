@@ -165,8 +165,11 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 
 ### Abyssal
 - [x] Castes (mirror Solar with deathknight labels)
-- [ ] Resonance / Dark Fate track (0-10; player-controlled vent; ST-triggered at 10)
+- [x] Resonance / Dark Fate track (0-10) — track = Limit track, labelled "Resonance"; eruption warning at 10
+- [ ] Resonance vent roll (Essence dice; each success reduces Resonance by 1 and banks 1 point for Resonance effects; failure increases Resonance by 1 and triggers a Resonance effect at Permanent Essence level)
+- [ ] Banked Resonance points storage and spending UI
 - [ ] Resonance eruptions (Blight / Branding / Conduit / Stigmata effect scripts)
+- [ ] ST-triggered eruption button (GM-only)
 - [ ] Whispers trait (Conduit effect cap)
 - [ ] Monstrance of Celestial Portion as an artifact/background
 - [ ] Moonshadow non-Abyssal charm access (16 XP, +2m activation)
