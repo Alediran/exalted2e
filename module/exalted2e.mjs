@@ -769,6 +769,15 @@ Hooks.on("createItem", async (item, options, userId) => {
   await item.unsetFlag("exalted2e", "pendingPurchaseConfirm");
 });
 
+// Gate deletion of items flagged `gmOnlyRemoval` — mirrors preDeleteActiveEffect.
+Hooks.on("preDeleteItem", (item, options, userId) => {
+  const user = game.users.get(userId);
+  if (ex2eCan("protectedEffects", user)) return;
+  if (!item.flags?.exalted2e?.gmOnlyRemoval) return;
+  ui.notifications.warn(game.i18n.localize("EX2E.ItemGMOnlyRemoval"));
+  return false;
+});
+
 /**
  * Purchase Mode — block deletion of XP-costing items while the owning
  * actor is locked. GM toggles the lock off to remove items intentionally.

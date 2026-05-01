@@ -14,7 +14,8 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     window: { resizable: true },
     form: { submitOnChange: true, closeOnSubmit: false },
     actions: {
-      editImage: editImageAction
+      editImage:        editImageAction,
+      toggleIsBreeding: GenericItemSheet.#onToggleIsBreeding
     }
   };
 
@@ -61,6 +62,40 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     });
 
     const useIntimacyIntensity = game.settings.get("exalted2e", "useIntimacyIntensity");
-    return { ...context, item, system: sys, typeChoices, isEditable: this.isEditable, enrichedDescription, useIntimacyIntensity };
+    const isBreedingTrait = !!(item.flags?.exalted2e?.isBreeding);
+    return { ...context, item, system: sys, typeChoices, isEditable: this.isEditable,
+             enrichedDescription, useIntimacyIntensity,
+             isGM: game.user.isGM, isBreedingTrait };
+  }
+
+  _onRender(context, options) {
+    super._onRender?.(context, options);
+    if (!this.isEditable) return;
+    for (const pip of this.element.querySelectorAll(".dot-rating .dot")) {
+      pip.addEventListener("click", this.#onDotClick.bind(this));
+    }
+  }
+
+  #onDotClick(event) {
+    const pip      = event.currentTarget;
+    const track    = pip.closest(".dot-rating");
+    const name     = track?.dataset.name;
+    const newValue = parseInt(pip.dataset.value);
+    const min      = parseInt(track?.dataset.min ?? 0);
+    const current  = parseInt(track?.dataset.current ?? 0);
+    const val      = (newValue === 1 && current === 1) ? min : Math.max(min, newValue);
+    if (!name) return;
+    this.document.update({ [name]: val });
+  }
+
+  static async #onToggleIsBreeding(event, target) {
+    const item = this.document;
+    if (item.type !== "background") return;
+    const current = item.flags?.exalted2e?.isBreeding ?? false;
+    const next    = !current;
+    await item.update({
+      "flags.exalted2e.isBreeding":    next,
+      "flags.exalted2e.gmOnlyRemoval": next
+    });
   }
 }

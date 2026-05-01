@@ -282,7 +282,6 @@
 
     "Splat":                  "Exalt-Specific Traits",
     "SplatLunarTell":         "Tell",
-    "SplatBreeding":          "Breeding",
     "SplatParadox":           "Paradox",
     "SplatArcaneFate":        "Arcane Fate",
     "SplatResonance":         "Resonance",
@@ -553,6 +552,8 @@
     "HolyUpgradeNote":           "Holy vs Creature of Darkness — damage upgraded to aggravated.",
     "EffectAppliedFromWrapper":  "Applied \"{name}\" to {actor}.",
     "EffectGMOnlyRemoval":       "Only the GM can remove this effect.",
+    "ItemGMOnlyRemoval":         "Only the GM can remove this item.",
+    "IsBreedingTrait":           "Breeding trait",
     "ReverseCharm":              "Reverse",
     "ReverseCharmTooltip":       "Refund the motes, willpower, and toggle state this activation spent.",
     "CharmReversed":             "Charm activation reversed.",

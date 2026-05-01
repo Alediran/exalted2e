@@ -11,7 +11,7 @@
  *   combatFlow       — advance tick, end combat, Begin Encounter, manual DV resolve
  *   purchaseMode     — toggle Purchase Mode, edit Current/Total XP,
  *                      edit/delete purchase-log rows
- *   protectedEffects — delete ActiveEffects flagged `gmOnlyRemoval`
+ *   protectedEffects — delete ActiveEffects or Items flagged `gmOnlyRemoval`
  */
 export const PERMISSION_DEFAULTS = Object.freeze({
   combatFlow:       CONST.USER_ROLES.GAMEMASTER, // 4

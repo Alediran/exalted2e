@@ -282,7 +282,6 @@
 
     "Splat":                  "Rasgos del Exaltado",
     "SplatLunarTell":         "Marca",
-    "SplatBreeding":          "Linaje",
     "SplatParadox":           "Paradoja",
     "SplatArcaneFate":        "Destino Arcano",
     "SplatResonance":         "Resonancia",
@@ -553,6 +552,8 @@
     "HolyUpgradeNote":           "Sagrado contra Criatura de la Oscuridad — daño elevado a agravado.",
     "EffectAppliedFromWrapper":  "\"{name}\" aplicado a {actor}.",
     "EffectGMOnlyRemoval":       "Solo el DJ puede retirar este efecto.",
+    "ItemGMOnlyRemoval":         "Solo el DJ puede eliminar este objeto.",
+    "IsBreedingTrait":           "Rasgo de Linaje",
     "ReverseCharm":              "Revertir",
     "ReverseCharmTooltip":       "Devuelve los motas, la fuerza de voluntad y el estado de activación que consumió esta invocación.",
     "CharmReversed":             "Activación del encantamiento revertida.",

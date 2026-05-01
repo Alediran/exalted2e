@@ -669,6 +669,14 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       : Math.max(min, newValue);
     if (!name) return;
 
+    // Dot/box ratings inside an item row belong to the embedded item, not the actor
+    const itemRow = pip.closest(".item-row[data-item-id]");
+    if (itemRow) {
+      const item = this.document.items.get(itemRow.dataset.itemId);
+      if (item) await item.update({ [name]: val });
+      return;
+    }
+
     // ArrayField elements can't be updated by index path — null-then-set to force replace
     const specMatch = name.match(/^system\.abilities\.(\w+)\.specialties\.(\d+)\.value$/);
     if (specMatch) {

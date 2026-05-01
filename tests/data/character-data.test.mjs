@@ -15,6 +15,14 @@ function _prepDerivedData(system, items = []) {
   return data;
 }
 
+function breedingItem(rating) {
+  return {
+    type: "background",
+    system: { value: rating },
+    flags: { exalted2e: { isBreeding: true } }
+  };
+}
+
 describe("CharacterData._prepareCombatStats", () => {
   it("Dodge DV with Essence 2+ rounds up", () => {
     const sys = makeCharacterSystem({
@@ -105,7 +113,7 @@ describe("CharacterData._prepareMoteMaxima", () => {
     expect(result.motes.peripheral.max).toBe(3 * 4 + 7 * 2 + 4 * 4);      // 42
   });
 
-  it("Terrestrial: personal = ess + wp; peripheral = ess*4 + wp + ΣV", () => {
+  it("Terrestrial (no Breeding): personal = ess+wp+highestV; peripheral = ess*4+wp+twoHighestV", () => {
     const sys = makeCharacterSystem({
       exaltType: "terrestrial",
       essence: { value: 3, max: 3 },
@@ -117,9 +125,10 @@ describe("CharacterData._prepareMoteMaxima", () => {
         valor:      { value: 3, current: 3 }
       }
     });
-    const result = _prepDerivedData(sys);
-    expect(result.motes.personal.max).toBe(3 + 5);                  // 8
-    expect(result.motes.peripheral.max).toBe(3 * 4 + 5 + (1 + 2 + 1 + 3));  // 12 + 5 + 7 = 24
+    const result = _prepDerivedData(sys, []);
+    // sorted desc: [3,2,1,1] → highest=3, twoHighest=5; no breeding → +0/+0
+    expect(result.motes.personal.max).toBe(3 + 5 + 3 + 0);           // 11
+    expect(result.motes.peripheral.max).toBe(3 * 4 + 5 + 5 + 0);     // 22
   });
 
   it("Sidereal: personal = ess*2 + wp; peripheral = ess*6 + wp + ΣV", () => {
@@ -183,6 +192,123 @@ describe("CharacterData._prepareMoteMaxima", () => {
     const result = _prepDerivedData(sys);
     expect(result.motes.personal.max).toBe(3 * 3 + 7);              // 16
     expect(result.motes.peripheral.max).toBe(3 * 7 + 7 + 10);       // 38
+  });
+});
+
+describe("CharacterData._prepareBreedingBonus — lookup tables", () => {
+  it("rating 0 → all zeros", () => {
+    const sys = makeCharacterSystem({ exaltType: "terrestrial" });
+    const result = _prepDerivedData(sys, [breedingItem(0)]);
+    expect(result.breedingBonus).toEqual({ rating: 0, personal: 0, peripheral: 0, animaReduction: 0 });
+  });
+
+  it("rating 1 → personal 1, peripheral 2, animaReduction 0", () => {
+    const sys = makeCharacterSystem({ exaltType: "terrestrial" });
+    const result = _prepDerivedData(sys, [breedingItem(1)]);
+    expect(result.breedingBonus).toEqual({ rating: 1, personal: 1, peripheral: 2, animaReduction: 0 });
+  });
+
+  it("rating 2 → personal 2, peripheral 3, animaReduction 0", () => {
+    const sys = makeCharacterSystem({ exaltType: "terrestrial" });
+    const result = _prepDerivedData(sys, [breedingItem(2)]);
+    expect(result.breedingBonus).toEqual({ rating: 2, personal: 2, peripheral: 3, animaReduction: 0 });
+  });
+
+  it("rating 3 → personal 3, peripheral 5, animaReduction 0", () => {
+    const sys = makeCharacterSystem({ exaltType: "terrestrial" });
+    const result = _prepDerivedData(sys, [breedingItem(3)]);
+    expect(result.breedingBonus).toEqual({ rating: 3, personal: 3, peripheral: 5, animaReduction: 0 });
+  });
+
+  it("rating 4 → personal 4, peripheral 7, animaReduction 1", () => {
+    const sys = makeCharacterSystem({ exaltType: "terrestrial" });
+    const result = _prepDerivedData(sys, [breedingItem(4)]);
+    expect(result.breedingBonus).toEqual({ rating: 4, personal: 4, peripheral: 7, animaReduction: 1 });
+  });
+
+  it("rating 5 → personal 5, peripheral 9, animaReduction 2", () => {
+    const sys = makeCharacterSystem({ exaltType: "terrestrial" });
+    const result = _prepDerivedData(sys, [breedingItem(5)]);
+    expect(result.breedingBonus).toEqual({ rating: 5, personal: 5, peripheral: 9, animaReduction: 2 });
+  });
+
+  it("rating > 5 is clamped to 5 → personal 5, peripheral 9, animaReduction 2", () => {
+    const sys = makeCharacterSystem({ exaltType: "terrestrial" });
+    const result = _prepDerivedData(sys, [breedingItem(6)]);
+    expect(result.breedingBonus).toEqual({ rating: 5, personal: 5, peripheral: 9, animaReduction: 2 });
+  });
+
+  it("no Breeding background present → breedingBonus defaults to all zeros", () => {
+    const sys = makeCharacterSystem({ exaltType: "terrestrial" });
+    const result = _prepDerivedData(sys, []);
+    expect(result.breedingBonus).toEqual({ rating: 0, personal: 0, peripheral: 0, animaReduction: 0 });
+  });
+
+  it("non-terrestrial exalt with a flagged Background → breedingBonus still all zeros", () => {
+    const sys = makeCharacterSystem({ exaltType: "solar" });
+    const result = _prepDerivedData(sys, [breedingItem(4)]);
+    expect(result.breedingBonus).toEqual({ rating: 0, personal: 0, peripheral: 0, animaReduction: 0 });
+  });
+
+});
+
+describe("CharacterData._prepareMoteMaxima — Terrestrial virtue two-highest sort", () => {
+  function terrestrialSys(v) {
+    return makeCharacterSystem({
+      exaltType: "terrestrial",
+      essence:   { value: 1, max: 1 },
+      willpower: { value: 0, max: 0 },
+      virtues: {
+        compassion: { value: v[0], current: v[0] },
+        conviction: { value: v[1], current: v[1] },
+        temperance: { value: v[2], current: v[2] },
+        valor:      { value: v[3], current: v[3] }
+      }
+    });
+  }
+
+  it("all equal virtues → twoHighest = 2 * virtue", () => {
+    const result = _prepDerivedData(terrestrialSys([3, 3, 3, 3]), []);
+    // personal = 1+0+3+0=4; peripheral = 4+0+6+0=10
+    expect(result.motes.personal.max).toBe(4);
+    expect(result.motes.peripheral.max).toBe(10);
+  });
+
+  it("ascending order virtues → picks the two largest regardless of position", () => {
+    const result = _prepDerivedData(terrestrialSys([1, 2, 3, 4]), []);
+    // sorted [4,3,2,1] → highest=4, twoHighest=7
+    // personal = 1+0+4+0=5; peripheral = 4+0+7+0=11
+    expect(result.motes.personal.max).toBe(5);
+    expect(result.motes.peripheral.max).toBe(11);
+  });
+
+  it("ties in top two → uses both tied values", () => {
+    const result = _prepDerivedData(terrestrialSys([1, 3, 3, 2]), []);
+    // sorted [3,3,2,1] → highest=3, twoHighest=6
+    // personal = 1+0+3+0=4; peripheral = 4+0+6+0=10
+    expect(result.motes.personal.max).toBe(4);
+    expect(result.motes.peripheral.max).toBe(10);
+  });
+
+  it("Terrestrial with Breeding 3: virtue sort + bonus applied to mote pool", () => {
+    // virtues [2,3,1,4] sorted desc [4,3,2,1] → highestVirtue=4, twoHighest=7
+    // Breeding 3 → bp.personal=3, bp.peripheral=5
+    // personal = ess3 + wp5 + 4 + 3 = 15
+    // peripheral = ess3*4 + wp5 + 7 + 5 = 29
+    const sys = makeCharacterSystem({
+      exaltType: "terrestrial",
+      essence:   { value: 3, max: 3 },
+      willpower: { value: 5, max: 5 },
+      virtues: {
+        compassion: { value: 2, current: 2 },
+        conviction: { value: 3, current: 3 },
+        temperance: { value: 1, current: 1 },
+        valor:      { value: 4, current: 4 }
+      }
+    });
+    const result = _prepDerivedData(sys, [breedingItem(3)]);
+    expect(result.motes.personal.max).toBe(15);
+    expect(result.motes.peripheral.max).toBe(29);
   });
 });
 

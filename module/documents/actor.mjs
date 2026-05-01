@@ -58,7 +58,7 @@ export class ExaltedActor extends Actor {
     const splat = s.splat ?? {};
     switch (s.exaltType) {
       case "terrestrial":
-        data.breeding = splat.terrestrial?.breeding ?? 0;
+        data.breeding = s.breedingBonus?.rating ?? 0;
         break;
       case "sidereal":
         data.paradox    = splat.sidereal?.paradox    ?? 0;

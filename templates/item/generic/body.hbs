@@ -10,6 +10,16 @@
     <input type="text" name="system.notes" value="{{system.notes}}"
            style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
   </div>
+  {{#if isGM}}
+  <div class="field-group" style="margin-top:8px">
+    <label>{{localize "EX2E.IsBreedingTrait"}}</label>
+    <button type="button" data-action="toggleIsBreeding"
+            style="width:auto; padding:2px 8px"
+            {{#unless isEditable}}disabled{{/unless}}>
+      {{#if isBreedingTrait}}✓{{else}}—{{/if}}
+    </button>
+  </div>
+  {{/if}}
   {{/if}}
 
   {{#if (eq item.type "intimacy")}}

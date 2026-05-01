@@ -66,7 +66,7 @@
     <div class="item-row" data-item-id="{{bg.id}}">
       <img class="item-img" src="{{bg.img}}" alt="{{bg.name}}">
       <span class="item-name">{{bg.name}}</span>
-      {{dotRating name="" value=bg.system.value max=5 min=0}}
+      {{dotRating name="system.value" value=bg.system.value max=5 min=0}}
       <div class="item-controls">
         {{#if ../isEditable}}
         <button data-action="editItem">✏️</button>
@@ -90,7 +90,7 @@
       <img class="item-img" src="{{mf.img}}" alt="{{mf.name}}">
       <span class="item-name {{#if (eq mf.system.meritFlawType 'flaw')}}flaw-name{{/if}}">{{mf.name}}</span>
       <span class="keyword-tag">{{mf.system.meritFlawType}}</span>
-      {{dotRating name="" value=mf.system.value max=5 min=1}}
+      {{dotRating name="system.value" value=mf.system.value max=5 min=1}}
       <div class="item-controls">
         {{#if ../isEditable}}
         <button data-action="editItem">✏️</button>

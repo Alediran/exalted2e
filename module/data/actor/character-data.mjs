@@ -161,9 +161,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
           activeFormId:       new fields.StringField({ initial: "", blank: true }),
           spiritShapeFormId:  new fields.StringField({ initial: "", blank: true })
         }),
-        terrestrial: new fields.SchemaField({
-          breeding: new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true })
-        }),
+        terrestrial: new fields.SchemaField({}),
         sidereal:    new fields.SchemaField({
           paradox:    new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),
           arcaneFate: new fields.NumberField({ initial: 0, min: 0, max: 20, integer: true })
@@ -242,12 +240,17 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     });
   }
 
+  static #PERSONAL_BONUS   = [0, 1, 2, 3, 4, 5];
+  static #PERIPHERAL_BONUS = [0, 2, 3, 5, 7, 9];
+  static #ANIMA_REDUCTION  = [0, 0, 0, 0, 1, 2];
+
   // ── Derived Data ──────────────────────────────────────────────────────────
 
   prepareDerivedData() {
     this._applyActiveFormSubstitution(this);
     this._prepareWillpowerMinimum();
     this._prepareHealthData();
+    this._prepareBreedingBonus();
     this._prepareCombatStats();
     this._prepareMoteMaxima();
     this._prepareIntimacies();
@@ -288,6 +291,23 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       this.virtues.valor.value
     ].sort((a, b) => b - a);
     this.willpower.minPermanent = virts[0] + virts[1];
+  }
+
+  _prepareBreedingBonus() {
+    if (this.exaltType !== "terrestrial") {
+      this.breedingBonus = { rating: 0, personal: 0, peripheral: 0, animaReduction: 0 };
+      return;
+    }
+    const bg = (this.parent?.items ?? []).find(
+      i => i.type === "background" && i.flags?.exalted2e?.isBreeding === true
+    );
+    const rating = bg ? Math.max(0, Math.min(5, bg.system?.value ?? 0)) : 0;
+    this.breedingBonus = {
+      rating,
+      personal:       CharacterData.#PERSONAL_BONUS[rating],
+      peripheral:     CharacterData.#PERIPHERAL_BONUS[rating],
+      animaReduction: CharacterData.#ANIMA_REDUCTION[rating]
+    };
   }
 
   _prepareHealthData() {
@@ -417,10 +437,20 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         personal = ess + (wp * 2);
         peripheral = (ess * 4) + (wp * 2) + (maxVirtue * 4);
         break;
-      case "terrestrial":        
-        personal   = ess + wp;
-        peripheral = (ess * 4) + wp + virtueSum;
+      case "terrestrial": {
+        const virtues = [
+          this.virtues.compassion.value,
+          this.virtues.conviction.value,
+          this.virtues.temperance.value,
+          this.virtues.valor.value
+        ].sort((a, b) => b - a);
+        const highestVirtue = virtues[0];
+        const twoHighest    = virtues[0] + virtues[1];
+        const bp            = this.breedingBonus;
+        personal   = ess + wp + highestVirtue + bp.personal;
+        peripheral = (ess * 4) + wp + twoHighest + bp.peripheral;
         break;
+      }
       case "sidereal":
         personal   = (ess * 2) + wp;
         peripheral = (ess * 6) + wp + virtueSum;
