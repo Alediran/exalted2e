@@ -135,7 +135,9 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Anima banner auto-derived from scene peripheral spend (currently a manual string field)
 - [ ] Eclipse anima oath-binding mechanic (10m + 1 WP; Essence # botches on breakers)
 - [ ] Eclipse non-Solar charm access (2× cost, +2m activation surcharge)
-- [ ] Limit Break automation (prompt at Limit 10, Virtue-Flaw-scripted scene, reset)
+- [x] Limit Break indicator (Solar/Lunar/Terrestrial/Sidereal) — red label at Limit 10 on sheet
+- [x] Limit Break chat card — Virtue Flaw name + description, Full/Partial choice, WP recovery, Limit reset
+- [ ] Limit Break scripted scene effects (per-Virtue-Flaw mechanical consequences beyond WP gain)
 
 ### Lunar
 - [x] Heart's Blood forms roster (human/animal/spirit types with stats + mutation points)

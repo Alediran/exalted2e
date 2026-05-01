@@ -325,6 +325,7 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/chat/action-declared.hbs",
     "systems/exalted2e/templates/chat/social-attack-card.hbs",
     "systems/exalted2e/templates/chat/shapeshift-card.hbs",
+    "systems/exalted2e/templates/chat/limit-break-card.hbs",
     "systems/exalted2e/templates/dialog/social-attack-dialog.hbs"
   ];
   return foundry.applications.handlebars.loadTemplates(templatePaths);
@@ -840,6 +841,81 @@ Hooks.on("preUpdateActor", (actor, changes, options, userId) => {
   });
 });
 
+// ── Limit Break Detection ──────────────────────────────────────────────────
+// Track actors that already have an unresolved Limit Break card in this
+// session, so a duplicate card isn't posted if multiple updates land at 10
+// in the same tick. The Set entry is cleared whenever limit drops back below
+// 10 (either by button resolution or manual GM adjustment).
+export const _limitBreakPending = new Set();
+
+async function _postLimitBreakCard(actor) {
+  const virtueFlaw = actor.items.find(i => i.type === "virtueflaw") ?? null;
+  let virtueRating = 0;
+  if (virtueFlaw) {
+    virtueRating = actor.system.virtues?.[virtueFlaw.system.baseVirtue]?.value ?? 0;
+  }
+
+  const enrichedDescription = virtueFlaw
+    ? await foundry.applications.ux.TextEditor.implementation.enrichHTML(virtueFlaw.system.description ?? "")
+    : "";
+
+  const content = await foundry.applications.handlebars.renderTemplate(
+    "systems/exalted2e/templates/chat/limit-break-card.hbs",
+    {
+      actor,
+      virtueFlaw,
+      virtueRating,
+      enrichedDescription,
+      resolved:       false,
+      choice:         null,
+      localizedVirtue: virtueFlaw
+        ? game.i18n.localize(EX2E.virtues[virtueFlaw.system.baseVirtue] ?? "")
+        : "",
+    }
+  );
+
+  await ChatMessage.create({
+    speaker: ChatMessage.getSpeaker({ actor }),
+    content,
+    flags: {
+      exalted2e: {
+        limitBreak: {
+          actorId:      actor.id,
+          virtueFlawId: virtueFlaw?.id ?? null,
+          baseVirtue:   virtueFlaw?.system.baseVirtue ?? null,
+          virtueRating,
+          resolved:     false,
+          choice:       null,
+        }
+      }
+    },
+  });
+}
+
+Hooks.on("updateActor", async (actor, changes, _options, userId) => {
+  if (game.user.id !== userId) return;
+  if (actor.type !== "character") return;
+  if (!EX2E.LIMIT_ACCRUAL_SPLATS.includes(actor.system.exaltType)) return;
+
+  const newLimit = foundry.utils.getProperty(changes, "system.limit.value");
+
+  // Clear the pending guard whenever Limit is anything other than 10.
+  if (newLimit !== undefined && newLimit !== 10) {
+    _limitBreakPending.delete(actor.id);
+    return;
+  }
+
+  if (newLimit !== 10) return;
+  if (_limitBreakPending.has(actor.id)) return;
+  _limitBreakPending.add(actor.id);
+  try {
+    await _postLimitBreakCard(actor);
+  } catch (err) {
+    _limitBreakPending.delete(actor.id);
+    throw err;
+  }
+});
+
 // ── Combat Tracker Controls ────────────────────────────────────────────────
 // Inject two Exalted-specific buttons into the combat tracker:
 //   • Join Battle — GM rolls Wits+Awareness for every combatant and assigns
@@ -932,6 +1008,54 @@ Hooks.on("deleteCombat", async (combat) => {
   await clearAllMultiTickActions(combat);
 });
 
+export async function _resolveLimitBreak(message, choice) {
+  const lb = message.flags?.exalted2e?.limitBreak;
+  if (!lb || lb.resolved) return;
+
+  const actor = game.actors.get(lb.actorId);
+  if (!actor) return;
+  if (!actor?.testUserPermission(game.user, "OWNER")) {
+    ui.notifications.warn(game.i18n.localize("EX2E.NotOwner"));
+    return;
+  }
+
+  const updates = { "system.limit.value": 0 };
+
+  if (choice === "full" && lb.virtueRating > 0) {
+    const current = actor.system.willpower.value ?? 0;
+    const max     = actor.system.willpower.max   ?? 0;
+    updates["system.willpower.value"] = Math.min(current + lb.virtueRating, max);
+  }
+
+  await actor.update(updates);
+
+  const virtueFlaw = actor.items.get(lb.virtueFlawId) ?? null;
+  const enrichedDescription = virtueFlaw
+    ? await foundry.applications.ux.TextEditor.implementation.enrichHTML(virtueFlaw.system.description ?? "")
+    : "";
+
+  const newContent = await foundry.applications.handlebars.renderTemplate(
+    "systems/exalted2e/templates/chat/limit-break-card.hbs",
+    {
+      actor,
+      virtueFlaw,
+      virtueRating:    lb.virtueRating,
+      enrichedDescription,
+      resolved:        true,
+      choice,
+      localizedVirtue: virtueFlaw
+        ? game.i18n.localize(EX2E.virtues[virtueFlaw.system.baseVirtue] ?? "")
+        : "",
+    }
+  );
+
+  await message.update({
+    content: newContent,
+    "flags.exalted2e.limitBreak.resolved": true,
+    "flags.exalted2e.limitBreak.choice":   choice,
+  });
+}
+
 // ── Chat Listeners ─────────────────────────────────────────────────────────
 Hooks.on("renderChatMessageHTML", (message, html) => {
   // Resolve the raw DOM element (html may be jQuery or HTMLElement)
@@ -993,6 +1117,18 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       btn.disabled = true;
       btn.classList.add("is-reversed");
       btn.innerHTML = `<i class="fa-solid fa-check"></i> ${game.i18n.localize("EX2E.CharmReversed")}`;
+    }
+  }
+
+  // ── Limit Break choice buttons ────────────────────────────────────────
+  const lbCard = el.querySelector?.(".ex2e-limit-break-card");
+  if (lbCard) {
+    const lb = message.flags?.exalted2e?.limitBreak;
+    if (lb && !lb.resolved) {
+      lbCard.querySelector?.("[data-action='limitBreakFull']")
+        ?.addEventListener("click", async () => { await _resolveLimitBreak(message, "full"); });
+      lbCard.querySelector?.("[data-action='limitBreakPartial']")
+        ?.addEventListener("click", async () => { await _resolveLimitBreak(message, "partial"); });
     }
   }
 

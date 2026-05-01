@@ -474,3 +474,72 @@
   font-style: italic;
   color: var(--ex2e-text-muted);
 }
+
+/* ── Limit Break chat card ───────────────────────────────────────────────── */
+
+.ex2e-limit-break-card .ex2e-limit-break-header {
+  font-family:    var(--ex2e-font-title);
+  color:          var(--ex2e-gold-main);
+  font-size:      var(--ex2e-font-size-lg);
+  letter-spacing: 0.05em;
+  margin:         0 0 var(--ex2e-gap-sm) 0;
+  padding-bottom: var(--ex2e-gap-sm);
+  border-bottom:  1px solid var(--ex2e-gold-dark);
+}
+
+.ex2e-limit-break-card .ex2e-limit-break-flaw-row {
+  font-size:     var(--ex2e-font-size-sm);
+  color:         var(--ex2e-text-secondary);
+  margin-bottom: var(--ex2e-gap-xs);
+}
+.ex2e-limit-break-card .ex2e-limit-break-flaw-row strong {
+  color: var(--ex2e-text-primary);
+}
+
+.ex2e-limit-break-card .ex2e-limit-break-description {
+  font-size:     var(--ex2e-font-size-sm);
+  color:         var(--ex2e-text-secondary);
+  line-height:   1.5;
+  padding:       var(--ex2e-gap-sm);
+  background:    var(--ex2e-bg-panel);
+  border:        1px solid var(--ex2e-border-color);
+  border-radius: var(--ex2e-border-radius);
+  margin-bottom: var(--ex2e-gap-sm);
+}
+
+.ex2e-limit-break-card .ex2e-limit-break-buttons {
+  display:         flex;
+  gap:             var(--ex2e-gap-sm);
+  justify-content: center;
+}
+.ex2e-limit-break-card .ex2e-limit-break-buttons button {
+  flex:          1;
+  font-family:   var(--ex2e-font-ui);
+  font-size:     var(--ex2e-font-size-xs);
+  padding:       4px 12px;
+  border:        1px solid var(--ex2e-gold-main);
+  border-radius: var(--ex2e-border-radius);
+  background:    var(--ex2e-bg-darkest);
+  color:         var(--ex2e-gold-bright);
+  cursor:        pointer;
+  transition:    background var(--ex2e-transition-fast);
+}
+.ex2e-limit-break-card .ex2e-limit-break-buttons button:hover {
+  background: var(--ex2e-gold-dark);
+}
+
+.ex2e-limit-break-card .ex2e-limit-break-resolved {
+  text-align:  center;
+  font-family: var(--ex2e-font-ui);
+  font-size:   var(--ex2e-font-size-sm);
+  color:       var(--ex2e-success);
+  padding:     var(--ex2e-gap-xs) 0;
+}
+
+.ex2e-limit-break-card .ex2e-limit-break-no-flaw {
+  font-size:  var(--ex2e-font-size-sm);
+  color:      var(--ex2e-text-muted);
+  font-style: italic;
+  text-align: center;
+  margin:     var(--ex2e-gap-xs) 0 0;
+}

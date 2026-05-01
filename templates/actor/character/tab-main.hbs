@@ -105,6 +105,42 @@
           </div>
           {{/each}}
 
+          {{!-- Limit track + variant warnings --}}
+          <div style="grid-column: 1 / -1; margin-top: var(--ex2e-gap-sm);">
+            <h2 class="section-header">{{limitLabel}}</h2>
+            {{boxRating name="system.limit.value"
+                        value=system.limit.value
+                        max=10
+                        min=0
+                        total=10}}
+
+            {{#if (eq system.exaltType "alchemical")}}
+            <div class="trait-row clarity-permanent-row">
+              <label>{{localize "EX2E.ClarityPermanent"}}</label>
+              <span class="clarity-permanent-value">{{system.splat.alchemical.clarity.permanent}}</span>
+            </div>
+            {{#if (gt system.clarityModifiers.socialPenalty 0)}}
+            <div class="clarity-modifiers-block">
+              <span>−{{system.clarityModifiers.socialPenalty}} {{localize "EX2E.ClaritySocialPenalty"}}</span>
+              <span class="clarity-autochthon">+{{system.clarityModifiers.autochthonBonus}} {{localize "EX2E.ClarityAutochthonBonus"}}</span>
+            </div>
+            {{/if}}
+            {{#if (gt system.clarityModifiers.mentalBonus 0)}}
+            <div class="clarity-modifiers-block">
+              <span>+{{system.clarityModifiers.mentalBonus}} {{localize "EX2E.ClarityMentalBonus"}}</span>
+            </div>
+            {{/if}}
+            {{/if}}
+
+            {{#if (and (eq system.exaltType "abyssal") (eq system.limit.value 10))}}
+            <div class="resonance-eruption-warning">{{localize "EX2E.ResonanceEruption"}}</div>
+            {{/if}}
+
+            {{#if (and (includes (array "solar" "lunar" "terrestrial" "sidereal") system.exaltType) (eq system.limit.value 10))}}
+            <div class="limit-break-warning">{{localize "EX2E.LimitBreak"}}</div>
+            {{/if}}
+          </div>
+
           {{!-- Virtue Flaw as its own section header + input row, spanning the 2x2 grid --}}
           <div class="virtue-flaw-section" style="grid-column: 1 / -1;"
                {{#if virtueFlaw}}data-item-id="{{virtueFlaw.id}}"{{/if}}>
@@ -161,38 +197,9 @@
         {{/if}}
       </section>
 
-      {{!-- Column 3: Limit + Anima placeholder --}}
+      {{!-- Column 3: Anima placeholder --}}
       <section class="anima-column">
-        <h2 class="section-header">{{limitLabel}}</h2>
-        {{boxRating name="system.limit.value"
-                    value=system.limit.value
-                    max=10
-                    min=0
-                    total=10}}
-
-        {{#if (eq system.exaltType "alchemical")}}
-        <div class="trait-row clarity-permanent-row">
-          <label>{{localize "EX2E.ClarityPermanent"}}</label>
-          <span class="clarity-permanent-value">{{system.splat.alchemical.clarity.permanent}}</span>
-        </div>
-        {{#if (gt system.clarityModifiers.socialPenalty 0)}}
-        <div class="clarity-modifiers-block">
-          <span>−{{system.clarityModifiers.socialPenalty}} {{localize "EX2E.ClaritySocialPenalty"}}</span>
-          <span class="clarity-autochthon">+{{system.clarityModifiers.autochthonBonus}} {{localize "EX2E.ClarityAutochthonBonus"}}</span>
-        </div>
-        {{/if}}
-        {{#if (gt system.clarityModifiers.mentalBonus 0)}}
-        <div class="clarity-modifiers-block">
-          <span>+{{system.clarityModifiers.mentalBonus}} {{localize "EX2E.ClarityMentalBonus"}}</span>
-        </div>
-        {{/if}}
-        {{/if}}
-
-        {{#if (and (eq system.exaltType "abyssal") (eq system.limit.value 10))}}
-        <div class="resonance-eruption-warning">{{localize "EX2E.ResonanceEruption"}}</div>
-        {{/if}}
-
-        <h2 class="section-header" style="margin-top: var(--ex2e-gap-lg);">{{localize "EX2E.Anima"}}</h2>
+        <h2 class="section-header">{{localize "EX2E.Anima"}}</h2>
         <p class="empty-msg" style="opacity:0.7; font-style:italic;">{{localize "EX2E.AnimaPlaceholder"}}</p>
       </section>
 

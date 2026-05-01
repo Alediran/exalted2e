@@ -1,0 +1,35 @@
+<div class="ex2e-roll-card ex2e-limit-break-card">
+  <h3 class="ex2e-limit-break-header">{{localize "EX2E.LimitBreak"}} — {{actor.name}}</h3>
+
+  {{#if virtueFlaw}}
+    <div class="ex2e-limit-break-flaw-row">
+      <strong>{{virtueFlaw.name}}</strong>
+      · {{localizedVirtue}} {{virtueRating}}
+    </div>
+    <div class="ex2e-limit-break-description">
+      {{{enrichedDescription}}}
+    </div>
+
+    {{#if resolved}}
+      <div class="ex2e-limit-break-resolved">
+        {{#if (eq choice "full")}}
+          {{localize "EX2E.LimitBreakResolvedFull" value=virtueRating}}
+        {{else}}
+          {{localize "EX2E.LimitBreakResolvedPartial"}}
+        {{/if}}
+      </div>
+    {{else}}
+      <div class="ex2e-limit-break-buttons">
+        <button type="button" data-action="limitBreakFull">
+          {{localize "EX2E.LimitBreakFull" value=virtueRating}}
+        </button>
+        <button type="button" data-action="limitBreakPartial">
+          {{localize "EX2E.LimitBreakPartial"}}
+        </button>
+      </div>
+    {{/if}}
+
+  {{else}}
+    <p class="ex2e-limit-break-no-flaw">{{localize "EX2E.LimitBreakNoFlaw"}}</p>
+  {{/if}}
+</div>

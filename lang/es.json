@@ -148,6 +148,12 @@
     "ClarityAutochthonBonus": "vs. entidades autoctonianas (manual)",
     "ClarityMentalBonus":     "tiradas mentales / Templanza",
     "ResonanceEruption":      "¡Erupción!",
+    "LimitBreak":             "¡Quiebra de Límite!",
+    "LimitBreakFull":         "Quiebra Total (recuperar {value} VP)",
+    "LimitBreakPartial":      "Control Parcial",
+    "LimitBreakNoFlaw":       "No hay Falla de Virtud asignada — configura una en la ficha del personaje.",
+    "LimitBreakResolvedFull": "Quiebra Total — recuperó {value} VP",
+    "LimitBreakResolvedPartial": "Control Parcial elegido",
 
     "HealthLevels":       "Niveles de Salud",
     "WoundPenalty":       "Penalización por Herida",
