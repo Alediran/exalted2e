@@ -1,7 +1,7 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
-See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural blockers.
+See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
 
 ## Combat System
 - [x] Attack resolution (pool vs DV, damage roll, threshold)
@@ -22,7 +22,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
   - [ ] Drag-reorder within the Combo sheet (v1 uses arrow buttons)
   - [ ] Consolidated single chat card + combined Reverse (fallback if chat gets too noisy)
   - [ ] NPC Combos
-- [ ] **Knockback / Knockdown / Stunning** (Stamina + Resistance resist rolls, Prone + stun AE)
+- [x] **Knockback / Knockdown / Stunning** (Stamina + Resistance resist rolls, Prone + stun AE)
 - [ ] **Clinch / Grapple** (control pool, opposed rolls, throw/crush/hold sub-actions, renew-each-tick)
 - [x] Tick system (Speed-based initiative)
   - [x] `ExaltedCombat` sorts ascending; same-tick tiebreaker Dex → Wits → name → id
@@ -36,7 +36,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] **Mounted combat** (Ride-controlled mount stats, charge bonuses, lance mechanics, Ride charms per splat)
 - [ ] Cover modifiers (buckler / target / tower / %-cover) +DV bonuses
 - [ ] Height advantage (+1/+3 DV close combat)
-- [ ] **Multi-tick action container** (architectural) — for shaping sorcery, Aim banking across ticks, clinch renewal, extra-action charm flurries with their own tick scheduling
+- [x] **Multi-tick action container** — for shaping sorcery, Aim banking across ticks, clinch renewal, extra-action charm flurries with their own tick scheduling
 - [ ] Aim bonus banking (one die per banked tick, consumed on aimed attack)
 - [ ] Aborted-Aim divert penalty (already partial: -2 internal penalty applied in combat.mjs)
 - [ ] Minimum-damage errata swap (currently 1 die; confirm no Essence-dice fallback path)
@@ -84,29 +84,29 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Expand prerequisite types: Virtue ≥ N, Essence ≥ N, Ability ≥ N, Background ≥ N
 - [ ] Permanent Essence cost (Sidereal Greater Signs, Infernal shintai)
 - [ ] Permanent Willpower cost
-- [ ] Attribute-keyed Excellencies for Lunar/Alchemical (charm.attribute field; activation routing)
+- [x] Attribute-keyed Excellencies for Lunar/Alchemical (charm.attribute field; activation routing)
 - [ ] First/Second-vs-Third Excellency exclusivity enforcement per roll
 - [ ] Infinite (Ability) Mastery discount tracking (committed motes reduce Excellency cost)
 - [ ] Keyword-as-status-effect registry (systematic Compulsion/Emotion/Illusion/Servitude → AE mapping)
 - [ ] Charm deactivation resolver (scene-end / combat-end / out-of-motes)
 - [ ] Cooperative keyword (multi-caster charm dialog)
 
-## Social Combat (TIER-1 BLOCKER — see gap-analysis §1.1, §1.2)
-- [ ] **Intimacy as first-class scored trait** (count capped at Willpower + Compassion, damage ablation = Conviction)
-- [ ] **MDV axis on actor** (Dodge MDV / Parry MDV derived; social-attack dialog; MDV modifiers via AE plumbing)
-- [ ] Social attack rolls (Cha/Man + Presence/Performance/Investigation/Bureaucracy) with MDV resolution
-- [ ] Appearance delta ± up to 3 MDV
-- [ ] Intimacy/Virtue/Motivation MDV modifiers (−1/−2/−3 support, +1/+2/+3 oppose, immediate-danger +3)
-- [ ] Threshold successes → 1 WP per 3 above MDV (errata), 5 WP cap to resist
-- [ ] Unnatural mental influence resistance (+1 Limit/Torment/Resonance/Paradox per scene, max once)
-- [ ] Natural influence cap (2 WP drain per scene per attacker)
-- [ ] Motivation-break mechanic (permanent WP + Essence days without recovery)
-- [ ] Intimacy building/erosion via successful social attack (+/−1 or new Intimacy seed)
+## Social Combat
+- [ ] **Intimacy as first-class scored trait** (count capped at Willpower + Compassion, damage ablation = Conviction; currently stub Item type only)
+- [x] **MDV axis on actor** (Dodge MDV / Parry MDV derived; social-attack dialog; MDV modifiers via AE plumbing)
+- [x] Social attack rolls (Cha/Man + Presence/Performance/Investigation/Bureaucracy) with MDV resolution
+- [x] Appearance delta ± up to 3 MDV
+- [x] Intimacy/Virtue/Motivation MDV modifiers (−1/−2/−3 support, +1/+2/+3 oppose, immediate-danger +3)
+- [x] Threshold successes → 1 WP per 3 above MDV (errata), 5 WP cap to resist
+- [x] Unnatural mental influence resistance (+1 Limit/Torment/Resonance/Paradox per scene, max once)
+- [x] Natural influence cap (2 WP drain per scene per attacker)
+- [x] Motivation-break mechanic (permanent WP + Essence days without recovery)
+- [x] Intimacy building/erosion via successful social attack (+/−1 or new Intimacy seed)
 - [ ] Social Combos (no Obvious display unless charm is Obvious)
 
 ## Sorcery & Necromancy
 - [x] Spell item type (Terrestrial/Celestial/Solar; Shadowland/Labyrinth/Void)
-- [ ] **Shaping-action pipeline** (multi-tick action container; damage-interrupts-with-Wits+Occult roll; Essence Burn botch)
+- [x] **Shaping-action pipeline** (multi-tick action container; damage-interrupts-with-Wits+Occult roll; Essence Burn botch)
 - [ ] Countermagic resolution (Emerald/Sapphire/Adamant reflexive counter, Iron/Onyx/Obsidian necro)
 - [ ] Countermagic cost variance by defended-circle-rank
 - [ ] Spell casting chat card (motes committed during shape, released at cast; reverse button)
@@ -126,8 +126,8 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Celestial-MA 1.5× XP for non-resonant Exalts
 - [ ] Solar Hero Style: ordinary Solar charms for Solars, Celestial MA for others
 
-## Per-Splat Mechanics (TIER-1 BLOCKER — see gap-analysis §1.3)
-- [ ] **Splat subobject schema** (`system.splat.<type>.*` discriminated union per exaltType)
+## Per-Splat Mechanics
+- [x] **Splat subobject schema** (`system.splat.<type>.*` discriminated union per exaltType)
 
 ### Solar
 - [x] Baseline Personal / Peripheral pool formulas
@@ -138,18 +138,17 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Limit Break automation (prompt at Limit 10, Virtue-Flaw-scripted scene, reset)
 
 ### Lunar
-- [ ] Heart's Blood forms roster (human/animal/spirit types with stats + mutation points)
-- [ ] Shapeshifting actions (1m basic shift, DBT activation at 5m + Ess 2 prereq)
-- [ ] Deadly Beastman Transformation stat delta (+1 Str/Dex/Sta, (Ess+4) mutation points)
+- [x] Heart's Blood forms roster (human/animal/spirit types with stats + mutation points)
+- [x] Shapeshifting actions (1m basic shift, DBT activation at 5m + Ess 2 prereq)
+- [x] Deadly Beastman Transformation stat delta (+1 Str/Dex/Sta, (Ess+4) mutation points)
 - [ ] Tell as a tracked trait (hidden or visible; mental-influence pool implications)
-- [ ] Knack library (items; form-acquisition vs refinement types; 11 XP each)
 - [x] Knacks item type
 - [x] Health-track wraps at 10 boxes per line
-- [ ] Attribute-keyed charms (Excellency system uses attribute for Lunars)
+- [x] Attribute-keyed charms (Excellency system uses attribute for Lunars)
 - [ ] Chimera Knacks gated by Casteless + Limit ≥ 5
 
 ### Dragon-Blooded
-- [ ] Aspects & breeding (Breeding 1-5 mote-pool bonus)
+- [x] Aspects & breeding (Breeding 1-5 mote-pool bonus)
 - [ ] Out-of-aspect charm activation surcharge (+1m)
 - [ ] Water Aspect Terrestrial-MA no-surcharge exemption
 - [ ] Anima flux damage at 11+ banner (environmental — scene effect)
@@ -184,9 +183,9 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 
 ### Alchemical
 - [x] Castes (incl. Adamant)
-- [ ] **Charm Slots** (4 General + 4 Dedicated; install/uninstall flow; committed-motes cost per slot)
-- [ ] Submodules (slot-within-slot installations)
-- [ ] Clarity track (0-10; Virtue-suppression & contact-deprivation triggers)
+- [x] **Charm Slots** (4 General + 4 Dedicated; install/uninstall flow; committed-motes cost per slot)
+- [x] Submodules (slot-within-slot installations)
+- [x] Clarity track (0-10; Virtue-suppression & contact-deprivation triggers)
 - [ ] Gremlin Syndrome / Dissonance path
 - [ ] Installed armor (subcutaneous / exoskeletal plating — different from equipped armor)
 - [ ] Weaving protocols (Man-Machine / God-Machine as sorcery mirror)
@@ -212,10 +211,10 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 ## Character Sheet
 - [x] Effects tab — split into temporal (durationed / dvRefreshable) and permanent
 - [x] Row-per-penalty-level health track with per-level bonus boxes (−0, −1, −2)
-- [ ] Intimacies section (once Intimacy trait is implemented)
-- [ ] MDV derived display (once MDV axis is added)
+- [ ] Intimacies section (cap enforcement + ablation UI once Intimacy trait is scored)
+- [x] MDV derived display (Combat tab)
 - [ ] Anima banner auto-calculated display
-- [ ] Per-splat tab(s) surfacing splat-specific mechanics
+- [ ] Per-splat tab(s) surfacing splat-specific mechanics (Sidereal Paradox, Abyssal Resonance, Infernal Torment/Urge, etc.)
 - [ ] Virtue Channel counter (per-story, not per-scene)
 
 ## Virtues & Willpower
@@ -234,12 +233,10 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Purchase Mode support for NPC-typed actors
 - [ ] Per-trait lock overrides
 - [ ] Background-method setting (Method 1: 3 XP/dot; Method 2: free w/ ST permission)
-- [ ] Stunt mote/WP auto-recovery (2-die: +2m/4m/6m or 1 WP; trigger on DV refresh of successful stunted action)
-- [ ] Motivation-advancing stunt WP bonus
 
 ## Stunts & Drama
 - [x] Stunt dice in roll dialog
-- [ ] Auto mote/WP reward on successful stunted action (at DV refresh)
+- [x] Auto mote/WP reward on successful stunted action (at DV refresh)
 - [ ] Stunt-on-perfect (errata: bonus dice apply even when success guaranteed)
 - [ ] Motivation-advance WP reward
 
@@ -298,14 +295,19 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Keyword-effect registry for systematic status application
 - [ ] Effect-flag registry file documenting every `flags.exalted2e.*` semantic role
 - [ ] Migration pipeline for schema changes as system evolves
-- [ ] Headless tests for combat pipeline, DV aggregation, activation-ledger paths
 - [ ] Language-drift linter (en.json ↔ es.json key parity)
 - [ ] Multi-actor action helpers (Coordinate, Cooperative charms, mass Guard)
+- [ ] Personal/Peripheral commitment split (players choose the pool split for attuned artifacts)
+
+## Testing
+- [x] Vitest suite (pure-logic helpers, math modules, prepareDerivedData)
+- [x] Quench integration tests (in-Foundry: attack pipeline, social combat, stunt rewards, purchase/attunement)
+- [ ] Headless tests for remaining paths: charm prerequisite edge cases, multi-tick state machine, sorcery interruption
 
 ## Documentation (internal)
 - [x] docs/sysref-index.md — catalog of every PDF + topic lookup
 - [x] docs/mechanics-reference.md — distilled rules by system
-- [x] docs/gap-analysis.md — architectural blockers per TODO cluster
+- [x] docs/gap-analysis.md — architectural notes (partially stale; see git log for resolved gaps)
 - [x] docs/Experience.md — XP cost tables per exalt type
 - [ ] docs/charm-authoring.md — guide for authoring charms that plug into the activation pipeline
 - [ ] docs/npc-stat-blocks.md — templates for common antagonists
@@ -317,3 +319,6 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - Combos cost 0 XP and 0 WP to create/activate (errata).
 - Stunting applies to DV the same way it applies to pools (errata).
 - Equipment bonuses DO NOT STACK — highest per category only (errata).
+- MDVs always round down — no Essence-2+ round-up (RAW).
+- Socialize is social-stealth, not a social-attack ability (excluded from attack pools).
+- Terrestrial Excellency caps on ability + best applicable specialty (never attribute).
