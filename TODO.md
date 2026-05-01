@@ -149,8 +149,8 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 
 ### Dragon-Blooded
 - [x] Aspects & breeding (Breeding 1-5 mote-pool bonus)
-- [ ] Out-of-aspect charm activation surcharge (+1m)
-- [ ] Water Aspect Terrestrial-MA no-surcharge exemption
+- [x] Out-of-aspect charm activation surcharge (+1m)
+- [x] Water Aspect Terrestrial-MA no-surcharge exemption
 - [ ] Anima flux damage at 11+ banner (environmental — scene effect)
 - [ ] Charm cooperation (multi-DB pooled costs)
 - [ ] Family / House background linkage

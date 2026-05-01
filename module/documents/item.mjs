@@ -1,5 +1,6 @@
 import { normalizeCost } from "../rolls/activation-ledger.mjs";
 import { buildCharmWeaponData } from "./charm-weapon-data.mjs";
+import { getOutOfAspectSurcharge } from "../helpers/aspect-surcharge.mjs";
 
 /**
  * ExaltedItem – extends the base Foundry Item document.
@@ -147,7 +148,11 @@ export class ExaltedItem extends Item {
         via
       };
     } else {
-      ledger = await this._spendActivationCosts(cost, { motePool, skipXpConfirm });
+      const surcharge = getOutOfAspectSurcharge(actor, this);
+      const effectiveCost = surcharge > 0
+        ? { ...cost, motes: (cost.motes ?? 0) + surcharge }
+        : cost;
+      ledger = await this._spendActivationCosts(effectiveCost, { motePool, skipXpConfirm });
       if (!ledger) return false;
       // Charm-specific ledger flags that _spendActivationCosts doesn't know
       // about live alongside the shared ones.
@@ -428,7 +433,7 @@ export class ExaltedItem extends Item {
     const total = { motes: 0, willpower: 0, bashing: 0, lethal: 0, aggravated: 0, xp: 0 };
     for (const { charm } of planned) {
       const c = charm.system?.cost ?? {};
-      total.motes      += Number(c.motes)            || 0;
+      total.motes      += (Number(c.motes) || 0) + getOutOfAspectSurcharge(actor, charm);
       total.willpower  += Number(c.willpower)        || 0;
       total.bashing    += Number(c.bashingHealth)    || 0;
       total.lethal     += Number(c.lethalHealth)     || 0;
@@ -450,8 +455,10 @@ export class ExaltedItem extends Item {
 
     const charmCost = (charm) => {
       const c = charm.system?.cost ?? {};
+      const surcharge = getOutOfAspectSurcharge(actor, charm);
       const bits = [];
-      if (c.motes)            bits.push(`${c.motes}m`);
+      const motes = (Number(c.motes) || 0) + surcharge;
+      if (motes)              bits.push(`${motes}m`);
       if (c.willpower)        bits.push(`+${c.willpower}wp`);
       if (c.bashingHealth)    bits.push(`${c.bashingHealth}b`);
       if (c.lethalHealth)     bits.push(`${c.lethalHealth}l`);

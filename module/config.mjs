@@ -383,3 +383,18 @@ EX2E.getActiveArmorMaterialBonuses = function () {
   }
   return EX2E.magicalMaterialArmorBonuses;
 };
+
+// ── Martial Arts Access by Exalt Type ──────────────────────────────────────
+// Maps exalt types to their standard MA tier access. Used to derive the
+// effective MA tier of a charm when martialArtsTier is blank.
+
+EX2E.maAccessByExaltType = {
+  mortal:      "",
+  terrestrial: "",
+  lunar:       "celestial",
+  alchemical:  "celestial",
+  infernal:    "celestial",
+  solar:       "sidereal",
+  abyssal:     "sidereal",
+  sidereal:    "sidereal"
+};

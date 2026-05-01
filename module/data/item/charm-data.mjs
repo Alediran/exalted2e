@@ -10,8 +10,9 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       // renames don't break prerequisites.
       charmUid:     new fields.StringField({ initial: "", blank: true }),
       exaltType:    new fields.StringField({ initial: "solar", blank: true }),
-      ability:      new fields.StringField({ initial: "melee", blank: true }),
-      essence:      new fields.NumberField({ initial: 1, min: 1, max: 10, integer: true }),
+      ability:         new fields.StringField({ initial: "melee", blank: true }),
+      martialArtsTier: new fields.StringField({ initial: "", blank: true }),
+      essence:         new fields.NumberField({ initial: 1, min: 1, max: 10, integer: true }),
       minAbility:   new fields.NumberField({ initial: 1, min: 0, max: 5,  integer: true }),
 
       // ── Cost ────────────────────────────────────────────────────────────
