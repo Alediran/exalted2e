@@ -33,12 +33,52 @@ describe("computeXpCost — attributes", () => {
     expect(result.xp).toBe(12);
   });
 
-  it("Lunar attribute increase flags low-confidence (caste data not stored)", () => {
-    const actor = makeActor({ exaltType: "lunar" });
+  it("Lunar caste-favored attribute costs n × 3 with confident: true", () => {
+    const actor = makeActor({
+      exaltType: "lunar",
+      attributes: { dexterity: { caste: true, favored: false } }
+    });
     const result = computeXpCost(actor, {
       kind: "field", path: "system.attributes.dexterity.value", oldValue: 2, newValue: 3
     });
-    expect(result.confident).toBe(false);
+    expect(result.xp).toBe(6);           // 2 × 3
+    expect(result.confident).toBe(true);
+  });
+
+  it("Lunar non-caste attribute costs n × 4 with confident: true", () => {
+    const actor = makeActor({
+      exaltType: "lunar",
+      attributes: { wits: { caste: false, favored: false } }
+    });
+    const result = computeXpCost(actor, {
+      kind: "field", path: "system.attributes.wits.value", oldValue: 2, newValue: 3
+    });
+    expect(result.xp).toBe(8);           // 2 × 4
+    expect(result.confident).toBe(true);
+  });
+
+  it("Lunar user-favored attribute costs n × 3 with confident: true", () => {
+    const actor = makeActor({
+      exaltType: "lunar",
+      attributes: { strength: { caste: false, favored: true } }
+    });
+    const result = computeXpCost(actor, {
+      kind: "field", path: "system.attributes.strength.value", oldValue: 2, newValue: 3
+    });
+    expect(result.xp).toBe(6);           // 2 × 3
+    expect(result.confident).toBe(true);
+  });
+
+  it("Alchemical caste-favored attribute costs n × 3 with confident: true", () => {
+    const actor = makeActor({
+      exaltType: "alchemical",
+      attributes: { strength: { caste: true, favored: false } }
+    });
+    const result = computeXpCost(actor, {
+      kind: "field", path: "system.attributes.strength.value", oldValue: 2, newValue: 3
+    });
+    expect(result.xp).toBe(6);           // 2 × 3
+    expect(result.confident).toBe(true);
   });
 
   it("attribute decrease costs 0 XP", () => {

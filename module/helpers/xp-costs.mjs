@@ -111,9 +111,7 @@ function _priceAttribute(actor, key, oldVal, newVal, exaltType, costs) {
     : _n(costs.general.attributeMult, 4);
   let xp = 0;
   for (let n = oldVal; n < newVal; n++) xp += n * mult;
-  // Caste/favored flags aren't yet stored on attributes — flip confidence
-  // off on the Lunar/Alchemical branch so the GM verifies.
-  return { xp, confident: !usesCaste };
+  return { xp, confident: true };
 }
 
 function _priceAbility(actor, key, oldVal, newVal, exaltType, costs) {
