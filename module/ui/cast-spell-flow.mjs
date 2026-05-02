@@ -23,8 +23,8 @@ export async function castSpellFlow(item) {
   const actor = item?.actor;
   if (!actor) return;
 
-  const combatants = game.combat?.combatants?.contents ?? [];
-  const combatant  = combatants.find(c => c.actor?.id === actor.id) ?? null;
+  const combatants = (game.combats?.contents ?? []).flatMap(c => c.combatants?.contents ?? []);
+  const combatant  = combatants.find(c => c.actorId === actor.id) ?? null;
   if (!combatant) {
     ui.notifications.warn(game.i18n.localize("EX2E.SpellCastNoCombatant"));
     return;
@@ -92,7 +92,7 @@ export async function castSpellFlow(item) {
   const totalShapeActions = sys.circle ?? 1;
   await combatant.setFlag("exalted2e", "multiTickAction", {
     actionKey:    "sorcery",
-    startTick:    game.combat?.currentTick ?? 0,
+    startTick:    combatant.parent?.currentTick ?? 0,
     totalTicks:   0,           // sorcery is commit-driven; no auto-tick
     ticksElapsed: 0,
     cycleCount:   0,

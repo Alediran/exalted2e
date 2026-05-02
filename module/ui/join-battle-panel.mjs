@@ -38,7 +38,9 @@ export class JoinBattlePanel {
   }
 
   refresh() {
-    const combat = game.combat;
+    const combat = game.combat
+      ?? (game.combats?.contents ?? []).find(c => c.scene?.id === canvas.scene?.id)
+      ?? null;
     const canDriveCombat = ex2eCan("combatFlow");
 
     // Determine which (if any) JB-phase section to render above End Scene.

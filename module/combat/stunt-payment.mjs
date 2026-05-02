@@ -16,10 +16,11 @@ export async function bankStuntReward(actor, reward) {
   if (!actor || actor.type !== "character") return;
   if (!reward || (Number(reward.stunt) || 0) < 1) return;
 
-  const combat    = game.combat;
-  const combatant = combat?.combatants?.find(c => c.actorId === actor.id) ?? null;
+  const combatant = (game.combats?.contents ?? [])
+    .flatMap(c => c.combatants?.contents ?? [])
+    .find(c => c.actorId === actor.id) ?? null;
 
-  if (combat && combatant) {
+  if (combatant) {
     const existing = combatant.getFlag("exalted2e", "pendingStuntRewards") ?? [];
     const next = [...existing, {
       stunt:              Number(reward.stunt) || 0,

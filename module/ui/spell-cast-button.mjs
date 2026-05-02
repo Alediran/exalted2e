@@ -34,8 +34,8 @@ export function computeSpellCastButtonState(item) {
   if (!actor) return { visible: false };
 
   const sys = item.system;
-  const combatants = game.combat?.combatants?.contents ?? [];
-  const combatant  = combatants.find(c => c.actor?.id === actor.id) ?? null;
+  const combatants = (game.combats?.contents ?? []).flatMap(c => c.combatants?.contents ?? []);
+  const combatant  = combatants.find(c => c.actorId === actor.id) ?? null;
   const action     = combatant?.flags?.exalted2e?.multiTickAction ?? null;
 
   // 2. Initiation gate.
