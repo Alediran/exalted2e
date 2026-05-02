@@ -43,6 +43,35 @@
     {{/each}}
   </div>
 
+  {{!-- Per-tier animation effects --}}
+  <div class="acd-effects-label">{{localize "EX2E.AnimaEffectSectionLabel"}}</div>
+  <div class="acd-effects-header">
+    <span></span>
+    <span>{{localize "EX2E.AnimaEffectColGlow"}}</span>
+    <span>{{localize "EX2E.AnimaEffectColLight"}}</span>
+  </div>
+  <div class="acd-effects">
+    {{#each effectTiers as |row|}}
+      <div class="acd-effect-row">
+        <span class="acd-effect-tier-name">{{localize row.label}}</span>
+        <select class="acd-effect-select" data-tier="{{row.tier}}">
+          {{#each ../glowOptions as |opt|}}
+            <option value="{{opt.value}}"{{#if (eq opt.value row.currentGlow)}} selected{{/if}}>
+              {{localize opt.label}}
+            </option>
+          {{/each}}
+        </select>
+        <select class="acd-light-select" data-tier="{{row.tier}}">
+          {{#each ../lightOptions as |opt|}}
+            <option value="{{opt.value}}"{{#if (eq opt.value row.currentLight)}} selected{{/if}}>
+              {{localize opt.label}}
+            </option>
+          {{/each}}
+        </select>
+      </div>
+    {{/each}}
+  </div>
+
   {{!-- Actions --}}
   <div class="acd-footer">
     <button type="button" data-action="confirm">{{localize "Confirm"}}</button>

@@ -451,6 +451,12 @@ export function getAnimaPalette(actor) {
   ];
 }
 
+EX2E.animaEffects = {
+  none:    "EX2E.AnimaEffectNone",
+  pulse:   "EX2E.AnimaEffectPulse",
+  flicker: "EX2E.AnimaEffectFlicker",
+};
+
 // ── Ability Groupings by Exalt Type ──────────────────────────────────────
 // Each entry is an array of { key, label (i18n), abilities[] }.
 // "terrestrial" is keyed by aspect instead (built dynamically in the sheet).

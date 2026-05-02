@@ -89,29 +89,6 @@
   opacity:  0;
   transition: opacity 0.5s ease;
 }
-.anima-banner.anima-glowing {
-  opacity:    0.15;
-  background: radial-gradient(circle, var(--anima-color-1, gold), transparent 70%);
-}
-.anima-banner.anima-burning {
-  opacity:    0.30;
-  background: radial-gradient(circle, var(--anima-color-1, gold), var(--anima-color-2, var(--anima-color-1, gold)), transparent 70%);
-}
-.anima-banner.anima-bonfire {
-  opacity:    0.50;
-  background: radial-gradient(circle, var(--anima-color-1, #fff9c4), var(--anima-color-2, var(--anima-color-1, gold)), var(--anima-color-3, var(--anima-color-2, var(--anima-color-1, white))), transparent 70%);
-  animation:  animaFlicker 1.5s ease-in-out infinite alternate;
-}
-.anima-banner.anima-totemic {
-  opacity:    0.70;
-  background: radial-gradient(circle, var(--anima-color-1, white), var(--anima-color-2, var(--anima-color-1, gold)), var(--anima-color-3, var(--anima-color-2, var(--anima-color-1, white))), transparent 70%);
-  animation:  animaFlicker 0.8s ease-in-out infinite alternate;
-}
-
-@keyframes animaFlicker {
-  from { opacity: 0.50; }
-  to   { opacity: 0.72; }
-}
 
 /* Actor name input */
 .actor-name {
@@ -862,6 +839,59 @@
   align-items: center;
   justify-content: center;
   border: 1px solid #000;
+}
+
+.acd-effects-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+  margin: 8px 0 2px;
+}
+
+.acd-effects-header,
+.acd-effect-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 1fr;
+  align-items: center;
+  gap: 6px;
+}
+
+.acd-effects-header {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #666;
+  margin-bottom: 2px;
+}
+
+.acd-effects {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.acd-effect-tier-name {
+  font-size: 11px;
+  font-variant: small-caps;
+  color: #ccc;
+}
+
+.acd-effects-header span:first-child,
+.acd-effects-header span:nth-child(2),
+.acd-effects-header span:nth-child(3) {
+  text-align: center;
+}
+
+.acd-effect-row select {
+  font-size: 11px;
+  background: #1a1a1a;
+  color: #ccc;
+  border: 1px solid #444;
+  border-radius: 3px;
+  padding: 2px 4px;
+  width: 100%;
 }
 
 .acd-footer {
