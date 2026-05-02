@@ -13,9 +13,9 @@
  *
  * `confident` is the knob the PurchaseConfirmDialog reads to decide
  * whether to show the "verify this cost" hint. Flip to false whenever
- * the rule depends on data the schema doesn't yet track (Lunar caste
- * attributes, MA sub-tier, Infernal patron Yozi, etc.). The number is
- * still the best guess — the GM can override in the dialog.
+ * the rule depends on data the schema doesn't yet track (MA sub-tier,
+ * Infernal patron Yozi, etc.). The number is still the best guess —
+ * the GM can override in the dialog.
  *
  * Forward compatibility: the bottom of the file exports a few helpers
  * (`priceAlchemicalCharmSlot`, `priceAlchemicalProtocol`,
