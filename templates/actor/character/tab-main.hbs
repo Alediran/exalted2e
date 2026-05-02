@@ -85,7 +85,9 @@
 
       {{!-- Column 1: Virtues 2x2 + Virtue Flaw below --}}
       <section class="virtues-column">
-        <h2 class="section-header">{{localize "EX2E.Virtues"}}</h2>
+        <div class="section-toolbar">
+          <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Virtues"}}</h2>
+        </div>
         <div class="virtues-section">
           {{#each (array "compassion" "temperance" "conviction" "valor") as |v|}}
           <div class="virtue-row">
@@ -171,7 +173,9 @@
 
       {{!-- Column 2: Health --}}
       <section class="health-column">
-        <h2 class="section-header">{{localize "EX2E.HealthLevels"}}</h2>
+        <div class="section-toolbar">
+          <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.HealthLevels"}}</h2>
+        </div>
         {{healthTrack health=system.health exaltType=system.exaltType}}
         <div class="health-info">
           <span class="wound-penalty-label">{{localize "EX2E.WoundPenalty"}}:
@@ -199,15 +203,18 @@
 
       {{!-- Column 3: Anima --}}
       <section class="anima-column">
-        <h2 class="section-header">{{localize "EX2E.Anima"}}</h2>
-        <div class="anima-tier anima-tier--{{system.anima}}">
-          {{animaLabel}}
+        <div class="section-toolbar">
+          <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Anima"}}</h2>
           {{#if canEditAnimaColors}}
             <button type="button" class="anima-color-btn" data-action="configureAnimaColors"
                     title="{{localize 'EX2E.AnimaColorConfigure'}}">
               <i class="fa-solid fa-palette"></i>
             </button>
           {{/if}}
+        </div>
+        <div class="anima-tier anima-tier--{{system.anima}}">
+          {{animaLabel}}
+          
         </div>
 
         <div class="anima-scene-peripheral">

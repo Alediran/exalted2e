@@ -96,12 +96,14 @@
             {{/if}}
           {{/if}}
           {{#if (eq @root.system.exaltType "alchemical")}}
+          {{#if charm.system.installed}}
           {{#if @root.isEditable}}
           <button type="button" data-action="createSubmodule"
                   data-charm-id="{{charm.id}}"
                   title="{{localize 'EX2E.AddSubmodule'}}">
             <i class="fa-solid fa-plus"></i>
           </button>
+          {{/if}}
           {{/if}}
           {{/if}}
           <button data-action="activateCharm" title="{{localize 'EX2E.ActivateCharm'}}">⚡</button>
