@@ -35,6 +35,8 @@ import { registerSubmodules }              from "./combat/submodules.mjs";
 import { registerTerrestrialBreeding }     from "./combat/terrestrial-breeding.mjs";
 import { registerLimitBreak }              from "./combat/limit-break.mjs";
 import { registerAnima }                   from "./combat/anima.mjs";
+// NOTE: Anima Powers feature (_swapAnimaPower) relies on the animapowers compendium
+// and cannot be exercised via Quench. No batch registered for ex2e.anima-powers.
 
 Hooks.once("quenchReady", quench => {
   quench.registerBatch("ex2e.knockback.focused",        registerKnockbackFocused,       { displayName: "Knockback (focused)" });
@@ -64,4 +66,5 @@ Hooks.once("quenchReady", quench => {
   quench.registerBatch("ex2e.terrestrial-breeding",    registerTerrestrialBreeding,    { displayName: "Terrestrial Breeding" });
   quench.registerBatch("ex2e.limit-break",             registerLimitBreak,             { displayName: "Limit Break automation" });
   quench.registerBatch("ex2e.anima",                   registerAnima,                  { displayName: "Anima Banner system" });
+
 });

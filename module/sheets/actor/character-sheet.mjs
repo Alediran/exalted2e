@@ -10,6 +10,9 @@ import { editImageAction } from "../_edit-image.mjs";
 import { sceneChangeFade } from "../../combat/anima-fade.mjs";
 import { AnimaColorDialog } from "../../dialogs/anima-color-dialog.mjs";
 
+const _ANIMA_ORDER_SHEET = { none: 0, glowing: 1, burning: 2, bonfire: 3, totemic: 4 };
+function _animaLevelSheet(key) { return _ANIMA_ORDER_SHEET[key] ?? 0; }
+
 const { ActorSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
   const api    = foundry.applications.api;
@@ -92,7 +95,9 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       upgradeSlot:         CharacterSheet.#onUpgradeSlot,
       createSubmodule:     CharacterSheet.#onCreateSubmodule,
       editImage:           editImageAction,
-      configureAnimaColors: CharacterSheet.#onConfigureAnimaColors
+      configureAnimaColors: CharacterSheet.#onConfigureAnimaColors,
+      activateAnimaPower:  CharacterSheet.#onActivateAnimaPower,
+      viewAnimaPower:      CharacterSheet.#onViewAnimaPower
     }
   };
 
@@ -455,6 +460,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const animaBannerStyle = _animaParts.length ? _animaParts.join(";") + ";" : "";
     const canEditAnimaColors = this.isEditable;
 
+    const animaPower = actor.items.find(i => i.flags?.exalted2e?.animaPower === true) ?? null;
+
     return {
       ...context,
       actor,
@@ -503,7 +510,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       animaLabel,
       dbFluxInfo,
       animaBannerStyle,
-      canEditAnimaColors
+      canEditAnimaColors,
+      animaPower
     };
   }
 
@@ -1259,5 +1267,68 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   static #onConfigureAnimaColors() {
     AnimaColorDialog.open(this.actor);
+  }
+
+  static async #onActivateAnimaPower(event, target) {
+    if (!this.isEditable) return;
+    const item = this.actor.items.get(target.dataset.itemId);
+    if (!item) return;
+
+    const sys   = item.system;
+    const actor = this.actor;
+
+    if (sys.active) {
+      await item.update({ "system.active": false });
+      const msg = game.i18n.format("EX2E.AnimaPowerDeactivated", { name: actor.name, power: item.name });
+      ChatMessage.create({ content: msg, speaker: ChatMessage.getSpeaker({ actor }) });
+      return;
+    }
+
+    const anima = actor.system.anima;
+    let moteCost = sys.activationCost.motes;
+    let wpCost   = sys.activationCost.willpower;
+
+    if (sys.autoThreshold && _animaLevelSheet(anima) >= _animaLevelSheet(sys.autoThreshold)) {
+      moteCost = 0;
+      wpCost   = 0;
+    } else if (sys.totemicOverride.enabled && anima === "totemic") {
+      moteCost = sys.totemicOverride.motes;
+      wpCost   = 0;
+    } else if (sys.bonfireOverride.enabled && _animaLevelSheet(anima) >= _animaLevelSheet("bonfire")) {
+      moteCost = sys.bonfireOverride.motes;
+      wpCost   = 0;
+    }
+
+    const wpCurrent = actor.system.willpower?.value ?? 0;
+    if (wpCost > 0 && wpCurrent < wpCost) {
+      ui.notifications.warn(game.i18n.localize("EX2E.NotEnoughWillpower"));
+      return;
+    }
+
+    if (moteCost > 0) {
+      const result = await actor.spendMotes(moteCost, "peripheral");
+      if (!result) return;
+    }
+
+    if (wpCost > 0) {
+      await actor.update({ "system.willpower.value": wpCurrent - wpCost });
+    }
+
+    await item.update({ "system.active": true });
+    const msg = game.i18n.format("EX2E.AnimaPowerActivated", { name: actor.name, power: item.name });
+    ChatMessage.create({ content: msg, speaker: ChatMessage.getSpeaker({ actor }) });
+  }
+
+  static async #onViewAnimaPower(event, target) {
+    const item = this.actor.items.get(target.dataset.itemId);
+    if (!item) return;
+    const content = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
+      item.system.description, { secrets: item.isOwner, relativeTo: item }
+    );
+    await foundry.applications.api.DialogV2.prompt({
+      window: { title: item.name },
+      content,
+      ok: { label: game.i18n.localize("Close") }
+    });
   }
 }

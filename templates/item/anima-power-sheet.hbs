@@ -1,0 +1,95 @@
+<div class="item-header anima-power-header">
+  <img class="item-portrait" src="{{item.img}}" alt="{{item.name}}"
+       data-action="editImage" {{#unless isEditable}}disabled{{/unless}}>
+  <div class="item-header-fields">
+    <input class="item-name-input" type="text" name="name" value="{{item.name}}"
+           {{#unless isEditable}}readonly{{/unless}}>
+    <div class="charm-identity-row">
+      {{localize "EX2E.AnimaPower"}} · {{system.exaltType}} / {{system.caste}}
+    </div>
+  </div>
+</div>
+
+<div class="sheet-body anima-power-body">
+
+  <!-- Summary -->
+  <div class="field-group" style="margin-top:8px">
+    <label>{{localize "EX2E.Summary"}}</label>
+    <input type="text" name="system.summary" value="{{system.summary}}"
+           {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+
+  <!-- Activation cost -->
+  <div class="charm-stats-grid" style="margin-top:10px">
+    <div class="field-group">
+      <label>{{localize "EX2E.MoteCost"}}</label>
+      <input type="number" name="system.activationCost.motes"
+             value="{{system.activationCost.motes}}" min="0"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.WillpowerCost"}}</label>
+      <input type="number" name="system.activationCost.willpower"
+             value="{{system.activationCost.willpower}}" min="0"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+
+  <!-- Bonfire override -->
+  <div class="field-group" style="margin-top:10px">
+    <label>{{localize "EX2E.AnimaPowerBonfireOverride"}}</label>
+    <div style="display:flex; gap:8px; align-items:center">
+      <input type="checkbox" name="system.bonfireOverride.enabled"
+             {{#if system.bonfireOverride.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <input type="number" name="system.bonfireOverride.motes"
+             value="{{system.bonfireOverride.motes}}" min="0" style="width:60px"
+             {{#unless isEditable}}readonly{{/unless}}>
+      <span>{{localize "EX2E.Motes"}}</span>
+    </div>
+  </div>
+
+  <!-- Totemic override -->
+  <div class="field-group" style="margin-top:8px">
+    <label>{{localize "EX2E.AnimaPowerTotemicOverride"}}</label>
+    <div style="display:flex; gap:8px; align-items:center">
+      <input type="checkbox" name="system.totemicOverride.enabled"
+             {{#if system.totemicOverride.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <input type="number" name="system.totemicOverride.motes"
+             value="{{system.totemicOverride.motes}}" min="0" style="width:60px"
+             {{#unless isEditable}}readonly{{/unless}}>
+      <span>{{localize "EX2E.Motes"}}</span>
+    </div>
+  </div>
+
+  <!-- Auto-threshold -->
+  <div class="field-group" style="margin-top:8px">
+    <label>{{localize "EX2E.AnimaPowerAutoThreshold"}}</label>
+    <select name="system.autoThreshold" {{#unless isEditable}}disabled{{/unless}}>
+      <option value="" {{#unless system.autoThreshold}}selected{{/unless}}>—</option>
+      <option value="bonfire" {{#if (eq system.autoThreshold "bonfire")}}selected{{/if}}>{{localize "EX2E.AnimaBonfire"}}</option>
+      <option value="totemic" {{#if (eq system.autoThreshold "totemic")}}selected{{/if}}>{{localize "EX2E.AnimaTotemic"}}</option>
+    </select>
+  </div>
+
+  <!-- Active state (read-only display) -->
+  <div class="field-group" style="margin-top:8px">
+    <label>{{localize "EX2E.Active"}}</label>
+    <span>{{#if system.active}}✓{{else}}—{{/if}}</span>
+  </div>
+
+  <!-- Description -->
+  <h2 class="section-header" style="margin-top:12px">{{localize "EX2E.Description"}}</h2>
+  <div class="editor-container">
+    {{#if isEditable}}
+    <prose-mirror name="system.description" data-document-uuid="{{item.uuid}}"
+                  value="{{system.description}}" collaborate="true" toggled="true">
+      {{{enrichedDescription}}}
+    </prose-mirror>
+    {{else}}
+    <div class="editor-content">{{{enrichedDescription}}}</div>
+    {{/if}}
+  </div>
+
+</div>

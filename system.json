@@ -48,6 +48,13 @@
       "path": "packs/effects",
       "type": "Item",
       "system": "exalted2e"
+    },
+    {
+      "name": "animapowers",
+      "label": "Exalted 2e Anima Powers",
+      "path": "packs/animapowers",
+      "type": "Item",
+      "system": "exalted2e"
     }
   ],
   "documentTypes": {
@@ -66,7 +73,8 @@
       "knack":      {},
       "virtueflaw": {},
       "combo":      {},
-      "form":       {}
+      "form":       {},
+      "animapower": {}
     }
   },
   "socket": false,

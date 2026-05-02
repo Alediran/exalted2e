@@ -20,6 +20,7 @@ import { KnackData }        from "./data/item/knack-data.mjs";
 import { VirtueFlawData }   from "./data/item/virtueflaw-data.mjs";
 import { ComboData }        from "./data/item/combo-data.mjs";
 import { FormData }         from "./data/item/form-data.mjs";
+import { AnimaPowerData }   from "./data/item/anima-power-data.mjs";
 import { CharacterSheet }   from "./sheets/actor/character-sheet.mjs";
 import { NpcSheet }         from "./sheets/actor/npc-sheet.mjs";
 import { CharmSheet }       from "./sheets/item/charm-sheet.mjs";
@@ -31,6 +32,7 @@ import { KnackSheet }      from "./sheets/item/knack-sheet.mjs";
 import { VirtueFlawSheet } from "./sheets/item/virtueflaw-sheet.mjs";
 import { ComboSheet }       from "./sheets/item/combo-sheet.mjs";
 import { FormSheet }        from "./sheets/item/form-sheet.mjs";
+import { AnimaPowerSheet }  from "./sheets/item/anima-power-sheet.mjs";
 import { XpCostsConfigDialog } from "./dialogs/xp-costs-config-dialog.mjs";
 import { PermissionsConfigDialog } from "./dialogs/permissions-config-dialog.mjs";
 import { registerHandlebarsHelpers } from "./helpers/handlebars.mjs";
@@ -54,6 +56,7 @@ import {
 import { aimHandler }     from "./combat/multi-tick-aim.mjs";
 import { sorceryHandler } from "./combat/multi-tick-sorcery.mjs";
 import { resolveKnockbackChain, onKnockdownResistClick } from "./combat/knockback.mjs";
+import { _seedAnimaPowersCompendium } from "./helpers/anima-power-seeds.mjs";
 
 // ── Init Hook ──────────────────────────────────────────────────────────────
 Hooks.once("init", function () {
@@ -95,7 +98,8 @@ Hooks.once("init", function () {
     knack:      KnackData,
     virtueflaw: VirtueFlawData,
     combo:      ComboData,
-    form:       FormData
+    form:       FormData,
+    animapower: AnimaPowerData
   };
 
   // ── Sheet Registration ──────────────────────────────────────────────────
@@ -156,6 +160,11 @@ Hooks.once("init", function () {
     types:     ["form"],
     makeDefault: true,
     label:     "EX2E.SheetForm"
+  });
+  foundry.documents.collections.Items.registerSheet("exalted2e", AnimaPowerSheet, {
+    types:     ["animapower"],
+    makeDefault: true,
+    label:     "EX2E.SheetAnimaPower"
   });
 
   // ── System Settings ─────────────────────────────────────────────────────
@@ -308,6 +317,7 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/item/virtueflaw/header.hbs",
     "systems/exalted2e/templates/item/virtueflaw/body.hbs",
     "systems/exalted2e/templates/item/form-sheet.hbs",
+    "systems/exalted2e/templates/item/anima-power-sheet.hbs",
     // Chat / Dialogs
     "systems/exalted2e/templates/chat/roll-result.hbs",
     "systems/exalted2e/templates/chat/item-card.hbs",
@@ -514,6 +524,7 @@ Hooks.once("ready", async function () {
   }
 
   await _seedEffectsCompendium();
+  await _seedAnimaPowersCompendium();
   await _seedTheCircleFolder();
 });
 

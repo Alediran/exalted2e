@@ -243,6 +243,31 @@
           {{/if}}
         </div>
         {{/if}}
+
+        {{#if animaPower}}
+        <div class="anima-power-row">
+          <span class="anima-power-summary">{{animaPower.system.summary}}</span>
+          <div class="anima-power-controls">
+            <span class="anima-power-dot {{#if animaPower.system.active}}active{{/if}}"></span>
+            <button type="button"
+                    data-action="activateAnimaPower"
+                    data-item-id="{{animaPower.id}}"
+                    class="anima-power-btn {{#if animaPower.system.active}}is-active{{/if}}"
+                    {{#unless isEditable}}disabled{{/unless}}>
+              {{#if animaPower.system.active}}
+                {{localize "EX2E.AnimaPowerDeactivate"}}
+              {{else}}
+                {{localize "EX2E.AnimaPowerActivate"}}
+              {{/if}}
+            </button>
+            <button type="button"
+                    data-action="viewAnimaPower"
+                    data-item-id="{{animaPower.id}}"
+                    class="anima-power-details-btn"
+                    title="{{localize 'EX2E.AnimaPowerViewDetails'}}">?</button>
+          </div>
+        </div>
+        {{/if}}
       </section>
 
     </div>

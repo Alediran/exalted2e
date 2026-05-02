@@ -4,6 +4,9 @@ import { aggregatePenalties, sumPenalties } from "./penalties-math.mjs";
 import { collectPermanentTraitChanges } from "./purchase-mode-math.mjs";
 import { getClarityBand } from "../combat/clarity-math.mjs";
 
+const ANIMA_ORDER = { none: 0, glowing: 1, burning: 2, bonfire: 3, totemic: 4 };
+function _animaLevel(key) { return ANIMA_ORDER[key] ?? 0; }
+
 /**
  * ExaltedActor – extends the base Foundry Actor document with
  * Exalted 2e specific behaviours.
@@ -224,13 +227,20 @@ export class ExaltedActor extends Actor {
    */
   async _onUpdate(changed, options, userId) {
     await super._onUpdate(changed, options, userId);
-    // Only the initiating user runs the side-effect updates — avoids
-    // every connected client racing to apply the same token changes.
     if (userId !== game.user.id) return;
     if (this.type !== "character") return;
-    if (this.system.exaltType !== "lunar") return;
-    if (changed.system?.splat?.lunar?.activeFormId === undefined) return;
-    await this._syncTokenToActiveForm(this.system.splat.lunar.activeFormId);
+
+    if (this.system.exaltType === "lunar" && changed.system?.splat?.lunar?.activeFormId !== undefined) {
+      await this._syncTokenToActiveForm(this.system.splat.lunar.activeFormId);
+    }
+
+    const casteChanged     = changed.system?.caste     !== undefined;
+    const exaltTypeChanged = changed.system?.exaltType !== undefined;
+    if (casteChanged || exaltTypeChanged) await this._swapAnimaPower();
+
+    if (changed.system?.scenePeripheral !== undefined) {
+      await this._checkAnimaPowerAutoActivation(this.system.anima);
+    }
   }
 
   /**
@@ -260,6 +270,61 @@ export class ExaltedActor extends Actor {
           await token.update({ "texture.src": newImg });
         }
       }
+    }
+  }
+
+  async _swapAnimaPower() {
+    if (!game.user.isGM) return;
+
+    const exaltType = this.system.exaltType;
+    const caste     = this.system.caste;
+
+    if (exaltType === "mortal" || (exaltType === "lunar" && caste === "casteless") || !caste) {
+      const existing = this.items.filter(i => i.flags?.exalted2e?.animaPower === true);
+      if (existing.length > 0) {
+        await this.deleteEmbeddedDocuments("Item", existing.map(i => i.id));
+      }
+      return;
+    }
+
+    const pack = game.packs.get("exalted2e.animapowers");
+    if (!pack) {
+      console.warn("Exalted 2e | animapowers compendium not found");
+      return;
+    }
+
+    // getIndex does not reliably populate system.* fields for custom types;
+    // load all documents and filter directly.
+    const docs = await pack.getDocuments();
+    const doc  = docs.find(d => d.system.exaltType === exaltType && d.system.caste === caste);
+    if (!doc) {
+      console.warn(`Exalted 2e | No anima power found for ${exaltType}/${caste}`);
+      return;
+    }
+
+    const itemData = doc.toObject();
+    itemData.system.active = false;
+
+    const existing = this.items.filter(i => i.flags?.exalted2e?.animaPower === true);
+    if (existing.length > 0) {
+      await this.deleteEmbeddedDocuments("Item", existing.map(i => i.id));
+    }
+    await this.createEmbeddedDocuments("Item", [itemData]);
+  }
+
+  async _checkAnimaPowerAutoActivation(animaKey) {
+    const item = this.items.find(i => i.flags?.exalted2e?.animaPower === true);
+    if (!item) return;
+
+    const threshold = item.system.autoThreshold;
+    if (!threshold) return;
+
+    if (_animaLevel(animaKey) >= _animaLevel(threshold) && !item.system.active) {
+      await item.update({ "system.active": true });
+      const msg = game.i18n.format("EX2E.AnimaPowerAutoActivated", { power: item.name });
+      ChatMessage.create({ content: msg, speaker: ChatMessage.getSpeaker({ actor: this }) });
+    } else if (animaKey === "none" && item.system.active) {
+      await item.update({ "system.active": false });
     }
   }
 
