@@ -91,20 +91,20 @@
 }
 .anima-banner.anima-glowing {
   opacity:    0.15;
-  background: radial-gradient(circle, gold, transparent 70%);
+  background: radial-gradient(circle, var(--anima-color-1, gold), transparent 70%);
 }
 .anima-banner.anima-burning {
   opacity:    0.30;
-  background: radial-gradient(circle, gold, orange, transparent 70%);
+  background: radial-gradient(circle, var(--anima-color-1, gold), var(--anima-color-2, var(--anima-color-1, gold)), transparent 70%);
 }
 .anima-banner.anima-bonfire {
   opacity:    0.50;
-  background: radial-gradient(circle, #fff9c4, gold, orange, transparent 70%);
+  background: radial-gradient(circle, var(--anima-color-1, #fff9c4), var(--anima-color-2, var(--anima-color-1, gold)), var(--anima-color-3, var(--anima-color-2, var(--anima-color-1, white))), transparent 70%);
   animation:  animaFlicker 1.5s ease-in-out infinite alternate;
 }
 .anima-banner.anima-totemic {
   opacity:    0.70;
-  background: radial-gradient(circle, white, #fff9c4, gold, orange, transparent 70%);
+  background: radial-gradient(circle, var(--anima-color-1, white), var(--anima-color-2, var(--anima-color-1, gold)), var(--anima-color-3, var(--anima-color-2, var(--anima-color-1, white))), transparent 70%);
   animation:  animaFlicker 0.8s ease-in-out infinite alternate;
 }
 
@@ -744,4 +744,129 @@
 .charm-active {
   box-shadow: inset 2px 0 0 var(--ex2e-gold-main);
   background: rgba(201,162,39,0.04);
+}
+
+/* ── Anima Color Configure Button ────────────────────────────────── */
+.anima-color-btn {
+  background: none;
+  border: none;
+  color: var(--ex2e-gold-main, gold);
+  cursor: pointer;
+  font-size: 0.75em;
+  opacity: 0.6;
+  padding: 0 2px;
+  vertical-align: middle;
+}
+
+.anima-color-btn:hover {
+  opacity: 1;
+}
+
+/* ── Anima Color Dialog ───────────────────────────────────────────── */
+.anima-color-dialog {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.acd-slots-label,
+.acd-palette-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #888;
+}
+
+.acd-slot-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.acd-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 72px;
+}
+
+.acd-slot-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.acd-slot-circle--empty {
+  border: 2px dashed #555;
+}
+
+.acd-slot-circle--filled {
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.acd-slot-num {
+  font-size: 9px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+.acd-slot-arrow {
+  color: #555;
+  font-size: 18px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.acd-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.acd-swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.15);
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition: transform 0.1s;
+}
+
+.acd-swatch:hover {
+  transform: scale(1.15);
+}
+
+.acd-swatch--assigned {
+  border-color: rgba(255,255,255,0.5);
+}
+
+.acd-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #FFD700;
+  color: #000;
+  font-size: 8px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+}
+
+.acd-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 4px;
 }

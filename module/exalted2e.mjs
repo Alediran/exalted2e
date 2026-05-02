@@ -38,6 +38,7 @@ import { ex2eCan } from "./helpers/permissions.mjs";
 import { ActionQuickbar } from "./ui/action-quickbar.mjs";
 import { TickWheel }                      from "./ui/tick-wheel.mjs";
 import { JoinBattlePanel }                from "./ui/join-battle-panel.mjs";
+import { refreshTokenAnimaGlow }          from "./ui/token-anima-glow.mjs";
 import { countSuccesses } from "./rolls/dice-math.mjs";
 import { planLedgerRefund } from "./rolls/activation-ledger.mjs";
 import { Step2SocialDefenseDialog } from "./dialogs/step2-social-defense-dialog.mjs";
@@ -454,6 +455,25 @@ Hooks.once("ready", async function () {
   Hooks.on("updateItem",        hudRefresh);
   Hooks.on("createItem",        hudRefresh);
   Hooks.on("deleteItem",        hudRefresh);
+
+  // Anima token glow — refresh on actor data change and on token redraw.
+  // refreshToken fires on every pan/zoom frame, so skip when nothing changed.
+  Hooks.on("updateActor", (actor) => {
+    for (const token of actor.getActiveTokens()) {
+      token._ex2eGlowCacheKey = null; // invalidate so next refreshToken rebuilds
+      refreshTokenAnimaGlow(token);
+    }
+  });
+  Hooks.on("refreshToken", (token) => {
+    const actor = token.actor;
+    if (!actor) return;
+    const tier   = actor.system?.anima ?? "none";
+    const colors = actor.getFlag?.("exalted2e", "animaColors") ?? [null, null, null];
+    const cacheKey = `${tier}|${colors.join(",")}`;
+    if (token._ex2eGlowCacheKey === cacheKey) return;
+    token._ex2eGlowCacheKey = cacheKey;
+    refreshTokenAnimaGlow(token);
+  });
 
   // Migration: back-fill unarmed attacks onto existing characters that
   // pre-date this feature. GM-only to avoid write races.

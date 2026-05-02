@@ -8,6 +8,7 @@ import { resolveXpCosts }  from "../../helpers/xp-cost-defaults.mjs";
 import { priceAlchemicalCharmSlot } from "../../helpers/xp-costs.mjs";
 import { editImageAction } from "../_edit-image.mjs";
 import { sceneChangeFade } from "../../combat/anima-fade.mjs";
+import { AnimaColorDialog } from "../../dialogs/anima-color-dialog.mjs";
 
 const { ActorSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -90,7 +91,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       addGeneralSlot:      CharacterSheet.#onAddGeneralSlot,
       upgradeSlot:         CharacterSheet.#onUpgradeSlot,
       createSubmodule:     CharacterSheet.#onCreateSubmodule,
-      editImage:           editImageAction
+      editImage:           editImageAction,
+      configureAnimaColors: CharacterSheet.#onConfigureAnimaColors
     }
   };
 
@@ -443,6 +445,16 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       ? { ...EX2E.DB_FLUX[sys.anima], tier: sys.anima }
       : null;
 
+    const _hexRe = /^#[0-9a-fA-F]{3}(?:[0-9a-fA-F]{3})?$/;
+    const animaColors = actor.getFlag("exalted2e", "animaColors") ?? [null, null, null];
+    const _animaParts = [
+      (animaColors[0] && _hexRe.test(animaColors[0])) ? `--anima-color-1:${animaColors[0]}` : "",
+      (animaColors[1] && _hexRe.test(animaColors[1])) ? `--anima-color-2:${animaColors[1]}` : "",
+      (animaColors[2] && _hexRe.test(animaColors[2])) ? `--anima-color-3:${animaColors[2]}` : ""
+    ].filter(Boolean);
+    const animaBannerStyle = _animaParts.length ? _animaParts.join(";") + ";" : "";
+    const canEditAnimaColors = this.isEditable;
+
     return {
       ...context,
       actor,
@@ -489,7 +501,9 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       isEditable: this.isEditable,
       useIntimacyIntensity: game.settings.get("exalted2e", "useIntimacyIntensity"),
       animaLabel,
-      dbFluxInfo
+      dbFluxInfo,
+      animaBannerStyle,
+      canEditAnimaColors
     };
   }
 
@@ -1241,5 +1255,9 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       { "system.scenePeripheral": newSp },
       { scenePeripheralBefore: oldSp }
     );
+  }
+
+  static #onConfigureAnimaColors() {
+    AnimaColorDialog.open(this.actor);
   }
 }

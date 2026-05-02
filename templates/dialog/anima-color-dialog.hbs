@@ -1,0 +1,52 @@
+<div class="anima-color-dialog">
+
+  {{!-- Slot targets --}}
+  <div class="acd-slots-label">{{localize "EX2E.AnimaColorSlotInner"}} → {{localize "EX2E.AnimaColorSlotMiddle"}} → {{localize "EX2E.AnimaColorSlotOuter"}}</div>
+  <div class="acd-slot-row">
+    {{#each slots as |hex i|}}
+      <div class="acd-slot">
+        {{#if hex}}
+          <div class="acd-slot-circle acd-slot-circle--filled"
+               style="background:{{hex}};border-color:{{hex}};box-shadow:0 0 8px {{hex}}"
+               data-action="clearSlot"
+               data-index="{{i}}"
+               title="{{localize 'EX2E.AnimaColorClearSlot'}}">
+          </div>
+        {{else}}
+          <div class="acd-slot-circle acd-slot-circle--empty"></div>
+        {{/if}}
+        <span class="acd-slot-num">
+          {{#if (eq i 0)}}① {{localize "EX2E.AnimaColorSlotInner"}}{{/if}}
+          {{#if (eq i 1)}}② {{localize "EX2E.AnimaColorSlotMiddle"}}{{/if}}
+          {{#if (eq i 2)}}③ {{localize "EX2E.AnimaColorSlotOuter"}}{{/if}}
+        </span>
+      </div>
+      {{#unless (eq i 2)}}
+        <div class="acd-slot-arrow">→</div>
+      {{/unless}}
+    {{/each}}
+  </div>
+
+  {{!-- Palette swatches --}}
+  <div class="acd-palette-label">{{localize "EX2E.AnimaColorConfigure"}}</div>
+  <div class="acd-palette">
+    {{#each palette as |entry|}}
+      <div class="acd-swatch {{#if (gte entry.slotIndex 0)}}acd-swatch--assigned{{/if}}"
+           style="background:{{entry.hex}};box-shadow:0 0 6px {{entry.hex}}"
+           data-action="assignSlot"
+           data-hex="{{entry.hex}}"
+           title="{{localize entry.label}}">
+        {{#if (gte entry.slotIndex 0)}}
+          <span class="acd-badge">{{add entry.slotIndex 1}}</span>
+        {{/if}}
+      </div>
+    {{/each}}
+  </div>
+
+  {{!-- Actions --}}
+  <div class="acd-footer">
+    <button type="button" data-action="confirm">{{localize "Confirm"}}</button>
+    <button type="button" data-action="cancel">{{localize "Cancel"}}</button>
+  </div>
+
+</div>

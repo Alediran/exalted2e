@@ -200,7 +200,15 @@
       {{!-- Column 3: Anima --}}
       <section class="anima-column">
         <h2 class="section-header">{{localize "EX2E.Anima"}}</h2>
-        <div class="anima-tier anima-tier--{{system.anima}}">{{animaLabel}}</div>
+        <div class="anima-tier anima-tier--{{system.anima}}">
+          {{animaLabel}}
+          {{#if canEditAnimaColors}}
+            <button type="button" class="anima-color-btn" data-action="configureAnimaColors"
+                    title="{{localize 'EX2E.AnimaColorConfigure'}}">
+              <i class="fa-solid fa-palette"></i>
+            </button>
+          {{/if}}
+        </div>
 
         <div class="anima-scene-peripheral">
           <span class="anima-label">{{localize "EX2E.ScenePeripheralSpend"}}</span>

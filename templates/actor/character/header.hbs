@@ -3,7 +3,8 @@
   <div class="portrait-frame">
     <img class="actor-portrait" src="{{actor.img}}" alt="{{actor.name}}"
          data-action="editImage" {{#unless isEditable}}disabled{{/unless}}>
-    <div class="anima-banner anima-{{system.anima}}"></div>
+    <div class="anima-banner anima-{{system.anima}}"
+         {{#if animaBannerStyle}}style="{{animaBannerStyle}}"{{/if}}></div>
   </div>
 
   <!-- Name & Identity -->

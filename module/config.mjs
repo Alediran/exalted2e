@@ -243,6 +243,214 @@ EX2E.anima = {
   totemic: "EX2E.AnimaTotemic"
 };
 
+// ── Anima Color Palettes ──────────────────────────────────────────────────
+// Each exalt type maps to { base?: ColorEntry[], castes?: { [caste]: ColorEntry[] } }.
+// ColorEntry = { key: string, label: string (i18n key), hex: string }
+// getAnimaPalette() merges base + the actor's caste entries.
+
+EX2E.animaColors = {
+  solar: {
+    base: [
+      { key: "solarWhite",  label: "EX2E.AnimaColorSolarWhite",  hex: "#FFFFFF" },
+      { key: "solarGold",   label: "EX2E.AnimaColorSolarGold",   hex: "#FFD700" }
+    ],
+    castes: {
+      dawn: [
+        { key: "dawnPaleGold",    label: "EX2E.AnimaColorDawnPaleGold",    hex: "#E8C880" },
+        { key: "dawnCrimson",     label: "EX2E.AnimaColorDawnCrimson",     hex: "#C83020" },
+        { key: "dawnLightViolet", label: "EX2E.AnimaColorDawnLightViolet", hex: "#B090C0" }
+      ],
+      zenith: [
+        { key: "zenithBurningWhite", label: "EX2E.AnimaColorZenithBurningWhite", hex: "#FFF8F0" },
+        { key: "zenithMajesticGold", label: "EX2E.AnimaColorZenithMajesticGold", hex: "#FFC200" }
+      ],
+      twilight: [
+        { key: "twilightBrightRed", label: "EX2E.AnimaColorTwilightBrightRed", hex: "#CC2020" },
+        { key: "twilightDarkRed",   label: "EX2E.AnimaColorTwilightDarkRed",   hex: "#880000" },
+        { key: "twilightPurple",    label: "EX2E.AnimaColorTwilightPurple",    hex: "#8040A0" },
+        { key: "twilightBlue",      label: "EX2E.AnimaColorTwilightBlue",      hex: "#4060C0" }
+      ],
+      night: [
+        { key: "nightGhostlyWhite", label: "EX2E.AnimaColorNightGhostlyWhite", hex: "#E8E8F4" },
+        { key: "nightPurple",       label: "EX2E.AnimaColorNightPurple",       hex: "#7040A0" },
+        { key: "nightPurpleGray",   label: "EX2E.AnimaColorNightPurpleGray",   hex: "#907890" }
+      ],
+      eclipse: [
+        { key: "eclipseCoronaWhite", label: "EX2E.AnimaColorEclipseCoronaWhite", hex: "#F8F8FF" },
+        { key: "eclipseCoronaGold",  label: "EX2E.AnimaColorEclipseCoronaGold",  hex: "#FFF0C0" }
+      ]
+    }
+  },
+  lunar: {
+    base: [
+      { key: "lunarSilver",        label: "EX2E.AnimaColorLunarSilver",        hex: "#C0C0C0" },
+      { key: "lunarMoonlightWhite", label: "EX2E.AnimaColorLunarMoonlightWhite", hex: "#F0F0F8" }
+    ],
+    castes: {
+      fullMoon: [
+        { key: "fullMoonSoftWhite",    label: "EX2E.AnimaColorFullMoonSoftWhite",    hex: "#E8E8F8" },
+        { key: "fullMoonBrightSilver", label: "EX2E.AnimaColorFullMoonBrightSilver", hex: "#D0D0E0" }
+      ],
+      changingMoon: [
+        { key: "changingMoonDarkBlue", label: "EX2E.AnimaColorChangingMoonDarkBlue", hex: "#204080" },
+        { key: "changingMoonPurple",   label: "EX2E.AnimaColorChangingMoonPurple",   hex: "#602090" }
+      ],
+      noMoon: [
+        { key: "noMoonDeepBlue",   label: "EX2E.AnimaColorNoMoonDeepBlue",   hex: "#1A2A50" },
+        { key: "noMoonDeepPurple", label: "EX2E.AnimaColorNoMoonDeepPurple", hex: "#502070" }
+      ],
+      casteless: [
+        { key: "castelessPurple", label: "EX2E.AnimaColorCastelessPurple", hex: "#7040B0" },
+        { key: "castelessBlue",   label: "EX2E.AnimaColorCastelessBlue",   hex: "#2060C0" }
+      ]
+    }
+  },
+  abyssal: {
+    base: [
+      { key: "abyssalVoidBlack", label: "EX2E.AnimaColorAbyssalVoidBlack", hex: "#111111" },
+      { key: "abyssalDarkGray",  label: "EX2E.AnimaColorAbyssalDarkGray",  hex: "#606060" }
+    ],
+    castes: {
+      dusk: [
+        { key: "duskDarkPurple", label: "EX2E.AnimaColorDuskDarkPurple", hex: "#3A1050" }
+      ],
+      midnight: [
+        { key: "midnightDeepVoid",  label: "EX2E.AnimaColorMidnightDeepVoid",  hex: "#0A0A0A" },
+        { key: "midnightDarkAbyss", label: "EX2E.AnimaColorMidnightDarkAbyss", hex: "#1A0020" }
+      ],
+      daybreak: [
+        { key: "daybreakRegalPurple",  label: "EX2E.AnimaColorDaybreakRegalPurple",  hex: "#5A2080" },
+        { key: "daybreakStatelyGray",  label: "EX2E.AnimaColorDaybreakStatelyGray",  hex: "#909090" }
+      ],
+      day: [
+        { key: "daySicklyGreen", label: "EX2E.AnimaColorDaySicklyGreen", hex: "#607040" },
+        { key: "dayPurple",      label: "EX2E.AnimaColorDayPurple",      hex: "#3A1050" }
+      ],
+      moonshadow: [
+        { key: "moonshadowSilver",  label: "EX2E.AnimaColorMoonshadowSilver",  hex: "#B0B0C0" },
+        { key: "moonshadowSparkle", label: "EX2E.AnimaColorMoonshadowSparkle", hex: "#D8D8F0" }
+      ]
+    }
+  },
+  infernal: {
+    base: [
+      { key: "infernalGreen", label: "EX2E.AnimaColorInfernalGreen", hex: "#30C050" }
+    ],
+    castes: {
+      slayer: [
+        { key: "slayerBlazingGreen", label: "EX2E.AnimaColorSlayerBlazingGreen", hex: "#40E060" },
+        { key: "slayerBrass",        label: "EX2E.AnimaColorSlayerBrass",        hex: "#C09030" }
+      ],
+      malefactor: [
+        { key: "malefactorTarnishedSilver", label: "EX2E.AnimaColorMalefactorTarnishedSilver", hex: "#909070" }
+      ],
+      defiler: [
+        { key: "defilerWhiteFlame", label: "EX2E.AnimaColorDefilerWhiteFlame", hex: "#FFFFFF" }
+      ],
+      scourge: [
+        { key: "scourgeRed", label: "EX2E.AnimaColorScourgeRed", hex: "#CC2020" }
+      ],
+      fiend: [
+        { key: "fiendDarkGreen", label: "EX2E.AnimaColorFiendDarkGreen", hex: "#1A5030" },
+        { key: "fiendPurple",    label: "EX2E.AnimaColorFiendPurple",    hex: "#502070" },
+        { key: "fiendBlack",     label: "EX2E.AnimaColorFiendBlack",     hex: "#1A1A1A" }
+      ]
+    }
+  },
+  sidereal: {
+    castes: {
+      journeys: [
+        { key: "siderealJourneysBrightYellow", label: "EX2E.AnimaColorSiderealJourneysBrightYellow", hex: "#FFE000" }
+      ],
+      serenity: [
+        { key: "siderealSerenityBrightBlue", label: "EX2E.AnimaColorSiderealSerenityBrightBlue", hex: "#2080FF" }
+      ],
+      battles: [
+        { key: "siderealBattlesScarlet", label: "EX2E.AnimaColorSiderealBattlesScarlet", hex: "#CC1020" }
+      ],
+      secrets: [
+        { key: "siderealSecretsBrightGreen", label: "EX2E.AnimaColorSiderealSecretsBrightGreen", hex: "#20C040" }
+      ],
+      endings: [
+        { key: "siderealEndingsBrightViolet", label: "EX2E.AnimaColorSiderealEndingsBrightViolet", hex: "#8020C0" }
+      ]
+    }
+  },
+  terrestrial: {
+    castes: {
+      air: [
+        { key: "airWhite",    label: "EX2E.AnimaColorAirWhite",    hex: "#FFFFFF" },
+        { key: "airPaleBlue", label: "EX2E.AnimaColorAirPaleBlue", hex: "#B0D0F0" }
+      ],
+      earth: [
+        { key: "earthYellow", label: "EX2E.AnimaColorEarthYellow", hex: "#E0C030" },
+        { key: "earthWhite",  label: "EX2E.AnimaColorEarthWhite",  hex: "#F0F0E0" }
+      ],
+      fire: [
+        { key: "fireRed",    label: "EX2E.AnimaColorFireRed",    hex: "#DC143C" },
+        { key: "fireOrange", label: "EX2E.AnimaColorFireOrange", hex: "#FF8020" },
+        { key: "fireYellow", label: "EX2E.AnimaColorFireYellow", hex: "#FFD700" },
+        { key: "fireWhite",  label: "EX2E.AnimaColorFireWhite",  hex: "#FFFFFF" }
+      ],
+      water: [
+        { key: "waterDeepBlue", label: "EX2E.AnimaColorWaterDeepBlue", hex: "#2050A0" },
+        { key: "waterTeal",     label: "EX2E.AnimaColorWaterTeal",     hex: "#00CED1" },
+        { key: "waterSeaGreen", label: "EX2E.AnimaColorWaterSeaGreen", hex: "#208060" },
+        { key: "waterDeepBlack", label: "EX2E.AnimaColorWaterDeepBlack", hex: "#1A2A40" }
+      ],
+      wood: [
+        { key: "woodForestGreen", label: "EX2E.AnimaColorWoodForestGreen", hex: "#30B050" },
+        { key: "woodSage",        label: "EX2E.AnimaColorWoodSage",        hex: "#7DB17D" }
+      ]
+    }
+  },
+  alchemical: {
+    castes: {
+      orichalcum: [
+        { key: "orichalcumGoldenFire",     label: "EX2E.AnimaColorOrichalcumGoldenFire",     hex: "#FFD700" },
+        { key: "orichalcumWhiteLightning", label: "EX2E.AnimaColorOrichalcumWhiteLightning", hex: "#FFFFFF" }
+      ],
+      moonsilver: [
+        { key: "moonsilverPaleSilver", label: "EX2E.AnimaColorMoonsilverPaleSilver", hex: "#D0D0D8" },
+        { key: "moonsilverWhite",      label: "EX2E.AnimaColorMoonsilverWhite",      hex: "#F0F0F8" }
+      ],
+      jade: [
+        { key: "jadeGreen",  label: "EX2E.AnimaColorJadeGreen",  hex: "#30A060" },
+        { key: "jadeRed",    label: "EX2E.AnimaColorJadeRed",    hex: "#C03030" },
+        { key: "jadeWhite",  label: "EX2E.AnimaColorJadeWhite",  hex: "#F0F0F0" },
+        { key: "jadeBlue",   label: "EX2E.AnimaColorJadeBlue",   hex: "#2060C0" },
+        { key: "jadeBlack",  label: "EX2E.AnimaColorJadeBlack",  hex: "#1A1A1A" }
+      ],
+      starmetal: [
+        { key: "starmetalDeepBlue",   label: "EX2E.AnimaColorStarmetalDeepBlue",   hex: "#102060" },
+        { key: "starmetalPrismatic",  label: "EX2E.AnimaColorStarmetalPrismatic",  hex: "#7060C0" }
+      ],
+      soulsteel: [
+        { key: "soulsteelSmokyBlack",     label: "EX2E.AnimaColorSoulsteelSmokyBlack",     hex: "#2A2A30" },
+        { key: "soulsteelBlueLightning",  label: "EX2E.AnimaColorSoulsteelBlueLightning",  hex: "#3060C0" }
+      ],
+      adamant: [
+        { key: "adamantPiercingWhite", label: "EX2E.AnimaColorAdamantPiercingWhite", hex: "#F0F0FF" },
+        { key: "adamantPurple",        label: "EX2E.AnimaColorAdamantPurple",        hex: "#8040C0" }
+      ]
+    }
+  }
+};
+
+/**
+ * Returns the palette entries available to an actor based on exalt type + caste.
+ * Solar/Lunar/Abyssal/Infernal: base + caste extras.
+ * Sidereal/Terrestrial/Alchemical: caste-only.
+ */
+export function getAnimaPalette(actor) {
+  const entry = EX2E.animaColors[actor.system.exaltType];
+  if (!entry) return [];
+  return [
+    ...(entry.base ?? []),
+    ...(entry.castes?.[actor.system.caste] ?? [])
+  ];
+}
+
 // ── Ability Groupings by Exalt Type ──────────────────────────────────────
 // Each entry is an array of { key, label (i18n), abilities[] }.
 // "terrestrial" is keyed by aspect instead (built dynamically in the sheet).
