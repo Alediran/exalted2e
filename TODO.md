@@ -132,7 +132,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 ### Solar
 - [x] Baseline Personal / Peripheral pool formulas
 - [x] Caste abilities auto-flag on caste change
-- [ ] Anima banner auto-derived from scene peripheral spend (currently a manual string field)
+- [x] Anima banner auto-derived from scene peripheral spend (`system.scenePeripheral` → `system.anima` enum in `prepareDerivedData`; GM ± nudge + End Scene reset on Main tab)
 - [ ] Eclipse anima oath-binding mechanic (10m + 1 WP; Essence # botches on breakers)
 - [ ] Eclipse non-Solar charm access (2× cost, +2m activation surcharge)
 - [x] Limit Break indicator (Solar/Lunar/Terrestrial/Sidereal) — red label at Limit 10 on sheet
@@ -218,7 +218,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Row-per-penalty-level health track with per-level bonus boxes (−0, −1, −2)
 - [ ] Intimacies section (cap enforcement + ablation UI once Intimacy trait is scored)
 - [x] MDV derived display (Combat tab)
-- [ ] Anima banner auto-calculated display
+- [x] Anima banner auto-calculated display (tier shown on Main tab; caste anima power widget with Activate / Deactivate / View buttons)
 - [ ] Per-splat tab(s) surfacing splat-specific mechanics (Sidereal Paradox, Abyssal Resonance, Infernal Torment/Urge, etc.)
 - [ ] Virtue Channel counter (per-story, not per-scene)
 
@@ -255,6 +255,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 ## Compendium
 - [x] Effects compendium (`exalted2e.effects`) seeded at ready with Creature of Darkness
 - [x] Effect-wrapper pattern for drag-to-actor drops
+- [x] Anima powers compendium (`exalted2e.animapowers`) seeded at ready; 34 entries covering all castes across all exalt types
 - [ ] Pre-built charms compendium (at least Solar Ability charms)
 - [ ] Pre-built weapons / armor compendia (with magical material variants)
 - [ ] Pre-built spells compendium (Terrestrial through Solar circles + Shadowlands/Labyrinth/Void)
@@ -262,7 +263,8 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Status effects compendium (Knockdown, Stun, Clinched, Poisoned, Diseased, Prone-per-leg, Crippled)
 
 ## Other Mechanics
-- [ ] Anima powers per exalt type and caste (automated trigger at ≥11m peripheral spend per scene)
+- [x] Anima powers per exalt type and caste (embedded `animapower` item on actor; 34-entry compendium; swapped on caste/exaltType change; manual activate/deactivate with mote + WP cost)
+- [ ] Auto-activate caste anima power at ≥11m peripheral scene spend (bonfire threshold)
 - [ ] Anima flux (Terrestrial environmental damage, Abyssal Resonance effects)
 - [ ] Resonance track and eruptions (Abyssal) — see Abyssal splat
 - [ ] Torment / Act of Villainy tracking (Infernal) — see Infernal splat
