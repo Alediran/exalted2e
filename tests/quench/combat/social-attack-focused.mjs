@@ -43,7 +43,7 @@ export function registerSocialAttackFocused(context) {
     afterEach(sweep);
 
     // 1. Happy path — rollSocialAttack posts a chat card with the snapshot.
-    it("happy path: posts a social card with the expected snapshot", async function () {
+    it("[71] happy path: posts a social card with the expected snapshot", async function () {
       const { attacker, defender } = await setupSocialFixture();
       const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
       const message = await ExaltedRoll.rollSocialAttack(attacker, {
@@ -62,7 +62,7 @@ export function registerSocialAttackFocused(context) {
     });
 
     // 2. Pool composition: attribute + ability (no excellency, no stunt).
-    it("pool composition: Charisma + Presence (clean baseline)", async function () {
+    it("[72] pool composition: Charisma + Presence (clean baseline)", async function () {
       const { attacker, defender } = await setupSocialFixture();
       const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
       const message = await ExaltedRoll.rollSocialAttack(attacker, {
@@ -77,7 +77,7 @@ export function registerSocialAttackFocused(context) {
     });
 
     // 3. Pool composition with stunt dice + first excellency.
-    it("pool composition: stunt + firstExcellency add to the pool", async function () {
+    it("[73] pool composition: stunt + firstExcellency add to the pool", async function () {
       const { attacker, defender } = await setupSocialFixture();
       // Bump motes so excellency mote spend doesn't fail.
       await attacker.update({
@@ -102,7 +102,7 @@ export function registerSocialAttackFocused(context) {
     //    (Per project_socialize_is_social_stealth: rollSocialAttack itself
     //    accepts any ability — Socialize rejection lives in the dialog. We
     //    verify the four allowed abilities compose correctly here.)
-    it("ability=Performance produces pool composition with the right ability value", async function () {
+    it("[74] ability=Performance produces pool composition with the right ability value", async function () {
       const { attacker, defender } = await setupSocialFixture();
       const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
       const message = await ExaltedRoll.rollSocialAttack(attacker, {
@@ -117,7 +117,7 @@ export function registerSocialAttackFocused(context) {
     });
 
     // 5. Positive intimacy claim verification.
-    it("supportingIntimacy: claim verified when defender has a positive intimacy", async function () {
+    it("[75] supportingIntimacy: claim verified when defender has a positive intimacy", async function () {
       const { attacker, defender } = await setupSocialFixture();
       await addIntimacy(defender, { positive: true,  subject: "Smooth" });
       const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
@@ -133,7 +133,7 @@ export function registerSocialAttackFocused(context) {
     });
 
     // 6. Negative intimacy claim.
-    it("opposingIntimacy: claim verified when defender has a negative intimacy", async function () {
+    it("[76] opposingIntimacy: claim verified when defender has a negative intimacy", async function () {
       const { attacker, defender } = await setupSocialFixture();
       await addIntimacy(defender, { positive: false, subject: "Smooth" });
       const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
@@ -147,7 +147,7 @@ export function registerSocialAttackFocused(context) {
     });
 
     // 7. Motivation claim verified.
-    it("supportingMotivation: claim verified when defender has a motivation", async function () {
+    it("[77] supportingMotivation: claim verified when defender has a motivation", async function () {
       const { attacker, defender } = await setupSocialFixture();
       await addMotivation(defender, "Reclaim my throne");
       const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
@@ -161,7 +161,7 @@ export function registerSocialAttackFocused(context) {
     });
 
     // 8. Net-sum stacking: best supporting + best opposing combine.
-    it("net-sum stacking: best supporting + best opposing combine", async function () {
+    it("[78] net-sum stacking: best supporting + best opposing combine", async function () {
       const { attacker, defender } = await setupSocialFixture();
       await addIntimacy(defender, { positive: true,  subject: "Smooth" });   // -1
       await addIntimacy(defender, { positive: false, subject: "Smooth" });   // +1
@@ -183,7 +183,7 @@ export function registerSocialAttackFocused(context) {
     });
 
     // 9. Appearance delta: higher attacker App lowers defender MDV.
-    it("appearance delta: attacker App > defender App lowers MDV", async function () {
+    it("[79] appearance delta: attacker App > defender App lowers MDV", async function () {
       const { attacker, defender } = await setupSocialFixture({
         attackerOpts: { app: 5 },        // App 5
         defenderOpts: { app: 2 }         // App 2 → delta 3
@@ -201,7 +201,7 @@ export function registerSocialAttackFocused(context) {
     });
 
     // 10. Natural cap: defender's wpDrainedNatural >= 2 forces auto-fail.
-    it("natural cap: defender's wpDrainedNatural >= 2 forces autoFailedByNaturalCap=true", async function () {
+    it("[80] natural cap: defender's wpDrainedNatural >= 2 forces autoFailedByNaturalCap=true", async function () {
       const { attacker, defender } = await setupSocialFixture();
       // Pre-stamp the per-scene flag so this attack hits the cap.
       await defender.update({

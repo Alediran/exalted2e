@@ -103,7 +103,7 @@ export function registerSorceryShapingSmoke(context) {
     }
 
     // S1: Real dialog → confirm → first-shape state set
-    it("real dialog: confirm sets first-shape state", async function () {
+    it("[43] real dialog: confirm sets first-shape state", async function () {
       const { caster, combatant, spell } = await setup({ circle: 1 });
 
       const { castSpellFlow } = await import("../../../module/ui/cast-spell-flow.mjs");
@@ -126,7 +126,7 @@ export function registerSorceryShapingSmoke(context) {
     });
 
     // S2: Real abort: confirm shape → commit non-sorcery → state cleared
-    it("real abort flow: confirm shape, commit non-sorcery action → state cleared", async function () {
+    it("[44] real abort flow: confirm shape, commit non-sorcery action → state cleared", async function () {
       const { caster, combat, combatant, spell } = await setup({ circle: 1 });
 
       const { castSpellFlow } = await import("../../../module/ui/cast-spell-flow.mjs");

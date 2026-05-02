@@ -19,7 +19,7 @@ export function registerCasteAttributes(context) {
     before(() => assertTestWorld());
     afterEach(async () => { await sweep(); });
 
-    it("Lunar Full Moon caste sets attribute caste flags on physical attrs", async () => {
+    it("[117] Lunar Full Moon caste sets attribute caste flags on physical attrs", async () => {
       const actor = await createTempCharacter({ name: "Q-Lunar-Full" });
       await actor.update({ "system.exaltType": "lunar" });
       await actor.update({ "system.caste": "full" });
@@ -31,7 +31,7 @@ export function registerCasteAttributes(context) {
       assert.equal(actor.system.attributes.wits.caste, false);
     });
 
-    it("Switching Lunar caste rewrites attribute caste flags", async () => {
+    it("[118] Switching Lunar caste rewrites attribute caste flags", async () => {
       const actor = await createTempCharacter({ name: "Q-Lunar-Switch" });
       await actor.update({ "system.exaltType": "lunar" });
       await actor.update({ "system.caste": "full" });
@@ -44,7 +44,7 @@ export function registerCasteAttributes(context) {
       assert.equal(actor.system.attributes.wits.caste, true);
     });
 
-    it("Heart's Blood form item persists and active-form linkage round-trips", async () => {
+    it("[119] Heart's Blood form item persists and active-form linkage round-trips", async () => {
       const actor = await createTempCharacter({ name: "Q-Lunar-HeartsBlood" });
       await actor.update({ "system.exaltType": "lunar" });
 

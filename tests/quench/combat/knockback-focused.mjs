@@ -21,7 +21,7 @@ export function registerKnockbackFocused(context) {
     afterEach(sweep);
 
     // Test 1: Early-return guard — non-character target.
-    it("no-ops when target actor is not a character", async function () {
+    it("[1] no-ops when target actor is not a character", async function () {
       const attacker = await createTempCharacter({ name: "Attacker" });
       const npc = await Actor.create({ name: "NPC", type: "npc", system: {} });
       register(npc); // manual register — actors.mjs only creates characters
@@ -39,7 +39,7 @@ export function registerKnockbackFocused(context) {
     });
 
     // Test 2: Knockback compute — doesn't fire (pool ≤ Sta+Res).
-    it("does not move the token when effective pool ≤ Sta+Res", async function () {
+    it("[2] does not move the token when effective pool ≤ Sta+Res", async function () {
       const attacker = await createTempCharacter();
       const defender = await createTempCharacter({ sta: 3, res: 3 }); // threshold = 6
       const scene = getTestScene();
@@ -55,7 +55,7 @@ export function registerKnockbackFocused(context) {
     });
 
     // Test 3: Knockback compute — fires. Token translates floor(dice/3) yards along vector.
-    it("translates the target token along the attack vector when threshold exceeded", async function () {
+    it("[3] translates the target token along the attack vector when threshold exceeded", async function () {
       const attacker = await createTempCharacter();
       const defender = await createTempCharacter({ sta: 1, res: 1, dex: 5, ath: 5 }); // threshold = 2
       const scene = getTestScene();
@@ -89,7 +89,7 @@ export function registerKnockbackFocused(context) {
     });
 
     // Test 4: Knockdown trigger — doesn't trigger (distance ≤ Dex+Ath).
-    it("does not trigger knockdown when distance ≤ Dex+Ath", async function () {
+    it("[4] does not trigger knockdown when distance ≤ Dex+Ath", async function () {
       const attacker = await createTempCharacter();
       const defender = await createTempCharacter({ sta: 1, res: 0, dex: 5, ath: 5 }); // threshold=1, mobility=10
       const scene = getTestScene();
@@ -108,7 +108,7 @@ export function registerKnockbackFocused(context) {
     });
 
     // Test 5: Knockdown trigger — NPC defender, auto-roll fails → Prone applied.
-    it("applies Prone when knockdown triggers and NPC auto-roll fails", async function () {
+    it("[5] applies Prone when knockdown triggers and NPC auto-roll fails", async function () {
       stubRollPool(0); // 0 successes → fail (need ≥ 2)
       const attacker = await createTempCharacter();
       const defender = await createTempCharacter({ sta: 1, res: 0, dex: 1, ath: 0 }); // mobility=1
@@ -126,7 +126,7 @@ export function registerKnockbackFocused(context) {
     });
 
     // Test 6: Knockdown trigger — NPC defender, auto-roll passes → no Prone.
-    it("does not apply Prone when knockdown triggers and NPC auto-roll passes", async function () {
+    it("[6] does not apply Prone when knockdown triggers and NPC auto-roll passes", async function () {
       stubRollPool(3); // 3 successes → pass
       const attacker = await createTempCharacter();
       const defender = await createTempCharacter({ sta: 1, res: 0, dex: 1, ath: 0 });
@@ -142,7 +142,7 @@ export function registerKnockbackFocused(context) {
     });
 
     // Test 7: Knockdown trigger — player-owned defender → pending flag, no auto-roll.
-    it("sets knockdownPending without rolling when defender is player-owned", async function () {
+    it("[7] sets knockdownPending without rolling when defender is player-owned", async function () {
       const original = ExaltedRoll.rollPool;
       let callCount = 0;
       ExaltedRoll.rollPool = async () => { callCount++; return { successes: 0 }; };
@@ -167,7 +167,7 @@ export function registerKnockbackFocused(context) {
     });
 
     // Test 8: Stun triggers independently (no knockback).
-    it("stamps a dvRefreshable externalPenalty AE when stun triggers without knockback", async function () {
+    it("[8] stamps a dvRefreshable externalPenalty AE when stun triggers without knockback", async function () {
       const attacker = await createTempCharacter();
       const defender = await createTempCharacter({ sta: 2, res: 4 }); // kb threshold = 6
       const scene = getTestScene();
@@ -187,7 +187,7 @@ export function registerKnockbackFocused(context) {
     });
 
     // Test 9: onKnockdownResistClick — fail path → Prone applied, resolution updated.
-    it("applies Prone via onKnockdownResistClick when the resist roll fails", async function () {
+    it("[9] applies Prone via onKnockdownResistClick when the resist roll fails", async function () {
       stubRollPool(0);
       const attacker = await createTempCharacter();
       const defender = await createTempCharacter({ sta: 1, res: 0, dex: 1, ath: 0, playerOwner: true });
@@ -210,7 +210,7 @@ export function registerKnockbackFocused(context) {
     });
 
     // Test 10: onKnockdownResistClick — non-owner non-GM → warn toast + bail.
-    it("warns and bails when onKnockdownResistClick is invoked without owner permission", async function () {
+    it("[10] warns and bails when onKnockdownResistClick is invoked without owner permission", async function () {
       const attacker = await createTempCharacter();
       const defender = await createTempCharacter({ sta: 1, res: 0, dex: 1, ath: 0, playerOwner: true });
       const scene = getTestScene();

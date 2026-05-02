@@ -25,7 +25,7 @@ export function registerCombatHudSmoke(context) {
     before(() => assertTestWorld());
     afterEach(async () => { await sweep(); });
 
-    it("renders the current tick in the tick-wheel HUD after wheel advance", async () => {
+    it("[115] renders the current tick in the tick-wheel HUD after wheel advance", async () => {
       const a = await createTempCharacter({ name: "Q-Hud-A" });
       const b = await createTempCharacter({ name: "Q-Hud-B" });
       await placeToken(a, getTestScene());
@@ -58,7 +58,7 @@ export function registerCombatHudSmoke(context) {
         `tick-wheel DOM contains wheelTick ${expectedWheelTick} (collapsed='${collapsedText}', footer='${footerText}')`);
     });
 
-    it("transitions from Roll section to Begin section once joinBattleSuccesses lands", async () => {
+    it("[116] transitions from Roll section to Begin section once joinBattleSuccesses lands", async () => {
       const a = await createTempCharacter({ name: "Q-JB-A" });
       const b = await createTempCharacter({ name: "Q-JB-B" });
       await placeToken(a, getTestScene());

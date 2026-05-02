@@ -9,7 +9,7 @@ export function registerSubmodules(context) {
     before(() => assertTestWorld());
     afterEach(async () => { await sweep(); });
 
-    it("permanent submodule with parent installed and essence met → effectivelyActive = true", async () => {
+    it("[137] permanent submodule with parent installed and essence met → effectivelyActive = true", async () => {
       const actor = await createTempCharacter({ name: "Q-Submod-ActivePerm" });
       await actor.update({ "system.exaltType": "alchemical", "system.essence.value": 3 });
 
@@ -26,7 +26,7 @@ export function registerSubmodules(context) {
       assert.equal(sub.system.effectivelyActive, true);
     });
 
-    it("permanent submodule with parent not installed → effectivelyActive = false", async () => {
+    it("[138] permanent submodule with parent not installed → effectivelyActive = false", async () => {
       const actor = await createTempCharacter({ name: "Q-Submod-ParentOff" });
       await actor.update({ "system.exaltType": "alchemical", "system.essence.value": 3 });
 
@@ -43,7 +43,7 @@ export function registerSubmodules(context) {
       assert.equal(sub.system.effectivelyActive, false);
     });
 
-    it("permanent submodule with essence requirement not met → effectivelyActive = false", async () => {
+    it("[139] permanent submodule with essence requirement not met → effectivelyActive = false", async () => {
       const actor = await createTempCharacter({ name: "Q-Submod-EssLow" });
       await actor.update({ "system.exaltType": "alchemical", "system.essence.value": 2 });
 
@@ -61,7 +61,7 @@ export function registerSubmodules(context) {
       assert.equal(sub.system.effectivelyActive, false);
     });
 
-    it("supplemental submodule with active = false → effectivelyActive = false", async () => {
+    it("[140] supplemental submodule with active = false → effectivelyActive = false", async () => {
       const actor = await createTempCharacter({ name: "Q-Submod-InactiveSupp" });
       await actor.update({ "system.exaltType": "alchemical", "system.essence.value": 3 });
 
@@ -78,7 +78,7 @@ export function registerSubmodules(context) {
       assert.equal(sub.system.effectivelyActive, false);
     });
 
-    it("supplemental submodule with active = true → effectivelyActive = true", async () => {
+    it("[141] supplemental submodule with active = true → effectivelyActive = true", async () => {
       const actor = await createTempCharacter({ name: "Q-Submod-ActiveSupp" });
       await actor.update({ "system.exaltType": "alchemical", "system.essence.value": 3 });
 
@@ -95,7 +95,7 @@ export function registerSubmodules(context) {
       assert.equal(sub.system.effectivelyActive, true);
     });
 
-    it("activateCharm returns false when submodule is inactive", async () => {
+    it("[142] activateCharm returns false when submodule is inactive", async () => {
       const actor = await createTempCharacter({ name: "Q-Submod-ActGuard" });
       await actor.update({ "system.exaltType": "alchemical", "system.essence.value": 3 });
 
@@ -113,7 +113,7 @@ export function registerSubmodules(context) {
       assert.equal(result, false);
     });
 
-    it("activateCharm succeeds (does not return false) for permanent submodule with parent installed", async () => {
+    it("[143] activateCharm succeeds (does not return false) for permanent submodule with parent installed", async () => {
       const actor = await createTempCharacter({ name: "Q-Submod-ActOk" });
       await actor.update({ "system.exaltType": "alchemical", "system.essence.value": 3 });
 

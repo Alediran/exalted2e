@@ -56,7 +56,7 @@ export function registerLimitBreak(context) {
       await sweep();
     });
 
-    it("posts a chat card when a classical exalt's Limit reaches 10", async () => {
+    it("[148] posts a chat card when a classical exalt's Limit reaches 10", async () => {
       const { actor } = await makeSolarWithFlaw({ name: "Q-LB-Post" });
       const startCount = game.messages.size;
       await actor.update({ "system.limit.value": 10 });
@@ -64,7 +64,7 @@ export function registerLimitBreak(context) {
       assert.ok(game.messages.size > startCount, "chat card posted");
     });
 
-    it("card flags carry actorId, virtueFlawId, virtueRating, and resolved: false", async () => {
+    it("[149] card flags carry actorId, virtueFlawId, virtueRating, and resolved: false", async () => {
       const { actor, flaw } = await makeSolarWithFlaw({ name: "Q-LB-Flags", compassionRating: 3 });
       await actor.update({ "system.limit.value": 10 });
       const msg = await waitForLBCard(actor);
@@ -75,7 +75,7 @@ export function registerLimitBreak(context) {
       assert.equal(lb.resolved,     false,      "resolved: false");
     });
 
-    it("Full Break restores Virtue rating as Temporal WP and resets Limit to 0", async () => {
+    it("[150] Full Break restores Virtue rating as Temporal WP and resets Limit to 0", async () => {
       const { actor } = await makeSolarWithFlaw({ name: "Q-LB-Full", compassionRating: 3, wp: 5, wpMax: 10 });
       await actor.update({ "system.limit.value": 10 });
       const msg = await waitForLBCard(actor);
@@ -86,7 +86,7 @@ export function registerLimitBreak(context) {
       assert.equal(msg.flags.exalted2e.limitBreak.choice, "full");
     });
 
-    it("Full Break caps WP recovery at willpower.max", async () => {
+    it("[151] Full Break caps WP recovery at willpower.max", async () => {
       const { actor } = await makeSolarWithFlaw({ name: "Q-LB-Cap", compassionRating: 3, wp: 9, wpMax: 10 });
       await actor.update({ "system.limit.value": 10 });
       const msg = await waitForLBCard(actor);
@@ -96,7 +96,7 @@ export function registerLimitBreak(context) {
       assert.equal(actor.toObject().system.limit.value, 0, "Limit reset to 0");
     });
 
-    it("Partial Control resets Limit to 0 without WP change", async () => {
+    it("[152] Partial Control resets Limit to 0 without WP change", async () => {
       const { actor } = await makeSolarWithFlaw({ name: "Q-LB-Partial", compassionRating: 3, wp: 5, wpMax: 10 });
       await actor.update({ "system.limit.value": 10 });
       const msg = await waitForLBCard(actor);
@@ -107,7 +107,7 @@ export function registerLimitBreak(context) {
       assert.equal(msg.flags.exalted2e.limitBreak.choice, "partial");
     });
 
-    it("resolved guard: second _resolveLimitBreak call is a no-op", async () => {
+    it("[153] resolved guard: second _resolveLimitBreak call is a no-op", async () => {
       const { actor } = await makeSolarWithFlaw({ name: "Q-LB-Guard", compassionRating: 3, wp: 5, wpMax: 10 });
       await actor.update({ "system.limit.value": 10 });
       const msg = await waitForLBCard(actor);
@@ -118,7 +118,7 @@ export function registerLimitBreak(context) {
       assert.equal(actor.system.willpower.value, wpAfterFirst, "second call changes nothing");
     });
 
-    it("dedup guard: actor already in pending set does not receive a second card", async () => {
+    it("[154] dedup guard: actor already in pending set does not receive a second card", async () => {
       const { actor } = await makeSolarWithFlaw({ name: "Q-LB-Dedup" });
       _limitBreakPending.add(actor.id);
       const startCount = game.messages.size;
@@ -127,7 +127,7 @@ export function registerLimitBreak(context) {
       assert.equal(game.messages.size, startCount, "no card while actor is pending");
     });
 
-    it("dropping Limit below 10 clears pending, allowing a second card on re-raise", async () => {
+    it("[155] dropping Limit below 10 clears pending, allowing a second card on re-raise", async () => {
       const { actor } = await makeSolarWithFlaw({ name: "Q-LB-Reset" });
       const startCount = game.messages.size;
       await actor.update({ "system.limit.value": 10 });
@@ -144,7 +144,7 @@ export function registerLimitBreak(context) {
       register(findLBCard(actor.id));
     });
 
-    it("posts a warning card with null virtueFlawId when actor has no VirtueFlaw item", async () => {
+    it("[156] posts a warning card with null virtueFlawId when actor has no VirtueFlaw item", async () => {
       const actor = await createTempCharacter({ name: "Q-LB-NoFlaw" });
       await actor.update({ "system.exaltType": "solar" });
       const startCount = game.messages.size;
@@ -157,7 +157,7 @@ export function registerLimitBreak(context) {
       assert.equal(msg.flags.exalted2e.limitBreak.virtueRating, 0,    "virtue rating is 0");
     });
 
-    it("does not post a Limit Break card for non-classical exalts (abyssal)", async () => {
+    it("[157] does not post a Limit Break card for non-classical exalts (abyssal)", async () => {
       const actor = await createTempCharacter({ name: "Q-LB-Abyssal" });
       await actor.update({ "system.exaltType": "abyssal" });
       const startCount = game.messages.size;

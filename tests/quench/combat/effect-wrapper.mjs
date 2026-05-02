@@ -52,7 +52,7 @@ export function registerEffectWrapper(context) {
     afterEach(async () => { await sweep(); });
 
     // Test 1: Pack contains the seeded entries
-    it("contains every entry from _EFFECT_WRAPPER_SEEDS", async () => {
+    it("[112] contains every entry from _EFFECT_WRAPPER_SEEDS", async () => {
       const pack = game.packs.get("exalted2e.effects");
       assert.ok(pack, "exalted2e.effects pack exists");
 
@@ -69,7 +69,7 @@ export function registerEffectWrapper(context) {
     });
 
     // Test 2: Wrapper extraction on drop
-    it("extracts the embedded AE onto the actor and cancels the item creation", async () => {
+    it("[113] extracts the embedded AE onto the actor and cancels the item creation", async () => {
       const actor = await createTempCharacter({ name: "Q-Wrapper-Drop" });
       const infoCalls = stubInfo();
 
@@ -94,7 +94,7 @@ export function registerEffectWrapper(context) {
     });
 
     // Test 3: AE flag preservation
-    it("preserves the seeded AE flags on the extracted effect", async () => {
+    it("[114] preserves the seeded AE flags on the extracted effect", async () => {
       const actor = await createTempCharacter({ name: "Q-Wrapper-Flags" });
       stubInfo();
 

@@ -26,7 +26,7 @@ export function registerAnima(context) {
 
     // ── scenePeripheral increment rules ──────────────────────────────────────
 
-    it("peripheral spend increments scenePeripheral by the drawn amount", async () => {
+    it("[158] peripheral spend increments scenePeripheral by the drawn amount", async () => {
       const actor = await createTempCharacter({ name: "Q-Anima-PeriSpend" });
       await actor.update({
         "system.exaltType":                "solar",
@@ -39,7 +39,7 @@ export function registerAnima(context) {
       assert.equal(actor.system.scenePeripheral, 5, "scenePeripheral incremented by 5");
     });
 
-    it("pure personal spend with no overflow does not increment scenePeripheral", async () => {
+    it("[159] pure personal spend with no overflow does not increment scenePeripheral", async () => {
       const actor = await createTempCharacter({ name: "Q-Anima-PurePersonal" });
       await actor.update({
         "system.exaltType":              "solar",
@@ -52,7 +52,7 @@ export function registerAnima(context) {
       assert.equal(actor.system.scenePeripheral, 0, "pure personal spend: no scenePeripheral change");
     });
 
-    it("personal spend that overflows to peripheral increments scenePeripheral by overflow only", async () => {
+    it("[160] personal spend that overflows to peripheral increments scenePeripheral by overflow only", async () => {
       const actor = await createTempCharacter({ name: "Q-Anima-Overflow" });
       await actor.update({
         "system.exaltType":              "solar",
@@ -70,7 +70,7 @@ export function registerAnima(context) {
 
     // ── Tier derivation ──────────────────────────────────────────────────────
 
-    it("anima tier resolves correctly for each spend threshold", async () => {
+    it("[161] anima tier resolves correctly for each spend threshold", async () => {
       const actor = await createTempCharacter({ name: "Q-Anima-Tiers" });
       await actor.update({ "system.exaltType": "solar" });
 
@@ -93,7 +93,7 @@ export function registerAnima(context) {
       assert.equal(actor.system.anima, "totemic", "sp=16 → totemic");
     });
 
-    it("mortal actor always resolves to 'none' regardless of scenePeripheral", async () => {
+    it("[162] mortal actor always resolves to 'none' regardless of scenePeripheral", async () => {
       const actor = await createTempCharacter({ name: "Q-Anima-Mortal" });
       await actor.update({ "system.exaltType": "mortal", "system.scenePeripheral": 20 });
       assert.equal(actor.system.anima, "none", "mortal stays at none even at sp=20");
@@ -101,7 +101,7 @@ export function registerAnima(context) {
 
     // ── endCombat reset ──────────────────────────────────────────────────────
 
-    it("endCombat resets scenePeripheral to 0 for all character combatants", async () => {
+    it("[163] endCombat scene-change fade: Burning → Glowing, Glowing → Dim", async () => {
       const a1 = await createTempCharacter({ name: "Q-Anima-EndC-1" });
       const a2 = await createTempCharacter({ name: "Q-Anima-EndC-2" });
       await a1.update({ "system.exaltType": "solar", "system.scenePeripheral": 10 });
@@ -121,13 +121,90 @@ export function registerAnima(context) {
       } finally {
         DV2.confirm = origConfirm;
       }
-      assert.equal(a1.system.scenePeripheral, 0, "a1 reset to 0");
-      assert.equal(a2.system.scenePeripheral, 0, "a2 reset to 0");
+      assert.equal(a1.system.scenePeripheral, 7, "a1 faded from Burning (10) to Glowing (7)");
+      assert.equal(a2.system.scenePeripheral, 3, "a2 faded from Glowing (5) to Dim (3)");
+    });
+
+    it("[164] endCombat scene-change fade: Bonfire and Totemic both land at Burning", async () => {
+      const a1 = await createTempCharacter({ name: "Q-Fade-Bonfire" });
+      const a2 = await createTempCharacter({ name: "Q-Fade-Totemic" });
+      await a1.update({ "system.exaltType": "solar", "system.scenePeripheral": 12 });
+      await a2.update({ "system.exaltType": "solar", "system.scenePeripheral": 20 });
+      const combat = await Combat.create({ scene: game.scenes.active?.id });
+      register(combat);
+      await combat.createEmbeddedDocuments("Combatant", [
+        { actorId: a1.id },
+        { actorId: a2.id },
+      ]);
+      const DV2 = foundry.applications.api.DialogV2;
+      const origConfirm = DV2.confirm.bind(DV2);
+      DV2.confirm = () => Promise.resolve(true);
+      try {
+        await combat.endCombat();
+      } finally {
+        DV2.confirm = origConfirm;
+      }
+      assert.equal(a1.system.scenePeripheral, 10, "Bonfire (sp=12) → Burning (sp=10)");
+      assert.equal(a2.system.scenePeripheral, 10, "Totemic (sp=20) → Burning (sp=10)");
+    });
+
+    it("[165] endCombat scene-change fade: Dim is unchanged", async () => {
+      const actor = await createTempCharacter({ name: "Q-Fade-Dim" });
+      await actor.update({ "system.exaltType": "solar", "system.scenePeripheral": 2 });
+      const combat = await Combat.create({ scene: game.scenes.active?.id });
+      register(combat);
+      await combat.createEmbeddedDocuments("Combatant", [{ actorId: actor.id }]);
+      const DV2 = foundry.applications.api.DialogV2;
+      const origConfirm = DV2.confirm.bind(DV2);
+      DV2.confirm = () => Promise.resolve(true);
+      try {
+        await combat.endCombat();
+      } finally {
+        DV2.confirm = origConfirm;
+      }
+      assert.equal(actor.system.scenePeripheral, 2, "Dim (sp=2) stays at 2");
+    });
+
+    it("[166] Totemic drops to Bonfire on Finish Turn when no peripheral spent", async () => {
+      const actor = await createTempCharacter({ name: "Q-Fade-TotNoSpend" });
+      await actor.update({
+        "system.exaltType":              "solar",
+        "system.essence.value":          5,
+        "system.motes.peripheral.value": 30,
+        "system.scenePeripheral":        16
+      });
+      const combat = await Combat.create({ scene: game.scenes.active?.id });
+      register(combat);
+      await combat.createEmbeddedDocuments("Combatant", [{ actorId: actor.id }]);
+      // startCombat stamps peripheralAtActionStart = 16 on the first combatant.
+      await combat.startCombat();
+      await combat.advanceCurrentByTicks(5);
+      assert.equal(actor.system.scenePeripheral, 15, "sp dropped from Totemic (16) to Bonfire (15)");
+    });
+
+    it("[167] Totemic stays when peripheral is spent during the action", async () => {
+      const actor = await createTempCharacter({ name: "Q-Fade-TotSpend" });
+      await actor.update({
+        "system.exaltType":              "solar",
+        "system.essence.value":          5,
+        "system.motes.peripheral.value": 30,
+        "system.scenePeripheral":        16
+      });
+      const combat = await Combat.create({ scene: game.scenes.active?.id });
+      register(combat);
+      await combat.createEmbeddedDocuments("Combatant", [{ actorId: actor.id }]);
+      // startCombat stamps peripheralAtActionStart = 16.
+      await combat.startCombat();
+      // Spend 3 peripheral → scenePeripheral rises to 19 (> startSp of 16).
+      await actor.spendMotes(3, "peripheral");
+      assert.equal(actor.system.scenePeripheral, 19, "peripheral spend raised sp to 19");
+      await combat.advanceCurrentByTicks(5);
+      assert.equal(actor.system.scenePeripheral, 19, "sp stays at 19 — Totemic not dropped");
     });
 
     // ── DB Flux card detection ────────────────────────────────────────────────
 
-    it("DB flux card is posted when a terrestrial spend crosses into burning", async () => {
+    it("[168] DB flux card is posted when a terrestrial spend crosses into burning", async () => {
       const actor = await createTempCharacter({ name: "Q-Anima-Flux-Burn" });
       await actor.update({
         "system.exaltType":              "terrestrial",
@@ -148,7 +225,7 @@ export function registerAnima(context) {
       assert.equal(msg.flags.exalted2e.dbFlux.tier, "burning", "tier is burning");
     });
 
-    it("DB flux card posts again on bonfire entry and again on totemic entry", async () => {
+    it("[169] DB flux card posts again on bonfire entry and again on totemic entry", async () => {
       const actor = await createTempCharacter({ name: "Q-Anima-Flux-Scale" });
       await actor.update(
         { "system.exaltType": "terrestrial", "system.essence.value": 3, "system.scenePeripheral": 10 },
@@ -180,7 +257,7 @@ export function registerAnima(context) {
       assert.equal(totemicMsg.flags.exalted2e.dbFlux.tier, "totemic", "totemic card tier");
     });
 
-    it("non-terrestrial at same spend values does NOT receive a flux card", async () => {
+    it("[170] non-terrestrial at same spend values does NOT receive a flux card", async () => {
       const actor = await createTempCharacter({ name: "Q-Anima-Flux-Solar" });
       await actor.update({
         "system.exaltType":    "solar",

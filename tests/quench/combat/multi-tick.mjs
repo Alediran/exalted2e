@@ -32,7 +32,7 @@ export function registerMultiTick(context) {
     afterEach(sweep);
 
     // 1. dispatchTickAdvance while ticksElapsed < totalTicks
-    it("calls onTick (and not onComplete) while incomplete", async function () {
+    it("[23] calls onTick (and not onComplete) while incomplete", async function () {
       const a = await createTempCharacter({ name: "Alice" });
       const sc = getTestScene();
       await placeToken(a, sc, { x: 0, y: 0 });
@@ -53,7 +53,7 @@ export function registerMultiTick(context) {
     });
 
     // 2. dispatchTickAdvance reaching ticksRequired
-    it("calls onComplete (and onTick) when reaching the cycle boundary", async function () {
+    it("[24] calls onComplete (and onTick) when reaching the cycle boundary", async function () {
       const a = await createTempCharacter({ name: "Alice" });
       const sc = getTestScene();
       await placeToken(a, sc, { x: 0, y: 0 });
@@ -74,7 +74,7 @@ export function registerMultiTick(context) {
     });
 
     // 3. Cycle action increments cycleCount on boundary
-    it("increments cycleCount when crossing the boundary", async function () {
+    it("[25] increments cycleCount when crossing the boundary", async function () {
       const a = await createTempCharacter({ name: "Alice" });
       const sc = getTestScene();
       await placeToken(a, sc, { x: 0, y: 0 });
@@ -96,7 +96,7 @@ export function registerMultiTick(context) {
     });
 
     // 4. planCommitOther fires onCommitOther when committing a different action
-    it("dispatches onCommitOther when commit fires with a non-multi-tick pending action", async function () {
+    it("[26] dispatches onCommitOther when commit fires with a non-multi-tick pending action", async function () {
       const a = await createTempCharacter({ name: "Alice" });
       const sc = getTestScene();
       await placeToken(a, sc, { x: 0, y: 0 });
@@ -123,7 +123,7 @@ export function registerMultiTick(context) {
     });
 
     // 5. dispatchTickAdvance on combatant with NO multiTickAction → no-op, no errors
-    it("is a no-op on a combatant with no multiTickAction", async function () {
+    it("[27] is a no-op on a combatant with no multiTickAction", async function () {
       const a = await createTempCharacter({ name: "Alice" });
       const sc = getTestScene();
       await placeToken(a, sc, { x: 0, y: 0 });
@@ -140,7 +140,7 @@ export function registerMultiTick(context) {
     });
 
     // 6. dispatchTickAdvance for an actionKey with no registered handler
-    it("is a no-op when the multiTickAction's actionKey has no handler registered", async function () {
+    it("[28] is a no-op when the multiTickAction's actionKey has no handler registered", async function () {
       const a = await createTempCharacter({ name: "Alice" });
       const sc = getTestScene();
       await placeToken(a, sc, { x: 0, y: 0 });
@@ -162,7 +162,7 @@ export function registerMultiTick(context) {
     });
 
     // 7. Two combatants with multi-tick actions, both dispatched on advanceWheel
-    it("dispatches once per combatant with a multi-tick action on advanceWheel", async function () {
+    it("[29] dispatches once per combatant with a multi-tick action on advanceWheel", async function () {
       const a = await createTempCharacter({ name: "Alice" });
       const b = await createTempCharacter({ name: "Bob" });
       const sc = getTestScene();
@@ -202,7 +202,7 @@ export function registerMultiTick(context) {
     });
 
     // 8. clearAllMultiTickActions clears flags + fires onAbort
-    it("clearAllMultiTickActions clears the flag and fires onAbort", async function () {
+    it("[30] clearAllMultiTickActions clears the flag and fires onAbort", async function () {
       const a = await createTempCharacter({ name: "Alice" });
       const sc = getTestScene();
       await placeToken(a, sc, { x: 0, y: 0 });

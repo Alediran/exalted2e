@@ -19,7 +19,7 @@ export function registerDBT(context) {
     before(() => assertTestWorld());
     afterEach(async () => { await sweep(); });
 
-    it("substitutes physical attributes when activeFormId points to a warform item", async () => {
+    it("[123] substitutes physical attributes when activeFormId points to a warform item", async () => {
       const actor = await createTempCharacter({
         name: "Q-DBT-Subst",
         str: 2, dex: 2, sta: 2
@@ -44,7 +44,7 @@ export function registerDBT(context) {
       assert.equal(actor.system.attributes.stamina.value,   6);
     });
 
-    it("clearing activeFormId from a warform reverts attributes to base", async () => {
+    it("[124] clearing activeFormId from a warform reverts attributes to base", async () => {
       const actor = await createTempCharacter({
         name: "Q-DBT-Revert",
         str: 2, dex: 2, sta: 2
@@ -70,7 +70,7 @@ export function registerDBT(context) {
       assert.equal(actor.system.attributes.stamina.value,   2);
     });
 
-    it("deleting the active warform clears activeFormId", async () => {
+    it("[125] deleting the active warform clears activeFormId", async () => {
       const actor = await createTempCharacter({
         name: "Q-DBT-Delete",
         str: 2, dex: 2, sta: 2
@@ -96,7 +96,7 @@ export function registerDBT(context) {
       assert.equal(actor.system.attributes.strength.value, 2);
     });
 
-    it("dbtActive is false when no form is active", async () => {
+    it("[126] dbtActive is false when no form is active", async () => {
       const actor = await createTempCharacter({ name: "Q-DBT-Inactive", str: 2, dex: 2, sta: 2 });
       await actor.update({ "system.exaltType": "lunar" });
 

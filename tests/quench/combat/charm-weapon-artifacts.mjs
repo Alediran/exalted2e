@@ -66,7 +66,7 @@ export function registerCharmWeaponArtifacts(context) {
     afterEach(sweep);
 
     // 1. Instant charm: transient weapon created and deleted in one activation.
-    it("instant charm: creates a transient weapon and deletes it after the attack", async function () {
+    it("[63] instant charm: creates a transient weapon and deletes it after the attack", async function () {
       const actor = await setupActor();
       const charm = await makeAttackCharm(actor, { duration: "instant" });
       await stubRollAttack();
@@ -83,7 +83,7 @@ export function registerCharmWeaponArtifacts(context) {
     });
 
     // 2. Longer-duration charm: persistent weapon + tracking AE, both flagged.
-    it("oneScene charm: spawns a charmSource weapon AND a tracking AE", async function () {
+    it("[64] oneScene charm: spawns a charmSource weapon AND a tracking AE", async function () {
       const actor = await setupActor();
       const charm = await makeAttackCharm(actor, { duration: "oneScene" });
       const ok = await charm.activateCharm({ skipXpConfirm: true });
@@ -97,7 +97,7 @@ export function registerCharmWeaponArtifacts(context) {
     });
 
     // 3. Toggle-off: re-activating an active sustained charm clears artifacts.
-    it("toggle-off: re-activating clears the spawned weapon and AE", async function () {
+    it("[65] toggle-off: re-activating clears the spawned weapon and AE", async function () {
       const actor = await setupActor();
       const charm = await makeAttackCharm(actor, { duration: "oneScene" });
       await charm.activateCharm({ skipXpConfirm: true });   // ON
@@ -111,7 +111,7 @@ export function registerCharmWeaponArtifacts(context) {
     });
 
     // 4. Charm preDelete: deleting the charm tears down the spawned weapon + AE.
-    it("charm preDelete: deleting the charm cleans up its weapon artifacts", async function () {
+    it("[66] charm preDelete: deleting the charm cleans up its weapon artifacts", async function () {
       const actor = await setupActor();
       const charm = await makeAttackCharm(actor, { duration: "oneScene" });
       await charm.activateCharm({ skipXpConfirm: true });
@@ -135,7 +135,7 @@ export function registerCharmWeaponArtifacts(context) {
     //    AND flips the charm's `active` back to false. Foundry doesn't await
     //    hook callbacks, so we poll for the cascading weapon delete + active
     //    flip rather than reading state immediately after `ae.delete()`.
-    it("AE delete hook: deleting the tracking AE removes the weapon and untoggles the charm", async function () {
+    it("[67] AE delete hook: deleting the tracking AE removes the weapon and untoggles the charm", async function () {
       const actor = await setupActor();
       const charm = await makeAttackCharm(actor, { duration: "oneScene" });
       await charm.activateCharm({ skipXpConfirm: true });
@@ -167,7 +167,7 @@ export function registerCharmWeaponArtifacts(context) {
     });
 
     // 6. Idempotency: running cleanup twice doesn't error and leaves zero artifacts.
-    it("idempotency: a second teardown is a clean no-op", async function () {
+    it("[68] idempotency: a second teardown is a clean no-op", async function () {
       const actor = await setupActor();
       const charm = await makeAttackCharm(actor, { duration: "oneScene" });
       await charm.activateCharm({ skipXpConfirm: true });

@@ -24,7 +24,7 @@ export function registerStuntRewards(context) {
     afterEach(async () => { await sweep(); });
 
     // Test 1: In-combat banking writes the flag
-    it("banks a stunt record on the combatant flag when in combat", async () => {
+    it("[91] banks a stunt record on the combatant flag when in combat", async () => {
       const actor = await createTempCharacter({
         name: "Q-Stunt-Bank",
         str: 3, dex: 4, sta: 3,
@@ -54,7 +54,7 @@ export function registerStuntRewards(context) {
     });
 
     // Test 2: Out-of-combat immediate payout
-    it("pays immediately when no combat is active", async () => {
+    it("[92] pays immediately when no combat is active", async () => {
       const actor = await createTempCharacter({ name: "Q-Stunt-Immediate" });
       await actor.update({ "system.essence.value": 5 });
       await actor.update({ "system.motes.personal.value": 0 });
@@ -71,7 +71,7 @@ export function registerStuntRewards(context) {
     });
 
     // Test 3: Drain at landed tick
-    it("drains banked stunt at the combatant's landed tick", async () => {
+    it("[93] drains banked stunt at the combatant's landed tick", async () => {
       const actor = await createTempCharacter({ name: "Q-Stunt-Drain" });
       await actor.update({ "system.essence.value": 5, "system.motes.personal.value": 0 });
       await placeToken(actor, getTestScene());
@@ -94,7 +94,7 @@ export function registerStuntRewards(context) {
     });
 
     // Test 4: Drain gate (pass-action bump does NOT drain)
-    it("does NOT drain when neither committedAction nor actedThisTick is set", async () => {
+    it("[94] does NOT drain when neither committedAction nor actedThisTick is set", async () => {
       const actor = await createTempCharacter({ name: "Q-Stunt-Gate" });
       await actor.update({ "system.essence.value": 5, "system.motes.personal.value": 0 });
       await placeToken(actor, getTestScene());
@@ -118,7 +118,7 @@ export function registerStuntRewards(context) {
     });
 
     // Test 5: End-of-combat killing-blow drain
-    it("drains pending stunts via endCombat (killing-blow case)", async () => {
+    it("[95] drains pending stunts via endCombat (killing-blow case)", async () => {
       const actor = await createTempCharacter({ name: "Q-Stunt-EndCombat" });
       await actor.update({ "system.essence.value": 5, "system.motes.personal.value": 0 });
       await placeToken(actor, getTestScene());
@@ -142,7 +142,7 @@ export function registerStuntRewards(context) {
     });
 
     // Test 6: Aggregate drain (three records, one card)
-    it("aggregates multiple banked records into one card and one update", async () => {
+    it("[96] aggregates multiple banked records into one card and one update", async () => {
       const actor = await createTempCharacter({ name: "Q-Stunt-Aggregate" });
       await actor.update({ "system.essence.value": 5, "system.motes.personal.value": 0 });
       await placeToken(actor, getTestScene());
@@ -169,7 +169,7 @@ export function registerStuntRewards(context) {
     });
 
     // Test 7: NPC no-op
-    it("is a silent no-op when actor.type !== 'character'", async () => {
+    it("[97] is a silent no-op when actor.type !== 'character'", async () => {
       const npc = await Actor.create({
         name: "Q-Stunt-NPC",
         type: "npc",

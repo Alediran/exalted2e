@@ -21,7 +21,7 @@ export function registerAttunement(context) {
     afterEach(async () => { await sweep(); });
 
     // Test 1: Attune drops motes
-    it("drops peripheral motes by attunementCost when attuned flips true", async () => {
+    it("[104] drops peripheral motes by attunementCost when attuned flips true", async () => {
       const actor = await createTempCharacter({ name: "Q-Attune-On" });
       await fullPeripheral(actor);
       const startMax = actor.system.motes.peripheral.max;
@@ -39,7 +39,7 @@ export function registerAttunement(context) {
     });
 
     // Test 2: De-attune returns motes (clamped at max)
-    it("returns motes on de-attune, clamped at peripheral.max", async () => {
+    it("[105] returns motes on de-attune, clamped at peripheral.max", async () => {
       const actor = await createTempCharacter({ name: "Q-Attune-Off" });
       await fullPeripheral(actor);
       const startMax = actor.system.motes.peripheral.max;
@@ -60,7 +60,7 @@ export function registerAttunement(context) {
     });
 
     // Test 3: Cost-change delta while attuned
-    it("applies a delta when attunementCost changes on an already-attuned artifact", async () => {
+    it("[106] applies a delta when attunementCost changes on an already-attuned artifact", async () => {
       const actor = await createTempCharacter({ name: "Q-Attune-CostChange" });
       await fullPeripheral(actor);
       const startMax = actor.system.motes.peripheral.max;
@@ -77,7 +77,7 @@ export function registerAttunement(context) {
     });
 
     // Test 4: Delete attuned artifact returns motes
-    it("returns committed motes when an attuned artifact is deleted", async () => {
+    it("[107] returns committed motes when an attuned artifact is deleted", async () => {
       const actor = await createTempCharacter({ name: "Q-Attune-Delete" });
       await fullPeripheral(actor);
       const startMax = actor.system.motes.peripheral.max;
@@ -93,7 +93,7 @@ export function registerAttunement(context) {
     });
 
     // Test 5: Multi-artifact totalCommitted aggregation
-    it("aggregates multiple attuned artifacts into peripheral.totalCommitted", async () => {
+    it("[108] aggregates multiple attuned artifacts into peripheral.totalCommitted", async () => {
       const actor = await createTempCharacter({ name: "Q-Attune-Multi" });
       await fullPeripheral(actor);
       const startMax = actor.system.motes.peripheral.max;
@@ -114,7 +114,7 @@ export function registerAttunement(context) {
     });
 
     // Test 6: Non-artifact attune is no-op
-    it("does not touch the pool when attune flips on a non-artifact weapon", async () => {
+    it("[109] does not touch the pool when attune flips on a non-artifact weapon", async () => {
       const actor = await createTempCharacter({ name: "Q-Attune-NonArt" });
       await fullPeripheral(actor);
       const startMax = actor.system.motes.peripheral.max;

@@ -7,6 +7,7 @@ import { computeSpellCastButtonState } from "../../ui/spell-cast-button.mjs";
 import { resolveXpCosts }  from "../../helpers/xp-cost-defaults.mjs";
 import { priceAlchemicalCharmSlot } from "../../helpers/xp-costs.mjs";
 import { editImageAction } from "../_edit-image.mjs";
+import { sceneChangeFade } from "../../combat/anima-fade.mjs";
 
 const { ActorSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -1234,6 +1235,11 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   static async #onEndScene(_event, _target) {
-    await this.document.update({ "system.scenePeripheral": 0 });
+    const oldSp = this.document.system.scenePeripheral ?? 0;
+    const newSp = sceneChangeFade(oldSp);
+    await this.document.update(
+      { "system.scenePeripheral": newSp },
+      { scenePeripheralBefore: oldSp }
+    );
   }
 }

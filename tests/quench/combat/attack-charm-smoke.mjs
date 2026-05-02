@@ -60,7 +60,7 @@ export function registerAttackCharmSmoke(context) {
     afterEach(sweep);
 
     // S1: Real AttackDialog flow — open, click confirm, verify chat card.
-    it("real AttackDialog: open → confirm → chat card posted with snapshot", async function () {
+    it("[69] real AttackDialog: open → confirm → chat card posted with snapshot", async function () {
       const attacker = await createTempCharacter({ name: "AtkSmoke", str: 4, dex: 4 });
       const defender = await createTempCharacter({ name: "DefSmoke", dex: 3 });
       await attacker.update({ "system.essence.value": 5 });
@@ -97,7 +97,7 @@ export function registerAttackCharmSmoke(context) {
     });
 
     // S2: Real charm activation + real Reverse from chat card.
-    it("real charm activation: skipXpConfirm path → chat card → click Reverse → motes restored", async function () {
+    it("[70] real charm activation: skipXpConfirm path → chat card → click Reverse → motes restored", async function () {
       const actor = await createTempCharacter({ name: "CharmSmoker" });
       await actor.update({
         "system.essence.value": 5,

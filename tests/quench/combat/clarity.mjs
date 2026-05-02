@@ -21,19 +21,19 @@ export function registerClarity(context) {
 
     // ── Clarity derived data ─────────────────────────────────────────────
 
-    it("permanent Clarity = 0 for Essence 5 Alchemical with no Exemplar Charms", async () => {
+    it("[127] permanent Clarity = 0 for Essence 5 Alchemical with no Exemplar Charms", async () => {
       const actor = await createTempCharacter({ name: "Q-Clarity-Base" });
       await actor.update({ "system.exaltType": "alchemical", "system.essence.value": 5 });
       assert.equal(actor.system.splat.alchemical.clarity.permanent, 0);
     });
 
-    it("permanent Clarity = 1 for Essence 6 Alchemical", async () => {
+    it("[128] permanent Clarity = 1 for Essence 6 Alchemical", async () => {
       const actor = await createTempCharacter({ name: "Q-Clarity-Ess6" });
       await actor.update({ "system.exaltType": "alchemical", "system.essence.value": 6 });
       assert.equal(actor.system.splat.alchemical.clarity.permanent, 1);
     });
 
-    it("permanent Clarity increases when an Exemplar Charm is installed", async () => {
+    it("[129] permanent Clarity increases when an Exemplar Charm is installed", async () => {
       const actor = await createTempCharacter({ name: "Q-Clarity-Exemplar" });
       await actor.update({ "system.exaltType": "alchemical", "system.essence.value": 5 });
 
@@ -47,7 +47,7 @@ export function registerClarity(context) {
       assert.equal(actor.system.splat.alchemical.clarity.permanent, 1);
     });
 
-    it("permanent Clarity decreases when an Exemplar Charm is uninstalled", async () => {
+    it("[130] permanent Clarity decreases when an Exemplar Charm is uninstalled", async () => {
       const actor = await createTempCharacter({ name: "Q-Clarity-Uninstall" });
       await actor.update({ "system.exaltType": "alchemical", "system.essence.value": 5 });
 
@@ -63,7 +63,7 @@ export function registerClarity(context) {
       assert.equal(actor.system.splat.alchemical.clarity.permanent, 0, "drops to 0 after uninstall");
     });
 
-    it("clarityModifiers.socialPenalty = 1 at Clarity 3", async () => {
+    it("[131] clarityModifiers.socialPenalty = 1 at Clarity 3", async () => {
       const actor = await createTempCharacter({ name: "Q-Clarity-Band34" });
       await actor.update({
         "system.exaltType":   "alchemical",
@@ -72,7 +72,7 @@ export function registerClarity(context) {
       assert.equal(actor.system.clarityModifiers.socialPenalty, 1);
     });
 
-    it("clarityModifiers.compassionAutoFail = true at Clarity 10", async () => {
+    it("[132] clarityModifiers.compassionAutoFail = true at Clarity 10", async () => {
       const actor = await createTempCharacter({ name: "Q-Clarity-Band10" });
       await actor.update({
         "system.exaltType":   "alchemical",
@@ -83,7 +83,7 @@ export function registerClarity(context) {
 
     // ── Module installation ──────────────────────────────────────────────
 
-    it("installing a non-caste Charm uses a general slot", async () => {
+    it("[133] installing a non-caste Charm uses a general slot", async () => {
       const actor = await createTempCharacter({ name: "Q-Module-General" });
       await actor.update({ "system.exaltType": "alchemical" });
 
@@ -102,7 +102,7 @@ export function registerClarity(context) {
       assert.equal(actor.system.generalSlotsUsed, 1);
     });
 
-    it("installing a caste-favored Charm uses a dedicated slot", async () => {
+    it("[134] installing a caste-favored Charm uses a dedicated slot", async () => {
       const actor = await createTempCharacter({ name: "Q-Module-Dedicated" });
       await actor.update({
         "system.exaltType":                       "alchemical",
@@ -122,7 +122,7 @@ export function registerClarity(context) {
       assert.equal(actor.system.dedicatedSlotsUsed, 1);
     });
 
-    it("warns and aborts when no slots are available", async () => {
+    it("[135] warns and aborts when no slots are available", async () => {
       const actor = await createTempCharacter({ name: "Q-Module-NoSlots" });
       await actor.update({
         "system.exaltType":                     "alchemical",
@@ -142,7 +142,7 @@ export function registerClarity(context) {
       assert.equal(charm.system.installed, false, "charm should not be installed");
     });
 
-    it("uninstalling a Charm frees the slot", async () => {
+    it("[136] uninstalling a Charm frees the slot", async () => {
       const actor = await createTempCharacter({ name: "Q-Module-Uninstall" });
       await actor.update({ "system.exaltType": "alchemical" });
 

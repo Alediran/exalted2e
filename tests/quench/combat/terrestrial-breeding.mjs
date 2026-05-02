@@ -19,7 +19,7 @@ export function registerTerrestrialBreeding(context) {
     before(() => assertTestWorld());
     afterEach(async () => { await sweep(); });
 
-    it("no Breeding background → breedingBonus all zeros, motes use base formula", async () => {
+    it("[144] no Breeding background → breedingBonus all zeros, motes use base formula", async () => {
       const actor = await createTempCharacter({ name: "Q-Breeding-None" });
       await actor.update({
         "system.exaltType":      "terrestrial",
@@ -40,7 +40,7 @@ export function registerTerrestrialBreeding(context) {
       assert.equal(actor.system.motes.peripheral.max, 22);
     });
 
-    it("Breeding 3 Background item → breedingBonus matches table, mote maxima updated", async () => {
+    it("[145] Breeding 3 Background item → breedingBonus matches table, mote maxima updated", async () => {
       const actor = await createTempCharacter({ name: "Q-Breeding-3" });
       await actor.update({
         "system.exaltType":      "terrestrial",
@@ -68,7 +68,7 @@ export function registerTerrestrialBreeding(context) {
       assert.equal(actor.system.motes.peripheral.max, 31);
     });
 
-    it("changing Breeding rating updates derived values", async () => {
+    it("[146] changing Breeding rating updates derived values", async () => {
       const actor = await createTempCharacter({ name: "Q-Breeding-Change" });
       await actor.update({
         "system.exaltType":      "terrestrial",
@@ -100,7 +100,7 @@ export function registerTerrestrialBreeding(context) {
       assert.equal(actor.system.motes.peripheral.max, 23);
     });
 
-    it("non-terrestrial actor with flagged Background → breedingBonus all zeros", async () => {
+    it("[147] non-terrestrial actor with flagged Background → breedingBonus all zeros", async () => {
       const actor = await createTempCharacter({ name: "Q-Breeding-Solar" });
       await actor.update({ "system.exaltType": "solar", "system.essence.value": 3 });
 

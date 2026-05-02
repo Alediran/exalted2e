@@ -2,6 +2,8 @@ import { ex2eCan } from "../helpers/permissions.mjs";
 import { sortCombatants, computeTickFromJB } from "../combat/combat-math.mjs";
 import { planCommitOther, dispatchTickAdvance } from "../combat/multi-tick.mjs";
 import { payPendingStuntRewards } from "../combat/stunt-payment.mjs";
+import { EX2E } from "../config.mjs";
+import { sceneChangeFade } from "../combat/anima-fade.mjs";
 
 /**
  * ExaltedCombat — wheel-based tick initiative for Exalted 2e.
@@ -144,6 +146,18 @@ export class ExaltedCombat extends Combat {
     if (!current) return;
     const safeSpeed = Math.max(0, Math.floor(Number(speed) || 0));
 
+    // Totemic fade: drop to Bonfire if no peripheral was spent this action.
+    if (current.actor) {
+      const sp      = current.actor.system.scenePeripheral ?? 0;
+      const startSp = current.getFlag("exalted2e", "peripheralAtActionStart") ?? sp;
+      if (sp >= EX2E.ANIMA_THRESHOLDS.totemic && sp <= startSp) {
+        await current.actor.update(
+          { "system.scenePeripheral": EX2E.ANIMA_THRESHOLDS.totemic - 1 },
+          { scenePeripheralBefore: sp }
+        );
+      }
+    }
+
     // Sticky DV AEs (Aim, Guard, etc.) survive the prior abortable
     // action's own refresh but must clear at the end of whatever we
     // commit NEXT. Flip them to non-sticky here so the upcoming
@@ -231,6 +245,15 @@ export class ExaltedCombat extends Combat {
     // `turn = 0` rehydrates `combat.combatant` to whoever is first in the
     // freshly-sorted list (next free-and-unacted combatant).
     await this.update({ turn: 0 });
+
+    // Stamp incoming combatant's peripheral so the next Totemic check can tell
+    // whether peripheral was spent during this coming action.
+    const next = this.combatant;
+    if (next?.actor?.type === "character") {
+      await next.update({
+        "flags.exalted2e.peripheralAtActionStart": next.actor.system.scenePeripheral ?? 0
+      });
+    }
   }
 
   /**
@@ -354,6 +377,15 @@ export class ExaltedCombat extends Combat {
         await this._refreshDVsFor(c.actor);
       }
     }
+    // Stamp the first active combatant so the Totemic check has a baseline.
+    // In multi-combatant combat this stamps whoever sorts first before JB
+    // rolls. After JB, advanceCurrentByTicks will stamp subsequent actors.
+    const first = this.combatant;
+    if (first?.actor?.type === "character") {
+      await first.update({
+        "flags.exalted2e.peripheralAtActionStart": first.actor.system.scenePeripheral ?? 0
+      });
+    }
     return result;
   }
 
@@ -376,7 +408,14 @@ export class ExaltedCombat extends Combat {
     await clearAllMultiTickActions(this);
     const characterCombatants = [...this.combatants].filter(c => c.actor?.type === "character");
     await Promise.all(
-      characterCombatants.map(c => c.actor.update({ "system.scenePeripheral": 0 }))
+      characterCombatants.map(c => {
+        const oldSp = c.actor.system.scenePeripheral ?? 0;
+        const newSp = sceneChangeFade(oldSp);
+        return c.actor.update(
+          { "system.scenePeripheral": newSp },
+          { scenePeripheralBefore: oldSp }
+        );
+      })
     );
     return super.endCombat();
   }

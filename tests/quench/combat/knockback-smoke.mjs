@@ -119,7 +119,7 @@ export function registerKnockbackSmoke(context) {
     // missing-content in v13. The test instead serves as E2E coverage:
     // confirm the auto-apply path actually invokes the chain end-to-end
     // (damage applied, token moved, AE created, content re-rendered).
-    it("auto-apply path runs the chain end-to-end", async function () {
+    it("[11] auto-apply path runs the chain end-to-end", async function () {
       // Stub strategy:
       //   • The damage roll uses `new Roll(formula).evaluate()` directly —
       //     NOT ExaltedRoll.rollPool. We stub Roll.prototype.evaluate to
@@ -199,7 +199,7 @@ export function registerKnockbackSmoke(context) {
     });
 
     // S2: Manual-apply path — covers the .btn-apply-damage handler.
-    it("manual-apply path runs the chain after the user clicks Apply Damage", async function () {
+    it("[12] manual-apply path runs the chain after the user clicks Apply Damage", async function () {
       // Same stub strategy as S1:
       //   • Roll.prototype.evaluate → 5 dice showing face 7 (rawDamage=5).
       //   • ExaltedRoll.rollPool → 0 successes (knockdown auto-fail → Prone).

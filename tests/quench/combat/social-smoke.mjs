@@ -41,7 +41,7 @@ export function registerSocialSmoke(context) {
     afterEach(sweep);
 
     // S1: Real SocialAttackDialog → confirm → rollSocialAttack posts a card.
-    it("real SocialAttackDialog: open → confirm → rollSocialAttack posts a card", async function () {
+    it("[88] real SocialAttackDialog: open → confirm → rollSocialAttack posts a card", async function () {
       const attacker = await createTempCharacter({ name: "SmoothSmoke", cha: 4, app: 2 });
       const defender = await createTempCharacter({ name: "MarkSmoke",  wit: 2 });
       await attacker.update({
@@ -81,7 +81,7 @@ export function registerSocialSmoke(context) {
 
     // S2: Motivation-break flow: intent='break-motivation' creates a campaign
     //     tracker on the defender and the ledger flags isMotivationBreak.
-    it("motivation break: campaign tracker created on defender; isMotivationBreak=true", async function () {
+    it("[89] motivation break: campaign tracker created on defender; isMotivationBreak=true", async function () {
       const attacker = await createTempCharacter({ name: "BreakerSmoke", cha: 4 });
       const defender = await createTempCharacter({ name: "TargetSmoke", wit: 2 });
       await attacker.update({
@@ -118,7 +118,7 @@ export function registerSocialSmoke(context) {
     });
 
     // S3: clearSocialScene fires from endCombat() and wipes per-actor flags.
-    it("endCombat: clearSocialScene fires and wipes socialScene flags from actors", async function () {
+    it("[90] endCombat: clearSocialScene fires and wipes socialScene flags from actors", async function () {
       const attacker = await createTempCharacter({ name: "EndSmoothSmoke", cha: 4 });
       const defender = await createTempCharacter({ name: "EndMarkSmoke",  wit: 2 });
       const sc = getTestScene();

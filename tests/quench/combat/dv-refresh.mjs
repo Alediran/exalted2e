@@ -57,7 +57,7 @@ export function registerDvRefresh(context) {
     afterEach(sweep);
 
     // 1. Refreshable + non-sticky AE on combatant landing on new tick → cleared
-    it("clears refreshable non-sticky AE on the combatant landing on the new tick", async function () {
+    it("[13] clears refreshable non-sticky AE on the combatant landing on the new tick", async function () {
       const a = await createTempCharacter({ name: "Alice" });
       const sc = getTestScene();
       await placeToken(a, sc, { x: 0, y: 0 });
@@ -70,7 +70,7 @@ export function registerDvRefresh(context) {
     });
 
     // 2. Non-refreshable AE → not deleted
-    it("does not delete non-refreshable AE", async function () {
+    it("[14] does not delete non-refreshable AE", async function () {
       const a = await createTempCharacter({ name: "Bob" });
       const sc = getTestScene();
       await placeToken(a, sc, { x: 0, y: 0 });
@@ -83,7 +83,7 @@ export function registerDvRefresh(context) {
     });
 
     // 3. Combatant NOT landing on new tick → AEs untouched
-    it("leaves AEs alone on a combatant who is mid-action (not landing on new tick)", async function () {
+    it("[15] leaves AEs alone on a combatant who is mid-action (not landing on new tick)", async function () {
       // Two combatants, force speed gap so only one lands on the new tick.
       const a = await createTempCharacter({ name: "Caster" });
       const b = await createTempCharacter({ name: "Other" });
@@ -102,7 +102,7 @@ export function registerDvRefresh(context) {
     });
 
     // 4. Multiple AEs, mixed flags → only refreshable+non-sticky deleted
-    it("deletes only the refreshable+non-sticky AEs among mixed flags", async function () {
+    it("[16] deletes only the refreshable+non-sticky AEs among mixed flags", async function () {
       const a = await createTempCharacter({ name: "Alice" });
       const sc = getTestScene();
       await placeToken(a, sc, { x: 0, y: 0 });
@@ -125,7 +125,7 @@ export function registerDvRefresh(context) {
     });
 
     // 5. Sticky AE survives first wheel advance
-    it("sticky+refreshable AE survives the first advanceWheel", async function () {
+    it("[17] sticky+refreshable AE survives the first advanceWheel", async function () {
       const a = await createTempCharacter({ name: "Alice" });
       const sc = getTestScene();
       await placeToken(a, sc, { x: 0, y: 0 });
@@ -146,7 +146,7 @@ export function registerDvRefresh(context) {
     });
 
     // 6. Sticky flip on commit of DIFFERENT action: sticky → false
-    it("flips dvSticky to false when a different action is committed", async function () {
+    it("[18] flips dvSticky to false when a different action is committed", async function () {
       const a = await createTempCharacter({ name: "Alice" });
       const sc = getTestScene();
       await placeToken(a, sc, { x: 0, y: 0 });
@@ -167,7 +167,7 @@ export function registerDvRefresh(context) {
     });
 
     // 7. After flip + advanceWheel → AE deleted
-    it("deletes the (formerly sticky) AE on the next advanceWheel after flip", async function () {
+    it("[19] deletes the (formerly sticky) AE on the next advanceWheel after flip", async function () {
       const a = await createTempCharacter({ name: "Alice" });
       const sc = getTestScene();
       await placeToken(a, sc, { x: 0, y: 0 });
@@ -183,7 +183,7 @@ export function registerDvRefresh(context) {
     });
 
     // 8. Sticky preserved when the committing action OWNS the AE (its dvEffectId)
-    it("does not flip the sticky AE that belongs to the action being committed", async function () {
+    it("[20] does not flip the sticky AE that belongs to the action being committed", async function () {
       const a = await createTempCharacter({ name: "Alice" });
       const sc = getTestScene();
       await placeToken(a, sc, { x: 0, y: 0 });
@@ -201,7 +201,7 @@ export function registerDvRefresh(context) {
     });
 
     // 9. Two combatants on different ticks → only the landing combatant cleared
-    it("only refreshes the combatant landing on the new tick", async function () {
+    it("[21] only refreshes the combatant landing on the new tick", async function () {
       const a = await createTempCharacter({ name: "Alice" });
       const b = await createTempCharacter({ name: "Bob" });
       const sc = getTestScene();
@@ -223,7 +223,7 @@ export function registerDvRefresh(context) {
     });
 
     // 10. AE without dvSticky field at all → treated as sticky=false → cleared
-    it("treats AE missing dvSticky field as sticky=false (cleared on first refresh)", async function () {
+    it("[22] treats AE missing dvSticky field as sticky=false (cleared on first refresh)", async function () {
       const a = await createTempCharacter({ name: "Alice" });
       const sc = getTestScene();
       await placeToken(a, sc, { x: 0, y: 0 });

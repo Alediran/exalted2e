@@ -69,7 +69,7 @@ export function registerSorceryShapingFocused(context) {
     }
 
     // 1. First-shape happy path: motes spent, AE stamped, multiTickAction set.
-    it("first-shape: spends motes, stamps sticky DV AE, sets multiTickAction", async function () {
+    it("[31] first-shape: spends motes, stamps sticky DV AE, sets multiTickAction", async function () {
       const { caster, combatant, spell } = await setupCasterAndSpell({
         circle: 1, motes: 5, willpower: 1, casterPeripheral: 10, casterPersonal: 0
       });
@@ -99,7 +99,7 @@ export function registerSorceryShapingFocused(context) {
     });
 
     // 2. First-shape with cancel: no state changes
-    it("first-shape: cancel → no spend, no AE, no multiTickAction", async function () {
+    it("[32] first-shape: cancel → no spend, no AE, no multiTickAction", async function () {
       const { caster, combatant, spell } = await setupCasterAndSpell();
       await stubSorceryCastDialog([{ ok: false }]);
       const { castSpellFlow } = await import("../../../module/ui/cast-spell-flow.mjs");
@@ -114,7 +114,7 @@ export function registerSorceryShapingFocused(context) {
     });
 
     // 3. Circle-2 spell: totalShapeActions = 2
-    it("first-shape with circle-2 spell: totalShapeActions = 2", async function () {
+    it("[33] first-shape with circle-2 spell: totalShapeActions = 2", async function () {
       const { combatant, spell } = await setupCasterAndSpell({ circle: 2, motes: 5 });
       await stubSorceryCastDialog([{ ok: true }]);
       const { castSpellFlow } = await import("../../../module/ui/cast-spell-flow.mjs");
@@ -126,7 +126,7 @@ export function registerSorceryShapingFocused(context) {
     });
 
     // 4. Continue-shape: completedShapeActions bumps after a sorceryShape commit
-    it("continue-shape: completedShapeActions bumps from 0→1 on sorceryShape commit", async function () {
+    it("[34] continue-shape: completedShapeActions bumps from 0→1 on sorceryShape commit", async function () {
       const { caster, combat, combatant, spell } = await setupCasterAndSpell({
         circle: 2, motes: 5
       });
@@ -144,7 +144,7 @@ export function registerSorceryShapingFocused(context) {
     });
 
     // 5. Continue-shape via castSpellFlow writes pendingAction without prompting
-    it("castSpellFlow during mid-shape writes continue-shape pendingAction without dialog", async function () {
+    it("[35] castSpellFlow during mid-shape writes continue-shape pendingAction without dialog", async function () {
       const { caster, combat, combatant, spell } = await setupCasterAndSpell({
         circle: 2, motes: 5
       });
@@ -165,7 +165,7 @@ export function registerSorceryShapingFocused(context) {
     });
 
     // 6. Cast triggered: castSpellFlow at completedShapeActions=totalShapeActions writes sorceryCast
-    it("castSpellFlow at completedShapeActions=totalShapeActions writes sorceryCast pendingAction", async function () {
+    it("[36] castSpellFlow at completedShapeActions=totalShapeActions writes sorceryCast pendingAction", async function () {
       const { caster, combat, combatant, spell } = await setupCasterAndSpell({
         circle: 1, motes: 5
       });
@@ -181,7 +181,7 @@ export function registerSorceryShapingFocused(context) {
     });
 
     // 7. Cast committed: postCastChatCard fires; multiTickAction cleared
-    it("committing sorceryCast posts the spell-cast chat card and clears multiTickAction", async function () {
+    it("[37] committing sorceryCast posts the spell-cast chat card and clears multiTickAction", async function () {
       const { caster, combat, combatant, spell } = await setupCasterAndSpell({
         circle: 1, motes: 5
       });
@@ -212,7 +212,7 @@ export function registerSorceryShapingFocused(context) {
     });
 
     // 8. Mote spend overflow: peripheral exhausted, overflow into personal
-    it("mote spend: peripheral first, overflow into personal", async function () {
+    it("[38] mote spend: peripheral first, overflow into personal", async function () {
       // peripheral=2, cost=5 → fromPrimary=2, fromSecondary=3
       const { caster, combatant, spell } = await setupCasterAndSpell({
         circle: 1, motes: 5,
@@ -232,7 +232,7 @@ export function registerSorceryShapingFocused(context) {
     });
 
     // 9. Willpower spend
-    it("first-shape: willpower spent by the spell's WP cost", async function () {
+    it("[39] first-shape: willpower spent by the spell's WP cost", async function () {
       const { caster, spell } = await setupCasterAndSpell({
         circle: 1, motes: 5, willpower: 2, casterWp: 5
       });
@@ -244,7 +244,7 @@ export function registerSorceryShapingFocused(context) {
     });
 
     // 10. Shape AE structure
-    it("shape AE has the correct dvPenalty + flag shape", async function () {
+    it("[40] shape AE has the correct dvPenalty + flag shape", async function () {
       const { caster, spell } = await setupCasterAndSpell({ circle: 2 });
       await stubSorceryCastDialog([{ ok: true }]);
       const { castSpellFlow } = await import("../../../module/ui/cast-spell-flow.mjs");
@@ -261,7 +261,7 @@ export function registerSorceryShapingFocused(context) {
     });
 
     // 11. Abort via different action: pool-accurate refund + AE cleared
-    it("abort: refunds motes/WP pool-accurately and clears the shape AE", async function () {
+    it("[41] abort: refunds motes/WP pool-accurately and clears the shape AE", async function () {
       const { caster, combat, combatant, spell } = await setupCasterAndSpell({
         circle: 1, motes: 5, willpower: 2,
         casterPeripheral: 30, casterPersonal: 10, casterWp: 5
@@ -287,7 +287,7 @@ export function registerSorceryShapingFocused(context) {
     });
 
     // 12. Multi-pool refund accuracy: overflow spend refunds both pools correctly
-    it("abort: multi-pool refund (peripheral overflow → personal) restores both pools", async function () {
+    it("[42] abort: multi-pool refund (peripheral overflow → personal) restores both pools", async function () {
       // peripheral=2, cost=5 → fromPrimary=2, fromSecondary=3
       const { caster, combat, combatant, spell } = await setupCasterAndSpell({
         circle: 1, motes: 5, willpower: 0,

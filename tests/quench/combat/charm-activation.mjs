@@ -74,7 +74,7 @@ export function registerCharmActivation(context) {
     afterEach(sweep);
 
     // 1. Spends motes from peripheral first; ledger records breakdown.
-    it("spends motes (peripheral first); ledger records moteBreakdown", async function () {
+    it("[55] spends motes (peripheral first); ledger records moteBreakdown", async function () {
       const actor = await setupCharmActor();
       const charm = await createTempCharm(actor, {
         cost: { motes: 5 }, duration: "instant"
@@ -95,7 +95,7 @@ export function registerCharmActivation(context) {
     });
 
     // 2. Overflows peripheral → personal; both pool values change.
-    it("overflows peripheral→personal; ledger records the split", async function () {
+    it("[56] overflows peripheral→personal; ledger records the split", async function () {
       const actor = await setupCharmActor({ peripheral: 2, personal: 10 });
       const charm = await createTempCharm(actor, {
         cost: { motes: 5 }, duration: "instant"
@@ -109,7 +109,7 @@ export function registerCharmActivation(context) {
     });
 
     // 3. Spends willpower; actor's wp.value decremented.
-    it("spends willpower", async function () {
+    it("[57] spends willpower", async function () {
       const actor = await setupCharmActor();
       const charm = await createTempCharm(actor, {
         cost: { willpower: 2 }, duration: "instant"
@@ -121,7 +121,7 @@ export function registerCharmActivation(context) {
     });
 
     // 4. Spends typed health damage; ledger records bashing/lethal counts.
-    it("spends typed health damage (lethal)", async function () {
+    it("[58] spends typed health damage (lethal)", async function () {
       const actor = await setupCharmActor();
       // Snapshot lethal box count BEFORE activation so we can verify damage applied.
       const lethalBefore = actor.system.health?.lethal ?? 0;
@@ -136,7 +136,7 @@ export function registerCharmActivation(context) {
     });
 
     // 5. Spends XP after confirm; ledger records xp.
-    it("spends XP after confirm", async function () {
+    it("[59] spends XP after confirm", async function () {
       const actor = await setupCharmActor();
       const charm = await createTempCharm(actor, {
         cost: { xp: 3 }, duration: "instant"
@@ -149,7 +149,7 @@ export function registerCharmActivation(context) {
     });
 
     // 6. Cancelled XP confirm: no resources spent, no chat card.
-    it("cancelled XP confirm: no spend, no chat card, returns false", async function () {
+    it("[60] cancelled XP confirm: no spend, no chat card, returns false", async function () {
       const actor = await setupCharmActor();
       const charm = await createTempCharm(actor, {
         cost: { motes: 5, willpower: 1, xp: 3 }, duration: "instant"
@@ -166,7 +166,7 @@ export function registerCharmActivation(context) {
     });
 
     // 7. Reverse refunds exactly per source pool (peripheral overflow case).
-    it("reverse refunds across both pools after a peripheral→personal overflow", async function () {
+    it("[61] reverse refunds across both pools after a peripheral→personal overflow", async function () {
       const actor = await setupCharmActor({ peripheral: 2, personal: 10 });
       const charm = await createTempCharm(actor, {
         cost: { motes: 5 }, duration: "instant"
@@ -189,7 +189,7 @@ export function registerCharmActivation(context) {
     });
 
     // 8. Reverse on already-reversed activation is a no-op.
-    it("reverse on already-reversed activation is a no-op", async function () {
+    it("[62] reverse on already-reversed activation is a no-op", async function () {
       const actor = await setupCharmActor();
       const charm = await createTempCharm(actor, {
         cost: { motes: 5 }, duration: "instant"

@@ -71,7 +71,7 @@ export function registerAttackPipelineFocused(context) {
     afterEach(sweep);
 
     // 1. Happy path — rollAttack posts a chat card with the expected snapshot.
-    it("happy path: posts a chat card with the attack snapshot", async function () {
+    it("[45] happy path: posts a chat card with the attack snapshot", async function () {
       const { attacker, defender, weapon } = await setupAttackFixture();
       await stubAttackDialog([defaultDialogResult()]);
       const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
@@ -88,7 +88,7 @@ export function registerAttackPipelineFocused(context) {
     });
 
     // 2. Pool composition: regular weapon = Dex + Ability + Accuracy.
-    it("pool composition: regular weapon adds Dex + Ability + Accuracy", async function () {
+    it("[46] pool composition: regular weapon adds Dex + Ability + Accuracy", async function () {
       const { attacker, defender, weapon } = await setupAttackFixture({
         attackerStats: { dex: 4 },           // dex 4
         weaponOpts:    { accuracy: 2 }       // accuracy +2
@@ -107,7 +107,7 @@ export function registerAttackPipelineFocused(context) {
 
     // 3. Instant-charm attack: pool is the charm's accuracy formula directly,
     //    no Dex/Ability auto-add. (charmDuration: "instant" + charmSource flag.)
-    it("instant-charm attack: pool is the full formula, no Dex/Ability addition", async function () {
+    it("[47] instant-charm attack: pool is the full formula, no Dex/Ability addition", async function () {
       const { attacker, defender } = await setupAttackFixture();
       await attacker.update({ "system.abilities.melee.value": 3 });
       // Synthesize a charm + its instant-spawned weapon. We construct the
@@ -138,7 +138,7 @@ export function registerAttackPipelineFocused(context) {
     });
 
     // 4. Range check: melee in range (1 grid space).
-    it("range: melee weapon attacking 1 cell away proceeds", async function () {
+    it("[48] range: melee weapon attacking 1 cell away proceeds", async function () {
       const { attacker, defender, weapon } = await setupAttackFixture({
         defenderCellsX: 1                    // 1 cell apart
       });
@@ -151,7 +151,7 @@ export function registerAttackPipelineFocused(context) {
     });
 
     // 5. Range check: melee out of range — rollAttack returns null.
-    it("range: melee weapon attacking 3 cells away aborts", async function () {
+    it("[49] range: melee weapon attacking 3 cells away aborts", async function () {
       const { attacker, defender, weapon } = await setupAttackFixture({
         defenderCellsX: 3                    // 3 cells apart, melee maxes at 1
       });
@@ -166,7 +166,7 @@ export function registerAttackPipelineFocused(context) {
     });
 
     // 6. Reach modifier: 2 cells away with Reach tag is in range.
-    it("range: Reach tag extends melee from 1 to 2 cells", async function () {
+    it("[50] range: Reach tag extends melee from 1 to 2 cells", async function () {
       const { attacker, defender, weapon } = await setupAttackFixture({
         defenderCellsX: 2,
         weaponOpts:     { tags: ["Reach"] }
@@ -180,7 +180,7 @@ export function registerAttackPipelineFocused(context) {
     });
 
     // 7. Onslaught: defender accrues +1 onslaught after being attacked.
-    it("onslaught: defender accrues an onslaught DV penalty after the attack", async function () {
+    it("[51] onslaught: defender accrues an onslaught DV penalty after the attack", async function () {
       const { attacker, defender, weapon } = await setupAttackFixture();
       await stubAttackDialog([defaultDialogResult()]);
       const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
@@ -196,7 +196,7 @@ export function registerAttackPipelineFocused(context) {
     });
 
     // 8. Holy + Creature of Darkness upgrades damage to aggravated.
-    it("Holy + CoD: damage type upgrades to aggravated and holyUpgraded=true", async function () {
+    it("[52] Holy + CoD: damage type upgrades to aggravated and holyUpgraded=true", async function () {
       const { attacker, defender } = await setupAttackFixture();
       // Mark the defender as a Creature of Darkness (per CLAUDE.md, this is
       // a flag-based AE — not in CONFIG.statusEffects).
@@ -232,7 +232,7 @@ export function registerAttackPipelineFocused(context) {
     });
 
     // 9. Unblockable keyword: targetParryDV forced to 0, base preserved.
-    it("Unblockable keyword zeros targetParryDV but preserves the base", async function () {
+    it("[53] Unblockable keyword zeros targetParryDV but preserves the base", async function () {
       const { attacker, defender } = await setupAttackFixture();
       const charm = await createTempCharm(attacker, {
         name: "Unstoppable Strike",
@@ -259,7 +259,7 @@ export function registerAttackPipelineFocused(context) {
     });
 
     // 10. Soak/hardness snapshot lives on the attack card flags.
-    it("snapshot: target soak and hardness land on the attack flags", async function () {
+    it("[54] snapshot: target soak and hardness land on the attack flags", async function () {
       const { attacker, defender, weapon } = await setupAttackFixture({
         defenderStats: { sta: 4 }
       });

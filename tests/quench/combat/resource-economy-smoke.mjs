@@ -24,7 +24,7 @@ export function registerResourceEconomySmoke(context) {
     afterEach(async () => { await sweep(); });
 
     // Test 1: Purchase Mode round-trip
-    it("opens the real PurchaseConfirmDialog and applies confirm via DOM click", async () => {
+    it("[110] opens the real PurchaseConfirmDialog and applies confirm via DOM click", async () => {
       const actor = await createTempCharacter({ name: "Q-Smoke-Purchase", str: 2 });
       await actor.update({
         "system.purchaseLocked": true,
@@ -68,7 +68,7 @@ export function registerResourceEconomySmoke(context) {
     });
 
     // Test 2: Attune round-trip with rendered sheet
-    it("reflects an attune update in the rendered character sheet's mote pool", async () => {
+    it("[111] reflects an attune update in the rendered character sheet's mote pool", async () => {
       const actor = await createTempCharacter({ name: "Q-Smoke-Attune" });
       await actor.update({ "system.essence.value": 5 });
       // Read the derived max AFTER essence bump (motes.*.max is clobbered by

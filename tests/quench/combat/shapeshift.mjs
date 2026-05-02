@@ -19,7 +19,7 @@ export function registerShapeshift(context) {
     before(() => assertTestWorld());
     afterEach(async () => { await sweep(); });
 
-    it("substitutes physical attributes when activeFormId points to a form item", async () => {
+    it("[120] substitutes physical attributes when activeFormId points to a form item", async () => {
       const actor = await createTempCharacter({
         name: "Q-Lunar-Shift",
         str: 2, dex: 2, sta: 2
@@ -46,7 +46,7 @@ export function registerShapeshift(context) {
       assert.equal(actor.system.attributes.stamina.value, 5);
     });
 
-    it("switching active form updates the substituted attributes", async () => {
+    it("[121] switching active form updates the substituted attributes", async () => {
       const actor = await createTempCharacter({
         name: "Q-Lunar-Switch", str: 2, dex: 2, sta: 2
       });
@@ -70,7 +70,7 @@ export function registerShapeshift(context) {
       assert.equal(actor.system.attributes.dexterity.value, 6);
     });
 
-    it("deleting the active form clears activeFormId and reverts attributes", async () => {
+    it("[122] deleting the active form clears activeFormId and reverts attributes", async () => {
       const actor = await createTempCharacter({
         name: "Q-Lunar-Delete", str: 2, dex: 2, sta: 2
       });

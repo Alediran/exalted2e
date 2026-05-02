@@ -19,7 +19,7 @@ export function registerPurchaseMode(context) {
     afterEach(async () => { await sweep(); });
 
     // Test 1: Lock off → no dialog
-    it("does not open the dialog when purchaseLocked is false", async () => {
+    it("[98] does not open the dialog when purchaseLocked is false", async () => {
       const actor = await createTempCharacter({ name: "Q-Purchase-Off", str: 2 });
       await actor.update({
         "system.purchaseLocked": false,
@@ -37,7 +37,7 @@ export function registerPurchaseMode(context) {
     });
 
     // Test 2: Increase confirmed
-    it("logs an entry and decrements XP when an increase is confirmed", async () => {
+    it("[99] logs an entry and decrements XP when an increase is confirmed", async () => {
       const actor = await createTempCharacter({ name: "Q-Purchase-Confirm", str: 2 });
       await actor.update({
         "system.purchaseLocked": true,
@@ -63,7 +63,7 @@ export function registerPurchaseMode(context) {
     });
 
     // Test 3: Increase cancelled aborts whole update
-    it("aborts the update when the dialog returns null", async () => {
+    it("[100] aborts the update when the dialog returns null", async () => {
       const actor = await createTempCharacter({ name: "Q-Purchase-Cancel", str: 2 });
       await actor.update({
         "system.purchaseLocked": true,
@@ -80,7 +80,7 @@ export function registerPurchaseMode(context) {
     });
 
     // Test 4: Reduction rejected with notification
-    it("rejects a permanent-trait reduction with a warning", async () => {
+    it("[101] rejects a permanent-trait reduction with a warning", async () => {
       const actor = await createTempCharacter({ name: "Q-Purchase-Reduce", str: 3 });
       await actor.update({ "system.purchaseLocked": true });
       const warnCalls = stubWarn();
@@ -95,7 +95,7 @@ export function registerPurchaseMode(context) {
     });
 
     // Test 5: Multi-trait single update
-    it("opens dialogs in order and writes both log entries on a multi-trait update", async () => {
+    it("[102] opens dialogs in order and writes both log entries on a multi-trait update", async () => {
       const actor = await createTempCharacter({
         name: "Q-Purchase-Multi", str: 2, ath: 1
       });
@@ -128,7 +128,7 @@ export function registerPurchaseMode(context) {
     });
 
     // Test 6: bypassPurchaseLock skips check
-    it("skips the lock check when bypassPurchaseLock: true is passed", async () => {
+    it("[103] skips the lock check when bypassPurchaseLock: true is passed", async () => {
       const actor = await createTempCharacter({ name: "Q-Purchase-Bypass", str: 3 });
       await actor.update({ "system.purchaseLocked": true });
       // Empty queue: if the dialog ever opens, throw

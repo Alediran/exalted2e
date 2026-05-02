@@ -58,7 +58,7 @@ export function registerSocialDefense(context) {
     afterEach(sweep);
 
     // 1. Click .btn-social-step2 with a cancelled dialog → step2Resolved stays false.
-    it("Step-2 defense cancelled: step2Resolved stays false", async function () {
+    it("[81] Step-2 defense cancelled: step2Resolved stays false", async function () {
       const { attacker, defender } = await setupSocialFixture();
       const card = await postSocialAttack(attacker, defender);
       await stubStep2SocialDefense([null]);  // user cancelled
@@ -74,7 +74,7 @@ export function registerSocialDefense(context) {
     });
 
     // 2. Step-2 defense with empty charmIds → step2Resolved=true, no charm spend.
-    it("Step-2 defense with no charms: step2Resolved=true and step2Result captured", async function () {
+    it("[82] Step-2 defense with no charms: step2Resolved=true and step2Result captured", async function () {
       const { attacker, defender } = await setupSocialFixture();
       const card = await postSocialAttack(attacker, defender);
       const motesBefore = defender.system.motes.peripheral.value;
@@ -95,7 +95,7 @@ export function registerSocialDefense(context) {
     });
 
     // 3. Step-2 defense with a reflexive defense charm → charm activated, motes drained on defender.
-    it("Step-2 defense with a reflexive Integrity charm: charm activates and spends defender motes", async function () {
+    it("[83] Step-2 defense with a reflexive Integrity charm: charm activates and spends defender motes", async function () {
       const { attacker, defender } = await setupSocialFixture();
       // Reflexive Step-2 charm keyed on integrity (one of the social-defense
       // abilities recognized by the Step-2 candidate filter).
@@ -128,7 +128,7 @@ export function registerSocialDefense(context) {
     });
 
     // 4. Step-2 excellency dice → defender motes spent on excellency.
-    it("Step-2 excellency: defender motes spent on firstExcDice", async function () {
+    it("[84] Step-2 excellency: defender motes spent on firstExcDice", async function () {
       const { attacker, defender } = await setupSocialFixture();
       // Provide a first-excellency charm on integrity so the dialog logic
       // accepts excellency dice. Production reads exc availability via
@@ -157,7 +157,7 @@ export function registerSocialDefense(context) {
     });
 
     // 5. UMI marking: attacker's UMI charm sets unnaturalInfluence=true and umiCostSum > 0.
-    it("UMI charm activated by attacker: ledger.unnaturalInfluence=true and umiCostSum>0", async function () {
+    it("[85] UMI charm activated by attacker: ledger.unnaturalInfluence=true and umiCostSum>0", async function () {
       const { attacker, defender } = await setupSocialFixture();
       const umiCharm = await createTempCharm(attacker, {
         name:      "Husband-Seducing Demon Dance",
@@ -179,7 +179,7 @@ export function registerSocialDefense(context) {
     });
 
     // 6. clearSocialScene wipes per-attacker socialScene flags from every actor.
-    it("clearSocialScene wipes per-actor flags.exalted2e.socialScene", async function () {
+    it("[86] clearSocialScene wipes per-actor flags.exalted2e.socialScene", async function () {
       const { attacker, defender } = await setupSocialFixture();
       await defender.update({
         [`flags.exalted2e.socialScene.${attacker.id}.wpDrainedNatural`]: 2,
@@ -196,7 +196,7 @@ export function registerSocialDefense(context) {
     });
 
     // 7. clearSocialScene is idempotent (running twice doesn't error and leaves clean state).
-    it("clearSocialScene is idempotent on a clean scene", async function () {
+    it("[87] clearSocialScene is idempotent on a clean scene", async function () {
       const { attacker, defender } = await setupSocialFixture();
       await defender.update({
         [`flags.exalted2e.socialScene.${attacker.id}.wpDrainedNatural`]: 1
