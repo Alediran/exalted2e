@@ -702,10 +702,18 @@ export class ExaltedActor extends Actor {
     const overflow      = amount - fromPrimary;
     const fromSecondary = Math.min(secondary.value, overflow);
 
-    await this.update({
-      [`system.motes.${pool}.value`]:    primary.value - fromPrimary,
-      [`system.motes.${otherKey}.value`]: secondary.value - fromSecondary
-    });
+    const peripheralSpent    = pool === "peripheral" ? fromPrimary : fromSecondary;
+    const oldScenePeripheral = this.system.scenePeripheral ?? 0;
+    const newScenePeripheral = oldScenePeripheral + peripheralSpent;
+
+    await this.update(
+      {
+        [`system.motes.${pool}.value`]:     primary.value   - fromPrimary,
+        [`system.motes.${otherKey}.value`]: secondary.value - fromSecondary,
+        "system.scenePeripheral":           newScenePeripheral
+      },
+      { scenePeripheralBefore: oldScenePeripheral }
+    );
     return {
       fromPrimary,
       fromSecondary,

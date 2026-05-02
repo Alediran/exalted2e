@@ -102,7 +102,7 @@
   background: radial-gradient(circle, #fff9c4, gold, orange, transparent 70%);
   animation:  animaFlicker 1.5s ease-in-out infinite alternate;
 }
-.anima-banner.anima-iconic {
+.anima-banner.anima-totemic {
   opacity:    0.70;
   background: radial-gradient(circle, white, #fff9c4, gold, orange, transparent 70%);
   animation:  animaFlicker 0.8s ease-in-out infinite alternate;

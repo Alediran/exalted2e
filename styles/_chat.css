@@ -543,3 +543,21 @@
   text-align: center;
   margin:     var(--ex2e-gap-xs) 0 0;
 }
+
+/* ── DB Flux Card ──────────────────────────────────────────────────────────── */
+.ex2e-db-flux-card .ex2e-db-flux-header {
+  color:  #f07020;
+  margin: 0 0 6px;
+}
+.ex2e-db-flux-card .ex2e-db-flux-interval {
+  font-weight: bold;
+  color:       var(--ex2e-text-primary);
+}
+.ex2e-db-flux-card .ex2e-db-flux-soak-note,
+.ex2e-db-flux-card .ex2e-db-flux-range-note {
+  font-size:  0.85em;
+  color:      var(--ex2e-text-secondary);
+  margin-top: 4px;
+}
+.ex2e-db-flux-card .ex2e-db-flux-buttons { margin-top: 8px; }
+.ex2e-db-flux-card .ex2e-db-flux-buttons .btn-apply-flux { width: 100%; }

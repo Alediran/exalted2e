@@ -363,6 +363,43 @@ function _makeExemplarCharm(overrides = {}) {
   };
 }
 
+describe("CharacterData._prepareAnimaLevel", () => {
+  it("scenePeripheral=0 → none (solar)", () => {
+    const result = _prepDerivedData(makeCharacterSystem({ scenePeripheral: 0 }));
+    expect(result.anima).toBe("none");
+  });
+
+  it("scenePeripheral=1 → dim (at dim threshold)", () => {
+    const result = _prepDerivedData(makeCharacterSystem({ scenePeripheral: 1 }));
+    expect(result.anima).toBe("dim");
+  });
+
+  it("scenePeripheral=4 → glowing (at glowing threshold)", () => {
+    const result = _prepDerivedData(makeCharacterSystem({ scenePeripheral: 4 }));
+    expect(result.anima).toBe("glowing");
+  });
+
+  it("scenePeripheral=8 → burning (at burning threshold)", () => {
+    const result = _prepDerivedData(makeCharacterSystem({ scenePeripheral: 8 }));
+    expect(result.anima).toBe("burning");
+  });
+
+  it("scenePeripheral=11 → bonfire (at bonfire threshold)", () => {
+    const result = _prepDerivedData(makeCharacterSystem({ scenePeripheral: 11 }));
+    expect(result.anima).toBe("bonfire");
+  });
+
+  it("scenePeripheral=16 → totemic (at totemic threshold)", () => {
+    const result = _prepDerivedData(makeCharacterSystem({ scenePeripheral: 16 }));
+    expect(result.anima).toBe("totemic");
+  });
+
+  it("mortal with scenePeripheral=20 → always none", () => {
+    const result = _prepDerivedData(makeCharacterSystem({ exaltType: "mortal", scenePeripheral: 20 }));
+    expect(result.anima).toBe("none");
+  });
+});
+
 describe("CharacterData._prepareAlchemicalClarity", () => {
   it("non-alchemical actor: clarity.permanent is not modified", () => {
     const sys = makeCharacterSystem({

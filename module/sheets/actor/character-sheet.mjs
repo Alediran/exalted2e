@@ -81,6 +81,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       editForm:            CharacterSheet.#onEditForm,
       deleteForm:          CharacterSheet.#onDeleteForm,
       endDBT:              CharacterSheet.#onEndDBT,
+      nudgeScenePeripheral: CharacterSheet.#onNudgeScenePeripheral,
+      endScene:             CharacterSheet.#onEndScene,
       installCharm:        CharacterSheet.#onInstallCharm,
       uninstallCharm:      CharacterSheet.#onUninstallCharm,
       addDedicatedSlot:    CharacterSheet.#onAddDedicatedSlot,
@@ -427,6 +429,19 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const showMotivationCampaigns = motivationCampaignsTargetingMe.length > 0
                                   || motivationCampaignsImRunning.length > 0;
 
+    const animaLabel = (() => {
+      const tier = sys.anima;
+      if (tier === "dim" && sys.exaltType === "terrestrial") {
+        return game.i18n.localize("EX2E.AnimaLiminal");
+      }
+      return game.i18n.localize(EX2E.anima[tier] ?? "EX2E.AnimaNone");
+    })();
+
+    const dbFluxTiers = new Set(["burning", "bonfire", "totemic"]);
+    const dbFluxInfo  = (sys.exaltType === "terrestrial" && dbFluxTiers.has(sys.anima))
+      ? { ...EX2E.DB_FLUX[sys.anima], tier: sys.anima }
+      : null;
+
     return {
       ...context,
       actor,
@@ -471,7 +486,9 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       dbtActive,
       isGM: game.user.isGM,
       isEditable: this.isEditable,
-      useIntimacyIntensity: game.settings.get("exalted2e", "useIntimacyIntensity")
+      useIntimacyIntensity: game.settings.get("exalted2e", "useIntimacyIntensity"),
+      animaLabel,
+      dbFluxInfo
     };
   }
 
@@ -1204,5 +1221,19 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       type:   "charm",
       system: { isSubmodule: true, parentCharmId: charmId, exaltType: "alchemical" }
     }, { parent: this.actor });
+  }
+
+  static async #onNudgeScenePeripheral(event, target) {
+    const delta  = parseInt(target.dataset.delta ?? 1);
+    const oldVal = this.document.system.scenePeripheral ?? 0;
+    const newVal = Math.max(0, oldVal + delta);
+    await this.document.update(
+      { "system.scenePeripheral": newVal },
+      { scenePeripheralBefore: oldVal }
+    );
+  }
+
+  static async #onEndScene(_event, _target) {
+    await this.document.update({ "system.scenePeripheral": 0 });
   }
 }

@@ -14,7 +14,7 @@ function makeFakeActor({
 } = {}) {
   return {
     type,
-    system: { motes: { personal, peripheral } },
+    system: { motes: { personal, peripheral }, scenePeripheral: 0 },
     effects,
     update:          vi.fn().mockResolvedValue(true),
     applyDVPenalty:  vi.fn().mockResolvedValue({ id: "ae-onslaught-new" })
@@ -32,10 +32,14 @@ describe("ExaltedActor.spendMotes", () => {
       peripheral: { value: 8, max: 20 }
     });
     const result = await ExaltedActor.prototype.spendMotes.call(actor, 3, "peripheral");
-    expect(actor.update).toHaveBeenCalledWith({
-      "system.motes.peripheral.value": 5,
-      "system.motes.personal.value":   5
-    });
+    expect(actor.update).toHaveBeenCalledWith(
+      {
+        "system.motes.peripheral.value": 5,
+        "system.motes.personal.value":   5,
+        "system.scenePeripheral":        3
+      },
+      { scenePeripheralBefore: 0 }
+    );
     expect(result).toEqual({
       fromPrimary:   3,
       fromSecondary: 0,
@@ -50,10 +54,14 @@ describe("ExaltedActor.spendMotes", () => {
       peripheral: { value: 4, max: 20 }
     });
     const result = await ExaltedActor.prototype.spendMotes.call(actor, 7, "peripheral");
-    expect(actor.update).toHaveBeenCalledWith({
-      "system.motes.peripheral.value": 0,
-      "system.motes.personal.value":   2
-    });
+    expect(actor.update).toHaveBeenCalledWith(
+      {
+        "system.motes.peripheral.value": 0,
+        "system.motes.personal.value":   2,
+        "system.scenePeripheral":        4
+      },
+      { scenePeripheralBefore: 0 }
+    );
     expect(result).toEqual({
       fromPrimary:   4,
       fromSecondary: 3,
@@ -79,10 +87,14 @@ describe("ExaltedActor.spendMotes", () => {
       peripheral: { value: 0, max: 20 }
     });
     const result = await ExaltedActor.prototype.spendMotes.call(actor, 3, "personal");
-    expect(actor.update).toHaveBeenCalledWith({
-      "system.motes.personal.value":   1,
-      "system.motes.peripheral.value": 0
-    });
+    expect(actor.update).toHaveBeenCalledWith(
+      {
+        "system.motes.personal.value":   1,
+        "system.motes.peripheral.value": 0,
+        "system.scenePeripheral":        0
+      },
+      { scenePeripheralBefore: 0 }
+    );
     expect(result).toEqual({
       fromPrimary:   3,
       fromSecondary: 0,

@@ -1,3 +1,4 @@
+import { EX2E } from "../../config.mjs";
 import { computeWoundPenalty } from "../../rolls/health-math.mjs";
 import { computeTotalClarity, computePermanentClarity } from "../../combat/clarity-math.mjs";
 
@@ -15,7 +16,8 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       exaltType: new fields.StringField({ initial: "solar", blank: false }),
       caste:     new fields.StringField({ initial: "dawn",  blank: true  }),
       concept:   new fields.StringField({ initial: "",      blank: true  }),
-      anima:     new fields.StringField({ initial: "none",  blank: false }),
+      anima:           new fields.StringField({ initial: "none",  blank: false }),
+      scenePeripheral: new fields.NumberField({ initial: 0, min: 0, integer: true }),
 
       // ── Attributes ─────────────────────────────────────────────────────────
       attributes: new fields.SchemaField({
@@ -255,6 +257,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     this._prepareMoteMaxima();
     this._prepareIntimacies();
     this._prepareAlchemicalClarity();
+    this._prepareAnimaLevel();
   }
 
   /**
@@ -499,5 +502,17 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     const permanent = computePermanentClarity(this.essence.value, exemplarCount);
     this.splat.alchemical.clarity.permanent = permanent;
     this.splat.alchemical.clarity.total     = computeTotalClarity(permanent, this.limit.value);
+  }
+
+  _prepareAnimaLevel() {
+    if (this.exaltType === "mortal") { this.anima = "none"; return; }
+    const sp = this.scenePeripheral ?? 0;
+    const T  = EX2E.ANIMA_THRESHOLDS;
+    if      (sp >= T.totemic) this.anima = "totemic";
+    else if (sp >= T.bonfire) this.anima = "bonfire";
+    else if (sp >= T.burning) this.anima = "burning";
+    else if (sp >= T.glowing) this.anima = "glowing";
+    else if (sp >= T.dim)     this.anima = "dim";
+    else                      this.anima = "none";
   }
 }

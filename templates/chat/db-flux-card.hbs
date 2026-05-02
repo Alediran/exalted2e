@@ -1,0 +1,30 @@
+<div class="ex2e-roll-card ex2e-db-flux-card">
+  <h3 class="ex2e-db-flux-header">{{tierLabel}} — {{actorName}}</h3>
+
+  <div class="ex2e-db-flux-interval">
+    {{#if (eq tier "totemic")}}
+      {{localize "EX2E.DBFluxIntervalTotemic"}}
+    {{else}}
+      {{localize "EX2E.DBFluxInterval" interval=interval}}
+    {{/if}}
+  </div>
+
+  <div class="ex2e-db-flux-soak-note">
+    {{#if soakExempt}}
+      {{localize "EX2E.DBFluxSoakNote"}}
+    {{else}}
+      {{localize "EX2E.DBFluxNoSoakNote"}}
+    {{/if}}
+  </div>
+
+  <div class="ex2e-db-flux-range-note">
+    {{localize "EX2E.DBFluxRangeNote" range=range}}
+  </div>
+
+  <div class="ex2e-db-flux-buttons">
+    <button type="button" class="btn-apply-flux"
+            data-actor-id="{{actorId}}" data-tier="{{tier}}">
+      {{localize "EX2E.DBFluxApply"}}
+    </button>
+  </div>
+</div>

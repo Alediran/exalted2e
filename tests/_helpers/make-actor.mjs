@@ -25,6 +25,7 @@ export function makeCharacterSystem(overrides = {}) {
     caste: "dawn",
     concept: "",
     anima: "none",
+    scenePeripheral: 0,
     motivation: "",
     attributes: {
       strength:     { value: 1, caste: false, favored: false }, dexterity:    { value: 1, caste: false, favored: false }, stamina:    { value: 1, caste: false, favored: false },

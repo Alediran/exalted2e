@@ -226,12 +226,21 @@ EX2E.charmKeywords = [
   "War", "Wyld"
 ];
 
+EX2E.ANIMA_THRESHOLDS = { dim: 1, glowing: 4, burning: 8, bonfire: 11, totemic: 16 };
+
+EX2E.DB_FLUX = {
+  burning: { interval: 60, soakExempt: true  },
+  bonfire: { interval:  9, soakExempt: true  },
+  totemic: { interval:  1, soakExempt: false }
+};
+
 EX2E.anima = {
   none:    "EX2E.AnimaNone",
+  dim:     "EX2E.AnimaDim",
   glowing: "EX2E.AnimaGlowing",
   burning: "EX2E.AnimaBurning",
   bonfire: "EX2E.AnimaBonfire",
-  iconic:  "EX2E.AnimaIconic"
+  totemic: "EX2E.AnimaTotemic"
 };
 
 // ── Ability Groupings by Exalt Type ──────────────────────────────────────

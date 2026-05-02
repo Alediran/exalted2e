@@ -374,6 +374,10 @@ export class ExaltedCombat extends Combat {
     }
     await clearSocialScene({ silent: true });
     await clearAllMultiTickActions(this);
+    const characterCombatants = [...this.combatants].filter(c => c.actor?.type === "character");
+    await Promise.all(
+      characterCombatants.map(c => c.actor.update({ "system.scenePeripheral": 0 }))
+    );
     return super.endCombat();
   }
 

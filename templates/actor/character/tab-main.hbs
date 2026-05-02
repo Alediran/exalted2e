@@ -197,10 +197,37 @@
         {{/if}}
       </section>
 
-      {{!-- Column 3: Anima placeholder --}}
+      {{!-- Column 3: Anima --}}
       <section class="anima-column">
         <h2 class="section-header">{{localize "EX2E.Anima"}}</h2>
-        <p class="empty-msg" style="opacity:0.7; font-style:italic;">{{localize "EX2E.AnimaPlaceholder"}}</p>
+        <div class="anima-tier anima-tier--{{system.anima}}">{{animaLabel}}</div>
+
+        <div class="anima-scene-peripheral">
+          <span class="anima-label">{{localize "EX2E.ScenePeripheralSpend"}}</span>
+          <div class="anima-nudge-row">
+            {{#if isGM}}
+            <button type="button" data-action="nudgeScenePeripheral" data-delta="-1" class="anima-nudge-btn">−</button>
+            {{/if}}
+            <span class="anima-counter">{{system.scenePeripheral}}</span>
+            {{#if isGM}}
+            <button type="button" data-action="nudgeScenePeripheral" data-delta="1" class="anima-nudge-btn">+</button>
+            {{/if}}
+          </div>
+          {{#if isGM}}
+          <button type="button" data-action="endScene" class="anima-end-scene-btn">{{localize "EX2E.EndScene"}}</button>
+          {{/if}}
+        </div>
+
+        {{#if dbFluxInfo}}
+        <div class="anima-flux-note">
+          <i class="fa-solid fa-bolt"></i>
+          {{#if (eq dbFluxInfo.tier "totemic")}}
+            {{localize "EX2E.DBFluxIntervalTotemic"}}
+          {{else}}
+            {{localize "EX2E.DBFluxInterval" interval=dbFluxInfo.interval}}
+          {{/if}}
+        </div>
+        {{/if}}
       </section>
 
     </div>

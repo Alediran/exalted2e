@@ -916,6 +916,60 @@ Hooks.on("updateActor", async (actor, changes, _options, userId) => {
   }
 });
 
+// ── DB Flux Detection ──────────────────────────────────────────────────────
+// Detect when a terrestrial character's anima enters or escalates through a
+// flux tier. Posts a flux card so the GM can apply the ambient damage.
+// `options.scenePeripheralBefore` is passed by `spendMotes` and the sheet's
+// nudge handler; unknown callers default to 0 (conservative: may post a
+// card even if already in-tier, but never silently suppress one).
+
+function _animaTierFor(sp) {
+  const T = EX2E.ANIMA_THRESHOLDS;
+  if      (sp >= T.totemic) return "totemic";
+  else if (sp >= T.bonfire) return "bonfire";
+  else if (sp >= T.burning) return "burning";
+  else if (sp >= T.glowing) return "glowing";
+  else if (sp >= T.dim)     return "dim";
+  else                      return "none";
+}
+
+async function _postDBFluxCard(actor, tier) {
+  const flux    = EX2E.DB_FLUX[tier];
+  const range   = Math.floor(Math.round(actor.system.essence.value / 3));
+  const name    = `EX2E.DBFlux${tier.charAt(0).toUpperCase() + tier.slice(1)}`;
+  const content = await foundry.applications.handlebars.renderTemplate(
+    "systems/exalted2e/templates/chat/db-flux-card.hbs",
+    {
+      actorName:  actor.name,
+      actorId:    actor.id,
+      tier,
+      tierLabel:  game.i18n.localize(name),
+      interval:   flux.interval,
+      soakExempt: flux.soakExempt,
+      range,
+    }
+  );
+  await ChatMessage.create({
+    content,
+    speaker: ChatMessage.getSpeaker({ actor }),
+    flags: { exalted2e: { dbFlux: { actorId: actor.id, tier } } }
+  });
+}
+
+Hooks.on("updateActor", async (actor, changes, options, userId) => {
+  if (game.user.id !== userId) return;
+  if (actor.type !== "character") return;
+  if (actor.system.exaltType !== "terrestrial") return;
+  if (changes.system?.scenePeripheral === undefined) return;
+
+  const tierBefore = _animaTierFor(options.scenePeripheralBefore ?? 0);
+  const tierAfter  = actor.system.anima;
+  const fluxTiers  = new Set(["burning", "bonfire", "totemic"]);
+  if (!fluxTiers.has(tierAfter) || tierAfter === tierBefore) return;
+
+  await _postDBFluxCard(actor, tierAfter);
+});
+
 // ── Combat Tracker Controls ────────────────────────────────────────────────
 // Inject two Exalted-specific buttons into the combat tracker:
 //   • Join Battle — GM rolls Wits+Awareness for every combatant and assigns
@@ -1130,6 +1184,39 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       lbCard.querySelector?.("[data-action='limitBreakPartial']")
         ?.addEventListener("click", async () => { await _resolveLimitBreak(message, "partial"); });
     }
+  }
+
+  // ── Apply Flux button ──────────────────────────────────────────────────────
+  // Iterates `game.user.targets`. For burning/bonfire tiers, skips targets
+  // with any natural lethal soak. For totemic, skips terrestrials only.
+  // Range check is stubbed — canvas range-bands feature pending.
+  const fluxBtn = el.querySelector?.(".btn-apply-flux");
+  if (fluxBtn) {
+    fluxBtn.addEventListener("click", async (ev) => {
+      const tier = ev.currentTarget.dataset.tier;
+      const flux = EX2E.DB_FLUX[tier];
+      if (!flux) return;
+      if (!game.user.isGM) return;
+
+      const targets = [...game.user.targets];
+      if (targets.length === 0) {
+        ui.notifications.warn(game.i18n.localize("EX2E.DBFluxNoTargets"));
+        return;
+      }
+
+      for (const token of targets) {
+        const target = token.actor;
+        if (!target) continue;
+        const lethalSoak = target.type === "character"
+          ? (target.system.totalSoak?.lethal ?? 0)
+          : (target.system.soak?.lethal        ?? 0);
+        if (flux.soakExempt && lethalSoak > 0) continue;
+        if (!flux.soakExempt
+            && target.type === "character"
+            && target.system.exaltType === "terrestrial") continue;
+        await target.applyDamage(1, "lethal");
+      }
+    });
   }
 
   // ── Flurry card attack buttons ────────────────────────────────────────
