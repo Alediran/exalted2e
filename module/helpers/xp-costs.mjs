@@ -278,9 +278,10 @@ function _priceCharm(actor, charm, exaltType, costs) {
           confident: true
         };
       }
-      // Patron / Favored Yozi isn't tracked yet — default to the lower
-      // tier and flag for GM review.
-      return { xp: _n(s.charmFavored, 8), confident: false };
+      const inf = actor.system?.splat?.infernal ?? {};
+      const yp  = charm.system?.yoziPatron ?? "";
+      const discounted = yp !== "" && (yp === inf.patron || yp === inf.favoredYozi);
+      return { xp: discounted ? _n(s.charmFavored, 8) : _n(s.charmOther, 10), confident: true };
     }
 
     case "mortal":

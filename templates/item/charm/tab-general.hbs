@@ -36,6 +36,7 @@
              {{#unless isEditable}}readonly{{/unless}}>
     </div>
     {{/unless}}
+    {{#if (eq system.exaltType "alchemical")}}
     {{#unless system.isSubmodule}}
     <div class="field-group">
       <label>{{localize "EX2E.EssenceCommitment"}}</label>
@@ -43,6 +44,7 @@
              min="0" {{#unless isEditable}}readonly{{/unless}}>
     </div>
     {{/unless}}
+    {{/if}}
     {{#if system.isSubmodule}}
     <div class="field-group">
       <label>{{localize "EX2E.SubmodulePurchaseXp"}}</label>
@@ -50,12 +52,14 @@
              min="0" {{#unless isEditable}}readonly{{/unless}}>
     </div>
     {{/if}}
-    <!-- Min Requirements (label swaps to Min Attribute for Lunar/Alchemical) -->
+    <!-- Min Requirements (hidden for Infernal; label swaps to Min Attribute for Lunar/Alchemical) -->
+    {{#unless (eq system.exaltType "infernal")}}
     <div class="field-group">
       <label>{{minAbilityFieldLabel}}</label>
       <input type="number" name="system.minAbility" value="{{system.minAbility}}" min="0" max="5"
              {{#unless isEditable}}readonly{{/unless}}>
     </div>
+    {{/unless}}
     <div class="field-group">
       <label>{{localize "EX2E.MinEssence"}}</label>
       <input type="number" name="system.essence" value="{{system.essence}}" min="1" max="10"

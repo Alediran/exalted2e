@@ -110,10 +110,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       }),
 
       // ── Limit (for Solars / applicable Exalts) ─────────────────────────────
-      limit: new fields.SchemaField({
-        value:   new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),
-        trigger: new fields.StringField({ initial: "", blank: true })
-      }),
+      limit: new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),
 
       // ── Health ─────────────────────────────────────────────────────────────
       // damage: bashing (b), lethal (l), aggravated (a) – total boxes = 7 base
@@ -173,6 +170,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         }),
         infernal:    new fields.SchemaField({
           patron:        new fields.StringField({ initial: "", blank: true }),
+          favoredYozi:   new fields.StringField({ initial: "", blank: true }),
           urge:          new fields.StringField({ initial: "", blank: true }),
           actOfVillainy: new fields.NumberField({ initial: 0, min: 0, max: 20, integer: true })
         }),
@@ -501,7 +499,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     ).length;
     const permanent = computePermanentClarity(this.essence.value, exemplarCount);
     this.splat.alchemical.clarity.permanent = permanent;
-    this.splat.alchemical.clarity.total     = computeTotalClarity(permanent, this.limit.value);
+    this.splat.alchemical.clarity.total     = computeTotalClarity(permanent, this.limit);
   }
 
   _prepareAnimaLevel() {

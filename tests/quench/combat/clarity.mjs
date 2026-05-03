@@ -67,7 +67,7 @@ export function registerClarity(context) {
       const actor = await createTempCharacter({ name: "Q-Clarity-Band34" });
       await actor.update({
         "system.exaltType":   "alchemical",
-        "system.limit.value": 3
+        "system.limit": 3
       });
       assert.equal(actor.system.clarityModifiers.socialPenalty, 1);
     });
@@ -76,7 +76,7 @@ export function registerClarity(context) {
       const actor = await createTempCharacter({ name: "Q-Clarity-Band10" });
       await actor.update({
         "system.exaltType":   "alchemical",
-        "system.limit.value": 10
+        "system.limit": 10
       });
       assert.equal(actor.system.clarityModifiers.compassionAutoFail, true);
     });

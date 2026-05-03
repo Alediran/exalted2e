@@ -109,9 +109,21 @@
 
           {{!-- Limit track + variant warnings --}}
           <div style="grid-column: 1 / -1; margin-top: var(--ex2e-gap-sm);">
+            {{#if (eq system.exaltType "infernal")}}
+            <div class="section-toolbar">
+              <h2 class="section-header" style="margin:0;flex:1">{{limitLabel}}</h2>
+              {{#if isGM}}
+              <button type="button" data-action="rollActOfVillainy"
+                      title="{{localize 'EX2E.RollActOfVillainy'}}">
+                <i class="fa-solid fa-dice"></i> {{localize "EX2E.SplatActOfVillainy"}}
+              </button>
+              {{/if}}
+            </div>
+            {{else}}
             <h2 class="section-header">{{limitLabel}}</h2>
-            {{boxRating name="system.limit.value"
-                        value=system.limit.value
+            {{/if}}
+            {{boxRating name="system.limit"
+                        value=system.limit
                         max=10
                         min=0
                         total=10}}
@@ -134,16 +146,17 @@
             {{/if}}
             {{/if}}
 
-            {{#if (and (eq system.exaltType "abyssal") (eq system.limit.value 10))}}
+            {{#if (and (eq system.exaltType "abyssal") (eq system.limit 10))}}
             <div class="resonance-eruption-warning">{{localize "EX2E.ResonanceEruption"}}</div>
             {{/if}}
 
-            {{#if (and (includes (array "solar" "lunar" "terrestrial" "sidereal") system.exaltType) (eq system.limit.value 10))}}
+            {{#if (and (includes (array "solar" "lunar" "terrestrial" "sidereal") system.exaltType) (eq system.limit 10))}}
             <div class="limit-break-warning">{{localize "EX2E.LimitBreak"}}</div>
             {{/if}}
           </div>
 
-          {{!-- Virtue Flaw as its own section header + input row, spanning the 2x2 grid --}}
+          {{!-- Virtue Flaw: hidden for Infernal (Urge instead) and Abyssal (no flaw) --}}
+          {{#unless (eq system.exaltType "infernal")}}{{#unless (eq system.exaltType "abyssal")}}
           <div class="virtue-flaw-section" style="grid-column: 1 / -1;"
                {{#if virtueFlaw}}data-item-id="{{virtueFlaw.id}}"{{/if}}>
             <h2 class="section-header">{{localize "EX2E.VirtueFlaw"}}</h2>
@@ -168,6 +181,17 @@
               {{/if}}
             </div>
           </div>
+          {{/unless}}{{/unless}}
+          {{#if (eq system.exaltType "infernal")}}
+          <div class="virtue-flaw-section" style="grid-column: 1 / -1;">
+            <h2 class="section-header">{{localize "EX2E.SplatUrge"}}</h2>
+            <div class="virtue-flaw-input-group">
+              <input type="text" class="virtue-flaw-input" name="system.splat.infernal.urge"
+                     value="{{system.splat.infernal.urge}}"
+                     {{#unless isEditable}}readonly{{/unless}}>
+            </div>
+          </div>
+          {{/if}}
         </div>
       </section>
 

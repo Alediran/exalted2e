@@ -155,7 +155,7 @@ export function registerHandlebarsHelpers() {
   Handlebars.registerHelper("limitTrack", function(options) {
     const { value, name } = options.hash;
     const safeVal = value ?? 0;
-    let html = `<div class="limit-track" data-name="${name ?? 'system.limit.value'}" data-current="${safeVal}">`;
+    let html = `<div class="limit-track" data-name="${name ?? 'system.limit'}" data-current="${safeVal}">`;
     for (let i = 1; i <= 10; i++) {
       const filled = i <= safeVal ? "filled" : "";
       html += `<span class="limit-pip ${filled}" data-value="${i}"></span>`;

@@ -97,7 +97,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       editImage:           editImageAction,
       configureAnimaColors: CharacterSheet.#onConfigureAnimaColors,
       activateAnimaPower:  CharacterSheet.#onActivateAnimaPower,
-      viewAnimaPower:      CharacterSheet.#onViewAnimaPower
+      viewAnimaPower:      CharacterSheet.#onViewAnimaPower,
+      rollActOfVillainy:   CharacterSheet.#onRollActOfVillainy
     }
   };
 
@@ -211,16 +212,35 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       const labelKey = EX2E.abilityLabels[key] ?? attrLabelByKey[key];
       return labelKey ? game.i18n.localize(labelKey) : key;
     };
-    const buckets = new Map();
-    for (const c of charms) {
-      if (c.system?.isSubmodule) continue;
-      const k = c.system?.ability ?? "";
-      if (!buckets.has(k)) buckets.set(k, []);
-      buckets.get(k).push(c);
+    let charmGroups;
+    if (sys.exaltType === "infernal") {
+      const yoziBuckets = new Map();
+      for (const c of charms) {
+        if (c.system?.isSubmodule) continue;
+        const k = c.system?.yoziPatron ?? "";
+        if (!yoziBuckets.has(k)) yoziBuckets.set(k, []);
+        yoziBuckets.get(k).push(c);
+      }
+      const labelForYozi = (key) => {
+        if (!key) return game.i18n.localize("EX2E.YoziUnassigned");
+        const labelKey = EX2E.yoziPatrons[key];
+        return labelKey ? game.i18n.localize(labelKey) : key;
+      };
+      charmGroups = [...yoziBuckets.entries()]
+        .map(([key, list]) => ({ key, label: labelForYozi(key), charms: list }))
+        .sort((a, b) => a.label.localeCompare(b.label));
+    } else {
+      const buckets = new Map();
+      for (const c of charms) {
+        if (c.system?.isSubmodule) continue;
+        const k = c.system?.ability ?? "";
+        if (!buckets.has(k)) buckets.set(k, []);
+        buckets.get(k).push(c);
+      }
+      charmGroups = [...buckets.entries()]
+        .map(([key, list]) => ({ key, label: labelForCharmAbility(key), charms: list }))
+        .sort((a, b) => a.label.localeCompare(b.label));
     }
-    const charmGroups = [...buckets.entries()]
-      .map(([key, list]) => ({ key, label: labelForCharmAbility(key), charms: list }))
-      .sort((a, b) => a.label.localeCompare(b.label));
 
     const submodulesByParent = {};
     for (const item of charms) {
@@ -751,7 +771,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const current = parseInt(track?.dataset.current ?? 0);
     const clicked = parseInt(pip.dataset.value);
     const val     = (clicked === current) ? 0 : clicked;
-    this.document.update({ "system.limit.value": val });
+    this.document.update({ "system.limit": val });
   }
 
   #onMoteInputChange(event) {
@@ -890,6 +910,9 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       data.system = { tradition: target.dataset.tradition };
     } else if (type === "charm" && target.dataset.exaltType) {
       data.system = { exaltType: target.dataset.exaltType };
+      if (target.dataset.yoziPatron !== undefined) {
+        data.system.yoziPatron = target.dataset.yoziPatron;
+      }
     }
     await Item.create(data, { parent: this.document });
   }
@@ -1329,6 +1352,75 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       window: { title: item.name },
       content,
       ok: { label: game.i18n.localize("Close") }
+    });
+  }
+
+  static async #onRollActOfVillainy(_event, _target) {
+    const actor = this.actor;
+    if (!game.user.isGM) return;
+
+    const virtues = ["compassion", "conviction", "temperance", "valor"].map(k => ({
+      key:   k,
+      label: EX2E.virtues[k],
+      value: actor.system.virtues?.[k]?.value ?? 0
+    }));
+
+    const content = await foundry.applications.handlebars.renderTemplate(
+      "systems/exalted2e/templates/dialog/act-of-villainy-dialog.hbs",
+      { virtues }
+    );
+
+    const result = await foundry.applications.api.DialogV2.prompt({
+      window: { title: game.i18n.localize("EX2E.RollActOfVillainy") },
+      content,
+      ok: {
+        label: game.i18n.localize("EX2E.Confirm"),
+        callback: (_event, button) => {
+          const form = button.form;
+          const checkedKeys = ["compassion", "conviction", "temperance", "valor"]
+            .filter(k => form.elements[`virtue-${k}`]?.checked);
+          if (checkedKeys.length === 0) return null;
+          const stunt = parseInt(form.elements["stunt"]?.value) || 0;
+          const pool  = checkedKeys.reduce((s, k) => s + (actor.system.virtues?.[k]?.value ?? 0), 0);
+          const selectedVirtues = checkedKeys.map(k => ({
+            key:   k,
+            label: EX2E.virtues[k],
+            value: actor.system.virtues?.[k]?.value ?? 0
+          }));
+          return { pool, stunt, selectedVirtues };
+        }
+      }
+    });
+
+    if (!result) return;
+    const { pool, stunt, selectedVirtues } = result;
+
+    const cardContent = await foundry.applications.handlebars.renderTemplate(
+      "systems/exalted2e/templates/chat/act-of-villainy-card.hbs",
+      {
+        actorName: actor.name,
+        selectedVirtues,
+        stunt,
+        pool,
+        rolled: false
+      }
+    );
+
+    await ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor }),
+      content: cardContent,
+      flags: {
+        exalted2e: {
+          actOfVillainy: {
+            actorId:         actor.id,
+            actorName:       actor.name,
+            pool,
+            stunt,
+            selectedVirtues,
+            rolled:          false
+          }
+        }
+      }
     });
   }
 }

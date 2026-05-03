@@ -147,7 +147,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Knacks item type
 - [x] Health-track wraps at 10 boxes per line
 - [x] Attribute-keyed charms (Excellency system uses attribute for Lunars)
-- [ ] Chimera Knacks gated by Casteless + Limit ≥ 5
+- [x] Chimera Knacks gated by Casteless + Limit ≥ 5
 
 ### Dragon-Blooded
 - [x] Aspects & breeding (Breeding 1-5 mote-pool bonus)
@@ -172,17 +172,17 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Banked Resonance points storage and spending UI
 - [ ] Resonance eruptions (Blight / Branding / Conduit / Stigmata effect scripts)
 - [ ] ST-triggered eruption button (GM-only)
-- [ ] Whispers trait (Conduit effect cap)
+- [x] Whispers trait (Conduit effect cap)
 - [ ] Monstrance of Celestial Portion as an artifact/background
 - [x] Moonshadow non-Abyssal charm access (16 XP, +2m activation)
 - [x] Creature of Darkness flaw (GM-only removal, flag-based detection)
 
 ### Infernal
 - [x] Castes (Slayer / Malefactor / Defiler / Scourge / Fiend)
-- [ ] Yozi patron assignment (charm tree discriminator)
+- [x] Yozi patron assignment (charm tree discriminator)
 - [ ] Urge trait (Motivation-like Yozi-pleasing drive)
 - [ ] Torment track (Limit-variant; Yozi-themed eruptions)
-- [ ] Act of Villainy counter
+- [x] Act of Villainy counter
 - [ ] Heretical charms gating (GSP-only; 9 XP)
 - [x] Fiend non-Infernal charm access (16 XP, +2m activation)
 - [ ] Shintai / Mantle form-type charms (Yozi-specific transformation state)
@@ -200,7 +200,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 ### Mortal
 - [ ] Mortal-specific sheet variant (hide Essence/Mote/Charm sections)
 - [ ] Terrestrial-only sorcery/MA restrictions
-- [ ] No Excellencies enforcement
+- [x] No Excellencies enforcement
 
 ## Creatures / Traits
 - [x] Creature of Darkness flaw (GM-only removal, no token HUD icon, flag-based detection)

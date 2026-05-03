@@ -97,3 +97,36 @@ describe("areCharmPrereqsMet", () => {
     expect(areCharmPrereqsMet(makeCharm({ prereqGroups: [] }), makeActor([]))).toBe(true);
   });
 });
+
+describe("areCharmPrereqsMet — Chimera Knack gate", () => {
+  function makeKnack({ isChimera = false } = {}) {
+    return { type: "knack", system: { isChimera, prereqGroups: [] } };
+  }
+  function makeActorForKnack({ exaltType = "solar", caste = "dawn", limitValue = 0 } = {}) {
+    return {
+      system: { exaltType, caste, limit: { value: limitValue } },
+      items: { filter: () => [] }
+    };
+  }
+
+  it("non-Chimera knack always passes regardless of actor", () => {
+    const actor = makeActorForKnack({ exaltType: "solar", caste: "dawn", limitValue: 0 });
+    expect(areCharmPrereqsMet(makeKnack({ isChimera: false }), actor)).toBe(true);
+  });
+  it("Chimera knack blocks non-Lunar actor (Solar at Limit 10)", () => {
+    const actor = makeActorForKnack({ exaltType: "solar", caste: "dawn", limitValue: 10 });
+    expect(areCharmPrereqsMet(makeKnack({ isChimera: true }), actor)).toBe(false);
+  });
+  it("Chimera knack blocks Lunar with non-casteless caste (fullMoon at Limit 10)", () => {
+    const actor = makeActorForKnack({ exaltType: "lunar", caste: "full", limitValue: 10 });
+    expect(areCharmPrereqsMet(makeKnack({ isChimera: true }), actor)).toBe(false);
+  });
+  it("Chimera knack blocks Casteless Lunar at Limit 9", () => {
+    const actor = makeActorForKnack({ exaltType: "lunar", caste: "casteless", limitValue: 9 });
+    expect(areCharmPrereqsMet(makeKnack({ isChimera: true }), actor)).toBe(false);
+  });
+  it("Chimera knack passes for Casteless Lunar at Limit 10", () => {
+    const actor = makeActorForKnack({ exaltType: "lunar", caste: "casteless", limitValue: 10 });
+    expect(areCharmPrereqsMet(makeKnack({ isChimera: true }), actor)).toBe(true);
+  });
+});

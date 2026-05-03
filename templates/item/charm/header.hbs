@@ -16,7 +16,8 @@
         </select>
       </div>
       {{/unless}}
-      <!-- Ability / Attribute (swaps based on the charm's exaltType) -->
+      <!-- Ability / Attribute (hidden for Infernal; Yozi shown instead) -->
+      {{#unless (eq system.exaltType "infernal")}}
       <div class="field-group">
         <label>{{abilityFieldLabel}}</label>
         <select name="system.ability" {{#unless isEditable}}disabled{{/unless}}>
@@ -25,6 +26,18 @@
           {{/each}}
         </select>
       </div>
+      {{/unless}}
+      {{#if (eq system.exaltType "infernal")}}
+      <div class="field-group">
+        <label>{{localize "EX2E.CharmYoziPatron"}}</label>
+        <select name="system.yoziPatron" {{#unless isEditable}}disabled{{/unless}}>
+          <option value="" {{#unless system.yoziPatron}}selected{{/unless}}>—</option>
+          {{#each yoziPatronOptions}}
+          <option value="{{this.key}}" {{#if (eq this.key ../system.yoziPatron)}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+      </div>
+      {{/if}}
     </div>
     <!-- Cost Summary -->
     <div class="charm-cost-summary">

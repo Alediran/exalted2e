@@ -102,6 +102,14 @@ EX2E.yoziPatrons = {
   ebonDragon:           "EX2E.YoziEbonDragon"
 };
 
+EX2E.infernalCastePatron = {
+  slayer:     "malfeas",
+  malefactor: "cecelyne",
+  defiler:    "sheWhoLivesInHerName",
+  scourge:    "adorjan",
+  fiend:      "ebonDragon"
+};
+
 // Splats that use the classic Limit mechanic. Resisting unnatural mental
 // influence with Willpower ticks the Limit counter (capped at once per
 // scene per attacker) for these splats only. Abyssal (Resonance),

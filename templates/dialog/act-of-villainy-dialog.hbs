@@ -1,0 +1,19 @@
+<div class="act-of-villainy-dialog">
+  {{#each virtues}}
+  <div class="trait-row">
+    <label>
+      <input type="checkbox" name="virtue-{{this.key}}">
+      {{localize this.label}} ({{this.value}})
+    </label>
+  </div>
+  {{/each}}
+  <div class="trait-row">
+    <label>{{localize "EX2E.StuntBonus"}}</label>
+    <select name="stunt">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+  </div>
+</div>

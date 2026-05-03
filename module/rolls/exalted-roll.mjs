@@ -279,6 +279,12 @@ export class ExaltedRoll {
 
     const excellency = isAttrBased ? detectExc(defaultAttr) : detectExc(ability);
 
+    if (exaltType === "mortal") {
+      excellency.first  = false;
+      excellency.second = false;
+      excellency.third  = false;
+    }
+
     // Max caps: 1st = key rating, 2nd = ceil(key/2)
     let keyVal      = 0; //isAttrBased ? attrVal : abilVal;
 
@@ -295,6 +301,11 @@ export class ExaltedRoll {
       case "solar":
       case "abyssal":
       case "infernal":
+        keyVal = attrVal + abilVal;
+        break;
+      case "mortal":
+        keyVal = 0;
+        break;
       default:
         keyVal = attrVal + abilVal;
         break;

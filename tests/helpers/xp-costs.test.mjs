@@ -267,7 +267,7 @@ describe("computeXpCost — item pricing (charms)", () => {
       item: { type: "charm", name: "Test", system: { ability: "melee", exaltType: "solar", keywords: [] } }
     });
     expect(result.xp).not.toBe(16);
-    expect(result.confident).toBe(false);
+    expect(result.confident).toBe(true);
   });
 
   it("Infernal Fiend pays native rate for an Infernal charm", () => {
@@ -334,6 +334,54 @@ describe("computeXpCost — item pricing (charms)", () => {
     });
     expect(charmRes.xp).toBe(6);
     expect(maRes.xp).toBe(11);
+  });
+});
+
+describe("computeXpCost — Infernal charm pricing", () => {
+  function makeInfernalActor({ patron = "malfeas", favoredYozi = "" } = {}) {
+    return {
+      system: {
+        exaltType:  "infernal",
+        caste:      "slayer",
+        abilities:  {},
+        attributes: {},
+        willpower:  { max: 5 },
+        experience: { value: 0, total: 0 },
+        splat:      { infernal: { patron, favoredYozi } }
+      }
+    };
+  }
+  function makeInfernalCharm({ yoziPatron = "" } = {}) {
+    return { type: "charm", system: { ability: "melee", exaltType: "infernal", yoziPatron } };
+  }
+
+  it("patron-Yozi charm costs 8 XP with confident:true", () => {
+    const actor = makeInfernalActor({ patron: "malfeas" });
+    const charm = makeInfernalCharm({ yoziPatron: "malfeas" });
+    const result = computeXpCost(actor, { kind: "item", item: charm });
+    expect(result.xp).toBe(8);
+    expect(result.confident).toBe(true);
+  });
+  it("favored-Yozi charm costs 8 XP with confident:true", () => {
+    const actor = makeInfernalActor({ patron: "malfeas", favoredYozi: "adorjan" });
+    const charm = makeInfernalCharm({ yoziPatron: "adorjan" });
+    const result = computeXpCost(actor, { kind: "item", item: charm });
+    expect(result.xp).toBe(8);
+    expect(result.confident).toBe(true);
+  });
+  it("non-patron non-favored Yozi charm costs 10 XP", () => {
+    const actor = makeInfernalActor({ patron: "malfeas", favoredYozi: "adorjan" });
+    const charm = makeInfernalCharm({ yoziPatron: "cecelyne" });
+    const result = computeXpCost(actor, { kind: "item", item: charm });
+    expect(result.xp).toBe(10);
+    expect(result.confident).toBe(true);
+  });
+  it("blank yoziPatron charm costs 10 XP (conservative fallback)", () => {
+    const actor = makeInfernalActor({ patron: "malfeas", favoredYozi: "adorjan" });
+    const charm = makeInfernalCharm({ yoziPatron: "" });
+    const result = computeXpCost(actor, { kind: "item", item: charm });
+    expect(result.xp).toBe(10);
+    expect(result.confident).toBe(true);
   });
 });
 

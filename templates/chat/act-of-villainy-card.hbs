@@ -1,0 +1,26 @@
+<div class="ex2e-roll-card ex2e-act-of-villainy-card">
+  <h3 class="ex2e-aov-header">{{actorName}} — {{localize "EX2E.SplatActOfVillainy"}}</h3>
+  <div class="ex2e-aov-virtues">
+    {{#each selectedVirtues}}
+    <div class="ex2e-aov-virtue-row">
+      <span class="ex2e-aov-virtue-name">{{localize this.label}}</span>
+      <span class="ex2e-aov-virtue-value">{{this.value}}</span>
+    </div>
+    {{/each}}
+  </div>
+  {{#if stunt}}
+  <div class="ex2e-aov-meta">{{localize "EX2E.StuntBonus"}}: {{stunt}}</div>
+  {{/if}}
+  <div class="ex2e-aov-pool">
+    {{localize "EX2E.Pool"}}: <strong>{{pool}}</strong>
+  </div>
+  {{#unless rolled}}
+  <div class="ex2e-aov-buttons">
+    <button type="button" data-action="rollActOfVillainy">
+      <i class="fa-solid fa-dice"></i> {{localize "EX2E.Roll"}}
+    </button>
+  </div>
+  {{else}}
+  <div class="ex2e-aov-resolved">{{localize "EX2E.Rolled"}}</div>
+  {{/unless}}
+</div>

@@ -118,6 +118,9 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         .filter(o => o.uid)
         .sort((a, b) => a.name.localeCompare(b.name)),
       isEditable:   this.isEditable,
+      yoziPatronOptions: Object.entries(EX2E.yoziPatrons).map(([k, v]) => ({
+        key: k, label: game.i18n.localize(v)
+      })),
       enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description, {
         secrets: this.document.isOwner, relativeTo: this.document
       })

@@ -80,9 +80,8 @@ export class ExaltedActor extends Actor {
         break;
     }
     // Universal Limit token — every Exalt's anti-virtue counter, regardless
-    // of which splat-variant rules apply (Limit / Resonance / Torment /
-    // Clarity all share `system.limit.value`).
-    data.limit = s.limit?.value ?? 0;
+    // of which splat-variant rules apply (Limit / Resonance / Torment / Clarity).
+    data.limit = s.limit ?? 0;
     return data;
   }
 
@@ -122,6 +121,13 @@ export class ExaltedActor extends Actor {
           attrUpdates[`system.attributes.${key}.caste`] = casteAttrSet.has(key);
         }
         foundry.utils.mergeObject(changed, foundry.utils.expandObject(attrUpdates));
+      }
+
+      if (exaltType === "infernal") {
+        const patron = EX2E.infernalCastePatron?.[newCaste] ?? "";
+        foundry.utils.mergeObject(changed, {
+          system: { splat: { infernal: { patron } } }
+        });
       }
     }
 

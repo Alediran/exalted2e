@@ -134,3 +134,24 @@ describe("ExaltedActor._preUpdate caste auto-assign", () => {
     expect(changed.system.attributes?.strength?.caste).toBeUndefined();
   });
 });
+
+describe("ExaltedActor._preUpdate — Infernal patron auto-derive", () => {
+  it("slayer caste sets patron to malfeas", async () => {
+    const actor = makeFakeActor({ exaltType: "infernal", abilities: {} });
+    const changed = { system: { caste: "slayer" } };
+    await ExaltedActor.prototype._preUpdate.call(actor, changed, {}, "user-id");
+    expect(changed.system?.splat?.infernal?.patron).toBe("malfeas");
+  });
+  it("malefactor caste sets patron to cecelyne", async () => {
+    const actor = makeFakeActor({ exaltType: "infernal", abilities: {} });
+    const changed = { system: { caste: "malefactor" } };
+    await ExaltedActor.prototype._preUpdate.call(actor, changed, {}, "user-id");
+    expect(changed.system?.splat?.infernal?.patron).toBe("cecelyne");
+  });
+  it("fiend caste sets patron to ebonDragon", async () => {
+    const actor = makeFakeActor({ exaltType: "infernal", abilities: {} });
+    const changed = { system: { caste: "fiend" } };
+    await ExaltedActor.prototype._preUpdate.call(actor, changed, {}, "user-id");
+    expect(changed.system?.splat?.infernal?.patron).toBe("ebonDragon");
+  });
+});

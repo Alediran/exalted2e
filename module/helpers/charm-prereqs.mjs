@@ -82,6 +82,12 @@ export function evaluateCharmPrereqs(charm, actor) {
 
 /** Convenience: true iff every group has a satisfying alternative. */
 export function areCharmPrereqsMet(charm, actor) {
+  if (charm.type === "knack" && charm.system?.isChimera) {
+    const s = actor?.system;
+    if (!s || s.exaltType !== "lunar" ||
+        s.caste !== "casteless" ||
+        (s.limit?.value ?? 0) < 10) return false;
+  }
   const report = evaluateCharmPrereqs(charm, actor);
   if (report.length === 0) return true;
   return report.every(r => r.satisfied);

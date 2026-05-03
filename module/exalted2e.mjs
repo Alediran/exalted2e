@@ -928,7 +928,7 @@ Hooks.on("updateActor", async (actor, changes, _options, userId) => {
   if (actor.type !== "character") return;
   if (!EX2E.LIMIT_ACCRUAL_SPLATS.includes(actor.system.exaltType)) return;
 
-  const newLimit = foundry.utils.getProperty(changes, "system.limit.value");
+  const newLimit = foundry.utils.getProperty(changes, "system.limit");
 
   // Clear the pending guard whenever Limit is anything other than 10.
   if (newLimit !== undefined && newLimit !== 10) {
@@ -1104,7 +1104,7 @@ export async function _resolveLimitBreak(message, choice) {
     return;
   }
 
-  const updates = { "system.limit.value": 0 };
+  const updates = { "system.limit": 0 };
 
   if (choice === "full" && lb.virtueRating > 0) {
     const current = actor.system.willpower.value ?? 0;
@@ -1870,9 +1870,9 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       const sceneFlags    = defender.flags?.exalted2e?.socialScene ?? {};
       const attackerEntry = sceneFlags[record.attackerId] ?? {};
       if (!attackerEntry.unnaturalLimitGranted) {
-        const currentLimit = defender.system.limit?.value ?? 0;
+        const currentLimit = defender.system.limit ?? 0;
         await defender.update({
-          "system.limit.value": Math.min(10, currentLimit + 1),
+          "system.limit": Math.min(10, currentLimit + 1),
           [`flags.exalted2e.socialScene.${record.attackerId}.unnaturalLimitGranted`]: true
         });
         ui.notifications.info(
@@ -2240,6 +2240,55 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     });
     await _rerenderSocialAttackCard(message);
   });
+
+  // ── Act of Villainy: player rolls the virtue pool ─────────────────────
+  const aovCard = el.querySelector?.(".ex2e-act-of-villainy-card");
+  if (aovCard) {
+    const aov = message.flags?.exalted2e?.actOfVillainy;
+    if (aov && !aov.rolled) {
+      aovCard.querySelector("[data-action='rollActOfVillainy']")
+        ?.addEventListener("click", async (ev) => {
+          const btn = ev.currentTarget;
+          if (btn.disabled) return;
+          btn.disabled = true;
+
+          const actor = game.actors.get(aov.actorId);
+          if (!actor?.isOwner) {
+            ui.notifications.warn(game.i18n.localize("EX2E.NotOwner"));
+            btn.disabled = false;
+            return;
+          }
+
+          try {
+            const { ExaltedRoll } = await import("./rolls/exalted-roll.mjs");
+            const roll   = new ExaltedRoll({
+              pool:      aov.pool,
+              stunt:     aov.stunt,
+              actorName: aov.actorName,
+              flavor:    game.i18n.localize("EX2E.SplatActOfVillainy")
+            });
+            const result = await roll.evaluate();
+            await result.toMessage({ speaker: ChatMessage.getSpeaker({ actor }) });
+debugger;
+            const successes = result.successes;
+            const newTorment = Math.max(0, (actor.system.limit ?? 0) - successes);
+            await actor.update({ "system.limit": newTorment });
+
+            await message.update({
+              flags: { exalted2e: { actOfVillainy: { ...aov, rolled: true } } }
+            });
+          } catch (err) {
+            console.error("exalted2e | Act of Villainy roll failed", err);
+            btn.disabled = false;
+          }
+        });
+    }
+
+    if (aov?.rolled) {
+      const btn = aovCard.querySelector("[data-action='rollActOfVillainy']");
+      if (btn) btn.disabled = true;
+    }
+  }
 });
 
 // ── Auto-clear social-scene state on combat deletion ──────────────────────

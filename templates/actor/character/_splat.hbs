@@ -45,18 +45,13 @@
 <h2 class="section-header">{{localize "EX2E.Splat"}}</h2>
 <div class="splat-section">
   <div class="trait-row">
-    <label>{{localize "EX2E.SplatPatron"}}</label>
-    <select name="system.splat.infernal.patron" {{#unless isEditable}}disabled{{/unless}}>
-      <option value="" {{#unless system.splat.infernal.patron}}selected{{/unless}}>{{localize "EX2E.SplatPatronNone"}}</option>
+    <label>{{localize "EX2E.SplatFavoredYozi"}}</label>
+    <select name="system.splat.infernal.favoredYozi" {{#unless isEditable}}disabled{{/unless}}>
+      <option value="" {{#unless system.splat.infernal.favoredYozi}}selected{{/unless}}>—</option>
       {{#each yoziPatrons}}
-      <option value="{{this.key}}" {{#if (eq this.key ../system.splat.infernal.patron)}}selected{{/if}}>{{this.label}}</option>
+      <option value="{{this.key}}" {{#if (eq this.key ../system.splat.infernal.favoredYozi)}}selected{{/if}}>{{this.label}}</option>
       {{/each}}
     </select>
-  </div>
-  <div class="trait-row">
-    <label>{{localize "EX2E.SplatUrge"}}</label>
-    <input type="text" name="system.splat.infernal.urge" value="{{system.splat.infernal.urge}}"
-           {{#unless isEditable}}readonly{{/unless}}>
   </div>
   <div class="trait-row">
     <label>{{localize "EX2E.SplatActOfVillainy"}}</label>

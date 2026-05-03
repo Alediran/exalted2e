@@ -561,3 +561,96 @@
 }
 .ex2e-db-flux-card .ex2e-db-flux-buttons { margin-top: 8px; }
 .ex2e-db-flux-card .ex2e-db-flux-buttons .btn-apply-flux { width: 100%; }
+
+/* ── Act of Villainy chat card ───────────────────────────────────────────── */
+
+.ex2e-act-of-villainy-card .ex2e-aov-header {
+  font-family:    var(--ex2e-font-title);
+  color:          var(--ex2e-gold-main);
+  font-size:      var(--ex2e-font-size-lg);
+  letter-spacing: 0.05em;
+  margin:         0 0 var(--ex2e-gap-sm) 0;
+  padding-bottom: var(--ex2e-gap-sm);
+  border-bottom:  1px solid var(--ex2e-gold-dark);
+}
+
+.ex2e-act-of-villainy-card .ex2e-aov-virtues {
+  display:        flex;
+  flex-direction: column;
+  gap:            2px;
+  margin-bottom:  var(--ex2e-gap-sm);
+}
+
+.ex2e-act-of-villainy-card .ex2e-aov-virtue-row {
+  display:         flex;
+  justify-content: space-between;
+  align-items:     baseline;
+  padding:         2px var(--ex2e-gap-xs);
+  font-size:       var(--ex2e-font-size-sm);
+}
+
+.ex2e-act-of-villainy-card .ex2e-aov-virtue-name {
+  color: var(--ex2e-text-primary);
+}
+
+.ex2e-act-of-villainy-card .ex2e-aov-virtue-value {
+  color:       var(--ex2e-gold-main);
+  font-family: var(--ex2e-font-ui);
+  font-size:   var(--ex2e-font-size-xs);
+}
+
+.ex2e-act-of-villainy-card .ex2e-aov-meta {
+  font-size:     var(--ex2e-font-size-sm);
+  color:         var(--ex2e-text-muted);
+  margin-bottom: var(--ex2e-gap-xs);
+}
+
+.ex2e-act-of-villainy-card .ex2e-aov-pool {
+  text-align:    center;
+  font-family:   var(--ex2e-font-ui);
+  font-size:     var(--ex2e-font-size-sm);
+  color:         var(--ex2e-text-secondary);
+  padding:       var(--ex2e-gap-xs) var(--ex2e-gap-sm);
+  background:    var(--ex2e-bg-panel);
+  border:        1px solid var(--ex2e-border-color);
+  border-radius: var(--ex2e-border-radius);
+  margin-bottom: var(--ex2e-gap-sm);
+}
+
+.ex2e-act-of-villainy-card .ex2e-aov-pool strong {
+  color: var(--ex2e-gold-bright);
+}
+
+.ex2e-act-of-villainy-card .ex2e-aov-buttons {
+  display:         flex;
+  justify-content: center;
+}
+
+.ex2e-act-of-villainy-card .ex2e-aov-buttons button {
+  font-family:   var(--ex2e-font-ui);
+  font-size:     var(--ex2e-font-size-xs);
+  padding:       4px 16px;
+  border:        1px solid var(--ex2e-gold-main);
+  border-radius: var(--ex2e-border-radius);
+  background:    var(--ex2e-bg-darkest);
+  color:         var(--ex2e-gold-bright);
+  cursor:        pointer;
+  transition:    background var(--ex2e-transition-fast);
+}
+
+.ex2e-act-of-villainy-card .ex2e-aov-buttons button:hover {
+  background: var(--ex2e-gold-dark);
+}
+
+.ex2e-act-of-villainy-card .ex2e-aov-buttons button:disabled {
+  opacity: 0.5;
+  cursor:  default;
+}
+
+.ex2e-act-of-villainy-card .ex2e-aov-resolved {
+  text-align:  center;
+  font-family: var(--ex2e-font-ui);
+  font-size:   var(--ex2e-font-size-sm);
+  color:       var(--ex2e-success);
+  padding:     var(--ex2e-gap-xs) 0;
+}
