@@ -171,8 +171,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         infernal:    new fields.SchemaField({
           patron:        new fields.StringField({ initial: "", blank: true }),
           favoredYozi:   new fields.StringField({ initial: "", blank: true }),
-          urge:          new fields.StringField({ initial: "", blank: true }),
-          actOfVillainy: new fields.NumberField({ initial: 0, min: 0, max: 20, integer: true })
+          urge:          new fields.StringField({ initial: "", blank: true })
         }),
         alchemical: new fields.SchemaField({
           clarity: new fields.SchemaField({

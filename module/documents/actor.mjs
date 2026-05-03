@@ -71,7 +71,6 @@ export class ExaltedActor extends Actor {
         data.whispers = splat.abyssal?.whispers ?? 0;
         break;
       case "infernal":
-        data.actOfVillainy = splat.infernal?.actOfVillainy ?? 0;
         break;
       case "alchemical":
         break;
