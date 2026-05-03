@@ -87,9 +87,13 @@ export async function planCommitOther(combatant, pending, flurry) {
  *
  * Called by ExaltedCombat.endCombat() and the deleteCombat hook.
  *
- * @param {object} combat — Foundry Combat document
+ * @param {object} combat        — Foundry Combat document
+ * @param {object} [options]
+ * @param {boolean} [options.skipFlagUpdate=false] — skip the combatant
+ *   flag-clearing update; pass true when called from deleteCombat since
+ *   the combatants are being deleted anyway and the update would fail.
  */
-export async function clearAllMultiTickActions(combat) {
+export async function clearAllMultiTickActions(combat, { skipFlagUpdate = false } = {}) {
   if (!combat?.combatants) return;
   for (const c of combat.combatants) {
     const action = c.getFlag?.("exalted2e", "multiTickAction") ?? null;
@@ -99,7 +103,9 @@ export async function clearAllMultiTickActions(combat) {
       try { await handler.onAbort(c, action, combat); }
       catch (err) { console.warn("multi-tick onAbort failed during clear", err); }
     }
-    await c.update({ "flags.exalted2e.-=multiTickAction": null });
+    if (!skipFlagUpdate) {
+      await c.update({ "flags.exalted2e.-=multiTickAction": null });
+    }
   }
 }
 

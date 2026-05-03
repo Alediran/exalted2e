@@ -40,6 +40,12 @@ import { registerActOfVillainy }           from "./combat/act-of-villainy.mjs";
 // and cannot be exercised via Quench. No batch registered for ex2e.anima-powers.
 
 Hooks.once("quenchReady", quench => {
+  // ui.notifications.element is null in the test world — its #postNotification
+  // private method crashes whenever ChatMessage.create triggers a notify call.
+  // Suppress notify for the whole test session; individual tests that need to
+  // assert on warn/error stub those methods directly on ui.notifications.
+  if (ui.notifications) ui.notifications.notify = () => {};
+
   quench.registerBatch("ex2e.knockback.focused",        registerKnockbackFocused,       { displayName: "Knockback (focused)" });
   quench.registerBatch("ex2e.knockback.smoke",          registerKnockbackSmoke,         { displayName: "Knockback (smoke)" });
   quench.registerBatch("ex2e.dv-refresh",               registerDvRefresh,              { displayName: "DV refresh" });

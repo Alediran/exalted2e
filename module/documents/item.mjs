@@ -56,6 +56,7 @@ export class ExaltedItem extends Item {
       ui.notifications.warn(game.i18n.localize("EX2E.CannotRemoveUnarmed"));
       return false;
     }
+    this._isBeingDeleted = true;
     await super._preDelete(options, user);
     // Deleting a charm that spawned weapon artifacts: tear them down too
     // so we don't leave orphaned weapons equipped on the actor.

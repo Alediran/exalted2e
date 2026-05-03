@@ -91,6 +91,12 @@ export class ExaltedActor extends Actor {
    * reduction of a permanent trait is rejected, and any increase opens
    * a confirmation dialog that logs an XP expenditure.
    */
+  /** @override */
+  async _preDelete(options, user) {
+    this._isBeingDeleted = true;
+    return super._preDelete(options, user);
+  }
+
   async _preUpdate(changed, options, user) {
     await super._preUpdate(changed, options, user);
     if (this.type !== "character") return;
@@ -285,6 +291,7 @@ export class ExaltedActor extends Actor {
     const caste     = this.system.caste;
 
     if (exaltType === "mortal" || (exaltType === "lunar" && caste === "casteless") || !caste) {
+      if (this._isBeingDeleted) return;
       const existing = this.items.filter(i => i.flags?.exalted2e?.animaPower === true);
       if (existing.length > 0) {
         await this.deleteEmbeddedDocuments("Item", existing.map(i => i.id));
@@ -310,10 +317,15 @@ export class ExaltedActor extends Actor {
     const itemData = doc.toObject();
     itemData.system.active = false;
 
+    // _preDelete sets _isBeingDeleted synchronously before the server
+    // round-trip, so this check is reliable even mid-async.
+    if (this._isBeingDeleted) return;
+
     const existing = this.items.filter(i => i.flags?.exalted2e?.animaPower === true);
     if (existing.length > 0) {
       await this.deleteEmbeddedDocuments("Item", existing.map(i => i.id));
     }
+    if (this._isBeingDeleted) return;
     await this.createEmbeddedDocuments("Item", [itemData]);
   }
 

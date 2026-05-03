@@ -390,6 +390,7 @@ function _hasUnarmedWeapon(actor) {
 async function _ensureUnarmedWeapon(actor) {
   if (actor.type !== "character") return;
   if (_hasUnarmedWeapon(actor)) return;
+  if (actor._isBeingDeleted) return;
   await actor.createEmbeddedDocuments("Item", [_unarmedWeaponData()]);
 }
 
@@ -428,7 +429,7 @@ Hooks.on("deleteActiveEffect", async (effect, _options, userId) => {
     .map(i => i.id);
   if (weaponIds.length) await actor.deleteEmbeddedDocuments("Item", weaponIds);
   const charm = actor.items.get(charmId);
-  if (charm?.system?.active) await charm.update({ "system.active": false });
+  if (charm?.system?.active && !charm._isBeingDeleted) await charm.update({ "system.active": false });
 });
 
 // ── Ready Hook ─────────────────────────────────────────────────────────────
@@ -1090,7 +1091,9 @@ Hooks.on("renderCombatTracker", (app, html, _data) => {
 Hooks.on("deleteCombat", async (combat) => {
   if (!combat?.combatants) return;
   const { clearAllMultiTickActions } = await import("./combat/multi-tick.mjs");
-  await clearAllMultiTickActions(combat);
+  // skipFlagUpdate: combatants are embedded in the combat being deleted,
+  // so updating their flags would fail with "does not exist in combats".
+  await clearAllMultiTickActions(combat, { skipFlagUpdate: true });
 });
 
 export async function _resolveLimitBreak(message, choice) {
