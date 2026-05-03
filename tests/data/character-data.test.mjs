@@ -405,7 +405,7 @@ describe("CharacterData._prepareAlchemicalClarity", () => {
     const sys = makeCharacterSystem({
       exaltType: "solar",
       essence:   { value: 3, max: 3 },
-      limit:     { value: 2, trigger: "" }
+      limit:     2
     });
     const result = _prepDerivedData(sys);
     // _prepareAlchemicalClarity returns early, so the fixture value stays
@@ -419,7 +419,7 @@ describe("CharacterData._prepareAlchemicalClarity", () => {
     const sys = makeCharacterSystem({
       exaltType: "alchemical",
       essence:   { value: 3, max: 3 },
-      limit:     { value: 2, trigger: "" }
+      limit:     2
     });
     const result = _prepDerivedData(sys);
     expect(result.splat.alchemical.clarity.permanent).toBe(0);
@@ -432,7 +432,7 @@ describe("CharacterData._prepareAlchemicalClarity", () => {
     const sys = makeCharacterSystem({
       exaltType: "alchemical",
       essence:   { value: 6, max: 6 },
-      limit:     { value: 0, trigger: "" }
+      limit:     0
     });
     const result = _prepDerivedData(sys);
     expect(result.splat.alchemical.clarity.permanent).toBe(1);
@@ -445,7 +445,7 @@ describe("CharacterData._prepareAlchemicalClarity", () => {
     const sys = makeCharacterSystem({
       exaltType: "alchemical",
       essence:   { value: 5, max: 5 },
-      limit:     { value: 0, trigger: "" }
+      limit:     0
     });
     const items = [ _makeExemplarCharm() ];
     const result = _prepDerivedData(sys, items);
@@ -459,7 +459,7 @@ describe("CharacterData._prepareAlchemicalClarity", () => {
     const sys = makeCharacterSystem({
       exaltType: "alchemical",
       essence:   { value: 11, max: 11 },
-      limit:     { value: 7, trigger: "" }
+      limit:     7
     });
     const result = _prepDerivedData(sys);
     expect(result.splat.alchemical.clarity.permanent).toBe(6);

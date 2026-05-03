@@ -1141,6 +1141,19 @@ export async function _resolveLimitBreak(message, choice) {
   });
 }
 
+// ── Act of Villainy resolution ─────────────────────────────────────────────
+export async function _resolveActOfVillainy(message, successes) {
+  const aov   = message.flags?.exalted2e?.actOfVillainy;
+  if (!aov || aov.rolled) return;
+  const actor = game.actors.get(aov.actorId);
+  if (!actor) return;
+  const newTorment = Math.max(0, (actor.system.limit ?? 0) - successes);
+  await actor.update({ "system.limit": newTorment });
+  await message.update({
+    flags: { exalted2e: { actOfVillainy: { ...aov, rolled: true } } }
+  });
+}
+
 // ── Chat Listeners ─────────────────────────────────────────────────────────
 Hooks.on("renderChatMessageHTML", (message, html) => {
   // Resolve the raw DOM element (html may be jQuery or HTMLElement)
@@ -2269,14 +2282,7 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
             });
             const result = await roll.evaluate();
             await result.toMessage({ speaker: ChatMessage.getSpeaker({ actor }) });
-debugger;
-            const successes = result.successes;
-            const newTorment = Math.max(0, (actor.system.limit ?? 0) - successes);
-            await actor.update({ "system.limit": newTorment });
-
-            await message.update({
-              flags: { exalted2e: { actOfVillainy: { ...aov, rolled: true } } }
-            });
+            await _resolveActOfVillainy(message, result.successes);
           } catch (err) {
             console.error("exalted2e | Act of Villainy roll failed", err);
             btn.disabled = false;

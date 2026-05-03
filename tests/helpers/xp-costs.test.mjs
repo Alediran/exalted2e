@@ -1,5 +1,10 @@
 import { describe, it, expect } from "vitest";
-import { computeXpCost } from "../../module/helpers/xp-costs.mjs";
+import {
+  computeXpCost,
+  priceAlchemicalCharmSlot,
+  priceAlchemicalProtocol,
+  priceAstrologicalCollege
+} from "../../module/helpers/xp-costs.mjs";
 
 // makeActor builds a synthetic actor shape with the bits computeXpCost reads.
 function makeActor({
@@ -424,5 +429,87 @@ describe("computeXpCost — item pricing (spells / knacks / backgrounds)", () =>
     });
     expect(result.xp).toBe(9);
     expect(result.confident).toBe(true);
+  });
+});
+
+describe("priceAlchemicalCharmSlot", () => {
+  it("general slot costs 6 XP", () => {
+    expect(priceAlchemicalCharmSlot("general")).toEqual({ xp: 6, confident: true });
+  });
+
+  it("dedicated slot costs 4 XP", () => {
+    expect(priceAlchemicalCharmSlot("dedicated")).toEqual({ xp: 4, confident: true });
+  });
+
+  it("upgrade slot costs 2 XP", () => {
+    expect(priceAlchemicalCharmSlot("upgrade")).toEqual({ xp: 2, confident: true });
+  });
+
+  it("unknown grade returns 0 XP with confident: false", () => {
+    expect(priceAlchemicalCharmSlot("unknown")).toEqual({ xp: 0, confident: false });
+  });
+
+  it("null / undefined grade returns 0 XP with confident: false", () => {
+    expect(priceAlchemicalCharmSlot(null)).toEqual({ xp: 0, confident: false });
+    expect(priceAlchemicalCharmSlot(undefined)).toEqual({ xp: 0, confident: false });
+  });
+
+  it("grade matching is case-insensitive", () => {
+    expect(priceAlchemicalCharmSlot("GENERAL")).toEqual({ xp: 6, confident: true });
+    expect(priceAlchemicalCharmSlot("Dedicated")).toEqual({ xp: 4, confident: true });
+  });
+});
+
+describe("priceAlchemicalProtocol", () => {
+  it("manmachine protocol costs 3 XP", () => {
+    expect(priceAlchemicalProtocol("manmachine")).toEqual({ xp: 3, confident: true });
+  });
+
+  it("godmachine protocol costs 6 XP", () => {
+    expect(priceAlchemicalProtocol("godmachine")).toEqual({ xp: 6, confident: true });
+  });
+
+  it("unknown kind returns 0 XP with confident: false", () => {
+    expect(priceAlchemicalProtocol("unknown")).toEqual({ xp: 0, confident: false });
+  });
+
+  it("null / undefined returns 0 XP with confident: false", () => {
+    expect(priceAlchemicalProtocol(null)).toEqual({ xp: 0, confident: false });
+  });
+
+  it("kind matching is case-insensitive", () => {
+    expect(priceAlchemicalProtocol("ManMachine")).toEqual({ xp: 3, confident: true });
+    expect(priceAlchemicalProtocol("GODMACHINE")).toEqual({ xp: 6, confident: true });
+  });
+});
+
+describe("priceAstrologicalCollege", () => {
+  it("brand-new college (0→1): charges collegeNew fee (5 XP)", () => {
+    expect(priceAstrologicalCollege({ oldRating: 0, newRating: 1 })).toEqual({ xp: 5, confident: true });
+  });
+
+  it("brand-new college (0→2): collegeNew(5) for dot 1 + 1×3=3 for dot 2 = 8 XP", () => {
+    expect(priceAstrologicalCollege({ oldRating: 0, newRating: 2 })).toEqual({ xp: 8, confident: true });
+  });
+
+  it("brand-new college (0→3): 5 + 1×3 + 2×3 = 14 XP", () => {
+    expect(priceAstrologicalCollege({ oldRating: 0, newRating: 3 })).toEqual({ xp: 14, confident: true });
+  });
+
+  it("existing college (1→2): 1×3 = 3 XP (per-dot only, no new fee)", () => {
+    expect(priceAstrologicalCollege({ oldRating: 1, newRating: 2 })).toEqual({ xp: 3, confident: true });
+  });
+
+  it("existing college (2→3): 2×3 = 6 XP", () => {
+    expect(priceAstrologicalCollege({ oldRating: 2, newRating: 3 })).toEqual({ xp: 6, confident: true });
+  });
+
+  it("newRating <= oldRating returns 0 XP", () => {
+    expect(priceAstrologicalCollege({ oldRating: 3, newRating: 3 })).toEqual({ xp: 0, confident: true });
+    expect(priceAstrologicalCollege({ oldRating: 3, newRating: 1 })).toEqual({ xp: 0, confident: true });
+  });
+
+  it("defaults: oldRating=0, newRating=1 when called with no args", () => {
+    expect(priceAstrologicalCollege()).toEqual({ xp: 5, confident: true });
   });
 });
