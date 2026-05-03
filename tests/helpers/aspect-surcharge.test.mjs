@@ -1,8 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { getOutOfAspectSurcharge } from "../../module/helpers/aspect-surcharge.mjs";
+import { getOutOfAspectSurcharge, getForeignCharmSurcharge } from "../../module/helpers/aspect-surcharge.mjs";
 
 function makeActor({
   exaltType = "terrestrial",
+  caste = "",
   abilities = {}
 } = {}) {
   const allAbilities = [
@@ -16,11 +17,11 @@ function makeActor({
     base[k] = { value: 1, caste: false, favored: false };
   }
   Object.assign(base, abilities);
-  return { system: { exaltType, abilities: base } };
+  return { system: { exaltType, caste, abilities: base } };
 }
 
-function makeCharm({ ability = "melee", martialArtsTier = "", exaltType = "" } = {}) {
-  return { system: { ability, martialArtsTier, exaltType } };
+function makeCharm({ ability = "melee", martialArtsTier = "", exaltType = "", duration = "instant" } = {}) {
+  return { system: { ability, martialArtsTier, exaltType, duration } };
 }
 
 describe("getOutOfAspectSurcharge", () => {
@@ -136,6 +137,93 @@ describe("getOutOfAspectSurcharge", () => {
     });
     const charm = makeCharm({ ability: "martialArts", exaltType: "terrestrial", martialArtsTier: "celestial" });
     expect(getOutOfAspectSurcharge(actor, charm)).toBe(0);
+  });
+
+});
+
+describe("getForeignCharmSurcharge", () => {
+
+  it("returns 0 for non-eclipse-like exalt types (Solar Dawn)", () => {
+    const actor = makeActor({ exaltType: "solar", caste: "dawn" });
+    const charm = makeCharm({ exaltType: "lunar" });
+    expect(getForeignCharmSurcharge(actor, charm)).toBe(0);
+  });
+
+  it("returns 0 when charm exaltType matches actor exaltType (Eclipse activates Solar charm)", () => {
+    const actor = makeActor({ exaltType: "solar", caste: "eclipse" });
+    const charm = makeCharm({ exaltType: "solar" });
+    expect(getForeignCharmSurcharge(actor, charm)).toBe(0);
+  });
+
+  it("Solar Eclipse activating a Lunar charm returns 2", () => {
+    const actor = makeActor({ exaltType: "solar", caste: "eclipse" });
+    const charm = makeCharm({ exaltType: "lunar" });
+    expect(getForeignCharmSurcharge(actor, charm)).toBe(2);
+  });
+
+  it("Solar Eclipse activating a Terrestrial charm returns 2", () => {
+    const actor = makeActor({ exaltType: "solar", caste: "eclipse" });
+    const charm = makeCharm({ exaltType: "terrestrial" });
+    expect(getForeignCharmSurcharge(actor, charm)).toBe(2);
+  });
+
+  it("Solar Eclipse activating an Abyssal charm returns 0 (mirror exemption)", () => {
+    const actor = makeActor({ exaltType: "solar", caste: "eclipse" });
+    const charm = makeCharm({ exaltType: "abyssal" });
+    expect(getForeignCharmSurcharge(actor, charm)).toBe(0);
+  });
+
+  it("Abyssal Moonshadow activating a Solar charm returns 0 (mirror exemption)", () => {
+    const actor = makeActor({ exaltType: "abyssal", caste: "eclipse" });
+    const charm = makeCharm({ exaltType: "solar" });
+    expect(getForeignCharmSurcharge(actor, charm)).toBe(0);
+  });
+
+  it("Abyssal Moonshadow activating a Lunar charm returns 2", () => {
+    const actor = makeActor({ exaltType: "abyssal", caste: "eclipse" });
+    const charm = makeCharm({ exaltType: "lunar" });
+    expect(getForeignCharmSurcharge(actor, charm)).toBe(2);
+  });
+
+  it("Infernal Fiend activating a Solar charm returns 2 (no mirror exemption)", () => {
+    const actor = makeActor({ exaltType: "infernal", caste: "fiend" });
+    const charm = makeCharm({ exaltType: "solar" });
+    expect(getForeignCharmSurcharge(actor, charm)).toBe(2);
+  });
+
+  it("Infernal Fiend activating an Abyssal charm returns 2 (no mirror exemption)", () => {
+    const actor = makeActor({ exaltType: "infernal", caste: "fiend" });
+    const charm = makeCharm({ exaltType: "abyssal" });
+    expect(getForeignCharmSurcharge(actor, charm)).toBe(2);
+  });
+
+  it("Infernal Fiend activating an Infernal charm returns 0 (native)", () => {
+    const actor = makeActor({ exaltType: "infernal", caste: "fiend" });
+    const charm = makeCharm({ exaltType: "infernal" });
+    expect(getForeignCharmSurcharge(actor, charm)).toBe(0);
+  });
+
+  it("returns 0 for a Permanent foreign charm (no activation cost to surcharge)", () => {
+    const actor = makeActor({ exaltType: "solar", caste: "eclipse" });
+    const charm = makeCharm({ exaltType: "lunar", duration: "permanent" });
+    expect(getForeignCharmSurcharge(actor, charm)).toBe(0);
+  });
+
+  it("returns 0 when charm has no exaltType set", () => {
+    const actor = makeActor({ exaltType: "solar", caste: "eclipse" });
+    const charm = makeCharm({ exaltType: "" });
+    expect(getForeignCharmSurcharge(actor, charm)).toBe(0);
+  });
+
+  it("returns 0 for null actor", () => {
+    const charm = makeCharm({ exaltType: "lunar" });
+    expect(getForeignCharmSurcharge(null, charm)).toBe(0);
+  });
+
+  it("Infernal non-Fiend caste returns 0 (Slayer activating Solar charm)", () => {
+    const actor = makeActor({ exaltType: "infernal", caste: "slayer" });
+    const charm = makeCharm({ exaltType: "solar" });
+    expect(getForeignCharmSurcharge(actor, charm)).toBe(0);
   });
 
 });

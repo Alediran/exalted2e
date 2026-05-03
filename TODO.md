@@ -134,7 +134,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Caste abilities auto-flag on caste change
 - [x] Anima banner auto-derived from scene peripheral spend (`system.scenePeripheral` → `system.anima` enum in `prepareDerivedData`; GM ± nudge + End Scene reset on Main tab)
 - [ ] Eclipse anima oath-binding mechanic (10m + 1 WP; Essence # botches on breakers)
-- [ ] Eclipse non-Solar charm access (2× cost, +2m activation surcharge)
+- [x] Eclipse non-Solar charm access (2× cost, +2m activation surcharge)
 - [x] Limit Break indicator (Solar/Lunar/Terrestrial/Sidereal) — red label at Limit 10 on sheet
 - [x] Limit Break chat card — Virtue Flaw name + description, Full/Partial choice, WP recovery, Limit reset
 - [ ] Limit Break scripted scene effects (per-Virtue-Flaw mechanical consequences beyond WP gain)
@@ -174,7 +174,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] ST-triggered eruption button (GM-only)
 - [ ] Whispers trait (Conduit effect cap)
 - [ ] Monstrance of Celestial Portion as an artifact/background
-- [ ] Moonshadow non-Abyssal charm access (16 XP, +2m activation)
+- [x] Moonshadow non-Abyssal charm access (16 XP, +2m activation)
 - [x] Creature of Darkness flaw (GM-only removal, flag-based detection)
 
 ### Infernal
@@ -184,6 +184,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Torment track (Limit-variant; Yozi-themed eruptions)
 - [ ] Act of Villainy counter
 - [ ] Heretical charms gating (GSP-only; 9 XP)
+- [x] Fiend non-Infernal charm access (16 XP, +2m activation)
 - [ ] Shintai / Mantle form-type charms (Yozi-specific transformation state)
 
 ### Alchemical
@@ -264,7 +265,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 
 ## Other Mechanics
 - [x] Anima powers per exalt type and caste (embedded `animapower` item on actor; 34-entry compendium; swapped on caste/exaltType change; manual activate/deactivate with mote + WP cost)
-- [ ] Auto-activate caste anima power at ≥11m peripheral scene spend (bonfire threshold)
+- [x] Auto-activate caste anima power at ≥11m peripheral scene spend (bonfire threshold)
 - [ ] Anima flux (Terrestrial environmental damage, Abyssal Resonance effects)
 - [ ] Resonance track and eruptions (Abyssal) — see Abyssal splat
 - [ ] Torment / Act of Villainy tracking (Infernal) — see Infernal splat

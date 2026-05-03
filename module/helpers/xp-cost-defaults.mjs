@@ -109,7 +109,8 @@ export const XP_COST_DEFAULTS = Object.freeze({
     abilityOtherMult:   2,
     charmFavored:       8, charmOther: 10,
     spellFlat:          9,                           // sorcery — flat for Infernals
-    maFavored:          8, maOther: 10
+    maFavored:          8, maOther: 10,
+    foreignCharm:      16                            // Fiend buying non-Infernal charms
   }
 });
 

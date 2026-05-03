@@ -1,6 +1,6 @@
 import { normalizeCost } from "../rolls/activation-ledger.mjs";
 import { buildCharmWeaponData } from "./charm-weapon-data.mjs";
-import { getOutOfAspectSurcharge } from "../helpers/aspect-surcharge.mjs";
+import { getOutOfAspectSurcharge, getForeignCharmSurcharge } from "../helpers/aspect-surcharge.mjs";
 
 /**
  * ExaltedItem – extends the base Foundry Item document.
@@ -148,7 +148,7 @@ export class ExaltedItem extends Item {
         via
       };
     } else {
-      const surcharge = getOutOfAspectSurcharge(actor, this);
+      const surcharge = getOutOfAspectSurcharge(actor, this) + getForeignCharmSurcharge(actor, this);
       const effectiveCost = surcharge > 0
         ? { ...cost, motes: (cost.motes ?? 0) + surcharge }
         : cost;
@@ -433,7 +433,7 @@ export class ExaltedItem extends Item {
     const total = { motes: 0, willpower: 0, bashing: 0, lethal: 0, aggravated: 0, xp: 0 };
     for (const { charm } of planned) {
       const c = charm.system?.cost ?? {};
-      total.motes      += (Number(c.motes) || 0) + getOutOfAspectSurcharge(actor, charm);
+      total.motes      += (Number(c.motes) || 0) + getOutOfAspectSurcharge(actor, charm) + getForeignCharmSurcharge(actor, charm);
       total.willpower  += Number(c.willpower)        || 0;
       total.bashing    += Number(c.bashingHealth)    || 0;
       total.lethal     += Number(c.lethalHealth)     || 0;
@@ -455,7 +455,7 @@ export class ExaltedItem extends Item {
 
     const charmCost = (charm) => {
       const c = charm.system?.cost ?? {};
-      const surcharge = getOutOfAspectSurcharge(actor, charm);
+      const surcharge = getOutOfAspectSurcharge(actor, charm) + getForeignCharmSurcharge(actor, charm);
       const bits = [];
       const motes = (Number(c.motes) || 0) + surcharge;
       if (motes)              bits.push(`${motes}m`);

@@ -208,9 +208,9 @@ describe("computeXpCost — item pricing (charms)", () => {
     expect(result.confident).toBe(true);
   });
 
-  it("Solar non-Eclipse pays 16 XP for a foreign charm with confident: false", () => {
+  it("Solar non-Eclipse (blank caste) pays 16 XP for a foreign charm with confident: false", () => {
     const actor = makeActor({
-      exaltType: "solar", caste: "dawn",
+      exaltType: "solar", caste: "",
       abilities: { performance: { value: 3, caste: true, favored: false } }
     });
     const result = computeXpCost(actor, {
@@ -219,6 +219,64 @@ describe("computeXpCost — item pricing (charms)", () => {
     });
     expect(result.xp).toBe(16);
     expect(result.confident).toBe(false);
+  });
+
+  it("Solar Dawn (named non-Eclipse caste) does NOT pay the foreign-charm rate", () => {
+    const actor = makeActor({ exaltType: "solar", caste: "dawn" });
+    const result = computeXpCost(actor, {
+      kind: "item",
+      item: { type: "charm", name: "Test", system: { ability: "melee", exaltType: "lunar", keywords: [] } }
+    });
+    expect(result.xp).not.toBe(16);
+  });
+
+  it("Abyssal Moonshadow pays 16 XP for a foreign charm (Lunar) with confident: true", () => {
+    const actor = makeActor({ exaltType: "abyssal", caste: "eclipse" });
+    const result = computeXpCost(actor, {
+      kind: "item",
+      item: { type: "charm", name: "Test", system: { ability: "melee", exaltType: "lunar", keywords: [] } }
+    });
+    expect(result.xp).toBe(16);
+    expect(result.confident).toBe(true);
+  });
+
+  it("Infernal Fiend pays 16 XP for a Solar charm with confident: true", () => {
+    const actor = makeActor({ exaltType: "infernal", caste: "fiend" });
+    const result = computeXpCost(actor, {
+      kind: "item",
+      item: { type: "charm", name: "Test", system: { ability: "melee", exaltType: "solar", keywords: [] } }
+    });
+    expect(result.xp).toBe(16);
+    expect(result.confident).toBe(true);
+  });
+
+  it("Infernal Fiend pays 16 XP for an Abyssal charm with confident: true", () => {
+    const actor = makeActor({ exaltType: "infernal", caste: "fiend" });
+    const result = computeXpCost(actor, {
+      kind: "item",
+      item: { type: "charm", name: "Test", system: { ability: "melee", exaltType: "abyssal", keywords: [] } }
+    });
+    expect(result.xp).toBe(16);
+    expect(result.confident).toBe(true);
+  });
+
+  it("Infernal Slayer does NOT pay the foreign-charm rate for a Solar charm", () => {
+    const actor = makeActor({ exaltType: "infernal", caste: "slayer" });
+    const result = computeXpCost(actor, {
+      kind: "item",
+      item: { type: "charm", name: "Test", system: { ability: "melee", exaltType: "solar", keywords: [] } }
+    });
+    expect(result.xp).not.toBe(16);
+    expect(result.confident).toBe(false);
+  });
+
+  it("Infernal Fiend pays native rate for an Infernal charm", () => {
+    const actor = makeActor({ exaltType: "infernal", caste: "fiend" });
+    const result = computeXpCost(actor, {
+      kind: "item",
+      item: { type: "charm", name: "Test", system: { ability: "melee", exaltType: "infernal", keywords: [] } }
+    });
+    expect(result.xp).not.toBe(16);
   });
 
   it("Lunar caste-favored vs non-favored charm — 10 vs 12", () => {

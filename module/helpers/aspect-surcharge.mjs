@@ -63,3 +63,38 @@ export function getOutOfAspectSurcharge(actor, charm) {
 
   return abilityData.caste ? 0 : 1;
 }
+
+/**
+ * Return the foreign-charm mote surcharge for Eclipse / Moonshadow / Fiend
+ * activating a charm from another exalt type.
+ *
+ * Rules:
+ *  - Only applies to Solar Eclipse, Abyssal Moonshadow (caste key "eclipse"),
+ *    and Infernal Fiend.
+ *  - The Solar↔Abyssal mirror pair are not foreign to each other.
+ *  - Fiend has no mirror exemptions — every non-Infernal charm is foreign.
+ *  - Permanent charms are skipped (no activation cost to surcharge).
+ *
+ * @param {object} actor  Foundry Actor document (or synthetic with .system).
+ * @param {object} charm  Foundry Item document (or synthetic with .system).
+ * @returns {0|2}
+ */
+export function getForeignCharmSurcharge(actor, charm) {
+  const exaltType = actor?.system?.exaltType;
+  const caste     = actor?.system?.caste;
+
+  const isEclipseLike = caste === "eclipse" ||
+    (exaltType === "infernal" && caste === "fiend");
+  if (!isEclipseLike) return 0;
+
+  if (charm?.system?.duration === "permanent") return 0;
+
+  const charmExalt = charm?.system?.exaltType ?? "";
+  if (!charmExalt || charmExalt === exaltType) return 0;
+
+  // Solar↔Abyssal mirror: not foreign to each other
+  if (exaltType === "solar"   && charmExalt === "abyssal") return 0;
+  if (exaltType === "abyssal" && charmExalt === "solar")   return 0;
+
+  return 2;
+}

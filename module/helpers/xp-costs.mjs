@@ -192,14 +192,17 @@ function _priceCharm(actor, charm, exaltType, costs) {
   const s          = costs[exaltType] ?? {};
 
   // Eclipse (Solar) / Moonshadow (Abyssal, caste-keyed "eclipse" in this
-  // schema) pay a flat foreign-charm cost for any non-native charm.
+  // schema) / Fiend (Infernal) pay a flat foreign-charm cost for any non-native charm.
   // Solar ⇄ Abyssal charms are NOT "foreign" for this rule.
-  const eclipseLike  = caste === "eclipse";
+  const eclipseLike  = caste === "eclipse" ||
+    (exaltType === "infernal" && caste === "fiend");
   const foreignCharm = !!charmExalt && charmExalt !== exaltType
                     && !(exaltType === "solar"   && charmExalt === "abyssal")
                     && !(exaltType === "abyssal" && charmExalt === "solar");
 
-  if (foreignCharm && (exaltType === "solar" || exaltType === "abyssal")) {
+  const casteBlankSolarAbyssal = (exaltType === "solar" || exaltType === "abyssal") && !caste;
+
+  if (foreignCharm && (eclipseLike || casteBlankSolarAbyssal)) {
     return { xp: _n(s.foreignCharm, 16), confident: eclipseLike };
   }
 
