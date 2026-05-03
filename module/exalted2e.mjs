@@ -391,7 +391,13 @@ async function _ensureUnarmedWeapon(actor) {
   if (actor.type !== "character") return;
   if (_hasUnarmedWeapon(actor)) return;
   if (actor._isBeingDeleted) return;
-  await actor.createEmbeddedDocuments("Item", [_unarmedWeaponData()]);
+  try {
+    await actor.createEmbeddedDocuments("Item", [_unarmedWeaponData()]);
+  } catch (err) {
+    // Silently ignore if the actor was deleted while createEmbeddedDocuments
+    // was in-flight (guard check passed but deletion raced the server round-trip).
+    if (!actor._isBeingDeleted) throw err;
+  }
 }
 
 Hooks.on("createActor", async (actor, _options, userId) => {
