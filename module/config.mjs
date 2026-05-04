@@ -629,3 +629,92 @@ EX2E.maAccessByExaltType = {
   abyssal:     "sidereal",
   sidereal:    "sidereal"
 };
+
+// ── Sidereal Colleges ──────────────────────────────────────────────────────
+EX2E.siderealColleges = {
+  the_captain:        { labelKey: "EX2E.CollegeTheCaptain",       maiden: "journeys" },
+  the_gull:           { labelKey: "EX2E.CollegeTheGull",          maiden: "journeys" },
+  the_mast:           { labelKey: "EX2E.CollegeTheMast",          maiden: "journeys" },
+  the_messenger:      { labelKey: "EX2E.CollegeTheMessenger",     maiden: "journeys" },
+  the_ships_wheel:    { labelKey: "EX2E.CollegeTheShipsWheel",    maiden: "journeys" },
+  the_ewer:           { labelKey: "EX2E.CollegeTheEwer",          maiden: "serenity" },
+  the_lovers:         { labelKey: "EX2E.CollegeTheLovers",        maiden: "serenity" },
+  the_musician:       { labelKey: "EX2E.CollegeTheMusician",      maiden: "serenity" },
+  the_peacock:        { labelKey: "EX2E.CollegeThePeacock",       maiden: "serenity" },
+  the_pillar:         { labelKey: "EX2E.CollegeThePillar",        maiden: "serenity" },
+  the_banner:         { labelKey: "EX2E.CollegeTheBanner",        maiden: "battles"  },
+  the_gauntlet:       { labelKey: "EX2E.CollegeTheGauntlet",      maiden: "battles"  },
+  the_quiver:         { labelKey: "EX2E.CollegeTheQuiver",        maiden: "battles"  },
+  the_shield:         { labelKey: "EX2E.CollegeTheShield",        maiden: "battles"  },
+  the_spear:          { labelKey: "EX2E.CollegeTheSpear",         maiden: "battles"  },
+  the_guardians:      { labelKey: "EX2E.CollegeTheGuardians",     maiden: "secrets"  },
+  the_key:            { labelKey: "EX2E.CollegeTheKey",           maiden: "secrets"  },
+  the_mask:           { labelKey: "EX2E.CollegeTheMask",          maiden: "secrets"  },
+  the_sorcerer:       { labelKey: "EX2E.CollegeTheSorcerer",      maiden: "secrets"  },
+  the_treasure_trove: { labelKey: "EX2E.CollegeTheTreasureTrove", maiden: "secrets"  },
+  the_corpse:         { labelKey: "EX2E.CollegeTheCorpse",        maiden: "endings"  },
+  the_crow:           { labelKey: "EX2E.CollegeTheCrow",          maiden: "endings"  },
+  the_haywain:        { labelKey: "EX2E.CollegeTheHaywain",       maiden: "endings"  },
+  the_rising_smoke:   { labelKey: "EX2E.CollegeTheRisingSmoke",   maiden: "endings"  },
+  the_sword:          { labelKey: "EX2E.CollegeTheSword",         maiden: "endings"  },
+};
+
+EX2E.siderealMaidens = {
+  journeys: "EX2E.HouseOfJourneys",
+  serenity: "EX2E.HouseOfSerenity",
+  battles:  "EX2E.HouseOfBattles",
+  secrets:  "EX2E.HouseOfSecrets",
+  endings:  "EX2E.HouseOfEndings",
+};
+
+EX2E.destinyProvidence = {
+  artless_prodigy_blessing:      { labelKey: "EX2E.ProvidenceArtlessProdigy",      type: "blessing", requiresVirtue: false },
+  blissful_idiot_blessing:       { labelKey: "EX2E.ProvidenceBlissfulIdiot",       type: "blessing", requiresVirtue: false },
+  hound_chases_rabbit_blessing:  { labelKey: "EX2E.ProvidenceHoundChasesRabbit",  type: "blessing", requiresVirtue: false },
+  fortified_spirit_blessing:     { labelKey: "EX2E.ProvidenceFortifiedSpirit",     type: "blessing", requiresVirtue: true  },
+  sloped_floor_curse:            { labelKey: "EX2E.ProvidenceSlopedFloor",         type: "curse",    requiresVirtue: false },
+  ruin_without_failure_curse:    { labelKey: "EX2E.ProvidenceRuinWithoutFailure",  type: "curse",    requiresVirtue: false },
+  heart_piercing_curse:          { labelKey: "EX2E.ProvidenceHeartPiercing",       type: "curse",    requiresVirtue: false },
+  name_destroying_curse:         { labelKey: "EX2E.ProvidenceNameDestroying",      type: "curse",    requiresVirtue: true  },
+};
+
+EX2E.destinyTrigger = {
+  simple:      { labelKey: "EX2E.TriggerSimple",      paradoxDice: 1 },
+  intelligent: { labelKey: "EX2E.TriggerIntelligent", paradoxDice: 3 },
+};
+
+// effectPoints = cost to buy this level; paradoxDice = dice from THIS level only (not cumulative)
+EX2E.destinyScope = {
+  0:  { labelKey: "EX2E.ScopeIndividual",      effectPoints: 0,  paradoxDice: 0, invitesCensure: false },
+  1:  { labelKey: "EX2E.ScopeIndividualAlone", effectPoints: 1,  paradoxDice: 0, invitesCensure: false },
+  2:  { labelKey: "EX2E.ScopeSmallGroup",      effectPoints: 2,  paradoxDice: 0, invitesCensure: false },
+  3:  { labelKey: "EX2E.ScopeExtendedFamily",  effectPoints: 3,  paradoxDice: 0, invitesCensure: false },
+  4:  { labelKey: "EX2E.ScopeClanVillage",     effectPoints: 4,  paradoxDice: 1, invitesCensure: false },
+  5:  { labelKey: "EX2E.ScopeTown",            effectPoints: 5,  paradoxDice: 1, invitesCensure: false },
+  6:  { labelKey: "EX2E.ScopeCity",            effectPoints: 6,  paradoxDice: 1, invitesCensure: true  },
+  7:  { labelKey: "EX2E.ScopePrincipality",    effectPoints: 7,  paradoxDice: 3, invitesCensure: true  },
+  8:  { labelKey: "EX2E.ScopeKingdom",         effectPoints: 8,  paradoxDice: 3, invitesCensure: true  },
+  9:  { labelKey: "EX2E.ScopeLocalRegion",     effectPoints: 9,  paradoxDice: 3, invitesCensure: true  },
+  10: { labelKey: "EX2E.ScopeDirection",       effectPoints: 10, paradoxDice: 3, invitesCensure: true  },
+};
+
+EX2E.destinyDuration = {
+  0:  { labelKey: "EX2E.DurationOneMonth",    effectPoints: 0,  paradoxDice: 0, invitesCensure: false },
+  1:  { labelKey: "EX2E.DurationOneSeason",   effectPoints: 1,  paradoxDice: 0, invitesCensure: false },
+  2:  { labelKey: "EX2E.DurationOneYear",     effectPoints: 2,  paradoxDice: 1, invitesCensure: false },
+  3:  { labelKey: "EX2E.Duration10Years",     effectPoints: 3,  paradoxDice: 1, invitesCensure: false },
+  4:  { labelKey: "EX2E.Duration20Years",     effectPoints: 4,  paradoxDice: 1, invitesCensure: false },
+  5:  { labelKey: "EX2E.Duration60Years",     effectPoints: 5,  paradoxDice: 3, invitesCensure: false },
+  6:  { labelKey: "EX2E.Duration140Years",    effectPoints: 6,  paradoxDice: 3, invitesCensure: true  },
+  7:  { labelKey: "EX2E.Duration260Years",    effectPoints: 7,  paradoxDice: 3, invitesCensure: true  },
+  8:  { labelKey: "EX2E.Duration600Years",    effectPoints: 8,  paradoxDice: 3, invitesCensure: true  },
+  9:  { labelKey: "EX2E.Duration1000Years",   effectPoints: 9,  paradoxDice: 3, invitesCensure: true  },
+  10: { labelKey: "EX2E.Duration2000Years",   effectPoints: 10, paradoxDice: 3, invitesCensure: true  },
+};
+
+EX2E.destinyFrequency = {
+  1: { labelKey: "EX2E.FrequencyWeekly",    effectPoints: 1, paradoxDice: 1, invitesCensure: false },
+  2: { labelKey: "EX2E.FrequencyDaily",     effectPoints: 2, paradoxDice: 1, invitesCensure: false },
+  3: { labelKey: "EX2E.FrequencyPerScene",  effectPoints: 3, paradoxDice: 1, invitesCensure: true  },
+  4: { labelKey: "EX2E.FrequencyAlways",    effectPoints: 4, paradoxDice: 3, invitesCensure: true  },
+};

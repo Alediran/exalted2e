@@ -506,6 +506,12 @@
   max-height: 130px;
 }
 
+/* Spacer column: holds grid alignment without rendering content */
+.ability-column--spacer {
+  visibility:     hidden;
+  pointer-events: none;
+}
+
 .specialty-column .specialty-ability-group,
 .specialty-column-section .specialty-ability-group {
   margin-bottom: 0px;

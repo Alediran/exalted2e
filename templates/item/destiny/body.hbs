@@ -1,0 +1,147 @@
+<div class="sheet-body destiny-body">
+
+  {{!-- ── Effect Points Banner ── --}}
+  <div class="destiny-ep-banner">
+    <span class="ep-label">{{localize "EX2E.DestinyEffectPoints"}}</span>
+    <span class="ep-value">{{system.effectPoints.total}}</span>
+    {{#unless system.finalized}}
+    <span class="ep-remaining {{#if (gt system.effectPoints.spent system.effectPoints.total)}}ep-over{{/if}}">
+      ({{localize "EX2E.DestinyEffectPointsRemaining"}}: {{sub system.effectPoints.total system.effectPoints.spent}})
+    </span>
+    {{/unless}}
+  </div>
+
+  {{!-- ── Providence ── --}}
+  <div class="destiny-trait-row">
+    <label class="destiny-trait-label">{{localize "EX2E.DestinyProvidence"}}</label>
+    {{#if system.finalized}}
+    <span class="destiny-trait-value">{{localizeKey system.providence.key providences}}</span>
+    {{else}}
+    <select name="system.providence.key" {{#unless isEditable}}disabled{{/unless}}>
+      <option value="">—</option>
+      {{#each providences as |p|}}
+      <option value="{{p.key}}" {{#if (eq p.key ../system.providence.key)}}selected{{/if}}>{{p.label}}</option>
+      {{/each}}
+    </select>
+    {{/if}}
+    <span class="destiny-trait-note">{{localize "EX2E.NoEffectPointCost"}}</span>
+  </div>
+
+  {{!-- Virtue sub-select (shown only when providence requires it) --}}
+  {{#if providenceRequiresVirtue}}
+  <div class="destiny-trait-row destiny-virtue-row">
+    <label class="destiny-trait-label">{{localize "EX2E.DestinyVirtue"}}</label>
+    {{#if system.finalized}}
+    <span class="destiny-trait-value">{{system.providence.virtue}}</span>
+    {{else}}
+    <select name="system.providence.virtue" {{#unless isEditable}}disabled{{/unless}}>
+      <option value="">—</option>
+      {{#each (array "compassion" "conviction" "temperance" "valor") as |v|}}
+      <option value="{{v}}" {{#if (eq v ../system.providence.virtue)}}selected{{/if}}>
+        {{localize (concat "EX2E.Virtue" (capitalize v))}}
+      </option>
+      {{/each}}
+    </select>
+    {{/if}}
+  </div>
+  {{/if}}
+
+  {{!-- ── Trigger ── --}}
+  <div class="destiny-trait-row">
+    <label class="destiny-trait-label">{{localize "EX2E.DestinyTrigger"}}</label>
+    {{#if system.finalized}}
+    <span class="destiny-trait-value">{{localizeKey system.trigger triggers}}</span>
+    {{else}}
+    <div class="destiny-trigger-options">
+      {{#each triggers as |t|}}
+      <label class="destiny-trigger-option {{#if (eq t.key ../system.trigger)}}selected{{/if}}">
+        <input type="radio" name="system.trigger" value="{{t.key}}"
+               {{#if (eq t.key ../system.trigger)}}checked{{/if}}
+               {{#unless ../isEditable}}disabled{{/unless}}>
+        {{t.label}} <span class="paradox-dice-hint">(+{{t.paradoxDice}} ◈)</span>
+      </label>
+      {{/each}}
+    </div>
+    {{/if}}
+    <span class="destiny-trait-note">{{localize "EX2E.NoEffectPointCost"}}</span>
+  </div>
+
+  {{!-- ── Scope / Duration / Frequency ── --}}
+  <div class="destiny-trait-grid">
+    <div class="destiny-trait-col">
+      <label class="destiny-trait-label">{{localize "EX2E.DestinyScope"}}</label>
+      {{#if system.finalized}}
+      <span class="destiny-trait-value">{{localizeKey system.scope scopes}}</span>
+      {{else}}
+      <select name="system.scope" {{#unless isEditable}}disabled{{/unless}}>
+        {{#each scopes as |s|}}
+        <option value="{{s.key}}" {{#if (eq s.key ../system.scope)}}selected{{/if}}>
+          {{s.label}} ({{s.effectPoints}} pts{{#if s.paradoxDice}}, +{{s.paradoxDice}} ◈{{/if}})
+        </option>
+        {{/each}}
+      </select>
+      {{/if}}
+    </div>
+    <div class="destiny-trait-col">
+      <label class="destiny-trait-label">{{localize "EX2E.DestinyDuration"}}</label>
+      {{#if system.finalized}}
+      <span class="destiny-trait-value">{{localizeKey system.duration durations}}</span>
+      {{else}}
+      <select name="system.duration" {{#unless isEditable}}disabled{{/unless}}>
+        {{#each durations as |d|}}
+        <option value="{{d.key}}" {{#if (eq d.key ../system.duration)}}selected{{/if}}>
+          {{d.label}} ({{d.effectPoints}} pts{{#if d.paradoxDice}}, +{{d.paradoxDice}} ◈{{/if}})
+        </option>
+        {{/each}}
+      </select>
+      {{/if}}
+    </div>
+    <div class="destiny-trait-col">
+      <label class="destiny-trait-label">{{localize "EX2E.DestinyFrequency"}}</label>
+      {{#if system.finalized}}
+      <span class="destiny-trait-value">{{localizeKey system.frequency frequencies}}</span>
+      {{else}}
+      <select name="system.frequency" {{#unless isEditable}}disabled{{/unless}}>
+        {{#each frequencies as |f|}}
+        <option value="{{f.key}}" {{#if (eq f.key ../system.frequency)}}selected{{/if}}>
+          {{f.label}} ({{f.effectPoints}} pts, +{{f.paradoxDice}} ◈)
+        </option>
+        {{/each}}
+      </select>
+      {{/if}}
+    </div>
+  </div>
+
+  {{!-- ── Paradox summary ── --}}
+  <div class="destiny-paradox-summary">
+    <span>{{localize "EX2E.DestinyParadoxDice"}}: <strong class="paradox-dice-count">{{system.paradoxDice}} ◈</strong></span>
+    {{#if system.invitesCensure}}<span class="censure-warning"> · {{localize "EX2E.DestinyInvitesCensure"}}</span>{{/if}}
+    {{#if system.finalized}}<span> · {{localize "EX2E.DestinyParadoxGained"}}: {{system.paradoxGained}}</span>{{/if}}
+  </div>
+
+  {{!-- ── Description ── --}}
+  <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
+  <div class="editor-container">
+    {{#if isEditable}}
+    <prose-mirror name="system.description" data-document-uuid="{{item.uuid}}"
+                  value="{{system.description}}" collaborate="true" toggled="true">
+      {{{enrichedDescription}}}
+    </prose-mirror>
+    {{else}}
+    <div class="editor-content">{{{enrichedDescription}}}</div>
+    {{/if}}
+  </div>
+
+  {{!-- ── Finalize button (draft only) ── --}}
+  {{#unless system.finalized}}
+  {{#if isEditable}}
+  <div class="destiny-finalize-section">
+    <button type="button" data-action="finalizeDestiny"
+            {{#if (gt system.effectPoints.spent system.effectPoints.total)}}disabled{{/if}}>
+      ✦ {{localize "EX2E.DestinyFinalize"}} ({{localize "EX2E.DestinyParadoxDice"}}: {{system.paradoxDice}} ◈)
+    </button>
+  </div>
+  {{/if}}
+  {{/unless}}
+
+</div>

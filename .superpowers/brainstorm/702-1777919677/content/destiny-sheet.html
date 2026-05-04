@@ -1,0 +1,128 @@
+<h2>Destiny item sheet — two states</h2>
+<p class="subtitle">Draft (trait-picking) on the left, Finalized (read-only) on the right. Do both look right?</p>
+
+<div class="split">
+  <div class="mockup">
+    <div class="mockup-header">Draft — Ascending Destiny (The Captain)</div>
+    <div class="mockup-body" style="font-size:12px; padding:10px;">
+
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid #444;">
+        <div>
+          <div style="color:#e0c97f; font-size:13px; font-weight:bold;">Untitled Destiny</div>
+          <div style="color:#aaa; font-size:11px;">Ascending · The Captain (House of Journeys)</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="color:#ccc;">Effect Points</div>
+          <div style="font-size:18px; color:#e0c97f;">3 <span style="font-size:11px; color:#888;">/ 5 remaining</span></div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:8px;">
+        <label style="color:#aaa; font-size:10px; text-transform:uppercase; letter-spacing:1px;">Providence</label>
+        <select style="width:100%; background:#222; color:#ccc; border:1px solid #444; padding:4px; margin-top:2px; border-radius:3px;">
+          <option>Blissful Idiot Blessing — −1 difficulty to a related roll</option>
+        </select>
+        <div style="color:#888; font-size:10px; margin-top:2px;">No effect point cost</div>
+      </div>
+
+      <div style="margin-bottom:8px;">
+        <label style="color:#aaa; font-size:10px; text-transform:uppercase; letter-spacing:1px;">Trigger</label>
+        <div style="display:flex; gap:6px; margin-top:2px;">
+          <label style="background:#2a2a3e; border:1px solid #4a90d9; border-radius:3px; padding:4px 10px; color:#ccc; cursor:pointer;">● Simple <span style="color:#888; font-size:10px;">(+1 ◈)</span></label>
+          <label style="background:#222; border:1px solid #444; border-radius:3px; padding:4px 10px; color:#888; cursor:pointer;">Intelligent <span style="color:#888; font-size:10px;">(+3 ◈)</span></label>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:8px;">
+        <div>
+          <label style="color:#aaa; font-size:10px; text-transform:uppercase; letter-spacing:1px;">Scope</label>
+          <select style="width:100%; background:#222; color:#ccc; border:1px solid #444; padding:4px; margin-top:2px; border-radius:3px; font-size:11px;">
+            <option>0 — Individual (0 pts)</option>
+            <option selected>1 — Individual alone (1 pt)</option>
+            <option>2 — Small group (2 pts)</option>
+          </select>
+        </div>
+        <div>
+          <label style="color:#aaa; font-size:10px; text-transform:uppercase; letter-spacing:1px;">Duration</label>
+          <select style="width:100%; background:#222; color:#ccc; border:1px solid #444; padding:4px; margin-top:2px; border-radius:3px; font-size:11px;">
+            <option>0 — One month (0 pts)</option>
+            <option selected>1 — One season (1 pt)</option>
+          </select>
+        </div>
+        <div>
+          <label style="color:#aaa; font-size:10px; text-transform:uppercase; letter-spacing:1px;">Frequency</label>
+          <select style="width:100%; background:#222; color:#ccc; border:1px solid #444; padding:4px; margin-top:2px; border-radius:3px; font-size:11px;">
+            <option selected>1 — ~Once/week (1 pt, +1 ◈)</option>
+            <option>2 — ~Once/day (2 pts, +1 ◈)</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="background:#1a1a2e; border-radius:4px; padding:8px; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
+        <div style="color:#aaa; font-size:11px;">
+          Paradox dice: <span style="color:#e07070;">◈◈</span> (Simple +1, Frequency +1)<br>
+          <span style="color:#888; font-size:10px;">Invites censure: No</span>
+        </div>
+        <div style="color:#aaa; font-size:11px; text-align:right;">
+          Spent: 3 / 5 pts<br>
+          <span style="color:#7ec87e;">2 remaining</span>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:6px;">
+        <textarea style="flex:1; background:#222; color:#ccc; border:1px solid #444; border-radius:3px; padding:6px; font-size:11px; height:40px;" placeholder="Description / notes…"></textarea>
+      </div>
+      <button style="width:100%; margin-top:8px; background:#4a7; color:#fff; border:none; padding:6px; border-radius:3px; cursor:pointer;">✦ Finalize Destiny (roll ◈◈ Paradox dice)</button>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-header">Finalized — read-only</div>
+    <div class="mockup-body" style="font-size:12px; padding:10px;">
+
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid #444;">
+        <div>
+          <div style="color:#e0c97f; font-size:13px; font-weight:bold;">Blissful Fortune of the Captain</div>
+          <div style="color:#aaa; font-size:11px;">Ascending · The Captain (House of Journeys)</div>
+        </div>
+        <div style="background:#2a3a2a; border:1px solid #4a7; border-radius:4px; padding:3px 8px; color:#7ec87e; font-size:11px;">✦ Finalized</div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px;">
+        <div style="background:#1a1a2e; border-radius:4px; padding:6px;">
+          <div style="color:#888; font-size:10px; text-transform:uppercase;">Providence</div>
+          <div style="color:#ccc; margin-top:2px;">Blissful Idiot Blessing</div>
+          <div style="color:#888; font-size:10px;">−1 difficulty to related rolls</div>
+        </div>
+        <div style="background:#1a1a2e; border-radius:4px; padding:6px;">
+          <div style="color:#888; font-size:10px; text-transform:uppercase;">Trigger</div>
+          <div style="color:#ccc; margin-top:2px;">Simple (+1 ◈)</div>
+        </div>
+        <div style="background:#1a1a2e; border-radius:4px; padding:6px;">
+          <div style="color:#888; font-size:10px; text-transform:uppercase;">Scope</div>
+          <div style="color:#ccc; margin-top:2px;">Individual alone</div>
+          <div style="color:#888; font-size:10px;">1 effect pt</div>
+        </div>
+        <div style="background:#1a1a2e; border-radius:4px; padding:6px;">
+          <div style="color:#888; font-size:10px; text-transform:uppercase;">Duration</div>
+          <div style="color:#ccc; margin-top:2px;">One season</div>
+          <div style="color:#888; font-size:10px;">1 effect pt</div>
+        </div>
+        <div style="background:#1a1a2e; border-radius:4px; padding:6px;">
+          <div style="color:#888; font-size:10px; text-transform:uppercase;">Frequency</div>
+          <div style="color:#ccc; margin-top:2px;">~Once per week</div>
+          <div style="color:#888; font-size:10px;">1 effect pt · +1 ◈</div>
+        </div>
+        <div style="background:#2a1a1a; border-radius:4px; padding:6px;">
+          <div style="color:#888; font-size:10px; text-transform:uppercase;">Paradox gained</div>
+          <div style="color:#e07070; font-size:18px; margin-top:2px;">+2</div>
+          <div style="color:#888; font-size:10px;">rolled ◈◈, got 2 successes</div>
+        </div>
+      </div>
+
+      <div style="background:#1a1a2e; border-radius:4px; padding:6px; color:#aaa; font-size:11px; font-style:italic;">
+        Bestow upon one who seeks guidance in their travels. Difficulty of navigation and wayfinding rolls reduced by 1.
+      </div>
+    </div>
+  </div>
+</div>

@@ -163,7 +163,44 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         }),
         terrestrial: new fields.SchemaField({}),
         sidereal:    new fields.SchemaField({
-          paradox: new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true })
+          paradox: new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),
+          colleges: new fields.SchemaField({
+            journeys: new fields.SchemaField({
+              the_captain:     new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+              the_gull:        new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+              the_mast:        new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+              the_messenger:   new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+              the_ships_wheel: new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+            }),
+            serenity: new fields.SchemaField({
+              the_ewer:     new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+              the_lovers:   new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+              the_musician: new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+              the_peacock:  new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+              the_pillar:   new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+            }),
+            battles: new fields.SchemaField({
+              the_banner:   new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+              the_gauntlet: new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+              the_quiver:   new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+              the_shield:   new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+              the_spear:    new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+            }),
+            secrets: new fields.SchemaField({
+              the_guardians:      new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+              the_key:            new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+              the_mask:           new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+              the_sorcerer:       new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+              the_treasure_trove: new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+            }),
+            endings: new fields.SchemaField({
+              the_corpse:       new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+              the_crow:         new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+              the_haywain:      new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+              the_rising_smoke: new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+              the_sword:        new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+            }),
+          }),
         }),
         abyssal:     new fields.SchemaField({
           whispers: new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true })

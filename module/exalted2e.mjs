@@ -22,6 +22,7 @@ import { ComboData }        from "./data/item/combo-data.mjs";
 import { FormData }         from "./data/item/form-data.mjs";
 import { AnimaPowerData }   from "./data/item/anima-power-data.mjs";
 import { UrgeData }         from "./data/item/urge-data.mjs";
+import { DestinyData }      from "./data/item/destiny-data.mjs";
 import { CharacterSheet }   from "./sheets/actor/character-sheet.mjs";
 import { NpcSheet }         from "./sheets/actor/npc-sheet.mjs";
 import { CharmSheet }       from "./sheets/item/charm-sheet.mjs";
@@ -35,6 +36,7 @@ import { UrgeSheet }       from "./sheets/item/urge-sheet.mjs";
 import { ComboSheet }       from "./sheets/item/combo-sheet.mjs";
 import { FormSheet }        from "./sheets/item/form-sheet.mjs";
 import { AnimaPowerSheet }  from "./sheets/item/anima-power-sheet.mjs";
+import { DestinySheet }     from "./sheets/item/destiny-sheet.mjs";
 import { XpCostsConfigDialog } from "./dialogs/xp-costs-config-dialog.mjs";
 import { PermissionsConfigDialog } from "./dialogs/permissions-config-dialog.mjs";
 import { registerHandlebarsHelpers } from "./helpers/handlebars.mjs";
@@ -102,7 +104,8 @@ Hooks.once("init", function () {
     combo:      ComboData,
     form:       FormData,
     animapower: AnimaPowerData,
-    urge:       UrgeData
+    urge:       UrgeData,
+    destiny:    DestinyData
   };
 
   // ── Sheet Registration ──────────────────────────────────────────────────
@@ -173,6 +176,11 @@ Hooks.once("init", function () {
     types:     ["animapower"],
     makeDefault: true,
     label:     "EX2E.SheetAnimaPower"
+  });
+  foundry.documents.collections.Items.registerSheet("exalted2e", DestinySheet, {
+    types:       ["destiny"],
+    makeDefault: true,
+    label:       game.i18n.localize("EX2E.DestinySheet"),
   });
 
   // ── System Settings ─────────────────────────────────────────────────────

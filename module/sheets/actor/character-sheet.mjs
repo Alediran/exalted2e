@@ -101,7 +101,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       viewAnimaPower:      CharacterSheet.#onViewAnimaPower,
       rollActOfVillainy:   CharacterSheet.#onRollActOfVillainy,
       toggleTellHidden:    CharacterSheet.#onToggleTellHidden,
-      sanctifyOath:        CharacterSheet.#onSanctifyOath
+      sanctifyOath:        CharacterSheet.#onSanctifyOath,
+      createDestiny:       CharacterSheet.#onCreateDestiny
     }
   };
 
@@ -127,6 +128,10 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     },
     tabCharms: {
       template: "systems/exalted2e/templates/actor/character/tab-charms.hbs",
+      scrollable: [""]
+    },
+    tabAstrology: {
+      template: "systems/exalted2e/templates/actor/character/_astrology.hbs",
       scrollable: [""]
     },
     tabInventory: {
@@ -161,11 +166,12 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const tabs = {
       tabMain:      { id: "tabMain",      group: "sheet", icon: "fa-solid fa-user",           label: game.i18n.localize("EX2E.TabMain"),       cssClass: this.tabGroups.sheet === "tabMain"       ? "active" : "" },
       tabCombat:    { id: "tabCombat",    group: "sheet", icon: "fa-solid fa-shield-halved",  label: game.i18n.localize("EX2E.TabCombat"),     cssClass: this.tabGroups.sheet === "tabCombat"     ? "active" : "" },
-      tabCharms:    { id: "tabCharms",    group: "sheet", icon: "fa-solid fa-sun",            label: game.i18n.localize("EX2E.TabCharms"),     cssClass: this.tabGroups.sheet === "tabCharms"     ? "active" : "" },
-      tabInventory: { id: "tabInventory", group: "sheet", icon: "fa-solid fa-suitcase",       label: game.i18n.localize("EX2E.TabInventory"),  cssClass: this.tabGroups.sheet === "tabInventory"  ? "active" : "" },
-      tabBiography: { id: "tabBiography", group: "sheet", icon: "fa-solid fa-book",           label: game.i18n.localize("EX2E.TabBiography"),  cssClass: this.tabGroups.sheet === "tabBiography"  ? "active" : "" },
-      tabExperience:{ id: "tabExperience",group: "sheet", icon: "fa-solid fa-graduation-cap", label: game.i18n.localize("EX2E.TabExperience"), cssClass: this.tabGroups.sheet === "tabExperience" ? "active" : "" },
-      tabEffects:   { id: "tabEffects",   group: "sheet", icon: "fa-solid fa-wand-sparkles",  label: game.i18n.localize("EX2E.TabEffects"),    cssClass: this.tabGroups.sheet === "tabEffects"    ? "active" : "" }
+      tabCharms:    { id: "tabCharms",    group: "sheet", icon: "fa-solid fa-sun",            label: game.i18n.localize("EX2E.TabCharms"),          cssClass: this.tabGroups.sheet === "tabCharms"     ? "active" : "" },
+      tabAstrology: { id: "tabAstrology", group: "sheet", icon: "fa-solid fa-star",           label: game.i18n.localize("EX2E.SiderealAstrology"),  cssClass: this.tabGroups.sheet === "tabAstrology"  ? "active" : "" },
+      tabInventory: { id: "tabInventory", group: "sheet", icon: "fa-solid fa-suitcase",       label: game.i18n.localize("EX2E.TabInventory"),       cssClass: this.tabGroups.sheet === "tabInventory"  ? "active" : "" },
+      tabBiography: { id: "tabBiography", group: "sheet", icon: "fa-solid fa-book",           label: game.i18n.localize("EX2E.TabBiography"),       cssClass: this.tabGroups.sheet === "tabBiography"  ? "active" : "" },
+      tabExperience:{ id: "tabExperience",group: "sheet", icon: "fa-solid fa-graduation-cap", label: game.i18n.localize("EX2E.TabExperience"),      cssClass: this.tabGroups.sheet === "tabExperience" ? "active" : "" },
+      tabEffects:   { id: "tabEffects",   group: "sheet", icon: "fa-solid fa-wand-sparkles",  label: game.i18n.localize("EX2E.TabEffects"),         cssClass: this.tabGroups.sheet === "tabEffects"    ? "active" : "" }
     };
 
     // Build available castes for the current exalt type
@@ -486,6 +492,31 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     const animaPower = actor.items.find(i => i.flags?.exalted2e?.animaPower === true) ?? null;
 
+    // Astrology tab data (Sidereal only)
+    const collegeGroups = [];
+    if (sys.exaltType === "sidereal") {
+      const EX = game.exalted2e.EX2E;
+      const ownMaiden = sys.caste;
+      for (const [maiden, maidenLabelKey] of Object.entries(EX.siderealMaidens)) {
+        const cols = Object.entries(EX.siderealColleges)
+          .filter(([, v]) => v.maiden === maiden)
+          .map(([key, v]) => ({
+            key,
+            maiden,
+            label: game.i18n.localize(v.labelKey),
+            value: sys.splat?.sidereal?.colleges?.[maiden]?.[key] ?? 0,
+          }));
+        collegeGroups.push({
+          maiden,
+          label: game.i18n.localize(maidenLabelKey),
+          isOwnMaiden: maiden === ownMaiden,
+          colleges: cols,
+        });
+      }
+    }
+    const destinies = actor.items.filter(i => i.type === "destiny")
+      .sort((a, b) => a.name.localeCompare(b.name));
+
     return {
       ...context,
       actor,
@@ -536,7 +567,9 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       dbFluxInfo,
       animaBannerStyle,
       canEditAnimaColors,
-      animaPower
+      animaPower,
+      collegeGroups,
+      destinies
     };
   }
 
@@ -1432,6 +1465,11 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static async #onToggleTellHidden(_event, _target) {
     const current = this.actor.system.splat.lunar.tellHidden;
     await this.actor.update({ "system.splat.lunar.tellHidden": !current });
+  }
+
+  static async #onCreateDestiny(_event, _target) {
+    const { DestinyCreationDialog } = await import("../../dialogs/destiny-creation-dialog.mjs");
+    await DestinyCreationDialog.open(this.document);
   }
 
   static async #onSanctifyOath(_event, _target) {

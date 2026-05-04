@@ -1,0 +1,61 @@
+<div class="tab {{cssClass}}" data-tab="tabAstrology" data-group="sheet">
+  <div class="sheet-body">
+
+    <div class="section-header-row">
+      <h2 class="section-header">{{localize "EX2E.SiderealAstrology"}}</h2>
+      {{#if isEditable}}
+      <button type="button" class="section-header-btn" data-action="createDestiny">
+        <i class="fa-solid fa-star"></i> {{localize "EX2E.DestinyCreateButton"}}
+      </button>
+      {{/if}}
+    </div>
+
+    {{!-- 5-column college grid — mirrors abilities-default layout --}}
+    <div class="ability-columns">
+      {{#each collegeGroups as |group|}}
+      <div class="ability-column {{#if group.isOwnMaiden}}ability-column--active{{/if}}">
+        <div class="ability-column-header">{{group.label}}</div>
+        {{#each group.colleges as |col|}}
+        <div class="ability-row">
+          <div class="ability-info">
+            <div class="ability-top">
+              <span class="ability-name">{{col.label}}</span>
+            </div>
+            {{dotRating name=(concat "system.splat.sidereal.colleges." col.maiden "." col.key)
+                        value=col.value max=5 min=0}}
+          </div>
+        </div>
+        {{/each}}
+      </div>
+      {{/each}}
+      <div class="ability-column ability-column--spacer" aria-hidden="true"></div>
+    </div>
+
+    {{!-- Destiny list --}}
+    {{#if destinies.length}}
+    <h2 class="section-header">Destinies</h2>
+    <ul class="destiny-list">
+      {{#each destinies as |d|}}
+      <li class="destiny-row" data-item-id="{{d.id}}">
+        <span class="destiny-name">{{d.name}}</span>
+        <span class="destiny-type-badge destiny-type-{{d.system.destinyType}}">
+          {{#if (eq d.system.destinyType "ascending")}}{{localize "EX2E.DestinyAscending"}}{{else}}{{localize "EX2E.DestinyDescending"}}{{/if}}
+        </span>
+        {{#if d.system.finalized}}
+        <span class="destiny-finalized-badge">✦</span>
+        {{/if}}
+        {{#if @root.isEditable}}
+        <a data-action="editItem" data-item-id="{{d.id}}" data-tooltip="{{localize 'EX2E.Edit'}}">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </a>
+        <a data-action="deleteItem" data-item-id="{{d.id}}" data-tooltip="{{localize 'EX2E.Delete'}}">
+          <i class="fa-solid fa-trash"></i>
+        </a>
+        {{/if}}
+      </li>
+      {{/each}}
+    </ul>
+    {{/if}}
+
+  </div>
+</div>

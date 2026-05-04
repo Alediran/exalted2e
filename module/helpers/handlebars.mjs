@@ -205,4 +205,12 @@ export function registerHandlebarsHelpers() {
       return str.charAt(0).toUpperCase() + str.slice(1);
     });
   }
+
+  // ── localizeKey ───────────────────────────────────────────────────────
+  // Finds an option by key in an options array and returns its label.
+  // {{localizeKey system.scope scopes}}
+  Handlebars.registerHelper("localizeKey", function(key, options) {
+    const entry = options.find(o => String(o.key) === String(key));
+    return entry ? entry.label : (key ?? "");
+  });
 }

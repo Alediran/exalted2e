@@ -649,3 +649,166 @@
   margin-right:  4px;
   border-radius: 2px;
 }
+
+/* ── Destiny Creation Dialog ─────────────────────────────────────────────── */
+
+.exalted2e.destiny-creation-dialog {
+  background: var(--ex2e-bg-dark);
+  border:     1px solid var(--ex2e-gold-dark);
+  color:      var(--ex2e-text-primary);
+}
+
+.destiny-creation-form {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--ex2e-gap-md);
+  padding:        var(--ex2e-gap-lg);
+}
+
+.destiny-creation-form .form-group {
+  display:        flex;
+  flex-direction: column;
+  gap:            4px;
+}
+
+.destiny-creation-form .form-group label {
+  font-family: var(--ex2e-font-ui);
+  font-size:   var(--ex2e-font-size-sm);
+  color:       var(--ex2e-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.destiny-creation-form select {
+  background:    var(--ex2e-bg-darkest);
+  border:        1px solid var(--ex2e-gold-shadow);
+  border-radius: var(--ex2e-border-radius-sm);
+  color:         var(--ex2e-text-primary);
+  font-family:   var(--ex2e-font-ui);
+  font-size:     var(--ex2e-font-size-sm);
+  padding:       4px 8px;
+  width:         100%;
+}
+
+.destiny-creation-form select:focus {
+  border-color: var(--ex2e-gold-main);
+  outline:      none;
+}
+
+.destiny-creation-form select optgroup {
+  color:       var(--ex2e-gold-main);
+  font-family: var(--ex2e-font-ui);
+}
+
+.destiny-creation-form .form-hint {
+  padding:       6px 10px;
+  background:    color-mix(in srgb, var(--ex2e-gold-dark) 12%, transparent);
+  border-left:   2px solid var(--ex2e-gold-dark);
+  border-radius: 0 var(--ex2e-border-radius-sm) var(--ex2e-border-radius-sm) 0;
+  font-size:     var(--ex2e-font-size-sm);
+  color:         var(--ex2e-text-secondary);
+}
+
+.destiny-creation-form .form-hint strong {
+  color: var(--ex2e-gold-bright);
+}
+
+/* Roll step progression */
+
+.destiny-roll-steps {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--ex2e-gap-sm);
+  padding-top:    var(--ex2e-gap-sm);
+  border-top:     1px solid rgba(201,162,39,0.18);
+}
+
+.destiny-roll-steps button {
+  align-self:     center;
+  display:        inline-flex;
+  align-items:    center;
+  gap:            var(--ex2e-gap-sm);
+  padding:        6px 24px;
+  border:         1px solid var(--ex2e-gold-main);
+  border-radius:  20px;
+  background:     linear-gradient(135deg, var(--ex2e-bg-panel) 0%, var(--ex2e-bg-medium) 100%);
+  color:          var(--ex2e-gold-bright);
+  font-family:    var(--ex2e-font-title);
+  font-size:      var(--ex2e-font-size-md);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor:         pointer;
+  transition:     all var(--ex2e-transition-fast);
+}
+
+.destiny-roll-steps button:hover:not(:disabled) {
+  background:  var(--ex2e-gold-dark);
+  box-shadow:  var(--ex2e-glow-gold);
+  transform:   translateY(-1px);
+}
+
+.destiny-roll-steps button:disabled {
+  opacity: 0.4;
+  cursor:  not-allowed;
+  border-color: var(--ex2e-gold-shadow);
+  color:        var(--ex2e-text-muted);
+}
+
+.destiny-roll-steps .roll-result {
+  padding:       var(--ex2e-gap-sm) var(--ex2e-gap-md);
+  background:    var(--ex2e-bg-darkest);
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: var(--ex2e-border-radius-sm);
+  font-size:     var(--ex2e-font-size-sm);
+  color:         var(--ex2e-text-secondary);
+  text-align:    center;
+}
+
+.destiny-roll-steps .roll-result strong {
+  color: var(--ex2e-gold-bright);
+}
+
+/* Footer — Create Destiny button */
+
+.destiny-creation-form .form-footer {
+  display:         flex;
+  justify-content: center;
+  padding-top:     var(--ex2e-gap-md);
+  border-top:      1px solid var(--ex2e-gold-dark);
+  background:      var(--ex2e-bg-darkest);
+  margin:          0 calc(-1 * var(--ex2e-gap-lg)) calc(-1 * var(--ex2e-gap-lg));
+  padding-bottom:  var(--ex2e-gap-md);
+  padding-left:    var(--ex2e-gap-lg);
+  padding-right:   var(--ex2e-gap-lg);
+  border-radius:   0 0 var(--ex2e-border-radius-sm) var(--ex2e-border-radius-sm);
+}
+
+.destiny-creation-form .form-footer button {
+  display:        inline-flex;
+  align-items:    center;
+  gap:            var(--ex2e-gap-sm);
+  padding:        6px 32px;
+  border:         1px solid var(--ex2e-gold-main);
+  border-radius:  20px;
+  background:     linear-gradient(135deg, var(--ex2e-bg-panel) 0%, var(--ex2e-bg-medium) 100%);
+  color:          var(--ex2e-gold-bright);
+  font-family:    var(--ex2e-font-title);
+  font-size:      var(--ex2e-font-size-md);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor:         pointer;
+  transition:     all var(--ex2e-transition-fast);
+}
+
+.destiny-creation-form .form-footer button:hover:not(:disabled) {
+  background: var(--ex2e-gold-dark);
+  box-shadow: var(--ex2e-glow-gold);
+  transform:  translateY(-1px);
+}
+
+.destiny-creation-form .form-footer button:disabled {
+  opacity:      0.4;
+  cursor:       not-allowed;
+  border-color: var(--ex2e-gold-shadow);
+  color:        var(--ex2e-text-muted);
+}

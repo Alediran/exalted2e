@@ -53,7 +53,16 @@ export function makeCharacterSystem(overrides = {}) {
       solar: {},
       lunar: { tell: "", activeFormId: "", spiritShapeFormId: "" },
       terrestrial: {},
-      sidereal: { paradox: 0 },
+      sidereal: {
+        paradox: 0,
+        colleges: {
+          journeys: { the_captain: 0, the_gull: 0, the_mast: 0, the_messenger: 0, the_ships_wheel: 0 },
+          serenity: { the_ewer: 0, the_lovers: 0, the_musician: 0, the_peacock: 0, the_pillar: 0 },
+          battles:  { the_banner: 0, the_gauntlet: 0, the_quiver: 0, the_shield: 0, the_spear: 0 },
+          secrets:  { the_guardians: 0, the_key: 0, the_mask: 0, the_sorcerer: 0, the_treasure_trove: 0 },
+          endings:  { the_corpse: 0, the_crow: 0, the_haywain: 0, the_rising_smoke: 0, the_sword: 0 },
+        }
+      },
       abyssal: { whispers: 0 },
       infernal: { patron: "", urge: "", actOfVillainy: 0 },
       alchemical: { clarity: { permanent: 0, total: 0 } }

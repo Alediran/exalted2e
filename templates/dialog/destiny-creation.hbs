@@ -1,0 +1,52 @@
+<form class="destiny-creation-form">
+
+  <div class="form-group">
+    <label>{{localize "EX2E.DestinyAscending"}} / {{localize "EX2E.DestinyDescending"}}</label>
+    <select name="destinyType">
+      <option value="ascending"  {{#if (eq destinyType "ascending")}}selected{{/if}}>{{localize "EX2E.DestinyAscending"}}</option>
+      <option value="descending" {{#if (eq destinyType "descending")}}selected{{/if}}>{{localize "EX2E.DestinyDescending"}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>College</label>
+    <select name="college">
+      <option value="">—</option>
+      {{#each collegeGroups as |group|}}
+      <optgroup label="{{group.label}}{{#if group.isOwnMaiden}} ✦{{/if}}">
+        {{#each group.colleges as |col|}}
+        <option value="{{col.key}}" {{#if (eq col.key ../../college)}}selected{{/if}}>{{col.label}}</option>
+        {{/each}}
+      </optgroup>
+      {{/each}}
+    </select>
+  </div>
+
+  {{#if college}}
+  <div class="form-hint">{{localize "EX2E.PrayerRoll"}} — Difficulty: {{difficulty}}</div>
+  {{/if}}
+
+  <div class="destiny-roll-steps">
+    <button type="button" data-action="runPrayerRoll" {{#unless college}}disabled{{/unless}}>
+      {{localize "EX2E.PrayerRoll"}} (Charisma + Performance)
+    </button>
+    {{#if prayerDone}}
+    <div class="roll-result">Bonus dice for Effect Roll: <strong>{{bonusDice}}</strong></div>
+    <button type="button" data-action="runEffectRoll">
+      {{localize "EX2E.EffectRoll"}} (Essence + College + {{bonusDice}})
+    </button>
+    {{#if effectPoints}}
+    <div class="roll-result">Effect Points: <strong>{{effectPoints}}</strong></div>
+    {{/if}}
+    {{/if}}
+  </div>
+
+  {{#if canCreate}}
+  <div class="form-footer">
+    <button type="button" data-action="createDestiny">
+      {{localize "EX2E.DestinyCreateButton"}}
+    </button>
+  </div>
+  {{/if}}
+
+</form>

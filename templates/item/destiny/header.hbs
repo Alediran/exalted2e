@@ -1,0 +1,24 @@
+<div class="item-header destiny-header">
+  <img class="item-portrait" src="{{item.img}}" alt="{{item.name}}"
+       data-action="editImage" {{#unless isEditable}}disabled{{/unless}}>
+  <div class="item-header-fields">
+    <input class="item-name-input" type="text" name="name" value="{{item.name}}"
+           {{#unless isEditable}}readonly{{/unless}}>
+    <div class="charm-identity-row">
+      <span class="destiny-type-badge destiny-type-{{system.destinyType}}">
+        {{#if (eq system.destinyType "ascending")}}{{localize "EX2E.DestinyAscending"}}{{else}}{{localize "EX2E.DestinyDescending"}}{{/if}}
+      </span>
+      {{#if system.collegeMaiden}}
+      <span class="destiny-college-label">
+        {{maidenLabel}}
+        — {{collegeLabel}}
+      </span>
+      {{/if}}
+    </div>
+  </div>
+  {{#if system.finalized}}
+  <div class="destiny-finalized-badge">✦ {{localize "EX2E.DestinyFinalized"}}</div>
+  {{else}}
+  <div class="destiny-draft-badge">{{localize "EX2E.DestinyDraft"}}</div>
+  {{/if}}
+</div>

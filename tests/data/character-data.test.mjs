@@ -475,3 +475,27 @@ describe("CharacterData splat.sidereal.paradox", () => {
     expect(field.options).toMatchObject({ initial: 0, min: 0, max: 10, integer: true });
   });
 });
+
+describe("CharacterData splat.sidereal.colleges", () => {
+  it("colleges SchemaField exists with all 5 maiden sub-schemas", () => {
+    const schema = CharacterData.defineSchema();
+    const col = schema.splat.config.sidereal.config.colleges;
+    expect(col).toBeDefined();
+    for (const maiden of ["journeys", "serenity", "battles", "secrets", "endings"]) {
+      expect(col.config[maiden]).toBeDefined();
+    }
+  });
+
+  it("each college defaults to 0 and has max 5", () => {
+    const schema = CharacterData.defineSchema();
+    const col = schema.splat.config.sidereal.config.colleges;
+    const captainField = col.config.journeys.config.the_captain;
+    expect(captainField.options).toMatchObject({ initial: 0, min: 0, max: 5, integer: true });
+  });
+
+  it("makeCharacterSystem sidereal colleges default to 0", () => {
+    const sys = makeCharacterSystem();
+    expect(sys.splat.sidereal.colleges.journeys.the_captain).toBe(0);
+    expect(sys.splat.sidereal.colleges.endings.the_sword).toBe(0);
+  });
+});
