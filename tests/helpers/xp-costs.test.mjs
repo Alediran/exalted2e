@@ -388,6 +388,26 @@ describe("computeXpCost — Infernal charm pricing", () => {
     expect(result.xp).toBe(10);
     expect(result.confident).toBe(true);
   });
+  it("heretical charm with patron Yozi costs 9 XP (not 8)", () => {
+    const actor = makeInfernalActor({ patron: "malfeas" });
+    const charm = {
+      type: "charm",
+      system: { ability: "melee", exaltType: "infernal", yoziPatron: "malfeas", keywords: ["heretical"] }
+    };
+    const result = computeXpCost(actor, { kind: "item", item: charm });
+    expect(result.xp).toBe(9);
+    expect(result.confident).toBe(true);
+  });
+  it("heretical charm with non-patron Yozi costs 9 XP (not 10)", () => {
+    const actor = makeInfernalActor({ patron: "malfeas" });
+    const charm = {
+      type: "charm",
+      system: { ability: "melee", exaltType: "infernal", yoziPatron: "cecelyne", keywords: ["heretical"] }
+    };
+    const result = computeXpCost(actor, { kind: "item", item: charm });
+    expect(result.xp).toBe(9);
+    expect(result.confident).toBe(true);
+  });
 });
 
 describe("computeXpCost — item pricing (spells / knacks / backgrounds)", () => {

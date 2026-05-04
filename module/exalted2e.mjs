@@ -724,6 +724,19 @@ Hooks.on("preCreateItem", (item, data, options, userId) => {
     item.updateSource({ "system.spellUid": foundry.utils.randomID() });
   }
 
+  // ── Heretical charm gate ──────────────────────────────────────────────────
+  // Heretical charms are GSP-created and exclusive to Infernal exalts.
+  const hereticalParent = item.parent;
+  if (item.type === "charm" &&
+      hereticalParent instanceof Actor &&
+      item.system.keywords?.includes("Heretical") &&
+      hereticalParent.system.exaltType !== "infernal") {
+    ui.notifications.warn(
+      game.i18n.format("EX2E.HereticalCharmForbidden", { name: item.name })
+    );
+    return false;
+  }
+
   // ── Purchase Mode: XP-costing items on locked actors ──────────────────
   // Flag the item so the async createItem hook below can run the
   // confirmation flow. preCreateItem is synchronous; we can't `await`

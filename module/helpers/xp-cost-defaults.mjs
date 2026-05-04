@@ -108,6 +108,7 @@ export const XP_COST_DEFAULTS = Object.freeze({
     abilityFavoredMult: 1, abilityFavoredSub: 0,
     abilityOtherMult:   2,
     charmFavored:       8, charmOther: 10,
+    heretical:          9,                           // Heretical (GSP-created) charms
     spellFlat:          9,                           // sorcery — flat for Infernals
     maFavored:          8, maOther: 10,
     foreignCharm:      16                            // Fiend buying non-Infernal charms

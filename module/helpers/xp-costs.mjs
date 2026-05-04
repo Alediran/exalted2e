@@ -191,6 +191,8 @@ function _priceCharm(actor, charm, exaltType, costs) {
   const caste      = actor.system?.caste ?? "";
   const s          = costs[exaltType] ?? {};
 
+  if (keywords.includes("heretical")) return { xp: _n(s.heretical, 9), confident: true };
+
   // Eclipse (Solar) / Moonshadow (Abyssal, caste-keyed "eclipse" in this
   // schema) / Fiend (Infernal) pay a flat foreign-charm cost for any non-native charm.
   // Solar ⇄ Abyssal charms are NOT "foreign" for this rule.
