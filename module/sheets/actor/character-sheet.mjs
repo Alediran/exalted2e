@@ -9,6 +9,7 @@ import { priceAlchemicalCharmSlot } from "../../helpers/xp-costs.mjs";
 import { editImageAction } from "../_edit-image.mjs";
 import { sceneChangeFade } from "../../combat/anima-fade.mjs";
 import { AnimaColorDialog } from "../../dialogs/anima-color-dialog.mjs";
+import { sanctifyOathBinding } from "../../helpers/oath.mjs";
 
 const _ANIMA_ORDER_SHEET = { none: 0, glowing: 1, burning: 2, bonfire: 3, totemic: 4 };
 function _animaLevelSheet(key) { return _ANIMA_ORDER_SHEET[key] ?? 0; }
@@ -99,7 +100,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       activateAnimaPower:  CharacterSheet.#onActivateAnimaPower,
       viewAnimaPower:      CharacterSheet.#onViewAnimaPower,
       rollActOfVillainy:   CharacterSheet.#onRollActOfVillainy,
-      toggleTellHidden:    CharacterSheet.#onToggleTellHidden
+      toggleTellHidden:    CharacterSheet.#onToggleTellHidden,
+      sanctifyOath:        CharacterSheet.#onSanctifyOath
     }
   };
 
@@ -1430,5 +1432,30 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static async #onToggleTellHidden(_event, _target) {
     const current = this.actor.system.splat.lunar.tellHidden;
     await this.actor.update({ "system.splat.lunar.tellHidden": !current });
+  }
+
+  static async #onSanctifyOath(_event, _target) {
+    const actor   = this.actor;
+    const targets = Array.from(game.user.targets).map(t => t.actor).filter(Boolean);
+
+    if (!targets.length) {
+      ui.notifications.warn(game.i18n.localize("EX2E.OathNoTargets"));
+      return;
+    }
+
+    const description = await foundry.applications.api.DialogV2.prompt({
+      window: { title: game.i18n.localize("EX2E.SanctifyOath") },
+      content: `<div style="margin-bottom:4px"><label>${game.i18n.localize("EX2E.OathDescription")}</label></div>
+                <input name="description" type="text"
+                       placeholder="${game.i18n.localize("EX2E.OathDescriptionPlaceholder")}"
+                       style="width:100%">`,
+      ok: {
+        label:    game.i18n.localize("EX2E.SanctifyOath"),
+        callback: (_e, btn) => btn.form.elements["description"]?.value?.trim() ?? ""
+      }
+    });
+
+    if (description === null) return;
+    await sanctifyOathBinding(actor, targets, description);
   }
 }

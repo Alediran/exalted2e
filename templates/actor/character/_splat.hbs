@@ -50,3 +50,12 @@
   </div>
 </div>
 {{/if}}
+
+{{#if (eq system.exaltType "solar")}}
+{{#if (eq system.caste "eclipse")}}
+<h2 class="section-header">{{localize "EX2E.Splat"}}</h2>
+<div class="splat-section">
+  <button type="button" data-action="sanctifyOath">{{localize "EX2E.SanctifyOath"}}</button>
+</div>
+{{/if}}
+{{/if}}

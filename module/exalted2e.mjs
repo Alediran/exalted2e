@@ -2347,6 +2347,43 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       if (btn) btn.disabled = true;
     }
   }
+
+  // ── Oath Botch button (GM-only) ───────────────────────────────────────
+  // Injects an "Oath Botch (N)" button into any roll card whose speaker
+  // is an actor carrying at least one oathBotch AE. N = highest
+  // bindingEssence across all oathBotch AEs on that actor.
+  if (game.user.isGM) {
+    const speakerActor = game.actors.get(message.speaker?.actor);
+    if (speakerActor) {
+      const oathAEs = speakerActor.effects.filter(
+        e => e.flags?.exalted2e?.oathBotch != null
+      );
+      if (oathAEs.length > 0) {
+        const n = Math.max(...oathAEs.map(e => e.flags.exalted2e.oathBotch.bindingEssence));
+        const descriptions = oathAEs
+          .map(e => e.flags.exalted2e.oathBotch.description || game.i18n.localize("EX2E.SacredOath"))
+          .join("; ");
+
+        const btn = document.createElement("button");
+        btn.className = "btn-roll btn-oath-botch";
+        btn.textContent = game.i18n.format("EX2E.OathBotchButton", { n });
+        el.appendChild(btn);
+
+        btn.addEventListener("click", async () => {
+          const title = `${game.i18n.localize("EX2E.OathBotchCardTitle")} — ${speakerActor.name}`;
+          const body  = game.i18n.format("EX2E.OathBotchCardBody", { n });
+          await ChatMessage.create({
+            content: `<div class="ex2e-oath-botch-card"><h3>${title}</h3><p><em>${descriptions}</em></p><p>${body}</p></div>`,
+            flags: {
+              exalted2e: {
+                oathBotchApplied: { actorId: speakerActor.id, bindingEssence: n, description: descriptions }
+              }
+            }
+          });
+        });
+      }
+    }
+  }
 });
 
 // ── Auto-clear social-scene state on combat deletion ──────────────────────
