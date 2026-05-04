@@ -1002,6 +1002,28 @@ async function _postDBFluxCard(actor, tier) {
   });
 }
 
+async function _applyFluxDamage(tier) {
+  const flux = EX2E.DB_FLUX[tier];
+  if (!flux) return;
+  const targets = [...game.user.targets];
+  if (targets.length === 0) {
+    ui.notifications.warn(game.i18n.localize("EX2E.DBFluxNoTargets"));
+    return;
+  }
+  for (const token of targets) {
+    const target = token.actor;
+    if (!target) continue;
+    const lethalSoak = target.type === "character"
+      ? (target.system.totalSoak?.lethal ?? 0)
+      : (target.system.soak?.lethal        ?? 0);
+    if (flux.soakExempt && lethalSoak > 0) continue;
+    if (!flux.soakExempt
+        && target.type === "character"
+        && target.system.exaltType === "terrestrial") continue;
+    await target.applyDamage(1, "lethal");
+  }
+}
+
 Hooks.on("updateActor", async (actor, changes, options, userId) => {
   if (game.user.id !== userId) return;
   if (actor.type !== "character") return;
@@ -1011,9 +1033,43 @@ Hooks.on("updateActor", async (actor, changes, options, userId) => {
   const tierBefore = _animaTierFor(options.scenePeripheralBefore ?? 0);
   const tierAfter  = actor.system.anima;
   const fluxTiers  = new Set(["burning", "bonfire", "totemic"]);
-  if (!fluxTiers.has(tierAfter) || tierAfter === tierBefore) return;
 
+  if (tierAfter === tierBefore) return;
+
+  const combatant = game.combat?.combatants.find(c => c.actorId === actor.id);
+  if (combatant) {
+    if (fluxTiers.has(tierAfter)) {
+      const currentTick = game.combat.combatant?.initiative ?? 0;
+      const interval    = EX2E.DB_FLUX[tierAfter].interval;
+      await combatant.setFlag("exalted2e", "fluxNextFireTick", currentTick + interval);
+    } else if (fluxTiers.has(tierBefore)) {
+      await combatant.unsetFlag("exalted2e", "fluxNextFireTick");
+    }
+  }
+
+  if (!fluxTiers.has(tierAfter)) return;
   await _postDBFluxCard(actor, tierAfter);
+});
+
+Hooks.on("updateCombat", async (combat, changes, _options, userId) => {
+  if (game.user.id !== userId) return;
+  const newTick = changes?.flags?.exalted2e?.currentTick;
+  if (newTick == null) return;
+
+  for (const combatant of combat.combatants) {
+    const nextFireTick = combatant.flags?.exalted2e?.fluxNextFireTick;
+    if (nextFireTick == null) continue;
+    if (newTick < nextFireTick) continue;
+
+    const actor = combatant.actor;
+    if (!actor) continue;
+    const tier = actor.system.anima;
+    if (!EX2E.DB_FLUX[tier]) continue;
+
+    await _applyFluxDamage(tier);
+    const interval = EX2E.DB_FLUX[tier].interval;
+    await combatant.setFlag("exalted2e", "fluxNextFireTick", newTick + interval);
+  }
 });
 
 // ── Combat Tracker Controls ────────────────────────────────────────────────
@@ -1254,29 +1310,8 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
   const fluxBtn = el.querySelector?.(".btn-apply-flux");
   if (fluxBtn) {
     fluxBtn.addEventListener("click", async (ev) => {
-      const tier = ev.currentTarget.dataset.tier;
-      const flux = EX2E.DB_FLUX[tier];
-      if (!flux) return;
       if (!game.user.isGM) return;
-
-      const targets = [...game.user.targets];
-      if (targets.length === 0) {
-        ui.notifications.warn(game.i18n.localize("EX2E.DBFluxNoTargets"));
-        return;
-      }
-
-      for (const token of targets) {
-        const target = token.actor;
-        if (!target) continue;
-        const lethalSoak = target.type === "character"
-          ? (target.system.totalSoak?.lethal ?? 0)
-          : (target.system.soak?.lethal        ?? 0);
-        if (flux.soakExempt && lethalSoak > 0) continue;
-        if (!flux.soakExempt
-            && target.type === "character"
-            && target.system.exaltType === "terrestrial") continue;
-        await target.applyDamage(1, "lethal");
-      }
+      await _applyFluxDamage(ev.currentTarget.dataset.tier);
     });
   }
 

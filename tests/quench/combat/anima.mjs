@@ -1,6 +1,8 @@
-import { register, sweep }       from "../_helpers/cleanup.mjs";
-import { assertTestWorld }         from "../_helpers/world.mjs";
-import { createTempCharacter }     from "../_helpers/actors.mjs";
+import { register, sweep, cleanupOnAfter } from "../_helpers/cleanup.mjs";
+import { assertTestWorld, getTestScene }   from "../_helpers/world.mjs";
+import { createTempCharacter }              from "../_helpers/actors.mjs";
+import { placeToken }                      from "../_helpers/scenes.mjs";
+import { startTempCombat }                 from "../_helpers/combat.mjs";
 
 async function waitFor(predicate, { timeoutMs = 2000, intervalMs = 25 } = {}) {
   const t0 = Date.now();
@@ -270,6 +272,100 @@ export function registerAnima(context) {
       );
       await new Promise(r => setTimeout(r, 150));
       assert.equal(game.messages.size, startCount, "no flux card for solar");
+    });
+
+    // ── DB Flux automatic interval ─────────────────────────────────────────────
+
+    it("[171] entering bonfire in active combat sets fluxNextFireTick on combatant", async () => {
+      const actor = await createTempCharacter({ name: "Q-Flux-CombatFlag" });
+      await actor.update({ "system.exaltType": "terrestrial", "system.essence.value": 3 });
+      const scene = getTestScene();
+      await placeToken(actor, scene);
+      const combat = await startTempCombat([actor]);
+      const currentTick = combat.combatant?.initiative ?? 0;
+      const combatant   = combat.combatants.find(c => c.actorId === actor.id);
+
+      await actor.update(
+        { "system.scenePeripheral": 11 },
+        { scenePeripheralBefore: 10 }
+      );
+      await waitFor(() => combat.combatants.get(combatant.id)?.flags?.exalted2e?.fluxNextFireTick != null);
+
+      const updated = combat.combatants.get(combatant.id);
+      assert.equal(updated.flags.exalted2e.fluxNextFireTick, currentTick + 9,
+        "fluxNextFireTick = currentTick + bonfire interval (9)");
+    });
+
+    it("[172] wheel advance fires auto flux damage when currentTick >= fluxNextFireTick", async () => {
+      const db = await createTempCharacter({ name: "Q-Flux-AutoFire" });
+      await db.update({
+        "system.exaltType":       "terrestrial",
+        "system.essence.value":   3,
+        "system.scenePeripheral": 11,  // bonfire tier — set before combat so updateActor hook no-ops (no combatant yet)
+      });
+      const scene = getTestScene();
+      await placeToken(db, scene);
+      const combat     = await startTempCombat([db]);
+      const combatant  = combat.combatants.find(c => c.actorId === db.id);
+      const currentTick = combat.currentTick;
+
+      // Set fluxNextFireTick to fire on the very next wheel advance
+      await combatant.setFlag("exalted2e", "fluxNextFireTick", currentTick + 1);
+
+      // Advance the DB's action then advance the wheel
+      await combat.advanceCurrentByTicks(1);
+      await combat.advanceWheel();
+
+      // Poll for the flag to have advanced (proves the updateCombat hook fired and updated it)
+      await waitFor(() => {
+        const tick = combat.combatants.get(combatant.id)?.flags?.exalted2e?.fluxNextFireTick;
+        return tick != null && tick > currentTick + 1;
+      });
+
+      const afterTick = combat.combatants.get(combatant.id).flags.exalted2e.fluxNextFireTick;
+      // bonfire interval = 9; new currentTick after wheel advance = currentTick + 1
+      assert.equal(afterTick, currentTick + 1 + 9, "fluxNextFireTick advanced by bonfire interval");
+    });
+
+    it("[173] totemic escalation resets fluxNextFireTick to +1; fade to bonfire resets to +9", async () => {
+      const actor = await createTempCharacter({ name: "Q-Flux-Escalate" });
+      await actor.update({ "system.exaltType": "terrestrial", "system.essence.value": 3 });
+      const scene = getTestScene();
+      await placeToken(actor, scene);
+      const combat     = await startTempCombat([actor]);
+      const currentTick = combat.combatant?.initiative ?? 0;
+      const combatant  = combat.combatants.find(c => c.actorId === actor.id);
+
+      // Enter bonfire — hook sets fluxNextFireTick = currentTick + 9
+      await actor.update({ "system.scenePeripheral": 11 }, { scenePeripheralBefore: 0 });
+      await waitFor(() => combat.combatants.get(combatant.id)?.flags?.exalted2e?.fluxNextFireTick != null);
+      assert.equal(
+        combat.combatants.get(combatant.id).flags.exalted2e.fluxNextFireTick,
+        currentTick + 9,
+        "bonfire entry: currentTick + 9"
+      );
+
+      // Escalate to totemic — hook resets fluxNextFireTick = currentTick + 1
+      await actor.update({ "system.scenePeripheral": 16 }, { scenePeripheralBefore: 11 });
+      await waitFor(() =>
+        combat.combatants.get(combatant.id)?.flags?.exalted2e?.fluxNextFireTick === currentTick + 1
+      );
+      assert.equal(
+        combat.combatants.get(combatant.id).flags.exalted2e.fluxNextFireTick,
+        currentTick + 1,
+        "totemic escalation: currentTick + 1"
+      );
+
+      // Fade back to bonfire (scenePeripheral drops below totemic threshold) — hook resets to currentTick + 9
+      await actor.update({ "system.scenePeripheral": 12 }, { scenePeripheralBefore: 16 });
+      await waitFor(() =>
+        combat.combatants.get(combatant.id)?.flags?.exalted2e?.fluxNextFireTick === currentTick + 9
+      );
+      assert.equal(
+        combat.combatants.get(combatant.id).flags.exalted2e.fluxNextFireTick,
+        currentTick + 9,
+        "fade to bonfire: currentTick + 9"
+      );
     });
 
   });
