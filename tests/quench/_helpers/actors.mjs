@@ -34,6 +34,16 @@ export async function createTempCharacter({
     }
   });
   register(actor);
+
+  // _ensureUnarmedWeapon fires via Hooks.on("createActor") which Foundry does
+  // not await. Poll until the unarmed weapon lands (or 2 s timeout) so sweep()
+  // can never race the in-flight createEmbeddedDocuments call.
+  const deadline = Date.now() + 2000;
+  while (!actor.items.some(i => i.type === "weapon" && i.getFlag("exalted2e", "unarmed"))) {
+    if (Date.now() > deadline) break;
+    await new Promise(r => setTimeout(r, 50));
+  }
+
   if (playerOwner) {
     Object.defineProperty(actor, "hasPlayerOwner", { value: true, configurable: true });
   }

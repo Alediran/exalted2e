@@ -1,6 +1,22 @@
 <div class="tab {{cssClass}}" data-tab="tabBiography" data-group="sheet">
   <div class="sheet-body">
 
+    {{#if (eq system.exaltType "lunar")}}
+    <h2 class="section-header">{{localize "EX2E.SplatLunarTell"}}</h2>
+    <div class="tell-row">
+      <input type="text" name="system.splat.lunar.tell"
+             value="{{system.splat.lunar.tell}}"
+             placeholder="{{localize 'EX2E.SplatLunarTellPlaceholder'}}"
+             {{#unless isEditable}}readonly{{/unless}}>
+      {{#if isEditable}}
+      <button type="button" class="btn-tell-toggle" data-action="toggleTellHidden"
+              title="{{#if system.splat.lunar.tellHidden}}{{localize 'EX2E.SplatLunarTellHidden'}}{{else}}{{localize 'EX2E.SplatLunarTellVisible'}}{{/if}}">
+        <i class="fa-solid {{#if system.splat.lunar.tellHidden}}fa-eye-slash{{else}}fa-eye{{/if}}"></i>
+      </button>
+      {{/if}}
+    </div>
+    {{/if}}
+
     <h2 class="section-header">{{localize "EX2E.Biography"}}</h2>
     <div class="editor-container">
       {{#if isEditable}}

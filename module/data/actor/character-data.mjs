@@ -157,6 +157,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         solar:       new fields.SchemaField({}),
         lunar:       new fields.SchemaField({
           tell:               new fields.StringField({ initial: "", blank: true }),
+          tellHidden:         new fields.BooleanField({ initial: false }),
           activeFormId:       new fields.StringField({ initial: "", blank: true }),
           spiritShapeFormId:  new fields.StringField({ initial: "", blank: true })
         }),

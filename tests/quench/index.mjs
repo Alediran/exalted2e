@@ -30,6 +30,7 @@ import { registerCombatHudSmoke }         from "./combat/combat-hud-smoke.mjs";
 import { registerCasteAttributes }        from "./combat/caste-attributes.mjs";
 import { registerShapeshift }              from "./combat/shapeshift.mjs";
 import { registerDBT }                     from "./combat/dbt.mjs";
+import { registerLunarTell }               from "./combat/lunar-tell.mjs";
 import { registerClarity }                 from "./combat/clarity.mjs";
 import { registerSubmodules }              from "./combat/submodules.mjs";
 import { registerTerrestrialBreeding }     from "./combat/terrestrial-breeding.mjs";
@@ -68,6 +69,7 @@ Hooks.once("quenchReady", quench => {
   quench.registerBatch("ex2e.caste-attributes",        registerCasteAttributes,        { displayName: "Caste attributes" });
   quench.registerBatch("ex2e.shapeshift",              registerShapeshift,             { displayName: "Lunar shapeshift" });
   quench.registerBatch("ex2e.dbt",                     registerDBT,                    { displayName: "Deadly Beastman Transformation" });
+  quench.registerBatch("ex2e.lunar-tell",              registerLunarTell,              { displayName: "Lunar Tell trait" });
   quench.registerBatch("ex2e.clarity",                 registerClarity,                { displayName: "Alchemical Clarity & Modules" });
   quench.registerBatch("ex2e.submodules",              registerSubmodules,             { displayName: "Alchemical submodules" });
   quench.registerBatch("ex2e.terrestrial-breeding",    registerTerrestrialBreeding,    { displayName: "Terrestrial Breeding" });

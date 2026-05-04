@@ -685,3 +685,24 @@
   font-weight: bold;
   color:       var(--ex2e-text-secondary);
 }
+
+/* Tell input row — input + eye toggle side by side */
+.exalted2e.actor.character .tell-row {
+  display:       flex;
+  align-items:   center;
+  gap:           4px;
+  margin-bottom: 12px;
+}
+.exalted2e.actor.character .tell-row input { flex: 1; }
+.exalted2e.actor.character .btn-tell-toggle {
+  padding:       2px 8px;
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: 3px;
+  background:    var(--ex2e-bg-darkest);
+  color:         var(--ex2e-gold-bright);
+  cursor:        pointer;
+  flex-shrink:   0;
+}
+.exalted2e.actor.character .btn-tell-toggle:hover {
+  background: var(--ex2e-gold-dark);
+}

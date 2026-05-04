@@ -98,7 +98,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       configureAnimaColors: CharacterSheet.#onConfigureAnimaColors,
       activateAnimaPower:  CharacterSheet.#onActivateAnimaPower,
       viewAnimaPower:      CharacterSheet.#onViewAnimaPower,
-      rollActOfVillainy:   CharacterSheet.#onRollActOfVillainy
+      rollActOfVillainy:   CharacterSheet.#onRollActOfVillainy,
+      toggleTellHidden:    CharacterSheet.#onToggleTellHidden
     }
   };
 
@@ -1422,5 +1423,10 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         }
       }
     });
+  }
+
+  static async #onToggleTellHidden(_event, _target) {
+    const current = this.actor.system.splat.lunar.tellHidden;
+    await this.actor.update({ "system.splat.lunar.tellHidden": !current });
   }
 }
