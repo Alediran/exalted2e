@@ -55,6 +55,13 @@
       "path": "packs/animapowers",
       "type": "Item",
       "system": "exalted2e"
+    },
+    {
+      "name":   "paradox-bites",
+      "label":  "Pattern Bite",
+      "path":   "packs/paradox-bites",
+      "type":   "RollTable",
+      "system": "exalted2e"
     }
   ],
   "documentTypes": {

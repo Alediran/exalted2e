@@ -163,8 +163,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         }),
         terrestrial: new fields.SchemaField({}),
         sidereal:    new fields.SchemaField({
-          paradox:    new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),
-          arcaneFate: new fields.NumberField({ initial: 0, min: 0, max: 20, integer: true })
+          paradox: new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true })
         }),
         abyssal:     new fields.SchemaField({
           whispers: new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true })

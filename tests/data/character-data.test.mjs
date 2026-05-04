@@ -466,3 +466,12 @@ describe("CharacterData._prepareAlchemicalClarity", () => {
     expect(result.splat.alchemical.clarity.total).toBe(10);
   });
 });
+
+describe("CharacterData splat.sidereal.paradox", () => {
+  it("is a NumberField with initial 0, min 0, max 10, integer true", () => {
+    const schema = CharacterData.defineSchema();
+    const field  = schema.splat.config.sidereal.config.paradox;
+    expect(field).toBeDefined();
+    expect(field.options).toMatchObject({ initial: 0, min: 0, max: 10, integer: true });
+  });
+});

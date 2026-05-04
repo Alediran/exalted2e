@@ -4,11 +4,12 @@
   "description": "Exalted Second Edition — Foundry VTT system.",
   "type": "module",
   "scripts": {
-    "test":       "vitest run",
+    "test": "vitest run",
     "test:watch": "vitest",
-    "test:ui":    "vitest --ui"
+    "test:ui": "vitest --ui"
   },
   "devDependencies": {
+    "@foundryvtt/foundryvtt-cli": "^3.0.3",
     "vitest": "^2.1.0"
   }
 }

@@ -962,6 +962,51 @@ Hooks.on("updateActor", async (actor, changes, _options, userId) => {
   }
 });
 
+// ── Pattern Bite Detection ─────────────────────────────────────────────────
+export const _patternBitePending = new Set();
+
+async function _triggerPatternBite(actor) {
+  let table = game.tables.getName("Pattern Bite");
+  if (!table) {
+    const pack = game.packs.get("exalted2e.paradox-bites");
+    if (pack) {
+      const index = await pack.getIndex();
+      const entry = index.find(e => e.name === "Pattern Bite");
+      if (entry) table = await pack.getDocument(entry._id);
+    }
+  }
+  if (!table) {
+    await ChatMessage.create({
+      content:  game.i18n.localize("EX2E.PatternBiteFallback"),
+      speaker:  ChatMessage.getSpeaker({ actor }),
+    });
+  } else {
+    await table.draw();
+  }
+  await actor.update({ "system.splat.sidereal.paradox": 0 });
+}
+
+Hooks.on("updateActor", async (actor, changes, _options, userId) => {
+  if (game.user.id !== userId) return;
+  if (actor.type !== "character") return;
+  if (actor.system.exaltType !== "sidereal") return;
+
+  const newParadox = foundry.utils.getProperty(changes, "system.splat.sidereal.paradox");
+
+  if (newParadox !== undefined && newParadox !== 10) {
+    _patternBitePending.delete(actor.id);
+    return;
+  }
+  if (newParadox !== 10) return;
+  if (_patternBitePending.has(actor.id)) return;
+  _patternBitePending.add(actor.id);
+  try {
+    await _triggerPatternBite(actor);
+  } finally {
+    _patternBitePending.delete(actor.id);
+  }
+});
+
 // ── DB Flux Detection ──────────────────────────────────────────────────────
 // Detect when a terrestrial character's anima enters or escalates through a
 // flux tier. Posts a flux card so the GM can apply the ambient damage.

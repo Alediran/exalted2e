@@ -154,6 +154,9 @@
     "LimitBreakNoFlaw":       "No hay Falla de Virtud asignada — configura una en la ficha del personaje.",
     "LimitBreakResolvedFull": "Quiebra Total — recuperó {value} VP",
     "LimitBreakResolvedPartial": "Control Parcial elegido",
+    "Paradox":             "Paradox",
+    "PatternBite":         "¡Mordisco del Patrón!",
+    "PatternBiteFallback": "Mordisco del Patrón activado — lanza en la tabla Mordisco del Patrón manualmente.",
 
     "HealthLevels":       "Niveles de Salud",
     "WoundPenalty":       "Penalización por Herida",
@@ -447,8 +450,6 @@
     "SplatLunarTellHidden":    "Marca (Oculta)",
     "SplatLunarTellVisible":   "Marca (Visible)",
     "SplatLunarTellPlaceholder": "Describe la Marca…",
-    "SplatParadox":           "Paradoja",
-    "SplatArcaneFate":        "Destino Arcano",
     "SplatResonance":         "Resonancia",
     "SplatWhispers":          "Susurros",
     "SplatPatron":            "Patrón Yozi",

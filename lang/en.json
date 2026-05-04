@@ -154,6 +154,9 @@
     "LimitBreakNoFlaw":       "No Virtue Flaw assigned — configure one on the character sheet.",
     "LimitBreakResolvedFull": "Full Break — regained {value} WP",
     "LimitBreakResolvedPartial": "Partial Control chosen",
+    "Paradox":             "Paradox",
+    "PatternBite":         "Pattern Bite!",
+    "PatternBiteFallback": "Pattern Bite triggered — roll on the Pattern Bite table manually.",
 
     "HealthLevels":       "Health Levels",
     "WoundPenalty":       "Wound Penalty",
@@ -447,8 +450,6 @@
     "SplatLunarTellHidden":    "Tell (Hidden)",
     "SplatLunarTellVisible":   "Tell (Visible)",
     "SplatLunarTellPlaceholder": "Describe the Tell…",
-    "SplatParadox":           "Paradox",
-    "SplatArcaneFate":        "Arcane Fate",
     "SplatResonance":         "Resonance",
     "SplatWhispers":          "Whispers",
     "SplatPatron":            "Yozi Patron",

@@ -39,6 +39,7 @@ import { registerAnima }                   from "./combat/anima.mjs";
 import { registerActOfVillainy }           from "./combat/act-of-villainy.mjs";
 import { registerInfernalUrge }            from "./combat/infernal-urge.mjs";
 import { registerEclipseOath }              from "./combat/eclipse-oath.mjs";
+import { registerParadox }                  from "./combat/paradox.mjs";
 // NOTE: Anima Powers feature (_swapAnimaPower) relies on the animapowers compendium
 // and cannot be exercised via Quench. No batch registered for ex2e.anima-powers.
 
@@ -80,5 +81,6 @@ Hooks.once("quenchReady", quench => {
   quench.registerBatch("ex2e.act-of-villainy",         registerActOfVillainy,          { displayName: "Act of Villainy roll" });
   quench.registerBatch("ex2e.infernal-urge",           registerInfernalUrge,           { displayName: "Infernal Urge trait" });
   quench.registerBatch("ex2e.eclipse-oath",             registerEclipseOath,             { displayName: "Solar Eclipse oath-binding" });
+  quench.registerBatch("ex2e.paradox",                 registerParadox,                 { displayName: "Sidereal Paradox track" });
 
 });

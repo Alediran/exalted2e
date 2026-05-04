@@ -64,8 +64,7 @@ export class ExaltedActor extends Actor {
         data.breeding = s.breedingBonus?.rating ?? 0;
         break;
       case "sidereal":
-        data.paradox    = splat.sidereal?.paradox    ?? 0;
-        data.arcaneFate = splat.sidereal?.arcaneFate ?? 0;
+        data.paradox = splat.sidereal?.paradox ?? 0;
         break;
       case "abyssal":
         data.whispers = splat.abyssal?.whispers ?? 0;

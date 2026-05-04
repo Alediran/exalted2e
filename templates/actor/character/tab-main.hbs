@@ -155,6 +155,20 @@
             {{/if}}
           </div>
 
+          {{#if (eq system.exaltType "sidereal")}}
+          <div style="grid-column: 1 / -1; margin-top: var(--ex2e-gap-sm);">
+            <h2 class="section-header">{{localize "EX2E.Paradox"}}</h2>
+            {{boxRating name="system.splat.sidereal.paradox"
+                        value=system.splat.sidereal.paradox
+                        max=10
+                        min=0
+                        total=10}}
+            {{#if (eq system.splat.sidereal.paradox 10)}}
+            <div class="limit-break-warning">{{localize "EX2E.PatternBite"}}</div>
+            {{/if}}
+          </div>
+          {{/if}}
+
           {{!-- Virtue Flaw: hidden for Infernal (Urge instead) and Abyssal (no flaw) --}}
           {{#unless (eq system.exaltType "infernal")}}{{#unless (eq system.exaltType "abyssal")}}
           <div class="virtue-flaw-section" style="grid-column: 1 / -1;"

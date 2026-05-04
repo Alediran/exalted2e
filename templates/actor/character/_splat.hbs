@@ -9,21 +9,6 @@
 </div>
 {{/if}}
 
-{{#if (eq system.exaltType "sidereal")}}
-<h2 class="section-header">{{localize "EX2E.Splat"}}</h2>
-<div class="splat-section">
-  <div class="trait-row">
-    <label>{{localize "EX2E.SplatParadox"}}</label>
-    <input type="number" name="system.splat.sidereal.paradox" value="{{system.splat.sidereal.paradox}}"
-           min="0" max="10" step="1" {{#unless isEditable}}readonly{{/unless}}>
-  </div>
-  <div class="trait-row">
-    <label>{{localize "EX2E.SplatArcaneFate"}}</label>
-    <input type="number" name="system.splat.sidereal.arcaneFate" value="{{system.splat.sidereal.arcaneFate}}"
-           min="0" max="20" step="1" {{#unless isEditable}}readonly{{/unless}}>
-  </div>
-</div>
-{{/if}}
 
 {{#if (eq system.exaltType "abyssal")}}
 <h2 class="section-header">{{localize "EX2E.Splat"}}</h2>
