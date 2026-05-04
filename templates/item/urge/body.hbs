@@ -1,0 +1,49 @@
+<div class="sheet-body">
+  <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
+  <div class="editor-container">
+    {{#if isEditable}}
+    <prose-mirror name="system.description" data-document-uuid="{{item.uuid}}"
+                  value="{{system.description}}" collaborate="true" toggled="true">
+      {{{enrichedDescription}}}
+    </prose-mirror>
+    {{else}}
+    <div class="editor-content">{{{enrichedDescription}}}</div>
+    {{/if}}
+  </div>
+
+  <header class="effects-header" style="margin-top:12px">
+    <h2 class="section-header" style="flex:1">{{localize "EX2E.TabEffects"}}</h2>
+    {{#if isEditable}}
+    <button type="button" class="btn-effect-add" data-action="createEffect">
+      <i class="fa-solid fa-plus"></i> {{localize "EX2E.NewEffect"}}
+    </button>
+    {{/if}}
+  </header>
+
+  {{#if effects.length}}
+  <ul class="effects-list">
+    {{#each effects as |eff|}}
+    <li class="effect-row {{#if eff.disabled}}is-disabled{{/if}}" data-effect-id="{{eff.id}}">
+      <img src="{{eff.img}}" alt="" class="effect-icon">
+      <span class="effect-name">{{eff.name}}</span>
+      {{#if @root.isEditable}}
+      <div class="effect-controls">
+        <a data-action="toggleEffect"
+           data-tooltip="{{#if eff.disabled}}{{localize 'EX2E.EffectEnable'}}{{else}}{{localize 'EX2E.EffectDisable'}}{{/if}}">
+          <i class="fa-solid {{#if eff.disabled}}fa-toggle-off{{else}}fa-toggle-on{{/if}}"></i>
+        </a>
+        <a data-action="editEffect" data-tooltip="{{localize 'EX2E.Edit'}}">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </a>
+        <a data-action="deleteEffect" data-tooltip="{{localize 'EX2E.Delete'}}">
+          <i class="fa-solid fa-trash"></i>
+        </a>
+      </div>
+      {{/if}}
+    </li>
+    {{/each}}
+  </ul>
+  {{else}}
+  <p class="effects-empty">{{localize "EX2E.EffectsNonePermanent"}}</p>
+  {{/if}}
+</div>

@@ -706,3 +706,14 @@
 .exalted2e.actor.character .btn-tell-toggle:hover {
   background: var(--ex2e-gold-dark);
 }
+
+/* Urge item icon inline in the section header */
+.exalted2e.actor.character .urge-item-icon {
+  width:          24px;
+  height:         24px;
+  border-radius:  3px;
+  cursor:         pointer;
+  object-fit:     cover;
+  margin-left:    6px;
+  vertical-align: middle;
+}

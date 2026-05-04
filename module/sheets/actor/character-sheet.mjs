@@ -327,6 +327,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const intimacies = actor.items.filter(i => i.type === "intimacy")   .sort((a,b) => a.name.localeCompare(b.name));
     const meritflaws = actor.items.filter(i => i.type === "meritflaw")  .sort((a,b) => a.name.localeCompare(b.name));
     const virtueFlaw = actor.items.find(i => i.type === "virtueflaw") ?? null;
+    const urgeItem   = actor.items.find(i => i.type === "urge") ?? null;
 
     // ── Combos (errata edition) — saved charm packets. ─────────────────
     const combos = actor.items.filter(i => i.type === "combo")
@@ -513,6 +514,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       intimacies,
       meritflaws,
       virtueFlaw,
+      urgeItem,
       effects,
       purchaseLogRows,
       canEditXp,

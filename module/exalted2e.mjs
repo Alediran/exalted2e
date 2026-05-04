@@ -21,6 +21,7 @@ import { VirtueFlawData }   from "./data/item/virtueflaw-data.mjs";
 import { ComboData }        from "./data/item/combo-data.mjs";
 import { FormData }         from "./data/item/form-data.mjs";
 import { AnimaPowerData }   from "./data/item/anima-power-data.mjs";
+import { UrgeData }         from "./data/item/urge-data.mjs";
 import { CharacterSheet }   from "./sheets/actor/character-sheet.mjs";
 import { NpcSheet }         from "./sheets/actor/npc-sheet.mjs";
 import { CharmSheet }       from "./sheets/item/charm-sheet.mjs";
@@ -30,6 +31,7 @@ import { ArmorSheet }       from "./sheets/item/armor-sheet.mjs";
 import { GenericItemSheet } from "./sheets/item/generic-item-sheet.mjs";
 import { KnackSheet }      from "./sheets/item/knack-sheet.mjs";
 import { VirtueFlawSheet } from "./sheets/item/virtueflaw-sheet.mjs";
+import { UrgeSheet }       from "./sheets/item/urge-sheet.mjs";
 import { ComboSheet }       from "./sheets/item/combo-sheet.mjs";
 import { FormSheet }        from "./sheets/item/form-sheet.mjs";
 import { AnimaPowerSheet }  from "./sheets/item/anima-power-sheet.mjs";
@@ -99,7 +101,8 @@ Hooks.once("init", function () {
     virtueflaw: VirtueFlawData,
     combo:      ComboData,
     form:       FormData,
-    animapower: AnimaPowerData
+    animapower: AnimaPowerData,
+    urge:       UrgeData
   };
 
   // ── Sheet Registration ──────────────────────────────────────────────────
@@ -150,6 +153,11 @@ Hooks.once("init", function () {
     types:     ["virtueflaw"],
     makeDefault: true,
     label:     "EX2E.SheetVirtueFlaw"
+  });
+  foundry.documents.collections.Items.registerSheet("exalted2e", UrgeSheet, {
+    types:       ["urge"],
+    makeDefault: true,
+    label:       "EX2E.UrgeItemType"
   });
   foundry.documents.collections.Items.registerSheet("exalted2e", ComboSheet, {
     types:     ["combo"],

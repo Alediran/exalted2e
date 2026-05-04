@@ -183,11 +183,27 @@
           </div>
           {{/unless}}{{/unless}}
           {{#if (eq system.exaltType "infernal")}}
-          <div class="virtue-flaw-section" style="grid-column: 1 / -1;">
-            <h2 class="section-header">{{localize "EX2E.SplatUrge"}}</h2>
+          <div class="virtue-flaw-section" style="grid-column: 1 / -1;"
+               {{#if urgeItem}}data-item-id="{{urgeItem.id}}"{{/if}}>
+            <div class="section-toolbar">
+              <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.SplatUrge"}}</h2>
+              {{#if urgeItem}}
+              <img class="urge-item-icon" src="{{urgeItem.img}}"
+                   data-action="editItem"
+                   title="{{urgeItem.name}}">
+              {{else if isEditable}}
+              <button type="button" data-action="createItem" data-type="urge"
+                      title="{{localize 'EX2E.AddUrge'}}">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+              {{else}}
+              <span class="virtue-flaw-input virtue-flaw-empty">—</span>
+              {{/if}}
+            </div>
             <div class="virtue-flaw-input-group">
               <input type="text" class="virtue-flaw-input" name="system.splat.infernal.urge"
                      value="{{system.splat.infernal.urge}}"
+                     placeholder="{{localize 'EX2E.SplatUrgePlaceholder'}}"
                      {{#unless isEditable}}readonly{{/unless}}>
             </div>
           </div>
