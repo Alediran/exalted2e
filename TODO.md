@@ -1,5 +1,7 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
+**Progress: 130 / 259 complete** (3 out-of-scope / partial — last updated 2026-05-05)
+
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
 
@@ -70,7 +72,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Mirror keyword navigation UI (show linked charm across splats)
 - [ ] Merged keyword (learn once, usable across listed Abilities)
 - [ ] Martial / Martial-ready gating at charm-learn time
-- [ ] Heretical keyword (Infernal GSP-only enforcement)
+- [x] Heretical keyword (Infernal GSP-only enforcement)
 - [ ] Blasphemy / Axiomatic / Dawn-keyword splat-specific damage upgrades (mirror of Holy)
 
 ## Charms
@@ -89,7 +91,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Infinite (Ability) Mastery discount tracking (committed motes reduce Excellency cost)
 - [ ] Keyword-as-status-effect registry (systematic Compulsion/Emotion/Illusion/Servitude → AE mapping)
 - [ ] Charm deactivation resolver (scene-end / combat-end / out-of-motes)
-- [ ] Cooperative keyword (multi-caster charm dialog)
+- [x] Cooperative keyword (multi-caster charm dialog — DB aspect cooperation)
 
 ## Social Combat
 - [ ] **Intimacy as first-class scored trait** (count capped at Willpower + Compassion, damage ablation = Conviction; currently stub Item type only)
@@ -133,7 +135,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Baseline Personal / Peripheral pool formulas
 - [x] Caste abilities auto-flag on caste change
 - [x] Anima banner auto-derived from scene peripheral spend (`system.scenePeripheral` → `system.anima` enum in `prepareDerivedData`; GM ± nudge + End Scene reset on Main tab)
-- [ ] Eclipse anima oath-binding mechanic (10m + 1 WP; Essence # botches on breakers)
+- [x] Eclipse anima oath-binding mechanic (10m + 1 WP; Essence # botches on breakers)
 - [x] Eclipse non-Solar charm access (2× cost, +2m activation surcharge)
 - [x] Limit Break indicator (Solar/Lunar/Terrestrial/Sidereal) — red label at Limit 10 on sheet
 - [x] Limit Break chat card — Virtue Flaw name + description, Full/Partial choice, WP recovery, Limit reset
@@ -143,7 +145,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Heart's Blood forms roster (human/animal/spirit types with stats + mutation points)
 - [x] Shapeshifting actions (1m basic shift, DBT activation at 5m + Ess 2 prereq)
 - [x] Deadly Beastman Transformation stat delta (+1 Str/Dex/Sta, (Ess+4) mutation points)
-- [ ] Tell as a tracked trait (hidden or visible; mental-influence pool implications)
+- [x] Tell as a tracked trait (hidden or visible; mental-influence pool implications)
 - [x] Knacks item type
 - [x] Health-track wraps at 10 boxes per line
 - [x] Attribute-keyed charms (Excellency system uses attribute for Lunars)
@@ -153,25 +155,25 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Aspects & breeding (Breeding 1-5 mote-pool bonus)
 - [x] Out-of-aspect charm activation surcharge (+1m)
 - [x] Water Aspect Terrestrial-MA no-surcharge exemption
-- [ ] Anima flux damage at 11+ banner (environmental — scene effect)
-- [ ] Charm cooperation (multi-DB pooled costs)
+- [x] Anima flux damage at 11+ banner (environmental — scene effect)
+- [x] Charm cooperation (multi-DB pooled costs)
 - [ ] Family / House background linkage
 
 ### Sidereal
-- [ ] Arcane Fate trait (doubled background costs; social penalties)
-- [ ] **Paradox** track (0-10; pattern bite at 10; −1 per 3 months; Wrapped Fly / Ritual of Expiation)
-- [ ] Resplendent Destiny item type (Providence / Trigger / Scope / Duration / Frequency / Paradox / Endurance)
-- [ ] Astrological Colleges trait (7 dots; ≥4 in own Maiden's 5)
-- [ ] Greater Signs (Essence 4+, 10m; permanent Essence & Willpower cost)
+- [~] Arcane Fate trait — OUT OF SCOPE; purely narrative, ST-controlled, no mechanical implementation planned
+- [x] **Paradox** track (0-10; pattern bite at 10; −1 per 3 months; Wrapped Fly / Ritual of Expiation)
+- [~] Resplendent Destiny item type — base item type + sheet shipped; Ascendant/Descending Destiny mechanical payloads still pending
+- [x] Astrological Colleges trait (7 dots; ≥4 in own Maiden's 5)
+- [x] Greater Signs (Essence 4+, 10m; permanent Essence & Willpower cost; chat card reversal)
 - [ ] Sidereal Martial Arts gating (see Martial Arts section)
 
 ### Abyssal
 - [x] Castes (mirror Solar with deathknight labels)
 - [x] Resonance / Dark Fate track (0-10) — track = Limit track, labelled "Resonance"; eruption warning at 10
-- [ ] Resonance vent roll (Essence dice; each success reduces Resonance by 1 and banks 1 point for Resonance effects; failure increases Resonance by 1 and triggers a Resonance effect at Permanent Essence level)
-- [ ] Banked Resonance points storage and spending UI
-- [ ] Resonance eruptions (Blight / Branding / Conduit / Stigmata effect scripts)
-- [ ] ST-triggered eruption button (GM-only)
+- [x] Resonance vent roll (Essence dice; each success reduces Resonance by 1 and banks 1 point for Resonance effects; failure increases Resonance by 1 and triggers a Resonance effect at Permanent Essence level)
+- [x] Banked Resonance points storage and spending UI
+- [x] Resonance eruptions (Blight / Branding / Conduit / Stigmata effect scripts)
+- [x] ST-triggered eruption button (GM-only)
 - [x] Whispers trait (Conduit effect cap)
 - [ ] Monstrance of Celestial Portion as an artifact/background
 - [x] Moonshadow non-Abyssal charm access (16 XP, +2m activation)
@@ -180,10 +182,10 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 ### Infernal
 - [x] Castes (Slayer / Malefactor / Defiler / Scourge / Fiend)
 - [x] Yozi patron assignment (charm tree discriminator)
-- [ ] Urge trait (Motivation-like Yozi-pleasing drive)
-- [ ] Torment track (Limit-variant; Yozi-themed eruptions)
+- [x] Urge trait (Motivation-like Yozi-pleasing drive)
+- [x] Torment track (Limit-variant; Yozi-themed eruptions)
 - [x] Act of Villainy counter
-- [ ] Heretical charms gating (GSP-only; 9 XP)
+- [x] Heretical charms gating (GSP-only; 9 XP)
 - [x] Fiend non-Infernal charm access (16 XP, +2m activation)
 - [ ] Shintai / Mantle form-type charms (Yozi-specific transformation state)
 
@@ -194,7 +196,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Clarity track (0-10; Virtue-suppression & contact-deprivation triggers)
 - [ ] Gremlin Syndrome / Dissonance path
 - [ ] Installed armor (subcutaneous / exoskeletal plating — different from equipped armor)
-- [ ] Weaving protocols (Man-Machine / God-Machine as sorcery mirror)
+- [x] Weaving protocols (Man-Machine / God-Machine as sorcery mirror)
 - [ ] Adamant caste hidden-from-society rules
 
 ### Mortal
@@ -266,9 +268,9 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 ## Other Mechanics
 - [x] Anima powers per exalt type and caste (embedded `animapower` item on actor; 34-entry compendium; swapped on caste/exaltType change; manual activate/deactivate with mote + WP cost)
 - [x] Auto-activate caste anima power at ≥11m peripheral scene spend (bonfire threshold)
-- [ ] Anima flux (Terrestrial environmental damage, Abyssal Resonance effects)
-- [ ] Resonance track and eruptions (Abyssal) — see Abyssal splat
-- [ ] Torment / Act of Villainy tracking (Infernal) — see Infernal splat
+- [~] Anima flux (DB environmental damage shipped; Abyssal Resonance effects shipped)
+- [x] Resonance track and eruptions (Abyssal) — see Abyssal splat
+- [x] Torment / Act of Villainy tracking (Infernal) — see Infernal splat
 - [ ] Clarity mechanical effects (Alchemical) — see Alchemical splat
 - [ ] Paradox track (Sidereal) — see Sidereal splat
 - [ ] Poison / Disease tracking (item types + per-interval AE)
