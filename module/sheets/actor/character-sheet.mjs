@@ -14,6 +14,89 @@ import { sanctifyOathBinding } from "../../helpers/oath.mjs";
 const _ANIMA_ORDER_SHEET = { none: 0, glowing: 1, burning: 2, bonfire: 3, totemic: 4 };
 function _animaLevelSheet(key) { return _ANIMA_ORDER_SHEET[key] ?? 0; }
 
+const _GREATER_SIGN_ICONS = {
+  journeys: "fa-route",
+  serenity: "fa-venus",
+  battles:  "fa-mars",
+  secrets:  "fa-eye",
+  endings:  "fa-hourglass-end",
+};
+
+export function _greaterSignPrereqMet(actor, caste) {
+  if ((actor.system.essence?.value ?? 0) < 4) return false;
+  const colleges = actor.system.splat?.sidereal?.colleges?.[caste] ?? {};
+  return Object.values(colleges).reduce((s, v) => s + (v ?? 0), 0) >= 15;
+}
+
+export async function _activateGreaterSign(actor, item) {
+  const conflict = actor.items.some(i =>
+    i.type === "animapower" &&
+    !i.system.isGreaterSign &&
+    i.system.caste === item.system.caste &&
+    i.system.active
+  );
+  if (conflict) {
+    ui.notifications.warn(game.i18n.localize("EX2E.GreaterSignLesserSignConflict"));
+    return false;
+  }
+  if ((actor.system.motes?.peripheral?.value ?? 0) < 10) {
+    ui.notifications.warn(game.i18n.localize("EX2E.GreaterSignInsufficientMotes"));
+    return false;
+  }
+  const result = await actor.spendMotes(10, "peripheral");
+  if (!result) return false;
+
+  await actor.createEmbeddedDocuments("ActiveEffect", [{
+    name: item.name,
+    img:  item.img,
+    flags: {
+      exalted2e: {
+        permanentCost: { essence: 1, willpower: 1 },
+        sourceItem:    item.id,
+        gmOnlyRemoval: true,
+      }
+    }
+  }]);
+  await item.update({ "system.active": true });
+
+  const content = await foundry.applications.handlebars.renderTemplate(
+    "systems/exalted2e/templates/chat/greater-sign-activation-card.hbs",
+    { name: item.name, icon: _GREATER_SIGN_ICONS[item.system.caste] ?? "fa-star", reversed: false }
+  );
+  await ChatMessage.create({
+    content,
+    speaker: ChatMessage.getSpeaker({ actor }),
+    flags: { exalted2e: { signActivation: { actorId: actor.id, itemId: item.id, reversed: false } } },
+  });
+  return true;
+}
+
+export async function _deactivateGreaterSign(actor, item) {
+  const ae = actor.effects.find(e =>
+    e.flags?.exalted2e?.permanentCost && e.flags?.exalted2e?.sourceItem === item.id
+  );
+  if (ae) {
+    await ae.delete(); // deleteActiveEffect hook applies cost + sets item.active = false
+  } else {
+    console.warn(`exalted2e | _deactivateGreaterSign: no pending cost AE found for ${item.name} — deactivating without permanent cost.`);
+    await item.update({ "system.active": false });
+  }
+}
+
+export async function _reverseGreaterSignActivation(actor, item) {
+  const ae = actor.effects.find(e =>
+    e.flags?.exalted2e?.permanentCost && e.flags?.exalted2e?.sourceItem === item.id
+  );
+  if (ae) {
+    await ae.update({ "flags.exalted2e.reversed": true });
+    await ae.delete(); // hook sees reversed: true, skips permanent cost
+  }
+  await actor.recoverMotes(10, "peripheral");
+  if (actor.items.get(item.id)?.system.active) {
+    await item.update({ "system.active": false });
+  }
+}
+
 const { ActorSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
   const api    = foundry.applications.api;
@@ -104,6 +187,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       sanctifyOath:        CharacterSheet.#onSanctifyOath,
       createDestiny:       CharacterSheet.#onCreateDestiny,
       ventResonance:       CharacterSheet.#onVentResonance,
+      activateGreaterSign: CharacterSheet.#onActivateAnimaPower,
     }
   };
 
@@ -493,6 +577,18 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     const animaPower = actor.items.find(i => i.flags?.exalted2e?.animaPower === true) ?? null;
 
+    const greaterSigns = sys.exaltType === "sidereal"
+      ? actor.items
+          .filter(i => i.type === "animapower" && i.system.isGreaterSign === true)
+          .filter(i => _greaterSignPrereqMet(actor, i.system.caste))
+          .map(i => ({
+            id:     i.id,
+            name:   i.name,
+            active: i.system.active,
+            icon:   _GREATER_SIGN_ICONS[i.system.caste] ?? "fa-star",
+          }))
+      : [];
+
     // Astrology tab data (Sidereal only)
     const collegeGroups = [];
     if (sys.exaltType === "sidereal") {
@@ -569,6 +665,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       animaBannerStyle,
       canEditAnimaColors,
       animaPower,
+      greaterSigns,
       collegeGroups,
       destinies
     };
@@ -1338,6 +1435,15 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     const sys   = item.system;
     const actor = this.actor;
+
+    if (sys.isGreaterSign) {
+      if (sys.active) {
+        await _deactivateGreaterSign(actor, item);
+      } else {
+        await _activateGreaterSign(actor, item);
+      }
+      return;
+    }
 
     if (sys.active) {
       await item.update({ "system.active": false });

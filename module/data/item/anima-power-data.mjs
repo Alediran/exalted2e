@@ -23,6 +23,7 @@ export class AnimaPowerData extends foundry.abstract.TypeDataModel {
       }),
 
       autoThreshold: new fields.StringField({ initial: "", blank: true }),
+      isGreaterSign: new fields.BooleanField({ initial: false }),
       description:   new fields.HTMLField({ initial: "" })
     };
   }

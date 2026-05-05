@@ -307,7 +307,9 @@ export class ExaltedActor extends Actor {
     // getIndex does not reliably populate system.* fields for custom types;
     // load all documents and filter directly.
     const docs = await pack.getDocuments();
-    const doc  = docs.find(d => d.system.exaltType === exaltType && d.system.caste === caste);
+    const doc  = docs.find(d =>
+      d.system.exaltType === exaltType && d.system.caste === caste && !d.system.isGreaterSign
+    );
     if (!doc) {
       console.warn(`Exalted 2e | No anima power found for ${exaltType}/${caste}`);
       return;
@@ -325,7 +327,15 @@ export class ExaltedActor extends Actor {
       await this.deleteEmbeddedDocuments("Item", existing.map(i => i.id));
     }
     if (this._isBeingDeleted) return;
-    await this.createEmbeddedDocuments("Item", [itemData]);
+
+    const toCreate = [itemData];
+    if (exaltType === "sidereal") {
+      const greaterSign = docs.find(d => d.system.exaltType === "sidereal" && d.system.caste === caste && d.system.isGreaterSign)        
+      const gsData = greaterSign.toObject();
+      gsData.system.active = false;
+      toCreate.push(gsData);
+    }
+    await this.createEmbeddedDocuments("Item", toCreate);
   }
 
   async _checkAnimaPowerAutoActivation(animaKey) {

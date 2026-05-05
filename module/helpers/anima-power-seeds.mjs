@@ -205,6 +205,68 @@ const ANIMA_POWER_SEEDS = [
     description: "The Chosen of Endings reflexively makes the Lesser Sign of Saturn for 10 motes. The Chosen's anima billows outward in brilliant violet. For one scene, the Sidereal and all allies within (Essence×10) yards add (Essence) to the raw damage of all attacks they make (errata: adds to raw damage, not a level of damage in Step 10). Allies must remain within range.\n\nCost reduction: With anima banner at 11–15 motes, costs only 5 motes. If fully manifest (16+), costs only 1 mote."
   },
 
+  // ── Sidereal Greater Signs ─────────────────────────────────────────────────
+  {
+    nameKey:         "EX2E.AnimaPowerGreaterSignMercury",
+    exaltType:       "sidereal",
+    caste:           "journeys",
+    summary:         "Greater Sign of Mercury — Essence 4+, 15 Journeys college dots required.",
+    isGreaterSign:   true,
+    activationCost:  { motes: 10, willpower: 0 },
+    bonfireOverride: { enabled: false, motes: 0 },
+    totemicOverride: { enabled: false, motes: 0 },
+    autoThreshold:   "",
+    description:     ""
+  },
+  {
+    nameKey:         "EX2E.AnimaPowerGreaterSignVenus",
+    exaltType:       "sidereal",
+    caste:           "serenity",
+    summary:         "Greater Sign of Venus — Essence 4+, 15 Serenity college dots required.",
+    isGreaterSign:   true,
+    activationCost:  { motes: 10, willpower: 0 },
+    bonfireOverride: { enabled: false, motes: 0 },
+    totemicOverride: { enabled: false, motes: 0 },
+    autoThreshold:   "",
+    description:     ""
+  },
+  {
+    nameKey:         "EX2E.AnimaPowerGreaterSignMars",
+    exaltType:       "sidereal",
+    caste:           "battles",
+    summary:         "Greater Sign of Mars — Essence 4+, 15 Battles college dots required.",
+    isGreaterSign:   true,
+    activationCost:  { motes: 10, willpower: 0 },
+    bonfireOverride: { enabled: false, motes: 0 },
+    totemicOverride: { enabled: false, motes: 0 },
+    autoThreshold:   "",
+    description:     ""
+  },
+  {
+    nameKey:         "EX2E.AnimaPowerGreaterSignJupiter",
+    exaltType:       "sidereal",
+    caste:           "secrets",
+    summary:         "Greater Sign of Jupiter — Essence 4+, 15 Secrets college dots required.",
+    isGreaterSign:   true,
+    activationCost:  { motes: 10, willpower: 0 },
+    bonfireOverride: { enabled: false, motes: 0 },
+    totemicOverride: { enabled: false, motes: 0 },
+    autoThreshold:   "",
+    description:     ""
+  },
+  {
+    nameKey:         "EX2E.AnimaPowerGreaterSignSaturn",
+    exaltType:       "sidereal",
+    caste:           "endings",
+    summary:         "Greater Sign of Saturn — Essence 4+, 15 Endings college dots required.",
+    isGreaterSign:   true,
+    activationCost:  { motes: 10, willpower: 0 },
+    bonfireOverride: { enabled: false, motes: 0 },
+    totemicOverride: { enabled: false, motes: 0 },
+    autoThreshold:   "",
+    description:     ""
+  },
+
   // ── Abyssal ───────────────────────────────────────────────────────────────
   {
     nameKey:    "EX2E.AnimaPowerAbyssalDusk",
@@ -388,25 +450,45 @@ const ANIMA_POWER_SEEDS = [
   }
 ];
 
+async function _ensureAnimaPowerFolders(pack) {
+  const exaltTypes = [...new Set(ANIMA_POWER_SEEDS.map(s => s.exaltType))];
+  const folderMap  = {};
+  for (const exaltType of exaltTypes) {
+    const label    = game.i18n.localize(game.exalted2e.EX2E.exaltTypes[exaltType] ?? exaltType);
+    const existing = pack.folders.find(f => f.name === label);
+    if (existing) {
+      folderMap[exaltType] = existing.id;
+    } else {
+      const folder = await Folder.create(
+        { name: label, type: "Item", sorting: "a" },
+        { pack: pack.collection }
+      );
+      folderMap[exaltType] = folder.id;
+    }
+  }
+  return folderMap;
+}
+
 export async function _seedAnimaPowersCompendium() {
   const pack = game.packs.get("exalted2e.animapowers");
   if (!pack) return;
 
-  const existing = await pack.getIndex({ fields: ["name"] });
-  const existingNames = new Set(existing.map(e => e.name));
-
-  const todo = ANIMA_POWER_SEEDS.filter(s => !existingNames.has(game.i18n.localize(s.nameKey)));
-  if (todo.length === 0) return;
-
   const wasLocked = pack.locked;
   if (wasLocked) await pack.configure({ locked: false });
   try {
+    const folderMap = await _ensureAnimaPowerFolders(pack);
+
+    const existing     = await pack.getIndex({ fields: ["name"] });
+    const existingNames = new Set(existing.map(e => e.name));
+    const todo          = ANIMA_POWER_SEEDS.filter(s => !existingNames.has(game.i18n.localize(s.nameKey)));
+
     for (const seed of todo) {
       await Item.create({
-        name:  game.i18n.localize(seed.nameKey),
-        type:  "animapower",
-        img:   "icons/magic/light/beam-rays-orange.webp",
-        flags: { exalted2e: { animaPower: true } },
+        name:   game.i18n.localize(seed.nameKey),
+        type:   "animapower",
+        folder: folderMap[seed.exaltType] ?? null,
+        img:    "icons/magic/light/beam-rays-orange.webp",
+        flags:  { exalted2e: { animaPower: true } },
         system: {
           exaltType:       seed.exaltType,
           caste:           seed.caste,
@@ -416,11 +498,21 @@ export async function _seedAnimaPowersCompendium() {
           bonfireOverride: seed.bonfireOverride,
           totemicOverride: seed.totemicOverride,
           autoThreshold:   seed.autoThreshold,
+          isGreaterSign:   seed.isGreaterSign ?? false,
           description:     seed.description
         }
       }, { pack: "exalted2e.animapowers" });
     }
-    console.log(`Exalted 2e | Seeded ${todo.length} anima power(s) into the animapowers compendium.`);
+    if (todo.length > 0) {
+      console.log(`Exalted 2e | Seeded ${todo.length} anima power(s) into the animapowers compendium.`);
+    }
+
+    // Move any existing unfoldered items to their correct folder
+    const docs = await pack.getDocuments();
+    const toMove = docs.filter(d => !d.folder && folderMap[d.system.exaltType]);
+    for (const doc of toMove) {
+      await doc.update({ folder: folderMap[doc.system.exaltType] });
+    }
   } finally {
     if (wasLocked) await pack.configure({ locked: true });
   }

@@ -270,6 +270,15 @@
       <section class="anima-column">
         <div class="section-toolbar">
           <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Anima"}}</h2>
+          {{#each greaterSigns as |gs|}}
+            <button type="button"
+                    class="greater-sign-btn{{#if gs.active}} active{{/if}}"
+                    data-action="activateGreaterSign"
+                    data-item-id="{{gs.id}}"
+                    title="{{gs.name}}">
+              <i class="fa-solid {{gs.icon}}"></i>
+            </button>
+          {{/each}}
           {{#if canEditAnimaColors}}
             <button type="button" class="anima-color-btn" data-action="configureAnimaColors"
                     title="{{localize 'EX2E.AnimaColorConfigure'}}">

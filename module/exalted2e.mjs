@@ -442,6 +442,24 @@ Hooks.on("preDeleteActiveEffect", (effect, options, userId) => {
 // doesn't lie about having live effects.
 Hooks.on("deleteActiveEffect", async (effect, _options, userId) => {
   if (userId !== game.user.id) return;
+
+  // ── Greater Sign deferred permanent cost ─────────────────────────────
+  const pc = effect.flags?.exalted2e?.permanentCost;
+  if (pc && !effect.flags.exalted2e.reversed) {
+    const pcActor = effect.parent;
+    if (pcActor) {
+      const updates = {};
+      if (pc.essence   > 0) updates["system.essence.value"]  = Math.max(1, (pcActor.system.essence?.value  ?? 1) - pc.essence);
+      if (pc.willpower > 0) updates["system.willpower.max"]  = Math.max(1, (pcActor.system.willpower?.max  ?? 1) - pc.willpower);
+      if (Object.keys(updates).length) await pcActor.update(updates);
+      const sourceItemId = effect.flags.exalted2e.sourceItem;
+      if (sourceItemId) {
+        const item = pcActor.items.get(sourceItemId);
+        if (item?.system.active) await item.update({ "system.active": false });
+      }
+    }
+  }
+
   const charmId = effect.flags?.exalted2e?.charmSource;
   if (!charmId) return;
   const actor = effect.parent;
@@ -1397,6 +1415,42 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       btn.disabled = true;
       btn.classList.add("is-reversed");
       btn.innerHTML = `<i class="fa-solid fa-check"></i> ${game.i18n.localize("EX2E.CharmReversed")}`;
+    }
+  }
+
+  // ── Reverse Greater Sign activation ──────────────────────────────────
+  const reverseSignBtn = el.querySelector?.(".btn-reverse-sign");
+  if (reverseSignBtn) {
+    if (message.flags?.exalted2e?.signActivation?.reversed) {
+      reverseSignBtn.disabled = true;
+      reverseSignBtn.innerHTML = `<i class="fa-solid fa-check"></i> ${game.i18n.localize("EX2E.GreaterSignReversed")}`;
+    } else {
+      reverseSignBtn.addEventListener("click", async (ev) => {
+        const record = message.flags?.exalted2e?.signActivation;
+        if (!record || record.reversed) return;
+
+        const actor = record.actorId ? game.actors.get(record.actorId) : null;
+        if (!actor?.testUserPermission(game.user, "OWNER")) {
+          ui.notifications.warn(game.i18n.localize("EX2E.NotOwner"));
+          return;
+        }
+        const item = record.itemId ? actor.items.get(record.itemId) : null;
+        if (!item) return;
+
+        const btn = ev.currentTarget;
+        btn.disabled = true; // prevent double-click while async work runs
+
+        const { _reverseGreaterSignActivation } = await import(
+          "./sheets/actor/character-sheet.mjs"
+        );
+        await _reverseGreaterSignActivation(actor, item);
+        await message.update({
+          flags: { exalted2e: { signActivation: { ...record, reversed: true } } }
+        });
+
+        btn.innerHTML = `<i class="fa-solid fa-check"></i> ${game.i18n.localize("EX2E.GreaterSignReversed")}`;
+        ui.notifications.info(game.i18n.localize("EX2E.GreaterSignReversed"));
+      });
     }
   }
 

@@ -739,6 +739,34 @@
   opacity: 1;
 }
 
+/* ── Greater Sign Toolbar Buttons ────────────────────────────────── */
+.greater-sign-btn {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  width:           26px;
+  height:          26px;
+  padding:         0;
+  border:          1px solid var(--ex2e-gold-shadow);
+  border-radius:   var(--ex2e-border-radius-sm);
+  background:      transparent;
+  color:           var(--ex2e-text-muted);
+  font-size:       0.85rem;
+  cursor:          pointer;
+  transition:      all var(--ex2e-transition-fast);
+}
+
+.greater-sign-btn:hover {
+  border-color: var(--ex2e-gold-main);
+  color:        var(--ex2e-gold-bright);
+}
+
+.greater-sign-btn.active {
+  border-color: var(--ex2e-gold-main);
+  color:        var(--ex2e-gold-bright);
+  background:   var(--ex2e-gold-dark);
+}
+
 /* ── Anima Color Dialog ───────────────────────────────────────────── */
 .anima-color-dialog {
   padding: 12px 16px;
