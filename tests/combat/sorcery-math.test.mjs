@@ -232,3 +232,93 @@ describe("buildCastDeclaration", () => {
     });
   });
 });
+
+// ── validateCanCast — weaving ────────────────────────────────────────
+describe("validateCanCast — weaving", () => {
+  function alchActor({ weavingInit = 0, clarity = 0, peripheral = 0, personal = 0, willpower = 0 } = {}) {
+    return {
+      system: {
+        exaltType: "alchemical",
+        weaving:   { initiation: weavingInit },
+        sorcery:   { initiation: 0 },
+        necromancy:{ initiation: 0 },
+        splat:     { alchemical: { clarity: { total: clarity } } },
+        motes:     { peripheral: { value: peripheral }, personal: { value: personal } },
+        willpower: { value: willpower }
+      }
+    };
+  }
+  function weavingSpell({ circle = 1, minimumClarity = 0, motes = 10, wp = 1 } = {}) {
+    return { system: { tradition: "weaving", circle, minimumClarity, cost: { motes, willpower: wp } } };
+  }
+
+  it("ok when Alchemical + initiation >= circle + clarity >= minimumClarity", () => {
+    expect(validateCanCast({
+      actor: alchActor({ weavingInit: 2, clarity: 3, peripheral: 15, willpower: 2 }),
+      spell: weavingSpell({ circle: 2, minimumClarity: 2, motes: 10, wp: 1 })
+    })).toEqual({ ok: true });
+  });
+
+  it("blocks Alchemical with weaving.initiation < circle", () => {
+    expect(validateCanCast({
+      actor: alchActor({ weavingInit: 1, clarity: 5, peripheral: 15, willpower: 2 }),
+      spell: weavingSpell({ circle: 2 })
+    })).toEqual({ ok: false, reason: "insufficient-initiation" });
+  });
+
+  it("blocks Alchemical with clarity < minimumClarity", () => {
+    expect(validateCanCast({
+      actor: alchActor({ weavingInit: 2, clarity: 1, peripheral: 15, willpower: 2 }),
+      spell: weavingSpell({ circle: 1, minimumClarity: 3 })
+    })).toEqual({ ok: false, reason: "insufficient-clarity" });
+  });
+
+  it("blocks non-Alchemical from weaving spell", () => {
+    const solar = {
+      system: {
+        exaltType: "solar",
+        sorcery:   { initiation: 3 },
+        motes:     { peripheral: { value: 30 }, personal: { value: 10 } },
+        willpower: { value: 5 }
+      }
+    };
+    expect(validateCanCast({
+      actor: solar,
+      spell: weavingSpell({ circle: 1 })
+    })).toMatchObject({ ok: false });
+  });
+
+  it("Alchemical with sorcery.initiation=0 cannot cast sorcery", () => {
+    const alch = {
+      system: {
+        exaltType: "alchemical",
+        sorcery:   { initiation: 0 },
+        necromancy:{ initiation: 0 },
+        weaving:   { initiation: 0 },
+        motes:     { peripheral: { value: 30 }, personal: { value: 10 } },
+        willpower: { value: 5 }
+      }
+    };
+    expect(validateCanCast({
+      actor: alch,
+      spell: { system: { tradition: "sorcery", circle: 1, cost: { motes: 10, willpower: 1 } } }
+    })).toEqual({ ok: false, reason: "insufficient-initiation" });
+  });
+
+  it("Alchemical with sorcery.initiation=1 (Eclipse-granted) can cast sorcery", () => {
+    const alch = {
+      system: {
+        exaltType: "alchemical",
+        sorcery:   { initiation: 1 },
+        necromancy:{ initiation: 0 },
+        weaving:   { initiation: 0 },
+        motes:     { peripheral: { value: 30 }, personal: { value: 10 } },
+        willpower: { value: 5 }
+      }
+    };
+    expect(validateCanCast({
+      actor: alch,
+      spell: { system: { tradition: "sorcery", circle: 1, cost: { motes: 10, willpower: 1 } } }
+    })).toEqual({ ok: true });
+  });
+});

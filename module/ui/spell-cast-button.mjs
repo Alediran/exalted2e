@@ -1,8 +1,9 @@
 import { EX2E } from "../config.mjs";
 
 const CIRCLE_KEY_BY_TRADITION = {
-  sorcery:    { 1: "EX2E.CircleTerrestrial", 2: "EX2E.CircleCelestial", 3: "EX2E.CircleSolar" },
-  necromancy: { 1: "EX2E.CircleShadowlands", 2: "EX2E.CircleLabyrinth", 3: "EX2E.CircleVoid" }
+  sorcery:    { 1: "EX2E.CircleTerrestrial", 2: "EX2E.CircleCelestial", 3: "EX2E.CircleSolar"   },
+  necromancy: { 1: "EX2E.CircleShadowlands", 2: "EX2E.CircleLabyrinth", 3: "EX2E.CircleVoid"    },
+  weaving:    { 1: "EX2E.CircleManMachine",  2: "EX2E.CircleGodMachine"                         }
 };
 
 /**
@@ -52,6 +53,23 @@ export function computeSpellCastButtonState(item) {
         circle: game.i18n.localize(circleKey)
       })
     };
+  }
+
+  // 2b. Clarity gate — weaving only.
+  if (tradition === "weaving") {
+    const clarity    = actor.system?.splat?.alchemical?.clarity?.total ?? 0;
+    const minClarity = sys.minimumClarity ?? 0;
+    if (clarity < minClarity) {
+      return {
+        visible: true,
+        enabled: false,
+        label:   game.i18n.localize("EX2E.SpellCastButton"),
+        tooltip: game.i18n.format("EX2E.SpellCastCantClarity", {
+          need: minClarity,
+          have: clarity
+        })
+      };
+    }
   }
 
   // 3. Multi-tick — busy with non-sorcery (e.g., aim). Localize the

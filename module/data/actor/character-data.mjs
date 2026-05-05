@@ -149,6 +149,9 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       necromancy: new fields.SchemaField({
         initiation: new fields.NumberField({ initial: 0, min: 0, max: 3, integer: true })
       }),
+      weaving: new fields.SchemaField({
+        initiation: new fields.NumberField({ initial: 0, min: 0, max: 2, integer: true })
+      }),
 
       // ── Splat-specific traits ──────────────────────────────────────────────
       // Solar sub-namespace is intentionally empty: Limit is already on

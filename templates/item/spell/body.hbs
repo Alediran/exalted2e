@@ -34,6 +34,17 @@
     </div>
   </div>
 
+  {{#if (eq system.tradition "weaving")}}
+  <div class="charm-stats-grid" style="margin-top:4px">
+    <div class="field-group">
+      <label>{{localize "EX2E.MinimumClarity"}}</label>
+      <input type="number" name="system.minimumClarity"
+             value="{{system.minimumClarity}}" min="0" step="1"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+  </div>
+  {{/if}}
+
   <!-- Resolution -->
   <h2 class="section-header">{{localize "EX2E.SpellResolution"}}</h2>
   <div class="spell-resolution-grid">

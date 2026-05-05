@@ -202,8 +202,8 @@
       <div class="spell-section-title-group">
         <h2 class="section-header" style="margin:0">{{section.label}}</h2>
         <label class="spell-initiation-label">
-          <span>{{localize "EX2E.Initiation"}}</span>
-          {{dotRating name=section.initiationPath value=section.initiation max=3 min=0}}
+          <span>{{section.initiationLabel}}</span>
+          {{dotRating name=section.initiationPath value=section.initiation max=section.initiationMax min=0}}
         </label>
       </div>
       {{#if @root.isEditable}}

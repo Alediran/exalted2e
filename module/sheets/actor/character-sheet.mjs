@@ -252,7 +252,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       tabMain:      { id: "tabMain",      group: "sheet", icon: "fa-solid fa-user",           label: game.i18n.localize("EX2E.TabMain"),       cssClass: this.tabGroups.sheet === "tabMain"       ? "active" : "" },
       tabCombat:    { id: "tabCombat",    group: "sheet", icon: "fa-solid fa-shield-halved",  label: game.i18n.localize("EX2E.TabCombat"),     cssClass: this.tabGroups.sheet === "tabCombat"     ? "active" : "" },
       tabCharms:    { id: "tabCharms",    group: "sheet", icon: "fa-solid fa-sun",            label: game.i18n.localize("EX2E.TabCharms"),          cssClass: this.tabGroups.sheet === "tabCharms"     ? "active" : "" },
-      tabAstrology: { id: "tabAstrology", group: "sheet", icon: "fa-solid fa-star",           label: game.i18n.localize("EX2E.SiderealAstrology"),  cssClass: this.tabGroups.sheet === "tabAstrology"  ? "active" : "" },
+      ...(sys.exaltType === "sidereal" ? { tabAstrology: { id: "tabAstrology", group: "sheet", icon: "fa-solid fa-star", label: game.i18n.localize("EX2E.SiderealAstrology"), cssClass: this.tabGroups.sheet === "tabAstrology" ? "active" : "" } } : {}),
       tabInventory: { id: "tabInventory", group: "sheet", icon: "fa-solid fa-suitcase",       label: game.i18n.localize("EX2E.TabInventory"),       cssClass: this.tabGroups.sheet === "tabInventory"  ? "active" : "" },
       tabBiography: { id: "tabBiography", group: "sheet", icon: "fa-solid fa-book",           label: game.i18n.localize("EX2E.TabBiography"),       cssClass: this.tabGroups.sheet === "tabBiography"  ? "active" : "" },
       tabExperience:{ id: "tabExperience",group: "sheet", icon: "fa-solid fa-graduation-cap", label: game.i18n.localize("EX2E.TabExperience"),      cssClass: this.tabGroups.sheet === "tabExperience" ? "active" : "" },
@@ -361,14 +361,21 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       2: game.i18n.localize("EX2E.CircleLabyrinth"),
       3: game.i18n.localize("EX2E.CircleVoid")
     };
-    const spellGroups = { sorcery: [], necromancy: [] };
-    const spellBuckets = { sorcery: new Map(), necromancy: new Map() };
+    const WEAVING_CIRCLES = {
+      1: game.i18n.localize("EX2E.CircleManMachine"),
+      2: game.i18n.localize("EX2E.CircleGodMachine")
+    };
+    const isAlchemical = sys.exaltType === "alchemical";
+    const spellBuckets = { sorcery: new Map(), necromancy: new Map(), weaving: new Map() };
     for (const s of spells) {
-      const trad = s.system?.tradition === "necromancy" ? "necromancy" : "sorcery";
-      const circle = Math.max(1, Math.min(3, Number(s.system?.circle) || 1));
-      if (!spellBuckets[trad].has(circle)) spellBuckets[trad].set(circle, []);
-      spellBuckets[trad].get(circle).push(s);
+      const trad = s.system?.tradition;
+      const key = trad === "necromancy" ? "necromancy" : trad === "weaving" ? "weaving" : "sorcery";
+      const circleMax = key === "weaving" ? 2 : 3;
+      const circle = Math.max(1, Math.min(circleMax, Number(s.system?.circle) || 1));
+      if (!spellBuckets[key].has(circle)) spellBuckets[key].set(circle, []);
+      spellBuckets[key].get(circle).push(s);
     }
+    const spellGroups = {};
     const buildSpellGroups = (trad, circleLabels) => {
       return [...spellBuckets[trad].entries()]
         .sort(([a], [b]) => a - b)
@@ -376,32 +383,59 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     };
     spellGroups.sorcery    = buildSpellGroups("sorcery",    SORCERY_CIRCLES);
     spellGroups.necromancy = buildSpellGroups("necromancy", NECROMANCY_CIRCLES);
-    const spellSections = [
-      {
-        tradition: "sorcery",
-        label:     game.i18n.localize(sorceryLabelKey),
-        initiation: sys.sorcery?.initiation ?? 0,
-        initiationPath: "system.sorcery.initiation",
-        groups:    spellGroups.sorcery
-      },
-      {
-        tradition: "necromancy",
-        label:     game.i18n.localize("EX2E.TraditionNecromancy"),
-        initiation: sys.necromancy?.initiation ?? 0,
-        initiationPath: "system.necromancy.initiation",
-        groups:    spellGroups.necromancy
-      }
-    ];
+    spellGroups.weaving    = buildSpellGroups("weaving",    WEAVING_CIRCLES);
+    const spellSections = [];
+    if (isAlchemical) {
+      spellSections.push({
+        tradition:       "weaving",
+        label:           game.i18n.localize("EX2E.TraditionWeaving"),
+        initiation:      sys.weaving?.initiation ?? 0,
+        initiationPath:  "system.weaving.initiation",
+        initiationMax:   2,
+        initiationLabel: game.i18n.localize("EX2E.WeavingInitiation"),
+        groups:          spellGroups.weaving
+      });
+    }
+    if (!isAlchemical || (sys.sorcery?.initiation ?? 0) > 0) {
+      spellSections.push({
+        tradition:       "sorcery",
+        label:           game.i18n.localize(sorceryLabelKey),
+        initiation:      sys.sorcery?.initiation ?? 0,
+        initiationPath:  "system.sorcery.initiation",
+        initiationMax:   3,
+        initiationLabel: game.i18n.localize("EX2E.Initiation"),
+        groups:          spellGroups.sorcery
+      });
+    }
+    if (!isAlchemical || (sys.necromancy?.initiation ?? 0) > 0) {
+      spellSections.push({
+        tradition:       "necromancy",
+        label:           game.i18n.localize("EX2E.TraditionNecromancy"),
+        initiation:      sys.necromancy?.initiation ?? 0,
+        initiationPath:  "system.necromancy.initiation",
+        initiationMax:   3,
+        initiationLabel: game.i18n.localize("EX2E.Initiation"),
+        groups:          spellGroups.necromancy
+      });
+    }
     // Per-spell "circle too high for this caster's initiation" flag,
     // used by the template to show a warning indicator next to the
     // spell name. The activate button itself uses the richer
     // spellCastButton state below.
     const spellInitStatus = {};
     for (const s of spells) {
-      const trad = s.system?.tradition === "necromancy" ? "necromancy" : "sorcery";
-      const req  = Math.max(1, Number(s.system?.circle) || 1);
-      const cur  = Number(sys[trad]?.initiation ?? 0);
-      spellInitStatus[s.id] = { ok: cur >= req, required: req, current: cur };
+      let ok = false, required = 0, current = 0;
+      if (s.system?.tradition === "weaving") {
+        required = Math.max(1, Number(s.system?.circle) || 1);
+        current  = Number(sys.weaving?.initiation ?? 0);
+        ok       = current >= required;
+      } else {
+        const trad = s.system?.tradition === "necromancy" ? "necromancy" : "sorcery";
+        required   = Math.max(1, Number(s.system?.circle) || 1);
+        current    = Number(sys[trad]?.initiation ?? 0);
+        ok         = current >= required;
+      }
+      spellInitStatus[s.id] = { ok, required, current };
     }
     // Per-spell activate-button state — shared with the spell-sheet's
     // Cast button via computeSpellCastButtonState. Gates the button

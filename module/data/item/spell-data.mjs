@@ -23,9 +23,10 @@ export class SpellData extends foundry.abstract.TypeDataModel {
       spellUid:   new fields.StringField({ initial: "", blank: true }),
       tradition:  new fields.StringField({
         initial: "sorcery",
-        choices: ["sorcery", "necromancy"]
+        choices: ["sorcery", "necromancy", "weaving"]
       }),
       circle:     new fields.NumberField({ initial: 1, min: 1, max: 3, integer: true }),
+      minimumClarity: new fields.NumberField({ initial: 0, min: 0, integer: true }),
 
       // ── Cost ────────────────────────────────────────────────────────────
       // Same shape as CharmData.cost so the shared spend-and-reverse

@@ -48,7 +48,8 @@ export class SpellSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       config:       EX2E,
       traditionChoices: [
         { value: "sorcery",    label: game.i18n.localize("EX2E.TraditionSorcery") },
-        { value: "necromancy", label: game.i18n.localize("EX2E.TraditionNecromancy") }
+        { value: "necromancy", label: game.i18n.localize("EX2E.TraditionNecromancy") },
+        { value: "weaving",    label: game.i18n.localize("EX2E.TraditionWeaving") }
       ],
       circleChoices: this._circleChoicesFor(sys.tradition),
       durations: Object.entries(EX2E.durations).map(([k,v]) => ({
@@ -91,7 +92,9 @@ export class SpellSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   _circleChoicesFor(tradition) {
     const keys = tradition === "necromancy"
       ? ["CircleShadowlands", "CircleLabyrinth", "CircleVoid"]
-      : ["CircleTerrestrial", "CircleCelestial", "CircleSolar"];
+      : tradition === "weaving"
+        ? ["CircleManMachine", "CircleGodMachine"]
+        : ["CircleTerrestrial", "CircleCelestial", "CircleSolar"];
     return keys.map((k, i) => ({
       value: i + 1,
       label: game.i18n.localize(`EX2E.${k}`)

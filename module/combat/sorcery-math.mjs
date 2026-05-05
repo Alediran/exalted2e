@@ -12,30 +12,49 @@ const SHAPE_DV_BY_CIRCLE = { 1: 2, 2: 3, 3: 4 };
 /**
  * Verify the actor can begin shaping a given spell.
  *
- * Checks initiation in the spell's tradition (sorcery|necromancy).
+ * Checks initiation in the spell's tradition (sorcery|necromancy|weaving).
  * The two tracks are independent per RAW — a character can practice
  * both, advancing each on its own initiation field.
  *
+ * Weaving requires Alchemical exalt type + weaving initiation + clarity threshold.
+ *
  * @param {object} args
- * @param {object} args.actor — Foundry Actor (or test stub) with system.{sorcery,necromancy}.initiation, system.motes.{peripheral,personal}.value, system.willpower.value
- * @param {object} args.spell — Foundry Item (or test stub) with system.{tradition,circle,cost.{motes,willpower}}
- * @returns {{ok: true}} | {{ok: false, reason: "insufficient-initiation"|"insufficient-motes"|"insufficient-willpower"}}
+ * @param {object} args.actor — Foundry Actor (or test stub) with system.{sorcery,necromancy,weaving}.initiation, system.motes.{peripheral,personal}.value, system.willpower.value
+ * @param {object} args.spell — Foundry Item (or test stub) with system.{tradition,circle,minimumClarity,cost.{motes,willpower}}
+ * @returns {{ok: true}} | {{ok: false, reason: "insufficient-initiation"|"insufficient-clarity"|"insufficient-motes"|"insufficient-willpower"}}
  */
 export function validateCanCast({ actor, spell }) {
   const tradition = spell?.system?.tradition ?? "sorcery";
   const circle    = spell?.system?.circle ?? 1;
-  const initiation = actor?.system?.[tradition]?.initiation ?? 0;
-  if (initiation < circle) {
-    return { ok: false, reason: "insufficient-initiation" };
+
+  if (tradition === "weaving") {
+    if ((actor?.system?.exaltType ?? "") !== "alchemical") {
+      return { ok: false, reason: "insufficient-initiation" };
+    }
+    const weavingInit = actor?.system?.weaving?.initiation ?? 0;
+    if (weavingInit < circle) {
+      return { ok: false, reason: "insufficient-initiation" };
+    }
+    const clarity    = actor?.system?.splat?.alchemical?.clarity?.total ?? 0;
+    const minClarity = spell?.system?.minimumClarity ?? 0;
+    if (clarity < minClarity) {
+      return { ok: false, reason: "insufficient-clarity" };
+    }
+  } else {
+    const initiation = actor?.system?.[tradition]?.initiation ?? 0;
+    if (initiation < circle) {
+      return { ok: false, reason: "insufficient-initiation" };
+    }
   }
-  const motesCost = spell?.system?.cost?.motes ?? 0;
+
+  const motesCost  = spell?.system?.cost?.motes ?? 0;
   const peripheral = actor?.system?.motes?.peripheral?.value ?? 0;
   const personal   = actor?.system?.motes?.personal?.value ?? 0;
   if (peripheral + personal < motesCost) {
     return { ok: false, reason: "insufficient-motes" };
   }
   const wpCost = spell?.system?.cost?.willpower ?? 0;
-  const wp = actor?.system?.willpower?.value ?? 0;
+  const wp     = actor?.system?.willpower?.value ?? 0;
   if (wp < wpCost) {
     return { ok: false, reason: "insufficient-willpower" };
   }

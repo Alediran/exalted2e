@@ -55,12 +55,14 @@ export class SorceryCastDialog extends HandlebarsApplicationMixin(ApplicationV2)
     const totalShapeActions = this._data.circle;
     const dvMod = { 1: 2, 2: 3, 3: 4 }[totalShapeActions] ?? 2;
     const tradition = s?.system?.tradition ?? "sorcery";
-    const traditionKey = tradition === "necromancy"
-      ? "EX2E.TraditionNecromancy"
-      : "EX2E.TraditionSorcery";
+    const traditionKey =
+      tradition === "necromancy" ? "EX2E.TraditionNecromancy" :
+      tradition === "weaving"    ? "EX2E.TraditionWeaving"    :
+                                   "EX2E.TraditionSorcery";
     const circleKeyMap = {
       sorcery:    { 1: "EX2E.CircleTerrestrial", 2: "EX2E.CircleCelestial", 3: "EX2E.CircleSolar" },
-      necromancy: { 1: "EX2E.CircleShadowlands", 2: "EX2E.CircleLabyrinth", 3: "EX2E.CircleVoid" }
+      necromancy: { 1: "EX2E.CircleShadowlands", 2: "EX2E.CircleLabyrinth", 3: "EX2E.CircleVoid" },
+      weaving:    { 1: "EX2E.CircleManMachine",  2: "EX2E.CircleGodMachine" }
     };
     return {
       spellName: s?.name ?? "",
