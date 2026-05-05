@@ -812,3 +812,147 @@
   border-color: var(--ex2e-gold-shadow);
   color:        var(--ex2e-text-muted);
 }
+
+/* ── Eruption Allocation Dialog ─────────────────────────────────────── */
+
+.eruption-allocation-form {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--ex2e-gap-md);
+  padding:        var(--ex2e-gap-lg);
+  background:     var(--ex2e-bg-darkest);
+}
+
+.eruption-categories {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--ex2e-gap-sm);
+}
+
+.eruption-category-row {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  gap:             var(--ex2e-gap-md);
+  padding:         4px 8px;
+  background:      var(--ex2e-bg-panel);
+  border-radius:   var(--ex2e-border-radius-sm);
+}
+
+.eruption-cat-label {
+  flex:        1;
+  font-family: var(--ex2e-font-ui);
+  font-size:   var(--ex2e-font-size-md);
+  color:       var(--ex2e-gold-bright);
+}
+
+.eruption-stepper {
+  display:     flex;
+  align-items: center;
+  gap:         var(--ex2e-gap-sm);
+}
+
+.eruption-step-btn {
+  width:           24px;
+  height:          24px;
+  flex-shrink:     0;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  border:          1px solid var(--ex2e-gold-shadow);
+  border-radius:   50%;
+  background:      var(--ex2e-bg-medium);
+  color:           var(--ex2e-gold-bright);
+  font-size:       1rem;
+  line-height:     1;
+  cursor:          pointer;
+  transition:      all var(--ex2e-transition-fast);
+  padding:         0;
+}
+
+.eruption-step-btn:hover {
+  background:   var(--ex2e-gold-dark);
+  border-color: var(--ex2e-gold-main);
+  box-shadow:   0 0 4px var(--ex2e-gold-shadow);
+}
+
+.eruption-cat-input {
+  width:       2.5rem;
+  text-align:  center;
+  background:  var(--ex2e-bg-medium);
+  border:      1px solid var(--ex2e-gold-shadow);
+  border-radius: var(--ex2e-border-radius-sm);
+  color:       var(--ex2e-gold-bright);
+  font-family: var(--ex2e-font-ui);
+  font-size:   var(--ex2e-font-size-md);
+  padding:     2px 0;
+  pointer-events: none;
+  -moz-appearance: textfield;
+}
+
+.eruption-cat-input::-webkit-outer-spin-button,
+.eruption-cat-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.eruption-total-row {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  padding:         4px 8px;
+  border-top:      1px solid var(--ex2e-gold-shadow);
+}
+
+.eruption-total-label {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-md);
+  color:          var(--ex2e-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.eruption-total-display {
+  font-family:  var(--ex2e-font-title);
+  font-size:    var(--ex2e-font-size-md);
+  color:        var(--ex2e-text-muted);
+  transition:   color var(--ex2e-transition-fast);
+}
+
+.eruption-total-display.at-target {
+  color:      var(--ex2e-gold-bright);
+  text-shadow: 0 0 6px var(--ex2e-gold-shadow);
+}
+
+.eruption-allocation-form .form-footer {
+  display:         flex;
+  justify-content: flex-end;
+  padding-top:     var(--ex2e-gap-sm);
+  border-top:      1px solid var(--ex2e-gold-shadow);
+}
+
+.eruption-confirm-btn {
+  padding:        6px 32px;
+  border:         1px solid var(--ex2e-gold-main);
+  border-radius:  20px;
+  background:     linear-gradient(135deg, var(--ex2e-bg-panel) 0%, var(--ex2e-bg-medium) 100%);
+  color:          var(--ex2e-gold-bright);
+  font-family:    var(--ex2e-font-title);
+  font-size:      var(--ex2e-font-size-md);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor:         pointer;
+  transition:     all var(--ex2e-transition-fast);
+}
+
+.eruption-confirm-btn:hover:not(:disabled) {
+  background: var(--ex2e-gold-dark);
+  box-shadow: var(--ex2e-glow-gold);
+  transform:  translateY(-1px);
+}
+
+.eruption-confirm-btn:disabled {
+  opacity:      0.4;
+  cursor:       not-allowed;
+  border-color: var(--ex2e-gold-shadow);
+  color:        var(--ex2e-text-muted);
+}

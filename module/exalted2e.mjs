@@ -1040,15 +1040,14 @@ async function _triggerResonanceEruption(actor) {
   await ChatMessage.create({
     speaker: ChatMessage.getSpeaker({ actor }),
     content,
-    flags: {
-      exalted2e: {
-        resonanceEruption: {
-          actorId:      actor.id,
-          essenceLevel,
-        }
-      }
-    },
+    flags: { exalted2e: { resonanceEruption: { actorId: actor.id, essenceLevel } } },
   });
+
+  if (!game.user.isGM) return;
+  const { EruptionAllocationDialog } = await import(
+    "./dialogs/eruption-allocation-dialog.mjs"
+  );
+  EruptionAllocationDialog.open(actor, 10);
 }
 
 Hooks.on("updateActor", async (actor, changes, _options, userId) => {

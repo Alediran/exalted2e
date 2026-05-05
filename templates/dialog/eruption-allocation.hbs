@@ -1,0 +1,24 @@
+<div class="eruption-allocation-form">
+  <div class="eruption-categories">
+    {{#each categories as |cat|}}
+    <div class="eruption-category-row">
+      <label class="eruption-cat-label">{{localize cat.labelKey}}</label>
+      <div class="eruption-stepper">
+        <button type="button" class="eruption-step-btn" data-category="{{cat.key}}" data-step="-1">−</button>
+        <input type="number" class="eruption-cat-input" data-category="{{cat.key}}"
+               value="{{cat.value}}" min="0" max="5" readonly />
+        <button type="button" class="eruption-step-btn" data-category="{{cat.key}}" data-step="1">+</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  <div class="eruption-total-row">
+    <span class="eruption-total-label">{{localize "EX2E.EruptionTotal"}}</span>
+    <span class="eruption-total-display">0 / {{points}}</span>
+  </div>
+  <div class="form-footer">
+    <button type="button" data-action="confirmAllocation" class="eruption-confirm-btn" disabled>
+      {{localize "EX2E.EruptionConfirm"}}
+    </button>
+  </div>
+</div>

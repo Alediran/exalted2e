@@ -1484,10 +1484,12 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const result = await roll.evaluate();
     await result.toMessage({ speaker: ChatMessage.getSpeaker({ actor }) });
 
-    const { SpendResonanceDialog } = await import(
-      "../../dialogs/spend-resonance-dialog.mjs"
+    if (result.successes < 1) return;
+
+    const { EruptionAllocationDialog } = await import(
+      "../../dialogs/eruption-allocation-dialog.mjs"
     );
-    SpendResonanceDialog.open(actor, result);
+    EruptionAllocationDialog.open(actor, result.successes);
   }
 
   static async #onSanctifyOath(_event, _target) {
