@@ -42,6 +42,7 @@ import { registerEclipseOath }              from "./combat/eclipse-oath.mjs";
 import { registerParadox }                  from "./combat/paradox.mjs";
 import { registerDestiny }                  from "./combat/destiny.mjs";
 import { registerHereticalGating }          from "./combat/heretical-gating.mjs";
+import { registerResonanceVent }            from "./combat/resonance-vent.mjs";
 // NOTE: Anima Powers feature (_swapAnimaPower) relies on the animapowers compendium
 // and cannot be exercised via Quench. No batch registered for ex2e.anima-powers.
 
@@ -86,5 +87,6 @@ Hooks.once("quenchReady", quench => {
   quench.registerBatch("ex2e.paradox",                 registerParadox,                 { displayName: "Sidereal Paradox track" });
   quench.registerBatch("ex2e.destiny",                 registerDestiny,                 { displayName: "Sidereal Destiny creation" });
   quench.registerBatch("ex2e.heretical-gating",        registerHereticalGating,         { displayName: "Infernal Heretical charm gating" });
+  quench.registerBatch("ex2e.resonance-vent",           registerResonanceVent,           { displayName: "Abyssal Resonance vent roll" });
 
 });

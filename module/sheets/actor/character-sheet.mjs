@@ -102,7 +102,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       rollActOfVillainy:   CharacterSheet.#onRollActOfVillainy,
       toggleTellHidden:    CharacterSheet.#onToggleTellHidden,
       sanctifyOath:        CharacterSheet.#onSanctifyOath,
-      createDestiny:       CharacterSheet.#onCreateDestiny
+      createDestiny:       CharacterSheet.#onCreateDestiny,
+      ventResonance:       CharacterSheet.#onVentResonance,
     }
   };
 
@@ -1470,6 +1471,23 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static async #onCreateDestiny(_event, _target) {
     const { DestinyCreationDialog } = await import("../../dialogs/destiny-creation-dialog.mjs");
     await DestinyCreationDialog.open(this.document);
+  }
+
+  static async #onVentResonance(_event, _target) {
+    const actor  = this.actor;
+    const pool   = actor.system.essence?.value ?? 1;
+    const roll   = new ExaltedRoll({
+      pool,
+      flavor:    game.i18n.localize("EX2E.ResonanceVentRoll"),
+      actorName: actor.name,
+    });
+    const result = await roll.evaluate();
+    await result.toMessage({ speaker: ChatMessage.getSpeaker({ actor }) });
+
+    const { SpendResonanceDialog } = await import(
+      "../../dialogs/spend-resonance-dialog.mjs"
+    );
+    SpendResonanceDialog.open(actor, result);
   }
 
   static async #onSanctifyOath(_event, _target) {

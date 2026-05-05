@@ -1,0 +1,19 @@
+<div class="spend-resonance-form">
+  <div class="vent-result-summary">
+    <div class="vent-row">
+      <span class="vent-label">{{localize "EX2E.SplatResonance"}}</span>
+      <span class="vent-value">{{currentLimit}} → <strong>{{newLimit}}</strong></span>
+    </div>
+    {{#if (gt rollSuccesses 0)}}
+    <div class="vent-row">
+      <span class="vent-label">{{localize "EX2E.BankedResonance"}}</span>
+      <span class="vent-value">{{currentBanked}} → <strong>{{newBanked}}</strong></span>
+    </div>
+    {{/if}}
+  </div>
+  <div class="form-footer">
+    <button type="button" data-action="applyVent">
+      {{localize "EX2E.Confirm"}}
+    </button>
+  </div>
+</div>

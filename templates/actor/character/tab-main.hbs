@@ -111,11 +111,21 @@
           <div style="grid-column: 1 / -1; margin-top: var(--ex2e-gap-sm);">
             {{#if (eq system.exaltType "infernal")}}
             <div class="section-toolbar">
-              <h2 class="section-header" style="margin:0;flex:1">{{limitLabel}}</h2>
+              <h2 class="section-header" style="flex:1">{{limitLabel}}</h2>
               {{#if isGM}}
-              <button type="button" data-action="rollActOfVillainy"
-                      title="{{localize 'EX2E.RollActOfVillainy'}}">
-                <i class="fa-solid fa-dice"></i> {{localize "EX2E.SplatActOfVillainy"}}
+              <button type="button" class="section-header-btn" data-action="rollActOfVillainy"
+                      title="{{localize 'EX2E.SplatActOfVillainy'}}">
+                <i class="fa-solid fa-dice"></i>
+              </button>
+              {{/if}}
+            </div>
+            {{else if (eq system.exaltType "abyssal")}}
+            <div class="section-toolbar">
+              <h2 class="section-header" style="flex:1">{{limitLabel}}</h2>
+              {{#if isEditable}}
+              <button type="button" class="section-header-btn" data-action="ventResonance"
+                title="{{localize 'EX2E.VentResonance'}} · {{localize 'EX2E.BankedResonance'}}: {{system.splat.abyssal.bankedResonance}}">
+                <i class="fa-solid fa-wind"></i>
               </button>
               {{/if}}
             </div>
@@ -149,6 +159,7 @@
             {{#if (and (eq system.exaltType "abyssal") (eq system.limit 10))}}
             <div class="resonance-eruption-warning">{{localize "EX2E.ResonanceEruption"}}</div>
             {{/if}}
+
 
             {{#if (and (includes (array "solar" "lunar" "terrestrial" "sidereal") system.exaltType) (eq system.limit 10))}}
             <div class="limit-break-warning">{{localize "EX2E.LimitBreak"}}</div>

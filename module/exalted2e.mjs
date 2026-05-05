@@ -1028,6 +1028,50 @@ Hooks.on("updateActor", async (actor, changes, _options, userId) => {
   }
 });
 
+// ── Resonance Eruption Detection ──────────────────────────────────────────
+export const _resonanceEruptionPending = new Set();
+
+async function _triggerResonanceEruption(actor) {
+  const essenceLevel = actor.system.essence?.value ?? 1;
+  const content = await foundry.applications.handlebars.renderTemplate(
+    "systems/exalted2e/templates/chat/resonance-eruption-card.hbs",
+    { actor, essenceLevel }
+  );
+  await ChatMessage.create({
+    speaker: ChatMessage.getSpeaker({ actor }),
+    content,
+    flags: {
+      exalted2e: {
+        resonanceEruption: {
+          actorId:      actor.id,
+          essenceLevel,
+        }
+      }
+    },
+  });
+}
+
+Hooks.on("updateActor", async (actor, changes, _options, userId) => {
+  if (game.user.id !== userId) return;
+  if (actor.type !== "character") return;
+  if (actor.system.exaltType !== "abyssal") return;
+
+  const newLimit = foundry.utils.getProperty(changes, "system.limit");
+
+  if (newLimit !== undefined && newLimit !== 10) {
+    _resonanceEruptionPending.delete(actor.id);
+    return;
+  }
+  if (newLimit !== 10) return;
+  if (_resonanceEruptionPending.has(actor.id)) return;
+  _resonanceEruptionPending.add(actor.id);
+  try {
+    await _triggerResonanceEruption(actor);
+  } finally {
+    _resonanceEruptionPending.delete(actor.id);
+  }
+});
+
 // ── DB Flux Detection ──────────────────────────────────────────────────────
 // Detect when a terrestrial character's anima enters or escalates through a
 // flux tier. Posts a flux card so the GM can apply the ambient damage.

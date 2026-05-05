@@ -203,7 +203,8 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
           }),
         }),
         abyssal:     new fields.SchemaField({
-          whispers: new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true })
+          whispers:        new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+          bankedResonance: new fields.NumberField({ initial: 0, min: 0, integer: true }),
         }),
         infernal:    new fields.SchemaField({
           patron:        new fields.StringField({ initial: "", blank: true }),
