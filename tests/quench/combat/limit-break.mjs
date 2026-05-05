@@ -160,10 +160,14 @@ export function registerLimitBreak(context) {
     it("[157] does not post a Limit Break card for non-classical exalts (abyssal)", async () => {
       const actor = await createTempCharacter({ name: "Q-LB-Abyssal" });
       await actor.update({ "system.exaltType": "abyssal" });
-      const startCount = game.messages.size;
       await actor.update({ "system.limit": 10 });
       await new Promise(r => setTimeout(r, 150));
-      assert.equal(game.messages.size, startCount, "no card for abyssal");
+      // A resonance eruption card IS posted for abyssals at limit 10 — that is correct.
+      // Assert only that no Limit Break card was posted (the Solar/Lunar mechanic).
+      const msg = Array.from(game.messages.values()).find(
+        m => m.flags?.exalted2e?.limitBreak?.actorId === actor.id
+      );
+      assert.isUndefined(msg, "no Limit Break card for abyssal");
     });
   });
 }

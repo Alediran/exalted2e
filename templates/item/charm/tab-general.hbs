@@ -234,6 +234,14 @@
       <input type="number" name="system.umiCost" value="{{system.umiCost}}" min="1" max="5" step="1" {{#unless isEditable}}readonly{{/unless}} />
     </div>
     {{/if}}
+    {{#if (includes system.keywords "Cooperative")}}
+    <div class="field-group">
+      <label>{{localize "EX2E.CooperationBonusDiceLabel"}}</label>
+      <input type="number" name="system.cooperationBonusDice"
+             value="{{system.cooperationBonusDice}}" min="0" step="1"
+             {{#unless isEditable}}readonly{{/unless}} />
+    </div>
+    {{/if}}
   </div>
 
   <!-- Description -->

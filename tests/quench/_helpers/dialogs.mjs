@@ -178,3 +178,16 @@ export function stubXpConfirm(answers = []) {
   };
   return queue;
 }
+
+/**
+ * Stub `CooperativeCharmDialog.prompt` — the multi-actor cooperation
+ * dialog that fires when a DB activates a Cooperative keyword charm.
+ *
+ * Return shape: `{ supporters: Actor[] }` or `null` for Solo/cancelled.
+ */
+export async function stubCooperativeCharmDialog(returnSequence = []) {
+  const { CooperativeCharmDialog } = await import(
+    "../../../module/dialogs/cooperative-charm-dialog.mjs"
+  );
+  return stubDialog(CooperativeCharmDialog, { returnSequence });
+}

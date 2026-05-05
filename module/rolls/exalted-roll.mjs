@@ -496,7 +496,7 @@ export class ExaltedRoll {
       accuracy:       mode.effectiveAccuracy,
       isInstantCharm: isInstantCharmAttack,
       woundPenalty, flurryPenalty, internalPenalty, aimBonus
-    });
+    }) + (options.extraDice ?? 0);
 
     // Excellency detection (same pattern as rollAttributeAbility)
     const exaltType   = sys.exaltType ?? "";

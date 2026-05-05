@@ -40,6 +40,10 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       // Aggregated across activated UMI charms in rollSocialAttack.
       umiCost: new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
 
+      // Per-supporter bonus dice for Cooperative charms. Set to 0 for area/utility
+      // charms whose cooperation bonus isn't a simple dice addition.
+      cooperationBonusDice: new fields.NumberField({ initial: 0, integer: true, min: 0 }),
+
       // ── Type-specific Options ────────────────────────────────────────────
       // Speed applies to Simple charms (default 6, some may be lower).
       speed:      new fields.NumberField({ initial: 6, min: 3, max: 6, integer: true }),

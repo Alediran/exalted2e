@@ -1,0 +1,35 @@
+<div class="cooperative-charm-form">
+  <p class="charm-name-label">
+    <strong>{{charmName}}</strong>
+    &mdash; {{localize "EX2E.CooperativeActivationTitle"}}
+  </p>
+  <p class="mote-cost-note">
+    {{localize "EX2E.CooperationMoteCost"}}: {{moteCost}}m
+    {{localize "EX2E.CooperationPerSupporter"}}
+  </p>
+  <ul class="candidate-list">
+    {{#each candidates as |c|}}
+    <li class="candidate-row{{#unless c.eligible}} ineligible{{/unless}}">
+      <label>
+        <input type="checkbox"
+               class="supporter-check"
+               data-actor-id="{{c.id}}"
+               {{#unless c.eligible}}disabled{{/unless}}>
+        <span class="candidate-name">{{c.name}}</span>
+      </label>
+      <span class="candidate-motes">{{c.available}}m / {{c.moteCost}}m</span>
+      {{#if c.reason}}<span class="candidate-reason">{{c.reason}}</span>{{/if}}
+    </li>
+    {{/each}}
+  </ul>
+  <div class="dialog-buttons">
+    <button type="button" data-action="cooperate">
+      <i class="fa-solid fa-handshake"></i>
+      {{localize "EX2E.CooperativeActivationCooperate"}}
+    </button>
+    <button type="button" data-action="solo">
+      <i class="fa-solid fa-user"></i>
+      {{localize "EX2E.CooperativeActivationSolo"}}
+    </button>
+  </div>
+</div>

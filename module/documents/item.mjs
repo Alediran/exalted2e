@@ -139,6 +139,7 @@ export class ExaltedItem extends Item {
     // When turning a sustained charm OFF, we skip spending entirely — the
     // original commit already paid its costs, and toggling back off is
     // a free action.
+    let cooperation = null;
     let ledger;
     if (turningOff) {
       ledger = {
@@ -146,6 +147,7 @@ export class ExaltedItem extends Item {
         aggravated: 0, xp: 0,
         toggledOn: false, toggledOff: false,
         spawnedWeapon: false, rolledInstant: false,
+        cooperation: null,
         via
       };
     } else {
@@ -162,6 +164,25 @@ export class ExaltedItem extends Item {
       ledger.spawnedWeapon = false;
       ledger.rolledInstant = false;
       ledger.via           = via;
+
+      if (sys.keywords?.includes("Cooperative")) {
+        const { CooperativeCharmDialog } = await import("../dialogs/cooperative-charm-dialog.mjs");
+        const result = await CooperativeCharmDialog.prompt(this, actor);
+        if (result?.supporters?.length) {
+          cooperation = { supporters: [], bonusDice: 0 };
+          for (const supporter of result.supporters) {
+            const breakdown = await supporter.spendMotes(sys.cost?.motes ?? 0, "peripheral");
+            if (breakdown) {
+              cooperation.supporters.push({ actorId: supporter.id, name: supporter.name, motesPaid: sys.cost?.motes ?? 0 });
+            } else {
+              ui.notifications?.warn(game.i18n.format("EX2E.CooperationSpendFailed", { name: supporter.name }));
+            }
+          }
+          cooperation.bonusDice = cooperation.supporters.length * (sys.cooperationBonusDice ?? 0);
+          if (cooperation.supporters.length === 0) cooperation = null;
+        }
+      }
+      ledger.cooperation = cooperation;
     }
 
     // Weapon-like attack side effects — only when the Attack tab is enabled.
@@ -172,7 +193,7 @@ export class ExaltedItem extends Item {
         // Fire the attack roll right now using a transient weapon. The
         // attack card snapshots stats, so deleting the temp weapon
         // afterwards doesn't affect downstream resolution.
-        await this._rollCharmInstantAttack();
+        await this._rollCharmInstantAttack({ extraDice: cooperation?.bonusDice ?? 0 });
         ledger.rolledInstant = true;
       } else {
         await this._spawnCharmWeaponArtifacts();
@@ -325,14 +346,14 @@ export class ExaltedItem extends Item {
    * attack through ExaltedRoll.rollAttack using it, then delete the item.
    * The attack card flags snapshot the mode's stats so removal is safe.
    */
-  async _rollCharmInstantAttack() {
+  async _rollCharmInstantAttack({ extraDice = 0 } = {}) {
     const actor = this.actor;
     if (!actor) return;
     const weaponData = this._buildCharmWeaponData();
     const [weapon] = await actor.createEmbeddedDocuments("Item", [weaponData]);
     try {
       const { ExaltedRoll } = await import("../rolls/exalted-roll.mjs");
-      await ExaltedRoll.rollAttack(actor, weapon.id, { modeIndex: 0 });
+      await ExaltedRoll.rollAttack(actor, weapon.id, { modeIndex: 0, extraDice });
     } finally {
       await weapon.delete();
     }

@@ -24,6 +24,21 @@
   <div class="item-card-description">
     {{{item.system.description}}}
   </div>
+  {{#if activation.cooperation}}
+  <div class="cooperation-summary">
+    <strong>{{localize "EX2E.Cooperation"}}</strong>
+    <ul>
+      {{#each activation.cooperation.supporters}}
+      <li>{{this.name}} — {{this.motesPaid}}m</li>
+      {{/each}}
+    </ul>
+    {{#if activation.cooperation.bonusDice}}
+    <div class="cooperation-bonus">+{{activation.cooperation.bonusDice}} {{localize "EX2E.CooperationBonusDice"}}</div>
+    {{else}}
+    <div class="cooperation-bonus">{{localize "EX2E.CooperationSeeDescription"}}</div>
+    {{/if}}
+  </div>
+  {{/if}}
   {{#if canReverse}}
   <div class="item-card-actions">
     <button type="button" class="btn-roll btn-reverse-charm"
