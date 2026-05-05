@@ -27,7 +27,11 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         bashingHealth:    new fields.NumberField({ initial: 0, min: 0, max: 5,  integer: true }),
         lethalHealth:     new fields.NumberField({ initial: 0, min: 0, max: 5,  integer: true }),
         aggravatedHealth: new fields.NumberField({ initial: 0, min: 0, max: 5,  integer: true }),
-        xp:               new fields.NumberField({ initial: 0, min: 0, max: 50, integer: true })
+        xp:               new fields.NumberField({ initial: 0, min: 0, max: 50, integer: true }),
+        motesLabel:       new fields.StringField({ initial: "", blank: true }),
+        // Authoring metadata — not consumed by the activation ledger yet (Plan 2).
+        resonance:        new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),
+        limitTrigger:     new fields.NumberField({ initial: 0, min: 0, max: 3,  integer: true })
       }),
 
       // ── Type / Duration ──────────────────────────────────────────────────
@@ -53,6 +57,13 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         new fields.NumberField({ min: 1, max: 9, integer: true })
       ),
 
+      dvPenalty:            new fields.NumberField({ initial: 0, min: -3, max: 0, integer: true }),
+      maidenAffiliation:    new fields.StringField({ initial: "", blank: true }),
+      martialArtsStyleName: new fields.StringField({ initial: "", blank: true }),
+      durationFormula:      new fields.StringField({ initial: "", blank: true }),
+      mirrorCharmRef:       new fields.StringField({ initial: "", blank: true }),
+      stackCount:           new fields.NumberField({ initial: 0, min: 0, integer: true }),
+
       // ── Prerequisites ────────────────────────────────────────────────────
       // Each group is an AND; within a group, alternatives OR together. So
       // "X and Y" is two groups of one alt each; "X or Y" is one group with
@@ -62,15 +73,17 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       // hosting charm's own `ability` field.
       prereqGroups: new fields.ArrayField(new fields.SchemaField({
         alternatives: new fields.ArrayField(new fields.SchemaField({
-          type:      new fields.StringField({
+          type: new fields.StringField({
             initial: "charm",
-            choices: ["charm", "anyExcellency"]
+            choices: ["charm", "anyExcellency", "virtue"]
           }),
           // Canonical reference: the target charm's `system.charmUid`.
           // `charmName` is kept as a display label and as a name-based
           // fallback for prereqs authored before UIDs were in place.
           charmUid:  new fields.StringField({ initial: "", blank: true }),
-          charmName: new fields.StringField({ initial: "", blank: true })
+          charmName: new fields.StringField({ initial: "", blank: true }),
+          virtueKey: new fields.StringField({ initial: "valor", blank: true }),
+          virtueMin: new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true })
         }))
       })),
 

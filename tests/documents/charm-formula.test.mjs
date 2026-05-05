@@ -16,7 +16,6 @@ describe("evaluateCharmFormula", () => {
     expect(evaluateCharmFormula("",        {}, 7)).toBe(7);
     expect(evaluateCharmFormula(null,      {}, 7)).toBe(7);
     expect(evaluateCharmFormula(undefined, {}, 7)).toBe(7);
-    expect(evaluateCharmFormula(",",       {}, 7)).toBe(7);        // empty after trim is also fallback (matches str)
   });
 
   it("formula substitutes rollData and returns a floored integer", () => {
@@ -30,6 +29,8 @@ describe("evaluateCharmFormula", () => {
     try {
       // Bare characters that won't parse — Roll.safeEval throws under strict.
       expect(evaluateCharmFormula("@@@", {}, 99)).toBe(99);
+      // A lone comma is also an unparseable expression (not "empty").
+      expect(evaluateCharmFormula(",",   {}, 7)).toBe(7);
     } finally {
       warnSpy.mockRestore();
     }

@@ -83,7 +83,7 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       tabs,
       charmTypes:   Object.entries(EX2E.charmTypes).map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
       durations:    Object.entries(EX2E.durations).map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
-      exaltTypes:   Object.entries(EX2E.exaltTypes).map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
+      splatTypes:   Object.entries(EX2E.splatTypes).map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
       usesAttribute,
       // `abilities` is the charm-key dropdown — its contents swap between
       // ability and attribute lists based on `usesAttribute`.
@@ -106,7 +106,8 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       prereqSummary: describeAllPrereqs(item),
       prereqAltTypes: [
         { value: "charm",         label: game.i18n.localize("EX2E.PrereqTypeCharm") },
-        { value: "anyExcellency", label: game.i18n.localize("EX2E.PrereqTypeAnyExcellency") }
+        { value: "anyExcellency", label: game.i18n.localize("EX2E.PrereqTypeAnyExcellency") },
+        { value: "virtue",        label: game.i18n.localize("EX2E.PrereqTypeVirtue") }
       ],
       // Owned-charm list powers the prereq name-input's datalist — picking
       // a suggestion auto-fills the paired charmUid so renames stay safe.
@@ -120,6 +121,15 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       isEditable:   this.isEditable,
       yoziPatronOptions: Object.entries(EX2E.yoziPatrons).map(([k, v]) => ({
         key: k, label: game.i18n.localize(v)
+      })),
+      maidenAffiliationOptions: [
+        { value: "", label: "—" },
+        ...Object.entries(EX2E.siderealMaidens).map(([k, v]) => ({
+          value: k, label: game.i18n.localize(v)
+        }))
+      ],
+      virtueKeyOptions: Object.entries(EX2E.virtues).map(([k, v]) => ({
+        value: k, label: game.i18n.localize(v)
       })),
       enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description, {
         secrets: this.document.isOwner, relativeTo: this.document

@@ -14,6 +14,10 @@
  *                      hosting charm's `ability` field (works for both
  *                      ability-keyed and attribute-keyed excellencies —
  *                      CharmData stores the key in `ability` for both).
+ *   • virtue         — checks the actor's `system.virtues[key].dotRating`
+ *                      against `alt.virtueMin`. The actor is resolved from
+ *                      the explicit `actor` arg passed to evaluateCharmPrereqs,
+ *                      falling back to `hostCharm.actor` for embedded charms.
  *
  * Charm-without-an-actor (compendium view, unowned item) cannot be
  * validated; the matrix returns an empty array for those.
@@ -36,8 +40,14 @@ function _norm(s) {
  * case-insensitive name match for compendium-authored prereqs that
  * haven't been rewired through a UID-aware picker, and for data authored
  * before charmUids existed.
+ *
+ * @param {object}      alt        The alternative descriptor from prereqGroups.
+ * @param {Item}        hostCharm  The charm whose prerequisites are being evaluated.
+ * @param {Item[]}      ownedCharms  Actor-owned charms, excluding hostCharm.
+ * @param {Actor|null}  actor      The owning actor; falls back to hostCharm.actor
+ *                                 for embedded-charm contexts.
  */
-function _altSatisfied(alt, hostCharm, ownedCharms) {
+function _altSatisfied(alt, hostCharm, ownedCharms, actor = null) {
   if (alt.type === "charm") {
     const wantUid = String(alt.charmUid ?? "").trim();
     if (wantUid) {
@@ -54,6 +64,14 @@ function _altSatisfied(alt, hostCharm, ownedCharms) {
       EXCELLENCY_TIERS.has(c.system?.excellency ?? "")
       && _norm(c.system?.ability) === hostAbility
     );
+  }
+  if (alt.type === "virtue") {
+    const key = String(alt.virtueKey ?? "").trim().toLowerCase();
+    if (!key) return false;
+    const min  = Number(alt.virtueMin ?? 1);
+    const sys  = actor?.system ?? hostCharm.actor?.system ?? null;
+    const rating = sys?.virtues?.[key]?.dotRating ?? 0;
+    return rating >= min;
   }
   return false;
 }
@@ -75,7 +93,7 @@ export function evaluateCharmPrereqs(charm, actor) {
   const ownedCharms = actor.items.filter(i => i.type === "charm" && i.id !== charm.id);
   return groups.map((group, index) => {
     const alts = group.alternatives ?? [];
-    const satisfied = alts.some(alt => _altSatisfied(alt, charm, ownedCharms));
+    const satisfied = alts.some(alt => _altSatisfied(alt, charm, ownedCharms, actor));
     return { group, index, satisfied, label: describeGroup(group) };
   });
 }
@@ -125,6 +143,12 @@ export function describeAllPrereqs(charm, actor = null) {
 
 function _altLabel(alt, actor = null) {
   if (alt?.type === "anyExcellency") return game.i18n.localize("EX2E.PrereqAnyExcellency");
+  if (alt?.type === "virtue") {
+    const key = String(alt.virtueKey ?? "").trim();
+    const min = Number(alt.virtueMin ?? 1);
+    if (!key) return "";
+    return `${key.charAt(0).toUpperCase() + key.slice(1)} ${min}+`;
+  }
   const uid = String(alt?.charmUid ?? "").trim();
   if (uid && actor) {
     const match = actor.items.find(i => i.type === "charm" && i.system?.charmUid === uid);

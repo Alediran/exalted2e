@@ -3,7 +3,7 @@
     <div class="field-group">
       <label>{{localize "EX2E.ExaltType"}}</label>
       <select name="exaltType">
-        {{#each exaltTypes as |et|}}
+        {{#each splatTypes as |et|}}
         <option value="{{et.value}}" {{#if (eq et.value ../exaltType)}}selected{{/if}}>{{et.label}}</option>
         {{/each}}
       </select>

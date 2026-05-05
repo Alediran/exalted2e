@@ -72,7 +72,7 @@ EX2E.virtues = {
   valor:      "EX2E.VirtueValor"
 };
 
-EX2E.exaltTypes = {
+EX2E.splatTypes = {
   solar:       "EX2E.ExaltSolar",
   lunar:       "EX2E.ExaltLunar",
   terrestrial: "EX2E.ExaltTerrestrial",
@@ -80,7 +80,8 @@ EX2E.exaltTypes = {
   abyssal:     "EX2E.ExaltAbyssal",
   infernal:    "EX2E.ExaltInfernal",
   alchemical:  "EX2E.ExaltAlchemical",
-  mortal:      "EX2E.ExaltMortal"
+  mortal:      "EX2E.ExaltMortal",
+  spirit:      "EX2E.ExaltSpirit"
 };
 
 EX2E.castes = {
@@ -126,11 +127,20 @@ EX2E.charmTypes = {
 };
 
 EX2E.durations = {
-  instant:     "EX2E.DurationInstant",
-  oneScene:    "EX2E.DurationOneScene",
-  oneDay:      "EX2E.DurationOneDay",
-  indefinite:  "EX2E.DurationIndefinite",
-  permanent:   "EX2E.DurationPermanent"
+  instant:          "EX2E.DurationInstant",
+  untilNextAction:  "EX2E.DurationUntilNextAction",
+  oneAction:        "EX2E.DurationOneAction",
+  twoActions:       "EX2E.DurationTwoActions",
+  threeActions:     "EX2E.DurationThreeActions",
+  oneScene:         "EX2E.DurationOneScene",
+  oneDay:           "EX2E.DurationOneDay",
+  oneWeek:          "EX2E.DurationOneWeek",
+  oneMonth:         "EX2E.DurationOneMonth",
+  oneSeason:        "EX2E.DurationOneSeason",
+  indefinite:       "EX2E.DurationIndefinite",
+  untilCalibration: "EX2E.DurationUntilCalibration",
+  formula:          "EX2E.DurationFormula",
+  permanent:        "EX2E.DurationPermanent"
 };
 
 EX2E.moteTypes = {

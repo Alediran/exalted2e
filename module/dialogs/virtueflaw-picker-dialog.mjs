@@ -55,7 +55,7 @@ export class VirtueFlawPickerDialog extends HandlebarsApplicationMixin(Applicati
       exaltType:      this._exaltType,
       search:         this._search,
       entries:        filtered.map(e => ({ ...e, selected: e.uuid === this._selectedUuid })),
-      exaltTypes:     Object.entries(EX2E.exaltTypes).map(([k, v]) => ({ value: k, label: game.i18n.localize(v) })),
+      splatTypes:     Object.entries(EX2E.splatTypes).map(([k, v]) => ({ value: k, label: game.i18n.localize(v) })),
       virtueLabels:   Object.fromEntries(Object.entries(EX2E.virtues).map(([k, v]) => [k, game.i18n.localize(v)])),
       hasSelection:   this._selectedUuid !== null
     };

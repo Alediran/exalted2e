@@ -10,7 +10,7 @@
       <div class="field-group">
         <label>{{localize "EX2E.ExaltType"}}</label>
         <select name="system.exaltType" {{#unless isEditable}}disabled{{/unless}}>
-          {{#each exaltTypes}}
+          {{#each splatTypes}}
           <option value="{{this.value}}" {{#if (eq this.value ../system.exaltType)}}selected{{/if}}>{{this.label}}</option>
           {{/each}}
         </select>
@@ -34,6 +34,16 @@
           <option value="" {{#unless system.yoziPatron}}selected{{/unless}}>—</option>
           {{#each yoziPatronOptions}}
           <option value="{{this.key}}" {{#if (eq this.key ../system.yoziPatron)}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+      </div>
+      {{/if}}
+      {{#if (eq system.exaltType "sidereal")}}
+      <div class="field-group">
+        <label>{{localize "EX2E.MaidenAffiliation"}}</label>
+        <select name="system.maidenAffiliation" {{#unless isEditable}}disabled{{/unless}}>
+          {{#each maidenAffiliationOptions}}
+          <option value="{{this.value}}" {{#if (eq this.value ../system.maidenAffiliation)}}selected{{/if}}>{{this.label}}</option>
           {{/each}}
         </select>
       </div>

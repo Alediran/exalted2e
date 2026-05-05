@@ -8,6 +8,11 @@
              {{#unless isEditable}}readonly{{/unless}}>
     </div>
     <div class="field-group">
+      <label>{{localize "EX2E.MotesLabelField"}}</label>
+      <input type="text" name="system.cost.motesLabel" value="{{system.cost.motesLabel}}"
+             placeholder="e.g. 1m per die" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    <div class="field-group">
       <label>{{localize "EX2E.Willpower"}}</label>
       <input type="number" name="system.cost.willpower" value="{{system.cost.willpower}}" min="0"
              {{#unless isEditable}}readonly{{/unless}}>
@@ -36,6 +41,20 @@
              {{#unless isEditable}}readonly{{/unless}}>
     </div>
     {{/unless}}
+    {{#if (eq system.exaltType "abyssal")}}
+    <div class="field-group">
+      <label>{{localize "EX2E.CostResonance"}}</label>
+      <input type="number" name="system.cost.resonance" value="{{system.cost.resonance}}" min="0" max="10"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    {{/if}}
+    {{#if (eq system.exaltType "infernal")}}
+    <div class="field-group">
+      <label>{{localize "EX2E.CostLimitTrigger"}}</label>
+      <input type="number" name="system.cost.limitTrigger" value="{{system.cost.limitTrigger}}" min="0" max="3"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    {{/if}}
     {{#if (eq system.exaltType "alchemical")}}
     {{#unless system.isSubmodule}}
     <div class="field-group">
@@ -82,6 +101,11 @@
       <input type="number" name="system.speed" value="{{system.speed}}" min="3" max="6"
         {{#unless isEditable}}readonly{{/unless}}>
     </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.DvPenalty"}}</label>
+      <input type="number" name="system.dvPenalty" value="{{system.dvPenalty}}" min="-3" max="0"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
     {{/if}}
     {{#if (eq system.charmType "reflexive")}}
     <div class="field-group charm-steps">
@@ -115,6 +139,11 @@
         <option value="{{this.value}}" {{#if (eq this.value ../system.duration)}}selected{{/if}}>{{this.label}}</option>
         {{/each}}
       </select>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.DurationFormula"}}</label>
+      <input type="text" name="system.durationFormula" value="{{system.durationFormula}}"
+             placeholder="e.g. (Essence) actions" {{#unless isEditable}}readonly{{/unless}}>
     </div>
     <!-- Excellency (only for Reflexive charms) -->
     {{#if (eq system.charmType "reflexive")}}
@@ -174,7 +203,20 @@
                  name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.charmUid"
                  value="{{alt.charmUid}}">
           {{else}}
+          {{#if (eq alt.type "virtue")}}
+          <select name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.virtueKey"
+                  {{#unless @root.isEditable}}disabled{{/unless}}>
+            {{#each @root.virtueKeyOptions as |opt|}}
+            <option value="{{opt.value}}" {{#if (eq opt.value ../alt.virtueKey)}}selected{{/if}}>{{opt.label}}</option>
+            {{/each}}
+          </select>
+          <input type="number"
+                 name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.virtueMin"
+                 value="{{alt.virtueMin}}" min="1" max="5" style="width:3em"
+                 {{#unless @root.isEditable}}readonly{{/unless}}>
+          {{else}}
           <span class="prereq-any-exc-label">{{localize "EX2E.PrereqAnyExcellencyHint"}}</span>
+          {{/if}}
           {{/if}}
           <button type="button" data-action="removePrereqAlt"
                   data-group-index="{{gIdx}}" data-alt-index="{{aIdx}}"
@@ -243,6 +285,28 @@
     </div>
     {{/if}}
   </div>
+
+  {{#if system.martialArtsTier}}
+  <div class="field-group">
+    <label>{{localize "EX2E.MartialArtsStyleName"}}</label>
+    <input type="text" name="system.martialArtsStyleName" value="{{system.martialArtsStyleName}}"
+           placeholder="e.g. snake-style" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  {{/if}}
+  {{#if (eq system.exaltType "abyssal")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.MirrorCharmRef"}}</label>
+    <input type="text" name="system.mirrorCharmRef" value="{{system.mirrorCharmRef}}"
+           placeholder="Hungry Tiger Technique" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  {{/if}}
+  {{#if (includes system.keywords "Stackable")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.StackCount"}}</label>
+    <input type="number" name="system.stackCount" value="{{system.stackCount}}" min="0"
+           {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  {{/if}}
 
   <!-- Description -->
   <h2 class="section-header">{{localize "EX2E.Description"}}</h2>

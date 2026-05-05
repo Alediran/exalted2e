@@ -38,7 +38,7 @@ export class VirtueFlawSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       item,
       system:     sys,
       config:     EX2E,
-      exaltTypes: Object.entries(EX2E.exaltTypes).map(([k, v]) => ({
+      splatTypes: Object.entries(EX2E.splatTypes).map(([k, v]) => ({
         value: k, label: game.i18n.localize(v)
       })),
       virtues:    Object.entries(EX2E.virtues).map(([k, v]) => ({

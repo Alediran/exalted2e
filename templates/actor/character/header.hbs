@@ -25,7 +25,7 @@
       <div class="field-group">
         <label>{{localize "EX2E.ExaltType"}}</label>
         <select name="system.exaltType" {{#unless isEditable}}disabled{{/unless}}>
-          {{#each exaltTypeChoices}}
+          {{#each splatTypeChoices}}
           <option value="{{this.value}}" {{#if (eq this.value ../system.exaltType)}}selected{{/if}}>{{this.label}}</option>
           {{/each}}
         </select>

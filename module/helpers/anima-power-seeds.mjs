@@ -454,7 +454,7 @@ async function _ensureAnimaPowerFolders(pack) {
   const exaltTypes = [...new Set(ANIMA_POWER_SEEDS.map(s => s.exaltType))];
   const folderMap  = {};
   for (const exaltType of exaltTypes) {
-    const label    = game.i18n.localize(game.exalted2e.EX2E.exaltTypes[exaltType] ?? exaltType);
+    const label    = game.i18n.localize(game.exalted2e.EX2E.splatTypes[exaltType] ?? exaltType);
     const existing = pack.folders.find(f => f.name === label);
     if (existing) {
       folderMap[exaltType] = existing.id;
