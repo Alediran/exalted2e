@@ -327,4 +327,12 @@
     <div class="editor-content">{{{enrichedDescription}}}</div>
     {{/if}}
   </div>
+
+  <!-- Source -->
+  <div class="field-group" style="margin-top:6px;">
+    <label>{{localize "EX2E.CharmSource"}}</label>
+    <input type="text" name="system.source" value="{{system.source}}"
+           placeholder="e.g. Core p.182"
+           {{#unless isEditable}}readonly{{/unless}}>
+  </div>
 </div>

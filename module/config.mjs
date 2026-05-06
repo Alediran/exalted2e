@@ -100,7 +100,8 @@ EX2E.yoziPatrons = {
   cecelyne:             "EX2E.YoziCecelyne",
   sheWhoLivesInHerName: "EX2E.YoziSheWhoLives",
   adorjan:              "EX2E.YoziAdorjan",
-  ebonDragon:           "EX2E.YoziEbonDragon"
+  ebonDragon:           "EX2E.YoziEbonDragon",
+  kimbery:              "EX2E.YoziKimbery"
 };
 
 EX2E.infernalCastePatron = {

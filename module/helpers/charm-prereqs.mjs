@@ -58,7 +58,8 @@ function _altSatisfied(alt, hostCharm, ownedCharms, actor = null) {
     return ownedCharms.some(c => _norm(c.name) === want);
   }
   if (alt.type === "anyExcellency") {
-    const hostAbility = _norm(hostCharm.system?.ability);
+    const override   = _norm(alt.abilityKey ?? "");
+    const hostAbility = override || _norm(hostCharm.system?.ability);
     if (!hostAbility) return false;
     return ownedCharms.some(c =>
       EXCELLENCY_TIERS.has(c.system?.excellency ?? "")

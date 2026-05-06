@@ -62,6 +62,62 @@
       "path":   "packs/paradox-bites",
       "type":   "RollTable",
       "system": "exalted2e"
+    },
+    {
+      "name":   "charms-solar",
+      "label":  "Charms: Solar Exalted",
+      "path":   "packs/charms-solar",
+      "type":   "Item",
+      "system": "exalted2e"
+    },
+    {
+      "name":   "charms-lunar",
+      "label":  "Charms: Lunar Exalted",
+      "path":   "packs/charms-lunar",
+      "type":   "Item",
+      "system": "exalted2e"
+    },
+    {
+      "name":   "charms-sidereal",
+      "label":  "Charms: Sidereal Exalted",
+      "path":   "packs/charms-sidereal",
+      "type":   "Item",
+      "system": "exalted2e"
+    },
+    {
+      "name":   "charms-terrestrial",
+      "label":  "Charms: Dragon-Blooded",
+      "path":   "packs/charms-terrestrial",
+      "type":   "Item",
+      "system": "exalted2e"
+    },
+    {
+      "name":   "charms-abyssal",
+      "label":  "Charms: Abyssal Exalted",
+      "path":   "packs/charms-abyssal",
+      "type":   "Item",
+      "system": "exalted2e"
+    },
+    {
+      "name":   "charms-infernal",
+      "label":  "Charms: Infernal Exalted",
+      "path":   "packs/charms-infernal",
+      "type":   "Item",
+      "system": "exalted2e"
+    },
+    {
+      "name":   "charms-alchemical",
+      "label":  "Charms: Alchemical Exalted",
+      "path":   "packs/charms-alchemical",
+      "type":   "Item",
+      "system": "exalted2e"
+    },
+    {
+      "name":   "charms-inkmonkeys",
+      "label":  "Charms: Ink Monkeys",
+      "path":   "packs/charms-inkmonkeys",
+      "type":   "Item",
+      "system": "exalted2e"
     }
   ],
   "documentTypes": {

@@ -82,13 +82,18 @@ export class CharmData extends foundry.abstract.TypeDataModel {
           // fallback for prereqs authored before UIDs were in place.
           charmUid:  new fields.StringField({ initial: "", blank: true }),
           charmName: new fields.StringField({ initial: "", blank: true }),
+          // For anyExcellency alts: when non-empty, checks this ability instead
+          // of the hosting charm's own ability. Used for cross-ability prereqs
+          // (e.g. "Any Perception Excellency" on a Lore charm).
+          abilityKey: new fields.StringField({ initial: "", blank: true }),
           virtueKey: new fields.StringField({ initial: "valor", blank: true }),
           virtueMin: new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true })
         }))
       })),
 
-      // ── Description ──────────────────────────────────────────────────────
+      // ── Description / Source ─────────────────────────────────────────────
       description: new fields.HTMLField({ initial: "" }),
+      source:      new fields.StringField({ initial: "", blank: true }),
 
       // ── Excellency ───────────────────────────────────────────────────────
       // "" = not an Excellency, "first" | "second" | "third" = which tier
