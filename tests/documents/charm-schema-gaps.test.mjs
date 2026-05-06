@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { CharmData } from "../../module/data/item/charm-data.mjs";
+import { CharacterData } from "../../module/data/actor/character-data.mjs";
 import { areCharmPrereqsMet } from "../../module/helpers/charm-prereqs.mjs";
 
 describe("CharmData schema gaps — field presence", () => {
@@ -95,5 +96,56 @@ describe("areCharmPrereqsMet — virtue prerequisites (B7)", () => {
       alternatives: [{ type: "virtue", virtueKey: "", virtueMin: 1 }]
     }]);
     expect(areCharmPrereqsMet(charm, makeActor())).toBe(false);
+  });
+});
+
+describe("CharmData — perfectDefenseType and payload schemas", () => {
+  const fields = foundry.data.fields;
+  let schema;
+  beforeAll(() => { schema = CharmData.defineSchema(); });
+
+  it("perfectDefenseType is a StringField", () => {
+    expect(schema.perfectDefenseType).toBeInstanceOf(fields.StringField);
+    expect(schema.perfectDefenseType.initial).toBe("");
+  });
+
+  const payloads = [
+    "healthGrant", "soakBonus", "woundReduction", "statBoost",
+    "moteRecovery", "healingRoll", "statusApply", "motePoolBonus",
+    "extraActions", "dvBonus", "attackBonus", "targetPenalty", "speedModifier"
+  ];
+  for (const name of payloads) {
+    it(`${name} is a SchemaField with enabled:false BooleanField`, () => {
+      expect(schema[name]).toBeInstanceOf(fields.SchemaField);
+      expect(schema[name].fields.enabled).toBeInstanceOf(fields.BooleanField);
+      expect(schema[name].fields.enabled.initial).toBe(false);
+    });
+  }
+});
+
+describe("CharacterData — bonus fields", () => {
+  const fields = foundry.data.fields;
+  let schema;
+  beforeAll(() => { schema = CharacterData.defineSchema(); });
+
+  it("motes.personal has a bonus NumberField defaulting to 0", () => {
+    const f = schema.motes.fields.personal.fields.bonus;
+    expect(f).toBeInstanceOf(fields.NumberField);
+    expect(f.initial).toBe(0);
+  });
+
+  it("motes.peripheral has a bonus NumberField defaulting to 0", () => {
+    const f = schema.motes.fields.peripheral.fields.bonus;
+    expect(f).toBeInstanceOf(fields.NumberField);
+    expect(f.initial).toBe(0);
+  });
+
+  it("bonuses SchemaField has woundPenaltyReduction, soakBashing, soakLethal, soakAggravated, hardnessAdd", () => {
+    const b = schema.bonuses.fields;
+    expect(b.woundPenaltyReduction).toBeInstanceOf(fields.NumberField);
+    expect(b.soakBashing).toBeInstanceOf(fields.NumberField);
+    expect(b.soakLethal).toBeInstanceOf(fields.NumberField);
+    expect(b.soakAggravated).toBeInstanceOf(fields.NumberField);
+    expect(b.hardnessAdd).toBeInstanceOf(fields.NumberField);
   });
 });

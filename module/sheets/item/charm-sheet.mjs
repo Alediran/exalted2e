@@ -33,7 +33,13 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       addPrereqGroup:   CharmSheet.#onAddPrereqGroup,
       removePrereqGroup:CharmSheet.#onRemovePrereqGroup,
       addPrereqAlt:     CharmSheet.#onAddPrereqAlt,
-      removePrereqAlt:  CharmSheet.#onRemovePrereqAlt
+      removePrereqAlt:  CharmSheet.#onRemovePrereqAlt,
+      addHealthGrantOption:      CharmSheet.#onAddHealthGrantOption,
+      removeHealthGrantOption:   CharmSheet.#onRemoveHealthGrantOption,
+      addStatBoostChange:        CharmSheet.#onAddStatBoostChange,
+      removeStatBoostChange:     CharmSheet.#onRemoveStatBoostChange,
+      addDVIgnorePenaltyType:    CharmSheet.#onAddDVIgnorePenaltyType,
+      removeDVIgnorePenaltyType: CharmSheet.#onRemoveDVIgnorePenaltyType
     }
   };
 
@@ -48,7 +54,7 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       template: "systems/exalted2e/templates/item/charm/tabs.hbs"
     },
     tabGeneral: { template: "systems/exalted2e/templates/item/charm/tab-general.hbs", scrollable: [""] },
-    tabAttack:  { template: "systems/exalted2e/templates/item/charm/tab-attack.hbs",  scrollable: [""] }
+    tabEffects: { template: "systems/exalted2e/templates/item/charm/tab-effects.hbs", scrollable: [""] }
   };
 
   async _prepareContext(options) {
@@ -58,7 +64,7 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
 
     const tabs = {
       tabGeneral: { id: "tabGeneral", group: "sheet", icon: "fa-solid fa-scroll",      label: game.i18n.localize("EX2E.TabGeneral"), cssClass: this.tabGroups.sheet === "tabGeneral" ? "active" : "" },
-      tabAttack:  { id: "tabAttack",  group: "sheet", icon: "fa-solid fa-crosshairs",  label: game.i18n.localize("EX2E.TabAttack"),  cssClass: this.tabGroups.sheet === "tabAttack"  ? "active" : "" }
+      tabEffects: { id: "tabEffects", group: "sheet", icon: "fa-solid fa-sparkles",    label: game.i18n.localize("EX2E.TabEffects"), cssClass: this.tabGroups.sheet === "tabEffects" ? "active" : "" }
     };
 
     // Lunars and Alchemicals key their charms to Attributes; every other
@@ -133,7 +139,66 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       })),
       enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description, {
         secrets: this.document.isOwner, relativeTo: this.document
-      })
+      }),
+      perfectDefenseOptions: [
+        { value: "",      label: game.i18n.localize("EX2E.PerfectDefenseNone")  },
+        { value: "parry", label: game.i18n.localize("EX2E.PerfectDefenseParry") },
+        { value: "dodge", label: game.i18n.localize("EX2E.PerfectDefenseDodge") },
+        { value: "soak",  label: game.i18n.localize("EX2E.PerfectDefenseSoak")  }
+      ],
+      moteRecoveryEvents: [
+        { value: "onDamageReceived", label: game.i18n.localize("EX2E.MREventOnDamage")  },
+        { value: "onAttackHit",      label: game.i18n.localize("EX2E.MREventOnHit")     },
+        { value: "onAllyAttacked",   label: game.i18n.localize("EX2E.MREventOnAllyHit") }
+      ],
+      moteRecoveryActions: [
+        { value: "recoverPeripheral", label: game.i18n.localize("EX2E.MRActionRecoverPeripheral") },
+        { value: "recoverPersonal",   label: game.i18n.localize("EX2E.MRActionRecoverPersonal")   },
+        { value: "gainOverdrive",     label: game.i18n.localize("EX2E.MRActionGainOverdrive")     }
+      ],
+      healingTargets: [
+        { value: "self",    label: game.i18n.localize("EX2E.HRTargetSelf")    },
+        { value: "touched", label: game.i18n.localize("EX2E.HRTargetTouched") },
+        { value: "actor",   label: game.i18n.localize("EX2E.HRTargetActor")   }
+      ],
+      healingDamageTypes: [
+        { value: "bashing",          label: game.i18n.localize("EX2E.DamageBashing")      },
+        { value: "lethal",           label: game.i18n.localize("EX2E.DamageLethal")       },
+        { value: "bashingAndLethal", label: game.i18n.localize("EX2E.HRBashingAndLethal") },
+        { value: "any",              label: game.i18n.localize("EX2E.HRDamageTypeAny")    }
+      ],
+      targetPenaltyScopes: [
+        { value: "all",         label: game.i18n.localize("EX2E.TPScopeAll")         },
+        { value: "dvOnly",      label: game.i18n.localize("EX2E.TPScopeDVOnly")      },
+        { value: "attacksOnly", label: game.i18n.localize("EX2E.TPScopeAttacksOnly") }
+      ],
+      motePoolChoices: [
+        { value: "personal",   label: game.i18n.localize("EX2E.MPBPersonal")   },
+        { value: "peripheral", label: game.i18n.localize("EX2E.MPBPeripheral") }
+      ],
+      dvPenaltyTypeChoices: [
+        { value: "onslaught", label: game.i18n.localize("EX2E.DVBTypeOnslaught") },
+        { value: "action",    label: game.i18n.localize("EX2E.DVBTypeAction")    },
+        { value: "wound",     label: game.i18n.localize("EX2E.DVBTypeWound")     }
+      ],
+      statusOnFailChoices: [
+        { value: "applyCrippling", label: game.i18n.localize("EX2E.SAOnFailCrippling") },
+        { value: "applyKnockback", label: game.i18n.localize("EX2E.SAOnFailKnockback") },
+        { value: "applySickness",  label: game.i18n.localize("EX2E.SAOnFailSickness")  },
+        { value: "applyPoison",    label: game.i18n.localize("EX2E.SAOnFailPoison")    }
+      ],
+      statBoostPaths: (() => {
+        const paths = [];
+        for (const group of Object.values(EX2E.attributes)) {
+          for (const [k, labelKey] of Object.entries(group)) {
+            paths.push({ value: `system.attributes.${k}.value`, label: game.i18n.localize(labelKey) });
+          }
+        }
+        for (const k of EX2E.abilities) {
+          paths.push({ value: `system.abilities.${k}.value`, label: game.i18n.localize(EX2E.abilityLabels[k] ?? k) });
+        }
+        return paths;
+      })()
     };
   }
 
@@ -225,6 +290,45 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     await this.document.update({ "system.prereqGroups": groups });
   }
 
+  static async #onAddHealthGrantOption(event, target) {
+    const opts = foundry.utils.deepClone(this.document.system.healthGrant?.options ?? []);
+    opts.push({ label: "", zero: 0, one: 0, two: 0, dying: 0 });
+    await this.document.update({ "system.healthGrant.options": opts });
+  }
+
+  static async #onRemoveHealthGrantOption(event, target) {
+    const idx  = parseInt(target.dataset.index);
+    const opts = foundry.utils.deepClone(this.document.system.healthGrant?.options ?? []);
+    opts.splice(idx, 1);
+    await this.document.update({ "system.healthGrant.options": opts });
+  }
+
+  static async #onAddStatBoostChange(event, target) {
+    const changes = foundry.utils.deepClone(this.document.system.statBoost?.changes ?? []);
+    changes.push({ path: "", value: "1" });
+    await this.document.update({ "system.statBoost.changes": changes });
+  }
+
+  static async #onRemoveStatBoostChange(event, target) {
+    const idx     = parseInt(target.dataset.index);
+    const changes = foundry.utils.deepClone(this.document.system.statBoost?.changes ?? []);
+    changes.splice(idx, 1);
+    await this.document.update({ "system.statBoost.changes": changes });
+  }
+
+  static async #onAddDVIgnorePenaltyType(event, target) {
+    const types = foundry.utils.deepClone(this.document.system.dvBonus?.ignorePenaltyTypes ?? []);
+    types.push("onslaught");
+    await this.document.update({ "system.dvBonus.ignorePenaltyTypes": types });
+  }
+
+  static async #onRemoveDVIgnorePenaltyType(event, target) {
+    const idx   = parseInt(target.dataset.index);
+    const types = foundry.utils.deepClone(this.document.system.dvBonus?.ignorePenaltyTypes ?? []);
+    types.splice(idx, 1);
+    await this.document.update({ "system.dvBonus.ignorePenaltyTypes": types });
+  }
+
   /**
    * Open the Formula Builder dialog for a specific attack-stat input.
    * `data-path` on the button tells us which field to target; the
@@ -248,6 +352,9 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
 
   _onRender(context, options) {
     super._onRender(context, options);
+
+    // Stamp exalt-type as data attribute for CSS palette theming.
+    this.element.dataset.exaltType = this.document.system.exaltType ?? "solar";
 
     // Keep the Attack-Steps <details> open across re-renders.
     const details = this.element.querySelector("details.steps-dropdown");

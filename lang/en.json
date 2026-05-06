@@ -2,6 +2,7 @@
   "EX2E": {
     "ActorName":   "Character Name",
     "ExaltType":   "Exalt Type",
+    "SplatType":   "Splat Type",
     "Caste":       "Caste",
     "Concept":     "Concept",
     "Motivation":  "Motivation",
@@ -1338,7 +1339,109 @@
     "SceneEndedToast":       "Social scene ended — drain caps and Limit-accrual flags cleared.",
 
     "PerfectMentalDefense":              "Perfect Mental Defense",
-    "ResistUnnaturalMentalInfluence":    "Resist Unnatural Mental Influence"
+    "ResistUnnaturalMentalInfluence":    "Resist Unnatural Mental Influence",
+
+    "ABAccuracyDice":             "Accuracy dice add",
+    "ABAccuracySuccesses":        "Accuracy auto-successes",
+    "ABDamageDice":               "Damage dice add",
+    "ABIgnoreAccuracyPenalties":  "Ignore accuracy penalties",
+
+    "DVBAddPenaltyType":          "+ Add type",
+    "DVBDodgeBonus":              "Dodge DV add",
+    "DVBIgnoreAll":               "Ignore all DV penalties",
+    "DVBIgnorePenaltyTypes":      "Or specify types",
+    "DVBParryBonus":              "Parry DV add",
+    "DVBTypeAction":              "Action penalty",
+    "DVBTypeOnslaught":           "Onslaught penalty",
+    "DVBTypeWound":               "Wound penalty",
+
+    "EACostPerAction":            "Cost per action (motes)",
+    "EAMaxFormula":               "Max additional actions",
+
+    "EffectAttackBonus":          "Attack Bonus (Supplemental)",
+    "EffectDVBonus":              "DV Bonus / Penalty Negation",
+    "EffectExtraActions":         "Extra Actions",
+    "EffectHealingRoll":          "Healing Roll",
+    "EffectHealthGrant":          "Health Level Grant",
+    "EffectMotePoolBonus":        "Mote Pool Expansion",
+    "EffectMoteRecovery":         "Mote Recovery Trigger",
+    "EffectSoakBonus":            "Soak / Hardness Bonus",
+    "EffectSpeedModifier":        "Speed Modifier",
+    "EffectStatBoost":            "Attribute / Ability Boost",
+    "EffectStatusApply":          "Status Application",
+    "EffectTargetPenalty":        "Penalty to Target",
+    "EffectWoundReduction":       "Wound Penalty Reduction",
+
+    "HGAddOption":                "+ Add Option",
+    "HGDying":                    "Dying",
+    "HGOne":                      "–1",
+    "HGOptionLabel":              "Label",
+    "HGOptions":                  "Options",
+    "HGTwo":                      "–2",
+    "HGZero":                     "–0",
+
+    "HRBashingAndLethal":         "Bashing & Lethal",
+    "HRBonus":                    "Bonus",
+    "HRDamageType":               "Heals",
+    "HRDamageTypeAny":            "Any",
+    "HRPool":                     "Pool",
+    "HRTarget":                   "Target",
+    "HRTargetActor":              "Explicit Target",
+    "HRTargetSelf":               "Self",
+    "HRTargetTouched":            "Touched (pick token)",
+
+    "MPBAmount":                  "Amount",
+    "MPBPeripheral":              "Peripheral",
+    "MPBPersonal":                "Personal",
+    "MPBPool":                    "Pool",
+
+    "MRAction":                   "Action",
+    "MRActionGainOverdrive":      "Gain Overdrive",
+    "MRActionRecoverPeripheral":  "Recover Peripheral",
+    "MRActionRecoverPersonal":    "Recover Personal",
+    "MREvent":                    "Trigger event",
+    "MREventOnAllyHit":           "On Ally Attacked",
+    "MREventOnDamage":            "On Damage Received",
+    "MREventOnHit":               "On Attack Hit",
+    "MRFormula":                  "Formula",
+
+    "PerfectDefenseDodge":        "Dodge (Step 2)",
+    "PerfectDefenseNone":         "None",
+    "PerfectDefenseParry":        "Parry (Step 2)",
+    "PerfectDefenseSoak":         "Soak (Step 7)",
+    "PerfectDefenseType":         "Perfect defense",
+
+    "SAOnFail":                   "On failure",
+    "SAOnFailCrippling":          "Apply Crippling",
+    "SAOnFailKnockback":          "Apply Knockback",
+    "SAOnFailPoison":             "Apply Poison",
+    "SAOnFailSickness":           "Apply Sickness",
+    "SAResistPool":               "Resist pool",
+    "SAStatus":                   "Status",
+
+    "SBAAggravated":              "Aggravated",
+    "SBABashing":                 "Bashing soak",
+    "SBALethal":                  "Lethal soak",
+    "SBHardnessAdd":              "Hardness add",
+    "SBHardnessSetTo":            "Hardness set to",
+
+    "SMDelta":                    "Change Speed by",
+    "SMMinimum":                  "Minimum Speed",
+    "SMPerMotes":                 "Cost per pip (motes)",
+    "SMPerMotesHelp":             "0 = flat, no per-mote scaling",
+
+    "StatBoostAdd":               "+ Add Boost",
+    "StatBoostPath":              "Attribute / Ability",
+    "StatBoostValue":             "Value",
+
+    "TPAmount":                   "Amount",
+    "TPDuration":                 "Duration",
+    "TPScope":                    "Scope",
+    "TPScopeAll":                 "All rolls",
+    "TPScopeAttacksOnly":         "Attacks only",
+    "TPScopeDVOnly":              "DV only",
+
+    "WRFormula":                  "Reduce wound penalty by"
   },
   "TYPES": {
     "Actor": {

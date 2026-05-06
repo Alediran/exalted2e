@@ -12,6 +12,18 @@ class _MockDataField {
     // their constructor options as `.options`. Tests inspect this to
     // assert schema shape (initial, min, max, integer flags).
     this.options = config;
+    // SchemaField in real Foundry exposes sub-fields via `.fields`.
+    // Mirror that so schema tests can use either `.options` or `.fields`.
+    this.fields = config;
+  }
+}
+
+// Scalar field types expose `.initial` directly (not nested under `.options`)
+// to match Foundry's DataField API where `field.initial` is a top-level getter.
+class _MockScalarField extends _MockDataField {
+  constructor(config = {}) {
+    super(config);
+    if ("initial" in config) this.initial = config.initial;
   }
 }
 class _MockTypeDataModel {}
@@ -21,11 +33,11 @@ globalThis.foundry = {
   data: {
     fields: {
       SchemaField:  _MockDataField,
-      StringField:  _MockDataField,
-      NumberField:  _MockDataField,
-      BooleanField: _MockDataField,
+      StringField:  _MockScalarField,
+      NumberField:  _MockScalarField,
+      BooleanField: _MockScalarField,
       ArrayField:   _MockDataField,
-      HTMLField:    _MockDataField
+      HTMLField:    _MockScalarField
     }
   },
   utils: {

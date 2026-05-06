@@ -100,12 +100,14 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         personal: new fields.SchemaField({
           value:     new fields.NumberField({ initial: 13, min: 0, max: 100, integer: true }),
           max:       new fields.NumberField({ initial: 13, min: 0, max: 100, integer: true }),
-          committed: new fields.NumberField({ initial: 0,  min: 0, max: 100, integer: true })
+          committed: new fields.NumberField({ initial: 0,  min: 0, max: 100, integer: true }),
+          bonus:     new fields.NumberField({ initial: 0,  min: 0, max: 100, integer: true })
         }),
         peripheral: new fields.SchemaField({
           value:     new fields.NumberField({ initial: 33, min: 0, max: 100, integer: true }),
           max:       new fields.NumberField({ initial: 33, min: 0, max: 100, integer: true }),
-          committed: new fields.NumberField({ initial: 0,  min: 0, max: 100, integer: true })
+          committed: new fields.NumberField({ initial: 0,  min: 0, max: 100, integer: true }),
+          bonus:     new fields.NumberField({ initial: 0,  min: 0, max: 100, integer: true })
         })
       }),
 
@@ -252,7 +254,18 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         newValue:   new fields.StringField({ initial: "", blank: true }),
         xpCost:     new fields.NumberField({ initial: 0, integer: true }),
         note:       new fields.StringField({ initial: "", blank: true })
-      }))
+      })),
+
+      // ── Charm-effect bonus receivers ────────────────────────────────────────
+      // Written by AEs created during charm activation (Plan 3). All default to 0
+      // so existing characters are unaffected by this schema change.
+      bonuses: new fields.SchemaField({
+        woundPenaltyReduction: new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        soakBashing:           new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        soakLethal:            new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        soakAggravated:        new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        hardnessAdd:           new fields.NumberField({ initial: 0, min: 0, integer: true })
+      })
     };
   }
 
@@ -506,8 +519,8 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         break;
     }
 
-    this.motes.personal.max   = personal;
-    this.motes.peripheral.max = peripheral;
+    this.motes.personal.max   = personal   + (this.motes.personal.bonus   ?? 0);
+    this.motes.peripheral.max = peripheral + (this.motes.peripheral.bonus ?? 0);
   }
 
   _prepareIntimacies() {

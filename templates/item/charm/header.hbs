@@ -8,7 +8,7 @@
       <!-- Exalt Type -->
       {{#unless system.isSubmodule}}
       <div class="field-group">
-        <label>{{localize "EX2E.ExaltType"}}</label>
+        <label>{{localize "EX2E.SplatType"}}</label>
         <select name="system.exaltType" {{#unless isEditable}}disabled{{/unless}}>
           {{#each splatTypes}}
           <option value="{{this.value}}" {{#if (eq this.value ../system.exaltType)}}selected{{/if}}>{{this.label}}</option>

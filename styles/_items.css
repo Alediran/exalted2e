@@ -8,37 +8,145 @@
 .exalted2e.sheet.item.charm .window-content { overflow: visible; }
 .exalted2e.sheet.item.charm             { overflow: visible; }
 
-.exalted2e.item.charm .charm-attack-body { padding: var(--ex2e-gap-md); }
-.exalted2e.item.charm .attack-enable-row {
-  display:      flex;
-  align-items:  center;
-  gap:          var(--ex2e-gap-sm);
-  font-size:    var(--ex2e-font-size-sm);
-  margin-bottom: var(--ex2e-gap-sm);
-}
-.exalted2e.item.charm .attack-help {
-  font-size: var(--ex2e-font-size-xs);
-  color:     var(--ex2e-text-muted);
-  margin:    0 0 var(--ex2e-gap-md) 0;
-}
-.exalted2e.item.charm .charm-attack-grid {
-  display:               grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap:                   var(--ex2e-gap-sm);
-}
 .exalted2e.item.charm .charm-attack-tags .tags-list {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
 }
+.exalted2e.item.charm .effect-grid-3 {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   var(--ex2e-gap-sm);
+}
+
+/* ── Charm Effects Tab ──────────────────────────────────────────────────── */
+.exalted2e .tab.active.charm-effects-body {
+  padding: 6px 4px;
+}
+
+.exalted2e.item.charm .effect-section {
+  border: 1px solid var(--ex2e-gold-mid);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.exalted2e.item.charm .effect-enable-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px;
+  background: var(--color-bg-option, rgba(0,0,0,0.05));
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.85em;
+  color: var(--ex2e-gold-bright);
+}
+
+.exalted2e.item.charm .effect-enable-row input[type="checkbox"] {
+  margin: 0;
+}
+
+.exalted2e.item.charm .effect-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px;
+}
+
+.exalted2e.item.charm .effect-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 8px;
+  padding: 6px;
+}
+
+.exalted2e.item.charm .effect-section-label {
+  margin: 0 0 2px;
+  font-size: 0.8em;
+  font-style: italic;
+  color: var(--ex2e-gold-mid);
+}
+
+.exalted2e.item.charm .hg-option-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 2px;
+}
+
+.exalted2e.item.charm .hg-option-row input[type="text"] {
+  flex: 1;
+}
+
+.exalted2e.item.charm .hg-option-row input[type="number"] {
+  width: 3em;
+}
+
+.exalted2e.item.charm .sb-change-header {
+  display: grid;
+  grid-template-columns: 1fr 4em 1.5em;
+  gap: 4px;
+  font-size: 0.8em;
+  font-style: italic;
+  padding: 0 2px 2px;
+  color: var(--ex2e-gold-mid);
+}
+
+.exalted2e.item.charm .sb-change-row {
+  display: grid;
+  grid-template-columns: 1fr 4em 1.5em;
+  gap: 4px;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.exalted2e.item.charm .dvb-type-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 2px;
+}
+
+.exalted2e.item.charm .btn-add-row {
+  margin-top: 2px;
+  font-size: 0.8em;
+  padding: 2px 6px;
+  background: none;
+  border: 1px dashed var(--color-border-light-tertiary, #c9c0b3);
+  border-radius: 3px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.exalted2e.item.charm .btn-add-row:hover {
+  background: var(--color-bg-option, rgba(0,0,0,0.05));
+}
+
+.exalted2e.item.charm .field-hint {
+  font-size: 0.75em;
+  font-style: italic;
+  color: var(--color-text-dark-secondary, #4b4a44);
+  margin-left: 2px;
+}
 
 
+/* ── Charm sheet: per-splat accent palette ─────────────────────────────── */
+.exalted2e.item.charm[data-exalt-type="solar"]       { --ex2e-gold-bright: #ffe066; --ex2e-gold-main: #c9a227; --ex2e-gold-mid: #a07820; --ex2e-gold-dark: #5c4510; }
+.exalted2e.item.charm[data-exalt-type="lunar"]       { --ex2e-gold-bright: #d8eaf8; --ex2e-gold-main: #8aaac8; --ex2e-gold-mid: #5a7a9a; --ex2e-gold-dark: #2a3a50; }
+.exalted2e.item.charm[data-exalt-type="terrestrial"] { --ex2e-gold-bright: #a8ddb8; --ex2e-gold-main: #4a9068; --ex2e-gold-mid: #327050; --ex2e-gold-dark: #1a3e28; }
+.exalted2e.item.charm[data-exalt-type="sidereal"]    { --ex2e-gold-bright: #e0e8f0; --ex2e-gold-main: #9090b0; --ex2e-gold-mid: #686890; --ex2e-gold-dark: #282840; }
+.exalted2e.item.charm[data-exalt-type="abyssal"]     { --ex2e-gold-bright: #e87070; --ex2e-gold-main: #a01818; --ex2e-gold-mid: #780f0f; --ex2e-gold-dark: #3a0505; }
+.exalted2e.item.charm[data-exalt-type="infernal"]    { --ex2e-gold-bright: #90d870; --ex2e-gold-main: #4a8030; --ex2e-gold-mid: #326020; --ex2e-gold-dark: #182e10; }
+.exalted2e.item.charm[data-exalt-type="alchemical"]  { --ex2e-gold-bright: #e8d8a8; --ex2e-gold-main: #b09040; --ex2e-gold-mid: #806820; --ex2e-gold-dark: #3a2808; }
+.exalted2e.item.charm[data-exalt-type="mortal"]      { --ex2e-gold-bright: #c8bca8; --ex2e-gold-main: #887868; --ex2e-gold-mid: #685848; --ex2e-gold-dark: #302820; }
+.exalted2e.item.charm[data-exalt-type="spirit"]      { --ex2e-gold-bright: #d0a8e8; --ex2e-gold-main: #8040a0; --ex2e-gold-mid: #602870; --ex2e-gold-dark: #280838; }
 
 .exalted2e.item.charm .item-header {
   background: linear-gradient(135deg, #0a0d0f 0%, #111820 100%);
-  border-color: rgba(80, 130, 200, 0.5);
+  border-color: var(--ex2e-gold-mid);
 }
-.exalted2e.item.charm .item-name-input { color: #8bc4f0 !important; }
+.exalted2e.item.charm .item-name-input { color: var(--ex2e-gold-bright) !important; }
 
 .exalted2e.item.weapon .item-header {
   background: linear-gradient(135deg, #0f0a0a 0%, #1c1010 100%);

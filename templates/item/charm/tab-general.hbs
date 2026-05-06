@@ -156,6 +156,14 @@
       </select>
     </div>
     {{/if}}
+      <div class="field-group">
+        <label>{{localize "EX2E.PerfectDefenseType"}}</label>
+        <select name="system.perfectDefenseType" {{#unless isEditable}}disabled{{/unless}}>
+          {{#each perfectDefenseOptions}}
+          <option value="{{this.value}}" {{#if (eq this.value ../system.perfectDefenseType)}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+      </div>
   </div>
 
   <!-- Prerequisites -->

@@ -94,6 +94,9 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       // "" = not an Excellency, "first" | "second" | "third" = which tier
       excellency: new fields.StringField({ initial: "", blank: true }),
 
+      // "" = not a perfect defense; "dodge" | "parry" | "soak" = which type
+      perfectDefenseType: new fields.StringField({ initial: "", blank: true }),
+
       // ── Activation Tracking ──────────────────────────────────────────────
       active: new fields.BooleanField({ initial: false }),
 
@@ -134,6 +137,119 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         minDexterity:   new fields.StringField({ initial: "0" }),
         minMartialArts: new fields.StringField({ initial: "0" }),
         tags:           new fields.ArrayField(new fields.StringField({ blank: true }))
+      }),
+
+      // ── Mechanical Payload Schemas ──────────────────────────────────────────
+      // All `enabled` flags default false — existing charms are unaffected.
+
+      // M1 — Permanent health level grants (Ox-Body family)
+      healthGrant: new fields.SchemaField({
+        enabled: new fields.BooleanField({ initial: false }),
+        options: new fields.ArrayField(new fields.SchemaField({
+          label: new fields.StringField({ initial: "", blank: true }),
+          zero:  new fields.NumberField({ initial: 0, min: 0, integer: true }),
+          one:   new fields.NumberField({ initial: 0, min: 0, integer: true }),
+          two:   new fields.NumberField({ initial: 0, min: 0, integer: true }),
+          dying: new fields.NumberField({ initial: 0, min: 0, integer: true })
+        }))
+      }),
+
+      // M2 — Scene-long / per-attack soak and hardness bonus
+      soakBonus: new fields.SchemaField({
+        enabled:       new fields.BooleanField({ initial: false }),
+        bashing:       new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        lethal:        new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        aggravated:    new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        hardnessAdd:   new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        hardnessSetTo: new fields.NumberField({ initial: 0, min: 0, integer: true })
+      }),
+
+      // M3 — Wound penalty reduction / negation
+      woundReduction: new fields.SchemaField({
+        enabled: new fields.BooleanField({ initial: false }),
+        formula: new fields.StringField({ initial: "", blank: true })
+      }),
+
+      // M4 — Scene-long attribute / ability boost
+      statBoost: new fields.SchemaField({
+        enabled: new fields.BooleanField({ initial: false }),
+        changes: new fields.ArrayField(new fields.SchemaField({
+          path:  new fields.StringField({ initial: "", blank: true }),
+          value: new fields.StringField({ initial: "1" })
+        }))
+      }),
+
+      // M5 — Mote recovery on trigger event (Essence-Gathering Temper family)
+      moteRecovery: new fields.SchemaField({
+        enabled: new fields.BooleanField({ initial: false }),
+        event:   new fields.StringField({ initial: "onDamageReceived" }),
+        action:  new fields.StringField({ initial: "recoverPeripheral" }),
+        formula: new fields.StringField({ initial: "", blank: true })
+      }),
+
+      // M6 — Healing roll effect
+      healingRoll: new fields.SchemaField({
+        enabled:    new fields.BooleanField({ initial: false }),
+        pool:       new fields.StringField({ initial: "", blank: true }),
+        bonus:      new fields.StringField({ initial: "", blank: true }),
+        damageType: new fields.StringField({ initial: "bashing" }),
+        target:     new fields.StringField({ initial: "self" })
+      }),
+
+      // M7 — Status effect application (Crippling / Sickness / Poison / Knockback)
+      statusApply: new fields.SchemaField({
+        enabled:    new fields.BooleanField({ initial: false }),
+        status:     new fields.StringField({ initial: "Crippling" }),
+        resistPool: new fields.StringField({ initial: "@sta + @resistance" }),
+        onFail:     new fields.StringField({ initial: "applyCrippling" })
+      }),
+
+      // M8 — Permanent mote pool expansion (Essence Plethora family)
+      motePoolBonus: new fields.SchemaField({
+        enabled: new fields.BooleanField({ initial: false }),
+        pool:    new fields.StringField({ initial: "peripheral" }),
+        amount:  new fields.NumberField({ initial: 10, min: 0, integer: true })
+      }),
+
+      // M9 — Extra-action charm execution
+      extraActions: new fields.SchemaField({
+        enabled:       new fields.BooleanField({ initial: false }),
+        maxFormula:    new fields.StringField({ initial: "@essence", blank: true }),
+        costPerAction: new fields.NumberField({ initial: 2, min: 0, integer: true })
+      }),
+
+      // M10 — DV bonus and DV penalty negation
+      dvBonus: new fields.SchemaField({
+        enabled:            new fields.BooleanField({ initial: false }),
+        dodgeBonus:         new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        parryBonus:         new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        ignoreAllPenalties: new fields.BooleanField({ initial: false }),
+        ignorePenaltyTypes: new fields.ArrayField(new fields.StringField({ blank: true }))
+      }),
+
+      // M11 — Internal penalty applied to target
+      targetPenalty: new fields.SchemaField({
+        enabled:  new fields.BooleanField({ initial: false }),
+        amount:   new fields.NumberField({ initial: -1, max: 0, integer: true }),
+        scope:    new fields.StringField({ initial: "all" }),
+        duration: new fields.StringField({ initial: "oneScene" })
+      }),
+
+      // M12 — Attack roll bonus (supplemental charms)
+      attackBonus: new fields.SchemaField({
+        enabled:                 new fields.BooleanField({ initial: false }),
+        accuracyDice:            new fields.StringField({ initial: "", blank: true }),
+        accuracySuccesses:       new fields.StringField({ initial: "", blank: true }),
+        damageDice:              new fields.StringField({ initial: "", blank: true }),
+        ignoreAccuracyPenalties: new fields.BooleanField({ initial: false })
+      }),
+
+      // M13 — Speed modifier
+      speedModifier: new fields.SchemaField({
+        enabled:  new fields.BooleanField({ initial: false }),
+        delta:    new fields.NumberField({ initial: -1, integer: true }),
+        minimum:  new fields.NumberField({ initial: 3, min: 1, integer: true }),
+        perMotes: new fields.NumberField({ initial: 0, min: 0, integer: true })
       })
     };
   }
