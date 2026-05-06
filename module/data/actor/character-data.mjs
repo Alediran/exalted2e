@@ -1,6 +1,7 @@
 import { EX2E } from "../../config.mjs";
 import { computeWoundPenalty } from "../../rolls/health-math.mjs";
 import { computeTotalClarity, computePermanentClarity } from "../../combat/clarity-math.mjs";
+import { computeHealthGrantBonus, computeWoundReduction, computeMotePoolBonus, applyStatBoostDeltas } from "../../rolls/charm-passive-math.mjs";
 
 const fields = foundry.data.fields;
 
@@ -303,6 +304,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     this._prepareWillpowerMinimum();
     this._prepareHealthData();
     this._prepareBreedingBonus();
+    this._applyCharmStatBoosts();
     this._prepareCombatStats();
     this._prepareMoteMaxima();
     this._prepareIntimacies();
@@ -363,14 +365,35 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     };
   }
 
+  _applyCharmStatBoosts() {
+    const items = this.parent?.items ?? [];
+    const deltas = [];
+    for (const item of items) {
+      const sb = item?.system?.statBoost;
+      if (!sb?.enabled) continue;
+      for (const change of (sb.changes ?? [])) {
+        if (!change.path) continue;
+        const raw = String(change.value ?? "1").trim();
+        // Only integer values are applied here; formula values require Foundry's
+        // Roll.safeEval and are deferred to the schema-extensions plan.
+        if (!/^-?\d+$/.test(raw)) continue;
+        deltas.push({ path: change.path, delta: parseInt(raw, 10) || 0 });
+      }
+    }
+    applyStatBoostDeltas(this, deltas);
+  }
+
   _prepareHealthData() {
     const h = this.health;
+    const items      = this.parent?.items ?? [];
+    const charmBonus = computeHealthGrantBonus(items);
+
     // Per-level box counts: -0, -1, -2 accept bonuses; -4 and Incap are
     // always a single box each regardless of charm / effect bonuses.
     const b = h.bonus ?? { zero: 0, one: 0, two: 0 };
-    const zeroCount = 1 + (b.zero ?? 0);
-    const oneCount  = 2 + (b.one  ?? 0);
-    const twoCount  = 2 + (b.two  ?? 0);
+    const zeroCount = 1 + (b.zero ?? 0) + charmBonus.zero;
+    const oneCount  = 2 + (b.one  ?? 0) + charmBonus.one;
+    const twoCount  = 2 + (b.two  ?? 0) + charmBonus.two;
     const totalBoxes  = zeroCount + oneCount + twoCount + 1 /* -4 */ + 1 /* Incap */;
     const totalDamage = h.aggravated + h.lethal + h.bashing;
     h.totalBoxes  = totalBoxes;
@@ -381,8 +404,9 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 
     // Wound penalty = the penalty tier of the most-recently-filled box.
     const filled = Math.min(totalDamage, totalBoxes);
-    h.woundPenalty   = computeWoundPenalty(filled, h.levelCounts);
-    h.incapacitated  = filled >= totalBoxes;
+    h.woundPenalty  = computeWoundPenalty(filled, h.levelCounts);
+    h.woundPenalty  = computeWoundReduction(items, h.woundPenalty);
+    h.incapacitated = filled >= totalBoxes;
   }
 
   _prepareCombatStats() {
@@ -521,6 +545,10 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 
     this.motes.personal.max   = personal   + (this.motes.personal.bonus   ?? 0);
     this.motes.peripheral.max = peripheral + (this.motes.peripheral.bonus ?? 0);
+
+    const charmMotes = computeMotePoolBonus(this.parent?.items ?? []);
+    this.motes.personal.max   += charmMotes.personal;
+    this.motes.peripheral.max += charmMotes.peripheral;
   }
 
   _prepareIntimacies() {

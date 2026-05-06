@@ -3,6 +3,7 @@ import { clampDamage, healInOrder } from "../rolls/health-math.mjs";
 import { aggregatePenalties, sumPenalties } from "./penalties-math.mjs";
 import { collectPermanentTraitChanges } from "./purchase-mode-math.mjs";
 import { getClarityBand } from "../combat/clarity-math.mjs";
+import { computeSoakBonus, aggregateCharmDVBonus } from "../rolls/charm-passive-math.mjs";
 
 const ANIMA_ORDER = { none: 0, glowing: 1, burning: 2, bonfire: 3, totemic: 4 };
 function _animaLevel(key) { return ANIMA_ORDER[key] ?? 0; }
@@ -368,6 +369,7 @@ export class ExaltedActor extends Actor {
     // ── Aggregate armor soak from equipped armor ──────────────────────────
     if (this.type === "character") {
       this._applyArmorSoak(systemData);
+      this._applyCharmSoak(systemData);
       this._applyWeaponStats(systemData);
       this._applyArtifactCommitment(systemData);
     }
@@ -375,6 +377,7 @@ export class ExaltedActor extends Actor {
     // ── Aggregate DV penalties carried by ActiveEffects ───────────────────
     this._aggregateDVPenalties(systemData);
     this._aggregateMDVPenalties(systemData);
+    this._aggregateCharmDVBonus(systemData);
     this._prepareAlchemicalDerived(systemData);
   }
 
@@ -402,6 +405,10 @@ export class ExaltedActor extends Actor {
    */
   _aggregateMDVPenalties(systemData) {
     systemData.mdvPenalties = aggregatePenalties(this.effects, "mdvPenalty");
+  }
+
+  _aggregateCharmDVBonus(systemData) {
+    systemData.charmDVBonus = aggregateCharmDVBonus(this.items);
   }
 
   /**
@@ -507,18 +514,21 @@ export class ExaltedActor extends Actor {
     return created?.[0] ?? null;
   }
 
-  /** Sum of every non-immune DV penalty. */
-  get dvPenaltyTotal() {
-    const penalties = this.system?.dvPenalties ?? [];
-    // Immunity plumbing (future): charms can stash `flags.exalted2e.dvImmunities`
-    // on this actor, and those types get filtered out here.
+  _dvPenaltyIgnoring(ignoreTypes) {
+    const penalties  = this.system?.dvPenalties ?? [];
     const immunities = new Set(this.getFlag("exalted2e", "dvImmunities") ?? []);
     let total = 0;
     for (const p of penalties) {
       if (immunities.has(p.type)) continue;
+      if (ignoreTypes.has(p.type)) continue;
       total += p.value;
     }
     return total;
+  }
+
+  /** Sum of every non-immune DV penalty. */
+  get dvPenaltyTotal() {
+    return this._dvPenaltyIgnoring(new Set());
   }
 
   /** Sum of every non-immune MDV penalty. */
@@ -536,18 +546,26 @@ export class ExaltedActor extends Actor {
   /** DV after current penalties, never below 0. */
   get currentDodgeDV() {
     const s = this.system;
-    const base = this.type === "character" ? (s.dodgeDV ?? 0)
-               : this.type === "npc"       ? (s.combat?.dodgeDV ?? 0)
-               : 0;
-    return Math.max(0, base - this.dvPenaltyTotal);
+    const dvb = s.charmDVBonus ?? { dodgeBonus: 0, parryBonus: 0, ignoreAllPenalties: false, ignorePenaltyTypes: [] };
+    const base = (this.type === "character" ? (s.dodgeDV ?? 0)
+                : this.type === "npc"       ? (s.combat?.dodgeDV ?? 0)
+                : 0) + dvb.dodgeBonus;
+    const penalty = dvb.ignoreAllPenalties
+      ? 0
+      : this._dvPenaltyIgnoring(new Set(dvb.ignorePenaltyTypes));
+    return Math.max(0, base - penalty);
   }
 
   get currentParryDV() {
     const s = this.system;
-    const base = this.type === "character" ? (s.parryDV ?? s.parryDVBase ?? 0)
-               : this.type === "npc"       ? (s.combat?.parryDV ?? 0)
-               : 0;
-    return Math.max(0, base - this.dvPenaltyTotal);
+    const dvb = s.charmDVBonus ?? { dodgeBonus: 0, parryBonus: 0, ignoreAllPenalties: false, ignorePenaltyTypes: [] };
+    const base = (this.type === "character" ? (s.parryDV ?? s.parryDVBase ?? 0)
+                : this.type === "npc"       ? (s.combat?.parryDV ?? 0)
+                : 0) + dvb.parryBonus;
+    const penalty = dvb.ignoreAllPenalties
+      ? 0
+      : this._dvPenaltyIgnoring(new Set(dvb.ignorePenaltyTypes));
+    return Math.max(0, base - penalty);
   }
 
   /** MDV after current penalties, never below 0. */
@@ -707,6 +725,24 @@ export class ExaltedActor extends Actor {
       systemData.mobilityPenalty = 0;
       systemData.armorName       = null;
     }
+  }
+
+  _applyCharmSoak(systemData) {
+    const entries = this.items
+      .filter(i => i.type === "charm" && i.system.soakBonus?.enabled)
+      .map(c => ({
+        bashing:       c.system.soakBonus.bashing      ?? 0,
+        lethal:        c.system.soakBonus.lethal        ?? 0,
+        aggravated:    c.system.soakBonus.aggravated    ?? 0,
+        hardnessAdd:   c.system.soakBonus.hardnessAdd   ?? 0,
+        hardnessSetTo: c.system.soakBonus.hardnessSetTo ?? 0,
+      }));
+    const bonus = computeSoakBonus(entries);
+    if (!systemData.totalSoak) return;
+    systemData.totalSoak.bashing    += bonus.bashing;
+    systemData.totalSoak.lethal     += bonus.lethal;
+    systemData.totalSoak.aggravated += bonus.aggravated;
+    systemData.hardness = Math.max(systemData.hardness ?? 0, bonus.hardnessSetTo) + bonus.hardnessAdd;
   }
 
   /**

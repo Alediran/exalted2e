@@ -33,6 +33,20 @@
   </div>
   {{/if}}
 
+  {{#if extraActionsAvailable}}
+  <div class="extra-actions-row">
+    <i class="fa-solid fa-plus"></i>
+    {{localize "EX2E.ExtraActionsAvailable"}}: {{extraActionsAvailable}}
+  </div>
+  {{/if}}
+
+  {{#if effectiveSpeed}}
+  <div class="effective-speed-row">
+    <i class="fa-solid fa-gauge"></i>
+    {{localize "EX2E.EffectiveSpeed"}}: {{effectiveSpeed}}
+  </div>
+  {{/if}}
+
   {{#if holyUpgraded}}
   <div class="holy-upgrade-note">
     <i class="fa-solid fa-sun"></i>

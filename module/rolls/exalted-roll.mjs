@@ -17,6 +17,9 @@ import {
 } from "./attack-math.mjs";
 import { computeAttackExcellencyCaps } from "./excellency-math.mjs";
 import { bankStuntReward } from "../combat/stunt-payment.mjs";
+import { computeAttackCharmBonus, computeSpeedModifier, computeExtraActionsMax }
+  from "./charm-combat-math.mjs";
+import { evaluateCharmFormula } from "../documents/item.mjs";
 
 /**
  * ExaltedRoll – Handles the Exalted 2e d10 dice pool mechanic.
@@ -638,6 +641,35 @@ export class ExaltedRoll {
         activatedKeywords.add(kw);
       }
     }
+    // Collect combat bonuses from activated and equipped charms.
+    // attackBonus uses activatedCharmItems (per-attack supplemental cost paid now).
+    // speedModifier and extraActions use all actor items because those effects are
+    // typically sustained across turns, not re-activated on each attack.
+    const rollData = actor.getRollData?.() ?? {};
+    const activatedCharmItems = activatedCharms
+      .map(ac => actor.items.get(ac.id))
+      .filter(Boolean);
+
+    // Pre-evaluate formula fields (e.g. "@ess") to plain integers before
+    // passing to computeAttackCharmBonus, which only handles resolved numbers.
+    const resolvedAttackBonusCharms = activatedCharmItems
+      .filter(c => c.system.attackBonus?.enabled)
+      .map(c => {
+        const ab = c.system.attackBonus;
+        return { system: { attackBonus: {
+          enabled:                 true,
+          accuracyDice:            String(_evalInt(ab.accuracyDice,      rollData)),
+          accuracySuccesses:       String(_evalInt(ab.accuracySuccesses, rollData)),
+          damageDice:              String(_evalInt(ab.damageDice,        rollData)),
+          ignoreAccuracyPenalties: ab.ignoreAccuracyPenalties,
+        }}};
+      });
+
+    const charmAttackBonus = computeAttackCharmBonus(resolvedAttackBonusCharms, rollData);
+    const baseSpeed        = mode.effectiveSpeed ?? 5;
+    const charmSpeed       = computeSpeedModifier(allCharms, baseSpeed);
+    const charmExtraMax    = computeExtraActionsMax(allCharms, rollData);
+
     const unblockable = activatedKeywords.has("Unblockable");
     const undodgeable = activatedKeywords.has("Undodgeable");
 
@@ -693,7 +725,7 @@ export class ExaltedRoll {
     // Build and evaluate the attack roll
     const displayName = (wSys.modes?.length ?? 1) > 1 ? `${weapon.name} — ${mode.name}` : weapon.name;
     const attackRoll = new ExaltedRoll({
-      pool:               pool + firstExcDice,
+      pool:               pool + firstExcDice + charmAttackBonus.extraAccuracyDice,
       flavor:             `${displayName} — ${game.i18n.localize("EX2E.AttackRoll")}`,
       actorName:          actor.name,
       stunt:              dialogResult.stunt,
@@ -714,7 +746,10 @@ export class ExaltedRoll {
     // roll — not the pool. Botch detection still reads the unmodified
     // rawSuccesses, so a Prone attacker can still botch even when their
     // display successes would otherwise be non-negative.
-    const displaySuccesses = Math.max(0, (result.successes ?? 0) - externalPenalty);
+    const effectiveExternalPenalty = charmAttackBonus.ignorePenalties ? 0 : externalPenalty;
+    const displaySuccesses = Math.max(0,
+      (result.successes ?? 0) - effectiveExternalPenalty + charmAttackBonus.extraAccuracySuccesses
+    );
     const attack = {
       actorId:             actor.id,
       actorName:           actor.name,
@@ -731,7 +766,7 @@ export class ExaltedRoll {
       secondExcSuccesses,
       attackerHasThirdExc,
       attackerExcKey:      excKey,
-      weaponDamage:        mode.effectiveDamage,
+      weaponDamage:        mode.effectiveDamage + charmAttackBonus.extraDamageDice,
       damageType:          finalDamageType,
       damageTypeLabel:     `${typeSuffix}${overwhelmingSuffix}`,
       // Originating type before the Holy-vs-CoD upgrade, plus a flag the
@@ -758,7 +793,9 @@ export class ExaltedRoll {
       attackCharms:            activatedCharms.map(c => c.name),
       isCounterattack:         !!options.isCounterattack,
       originalAttackMessageId: options.originalAttackMessageId ?? null,
-      defense:             null
+      defense:             null,
+      extraActionsAvailable: charmExtraMax || null,
+      effectiveSpeed:        charmSpeed !== baseSpeed ? charmSpeed : null,
     };
 
     const content = await renderAttackCardContent(attack);
@@ -1177,4 +1214,9 @@ export class ExaltedRollResult {
       ...chatOptions
     });
   }
+}
+
+function _evalInt(formula, rollData) {
+  if (!formula && formula !== 0) return 0;
+  return evaluateCharmFormula(String(formula), rollData, 0);
 }
