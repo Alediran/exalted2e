@@ -4,6 +4,8 @@ import { aggregatePenalties, sumPenalties } from "./penalties-math.mjs";
 import { collectPermanentTraitChanges } from "./purchase-mode-math.mjs";
 import { getClarityBand } from "../combat/clarity-math.mjs";
 import { computeSoakBonus, aggregateCharmDVBonus } from "../rolls/charm-passive-math.mjs";
+import { collectMoteRecoveryCharms } from "../rolls/charm-event-math.mjs";
+import { evaluateCharmFormula } from "./item.mjs";
 
 const ANIMA_ORDER = { none: 0, glowing: 1, burning: 2, bonfire: 3, totemic: 4 };
 function _animaLevel(key) { return ANIMA_ORDER[key] ?? 0; }
@@ -791,7 +793,31 @@ export class ExaltedActor extends Actor {
     }
 
     const h = clampDamage(this.system.health, type, amount, totalBoxes);
-    return this.update({ "system.health": h });
+    await this.update({ "system.health": h });
+
+    // Both events fire on a killing blow: onDamageReceived first, then onKill.
+    await this._fireMoteRecovery("onDamageReceived");
+    if (h.incapacitated) await this._fireMoteRecovery("onKill");
+  }
+
+  /**
+   * Fire mote recovery events for charms matching the given event trigger.
+   * @private
+   * @param {"onDamageReceived"|"onKill"|"onAttackSuccess"} event
+   */
+  async _fireMoteRecovery(event) {
+    if (this.type !== "character") return;
+    const charms = this.items.filter(i => i.type === "charm");
+    const matching = collectMoteRecoveryCharms(charms, event);
+    if (!matching.length) return;
+    const rollData = this.getRollData() ?? {};
+    for (const c of matching) {
+      const mr = c.system.moteRecovery;
+      const amount = evaluateCharmFormula(mr.formula, rollData, 0);
+      if (amount <= 0) continue;
+      const pool = mr.action === "recoverPersonal" ? "personal" : "peripheral";
+      await this.recoverMotes(amount, pool);
+    }
   }
 
   /**

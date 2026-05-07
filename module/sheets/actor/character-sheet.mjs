@@ -1,6 +1,7 @@
 import { EX2E }          from "../../config.mjs";
 import { ExaltedRoll }   from "../../rolls/exalted-roll.mjs";
 import { evaluateCharmPrereqs } from "../../helpers/charm-prereqs.mjs";
+import { evaluateCharmFormula } from "../../documents/item.mjs";
 import { ex2eCan }       from "../../helpers/permissions.mjs";
 import { buildXpCostRows } from "../../helpers/xp-cost-table.mjs";
 import { computeSpellCastButtonState } from "../../ui/spell-cast-button.mjs";
@@ -188,6 +189,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       createDestiny:       CharacterSheet.#onCreateDestiny,
       ventResonance:       CharacterSheet.#onVentResonance,
       activateGreaterSign: CharacterSheet.#onActivateAnimaPower,
+      rollHealingCharm:    CharacterSheet.#onRollHealingCharm,
     }
   };
 
@@ -1117,6 +1119,24 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       // Cast button.
       const { castSpellFlow } = await import("../../ui/cast-spell-flow.mjs");
       await castSpellFlow(item);
+    }
+  }
+
+  static async #onRollHealingCharm(event, target) {
+    const itemId = target.closest("[data-item-id]")?.dataset.itemId;
+    const item   = this.document.items.get(itemId);
+    if (!item) return;
+    const hr       = item.system.healingRoll;
+    const rollData = this.document.getRollData();
+    const pool     = evaluateCharmFormula(hr.pool, rollData, 0)
+                   + evaluateCharmFormula(hr.bonus, rollData, 0);
+    if (pool <= 0) return;
+    const roll = new ExaltedRoll({ pool, flavor: `${item.name} — ${game.i18n.localize("EX2E.RollHeal")}` });
+    await roll.evaluate();
+    await roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor: this.document }) });
+    const healAmount = roll.successes;
+    if (healAmount > 0) {
+      await this.document.healDamage(healAmount);
     }
   }
 

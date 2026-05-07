@@ -1,0 +1,16 @@
+<div class="ex2e-roll-card status-resist-card">
+  <div class="roll-header">
+    <span class="roll-flavor">{{charmName}}: {{status}} — {{localize "EX2E.ResistRoll"}}</span>
+  </div>
+  <div class="resist-body">
+    <p>{{attackerName}} {{localize "EX2E.InflictedStatus"}} {{status}} {{localize "EX2E.On"}} {{targetName}}.</p>
+    <p>{{localize "EX2E.ResistPool"}}: {{resistPool}}</p>
+  </div>
+  <button type="button" class="btn-roll btn-roll-resist"
+          data-target-id="{{targetActorId}}"
+          data-resist-pool="{{resistPool}}"
+          data-on-fail="{{onFail}}"
+          data-status="{{status}}">
+    <i class="fa-solid fa-shield"></i> {{localize "EX2E.RollResist"}}
+  </button>
+</div>

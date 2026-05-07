@@ -117,7 +117,13 @@
           {{/if}}
           {{/if}}
           {{/if}}
-          <button data-action="activateCharm" title="{{localize 'EX2E.ActivateCharm'}}">⚡</button>
+          {{#if charm.system.healingRoll.enabled}}
+          <button type="button" data-action="rollHealingCharm"
+                  title="{{localize 'EX2E.RollHeal'}}">
+            <i class="fa-solid fa-heart-pulse"></i>
+          </button>
+          {{/if}}
+          <button type="button" data-action="activateCharm" title="{{localize 'EX2E.ActivateCharm'}}">⚡</button>
           <button data-action="sendItemToChat" title="{{localize 'EX2E.SendToChat'}}">💬</button>
           {{#if @root.isEditable}}
           <button data-action="editItem"   title="Edit">✏️</button>

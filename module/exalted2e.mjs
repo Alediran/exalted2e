@@ -5,7 +5,7 @@
 // ── Imports ────────────────────────────────────────────────────────────────
 import { EX2E }             from "./config.mjs";
 import { ExaltedActor }     from "./documents/actor.mjs";
-import { ExaltedItem }      from "./documents/item.mjs";
+import { ExaltedItem, evaluateCharmFormula } from "./documents/item.mjs";
 import { ExaltedCombat }    from "./documents/combat.mjs";
 import { CharacterData }    from "./data/actor/character-data.mjs";
 import { NpcData }          from "./data/actor/npc-data.mjs";
@@ -61,6 +61,43 @@ import { aimHandler }     from "./combat/multi-tick-aim.mjs";
 import { sorceryHandler } from "./combat/multi-tick-sorcery.mjs";
 import { resolveKnockbackChain, onKnockdownResistClick } from "./combat/knockback.mjs";
 import { _seedAnimaPowersCompendium } from "./helpers/anima-power-seeds.mjs";
+import { computeAttackOutcome } from "./rolls/attack-math.mjs";
+import { computeTargetPenaltyAmount, collectStatusApplyCharms } from "./rolls/charm-event-math.mjs";
+
+// ── Attack-success hook helper ─────────────────────────────────────────────
+function _tryFireAttackSuccess(newAttack) {
+  if (newAttack.attackSuccessFired) return;
+  const outcome = computeAttackOutcome(newAttack);
+  if (!outcome.showResolution || !outcome.hit) return;
+  newAttack.attackSuccessFired = true;
+  Hooks.callAll("exalted2e.attackSuccess", { attackerActorId: newAttack.actorId, attack: newAttack });
+}
+
+// ── Status-resist card helper ──────────────────────────────────────────────
+async function _postStatusResistCard({ targetActorId, targetName, attackerName, charmName, status, resistPool, onFail }) {
+  const content = await foundry.applications.handlebars.renderTemplate(
+    "systems/exalted2e/templates/chat/status-resist-card.hbs",
+    { targetActorId, targetName, attackerName, charmName, status, resistPool, onFail }
+  );
+  await ChatMessage.create({
+    content,
+    speaker: ChatMessage.getSpeaker(),
+    flags: { exalted2e: { statusResist: { targetActorId, targetName, attackerName, charmName, status, resistPool, onFail } } }
+  });
+}
+
+// ── Status effect application helper ──────────────────────────────────────
+async function _applyStatusEffect(actor, onFail, status) {
+  const effectData = {
+    name:     status,
+    img:      "icons/svg/aura.svg",
+    flags:    { exalted2e: { charmStatus: status, onFail } },
+    disabled: false,
+    transfer: false
+  };
+  await actor.createEmbeddedDocuments("ActiveEffect", [effectData]);
+  ui.notifications.info(game.i18n.format("EX2E.StatusApplied", { name: actor.name, status }));
+}
 
 // ── Init Hook ──────────────────────────────────────────────────────────────
 Hooks.once("init", function () {
@@ -506,6 +543,41 @@ Hooks.once("ready", async function () {
   Hooks.on("updateItem",        hudRefresh);
   Hooks.on("createItem",        hudRefresh);
   Hooks.on("deleteItem",        hudRefresh);
+
+  Hooks.on("exalted2e.attackSuccess", async ({ attackerActorId, attack }) => {
+    const actor = game.actors.get(attackerActorId);
+    if (!actor) return;
+    await actor._fireMoteRecovery("onAttackSuccess");
+
+    const targetActor = attack.targetId ? game.actors.get(attack.targetId) : null;
+    if (targetActor) {
+      const activatedItems = (attack.attackCharms ?? [])
+        .map(n => actor.items.find(i => i.name === n))
+        .filter(Boolean);
+      const penaltyAmount = computeTargetPenaltyAmount(activatedItems);
+      if (penaltyAmount < 0) {
+        await targetActor.applyInternalPenalty(Math.abs(penaltyAmount), {
+          type: "all",
+          label: game.i18n.localize("EX2E.CharmPenalty")
+        });
+      }
+
+      // Offer resist roll for each statusApply charm activated in this attack.
+      const statusCharms = collectStatusApplyCharms(activatedItems);
+      for (const c of statusCharms) {
+        const sa = c.system.statusApply;
+        await _postStatusResistCard({
+          targetActorId: targetActor.id,
+          targetName:    targetActor.name,
+          attackerName:  actor.name,
+          charmName:     c.name,
+          status:        sa.status,
+          resistPool:    sa.resistPool,
+          onFail:        sa.onFail,
+        });
+      }
+    }
+  });
 
   // Anima token glow — refresh on actor data change and on token redraw.
   // refreshToken fires on every pan/zoom frame, so skip when nothing changed.
@@ -1649,6 +1721,7 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
         perfectDefenseCharm
       };
 
+      _tryFireAttackSuccess(newAttack);
       const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
       const content = await renderAttackCardContent(newAttack);
       await message.update({
@@ -1672,6 +1745,7 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     }
     const dv = Math.max(0, parseInt(input?.value) || 0);
     const newAttack = { ...attack, defense: { type: "manual", dv } };
+    _tryFireAttackSuccess(newAttack);
     const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
     const content = await renderAttackCardContent(newAttack);
     await message.update({
@@ -1743,6 +1817,7 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       botch,
       thirdExcUsedByAttacker: true
     };
+    _tryFireAttackSuccess(newAttack);
     const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
     const content = await renderAttackCardContent(newAttack);
     await message.update({
@@ -1787,6 +1862,7 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       defense: { ...attack.defense, dv: (attack.defense.dv ?? 0) + dvBonus },
       thirdExcUsedByDefender: true
     };
+    _tryFireAttackSuccess(newAttack);
     const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
     const content = await renderAttackCardContent(newAttack);
     await message.update({
@@ -1808,6 +1884,7 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       return;
     }
     const newAttack = { ...attack, step4Passed: true };
+    _tryFireAttackSuccess(newAttack);
     const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
     const content = await renderAttackCardContent(newAttack);
     await message.update({
@@ -1825,6 +1902,7 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       return;
     }
     const newAttack = { ...attack, step5Passed: true };
+    _tryFireAttackSuccess(newAttack);
     const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
     const content = await renderAttackCardContent(newAttack);
     await message.update({
@@ -2046,6 +2124,34 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
 
   el.querySelector?.(".btn-knockdown-resist")?.addEventListener("click", async () => {
     await onKnockdownResistClick(message);
+  });
+
+  // ── Status resist roll ───────────────────────────────────────────────
+  el.querySelector?.(".btn-roll-resist")?.addEventListener("click", async (ev) => {
+    const btn        = ev.currentTarget;
+    const targetId   = btn.dataset.targetId;
+    const resistPool = btn.dataset.resistPool;
+    const onFail     = btn.dataset.onFail;
+    const status     = btn.dataset.status;
+    const target     = game.actors.get(targetId);
+    if (!target) return;
+    btn.disabled = true;
+
+    const rollData = target.getRollData() ?? {};
+    const pool = evaluateCharmFormula(resistPool, rollData, 0);
+
+    if (pool <= 0) {
+      await _applyStatusEffect(target, onFail, status);
+      return;
+    }
+
+    const { ExaltedRoll } = await import("./rolls/exalted-roll.mjs");
+    const roll = new ExaltedRoll({ pool, flavor: `${status} ${game.i18n.localize("EX2E.ResistRoll")}` });
+    await roll.evaluate();
+    await roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor: target }) });
+    if ((roll.successes ?? 0) === 0) {
+      await _applyStatusEffect(target, onFail, status);
+    }
   });
 
   // ── Social attack: defender Step-2 ────────────────────────────────────
