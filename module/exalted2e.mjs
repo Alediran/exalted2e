@@ -861,7 +861,8 @@ Hooks.on("preCreateItem", (item, data, options, userId) => {
   const parentActor = item.parent;
   if (parentActor?.type === "character" &&
       parentActor.system?.purchaseLocked &&
-      ["charm", "spell", "knack", "background"].includes(item.type)) {
+      ["charm", "spell", "knack", "background"].includes(item.type) &&
+      !options.exalted2e?.mergedGrant) {
     item.updateSource({ "flags.exalted2e.pendingPurchaseConfirm": true });
   }
 
@@ -950,6 +951,37 @@ Hooks.on("createItem", async (item, options, userId) => {
     "system.experience.value": (parent.system.experience.value ?? 0) - result.xpCost
   });
   await item.unsetFlag("exalted2e", "pendingPurchaseConfirm");
+});
+
+// Auto-grant all Merged siblings when any one version of a merged charm is
+// added to an actor. Skips charms the actor already owns and suppresses the
+// XP-purchase confirmation for the automatically added copies.
+Hooks.on("createItem", async (item, options, userId) => {
+  if (userId !== game.user.id) return;
+  if (item.type !== "charm") return;
+  if (options.exalted2e?.mergedGrant) return;
+  const actor = item.parent;
+  if (!actor || actor.documentName !== "Actor") return;
+
+  const mergedIds = item.system.mergedIds ?? [];
+  if (!mergedIds.length) return;
+
+  const existingUids = new Set(
+    actor.items.filter(i => i.type === "charm").map(i => i.system.charmUid).filter(Boolean)
+  );
+
+  for (const mergedId of mergedIds) {
+    if (!mergedId || existingUids.has(mergedId)) continue;
+    let sourceDoc = null;
+    for (const pack of game.packs.filter(p => p.documentName === "Item")) {
+      try { sourceDoc = await pack.getDocument(mergedId); } catch { /* not in this pack */ }
+      if (sourceDoc) break;
+    }
+    if (!sourceDoc) continue;
+    await actor.createEmbeddedDocuments("Item", [sourceDoc.toObject()], {
+      exalted2e: { mergedGrant: true }
+    });
+  }
 });
 
 // Gate deletion of items flagged `gmOnlyRemoval` — mirrors preDeleteActiveEffect.
