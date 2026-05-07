@@ -301,11 +301,44 @@
            placeholder="e.g. snake-style" {{#unless isEditable}}readonly{{/unless}}>
   </div>
   {{/if}}
-  {{#if (eq system.exaltType "abyssal")}}
+  {{#if (includes system.keywords "Merged")}}
+  <div class="merged-charms-block" style="margin-top:6px">
+    <div class="tags-header">
+      <label>{{localize "EX2E.MergedCharms"}}</label>
+    </div>
+    <div class="charm-drop-zone" data-drop-type="merged">
+      {{#each mergedCharms as |mc|}}
+      <div class="prereq-alt" data-index="{{mc.index}}">
+        <span class="drop-zone-label">{{mc.name}}</span>
+        {{#if @root.isEditable}}
+        <button type="button" data-action="removeMergedCharm" data-index="{{mc.index}}"
+                title="{{localize 'EX2E.MergedCharmRemove'}}">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        {{/if}}
+      </div>
+      {{/each}}
+      {{#unless mergedCharms.length}}
+      <em class="drop-zone-hint">{{localize "EX2E.DropCharmHere"}}</em>
+      {{/unless}}
+    </div>
+  </div>
+  {{/if}}
+  {{#if (includes system.keywords "Mirror")}}
   <div class="field-group">
     <label>{{localize "EX2E.MirrorCharmRef"}}</label>
-    <input type="text" name="system.mirrorCharmRef" value="{{system.mirrorCharmRef}}"
-           placeholder="Hungry Tiger Technique" {{#unless isEditable}}readonly{{/unless}}>
+    <div class="charm-drop-zone" data-drop-type="mirror">
+      {{#if mirrorCharmDisplayName}}
+      <span class="drop-zone-label">{{mirrorCharmDisplayName}}</span>
+      {{#if isEditable}}
+      <button type="button" data-action="clearMirrorCharm" title="{{localize 'EX2E.Clear'}}">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      {{/if}}
+      {{else}}
+      <em class="drop-zone-hint">{{localize "EX2E.DropCharmHere"}}</em>
+      {{/if}}
+    </div>
   </div>
   {{/if}}
   {{#if (includes system.keywords "Stackable")}}

@@ -323,6 +323,36 @@
   font-size: 12px;
 }
 
+/* ── Charm drag-and-drop zones ────────────────────────────────────── */
+
+.charm-drop-zone {
+  min-height: 26px;
+  padding: 3px 6px;
+  border: 1px dashed var(--ex2e-border-color, #7a6a50);
+  border-radius: 3px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.charm-drop-zone.drag-over {
+  background-color: rgba(255, 220, 100, 0.08);
+  border-color: var(--ex2e-gold-bright, #ffe066);
+  border-style: solid;
+}
+
+.charm-drop-zone .drop-zone-label {
+  flex: 1;
+}
+
+.charm-drop-zone .drop-zone-hint {
+  color: var(--ex2e-text-muted, #7a6a50);
+  font-size: 0.85em;
+  font-style: italic;
+}
+
 .charm-prereq-ok {
   color: var(--ex2e-success, #27ae60);
   margin-right: 4px;

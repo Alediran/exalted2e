@@ -34,6 +34,8 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       removePrereqGroup:CharmSheet.#onRemovePrereqGroup,
       addPrereqAlt:     CharmSheet.#onAddPrereqAlt,
       removePrereqAlt:  CharmSheet.#onRemovePrereqAlt,
+      clearMirrorCharm: CharmSheet.#onClearMirrorCharm,
+      removeMergedCharm:CharmSheet.#onRemoveMergedCharm,
       addHealthGrantOption:      CharmSheet.#onAddHealthGrantOption,
       removeHealthGrantOption:   CharmSheet.#onRemoveHealthGrantOption,
       addStatBoostChange:        CharmSheet.#onAddStatBoostChange,
@@ -83,6 +85,38 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       value: k, label: game.i18n.localize(EX2E.abilityLabels[k] ?? k)
     }));
 
+    // Deduplicated charm list spanning actor items, world items, and all
+    // compendium pack indices — so datalist autocomplete and display names
+    // work even when the charm is opened directly from a compendium.
+    const allCharmOptions = (() => {
+      const seen = new Set();
+      const out = [];
+      for (const i of (item.actor?.items ?? [])) {
+        if (i.type !== "charm" || i.id === item.id) continue;
+        const uid = i.system?.charmUid ?? "";
+        if (!uid || seen.has(uid)) continue;
+        seen.add(uid);
+        out.push({ uid, name: i.name });
+      }
+      for (const i of (game.items?.filter(i => i.type === "charm") ?? [])) {
+        if (i.id === item.id) continue;
+        const uid = i.system?.charmUid ?? "";
+        if (!uid || seen.has(uid)) continue;
+        seen.add(uid);
+        out.push({ uid, name: i.name });
+      }
+      for (const pack of (game.packs ?? [])) {
+        if (pack.documentName !== "Item") continue;
+        for (const entry of pack.index) {
+          if (entry.type !== "charm" || seen.has(entry._id)) continue;
+          seen.add(entry._id);
+          out.push({ uid: entry._id, name: entry.name });
+        }
+      }
+      return out.sort((a, b) => a.name.localeCompare(b.name));
+    })();
+    const charmByUid = new Map(allCharmOptions.map(o => [o.uid, o.name]));
+
     return {
       ...context,
       item,
@@ -117,15 +151,11 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         { value: "anyExcellency", label: game.i18n.localize("EX2E.PrereqTypeAnyExcellency") },
         { value: "virtue",        label: game.i18n.localize("EX2E.PrereqTypeVirtue") }
       ],
-      // Owned-charm list powers the prereq name-input's datalist — picking
-      // a suggestion auto-fills the paired charmUid so renames stay safe.
-      // Empty in compendium/unowned context; the input degrades to plain
-      // name-entry and matching falls back to name.
-      ownedCharmOptions: (item.actor?.items ?? [])
-        .filter(i => i.type === "charm" && i.id !== item.id)
-        .map(i => ({ uid: i.system?.charmUid ?? "", name: i.name }))
-        .filter(o => o.uid)
-        .sort((a, b) => a.name.localeCompare(b.name)),
+      ownedCharmOptions: allCharmOptions,
+      mirrorCharmDisplayName: charmByUid.get(sys.mirrorId ?? "") ?? "",
+      mergedCharms: (sys.mergedIds ?? []).map((uid, index) => ({
+        uid, index, name: charmByUid.get(uid) ?? "",
+      })),
       isEditable:   this.isEditable,
       yoziPatronOptions: Object.entries(EX2E.yoziPatrons).map(([k, v]) => ({
         key: k, label: game.i18n.localize(v)
@@ -292,6 +322,17 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     await this.document.update({ "system.prereqGroups": groups });
   }
 
+  static async #onClearMirrorCharm() {
+    await this.document.update({ "system.mirrorId": "" });
+  }
+
+  static async #onRemoveMergedCharm(_event, target) {
+    const idx = parseInt(target.dataset.index);
+    const ids = foundry.utils.deepClone(this.document.system.mergedIds ?? []);
+    ids.splice(idx, 1);
+    await this.document.update({ "system.mergedIds": ids });
+  }
+
   static async #onAddHealthGrantOption(event, target) {
     const opts = foundry.utils.deepClone(this.document.system.healthGrant?.options ?? []);
     opts.push({ label: "", zero: 0, one: 0, two: 0, dying: 0 });
@@ -400,5 +441,36 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         uidField.value = byName.get(typed) ?? "";
       }, true); // capture phase — run before the form-submit handler
     });
+
+    if (this.isEditable) {
+      this.element.querySelectorAll(".charm-drop-zone").forEach(zone => {
+        zone.addEventListener("dragover", (ev) => {
+          ev.preventDefault();
+          zone.classList.add("drag-over");
+        });
+        zone.addEventListener("dragleave", () => zone.classList.remove("drag-over"));
+        zone.addEventListener("drop", async (ev) => {
+          ev.preventDefault();
+          zone.classList.remove("drag-over");
+          let data;
+          try { data = JSON.parse(ev.dataTransfer.getData("text/plain")); }
+          catch { return; }
+          if (data.type !== "Item") return;
+          const dropped = await fromUuid(data.uuid);
+          if (dropped?.type !== "charm") return;
+          const uid = dropped.system?.charmUid ?? dropped.id;
+          if (!uid) return;
+          if (zone.dataset.dropType === "mirror") {
+            await this.document.update({ "system.mirrorId": uid });
+          } else if (zone.dataset.dropType === "merged") {
+            const ids = foundry.utils.deepClone(this.document.system.mergedIds ?? []);
+            if (!ids.includes(uid)) {
+              ids.push(uid);
+              await this.document.update({ "system.mergedIds": ids });
+            }
+          }
+        });
+      });
+    }
   }
 }
