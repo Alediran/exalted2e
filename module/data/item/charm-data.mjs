@@ -9,6 +9,9 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       // pre-existing charms. Used by the prereq-matching machinery so
       // renames don't break prerequisites.
       charmUid:     new fields.StringField({ initial: "", blank: true }),
+      // charmUids of the other versions of this charm in alternate ability trees.
+      // Purchasing any one version grants all others automatically.
+      mergedIds:    new fields.ArrayField(new fields.StringField({ blank: true }), { initial: [] }),
       exaltType:    new fields.StringField({ initial: "solar", blank: true }),
       ability:         new fields.StringField({ initial: "melee", blank: true }),
       yoziPatron:      new fields.StringField({ initial: "", blank: true }),
@@ -62,6 +65,9 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       martialArtsStyleName: new fields.StringField({ initial: "", blank: true }),
       durationFormula:      new fields.StringField({ initial: "", blank: true }),
       mirrorCharmRef:       new fields.StringField({ initial: "", blank: true }),
+      // charmUid of the Solar charm this Abyssal (or other splat) charm mirrors.
+      // The Mirror keyword indicates it exists; this field provides the stable link.
+      mirrorId:             new fields.StringField({ initial: "", blank: true }),
       stackCount:           new fields.NumberField({ initial: 0, min: 0, integer: true }),
 
       // ── Prerequisites ────────────────────────────────────────────────────

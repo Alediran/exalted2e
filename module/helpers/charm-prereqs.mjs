@@ -51,7 +51,10 @@ function _altSatisfied(alt, hostCharm, ownedCharms, actor = null) {
   if (alt.type === "charm") {
     const wantUid = String(alt.charmUid ?? "").trim();
     if (wantUid) {
-      return ownedCharms.some(c => c.system?.charmUid === wantUid);
+      return ownedCharms.some(c =>
+        c.system?.charmUid === wantUid ||
+        (c.system?.mergedIds ?? []).includes(wantUid)
+      );
     }
     const want = _norm(alt.charmName);
     if (!want) return false;
