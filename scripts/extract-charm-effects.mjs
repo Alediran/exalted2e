@@ -142,6 +142,79 @@ function extractDvBonus(desc) {
   return { enabled: true, ...result };
 }
 
+// ── M5: moteRecovery ─────────────────────────────────────────────────────────
+// Forward kill: "respires N mote per victim" / "regains N mote each time [X] kills"
+const MR_KILL_FWD = /(?:regains?|recovers?|respires?|gains?)\s+(one|two|three|\d+)\s+motes?\s+(?:of\s+essence\s+)?(?:per\s+victim|each\s+time\s+(?:\w+\s+){0,3}kills?|whenever\s+(?:\w+\s+){0,3}kills?|when\s+(?:\w+\s+){0,3}kills?)/i;
+// Reverse kill: "whenever [X] kills ... regains N mote"
+const MR_KILL_REV = /(?:each\s+time|whenever|when)\s+(?:the\s+\w+|\w+)\s+kills?[^.]{0,120}?(?:regains?|recovers?|gains?)\s+(one|two|three|\d+)\s+motes?/i;
+// Attack success: "regains N mote whenever [X] successfully strikes/hits an animate being/target"
+const MR_ATK_RE = /(?:regains?|recovers?|gains?)\s+(one|two|three|\d+)\s+motes?\s+(?:of\s+essence\s+)?(?:each\s+time|whenever|when)\s+[^.]{0,60}?(?:successfully\s+)?(?:strikes?|hits?)\s+(?:an?\s+)?(?:animate\s+)?(?:being|target|enemy|creature|opponent)/i;
+// Damage received: "receives N motes equal to [permanent] Essence"
+const MR_DMG_ESS_RE = /(?:receives?|regains?|gains?)\s+(?:a\s+number\s+of\s+)?motes?\s+(?:of\s+essence\s+)?equal\s+to\s+(?:(?:her|his|their|the\s+\w+'?s?)\s+)?(?:permanent\s+)?essence/i;
+
+function extractMoteRecovery(desc) {
+  let m = desc.match(MR_KILL_FWD);
+  if (m) {
+    const n = numWord(m[1]);
+    return { enabled: true, event: 'onKill', action: 'recoverPeripheral', formula: n ? String(n) : '1' };
+  }
+  m = desc.match(MR_KILL_REV);
+  if (m) {
+    const n = numWord(m[1]);
+    return { enabled: true, event: 'onKill', action: 'recoverPeripheral', formula: n ? String(n) : '1' };
+  }
+  m = desc.match(MR_ATK_RE);
+  if (m) {
+    const n = numWord(m[1]);
+    return { enabled: true, event: 'onAttackSuccess', action: 'recoverPeripheral', formula: n ? String(n) : '1' };
+  }
+  if (MR_DMG_ESS_RE.test(desc)) {
+    return { enabled: true, event: 'onDamageReceived', action: 'recoverPeripheral', formula: '@ess' };
+  }
+  return null;
+}
+
+// ── M11: targetPenalty ───────────────────────────────────────────────────────
+// Explicit target reference: "target/victim/opponent suffers -N [internal] penalty"
+const TP_SUFFERS_RE = /(?:target|victim|opponent|foe|enemy)(?:'s)?\s+suffers?\s+(?:an?\s+)?(?:internal\s+)?-(\d+)\s+(?:internal\s+)?penalt(?:y|ies)/i;
+// "imposes -N penalty [on/to] the target"
+const TP_IMPOSES_RE = /imposes?\s+(?:an?\s+)?-(\d+)\s+(?:internal\s+)?penalt(?:y|ies)[^.]{0,80}?(?:target|victim|opponent)/i;
+// Duration cues
+const TP_UNTIL_NEXT_RE = /until[^.]{0,30}?next\s+action|for\s+the\s+next\s+(?:(?:two|three|four|\d+)\s+)?actions?/i;
+const TP_SCENE_RE = /for\s+the\s+(?:rest\s+of\s+the\s+)?scene|for\s+(?:a|one)\s+scene/i;
+// Scope cues
+const TP_PHYSICAL_RE = /all\s+physical\s+actions?/i;
+const TP_DV_RE = /\bddv\b|\bpdv\b|parry\s+dv|dodge\s+dv|both\s+dvs?/i;
+
+function extractTargetPenalty(desc) {
+  let m = desc.match(TP_SUFFERS_RE) ?? desc.match(TP_IMPOSES_RE);
+  if (!m) return null;
+  const amount = -parseInt(m[1]);
+  const ctx = desc.slice(m.index, m.index + 200);
+
+  let duration = 'oneScene';
+  if (TP_UNTIL_NEXT_RE.test(ctx)) duration = 'untilNextAction';
+  else if (TP_SCENE_RE.test(ctx)) duration = 'oneScene';
+
+  let scope = 'all';
+  if (TP_PHYSICAL_RE.test(ctx)) scope = 'physical';
+  else if (TP_DV_RE.test(ctx)) scope = 'dv';
+
+  return { enabled: true, amount, scope, duration };
+}
+
+// ── M14: rateBonus ───────────────────────────────────────────────────────────
+// "adds N to the Rate [of weapon]" — negative lookahead prevents "rate of one per"
+const RATE_BONUS_RE = /adds?\s+(one|two|three|\d+)\s+to\s+(?:(?:the\s+)?(?:weapon'?s?\s+)?)?(?:maximum\s+)?rate(?!\s+of\s+(?:one|two|\d))/i;
+
+function extractRateBonus(desc) {
+  const m = desc.match(RATE_BONUS_RE);
+  if (!m) return null;
+  const n = numWord(m[1]);
+  if (!n) return null;
+  return { enabled: true, formula: String(n) };
+}
+
 // ── M13: speedModifier ───────────────────────────────────────────────────────
 // Actual description patterns found across all packs:
 //   "reduces the Speed of Martial Arts attacks by 1, to a minimum of 3"
@@ -302,7 +375,7 @@ function extractExtraActions(desc, charmType) {
 
 const packs = readdirSync(BASE).filter(d => d.startsWith('charms-'));
 const stats = { total: 0, updated: 0, perMech: {} };
-const MECHS = ['healthGrant','soakBonus','woundReduction','motePoolBonus','dvBonus','speedModifier','extraActions','attackBonus'];
+const MECHS = ['healthGrant','soakBonus','woundReduction','motePoolBonus','dvBonus','speedModifier','extraActions','attackBonus','moteRecovery','targetPenalty','rateBonus'];
 for (const m of MECHS) stats.perMech[m] = 0;
 
 for (const pack of packs) {
@@ -314,7 +387,9 @@ for (const pack of packs) {
     if (doc.type !== 'charm') continue;
     stats.total++;
 
-    const desc = strip(doc.system?.description ?? '');
+    // Limit to first 100 000 chars to exclude compilation charms (So Speaks X are ~450 K chars)
+    // while keeping all normal charms (longest ~23 K chars)
+    const desc = strip(doc.system?.description ?? '').slice(0, 100_000);
     let changed = false;
 
     const wr = extractWoundReduction(desc);
@@ -370,6 +445,30 @@ for (const pack of packs) {
     if (ab) {
       doc.system.attackBonus = ab;
       stats.perMech.attackBonus++;
+      changed = true;
+    }
+
+    const mr = extractMoteRecovery(desc);
+    if (mr) {
+      doc.system.moteRecovery = mr;
+      stats.perMech.moteRecovery++;
+      changed = true;
+    }
+
+    // Guard: only extract targetPenalty if not already manually set
+    if (!doc.system.targetPenalty?.enabled) {
+      const tp = extractTargetPenalty(desc);
+      if (tp) {
+        doc.system.targetPenalty = tp;
+        stats.perMech.targetPenalty++;
+        changed = true;
+      }
+    }
+
+    const rb = extractRateBonus(desc);
+    if (rb) {
+      doc.system.rateBonus = rb;
+      stats.perMech.rateBonus++;
       changed = true;
     }
 
