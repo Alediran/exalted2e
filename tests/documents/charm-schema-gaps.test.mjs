@@ -121,6 +121,23 @@ describe("CharmData — perfectDefenseType and payload schemas", () => {
       expect(schema[name].fields.enabled.initial).toBe(false);
     });
   }
+
+  it("targetEffect defaults correctly", () => {
+    const field = schema.targetEffect;
+
+    expect(field).toBeInstanceOf(fields.SchemaField);
+    expect(field.fields.enabled.initial).toBe(false);
+    expect(field.fields.trigger.initial).toBe("onHit");
+    expect(field.fields.trigger.options.choices).toEqual(["onHit", "onActivate"]);
+    expect(field.fields.label.initial).toBe("");
+    expect(field.fields.icon.initial).toBe("icons/svg/aura.svg");
+    expect(field.fields.duration.initial).toBe("oneScene");
+    expect(field.fields.duration.options.choices).toEqual(["oneScene", "indefinite", "permanent"]);
+    expect(field.fields.changes).toBeInstanceOf(fields.ArrayField);
+    expect(field.fields.internalPenalty.fields.enabled.initial).toBe(false);
+    expect(field.fields.internalPenalty.fields.type.initial).toBe("all");
+    expect(field.fields.internalPenalty.fields.amount.initial).toBe(-1);
+  });
 });
 
 describe("CharacterData — bonus fields", () => {

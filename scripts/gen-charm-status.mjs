@@ -14,6 +14,7 @@ const EFFECT_FIELDS = [
   'attack', 'healthGrant', 'soakBonus', 'woundReduction', 'statBoost',
   'moteRecovery', 'healingRoll', 'statusApply', 'motePoolBonus', 'extraActions',
   'dvBonus', 'targetPenalty', 'attackBonus', 'speedModifier', 'rateBonus', 'willpowerRecovery',
+  'targetEffect',
 ];
 
 const EFFECT_LABELS = {
@@ -33,6 +34,7 @@ const EFFECT_LABELS = {
   speedModifier: 'speed modifier',
   rateBonus: 'rate bonus',
   willpowerRecovery: 'WP recovery',
+  targetEffect: 'target AE',
 };
 
 // Regex patterns that suggest implementable (non-narrative) mechanics in description text.

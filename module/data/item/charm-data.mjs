@@ -273,6 +273,28 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         enabled: new fields.BooleanField({ initial: false }),
         event:   new fields.StringField({ initial: "onDamageDealt" }),
         formula: new fields.StringField({ initial: "1", blank: true })
+      }),
+
+      // M16 — Apply Active Effects to target (on hit or on activation)
+      // `changes` maps to Foundry's standard AE changes array (key/mode/value).
+      // `internalPenalty` maps to flags.exalted2e.internalPenalty used by the
+      // derived-data penalty aggregator — same structure as applyInternalPenalty.
+      targetEffect: new fields.SchemaField({
+        enabled:  new fields.BooleanField({ initial: false }),
+        trigger:  new fields.StringField({ initial: "onHit", choices: ["onHit", "onActivate"] }),
+        label:    new fields.StringField({ initial: "", blank: true }),
+        icon:     new fields.StringField({ initial: "icons/svg/aura.svg", blank: true }),
+        duration: new fields.StringField({ initial: "oneScene", choices: ["oneScene", "indefinite", "permanent"] }),
+        changes: new fields.ArrayField(new fields.SchemaField({
+          key:   new fields.StringField({ initial: "", blank: true }),
+          mode:  new fields.NumberField({ initial: 2, integer: true }), // CONST.ACTIVE_EFFECT_MODES.ADD
+          value: new fields.StringField({ initial: "0", blank: true }),
+        })),
+        internalPenalty: new fields.SchemaField({
+          enabled: new fields.BooleanField({ initial: false }),
+          type:    new fields.StringField({ initial: "all" }),
+          amount:  new fields.NumberField({ initial: -1, max: 0, integer: true }),
+        }),
       })
     };
   }

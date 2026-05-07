@@ -215,6 +215,13 @@ export class ExaltedItem extends Item {
       });
     }
 
+    if (!turningOff && sys.targetEffect?.enabled && sys.targetEffect.trigger === "onActivate") {
+      const targetActor = game.user.targets.first()?.actor;
+      if (targetActor) {
+        await targetActor.applyCharmTargetEffect(sys.targetEffect);
+      }
+    }
+
     // Send to chat with the activation ledger stamped on the message so
     // the Reverse button (added in item-card.hbs) can undo everything.
     await this.sendToChat({ activation: ledger });

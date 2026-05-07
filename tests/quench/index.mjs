@@ -46,6 +46,7 @@ import { registerResonanceVent }            from "./combat/resonance-vent.mjs";
 import { registerGreaterSigns }             from "./combat/greater-signs.mjs";
 import { registerCooperativeCharm }         from "./combat/cooperative-charm.mjs";
 import { registerWeavingTests }             from "./combat/weaving.mjs";
+import { registerCharmTargetEffect }        from "./combat/charm-target-effect.mjs";
 // NOTE: Anima Powers feature (_swapAnimaPower) relies on the animapowers compendium
 // and cannot be exercised via Quench. No batch registered for ex2e.anima-powers.
 
@@ -94,5 +95,6 @@ Hooks.once("quenchReady", quench => {
   quench.registerBatch("ex2e.greater-signs",            registerGreaterSigns,            { displayName: "Sidereal Greater Signs" });
   quench.registerBatch("ex2e.cooperative-charm",        registerCooperativeCharm,        { displayName: "DB Charm cooperation" });
   quench.registerBatch("ex2e.weaving",                  registerWeavingTests,            { displayName: "Alchemical Weaving protocols" });
+  quench.registerBatch("ex2e.charm.target-effect",      registerCharmTargetEffect,       { displayName: "Charm target effect (onHit)" });
 
 });

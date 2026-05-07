@@ -532,6 +532,30 @@ export class ExaltedActor extends Actor {
     return created?.[0] ?? null;
   }
 
+  async applyCharmTargetEffect(te) {
+    if (!te?.enabled) return null;
+    const changes = (te.changes ?? [])
+      .filter(c => c.key)
+      .map(c => ({ key: c.key, mode: c.mode, value: c.value }));
+    const flags = { exalted2e: { charmTargetEffect: true, targetEffectDuration: te.duration ?? "oneScene" } };
+    if (te.internalPenalty?.enabled) {
+      const penaltyValue = Math.abs(te.internalPenalty.amount);
+      if (penaltyValue > 0) {
+        flags.exalted2e.internalPenalty = { type: te.internalPenalty.type, value: penaltyValue };
+      }
+    }
+    const aeData = {
+      name:     te.label || "Charm Effect",
+      img:      te.icon  || "icons/svg/aura.svg",
+      disabled: false,
+      transfer: false,
+      flags,
+      changes,
+    };
+    const created = await this.createEmbeddedDocuments("ActiveEffect", [aeData]);
+    return created?.[0] ?? null;
+  }
+
   _dvPenaltyIgnoring(ignoreTypes) {
     const penalties  = this.system?.dvPenalties ?? [];
     const immunities = new Set(this.getFlag("exalted2e", "dvImmunities") ?? []);

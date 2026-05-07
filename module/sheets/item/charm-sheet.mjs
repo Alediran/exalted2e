@@ -39,7 +39,9 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       addStatBoostChange:        CharmSheet.#onAddStatBoostChange,
       removeStatBoostChange:     CharmSheet.#onRemoveStatBoostChange,
       addDVIgnorePenaltyType:    CharmSheet.#onAddDVIgnorePenaltyType,
-      removeDVIgnorePenaltyType: CharmSheet.#onRemoveDVIgnorePenaltyType
+      removeDVIgnorePenaltyType: CharmSheet.#onRemoveDVIgnorePenaltyType,
+      addTargetEffectChange:    CharmSheet.#onAddTargetEffectChange,
+      removeTargetEffectChange: CharmSheet.#onRemoveTargetEffectChange
     }
   };
 
@@ -348,6 +350,23 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     });
     if (result === null) return;
     await this.document.update({ [path]: result });
+  }
+
+  static async #onAddTargetEffectChange(event, target) {
+    const changes = foundry.utils.deepClone(
+      this.document.system.targetEffect?.changes ?? []
+    );
+    changes.push({ key: "", mode: 2, value: "0" });
+    await this.document.update({ "system.targetEffect.changes": changes });
+  }
+
+  static async #onRemoveTargetEffectChange(event, target) {
+    const idx     = parseInt(target.dataset.index);
+    const changes = foundry.utils.deepClone(
+      this.document.system.targetEffect?.changes ?? []
+    );
+    changes.splice(idx, 1);
+    await this.document.update({ "system.targetEffect.changes": changes });
   }
 
   _onRender(context, options) {

@@ -762,4 +762,96 @@
     {{/if}}
   </div>
 
+  {{!-- M16 Target Effect ──────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.targetEffect.enabled"
+             {{#if system.targetEffect.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.CharmTargetEffectEnable"}}</span>
+    </label>
+    {{#if system.targetEffect.enabled}}
+    <div class="effect-body">
+      <p class="effect-section-label">{{localize "EX2E.CharmTargetEffectHelp"}}</p>
+      <div class="effect-grid-2">
+        <div class="field-group">
+          <label>{{localize "EX2E.CharmTargetEffectTrigger"}}</label>
+          <select name="system.targetEffect.trigger" {{#unless isEditable}}disabled{{/unless}}>
+            <option value="onHit"      {{#if (eq system.targetEffect.trigger "onHit")}}selected{{/if}}>{{localize "EX2E.CharmTargetEffectTriggerOnHit"}}</option>
+            <option value="onActivate" {{#if (eq system.targetEffect.trigger "onActivate")}}selected{{/if}}>{{localize "EX2E.CharmTargetEffectTriggerOnActivate"}}</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label>{{localize "EX2E.CharmTargetEffectDuration"}}</label>
+          <select name="system.targetEffect.duration" {{#unless isEditable}}disabled{{/unless}}>
+            <option value="oneScene"   {{#if (eq system.targetEffect.duration "oneScene")}}selected{{/if}}>{{localize "EX2E.DurationOneScene"}}</option>
+            <option value="indefinite" {{#if (eq system.targetEffect.duration "indefinite")}}selected{{/if}}>{{localize "EX2E.DurationIndefinite"}}</option>
+            <option value="permanent"  {{#if (eq system.targetEffect.duration "permanent")}}selected{{/if}}>{{localize "EX2E.DurationPermanent"}}</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label>{{localize "EX2E.CharmTargetEffectLabel"}}</label>
+          <input type="text" name="system.targetEffect.label" value="{{system.targetEffect.label}}"
+                 {{#unless isEditable}}readonly{{/unless}}>
+        </div>
+        <div class="field-group">
+          <label>{{localize "EX2E.CharmTargetEffectIcon"}}</label>
+          <input type="text" name="system.targetEffect.icon" value="{{system.targetEffect.icon}}"
+                 {{#unless isEditable}}readonly{{/unless}}>
+        </div>
+      </div>
+
+      <p class="effect-section-label">{{localize "EX2E.CharmTargetEffectInternalPenalty"}}</p>
+      <label class="effect-enable-row">
+        <input type="checkbox" name="system.targetEffect.internalPenalty.enabled"
+               {{#if system.targetEffect.internalPenalty.enabled}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        <span>{{localize "EX2E.CharmTargetEffectInternalPenaltyEnable"}}</span>
+      </label>
+      {{#if system.targetEffect.internalPenalty.enabled}}
+      <div class="effect-grid-2">
+        <div class="field-group">
+          <label>{{localize "EX2E.CharmTargetEffectPenaltyType"}}</label>
+          <select name="system.targetEffect.internalPenalty.type" {{#unless isEditable}}disabled{{/unless}}>
+            <option value="all"      {{#if (eq system.targetEffect.internalPenalty.type "all")}}selected{{/if}}>{{localize "EX2E.PenaltyTypeAll"}}</option>
+            <option value="physical" {{#if (eq system.targetEffect.internalPenalty.type "physical")}}selected{{/if}}>{{localize "EX2E.PenaltyTypePhysical"}}</option>
+            <option value="mental"   {{#if (eq system.targetEffect.internalPenalty.type "mental")}}selected{{/if}}>{{localize "EX2E.PenaltyTypeMental"}}</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label>{{localize "EX2E.CharmTargetEffectAmount"}}</label>
+          <input type="number" name="system.targetEffect.internalPenalty.amount"
+                 value="{{system.targetEffect.internalPenalty.amount}}"
+                 max="0" {{#unless isEditable}}readonly{{/unless}}>
+        </div>
+      </div>
+      {{/if}}
+
+      <p class="effect-section-label">{{localize "EX2E.CharmTargetEffectChanges"}}</p>
+      {{#each system.targetEffect.changes as |chg i|}}
+      <div class="sb-change-row">
+        <input type="text" name="system.targetEffect.changes.{{i}}.key"
+               value="{{chg.key}}" placeholder="system.attributes.strength.value"
+               {{#unless @root.isEditable}}readonly{{/unless}}>
+        <input type="number" name="system.targetEffect.changes.{{i}}.mode"
+               value="{{chg.mode}}" min="0" max="6" style="width:4em"
+               {{#unless @root.isEditable}}readonly{{/unless}}>
+        <input type="text" name="system.targetEffect.changes.{{i}}.value"
+               value="{{chg.value}}" style="width:6em"
+               {{#unless @root.isEditable}}readonly{{/unless}}>
+        {{#if @root.isEditable}}
+        <button type="button" class="btn-remove" data-action="removeTargetEffectChange"
+                data-index="{{i}}"><i class="fa-solid fa-times"></i></button>
+        {{/if}}
+      </div>
+      {{/each}}
+      {{#if isEditable}}
+      <button type="button" class="btn-add-row" data-action="addTargetEffectChange">
+        + {{localize "EX2E.CharmTargetEffectChanges"}}
+      </button>
+      {{/if}}
+    </div>
+    {{/if}}
+  </div>
+
 </div>

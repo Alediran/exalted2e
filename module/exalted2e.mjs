@@ -576,6 +576,12 @@ Hooks.once("ready", async function () {
           onFail:        sa.onFail,
         });
       }
+
+      const teCharms = activatedItems.filter(c =>
+        c.system.targetEffect?.enabled && c.system.targetEffect?.trigger === "onHit");
+      for (const c of teCharms) {
+        await targetActor.applyCharmTargetEffect(c.system.targetEffect);
+      }
     }
   });
 
