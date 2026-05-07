@@ -358,7 +358,6 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/item/spell/body.hbs",
     "systems/exalted2e/templates/item/charm/tabs.hbs",
     "systems/exalted2e/templates/item/charm/tab-general.hbs",
-    "systems/exalted2e/templates/item/charm/tab-attack.hbs",
     "systems/exalted2e/templates/item/weapon/header.hbs",
     "systems/exalted2e/templates/item/weapon/body.hbs",
     "systems/exalted2e/templates/item/armor/header.hbs",
