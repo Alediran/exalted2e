@@ -547,7 +547,7 @@ Hooks.once("ready", async function () {
   Hooks.on("exalted2e.attackSuccess", async ({ attackerActorId, attack }) => {
     const actor = game.actors.get(attackerActorId);
     if (!actor) return;
-    await actor._fireMoteRecovery("onAttackSuccess");
+    await actor._fireRecoveryEvent("onAttackSuccess");
 
     const targetActor = attack.targetId ? game.actors.get(attack.targetId) : null;
     if (targetActor) {

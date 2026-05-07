@@ -6,6 +6,7 @@ import {
   computeWoundReduction,
   aggregateCharmDVBonus,
   applyStatBoostDeltas,
+  isCharmPassivelyActive,
 } from "../../module/rolls/charm-passive-math.mjs";
 
 // ── computeHealthGrantBonus ──────────────────────────────────────────
@@ -193,5 +194,29 @@ describe("applyStatBoostDeltas", () => {
     const data = { attributes: { dexterity: { value: 4 } } };
     applyStatBoostDeltas(data, []);
     expect(data.attributes.dexterity.value).toBe(4);
+  });
+});
+
+// ── isCharmPassivelyActive ───────────────────────────────────────────
+import { isCharmPassivelyActive } from "../../module/rolls/charm-passive-math.mjs";
+
+describe("isCharmPassivelyActive", () => {
+  it("permanent charm is always active", () => {
+    expect(isCharmPassivelyActive({ system: { duration: "permanent", active: false } })).toBe(true);
+  });
+  it("permanent charm is active even when active=false", () => {
+    expect(isCharmPassivelyActive({ system: { duration: "permanent", active: false } })).toBe(true);
+  });
+  it("oneScene charm is active when active=true", () => {
+    expect(isCharmPassivelyActive({ system: { duration: "oneScene", active: true } })).toBe(true);
+  });
+  it("oneScene charm is inactive when active=false", () => {
+    expect(isCharmPassivelyActive({ system: { duration: "oneScene", active: false } })).toBe(false);
+  });
+  it("instant charm with active=false is inactive", () => {
+    expect(isCharmPassivelyActive({ system: { duration: "instant", active: false } })).toBe(false);
+  });
+  it("undefined item returns false", () => {
+    expect(isCharmPassivelyActive(undefined)).toBe(false);
   });
 });

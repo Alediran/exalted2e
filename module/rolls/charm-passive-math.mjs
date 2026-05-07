@@ -1,4 +1,15 @@
 /**
+ * Returns true if the charm should contribute passive effects.
+ * Permanent charms always contribute; other durations only contribute when
+ * the charm is currently toggled on (system.active === true).
+ * @param {object} item
+ * @returns {boolean}
+ */
+export function isCharmPassivelyActive(item) {
+  return item?.system?.duration === "permanent" || item?.system?.active === true;
+}
+
+/**
  * Sum health-grant bonus boxes from all enabled healthGrant charms.
  * @param {object[]} items — charm items (any iterable with .system.healthGrant)
  * @returns {{ zero: number, one: number, two: number }}

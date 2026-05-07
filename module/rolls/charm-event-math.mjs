@@ -23,6 +23,19 @@ export function collectStatusApplyCharms(items) {
 }
 
 /**
+ * Return all enabled willpowerRecovery charms matching the given event.
+ * @param {object[]} items
+ * @param {string} event
+ * @returns {object[]}
+ */
+export function collectWillpowerRecoveryCharms(items, event) {
+  return items.filter(c => {
+    const wr = c?.system?.willpowerRecovery;
+    return wr?.enabled && wr.event === event;
+  });
+}
+
+/**
  * Sum the target-penalty amounts across all enabled targetPenalty charms.
  * Amounts are negative integers; result is the total deduction.
  * @param {object[]} items

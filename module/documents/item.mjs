@@ -208,6 +208,13 @@ export class ExaltedItem extends Item {
       ledger.toggledOff = turningOff;
     }
 
+    if (!turningOff && sys.charmType === "simple" && (sys.dvPenalty ?? 0) < 0) {
+      await actor.applyDVPenalty("all", Math.abs(sys.dvPenalty), {
+        label: this.name,
+        icon:  this.img
+      });
+    }
+
     // Send to chat with the activation ledger stamped on the message so
     // the Reverse button (added in item-card.hbs) can undo everything.
     await this.sendToChat({ activation: ledger });

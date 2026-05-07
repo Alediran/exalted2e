@@ -3,8 +3,8 @@ import { clampDamage, healInOrder } from "../rolls/health-math.mjs";
 import { aggregatePenalties, sumPenalties } from "./penalties-math.mjs";
 import { collectPermanentTraitChanges } from "./purchase-mode-math.mjs";
 import { getClarityBand } from "../combat/clarity-math.mjs";
-import { computeSoakBonus, aggregateCharmDVBonus } from "../rolls/charm-passive-math.mjs";
-import { collectMoteRecoveryCharms } from "../rolls/charm-event-math.mjs";
+import { computeSoakBonus, aggregateCharmDVBonus, isCharmPassivelyActive } from "../rolls/charm-passive-math.mjs";
+import { collectMoteRecoveryCharms, collectWillpowerRecoveryCharms } from "../rolls/charm-event-math.mjs";
 import { evaluateCharmFormula } from "./item.mjs";
 
 const ANIMA_ORDER = { none: 0, glowing: 1, burning: 2, bonfire: 3, totemic: 4 };
@@ -410,7 +410,23 @@ export class ExaltedActor extends Actor {
   }
 
   _aggregateCharmDVBonus(systemData) {
-    systemData.charmDVBonus = aggregateCharmDVBonus(this.items);
+    const charms   = this.items.filter(i => i.type === "charm" && isCharmPassivelyActive(i));
+    const rollData = this.getRollData() ?? {};
+    const resolved = charms
+      .filter(c => c.system.dvBonus?.enabled)
+      .map(c => {
+        const dv = c.system.dvBonus;
+        const ev = (formula, fallback) =>
+          formula ? evaluateCharmFormula(formula, rollData, fallback) : fallback;
+        return { system: { dvBonus: {
+          enabled:            true,
+          dodgeBonus:         ev(dv.dodgeBonusFormula, dv.dodgeBonus ?? 0),
+          parryBonus:         ev(dv.parryBonusFormula, dv.parryBonus ?? 0),
+          ignoreAllPenalties: dv.ignoreAllPenalties,
+          ignorePenaltyTypes: dv.ignorePenaltyTypes ?? [],
+        }}};
+      });
+    systemData.charmDVBonus = aggregateCharmDVBonus(resolved);
   }
 
   /**
@@ -730,21 +746,29 @@ export class ExaltedActor extends Actor {
   }
 
   _applyCharmSoak(systemData) {
-    const entries = this.items
-      .filter(i => i.type === "charm" && i.system.soakBonus?.enabled)
-      .map(c => ({
-        bashing:       c.system.soakBonus.bashing      ?? 0,
-        lethal:        c.system.soakBonus.lethal        ?? 0,
-        aggravated:    c.system.soakBonus.aggravated    ?? 0,
-        hardnessAdd:   c.system.soakBonus.hardnessAdd   ?? 0,
-        hardnessSetTo: c.system.soakBonus.hardnessSetTo ?? 0,
-      }));
+    const charms   = this.items.filter(i => i.type === "charm" && isCharmPassivelyActive(i));
+    const rollData = this.getRollData() ?? {};
+    const entries  = charms
+      .filter(c => c.system.soakBonus?.enabled)
+      .map(c => {
+        const sb = c.system.soakBonus;
+        const ev = (formula, fallback) =>
+          formula ? evaluateCharmFormula(formula, rollData, fallback) : fallback;
+        return {
+          bashing:       ev(sb.bashingFormula,    sb.bashing      ?? 0),
+          lethal:        ev(sb.lethalFormula,     sb.lethal       ?? 0),
+          aggravated:    ev(sb.aggravatedFormula, sb.aggravated   ?? 0),
+          hardnessAdd:   sb.hardnessAdd   ?? 0,
+          hardnessSetTo: sb.hardnessSetTo ?? 0,
+        };
+      });
     const bonus = computeSoakBonus(entries);
     if (!systemData.totalSoak) return;
     systemData.totalSoak.bashing    += bonus.bashing;
     systemData.totalSoak.lethal     += bonus.lethal;
     systemData.totalSoak.aggravated += bonus.aggravated;
-    systemData.hardness = Math.max(systemData.hardness ?? 0, bonus.hardnessSetTo) + bonus.hardnessAdd;
+    systemData.hardness = Math.max(systemData.hardness ?? 0, bonus.hardnessSetTo)
+                        + bonus.hardnessAdd;
   }
 
   /**
@@ -796,27 +820,30 @@ export class ExaltedActor extends Actor {
     await this.update({ "system.health": h });
 
     // Both events fire on a killing blow: onDamageReceived first, then onKill.
-    await this._fireMoteRecovery("onDamageReceived");
-    if (h.incapacitated) await this._fireMoteRecovery("onKill");
+    await this._fireRecoveryEvent("onDamageReceived");
+    if (h.incapacitated) await this._fireRecoveryEvent("onKill");
   }
 
-  /**
-   * Fire mote recovery events for charms matching the given event trigger.
-   * @private
-   * @param {"onDamageReceived"|"onKill"|"onAttackSuccess"} event
-   */
-  async _fireMoteRecovery(event) {
+  async _fireRecoveryEvent(event) {
     if (this.type !== "character") return;
-    const charms = this.items.filter(i => i.type === "charm");
-    const matching = collectMoteRecoveryCharms(charms, event);
-    if (!matching.length) return;
+    const charms   = this.items.filter(i => i.type === "charm" && isCharmPassivelyActive(i));
     const rollData = this.getRollData() ?? {};
-    for (const c of matching) {
-      const mr = c.system.moteRecovery;
+
+    const moteCharms = collectMoteRecoveryCharms(charms, event);
+    for (const c of moteCharms) {
+      const mr     = c.system.moteRecovery;
       const amount = evaluateCharmFormula(mr.formula, rollData, 0);
       if (amount <= 0) continue;
       const pool = mr.action === "recoverPersonal" ? "personal" : "peripheral";
       await this.recoverMotes(amount, pool);
+    }
+
+    const wpCharms = collectWillpowerRecoveryCharms(charms, event);
+    for (const c of wpCharms) {
+      const wr     = c.system.willpowerRecovery;
+      const amount = evaluateCharmFormula(wr.formula, rollData, 0);
+      if (amount <= 0) continue;
+      await this.recoverWillpower(amount);
     }
   }
 
@@ -885,6 +912,13 @@ export class ExaltedActor extends Actor {
     const moteData = this.system.motes[pool];
     const newVal   = Math.min(moteData.max, moteData.value + amount);
     return this.update({ [`system.motes.${pool}.value`]: newVal });
+  }
+
+  async recoverWillpower(amount) {
+    if (this.type !== "character") return;
+    const wp = this.system.willpower;
+    const newVal = Math.min(wp.max, (wp.value ?? 0) + amount);
+    return this.update({ "system.willpower.value": newVal });
   }
 
   /**

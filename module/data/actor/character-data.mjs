@@ -1,7 +1,7 @@
 import { EX2E } from "../../config.mjs";
 import { computeWoundPenalty } from "../../rolls/health-math.mjs";
 import { computeTotalClarity, computePermanentClarity } from "../../combat/clarity-math.mjs";
-import { computeHealthGrantBonus, computeWoundReduction, computeMotePoolBonus, applyStatBoostDeltas } from "../../rolls/charm-passive-math.mjs";
+import { computeHealthGrantBonus, computeWoundReduction, computeMotePoolBonus, applyStatBoostDeltas, isCharmPassivelyActive } from "../../rolls/charm-passive-math.mjs";
 
 const fields = foundry.data.fields;
 
@@ -366,7 +366,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
   }
 
   _applyCharmStatBoosts() {
-    const items = this.parent?.items ?? [];
+    const items = (this.parent?.items ?? []).filter(isCharmPassivelyActive);
     const deltas = [];
     for (const item of items) {
       const sb = item?.system?.statBoost;
@@ -385,7 +385,8 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 
   _prepareHealthData() {
     const h = this.health;
-    const items      = this.parent?.items ?? [];
+    const allItems   = this.parent?.items ?? [];
+    const items      = allItems.filter(isCharmPassivelyActive);
     const charmBonus = computeHealthGrantBonus(items);
 
     // Per-level box counts: -0, -1, -2 accept bonuses; -4 and Incap are
@@ -546,7 +547,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     this.motes.personal.max   = personal   + (this.motes.personal.bonus   ?? 0);
     this.motes.peripheral.max = peripheral + (this.motes.peripheral.bonus ?? 0);
 
-    const charmMotes = computeMotePoolBonus(this.parent?.items ?? []);
+    const charmMotes = computeMotePoolBonus((this.parent?.items ?? []).filter(isCharmPassivelyActive));
     this.motes.personal.max   += charmMotes.personal;
     this.motes.peripheral.max += charmMotes.peripheral;
   }

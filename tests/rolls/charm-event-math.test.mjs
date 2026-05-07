@@ -3,6 +3,7 @@ import {
   collectMoteRecoveryCharms,
   collectStatusApplyCharms,
   computeTargetPenaltyAmount,
+  collectWillpowerRecoveryCharms,
 } from "../../module/rolls/charm-event-math.mjs";
 
 describe("collectMoteRecoveryCharms", () => {
@@ -70,5 +71,22 @@ describe("computeTargetPenaltyAmount — targeted test", () => {
       enabled: true, amount: -1, scope: "all", duration: "scene"
     }}}];
     expect(computeTargetPenaltyAmount(charms)).toBe(-1);
+  });
+});
+
+describe("collectWillpowerRecoveryCharms", () => {
+  it("returns empty when no charms", () => {
+    expect(collectWillpowerRecoveryCharms([], "onDamageDealt")).toEqual([]);
+  });
+  it("returns charms matching the event", () => {
+    const charms = [
+      { system: { willpowerRecovery: { enabled: true, event: "onDamageDealt",   formula: "1" }}},
+      { system: { willpowerRecovery: { enabled: true, event: "onAttackSuccess", formula: "1" }}}
+    ];
+    expect(collectWillpowerRecoveryCharms(charms, "onDamageDealt")).toHaveLength(1);
+  });
+  it("skips disabled charms", () => {
+    const charms = [{ system: { willpowerRecovery: { enabled: false, event: "onDamageDealt", formula: "1" }}}];
+    expect(collectWillpowerRecoveryCharms(charms, "onDamageDealt")).toHaveLength(0);
   });
 });

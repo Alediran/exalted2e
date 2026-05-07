@@ -57,7 +57,7 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         new fields.NumberField({ min: 1, max: 9, integer: true })
       ),
 
-      dvPenalty:            new fields.NumberField({ initial: 0, min: -3, max: 0, integer: true }),
+      dvPenalty:            new fields.NumberField({ initial: -1, min: -3, max: 0, integer: true }),
       maidenAffiliation:    new fields.StringField({ initial: "", blank: true }),
       martialArtsStyleName: new fields.StringField({ initial: "", blank: true }),
       durationFormula:      new fields.StringField({ initial: "", blank: true }),
@@ -161,12 +161,15 @@ export class CharmData extends foundry.abstract.TypeDataModel {
 
       // M2 — Scene-long / per-attack soak and hardness bonus
       soakBonus: new fields.SchemaField({
-        enabled:       new fields.BooleanField({ initial: false }),
-        bashing:       new fields.NumberField({ initial: 0, min: 0, integer: true }),
-        lethal:        new fields.NumberField({ initial: 0, min: 0, integer: true }),
-        aggravated:    new fields.NumberField({ initial: 0, min: 0, integer: true }),
-        hardnessAdd:   new fields.NumberField({ initial: 0, min: 0, integer: true }),
-        hardnessSetTo: new fields.NumberField({ initial: 0, min: 0, integer: true })
+        enabled:           new fields.BooleanField({ initial: false }),
+        bashing:           new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        lethal:            new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        aggravated:        new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        hardnessAdd:       new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        hardnessSetTo:     new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        bashingFormula:    new fields.StringField({ initial: "", blank: true }),
+        lethalFormula:     new fields.StringField({ initial: "", blank: true }),
+        aggravatedFormula: new fields.StringField({ initial: "", blank: true })
       }),
 
       // M3 — Wound penalty reduction / negation
@@ -229,7 +232,9 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         dodgeBonus:         new fields.NumberField({ initial: 0, min: 0, integer: true }),
         parryBonus:         new fields.NumberField({ initial: 0, min: 0, integer: true }),
         ignoreAllPenalties: new fields.BooleanField({ initial: false }),
-        ignorePenaltyTypes: new fields.ArrayField(new fields.StringField({ blank: true }))
+        ignorePenaltyTypes: new fields.ArrayField(new fields.StringField({ blank: true })),
+        dodgeBonusFormula:  new fields.StringField({ initial: "", blank: true }),
+        parryBonusFormula:  new fields.StringField({ initial: "", blank: true })
       }),
 
       // M11 — Internal penalty applied to target
@@ -255,6 +260,19 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         delta:    new fields.NumberField({ initial: -1, integer: true }),
         minimum:  new fields.NumberField({ initial: 3, min: 1, integer: true }),
         perMotes: new fields.NumberField({ initial: 0, min: 0, integer: true })
+      }),
+
+      // M14 — Rate bonus (extra attacks in a flurry)
+      rateBonus: new fields.SchemaField({
+        enabled: new fields.BooleanField({ initial: false }),
+        formula: new fields.StringField({ initial: "1", blank: true })
+      }),
+
+      // M15 — Willpower recovery on trigger event
+      willpowerRecovery: new fields.SchemaField({
+        enabled: new fields.BooleanField({ initial: false }),
+        event:   new fields.StringField({ initial: "onDamageDealt" }),
+        formula: new fields.StringField({ initial: "1", blank: true })
       })
     };
   }

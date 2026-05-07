@@ -1,4 +1,5 @@
 import { EX2E } from "../config.mjs";
+import { evaluateCharmFormula } from "../documents/item.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -312,6 +313,7 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
       }
     });
 
+    const charmRateBonus = this._computeCharmRateBonus();
     form.querySelectorAll(".flurry-row[data-index] [name$='.actionKey']").forEach(select => {
       const selectValue = select.value;
       // 1) Refresh disabled state on every weapon:<id>:<mode> option.
@@ -322,7 +324,7 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
         const weapon = this._actor?.items.get(wid);
         if (!weapon) return;
         const mode = weapon.system.modes?.[parseInt(modeIdxStr)];
-        const rate = Math.max(1, mode?.effectiveRate ?? mode?.rate ?? 1);
+        const rate = Math.max(1, (mode?.effectiveRate ?? mode?.rate ?? 1) + charmRateBonus);
         const total     = usage.get(key) ?? 0;
         // Count uses OTHER than this select's own current pick — lets the
         // row keep rendering its existing selection even when the mode is
@@ -470,6 +472,15 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
     this._resolved = true;
     this._resolve(null);
     this.close();
+  }
+
+  _computeCharmRateBonus() {
+    const actor = this._actor;
+    if (!actor) return 0;
+    const rollData = actor.getRollData() ?? {};
+    return actor.items
+      .filter(i => i.type === "charm" && i.system.rateBonus?.enabled)
+      .reduce((sum, c) => sum + evaluateCharmFormula(c.system.rateBonus.formula, rollData, 0), 0);
   }
 
   _onClose(options) {
