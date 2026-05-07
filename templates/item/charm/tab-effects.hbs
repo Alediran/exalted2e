@@ -827,6 +827,13 @@
       </div>
       {{/if}}
 
+      <label class="effect-enable-row">
+        <input type="checkbox" name="system.targetEffect.perDamageLevel"
+               {{checked system.targetEffect.perDamageLevel}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        {{localize "EX2E.CharmTargetEffectPerDamageLevel"}}
+      </label>
+
       <p class="effect-section-label">{{localize "EX2E.CharmTargetEffectChanges"}}</p>
       {{#each system.targetEffect.changes as |chg i|}}
       <div class="sb-change-row">

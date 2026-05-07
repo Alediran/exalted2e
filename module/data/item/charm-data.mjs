@@ -295,6 +295,7 @@ export class CharmData extends foundry.abstract.TypeDataModel {
           type:    new fields.StringField({ initial: "all" }),
           amount:  new fields.NumberField({ initial: -1, max: 0, integer: true }),
         }),
+        perDamageLevel: new fields.BooleanField({ initial: false }),
       })
     };
   }

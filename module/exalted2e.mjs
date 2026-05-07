@@ -73,6 +73,25 @@ function _tryFireAttackSuccess(newAttack) {
   Hooks.callAll("exalted2e.attackSuccess", { attackerActorId: newAttack.actorId, attack: newAttack });
 }
 
+// ── Per-damage-level targetEffect helper ──────────────────────────────────
+async function _applyPerDamageLevelEffects(message, targetActor, rawDamage) {
+  if (!rawDamage || rawDamage <= 0) return;
+  const attack = message.flags?.exalted2e?.attack;
+  const attackerActor = game.actors.get(attack?.actorId);
+  if (!attackerActor || !attack?.attackCharms?.length) return;
+  for (const name of attack.attackCharms) {
+    const charm = attackerActor.items.find(i => i.name === name);
+    const te = charm?.system?.targetEffect;
+    if (!te?.enabled || !te.perDamageLevel || te.trigger !== "onHit") continue;
+    const scaledAmount = (te.internalPenalty?.amount ?? -1) * rawDamage;
+    const scaledTe = {
+      ...te,
+      internalPenalty: { ...te.internalPenalty, amount: scaledAmount },
+    };
+    await targetActor.applyCharmTargetEffect(scaledTe);
+  }
+}
+
 // ── Status-resist card helper ──────────────────────────────────────────────
 async function _postStatusResistCard({ targetActorId, targetName, attackerName, charmName, status, resistPool, onFail }) {
   const content = await foundry.applications.handlebars.renderTemplate(
@@ -577,7 +596,8 @@ Hooks.once("ready", async function () {
       }
 
       const teCharms = activatedItems.filter(c =>
-        c.system.targetEffect?.enabled && c.system.targetEffect?.trigger === "onHit");
+        c.system.targetEffect?.enabled && c.system.targetEffect?.trigger === "onHit"
+        && !c.system.targetEffect?.perDamageLevel);
       for (const c of teCharms) {
         await targetActor.applyCharmTargetEffect(c.system.targetEffect);
       }
@@ -2085,6 +2105,7 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       const targetActor = game.actors.get(targetId);
       if (targetActor) {
         await targetActor.applyDamage(rawDamage, damageType);
+        await _applyPerDamageLevelEffects(message, targetActor, rawDamage);
       }
     }
 
@@ -2115,6 +2136,7 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     const targetActor = game.actors.get(tId);
     if (targetActor && dmg > 0) {
       await targetActor.applyDamage(dmg, type);
+      await _applyPerDamageLevelEffects(message, targetActor, dmg);
 
       const section = card.querySelector(".damage-result");
       section.removeChild(btn);

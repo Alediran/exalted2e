@@ -137,6 +137,7 @@ describe("CharmData — perfectDefenseType and payload schemas", () => {
     expect(field.fields.internalPenalty.fields.enabled.initial).toBe(false);
     expect(field.fields.internalPenalty.fields.type.initial).toBe("all");
     expect(field.fields.internalPenalty.fields.amount.initial).toBe(-1);
+    expect(field.fields.perDamageLevel.initial).toBe(false);
   });
 });
 
