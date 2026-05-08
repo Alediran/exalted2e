@@ -59,6 +59,14 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         ]
       };
     }
+    if (item.type === "hearthstone") {
+      typeChoices = {
+        hearthstoneType: Object.entries(EX2E.hearthstoneTypes).map(([k, v]) => ({
+          value: k,
+          label: game.i18n.localize(v)
+        }))
+      };
+    }
 
     const enrichedDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description, {
       secrets: this.document.isOwner, relativeTo: this.document

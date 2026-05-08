@@ -83,6 +83,15 @@
 
   {{#if (eq item.type "hearthstone")}}
   <div class="field-group">
+    <label>{{localize "EX2E.HearthstoneType"}}</label>
+    <select name="system.hearthstoneType" {{#unless isEditable}}disabled{{/unless}}>
+      <option value="">—</option>
+      {{#each typeChoices.hearthstoneType}}
+      <option value="{{this.value}}" {{#if (eq this.value ../system.hearthstoneType)}}selected{{/if}}>{{this.label}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <div class="field-group" style="margin-top:6px">
     <label>{{localize "EX2E.HearthstoneRating"}}</label>
     <input type="hidden" name="system.rating" value="{{system.rating}}">
     {{dotRating name="system.rating" value=system.rating max=5 min=1}}

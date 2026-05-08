@@ -90,6 +90,13 @@
       "path":   "packs/panoply",
       "type":   "Item",
       "system": "exalted2e"
+    },
+    {
+      "name":   "hearthstones",
+      "label":  "Exalted 2e Hearthstones",
+      "path":   "packs/hearthstones",
+      "type":   "Item",
+      "system": "exalted2e"
     }
   ],
   "documentTypes": {

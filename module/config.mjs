@@ -216,6 +216,19 @@ EX2E.armorTags = [
   "Concealable"
 ];
 
+EX2E.hearthstoneTypes = {
+  air:      "EX2E.HearthstoneTypeAir",
+  earth:    "EX2E.HearthstoneTypeEarth",
+  fire:     "EX2E.HearthstoneTypeFire",
+  water:    "EX2E.HearthstoneTypeWater",
+  wood:     "EX2E.HearthstoneTypeWood",
+  solar:    "EX2E.HearthstoneTypeSolar",
+  lunar:    "EX2E.HearthstoneTypeLunar",
+  sidereal: "EX2E.HearthstoneTypeSidereal",
+  abyssal:  "EX2E.HearthstoneTypeAbyssal",
+  infernal: "EX2E.HearthstoneTypeInfernal"
+};
+
 // ── Charm Keywords ──────────────────────────────────────────────────────
 // Predefined list for autocomplete / dropdown suggestions on Charm sheets.
 // Alphabetised and deduped — source categories preserved in comments below
