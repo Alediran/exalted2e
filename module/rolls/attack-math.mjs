@@ -101,17 +101,19 @@ export function computeAttackOutcome(attack) {
   const data = { ...attack, defenseChosen: !!attack.defense };
   if (!attack.defense) return data;
 
-  const perfectDefense = !!attack.perfectDefenseCharm;
+  const perfectSoak    = !!attack.perfectDefenseCharm && attack.perfectDefenseType === "soak";
+  const perfectDefense = !!attack.perfectDefenseCharm && !perfectSoak;
   const threshold = Math.max(0, attack.successes - attack.defense.dv);
   const hit       = !perfectDefense && threshold > 0;
   data.threshold      = threshold;
   data.hit            = hit;
   data.perfectDefense = perfectDefense;
+  data.perfectSoak    = perfectSoak;
   data.targetDV       = attack.defense.dv;
-  data.rawDamagePool  = hit
+  data.rawDamagePool  = (hit && !perfectSoak)
     ? threshold + attack.weaponDamage + (attack.addStrength ? attack.strengthValue : 0)
     : 0;
-  data.hardnessStops = hit && (attack.targetHardness ?? 0) > data.rawDamagePool;
+  data.hardnessStops = hit && !perfectSoak && (attack.targetHardness ?? 0) > data.rawDamagePool;
   data.defenseLabelKey = {
     dodge:  "EX2E.DodgeDV",
     parry:  "EX2E.ParryDV",
@@ -152,7 +154,7 @@ export function computeAttackOutcome(attack) {
     || !!attack.counterattackTriggered
     || !!attack.step9Passed;
   data.showCounterattack = step9Applicable && !step9Complete;
-  data.showRollDamage    = (data.hit ?? false) && !data.hardnessStops && step9Complete;
+  data.showRollDamage    = (data.hit ?? false) && !data.hardnessStops && !data.perfectSoak && step9Complete;
 
   return data;
 }

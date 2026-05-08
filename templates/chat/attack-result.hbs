@@ -76,6 +76,13 @@
           {{localize "EX2E.PerfectDefense"}} — {{perfectDefenseCharm}}
         </span>
       </div>
+    {{else if perfectSoak}}
+      <div class="roll-result success perfect-defense">
+        <span class="result-label success-label">
+          <i class="fa-solid fa-shield-halved"></i>
+          {{localize "EX2E.PerfectSoak"}} — {{perfectDefenseCharm}}
+        </span>
+      </div>
     {{else if showResolution}}
       {{#if hit}}
       <div class="roll-result success">

@@ -229,6 +229,11 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         { value: "applySickness",  label: game.i18n.localize("EX2E.SAOnFailSickness")  },
         { value: "applyPoison",    label: game.i18n.localize("EX2E.SAOnFailPoison")    }
       ],
+      willpowerRecoveryEventChoices: [
+        { value: "onDamageReceived", label: game.i18n.localize("EX2E.WillpowerEventOnDamage") },
+        { value: "onAttackSuccess",  label: game.i18n.localize("EX2E.WillpowerEventOnHit")    },
+        { value: "onKill",           label: game.i18n.localize("EX2E.WillpowerEventOnKill")   }
+      ],
       statBoostPaths: (() => {
         const paths = [];
         for (const group of Object.values(EX2E.attributes)) {

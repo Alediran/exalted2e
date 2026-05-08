@@ -1010,4 +1010,74 @@
     {{/if}}
   </div>
 
+  {{!-- M14 Rate Bonus ──────────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.rateBonus.enabled"
+             {{#if system.rateBonus.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.EffectRateBonus"}}</span>
+    </label>
+    {{#if system.rateBonus.enabled}}
+    <div class="effect-body effect-grid-2">
+      <div class="field-group">
+        <label>{{localize "EX2E.RateBonusFormula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.rateBonus.formula"
+                 value="{{system.rateBonus.formula}}"
+                 placeholder="e.g. 1"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.rateBonus.formula"
+                  data-label="{{localize 'EX2E.RateBonusFormula'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M15 Willpower Recovery ─────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.willpowerRecovery.enabled"
+             {{#if system.willpowerRecovery.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.EffectWillpowerRecovery"}}</span>
+    </label>
+    {{#if system.willpowerRecovery.enabled}}
+    <div class="effect-body effect-grid-2">
+      <div class="field-group">
+        <label>{{localize "EX2E.WillpowerRecoveryEvent"}}</label>
+        <select name="system.willpowerRecovery.event" {{#unless isEditable}}disabled{{/unless}}>
+          {{#each willpowerRecoveryEventChoices}}
+          <option value="{{this.value}}" {{#if (eq this.value ../system.willpowerRecovery.event)}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.WillpowerRecoveryFormula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.willpowerRecovery.formula"
+                 value="{{system.willpowerRecovery.formula}}"
+                 placeholder="e.g. 1"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.willpowerRecovery.formula"
+                  data-label="{{localize 'EX2E.WillpowerRecoveryFormula'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
 </div>

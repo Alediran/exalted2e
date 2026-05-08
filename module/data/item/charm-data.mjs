@@ -278,7 +278,7 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       // M15 — Willpower recovery on trigger event
       willpowerRecovery: new fields.SchemaField({
         enabled: new fields.BooleanField({ initial: false }),
-        event:   new fields.StringField({ initial: "onDamageDealt" }),
+        event:   new fields.StringField({ initial: "onDamageReceived" }),
         formula: new fields.StringField({ initial: "1", blank: true })
       }),
 

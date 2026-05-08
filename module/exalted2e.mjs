@@ -1684,7 +1684,10 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
           ? new Set(["dodge"])
           : new Set(["melee", "martialArts"]);
       const regularCharms = allStep2.filter(c =>
-        !excIds.has(c.id) && relevantAbilities.has(c.system.ability)
+        !excIds.has(c.id) && (
+          relevantAbilities.has(c.system.ability) ||
+          c.system.perfectDefenseType === "soak"
+        )
       );
 
       const { Step2DefenseDialog } = await import("./dialogs/step2-defense-dialog.mjs");
@@ -1706,11 +1709,11 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       if (!result) return;                          // user cancelled
 
       const activatedNames = [];
-      // Track if the defender activated a Perfect Dodge / Perfect Parry
-      // matching the chosen defense type. If so, the attack auto-misses —
-      // Perfect Defenses trump Unblockable / Undodgeable and everything
-      // downstream (no rerolls, no counterattacks, no damage).
+      // Track if the defender activated a Perfect Dodge / Perfect Parry /
+      // Perfect Soak. Parry/Dodge trump everything downstream; Soak still
+      // allows the attack to land but zeroes out the damage pool.
       let perfectDefenseCharm = null;
+      let perfectDefenseType  = null;
       const perfectKeyword = defenseType === "parry" ? "Perfect Parry" : "Perfect Dodge";
       for (const id of result.charmIds) {
         const charm = targetActor.items.get(id);
@@ -1718,8 +1721,16 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
         const ok = await charm.activateCharm();
         if (!ok) continue;
         activatedNames.push(charm.name);
-        if (!perfectDefenseCharm && (charm.system.keywords ?? []).includes(perfectKeyword)) {
-          perfectDefenseCharm = charm.name;
+        if (!perfectDefenseCharm) {
+          const keywords = charm.system.keywords ?? [];
+          const pdt      = charm.system.perfectDefenseType ?? "";
+          if (pdt === "soak") {
+            perfectDefenseCharm = charm.name;
+            perfectDefenseType  = "soak";
+          } else if (keywords.includes(perfectKeyword) || pdt === "parry" || pdt === "dodge") {
+            perfectDefenseCharm = charm.name;
+            perfectDefenseType  = pdt || (defenseType === "parry" ? "parry" : "dodge");
+          }
         }
       }
 
@@ -1775,7 +1786,8 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
         defenderFirstExcDice:     firstExcDice,
         defenderSecondExcSucc:    secondExcSucc,
         defenderHasCounterattack,
-        perfectDefenseCharm
+        perfectDefenseCharm,
+        perfectDefenseType
       };
 
       _tryFireAttackSuccess(newAttack);
