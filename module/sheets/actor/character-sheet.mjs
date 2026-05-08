@@ -3,6 +3,7 @@ import { ExaltedRoll }   from "../../rolls/exalted-roll.mjs";
 import { evaluateCharmPrereqs } from "../../helpers/charm-prereqs.mjs";
 import { evaluateCharmFormula } from "../../documents/item.mjs";
 import { ex2eCan }       from "../../helpers/permissions.mjs";
+import { canEquipToSlot } from "../../helpers/equip-slots.mjs";
 import { buildXpCostRows } from "../../helpers/xp-cost-table.mjs";
 import { computeSpellCastButtonState } from "../../ui/spell-cast-button.mjs";
 import { resolveXpCosts }  from "../../helpers/xp-cost-defaults.mjs";
@@ -1238,19 +1239,11 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     if (!item) return;
 
     if (!item.system.equipped) {
-      const slot     = item.system.slot;
-      const capacity = this.document.system.slots?.[slot];
-      if (slot && slot !== "none" && capacity !== undefined) {
-        const handCost = i => slot === "hands" && i.system.modes?.some(m => m.tags?.includes("Two-handed")) ? 2 : 1;
-        const cost  = handCost(item);
-        const inUse = this.document.items
-          .filter(i => i.id !== itemId && i.system.equipped && i.system.slot === slot)
-          .reduce((sum, i) => sum + handCost(i), 0);
-        if (inUse + cost > capacity) {
-          const slotLabel = game.i18n.localize(`EX2E.Slot${slot.charAt(0).toUpperCase()}${slot.slice(1)}`);
-          ui.notifications.warn(game.i18n.format("EX2E.SlotFull", { slot: slotLabel }));
-          return;
-        }
+      if (!canEquipToSlot(this.document, item, itemId)) {
+        const slot      = item.system.slot;
+        const slotLabel = game.i18n.localize(`EX2E.Slot${slot.charAt(0).toUpperCase()}${slot.slice(1)}`);
+        ui.notifications.warn(game.i18n.format("EX2E.SlotFull", { slot: slotLabel }));
+        return;
       }
     }
 
