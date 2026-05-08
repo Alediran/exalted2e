@@ -81,6 +81,27 @@
   </div>
   {{/if}}
 
+  {{#if (eq item.type "equipment")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.ResourcesCost"}}</label>
+    <input type="hidden" name="system.resourcesCost" value="{{system.resourcesCost}}">
+    {{dotRating name="system.resourcesCost" value=system.resourcesCost max=5 min=0}}
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Quantity"}}</label>
+    <input type="number" name="system.quantity" value="{{system.quantity}}"
+           min="1" style="width:80px" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Equipped"}}</label>
+    <label class="checkbox-inline" style="margin-left:8px">
+      <input type="checkbox" name="system.equipped"
+             {{#if system.equipped}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </label>
+  </div>
+  {{/if}}
+
   <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
   <div class="editor-container">
     {{#if isEditable}}

@@ -22,6 +22,8 @@ export class ArmorData extends foundry.abstract.TypeDataModel {
       magicalMaterial: new fields.StringField({ initial: "", blank: true }),
       attunementCost:  new fields.NumberField({ initial: 0, min: 0, max: 20, integer: true }),
       attuned:         new fields.BooleanField({ initial: false }),
+      artifactRating:   new fields.NumberField({ initial: 0, min: 0, max: 5,  integer: true }),
+      hearthstoneSlots: new fields.NumberField({ initial: 0, min: 0, max: 3, integer: true }),
 
       // ── Tags ─────────────────────────────────────────────────────────────
       tags: new fields.ArrayField(new fields.StringField({ blank: true })),

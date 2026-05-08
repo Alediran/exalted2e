@@ -83,6 +83,13 @@
       "path": "packs/spells",
       "type": "Item",
       "system": "exalted2e"
+    },
+    {
+      "name":   "panoply",
+      "label":  "Exalted 2e Panoply",
+      "path":   "packs/panoply",
+      "type":   "Item",
+      "system": "exalted2e"
     }
   ],
   "documentTypes": {
@@ -104,7 +111,8 @@
       "form":       {},
       "animapower": {},
       "urge":       {},
-      "destiny":    {}
+      "destiny":    {},
+      "equipment":  {}
     }
   },
   "socket": false,

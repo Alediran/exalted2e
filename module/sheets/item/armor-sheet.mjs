@@ -61,4 +61,24 @@ export class ArmorSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     tags.splice(idx, 1);
     await this.document.update({ "system.tags": tags });
   }
+
+  _onRender(context, options) {
+    super._onRender?.(context, options);
+    if (!this.isEditable) return;
+    for (const pip of this.element.querySelectorAll(".dot-rating .dot")) {
+      pip.addEventListener("click", this.#onDotClick.bind(this));
+    }
+  }
+
+  async #onDotClick(event) {
+    const pip      = event.currentTarget;
+    const track    = pip.closest(".dot-rating");
+    const name     = track?.dataset.name;
+    if (!name) return;
+    const newValue = parseInt(pip.dataset.value);
+    const min      = parseInt(track?.dataset.min ?? 0);
+    const current  = parseInt(track?.dataset.current ?? 0);
+    const val      = (newValue === 1 && current === 1) ? min : Math.max(min, newValue);
+    await this.document.update({ [name]: val });
+  }
 }

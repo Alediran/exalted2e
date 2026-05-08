@@ -294,13 +294,6 @@
     {{/if}}
   </div>
 
-  {{#if system.martialArtsTier}}
-  <div class="field-group">
-    <label>{{localize "EX2E.MartialArtsStyleName"}}</label>
-    <input type="text" name="system.martialArtsStyleName" value="{{system.martialArtsStyleName}}"
-           placeholder="e.g. snake-style" {{#unless isEditable}}readonly{{/unless}}>
-  </div>
-  {{/if}}
   {{#if (includes system.keywords "Merged")}}
   <div class="merged-charms-block" style="margin-top:6px">
     <div class="tags-header">

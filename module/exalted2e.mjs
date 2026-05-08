@@ -23,6 +23,7 @@ import { FormData }         from "./data/item/form-data.mjs";
 import { AnimaPowerData }   from "./data/item/anima-power-data.mjs";
 import { UrgeData }         from "./data/item/urge-data.mjs";
 import { DestinyData }      from "./data/item/destiny-data.mjs";
+import { EquipmentData }    from "./data/item/equipment-data.mjs";
 import { CharacterSheet }   from "./sheets/actor/character-sheet.mjs";
 import { NpcSheet }         from "./sheets/actor/npc-sheet.mjs";
 import { CharmSheet }       from "./sheets/item/charm-sheet.mjs";
@@ -161,7 +162,8 @@ Hooks.once("init", function () {
     form:       FormData,
     animapower: AnimaPowerData,
     urge:       UrgeData,
-    destiny:    DestinyData
+    destiny:    DestinyData,
+    equipment:  EquipmentData
   };
 
   // ── Sheet Registration ──────────────────────────────────────────────────
@@ -199,7 +201,7 @@ Hooks.once("init", function () {
     label:     "EX2E.SheetArmor"
   });
   foundry.documents.collections.Items.registerSheet("exalted2e", GenericItemSheet, {
-    types:     ["background", "intimacy", "meritflaw"],
+    types:     ["background", "intimacy", "meritflaw", "equipment"],
     makeDefault: true,
     label:     "EX2E.SheetGenericItem"
   });

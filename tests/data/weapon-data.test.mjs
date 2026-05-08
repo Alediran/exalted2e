@@ -24,6 +24,19 @@ function _prepDerivedData(weaponSystem) {
   return data;
 }
 
+describe("WeaponData schema — artifact fields", () => {
+  let schema;
+  beforeAll(() => { schema = WeaponData.defineSchema(); });
+
+  it("artifactRating: min 0, max 5, integer, initial 0", () => {
+    expect(schema.artifactRating.options).toMatchObject({ min: 0, max: 5, integer: true, initial: 0 });
+  });
+
+  it("hearthstoneSlots: min 0, max 3, integer, initial 0", () => {
+    expect(schema.hearthstoneSlots.options).toMatchObject({ min: 0, max: 3, integer: true, initial: 0 });
+  });
+});
+
 describe("WeaponData.prepareDerivedData", () => {
   it("unattuned weapon gets no material bonus", () => {
     const sys = {

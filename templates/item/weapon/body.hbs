@@ -114,6 +114,16 @@
         {{#unless isEditable}}disabled{{/unless}}> {{localize "EX2E.CurrentlyAttuned"}}
     </label>
   </div>
+  <div class="field-group">
+    <label>{{localize "EX2E.ArtifactRating"}}</label>
+    <input type="hidden" name="system.artifactRating" value="{{system.artifactRating}}">
+    {{dotRating name="system.artifactRating" value=system.artifactRating max=5 min=0}}
+  </div>
+  <div class="field-group">
+    <label>{{localize "EX2E.HearthstoneSlots"}}</label>
+    <input type="number" name="system.hearthstoneSlots" value="{{system.hearthstoneSlots}}"
+           min="0" max="3" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
   {{/if}}
 
   <!-- ═══════════════ DESCRIPTION ═══════════════ -->

@@ -48,6 +48,13 @@
         </select>
       </div>
       {{/if}}
+      {{#if (eq system.exaltType "martialarts")}}
+      <div class="field-group">
+        <label>{{localize "EX2E.MartialArtsStyleName"}}</label>
+        <input type="text" name="system.martialArtsStyleName" value="{{system.martialArtsStyleName}}"
+               placeholder="e.g. snake-style" {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+      {{/if}}
     </div>
     <!-- Cost Summary -->
     <div class="charm-cost-summary">
