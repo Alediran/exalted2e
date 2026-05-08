@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 130 / 259 complete** (3 out-of-scope / partial — last updated 2026-05-05)
+**Progress: 135 / 260 complete** (3 out-of-scope / partial — last updated 2026-05-08)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -70,7 +70,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Touch keyword mechanics (requires Dex+MA attack vs non-consenting target)
 - [ ] Training keyword (trainee XP debt ledger)
 - [ ] Native keyword gating (blocks Eclipse/Moonshadow/Fiend from learning)
-- [ ] Mirror keyword navigation UI (show linked charm across splats)
+- [x] Mirror keyword navigation UI (show linked charm across splats)
 - [ ] Merged keyword (learn once, usable across listed Abilities)
 - [ ] Martial / Martial-ready gating at charm-learn time
 - [x] Heretical keyword (Infernal GSP-only enforcement)
@@ -84,9 +84,9 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Typed charm costs: motes, willpower, bashing HL, lethal HL, aggravated HL, XP
 - [x] XP cost confirmation dialog
 - [x] Automated charm prerequisite validation
-- [ ] Expand prerequisite types: Virtue ≥ N, Essence ≥ N, Ability ≥ N, Background ≥ N
-- [ ] Permanent Essence cost (Sidereal Greater Signs, Infernal shintai)
-- [ ] Permanent Willpower cost
+- [~] Expand prerequisite types: Virtue ≥ N done; Essence ≥ N, Ability ≥ N, Background ≥ N pending
+- [~] Permanent Essence cost (Greater Signs hardcoded; no general charm field — Infernal shintai pending)
+- [~] Permanent Willpower cost (Greater Signs hardcoded; no general charm field)
 - [x] Attribute-keyed Excellencies for Lunar/Alchemical (charm.attribute field; activation routing)
 - [ ] First/Second-vs-Third Excellency exclusivity enforcement per roll
 - [ ] Infinite (Ability) Mastery discount tracking (committed motes reduce Excellency cost)
@@ -110,6 +110,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 ## Sorcery & Necromancy
 - [x] Spell item type (Terrestrial/Celestial/Solar; Shadowland/Labyrinth/Void)
 - [x] **Shaping-action pipeline** (multi-tick action container; damage-interrupts-with-Wits+Occult roll; Essence Burn botch)
+- [x] Sorcerous initiation (charm flag `grantsInitiation` — grants Terrestrial/Celestial/Solar or Necromancy access on activation)
 - [ ] Countermagic resolution (Emerald/Sapphire/Adamant reflexive counter, Iron/Onyx/Obsidian necro)
 - [ ] Countermagic cost variance by defended-circle-rank
 - [ ] Spell casting chat card (motes committed during shape, released at cast; reverse button)
@@ -196,9 +197,9 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Submodules (slot-within-slot installations)
 - [x] Clarity track (0-10; Virtue-suppression & contact-deprivation triggers)
 - [ ] Gremlin Syndrome / Dissonance path
-- [ ] Installed armor (subcutaneous / exoskeletal plating — different from equipped armor)
+- [x] Installed armor (subcutaneous / exoskeletal plating — different from equipped armor)
 - [x] Weaving protocols (Man-Machine / God-Machine as sorcery mirror)
-- [ ] Adamant caste hidden-from-society rules
+- [~] Adamant caste hidden-from-society rules
 
 ### Mortal
 - [ ] Mortal-specific sheet variant (hide Essence/Mote/Charm sections)
@@ -263,7 +264,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Pre-built charms compendium (at least Solar Ability charms)
 - [ ] Pre-built weapons / armor compendia (with magical material variants)
 - [ ] Pre-built spells compendium (Terrestrial through Solar circles + Shadowlands/Labyrinth/Void)
-- [ ] Pre-built artifact compendium (daiklaves, armors, hearthstones)
+- [~] Pre-built artifact compendium — hearthstones pack complete (16 entries, 10 type folders); daiklaves and armors pending
 - [ ] Status effects compendium (Knockdown, Stun, Clinched, Poisoned, Diseased, Prone-per-leg, Crippled)
 
 ## Other Mechanics
@@ -273,15 +274,15 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Resonance track and eruptions (Abyssal) — see Abyssal splat
 - [x] Torment / Act of Villainy tracking (Infernal) — see Infernal splat
 - [ ] Clarity mechanical effects (Alchemical) — see Alchemical splat
-- [ ] Paradox track (Sidereal) — see Sidereal splat
+- [x] Paradox track (Sidereal) — see Sidereal splat
 - [ ] Poison / Disease tracking (item types + per-interval AE)
 - [ ] Crippling injuries (4+ HL single hit; surgery Int+Medicine to heal)
 - [ ] Environmental hazards (Damage/interval, Trauma; fire/cold/drowning/starvation/thirst)
 - [ ] Mass combat (unit actor type: Magnitude, Drill, Might, Endurance, Morale, formations, commander + relays + heroes)
 - [ ] Artifact creation rules (extended Craft roll; Craft+Lore+Occult; seasons interval)
 - [ ] **Manse** item type (rating, aspect, powers, mote-regen grant)
-- [ ] **Hearthstone** item type (rating, aspect, socketable into artifacts)
-- [ ] **Artifact** item type (general; non-weapon/armor artifacts)
+- [x] **Hearthstone** item type (rating, type, mote-regen, socketable into artifact weapons/armor/equipment)
+- [x] **Artifact** item type (general; non-weapon/armor artifacts) — covered by `equipment` item type with `artifact: true` flag (magical material, attunement, hearthstone slots)
 - [ ] **Mutation** item type (Pox/Affliction/Blight/Abomination; Wyld origin)
 - [ ] **Poison** item type
 - [ ] **Disease** item type
