@@ -102,6 +102,33 @@ export function evaluateCharmPrereqs(charm, actor) {
   });
 }
 
+/**
+ * Check whether an actor meets the minAbility requirement for a charm.
+ *
+ * MA charms check the actor's Martial Arts ability, except Lunar Hero Style
+ * charms on Lunar actors, which check Dexterity instead (the style's
+ * prerequisites are attribute-based rather than ability-based).
+ */
+export function meetsMinAbility(charm, actor) {
+  const min = charm.system?.minAbility ?? 0;
+  if (!min) return true;
+  const sys = actor?.system;
+  if (!sys) return true;
+
+  const ability = charm.system?.ability;
+  if (ability === "martialarts") {
+    if (charm.system?.martialArtsStyleName === "Lunar Hero Style"
+        && sys.exaltType === "lunar") {
+      return (sys.attributes?.dexterity?.value ?? 0) >= min;
+    }
+    return (sys.abilities?.martialArts?.value ?? 0) >= min;
+  }
+  if (sys.attributes?.[ability] !== undefined) {
+    return (sys.attributes[ability]?.value ?? 0) >= min;
+  }
+  return true;
+}
+
 /** Convenience: true iff every group has a satisfying alternative. */
 export function areCharmPrereqsMet(charm, actor) {
   if (charm.type === "knack" && charm.system?.isChimera) {
@@ -110,6 +137,7 @@ export function areCharmPrereqsMet(charm, actor) {
         s.caste !== "casteless" ||
         (s.limit?.value ?? 0) < 10) return false;
   }
+  if (!meetsMinAbility(charm, actor)) return false;
   const report = evaluateCharmPrereqs(charm, actor);
   if (report.length === 0) return true;
   return report.every(r => r.satisfied);

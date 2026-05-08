@@ -178,7 +178,7 @@ function _priceItem(actor, item, exaltType, costs) {
 function _priceCharm(actor, charm, exaltType, costs) {
   const attrKey    = charm.system?.ability ?? "";
   const charmExalt = charm.system?.exaltType ?? "";
-  const isMA       = attrKey === "martialArts";
+  const isMA       = attrKey === "martialarts";
   const keywords   = _normKeywords(charm.system?.keywords);
   let casteFav;
   if (exaltType === "alchemical") {
@@ -199,6 +199,7 @@ function _priceCharm(actor, charm, exaltType, costs) {
   const eclipseLike  = caste === "eclipse" ||
     (exaltType === "infernal" && caste === "fiend");
   const foreignCharm = !!charmExalt && charmExalt !== exaltType
+                    && charmExalt !== "martialarts"
                     && !(exaltType === "solar"   && charmExalt === "abyssal")
                     && !(exaltType === "abyssal" && charmExalt === "solar");
 

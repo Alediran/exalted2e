@@ -76,6 +76,13 @@
       "path": "packs/martialarts",
       "type": "Item",
       "system": "exalted2e"
+    },
+    {
+      "name": "spells",
+      "label": "Exalted 2e Spells",
+      "path": "packs/spells",
+      "type": "Item",
+      "system": "exalted2e"
     }
   ],
   "documentTypes": {

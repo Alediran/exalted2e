@@ -56,6 +56,72 @@ const COULD_HAVE_PATTERNS = [
   /\b(?:dodge|parry)\s+(?:dv|defense)\s+(?:by|of)\s+(?:one|two|three|\d+)/i,
 ];
 
+// Charms whose descriptions match COULD_HAVE_PATTERNS but are actually narrative.
+// Forced to 'narrative' regardless of pattern match.
+const EXPLICIT_NARRATIVE = new Set([
+  // Abyssal — social / organizational / Resonance-mechanic
+  'Eloquent Example Inspiration',
+  "Faithful Killer's Reprieve",
+  'Hate-Sowing Bitterness',
+  'Iron Tyrant Reign',
+  'Regime-Toppling Lord Of Misrule',
+  'Soul-Numbing Prowess',
+
+  // Alchemical — perception / nutrition / mutation / social
+  'Abstract Abacus Implant',
+  'Mobile Sensory Drone',
+  'Sustenance Replication Engine',
+  'Transorganic Desecration Cyst',
+  'Unobtrusive Repartee Baffles',
+
+  // Infernal — social / charm-cost-reduction / prayer
+  'Despair-Choked Spirit Maiming',
+  'Hateful Wretched Noise',
+  "Kalmanka's Grace",
+  'Penitents Like Scattered Grains',
+
+  // Inkmonkeys — perception / social bond / narrative
+  'Eyes As Moonbeams Method',
+  'Silver And Gold Span The Heavens',
+  'Voice-Drinking Kiss',
+  'Want Becomes Need',
+
+  // Lunar — illusory defense / counter-influence / social / research
+  'Butterfly Eyes Defense',
+  'Commanded To Fly',
+  'Inevitable Genius Insight',
+  'Irresistible Silver Spirit',
+  'Perfect Fear Scent',
+  'Subtle Silver Command',
+  'Terrifying Lust Infliction',
+
+  // Sidereal — Arcane Fate / social / narrative death
+  'Gift Of A Broken Mask',
+  'Impose Motivation',
+  "Lover's Oath",
+  'Peaceable Conclusion',
+  'Sidereal Shell Games',
+
+  // Solar — medical / animal training / organization / perception / social
+  'Ailment-Rectifying Method',
+  'Bestial Traits Technique',
+  'Bureau-Rectifying Method',
+  'Element-Resisting Prana',
+  'Foul Air Of Argument Technique',
+  'Keen (Sense) Technique',
+  'Legendary Warrior Curriculum',
+  'Sun King Radiance',
+  'Tireless Sentinel Technique',
+  'Venomous Whispers Technique',
+  'Wholeness-Restoring Meditation',
+
+  // Terrestrial — armor-type conditional / movement / mount / ship
+  'Armor-Hardening Concentration',
+  'Dancing Ember Stride',
+  'Five-Dragon Horseman Prana',
+  'Sturdy Bulkhead Concentration',
+]);
+
 function getEnabledEffects(s) {
   return EFFECT_FIELDS.filter(f => s[f]?.enabled);
 }
@@ -93,7 +159,10 @@ function classify(doc) {
     return { cat: 'partial', effects, isExcellency: false, isPerfDef: false };
   }
 
-  // 0 effects — check for implementable patterns in description
+  // 0 effects — check explicit narrative override first
+  if (EXPLICIT_NARRATIVE.has(doc.name)) return { cat: 'narrative', effects: [] };
+
+  // then check for implementable patterns in description
   const desc = strip(s.description ?? '');
   for (const re of COULD_HAVE_PATTERNS) {
     if (re.test(desc)) return { cat: 'could', effects: [] };

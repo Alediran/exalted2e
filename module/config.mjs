@@ -73,15 +73,16 @@ EX2E.virtues = {
 };
 
 EX2E.splatTypes = {
-  solar:       "EX2E.ExaltSolar",
-  lunar:       "EX2E.ExaltLunar",
-  terrestrial: "EX2E.ExaltTerrestrial",
-  sidereal:    "EX2E.ExaltSidereal",
-  abyssal:     "EX2E.ExaltAbyssal",
-  infernal:    "EX2E.ExaltInfernal",
-  alchemical:  "EX2E.ExaltAlchemical",
-  mortal:      "EX2E.ExaltMortal",
-  spirit:      "EX2E.ExaltSpirit"
+  solar:        "EX2E.ExaltSolar",
+  lunar:        "EX2E.ExaltLunar",
+  terrestrial:  "EX2E.ExaltTerrestrial",
+  sidereal:     "EX2E.ExaltSidereal",
+  abyssal:      "EX2E.ExaltAbyssal",
+  infernal:     "EX2E.ExaltInfernal",
+  alchemical:   "EX2E.ExaltAlchemical",
+  mortal:       "EX2E.ExaltMortal",
+  spirit:       "EX2E.ExaltSpirit",
+  martialarts:  "EX2E.ExaltMartialArts",
 };
 
 EX2E.castes = {
@@ -631,14 +632,15 @@ EX2E.getActiveArmorMaterialBonuses = function () {
 // effective MA tier of a charm when martialArtsTier is blank.
 
 EX2E.maAccessByExaltType = {
-  mortal:      "",
-  terrestrial: "",
-  lunar:       "celestial",
-  alchemical:  "celestial",
-  infernal:    "celestial",
-  solar:       "sidereal",
-  abyssal:     "sidereal",
-  sidereal:    "sidereal"
+  mortal:       "",
+  terrestrial:  "",
+  lunar:        "celestial",
+  alchemical:   "celestial",
+  infernal:     "celestial",
+  solar:        "sidereal",
+  abyssal:      "sidereal",
+  sidereal:     "sidereal",
+  martialarts:  "celestial", //Not really necessary but it's a placeholder
 };
 
 // ── Sidereal Colleges ──────────────────────────────────────────────────────

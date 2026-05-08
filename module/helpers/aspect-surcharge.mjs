@@ -11,12 +11,13 @@
 const MA_TIER_BY_EXALT = {
   mortal:      "",
   terrestrial: "",
-  lunar:       "celestial",
-  alchemical:  "celestial",
-  infernal:    "celestial",
-  solar:       "sidereal",
-  abyssal:     "sidereal",
-  sidereal:    "sidereal"
+  lunar:        "celestial",
+  alchemical:   "celestial",
+  infernal:     "celestial",
+  solar:        "sidereal",
+  abyssal:      "sidereal",
+  sidereal:     "sidereal",
+  martialarts:  "celestial",
 };
 
 /**
@@ -53,7 +54,7 @@ export function getOutOfAspectSurcharge(actor, charm) {
   const ability = charm?.system?.ability;
   if (!ability) return 0;
 
-  if (ability === "martialArts") {
+  if (ability === "martialarts") {
     const tier = _effectiveMATier(charm);
     if (tier === "celestial" || tier === "sidereal") return 0;
   }
@@ -91,6 +92,9 @@ export function getForeignCharmSurcharge(actor, charm) {
 
   const charmExalt = charm?.system?.exaltType ?? "";
   if (!charmExalt || charmExalt === exaltType) return 0;
+
+  // MA-style charms are not foreign charms for Eclipse-type casters
+  if (charmExalt === "martialarts") return 0;
 
   // Solar↔Abyssal mirror: not foreign to each other
   if (exaltType === "solar"   && charmExalt === "abyssal") return 0;
