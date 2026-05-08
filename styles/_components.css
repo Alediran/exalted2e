@@ -30,6 +30,11 @@
   box-shadow:  0 0 5px rgba(201,162,39,0.4);
 }
 
+.dot-rating.readonly .dot {
+  cursor: default;
+  pointer-events: none;
+}
+
 /* ── BOX RATING (square boxes for temporal / resource tracks) ─────────────── */
 .box-rating {
   display:     inline-flex;

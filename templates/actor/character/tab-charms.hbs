@@ -209,7 +209,7 @@
         <h2 class="section-header" style="margin:0">{{section.label}}</h2>
         <label class="spell-initiation-label">
           <span>{{section.initiationLabel}}</span>
-          {{dotRating name=section.initiationPath value=section.initiation max=section.initiationMax min=0}}
+          {{dotRating value=section.initiation max=section.initiationMax min=0 readonly=true}}
         </label>
       </div>
       {{#if @root.isEditable}}

@@ -208,6 +208,16 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         { value: "personal",   label: game.i18n.localize("EX2E.MPBPersonal")   },
         { value: "peripheral", label: game.i18n.localize("EX2E.MPBPeripheral") }
       ],
+      initiationTraditionChoices: [
+        { value: "sorcery",    label: game.i18n.localize("EX2E.GITraditionSorcery")    },
+        { value: "necromancy", label: game.i18n.localize("EX2E.GITraditionNecromancy") },
+        { value: "weaving",    label: game.i18n.localize("EX2E.GITraditionWeaving")    }
+      ],
+      initiationLevelChoices: [
+        { value: 1, label: game.i18n.localize("EX2E.GILevel1") },
+        { value: 2, label: game.i18n.localize("EX2E.GILevel2") },
+        { value: 3, label: game.i18n.localize("EX2E.GILevel3") }
+      ],
       dvPenaltyTypeChoices: [
         { value: "onslaught", label: game.i18n.localize("EX2E.DVBTypeOnslaught") },
         { value: "action",    label: game.i18n.localize("EX2E.DVBTypeAction")    },

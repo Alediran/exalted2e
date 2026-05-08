@@ -9,9 +9,11 @@ export function registerHandlebarsHelpers() {
   // Renders a row of clickable round dot pips (permanent ratings).
   // Usage: {{dotRating name=fieldName value=currentVal max=5 min=0}}
   Handlebars.registerHelper("dotRating", function(options) {
-    const { name, value, max = 5, min = 0 } = options.hash;
+    const { name, value, max = 5, min = 0, readonly = false } = options.hash;
     const safeVal = Math.max(min, Math.min(max, value ?? 0));
-    let html = `<div class="dot-rating" data-name="${name}" data-max="${max}" data-min="${min}" data-current="${safeVal}">`;
+    const nameAttr = readonly ? "" : ` data-name="${name}"`;
+    const roClass  = readonly ? " readonly" : "";
+    let html = `<div class="dot-rating${roClass}"${nameAttr} data-max="${max}" data-min="${min}" data-current="${safeVal}">`;
     for (let i = 1; i <= max; i++) {
       const filled = i <= safeVal ? "filled" : "";
       html += `<span class="dot ${filled}" data-value="${i}" title="${i}"></span>`;

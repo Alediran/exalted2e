@@ -303,6 +303,13 @@ export class CharmData extends foundry.abstract.TypeDataModel {
           amount:  new fields.NumberField({ initial: -1, max: 0, integer: true }),
         }),
         perDamageLevel: new fields.BooleanField({ initial: false }),
+      }),
+
+      // M17 — Grants initiation in a tradition (Sorcery / Necromancy / Weaving)
+      grantsInitiation: new fields.SchemaField({
+        enabled:   new fields.BooleanField({ initial: false }),
+        tradition: new fields.StringField({ initial: "sorcery", choices: ["sorcery", "necromancy", "weaving"] }),
+        level:     new fields.NumberField({ initial: 1, min: 1, max: 3, integer: true })
       })
     };
   }

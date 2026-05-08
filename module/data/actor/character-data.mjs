@@ -305,6 +305,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     this._prepareHealthData();
     this._prepareBreedingBonus();
     this._applyCharmStatBoosts();
+    this._applyCharmInitiation();
     this._prepareCombatStats();
     this._prepareMoteMaxima();
     this._prepareIntimacies();
@@ -381,6 +382,17 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       }
     }
     applyStatBoostDeltas(this, deltas);
+  }
+
+  _applyCharmInitiation() {
+    const items = (this.parent?.items ?? []).filter(isCharmPassivelyActive);
+    for (const item of items) {
+      const gi = item?.system?.grantsInitiation;
+      if (!gi?.enabled) continue;
+      const trad = this[gi.tradition];
+      if (!trad) continue;
+      trad.initiation = Math.max(trad.initiation, gi.level);
+    }
   }
 
   _prepareHealthData() {

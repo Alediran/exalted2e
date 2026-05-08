@@ -980,4 +980,34 @@
     {{/if}}
   </div>
 
+  {{!-- M17 Grants Initiation ─────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.grantsInitiation.enabled"
+             {{#if system.grantsInitiation.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.EffectGrantsInitiation"}}</span>
+    </label>
+    {{#if system.grantsInitiation.enabled}}
+    <div class="effect-body effect-grid-2">
+      <div class="field-group">
+        <label>{{localize "EX2E.GITradition"}}</label>
+        <select name="system.grantsInitiation.tradition" {{#unless isEditable}}disabled{{/unless}}>
+          {{#each initiationTraditionChoices}}
+          <option value="{{this.value}}" {{#if (eq this.value ../system.grantsInitiation.tradition)}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.GILevel"}}</label>
+        <select name="system.grantsInitiation.level" {{#unless isEditable}}disabled{{/unless}}>
+          {{#each initiationLevelChoices}}
+          <option value="{{this.value}}" {{#if (eq this.value ../system.grantsInitiation.level)}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
 </div>
