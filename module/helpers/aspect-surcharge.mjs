@@ -57,6 +57,11 @@ export function getOutOfAspectSurcharge(actor, charm) {
   if (ability === "martialarts") {
     const tier = _effectiveMATier(charm);
     if (tier === "celestial" || tier === "sidereal") return 0;
+    // Terrestrial-tier MA: apply surcharge unless martialArts is a caste ability.
+    // The actor schema keys this under "martialArts" (camelCase), not "martialarts".
+    const maData = actor.system.abilities?.martialArts;
+    if (!maData) return 0;
+    return maData.caste ? 0 : 1;
   }
 
   const abilityData = actor.system.abilities?.[ability];

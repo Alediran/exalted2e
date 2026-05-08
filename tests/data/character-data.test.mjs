@@ -499,3 +499,71 @@ describe("CharacterData splat.sidereal.colleges", () => {
     expect(sys.splat.sidereal.colleges.endings.the_sword).toBe(0);
   });
 });
+
+describe("CharacterData._applyCharmInitiation", () => {
+  function initiationCharm(tradition, level, { active = false } = {}) {
+    return {
+      type: "charm",
+      name: `${tradition} initiation lv${level}`,
+      system: {
+        duration: "permanent",
+        active,
+        grantsInitiation: { enabled: true, tradition, level }
+      }
+    };
+  }
+
+  it("raises sorcery.initiation to charm-granted level", () => {
+    const sys = makeCharacterSystem();
+    const result = _prepDerivedData(sys, [initiationCharm("sorcery", 2)]);
+    expect(result.sorcery.initiation).toBe(2);
+  });
+
+  it("raises necromancy.initiation to charm-granted level", () => {
+    const sys = makeCharacterSystem();
+    const result = _prepDerivedData(sys, [initiationCharm("necromancy", 1)]);
+    expect(result.necromancy.initiation).toBe(1);
+  });
+
+  it("raises weaving.initiation to charm-granted level", () => {
+    const sys = makeCharacterSystem();
+    sys.weaving = { initiation: 0 };  // make-actor.mjs omits weaving; seed it manually
+    const result = _prepDerivedData(sys, [initiationCharm("weaving", 2)]);
+    expect(result.weaving.initiation).toBe(2);
+  });
+
+  it("takes the highest level when multiple charms grant different levels for the same tradition", () => {
+    const sys = makeCharacterSystem();
+    const result = _prepDerivedData(sys, [initiationCharm("sorcery", 1), initiationCharm("sorcery", 3)]);
+    expect(result.sorcery.initiation).toBe(3);
+  });
+
+  it("stored initiation wins when already higher than charm-granted level", () => {
+    const sys = makeCharacterSystem();
+    sys.sorcery.initiation = 3;
+    const result = _prepDerivedData(sys, [initiationCharm("sorcery", 1)]);
+    expect(result.sorcery.initiation).toBe(3);
+  });
+
+  it("non-passively-active charm (oneScene, inactive) does not contribute", () => {
+    const sys = makeCharacterSystem();
+    const inactiveCharm = {
+      type: "charm",
+      name: "inactive",
+      system: { duration: "oneScene", active: false, grantsInitiation: { enabled: true, tradition: "sorcery", level: 2 } }
+    };
+    const result = _prepDerivedData(sys, [inactiveCharm]);
+    expect(result.sorcery.initiation).toBe(0);
+  });
+
+  it("charm with enabled: false does not contribute even if passively active", () => {
+    const sys = makeCharacterSystem();
+    const disabledCharm = {
+      type: "charm",
+      name: "disabled",
+      system: { duration: "permanent", active: false, grantsInitiation: { enabled: false, tradition: "sorcery", level: 3 } }
+    };
+    const result = _prepDerivedData(sys, [disabledCharm]);
+    expect(result.sorcery.initiation).toBe(0);
+  });
+});

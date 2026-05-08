@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { evaluateCharmPrereqs, areCharmPrereqsMet } from "../../module/helpers/charm-prereqs.mjs";
+import { evaluateCharmPrereqs, areCharmPrereqsMet, meetsMinAbility } from "../../module/helpers/charm-prereqs.mjs";
 
 // Helpers — build minimal charm/actor shapes for testing.
 function makeCharm({ id = "host", name = "Host Charm", ability = "melee", prereqGroups = [], charmUid = "" } = {}) {
@@ -128,5 +128,100 @@ describe("areCharmPrereqsMet — Chimera Knack gate", () => {
   it("Chimera knack passes for Casteless Lunar at Limit 10", () => {
     const actor = makeActorForKnack({ exaltType: "lunar", caste: "casteless", limitValue: 10 });
     expect(areCharmPrereqsMet(makeKnack({ isChimera: true }), actor)).toBe(true);
+  });
+});
+
+describe("meetsMinAbility", () => {
+  function maCharm({ minAbility = 0, martialArtsStyleName = "" } = {}) {
+    return { system: { ability: "martialarts", minAbility, martialArtsStyleName, prereqGroups: [] } };
+  }
+  function attrCharm({ minAbility = 0, ability = "dexterity" } = {}) {
+    return { system: { ability, minAbility, prereqGroups: [] } };
+  }
+  function abilityActor({ exaltType = "solar", martialArts = 0 } = {}) {
+    return { system: { exaltType, abilities: { martialArts: { value: martialArts } }, attributes: {} } };
+  }
+  function lunarActor({ dexterity = 0 } = {}) {
+    return { system: { exaltType: "lunar", abilities: { martialArts: { value: 0 } }, attributes: { dexterity: { value: dexterity } } } };
+  }
+
+  it("returns true when minAbility is 0 regardless of actor stats", () => {
+    expect(meetsMinAbility(maCharm({ minAbility: 0 }), abilityActor({ martialArts: 0 }))).toBe(true);
+  });
+
+  it("returns true when actor is null", () => {
+    expect(meetsMinAbility(maCharm({ minAbility: 4 }), null)).toBe(true);
+  });
+
+  it("martialarts ability — passes when MA meets minimum", () => {
+    expect(meetsMinAbility(maCharm({ minAbility: 4 }), abilityActor({ martialArts: 4 }))).toBe(true);
+  });
+
+  it("martialarts ability — fails when MA is below minimum", () => {
+    expect(meetsMinAbility(maCharm({ minAbility: 4 }), abilityActor({ martialArts: 3 }))).toBe(false);
+  });
+
+  it("Lunar Hero Style + Lunar actor — passes on sufficient Dexterity, ignoring low MA", () => {
+    const charm = maCharm({ minAbility: 4, martialArtsStyleName: "Lunar Hero Style" });
+    const actor = lunarActor({ dexterity: 5 });
+    actor.system.abilities.martialArts = { value: 1 };
+    expect(meetsMinAbility(charm, actor)).toBe(true);
+  });
+
+  it("Lunar Hero Style + Lunar actor — fails when Dexterity is below minimum, even with high MA", () => {
+    const charm = maCharm({ minAbility: 4, martialArtsStyleName: "Lunar Hero Style" });
+    const actor = lunarActor({ dexterity: 3 });
+    actor.system.abilities.martialArts = { value: 5 };
+    expect(meetsMinAbility(charm, actor)).toBe(false);
+  });
+
+  it("Lunar Hero Style + Solar actor — checks Martial Arts (non-Lunar uses MA path)", () => {
+    const charm = maCharm({ minAbility: 4, martialArtsStyleName: "Lunar Hero Style" });
+    const actor = abilityActor({ exaltType: "solar", martialArts: 4 });
+    expect(meetsMinAbility(charm, actor)).toBe(true);
+  });
+
+  it("attribute-keyed ability — passes when attribute meets minimum", () => {
+    const charm = attrCharm({ ability: "dexterity", minAbility: 4 });
+    const actor = { system: { attributes: { dexterity: { value: 4 } } } };
+    expect(meetsMinAbility(charm, actor)).toBe(true);
+  });
+
+  it("attribute-keyed ability — fails when attribute is below minimum", () => {
+    const charm = attrCharm({ ability: "dexterity", minAbility: 4 });
+    const actor = { system: { attributes: { dexterity: { value: 3 } } } };
+    expect(meetsMinAbility(charm, actor)).toBe(false);
+  });
+
+  it("regular ability key (melee) — always returns true (no minAbility enforcement)", () => {
+    const charm = { system: { ability: "melee", minAbility: 5, prereqGroups: [] } };
+    const actor = { system: { abilities: {}, attributes: {} } };
+    expect(meetsMinAbility(charm, actor)).toBe(true);
+  });
+});
+
+describe("areCharmPrereqsMet — meetsMinAbility gate", () => {
+  it("blocks a MA charm when the actor's Martial Arts is below minAbility", () => {
+    const charm = {
+      type: "charm",
+      system: { ability: "martialarts", minAbility: 4, martialArtsStyleName: "", prereqGroups: [] }
+    };
+    const actor = {
+      system: { exaltType: "solar", abilities: { martialArts: { value: 3 } }, attributes: {}, caste: "", limit: { value: 0 } },
+      items: { filter: () => [] }
+    };
+    expect(areCharmPrereqsMet(charm, actor)).toBe(false);
+  });
+
+  it("passes when minAbility is met even with no prereq groups", () => {
+    const charm = {
+      type: "charm",
+      system: { ability: "martialarts", minAbility: 3, martialArtsStyleName: "", prereqGroups: [] }
+    };
+    const actor = {
+      system: { exaltType: "solar", abilities: { martialArts: { value: 3 } }, attributes: {}, caste: "", limit: { value: 0 } },
+      items: { filter: () => [] }
+    };
+    expect(areCharmPrereqsMet(charm, actor)).toBe(true);
   });
 });

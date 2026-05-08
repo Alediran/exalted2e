@@ -28,8 +28,8 @@ describe("CharmData schema gaps — field presence", () => {
   it("D2: durationFormula exists on schema", () => {
     expect(schema).toHaveProperty("durationFormula");
   });
-  it("D3: mirrorCharmRef exists on schema", () => {
-    expect(schema).toHaveProperty("mirrorCharmRef");
+  it("D3: mirrorId exists on schema", () => {
+    expect(schema).toHaveProperty("mirrorId");
   });
   it("D5: stackCount exists on schema", () => {
     expect(schema).toHaveProperty("stackCount");

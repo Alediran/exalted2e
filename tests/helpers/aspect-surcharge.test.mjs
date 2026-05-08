@@ -78,7 +78,7 @@ describe("getOutOfAspectSurcharge", () => {
     const actor = makeActor({
       abilities: { martialArts: { value: 3, caste: true, favored: false } }
     });
-    const charm = makeCharm({ ability: "martialArts", martialArtsTier: "" });
+    const charm = makeCharm({ ability: "martialarts", martialArtsTier: "" });
     expect(getOutOfAspectSurcharge(actor, charm)).toBe(0);
   });
 
@@ -86,7 +86,7 @@ describe("getOutOfAspectSurcharge", () => {
     const actor = makeActor({
       abilities: { martialArts: { value: 2, caste: false, favored: false } }
     });
-    const charm = makeCharm({ ability: "martialArts", martialArtsTier: "" });
+    const charm = makeCharm({ ability: "martialarts", martialArtsTier: "" });
     expect(getOutOfAspectSurcharge(actor, charm)).toBe(1);
   });
 
@@ -94,7 +94,7 @@ describe("getOutOfAspectSurcharge", () => {
     const actor = makeActor({
       abilities: { martialArts: { value: 2, caste: false, favored: false } }
     });
-    const charm = makeCharm({ ability: "martialArts", martialArtsTier: "celestial" });
+    const charm = makeCharm({ ability: "martialarts", martialArtsTier: "celestial" });
     expect(getOutOfAspectSurcharge(actor, charm)).toBe(0);
   });
 
@@ -102,7 +102,7 @@ describe("getOutOfAspectSurcharge", () => {
     const actor = makeActor({
       abilities: { martialArts: { value: 2, caste: false, favored: false } }
     });
-    const charm = makeCharm({ ability: "martialArts", martialArtsTier: "sidereal" });
+    const charm = makeCharm({ ability: "martialarts", martialArtsTier: "sidereal" });
     expect(getOutOfAspectSurcharge(actor, charm)).toBe(0);
   });
 
@@ -110,7 +110,7 @@ describe("getOutOfAspectSurcharge", () => {
     const actor = makeActor({
       abilities: { martialArts: { value: 2, caste: false, favored: false } }
     });
-    const charm = makeCharm({ ability: "martialArts", exaltType: "solar" });
+    const charm = makeCharm({ ability: "martialarts", exaltType: "solar" });
     expect(getOutOfAspectSurcharge(actor, charm)).toBe(0);
   });
 
@@ -118,7 +118,7 @@ describe("getOutOfAspectSurcharge", () => {
     const actor = makeActor({
       abilities: { martialArts: { value: 2, caste: false, favored: false } }
     });
-    const charm = makeCharm({ ability: "martialArts", exaltType: "lunar" });
+    const charm = makeCharm({ ability: "martialarts", exaltType: "lunar" });
     expect(getOutOfAspectSurcharge(actor, charm)).toBe(0);
   });
 
@@ -126,7 +126,7 @@ describe("getOutOfAspectSurcharge", () => {
     const actor = makeActor({
       abilities: { martialArts: { value: 2, caste: false, favored: false } }
     });
-    const charm = makeCharm({ ability: "martialArts", exaltType: "terrestrial" });
+    const charm = makeCharm({ ability: "martialarts", exaltType: "terrestrial" });
     expect(getOutOfAspectSurcharge(actor, charm)).toBe(1);
   });
 
@@ -135,7 +135,15 @@ describe("getOutOfAspectSurcharge", () => {
     const actor = makeActor({
       abilities: { martialArts: { value: 2, caste: false, favored: false } }
     });
-    const charm = makeCharm({ ability: "martialArts", exaltType: "terrestrial", martialArtsTier: "celestial" });
+    const charm = makeCharm({ ability: "martialarts", exaltType: "terrestrial", martialArtsTier: "celestial" });
+    expect(getOutOfAspectSurcharge(actor, charm)).toBe(0);
+  });
+
+  it("derives celestial tier from exaltType 'martialarts' (MA-style charm) — always exempt", () => {
+    const actor = makeActor({
+      abilities: { martialArts: { value: 2, caste: false, favored: false } }
+    });
+    const charm = makeCharm({ ability: "martialarts", exaltType: "martialarts" });
     expect(getOutOfAspectSurcharge(actor, charm)).toBe(0);
   });
 
@@ -212,6 +220,18 @@ describe("getForeignCharmSurcharge", () => {
   it("returns 0 when charm has no exaltType set", () => {
     const actor = makeActor({ exaltType: "solar", caste: "eclipse" });
     const charm = makeCharm({ exaltType: "" });
+    expect(getForeignCharmSurcharge(actor, charm)).toBe(0);
+  });
+
+  it("Solar Eclipse activating an MA-style charm returns 0 (not foreign)", () => {
+    const actor = makeActor({ exaltType: "solar", caste: "eclipse" });
+    const charm = makeCharm({ exaltType: "martialarts" });
+    expect(getForeignCharmSurcharge(actor, charm)).toBe(0);
+  });
+
+  it("Infernal Fiend activating an MA-style charm returns 0 (not foreign)", () => {
+    const actor = makeActor({ exaltType: "infernal", caste: "fiend" });
+    const charm = makeCharm({ exaltType: "martialarts" });
     expect(getForeignCharmSurcharge(actor, charm)).toBe(0);
   });
 

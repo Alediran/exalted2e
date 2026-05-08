@@ -310,7 +310,7 @@ describe("computeXpCost — item pricing (charms)", () => {
     });
     const result = computeXpCost(actor, {
       kind: "item",
-      item: { type: "charm", system: { ability: "martialArts", exaltType: "terrestrial", keywords: [], martialArtsTier: "terrestrial" } }
+      item: { type: "charm", system: { ability: "martialarts", exaltType: "terrestrial", keywords: [], martialArtsTier: "terrestrial" } }
     });
     expect(result.xp).toBe(15);
   });
@@ -322,7 +322,7 @@ describe("computeXpCost — item pricing (charms)", () => {
     });
     const result = computeXpCost(actor, {
       kind: "item",
-      item: { type: "charm", system: { ability: "martialArts", exaltType: "terrestrial", keywords: [], martialArtsTier: "celestial" } }
+      item: { type: "charm", system: { ability: "martialarts", exaltType: "terrestrial", keywords: [], martialArtsTier: "celestial" } }
     });
     expect(result.confident).toBe(false);
   });
@@ -335,10 +335,23 @@ describe("computeXpCost — item pricing (charms)", () => {
     });
     const maRes = computeXpCost(actor, {
       kind: "item",
-      item: { type: "charm", system: { ability: "martialArts", exaltType: "alchemical", keywords: [] } }
+      item: { type: "charm", system: { ability: "martialarts", exaltType: "alchemical", keywords: [] } }
     });
     expect(charmRes.xp).toBe(6);
     expect(maRes.xp).toBe(11);
+  });
+
+  it("Solar Eclipse buying an MA-style charm (exaltType martialarts) pays native price, not foreign", () => {
+    const actor = makeActor({
+      exaltType: "solar",
+      caste:     "eclipse",
+      abilities: { melee: { value: 3, caste: true, favored: false } }
+    });
+    const result = computeXpCost(actor, {
+      kind: "item",
+      item: { type: "charm", system: { ability: "martialarts", exaltType: "martialarts", keywords: [], martialArtsTier: "celestial" } }
+    });
+    expect(result.xp).not.toBe(16);  // 16 = foreign charm price
   });
 });
 
