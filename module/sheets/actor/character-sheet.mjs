@@ -1236,6 +1236,24 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const itemId = target.closest("[data-item-id]")?.dataset.itemId;
     const item   = this.document.items.get(itemId);
     if (!item) return;
+
+    if (!item.system.equipped) {
+      const slot     = item.system.slot;
+      const capacity = this.document.system.slots?.[slot];
+      if (slot && slot !== "none" && capacity !== undefined) {
+        const handCost = i => slot === "hands" && i.system.modes?.some(m => m.tags?.includes("Two-handed")) ? 2 : 1;
+        const cost  = handCost(item);
+        const inUse = this.document.items
+          .filter(i => i.id !== itemId && i.system.equipped && i.system.slot === slot)
+          .reduce((sum, i) => sum + handCost(i), 0);
+        if (inUse + cost > capacity) {
+          const slotLabel = game.i18n.localize(`EX2E.Slot${slot.charAt(0).toUpperCase()}${slot.slice(1)}`);
+          ui.notifications.warn(game.i18n.format("EX2E.SlotFull", { slot: slotLabel }));
+          return;
+        }
+      }
+    }
+
     await item.update({ "system.equipped": !item.system.equipped });
   }
 

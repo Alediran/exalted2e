@@ -131,6 +131,14 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         })
       }),
 
+      // ── Equipment Slots ────────────────────────────────────────────────────
+      slots: new fields.SchemaField({
+        hands: new fields.NumberField({ initial: 2, min: 0, max: 10, integer: true }),
+        feet:  new fields.NumberField({ initial: 1, min: 0, max: 10, integer: true }),
+        armor: new fields.NumberField({ initial: 1, min: 0, max: 10, integer: true }),
+        head:  new fields.NumberField({ initial: 1, min: 0, max: 10, integer: true })
+      }),
+
       // ── Experience ─────────────────────────────────────────────────────────
       experience: new fields.SchemaField({
         // `min: 0` relaxed so Purchase Mode's overdraft path can persist
