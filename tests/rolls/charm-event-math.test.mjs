@@ -74,6 +74,22 @@ describe("computeTargetPenaltyAmount — targeted test", () => {
   });
 });
 
+describe("computeTargetPenaltyAmount — amountFormula", () => {
+  it("uses amountFormula when set, overriding static amount", () => {
+    const charms = [{ system: { targetPenalty: {
+      enabled: true, amount: -1, amountFormula: "-3", scope: "all", duration: "scene"
+    }}}];
+    expect(computeTargetPenaltyAmount(charms, {})).toBe(-3);
+  });
+
+  it("falls back to static amount when amountFormula is empty", () => {
+    const charms = [{ system: { targetPenalty: {
+      enabled: true, amount: -2, amountFormula: "", scope: "all", duration: "scene"
+    }}}];
+    expect(computeTargetPenaltyAmount(charms, {})).toBe(-2);
+  });
+});
+
 describe("collectWillpowerRecoveryCharms", () => {
   it("returns empty when no charms", () => {
     expect(collectWillpowerRecoveryCharms([], "onDamageDealt")).toEqual([]);

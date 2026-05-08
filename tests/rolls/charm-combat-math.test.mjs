@@ -54,12 +54,12 @@ describe("computeAttackCharmBonus", () => {
     expect(r.extraDamageDice).toBe(4);
   });
 
-  it("non-integer formula token yields 0 (safe, no Foundry needed)", () => {
+  it("formula token with rollData resolves correctly (e.g. @ess with ess:3 → 3)", () => {
     const charms = [{ system: { attackBonus: {
       enabled: true, accuracyDice: "", accuracySuccesses: "", damageDice: "@ess",
       ignoreAccuracyPenalties: false
     }}}];
-    expect(computeAttackCharmBonus(charms, { ess: 3 }).extraDamageDice).toBe(0);
+    expect(computeAttackCharmBonus(charms, { ess: 3 }).extraDamageDice).toBe(3);
   });
 
   it("skips disabled charms", () => {
@@ -103,6 +103,11 @@ describe("computeSpeedModifier", () => {
     const charms = [{ system: { speedModifier: { enabled: true, delta: -10, perMotes: 0 }}}];
     expect(computeSpeedModifier(charms, 5)).toBe(3);
   });
+
+  it("deltaFormula overrides delta when present", () => {
+    const charms = [{ system: { speedModifier: { enabled: true, delta: -1, deltaFormula: "-2", minimum: 3, perMotes: 0 }}}];
+    expect(computeSpeedModifier(charms, 6, {})).toBe(4);
+  });
 });
 
 // ── computeExtraActionsMax ───────────────────────────────────────────
@@ -135,13 +140,44 @@ describe("computeExtraActionsMax", () => {
   });
 });
 
-describe("computeAttackCharmBonus — formula safety", () => {
-  it("formula token with rollData context yields 0 without Foundry (no crash)", () => {
+describe("computeAttackCharmBonus — formula evaluation", () => {
+  it("@wp token resolves from rollData", () => {
     const charms = [{ system: { attackBonus: {
       enabled: true, accuracyDice: "", accuracySuccesses: "", damageDice: "@wp",
       ignoreAccuracyPenalties: false
     }}}];
     expect(() => computeAttackCharmBonus(charms, { wp: 5 })).not.toThrow();
-    expect(computeAttackCharmBonus(charms, { wp: 5 }).extraDamageDice).toBe(0);
+    expect(computeAttackCharmBonus(charms, { wp: 5 }).extraDamageDice).toBe(5);
+  });
+
+  it("accuracy fields also resolve formulas", () => {
+    const charms = [{ system: { attackBonus: {
+      enabled: true, accuracyDice: "@ess", accuracySuccesses: "@ess", damageDice: "",
+      ignoreAccuracyPenalties: false
+    }}}];
+    const r = computeAttackCharmBonus(charms, { ess: 4 });
+    expect(r.extraAccuracyDice).toBe(4);
+    expect(r.extraAccuracySuccesses).toBe(4);
+  });
+
+  it("missing rollData token falls back to 0", () => {
+    const charms = [{ system: { attackBonus: {
+      enabled: true, accuracyDice: "", accuracySuccesses: "", damageDice: "@ess",
+      ignoreAccuracyPenalties: false
+    }}}];
+    // ess not present in rollData — replaceFormulaData substitutes "0"
+    expect(computeAttackCharmBonus(charms, {}).extraDamageDice).toBe(0);
+  });
+});
+
+describe("computeExtraActionsMax — formula evaluation", () => {
+  it("@ess formula resolves from rollData", () => {
+    const charms = [{ system: { extraActions: { enabled: true, maxFormula: "@ess", costPerAction: 0 }}}];
+    expect(computeExtraActionsMax(charms, { ess: 3 })).toBe(3);
+  });
+
+  it("missing token falls back to 0", () => {
+    const charms = [{ system: { extraActions: { enabled: true, maxFormula: "@ess", costPerAction: 0 }}}];
+    expect(computeExtraActionsMax(charms, {})).toBe(0);
   });
 });

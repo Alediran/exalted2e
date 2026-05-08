@@ -572,7 +572,7 @@ Hooks.once("ready", async function () {
       const activatedItems = (attack.attackCharms ?? [])
         .map(n => actor.items.find(i => i.name === n))
         .filter(Boolean);
-      const penaltyAmount = computeTargetPenaltyAmount(activatedItems);
+      const penaltyAmount = computeTargetPenaltyAmount(activatedItems, actor.getRollData());
       if (penaltyAmount < 0) {
         await targetActor.applyInternalPenalty(Math.abs(penaltyAmount), {
           type: "all",

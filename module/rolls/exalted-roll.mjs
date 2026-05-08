@@ -667,7 +667,7 @@ export class ExaltedRoll {
 
     const charmAttackBonus = computeAttackCharmBonus(resolvedAttackBonusCharms, rollData);
     const baseSpeed        = mode.effectiveSpeed ?? 5;
-    const charmSpeed       = computeSpeedModifier(allCharms, baseSpeed);
+    const charmSpeed       = computeSpeedModifier(allCharms, baseSpeed, rollData);
     const charmExtraMax    = computeExtraActionsMax(allCharms, rollData);
 
     const unblockable = activatedKeywords.has("Unblockable");

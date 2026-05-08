@@ -69,6 +69,13 @@
       "path":   "packs/charms",
       "type":   "Item",
       "system": "exalted2e"
+    },
+    {
+      "name": "martialarts",
+      "label": "Exalted 2e Martial Arts",
+      "path": "packs/martialarts",
+      "type": "Item",
+      "system": "exalted2e"
     }
   ],
   "documentTypes": {

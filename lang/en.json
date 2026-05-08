@@ -1386,7 +1386,9 @@
     "DVBDodgeBonus":              "Dodge DV add",
     "DVBIgnoreAll":               "Ignore all DV penalties",
     "DVBIgnorePenaltyTypes":      "Or specify types",
+    "DVBDodgeBonusFormula":       "Dodge Bonus Formula",
     "DVBParryBonus":              "Parry DV add",
+    "DVBParryBonusFormula":       "Parry Bonus Formula",
     "DVBTypeAction":              "Action penalty",
     "DVBTypeOnslaught":           "Onslaught penalty",
     "DVBTypeWound":               "Wound penalty",
@@ -1456,12 +1458,16 @@
     "SAStatus":                   "Status",
 
     "SBAAggravated":              "Aggravated",
+    "SBABashingFormula":          "Bashing Formula",
+    "SBALethalFormula":           "Lethal Formula",
+    "SBAAggravatedFormula":       "Aggravated Formula",
     "SBABashing":                 "Bashing soak",
     "SBALethal":                  "Lethal soak",
     "SBHardnessAdd":              "Hardness add",
     "SBHardnessSetTo":            "Hardness set to",
 
     "SMDelta":                    "Change Speed by",
+    "SMDeltaFormula":             "Speed Delta Formula",
     "SMMinimum":                  "Minimum Speed",
     "SMPerMotes":                 "Cost per pip (motes)",
     "SMPerMotesHelp":             "0 = flat, no per-mote scaling",
@@ -1476,6 +1482,7 @@
     "TPScopeAll":                 "All rolls",
     "TPScopeAttacksOnly":         "Attacks only",
     "TPScopeDVOnly":              "DV only",
+    "TPAmountFormula":            "Penalty Amount Formula",
 
     "WRFormula":                  "Reduce wound penalty by"
   },

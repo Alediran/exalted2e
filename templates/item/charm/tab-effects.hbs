@@ -273,6 +273,57 @@
                min="0" {{#unless isEditable}}readonly{{/unless}}>
       </div>
       {{/if}}
+      <div class="field-group">
+        <label>{{localize "EX2E.SBABashingFormula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.soakBonus.bashingFormula"
+                 value="{{system.soakBonus.bashingFormula}}"
+                 placeholder="e.g. @sta"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.soakBonus.bashingFormula"
+                  data-label="{{localize 'EX2E.SBABashingFormula'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.SBALethalFormula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.soakBonus.lethalFormula"
+                 value="{{system.soakBonus.lethalFormula}}"
+                 placeholder="e.g. @sta"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.soakBonus.lethalFormula"
+                  data-label="{{localize 'EX2E.SBALethalFormula'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.SBAAggravatedFormula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.soakBonus.aggravatedFormula"
+                 value="{{system.soakBonus.aggravatedFormula}}"
+                 placeholder="e.g. @sta"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.soakBonus.aggravatedFormula"
+                  data-label="{{localize 'EX2E.SBAAggravatedFormula'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
     </div>
     {{/if}}
   </div>
@@ -587,6 +638,40 @@
                value="{{system.dvBonus.parryBonus}}" min="0"
                {{#unless isEditable}}readonly{{/unless}}>
       </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.DVBDodgeBonusFormula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.dvBonus.dodgeBonusFormula"
+                 value="{{system.dvBonus.dodgeBonusFormula}}"
+                 placeholder="e.g. @dex"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.dvBonus.dodgeBonusFormula"
+                  data-label="{{localize 'EX2E.DVBDodgeBonusFormula'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.DVBParryBonusFormula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.dvBonus.parryBonusFormula"
+                 value="{{system.dvBonus.parryBonusFormula}}"
+                 placeholder="e.g. @dex"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.dvBonus.parryBonusFormula"
+                  data-label="{{localize 'EX2E.DVBParryBonusFormula'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
       <div class="field-group" style="grid-column:1/-1">
         <label class="checkbox-label">
           <input type="checkbox" name="system.dvBonus.ignoreAllPenalties"
@@ -710,6 +795,23 @@
                {{#unless isEditable}}readonly{{/unless}}>
       </div>
       <div class="field-group">
+        <label>{{localize "EX2E.TPAmountFormula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.targetPenalty.amountFormula"
+                 value="{{system.targetPenalty.amountFormula}}"
+                 placeholder="e.g. -2"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.targetPenalty.amountFormula"
+                  data-label="{{localize 'EX2E.TPAmountFormula'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field-group">
         <label>{{localize "EX2E.TPScope"}}</label>
         <select name="system.targetPenalty.scope" {{#unless isEditable}}disabled{{/unless}}>
           {{#each targetPenaltyScopes}}
@@ -744,6 +846,23 @@
         <input type="number" name="system.speedModifier.delta"
                value="{{system.speedModifier.delta}}"
                {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.SMDeltaFormula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.speedModifier.deltaFormula"
+                 value="{{system.speedModifier.deltaFormula}}"
+                 placeholder="e.g. -@dex"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.speedModifier.deltaFormula"
+                  data-label="{{localize 'EX2E.SMDeltaFormula'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
       </div>
       <div class="field-group">
         <label>{{localize "EX2E.SMMinimum"}}</label>

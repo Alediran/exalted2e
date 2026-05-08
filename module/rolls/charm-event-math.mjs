@@ -1,4 +1,5 @@
 // module/rolls/charm-event-math.mjs
+import { evaluateCharmFormula } from '../documents/item.mjs';
 
 /**
  * Return all enabled moteRecovery charms that fire on the given event.
@@ -39,14 +40,18 @@ export function collectWillpowerRecoveryCharms(items, event) {
  * Sum the target-penalty amounts across all enabled targetPenalty charms.
  * Amounts are negative integers; result is the total deduction.
  * @param {object[]} items
+ * @param {object}   [rollData={}] — actor roll-data for formula evaluation
  * @returns {number} ≤ 0
  */
-export function computeTargetPenaltyAmount(items) {
+export function computeTargetPenaltyAmount(items, rollData = {}) {
   let total = 0;
   for (const c of items) {
     const tp = c?.system?.targetPenalty;
     if (!tp?.enabled) continue;
-    total += tp.amount ?? 0;
+    const amount = tp.amountFormula
+      ? evaluateCharmFormula(tp.amountFormula, rollData, tp.amount ?? 0)
+      : (tp.amount ?? 0);
+    total += amount;
   }
   return Math.min(0, total);
 }

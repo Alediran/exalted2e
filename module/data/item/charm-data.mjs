@@ -244,10 +244,11 @@ export class CharmData extends foundry.abstract.TypeDataModel {
 
       // M11 — Internal penalty applied to target
       targetPenalty: new fields.SchemaField({
-        enabled:  new fields.BooleanField({ initial: false }),
-        amount:   new fields.NumberField({ initial: -1, max: 0, integer: true }),
-        scope:    new fields.StringField({ initial: "all" }),
-        duration: new fields.StringField({ initial: "oneScene" })
+        enabled:       new fields.BooleanField({ initial: false }),
+        amount:        new fields.NumberField({ initial: -1, max: 0, integer: true }),
+        amountFormula: new fields.StringField({ initial: '', blank: true }),
+        scope:         new fields.StringField({ initial: "all" }),
+        duration:      new fields.StringField({ initial: "oneScene" })
       }),
 
       // M12 — Attack roll bonus (supplemental charms)
@@ -261,10 +262,11 @@ export class CharmData extends foundry.abstract.TypeDataModel {
 
       // M13 — Speed modifier
       speedModifier: new fields.SchemaField({
-        enabled:  new fields.BooleanField({ initial: false }),
-        delta:    new fields.NumberField({ initial: -1, integer: true }),
-        minimum:  new fields.NumberField({ initial: 3, min: 1, integer: true }),
-        perMotes: new fields.NumberField({ initial: 0, min: 0, integer: true })
+        enabled:      new fields.BooleanField({ initial: false }),
+        delta:        new fields.NumberField({ initial: -1, integer: true }),
+        deltaFormula: new fields.StringField({ initial: '', blank: true }),
+        minimum:      new fields.NumberField({ initial: 3, min: 1, integer: true }),
+        perMotes:     new fields.NumberField({ initial: 0, min: 0, integer: true })
       }),
 
       // M14 — Rate bonus (extra attacks in a flurry)

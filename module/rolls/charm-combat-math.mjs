@@ -1,22 +1,23 @@
 // module/rolls/charm-combat-math.mjs
+import { evaluateCharmFormula } from '../documents/item.mjs';
 
 /**
  * Aggregate attack bonuses from activated supplemental charms.
- * Formula fields (e.g. damageDice: "@ess") require Foundry's Roll.safeEval
- * and cannot be evaluated here. Non-integer values silently yield 0.
+ * Formula fields (e.g. damageDice: "@ess") are evaluated via evaluateCharmFormula.
+ * Pass actor.getRollData() as rollData to resolve stat tokens.
  * @param {object[]} charms
- * @param {object}  _rollData — reserved for future formula evaluation
+ * @param {object}   rollData — actor roll-data for formula evaluation; pass {} if unavailable
  * @returns {{ extraAccuracyDice:number, extraAccuracySuccesses:number, extraDamageDice:number, ignorePenalties:boolean }}
  */
-export function computeAttackCharmBonus(charms, _rollData) {
+export function computeAttackCharmBonus(charms, rollData = {}) {
   let extraAccuracyDice = 0, extraAccuracySuccesses = 0, extraDamageDice = 0;
   let ignorePenalties = false;
   for (const c of charms) {
     const ab = c?.system?.attackBonus;
     if (!ab?.enabled) continue;
-    extraAccuracyDice      += _parseIntField(ab.accuracyDice);
-    extraAccuracySuccesses += _parseIntField(ab.accuracySuccesses);
-    extraDamageDice        += _parseIntField(ab.damageDice);
+    extraAccuracyDice      += evaluateCharmFormula(ab.accuracyDice,      rollData, 0) | 0;
+    extraAccuracySuccesses += evaluateCharmFormula(ab.accuracySuccesses,  rollData, 0) | 0;
+    extraDamageDice        += evaluateCharmFormula(ab.damageDice,         rollData, 0) | 0;
     if (ab.ignoreAccuracyPenalties) ignorePenalties = true;
   }
   return { extraAccuracyDice, extraAccuracySuccesses, extraDamageDice, ignorePenalties };
@@ -26,45 +27,41 @@ export function computeAttackCharmBonus(charms, _rollData) {
  * Compute effective weapon speed after applying all active speedModifier charms.
  * Result = clamp(baseSpeed + sum(deltas), max(minimums across active charms)).
  * @param {object[]} charms
- * @param {number} baseSpeed
+ * @param {number}   baseSpeed
+ * @param {object}   rollData — actor roll-data for formula evaluation; pass {} if unavailable
  * @returns {number}
  */
-export function computeSpeedModifier(charms, baseSpeed) {
+export function computeSpeedModifier(charms, baseSpeed, rollData = {}) {
   let totalDelta = 0, globalMin = 3; // 3 is the fastest legal weapon speed in 2e
   let anyEnabled = false;
   for (const c of charms) {
     const sm = c?.system?.speedModifier;
     if (!sm?.enabled) continue;
     anyEnabled = true;
-    totalDelta += sm.delta ?? 0;
+    const delta = sm.deltaFormula
+      ? evaluateCharmFormula(sm.deltaFormula, rollData, sm.delta ?? 0)
+      : (sm.delta ?? 0);
+    totalDelta += delta;
     globalMin = Math.max(globalMin, sm.minimum ?? 3);
   }
   if (!anyEnabled) return baseSpeed;
-  return Math.max(globalMin, baseSpeed + totalDelta);
+  return Math.floor(Math.max(globalMin, baseSpeed + totalDelta));
 }
 
 /**
  * Return the maximum number of extra actions granted by active extraActions charms.
  * Extra-action charms take the maximum, not sum (only one applies per action in 2e).
  * @param {object[]} charms
- * @param {object}  _rollData — reserved for formula evaluation
+ * @param {object}   rollData — actor roll-data for formula evaluation; pass {} if unavailable
  * @returns {number}
  */
-export function computeExtraActionsMax(charms, _rollData) {
+export function computeExtraActionsMax(charms, rollData = {}) {
   let max = 0;
   for (const c of charms) {
     const ea = c?.system?.extraActions;
     if (!ea?.enabled) continue;
-    const n = _parseIntField(ea.maxFormula);
+    const n = evaluateCharmFormula(ea.maxFormula, rollData, 0) | 0;
     if (n > max) max = n;
   }
   return max;
-}
-
-/** Parse plain-integer string. Returns 0 for formula tokens or empty values. */
-function _parseIntField(raw) {
-  if (raw === null || raw === undefined || raw === "") return 0;
-  const s = String(raw).trim();
-  if (/^-?\d+$/.test(s)) return parseInt(s, 10);
-  return 0;
 }

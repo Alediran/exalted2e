@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // scripts/gen-charm-status.mjs
 // Generates docs/charm-functionality.md by analysing enabled effect fields
-// across all src/packs/charms-* JSON files.
+// across all src/packs/charms/ JSON files (merged single-pack layout).
 //
 // Usage: node scripts/gen-charm-status.mjs
 
@@ -102,24 +102,26 @@ function classify(doc) {
 }
 
 // ── Load all charms ──────────────────────────────────────────────────────────
+// Charms are stored in src/packs/charms/ with splat-prefixed filenames,
+// e.g. solar-accuracy-without-distance.json, inkmonkeys-wind-born-stride.json.
+// The splat group is the filename prefix before the first hyphen.
 
-const BASE = 'src/packs';
+const BASE = 'src/packs/charms';
 const byPack = {};
-for (const pack of readdirSync(BASE).filter(d => d.startsWith('charms-'))) {
-  const label = pack.replace('charms-', '');
-  byPack[label] = [];
-  const dir = join(BASE, pack);
-  for (const f of readdirSync(dir).filter(f => f.endsWith('.json') && !f.startsWith('_'))) {
-    const doc = JSON.parse(readFileSync(join(dir, f), 'utf-8'));
-    if (doc.type !== 'charm') continue;
-    const result = classify(doc);
-    byPack[label].push({
-      name: doc.name,
-      type: doc.system.charmType,
-      dur: doc.system.duration,
-      ...result,
-    });
-  }
+for (const f of readdirSync(BASE).filter(f => f.endsWith('.json') && !f.startsWith('_'))) {
+  const doc = JSON.parse(readFileSync(join(BASE, f), 'utf-8'));
+  if (doc.type !== 'charm') continue;
+  const label = f.split('-')[0];
+  if (!byPack[label]) byPack[label] = [];
+  const result = classify(doc);
+  byPack[label].push({
+    name: doc.name,
+    type: doc.system.charmType,
+    dur: doc.system.duration,
+    ...result,
+  });
+}
+for (const label of Object.keys(byPack)) {
   byPack[label].sort((a, b) => a.name.localeCompare(b.name));
 }
 
@@ -155,7 +157,7 @@ const lines = [];
 const today = new Date().toISOString().slice(0, 10);
 
 lines.push(`# Charm Functionality Status`);
-lines.push(`\n_Generated ${today}. Automated analysis based on enabled effect fields in \`src/packs/charms-*\`. Manual review recommended for edge cases._\n`);
+lines.push(`\n_Generated ${today}. Automated analysis based on enabled effect fields in \`src/packs/charms/\`. Manual review recommended for edge cases._\n`);
 
 lines.push(`## Summary\n`);
 lines.push(`| Category | Count | % |`);
