@@ -15,9 +15,11 @@ export class ArmorSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     window: { resizable: true },
     form: { submitOnChange: true, closeOnSubmit: false },
     actions: {
-      editImage: editImageAction,
-      addTag:    ArmorSheet.#onAddTag,
-      removeTag: ArmorSheet.#onRemoveTag
+      editImage:           editImageAction,
+      addTag:              ArmorSheet.#onAddTag,
+      removeTag:           ArmorSheet.#onRemoveTag,
+      socketHearthstone:   ArmorSheet.#onSocketHearthstone,
+      unsocketHearthstone: ArmorSheet.#onUnsocketHearthstone
     }
   };
 
@@ -45,8 +47,51 @@ export class ArmorSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       isEditable: this.isEditable,
       enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.description, {
         secrets: this.document.isOwner, relativeTo: this.document
-      })
+      }),
+      socketedSlots: _buildSocketedSlots(this.document)
     };
+  }
+
+  static async #onSocketHearthstone(_event, target) {
+    const slotIndex = parseInt(target.dataset.slotIndex);
+    const artifact  = this.document;
+    const actor     = artifact.parent;
+    if (!actor) return;
+
+    const socketedIds = new Set();
+    for (const item of actor.items) {
+      const stones = item.system?.hearthstones;
+      if (Array.isArray(stones)) {
+        for (const id of stones) { if (id) socketedIds.add(id); }
+      }
+    }
+
+    const available = actor.items.filter(i => i.type === "hearthstone" && !socketedIds.has(i.id));
+    if (!available.length) {
+      ui.notifications.warn(game.i18n.localize("EX2E.NoHearthstonesAvailable"));
+      return;
+    }
+
+    const chosenId = await foundry.applications.api.DialogV2.prompt({
+      window:      { title: game.i18n.localize("EX2E.SelectHearthstone") },
+      content:     `<div style="padding:8px"><select name="stoneId" style="width:100%">
+        ${available.map(s => `<option value="${s.id}">${s.name} (★${s.system.rating})</option>`).join("")}
+      </select></div>`,
+      ok:          { label: game.i18n.localize("EX2E.SocketHearthstone"), callback: (_ev, btn) => btn.form.elements.stoneId.value },
+      rejectClose: false
+    });
+    if (!chosenId) return;
+
+    const stones = foundry.utils.deepClone(artifact.system.hearthstones ?? []);
+    stones[slotIndex] = chosenId;
+    await artifact.update({ "system.hearthstones": stones });
+  }
+
+  static async #onUnsocketHearthstone(_event, target) {
+    const slotIndex = parseInt(target.dataset.slotIndex);
+    const stones    = foundry.utils.deepClone(this.document.system.hearthstones ?? []);
+    stones[slotIndex] = "";
+    await this.document.update({ "system.hearthstones": stones });
   }
 
   static async #onAddTag(event, target) {
@@ -81,4 +126,15 @@ export class ArmorSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const val      = (newValue === 1 && current === 1) ? min : Math.max(min, newValue);
     await this.document.update({ [name]: val });
   }
+}
+
+function _buildSocketedSlots(item) {
+  const count      = item.system?.hearthstoneSlots ?? 0;
+  const ids        = item.system?.hearthstones ?? [];
+  const actorItems = item.parent ? [...item.parent.items] : [];
+  return Array.from({ length: count }, (_, i) => {
+    const id    = ids[i] ?? "";
+    const stone = id ? actorItems.find(s => s.id === id && s.type === "hearthstone") : null;
+    return { index: i, filled: !!stone, stoneId: id, stoneName: stone?.name ?? "", stoneRating: stone?.system?.rating ?? 0 };
+  });
 }

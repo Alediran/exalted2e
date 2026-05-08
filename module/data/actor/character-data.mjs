@@ -2,6 +2,7 @@ import { EX2E } from "../../config.mjs";
 import { computeWoundPenalty } from "../../rolls/health-math.mjs";
 import { computeTotalClarity, computePermanentClarity } from "../../combat/clarity-math.mjs";
 import { computeHealthGrantBonus, computeWoundReduction, computeMotePoolBonus, applyStatBoostDeltas, isCharmPassivelyActive } from "../../rolls/charm-passive-math.mjs";
+import { computeHearthstoneMoteRegen } from "../../helpers/hearthstone-regen.mjs";
 
 const fields = foundry.data.fields;
 
@@ -319,6 +320,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     this._prepareIntimacies();
     this._prepareAlchemicalClarity();
     this._prepareAnimaLevel();
+    this.hearthstoneMoteRegen = computeHearthstoneMoteRegen(this.parent?.items ?? []);
   }
 
   /**

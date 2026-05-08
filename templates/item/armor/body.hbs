@@ -47,6 +47,26 @@
     <input type="number" name="system.hearthstoneSlots" value="{{system.hearthstoneSlots}}"
            min="0" max="3" {{#unless isEditable}}readonly{{/unless}}>
   </div>
+  {{#if system.hearthstoneSlots}}
+  <div class="hearthstone-socket-rows" style="margin-top:4px">
+    {{#each socketedSlots as |slot|}}
+    <div class="hearthstone-slot-row">
+      {{#if slot.filled}}
+      <span class="socket-label">⬡ {{slot.stoneName}} ★{{slot.stoneRating}}</span>
+      {{#if @root.isEditable}}
+      <button class="socket-btn" data-action="unsocketHearthstone" data-slot-index="{{slot.index}}">×</button>
+      {{/if}}
+      {{else}}
+      {{#if @root.isEditable}}
+      <button class="socket-btn" data-action="socketHearthstone" data-slot-index="{{slot.index}}">○ {{localize "EX2E.SocketHearthstone"}}</button>
+      {{else}}
+      <span class="socket-label socket-empty">○ —</span>
+      {{/if}}
+      {{/if}}
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
   {{/if}}
 
   <!-- Tags -->

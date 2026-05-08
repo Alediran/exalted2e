@@ -24,6 +24,19 @@
         <button data-action="deleteItem">🗑</button>
         {{/if}}
       </div>
+      {{#if w.system.hearthstoneSlots}}
+      <div class="hearthstone-socket-rows">
+        {{#each (lookup ../artifactSlotMap w.id) as |slot|}}
+        <div class="hearthstone-slot-row">
+          {{#if slot.filled}}
+          <span class="socket-label">⬡ {{slot.stoneName}} ★{{slot.stoneRating}}</span>
+          {{else}}
+          <span class="socket-label socket-empty">○ —</span>
+          {{/if}}
+        </div>
+        {{/each}}
+      </div>
+      {{/if}}
     </div>
     {{/each}}
 
@@ -50,6 +63,19 @@
         <button data-action="deleteItem">🗑</button>
         {{/if}}
       </div>
+      {{#if a.system.hearthstoneSlots}}
+      <div class="hearthstone-socket-rows">
+        {{#each (lookup ../artifactSlotMap a.id) as |slot|}}
+        <div class="hearthstone-slot-row">
+          {{#if slot.filled}}
+          <span class="socket-label">⬡ {{slot.stoneName}} ★{{slot.stoneRating}}</span>
+          {{else}}
+          <span class="socket-label socket-empty">○ —</span>
+          {{/if}}
+        </div>
+        {{/each}}
+      </div>
+      {{/if}}
     </div>
     {{/each}}
 
@@ -97,6 +123,66 @@
         <button data-action="deleteItem">🗑</button>
         {{/if}}
       </div>
+    </div>
+    {{/each}}
+
+    <!-- ═══════ HEARTHSTONES ═══════ -->
+    <div class="section-toolbar" style="margin-top:16px">
+      <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Hearthstones"}}</h2>
+      {{#if isEditable}}
+      <button class="btn-add-item" data-action="createItem" data-type="hearthstone">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      {{/if}}
+    </div>
+    {{#each hearthstones as |hs|}}
+    <div class="item-row" data-item-id="{{hs.id}}">
+      <img class="item-img" src="{{hs.img}}" alt="{{hs.name}}">
+      <span class="item-name">{{hs.name}}</span>
+      <span class="item-stat">★{{hs.system.rating}} · {{mul hs.system.rating 2}}m/h</span>
+      <div class="item-controls">
+        {{#if ../isEditable}}
+        <button data-action="editItem">✏️</button>
+        <button data-action="deleteItem">🗑</button>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
+
+    <!-- ═══════ EQUIPMENT ═══════ -->
+    <div class="section-toolbar" style="margin-top:16px">
+      <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Equipment"}}</h2>
+      {{#if isEditable}}
+      <button class="btn-add-item" data-action="createItem" data-type="equipment">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      {{/if}}
+    </div>
+    {{#each equipments as |eq|}}
+    <div class="item-row" data-item-id="{{eq.id}}">
+      <img class="item-img" src="{{eq.img}}" alt="{{eq.name}}">
+      <span class="item-name">{{eq.name}}</span>
+      {{#if eq.system.artifact}}<span class="keyword-tag">{{localize "EX2E.ArtifactItem"}}</span>{{/if}}
+      <div class="item-controls">
+        <button data-action="toggleEquip">{{#if eq.system.equipped}}✓{{else}}○{{/if}}</button>
+        {{#if ../isEditable}}
+        <button data-action="editItem">✏️</button>
+        <button data-action="deleteItem">🗑</button>
+        {{/if}}
+      </div>
+      {{#if eq.system.hearthstoneSlots}}
+      <div class="hearthstone-socket-rows">
+        {{#each (lookup ../artifactSlotMap eq.id) as |slot|}}
+        <div class="hearthstone-slot-row">
+          {{#if slot.filled}}
+          <span class="socket-label">⬡ {{slot.stoneName}} ★{{slot.stoneRating}}</span>
+          {{else}}
+          <span class="socket-label socket-empty">○ —</span>
+          {{/if}}
+        </div>
+        {{/each}}
+      </div>
+      {{/if}}
     </div>
     {{/each}}
 

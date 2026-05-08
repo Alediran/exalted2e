@@ -58,6 +58,9 @@
         <div class="essence-display">
           {{dotRating name="system.essence.value" value=system.essence.value max=5 min=1}}
         </div>
+        {{#if system.hearthstoneMoteRegen}}
+        <span class="hearthstone-regen-label">{{localize "EX2E.Regen"}}: {{system.hearthstoneMoteRegen}}/{{localize "EX2E.Hour"}}</span>
+        {{/if}}
       </div>
       <!-- Willpower: permanent (dots) + temporal (boxes) -->
       <div class="field-group willpower-group">

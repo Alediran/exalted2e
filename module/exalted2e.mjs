@@ -24,6 +24,7 @@ import { AnimaPowerData }   from "./data/item/anima-power-data.mjs";
 import { UrgeData }         from "./data/item/urge-data.mjs";
 import { DestinyData }      from "./data/item/destiny-data.mjs";
 import { EquipmentData }    from "./data/item/equipment-data.mjs";
+import { HearthstoneData }  from "./data/item/hearthstone-data.mjs";
 import { CharacterSheet }   from "./sheets/actor/character-sheet.mjs";
 import { NpcSheet }         from "./sheets/actor/npc-sheet.mjs";
 import { CharmSheet }       from "./sheets/item/charm-sheet.mjs";
@@ -163,7 +164,8 @@ Hooks.once("init", function () {
     animapower: AnimaPowerData,
     urge:       UrgeData,
     destiny:    DestinyData,
-    equipment:  EquipmentData
+    equipment:   EquipmentData,
+    hearthstone: HearthstoneData
   };
 
   // ── Sheet Registration ──────────────────────────────────────────────────
@@ -201,7 +203,7 @@ Hooks.once("init", function () {
     label:     "EX2E.SheetArmor"
   });
   foundry.documents.collections.Items.registerSheet("exalted2e", GenericItemSheet, {
-    types:     ["background", "intimacy", "meritflaw", "equipment"],
+    types:     ["background", "intimacy", "meritflaw", "equipment", "hearthstone"],
     makeDefault: true,
     label:     "EX2E.SheetGenericItem"
   });

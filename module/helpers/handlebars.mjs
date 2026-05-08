@@ -185,6 +185,7 @@ export function registerHandlebarsHelpers() {
   // ── add / subtract ────────────────────────────────────────────────────
   Handlebars.registerHelper("add", (a, b) => Number(a) + Number(b));
   Handlebars.registerHelper("sub", (a, b) => Number(a) - Number(b));
+  Handlebars.registerHelper("mul", (a, b) => Number(a) * Number(b));
 
   // ── includes ──────────────────────────────────────────────────────────
   Handlebars.registerHelper("includes", (arr, item) =>

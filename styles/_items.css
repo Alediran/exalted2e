@@ -518,3 +518,9 @@ details.charm-group > summary.charm-group-header {
   gap:            var(--ex2e-gap-xs);
 }
 
+.hearthstone-slot-row {
+  display:     flex;
+  align-items: center;
+  gap:         6px;
+}
+

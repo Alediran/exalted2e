@@ -21,7 +21,11 @@ describe("EquipmentData schema", () => {
     expect(schema.equipped.options.initial).toBe(false);
   });
 
-  it("schema has exactly four fields", () => {
-    expect(Object.keys(schema)).toEqual(["resourcesCost", "quantity", "description", "equipped"]);
+  it("schema has all expected fields", () => {
+    expect(Object.keys(schema)).toEqual([
+      "resourcesCost", "quantity", "description", "equipped", "slot",
+      "artifact", "magicalMaterial", "attunementCost", "attuned",
+      "artifactRating", "hearthstoneSlots", "hearthstones"
+    ]);
   });
 });

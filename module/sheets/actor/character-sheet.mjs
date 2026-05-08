@@ -191,6 +191,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       ventResonance:       CharacterSheet.#onVentResonance,
       activateGreaterSign: CharacterSheet.#onActivateAnimaPower,
       rollHealingCharm:    CharacterSheet.#onRollHealingCharm,
+      socketHearthstone:   CharacterSheet.#onSocketHearthstone,
+      unsocketHearthstone: CharacterSheet.#onUnsocketHearthstone,
     }
   };
 
@@ -456,6 +458,29 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const backgrounds= actor.items.filter(i => i.type === "background") .sort((a,b) => a.name.localeCompare(b.name));
     const intimacies = actor.items.filter(i => i.type === "intimacy")   .sort((a,b) => a.name.localeCompare(b.name));
     const meritflaws = actor.items.filter(i => i.type === "meritflaw")  .sort((a,b) => a.name.localeCompare(b.name));
+    const equipments   = actor.items.filter(i => i.type === "equipment") .sort((a,b) => a.name.localeCompare(b.name));
+    const hearthstones = actor.items.filter(i => i.type === "hearthstone").sort((a,b) => a.name.localeCompare(b.name));
+
+    const artifactSlotMap = {};
+    const allActorItems = [...actor.items];
+    for (const item of allActorItems) {
+      const count = item.system?.hearthstoneSlots ?? 0;
+      if (!count) continue;
+      const ids = item.system?.hearthstones ?? [];
+      artifactSlotMap[item.id] = Array.from({ length: count }, (_, i) => {
+        const id    = ids[i] ?? "";
+        const stone = id ? allActorItems.find(s => s.id === id && s.type === "hearthstone") : null;
+        return {
+          index:       i,
+          artifactId:  item.id,
+          filled:      !!stone,
+          stoneId:     id,
+          stoneName:   stone?.name ?? "",
+          stoneRating: stone?.system?.rating ?? 0
+        };
+      });
+    }
+
     const virtueFlaw = actor.items.find(i => i.type === "virtueflaw") ?? null;
     const urgeItem   = actor.items.find(i => i.type === "urge") ?? null;
 
@@ -704,7 +729,10 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       animaPower,
       greaterSigns,
       collegeGroups,
-      destinies
+      destinies,
+      equipments,
+      hearthstones,
+      artifactSlotMap
     };
   }
 
@@ -1686,5 +1714,56 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     if (description === null) return;
     await sanctifyOathBinding(actor, targets, description);
+  }
+
+  static async #onSocketHearthstone(_event, target) {
+    const artifactId = target.dataset.artifactId;
+    const slotIndex  = parseInt(target.dataset.slotIndex);
+    const artifact   = this.document.items.get(artifactId);
+    if (!artifact) return;
+
+    const socketedIds = new Set();
+    for (const item of this.document.items) {
+      const stones = item.system?.hearthstones;
+      if (Array.isArray(stones)) {
+        for (const id of stones) { if (id) socketedIds.add(id); }
+      }
+    }
+
+    const available = this.document.items.filter(
+      i => i.type === "hearthstone" && !socketedIds.has(i.id)
+    );
+    if (!available.length) {
+      ui.notifications.warn(game.i18n.localize("EX2E.NoHearthstonesAvailable"));
+      return;
+    }
+
+    const chosenId = await foundry.applications.api.DialogV2.prompt({
+      window:      { title: game.i18n.localize("EX2E.SelectHearthstone") },
+      content:     `<div style="padding:8px"><select name="stoneId" style="width:100%">
+        ${available.map(s => `<option value="${s.id}">${s.name} (★${s.system.rating})</option>`).join("")}
+      </select></div>`,
+      ok:          {
+        label:    game.i18n.localize("EX2E.SocketHearthstone"),
+        callback: (_ev, btn) => btn.form.elements.stoneId.value
+      },
+      rejectClose: false
+    });
+    if (!chosenId) return;
+
+    const stones = foundry.utils.deepClone(artifact.system.hearthstones ?? []);
+    stones[slotIndex] = chosenId;
+    await artifact.update({ "system.hearthstones": stones });
+  }
+
+  static async #onUnsocketHearthstone(_event, target) {
+    const artifactId = target.dataset.artifactId;
+    const slotIndex  = parseInt(target.dataset.slotIndex);
+    const artifact   = this.document.items.get(artifactId);
+    if (!artifact) return;
+
+    const stones = foundry.utils.deepClone(artifact.system.hearthstones ?? []);
+    stones[slotIndex] = "";
+    await artifact.update({ "system.hearthstones": stones });
   }
 }
