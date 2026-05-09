@@ -885,6 +885,21 @@ Hooks.on("preCreateItem", (item, data, options, userId) => {
     return false;
   }
 
+  // ── Native charm gate ─────────────────────────────────────────────────────
+  // Native charms belong exclusively to their original exalt tradition.
+  // Eclipse, Moonshadow, and Fiend castes cannot learn them even at the
+  // doubled foreign-charm XP rate.
+  const nativeParent = item.parent;
+  if (item.type === "charm" &&
+      nativeParent instanceof Actor &&
+      item.system.keywords?.includes("Native") &&
+      ["eclipse", "moonshadow", "fiend"].includes(nativeParent.system.caste)) {
+    ui.notifications.warn(
+      game.i18n.format("EX2E.NativeCharmForbidden", { name: item.name })
+    );
+    return false;
+  }
+
   // ── Purchase Mode: XP-costing items on locked actors ──────────────────
   // Flag the item so the async createItem hook below can run the
   // confirmation flow. preCreateItem is synchronous; we can't `await`

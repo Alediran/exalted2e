@@ -57,6 +57,8 @@
     "YoziKimbery":      "Kimbery, the Sea That Marched Against the Flame",
     "CharmSource":      "Source",
     "HereticalCharmForbidden": "\"{name}\" is a Heretical charm and can only be learned by Green Sun Princes.",
+    "NativeCharmForbidden":    "\"{name}\" is a Native charm and cannot be learned by Eclipse, Moonshadow, or Fiend Castes.",
+    "ActionOnlyCharmForbidden": "\"{name}\" is an Action-Only charm and can only be activated during your own action.",
 
     "CasteOrichalcum":"Orichalcum",
     "CasteMoonsilver":"Moonsilver",

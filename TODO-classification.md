@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-08
+Last updated: 2026-05-09
 
 ---
 
@@ -14,8 +14,6 @@ Last updated: 2026-05-08
 | Starmetal target-imposed external penalty | Defense / Penalty | flag on equipped armor → existing penalty aggregator |
 | Drag-reorder within Combo sheet | Combat | UI arrow buttons only |
 | Shared/compendium-sourced Combos | Combat | drag handler on combo sheet, existing pattern |
-| Action-Only keyword gating | Keywords | same-tick usage check in activation |
-| Native keyword gating | Keywords | charm-learn block, 1 check in prereq validation |
 | Mortal-specific sheet variant | Mortal | conditional hide in character sheet template |
 | Terrestrial-only sorcery restrictions | Mortal | gating check in spell/charm picker |
 | Family/House background linkage | Dragon-Blooded | Background item new string field + display |
@@ -73,7 +71,6 @@ Last updated: 2026-05-08
 | Gremlin Syndrome / Dissonance | Alchemical | Clarity track → Dissonance consequences |
 | Resplendent Destiny payloads | Sidereal | extend item type: Ascendant/Descending mechanical effects |
 | Per-splat tabs on character sheet | Sheet | new tab per splat with existing track widgets |
-| Virtue channel action (spend + dice) | Virtues | spend WP + Virtue → add dice + consume per-story slot |
 | Willpower recovery hooks (rest / stunt) | Virtues | hook registration + recovery amounts |
 | Limit accumulation automation | Virtues | trigger Limit increment on Virtue Flaw condition |
 | Per-trait lock overrides | XP | per-field lock flag, purchase mode guard |
@@ -141,11 +138,11 @@ Last updated: 2026-05-08
 
 | Group | Count |
 |-------|-------|
-| A — Ready, Simple | 21 |
-| B — Ready, Medium | 56 |
+| A — Ready, Simple | 19 |
+| B — Ready, Medium | 55 |
 | C — Ready, Complex | 10 |
 | D — Blocked | 12 |
-| **Total pending** | **99** |
+| **Total pending** | **96** |
 
 **Biggest force-multipliers:**
 - **Spell casting chat card** (Group B) → unblocks 4 sorcery items

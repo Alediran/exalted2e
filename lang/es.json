@@ -57,6 +57,8 @@
     "YoziKimbery":      "Kimbery, el Mar que Marchó Contra la Llama",
     "CharmSource":      "Fuente",
     "HereticalCharmForbidden": "\"{name}\" es un encanto Herético y solo puede ser aprendido por Príncipes del Sol Verde.",
+    "NativeCharmForbidden":    "\"{name}\" es un encanto Nativo y no puede ser aprendido por las Castas Eclipse, Sombra Lunar o Demonio.",
+    "ActionOnlyCharmForbidden": "\"{name}\" es un encanto Solo de Acción y solo puede activarse durante tu propia acción.",
 
     "CasteOrichalcum":"Oricalco",
     "CasteMoonsilver":"Plata Lunar",

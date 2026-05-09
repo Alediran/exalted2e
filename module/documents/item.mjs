@@ -113,6 +113,19 @@ export class ExaltedItem extends Item {
       return false;
     }
 
+    // ── Action-Only gate ───────────────────────────────────────────────────
+    // Action-Only charms cannot be used as reflexive counters or out-of-turn
+    // activations. The restriction only applies inside an active combat; in
+    // narrative scenes any character may activate freely.
+    if (!turningOff && this.system.keywords?.includes("Action-Only") && game.combat?.started) {
+      if (game.combat.combatant?.actorId !== actor.id) {
+        ui.notifications.warn(
+          game.i18n.format("EX2E.ActionOnlyCharmForbidden", { name: this.name })
+        );
+        return false;
+      }
+    }
+
     const sys      = this.system;
     const cost     = sys.cost ?? {};
     const motePool = "peripheral";  // default pool; chosen at activation time

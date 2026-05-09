@@ -235,7 +235,7 @@ EX2E.hearthstoneTypes = {
 // Alphabetised and deduped — source categories preserved in comments below
 // for reference (Avatar is Abyssal, Axiomatic is Alchemical, etc.).
 EX2E.charmKeywords = [
-  "Avatar", "Axiomatic",
+  "Action-Only", "Avatar", "Axiomatic",
   "Blasphemy",
   "Combo-Basic", "Combo-OK", "Combo-Permanent", "Compulsion", "Cooperative",
   "Counterattack", "Crippling",

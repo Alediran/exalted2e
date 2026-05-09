@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 147 / 259 complete** (8 out-of-scope / partial — last updated 2026-05-08)
+**Progress: 150 / 259 complete** (8 out-of-scope / partial — last updated 2026-05-09)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -60,7 +60,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Perfect Dodge / Perfect Parry (attack short-circuits; bypasses Unblockable/Undodgeable)
 - [x] Holy (upgrades bashing/lethal → aggravated vs Creature of Darkness)
 - [x] Counterattack (already wired via Step 9)
-- [ ] Action-Only (reflexive charms gated to acting ticks, once per tick)
+- [x] Action-Only (reflexive charms gated to acting ticks, once per tick)
 - [ ] Stackable (allow multi-activation accumulation on same target)
 - [ ] Compulsion (scene-long forced-task AE on target)
 - [ ] Emotion (scene-long ±1/±3 internal penalty on actions counter to emotion)
@@ -69,7 +69,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Overdrive pool (temp Peripheral, cap 25, dissipates scene-end)
 - [ ] Touch keyword mechanics (requires Dex+MA attack vs non-consenting target)
 - [ ] Training keyword (trainee XP debt ledger)
-- [ ] Native keyword gating (blocks Eclipse/Moonshadow/Fiend from learning)
+- [x] Native keyword gating (blocks Eclipse/Moonshadow/Fiend from learning)
 - [x] Mirror keyword navigation UI (show linked charm across splats)
 - [ ] Merged keyword (learn once, usable across listed Abilities)
 - [ ] Martial / Martial-ready gating at charm-learn time
@@ -229,7 +229,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 ## Virtues & Willpower
 - [x] Permanent + temporal virtue tracks
 - [x] Willpower minimum = sum of two highest Virtues
-- [ ] Virtue channel action (spend 1 WP + Virtue, add Virtue dice, consumes per-story channel slot)
+- [x] Virtue channel action (spend 1 WP + Virtue, add Virtue dice, consumes per-story channel slot)
 - [ ] Willpower recovery hooks (rest, channel success, stunt)
 - [ ] Limit accumulation automation (Virtue Flaw triggers)
 - [ ] Limit Break scripting at 10 (per-Virtue-Flaw scene template)
