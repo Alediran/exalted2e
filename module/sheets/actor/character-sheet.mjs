@@ -220,6 +220,10 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       template: "systems/exalted2e/templates/actor/character/tab-charms.hbs",
       scrollable: [""]
     },
+    tabMartialArts: {
+      template: "systems/exalted2e/templates/actor/character/tab-martial-arts.hbs",
+      scrollable: [""]
+    },
     tabAstrology: {
       template: "systems/exalted2e/templates/actor/character/_astrology.hbs",
       scrollable: [""]
@@ -256,7 +260,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const tabs = {
       tabMain:      { id: "tabMain",      group: "sheet", icon: "fa-solid fa-user",           label: game.i18n.localize("EX2E.TabMain"),       cssClass: this.tabGroups.sheet === "tabMain"       ? "active" : "" },
       tabCombat:    { id: "tabCombat",    group: "sheet", icon: "fa-solid fa-shield-halved",  label: game.i18n.localize("EX2E.TabCombat"),     cssClass: this.tabGroups.sheet === "tabCombat"     ? "active" : "" },
-      tabCharms:    { id: "tabCharms",    group: "sheet", icon: "fa-solid fa-sun",            label: game.i18n.localize("EX2E.TabCharms"),          cssClass: this.tabGroups.sheet === "tabCharms"     ? "active" : "" },
+      tabCharms:      { id: "tabCharms",      group: "sheet", icon: "fa-solid fa-sun",           label: game.i18n.localize("EX2E.TabCharms"),       cssClass: this.tabGroups.sheet === "tabCharms"      ? "active" : "" },
+      tabMartialArts: { id: "tabMartialArts", group: "sheet", icon: "fa-solid fa-hand-fist",     label: game.i18n.localize("EX2E.TabMartialArts"),  cssClass: this.tabGroups.sheet === "tabMartialArts" ? "active" : "" },
       ...(sys.exaltType === "sidereal" ? { tabAstrology: { id: "tabAstrology", group: "sheet", icon: "fa-solid fa-star", label: game.i18n.localize("EX2E.SiderealAstrology"), cssClass: this.tabGroups.sheet === "tabAstrology" ? "active" : "" } } : {}),
       tabInventory: { id: "tabInventory", group: "sheet", icon: "fa-solid fa-suitcase",       label: game.i18n.localize("EX2E.TabInventory"),       cssClass: this.tabGroups.sheet === "tabInventory"  ? "active" : "" },
       tabBiography: { id: "tabBiography", group: "sheet", icon: "fa-solid fa-book",           label: game.i18n.localize("EX2E.TabBiography"),       cssClass: this.tabGroups.sheet === "tabBiography"  ? "active" : "" },
@@ -297,6 +302,19 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       };
     }
 
+    const maStyleItems = actor.items
+      .filter(i => i.type === "martialartsstyle")
+      .filter(i => !(i.system.nativeExaltType && i.system.nativeExaltType === sys.exaltType))
+      .sort((a, b) => a.name.localeCompare(b.name));
+    const maStyleNames = new Set(maStyleItems.map(s => s.name));
+    const maStyles = maStyleItems.map(style => ({
+      item:       style,
+      charms:     charms.filter(c => c.system.martialArtsStyleName === style.name),
+      isMastered: charms.some(c =>
+        c.system.martialArtsStyleName === style.name && c.system.grantsMastery
+      )
+    }));
+
     // Group charms by their `system.ability` key. Ability-based exalts
     // store an ability (melee/brawl/…); Lunars and Alchemicals store an
     // attribute (strength/wits/…). Both live on the same field, so one
@@ -332,6 +350,9 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       const buckets = new Map();
       for (const c of charms) {
         if (c.system?.isSubmodule) continue;
+        if (c.system?.ability === "martialarts"
+            && c.system?.martialArtsStyleName
+            && maStyleNames.has(c.system.martialArtsStyleName)) continue;
         const k = c.system?.ability ?? "";
         if (!buckets.has(k)) buckets.set(k, []);
         buckets.get(k).push(c);
@@ -390,7 +411,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     spellGroups.necromancy = buildSpellGroups("necromancy", NECROMANCY_CIRCLES);
     spellGroups.weaving    = buildSpellGroups("weaving",    WEAVING_CIRCLES);
     const spellSections = [];
-    if (isAlchemical) {
+    if (isAlchemical && (sys.weaving?.initiation ?? 0) > 0) {
       spellSections.push({
         tradition:       "weaving",
         label:           game.i18n.localize("EX2E.TraditionWeaving"),
@@ -401,7 +422,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         groups:          spellGroups.weaving
       });
     }
-    if (!isAlchemical || (sys.sorcery?.initiation ?? 0) > 0) {
+    if ((sys.sorcery?.initiation ?? 0) > 0) {
       spellSections.push({
         tradition:       "sorcery",
         label:           game.i18n.localize(sorceryLabelKey),
@@ -412,7 +433,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         groups:          spellGroups.sorcery
       });
     }
-    if (!isAlchemical || (sys.necromancy?.initiation ?? 0) > 0) {
+    if ((sys.necromancy?.initiation ?? 0) > 0) {
       spellSections.push({
         tradition:       "necromancy",
         label:           game.i18n.localize("EX2E.TraditionNecromancy"),
@@ -732,7 +753,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       destinies,
       equipments,
       hearthstones,
-      artifactSlotMap
+      artifactSlotMap,
+      maStyles
     };
   }
 

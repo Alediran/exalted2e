@@ -50,6 +50,7 @@ EX2E.abilityLabels = {
   linguistics:   "EX2E.AbilityLinguistics",
   lore:          "EX2E.AbilityLore",
   martialArts:   "EX2E.AbilityMartialArts",
+  martialarts:   "EX2E.AbilityMartialArts",
   medicine:      "EX2E.AbilityMedicine",
   melee:         "EX2E.AbilityMelee",
   occult:        "EX2E.AbilityOccult",

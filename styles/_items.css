@@ -398,6 +398,59 @@ details.charm-group > summary.charm-group-header {
   user-select: none;
 }
 
+/* ── MA STYLE GROUP HEADER ───────────────────────────────────────────────── */
+.ma-style-group > summary.charm-group-header {
+  display:     flex;
+  align-items: center;
+  gap:         6px;
+}
+
+.ma-style-group > summary.charm-group-header .item-img {
+  width:       24px;
+  height:      24px;
+  object-fit:  contain;
+  flex-shrink: 0;
+  border:      1px solid var(--ex2e-gold-dark);
+  border-radius: 3px;
+}
+
+.ma-style-name {
+  flex:           1;
+  text-transform: none;
+  font-family:    var(--ex2e-font-title);
+  font-size:      13px;
+  letter-spacing: 0.04em;
+  color:          var(--ex2e-gold-bright);
+}
+
+.ma-tier-badge {
+  text-transform: capitalize;
+  font-size:      var(--ex2e-font-size-xs);
+}
+
+.ma-mastered-badge {
+  color:            var(--ex2e-gold-bright);
+  background:       rgba(201, 162, 39, 0.18);
+  border-color:     var(--ex2e-gold-mid);
+  font-size:        13px;
+  padding:          0 5px;
+  letter-spacing:   0;
+}
+
+.ma-weapons-hint {
+  font-family:    var(--ex2e-font-body);
+  font-size:      var(--ex2e-font-size-xs);
+  font-style:     italic;
+  color:          var(--ex2e-text-muted);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.charm-mastery-star {
+  color:       var(--ex2e-gold-bright);
+  margin-right: 2px;
+}
+
 .spell-section-toolbar {
   display: flex;
   align-items: center;

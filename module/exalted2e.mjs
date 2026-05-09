@@ -24,8 +24,9 @@ import { AnimaPowerData }   from "./data/item/anima-power-data.mjs";
 import { UrgeData }         from "./data/item/urge-data.mjs";
 import { DestinyData }      from "./data/item/destiny-data.mjs";
 import { EquipmentData }    from "./data/item/equipment-data.mjs";
-import { HearthstoneData }  from "./data/item/hearthstone-data.mjs";
-import { CharacterSheet }   from "./sheets/actor/character-sheet.mjs";
+import { HearthstoneData }          from "./data/item/hearthstone-data.mjs";
+import { MartialArtsStyleData }     from "./data/item/martial-arts-style-data.mjs";
+import { CharacterSheet }           from "./sheets/actor/character-sheet.mjs";
 import { NpcSheet }         from "./sheets/actor/npc-sheet.mjs";
 import { CharmSheet }       from "./sheets/item/charm-sheet.mjs";
 import { SpellSheet }       from "./sheets/item/spell-sheet.mjs";
@@ -38,7 +39,8 @@ import { UrgeSheet }       from "./sheets/item/urge-sheet.mjs";
 import { ComboSheet }       from "./sheets/item/combo-sheet.mjs";
 import { FormSheet }        from "./sheets/item/form-sheet.mjs";
 import { AnimaPowerSheet }  from "./sheets/item/anima-power-sheet.mjs";
-import { DestinySheet }     from "./sheets/item/destiny-sheet.mjs";
+import { DestinySheet }          from "./sheets/item/destiny-sheet.mjs";
+import { MartialArtsStyleSheet } from "./sheets/item/martial-arts-style-sheet.mjs";
 import { XpCostsConfigDialog } from "./dialogs/xp-costs-config-dialog.mjs";
 import { PermissionsConfigDialog } from "./dialogs/permissions-config-dialog.mjs";
 import { registerHandlebarsHelpers } from "./helpers/handlebars.mjs";
@@ -165,7 +167,8 @@ Hooks.once("init", function () {
     urge:       UrgeData,
     destiny:    DestinyData,
     equipment:   EquipmentData,
-    hearthstone: HearthstoneData
+    hearthstone:      HearthstoneData,
+    martialartsstyle: MartialArtsStyleData
   };
 
   // ── Sheet Registration ──────────────────────────────────────────────────
@@ -241,6 +244,11 @@ Hooks.once("init", function () {
     types:       ["destiny"],
     makeDefault: true,
     label:       game.i18n.localize("EX2E.DestinySheet"),
+  });
+  foundry.documents.collections.Items.registerSheet("exalted2e", MartialArtsStyleSheet, {
+    types:       ["martialartsstyle"],
+    makeDefault: true,
+    label:       "EX2E.MartialArtsStyle"
   });
 
   // ── System Settings ─────────────────────────────────────────────────────
@@ -985,6 +993,51 @@ Hooks.on("createItem", async (item, options, userId) => {
     await actor.createEmbeddedDocuments("Item", [sourceDoc.toObject()], {
       exalted2e: { mergedGrant: true }
     });
+  }
+});
+
+const _maStyleCreationInFlight = new Set();
+Hooks.on("createItem", async (item, options, userId) => {
+  if (userId !== game.user.id) return;
+  if (item.type !== "charm") return;
+  const styleName = item.system?.martialArtsStyleName;
+  if (!styleName || item.system?.ability !== "martialarts") return;
+  const actor = item.parent;
+  if (!actor || actor.documentName !== "Actor") return;
+
+  const key = `${actor.id}:${styleName}`;
+  if (_maStyleCreationInFlight.has(key)) return;
+  if (actor.items.some(i => i.type === "martialartsstyle" && i.name === styleName)) return;
+
+  _maStyleCreationInFlight.add(key);
+  try {
+    let styleSource = null;
+    for (const pack of game.packs) {
+      if (pack.documentName !== "Item") continue;
+      const index = await pack.getIndex({ fields: ["name", "type"] });
+      const entry = index.find(e => e.type === "martialartsstyle" && e.name === styleName);
+      if (entry) {
+        const doc = await pack.getDocument(entry._id);
+        styleSource = doc.toObject();
+        delete styleSource._id;
+        break;
+      }
+    }
+
+    if (!styleSource) {
+      styleSource = {
+        name:   styleName,
+        type:   "martialartsstyle",
+        system: {
+          tier:            item.system.martialArtsTier || "terrestrial",
+          nativeExaltType: ""
+        }
+      };
+    }
+
+    await actor.createEmbeddedDocuments("Item", [styleSource]);
+  } finally {
+    _maStyleCreationInFlight.delete(key);
   }
 });
 

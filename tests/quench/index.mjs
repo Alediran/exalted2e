@@ -48,6 +48,7 @@ import { registerCooperativeCharm }         from "./combat/cooperative-charm.mjs
 import { registerWeavingTests }             from "./combat/weaving.mjs";
 import { registerCharmTargetEffect }        from "./combat/charm-target-effect.mjs";
 import { registerHearthstone }              from "./combat/hearthstone.mjs";
+import { registerMartialArtsStyle }         from "./combat/martial-arts-style.mjs";
 // NOTE: Anima Powers feature (_swapAnimaPower) relies on the animapowers compendium
 // and cannot be exercised via Quench. No batch registered for ex2e.anima-powers.
 
@@ -98,5 +99,6 @@ Hooks.once("quenchReady", quench => {
   quench.registerBatch("ex2e.weaving",                  registerWeavingTests,            { displayName: "Alchemical Weaving protocols" });
   quench.registerBatch("ex2e.charm.target-effect",      registerCharmTargetEffect,       { displayName: "Charm target effect (onHit)" });
   quench.registerBatch("ex2e.hearthstone",              registerHearthstone,             { displayName: "Hearthstone socketing" });
+  quench.registerBatch("ex2e.martial-arts-style",       registerMartialArtsStyle,        { displayName: "Martial Arts style auto-add" });
 
 });

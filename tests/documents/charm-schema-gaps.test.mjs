@@ -47,6 +47,10 @@ describe("CharmData schema gaps — field presence", () => {
     expect(altFields).toHaveProperty("virtueKey");
     expect(altFields).toHaveProperty("virtueMin");
   });
+  it("grantsMastery exists and defaults false", () => {
+    expect(schema).toHaveProperty("grantsMastery");
+    expect(schema.grantsMastery.initial).toBe(false);
+  });
 });
 
 describe("areCharmPrereqsMet — virtue prerequisites (B7)", () => {

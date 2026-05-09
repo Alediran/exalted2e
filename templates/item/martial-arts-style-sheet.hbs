@@ -1,0 +1,64 @@
+<div class="martial-arts-style-sheet">
+
+<div class="item-header">
+  <img class="item-portrait" src="{{item.img}}" alt="{{item.name}}"
+       data-action="editImage" {{#unless isEditable}}disabled{{/unless}}>
+  <div class="item-header-fields">
+    <input class="item-name-input" type="text" name="name" value="{{item.name}}"
+           {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+</div>
+
+<div class="sheet-body">
+
+  <div class="field-group">
+    <label>{{localize "EX2E.MAStyleTier"}}</label>
+    <select name="system.tier" {{#unless isEditable}}disabled{{/unless}}>
+      {{#each tierChoices as |opt|}}
+      <option value="{{opt.value}}" {{#if (eq @root.system.tier opt.value)}}selected{{/if}}>
+        {{opt.label}}
+      </option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div class="field-group">
+    <label>{{localize "EX2E.NativeExaltType"}}</label>
+    <select name="system.nativeExaltType" {{#unless isEditable}}disabled{{/unless}}>
+      {{#each exaltTypeChoices as |opt|}}
+      <option value="{{opt.value}}" {{#if (eq @root.system.nativeExaltType opt.value)}}selected{{/if}}>
+        {{opt.label}}
+      </option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div class="field-group">
+    <label>{{localize "EX2E.MAStyleWeapons"}}</label>
+    <input type="text" name="system.weapons" value="{{system.weapons}}"
+           placeholder="e.g. Unarmed, spear, staff"
+           {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+
+  <div class="field-group">
+    <label>{{localize "EX2E.MAStyleAllowsArmor"}}</label>
+    <input type="checkbox" name="system.allowsArmor"
+           {{#if system.allowsArmor}}checked{{/if}}
+           {{#unless isEditable}}disabled{{/unless}}>
+  </div>
+
+  <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
+  <div class="editor-container">
+    {{#if isEditable}}
+    <prose-mirror name="system.description" data-document-uuid="{{item.uuid}}"
+                  value="{{system.description}}" collaborate="true" toggled="true">
+      {{{enrichedDescription}}}
+    </prose-mirror>
+    {{else}}
+    <div class="editor-content">{{{enrichedDescription}}}</div>
+    {{/if}}
+  </div>
+
+</div>
+
+</div>

@@ -121,7 +121,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Demon summoning (bind ritual on new moon/Calibration; bonus dice per demon)
 
 ## Martial Arts
-- [ ] Style tracking (group charms into named styles; style weapons list)
+- [~] Style tracking — `martialArtsStyleName` + `martialArtsTier` (celestial/terrestrial/sidereal) populated on all 320 MA charms; style weapons list config still pending
 - [ ] Form-type charm handling (one-at-a-time across ALL styles; scene duration; Combo-Basic)
 - [ ] Style weapon tag validation (M = Melee-or-MA, MO = MA-only; form weapons count as unarmed for style purposes)
 - [ ] Sidereal Martial Arts entry gate (requires ≥1 Celestial style mastered to Form + Sidereal sifu)
