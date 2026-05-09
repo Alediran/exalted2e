@@ -385,6 +385,46 @@ Hooks.once("init", function () {
     });
   }
 
+  // Enrich built-in Stunned: in 2e a stunned character cannot take
+  // non-reflexive actions, modelled here as a heavy all-type penalty so the
+  // roll pipelines catch it automatically.
+  const stunnedEffect = CONFIG.statusEffects.find(e => e.id === "stunned");
+  if (stunnedEffect) {
+    stunnedEffect.flags = foundry.utils.mergeObject(stunnedEffect.flags ?? {}, {
+      exalted2e: { externalPenalty: { value: 4, type: "all" } }
+    });
+  }
+
+  // Exalted 2e-specific conditions not present in Foundry's built-in list.
+  // Each entry creates a token HUD toggle that, when activated, applies an
+  // ActiveEffect whose `flags.exalted2e` payload the roll pipelines pick up.
+  CONFIG.statusEffects.push(
+    {
+      id:    "exalted2e-blind",
+      name:  "EX2E.StatusBlind",
+      icon:  "icons/svg/blind.svg",
+      flags: { exalted2e: { externalPenalty: { value: 2, type: "physical" }, blind: true } }
+    },
+    {
+      id:    "exalted2e-deaf",
+      name:  "EX2E.StatusDeaf",
+      icon:  "icons/svg/deaf.svg",
+      flags: { exalted2e: { deaf: true } }
+    },
+    {
+      id:    "exalted2e-grappled",
+      name:  "EX2E.StatusGrappled",
+      icon:  "icons/svg/net.svg",
+      flags: { exalted2e: { externalPenalty: { value: 2, type: "physical" }, grappled: true } }
+    },
+    {
+      id:    "exalted2e-flying",
+      name:  "EX2E.StatusFlying",
+      icon:  "icons/svg/wing.svg",
+      flags: { exalted2e: { flying: true } }
+    }
+  );
+
   console.log("Exalted 2e | System initialised.");
 });
 
@@ -755,6 +795,56 @@ const _EFFECT_WRAPPER_SEEDS = [
       },
       description: "Holy-keyword attacks deal aggravated damage to this character instead of bashing or lethal."
     }
+  },
+  {
+    name: "EX2E.StatusBlind",
+    img:  "icons/svg/blind.svg",
+    effect: {
+      flags: {
+        exalted2e: {
+          externalPenalty: { value: 2, type: "physical" },
+          blind: true
+        }
+      },
+      statuses: ["exalted2e-blind"],
+      description: "−2 external penalty to all physical actions. Ranged attacks against unseen targets are impossible."
+    }
+  },
+  {
+    name: "EX2E.StatusDeaf",
+    img:  "icons/svg/deaf.svg",
+    effect: {
+      flags: { exalted2e: { deaf: true } },
+      statuses: ["exalted2e-deaf"],
+      description: "Cannot hear. Surprise attacks from behind are automatic. Awareness rolls requiring hearing automatically fail."
+    }
+  },
+  {
+    name: "EX2E.StatusStunned",
+    img:  "icons/svg/daze.svg",
+    effect: {
+      flags: {
+        exalted2e: {
+          externalPenalty: { value: 4, type: "all" }
+        }
+      },
+      statuses: ["stunned"],
+      description: "−4 external penalty to all actions. Cannot take non-reflexive actions for the remainder of the tick."
+    }
+  },
+  {
+    name: "EX2E.StatusGrappled",
+    img:  "icons/svg/net.svg",
+    effect: {
+      flags: {
+        exalted2e: {
+          externalPenalty: { value: 2, type: "physical" },
+          grappled: true
+        }
+      },
+      statuses: ["exalted2e-grappled"],
+      description: "−2 external penalty to physical actions. Reaching weapons cannot be used. Cannot move freely."
+    }
   }
 ];
 
@@ -789,9 +879,12 @@ async function _seedEffectsCompendium() {
           img:      seed.img,
           // Permanent duration — no rounds / turns / seconds set.
           duration: {},
-          // Flag-driven rather than status-driven, so nothing surfaces on
-          // the token HUD (`statuses` is intentionally omitted).
           flags:    seed.effect.flags ?? {},
+          // `statuses` links the AE to a token HUD condition id so toggling
+          // the status icon also activates this AE. Omitted for flag-only
+          // entries (e.g. Creature of Darkness) where HUD exposure is
+          // undesirable.
+          ...(seed.effect.statuses ? { statuses: seed.effect.statuses } : {}),
           transfer: true,
           disabled: false
         }]
