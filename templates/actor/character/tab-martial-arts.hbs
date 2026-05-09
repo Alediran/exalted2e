@@ -33,13 +33,10 @@
           <span class="item-name charm-name">
             {{#with (lookup @root.charmPrereqs charm.id) as |p|}}
               {{#if p.has}}
-                {{#if p.met}}
-                <i class="fa-solid fa-circle-check charm-prereq-ok"
-                   title="{{localize 'EX2E.PrereqMet'}}"></i>
-                {{else}}
+                {{#unless p.met}}
                 <i class="fa-solid fa-triangle-exclamation charm-prereq-missing"
                    title="{{p.missing}}"></i>
-                {{/if}}
+                {{/unless}}
               {{/if}}
             {{/with}}
             {{#if charm.system.grantsMastery}}

@@ -151,7 +151,6 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         { value: "anyExcellency", label: game.i18n.localize("EX2E.PrereqTypeAnyExcellency") },
         { value: "virtue",        label: game.i18n.localize("EX2E.PrereqTypeVirtue") }
       ],
-      ownedCharmOptions: allCharmOptions,
       mirrorCharmDisplayName: charmByUid.get(sys.mirrorId ?? "") ?? "",
       mergedCharms: (sys.mergedIds ?? []).map((uid, index) => ({
         uid, index, name: charmByUid.get(uid) ?? "",
@@ -438,25 +437,6 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       details.addEventListener("toggle", () => { this._stepsOpen = details.open; });
     }
 
-    // Prereq charm-name inputs are paired with a hidden charmUid input.
-    // When the user picks a suggestion from the datalist (or types a name
-    // that matches an owned charm exactly), resolve the uid and write it
-    // into the hidden input BEFORE the form-wide submit fires. Capture
-    // phase puts us ahead of ApplicationV2's form listeners.
-    const byName = new Map(
-      (context.ownedCharmOptions ?? []).map(o =>
-        [String(o.name ?? "").trim().toLowerCase(), o.uid]
-      )
-    );
-    this.element.querySelectorAll(".prereq-charm-name").forEach(input => {
-      input.addEventListener("change", (ev) => {
-        const uidField = ev.currentTarget.parentElement?.querySelector(".prereq-charm-uid");
-        if (!uidField) return;
-        const typed = String(ev.currentTarget.value ?? "").trim().toLowerCase();
-        uidField.value = byName.get(typed) ?? "";
-      }, true); // capture phase — run before the form-submit handler
-    });
-
     if (this.isEditable) {
       this.element.querySelectorAll(".charm-drop-zone").forEach(zone => {
         zone.addEventListener("dragover", (ev) => {
@@ -483,6 +463,15 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
               ids.push(uid);
               await this.document.update({ "system.mergedIds": ids });
             }
+          } else if (zone.dataset.dropType === "prereq") {
+            const gi = parseInt(zone.dataset.groupIndex);
+            const ai = parseInt(zone.dataset.altIndex);
+            if (!Number.isFinite(gi) || !Number.isFinite(ai)) return;
+            const groups = foundry.utils.deepClone(this.document.system.prereqGroups ?? []);
+            if (!groups[gi]?.alternatives?.[ai]) return;
+            groups[gi].alternatives[ai].charmUid  = uid;
+            groups[gi].alternatives[ai].charmName = dropped.name;
+            await this.document.update({ "system.prereqGroups": groups });
           }
         });
       });

@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-09
+Last updated: 2026-05-09 (after QoL tools cluster)
 
 ---
 
@@ -23,9 +23,6 @@ Last updated: 2026-05-09
 | Macro to re-create Circle folder | Circle | standalone macro |
 | Restoring defaults when actor leaves Circle | Circle | hook on folder-item remove |
 | Status effects compendium | Compendium | JSON data + CONFIG.statusEffects entries |
-| GM "Roll a Pool" dialog | QoL | new DialogV2, picks up existing penalty machinery |
-| Language-drift linter | QoL | script: compare en.json ↔ es.json key sets |
-| Effect-flag registry file | QoL | documentation scan, no UI |
 | Willpower recovery on virtue channel success | Other | hook trigger, 1–2 lines |
 | docs/charm-authoring.md | Docs | prose only |
 | docs/npc-stat-blocks.md | Docs | prose only |
@@ -138,11 +135,11 @@ Last updated: 2026-05-09
 
 | Group | Count |
 |-------|-------|
-| A — Ready, Simple | 19 |
+| A — Ready, Simple | 16 |
 | B — Ready, Medium | 55 |
 | C — Ready, Complex | 10 |
 | D — Blocked | 12 |
-| **Total pending** | **96** |
+| **Total pending** | **93** |
 
 **Biggest force-multipliers:**
 - **Spell casting chat card** (Group B) → unblocks 4 sorcery items

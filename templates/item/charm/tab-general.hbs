@@ -202,14 +202,13 @@
             {{/each}}
           </select>
           {{#if (eq alt.type "charm")}}
-          <input type="text" class="prereq-charm-name"
-                 name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.charmName"
-                 value="{{alt.charmName}}" placeholder="{{localize 'EX2E.PrereqCharmNamePlaceholder'}}"
-                 {{#if @root.ownedCharmOptions.length}}list="ex2e-prereq-charms"{{/if}}
-                 autocomplete="off">
-          <input type="hidden" class="prereq-charm-uid"
-                 name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.charmUid"
-                 value="{{alt.charmUid}}">
+          <div class="charm-drop-zone" data-drop-type="prereq"
+               data-group-index="{{gIdx}}" data-alt-index="{{aIdx}}">
+            {{#if alt.charmName}}
+            <span class="drop-zone-label">{{alt.charmName}}</span>
+            {{/if}}
+            <em class="drop-zone-hint">{{localize "EX2E.DropCharmHere"}}</em>
+          </div>
           {{else}}
           {{#if (eq alt.type "virtue")}}
           <select name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.virtueKey"
@@ -242,14 +241,6 @@
       <div class="prereq-readonly">
         {{#if prereqSummary}}{{prereqSummary}}{{else}}—{{/if}}
       </div>
-    {{/if}}
-
-    {{#if ownedCharmOptions.length}}
-    <datalist id="ex2e-prereq-charms">
-      {{#each ownedCharmOptions as |opt|}}
-      <option value="{{opt.name}}" data-uid="{{opt.uid}}"></option>
-      {{/each}}
-    </datalist>
     {{/if}}
   </div>
   {{/unless}}

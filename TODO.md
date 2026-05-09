@@ -302,11 +302,11 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 ## Quality of Life
 - [ ] Drag-and-drop items between sheets (partial: effect-wrapper compendium works)
 - [x] Automated charm prerequisite validation
-- [ ] GM "Roll a Pool" dialog — ad-hoc dice roller that picks up the standard penalty machinery
+- [x] GM "Roll a Pool" dialog — ad-hoc dice roller that picks up the standard penalty machinery
 - [ ] Keyword-effect registry for systematic status application
-- [ ] Effect-flag registry file documenting every `flags.exalted2e.*` semantic role
+- [x] Effect-flag registry file documenting every `flags.exalted2e.*` semantic role
 - [ ] Migration pipeline for schema changes as system evolves
-- [ ] Language-drift linter (en.json ↔ es.json key parity)
+- [x] Language-drift linter (en.json ↔ es.json key parity)
 - [ ] Multi-actor action helpers (Coordinate, Cooperative charms, mass Guard)
 - [ ] Personal/Peripheral commitment split (players choose the pool split for attuned artifacts)
 

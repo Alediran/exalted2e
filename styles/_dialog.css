@@ -956,3 +956,89 @@
   border-color: var(--ex2e-gold-shadow);
   color:        var(--ex2e-text-muted);
 }
+
+/* ── GM Roll Pool dialog ──────────────────────────────────────────────────── */
+
+.gm-roll-pool-form .gm-roll-description-row,
+.gm-roll-pool-form .gm-roll-difficulty-row {
+  display:     flex;
+  align-items: center;
+  gap:         var(--ex2e-gap-md);
+  margin-bottom: var(--ex2e-gap-md);
+}
+
+.gm-roll-pool-form .gm-roll-description-row label,
+.gm-roll-pool-form .gm-roll-difficulty-row label {
+  min-width: 90px;
+  flex-shrink: 0;
+}
+
+.gm-roll-pool-form .gm-roll-description-row input[type="text"] {
+  flex: 1;
+}
+
+.gm-roll-pool-form .gm-roll-difficulty-row input[type="number"] {
+  width: 60px;
+}
+
+.gm-roll-pool-form .trait-section {
+  margin-bottom: var(--ex2e-gap-md);
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: 4px;
+  padding:       var(--ex2e-gap-sm) var(--ex2e-gap-md);
+}
+
+.gm-roll-pool-form .trait-section-header {
+  margin:         0 0 var(--ex2e-gap-sm);
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-sm);
+  color:          var(--ex2e-gold-main);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.gm-roll-pool-form .attribute-groups {
+  display: flex;
+  gap:     var(--ex2e-gap-md);
+}
+
+.gm-roll-pool-form .attribute-group {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--ex2e-gap-xs);
+  flex:           1;
+}
+
+.gm-roll-pool-form .group-label {
+  font-size:   var(--ex2e-font-size-xs);
+  color:       var(--ex2e-text-muted);
+  font-family: var(--ex2e-font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--ex2e-gap-xs);
+}
+
+.gm-roll-pool-form .abilities-grid {
+  display:               grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:                   var(--ex2e-gap-xs) var(--ex2e-gap-sm);
+}
+
+.gm-roll-pool-form .misc-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap:      var(--ex2e-gap-xs) var(--ex2e-gap-md);
+}
+
+.gm-roll-pool-form .trait-checkbox {
+  display:     flex;
+  align-items: center;
+  gap:         4px;
+  font-size:   var(--ex2e-font-size-sm);
+  cursor:      pointer;
+  white-space: nowrap;
+}
+
+.gm-roll-pool-form .trait-checkbox:hover {
+  color: var(--ex2e-gold-main);
+}

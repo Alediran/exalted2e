@@ -654,3 +654,92 @@
   color:       var(--ex2e-success);
   padding:     var(--ex2e-gap-xs) 0;
 }
+
+/* ── GM Roll Pool chat card ───────────────────────────────────────────── */
+
+.gm-roll-pool-card .card-header {
+  border-bottom: 1px solid var(--ex2e-gold-dark);
+  padding-bottom: var(--ex2e-gap-sm);
+  margin-bottom:  var(--ex2e-gap-sm);
+}
+
+.gm-roll-pool-card .card-header h3 {
+  margin:      0;
+  font-family: var(--ex2e-font-title);
+  font-size:   var(--ex2e-font-size-lg);
+  color:       var(--ex2e-gold-main);
+}
+
+.gm-roll-info {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--ex2e-gap-xs);
+  font-size:      var(--ex2e-font-size-sm);
+  color:          var(--ex2e-text-secondary);
+  margin-bottom:  var(--ex2e-gap-sm);
+}
+
+.gm-roll-action {
+  margin-bottom: var(--ex2e-gap-sm);
+}
+
+.btn-gm-pool-roll {
+  width:    100%;
+}
+
+.gm-roll-results {
+  margin-top:  var(--ex2e-gap-sm);
+  border-top:  1px solid var(--ex2e-gold-dark);
+  padding-top: var(--ex2e-gap-sm);
+}
+
+.gm-roll-results .results-header {
+  margin:      0 0 var(--ex2e-gap-xs);
+  font-family: var(--ex2e-font-ui);
+  font-size:   var(--ex2e-font-size-sm);
+  color:       var(--ex2e-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.gm-roll-result {
+  display:         flex;
+  align-items:     center;
+  gap:             var(--ex2e-gap-sm);
+  padding:         var(--ex2e-gap-xs) var(--ex2e-gap-sm);
+  border-radius:   3px;
+  margin-top:      var(--ex2e-gap-xs);
+  border:          1px solid transparent;
+}
+
+.gm-roll-result.success {
+  background:   rgba(39, 174, 96, 0.08);
+  border-color: var(--ex2e-success);
+}
+
+.gm-roll-result.failure {
+  background:   rgba(127, 140, 141, 0.08);
+  border-color: var(--ex2e-text-muted);
+}
+
+.gm-roll-result .roller-name {
+  font-weight: bold;
+  flex:        1;
+}
+
+.gm-roll-result .roll-successes {
+  font-size: var(--ex2e-font-size-sm);
+  color:     var(--ex2e-text-secondary);
+}
+
+.gm-roll-result .pass-fail-label {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  min-width:      3.5em;
+  text-align:     right;
+}
+
+.gm-roll-result.success .pass-fail-label { color: var(--ex2e-success); }
+.gm-roll-result.failure .pass-fail-label { color: var(--ex2e-text-muted); }

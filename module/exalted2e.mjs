@@ -47,6 +47,7 @@ import { DestinySheet }          from "./sheets/item/destiny-sheet.mjs";
 import { MartialArtsStyleSheet } from "./sheets/item/martial-arts-style-sheet.mjs";
 import { XpCostsConfigDialog } from "./dialogs/xp-costs-config-dialog.mjs";
 import { PermissionsConfigDialog } from "./dialogs/permissions-config-dialog.mjs";
+import { GmRollPoolDialog, computeGmRollPool } from "./dialogs/gm-roll-pool-dialog.mjs";
 import { registerHandlebarsHelpers } from "./helpers/handlebars.mjs";
 import { ex2eCan } from "./helpers/permissions.mjs";
 import { ActionQuickbar } from "./ui/action-quickbar.mjs";
@@ -131,7 +132,10 @@ Hooks.once("init", function () {
   console.log("Exalted 2e | Initialising system...");
 
   // Expose config on the game object
-  game.exalted2e = { EX2E };
+  game.exalted2e = {
+    EX2E,
+    gmRollPool: (options = {}) => GmRollPoolDialog.prompt(options)
+  };
 
   // ── Document Classes ────────────────────────────────────────────────────
   CONFIG.Actor.documentClass  = ExaltedActor;
@@ -3075,3 +3079,43 @@ async function _rerenderSocialAttackCard(message) {
   );
   await message.update({ content });
 }
+
+// ── GM Roll Pool card: Roll button ────────────────────────────────────────
+Hooks.on("renderChatMessageHTML", (message, html) => {
+  const el = html instanceof HTMLElement ? html : html[0] ?? html;
+  const btn = el.querySelector?.(".btn-gm-pool-roll");
+  if (!btn) return;
+
+  btn.addEventListener("click", async (ev) => {
+    ev.preventDefault();
+    btn.disabled = true;
+
+    const record = message.flags?.exalted2e?.gmRollPool;
+    if (!record) { btn.disabled = false; return; }
+
+    const actor = game.user.character ?? game.canvas?.tokens?.controlled?.[0]?.actor;
+    if (!actor) {
+      ui.notifications.warn(game.i18n.localize("EX2E.GmRollNoCharacter"));
+      btn.disabled = false;
+      return;
+    }
+
+    const pool = computeGmRollPool(actor, record.traits ?? []);
+    const { ExaltedRoll } = await import("./rolls/exalted-roll.mjs");
+    const roll   = new ExaltedRoll({ pool: Math.max(1, pool), flavor: record.description ?? "", actorName: actor.name });
+    const result = await roll.evaluate();
+    await result.toMessage({ speaker: ChatMessage.getSpeaker({ actor }) });
+
+    const successes = result.successes ?? 0;
+    const pass      = successes >= (record.difficulty ?? 1);
+
+    const updatedRolls = [...(record.rolls ?? []), { actorId: actor.id, actorName: actor.name, successes, pass }];
+    const updatedRecord = { ...record, rolls: updatedRolls };
+
+    const content = await foundry.applications.handlebars.renderTemplate(
+      "systems/exalted2e/templates/chat/gm-roll-pool-card.hbs",
+      updatedRecord
+    );
+    await message.update({ content, "flags.exalted2e.gmRollPool": updatedRecord });
+  });
+});
