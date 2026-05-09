@@ -304,7 +304,6 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     const maStyleItems = actor.items
       .filter(i => i.type === "martialartsstyle")
-      .filter(i => !(i.system.nativeExaltType && i.system.nativeExaltType === sys.exaltType))
       .sort((a, b) => a.name.localeCompare(b.name));
     const maStyleNames = new Set(maStyleItems.map(s => s.name));
     const maStyles = maStyleItems.map(style => ({

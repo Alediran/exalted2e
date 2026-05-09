@@ -1029,8 +1029,7 @@ Hooks.on("createItem", async (item, options, userId) => {
         name:   styleName,
         type:   "martialartsstyle",
         system: {
-          tier:            item.system.martialArtsTier || "terrestrial",
-          nativeExaltType: ""
+          tier: item.system.martialArtsTier || "terrestrial"
         }
       };
     }
