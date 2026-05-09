@@ -373,57 +373,22 @@ Hooks.once("init", function () {
   // ── CONFIG Additions ────────────────────────────────────────────────────
   CONFIG.EX2E = EX2E;
 
-  // Enrich Foundry's built-in Prone status with the 2e "-1 external
-  // penalty on non-reflexive physical actions" rule. Storing it on the
-  // effect's flags means the penalty travels with the AE when Foundry
-  // creates it from the token HUD — the roll pipelines aggregate every
+  // Enrich Foundry built-in status effects with Exalted 2e mechanical flags.
+  // Storing flags on the entry means the AE Foundry creates from the token HUD
+  // already carries the right payload — the roll pipelines aggregate every
   // active effect with a `flags.exalted2e.externalPenalty` and subtract.
-  const proneEffect = CONFIG.statusEffects.find(e => e.id === "prone");
-  if (proneEffect) {
-    proneEffect.flags = foundry.utils.mergeObject(proneEffect.flags ?? {}, {
-      exalted2e: { externalPenalty: { value: 1, type: "physical" } }
-    });
-  }
+  const _enrichStatus = (id, flags) => {
+    const entry = CONFIG.statusEffects.find(e => e.id === id);
+    if (entry) entry.flags = foundry.utils.mergeObject(entry.flags ?? {}, { exalted2e: flags });
+  };
 
-  // Enrich built-in Stunned: in 2e a stunned character cannot take
-  // non-reflexive actions, modelled here as a heavy all-type penalty so the
-  // roll pipelines catch it automatically.
-  const stunnedEffect = CONFIG.statusEffects.find(e => e.id === "stunned");
-  if (stunnedEffect) {
-    stunnedEffect.flags = foundry.utils.mergeObject(stunnedEffect.flags ?? {}, {
-      exalted2e: { externalPenalty: { value: 4, type: "all" } }
-    });
-  }
-
-  // Exalted 2e-specific conditions not present in Foundry's built-in list.
-  // Each entry creates a token HUD toggle that, when activated, applies an
-  // ActiveEffect whose `flags.exalted2e` payload the roll pipelines pick up.
-  CONFIG.statusEffects.push(
-    {
-      id:    "exalted2e-blind",
-      name:  "EX2E.StatusBlind",
-      icon:  "icons/svg/blind.svg",
-      flags: { exalted2e: { externalPenalty: { value: 2, type: "physical" }, blind: true } }
-    },
-    {
-      id:    "exalted2e-deaf",
-      name:  "EX2E.StatusDeaf",
-      icon:  "icons/svg/deaf.svg",
-      flags: { exalted2e: { deaf: true } }
-    },
-    {
-      id:    "exalted2e-grappled",
-      name:  "EX2E.StatusGrappled",
-      icon:  "icons/svg/net.svg",
-      flags: { exalted2e: { externalPenalty: { value: 2, type: "physical" }, grappled: true } }
-    },
-    {
-      id:    "exalted2e-flying",
-      name:  "EX2E.StatusFlying",
-      icon:  "icons/svg/wing.svg",
-      flags: { exalted2e: { flying: true } }
-    }
-  );
+  _enrichStatus("prone",      { externalPenalty: { value: 1, type: "physical" } });
+  _enrichStatus("stunned",    { externalPenalty: { value: 4, type: "all" } });
+  _enrichStatus("blind",      { externalPenalty: { value: 2, type: "physical" }, blind: true });
+  _enrichStatus("deaf",       { deaf: true });
+  // Foundry's "restrained" maps to the 2e Grappled condition.
+  _enrichStatus("restrained", { externalPenalty: { value: 2, type: "physical" }, grappled: true });
+  _enrichStatus("fly",        { flying: true });
 
   console.log("Exalted 2e | System initialised.");
 });
@@ -806,7 +771,7 @@ const _EFFECT_WRAPPER_SEEDS = [
           blind: true
         }
       },
-      statuses: ["exalted2e-blind"],
+      statuses: ["blind"],
       description: "−2 external penalty to all physical actions. Ranged attacks against unseen targets are impossible."
     }
   },
@@ -815,7 +780,7 @@ const _EFFECT_WRAPPER_SEEDS = [
     img:  "icons/svg/deaf.svg",
     effect: {
       flags: { exalted2e: { deaf: true } },
-      statuses: ["exalted2e-deaf"],
+      statuses: ["deaf"],
       description: "Cannot hear. Surprise attacks from behind are automatic. Awareness rolls requiring hearing automatically fail."
     }
   },
@@ -842,7 +807,7 @@ const _EFFECT_WRAPPER_SEEDS = [
           grappled: true
         }
       },
-      statuses: ["exalted2e-grappled"],
+      statuses: ["restrained"],
       description: "−2 external penalty to physical actions. Reaching weapons cannot be used. Cannot move freely."
     }
   }
