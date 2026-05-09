@@ -50,6 +50,7 @@ import { PermissionsConfigDialog } from "./dialogs/permissions-config-dialog.mjs
 import { GmRollPoolDialog, computeGmRollPool } from "./dialogs/gm-roll-pool-dialog.mjs";
 import { registerHandlebarsHelpers } from "./helpers/handlebars.mjs";
 import { ex2eCan } from "./helpers/permissions.mjs";
+import { resolveUserActor } from "./helpers/targeting.mjs";
 import { ActionQuickbar } from "./ui/action-quickbar.mjs";
 import { TickWheel }                      from "./ui/tick-wheel.mjs";
 import { JoinBattlePanel }                from "./ui/join-battle-panel.mjs";
@@ -3093,7 +3094,7 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     const record = message.flags?.exalted2e?.gmRollPool;
     if (!record) { btn.disabled = false; return; }
 
-    const actor = game.user.character ?? game.canvas?.tokens?.controlled?.[0]?.actor;
+    const actor = resolveUserActor();
     if (!actor) {
       ui.notifications.warn(game.i18n.localize("EX2E.GmRollNoCharacter"));
       btn.disabled = false;

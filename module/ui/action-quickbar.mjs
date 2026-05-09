@@ -1,5 +1,6 @@
 import { EX2E } from "../config.mjs";
 import { computeSpellCastButtonState } from "./spell-cast-button.mjs";
+import { resolveUserActor } from "../helpers/targeting.mjs";
 
 /**
  * Lazily create (or return) the shared bottom-HUD flex container that
@@ -136,8 +137,7 @@ export class ActionQuickbar {
     //      Lunars they want to shapeshift between Heart's Blood forms).
     //   2. game.user.character (the user's assigned character, if any).
     //   3. null — buttons render but their click handlers no-op.
-    const selectedActor = canvas.tokens?.controlled?.[0]?.actor ?? null;
-    this._renderPassive(selectedActor ?? game.user.character ?? null);
+    this._renderPassive(resolveUserActor());
   }
 
   _show() { this._root.classList.remove("hidden"); }

@@ -8,6 +8,22 @@
  */
 
 /**
+ * Resolve the best available actor for the current user.
+ *
+ * Priority: first controlled token on the canvas → user's assigned character.
+ * Returns null if neither is available.
+ *
+ * Use this anywhere the UI needs "the actor this user is acting as" without
+ * knowing in advance whether the user has a character assigned or a token
+ * selected.
+ *
+ * @returns {Actor|null}
+ */
+export function resolveUserActor() {
+  return game.canvas?.tokens?.controlled?.[0]?.actor ?? game.user.character ?? null;
+}
+
+/**
  * Prompt the user to click a canvas token as an attack target. Resolves
  * with the target's Actor, or `null` if the user right-clicks / hits Esc
  * to cancel.
