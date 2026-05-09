@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 135 / 260 complete** (3 out-of-scope / partial — last updated 2026-05-08)
+**Progress: 147 / 259 complete** (8 out-of-scope / partial — last updated 2026-05-08)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -23,7 +23,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
   - [ ] Shared / compendium-sourced Combos (drag-in from packs)
   - [ ] Drag-reorder within the Combo sheet (v1 uses arrow buttons)
   - [ ] Consolidated single chat card + combined Reverse (fallback if chat gets too noisy)
-  - [ ] NPC Combos
+  - [x] NPC Combos
 - [x] **Knockback / Knockdown / Stunning** (Stamina + Resistance resist rolls, Prone + stun AE)
 - [ ] **Area attacks** (cone/radius attack forms — Elemental Burst Technique, Tsunami Force Shout, etc.; targets make Essence resist rolls, no accuracy roll; requires dedicated area-attack schema field or charm flag)
 - [ ] **Clinch / Grapple** (control pool, opposed rolls, throw/crush/hold sub-actions, renew-each-tick)
@@ -41,8 +41,8 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Height advantage (+1/+3 DV close combat)
 - [x] **Multi-tick action container** — for shaping sorcery, Aim banking across ticks, clinch renewal, extra-action charm flurries with their own tick scheduling
 - [ ] Aim bonus banking (one die per banked tick, consumed on aimed attack)
-- [ ] Aborted-Aim divert penalty (already partial: -2 internal penalty applied in combat.mjs)
-- [ ] Minimum-damage errata swap (currently 1 die; confirm no Essence-dice fallback path)
+- [x] Aborted-Aim divert penalty — `onCommitOther` returns `applyAbortPenalty:true`; `advanceCurrentByTicks` applies `applyInternalPenalty(2, dvRefreshable)` when diverted
+- [x] Minimum-damage errata swap — `Math.max(damagePool − soak, overwhelming)` where `overwhelming` defaults to 1; hardnessStops correctly blocks entirely (no minimum applies)
 
 ## Combat — Defense & Soak
 - [x] Dodge DV / Parry DV formulas, weapon-mode parry selection
@@ -84,7 +84,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Typed charm costs: motes, willpower, bashing HL, lethal HL, aggravated HL, XP
 - [x] XP cost confirmation dialog
 - [x] Automated charm prerequisite validation
-- [~] Expand prerequisite types: Virtue ≥ N done; Essence ≥ N, Ability ≥ N, Background ≥ N pending
+- [x] Expand prerequisite types: Virtue ≥ N, Essence ≥ N, Ability ≥ N, Background ≥ N all implemented
 - [~] Permanent Essence cost (Greater Signs hardcoded; no general charm field — Infernal shintai pending)
 - [~] Permanent Willpower cost (Greater Signs hardcoded; no general charm field)
 - [x] Attribute-keyed Excellencies for Lunar/Alchemical (charm.attribute field; activation routing)
@@ -121,14 +121,13 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Demon summoning (bind ritual on new moon/Calibration; bonus dice per demon)
 
 ## Martial Arts
-- [~] Style tracking — `martialArtsStyleName` + `martialArtsTier` (celestial/terrestrial/sidereal) populated on all 320 MA charms; style weapons list config still pending
+- [x] Style tracking — `martialArtsStyleName` + `martialArtsTier` on charms; `martialartsstyle` item type with sheet, auto-create hook, and Martial Arts tab grouping charms by style on the character sheet
 - [ ] Form-type charm handling (one-at-a-time across ALL styles; scene duration; Combo-Basic)
 - [ ] Style weapon tag validation (M = Melee-or-MA, MO = MA-only; form weapons count as unarmed for style purposes)
 - [ ] Sidereal Martial Arts entry gate (requires ≥1 Celestial style mastered to Form + Sidereal sifu)
 - [ ] Celestial-MA DB initiation charms (Pasiap's Humility+Daana'd etc.)
 - [ ] Celestial-MA per-charm surcharge for Dragon-Blooded (+1m per activation)
 - [ ] Celestial-MA 1.5× XP for non-resonant Exalts
-- [ ] Solar Hero Style: ordinary Solar charms for Solars, Celestial MA for others
 
 ## Per-Splat Mechanics
 - [x] **Splat subobject schema** (`system.splat.<type>.*` discriminated union per exaltType)
@@ -225,7 +224,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] MDV derived display (Combat tab)
 - [x] Anima banner auto-calculated display (tier shown on Main tab; caste anima power widget with Activate / Deactivate / View buttons)
 - [ ] Per-splat tab(s) surfacing splat-specific mechanics (Sidereal Paradox, Abyssal Resonance, Infernal Torment/Urge, etc.)
-- [ ] Virtue Channel counter (per-story, not per-scene)
+- [x] Virtue Channel counter (per-story, not per-scene) — `channeled: BooleanField` on each virtue; checkbox on virtue row in tab-main.hbs
 
 ## Virtues & Willpower
 - [x] Permanent + temporal virtue tracks
@@ -240,9 +239,9 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Purchase log UI on Experience tab
 - [x] XP Cost Engine
 - [x] XP cost tables per exalt type (Terrestrial out-of-aspect surcharges, etc.)
-- [ ] Purchase Mode support for NPC-typed actors
+- [x] Purchase Mode support for NPC-typed actors — `purchaseLocked` field in NpcData; toggle button injected in NpcSheet._onRender; #onTogglePurchaseMode handler
 - [ ] Per-trait lock overrides
-- [ ] Background-method setting (Method 1: 3 XP/dot; Method 2: free w/ ST permission)
+- [x] Background-method setting — world setting `backgroundMethod` (xp/free); _priceBackground returns 0 when free
 
 ## Stunts & Drama
 - [x] Stunt dice in roll dialog
@@ -283,10 +282,10 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] **Manse** item type (rating, aspect, powers, mote-regen grant)
 - [x] **Hearthstone** item type (rating, type, mote-regen, socketable into artifact weapons/armor/equipment)
 - [x] **Artifact** item type (general; non-weapon/armor artifacts) — covered by `equipment` item type with `artifact: true` flag (magical material, attunement, hearthstone slots)
-- [ ] **Mutation** item type (Pox/Affliction/Blight/Abomination; Wyld origin)
-- [ ] **Poison** item type
-- [ ] **Disease** item type
-- [ ] **Drug** item type
+- [x] **Mutation** item type (mutationType positive/negative/neutral, pointCost; no mechanics yet)
+- [x] **Poison** item type (damage, damageType, interval, duration, vector; no mechanics yet)
+- [x] **Disease** item type (morbidity, trauma, duration, vector; no mechanics yet)
+- [x] **Drug** item type (effect, duration, addiction; no mechanics yet)
 - [ ] **Vehicle / Warstrider** actor type (First Age magitech)
 - [ ] **Unit** actor type for mass combat
 - [ ] Background mechanical hooks (Backing, Contacts, Resources, Manse → mote regen, Familiar → embedded actor ref)

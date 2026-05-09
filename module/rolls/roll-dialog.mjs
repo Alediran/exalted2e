@@ -63,7 +63,8 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       // future status effects) land here so the displayed pool tracks
       // whichever attribute the user picks in the dialog.
       poolPenaltyByAttr:   options.poolPenaltyByAttr   ?? null,
-      clarityInfo:         options.clarityInfo         ?? null
+      clarityInfo:         options.clarityInfo         ?? null,
+      virtues:             options.virtues             ?? null
     };
   }
 
@@ -81,7 +82,17 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       moteTypeChoices: {
         personal:   game.i18n.localize("EX2E.MotesPersonal"),
         peripheral: game.i18n.localize("EX2E.MotesPeripheral")
-      }
+      },
+      virtueChoices: this._data.virtues
+        ? Object.entries(this._data.virtues)
+            .map(([key, v]) => ({
+              key,
+              label:   game.i18n.localize(`EX2E.Virtue${key.charAt(0).toUpperCase() + key.slice(1)}`),
+              current: v.current ?? 0,
+              rating:  v.value   ?? 0
+            }))
+            .filter(v => v.rating > 0)
+        : []
     };
   }
 
@@ -178,6 +189,15 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
 
     updateTotal(); // initialise displayed total
 
+    // Virtue channel: show/hide virtue dropdown based on "dice" radio selection
+    const virtueSelectRow = el.querySelector(".virtue-select-row");
+    const updateVirtueMode = () => {
+      const checked = el.querySelector("[name='virtueChannelMode']:checked")?.value ?? "none";
+      if (virtueSelectRow) virtueSelectRow.style.display = checked === "dice" ? "" : "none";
+    };
+    el.querySelectorAll("[name='virtueChannelMode']").forEach(r => r.addEventListener("change", updateVirtueMode));
+    updateVirtueMode();
+
     // Stunt sub-fields: motivation rider always visible at stunt ≥ 1;
     // motes/WP preference visible at stunt ≥ 2.
     const stuntSelect   = el.querySelector("[name='stunt']");
@@ -219,7 +239,9 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       })(),
       firstExcDice,
       secondExcSucc,
-      useThirdExc
+      useThirdExc,
+      virtueChannelMode: data.virtueChannelMode || "none",
+      virtueChannel:     data.virtueChannelMode === "dice" ? (data.virtueChannel || null) : null
     });
     this.close();
   }

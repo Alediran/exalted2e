@@ -58,6 +58,23 @@ export function stubDialog(DialogClass, { returnSequence } = {}) {
 }
 
 /**
+ * Stub `RollDialog.prompt` — the pre-roll configuration dialog that
+ * `rollAttributeAbility` opens.
+ *
+ * Minimal return shape (production reads what it needs, ignores the rest):
+ *   { pool, attribute, flavor, stunt, advancesMotivation, rewardKind,
+ *     moteCost, moteType, specialty, firstExcDice, secondExcSucc,
+ *     useThirdExc, virtueChannelMode, virtueChannel }
+ * Or `null` for "user cancelled".
+ */
+export async function stubRollDialog(returnSequence = []) {
+  const { RollDialog } = await import(
+    "../../../module/rolls/roll-dialog.mjs"
+  );
+  return stubDialog(RollDialog, { returnSequence });
+}
+
+/**
  * Stub `AttackDialog.prompt` — the attacker-side roll dialog rollAttack
  * opens to collect stunt / excellency / supplemental-charm picks.
  *

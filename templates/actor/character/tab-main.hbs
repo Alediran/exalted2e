@@ -104,6 +104,12 @@
                           total=5
                           min=0}}
             </div>
+            <label class="virtue-channel-label" title="{{localize 'EX2E.VirtueChanneled'}}">
+              <input type="checkbox"
+                     name="{{concat 'system.virtues.' v '.channeled'}}"
+                     {{#if (lookup (lookup ../system.virtues v) "channeled")}}checked{{/if}}
+                     {{#unless @root.isEditable}}disabled{{/unless}}>
+            </label>
           </div>
           {{/each}}
 

@@ -70,20 +70,24 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       // value = permanent rating (round pips), current = temporal resource (square boxes)
       virtues: new fields.SchemaField({
         compassion: new fields.SchemaField({
-          value:   new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
-          current: new fields.NumberField({ initial: 1, min: 0, max: 5, integer: true })
+          value:     new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
+          current:   new fields.NumberField({ initial: 1, min: 0, max: 5, integer: true }),
+          channeled: new fields.BooleanField({ initial: false })
         }),
         conviction: new fields.SchemaField({
-          value:   new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
-          current: new fields.NumberField({ initial: 1, min: 0, max: 5, integer: true })
+          value:     new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
+          current:   new fields.NumberField({ initial: 1, min: 0, max: 5, integer: true }),
+          channeled: new fields.BooleanField({ initial: false })
         }),
         temperance: new fields.SchemaField({
-          value:   new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
-          current: new fields.NumberField({ initial: 1, min: 0, max: 5, integer: true })
+          value:     new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
+          current:   new fields.NumberField({ initial: 1, min: 0, max: 5, integer: true }),
+          channeled: new fields.BooleanField({ initial: false })
         }),
         valor: new fields.SchemaField({
-          value:   new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
-          current: new fields.NumberField({ initial: 1, min: 0, max: 5, integer: true })
+          value:     new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
+          current:   new fields.NumberField({ initial: 1, min: 0, max: 5, integer: true }),
+          channeled: new fields.BooleanField({ initial: false })
         })
       }),
 

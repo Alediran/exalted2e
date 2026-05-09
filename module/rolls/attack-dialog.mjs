@@ -50,7 +50,8 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       // ability being rolled. Rendered as a checkbox list so the attacker
       // can activate Unblockable / Undodgeable (and similar) alongside the
       // attack roll.
-      charms:         options.charms         ?? []
+      charms:         options.charms         ?? [],
+      virtues:        options.virtues        ?? null
     };
   }
 
@@ -91,7 +92,17 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       moteTypeChoices: {
         personal:   game.i18n.localize("EX2E.MotesPersonal"),
         peripheral: game.i18n.localize("EX2E.MotesPeripheral")
-      }
+      },
+      virtueChoices: this._data.virtues
+        ? Object.entries(this._data.virtues)
+            .map(([key, v]) => ({
+              key,
+              label:   game.i18n.localize(`EX2E.Virtue${key.charAt(0).toUpperCase() + key.slice(1)}`),
+              current: v.current ?? 0,
+              rating:  v.value   ?? 0
+            }))
+            .filter(v => v.rating > 0)
+        : []
     };
   }
 
@@ -132,6 +143,15 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     secondExcInput?.addEventListener("input", updateTotal);
     updateTotal();
 
+    // Virtue channel: show/hide virtue dropdown based on "dice" radio selection
+    const virtueSelectRow = el.querySelector(".virtue-select-row");
+    const updateVirtueMode = () => {
+      const checked = el.querySelector("[name='virtueChannelMode']:checked")?.value ?? "none";
+      if (virtueSelectRow) virtueSelectRow.style.display = checked === "dice" ? "" : "none";
+    };
+    el.querySelectorAll("[name='virtueChannelMode']").forEach(r => r.addEventListener("change", updateVirtueMode));
+    updateVirtueMode();
+
     const stuntSelect   = el.querySelector("[name='stunt']");
     const motivationRow = el.querySelector(".stunt-motivation-row");
     const rewardPrefRow = el.querySelector(".stunt-reward-pref-row");
@@ -163,7 +183,9 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       moteType:           data.moteType           || "peripheral",
       firstExcDice:       parseInt(data.firstExcDice)  || 0,
       secondExcSucc:      parseInt(data.secondExcSucc) || 0,
-      charmIds
+      charmIds,
+      virtueChannelMode: data.virtueChannelMode || "none",
+      virtueChannel:     data.virtueChannelMode === "dice" ? (data.virtueChannel || null) : null
     });
     this.close();
   }

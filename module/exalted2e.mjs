@@ -26,6 +26,10 @@ import { DestinyData }      from "./data/item/destiny-data.mjs";
 import { EquipmentData }    from "./data/item/equipment-data.mjs";
 import { HearthstoneData }          from "./data/item/hearthstone-data.mjs";
 import { MartialArtsStyleData }     from "./data/item/martial-arts-style-data.mjs";
+import { PoisonData }    from "./data/item/poison-data.mjs";
+import { DiseaseData }   from "./data/item/disease-data.mjs";
+import { DrugData }      from "./data/item/drug-data.mjs";
+import { MutationData }  from "./data/item/mutation-data.mjs";
 import { CharacterSheet }           from "./sheets/actor/character-sheet.mjs";
 import { NpcSheet }         from "./sheets/actor/npc-sheet.mjs";
 import { CharmSheet }       from "./sheets/item/charm-sheet.mjs";
@@ -168,7 +172,11 @@ Hooks.once("init", function () {
     destiny:    DestinyData,
     equipment:   EquipmentData,
     hearthstone:      HearthstoneData,
-    martialartsstyle: MartialArtsStyleData
+    martialartsstyle: MartialArtsStyleData,
+    poison:    PoisonData,
+    disease:   DiseaseData,
+    drug:      DrugData,
+    mutation:  MutationData
   };
 
   // ── Sheet Registration ──────────────────────────────────────────────────
@@ -206,7 +214,7 @@ Hooks.once("init", function () {
     label:     "EX2E.SheetArmor"
   });
   foundry.documents.collections.Items.registerSheet("exalted2e", GenericItemSheet, {
-    types:     ["background", "intimacy", "meritflaw", "equipment", "hearthstone"],
+    types:     ["background", "intimacy", "meritflaw", "equipment", "hearthstone", "poison", "disease", "drug", "mutation"],
     makeDefault: true,
     label:     "EX2E.SheetGenericItem"
   });
@@ -269,6 +277,19 @@ Hooks.once("init", function () {
     config:  true,
     type:    Boolean,
     default: false
+  });
+
+  game.settings.register("exalted2e", "backgroundMethod", {
+    name:    "EX2E.SettingBackgroundMethod",
+    hint:    "EX2E.SettingBackgroundMethodHint",
+    scope:   "world",
+    config:  true,
+    type:    String,
+    choices: {
+      xp:   "EX2E.SettingBackgroundMethodXP",
+      free: "EX2E.SettingBackgroundMethodFree"
+    },
+    default: "xp"
   });
 
   // ── Automation Settings ────────────────────────────────────────────────

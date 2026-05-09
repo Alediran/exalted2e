@@ -177,6 +177,94 @@
   {{/if}}
   {{/if}}
 
+  {{#if (eq item.type "poison")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.PoisonDamage"}}</label>
+    <input type="text" name="system.damage" value="{{system.damage}}"
+           style="width:120px" {{#unless isEditable}}readonly{{/unless}}>
+    <select name="system.damageType" style="margin-left:6px" {{#unless isEditable}}disabled{{/unless}}>
+      <option value="bashing"    {{#if (eq system.damageType "bashing")}}selected{{/if}}>{{localize "EX2E.DamageBashing"}}</option>
+      <option value="lethal"     {{#if (eq system.damageType "lethal")}}selected{{/if}}>{{localize "EX2E.DamageLethal"}}</option>
+      <option value="aggravated" {{#if (eq system.damageType "aggravated")}}selected{{/if}}>{{localize "EX2E.DamageAggravated"}}</option>
+    </select>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.PoisonInterval"}}</label>
+    <input type="text" name="system.interval" value="{{system.interval}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Duration"}}</label>
+    <input type="text" name="system.duration" value="{{system.duration}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Vector"}}</label>
+    <input type="text" name="system.vector" value="{{system.vector}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  {{/if}}
+
+  {{#if (eq item.type "disease")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.DiseaseMorbidity"}}</label>
+    <input type="number" name="system.morbidity" value="{{system.morbidity}}"
+           min="0" max="10" style="width:60px" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Trauma"}}</label>
+    <input type="text" name="system.trauma" value="{{system.trauma}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Duration"}}</label>
+    <input type="text" name="system.duration" value="{{system.duration}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Vector"}}</label>
+    <input type="text" name="system.vector" value="{{system.vector}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  {{/if}}
+
+  {{#if (eq item.type "drug")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.DrugEffect"}}</label>
+    <input type="text" name="system.effect" value="{{system.effect}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Duration"}}</label>
+    <input type="text" name="system.duration" value="{{system.duration}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Addiction"}}</label>
+    <label class="checkbox-inline" style="margin-left:8px">
+      <input type="checkbox" name="system.addiction"
+             {{#if system.addiction}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </label>
+  </div>
+  {{/if}}
+
+  {{#if (eq item.type "mutation")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.MutationType"}}</label>
+    <select name="system.mutationType" {{#unless isEditable}}disabled{{/unless}}>
+      <option value="positive" {{#if (eq system.mutationType "positive")}}selected{{/if}}>{{localize "EX2E.MutationPositive"}}</option>
+      <option value="negative" {{#if (eq system.mutationType "negative")}}selected{{/if}}>{{localize "EX2E.MutationNegative"}}</option>
+      <option value="neutral"  {{#if (eq system.mutationType "neutral")}}selected{{/if}}>{{localize "EX2E.MutationNeutral"}}</option>
+    </select>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.MutationPointCost"}}</label>
+    <input type="number" name="system.pointCost" value="{{system.pointCost}}"
+           min="0" max="10" style="width:60px" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  {{/if}}
+
   <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
   <div class="editor-container">
     {{#if isEditable}}

@@ -324,6 +324,9 @@ function _priceKnack(exaltType, costs) {
 }
 
 function _priceBackground(bg, costs) {
+  if (game.settings.get("exalted2e", "backgroundMethod") === "free") {
+    return { xp: 0, confident: true };
+  }
   const rating = Math.max(0, Number(bg.system?.value ?? 0));
   const flat   = _n(costs.general.backgroundFlat, 3);
   return { xp: rating * flat, confident: true };

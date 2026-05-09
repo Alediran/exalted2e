@@ -1,5 +1,6 @@
 import { ExaltedRoll } from "../../rolls/exalted-roll.mjs";
 import { editImageAction } from "../_edit-image.mjs";
+import { ex2eCan } from "../../helpers/permissions.mjs";
 
 const { ActorSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -22,7 +23,9 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       createItem:       NpcSheet.#onCreateItem,
       editItem:         NpcSheet.#onEditItem,
       deleteItem:       NpcSheet.#onDeleteItem,
-      rollSocialAttack: NpcSheet.#onRollSocialAttack
+      rollSocialAttack: NpcSheet.#onRollSocialAttack,
+      activateCombo:      NpcSheet.#onActivateCombo,
+      togglePurchaseMode: NpcSheet.#onTogglePurchaseMode
     }
   };
 
@@ -41,9 +44,39 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const sys     = actor.system;
     const charms  = actor.items.filter(i => i.type === "charm").sort((a,b) => a.name.localeCompare(b.name));
 
+    const combos = actor.items.filter(i => i.type === "combo").sort((a, b) => a.name.localeCompare(b.name));
+    const byUid  = new Map();
+    for (const c of charms) { const uid = c.system?.charmUid; if (uid) byUid.set(uid, c); }
+    const comboRows = combos.map(combo => {
+      const uids = combo.system?.charmUids ?? [];
+      const resolved = []; let missingCount = 0;
+      for (const uid of uids) { const c = byUid.get(uid); if (c) resolved.push(c); else missingCount++; }
+      const prev = { motes: 0, willpower: 0, bashing: 0, lethal: 0, aggravated: 0 };
+      for (const c of resolved) {
+        const cost = c.system?.cost ?? {};
+        prev.motes      += Number(cost.motes)            || 0;
+        prev.willpower  += Number(cost.willpower)        || 0;
+        prev.bashing    += Number(cost.bashingHealth)    || 0;
+        prev.lethal     += Number(cost.lethalHealth)     || 0;
+        prev.aggravated += Number(cost.aggravatedHealth) || 0;
+      }
+      const bits = [];
+      if (prev.motes)      bits.push(`${prev.motes}m`);
+      if (prev.willpower)  bits.push(`${prev.willpower}wp`);
+      if (prev.bashing)    bits.push(`${prev.bashing}b`);
+      if (prev.lethal)     bits.push(`${prev.lethal}l`);
+      if (prev.aggravated) bits.push(`${prev.aggravated}a`);
+      return {
+        id: combo.id, name: combo.name, img: combo.img,
+        iconStrip:   resolved.slice(0, 6).map(c => ({ id: c.id, name: c.name, img: c.img })),
+        totalCount:  uids.length, missingCount,
+        costPreview: bits.join(" "), canActivate: resolved.length > 0
+      };
+    });
+
     const enrichOpts = { secrets: this.document.isOwner, relativeTo: this.document };
     return {
-      ...context, actor, system: sys, charms, isEditable: this.isEditable,
+      ...context, actor, system: sys, charms, combos: comboRows, isEditable: this.isEditable,
       enrichedPowers: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.powers, enrichOpts),
       enrichedNotes:  await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.notes, enrichOpts)
     };
@@ -51,6 +84,23 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   _onRender(context, options) {
     super._onRender(context, options);
+    if (ex2eCan("purchaseMode")) {
+      const header   = this.element.querySelector(".window-header");
+      const controls = header?.querySelector(".header-control");
+      if (header && controls) {
+        const locked = !!this.document.system.purchaseLocked;
+        let btn = header.querySelector(".ex2e-purchase-toggle");
+        if (!btn) {
+          btn = document.createElement("button");
+          btn.type = "button";
+          btn.dataset.action = "togglePurchaseMode";
+          controls.before(btn);
+        }
+        btn.className = "header-control ex2e-purchase-toggle" + (locked ? " active" : "");
+        btn.title = game.i18n.localize(locked ? "EX2E.PurchaseModeOn" : "EX2E.PurchaseModeOff");
+        btn.innerHTML = `<i class="fa-solid ${locked ? "fa-lock" : "fa-lock-open"}"></i>`;
+      }
+    }
     // Dot clicks for NPC simple pools
     this.element.querySelectorAll(".dot-rating .dot").forEach(dot => {
       dot.addEventListener("click", (ev) => {
@@ -93,6 +143,17 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static async #onDeleteItem(event, target) {
     const item = this.document.items.get(target.closest("[data-item-id]")?.dataset.itemId);
     if (item) await item.delete();
+  }
+
+  static async #onTogglePurchaseMode() {
+    if (!ex2eCan("purchaseMode")) return;
+    const cur = this.document.system.purchaseLocked ?? false;
+    await this.document.update({ "system.purchaseLocked": !cur });
+  }
+
+  static async #onActivateCombo(event, target) {
+    const item = this.document.items.get(target.closest("[data-item-id]")?.dataset.itemId);
+    if (item?.type === "combo") await item.activateCombo();
   }
 
   static async #onRollSocialAttack(event, target) {

@@ -346,6 +346,7 @@ export class ExaltedRoll {
       clarityInfo: (sys.exaltType === "alchemical" && (_clarityMods.autochthonBonus ?? 0) > 0)
         ? { autochthonBonus: _clarityMods.autochthonBonus }
         : null,
+      virtues: actor.type === "character" ? sys.virtues : null,
       ...options
     });
 
@@ -366,20 +367,50 @@ export class ExaltedRoll {
       if (!spent) return null;
     }
 
+    // Handle virtue channeling — spend WP (and optionally 1 virtue channel point)
+    let virtueChannelDice      = 0;
+    let virtueChannelSuccesses = 0;
+    const vMode = dialogResult.virtueChannelMode ?? "none";
+    if (vMode !== "none" && actor.type === "character") {
+      const curWP = actor.system.willpower?.value ?? 0;
+      if (curWP < 1) {
+        ui.notifications.warn(game.i18n.localize("EX2E.NotEnoughWillpower"));
+      } else if (vMode === "success") {
+        await actor.update({ "system.willpower.value": curWP - 1 });
+        virtueChannelSuccesses = 1;
+      } else if (vMode === "dice" && dialogResult.virtueChannel) {
+        const vKey   = dialogResult.virtueChannel;
+        const virtue = actor.system.virtues?.[vKey];
+        const curBox = virtue?.current ?? 0;
+        if (curBox < 1) {
+          ui.notifications.warn(game.i18n.format("EX2E.VirtueChannelNoPoints", {
+            virtue: game.i18n.localize(`EX2E.Virtue${vKey.charAt(0).toUpperCase() + vKey.slice(1)}`)
+          }));
+        } else {
+          await actor.update({
+            "system.willpower.value":             curWP - 1,
+            [`system.virtues.${vKey}.current`]:   Math.max(0, curBox - 1),
+            [`system.virtues.${vKey}.channeled`]: true
+          });
+          virtueChannelDice = virtue?.value ?? 0;
+        }
+      }
+    }
+
     // External penalty that applies to this roll's successes — only when
     // the attribute finally picked in the dialog is physical.
     const finalAttr = dialogResult.attribute ?? defaultAttr;
     const externalSuccessPenalty = physicalKeys.has(finalAttr) ? externalPhysicalPenalty : 0;
 
     const exRoll = new ExaltedRoll({
-      pool:               dialogResult.pool + firstExcDice,
+      pool:               dialogResult.pool + firstExcDice + virtueChannelDice,
       flavor:             dialogResult.flavor,
       actorName:          actor.name,
       stunt:              dialogResult.stunt,
       moteCost:           totalMoteCost,
       moteType:           dialogResult.moteType,
       firstExcDice:       firstExcDice,
-      secondExcSuccesses: secondExcSuccesses,
+      secondExcSuccesses: secondExcSuccesses + virtueChannelSuccesses,
       useThirdExcellency: useThirdExcellency,
       specialty:          dialogResult.specialty ?? "",
       externalPenalty:    externalSuccessPenalty
@@ -612,7 +643,8 @@ export class ExaltedRoll {
       pool, excellency, firstExcMax, secondExcMax,
       firstExcLabel, secondExcLabel,
       flurryPenalty,
-      charms: attackCharms
+      charms:   attackCharms,
+      virtues:  actor.type === "character" ? sys.virtues : null
     });
     if (!dialogResult) return null;
 
@@ -683,6 +715,36 @@ export class ExaltedRoll {
       if (!spent) return null;
     }
 
+    // Handle virtue channeling
+    let virtueChannelDice      = 0;
+    let virtueChannelSuccesses = 0;
+    const vModeAtk = dialogResult.virtueChannelMode ?? "none";
+    if (vModeAtk !== "none" && actor.type === "character") {
+      const curWP = actor.system.willpower?.value ?? 0;
+      if (curWP < 1) {
+        ui.notifications.warn(game.i18n.localize("EX2E.NotEnoughWillpower"));
+      } else if (vModeAtk === "success") {
+        await actor.update({ "system.willpower.value": curWP - 1 });
+        virtueChannelSuccesses = 1;
+      } else if (vModeAtk === "dice" && dialogResult.virtueChannel) {
+        const vKey   = dialogResult.virtueChannel;
+        const virtue = actor.system.virtues?.[vKey];
+        const curBox = virtue?.current ?? 0;
+        if (curBox < 1) {
+          ui.notifications.warn(game.i18n.format("EX2E.VirtueChannelNoPoints", {
+            virtue: game.i18n.localize(`EX2E.Virtue${vKey.charAt(0).toUpperCase() + vKey.slice(1)}`)
+          }));
+        } else {
+          await actor.update({
+            "system.willpower.value":             curWP - 1,
+            [`system.virtues.${vKey}.current`]:   Math.max(0, curBox - 1),
+            [`system.virtues.${vKey}.channeled`]: true
+          });
+          virtueChannelDice = virtue?.value ?? 0;
+        }
+      }
+    }
+
     // Apply Unblockable / Undodgeable to the target-snapshot DVs. We keep
     // the pre-zero values under `targetBase*DV` so the card can strike
     // them through for transparency, and overwrite the live DV with 0 so
@@ -725,14 +787,14 @@ export class ExaltedRoll {
     // Build and evaluate the attack roll
     const displayName = (wSys.modes?.length ?? 1) > 1 ? `${weapon.name} — ${mode.name}` : weapon.name;
     const attackRoll = new ExaltedRoll({
-      pool:               pool + firstExcDice + charmAttackBonus.extraAccuracyDice,
+      pool:               pool + firstExcDice + charmAttackBonus.extraAccuracyDice + virtueChannelDice,
       flavor:             `${displayName} — ${game.i18n.localize("EX2E.AttackRoll")}`,
       actorName:          actor.name,
       stunt:              dialogResult.stunt,
       moteCost:           totalMoteCost,
       moteType:           dialogResult.moteType,
       firstExcDice,
-      secondExcSuccesses
+      secondExcSuccesses: secondExcSuccesses + virtueChannelSuccesses
     });
     const result = await attackRoll.evaluate();
 

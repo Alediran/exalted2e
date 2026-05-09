@@ -10,23 +10,16 @@ Last updated: 2026-05-08
 
 | Item | TODO Section | Notes |
 |------|-------------|-------|
-| Minimum-damage errata swap | Combat | verify/fix 1 line in attack-math.mjs |
-| Aborted-Aim divert penalty | Combat | partial; small fix in combat.mjs |
 | Cover modifiers / Height advantage | Combat / Defense | AE DV-bonus pattern already exists |
 | Starmetal target-imposed external penalty | Defense / Penalty | flag on equipped armor → existing penalty aggregator |
 | Drag-reorder within Combo sheet | Combat | UI arrow buttons only |
 | Shared/compendium-sourced Combos | Combat | drag handler on combo sheet, existing pattern |
-| NPC Combos | Combat | remove actorType guard on combo creation |
 | Action-Only keyword gating | Keywords | same-tick usage check in activation |
 | Native keyword gating | Keywords | charm-learn block, 1 check in prereq validation |
-| Expand prereqs: Essence/Ability/Background | Charms | add 3 cases to charm-prereqs.mjs |
 | Mortal-specific sheet variant | Mortal | conditional hide in character sheet template |
 | Terrestrial-only sorcery restrictions | Mortal | gating check in spell/charm picker |
 | Family/House background linkage | Dragon-Blooded | Background item new string field + display |
 | Monstrance of Celestial Portion | Abyssal | Background item with special flag |
-| Purchase Mode for NPC actors | XP | remove actor-type guard on purchase toggle |
-| Background-method setting | XP | game setting + 1 cost-table branch |
-| Virtue Channel counter | Sheet | new per-story counter field + display only |
 | Stunt-on-perfect | Stunts | small logic fix in roll dialog |
 | Motivation-advance WP reward | Stunts | hook trigger on motivation change |
 | Macro to re-create Circle folder | Circle | standalone macro |
@@ -36,10 +29,6 @@ Last updated: 2026-05-08
 | Language-drift linter | QoL | script: compare en.json ↔ es.json key sets |
 | Effect-flag registry file | QoL | documentation scan, no UI |
 | Willpower recovery on virtue channel success | Other | hook trigger, 1–2 lines |
-| Poison item type | Other | new TypeDataModel, no mechanics yet |
-| Disease item type | Other | same |
-| Drug item type | Other | same |
-| Mutation item type | Other | same |
 | docs/charm-authoring.md | Docs | prose only |
 | docs/npc-stat-blocks.md | Docs | prose only |
 
@@ -78,7 +67,6 @@ Last updated: 2026-05-08
 | Celestial-MA DB initiation charms | Martial Arts | specific charm data + actor gating for DB access to Celestial styles |
 | Celestial-MA per-charm surcharge | Martial Arts | `martialArtsTier === "celestial"` check in aspect-surcharge.mjs for DB actors |
 | Celestial-MA 1.5× XP | Martial Arts | same tier check in XP cost engine for non-resonant exalts |
-| Solar Hero Style routing | Martial Arts | `martialArtsStyleName === "Solar Hero Style"` + exaltType branch in activation |
 | Martial/Martial-ready keyword gating | Keywords | weapon tag check at charm-learn time using per-style weapons config |
 | Limit Break scripted scene effects | Solar / Virtues | per-Virtue-Flaw AE templates (4 flaws × 2 break types) |
 | Shintai / Mantle form-type charms | Infernal | charm activation mode + transformation state AE |
@@ -153,11 +141,11 @@ Last updated: 2026-05-08
 
 | Group | Count |
 |-------|-------|
-| A — Ready, Simple | 32 |
-| B — Ready, Medium | 57 |
+| A — Ready, Simple | 21 |
+| B — Ready, Medium | 56 |
 | C — Ready, Complex | 10 |
 | D — Blocked | 12 |
-| **Total pending** | **111** |
+| **Total pending** | **99** |
 
 **Biggest force-multipliers:**
 - **Spell casting chat card** (Group B) → unblocks 4 sorcery items

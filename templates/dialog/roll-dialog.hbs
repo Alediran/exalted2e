@@ -87,6 +87,26 @@
     </div>
     {{/if}}
 
+    {{#if virtueChoices.length}}
+    <div class="field-group virtue-channel-section">
+      <label>{{localize "EX2E.VirtueChannelMode"}}</label>
+      <div class="virtue-channel-radio">
+        <label><input type="radio" name="virtueChannelMode" value="none" checked> {{localize "EX2E.VirtueChannelNone"}}</label>
+        <label><input type="radio" name="virtueChannelMode" value="success"> {{localize "EX2E.VirtueChannelSuccess"}}</label>
+        <label><input type="radio" name="virtueChannelMode" value="dice"> {{localize "EX2E.VirtueChannelDice"}}</label>
+      </div>
+    </div>
+    <div class="field-group virtue-select-row" style="display:none">
+      <label>{{localize "EX2E.VirtueChannelSelect"}}</label>
+      <select name="virtueChannel">
+        <option value="">—</option>
+        {{#each virtueChoices as |v|}}
+        <option value="{{v.key}}">{{v.label}} ({{v.current}}/{{v.rating}})</option>
+        {{/each}}
+      </select>
+    </div>
+    {{/if}}
+
     {{#if clarityInfo}}
     <div class="field-group clarity-autochthon-reminder">
       <span>+{{clarityInfo.autochthonBonus}} {{localize "EX2E.ClarityAutochthonBonus"}}</span>
