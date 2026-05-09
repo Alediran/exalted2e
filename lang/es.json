@@ -58,7 +58,7 @@
     "CharmSource":      "Fuente",
     "HereticalCharmForbidden": "\"{name}\" es un encanto Herético y solo puede ser aprendido por Príncipes del Sol Verde.",
     "NativeCharmForbidden":    "\"{name}\" es un encanto Nativo y no puede ser aprendido por las Castas Eclipse, Sombra Lunar o Demonio.",
-    "TerrestrialSpellCircleBlocked": "\"{name}\" es de Círculo {circle} y los Terrestres solo pueden aprenderlo con un encanto que otorgue iniciación en círculos superiores.",
+    "SpellInitiationRequired":       "\"{name}\" ({tradition} Círculo {circle}) requiere un encanto que otorgue iniciación en ese círculo o superior.",
     "ActionOnlyCharmForbidden": "\"{name}\" es un encanto Solo de Acción y solo puede activarse durante tu propia acción.",
 
     "CasteOrichalcum":"Oricalco",

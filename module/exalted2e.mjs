@@ -905,17 +905,17 @@ Hooks.on("preCreateItem", (item, data, options, userId) => {
     return false;
   }
 
-  // ── Terrestrial sorcery circle gate ──────────────────────────────────────
-  // Dragon-Blooded are naturally limited to Terrestrial Circle (1) spells.
-  // They may only access higher circles if they possess a charm that
-  // explicitly grants initiation at that circle and tradition.
+  // ── Sorcery / Necromancy initiation gate ─────────────────────────────────
+  // Any spell requires a charm that grants initiation at that tradition and
+  // circle or higher. This applies to all exalt types — natural access for
+  // Solar / Sidereal / Abyssal etc. is represented by them having access to
+  // the appropriate initiation charms in the compendium, not by bypassing
+  // this check in code.
   const spellParent = item.parent;
   if (item.type === "spell" &&
       spellParent instanceof Actor &&
-      spellParent.type === "character" &&
-      spellParent.system.exaltType === "terrestrial" &&
-      (item.system.circle ?? 1) > 1) {
-    const circle    = item.system.circle;
+      spellParent.type === "character") {
+    const circle    = item.system.circle    ?? 1;
     const tradition = item.system.tradition ?? "sorcery";
     const hasInitiation = spellParent.items.some(c =>
       c.type === "charm" &&
@@ -924,10 +924,13 @@ Hooks.on("preCreateItem", (item, data, options, userId) => {
       (c.system.grantsInitiation?.level ?? 0) >= circle
     );
     if (!hasInitiation) {
+      const tradKey   = `EX2E.Tradition${tradition.charAt(0).toUpperCase()}${tradition.slice(1)}`;
+      const tradLabel = game.i18n.localize(tradKey);
       ui.notifications.warn(
-        game.i18n.format("EX2E.TerrestrialSpellCircleBlocked", {
-          circle,
-          name: item.name
+        game.i18n.format("EX2E.SpellInitiationRequired", {
+          name: item.name,
+          tradition: tradLabel,
+          circle
         })
       );
       return false;

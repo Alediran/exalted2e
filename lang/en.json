@@ -58,7 +58,7 @@
     "CharmSource":      "Source",
     "HereticalCharmForbidden": "\"{name}\" is a Heretical charm and can only be learned by Green Sun Princes.",
     "NativeCharmForbidden":    "\"{name}\" is a Native charm and cannot be learned by Eclipse, Moonshadow, or Fiend Castes.",
-    "TerrestrialSpellCircleBlocked": "\"{name}\" is Circle {circle} and Dragon-Blooded may only learn it with a charm granting higher-circle initiation.",
+    "SpellInitiationRequired":       "\"{name}\" ({tradition} Circle {circle}) requires a charm that grants initiation at that circle or higher.",
     "ActionOnlyCharmForbidden": "\"{name}\" is an Action-Only charm and can only be activated during your own action.",
 
     "CasteOrichalcum":"Orichalcum",
