@@ -3,8 +3,10 @@
   <div class="portrait-frame">
     <img class="actor-portrait" src="{{actor.img}}" alt="{{actor.name}}"
          data-action="editImage" {{#unless isEditable}}disabled{{/unless}}>
+    {{#unless (eq system.exaltType "mortal")}}
     <div class="anima-banner anima-{{system.anima}}"
          {{#if animaBannerStyle}}style="{{animaBannerStyle}}"{{/if}}></div>
+    {{/unless}}
   </div>
 
   <!-- Name & Identity -->
@@ -68,7 +70,8 @@
         {{dotRating name="system.willpower.max" value=system.willpower.max max=10 min=system.willpower.minPermanent}}
         {{boxRating name="system.willpower.value" value=system.willpower.value max=system.willpower.max total=10 min=0}}
       </div>
-      <!-- Mote Pools -->
+      <!-- Mote Pools (hidden for mortals) -->
+      {{#unless (eq system.exaltType "mortal")}}
       <div class="field-group mote-pools">
         <div class="mote-pool-block"
              title="{{localize 'EX2E.MotesPersonal'}} {{system.motes.personal.value}} / {{system.motes.personal.effectiveMax}} ({{localize 'EX2E.Total'}} {{system.motes.personal.max}})">
@@ -94,6 +97,7 @@
           <span class="pool-sep">{{system.motes.personal.totalCommitted}}/{{system.motes.peripheral.totalCommitted}}</span>
         </div>
       </div>
+      {{/unless}}
     </div>
   </div>
 </div>

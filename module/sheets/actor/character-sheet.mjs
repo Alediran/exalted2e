@@ -260,8 +260,10 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const tabs = {
       tabMain:      { id: "tabMain",      group: "sheet", icon: "fa-solid fa-user",           label: game.i18n.localize("EX2E.TabMain"),       cssClass: this.tabGroups.sheet === "tabMain"       ? "active" : "" },
       tabCombat:    { id: "tabCombat",    group: "sheet", icon: "fa-solid fa-shield-halved",  label: game.i18n.localize("EX2E.TabCombat"),     cssClass: this.tabGroups.sheet === "tabCombat"     ? "active" : "" },
-      tabCharms:      { id: "tabCharms",      group: "sheet", icon: "fa-solid fa-sun",           label: game.i18n.localize("EX2E.TabCharms"),       cssClass: this.tabGroups.sheet === "tabCharms"      ? "active" : "" },
-      tabMartialArts: { id: "tabMartialArts", group: "sheet", icon: "fa-solid fa-hand-fist",     label: game.i18n.localize("EX2E.TabMartialArts"),  cssClass: this.tabGroups.sheet === "tabMartialArts" ? "active" : "" },
+      ...(sys.exaltType !== "mortal" ? {
+        tabCharms:      { id: "tabCharms",      group: "sheet", icon: "fa-solid fa-sun",       label: game.i18n.localize("EX2E.TabCharms"),      cssClass: this.tabGroups.sheet === "tabCharms"      ? "active" : "" },
+        tabMartialArts: { id: "tabMartialArts", group: "sheet", icon: "fa-solid fa-hand-fist", label: game.i18n.localize("EX2E.TabMartialArts"), cssClass: this.tabGroups.sheet === "tabMartialArts" ? "active" : "" },
+      } : {}),
       ...(sys.exaltType === "sidereal" ? { tabAstrology: { id: "tabAstrology", group: "sheet", icon: "fa-solid fa-star", label: game.i18n.localize("EX2E.SiderealAstrology"), cssClass: this.tabGroups.sheet === "tabAstrology" ? "active" : "" } } : {}),
       tabInventory: { id: "tabInventory", group: "sheet", icon: "fa-solid fa-suitcase",       label: game.i18n.localize("EX2E.TabInventory"),       cssClass: this.tabGroups.sheet === "tabInventory"  ? "active" : "" },
       tabBiography: { id: "tabBiography", group: "sheet", icon: "fa-solid fa-book",           label: game.i18n.localize("EX2E.TabBiography"),       cssClass: this.tabGroups.sheet === "tabBiography"  ? "active" : "" },

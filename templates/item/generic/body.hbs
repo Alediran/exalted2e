@@ -10,6 +10,12 @@
     <input type="text" name="system.notes" value="{{system.notes}}"
            style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
   </div>
+  <div class="field-group" style="margin-top:8px">
+    <label>{{localize "EX2E.BackgroundHouse"}}</label>
+    <input type="text" name="system.house" value="{{system.house}}"
+           placeholder="{{localize 'EX2E.BackgroundHousePlaceholder'}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
   {{#if isGM}}
   <div class="field-group" style="margin-top:8px">
     <label>{{localize "EX2E.IsBreedingTrait"}}</label>
@@ -19,6 +25,20 @@
       {{#if isBreedingTrait}}✓{{else}}—{{/if}}
     </button>
   </div>
+  <div class="field-group checkbox-field" style="margin-top:8px">
+    <label><input type="checkbox" name="system.isMonstrance"
+                  {{#if system.isMonstrance}}checked{{/if}}
+                  {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.IsMonstrance"}}</label>
+  </div>
+  {{#if system.isMonstrance}}
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Deathlord"}}</label>
+    <input type="text" name="system.deathlord" value="{{system.deathlord}}"
+           placeholder="{{localize 'EX2E.DeathlordPlaceholder'}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  {{/if}}
   {{/if}}
   {{/if}}
 

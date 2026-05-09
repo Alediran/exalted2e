@@ -905,6 +905,35 @@ Hooks.on("preCreateItem", (item, data, options, userId) => {
     return false;
   }
 
+  // ── Terrestrial sorcery circle gate ──────────────────────────────────────
+  // Dragon-Blooded are naturally limited to Terrestrial Circle (1) spells.
+  // They may only access higher circles if they possess a charm that
+  // explicitly grants initiation at that circle and tradition.
+  const spellParent = item.parent;
+  if (item.type === "spell" &&
+      spellParent instanceof Actor &&
+      spellParent.type === "character" &&
+      spellParent.system.exaltType === "terrestrial" &&
+      (item.system.circle ?? 1) > 1) {
+    const circle    = item.system.circle;
+    const tradition = item.system.tradition ?? "sorcery";
+    const hasInitiation = spellParent.items.some(c =>
+      c.type === "charm" &&
+      c.system.grantsInitiation?.enabled &&
+      c.system.grantsInitiation?.tradition === tradition &&
+      (c.system.grantsInitiation?.level ?? 0) >= circle
+    );
+    if (!hasInitiation) {
+      ui.notifications.warn(
+        game.i18n.format("EX2E.TerrestrialSpellCircleBlocked", {
+          circle,
+          name: item.name
+        })
+      );
+      return false;
+    }
+  }
+
   // ── Purchase Mode: XP-costing items on locked actors ──────────────────
   // Flag the item so the async createItem hook below can run the
   // confirmation flow. preCreateItem is synchronous; we can't `await`

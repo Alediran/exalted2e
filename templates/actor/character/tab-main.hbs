@@ -113,7 +113,8 @@
           </div>
           {{/each}}
 
-          {{!-- Limit track + variant warnings --}}
+          {{!-- Limit track + variant warnings (hidden for mortals) --}}
+          {{#unless (eq system.exaltType "mortal")}}
           <div style="grid-column: 1 / -1; margin-top: var(--ex2e-gap-sm);">
             {{#if (eq system.exaltType "infernal")}}
             <div class="section-toolbar">
@@ -185,9 +186,10 @@
             {{/if}}
           </div>
           {{/if}}
+          {{/unless}}
 
-          {{!-- Virtue Flaw: hidden for Infernal (Urge instead) and Abyssal (no flaw) --}}
-          {{#unless (eq system.exaltType "infernal")}}{{#unless (eq system.exaltType "abyssal")}}
+          {{!-- Virtue Flaw: hidden for Infernal (Urge instead), Abyssal, and Mortal --}}
+          {{#unless (eq system.exaltType "infernal")}}{{#unless (eq system.exaltType "abyssal")}}{{#unless (eq system.exaltType "mortal")}}
           <div class="virtue-flaw-section" style="grid-column: 1 / -1;"
                {{#if virtueFlaw}}data-item-id="{{virtueFlaw.id}}"{{/if}}>
             <h2 class="section-header">{{localize "EX2E.VirtueFlaw"}}</h2>
@@ -212,7 +214,7 @@
               {{/if}}
             </div>
           </div>
-          {{/unless}}{{/unless}}
+          {{/unless}}{{/unless}}{{/unless}}
           {{#if (eq system.exaltType "infernal")}}
           <div class="virtue-flaw-section" style="grid-column: 1 / -1;"
                {{#if urgeItem}}data-item-id="{{urgeItem.id}}"{{/if}}>
@@ -272,7 +274,8 @@
         {{/if}}
       </section>
 
-      {{!-- Column 3: Anima --}}
+      {{!-- Column 3: Anima (hidden for mortals) --}}
+      {{#unless (eq system.exaltType "mortal")}}
       <section class="anima-column">
         <div class="section-toolbar">
           <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Anima"}}</h2>
@@ -349,6 +352,7 @@
         </div>
         {{/if}}
       </section>
+      {{/unless}}
 
     </div>
 
