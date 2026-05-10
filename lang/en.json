@@ -1444,6 +1444,8 @@
     "StatusStunned":                 "Stunned",
     "StatusGrappled":                "Grappled",
     "StatusClinch":                  "Clinch",
+    "StatusLightCover":              "Light Cover",
+    "StatusHeavyCover":              "Heavy Cover",
     "RiseRollFlavor":                "Rise from Prone (Difficulty 2)",
     "RiseSucceededClear":            "stood up (no enemy adjacent)",
     "RiseSucceededContested":        "stood up ({successes} vs Difficulty 2)",

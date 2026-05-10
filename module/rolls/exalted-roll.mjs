@@ -523,7 +523,7 @@ export class ExaltedRoll {
     //   • External (e.g., Prone -1) reduces the success tally after
     //     the roll resolves — applied below, post-threshold.
     const internalPenalty = actor.internalPenaltyFor?.("physical") ?? 0;
-    const externalPenalty = actor.externalPenaltyFor?.("physical") ?? 0;
+    let externalPenalty   = actor.externalPenaltyFor?.("physical") ?? 0;
 
     const pool = computeAttackPool({
       attrVal, abilVal,
@@ -620,6 +620,17 @@ export class ExaltedRoll {
       // uses the pre-bump DVs; the next attack will see the bumped total.
       // Cleared by advanceWheel when the defender becomes free again.
       await targetActor.addOnslaught();
+
+      // Starmetal artifact armor worn by the defender imposes an external
+      // penalty on the attacker's success tally (reduces effective hits).
+      const starmetalArmor = targetActor.items.find(i =>
+        i.type === "armor" && i.system.equipped && i.system.artifact &&
+        i.system.magicalMaterial === "starmetal" && i.system.attuned
+      );
+      if (starmetalArmor) {
+        const mmBonuses = game.exalted2e.EX2E.getActiveArmorMaterialBonuses?.();
+        externalPenalty += mmBonuses?.starmetal?.attackPenalty ?? 0;
+      }
     }
 
     // Non-Excellency attack charms: every Supplemental keyed to the rolled

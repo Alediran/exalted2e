@@ -404,6 +404,13 @@ Hooks.once("init", function () {
   _enrichStatus("restrain", { externalPenalty: { value: 2, type: "physical" }, grappled: true }, "EX2E.StatusClinch");
   _enrichStatus("fly",        { flying: true });
 
+  // Cover conditions — custom IDs not present in Foundry's built-in list.
+  // Flags carry `dvBonus` so `_aggregateDVBonuses` on the actor picks them up.
+  CONFIG.statusEffects.push(
+    { id: "lightCover", label: "EX2E.StatusLightCover", img: "icons/svg/ruins.svg", flags: { exalted2e: { dvBonus: { dodge: 1, parry: 0 } } } },
+    { id: "heavyCover", label: "EX2E.StatusHeavyCover", img: "icons/svg/castle.svg", flags: { exalted2e: { dvBonus: { dodge: 2, parry: 1 } } } }
+  );
+
   console.log("Exalted 2e | System initialised.");
 });
 
@@ -823,6 +830,24 @@ const _EFFECT_WRAPPER_SEEDS = [
       },
       statuses: ["restrained"],
       description: "−2 external penalty to physical actions. Reaching weapons cannot be used. Cannot move freely."
+    }
+  },
+  {
+    name: "EX2E.StatusLightCover",
+    img:  "icons/svg/ruins.svg",
+    effect: {
+      flags: { exalted2e: { dvBonus: { dodge: 1, parry: 0 } } },
+      statuses: ["lightCover"],
+      description: "+1 Dodge DV from light cover (low wall, brush, doorframe)."
+    }
+  },
+  {
+    name: "EX2E.StatusHeavyCover",
+    img:  "icons/svg/castle.svg",
+    effect: {
+      flags: { exalted2e: { dvBonus: { dodge: 2, parry: 1 } } },
+      statuses: ["heavyCover"],
+      description: "+2 Dodge DV, +1 Parry DV from heavy cover (solid wall, fortification)."
     }
   }
 ];

@@ -380,6 +380,7 @@ export class ExaltedActor extends Actor {
     this._aggregateDVPenalties(systemData);
     this._aggregateMDVPenalties(systemData);
     this._aggregateCharmDVBonus(systemData);
+    this._aggregateDVBonuses(systemData);
     this._prepareAlchemicalDerived(systemData);
   }
 
@@ -427,6 +428,19 @@ export class ExaltedActor extends Actor {
         }}};
       });
     systemData.charmDVBonus = aggregateCharmDVBonus(resolved);
+  }
+
+  _aggregateDVBonuses(systemData) {
+    let dodgeBonus = 0;
+    let parryBonus = 0;
+    for (const ae of this.effects) {
+      if (ae.disabled) continue;
+      const bonus = ae.flags?.exalted2e?.dvBonus;
+      if (!bonus) continue;
+      dodgeBonus += bonus.dodge ?? 0;
+      parryBonus += bonus.parry ?? 0;
+    }
+    systemData.aeDVBonus = { dodgeBonus, parryBonus };
   }
 
   /**
@@ -591,7 +605,7 @@ export class ExaltedActor extends Actor {
     const dvb = s.charmDVBonus ?? { dodgeBonus: 0, parryBonus: 0, ignoreAllPenalties: false, ignorePenaltyTypes: [] };
     const base = (this.type === "character" ? (s.dodgeDV ?? 0)
                 : this.type === "npc"       ? (s.combat?.dodgeDV ?? 0)
-                : 0) + dvb.dodgeBonus;
+                : 0) + dvb.dodgeBonus + (s.aeDVBonus?.dodgeBonus ?? 0);
     const penalty = dvb.ignoreAllPenalties
       ? 0
       : this._dvPenaltyIgnoring(new Set(dvb.ignorePenaltyTypes));
@@ -603,7 +617,7 @@ export class ExaltedActor extends Actor {
     const dvb = s.charmDVBonus ?? { dodgeBonus: 0, parryBonus: 0, ignoreAllPenalties: false, ignorePenaltyTypes: [] };
     const base = (this.type === "character" ? (s.parryDV ?? s.parryDVBase ?? 0)
                 : this.type === "npc"       ? (s.combat?.parryDV ?? 0)
-                : 0) + dvb.parryBonus;
+                : 0) + dvb.parryBonus + (s.aeDVBonus?.parryBonus ?? 0);
     const penalty = dvb.ignoreAllPenalties
       ? 0
       : this._dvPenaltyIgnoring(new Set(dvb.ignorePenaltyTypes));
