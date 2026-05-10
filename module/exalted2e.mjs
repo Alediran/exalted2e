@@ -373,21 +373,35 @@ Hooks.once("init", function () {
   // ── CONFIG Additions ────────────────────────────────────────────────────
   CONFIG.EX2E = EX2E;
 
+  // Strip status effects that have no meaning in Exalted 2e. This covers both
+  // Foundry built-ins that don't apply to the system and any extras injected
+  // by modules (shields, blessings, RPG-generic markers, etc.).
+  CONFIG.statusEffects = CONFIG.statusEffects.filter(e => ![
+    "invisible", "frozen",  "burning",
+    "silence",   "marked",  "targeted", "target",
+    "holyShield","magicShield","coldShield","fireShield",
+    "bless",     "eye",     "downgrade", "upgrade",
+    "degen",     "regen",   "curse",     "shock"
+  ].includes(e.id));
+
   // Enrich Foundry built-in status effects with Exalted 2e mechanical flags.
   // Storing flags on the entry means the AE Foundry creates from the token HUD
   // already carries the right payload — the roll pipelines aggregate every
   // active effect with a `flags.exalted2e.externalPenalty` and subtract.
-  const _enrichStatus = (id, flags) => {
+  const _enrichStatus = (id, flags, tooltip) => {
     const entry = CONFIG.statusEffects.find(e => e.id === id);
-    if (entry) entry.flags = foundry.utils.mergeObject(entry.flags ?? {}, { exalted2e: flags });
+    if (entry) {
+      entry.label = tooltip ?? entry.label;
+      entry.flags = foundry.utils.mergeObject(entry.flags ?? {}, { exalted2e: flags });
+    }
   };
 
   _enrichStatus("prone",      { externalPenalty: { value: 1, type: "physical" } });
-  _enrichStatus("stunned",    { externalPenalty: { value: 4, type: "all" } });
+  _enrichStatus("stun",    { externalPenalty: { value: 4, type: "all" } });
   _enrichStatus("blind",      { externalPenalty: { value: 2, type: "physical" }, blind: true });
   _enrichStatus("deaf",       { deaf: true });
-  // Foundry's "restrained" maps to the 2e Grappled condition.
-  _enrichStatus("restrained", { externalPenalty: { value: 2, type: "physical" }, grappled: true });
+  // Foundry's "restrained" maps to the 2e Clinch/Grapple condition.
+  _enrichStatus("restrain", { externalPenalty: { value: 2, type: "physical" }, grappled: true }, "EX2E.StatusClinch");
   _enrichStatus("fly",        { flying: true });
 
   console.log("Exalted 2e | System initialised.");
