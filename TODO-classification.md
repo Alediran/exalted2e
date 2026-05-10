@@ -10,7 +10,6 @@ Last updated: 2026-05-09 (after Status Effects remainder cluster)
 
 | Item | TODO Section | Notes |
 |------|-------------|-------|
-| Height advantage (+1/+3 DV close combat) | Combat | cover AE framework done; height-advantage rule still pending |
 | Drag-reorder within Combo sheet | Combat | UI arrow buttons only |
 | Shared/compendium-sourced Combos | Combat | drag handler on combo sheet, existing pattern |
 | Monstrance of Celestial Portion | Abyssal | fields done; control/servitude mechanics (deathlord authority over deathknight) still pending |
@@ -18,7 +17,6 @@ Last updated: 2026-05-09 (after Status Effects remainder cluster)
 | Motivation-advance WP reward | Stunts | hook trigger on motivation change |
 | Macro to re-create Circle folder | Circle | standalone macro |
 | Restoring defaults when actor leaves Circle | Circle | hook on folder-item remove |
-| Status effects compendium | Compendium | Blind/Deaf/Stunned/Grappled seeded; Knockdown/Poisoned/Diseased/Crippled still pending |
 | Willpower recovery on virtue channel success | Other | hook trigger, 1–2 lines |
 | docs/charm-authoring.md | Docs | prose only |
 | docs/npc-stat-blocks.md | Docs | prose only |
@@ -131,11 +129,11 @@ Last updated: 2026-05-09 (after Status Effects remainder cluster)
 
 | Group | Count |
 |-------|-------|
-| A — Ready, Simple | 12 |
+| A — Ready, Simple | 10 |
 | B — Ready, Medium | 55 |
 | C — Ready, Complex | 10 |
 | D — Blocked | 12 |
-| **Total pending** | **89** |
+| **Total pending** | **87** |
 
 **Biggest force-multipliers:**
 - **Spell casting chat card** (Group B) → unblocks 4 sorcery items
