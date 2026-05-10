@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-09 (after Cover & Starmetal cluster)
+Last updated: 2026-05-09 (after Status Effects remainder cluster)
 
 ---
 

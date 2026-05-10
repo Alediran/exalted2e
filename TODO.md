@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 155 / 259 complete** (12 out-of-scope / partial — last updated 2026-05-09)
+**Progress: 157 / 259 complete** (11 out-of-scope / partial — last updated 2026-05-09)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -38,7 +38,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] **Coordinated attacks** (leader Cha+War, target DV reduced by successes cap unit size)
 - [ ] **Mounted combat** (Ride-controlled mount stats, charge bonuses, lance mechanics, Ride charms per splat)
 - [~] Cover modifiers — light/heavy cover AE-based DV bonus framework implemented; buckler/tower shield items pending
-- [ ] Height advantage (+1/+3 DV close combat)
+- [x] Height advantage — custom `heightAdvantage` status effect with `dvBonus: { dodge: 1, parry: 1 }` + compendium seeder entry
 - [x] **Multi-tick action container** — for shaping sorcery, Aim banking across ticks, clinch renewal, extra-action charm flurries with their own tick scheduling
 - [ ] Aim bonus banking (one die per banked tick, consumed on aimed attack)
 - [x] Aborted-Aim divert penalty — `onCommitOther` returns `applyAbortPenalty:true`; `advanceCurrentByTicks` applies `applyInternalPenalty(2, dvRefreshable)` when diverted
@@ -264,7 +264,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Pre-built weapons / armor compendia (with magical material variants)
 - [ ] Pre-built spells compendium (Terrestrial through Solar circles + Shadowlands/Labyrinth/Void)
 - [~] Pre-built artifact compendium — hearthstones pack complete (16 entries, 10 type folders); daiklaves and armors pending
-- [~] Status effects compendium — Blind, Deaf, Stunned, Grappled/Clinched seeded; Knockdown/Poisoned/Diseased/Crippled pending
+- [x] Status effects compendium — Blind, Deaf, Stunned, Grappled/Clinched, Crippled, Height Advantage seeded; Poisoned/Diseased enriched via Foundry built-ins; Knockdown handled by Prone
 
 ## Other Mechanics
 - [x] Anima powers per exalt type and caste (embedded `animapower` item on actor; 34-entry compendium; swapped on caste/exaltType change; manual activate/deactivate with mote + WP cost)
