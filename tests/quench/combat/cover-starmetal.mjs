@@ -120,6 +120,52 @@ export function registerCoverStarmetal(context) {
         "externalPenalty = 1 from defender's attuned starmetal armor");
     });
 
+    // 7. Crippled AE imposes internalPenalty on physical actions
+    it("[249] crippled AE: internalPenaltyFor('physical') = 1", async function () {
+      const actor = await createTempCharacter({ name: "Q-Crippled" });
+      assert.equal(actor.internalPenaltyFor?.("physical") ?? 0, 0,
+        "no internal penalty before AE");
+      await actor.createEmbeddedDocuments("ActiveEffect", [{
+        name:     "Crippled",
+        img:      "icons/svg/blood.svg",
+        flags:    { exalted2e: { internalPenalty: { value: 1, type: "physical" }, crippled: true } },
+        disabled: false,
+        transfer: false
+      }]);
+      assert.equal(actor.internalPenaltyFor?.("physical") ?? 0, 1,
+        "crippled AE adds 1 internal penalty to physical");
+    });
+
+    // 8. Height advantage AE increases both Dodge and Parry DV by 1
+    it("[250] height advantage AE: +1 to both currentDodgeDV and currentParryDV", async function () {
+      const actor     = await createTempCharacter({ name: "Q-Height" });
+      const baseDodge = actor.currentDodgeDV;
+      const baseParry = actor.currentParryDV;
+      await actor.createEmbeddedDocuments("ActiveEffect", [{
+        name:     "Height Advantage",
+        img:      "icons/svg/up.svg",
+        flags:    { exalted2e: { dvBonus: { dodge: 1, parry: 1 } } },
+        disabled: false,
+        transfer: false
+      }]);
+      assert.equal(actor.currentDodgeDV, baseDodge + 1,
+        "height advantage adds +1 dodge DV");
+      assert.equal(actor.currentParryDV, baseParry + 1,
+        "height advantage adds +1 parry DV");
+    });
+
+    // 9. Poisoned/diseased CONFIG.statusEffects entries carry Exalted detection flags
+    it("[251] poisoned and diseased status entries carry exalted2e flags", async function () {
+      const poisoned = CONFIG.statusEffects.find(e => e.id === "poisoned");
+      const diseased = CONFIG.statusEffects.find(e => e.id === "diseased");
+      assert.ok(poisoned, "poisoned entry present in CONFIG.statusEffects");
+      assert.ok(diseased, "diseased entry present in CONFIG.statusEffects");
+      assert.equal(poisoned?.flags?.exalted2e?.poisoned, true,
+        "poisoned entry carries exalted2e.poisoned flag");
+      assert.equal(diseased?.flags?.exalted2e?.diseased, true,
+        "diseased entry carries exalted2e.diseased flag");
+    });
+
     // 6. Non-attuned starmetal armor imposes no attack penalty
     it("[248] non-attuned starmetal armor: no attack penalty on attacker", async function () {
       const { attacker, defender, weapon } = await setupAttackFixture();

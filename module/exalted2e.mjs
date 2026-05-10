@@ -403,12 +403,20 @@ Hooks.once("init", function () {
   // Foundry's "restrained" maps to the 2e Clinch/Grapple condition.
   _enrichStatus("restrain", { externalPenalty: { value: 2, type: "physical" }, grappled: true }, "EX2E.StatusClinch");
   _enrichStatus("fly",        { flying: true });
+  // Poison/disease mark the condition for detection; specific penalties come
+  // from the Poison/Disease item that applied the condition.
+  _enrichStatus("poisoned",   { poisoned: true });
+  _enrichStatus("diseased",   { diseased: true });
 
-  // Cover conditions — custom IDs not present in Foundry's built-in list.
-  // Flags carry `dvBonus` so `_aggregateDVBonuses` on the actor picks them up.
+  // Custom statuses — not in Foundry's built-in list.
   CONFIG.statusEffects.push(
-    { id: "lightCover", label: "EX2E.StatusLightCover", img: "icons/svg/ruins.svg", flags: { exalted2e: { dvBonus: { dodge: 1, parry: 0 } } } },
-    { id: "heavyCover", label: "EX2E.StatusHeavyCover", img: "icons/svg/castle.svg", flags: { exalted2e: { dvBonus: { dodge: 2, parry: 1 } } } }
+    // Cover: defender on higher/behind cover is harder to hit.
+    { id: "lightCover",      label: "EX2E.StatusLightCover",      img: "icons/svg/ruins.svg",   flags: { exalted2e: { dvBonus: { dodge: 1, parry: 0 } } } },
+    { id: "heavyCover",      label: "EX2E.StatusHeavyCover",      img: "icons/svg/castle.svg",  flags: { exalted2e: { dvBonus: { dodge: 2, parry: 1 } } } },
+    // Height advantage: attacker on higher ground is harder to hit in return.
+    { id: "heightAdvantage", label: "EX2E.StatusHeightAdvantage", img: "icons/svg/up.svg",      flags: { exalted2e: { dvBonus: { dodge: 1, parry: 1 } } } },
+    // Crippling injury: −1 internal penalty to all physical actions until surgically healed.
+    { id: "crippled",        label: "EX2E.StatusCrippled",        img: "icons/svg/blood.svg",   flags: { exalted2e: { internalPenalty: { value: 1, type: "physical" }, crippled: true } } }
   );
 
   console.log("Exalted 2e | System initialised.");
@@ -848,6 +856,24 @@ const _EFFECT_WRAPPER_SEEDS = [
       flags: { exalted2e: { dvBonus: { dodge: 2, parry: 1 } } },
       statuses: ["heavyCover"],
       description: "+2 Dodge DV, +1 Parry DV from heavy cover (solid wall, fortification)."
+    }
+  },
+  {
+    name: "EX2E.StatusCrippled",
+    img:  "icons/svg/blood.svg",
+    effect: {
+      flags: { exalted2e: { internalPenalty: { value: 1, type: "physical" }, crippled: true } },
+      statuses: ["crippled"],
+      description: "−1 internal penalty to physical actions from a crippling injury. Requires surgery (Int+Medicine) to heal fully."
+    }
+  },
+  {
+    name: "EX2E.StatusHeightAdvantage",
+    img:  "icons/svg/up.svg",
+    effect: {
+      flags: { exalted2e: { dvBonus: { dodge: 1, parry: 1 } } },
+      statuses: ["heightAdvantage"],
+      description: "+1 Dodge DV and +1 Parry DV while on higher ground. Attacks from below are harder to land."
     }
   }
 ];
