@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 150 / 259 complete** (8 out-of-scope / partial — last updated 2026-05-09)
+**Progress: 155 / 259 complete** (12 out-of-scope / partial — last updated 2026-05-09)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -37,7 +37,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Onslaught penalty (−1 DV per attack received; reuse the DV-penalty AE plumbing)
 - [ ] **Coordinated attacks** (leader Cha+War, target DV reduced by successes cap unit size)
 - [ ] **Mounted combat** (Ride-controlled mount stats, charge bonuses, lance mechanics, Ride charms per splat)
-- [ ] Cover modifiers (buckler / target / tower / %-cover) +DV bonuses
+- [~] Cover modifiers — light/heavy cover AE-based DV bonus framework implemented; buckler/tower shield items pending
 - [ ] Height advantage (+1/+3 DV close combat)
 - [x] **Multi-tick action container** — for shaping sorcery, Aim banking across ticks, clinch renewal, extra-action charm flurries with their own tick scheduling
 - [ ] Aim bonus banking (one die per banked tick, consumed on aimed attack)
@@ -51,8 +51,8 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Artifact commitment feedback on mote maxima
 - [x] Hardness model (per armor)
 - [ ] Shields as weapons (errata: Sh0/Sh1/Sh2 tag-driven shields with mobility penalty, no longer "mobile cover")
-- [ ] Cover modifiers
-- [ ] Starmetal armor: target-imposed external attack penalty
+- [~] Cover modifiers (light/heavy cover AE bonus implemented; shield-type cover pending)
+- [x] Starmetal armor: target-imposed external attack penalty
 - [ ] Fatigue penalty (armor fatigue triggering Stamina+Resistance rolls over scene-length exertion)
 
 ## Charm Keywords
@@ -158,7 +158,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Water Aspect Terrestrial-MA no-surcharge exemption
 - [x] Anima flux damage at 11+ banner (environmental — scene effect)
 - [x] Charm cooperation (multi-DB pooled costs)
-- [ ] Family / House background linkage
+- [x] Family / House background linkage
 
 ### Sidereal
 - [~] Arcane Fate trait — OUT OF SCOPE; purely narrative, ST-controlled, no mechanical implementation planned
@@ -176,7 +176,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Resonance eruptions (Blight / Branding / Conduit / Stigmata effect scripts)
 - [x] ST-triggered eruption button (GM-only)
 - [x] Whispers trait (Conduit effect cap)
-- [ ] Monstrance of Celestial Portion as an artifact/background
+- [~] Monstrance of Celestial Portion — `isMonstrance` + `deathlord` fields on Background item; full mechanics pending
 - [x] Moonshadow non-Abyssal charm access (16 XP, +2m activation)
 - [x] Creature of Darkness flaw (GM-only removal, flag-based detection)
 
@@ -201,8 +201,8 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [~] Adamant caste hidden-from-society rules
 
 ### Mortal
-- [ ] Mortal-specific sheet variant (hide Essence/Mote/Charm sections)
-- [ ] Terrestrial-only sorcery/MA restrictions
+- [x] Mortal-specific sheet variant (hide Essence/Mote/Charm sections, anima, limit track, virtue flaw)
+- [x] Terrestrial-only sorcery/MA restrictions (universal `grantsInitiation` charm flag covering all traditions + circles)
 - [x] No Excellencies enforcement
 
 ## Creatures / Traits
@@ -214,7 +214,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Aborted-Aim internal −2 (next-action tax)
 - [x] Armor mobility penalty → internal physical
 - [x] Wound penalty applied in `rollAttributeAbility` (previously attack-only)
-- [ ] Starmetal target-imposed external attack penalty
+- [x] Starmetal target-imposed external attack penalty
 - [ ] Fatigue penalty mechanic (armor fatigue scene-long exertion → Sta+Res rolls)
 
 ## Character Sheet
@@ -264,7 +264,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Pre-built weapons / armor compendia (with magical material variants)
 - [ ] Pre-built spells compendium (Terrestrial through Solar circles + Shadowlands/Labyrinth/Void)
 - [~] Pre-built artifact compendium — hearthstones pack complete (16 entries, 10 type folders); daiklaves and armors pending
-- [ ] Status effects compendium (Knockdown, Stun, Clinched, Poisoned, Diseased, Prone-per-leg, Crippled)
+- [~] Status effects compendium — Blind, Deaf, Stunned, Grappled/Clinched seeded; Knockdown/Poisoned/Diseased/Crippled pending
 
 ## Other Mechanics
 - [x] Anima powers per exalt type and caste (embedded `animapower` item on actor; 34-entry compendium; swapped on caste/exaltType change; manual activate/deactivate with mote + WP cost)

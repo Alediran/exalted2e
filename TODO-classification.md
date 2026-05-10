@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-09 (after QoL tools cluster)
+Last updated: 2026-05-09 (after Cover & Starmetal cluster)
 
 ---
 
@@ -10,19 +10,15 @@ Last updated: 2026-05-09 (after QoL tools cluster)
 
 | Item | TODO Section | Notes |
 |------|-------------|-------|
-| Cover modifiers / Height advantage | Combat / Defense | AE DV-bonus pattern already exists |
-| Starmetal target-imposed external penalty | Defense / Penalty | flag on equipped armor → existing penalty aggregator |
+| Height advantage (+1/+3 DV close combat) | Combat | cover AE framework done; height-advantage rule still pending |
 | Drag-reorder within Combo sheet | Combat | UI arrow buttons only |
 | Shared/compendium-sourced Combos | Combat | drag handler on combo sheet, existing pattern |
-| Mortal-specific sheet variant | Mortal | conditional hide in character sheet template |
-| Terrestrial-only sorcery restrictions | Mortal | gating check in spell/charm picker |
-| Family/House background linkage | Dragon-Blooded | Background item new string field + display |
-| Monstrance of Celestial Portion | Abyssal | Background item with special flag |
+| Monstrance of Celestial Portion | Abyssal | fields done; control/servitude mechanics (deathlord authority over deathknight) still pending |
 | Stunt-on-perfect | Stunts | small logic fix in roll dialog |
 | Motivation-advance WP reward | Stunts | hook trigger on motivation change |
 | Macro to re-create Circle folder | Circle | standalone macro |
 | Restoring defaults when actor leaves Circle | Circle | hook on folder-item remove |
-| Status effects compendium | Compendium | JSON data + CONFIG.statusEffects entries |
+| Status effects compendium | Compendium | Blind/Deaf/Stunned/Grappled seeded; Knockdown/Poisoned/Diseased/Crippled still pending |
 | Willpower recovery on virtue channel success | Other | hook trigger, 1–2 lines |
 | docs/charm-authoring.md | Docs | prose only |
 | docs/npc-stat-blocks.md | Docs | prose only |
@@ -135,11 +131,11 @@ Last updated: 2026-05-09 (after QoL tools cluster)
 
 | Group | Count |
 |-------|-------|
-| A — Ready, Simple | 16 |
+| A — Ready, Simple | 12 |
 | B — Ready, Medium | 55 |
 | C — Ready, Complex | 10 |
 | D — Blocked | 12 |
-| **Total pending** | **93** |
+| **Total pending** | **89** |
 
 **Biggest force-multipliers:**
 - **Spell casting chat card** (Group B) → unblocks 4 sorcery items
