@@ -24,6 +24,17 @@
   padding: 6px 4px;
 }
 
+.exalted2e.item.charm .effects-group-header {
+  margin: 8px 0 4px;
+  padding: 2px 4px;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ex2e-gold-bright);
+  border-bottom: 1px solid var(--ex2e-gold-mid);
+}
+
 .exalted2e.item.charm .effect-section {
   border: 1px solid var(--ex2e-gold-mid);
   border-radius: 3px;

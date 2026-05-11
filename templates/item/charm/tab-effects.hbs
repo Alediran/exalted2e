@@ -1,5 +1,8 @@
 <div class="tab {{cssClass}} sheet-body charm-effects-body" data-tab="tabEffects" data-group="sheet">
 
+  {{!-- ── OFFENSIVE ─────────────────────────────────────────────────────────── --}}
+  <h4 class="effects-group-header">{{localize "EX2E.EffectGroupOffensive"}}</h4>
+
   {{!-- M0 Weapon-Like Attack ──────────────────────────────────────────────── --}}
   <div class="effect-section">
     <label class="effect-enable-row">
@@ -191,6 +194,298 @@
     {{/if}}
   </div>
 
+  {{!-- M12 Attack Bonus (Supplemental) ───────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.attackBonus.enabled"
+             {{#if system.attackBonus.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.EffectAttackBonus"}}</span>
+    </label>
+    {{#if system.attackBonus.enabled}}
+    <div class="effect-body">
+      <div class="field-group">
+        <label>{{localize "EX2E.ABAccuracyDice"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.attackBonus.accuracyDice"
+                 value="{{system.attackBonus.accuracyDice}}"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.attackBonus.accuracyDice"
+                  data-label="{{localize 'EX2E.ABAccuracyDice'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.ABAccuracySuccesses"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.attackBonus.accuracySuccesses"
+                 value="{{system.attackBonus.accuracySuccesses}}"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.attackBonus.accuracySuccesses"
+                  data-label="{{localize 'EX2E.ABAccuracySuccesses'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.ABDamageDice"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.attackBonus.damageDice"
+                 value="{{system.attackBonus.damageDice}}"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.attackBonus.damageDice"
+                  data-label="{{localize 'EX2E.ABDamageDice'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field-group">
+        <label class="checkbox-label">
+          <input type="checkbox" name="system.attackBonus.ignoreAccuracyPenalties"
+                 {{#if system.attackBonus.ignoreAccuracyPenalties}}checked{{/if}}
+                 {{#unless isEditable}}disabled{{/unless}}>
+          {{localize "EX2E.ABIgnoreAccuracyPenalties"}}
+        </label>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M11 Penalty to Target ──────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.targetPenalty.enabled"
+             {{#if system.targetPenalty.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.EffectTargetPenalty"}}</span>
+    </label>
+    {{#if system.targetPenalty.enabled}}
+    <div class="effect-body effect-grid-2">
+      <div class="field-group">
+        <label>{{localize "EX2E.TPAmount"}}</label>
+        <input type="number" name="system.targetPenalty.amount"
+               value="{{system.targetPenalty.amount}}" max="0"
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.TPAmountFormula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.targetPenalty.amountFormula"
+                 value="{{system.targetPenalty.amountFormula}}"
+                 placeholder="e.g. -2"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.targetPenalty.amountFormula"
+                  data-label="{{localize 'EX2E.TPAmountFormula'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.TPScope"}}</label>
+        <select name="system.targetPenalty.scope" {{#unless isEditable}}disabled{{/unless}}>
+          {{#each targetPenaltyScopes}}
+          <option value="{{this.value}}" {{#if (eq this.value ../system.targetPenalty.scope)}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.TPDuration"}}</label>
+        <select name="system.targetPenalty.duration" {{#unless isEditable}}disabled{{/unless}}>
+          {{#each durations}}
+          <option value="{{this.value}}" {{#if (eq this.value ../system.targetPenalty.duration)}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M14 Rate Bonus ──────────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.rateBonus.enabled"
+             {{#if system.rateBonus.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.EffectRateBonus"}}</span>
+    </label>
+    {{#if system.rateBonus.enabled}}
+    <div class="effect-body effect-grid-2">
+      <div class="field-group">
+        <label>{{localize "EX2E.RateBonusFormula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.rateBonus.formula"
+                 value="{{system.rateBonus.formula}}"
+                 placeholder="e.g. 1"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.rateBonus.formula"
+                  data-label="{{localize 'EX2E.RateBonusFormula'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M9 Extra Actions ───────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.extraActions.enabled"
+             {{#if system.extraActions.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.EffectExtraActions"}}</span>
+    </label>
+    {{#if system.extraActions.enabled}}
+    <div class="effect-body effect-grid-2">
+      <div class="field-group" style="grid-column:1/-1">
+        <label>{{localize "EX2E.EAMaxFormula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.extraActions.maxFormula"
+                 value="{{system.extraActions.maxFormula}}"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.extraActions.maxFormula"
+                  data-label="{{localize 'EX2E.EAMaxFormula'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.EACostPerAction"}}</label>
+        <input type="number" name="system.extraActions.costPerAction"
+               value="{{system.extraActions.costPerAction}}" min="0"
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M16 Target Effect ──────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.targetEffect.enabled"
+             {{#if system.targetEffect.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.CharmTargetEffectEnable"}}</span>
+    </label>
+    {{#if system.targetEffect.enabled}}
+    <div class="effect-body">
+      <p class="effect-section-label">{{localize "EX2E.CharmTargetEffectHelp"}}</p>
+      <div class="effect-grid-2">
+        <div class="field-group">
+          <label>{{localize "EX2E.CharmTargetEffectTrigger"}}</label>
+          <select name="system.targetEffect.trigger" {{#unless isEditable}}disabled{{/unless}}>
+            <option value="onHit"      {{#if (eq system.targetEffect.trigger "onHit")}}selected{{/if}}>{{localize "EX2E.CharmTargetEffectTriggerOnHit"}}</option>
+            <option value="onActivate" {{#if (eq system.targetEffect.trigger "onActivate")}}selected{{/if}}>{{localize "EX2E.CharmTargetEffectTriggerOnActivate"}}</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label>{{localize "EX2E.CharmTargetEffectDuration"}}</label>
+          <select name="system.targetEffect.duration" {{#unless isEditable}}disabled{{/unless}}>
+            <option value="oneScene"   {{#if (eq system.targetEffect.duration "oneScene")}}selected{{/if}}>{{localize "EX2E.DurationOneScene"}}</option>
+            <option value="indefinite" {{#if (eq system.targetEffect.duration "indefinite")}}selected{{/if}}>{{localize "EX2E.DurationIndefinite"}}</option>
+            <option value="permanent"  {{#if (eq system.targetEffect.duration "permanent")}}selected{{/if}}>{{localize "EX2E.DurationPermanent"}}</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label>{{localize "EX2E.CharmTargetEffectLabel"}}</label>
+          <input type="text" name="system.targetEffect.label" value="{{system.targetEffect.label}}"
+                 {{#unless isEditable}}readonly{{/unless}}>
+        </div>
+        <div class="field-group">
+          <label>{{localize "EX2E.CharmTargetEffectIcon"}}</label>
+          <input type="text" name="system.targetEffect.icon" value="{{system.targetEffect.icon}}"
+                 {{#unless isEditable}}readonly{{/unless}}>
+        </div>
+      </div>
+
+      <p class="effect-section-label">{{localize "EX2E.CharmTargetEffectInternalPenalty"}}</p>
+      <label class="effect-enable-row">
+        <input type="checkbox" name="system.targetEffect.internalPenalty.enabled"
+               {{#if system.targetEffect.internalPenalty.enabled}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        <span>{{localize "EX2E.CharmTargetEffectInternalPenaltyEnable"}}</span>
+      </label>
+      {{#if system.targetEffect.internalPenalty.enabled}}
+      <div class="effect-grid-2">
+        <div class="field-group">
+          <label>{{localize "EX2E.CharmTargetEffectPenaltyType"}}</label>
+          <select name="system.targetEffect.internalPenalty.type" {{#unless isEditable}}disabled{{/unless}}>
+            <option value="all"      {{#if (eq system.targetEffect.internalPenalty.type "all")}}selected{{/if}}>{{localize "EX2E.PenaltyTypeAll"}}</option>
+            <option value="physical" {{#if (eq system.targetEffect.internalPenalty.type "physical")}}selected{{/if}}>{{localize "EX2E.PenaltyTypePhysical"}}</option>
+            <option value="mental"   {{#if (eq system.targetEffect.internalPenalty.type "mental")}}selected{{/if}}>{{localize "EX2E.PenaltyTypeMental"}}</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label>{{localize "EX2E.CharmTargetEffectAmount"}}</label>
+          <input type="number" name="system.targetEffect.internalPenalty.amount"
+                 value="{{system.targetEffect.internalPenalty.amount}}"
+                 max="0" {{#unless isEditable}}readonly{{/unless}}>
+        </div>
+      </div>
+      {{/if}}
+
+      <label class="effect-enable-row">
+        <input type="checkbox" name="system.targetEffect.perDamageLevel"
+               {{checked system.targetEffect.perDamageLevel}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        {{localize "EX2E.CharmTargetEffectPerDamageLevel"}}
+      </label>
+
+      <p class="effect-section-label">{{localize "EX2E.CharmTargetEffectChanges"}}</p>
+      {{#each system.targetEffect.changes as |chg i|}}
+      <div class="sb-change-row">
+        <input type="text" name="system.targetEffect.changes.{{i}}.key"
+               value="{{chg.key}}" placeholder="system.attributes.strength.value"
+               {{#unless @root.isEditable}}readonly{{/unless}}>
+        <input type="number" name="system.targetEffect.changes.{{i}}.mode"
+               value="{{chg.mode}}" min="0" max="6" style="width:4em"
+               {{#unless @root.isEditable}}readonly{{/unless}}>
+        <input type="text" name="system.targetEffect.changes.{{i}}.value"
+               value="{{chg.value}}" style="width:6em"
+               {{#unless @root.isEditable}}readonly{{/unless}}>
+        {{#if @root.isEditable}}
+        <button type="button" class="btn-remove" data-action="removeTargetEffectChange"
+                data-index="{{i}}"><i class="fa-solid fa-times"></i></button>
+        {{/if}}
+      </div>
+      {{/each}}
+      {{#if isEditable}}
+      <button type="button" class="btn-add-row" data-action="addTargetEffectChange">
+        + {{localize "EX2E.CharmTargetEffectChanges"}}
+      </button>
+      {{/if}}
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- ── DEFENSIVE ────────────────────────────────────────────────────────── --}}
+  <h4 class="effects-group-header">{{localize "EX2E.EffectGroupDefensive"}}</h4>
+
   {{!-- Perfect Defense ─────────────────────────────────────────────────────── --}}
   <div class="effect-section">
     <div class="effect-enable-row">
@@ -203,52 +498,94 @@
     </div>
   </div>
 
-  {{!-- M1 Health Level Grant ─────────────────────────────────────────────── --}}
+  {{!-- M10 DV Bonus / Penalty Negation ───────────────────────────────────── --}}
   <div class="effect-section">
     <label class="effect-enable-row">
-      <input type="checkbox" name="system.healthGrant.enabled"
-             {{#if system.healthGrant.enabled}}checked{{/if}}
+      <input type="checkbox" name="system.dvBonus.enabled"
+             {{#if system.dvBonus.enabled}}checked{{/if}}
              {{#unless isEditable}}disabled{{/unless}}>
-      <span>{{localize "EX2E.EffectHealthGrant"}}</span>
+      <span>{{localize "EX2E.EffectDVBonus"}}</span>
     </label>
-    {{#if system.healthGrant.enabled}}
-    <div class="effect-body">
-      <p class="effect-section-label">{{localize "EX2E.HGOptions"}}</p>
-      {{#each system.healthGrant.options as |opt i|}}
-      <div class="hg-option-row">
-        {{#if @root.hgHasChoice}}
-        <input type="radio" name="system.healthGrant.selectedOption"
-               value="{{i}}"
-               {{#if (eq i @root.system.healthGrant.selectedOption)}}checked{{/if}}>
-        {{/if}}
-        <input type="text" name="system.healthGrant.options.{{i}}.label"
-               value="{{opt.label}}" placeholder="{{localize 'EX2E.HGOptionLabel'}}"
-               {{#unless @root.isEditable}}readonly{{/unless}}>
-        <label>{{localize "EX2E.HGZero"}}</label>
-        <input type="number" name="system.healthGrant.options.{{i}}.zero"
-               value="{{opt.zero}}" min="0" {{#unless isEditable}}readonly{{/unless}}>
-        <label>{{localize "EX2E.HGOne"}}</label>
-        <input type="number" name="system.healthGrant.options.{{i}}.one"
-               value="{{opt.one}}" min="0" {{#unless isEditable}}readonly{{/unless}}>
-        <label>{{localize "EX2E.HGTwo"}}</label>
-        <input type="number" name="system.healthGrant.options.{{i}}.two"
-               value="{{opt.two}}" min="0" {{#unless isEditable}}readonly{{/unless}}>
-        {{#if (eq system.exaltType "lunar")}}
-        <label>{{localize "EX2E.HGDying"}}</label>
-        <input type="number" name="system.healthGrant.options.{{i}}.dying"
-               value="{{opt.dying}}" min="0" {{#unless isEditable}}readonly{{/unless}}>
-        {{/if}}
+    {{#if system.dvBonus.enabled}}
+    <div class="effect-body effect-grid-2">
+      <div class="field-group">
+        <label>{{localize "EX2E.DVBDodgeBonus"}}</label>
+        <input type="number" name="system.dvBonus.dodgeBonus"
+               value="{{system.dvBonus.dodgeBonus}}" min="0"
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.DVBParryBonus"}}</label>
+        <input type="number" name="system.dvBonus.parryBonus"
+               value="{{system.dvBonus.parryBonus}}" min="0"
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.DVBDodgeBonusFormula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.dvBonus.dodgeBonusFormula"
+                 value="{{system.dvBonus.dodgeBonusFormula}}"
+                 placeholder="e.g. @dex"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.dvBonus.dodgeBonusFormula"
+                  data-label="{{localize 'EX2E.DVBDodgeBonusFormula'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.DVBParryBonusFormula"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.dvBonus.parryBonusFormula"
+                 value="{{system.dvBonus.parryBonusFormula}}"
+                 placeholder="e.g. @dex"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.dvBonus.parryBonusFormula"
+                  data-label="{{localize 'EX2E.DVBParryBonusFormula'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field-group" style="grid-column:1/-1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="system.dvBonus.ignoreAllPenalties"
+                 {{#if system.dvBonus.ignoreAllPenalties}}checked{{/if}}
+                 {{#unless isEditable}}disabled{{/unless}}>
+          {{localize "EX2E.DVBIgnoreAll"}}
+        </label>
+      </div>
+      {{#unless system.dvBonus.ignoreAllPenalties}}
+      <div class="field-group" style="grid-column:1/-1">
+        <label>{{localize "EX2E.DVBIgnorePenaltyTypes"}}</label>
+        {{#each system.dvBonus.ignorePenaltyTypes as |pt i|}}
+        <div class="dvb-type-row">
+          <select name="system.dvBonus.ignorePenaltyTypes.{{i}}"
+                  {{#unless isEditable}}disabled{{/unless}}>
+            {{#each ../dvPenaltyTypeChoices}}
+            <option value="{{this.value}}" {{#if (eq this.value pt)}}selected{{/if}}>{{this.label}}</option>
+            {{/each}}
+          </select>
+          {{#if isEditable}}
+          <button type="button" class="btn-remove" data-action="removeDVIgnorePenaltyType"
+                  data-index="{{i}}"><i class="fa-solid fa-times"></i></button>
+          {{/if}}
+        </div>
+        {{/each}}
         {{#if isEditable}}
-        <button type="button" class="btn-remove" data-action="removeHealthGrantOption"
-                data-index="{{i}}"><i class="fa-solid fa-times"></i></button>
+        <button type="button" class="btn-add-row" data-action="addDVIgnorePenaltyType">
+          {{localize "EX2E.DVBAddPenaltyType"}}
+        </button>
         {{/if}}
       </div>
-      {{/each}}
-      {{#if isEditable}}
-      <button type="button" class="btn-add-row" data-action="addHealthGrantOption">
-        {{localize "EX2E.HGAddOption"}}
-      </button>
-      {{/if}}
+      {{/unless}}
     </div>
     {{/if}}
   </div>
@@ -375,6 +712,59 @@
     {{/if}}
   </div>
 
+  {{!-- M1 Health Level Grant ─────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.healthGrant.enabled"
+             {{#if system.healthGrant.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.EffectHealthGrant"}}</span>
+    </label>
+    {{#if system.healthGrant.enabled}}
+    <div class="effect-body">
+      <p class="effect-section-label">{{localize "EX2E.HGOptions"}}</p>
+      {{#each system.healthGrant.options as |opt i|}}
+      <div class="hg-option-row">
+        {{#if @root.hgHasChoice}}
+        <input type="radio" name="system.healthGrant.selectedOption"
+               value="{{i}}"
+               {{#if (eq i @root.system.healthGrant.selectedOption)}}checked{{/if}}>
+        {{/if}}
+        <input type="text" name="system.healthGrant.options.{{i}}.label"
+               value="{{opt.label}}" placeholder="{{localize 'EX2E.HGOptionLabel'}}"
+               {{#unless @root.isEditable}}readonly{{/unless}}>
+        <label>{{localize "EX2E.HGZero"}}</label>
+        <input type="number" name="system.healthGrant.options.{{i}}.zero"
+               value="{{opt.zero}}" min="0" {{#unless isEditable}}readonly{{/unless}}>
+        <label>{{localize "EX2E.HGOne"}}</label>
+        <input type="number" name="system.healthGrant.options.{{i}}.one"
+               value="{{opt.one}}" min="0" {{#unless isEditable}}readonly{{/unless}}>
+        <label>{{localize "EX2E.HGTwo"}}</label>
+        <input type="number" name="system.healthGrant.options.{{i}}.two"
+               value="{{opt.two}}" min="0" {{#unless isEditable}}readonly{{/unless}}>
+        {{#if (eq system.exaltType "lunar")}}
+        <label>{{localize "EX2E.HGDying"}}</label>
+        <input type="number" name="system.healthGrant.options.{{i}}.dying"
+               value="{{opt.dying}}" min="0" {{#unless isEditable}}readonly{{/unless}}>
+        {{/if}}
+        {{#if isEditable}}
+        <button type="button" class="btn-remove" data-action="removeHealthGrantOption"
+                data-index="{{i}}"><i class="fa-solid fa-times"></i></button>
+        {{/if}}
+      </div>
+      {{/each}}
+      {{#if isEditable}}
+      <button type="button" class="btn-add-row" data-action="addHealthGrantOption">
+        {{localize "EX2E.HGAddOption"}}
+      </button>
+      {{/if}}
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- ── UTILITY ──────────────────────────────────────────────────────────── --}}
+  <h4 class="effects-group-header">{{localize "EX2E.EffectGroupUtility"}}</h4>
+
   {{!-- M4 Attribute / Ability Boost ──────────────────────────────────────── --}}
   <div class="effect-section">
     <label class="effect-enable-row">
@@ -458,6 +848,34 @@
           </button>
           {{/if}}
         </div>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M8 Mote Pool Expansion ────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.motePoolBonus.enabled"
+             {{#if system.motePoolBonus.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.EffectMotePoolBonus"}}</span>
+    </label>
+    {{#if system.motePoolBonus.enabled}}
+    <div class="effect-body effect-grid-2">
+      <div class="field-group">
+        <label>{{localize "EX2E.MPBPool"}}</label>
+        <select name="system.motePoolBonus.pool" {{#unless isEditable}}disabled{{/unless}}>
+          {{#each motePoolChoices}}
+          <option value="{{this.value}}" {{#if (eq this.value ../system.motePoolBonus.pool)}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.MPBAmount"}}</label>
+        <input type="number" name="system.motePoolBonus.amount"
+               value="{{system.motePoolBonus.amount}}" min="0"
+               {{#unless isEditable}}readonly{{/unless}}>
       </div>
     </div>
     {{/if}}
@@ -569,285 +987,6 @@
     {{/if}}
   </div>
 
-  {{!-- M8 Mote Pool Expansion ────────────────────────────────────────────── --}}
-  <div class="effect-section">
-    <label class="effect-enable-row">
-      <input type="checkbox" name="system.motePoolBonus.enabled"
-             {{#if system.motePoolBonus.enabled}}checked{{/if}}
-             {{#unless isEditable}}disabled{{/unless}}>
-      <span>{{localize "EX2E.EffectMotePoolBonus"}}</span>
-    </label>
-    {{#if system.motePoolBonus.enabled}}
-    <div class="effect-body effect-grid-2">
-      <div class="field-group">
-        <label>{{localize "EX2E.MPBPool"}}</label>
-        <select name="system.motePoolBonus.pool" {{#unless isEditable}}disabled{{/unless}}>
-          {{#each motePoolChoices}}
-          <option value="{{this.value}}" {{#if (eq this.value ../system.motePoolBonus.pool)}}selected{{/if}}>{{this.label}}</option>
-          {{/each}}
-        </select>
-      </div>
-      <div class="field-group">
-        <label>{{localize "EX2E.MPBAmount"}}</label>
-        <input type="number" name="system.motePoolBonus.amount"
-               value="{{system.motePoolBonus.amount}}" min="0"
-               {{#unless isEditable}}readonly{{/unless}}>
-      </div>
-    </div>
-    {{/if}}
-  </div>
-
-  {{!-- M9 Extra Actions ───────────────────────────────────────────────────── --}}
-  <div class="effect-section">
-    <label class="effect-enable-row">
-      <input type="checkbox" name="system.extraActions.enabled"
-             {{#if system.extraActions.enabled}}checked{{/if}}
-             {{#unless isEditable}}disabled{{/unless}}>
-      <span>{{localize "EX2E.EffectExtraActions"}}</span>
-    </label>
-    {{#if system.extraActions.enabled}}
-    <div class="effect-body effect-grid-2">
-      <div class="field-group" style="grid-column:1/-1">
-        <label>{{localize "EX2E.EAMaxFormula"}}</label>
-        <div class="formula-field-row">
-          <input type="text" name="system.extraActions.maxFormula"
-                 value="{{system.extraActions.maxFormula}}"
-                 {{#unless isEditable}}readonly{{/unless}}>
-          {{#if isEditable}}
-          <button type="button" class="btn-fx" data-action="openFormula"
-                  data-path="system.extraActions.maxFormula"
-                  data-label="{{localize 'EX2E.EAMaxFormula'}}"
-                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
-            <i class="fa-solid fa-function"></i>
-          </button>
-          {{/if}}
-        </div>
-      </div>
-      <div class="field-group">
-        <label>{{localize "EX2E.EACostPerAction"}}</label>
-        <input type="number" name="system.extraActions.costPerAction"
-               value="{{system.extraActions.costPerAction}}" min="0"
-               {{#unless isEditable}}readonly{{/unless}}>
-      </div>
-    </div>
-    {{/if}}
-  </div>
-
-  {{!-- M10 DV Bonus / Penalty Negation ───────────────────────────────────── --}}
-  <div class="effect-section">
-    <label class="effect-enable-row">
-      <input type="checkbox" name="system.dvBonus.enabled"
-             {{#if system.dvBonus.enabled}}checked{{/if}}
-             {{#unless isEditable}}disabled{{/unless}}>
-      <span>{{localize "EX2E.EffectDVBonus"}}</span>
-    </label>
-    {{#if system.dvBonus.enabled}}
-    <div class="effect-body effect-grid-2">
-      <div class="field-group">
-        <label>{{localize "EX2E.DVBDodgeBonus"}}</label>
-        <input type="number" name="system.dvBonus.dodgeBonus"
-               value="{{system.dvBonus.dodgeBonus}}" min="0"
-               {{#unless isEditable}}readonly{{/unless}}>
-      </div>
-      <div class="field-group">
-        <label>{{localize "EX2E.DVBParryBonus"}}</label>
-        <input type="number" name="system.dvBonus.parryBonus"
-               value="{{system.dvBonus.parryBonus}}" min="0"
-               {{#unless isEditable}}readonly{{/unless}}>
-      </div>
-      <div class="field-group">
-        <label>{{localize "EX2E.DVBDodgeBonusFormula"}}</label>
-        <div class="formula-field-row">
-          <input type="text" name="system.dvBonus.dodgeBonusFormula"
-                 value="{{system.dvBonus.dodgeBonusFormula}}"
-                 placeholder="e.g. @dex"
-                 {{#unless isEditable}}readonly{{/unless}}>
-          {{#if isEditable}}
-          <button type="button" class="btn-fx" data-action="openFormula"
-                  data-path="system.dvBonus.dodgeBonusFormula"
-                  data-label="{{localize 'EX2E.DVBDodgeBonusFormula'}}"
-                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
-            <i class="fa-solid fa-function"></i>
-          </button>
-          {{/if}}
-        </div>
-      </div>
-      <div class="field-group">
-        <label>{{localize "EX2E.DVBParryBonusFormula"}}</label>
-        <div class="formula-field-row">
-          <input type="text" name="system.dvBonus.parryBonusFormula"
-                 value="{{system.dvBonus.parryBonusFormula}}"
-                 placeholder="e.g. @dex"
-                 {{#unless isEditable}}readonly{{/unless}}>
-          {{#if isEditable}}
-          <button type="button" class="btn-fx" data-action="openFormula"
-                  data-path="system.dvBonus.parryBonusFormula"
-                  data-label="{{localize 'EX2E.DVBParryBonusFormula'}}"
-                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
-            <i class="fa-solid fa-function"></i>
-          </button>
-          {{/if}}
-        </div>
-      </div>
-      <div class="field-group" style="grid-column:1/-1">
-        <label class="checkbox-label">
-          <input type="checkbox" name="system.dvBonus.ignoreAllPenalties"
-                 {{#if system.dvBonus.ignoreAllPenalties}}checked{{/if}}
-                 {{#unless isEditable}}disabled{{/unless}}>
-          {{localize "EX2E.DVBIgnoreAll"}}
-        </label>
-      </div>
-      {{#unless system.dvBonus.ignoreAllPenalties}}
-      <div class="field-group" style="grid-column:1/-1">
-        <label>{{localize "EX2E.DVBIgnorePenaltyTypes"}}</label>
-        {{#each system.dvBonus.ignorePenaltyTypes as |pt i|}}
-        <div class="dvb-type-row">
-          <select name="system.dvBonus.ignorePenaltyTypes.{{i}}"
-                  {{#unless isEditable}}disabled{{/unless}}>
-            {{#each ../dvPenaltyTypeChoices}}
-            <option value="{{this.value}}" {{#if (eq this.value pt)}}selected{{/if}}>{{this.label}}</option>
-            {{/each}}
-          </select>
-          {{#if isEditable}}
-          <button type="button" class="btn-remove" data-action="removeDVIgnorePenaltyType"
-                  data-index="{{i}}"><i class="fa-solid fa-times"></i></button>
-          {{/if}}
-        </div>
-        {{/each}}
-        {{#if isEditable}}
-        <button type="button" class="btn-add-row" data-action="addDVIgnorePenaltyType">
-          {{localize "EX2E.DVBAddPenaltyType"}}
-        </button>
-        {{/if}}
-      </div>
-      {{/unless}}
-    </div>
-    {{/if}}
-  </div>
-
-  {{!-- M12 Attack Bonus (Supplemental) ───────────────────────────────────── --}}
-  <div class="effect-section">
-    <label class="effect-enable-row">
-      <input type="checkbox" name="system.attackBonus.enabled"
-             {{#if system.attackBonus.enabled}}checked{{/if}}
-             {{#unless isEditable}}disabled{{/unless}}>
-      <span>{{localize "EX2E.EffectAttackBonus"}}</span>
-    </label>
-    {{#if system.attackBonus.enabled}}
-    <div class="effect-body">
-      <div class="field-group">
-        <label>{{localize "EX2E.ABAccuracyDice"}}</label>
-        <div class="formula-field-row">
-          <input type="text" name="system.attackBonus.accuracyDice"
-                 value="{{system.attackBonus.accuracyDice}}"
-                 {{#unless isEditable}}readonly{{/unless}}>
-          {{#if isEditable}}
-          <button type="button" class="btn-fx" data-action="openFormula"
-                  data-path="system.attackBonus.accuracyDice"
-                  data-label="{{localize 'EX2E.ABAccuracyDice'}}"
-                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
-            <i class="fa-solid fa-function"></i>
-          </button>
-          {{/if}}
-        </div>
-      </div>
-      <div class="field-group">
-        <label>{{localize "EX2E.ABAccuracySuccesses"}}</label>
-        <div class="formula-field-row">
-          <input type="text" name="system.attackBonus.accuracySuccesses"
-                 value="{{system.attackBonus.accuracySuccesses}}"
-                 {{#unless isEditable}}readonly{{/unless}}>
-          {{#if isEditable}}
-          <button type="button" class="btn-fx" data-action="openFormula"
-                  data-path="system.attackBonus.accuracySuccesses"
-                  data-label="{{localize 'EX2E.ABAccuracySuccesses'}}"
-                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
-            <i class="fa-solid fa-function"></i>
-          </button>
-          {{/if}}
-        </div>
-      </div>
-      <div class="field-group">
-        <label>{{localize "EX2E.ABDamageDice"}}</label>
-        <div class="formula-field-row">
-          <input type="text" name="system.attackBonus.damageDice"
-                 value="{{system.attackBonus.damageDice}}"
-                 {{#unless isEditable}}readonly{{/unless}}>
-          {{#if isEditable}}
-          <button type="button" class="btn-fx" data-action="openFormula"
-                  data-path="system.attackBonus.damageDice"
-                  data-label="{{localize 'EX2E.ABDamageDice'}}"
-                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
-            <i class="fa-solid fa-function"></i>
-          </button>
-          {{/if}}
-        </div>
-      </div>
-      <div class="field-group">
-        <label class="checkbox-label">
-          <input type="checkbox" name="system.attackBonus.ignoreAccuracyPenalties"
-                 {{#if system.attackBonus.ignoreAccuracyPenalties}}checked{{/if}}
-                 {{#unless isEditable}}disabled{{/unless}}>
-          {{localize "EX2E.ABIgnoreAccuracyPenalties"}}
-        </label>
-      </div>
-    </div>
-    {{/if}}
-  </div>
-
-  {{!-- M11 Penalty to Target ──────────────────────────────────────────────── --}}
-  <div class="effect-section">
-    <label class="effect-enable-row">
-      <input type="checkbox" name="system.targetPenalty.enabled"
-             {{#if system.targetPenalty.enabled}}checked{{/if}}
-             {{#unless isEditable}}disabled{{/unless}}>
-      <span>{{localize "EX2E.EffectTargetPenalty"}}</span>
-    </label>
-    {{#if system.targetPenalty.enabled}}
-    <div class="effect-body effect-grid-2">
-      <div class="field-group">
-        <label>{{localize "EX2E.TPAmount"}}</label>
-        <input type="number" name="system.targetPenalty.amount"
-               value="{{system.targetPenalty.amount}}" max="0"
-               {{#unless isEditable}}readonly{{/unless}}>
-      </div>
-      <div class="field-group">
-        <label>{{localize "EX2E.TPAmountFormula"}}</label>
-        <div class="formula-field-row">
-          <input type="text" name="system.targetPenalty.amountFormula"
-                 value="{{system.targetPenalty.amountFormula}}"
-                 placeholder="e.g. -2"
-                 {{#unless isEditable}}readonly{{/unless}}>
-          {{#if isEditable}}
-          <button type="button" class="btn-fx" data-action="openFormula"
-                  data-path="system.targetPenalty.amountFormula"
-                  data-label="{{localize 'EX2E.TPAmountFormula'}}"
-                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
-            <i class="fa-solid fa-function"></i>
-          </button>
-          {{/if}}
-        </div>
-      </div>
-      <div class="field-group">
-        <label>{{localize "EX2E.TPScope"}}</label>
-        <select name="system.targetPenalty.scope" {{#unless isEditable}}disabled{{/unless}}>
-          {{#each targetPenaltyScopes}}
-          <option value="{{this.value}}" {{#if (eq this.value ../system.targetPenalty.scope)}}selected{{/if}}>{{this.label}}</option>
-          {{/each}}
-        </select>
-      </div>
-      <div class="field-group">
-        <label>{{localize "EX2E.TPDuration"}}</label>
-        <select name="system.targetPenalty.duration" {{#unless isEditable}}disabled{{/unless}}>
-          {{#each durations}}
-          <option value="{{this.value}}" {{#if (eq this.value ../system.targetPenalty.duration)}}selected{{/if}}>{{this.label}}</option>
-          {{/each}}
-        </select>
-      </div>
-    </div>
-    {{/if}}
-  </div>
-
   {{!-- M13 Speed Modifier ─────────────────────────────────────────────────── --}}
   <div class="effect-section">
     <label class="effect-enable-row">
@@ -898,166 +1037,6 @@
     {{/if}}
   </div>
 
-  {{!-- M16 Target Effect ──────────────────────────────────────────────────── --}}
-  <div class="effect-section">
-    <label class="effect-enable-row">
-      <input type="checkbox" name="system.targetEffect.enabled"
-             {{#if system.targetEffect.enabled}}checked{{/if}}
-             {{#unless isEditable}}disabled{{/unless}}>
-      <span>{{localize "EX2E.CharmTargetEffectEnable"}}</span>
-    </label>
-    {{#if system.targetEffect.enabled}}
-    <div class="effect-body">
-      <p class="effect-section-label">{{localize "EX2E.CharmTargetEffectHelp"}}</p>
-      <div class="effect-grid-2">
-        <div class="field-group">
-          <label>{{localize "EX2E.CharmTargetEffectTrigger"}}</label>
-          <select name="system.targetEffect.trigger" {{#unless isEditable}}disabled{{/unless}}>
-            <option value="onHit"      {{#if (eq system.targetEffect.trigger "onHit")}}selected{{/if}}>{{localize "EX2E.CharmTargetEffectTriggerOnHit"}}</option>
-            <option value="onActivate" {{#if (eq system.targetEffect.trigger "onActivate")}}selected{{/if}}>{{localize "EX2E.CharmTargetEffectTriggerOnActivate"}}</option>
-          </select>
-        </div>
-        <div class="field-group">
-          <label>{{localize "EX2E.CharmTargetEffectDuration"}}</label>
-          <select name="system.targetEffect.duration" {{#unless isEditable}}disabled{{/unless}}>
-            <option value="oneScene"   {{#if (eq system.targetEffect.duration "oneScene")}}selected{{/if}}>{{localize "EX2E.DurationOneScene"}}</option>
-            <option value="indefinite" {{#if (eq system.targetEffect.duration "indefinite")}}selected{{/if}}>{{localize "EX2E.DurationIndefinite"}}</option>
-            <option value="permanent"  {{#if (eq system.targetEffect.duration "permanent")}}selected{{/if}}>{{localize "EX2E.DurationPermanent"}}</option>
-          </select>
-        </div>
-        <div class="field-group">
-          <label>{{localize "EX2E.CharmTargetEffectLabel"}}</label>
-          <input type="text" name="system.targetEffect.label" value="{{system.targetEffect.label}}"
-                 {{#unless isEditable}}readonly{{/unless}}>
-        </div>
-        <div class="field-group">
-          <label>{{localize "EX2E.CharmTargetEffectIcon"}}</label>
-          <input type="text" name="system.targetEffect.icon" value="{{system.targetEffect.icon}}"
-                 {{#unless isEditable}}readonly{{/unless}}>
-        </div>
-      </div>
-
-      <p class="effect-section-label">{{localize "EX2E.CharmTargetEffectInternalPenalty"}}</p>
-      <label class="effect-enable-row">
-        <input type="checkbox" name="system.targetEffect.internalPenalty.enabled"
-               {{#if system.targetEffect.internalPenalty.enabled}}checked{{/if}}
-               {{#unless isEditable}}disabled{{/unless}}>
-        <span>{{localize "EX2E.CharmTargetEffectInternalPenaltyEnable"}}</span>
-      </label>
-      {{#if system.targetEffect.internalPenalty.enabled}}
-      <div class="effect-grid-2">
-        <div class="field-group">
-          <label>{{localize "EX2E.CharmTargetEffectPenaltyType"}}</label>
-          <select name="system.targetEffect.internalPenalty.type" {{#unless isEditable}}disabled{{/unless}}>
-            <option value="all"      {{#if (eq system.targetEffect.internalPenalty.type "all")}}selected{{/if}}>{{localize "EX2E.PenaltyTypeAll"}}</option>
-            <option value="physical" {{#if (eq system.targetEffect.internalPenalty.type "physical")}}selected{{/if}}>{{localize "EX2E.PenaltyTypePhysical"}}</option>
-            <option value="mental"   {{#if (eq system.targetEffect.internalPenalty.type "mental")}}selected{{/if}}>{{localize "EX2E.PenaltyTypeMental"}}</option>
-          </select>
-        </div>
-        <div class="field-group">
-          <label>{{localize "EX2E.CharmTargetEffectAmount"}}</label>
-          <input type="number" name="system.targetEffect.internalPenalty.amount"
-                 value="{{system.targetEffect.internalPenalty.amount}}"
-                 max="0" {{#unless isEditable}}readonly{{/unless}}>
-        </div>
-      </div>
-      {{/if}}
-
-      <label class="effect-enable-row">
-        <input type="checkbox" name="system.targetEffect.perDamageLevel"
-               {{checked system.targetEffect.perDamageLevel}}
-               {{#unless isEditable}}disabled{{/unless}}>
-        {{localize "EX2E.CharmTargetEffectPerDamageLevel"}}
-      </label>
-
-      <p class="effect-section-label">{{localize "EX2E.CharmTargetEffectChanges"}}</p>
-      {{#each system.targetEffect.changes as |chg i|}}
-      <div class="sb-change-row">
-        <input type="text" name="system.targetEffect.changes.{{i}}.key"
-               value="{{chg.key}}" placeholder="system.attributes.strength.value"
-               {{#unless @root.isEditable}}readonly{{/unless}}>
-        <input type="number" name="system.targetEffect.changes.{{i}}.mode"
-               value="{{chg.mode}}" min="0" max="6" style="width:4em"
-               {{#unless @root.isEditable}}readonly{{/unless}}>
-        <input type="text" name="system.targetEffect.changes.{{i}}.value"
-               value="{{chg.value}}" style="width:6em"
-               {{#unless @root.isEditable}}readonly{{/unless}}>
-        {{#if @root.isEditable}}
-        <button type="button" class="btn-remove" data-action="removeTargetEffectChange"
-                data-index="{{i}}"><i class="fa-solid fa-times"></i></button>
-        {{/if}}
-      </div>
-      {{/each}}
-      {{#if isEditable}}
-      <button type="button" class="btn-add-row" data-action="addTargetEffectChange">
-        + {{localize "EX2E.CharmTargetEffectChanges"}}
-      </button>
-      {{/if}}
-    </div>
-    {{/if}}
-  </div>
-
-  {{!-- M17 Grants Initiation ─────────────────────────────────────────────── --}}
-  <div class="effect-section">
-    <label class="effect-enable-row">
-      <input type="checkbox" name="system.grantsInitiation.enabled"
-             {{#if system.grantsInitiation.enabled}}checked{{/if}}
-             {{#unless isEditable}}disabled{{/unless}}>
-      <span>{{localize "EX2E.EffectGrantsInitiation"}}</span>
-    </label>
-    {{#if system.grantsInitiation.enabled}}
-    <div class="effect-body effect-grid-2">
-      <div class="field-group">
-        <label>{{localize "EX2E.GITradition"}}</label>
-        <select name="system.grantsInitiation.tradition" {{#unless isEditable}}disabled{{/unless}}>
-          {{#each initiationTraditionChoices}}
-          <option value="{{this.value}}" {{#if (eq this.value ../system.grantsInitiation.tradition)}}selected{{/if}}>{{this.label}}</option>
-          {{/each}}
-        </select>
-      </div>
-      <div class="field-group">
-        <label>{{localize "EX2E.GILevel"}}</label>
-        <select name="system.grantsInitiation.level" {{#unless isEditable}}disabled{{/unless}}>
-          {{#each initiationLevelChoices}}
-          <option value="{{this.value}}" {{#if (eq this.value ../system.grantsInitiation.level)}}selected{{/if}}>{{this.label}}</option>
-          {{/each}}
-        </select>
-      </div>
-    </div>
-    {{/if}}
-  </div>
-
-  {{!-- M14 Rate Bonus ──────────────────────────────────────────────────────── --}}
-  <div class="effect-section">
-    <label class="effect-enable-row">
-      <input type="checkbox" name="system.rateBonus.enabled"
-             {{#if system.rateBonus.enabled}}checked{{/if}}
-             {{#unless isEditable}}disabled{{/unless}}>
-      <span>{{localize "EX2E.EffectRateBonus"}}</span>
-    </label>
-    {{#if system.rateBonus.enabled}}
-    <div class="effect-body effect-grid-2">
-      <div class="field-group">
-        <label>{{localize "EX2E.RateBonusFormula"}}</label>
-        <div class="formula-field-row">
-          <input type="text" name="system.rateBonus.formula"
-                 value="{{system.rateBonus.formula}}"
-                 placeholder="e.g. 1"
-                 {{#unless isEditable}}readonly{{/unless}}>
-          {{#if isEditable}}
-          <button type="button" class="btn-fx" data-action="openFormula"
-                  data-path="system.rateBonus.formula"
-                  data-label="{{localize 'EX2E.RateBonusFormula'}}"
-                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
-            <i class="fa-solid fa-function"></i>
-          </button>
-          {{/if}}
-        </div>
-      </div>
-    </div>
-    {{/if}}
-  </div>
-
   {{!-- M15 Willpower Recovery ─────────────────────────────────────────────── --}}
   <div class="effect-section">
     <label class="effect-enable-row">
@@ -1092,6 +1071,36 @@
           </button>
           {{/if}}
         </div>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M17 Grants Initiation ─────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.grantsInitiation.enabled"
+             {{#if system.grantsInitiation.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.EffectGrantsInitiation"}}</span>
+    </label>
+    {{#if system.grantsInitiation.enabled}}
+    <div class="effect-body effect-grid-2">
+      <div class="field-group">
+        <label>{{localize "EX2E.GITradition"}}</label>
+        <select name="system.grantsInitiation.tradition" {{#unless isEditable}}disabled{{/unless}}>
+          {{#each initiationTraditionChoices}}
+          <option value="{{this.value}}" {{#if (eq this.value ../system.grantsInitiation.tradition)}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.GILevel"}}</label>
+        <select name="system.grantsInitiation.level" {{#unless isEditable}}disabled{{/unless}}>
+          {{#each initiationLevelChoices}}
+          <option value="{{this.value}}" {{#if (eq this.value ../system.grantsInitiation.level)}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
       </div>
     </div>
     {{/if}}
