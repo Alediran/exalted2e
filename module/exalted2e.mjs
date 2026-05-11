@@ -1074,6 +1074,33 @@ Hooks.on("preCreateItem", (item, data, options, userId) => {
     item.updateSource({ "flags.exalted2e.pendingPurchaseConfirm": true });
   }
 
+  // ── Combo UID remap ───────────────────────────────────────────────────────
+  // When a combo is imported from a compendium onto an actor that has charms
+  // with different UIDs (same names, different source), remap broken UIDs by
+  // matching the stored charmNames against the actor's owned charms.
+  if (item.type === "combo" && item.parent instanceof Actor) {
+    const targetActor = item.parent;
+    const uids  = (data.system?.charmUids  ?? []);
+    const names = (data.system?.charmNames ?? []);
+    if (names.length > 0) {
+      const actorUidSet = new Set(
+        targetActor.items.filter(i => i.type === "charm")
+          .map(i => i.system?.charmUid).filter(Boolean)
+      );
+      const nameToUid = new Map();
+      for (const owned of targetActor.items) {
+        if (owned.type !== "charm" || !owned.system?.charmUid) continue;
+        nameToUid.set(owned.name.toLowerCase(), owned.system.charmUid);
+      }
+      const remapped = uids.map((uid, i) => {
+        if (actorUidSet.has(uid)) return uid;
+        const name = names[i] ?? "";
+        return name ? (nameToUid.get(name.toLowerCase()) ?? uid) : uid;
+      });
+      item.updateSource({ "system.charmUids": remapped });
+    }
+  }
+
   const actor = item.parent;
   if (!actor) return;
   const isWrapper = data.flags?.exalted2e?.effectWrapper

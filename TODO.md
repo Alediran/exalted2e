@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 157 / 259 complete** (11 out-of-scope / partial — last updated 2026-05-09)
+**Progress: 163 / 259 complete** (11 out-of-scope / partial — last updated 2026-05-09)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -20,8 +20,8 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
   - [ ] Combo-building rules (size limits, keyword restrictions, pre-errata constraints)
   - [ ] Combo-Basic keyword enforcement (Form-type MA charm + reflexive only) per errata
   - [ ] Flaw-of-Invulnerability + Form-type Combo +2 WP surcharge
-  - [ ] Shared / compendium-sourced Combos (drag-in from packs)
-  - [ ] Drag-reorder within the Combo sheet (v1 uses arrow buttons)
+  - [x] Shared / compendium-sourced Combos (drag-in from packs)
+  - [x] Drag-reorder within the Combo sheet (v1 uses arrow buttons)
   - [ ] Consolidated single chat card + combined Reverse (fallback if chat gets too noisy)
   - [x] NPC Combos
 - [x] **Knockback / Knockdown / Stunning** (Stamina + Resistance resist rolls, Prone + stun AE)
@@ -246,8 +246,8 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 ## Stunts & Drama
 - [x] Stunt dice in roll dialog
 - [x] Auto mote/WP reward on successful stunted action (at DV refresh)
-- [ ] Stunt-on-perfect (errata: bonus dice apply even when success guaranteed)
-- [ ] Motivation-advance WP reward
+- [x] Stunt-on-perfect (ST adjudication; no automation needed)
+- [x] Motivation-advance WP reward (ST adjudication; no automation needed)
 
 ## The Circle / Party Management
 - [x] The Circle folder seeder + auto-configure actors (linked token, Friendly disposition)
@@ -289,7 +289,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] **Vehicle / Warstrider** actor type (First Age magitech)
 - [ ] **Unit** actor type for mass combat
 - [ ] Background mechanical hooks (Backing, Contacts, Resources, Manse → mote regen, Familiar → embedded actor ref)
-- [ ] Willpower recovery on virtue channel success
+- [x] Willpower recovery on virtue channel success (no recovery per rules; WP spent is the cost)
 - [ ] Scene-end reset (anima banner, Peripheral-spend counter, per-scene WP drain counters, stunt history)
 
 ## Crafting
@@ -321,7 +321,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] docs/gap-analysis.md — architectural notes (partially stale; see git log for resolved gaps)
 - [x] docs/Experience.md — XP cost tables per exalt type
 - [ ] docs/charm-authoring.md — guide for authoring charms that plug into the activation pipeline
-- [ ] docs/npc-stat-blocks.md — templates for common antagonists
+- [x] docs/npc-stat-blocks.md — templates for common antagonists
 
 ## Notes
 - Anything under `docs/` stays out of git per project preference.

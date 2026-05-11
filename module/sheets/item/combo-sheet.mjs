@@ -124,10 +124,14 @@ export class ComboSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const uid = dropped.system?.charmUid;
     if (!uid) return;
 
-    const existing = this.document.system.charmUids ?? [];
+    const existing      = this.document.system.charmUids  ?? [];
+    const existingNames = this.document.system.charmNames ?? [];
     if (existing.includes(uid)) return;   // no-op on duplicate
 
-    await this.document.update({ "system.charmUids": [...existing, uid] });
+    await this.document.update({
+      "system.charmUids":  [...existing,      uid],
+      "system.charmNames": [...existingNames, dropped.name ?? ""]
+    });
   }
 
   static async #onAddCharm(event, target) {
@@ -146,35 +150,47 @@ export class ComboSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const picked = await ComboCharmPickerDialog.prompt({ candidates });
     if (!picked?.length) return;
 
+    // Resolve names from the candidates list so we can store them for
+    // compendium-import remapping (see preCreateItem hook in exalted2e.mjs).
+    const nameByUid    = new Map(candidates.map(c => [c.uid, c.name]));
+    const pickedNames  = picked.map(uid => nameByUid.get(uid) ?? "");
+
     // Append — Foundry's array-element merge is unreliable, so clone and
     // rewrite the full array path (matches the pattern documented in
     // CLAUDE.md under "ArrayField updates").
-    const next = [...(this.document.system.charmUids ?? []), ...picked];
-    await this.document.update({ "system.charmUids": next });
+    const next      = [...(this.document.system.charmUids  ?? []), ...picked];
+    const nextNames = [...(this.document.system.charmNames ?? []), ...pickedNames];
+    await this.document.update({ "system.charmUids": next, "system.charmNames": nextNames });
   }
 
   static async #onRemoveCharm(event, target) {
     const idx = parseInt(target.dataset.index);
     if (!Number.isFinite(idx)) return;
-    const next = foundry.utils.deepClone(this.document.system.charmUids ?? []);
+    const next      = foundry.utils.deepClone(this.document.system.charmUids  ?? []);
+    const nextNames = foundry.utils.deepClone(this.document.system.charmNames ?? []);
     next.splice(idx, 1);
-    await this.document.update({ "system.charmUids": next });
+    nextNames.splice(idx, 1);
+    await this.document.update({ "system.charmUids": next, "system.charmNames": nextNames });
   }
 
   static async #onMoveUp(event, target) {
     const idx = parseInt(target.dataset.index);
     if (!Number.isFinite(idx) || idx <= 0) return;
-    const next = foundry.utils.deepClone(this.document.system.charmUids ?? []);
-    [next[idx - 1], next[idx]] = [next[idx], next[idx - 1]];
-    await this.document.update({ "system.charmUids": next });
+    const next      = foundry.utils.deepClone(this.document.system.charmUids  ?? []);
+    const nextNames = foundry.utils.deepClone(this.document.system.charmNames ?? []);
+    [next[idx - 1], next[idx]]           = [next[idx],      next[idx - 1]];
+    [nextNames[idx - 1], nextNames[idx]] = [nextNames[idx], nextNames[idx - 1]];
+    await this.document.update({ "system.charmUids": next, "system.charmNames": nextNames });
   }
 
   static async #onMoveDown(event, target) {
     const idx = parseInt(target.dataset.index);
     if (!Number.isFinite(idx)) return;
-    const next = foundry.utils.deepClone(this.document.system.charmUids ?? []);
+    const next      = foundry.utils.deepClone(this.document.system.charmUids  ?? []);
+    const nextNames = foundry.utils.deepClone(this.document.system.charmNames ?? []);
     if (idx >= next.length - 1) return;
-    [next[idx], next[idx + 1]] = [next[idx + 1], next[idx]];
-    await this.document.update({ "system.charmUids": next });
+    [next[idx],      next[idx + 1]]      = [next[idx + 1],      next[idx]];
+    [nextNames[idx], nextNames[idx + 1]] = [nextNames[idx + 1], nextNames[idx]];
+    await this.document.update({ "system.charmUids": next, "system.charmNames": nextNames });
   }
 }

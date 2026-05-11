@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-09 (after Status Effects remainder cluster)
+Last updated: 2026-05-10 (docs/npc-stat-blocks.md written)
 
 ---
 
@@ -10,16 +10,10 @@ Last updated: 2026-05-09 (after Status Effects remainder cluster)
 
 | Item | TODO Section | Notes |
 |------|-------------|-------|
-| Drag-reorder within Combo sheet | Combat | UI arrow buttons only |
-| Shared/compendium-sourced Combos | Combat | drag handler on combo sheet, existing pattern |
 | Monstrance of Celestial Portion | Abyssal | fields done; control/servitude mechanics (deathlord authority over deathknight) still pending |
-| Stunt-on-perfect | Stunts | small logic fix in roll dialog |
-| Motivation-advance WP reward | Stunts | hook trigger on motivation change |
 | Macro to re-create Circle folder | Circle | standalone macro |
 | Restoring defaults when actor leaves Circle | Circle | hook on folder-item remove |
-| Willpower recovery on virtue channel success | Other | hook trigger, 1–2 lines |
 | docs/charm-authoring.md | Docs | prose only |
-| docs/npc-stat-blocks.md | Docs | prose only |
 
 ---
 
@@ -129,11 +123,11 @@ Last updated: 2026-05-09 (after Status Effects remainder cluster)
 
 | Group | Count |
 |-------|-------|
-| A — Ready, Simple | 10 |
+| A — Ready, Simple | 4 |
 | B — Ready, Medium | 55 |
 | C — Ready, Complex | 10 |
 | D — Blocked | 12 |
-| **Total pending** | **87** |
+| **Total pending** | **81** |
 
 **Biggest force-multipliers:**
 - **Spell casting chat card** (Group B) → unblocks 4 sorcery items
