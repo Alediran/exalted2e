@@ -252,7 +252,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 ## The Circle / Party Management
 - [x] The Circle folder seeder + auto-configure actors (linked token, Friendly disposition)
   - [ ] Special buttons on the folder (party roll, XP award, rest-and-recover, etc.)
-  - [ ] Macro to manually re-create the folder if deleted
+  - [x] Macro to manually re-create the folder if deleted
   - [x] Restoring defaults when an actor leaves The Circle
   - [ ] NPC → character auto-conversion on move-in
 

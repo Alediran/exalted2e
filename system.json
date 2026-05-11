@@ -97,6 +97,13 @@
       "path":   "packs/hearthstones",
       "type":   "Item",
       "system": "exalted2e"
+    },
+    {
+      "name":   "macros",
+      "label":  "Exalted 2e Macros",
+      "path":   "packs/macros",
+      "type":   "Macro",
+      "system": "exalted2e"
     }
   ],
   "documentTypes": {

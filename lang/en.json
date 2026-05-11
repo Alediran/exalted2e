@@ -833,6 +833,8 @@
     "TheCircleFolderName":          "The Circle",
     "SettingTheCircleSeeded":       "Seed The Circle Folder",
     "SettingTheCircleSeededHint":   "Internal flag: whether this world has already had its 'The Circle' folder seeded.",
+    "CircleFolderExists":           "The Circle folder already exists: \"{name}\".",
+    "CircleFolderCreated":          "The Circle folder has been re-created.",
     "DamageApplied":                "Damage Applied",
 
     "Attack":            "Attack",
