@@ -105,7 +105,7 @@ export class ExaltedItem extends Item {
     const actor = this.actor;
     if (!actor) return false;
 
-    const isToggleable = ["oneScene", "indefinite"].includes(this.system.duration);
+    const isToggleable = this.system.duration !== "instant" && this.system.duration !== "permanent";
     const turningOff   = isToggleable && this.system.active;
 
     if (this.system.isSubmodule && !this.system.effectivelyActive && !turningOff) {
@@ -211,6 +211,26 @@ export class ExaltedItem extends Item {
       } else {
         await this._spawnCharmWeaponArtifacts();
         ledger.spawnedWeapon = true;
+      }
+    }
+
+    // Sustained perfect defense AE — create on toggle-on, delete on toggle-off.
+    // Only wired for toggleable (oneScene / indefinite) charms; instant charms
+    // are resolved immediately through the Step 2 dialog.
+    if (sys.perfectDefenseType && isToggleable) {
+      if (turningOff) {
+        const pdAE = actor.effects.find(
+          e => e.flags?.exalted2e?.sustainedPerfectDefense && e.flags?.exalted2e?.charmSource === this.id
+        );
+        if (pdAE) await pdAE.delete();
+      } else {
+        await actor.createEmbeddedDocuments("ActiveEffect", [{
+          name:     `${game.i18n.localize("EX2E.PerfectDefense")} — ${this.name}`,
+          img:      this.img ?? "icons/magic/defensive/shield-barrier-glowing-blue.webp",
+          flags:    { exalted2e: { sustainedPerfectDefense: { type: sys.perfectDefenseType }, charmSource: this.id } },
+          disabled: false,
+          transfer: false
+        }]);
       }
     }
 
@@ -470,7 +490,7 @@ export class ExaltedItem extends Item {
     for (const uid of (this.system.charmUids ?? [])) {
       const charm = byUid.get(uid);
       if (!charm) { missing.push({ uid }); continue; }
-      const isToggleable = ["oneScene", "indefinite"].includes(charm.system?.duration);
+      const isToggleable = charm.system?.duration !== "instant" && charm.system?.duration !== "permanent";
       if (isToggleable && charm.system?.active) {
         skipped.push({ charm });
       } else {

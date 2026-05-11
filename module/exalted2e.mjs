@@ -1972,6 +1972,33 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       }
       const baseDV = defenseType === "dodge" ? attack.targetDodgeDV : attack.targetParryDV;
 
+      // If the target has a sustained perfect defense AE active (from a
+      // non-instant charm toggled on earlier in the scene), apply it
+      // automatically — no Step 2 dialog needed.
+      const sustainedPD = targetActor.effects.find(
+        e => !e.disabled && e.flags?.exalted2e?.sustainedPerfectDefense
+      );
+      if (sustainedPD) {
+        const pdt = sustainedPD.flags.exalted2e.sustainedPerfectDefense.type;
+        const newAttack = {
+          ...attack,
+          defense:                  { type: defenseType, dv: baseDV },
+          defenseCharms:            [sustainedPD.name],
+          defenderHasThirdExc:      false,
+          defenderExcKey:           "",
+          defenderFirstExcDice:     0,
+          defenderSecondExcSucc:    0,
+          defenderHasCounterattack: false,
+          perfectDefenseCharm:      sustainedPD.name,
+          perfectDefenseType:       pdt
+        };
+        _tryFireAttackSuccess(newAttack);
+        const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
+        const content = await renderAttackCardContent(newAttack);
+        await message.update({ content, flags: { exalted2e: { attack: newAttack } } });
+        return;
+      }
+
       // Filter the defender's Reflexive Step-2 Charms and pass them to the
       // dialog. The dialog opens every time the defender picks a defense —
       // it doubles as the confirmation step and renders an empty-state
@@ -2043,7 +2070,6 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       // allows the attack to land but zeroes out the damage pool.
       let perfectDefenseCharm = null;
       let perfectDefenseType  = null;
-      const perfectKeyword = defenseType === "parry" ? "Perfect Parry" : "Perfect Dodge";
       for (const id of result.charmIds) {
         const charm = targetActor.items.get(id);
         if (!charm) continue;
@@ -2051,14 +2077,13 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
         if (!ok) continue;
         activatedNames.push(charm.name);
         if (!perfectDefenseCharm) {
-          const keywords = charm.system.keywords ?? [];
-          const pdt      = charm.system.perfectDefenseType ?? "";
+          const pdt = charm.system.perfectDefenseType ?? "";
           if (pdt === "soak") {
             perfectDefenseCharm = charm.name;
             perfectDefenseType  = "soak";
-          } else if (keywords.includes(perfectKeyword) || pdt === "parry" || pdt === "dodge") {
+          } else if (pdt === "parry" || pdt === "dodge") {
             perfectDefenseCharm = charm.name;
-            perfectDefenseType  = pdt || (defenseType === "parry" ? "parry" : "dodge");
+            perfectDefenseType  = pdt;
           }
         }
       }

@@ -191,6 +191,18 @@
     {{/if}}
   </div>
 
+  {{!-- Perfect Defense ─────────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="effect-enable-row">
+      <span>{{localize "EX2E.PerfectDefenseType"}}</span>
+      <select name="system.perfectDefenseType" {{#unless isEditable}}disabled{{/unless}}>
+        {{#each perfectDefenseOptions}}
+        <option value="{{this.value}}" {{#if (eq this.value ../system.perfectDefenseType)}}selected{{/if}}>{{this.label}}</option>
+        {{/each}}
+      </select>
+    </div>
+  </div>
+
   {{!-- M1 Health Level Grant ─────────────────────────────────────────────── --}}
   <div class="effect-section">
     <label class="effect-enable-row">

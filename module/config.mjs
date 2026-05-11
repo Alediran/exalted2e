@@ -250,7 +250,7 @@ EX2E.charmKeywords = [
   "Mount (Mundane)", "Mount (any)",
   "Native",
   "Obvious", "Overdrive",
-  "Perfect Dodge", "Perfect Mental Defense", "Perfect Parry", "Poison", "Prayer Strip",
+  "Perfect Mental Defense", "Poison", "Prayer Strip",
   "Rage", "Reactor",
   "Resist Unnatural Mental Influence",
   "Servitude", "Shaping", "Sickness", "Social", "Sorcerous", "Spectral", "Stackable",
