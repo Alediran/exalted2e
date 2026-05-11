@@ -550,6 +550,45 @@ Hooks.on("createActor", async (actor, _options, userId) => {
   await _ensureUnarmedWeapon(actor);
 });
 
+// When a health-grant charm with multiple options is dropped onto an actor,
+// immediately prompt the player to pick which option applies to this instance.
+Hooks.on("createItem", async (item, _options, userId) => {
+  if (userId !== game.user.id) return;
+  if (item.type !== "charm") return;
+  if (!(item.parent instanceof Actor)) return;
+  const hg = item.system?.healthGrant;
+  if (!hg?.enabled || (hg.options?.length ?? 0) <= 1) return;
+
+  const rows = hg.options.map((opt, i) => {
+    const parts = [
+      opt.zero  ? `${opt.zero}×(−0)` : "",
+      opt.one   ? `${opt.one}×(−1)`  : "",
+      opt.two   ? `${opt.two}×(−2)`  : "",
+      opt.dying ? `${opt.dying}×(Inc)` : ""
+    ].filter(Boolean).join(", ");
+    const label = opt.label ? `<strong>${opt.label}</strong> — ${parts}` : parts;
+    return `<label style="display:block;margin:4px 0;cursor:pointer">
+      <input type="radio" name="hgChoice" value="${i}" ${i === 0 ? "checked" : ""}> ${label}
+    </label>`;
+  }).join("");
+
+  const chosen = await foundry.applications.api.DialogV2.wait({
+    window:      { title: game.i18n.format("EX2E.HGPickTitle", { name: item.name }) },
+    content:     `<div style="padding:8px">${rows}</div>`,
+    buttons:     [{
+      action:    "confirm",
+      label:     game.i18n.localize("EX2E.Confirm"),
+      default:   true,
+      callback:  (_ev, _btn, dialog) =>
+        parseInt(dialog.element.querySelector("input[name=hgChoice]:checked")?.value ?? "0")
+    }],
+    rejectClose: false
+  });
+
+  if (chosen == null) return;
+  await item.update({ "system.healthGrant.selectedOption": chosen });
+});
+
 // Gate the deletion of effects flagged `gmOnlyRemoval`. Flaws seeded
 // from the effects compendium (Creature of Darkness and friends) cannot
 // be shaken off by the player on whose sheet they live — only the GM

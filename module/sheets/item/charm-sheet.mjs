@@ -127,6 +127,7 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       durations:    Object.entries(EX2E.durations).map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
       splatTypes:   Object.entries(EX2E.splatTypes).map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
       usesAttribute,
+      hgHasChoice: (sys.healthGrant?.options?.length ?? 0) > 1,
       // `abilities` is the charm-key dropdown — its contents swap between
       // ability and attribute lists based on `usesAttribute`.
       abilities:    usesAttribute ? attributeOptions : abilityOptions,

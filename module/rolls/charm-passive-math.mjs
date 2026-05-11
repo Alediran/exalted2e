@@ -6,7 +6,9 @@
  * @returns {boolean}
  */
 export function isCharmPassivelyActive(item) {
-  return item?.system?.duration === "permanent" || item?.system?.active === true;
+  return item?.system?.duration  === "permanent"
+    || item?.system?.charmType === "permanent"
+    || item?.system?.active    === true;
 }
 
 /**
@@ -19,11 +21,18 @@ export function computeHealthGrantBonus(items) {
   for (const item of items) {
     const hg = item?.system?.healthGrant;
     if (!hg?.enabled) continue;
-    for (const opt of (hg.options ?? [])) {
-      zero += opt.zero ?? 0;
-      one  += opt.one  ?? 0;
-      two  += opt.two  ?? 0;
-    }
+    const opts = hg.options ?? [];
+    if (!opts.length) continue;
+    // When multiple options exist, only the selected one applies. A single
+    // option needs no selection — use it unconditionally.
+    const idx = opts.length > 1
+      ? Math.min(Math.max(0, hg.selectedOption ?? 0), opts.length - 1)
+      : 0;
+    const opt = opts[idx];
+    if (!opt) continue;
+    zero += opt.zero ?? 0;
+    one  += opt.one  ?? 0;
+    two  += opt.two  ?? 0;
   }
   return { zero, one, two };
 }

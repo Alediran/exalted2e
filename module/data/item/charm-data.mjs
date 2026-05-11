@@ -155,7 +155,8 @@ export class CharmData extends foundry.abstract.TypeDataModel {
 
       // M1 — Permanent health level grants (Ox-Body family)
       healthGrant: new fields.SchemaField({
-        enabled: new fields.BooleanField({ initial: false }),
+        enabled:        new fields.BooleanField({ initial: false }),
+        selectedOption: new fields.NumberField({ initial: 0, min: 0, integer: true }),
         options: new fields.ArrayField(new fields.SchemaField({
           label: new fields.StringField({ initial: "", blank: true }),
           zero:  new fields.NumberField({ initial: 0, min: 0, integer: true }),

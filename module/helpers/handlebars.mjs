@@ -56,10 +56,18 @@ export function registerHandlebarsHelpers() {
   // Usage: {{healthTrack health=system.health}}
   Handlebars.registerHelper("healthTrack", function(options) {
     const { health, exaltType } = options.hash;
-    const bonus = health.bonus ?? { zero: 0, one: 0, two: 0 };
-    const zeroCount = 1 + (bonus.zero ?? 0);
-    const oneCount  = 2 + (bonus.one  ?? 0);
-    const twoCount  = 2 + (bonus.two  ?? 0);
+    // `levelCounts` is written by _prepareHealthData and includes charm bonuses
+    // (Ox-Body etc.). Fall back to manual calculation for contexts that don't
+    // run prepareDerivedData (NPC sheet, isolated template tests).
+    let zeroCount, oneCount, twoCount;
+    if (health.levelCounts) {
+      ({ zero: zeroCount, one: oneCount, two: twoCount } = health.levelCounts);
+    } else {
+      const bonus = health.bonus ?? { zero: 0, one: 0, two: 0 };
+      zeroCount = 1 + (bonus.zero ?? 0);
+      oneCount  = 2 + (bonus.one  ?? 0);
+      twoCount  = 2 + (bonus.two  ?? 0);
+    }
     const totalBoxes = zeroCount + oneCount + twoCount + 1 /* -4 */ + 1 /* Inc */;
 
     const agg    = Math.min(health.aggravated ?? 0, totalBoxes);

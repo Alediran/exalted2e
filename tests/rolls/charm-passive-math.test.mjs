@@ -35,15 +35,38 @@ describe("computeHealthGrantBonus", () => {
     }}}];
     expect(computeHealthGrantBonus(items)).toEqual({ zero: 0, one: 0, two: 0 });
   });
-  it("sums all options in one charm (multiple purchases represented as options[])", () => {
+  it("multi-option charm: uses only the selected option (default index 0)", () => {
     const items = [{ system: { healthGrant: {
       enabled: true,
+      selectedOption: 0,
       options: [
         { zero: 0, one: 0, two: 2, dying: 0 },
         { zero: 1, one: 0, two: 0, dying: 0 }
       ]
     }}}];
-    expect(computeHealthGrantBonus(items)).toEqual({ zero: 1, one: 0, two: 2 });
+    expect(computeHealthGrantBonus(items)).toEqual({ zero: 0, one: 0, two: 2 });
+  });
+  it("multi-option charm: selectedOption 1 picks the second option", () => {
+    const items = [{ system: { healthGrant: {
+      enabled: true,
+      selectedOption: 1,
+      options: [
+        { zero: 0, one: 0, two: 2, dying: 0 },
+        { zero: 1, one: 0, two: 0, dying: 0 }
+      ]
+    }}}];
+    expect(computeHealthGrantBonus(items)).toEqual({ zero: 1, one: 0, two: 0 });
+  });
+  it("multi-option charm: out-of-bounds selectedOption clamps to last valid index", () => {
+    const items = [{ system: { healthGrant: {
+      enabled: true,
+      selectedOption: 99,
+      options: [
+        { zero: 0, one: 2, two: 0, dying: 0 },
+        { zero: 1, one: 0, two: 0, dying: 0 }
+      ]
+    }}}];
+    expect(computeHealthGrantBonus(items)).toEqual({ zero: 1, one: 0, two: 0 });
   });
 });
 
@@ -215,6 +238,9 @@ describe("isCharmPassivelyActive", () => {
   });
   it("instant charm with active=false is inactive", () => {
     expect(isCharmPassivelyActive({ system: { duration: "instant", active: false } })).toBe(false);
+  });
+  it("charmType=permanent is active even when duration defaults to instant", () => {
+    expect(isCharmPassivelyActive({ system: { charmType: "permanent", duration: "instant", active: false } })).toBe(true);
   });
   it("undefined item returns false", () => {
     expect(isCharmPassivelyActive(undefined)).toBe(false);

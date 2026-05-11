@@ -320,7 +320,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] docs/mechanics-reference.md — distilled rules by system
 - [x] docs/gap-analysis.md — architectural notes (partially stale; see git log for resolved gaps)
 - [x] docs/Experience.md — XP cost tables per exalt type
-- [ ] docs/charm-authoring.md — guide for authoring charms that plug into the activation pipeline
+- [x] docs/charm-authoring.md — guide for authoring charms that plug into the activation pipeline
 - [x] docs/npc-stat-blocks.md — templates for common antagonists
 
 ## Notes

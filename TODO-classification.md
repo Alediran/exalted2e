@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-10 (docs/npc-stat-blocks.md written)
+Last updated: 2026-05-10 (docs/charm-authoring.md written)
 
 ---
 
@@ -13,7 +13,6 @@ Last updated: 2026-05-10 (docs/npc-stat-blocks.md written)
 | Monstrance of Celestial Portion | Abyssal | fields done; control/servitude mechanics (deathlord authority over deathknight) still pending |
 | Macro to re-create Circle folder | Circle | standalone macro |
 | Restoring defaults when actor leaves Circle | Circle | hook on folder-item remove |
-| docs/charm-authoring.md | Docs | prose only |
 
 ---
 
@@ -123,11 +122,11 @@ Last updated: 2026-05-10 (docs/npc-stat-blocks.md written)
 
 | Group | Count |
 |-------|-------|
-| A — Ready, Simple | 4 |
+| A — Ready, Simple | 3 |
 | B — Ready, Medium | 55 |
 | C — Ready, Complex | 10 |
 | D — Blocked | 12 |
-| **Total pending** | **81** |
+| **Total pending** | **80** |
 
 **Biggest force-multipliers:**
 - **Spell casting chat card** (Group B) → unblocks 4 sorcery items

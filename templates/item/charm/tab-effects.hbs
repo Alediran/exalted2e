@@ -204,9 +204,14 @@
       <p class="effect-section-label">{{localize "EX2E.HGOptions"}}</p>
       {{#each system.healthGrant.options as |opt i|}}
       <div class="hg-option-row">
+        {{#if @root.hgHasChoice}}
+        <input type="radio" name="system.healthGrant.selectedOption"
+               value="{{i}}"
+               {{#if (eq i @root.system.healthGrant.selectedOption)}}checked{{/if}}>
+        {{/if}}
         <input type="text" name="system.healthGrant.options.{{i}}.label"
                value="{{opt.label}}" placeholder="{{localize 'EX2E.HGOptionLabel'}}"
-               {{#unless isEditable}}readonly{{/unless}}>
+               {{#unless @root.isEditable}}readonly{{/unless}}>
         <label>{{localize "EX2E.HGZero"}}</label>
         <input type="number" name="system.healthGrant.options.{{i}}.zero"
                value="{{opt.zero}}" min="0" {{#unless isEditable}}readonly{{/unless}}>
