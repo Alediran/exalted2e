@@ -16,7 +16,7 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     window: { resizable: true },
     form: { submitOnChange: true, closeOnSubmit: false },
     actions: {
-      editImage:        editImageAction,
+      onEditImage:      editImageAction,
       rollPool:         NpcSheet.#onRollPool,
       applyDamage:      NpcSheet.#onApplyDamage,
       healDamage:       NpcSheet.#onHealDamage,

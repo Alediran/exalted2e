@@ -1364,13 +1364,24 @@ Hooks.on("preUpdateActor", (actor, changes, options, userId) => {
   if (!("folder" in changes)) return;
   const enteringCircle = _isInTheCircle(changes.folder);
   const wasInCircle    = _isInTheCircle(actor.folder?.id ?? null);
-  if (!enteringCircle || wasInCircle) return;
-  foundry.utils.mergeObject(changes, {
-    prototypeToken: {
-      actorLink:   true,
-      disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY
-    }
-  });
+
+  if (enteringCircle && !wasInCircle) {
+    // Moving into The Circle: link token and set Friendly disposition.
+    foundry.utils.mergeObject(changes, {
+      prototypeToken: {
+        actorLink:   true,
+        disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY
+      }
+    });
+  } else if (wasInCircle && !enteringCircle) {
+    // Moving out of The Circle: restore prototype token defaults.
+    foundry.utils.mergeObject(changes, {
+      prototypeToken: {
+        actorLink:   false,
+        disposition: CONST.TOKEN_DISPOSITIONS.NEUTRAL
+      }
+    });
+  }
 });
 
 // ── Limit Break Detection ──────────────────────────────────────────────────

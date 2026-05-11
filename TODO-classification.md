@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-10 (docs/charm-authoring.md written)
+Last updated: 2026-05-10 (Circle leave hook + health levelCounts fix + Ox-Body option picker)
 
 ---
 
@@ -12,7 +12,6 @@ Last updated: 2026-05-10 (docs/charm-authoring.md written)
 |------|-------------|-------|
 | Monstrance of Celestial Portion | Abyssal | fields done; control/servitude mechanics (deathlord authority over deathknight) still pending |
 | Macro to re-create Circle folder | Circle | standalone macro |
-| Restoring defaults when actor leaves Circle | Circle | hook on folder-item remove |
 
 ---
 

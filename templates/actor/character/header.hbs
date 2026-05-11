@@ -1,8 +1,8 @@
 <div class="character-header">
   <!-- Portrait -->
   <div class="portrait-frame">
-    <img class="actor-portrait" src="{{actor.img}}" alt="{{actor.name}}"
-         data-action="editImage" {{#unless isEditable}}disabled{{/unless}}>
+    <img class="actor-portrait" src="{{actor.img}}" alt="{{actor.name}}" data-edit="img" title="{{actor.name}}"
+         data-action="onEditImage" height="300" {{#unless isEditable}}disabled{{/unless}}>
     {{#unless (eq system.exaltType "mortal")}}
     <div class="anima-banner anima-{{system.anima}}"
          {{#if animaBannerStyle}}style="{{animaBannerStyle}}"{{/if}}></div>

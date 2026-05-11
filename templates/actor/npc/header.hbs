@@ -1,7 +1,7 @@
 <div class="character-header npc-header">
   <div class="portrait-frame">
-    <img class="actor-portrait" src="{{actor.img}}" alt="{{actor.name}}"
-         data-action="editImage" {{#unless isEditable}}disabled{{/unless}}>
+    <img class="actor-portrait" src="{{actor.img}}" alt="{{actor.name}}" data-edit="img" title="{{actor.name}}"
+         data-action="onEditImage" {{#unless isEditable}}disabled{{/unless}}>
   </div>
   <div class="header-fields">
     <input class="actor-name" type="text" name="name" value="{{actor.name}}"

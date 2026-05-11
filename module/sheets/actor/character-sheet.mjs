@@ -13,6 +13,9 @@ import { sceneChangeFade } from "../../combat/anima-fade.mjs";
 import { AnimaColorDialog } from "../../dialogs/anima-color-dialog.mjs";
 import { sanctifyOathBinding } from "../../helpers/oath.mjs";
 
+const { HandlebarsApplicationMixin } = foundry.applications.api;
+const { ActorSheetV2 } = foundry.applications.sheets;
+
 const _ANIMA_ORDER_SHEET = { none: 0, glowing: 1, burning: 2, bonfire: 3, totemic: 4 };
 function _animaLevelSheet(key) { return _ANIMA_ORDER_SHEET[key] ?? 0; }
 
@@ -24,13 +27,13 @@ const _GREATER_SIGN_ICONS = {
   endings:  "fa-hourglass-end",
 };
 
-export function _greaterSignPrereqMet(actor, caste) {
+function _greaterSignPrereqMet(actor, caste) {
   if ((actor.system.essence?.value ?? 0) < 4) return false;
   const colleges = actor.system.splat?.sidereal?.colleges?.[caste] ?? {};
   return Object.values(colleges).reduce((s, v) => s + (v ?? 0), 0) >= 15;
 }
 
-export async function _activateGreaterSign(actor, item) {
+async function _activateGreaterSign(actor, item) {
   const conflict = actor.items.some(i =>
     i.type === "animapower" &&
     !i.system.isGreaterSign &&
@@ -73,7 +76,7 @@ export async function _activateGreaterSign(actor, item) {
   return true;
 }
 
-export async function _deactivateGreaterSign(actor, item) {
+async function _deactivateGreaterSign(actor, item) {
   const ae = actor.effects.find(e =>
     e.flags?.exalted2e?.permanentCost && e.flags?.exalted2e?.sourceItem === item.id
   );
@@ -85,7 +88,7 @@ export async function _deactivateGreaterSign(actor, item) {
   }
 }
 
-export async function _reverseGreaterSignActivation(actor, item) {
+async function _reverseGreaterSignActivation(actor, item) {
   const ae = actor.effects.find(e =>
     e.flags?.exalted2e?.permanentCost && e.flags?.exalted2e?.sourceItem === item.id
   );
@@ -98,12 +101,6 @@ export async function _reverseGreaterSignActivation(actor, item) {
     await item.update({ "system.active": false });
   }
 }
-
-const { ActorSheetV2, HandlebarsApplicationMixin } = (() => {
-  const sheets = foundry.applications.sheets;
-  const api    = foundry.applications.api;
-  return { ActorSheetV2: sheets.ActorSheetV2, HandlebarsApplicationMixin: api.HandlebarsApplicationMixin };
-})();
 
 /**
  * True when the current user meets the configured `purchaseMode`
@@ -180,7 +177,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       addGeneralSlot:      CharacterSheet.#onAddGeneralSlot,
       upgradeSlot:         CharacterSheet.#onUpgradeSlot,
       createSubmodule:     CharacterSheet.#onCreateSubmodule,
-      editImage:           editImageAction,
+      onEditImage:         editImageAction,
       configureAnimaColors: CharacterSheet.#onConfigureAnimaColors,
       activateAnimaPower:  CharacterSheet.#onActivateAnimaPower,
       viewAnimaPower:      CharacterSheet.#onViewAnimaPower,
