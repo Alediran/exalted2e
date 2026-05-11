@@ -1912,6 +1912,62 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     }
   }
 
+  // ── Reverse spell cast ────────────────────────────────────────────────
+  const reverseSpellBtn = el.querySelector?.(".btn-reverse-spell");
+  if (reverseSpellBtn) {
+    const spellRecord = message.flags?.exalted2e?.spellCast;
+    if (spellRecord?.reversed) {
+      reverseSpellBtn.disabled = true;
+      reverseSpellBtn.classList.add("is-reversed");
+      reverseSpellBtn.innerHTML = `<i class="fa-solid fa-check"></i> ${game.i18n.localize("EX2E.SpellCastReversed")}`;
+    } else {
+      reverseSpellBtn.addEventListener("click", async (ev) => {
+        const btn = ev.currentTarget;
+        btn.disabled = true;
+
+        const record = message.flags?.exalted2e?.spellCast;
+        if (!record || record.reversed) return;
+
+        const actor = record.actorId ? game.actors.get(record.actorId) : null;
+        if (!actor) return;
+        if (!actor.testUserPermission(game.user, "OWNER")) {
+          ui.notifications.warn(game.i18n.localize("EX2E.NotOwner"));
+          return;
+        }
+
+        if (typeof actor.recoverMotes === "function") {
+          if ((record.motesFromPrimary ?? 0) > 0) {
+            await actor.recoverMotes(record.motesFromPrimary, record.primaryPool ?? "peripheral");
+          }
+          if ((record.motesFromSecondary ?? 0) > 0) {
+            await actor.recoverMotes(record.motesFromSecondary, record.secondaryPool ?? "personal");
+          }
+        }
+
+        if ((record.wpCommitted ?? 0) > 0) {
+          const currentWp = actor.system?.willpower?.value ?? 0;
+          const maxWp     = actor.system?.willpower?.max  ?? 0;
+          await actor.update({
+            "system.willpower.value": Math.min(maxWp, currentWp + record.wpCommitted)
+          });
+        }
+
+        // Delete any AEs this spell cast created (tagged by payload system).
+        for (const ae of [...actor.effects]) {
+          if (ae.flags?.exalted2e?.spellCastSource === message.id) await ae.delete();
+        }
+
+        await message.update({
+          flags: { exalted2e: { spellCast: { ...record, reversed: true } } }
+        });
+
+        btn.classList.add("is-reversed");
+        btn.innerHTML = `<i class="fa-solid fa-check"></i> ${game.i18n.localize("EX2E.SpellCastReversed")}`;
+        ui.notifications.info(game.i18n.localize("EX2E.SpellCastReversed"));
+      });
+    }
+  }
+
   // ── Limit Break choice buttons ────────────────────────────────────────
   const lbCard = el.querySelector?.(".ex2e-limit-break-card");
   if (lbCard) {

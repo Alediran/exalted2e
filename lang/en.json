@@ -1468,6 +1468,8 @@
     "SpellCastShapingBtn":           "Continue shaping ({k}/{total})",
     "SpellCastReleaseLabel":         "Release {spell}",
     "SpellCastNoCombatant":          "Spell casting requires combat.",
+    "SpellCastReverse":              "Reverse Cast",
+    "SpellCastReversed":             "Reversed",
     "SpellCastBusyShaping":          "Cast (busy shaping {spell})",
     "SpellCastBusyOther":            "Cast (busy {actionKey})",
     "SpellCastCantInitiation":       "Requires {circle} initiation",

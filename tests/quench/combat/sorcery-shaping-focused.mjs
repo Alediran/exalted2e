@@ -7,6 +7,7 @@ import {
 } from "../_helpers/combat.mjs";
 import { stubSorceryCastDialog }             from "../_helpers/dialogs.mjs";
 import { createTempSpell }                   from "../_helpers/items.mjs";
+import { lastChatMessage }                   from "../_helpers/messages.mjs";
 
 /** Set a pending action with a non-sorcery actionKey to drive the abort path. */
 async function setNonSorceryPending(combatant) {
@@ -209,6 +210,17 @@ export function registerSorceryShapingFocused(context) {
       register(lastMsg);  // ensure cleanup
       assert.ok(lastMsg.content.includes(spell.name),
         "chat card mentions the spell name");
+      // After Task 2: message should carry spellCast flags.
+      const flags = lastMsg.flags?.exalted2e?.spellCast;
+      assert.ok(flags,                           "spellCast flags stored on message");
+      assert.equal(flags.spellId,    spell.id,  "flags.spellId matches spell");
+      assert.equal(flags.actorId,    caster.id, "flags.actorId matches actor");
+      assert.equal(flags.tradition,  "sorcery", "flags.tradition");
+      assert.equal(flags.circle,     1,         "flags.circle");
+      assert.equal(flags.motesFromPrimary,   5, "5m from peripheral");
+      assert.equal(flags.motesFromSecondary, 0, "no overflow");
+      assert.equal(flags.wpCommitted,        1, "1 WP committed");
+      assert.equal(flags.reversed,       false, "not yet reversed");
     });
 
     // 8. Mote spend overflow: peripheral exhausted, overflow into personal
@@ -306,6 +318,128 @@ export function registerSorceryShapingFocused(context) {
         "peripheral fully restored to original 2");
       assert.equal(caster.system.motes.personal.value, 10,
         "personal fully restored to original 10");
+    });
+
+    // 13. Out-of-combat cast
+    it("[43] out-of-combat: cast spends costs and posts card with spellCast flags", async function () {
+      // No combat created — castSpellFlow must handle this without a combatant.
+      const caster = await createTempCharacter({ name: "OOC Caster" });
+      await caster.update({
+        "system.essence.value":          5,
+        "system.motes.peripheral.value": 30,
+        "system.motes.peripheral.max":   30,
+        "system.motes.personal.value":   10,
+        "system.motes.personal.max":     10,
+        "system.willpower.value":        5,
+        "system.willpower.max":          5,
+        "system.sorcery.initiation":     1
+      });
+      const spell = await createTempSpell(caster, { circle: 1, motes: 5, willpower: 1 });
+      await stubSorceryCastDialog([{ ok: true }]);
+      const { castSpellFlow } = await import("../../../module/ui/cast-spell-flow.mjs");
+      const msgCountBefore = game.messages.size;
+
+      await castSpellFlow(spell);
+
+      assert.equal(game.messages.size, msgCountBefore + 1, "one new chat message posted");
+
+      const msg = lastChatMessage();
+      register(msg);
+      assert.ok(msg.content.includes(spell.name), "card mentions spell name");
+
+      assert.equal(caster.system.motes.peripheral.value, 25, "5m spent from peripheral");
+      assert.equal(caster.system.willpower.value,         4, "1 WP spent");
+
+      const flags = msg.flags?.exalted2e?.spellCast;
+      assert.ok(flags,                              "spellCast flags on message");
+      assert.equal(flags.spellId,     spell.id,    "flags.spellId");
+      assert.equal(flags.actorId,     caster.id,   "flags.actorId");
+      assert.equal(flags.tradition,   "sorcery",   "flags.tradition");
+      assert.equal(flags.circle,      1,           "flags.circle");
+      assert.equal(flags.motesFromPrimary,   5,   "motesFromPrimary");
+      assert.equal(flags.motesFromSecondary, 0,   "no overflow");
+      assert.equal(flags.wpCommitted,        1,   "wpCommitted");
+      assert.equal(flags.reversed,       false,   "not reversed");
+    });
+
+    // ── DOM helpers for Reverse button tests ──────────────────────────────
+    async function waitForSpell(predicate, { timeoutMs = 2000, intervalMs = 25 } = {}) {
+      const deadline = Date.now() + timeoutMs;
+      while (Date.now() < deadline) {
+        if (await predicate()) return true;
+        await new Promise(r => setTimeout(r, intervalMs));
+      }
+      return false;
+    }
+
+    function findReverseSpellButton(messageId) {
+      const root = document.querySelector(`[data-message-id="${messageId}"]`);
+      return root?.querySelector?.(".btn-reverse-spell") ?? null;
+    }
+
+    async function clickReverseSpellButton(message) {
+      const ok = await waitForSpell(() => !!findReverseSpellButton(message.id));
+      if (!ok) throw new Error("clickReverseSpellButton: button never rendered");
+      findReverseSpellButton(message.id).click();
+      await waitForSpell(() =>
+        !!game.messages.get(message.id)?.flags?.exalted2e?.spellCast?.reversed
+      );
+    }
+
+    /** OOC cast helper used by reverse tests. */
+    async function castOOC({ motes = 5, willpower = 1 } = {}) {
+      const caster = await createTempCharacter({ name: "Rev Caster" });
+      await caster.update({
+        "system.essence.value":          5,
+        "system.motes.peripheral.value": 30,
+        "system.motes.peripheral.max":   30,
+        "system.motes.personal.value":   10,
+        "system.motes.personal.max":     10,
+        "system.willpower.value":        5,
+        "system.willpower.max":          5,
+        "system.sorcery.initiation":     1
+      });
+      const spell = await createTempSpell(caster, { circle: 1, motes, willpower });
+      await stubSorceryCastDialog([{ ok: true }]);
+      const { castSpellFlow } = await import("../../../module/ui/cast-spell-flow.mjs");
+      await castSpellFlow(spell);
+      const msg = lastChatMessage();
+      register(msg);
+      register(caster);
+      return { caster, spell, msg };
+    }
+
+    // 14. Reverse refunds motes + WP
+    it("[44] reverse button: refunds motes/WP and sets flags.reversed", async function () {
+      const { caster, msg } = await castOOC({ motes: 5, willpower: 1 });
+
+      await clickReverseSpellButton(msg);
+
+      assert.equal(caster.system.motes.peripheral.value, 30, "peripheral restored");
+      assert.equal(caster.system.willpower.value,         5, "WP restored");
+      assert.equal(
+        game.messages.get(msg.id)?.flags?.exalted2e?.spellCast?.reversed, true,
+        "reversed flag set to true"
+      );
+    });
+
+    // 15. Double-reverse guard: button disabled after first reverse
+    it("[45] reverse button: disabled after first reverse (double-refund guard)", async function () {
+      const { caster, msg } = await castOOC({ motes: 5, willpower: 1 });
+
+      await clickReverseSpellButton(msg);
+      assert.equal(caster.system.motes.peripheral.value, 30, "first reverse worked");
+
+      // Button must be disabled — `.click()` on a disabled button is a no-op.
+      const btn = findReverseSpellButton(msg.id);
+      assert.ok(btn?.disabled, "button is disabled after first reverse");
+      assert.ok(btn?.classList.contains("is-reversed"), "button has is-reversed class");
+
+      // Attempt a second click — must be a no-op (no second refund).
+      btn.click();
+      await new Promise(r => setTimeout(r, 50));
+      assert.equal(caster.system.motes.peripheral.value, 30, "no second mote refund");
+      assert.equal(caster.system.willpower.value,         5, "no second WP refund");
     });
   });
 }
