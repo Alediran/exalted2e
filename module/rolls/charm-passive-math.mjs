@@ -12,32 +12,6 @@ export function isCharmPassivelyActive(item) {
 }
 
 /**
- * Sum health-grant bonus boxes from all enabled healthGrant charms.
- * @param {object[]} items — charm items (any iterable with .system.healthGrant)
- * @returns {{ zero: number, one: number, two: number }}
- */
-export function computeHealthGrantBonus(items) {
-  let zero = 0, one = 0, two = 0;
-  for (const item of items) {
-    const hg = item?.system?.healthGrant;
-    if (!hg?.enabled) continue;
-    const opts = hg.options ?? [];
-    if (!opts.length) continue;
-    // When multiple options exist, only the selected one applies. A single
-    // option needs no selection — use it unconditionally.
-    const idx = opts.length > 1
-      ? Math.min(Math.max(0, hg.selectedOption ?? 0), opts.length - 1)
-      : 0;
-    const opt = opts[idx];
-    if (!opt) continue;
-    zero += opt.zero ?? 0;
-    one  += opt.one  ?? 0;
-    two  += opt.two  ?? 0;
-  }
-  return { zero, one, two };
-}
-
-/**
  * Apply wound-reduction charm bonus to the base wound penalty.
  * bonusReduction is the integer accumulated in system.bonuses.woundPenaltyReduction
  * by charmSource AEs (formula="" → AE value 4, which covers the -4 max wound penalty).
@@ -87,4 +61,3 @@ export function aggregateSpeedModifierFromAEs(actor, baseSpeed) {
   if (!anyEnabled) return baseSpeed;
   return Math.floor(Math.max(globalMin, baseSpeed + totalDelta));
 }
-

@@ -292,6 +292,11 @@ export class ExaltedItem extends Item {
       }
     }
 
+    if (!turningOff && sys.duration === "permanent") {
+      const { applyCharmAEs } = await import("../combat/form-charms.mjs");
+      await applyCharmAEs(actor, this, this.getRollData?.() ?? {});
+    }
+
     if (!turningOff && isToggleable) {
       const { applyCharmAEs } = await import("../combat/form-charms.mjs");
       await applyCharmAEs(actor, this, this.getRollData?.() ?? {});

@@ -27,6 +27,22 @@ export function buildCharmSynthAEs(charm, rollData = {}) {
     if (hardnessAdd) changes.push({ key: "system.bonuses.hardnessAdd",     mode: 2, value: String(hardnessAdd) });
   }
 
+  if (sys.healthGrant?.enabled) {
+    const opts = sys.healthGrant.options ?? [];
+    if (opts.length > 0) {
+      const idx = opts.length > 1
+        ? Math.min(Math.max(0, sys.healthGrant.selectedOption ?? 0), opts.length - 1)
+        : 0;
+      const opt = opts[idx] ?? {};
+      const zero = opt.zero ?? 0;
+      const one  = opt.one  ?? 0;
+      const two  = opt.two  ?? 0;
+      if (zero) changes.push({ key: "system.bonuses.healthGrantZero", mode: 2, value: String(zero) });
+      if (one)  changes.push({ key: "system.bonuses.healthGrantOne",  mode: 2, value: String(one)  });
+      if (two)  changes.push({ key: "system.bonuses.healthGrantTwo",  mode: 2, value: String(two)  });
+    }
+  }
+
   if (sys.woundReduction?.enabled) {
     const formula = sys.woundReduction.formula;
     // 4 = magnitude of the worst wound-penalty level (−4); blank formula means "negate all".

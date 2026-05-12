@@ -1,72 +1,10 @@
 import { describe, it, expect } from "vitest";
 import {
-  computeHealthGrantBonus,
   computeWoundReduction,
   isCharmPassivelyActive,
   aggregateExtraActionsMaxFromAEs,
   aggregateSpeedModifierFromAEs,
 } from "../../module/rolls/charm-passive-math.mjs";
-
-// ── computeHealthGrantBonus ──────────────────────────────────────────
-describe("computeHealthGrantBonus", () => {
-  it("returns zeros when no charms", () => {
-    expect(computeHealthGrantBonus([])).toEqual({ zero: 0, one: 0, two: 0 });
-  });
-  it("sums options from one charm (Ox-Body style)", () => {
-    const items = [{ system: { healthGrant: {
-      enabled: true,
-      options: [{ zero: 1, one: 0, two: 2, dying: 0 }]
-    }}}];
-    expect(computeHealthGrantBonus(items)).toEqual({ zero: 1, one: 0, two: 2 });
-  });
-  it("sums multiple charms", () => {
-    const items = [
-      { system: { healthGrant: { enabled: true, options: [{ zero: 0, one: 0, two: 3, dying: 0 }] }}},
-      { system: { healthGrant: { enabled: true, options: [{ zero: 1, one: 0, two: 0, dying: 0 }] }}}
-    ];
-    expect(computeHealthGrantBonus(items)).toEqual({ zero: 1, one: 0, two: 3 });
-  });
-  it("skips disabled charms", () => {
-    const items = [{ system: { healthGrant: {
-      enabled: false,
-      options: [{ zero: 1, one: 1, two: 1, dying: 0 }]
-    }}}];
-    expect(computeHealthGrantBonus(items)).toEqual({ zero: 0, one: 0, two: 0 });
-  });
-  it("multi-option charm: uses only the selected option (default index 0)", () => {
-    const items = [{ system: { healthGrant: {
-      enabled: true,
-      selectedOption: 0,
-      options: [
-        { zero: 0, one: 0, two: 2, dying: 0 },
-        { zero: 1, one: 0, two: 0, dying: 0 }
-      ]
-    }}}];
-    expect(computeHealthGrantBonus(items)).toEqual({ zero: 0, one: 0, two: 2 });
-  });
-  it("multi-option charm: selectedOption 1 picks the second option", () => {
-    const items = [{ system: { healthGrant: {
-      enabled: true,
-      selectedOption: 1,
-      options: [
-        { zero: 0, one: 0, two: 2, dying: 0 },
-        { zero: 1, one: 0, two: 0, dying: 0 }
-      ]
-    }}}];
-    expect(computeHealthGrantBonus(items)).toEqual({ zero: 1, one: 0, two: 0 });
-  });
-  it("multi-option charm: out-of-bounds selectedOption clamps to last valid index", () => {
-    const items = [{ system: { healthGrant: {
-      enabled: true,
-      selectedOption: 99,
-      options: [
-        { zero: 0, one: 2, two: 0, dying: 0 },
-        { zero: 1, one: 0, two: 0, dying: 0 }
-      ]
-    }}}];
-    expect(computeHealthGrantBonus(items)).toEqual({ zero: 1, one: 0, two: 0 });
-  });
-});
 
 // ── computeWoundReduction ────────────────────────────────────────────
 // The function now takes (bonusReduction: number, baseWoundPenalty: number)

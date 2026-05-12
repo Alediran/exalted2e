@@ -1,7 +1,7 @@
 import { EX2E } from "../../config.mjs";
 import { computeWoundPenalty } from "../../rolls/health-math.mjs";
 import { computeTotalClarity, computePermanentClarity } from "../../combat/clarity-math.mjs";
-import { computeHealthGrantBonus, computeWoundReduction, isCharmPassivelyActive } from "../../rolls/charm-passive-math.mjs";
+import { computeWoundReduction, isCharmPassivelyActive } from "../../rolls/charm-passive-math.mjs";
 import { computeHearthstoneMoteRegen } from "../../helpers/hearthstone-regen.mjs";
 
 const fields = foundry.data.fields;
@@ -283,7 +283,10 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         parryBonus:            new fields.NumberField({ initial: 0, min: 0, integer: true }),
         rateBonus:             new fields.NumberField({ initial: 0, min: 0, integer: true }),
         motePersonal:          new fields.NumberField({ initial: 0, min: 0, integer: true }),
-        motePeripheral:        new fields.NumberField({ initial: 0, min: 0, integer: true })
+        motePeripheral:        new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        healthGrantZero:       new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        healthGrantOne:        new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        healthGrantTwo:        new fields.NumberField({ initial: 0, min: 0, integer: true })
       })
     };
   }
@@ -397,25 +400,16 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 
   _prepareHealthData() {
     const h = this.health;
-    const allItems   = this.parent?.items ?? [];
-    const items      = allItems.filter(isCharmPassivelyActive);
-    const charmBonus = computeHealthGrantBonus(items);
-
-    // Per-level box counts: -0, -1, -2 accept bonuses; -4 and Incap are
-    // always a single box each regardless of charm / effect bonuses.
     const b = h.bonus ?? { zero: 0, one: 0, two: 0 };
-    const zeroCount = 1 + (b.zero ?? 0) + charmBonus.zero;
-    const oneCount  = 2 + (b.one  ?? 0) + charmBonus.one;
-    const twoCount  = 2 + (b.two  ?? 0) + charmBonus.two;
+    const zeroCount = 1 + (b.zero ?? 0) + (this.bonuses?.healthGrantZero ?? 0);
+    const oneCount  = 2 + (b.one  ?? 0) + (this.bonuses?.healthGrantOne  ?? 0);
+    const twoCount  = 2 + (b.two  ?? 0) + (this.bonuses?.healthGrantTwo  ?? 0);
     const totalBoxes  = zeroCount + oneCount + twoCount + 1 /* -4 */ + 1 /* Incap */;
     const totalDamage = h.aggravated + h.lethal + h.bashing;
     h.totalBoxes  = totalBoxes;
     h.totalDamage = Math.min(totalDamage, totalBoxes);
-    // Cumulative counts so consumers (health-track helper, wound penalty)
-    // can locate which level a given filled-box index belongs to.
     h.levelCounts = { zero: zeroCount, one: oneCount, two: twoCount };
 
-    // Wound penalty = the penalty tier of the most-recently-filled box.
     const filled = Math.min(totalDamage, totalBoxes);
     h.woundPenalty  = computeWoundPenalty(filled, h.levelCounts);
     h.woundPenalty  = computeWoundReduction(this.bonuses?.woundPenaltyReduction ?? 0, h.woundPenalty);

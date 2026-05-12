@@ -477,6 +477,60 @@ export function registerFormCharms(context) {
       assert.equal(ae.changes.length, 0, "no ADD changes — flag-only AE");
     });
 
+    // F24 — healthGrant single-option → ADD changes on bonuses.healthGrantTwo
+    it("[F24] buildCharmSynthAEs: healthGrant single-option produces ADD changes on bonuses.healthGrantTwo", async function () {
+      const { buildCharmSynthAEs } = await import("../../../module/combat/form-charms.mjs");
+      const actor = await setupActor();
+      const charm = await createTempCharm(actor, {
+        name: "Ox-Body Technique", charmType: "simple", duration: "permanent", keywords: [], cost: {}
+      });
+      await charm.update({
+        "system.healthGrant.enabled":        true,
+        "system.healthGrant.selectedOption": 0,
+        "system.healthGrant.options": [{ zero: 0, one: 0, two: 2, dying: 0 }]
+      });
+
+      const result = buildCharmSynthAEs(charm);
+
+      assert.equal(result.length, 1, "returns one AE data object");
+      const ae = result[0];
+      const keys = ae.changes.map(c => c.key);
+      assert.notOk(keys.includes("system.bonuses.healthGrantZero"), "zero not emitted when 0");
+      assert.notOk(keys.includes("system.bonuses.healthGrantOne"),  "one not emitted when 0");
+      assert.ok(keys.includes("system.bonuses.healthGrantTwo"),     "healthGrantTwo change present");
+      const twoChange = ae.changes.find(c => c.key === "system.bonuses.healthGrantTwo");
+      assert.equal(twoChange.value, "2", "value is '2'");
+      assert.equal(twoChange.mode,  2,   "mode is ADD (2)");
+      assert.equal(ae.flags?.exalted2e?.charmSource, charm.id, "charmSource tag set");
+    });
+
+    // F24b — healthGrant multi-option uses selectedOption index
+    it("[F24b] buildCharmSynthAEs: healthGrant multi-option picks the selected option", async function () {
+      const { buildCharmSynthAEs } = await import("../../../module/combat/form-charms.mjs");
+      const actor = await setupActor();
+      const charm = await createTempCharm(actor, {
+        name: "Ox-Body II", charmType: "simple", duration: "permanent", keywords: [], cost: {}
+      });
+      await charm.update({
+        "system.healthGrant.enabled":        true,
+        "system.healthGrant.selectedOption": 1,
+        "system.healthGrant.options": [
+          { zero: 0, one: 0, two: 2, dying: 0 },
+          { zero: 1, one: 0, two: 0, dying: 0 }
+        ]
+      });
+
+      const result = buildCharmSynthAEs(charm);
+
+      assert.equal(result.length, 1, "returns one AE");
+      const ae = result[0];
+      const keys = ae.changes.map(c => c.key);
+      assert.ok(keys.includes("system.bonuses.healthGrantZero"),   "healthGrantZero present (option 1 has zero=1)");
+      assert.notOk(keys.includes("system.bonuses.healthGrantTwo"), "healthGrantTwo absent (option 1 has two=0)");
+      const zeroChange = ae.changes.find(c => c.key === "system.bonuses.healthGrantZero");
+      assert.equal(zeroChange.value, "1", "value is '1'");
+    });
+
     // ── Pipeline integration: AE accumulator reads ────────────────────────────
 
     // F14 (soak pipeline) — pipeline reads AE accumulator: actor totalSoak reflects charm AE
@@ -606,6 +660,31 @@ export function registerFormCharms(context) {
         { timeout: 3000, interval: 50 }
       );
       assert.ok(raised, `currentDodgeDV rose by 2 (was ${dvBefore}, now ${actor.currentDodgeDV})`);
+    });
+
+    // F25 — healthGrant charm raises actor totalBoxes after activation
+    it("[F25] pipeline: healthGrant charm raises actor health.totalBoxes after activation", async function () {
+      this.timeout(8000);
+      const actor = await setupActor();
+      const boxesBefore = actor.system.health.totalBoxes;
+
+      const charm = await createTempCharm(actor, {
+        name: "Ox-Body Technique", charmType: "simple", duration: "permanent", keywords: [], cost: {}
+      });
+      await charm.update({
+        "system.healthGrant.enabled":        true,
+        "system.healthGrant.selectedOption": 0,
+        "system.healthGrant.options": [{ zero: 0, one: 0, two: 2, dying: 0 }]
+      });
+
+      await charm.activateCharm({ skipXpConfirm: true });
+
+      const raised = await waitFor(
+        () => actor.system.health.totalBoxes >= boxesBefore + 2,
+        { timeout: 3000, interval: 50 }
+      );
+      assert.ok(raised,
+        `health.totalBoxes rose by 2 (was ${boxesBefore}, now ${actor.system.health.totalBoxes})`);
     });
   });
 }

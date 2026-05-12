@@ -167,7 +167,8 @@ describe("CharacterData — bonus fields", () => {
     for (const key of [
       "woundPenaltyReduction",
       "soakBashing", "soakLethal", "soakAggravated", "hardnessAdd",
-      "dodgeBonus", "parryBonus", "rateBonus", "motePersonal", "motePeripheral"
+      "dodgeBonus", "parryBonus", "rateBonus", "motePersonal", "motePeripheral",
+      "healthGrantZero", "healthGrantOne", "healthGrantTwo"
     ]) {
       expect(b[key], key).toBeInstanceOf(fields.NumberField);
     }
