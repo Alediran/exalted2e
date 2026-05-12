@@ -2,10 +2,8 @@ import { describe, it, expect } from "vitest";
 import {
   computeHealthGrantBonus,
   computeMotePoolBonus,
-  computeSoakBonus,
   computeWoundReduction,
   aggregateCharmDVBonus,
-  applyStatBoostDeltas,
   isCharmPassivelyActive,
 } from "../../module/rolls/charm-passive-math.mjs";
 
@@ -92,65 +90,32 @@ describe("computeMotePoolBonus", () => {
   });
 });
 
-// ── computeSoakBonus ─────────────────────────────────────────────────
-describe("computeSoakBonus", () => {
-  it("returns zeros when entries is empty", () => {
-    expect(computeSoakBonus([])).toEqual(
-      { bashing: 0, lethal: 0, aggravated: 0, hardnessAdd: 0, hardnessSetTo: 0 }
-    );
-  });
-  it("sums bashing/lethal/aggravated across entries", () => {
-    const entries = [
-      { bashing: 3, lethal: 3, aggravated: 0, hardnessAdd: 0, hardnessSetTo: 0 },
-      { bashing: 1, lethal: 0, aggravated: 0, hardnessAdd: 2, hardnessSetTo: 0 }
-    ];
-    expect(computeSoakBonus(entries)).toEqual(
-      { bashing: 4, lethal: 3, aggravated: 0, hardnessAdd: 2, hardnessSetTo: 0 }
-    );
-  });
-  it("takes the max hardnessSetTo across entries (not sum)", () => {
-    const entries = [
-      { bashing: 0, lethal: 0, aggravated: 0, hardnessAdd: 0, hardnessSetTo: 5 },
-      { bashing: 0, lethal: 0, aggravated: 0, hardnessAdd: 0, hardnessSetTo: 3 }
-    ];
-    expect(computeSoakBonus(entries).hardnessSetTo).toBe(5);
-  });
-});
-
 // ── computeWoundReduction ────────────────────────────────────────────
+// The function now takes (bonusReduction: number, baseWoundPenalty: number)
+// where bonusReduction is the integer accumulated in system.bonuses.woundPenaltyReduction
+// by charmSource AEs during applyActiveEffects.
 describe("computeWoundReduction", () => {
-  it("returns base penalty unchanged when no charms", () => {
-    expect(computeWoundReduction([], -2)).toBe(-2);
+  it("returns base penalty unchanged when bonus is 0", () => {
+    expect(computeWoundReduction(0, -2)).toBe(-2);
   });
-  it("formula='' negates all wound penalties", () => {
-    const items = [{ system: { woundReduction: { enabled: true, formula: "" }}}];
-    expect(computeWoundReduction(items, -4)).toBe(0);
+  it("bonus 1 reduces -2 to -1", () => {
+    expect(computeWoundReduction(1, -2)).toBe(-1);
   });
-  it("formula='-1' reduces magnitude by 1 (less negative)", () => {
-    const items = [{ system: { woundReduction: { enabled: true, formula: "-1" }}}];
-    expect(computeWoundReduction(items, -2)).toBe(-1);
-  });
-  it("formula='-3' reduces magnitude by 3", () => {
-    const items = [{ system: { woundReduction: { enabled: true, formula: "-3" }}}];
-    expect(computeWoundReduction(items, -4)).toBe(-1);
+  it("bonus 3 reduces -4 to -1", () => {
+    expect(computeWoundReduction(3, -4)).toBe(-1);
   });
   it("result is clamped to 0 (never positive)", () => {
-    const items = [{ system: { woundReduction: { enabled: true, formula: "-3" }}}];
-    expect(computeWoundReduction(items, -2)).toBe(0);
+    expect(computeWoundReduction(3, -2)).toBe(0);
   });
-  it("stacking: multiple reductions accumulate", () => {
-    const items = [
-      { system: { woundReduction: { enabled: true, formula: "-1" }}},
-      { system: { woundReduction: { enabled: true, formula: "-1" }}}
-    ];
-    expect(computeWoundReduction(items, -4)).toBe(-2);
+  it("stacking: multiple reductions accumulate (bonus=2)", () => {
+    expect(computeWoundReduction(2, -4)).toBe(-2);
   });
-  it("any full-negation charm overrides everything", () => {
-    const items = [
-      { system: { woundReduction: { enabled: true, formula: "-1" }}},
-      { system: { woundReduction: { enabled: true, formula: "" }}}
-    ];
-    expect(computeWoundReduction(items, -4)).toBe(0);
+  it("full negation: bonus=4 eliminates -4 penalty", () => {
+    expect(computeWoundReduction(4, -4)).toBe(0);
+  });
+  it("undefined/null bonus is treated as 0", () => {
+    expect(computeWoundReduction(undefined, -2)).toBe(-2);
+    expect(computeWoundReduction(null, -3)).toBe(-3);
   });
 });
 
@@ -190,33 +155,6 @@ describe("aggregateCharmDVBonus", () => {
     const r = aggregateCharmDVBonus(items);
     expect(r.dodgeBonus).toBe(0);
     expect(r.ignoreAllPenalties).toBe(false);
-  });
-});
-
-// ── applyStatBoostDeltas ─────────────────────────────────────────────
-describe("applyStatBoostDeltas", () => {
-  it("adds delta to flat object path", () => {
-    const data = { attributes: { strength: { value: 3 } } };
-    applyStatBoostDeltas(data, [{ path: "attributes.strength.value", delta: 2 }]);
-    expect(data.attributes.strength.value).toBe(5);
-  });
-  it("stacks multiple deltas on the same path", () => {
-    const data = { abilities: { melee: { value: 4 } } };
-    applyStatBoostDeltas(data, [
-      { path: "abilities.melee.value", delta: 1 },
-      { path: "abilities.melee.value", delta: 1 }
-    ]);
-    expect(data.abilities.melee.value).toBe(6);
-  });
-  it("creates intermediate objects if missing", () => {
-    const data = {};
-    applyStatBoostDeltas(data, [{ path: "a.b.c", delta: 3 }]);
-    expect(data.a.b.c).toBe(3);
-  });
-  it("no-ops on empty deltas array", () => {
-    const data = { attributes: { dexterity: { value: 4 } } };
-    applyStatBoostDeltas(data, []);
-    expect(data.attributes.dexterity.value).toBe(4);
   });
 });
 

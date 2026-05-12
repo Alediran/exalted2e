@@ -5,9 +5,7 @@ import {
   computeHealthGrantBonus,
   computeWoundReduction,
   computeMotePoolBonus,
-  computeSoakBonus,
   aggregateCharmDVBonus,
-  applyStatBoostDeltas,
 } from "../../module/rolls/charm-passive-math.mjs";
 
 describe("computeHealthGrantBonus arithmetic", () => {
@@ -26,16 +24,14 @@ describe("computeHealthGrantBonus arithmetic", () => {
 });
 
 describe("computeWoundReduction penalty arithmetic", () => {
-  it("no charms: returns base penalty unchanged", () => {
-    expect(computeWoundReduction([], -2)).toBe(-2);
+  it("no bonus (0): returns base penalty unchanged", () => {
+    expect(computeWoundReduction(0, -2)).toBe(-2);
   });
-  it("formula='-1' reduces -2 to -1", () => {
-    const charms = [{ system: { woundReduction: { enabled: true, formula: "-1" }}}];
-    expect(computeWoundReduction(charms, -2)).toBe(-1);
+  it("bonus=1 reduces -2 to -1", () => {
+    expect(computeWoundReduction(1, -2)).toBe(-1);
   });
-  it("formula='' negates all: -4 becomes 0", () => {
-    const charms = [{ system: { woundReduction: { enabled: true, formula: "" }}}];
-    expect(computeWoundReduction(charms, -4)).toBe(0);
+  it("bonus=4 negates all: -4 becomes 0", () => {
+    expect(computeWoundReduction(4, -4)).toBe(0);
   });
 });
 
@@ -53,40 +49,6 @@ describe("computeMotePoolBonus arithmetic", () => {
       { system: { motePoolBonus: { enabled: true, pool: "peripheral", amount: 10 }}}
     ];
     expect(computeMotePoolBonus(charms).peripheral).toBe(20);
-  });
-});
-
-describe("computeSoakBonus arithmetic", () => {
-  it("no entries: all zeros", () => {
-    const bonus = computeSoakBonus([]);
-    expect(bonus.bashing).toBe(0);
-    expect(bonus.lethal).toBe(0);
-  });
-  it("invincible-essence-reinforcement adds 3B/3L", () => {
-    const entries = [{ bashing: 3, lethal: 3, aggravated: 0, hardnessAdd: 0, hardnessSetTo: 0 }];
-    const bonus = computeSoakBonus(entries);
-    expect(bonus).toEqual({ bashing: 3, lethal: 3, aggravated: 0, hardnessAdd: 0, hardnessSetTo: 0 });
-  });
-  it("applies to simulated totalSoak object", () => {
-    const totalSoak = { bashing: 5, lethal: 2, aggravated: 0 };
-    const bonus = computeSoakBonus([{ bashing: 3, lethal: 3, aggravated: 0, hardnessAdd: 0, hardnessSetTo: 0 }]);
-    const result = {
-      bashing:    totalSoak.bashing    + bonus.bashing,
-      lethal:     totalSoak.lethal     + bonus.lethal,
-      aggravated: totalSoak.aggravated + bonus.aggravated
-    };
-    expect(result).toEqual({ bashing: 8, lethal: 5, aggravated: 0 });
-  });
-  it("hardnessSetTo takes max over existing hardness, not replacement", () => {
-    // armor gives hardness 3; charm hardnessSetTo 2 must not lower it
-    const bonus = computeSoakBonus([{ bashing: 0, lethal: 0, aggravated: 0, hardnessAdd: 0, hardnessSetTo: 2 }]);
-    const result = Math.max(3, bonus.hardnessSetTo) + bonus.hardnessAdd;
-    expect(result).toBe(3);
-  });
-  it("hardnessAdd stacks on top of hardnessSetTo result", () => {
-    const bonus = computeSoakBonus([{ bashing: 0, lethal: 0, aggravated: 0, hardnessAdd: 1, hardnessSetTo: 5 }]);
-    const result = Math.max(3, bonus.hardnessSetTo) + bonus.hardnessAdd;
-    expect(result).toBe(6);
   });
 });
 
@@ -110,15 +72,3 @@ describe("aggregateCharmDVBonus arithmetic", () => {
   });
 });
 
-describe("applyStatBoostDeltas arithmetic", () => {
-  it("boost strength by 1", () => {
-    const data = { attributes: { strength: { value: 3 } } };
-    applyStatBoostDeltas(data, [{ path: "attributes.strength.value", delta: 1 }]);
-    expect(data.attributes.strength.value).toBe(4);
-  });
-  it("boost an ability", () => {
-    const data = { abilities: { melee: { value: 2 } } };
-    applyStatBoostDeltas(data, [{ path: "abilities.melee.value", delta: 3 }]);
-    expect(data.abilities.melee.value).toBe(5);
-  });
-});

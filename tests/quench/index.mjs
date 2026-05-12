@@ -53,6 +53,7 @@ import { registerVirtueChanneling }         from "./combat/virtue-channeling.mjs
 import { registerKeywordGating }            from "./combat/keyword-gating.mjs";
 import { registerCoverStarmetal }           from "./combat/cover-starmetal.mjs";
 import { registerComboImport }              from "./combat/combo-import.mjs";
+import { registerFormCharms }              from "./combat/form-charms.mjs";
 // NOTE: Anima Powers feature (_swapAnimaPower) relies on the animapowers compendium
 // and cannot be exercised via Quench. No batch registered for ex2e.anima-powers.
 
@@ -108,5 +109,6 @@ Hooks.once("quenchReady", quench => {
   quench.registerBatch("ex2e.keyword-gating",            registerKeywordGating,             { displayName: "Keyword gating (Native + Action-Only)" });
   quench.registerBatch("ex2e.cover-starmetal",           registerCoverStarmetal,            { displayName: "Cover DV bonuses + Starmetal attack penalty" });
   quench.registerBatch("ex2e.combo-import",              registerComboImport,               { displayName: "Combo import / name-remap" });
+  quench.registerBatch("ex2e.form-charms",               registerFormCharms,                { displayName: "Form-type charm handling" });
 
 });

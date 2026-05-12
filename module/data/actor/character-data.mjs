@@ -1,7 +1,7 @@
 import { EX2E } from "../../config.mjs";
 import { computeWoundPenalty } from "../../rolls/health-math.mjs";
 import { computeTotalClarity, computePermanentClarity } from "../../combat/clarity-math.mjs";
-import { computeHealthGrantBonus, computeWoundReduction, computeMotePoolBonus, applyStatBoostDeltas, isCharmPassivelyActive } from "../../rolls/charm-passive-math.mjs";
+import { computeHealthGrantBonus, computeWoundReduction, computeMotePoolBonus, isCharmPassivelyActive } from "../../rolls/charm-passive-math.mjs";
 import { computeHearthstoneMoteRegen } from "../../helpers/hearthstone-regen.mjs";
 
 const fields = foundry.data.fields;
@@ -317,7 +317,6 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     this._prepareWillpowerMinimum();
     this._prepareHealthData();
     this._prepareBreedingBonus();
-    this._applyCharmStatBoosts();
     this._applyCharmInitiation();
     this._prepareCombatStats();
     this._prepareMoteMaxima();
@@ -380,24 +379,6 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     };
   }
 
-  _applyCharmStatBoosts() {
-    const items = (this.parent?.items ?? []).filter(isCharmPassivelyActive);
-    const deltas = [];
-    for (const item of items) {
-      const sb = item?.system?.statBoost;
-      if (!sb?.enabled) continue;
-      for (const change of (sb.changes ?? [])) {
-        if (!change.path) continue;
-        const raw = String(change.value ?? "1").trim();
-        // Only integer values are applied here; formula values require Foundry's
-        // Roll.safeEval and are deferred to the schema-extensions plan.
-        if (!/^-?\d+$/.test(raw)) continue;
-        deltas.push({ path: change.path, delta: parseInt(raw, 10) || 0 });
-      }
-    }
-    applyStatBoostDeltas(this, deltas);
-  }
-
   _applyCharmInitiation() {
     const items = (this.parent?.items ?? []).filter(isCharmPassivelyActive);
     for (const item of items) {
@@ -432,7 +413,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     // Wound penalty = the penalty tier of the most-recently-filled box.
     const filled = Math.min(totalDamage, totalBoxes);
     h.woundPenalty  = computeWoundPenalty(filled, h.levelCounts);
-    h.woundPenalty  = computeWoundReduction(items, h.woundPenalty);
+    h.woundPenalty  = computeWoundReduction(this.bonuses?.woundPenaltyReduction ?? 0, h.woundPenalty);
     h.incapacitated = filled >= totalBoxes;
   }
 

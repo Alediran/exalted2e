@@ -83,16 +83,6 @@ describe("willpowerRecovery schema", () => {
   });
 });
 
-import { computeSoakBonus } from "../../module/rolls/charm-passive-math.mjs";
-
-describe("soakBonus formula field resolution (pre-evaluated by caller)", () => {
-  it("formula value replaces integer when provided (as pre-evaluated entry)", () => {
-    // Caller evaluates bashingFormula="@sta" → 3, passes entry with bashing=3
-    const entries = [{ bashing: 3, lethal: 0, aggravated: 0, hardnessAdd: 0, hardnessSetTo: 0 }];
-    expect(computeSoakBonus(entries).bashing).toBe(3);
-  });
-});
-
 describe("dvPenalty schema field", () => {
   it("dvPenalty defaults to -1", () => {
     const schema = CharmData.defineSchema();

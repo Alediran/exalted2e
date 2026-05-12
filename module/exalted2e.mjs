@@ -405,8 +405,8 @@ Hooks.once("init", function () {
   _enrichStatus("fly",        { flying: true });
   // Poison/disease mark the condition for detection; specific penalties come
   // from the Poison/Disease item that applied the condition.
-  _enrichStatus("poisoned",   { poisoned: true });
-  _enrichStatus("diseased",   { diseased: true });
+  _enrichStatus("poison",     { poisoned: true });
+  _enrichStatus("disease",    { diseased: true });
 
   // Custom statuses — not in Foundry's built-in list.
   CONFIG.statusEffects.push(
@@ -1079,12 +1079,10 @@ Hooks.on("preCreateItem", (item, data, options, userId) => {
       spellParent.type === "character") {
     const circle    = item.system.circle    ?? 1;
     const tradition = item.system.tradition ?? "sorcery";
-    const hasInitiation = spellParent.items.some(c =>
-      c.type === "charm" &&
-      c.system.grantsInitiation?.enabled &&
-      c.system.grantsInitiation?.tradition === tradition &&
-      (c.system.grantsInitiation?.level ?? 0) >= circle
-    );
+    // system.[tradition].initiation is derived by _applyCharmInitiation — it
+    // already reflects any active initiation charm, plus direct DB writes used
+    // by tests and macros. Checking the derived value is simpler and covers both.
+    const hasInitiation = (spellParent.system?.[tradition]?.initiation ?? 0) >= circle;
     if (!hasInitiation) {
       const tradKey   = `EX2E.Tradition${tradition.charAt(0).toUpperCase()}${tradition.slice(1)}`;
       const tradLabel = game.i18n.localize(tradKey);
@@ -3144,6 +3142,9 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
 Hooks.on("deleteCombat", async () => {
   const { clearSocialScene } = await import("./ui/social-scene.mjs");
   await clearSocialScene({ silent: true });
+  const { clearActorForms } = await import("./combat/form-charms.mjs");
+  const sceneActors = canvas.scene?.tokens?.contents?.map(t => t.actor).filter(Boolean) ?? [];
+  for (const actor of sceneActors) await clearActorForms(actor);
 });
 
 // ── Social attack: defender Step-2 orchestrator ──────────────────────────

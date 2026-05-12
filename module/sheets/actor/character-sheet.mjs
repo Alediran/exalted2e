@@ -27,13 +27,13 @@ const _GREATER_SIGN_ICONS = {
   endings:  "fa-hourglass-end",
 };
 
-function _greaterSignPrereqMet(actor, caste) {
+export function _greaterSignPrereqMet(actor, caste) {
   if ((actor.system.essence?.value ?? 0) < 4) return false;
   const colleges = actor.system.splat?.sidereal?.colleges?.[caste] ?? {};
   return Object.values(colleges).reduce((s, v) => s + (v ?? 0), 0) >= 15;
 }
 
-async function _activateGreaterSign(actor, item) {
+export async function _activateGreaterSign(actor, item) {
   const conflict = actor.items.some(i =>
     i.type === "animapower" &&
     !i.system.isGreaterSign &&
@@ -76,7 +76,7 @@ async function _activateGreaterSign(actor, item) {
   return true;
 }
 
-async function _deactivateGreaterSign(actor, item) {
+export async function _deactivateGreaterSign(actor, item) {
   const ae = actor.effects.find(e =>
     e.flags?.exalted2e?.permanentCost && e.flags?.exalted2e?.sourceItem === item.id
   );
@@ -88,7 +88,7 @@ async function _deactivateGreaterSign(actor, item) {
   }
 }
 
-async function _reverseGreaterSignActivation(actor, item) {
+export async function _reverseGreaterSignActivation(actor, item) {
   const ae = actor.effects.find(e =>
     e.flags?.exalted2e?.permanentCost && e.flags?.exalted2e?.sourceItem === item.id
   );
@@ -1535,6 +1535,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       { "system.scenePeripheral": newSp },
       { scenePeripheralBefore: oldSp }
     );
+    const { clearActorForms } = await import("../../combat/form-charms.mjs");
+    await clearActorForms(this.document);
   }
 
   static #onConfigureAnimaColors() {

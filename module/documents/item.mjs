@@ -58,9 +58,9 @@ export class ExaltedItem extends Item {
     }
     this._isBeingDeleted = true;
     await super._preDelete(options, user);
-    // Deleting a charm that spawned weapon artifacts: tear them down too
-    // so we don't leave orphaned weapons equipped on the actor.
-    if (this.type === "charm" && this.system?.attack?.enabled && this.actor) {
+    // Deleting an active charm: remove all charmSource AEs and spawned weapons.
+    if (this.type === "charm" && this.actor
+        && (this.system?.active || this.system?.attack?.enabled)) {
       await this._removeCharmWeaponArtifacts();
     }
     // Form item deletion: if this form is the actor's active form or
@@ -124,6 +124,38 @@ export class ExaltedItem extends Item {
         );
         return false;
       }
+    }
+
+    // ── Form-type charm: one-at-a-time enforcement ────────────────────────
+    // For toggle-on: enforce one-Form-at-a-time; deactivate any existing Form
+    //   first, then fall through to the normal path (costs, weapon artifacts,
+    //   active toggle, DV penalty, chat card, etc.).
+    // For toggle-off: fall through directly — the universal sustained-teardown
+    //   block below calls _removeCharmWeaponArtifacts() for all isToggleable charms.
+    if (this.system.keywords?.includes("Form-type")) {
+      if (!turningOff) {
+        // TODO: Prismatic Arrangement of Creation Style — skip one-Form limit
+        // when actor has that Form's capstone active.
+        const oldCharm = actor.items.find(i =>
+          i.type === "charm"
+            && i.system?.keywords?.includes("Form-type")
+            && i.system?.active
+            && i.id !== this.id
+        );
+        if (oldCharm) {
+          const { deactivateForm } = await import("../combat/form-charms.mjs");
+          const confirmed = await foundry.applications.api.DialogV2.confirm({
+            window:  { title: game.i18n.localize("EX2E.FormSwapTitle") },
+            content: game.i18n.format("EX2E.FormSwapContent", {
+              old: oldCharm.name,
+              new: this.name
+            })
+          });
+          if (!confirmed) return false;
+          await deactivateForm(oldCharm);
+        }
+      }
+      // toggle-off: fall through — expanded teardown below handles charmSource AEs
     }
 
     const sys      = this.system;
@@ -198,10 +230,15 @@ export class ExaltedItem extends Item {
       ledger.cooperation = cooperation;
     }
 
+    // Remove all charmSource AEs + weapons when any sustained charm toggles off.
+    if (turningOff && isToggleable) {
+      await this._removeCharmWeaponArtifacts();
+    }
+
     // Weapon-like attack side effects — only when the Attack tab is enabled.
     if (sys.attack?.enabled) {
       if (turningOff) {
-        await this._removeCharmWeaponArtifacts();
+        // already handled above
       } else if (sys.duration === "instant") {
         // Fire the attack roll right now using a transient weapon. The
         // attack card snapshots stats, so deleting the temp weapon
@@ -253,6 +290,11 @@ export class ExaltedItem extends Item {
       if (targetActor) {
         await targetActor.applyCharmTargetEffect(sys.targetEffect);
       }
+    }
+
+    if (!turningOff && isToggleable) {
+      const { applyCharmAEs } = await import("../combat/form-charms.mjs");
+      await applyCharmAEs(actor, this, this.getRollData?.() ?? {});
     }
 
     // Send to chat with the activation ledger stamped on the message so

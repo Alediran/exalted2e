@@ -142,6 +142,9 @@ export class JoinBattlePanel {
     this._root.querySelector(".jb-end-scene")?.addEventListener("click", async () => {
       const { clearSocialScene } = await import("./social-scene.mjs");
       await clearSocialScene();
+      const { clearActorForms } = await import("../combat/form-charms.mjs");
+      const sceneActors = canvas.scene?.tokens?.contents?.map(t => t.actor).filter(Boolean) ?? [];
+      for (const actor of sceneActors) await clearActorForms(actor);
     });
   }
 

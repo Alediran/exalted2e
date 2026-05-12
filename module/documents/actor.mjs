@@ -3,7 +3,7 @@ import { clampDamage, healInOrder } from "../rolls/health-math.mjs";
 import { aggregatePenalties, sumPenalties } from "./penalties-math.mjs";
 import { collectPermanentTraitChanges } from "./purchase-mode-math.mjs";
 import { getClarityBand } from "../combat/clarity-math.mjs";
-import { computeSoakBonus, aggregateCharmDVBonus, isCharmPassivelyActive } from "../rolls/charm-passive-math.mjs";
+import { aggregateCharmDVBonus, isCharmPassivelyActive } from "../rolls/charm-passive-math.mjs";
 import { collectMoteRecoveryCharms, collectWillpowerRecoveryCharms } from "../rolls/charm-event-math.mjs";
 import { evaluateCharmFormula } from "./item.mjs";
 
@@ -784,29 +784,26 @@ export class ExaltedActor extends Actor {
   }
 
   _applyCharmSoak(systemData) {
-    const charms   = this.items.filter(i => i.type === "charm" && isCharmPassivelyActive(i));
-    const rollData = this.getRollData() ?? {};
-    const entries  = charms
-      .filter(c => c.system.soakBonus?.enabled)
-      .map(c => {
-        const sb = c.system.soakBonus;
-        const ev = (formula, fallback) =>
-          formula ? evaluateCharmFormula(formula, rollData, fallback) : fallback;
-        return {
-          bashing:       ev(sb.bashingFormula,    sb.bashing      ?? 0),
-          lethal:        ev(sb.lethalFormula,     sb.lethal       ?? 0),
-          aggravated:    ev(sb.aggravatedFormula, sb.aggravated   ?? 0),
-          hardnessAdd:   sb.hardnessAdd   ?? 0,
-          hardnessSetTo: sb.hardnessSetTo ?? 0,
-        };
-      });
-    const bonus = computeSoakBonus(entries);
     if (!systemData.totalSoak) return;
-    systemData.totalSoak.bashing    += bonus.bashing;
-    systemData.totalSoak.lethal     += bonus.lethal;
-    systemData.totalSoak.aggravated += bonus.aggravated;
-    systemData.hardness = Math.max(systemData.hardness ?? 0, bonus.hardnessSetTo)
-                        + bonus.hardnessAdd;
+
+    // Read AE-backed soak bonuses from the bonuses accumulator populated
+    // by charmSource AEs during charm activation.
+    const b = systemData.bonuses ?? {};
+    systemData.totalSoak.bashing    += b.soakBashing    ?? 0;
+    systemData.totalSoak.lethal     += b.soakLethal     ?? 0;
+    systemData.totalSoak.aggravated += b.soakAggravated ?? 0;
+
+    // hardnessSetTo is non-additive (Math.max) — still scanned directly.
+    const charms = this.items.filter(i => i.type === "charm" && isCharmPassivelyActive(i));
+    let maxHardnessSetTo = 0;
+    for (const c of charms) {
+      if (c.system.soakBonus?.enabled) {
+        const hst = c.system.soakBonus.hardnessSetTo ?? 0;
+        if (hst > maxHardnessSetTo) maxHardnessSetTo = hst;
+      }
+    }
+    systemData.hardness = Math.max(systemData.hardness ?? 0, maxHardnessSetTo)
+                        + (b.hardnessAdd ?? 0);
   }
 
   /**

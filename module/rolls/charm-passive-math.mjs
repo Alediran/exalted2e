@@ -53,43 +53,18 @@ export function computeMotePoolBonus(items) {
   return { personal, peripheral };
 }
 
-/**
- * Sum soak bonuses from pre-evaluated charm entries.
- * hardnessSetTo uses max() rather than sum (a single source sets hardness to N).
- * @param {{ bashing:number, lethal:number, aggravated:number, hardnessAdd:number, hardnessSetTo:number }[]} entries
- * @returns same shape
- */
-export function computeSoakBonus(entries) {
-  let bashing = 0, lethal = 0, aggravated = 0, hardnessAdd = 0, hardnessSetTo = 0;
-  for (const e of entries) {
-    bashing      += e.bashing      ?? 0;
-    lethal       += e.lethal       ?? 0;
-    aggravated   += e.aggravated   ?? 0;
-    hardnessAdd  += e.hardnessAdd  ?? 0;
-    hardnessSetTo = Math.max(hardnessSetTo, e.hardnessSetTo ?? 0);
-  }
-  return { bashing, lethal, aggravated, hardnessAdd, hardnessSetTo };
-}
 
 /**
- * Apply wound-reduction charms to the base wound penalty.
- * formula=""  → negate all penalties (return 0).
- * formula="-N" → reduce magnitude by N.  Result is clamped to [penalty, 0].
- * @param {object[]} items
+ * Apply wound-reduction charm bonus to the base wound penalty.
+ * bonusReduction is the integer accumulated in system.bonuses.woundPenaltyReduction
+ * by charmSource AEs (formula="" → AE value 4, which covers the -4 max wound penalty).
+ * @param {number} bonusReduction — ≥ 0
  * @param {number} baseWoundPenalty — typically ≤ 0
  * @returns {number} effective wound penalty
  */
-export function computeWoundReduction(items, baseWoundPenalty) {
-  let totalReduction = 0;
-  for (const item of items) {
-    const wr = item?.system?.woundReduction;
-    if (!wr?.enabled) continue;
-    // Full negation (formula="") outranks any partial reduction — one such charm wins.
-    if (wr.formula === "" || wr.formula == null) return 0;
-    const r = Math.abs(parseInt(wr.formula, 10)) || 0;
-    totalReduction += r;
-  }
-  return Math.min(0, baseWoundPenalty + totalReduction);
+export function computeWoundReduction(bonusReduction, baseWoundPenalty) {
+  if (!bonusReduction) return baseWoundPenalty;
+  return Math.min(0, baseWoundPenalty + bonusReduction);
 }
 
 /**
@@ -111,24 +86,3 @@ export function aggregateCharmDVBonus(items) {
   return { dodgeBonus, parryBonus, ignoreAllPenalties, ignorePenaltyTypes: [...typesSet] };
 }
 
-/**
- * Apply pre-evaluated stat-boost deltas to a systemData object.
- * Uses simple property-path splitting rather than foundry.utils so
- * the function stays testable without Foundry globals.
- * @param {object} systemData
- * @param {{ path:string, delta:number }[]} deltas
- */
-export function applyStatBoostDeltas(systemData, deltas) {
-  for (const { path, delta } of deltas) {
-    const parts = path.split(".");
-    let obj = systemData;
-    for (let i = 0; i < parts.length - 1; i++) {
-      if (typeof obj[parts[i]] !== "object" || obj[parts[i]] === null) {
-        obj[parts[i]] = {};
-      }
-      obj = obj[parts[i]];
-    }
-    const last = parts[parts.length - 1];
-    obj[last] = (obj[last] ?? 0) + delta;
-  }
-}
