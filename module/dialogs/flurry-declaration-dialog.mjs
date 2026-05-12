@@ -1,5 +1,6 @@
 import { EX2E } from "../config.mjs";
 import { evaluateCharmFormula } from "../documents/item.mjs";
+import { isCharmPassivelyActive } from "../rolls/charm-passive-math.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -479,7 +480,7 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
     if (!actor) return 0;
     const rollData = actor.getRollData() ?? {};
     return actor.items
-      .filter(i => i.type === "charm" && i.system.rateBonus?.enabled)
+      .filter(i => i.type === "charm" && isCharmPassivelyActive(i) && i.system.rateBonus?.enabled)
       .reduce((sum, c) => sum + evaluateCharmFormula(c.system.rateBonus.formula, rollData, 0), 0);
   }
 

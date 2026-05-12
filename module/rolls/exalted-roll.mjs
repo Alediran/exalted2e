@@ -19,6 +19,7 @@ import { computeAttackExcellencyCaps } from "./excellency-math.mjs";
 import { bankStuntReward } from "../combat/stunt-payment.mjs";
 import { computeAttackCharmBonus, computeSpeedModifier, computeExtraActionsMax }
   from "./charm-combat-math.mjs";
+import { isCharmPassivelyActive } from "./charm-passive-math.mjs";
 import { evaluateCharmFormula } from "../documents/item.mjs";
 
 /**
@@ -686,8 +687,7 @@ export class ExaltedRoll {
     }
     // Collect combat bonuses from activated and equipped charms.
     // attackBonus uses activatedCharmItems (per-attack supplemental cost paid now).
-    // speedModifier and extraActions use all actor items because those effects are
-    // typically sustained across turns, not re-activated on each attack.
+    // speedModifier and extraActions use passively-active items (permanent or toggled on).
     const rollData = actor.getRollData?.() ?? {};
     const activatedCharmItems = activatedCharms
       .map(ac => actor.items.get(ac.id))
@@ -710,8 +710,9 @@ export class ExaltedRoll {
 
     const charmAttackBonus = computeAttackCharmBonus(resolvedAttackBonusCharms, rollData);
     const baseSpeed        = mode.effectiveSpeed ?? 5;
-    const charmSpeed       = computeSpeedModifier(allCharms, baseSpeed, rollData);
-    const charmExtraMax    = computeExtraActionsMax(allCharms, rollData);
+    const activeCharms     = allCharms.filter(isCharmPassivelyActive);
+    const charmSpeed       = computeSpeedModifier(activeCharms, baseSpeed, rollData);
+    const charmExtraMax    = computeExtraActionsMax(activeCharms, rollData);
 
     const unblockable = activatedKeywords.has("Unblockable");
     const undodgeable = activatedKeywords.has("Undodgeable");

@@ -841,15 +841,8 @@ export class ExaltedActor extends Actor {
   async applyDamage(amount, type) {
     if (this.type !== "character" && this.type !== "npc") return;
 
-    // Character totalBoxes derives from per-level bonus; NPC reads flat totalBoxes.
-    let totalBoxes;
-    if (this.type === "character") {
-      const b = this.system.health.bonus ?? { zero: 0, one: 0, two: 0 };
-      const bonusTotal = (b.zero ?? 0) + (b.one ?? 0) + (b.two ?? 0);
-      totalBoxes = 7 + bonusTotal;
-    } else {
-      totalBoxes = this.system.health.totalBoxes;
-    }
+    // totalBoxes is computed by _prepareHealthData and includes Ox-Body charm grants.
+    const totalBoxes = this.system.health.totalBoxes;
 
     const h = clampDamage(this.system.health, type, amount, totalBoxes);
     await this.update({ "system.health": h });
