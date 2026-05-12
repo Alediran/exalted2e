@@ -38,23 +38,6 @@ export function computeHealthGrantBonus(items) {
 }
 
 /**
- * Sum mote-pool bonuses from all enabled motePoolBonus charms.
- * @param {object[]} items
- * @returns {{ personal: number, peripheral: number }}
- */
-export function computeMotePoolBonus(items) {
-  let personal = 0, peripheral = 0;
-  for (const item of items) {
-    const mpb = item?.system?.motePoolBonus;
-    if (!mpb?.enabled) continue;
-    if (mpb.pool === "personal")        personal   += mpb.amount ?? 0;
-    else if (mpb.pool === "peripheral") peripheral += mpb.amount ?? 0;
-  }
-  return { personal, peripheral };
-}
-
-
-/**
  * Apply wound-reduction charm bonus to the base wound penalty.
  * bonusReduction is the integer accumulated in system.bonuses.woundPenaltyReduction
  * by charmSource AEs (formula="" → AE value 4, which covers the -4 max wound penalty).
@@ -65,25 +48,6 @@ export function computeMotePoolBonus(items) {
 export function computeWoundReduction(bonusReduction, baseWoundPenalty) {
   if (!bonusReduction) return baseWoundPenalty;
   return Math.min(0, baseWoundPenalty + bonusReduction);
-}
-
-/**
- * Aggregate DV bonus data from all enabled dvBonus charms.
- * @param {object[]} items
- * @returns {{ dodgeBonus:number, parryBonus:number, ignoreAllPenalties:boolean, ignorePenaltyTypes:string[] }}
- */
-export function aggregateCharmDVBonus(items) {
-  let dodgeBonus = 0, parryBonus = 0, ignoreAllPenalties = false;
-  const typesSet = new Set();
-  for (const item of items) {
-    const dv = item?.system?.dvBonus;
-    if (!dv?.enabled) continue;
-    dodgeBonus += dv.dodgeBonus ?? 0;
-    parryBonus += dv.parryBonus ?? 0;
-    if (dv.ignoreAllPenalties) ignoreAllPenalties = true;
-    for (const t of (dv.ignorePenaltyTypes ?? [])) typesSet.add(t);
-  }
-  return { dodgeBonus, parryBonus, ignoreAllPenalties, ignorePenaltyTypes: [...typesSet] };
 }
 
 /**

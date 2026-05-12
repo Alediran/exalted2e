@@ -162,12 +162,14 @@ describe("CharacterData — bonus fields", () => {
     expect(f.initial).toBe(0);
   });
 
-  it("bonuses SchemaField has woundPenaltyReduction, soakBashing, soakLethal, soakAggravated, hardnessAdd", () => {
+  it("bonuses SchemaField has all expected NumberFields", () => {
     const b = schema.bonuses.fields;
-    expect(b.woundPenaltyReduction).toBeInstanceOf(fields.NumberField);
-    expect(b.soakBashing).toBeInstanceOf(fields.NumberField);
-    expect(b.soakLethal).toBeInstanceOf(fields.NumberField);
-    expect(b.soakAggravated).toBeInstanceOf(fields.NumberField);
-    expect(b.hardnessAdd).toBeInstanceOf(fields.NumberField);
+    for (const key of [
+      "woundPenaltyReduction",
+      "soakBashing", "soakLethal", "soakAggravated", "hardnessAdd",
+      "dodgeBonus", "parryBonus", "rateBonus", "motePersonal", "motePeripheral"
+    ]) {
+      expect(b[key], key).toBeInstanceOf(fields.NumberField);
+    }
   });
 });

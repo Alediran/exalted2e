@@ -429,7 +429,7 @@ export class ExaltedActor extends Actor {
       }
     }
     systemData.dvBonusIgnore = { all: ignoreAll, types: [...ignoreTypes] };
-    systemData.aeDVBonus = { dodgeBonus: aeDodge, parryBonus: aeParry };
+    systemData.statusDVBonus = { dodgeBonus: aeDodge, parryBonus: aeParry };
   }
 
   /**
@@ -593,7 +593,7 @@ export class ExaltedActor extends Actor {
     const s = this.system;
     const base = (this.type === "character" ? (s.dodgeDV ?? 0)
                 : this.type === "npc"       ? (s.combat?.dodgeDV ?? 0)
-                : 0) + (s.bonuses?.dodgeBonus ?? 0) + (s.aeDVBonus?.dodgeBonus ?? 0);
+                : 0) + (s.bonuses?.dodgeBonus ?? 0) + (s.statusDVBonus?.dodgeBonus ?? 0);
     const ignore = s.dvBonusIgnore ?? { all: false, types: [] };
     const penalty = ignore.all ? 0 : this._dvPenaltyIgnoring(new Set(ignore.types));
     return Math.max(0, base - penalty);
@@ -603,7 +603,7 @@ export class ExaltedActor extends Actor {
     const s = this.system;
     const base = (this.type === "character" ? (s.parryDV ?? s.parryDVBase ?? 0)
                 : this.type === "npc"       ? (s.combat?.parryDV ?? 0)
-                : 0) + (s.bonuses?.parryBonus ?? 0) + (s.aeDVBonus?.parryBonus ?? 0);
+                : 0) + (s.bonuses?.parryBonus ?? 0) + (s.statusDVBonus?.parryBonus ?? 0);
     const ignore = s.dvBonusIgnore ?? { all: false, types: [] };
     const penalty = ignore.all ? 0 : this._dvPenaltyIgnoring(new Set(ignore.types));
     return Math.max(0, base - penalty);

@@ -1,9 +1,7 @@
 import { describe, it, expect } from "vitest";
 import {
   computeHealthGrantBonus,
-  computeMotePoolBonus,
   computeWoundReduction,
-  aggregateCharmDVBonus,
   isCharmPassivelyActive,
   aggregateExtraActionsMaxFromAEs,
   aggregateSpeedModifierFromAEs,
@@ -70,28 +68,6 @@ describe("computeHealthGrantBonus", () => {
   });
 });
 
-// ── computeMotePoolBonus ─────────────────────────────────────────────
-describe("computeMotePoolBonus", () => {
-  it("returns zeros when no charms", () => {
-    expect(computeMotePoolBonus([])).toEqual({ personal: 0, peripheral: 0 });
-  });
-  it("adds peripheral bonus", () => {
-    const items = [{ system: { motePoolBonus: { enabled: true, pool: "peripheral", amount: 10 }}}];
-    expect(computeMotePoolBonus(items)).toEqual({ personal: 0, peripheral: 10 });
-  });
-  it("adds personal bonus", () => {
-    const items = [{ system: { motePoolBonus: { enabled: true, pool: "personal", amount: 5 }}}];
-    expect(computeMotePoolBonus(items)).toEqual({ personal: 5, peripheral: 0 });
-  });
-  it("stacks multiple charms", () => {
-    const items = [
-      { system: { motePoolBonus: { enabled: true, pool: "peripheral", amount: 10 }}},
-      { system: { motePoolBonus: { enabled: true, pool: "peripheral", amount: 10 }}}
-    ];
-    expect(computeMotePoolBonus(items)).toEqual({ personal: 0, peripheral: 20 });
-  });
-});
-
 // ── computeWoundReduction ────────────────────────────────────────────
 // The function now takes (bonusReduction: number, baseWoundPenalty: number)
 // where bonusReduction is the integer accumulated in system.bonuses.woundPenaltyReduction
@@ -118,45 +94,6 @@ describe("computeWoundReduction", () => {
   it("undefined/null bonus is treated as 0", () => {
     expect(computeWoundReduction(undefined, -2)).toBe(-2);
     expect(computeWoundReduction(null, -3)).toBe(-3);
-  });
-});
-
-// ── aggregateCharmDVBonus ────────────────────────────────────────────
-describe("aggregateCharmDVBonus", () => {
-  it("returns zeros when no charms", () => {
-    const r = aggregateCharmDVBonus([]);
-    expect(r).toEqual({ dodgeBonus: 0, parryBonus: 0, ignoreAllPenalties: false, ignorePenaltyTypes: [] });
-  });
-  it("sums flat dodge/parry bonuses", () => {
-    const items = [
-      { system: { dvBonus: { enabled: true, dodgeBonus: 2, parryBonus: 1, ignoreAllPenalties: false, ignorePenaltyTypes: [] }}}
-    ];
-    const r = aggregateCharmDVBonus(items);
-    expect(r.dodgeBonus).toBe(2);
-    expect(r.parryBonus).toBe(1);
-  });
-  it("sets ignoreAllPenalties when any charm has it", () => {
-    const items = [
-      { system: { dvBonus: { enabled: true, dodgeBonus: 0, parryBonus: 0, ignoreAllPenalties: true, ignorePenaltyTypes: [] }}}
-    ];
-    expect(aggregateCharmDVBonus(items).ignoreAllPenalties).toBe(true);
-  });
-  it("unions ignorePenaltyTypes across charms", () => {
-    const items = [
-      { system: { dvBonus: { enabled: true, dodgeBonus: 0, parryBonus: 0, ignoreAllPenalties: false, ignorePenaltyTypes: ["parryPenalties"] }}},
-      { system: { dvBonus: { enabled: true, dodgeBonus: 0, parryBonus: 0, ignoreAllPenalties: false, ignorePenaltyTypes: ["environmental"] }}}
-    ];
-    const r = aggregateCharmDVBonus(items);
-    expect(r.ignorePenaltyTypes).toContain("parryPenalties");
-    expect(r.ignorePenaltyTypes).toContain("environmental");
-  });
-  it("skips disabled charms", () => {
-    const items = [
-      { system: { dvBonus: { enabled: false, dodgeBonus: 5, parryBonus: 5, ignoreAllPenalties: true, ignorePenaltyTypes: [] }}}
-    ];
-    const r = aggregateCharmDVBonus(items);
-    expect(r.dodgeBonus).toBe(0);
-    expect(r.ignoreAllPenalties).toBe(false);
   });
 });
 

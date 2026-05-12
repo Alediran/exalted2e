@@ -550,6 +550,40 @@ export function registerFormCharms(context) {
       assert.ok(populated, `system.bonuses.rateBonus is ${actor.system.bonuses?.rateBonus} (expected ≥ 3)`);
     });
 
+    // F23 — dvBonusIgnore pipeline: DV penalties are ignored when ignoreAllPenalties is active
+    it("[F23] pipeline: dvBonusIgnore charm causes currentDodgeDV to ignore DV penalties", async function () {
+      this.timeout(10000);
+      const actor = await setupActor();
+
+      // Establish a baseline DV with a penalty applied.
+      await actor.applyDVPenalty("onslaught", 2, { label: "Test Penalty", sticky: true });
+      const dvWithPenalty = await waitFor(
+        () => actor.dvPenaltyTotal >= 2 ? actor.currentDodgeDV : false,
+        { timeout: 2000, interval: 50 }
+      );
+      assert.ok(dvWithPenalty !== false, "DV penalty applied — baseline established");
+      const dvBefore = actor.currentDodgeDV;
+
+      const charm = await createTempCharm(actor, {
+        name: "Iron Skin Ignore", charmType: "simple", duration: "oneScene", keywords: [], cost: {}
+      });
+      await charm.update({
+        "system.dvBonus.enabled":            true,
+        "system.dvBonus.ignoreAllPenalties": true
+      });
+
+      await charm.activateCharm({ skipXpConfirm: true });
+
+      const ignored = await waitFor(
+        () => actor.currentDodgeDV > dvBefore,
+        { timeout: 3000, interval: 50 }
+      );
+      assert.ok(ignored, `currentDodgeDV rose after ignoreAllPenalties activated (was ${dvBefore}, now ${actor.currentDodgeDV})`);
+      // With all penalties ignored the DV should equal the raw base (no reduction).
+      assert.equal(actor.currentDodgeDV, actor.system.dodgeDV ?? 0,
+        "currentDodgeDV equals raw base when all penalties ignored");
+    });
+
     // F22 — dvBonus charm raises currentDodgeDV
     it("[F22] pipeline: dvBonus charm raises currentDodgeDV after activation", async function () {
       this.timeout(8000);

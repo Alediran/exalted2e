@@ -559,8 +559,8 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     this.motes.personal.max   = personal   + (this.motes.personal.bonus   ?? 0);
     this.motes.peripheral.max = peripheral + (this.motes.peripheral.bonus ?? 0);
 
-    this.motes.personal.max   += this.bonuses.motePersonal   ?? 0;
-    this.motes.peripheral.max += this.bonuses.motePeripheral ?? 0;
+    this.motes.personal.max   += this.bonuses?.motePersonal   ?? 0;
+    this.motes.peripheral.max += this.bonuses?.motePeripheral ?? 0;
   }
 
   _prepareIntimacies() {

@@ -29,6 +29,7 @@ export function buildCharmSynthAEs(charm, rollData = {}) {
 
   if (sys.woundReduction?.enabled) {
     const formula = sys.woundReduction.formula;
+    // 4 = magnitude of the worst wound-penalty level (−4); blank formula means "negate all".
     const val = (formula === "" || formula == null) ? 4 : Math.abs(parseInt(formula, 10)) || 0;
     if (val > 0) changes.push({ key: "system.bonuses.woundPenaltyReduction", mode: 2, value: String(val) });
   }
@@ -40,6 +41,9 @@ export function buildCharmSynthAEs(charm, rollData = {}) {
     }
   }
 
+  // Numeric additive bonuses → changes array (Foundry AE mode:2 ADD, written to system.bonuses.*).
+  // Non-additive or struct data → extraFlags (written to flags.exalted2e.* and scanned imperatively).
+
   if (sys.dvBonus?.enabled) {
     const dv = sys.dvBonus;
     const ev = (formula, fallback) =>
@@ -48,6 +52,7 @@ export function buildCharmSynthAEs(charm, rollData = {}) {
     const parry = ev(dv.parryBonusFormula, dv.parryBonus ?? 0);
     if (dodge) changes.push({ key: "system.bonuses.dodgeBonus", mode: 2, value: String(dodge) });
     if (parry) changes.push({ key: "system.bonuses.parryBonus", mode: 2, value: String(parry) });
+    // Penalty-ignore data is non-additive (union/flag) → extraFlags.
     if (dv.ignoreAllPenalties || (dv.ignorePenaltyTypes ?? []).length > 0) {
       extraFlags.dvBonusIgnore = {
         all:   dv.ignoreAllPenalties ?? false,
@@ -58,7 +63,7 @@ export function buildCharmSynthAEs(charm, rollData = {}) {
 
   if (sys.rateBonus?.enabled) {
     const val = sys.rateBonus.formula
-      ? (evaluateCharmFormula(sys.rateBonus.formula, rollData, 0) | 0)
+      ? Math.floor(evaluateCharmFormula(sys.rateBonus.formula, rollData, 0))
       : 0;
     if (val) changes.push({ key: "system.bonuses.rateBonus", mode: 2, value: String(val) });
   }
@@ -73,13 +78,15 @@ export function buildCharmSynthAEs(charm, rollData = {}) {
     }
   }
 
+  // extraActions uses max-not-sum semantics → extraFlags (aggregateExtraActionsMaxFromAEs).
   if (sys.extraActions?.enabled) {
     const max = sys.extraActions.maxFormula
-      ? (evaluateCharmFormula(sys.extraActions.maxFormula, rollData, 0) | 0)
+      ? Math.floor(evaluateCharmFormula(sys.extraActions.maxFormula, rollData, 0))
       : 0;
     if (max > 0) extraFlags.extraActionsMax = max;
   }
 
+  // speedModifier mixes additive delta with max-semantics minimum → extraFlags (aggregateSpeedModifierFromAEs).
   if (sys.speedModifier?.enabled) {
     const sm = sys.speedModifier;
     const delta = sm.deltaFormula

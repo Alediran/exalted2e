@@ -4,8 +4,6 @@ import { describe, it, expect } from "vitest";
 import {
   computeHealthGrantBonus,
   computeWoundReduction,
-  computeMotePoolBonus,
-  aggregateCharmDVBonus,
 } from "../../module/rolls/charm-passive-math.mjs";
 
 describe("computeHealthGrantBonus arithmetic", () => {
@@ -35,40 +33,4 @@ describe("computeWoundReduction penalty arithmetic", () => {
   });
 });
 
-describe("computeMotePoolBonus arithmetic", () => {
-  it("no charms: bonus is zero", () => {
-    expect(computeMotePoolBonus([])).toEqual({ personal: 0, peripheral: 0 });
-  });
-  it("Essence Plethora adds 10 peripheral", () => {
-    const charms = [{ system: { motePoolBonus: { enabled: true, pool: "peripheral", amount: 10 }}}];
-    expect(computeMotePoolBonus(charms)).toEqual({ personal: 0, peripheral: 10 });
-  });
-  it("two stacked give 20", () => {
-    const charms = [
-      { system: { motePoolBonus: { enabled: true, pool: "peripheral", amount: 10 }}},
-      { system: { motePoolBonus: { enabled: true, pool: "peripheral", amount: 10 }}}
-    ];
-    expect(computeMotePoolBonus(charms).peripheral).toBe(20);
-  });
-});
-
-describe("aggregateCharmDVBonus arithmetic", () => {
-  it("flat parry bonus adds to parryBonus only", () => {
-    const items = [{ system: { dvBonus: {
-      enabled: true, dodgeBonus: 0, parryBonus: 2,
-      ignoreAllPenalties: false, ignorePenaltyTypes: []
-    }}}];
-    const r = aggregateCharmDVBonus(items);
-    expect(r.parryBonus).toBe(2);
-    expect(r.dodgeBonus).toBe(0);
-  });
-  it("ignorePenaltyTypes includes 'parryPenalties'", () => {
-    const items = [{ system: { dvBonus: {
-      enabled: true, dodgeBonus: 0, parryBonus: 0,
-      ignoreAllPenalties: false, ignorePenaltyTypes: ["parryPenalties"]
-    }}}];
-    const r = aggregateCharmDVBonus(items);
-    expect(r.ignorePenaltyTypes).toContain("parryPenalties");
-  });
-});
 
