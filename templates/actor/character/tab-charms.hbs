@@ -77,7 +77,7 @@
           {{else if (eq charm.system.excellency "third")}}
           <span class="charm-excellency-badge" title="{{localize 'EX2E.ThirdExcellency'}}">III</span>
           {{/if}}
-          {{charm.name}}
+          {{charm.name}}{{#with (lookup @root.stackCounts charm.id) as |count|}}{{#if count}} x{{count}}{{/if}}{{/with}}
           <span class="charm-meta">
             {{charm.system.cost.motes}}m
             {{#if charm.system.cost.willpower}}+{{charm.system.cost.willpower}}wp{{/if}}

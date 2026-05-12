@@ -119,7 +119,7 @@ export function buildCharmSynthAEs(charm, rollData = {}) {
     changes,
     disabled: false,
     transfer: false,
-    flags:    { exalted2e: { charmSource: charm.id, ...extraFlags } }
+    flags:    { exalted2e: { charmSource: charm.id, charmDuration: charm.system.duration, charmStackable: (charm.system.keywords ?? []).includes("Stackable"), ...extraFlags } }
   }];
 }
 
@@ -135,7 +135,9 @@ export async function applyCharmAEs(actor, charm, rollData = {}) {
     const raw = effect.toObject();
     raw.flags ??= {};
     raw.flags.exalted2e ??= {};
-    raw.flags.exalted2e.charmSource = charm.id;
+    raw.flags.exalted2e.charmSource    = charm.id;
+    raw.flags.exalted2e.charmDuration  = charm.system.duration;
+    raw.flags.exalted2e.charmStackable = (charm.system.keywords ?? []).includes("Stackable");
     return raw;
   });
 

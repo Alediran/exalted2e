@@ -17,6 +17,14 @@ export class ExaltedItem extends Item {
     super.prepareDerivedData();
   }
 
+  /** @override — auto-activate permanent charms when added to an actor. */
+  async _onCreate(data, options, userId) {
+    await super._onCreate(data, options, userId);
+    if (game.userId !== userId) return;
+    if (this.type !== "charm" || this.system.duration !== "permanent" || !this.actor) return;
+    await this.activateCharm({ skipXpConfirm: true, skipChatCard: true });
+  }
+
   /**
    * Apply attunement-commitment deltas to the parent character's peripheral
    * pool when the `attuned` flag or `attunementCost` changes on an artifact.
@@ -100,7 +108,7 @@ export class ExaltedItem extends Item {
    *     reserved for a possible future consolidated-Reverse path.
    * @returns {Promise<boolean>} true if activation succeeded.
    */
-  async activateCharm({ skipXpConfirm = false, via = null } = {}) {
+  async activateCharm({ skipXpConfirm = false, skipChatCard = false, via = null } = {}) {
     if (this.type !== "charm") return false;
     const actor = this.actor;
     if (!actor) return false;
@@ -264,7 +272,7 @@ export class ExaltedItem extends Item {
         await actor.createEmbeddedDocuments("ActiveEffect", [{
           name:     `${game.i18n.localize("EX2E.PerfectDefense")} — ${this.name}`,
           img:      this.img ?? "icons/magic/defensive/shield-barrier-glowing-blue.webp",
-          flags:    { exalted2e: { sustainedPerfectDefense: { type: sys.perfectDefenseType }, charmSource: this.id } },
+          flags:    { exalted2e: { sustainedPerfectDefense: { type: sys.perfectDefenseType }, charmSource: this.id, charmDuration: sys.duration } },
           disabled: false,
           transfer: false
         }]);
@@ -302,9 +310,9 @@ export class ExaltedItem extends Item {
       await applyCharmAEs(actor, this, this.getRollData?.() ?? {});
     }
 
-    // Send to chat with the activation ledger stamped on the message so
-    // the Reverse button (added in item-card.hbs) can undo everything.
-    await this.sendToChat({ activation: ledger });
+    if (!skipChatCard) {
+      await this.sendToChat({ activation: ledger });
+    }
     return true;
   }
 

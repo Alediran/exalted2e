@@ -301,13 +301,33 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       };
     }
 
+    // Collapse permanent stackable charms with the same name into one display row.
+    // stackCounts: { representativeId → count } — only entries where count > 1.
+    // stackHidden: set of non-representative ids to suppress from all group lists.
+    const stackCounts = {};
+    const stackHidden = new Set();
+    {
+      const seen = new Map(); // name → first id
+      for (const c of charms) {
+        if (c.system.duration !== "permanent") continue;
+        if (!(c.system.keywords ?? []).includes("Stackable")) continue;
+        if (seen.has(c.name)) {
+          const repId = seen.get(c.name);
+          stackCounts[repId] = (stackCounts[repId] ?? 1) + 1;
+          stackHidden.add(c.id);
+        } else {
+          seen.set(c.name, c.id);
+        }
+      }
+    }
+
     const maStyleItems = actor.items
       .filter(i => i.type === "martialartsstyle")
       .sort((a, b) => a.name.localeCompare(b.name));
     const maStyleNames = new Set(maStyleItems.map(s => s.name));
     const maStyles = maStyleItems.map(style => ({
       item:       style,
-      charms:     charms.filter(c => c.system.martialArtsStyleName === style.name),
+      charms:     charms.filter(c => c.system.martialArtsStyleName === style.name && !stackHidden.has(c.id)),
       isMastered: charms.some(c =>
         c.system.martialArtsStyleName === style.name && c.system.grantsMastery
       )
@@ -332,6 +352,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       const yoziBuckets = new Map();
       for (const c of charms) {
         if (c.system?.isSubmodule) continue;
+        if (stackHidden.has(c.id)) continue;
         const k = c.system?.yoziPatron ?? "";
         if (!yoziBuckets.has(k)) yoziBuckets.set(k, []);
         yoziBuckets.get(k).push(c);
@@ -348,6 +369,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       const buckets = new Map();
       for (const c of charms) {
         if (c.system?.isSubmodule) continue;
+        if (stackHidden.has(c.id)) continue;
         if (c.system?.ability === "martialarts"
             && c.system?.martialArtsStyleName
             && maStyleNames.has(c.system.martialArtsStyleName)) continue;
@@ -712,6 +734,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       charmGroups,
       submodulesByParent,
       charmPrereqs,
+      stackCounts,
       spells,
       spellSections,
       spellInitStatus,
@@ -764,22 +787,39 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   _buildEffectsData(actor) {
     const temporal = [];
     const permanent = [];
+    const stackGroups = new Map(); // name → { entry, count }
     for (const eff of actor.effects) {
-      const refreshable = !!eff.flags?.exalted2e?.dvRefreshable;
+      const refreshable      = !!eff.flags?.exalted2e?.dvRefreshable;
+      const charmDuration    = eff.flags?.exalted2e?.charmDuration;
+      const charmStackable   = !!eff.flags?.exalted2e?.charmStackable;
+      const durationLabelKey = charmDuration ? (EX2E.durations[charmDuration] ?? null) : null;
+      const isTemporal = refreshable || eff.isTemporary
+        || (charmDuration && charmDuration !== "permanent");
+
+      if (!isTemporal && charmStackable) {
+        if (stackGroups.has(eff.name)) {
+          stackGroups.get(eff.name).count++;
+          continue;
+        }
+        const entry = { id: eff.id, name: eff.name, img: eff.img || "icons/svg/aura.svg", disabled: eff.disabled, durationLabel: "" };
+        stackGroups.set(eff.name, { entry, count: 1 });
+        permanent.push(entry);
+        continue;
+      }
+
       const entry = {
         id:           eff.id,
         name:         eff.name,
         img:          eff.img || "icons/svg/aura.svg",
         disabled:     eff.disabled,
-        // For turn-refreshable effects there's no formal duration — label
-        // them with a localized "Until next turn" string so the row isn't
-        // blank. Otherwise fall back to Foundry's built-in duration label.
         durationLabel: refreshable
           ? game.i18n.localize("EX2E.EffectUntilNextTurn")
-          : (eff.duration?.label ?? "")
+          : (durationLabelKey ? game.i18n.localize(durationLabelKey) : (eff.duration?.label ?? ""))
       };
-      const isTemporal = refreshable || eff.isTemporary;
       (isTemporal ? temporal : permanent).push(entry);
+    }
+    for (const { entry, count } of stackGroups.values()) {
+      if (count > 1) entry.name = `${entry.name} x${count}`;
     }
     const byName = (a, b) => a.name.localeCompare(b.name);
     temporal.sort(byName);
