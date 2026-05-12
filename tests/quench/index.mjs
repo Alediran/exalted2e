@@ -57,12 +57,19 @@ import { registerFormCharms }              from "./combat/form-charms.mjs";
 // NOTE: Anima Powers feature (_swapAnimaPower) relies on the animapowers compendium
 // and cannot be exercised via Quench. No batch registered for ex2e.anima-powers.
 
-Hooks.once("quenchReady", quench => {
+Hooks.once("quenchReady", async quench => {
   // ui.notifications.element is null in the test world — its #postNotification
   // private method crashes whenever ChatMessage.create triggers a notify call.
   // Suppress notify for the whole test session; individual tests that need to
   // assert on warn/error stub those methods directly on ui.notifications.
   if (ui.notifications) ui.notifications.notify = () => {};
+
+  // Delete any combats left active from a previous game session before any
+  // test runs. A lingering combat causes game.combat.combatant to point at
+  // the wrong actor, silently breaking Action-Only and other combat-gated checks.
+  for (const c of (game.combats?.contents ?? [])) {
+    try { await c.delete(); } catch (_) { /* ignore */ }
+  }
 
   quench.registerBatch("ex2e.knockback.focused",        registerKnockbackFocused,       { displayName: "Knockback (focused)" });
   quench.registerBatch("ex2e.knockback.smoke",          registerKnockbackSmoke,         { displayName: "Knockback (smoke)" });

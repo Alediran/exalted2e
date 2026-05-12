@@ -86,3 +86,41 @@ export function aggregateCharmDVBonus(items) {
   return { dodgeBonus, parryBonus, ignoreAllPenalties, ignorePenaltyTypes: [...typesSet] };
 }
 
+/**
+ * Aggregate the maximum extraActions allowed by all enabled charms flagged with extraActionsMax.
+ * Returns the highest max across all charms (not the sum).
+ * @param {object} actor
+ * @returns {number}
+ */
+export function aggregateExtraActionsMaxFromAEs(actor) {
+  let max = 0;
+  for (const ae of (actor.effects ?? [])) {
+    if (ae.disabled) continue;
+    const n = ae.flags?.exalted2e?.extraActionsMax ?? 0;
+    if (n > max) max = n;
+  }
+  return max;
+}
+
+/**
+ * Aggregate speed modifiers from all enabled charms flagged with speedModifier.
+ * Sums all deltas and clamps to the highest minimum across all charms.
+ * @param {object} actor
+ * @param {number} baseSpeed
+ * @returns {number}
+ */
+export function aggregateSpeedModifierFromAEs(actor, baseSpeed) {
+  let totalDelta = 0, globalMin = 3;
+  let anyEnabled = false;
+  for (const ae of (actor.effects ?? [])) {
+    if (ae.disabled) continue;
+    const sm = ae.flags?.exalted2e?.speedModifier;
+    if (!sm) continue;
+    anyEnabled = true;
+    totalDelta += sm.delta ?? 0;
+    globalMin = Math.max(globalMin, sm.minimum ?? 3);
+  }
+  if (!anyEnabled) return baseSpeed;
+  return Math.floor(Math.max(globalMin, baseSpeed + totalDelta));
+}
+

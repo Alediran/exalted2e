@@ -127,7 +127,7 @@ export function registerLimitBreak(context) {
       assert.equal(game.messages.size, startCount, "no card while actor is pending");
     });
 
-    it("[155] dropping Limit below 10 clears pending, allowing a second card on re-raise", async () => {
+    it("[155] dropping Limit below 10 clears pending, allowing a second card on re-raise", async function () {
       const { actor } = await makeSolarWithFlaw({ name: "Q-LB-Reset" });
       const startCount = game.messages.size;
       await actor.update({ "system.limit": 10 });

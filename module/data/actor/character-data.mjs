@@ -1,7 +1,7 @@
 import { EX2E } from "../../config.mjs";
 import { computeWoundPenalty } from "../../rolls/health-math.mjs";
 import { computeTotalClarity, computePermanentClarity } from "../../combat/clarity-math.mjs";
-import { computeHealthGrantBonus, computeWoundReduction, computeMotePoolBonus, isCharmPassivelyActive } from "../../rolls/charm-passive-math.mjs";
+import { computeHealthGrantBonus, computeWoundReduction, isCharmPassivelyActive } from "../../rolls/charm-passive-math.mjs";
 import { computeHearthstoneMoteRegen } from "../../helpers/hearthstone-regen.mjs";
 
 const fields = foundry.data.fields;
@@ -278,7 +278,12 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         soakBashing:           new fields.NumberField({ initial: 0, min: 0, integer: true }),
         soakLethal:            new fields.NumberField({ initial: 0, min: 0, integer: true }),
         soakAggravated:        new fields.NumberField({ initial: 0, min: 0, integer: true }),
-        hardnessAdd:           new fields.NumberField({ initial: 0, min: 0, integer: true })
+        hardnessAdd:           new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        dodgeBonus:            new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        parryBonus:            new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        rateBonus:             new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        motePersonal:          new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        motePeripheral:        new fields.NumberField({ initial: 0, min: 0, integer: true })
       })
     };
   }
@@ -554,9 +559,8 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     this.motes.personal.max   = personal   + (this.motes.personal.bonus   ?? 0);
     this.motes.peripheral.max = peripheral + (this.motes.peripheral.bonus ?? 0);
 
-    const charmMotes = computeMotePoolBonus((this.parent?.items ?? []).filter(isCharmPassivelyActive));
-    this.motes.personal.max   += charmMotes.personal;
-    this.motes.peripheral.max += charmMotes.peripheral;
+    this.motes.personal.max   += this.bonuses.motePersonal   ?? 0;
+    this.motes.peripheral.max += this.bonuses.motePeripheral ?? 0;
   }
 
   _prepareIntimacies() {

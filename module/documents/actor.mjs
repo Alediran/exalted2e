@@ -3,7 +3,7 @@ import { clampDamage, healInOrder } from "../rolls/health-math.mjs";
 import { aggregatePenalties, sumPenalties } from "./penalties-math.mjs";
 import { collectPermanentTraitChanges } from "./purchase-mode-math.mjs";
 import { getClarityBand } from "../combat/clarity-math.mjs";
-import { aggregateCharmDVBonus, isCharmPassivelyActive } from "../rolls/charm-passive-math.mjs";
+import { isCharmPassivelyActive } from "../rolls/charm-passive-math.mjs";
 import { collectMoteRecoveryCharms, collectWillpowerRecoveryCharms } from "../rolls/charm-event-math.mjs";
 import { evaluateCharmFormula } from "./item.mjs";
 
@@ -379,7 +379,6 @@ export class ExaltedActor extends Actor {
     // ── Aggregate DV penalties carried by ActiveEffects ───────────────────
     this._aggregateDVPenalties(systemData);
     this._aggregateMDVPenalties(systemData);
-    this._aggregateCharmDVBonus(systemData);
     this._aggregateDVBonuses(systemData);
     this._prepareAlchemicalDerived(systemData);
   }
@@ -410,37 +409,27 @@ export class ExaltedActor extends Actor {
     systemData.mdvPenalties = aggregatePenalties(this.effects, "mdvPenalty");
   }
 
-  _aggregateCharmDVBonus(systemData) {
-    const charms   = this.items.filter(i => i.type === "charm" && isCharmPassivelyActive(i));
-    const rollData = this.getRollData() ?? {};
-    const resolved = charms
-      .filter(c => c.system.dvBonus?.enabled)
-      .map(c => {
-        const dv = c.system.dvBonus;
-        const ev = (formula, fallback) =>
-          formula ? evaluateCharmFormula(formula, rollData, fallback) : fallback;
-        return { system: { dvBonus: {
-          enabled:            true,
-          dodgeBonus:         ev(dv.dodgeBonusFormula, dv.dodgeBonus ?? 0),
-          parryBonus:         ev(dv.parryBonusFormula, dv.parryBonus ?? 0),
-          ignoreAllPenalties: dv.ignoreAllPenalties,
-          ignorePenaltyTypes: dv.ignorePenaltyTypes ?? [],
-        }}};
-      });
-    systemData.charmDVBonus = aggregateCharmDVBonus(resolved);
-  }
-
   _aggregateDVBonuses(systemData) {
-    let dodgeBonus = 0;
-    let parryBonus = 0;
+    let ignoreAll = false;
+    const ignoreTypes = new Set();
+    let aeDodge = 0, aeParry = 0;
     for (const ae of this.effects) {
       if (ae.disabled) continue;
-      const bonus = ae.flags?.exalted2e?.dvBonus;
-      if (!bonus) continue;
-      dodgeBonus += bonus.dodge ?? 0;
-      parryBonus += bonus.parry ?? 0;
+      const flags = ae.flags?.exalted2e;
+      if (!flags) continue;
+      const ignore = flags.dvBonusIgnore;
+      if (ignore) {
+        if (ignore.all) ignoreAll = true;
+        for (const t of (ignore.types ?? [])) ignoreTypes.add(t);
+      }
+      const legacyDv = flags.dvBonus;
+      if (legacyDv) {
+        aeDodge += legacyDv.dodge ?? 0;
+        aeParry += legacyDv.parry ?? 0;
+      }
     }
-    systemData.aeDVBonus = { dodgeBonus, parryBonus };
+    systemData.dvBonusIgnore = { all: ignoreAll, types: [...ignoreTypes] };
+    systemData.aeDVBonus = { dodgeBonus: aeDodge, parryBonus: aeParry };
   }
 
   /**
@@ -602,25 +591,21 @@ export class ExaltedActor extends Actor {
   /** DV after current penalties, never below 0. */
   get currentDodgeDV() {
     const s = this.system;
-    const dvb = s.charmDVBonus ?? { dodgeBonus: 0, parryBonus: 0, ignoreAllPenalties: false, ignorePenaltyTypes: [] };
     const base = (this.type === "character" ? (s.dodgeDV ?? 0)
                 : this.type === "npc"       ? (s.combat?.dodgeDV ?? 0)
-                : 0) + dvb.dodgeBonus + (s.aeDVBonus?.dodgeBonus ?? 0);
-    const penalty = dvb.ignoreAllPenalties
-      ? 0
-      : this._dvPenaltyIgnoring(new Set(dvb.ignorePenaltyTypes));
+                : 0) + (s.bonuses?.dodgeBonus ?? 0) + (s.aeDVBonus?.dodgeBonus ?? 0);
+    const ignore = s.dvBonusIgnore ?? { all: false, types: [] };
+    const penalty = ignore.all ? 0 : this._dvPenaltyIgnoring(new Set(ignore.types));
     return Math.max(0, base - penalty);
   }
 
   get currentParryDV() {
     const s = this.system;
-    const dvb = s.charmDVBonus ?? { dodgeBonus: 0, parryBonus: 0, ignoreAllPenalties: false, ignorePenaltyTypes: [] };
     const base = (this.type === "character" ? (s.parryDV ?? s.parryDVBase ?? 0)
                 : this.type === "npc"       ? (s.combat?.parryDV ?? 0)
-                : 0) + dvb.parryBonus + (s.aeDVBonus?.parryBonus ?? 0);
-    const penalty = dvb.ignoreAllPenalties
-      ? 0
-      : this._dvPenaltyIgnoring(new Set(dvb.ignorePenaltyTypes));
+                : 0) + (s.bonuses?.parryBonus ?? 0) + (s.aeDVBonus?.parryBonus ?? 0);
+    const ignore = s.dvBonusIgnore ?? { all: false, types: [] };
+    const penalty = ignore.all ? 0 : this._dvPenaltyIgnoring(new Set(ignore.types));
     return Math.max(0, base - penalty);
   }
 

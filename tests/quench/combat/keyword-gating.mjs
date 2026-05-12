@@ -36,7 +36,7 @@ export function registerKeywordGating(context) {
     before(() => assertTestWorld());
     afterEach(async () => { await sweep(); });
 
-    it("[168] blocks an Eclipse caste from adding a Native charm", async () => {
+    it("[KG168] blocks an Eclipse caste from adding a Native charm", async () => {
       const actor = await createTempCharacter({ name: "Q-Native-Eclipse" });
       await actor.update({ "system.exaltType": "solar", "system.caste": "eclipse", "system.purchaseLocked": false });
       const warns = stubWarn();
@@ -51,7 +51,7 @@ export function registerKeywordGating(context) {
       assert.equal(warns.length, 1, "warn must fire exactly once");
     });
 
-    it("[169] blocks a Moonshadow caste from adding a Native charm", async () => {
+    it("[KG169] blocks a Moonshadow caste from adding a Native charm", async () => {
       const actor = await createTempCharacter({ name: "Q-Native-Moonshadow" });
       await actor.update({ "system.exaltType": "abyssal", "system.caste": "moonshadow", "system.purchaseLocked": false });
       const warns = stubWarn();
@@ -66,7 +66,7 @@ export function registerKeywordGating(context) {
       assert.equal(warns.length, 1, "warn must fire exactly once");
     });
 
-    it("[170] blocks a Fiend caste from adding a Native charm", async () => {
+    it("[KG170] blocks a Fiend caste from adding a Native charm", async () => {
       const actor = await createTempCharacter({ name: "Q-Native-Fiend" });
       await actor.update({ "system.exaltType": "infernal", "system.caste": "fiend", "system.purchaseLocked": false });
       const warns = stubWarn();
@@ -81,7 +81,7 @@ export function registerKeywordGating(context) {
       assert.equal(warns.length, 1, "warn must fire exactly once");
     });
 
-    it("[171] allows a non-mirror caste to add a Native charm", async () => {
+    it("[KG171] allows a non-mirror caste to add a Native charm", async () => {
       const actor = await createTempCharacter({ name: "Q-Native-Zenith" });
       await actor.update({ "system.exaltType": "solar", "system.caste": "zenith", "system.purchaseLocked": false });
       const warns = stubWarn();
@@ -115,7 +115,7 @@ export function registerKeywordGating(context) {
       return { actor, other, combat };
     }
 
-    it("[172] blocks activation when NOT the actor's combat turn", async () => {
+    it("[KG172] blocks activation when NOT the actor's combat turn", async () => {
       const { actor, other, combat } = await setupCombat();
       // Advance so `other` is the current combatant (actor is not acting)
       await advanceToActor(combat, other);
@@ -129,7 +129,7 @@ export function registerKeywordGating(context) {
       assert.equal(warns.length, 1, "warn must fire exactly once");
     });
 
-    it("[173] allows activation when IS the actor's combat turn", async () => {
+    it("[KG173] allows activation when IS the actor's combat turn", async function () {
       const { actor, combat } = await setupCombat();
       await advanceToActor(combat, actor);
 
@@ -142,7 +142,7 @@ export function registerKeywordGating(context) {
       assert.equal(warns.length, 0, "no Action-Only warning on own turn");
     });
 
-    it("[174] allows activation outside of any active combat", async () => {
+    it("[KG174] allows activation outside of any active combat", async function () {
       const actor   = await createTempCharacter({ name: "Q-AO-NoCombat" });
       const [charm] = await actor.createEmbeddedDocuments("Item", [actionOnlyCharmData()]);
       const warns   = stubWarn();

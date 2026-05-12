@@ -5,6 +5,8 @@ import {
   computeWoundReduction,
   aggregateCharmDVBonus,
   isCharmPassivelyActive,
+  aggregateExtraActionsMaxFromAEs,
+  aggregateSpeedModifierFromAEs,
 } from "../../module/rolls/charm-passive-math.mjs";
 
 // ── computeHealthGrantBonus ──────────────────────────────────────────
@@ -159,8 +161,6 @@ describe("aggregateCharmDVBonus", () => {
 });
 
 // ── isCharmPassivelyActive ───────────────────────────────────────────
-import { isCharmPassivelyActive } from "../../module/rolls/charm-passive-math.mjs";
-
 describe("isCharmPassivelyActive", () => {
   it("permanent charm is always active", () => {
     expect(isCharmPassivelyActive({ system: { duration: "permanent", active: false } })).toBe(true);
@@ -182,5 +182,66 @@ describe("isCharmPassivelyActive", () => {
   });
   it("undefined item returns false", () => {
     expect(isCharmPassivelyActive(undefined)).toBe(false);
+  });
+});
+
+// ── aggregateExtraActionsMaxFromAEs ──────────────────────────────────
+describe("aggregateExtraActionsMaxFromAEs", () => {
+  const makeActor = (aes) => ({ effects: aes });
+  const ae = (extraActionsMax) => ({
+    disabled: false,
+    flags: { exalted2e: { extraActionsMax } }
+  });
+
+  it("returns 0 when no AEs", () => {
+    expect(aggregateExtraActionsMaxFromAEs(makeActor([]))).toBe(0);
+  });
+
+  it("returns the single charm's max", () => {
+    expect(aggregateExtraActionsMaxFromAEs(makeActor([ae(2)]))).toBe(2);
+  });
+
+  it("takes the maximum across multiple charms, not the sum", () => {
+    expect(aggregateExtraActionsMaxFromAEs(makeActor([ae(2), ae(3)]))).toBe(3);
+  });
+
+  it("skips disabled AEs", () => {
+    const disabledAE = { disabled: true, flags: { exalted2e: { extraActionsMax: 5 } } };
+    expect(aggregateExtraActionsMaxFromAEs(makeActor([disabledAE, ae(1)]))).toBe(1);
+  });
+
+  it("skips AEs without the flag", () => {
+    const unrelated = { disabled: false, flags: { exalted2e: { charmSource: "abc" } } };
+    expect(aggregateExtraActionsMaxFromAEs(makeActor([unrelated, ae(2)]))).toBe(2);
+  });
+});
+
+// ── aggregateSpeedModifierFromAEs ────────────────────────────────────
+describe("aggregateSpeedModifierFromAEs", () => {
+  const makeActor = (aes) => ({ effects: aes });
+  const ae = (delta, minimum = 3) => ({
+    disabled: false,
+    flags: { exalted2e: { speedModifier: { delta, minimum } } }
+  });
+
+  it("returns baseSpeed when no AEs", () => {
+    expect(aggregateSpeedModifierFromAEs(makeActor([]), 5)).toBe(5);
+  });
+
+  it("applies a flat negative delta", () => {
+    expect(aggregateSpeedModifierFromAEs(makeActor([ae(-2)]), 5)).toBe(3);
+  });
+
+  it("sums deltas from multiple charms", () => {
+    expect(aggregateSpeedModifierFromAEs(makeActor([ae(-1), ae(-1)]), 5)).toBe(3);
+  });
+
+  it("clamps at the highest minimum across charms", () => {
+    expect(aggregateSpeedModifierFromAEs(makeActor([ae(-5, 3)]), 5)).toBe(3);
+  });
+
+  it("skips disabled AEs", () => {
+    const disabledAE = { disabled: true, flags: { exalted2e: { speedModifier: { delta: -10, minimum: 1 } } } };
+    expect(aggregateSpeedModifierFromAEs(makeActor([disabledAE]), 5)).toBe(5);
   });
 });

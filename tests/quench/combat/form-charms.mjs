@@ -350,8 +350,138 @@ export function registerFormCharms(context) {
       assert.equal(lethalChange.value, "1", "soakLethal value is '1'");
     });
 
-    // F14 — pipeline reads AE accumulator: actor totalSoak reflects charm AE
-    it("[F14] pipeline: actor totalSoak.bashing reflects soakBonus AE after activation", async function () {
+    // ── New AE synthesis: output shape ────────────────────────────────────────
+
+    // F14 — dvBonus numeric → ADD changes on bonuses.dodgeBonus / bonuses.parryBonus
+    it("[F14] buildCharmSynthAEs: dvBonus numeric produces ADD changes on bonuses.dodgeBonus/parryBonus", async function () {
+      const { buildCharmSynthAEs } = await import("../../../module/combat/form-charms.mjs");
+      const actor = await setupActor();
+      const charm = await createTempCharm(actor, { name: "Iron Skin", charmType: "simple", duration: "oneScene", keywords: [], cost: {} });
+      await charm.update({
+        "system.dvBonus.enabled":     true,
+        "system.dvBonus.dodgeBonus":  3,
+        "system.dvBonus.parryBonus":  2
+      });
+
+      const result = buildCharmSynthAEs(charm);
+
+      assert.equal(result.length, 1, "returns one AE data object");
+      const ae = result[0];
+      const keys = ae.changes.map(c => c.key);
+      assert.ok(keys.includes("system.bonuses.dodgeBonus"), "dodgeBonus change present");
+      assert.ok(keys.includes("system.bonuses.parryBonus"), "parryBonus change present");
+      const dodge = ae.changes.find(c => c.key === "system.bonuses.dodgeBonus");
+      const parry = ae.changes.find(c => c.key === "system.bonuses.parryBonus");
+      assert.equal(dodge.value, "3", "dodgeBonus value is '3'");
+      assert.equal(parry.value, "2", "parryBonus value is '2'");
+      assert.equal(ae.flags?.exalted2e?.charmSource, charm.id, "charmSource tag set");
+    });
+
+    // F15 — dvBonus ignoreAllPenalties → dvBonusIgnore flag on AE
+    it("[F15] buildCharmSynthAEs: dvBonus ignoreAllPenalties produces dvBonusIgnore flag", async function () {
+      const { buildCharmSynthAEs } = await import("../../../module/combat/form-charms.mjs");
+      const actor = await setupActor();
+      const charm = await createTempCharm(actor, { name: "Perfect Guard", charmType: "simple", duration: "oneScene", keywords: [], cost: {} });
+      await charm.update({
+        "system.dvBonus.enabled":             true,
+        "system.dvBonus.ignoreAllPenalties":  true
+      });
+
+      const result = buildCharmSynthAEs(charm);
+
+      assert.equal(result.length, 1, "returns one AE data object even with no numeric bonus");
+      const ae = result[0];
+      const ignore = ae.flags?.exalted2e?.dvBonusIgnore;
+      assert.ok(ignore, "dvBonusIgnore flag present");
+      assert.equal(ignore.all, true, "ignore.all is true");
+      assert.deepEqual(ignore.types, [], "ignore.types is empty array");
+    });
+
+    // F16 — rateBonus → ADD change on bonuses.rateBonus
+    it("[F16] buildCharmSynthAEs: rateBonus produces ADD change on bonuses.rateBonus", async function () {
+      const { buildCharmSynthAEs } = await import("../../../module/combat/form-charms.mjs");
+      const actor = await setupActor();
+      const charm = await createTempCharm(actor, { name: "Flurry Charm", charmType: "simple", duration: "oneScene", keywords: [], cost: {} });
+      await charm.update({
+        "system.rateBonus.enabled": true,
+        "system.rateBonus.formula": "2"
+      });
+
+      const result = buildCharmSynthAEs(charm);
+
+      assert.equal(result.length, 1, "returns one AE data object");
+      const ae = result[0];
+      const change = ae.changes.find(c => c.key === "system.bonuses.rateBonus");
+      assert.ok(change, "rateBonus change present");
+      assert.equal(change.value, "2", "rateBonus value is '2'");
+      assert.equal(change.mode, 2, "mode is ADD (2)");
+    });
+
+    // F17 — motePoolBonus personal → ADD change on bonuses.motePersonal
+    it("[F17] buildCharmSynthAEs: motePoolBonus personal produces ADD change on bonuses.motePersonal", async function () {
+      const { buildCharmSynthAEs } = await import("../../../module/combat/form-charms.mjs");
+      const actor = await setupActor();
+      const charm = await createTempCharm(actor, { name: "Mote Expansion", charmType: "simple", duration: "oneScene", keywords: [], cost: {} });
+      await charm.update({
+        "system.motePoolBonus.enabled": true,
+        "system.motePoolBonus.pool":    "personal",
+        "system.motePoolBonus.amount":  5
+      });
+
+      const result = buildCharmSynthAEs(charm);
+
+      assert.equal(result.length, 1, "returns one AE data object");
+      const ae = result[0];
+      const change = ae.changes.find(c => c.key === "system.bonuses.motePersonal");
+      assert.ok(change, "motePersonal change present");
+      assert.equal(change.value, "5", "motePersonal value is '5'");
+    });
+
+    // F18 — extraActions → extraActionsMax flag on AE
+    it("[F18] buildCharmSynthAEs: extraActions produces extraActionsMax flag", async function () {
+      const { buildCharmSynthAEs } = await import("../../../module/combat/form-charms.mjs");
+      const actor = await setupActor();
+      const charm = await createTempCharm(actor, { name: "Extra Action", charmType: "simple", duration: "oneScene", keywords: [], cost: {} });
+      await charm.update({
+        "system.extraActions.enabled":    true,
+        "system.extraActions.maxFormula": "2"
+      });
+
+      const result = buildCharmSynthAEs(charm);
+
+      assert.equal(result.length, 1, "returns one AE data object");
+      const ae = result[0];
+      assert.equal(ae.flags?.exalted2e?.extraActionsMax, 2, "extraActionsMax flag is 2");
+      assert.equal(ae.changes.length, 0, "no ADD changes — flag-only AE");
+    });
+
+    // F19 — speedModifier → speedModifier flag on AE
+    it("[F19] buildCharmSynthAEs: speedModifier produces speedModifier flag", async function () {
+      const { buildCharmSynthAEs } = await import("../../../module/combat/form-charms.mjs");
+      const actor = await setupActor();
+      const charm = await createTempCharm(actor, { name: "Quick Step", charmType: "simple", duration: "oneScene", keywords: [], cost: {} });
+      await charm.update({
+        "system.speedModifier.enabled": true,
+        "system.speedModifier.delta":   -2,
+        "system.speedModifier.minimum": 3
+      });
+
+      const result = buildCharmSynthAEs(charm);
+
+      assert.equal(result.length, 1, "returns one AE data object");
+      const ae = result[0];
+      const sm = ae.flags?.exalted2e?.speedModifier;
+      assert.ok(sm, "speedModifier flag present");
+      assert.equal(sm.delta,   -2, "delta is -2");
+      assert.equal(sm.minimum,  3, "minimum is 3");
+      assert.equal(ae.changes.length, 0, "no ADD changes — flag-only AE");
+    });
+
+    // ── Pipeline integration: AE accumulator reads ────────────────────────────
+
+    // F14 (soak pipeline) — pipeline reads AE accumulator: actor totalSoak reflects charm AE
+    it("[F14-soak] pipeline: actor totalSoak.bashing reflects soakBonus AE after activation", async function () {
+      this.timeout(6000);
       const actor = await setupActor();
       const charm = await createTempCharm(actor, {
         name:      "Stone Skin Technique",
@@ -374,6 +504,74 @@ export function registerFormCharms(context) {
         { timeout: 2000, interval: 50 }
       );
       assert.ok(settled, `totalSoak.bashing increased by soakBonus (before=${soakBefore}, after=${actor.system.totalSoak?.bashing ?? 0})`);
+    });
+
+    // F20 — motePoolBonus charm raises mote max via accumulator
+    it("[F20] pipeline: motePoolBonus charm raises actor mote max after activation", async function () {
+      this.timeout(8000);
+      const actor = await setupActor();
+      const maxBefore = actor.system.motes.peripheral.max;
+      const charm = await createTempCharm(actor, {
+        name: "Mote Pool", charmType: "simple", duration: "oneScene", keywords: [], cost: {}
+      });
+      await charm.update({
+        "system.motePoolBonus.enabled": true,
+        "system.motePoolBonus.pool":    "peripheral",
+        "system.motePoolBonus.amount":  4
+      });
+
+      await charm.activateCharm({ skipXpConfirm: true });
+
+      const raised = await waitFor(
+        () => actor.system.motes.peripheral.max >= maxBefore + 4,
+        { timeout: 3000, interval: 50 }
+      );
+      assert.ok(raised, `peripheral mote max rose by 4 (was ${maxBefore}, now ${actor.system.motes.peripheral.max})`);
+    });
+
+    // F21 — rateBonus charm populates bonuses.rateBonus accumulator
+    it("[F21] pipeline: rateBonus charm populates system.bonuses.rateBonus after activation", async function () {
+      this.timeout(8000);
+      const actor = await setupActor();
+      const charm = await createTempCharm(actor, {
+        name: "Rate Charm", charmType: "simple", duration: "oneScene", keywords: [], cost: {}
+      });
+      await charm.update({
+        "system.rateBonus.enabled": true,
+        "system.rateBonus.formula": "3"
+      });
+
+      await charm.activateCharm({ skipXpConfirm: true });
+
+      const populated = await waitFor(
+        () => (actor.system.bonuses?.rateBonus ?? 0) >= 3,
+        { timeout: 3000, interval: 50 }
+      );
+      assert.ok(populated, `system.bonuses.rateBonus is ${actor.system.bonuses?.rateBonus} (expected ≥ 3)`);
+    });
+
+    // F22 — dvBonus charm raises currentDodgeDV
+    it("[F22] pipeline: dvBonus charm raises currentDodgeDV after activation", async function () {
+      this.timeout(8000);
+      const actor = await setupActor();
+      const dvBefore = actor.currentDodgeDV;
+
+      const charm = await createTempCharm(actor, {
+        name: "Dodge Charm", charmType: "simple", duration: "oneScene", keywords: [], cost: {}
+      });
+      await charm.update({
+        "system.dvBonus.enabled":    true,
+        "system.dvBonus.dodgeBonus": 2,
+        "system.dvPenalty":          0
+      });
+
+      await charm.activateCharm({ skipXpConfirm: true });
+
+      const raised = await waitFor(
+        () => actor.currentDodgeDV >= dvBefore + 2,
+        { timeout: 3000, interval: 50 }
+      );
+      assert.ok(raised, `currentDodgeDV rose by 2 (was ${dvBefore}, now ${actor.currentDodgeDV})`);
     });
   });
 }
