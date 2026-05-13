@@ -130,11 +130,11 @@ export function registerSocialAttackFocused(context) {
     // 5. Positive intimacy claim verification.
     it("[75] supportingIntimacy: claim verified when defender has a positive intimacy", async function () {
       const { attacker, defender } = await setupSocialFixture();
-      await addIntimacy(defender, { positive: true,  subject: "Smooth" });
+      const posInt = await addIntimacy(defender, { positive: true,  subject: "Smooth" });
       const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
       const message = await ExaltedRoll.rollSocialAttack(attacker, {
         defender, attribute: "charisma", ability: "presence",
-        intent: "build", claims: { supportingIntimacy: true }
+        intent: "build", claims: { supportingIntimacyId: posInt.id }
       });
       const ledger = message.flags.exalted2e.socialAttack;
       assert.equal(ledger.claimsVerified.supportingIntimacy, true,
@@ -146,11 +146,11 @@ export function registerSocialAttackFocused(context) {
     // 6. Negative intimacy claim.
     it("[76] opposingIntimacy: claim verified when defender has a negative intimacy", async function () {
       const { attacker, defender } = await setupSocialFixture();
-      await addIntimacy(defender, { positive: false, subject: "Smooth" });
+      const negInt = await addIntimacy(defender, { positive: false, subject: "Smooth" });
       const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
       const message = await ExaltedRoll.rollSocialAttack(attacker, {
         defender, attribute: "charisma", ability: "presence",
-        intent: "build", claims: { opposingIntimacy: true }
+        intent: "build", claims: { opposingIntimacyId: negInt.id }
       });
       const ledger = message.flags.exalted2e.socialAttack;
       assert.equal(ledger.claimsVerified.opposingIntimacy, true);
@@ -174,16 +174,16 @@ export function registerSocialAttackFocused(context) {
     // 8. Net-sum stacking: best supporting + best opposing combine.
     it("[78] net-sum stacking: best supporting + best opposing combine", async function () {
       const { attacker, defender } = await setupSocialFixture();
-      await addIntimacy(defender, { positive: true,  subject: "Smooth" });   // -1
-      await addIntimacy(defender, { positive: false, subject: "Smooth" });   // +1
-      await addMotivation(defender, "Reclaim my throne");                    // -3 if claimed
+      const posInt = await addIntimacy(defender, { positive: true,  subject: "Smooth" });  // -1
+      const negInt = await addIntimacy(defender, { positive: false, subject: "Smooth" });  // +1
+      await addMotivation(defender, "Reclaim my throne");                                  // -3 if claimed
       const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
       const message = await ExaltedRoll.rollSocialAttack(attacker, {
         defender, attribute: "charisma", ability: "presence", intent: "build",
         claims: {
-          supportingIntimacy:   true,    // best supporting = -1
-          supportingMotivation: true,    // best supporting = -3 (overrides -1)
-          opposingIntimacy:     true     // best opposing = +1
+          supportingIntimacyId: posInt.id,  // best supporting = -1
+          supportingMotivation: true,        // best supporting = -3 (overrides -1)
+          opposingIntimacyId:   negInt.id   // best opposing = +1
         }
       });
       const ledger = message.flags.exalted2e.socialAttack;
