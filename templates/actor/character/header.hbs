@@ -23,9 +23,9 @@
         <input type="text" name="system.concept" value="{{system.concept}}"
                placeholder="{{localize 'EX2E.ConceptPlaceholder'}}" {{#unless isEditable}}readonly{{/unless}}>
       </div>
-      <!-- Exalt Type -->
+      <!-- Splat Type -->
       <div class="field-group">
-        <label>{{localize "EX2E.ExaltType"}}</label>
+        <label>{{localize "EX2E.SplatType"}}</label>
         <select name="system.exaltType" {{#unless isEditable}}disabled{{/unless}}>
           {{#each splatTypeChoices}}
           <option value="{{this.value}}" {{#if (eq this.value ../system.exaltType)}}selected{{/if}}>{{this.label}}</option>

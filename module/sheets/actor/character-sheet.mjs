@@ -738,7 +738,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       specialtiesSection,
       useFourColumnAbilities: ["lunar", "alchemical"].includes(sys.exaltType),
       useAttributeCasteUI: ["lunar", "alchemical"].includes(sys.exaltType),
-      splatTypeChoices: Object.entries(EX2E.splatTypes).map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
+      splatTypeChoices: Object.entries(EX2E.splatTypes).filter(([k]) => k !== "martialarts").map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
       charms,
       charmGroups,
       submodulesByParent,
