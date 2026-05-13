@@ -116,11 +116,11 @@ Last updated: 2026-05-13 (Intimacy ablation track + scored trait UI; spell casti
 
 | Group | Count |
 |-------|-------|
-| A — Ready, Simple | 3 |
+| A — Ready, Simple | 1 |
 | B — Ready, Medium | 58 |
 | C — Ready, Complex | 10 |
 | D — Blocked | 5 |
-| **Total pending** | **76** |
+| **Total pending** | **74** |
 
 **Biggest force-multipliers:**
 - **Countermagic resolution** (Group B) → unblocks Countermagic cost variance
