@@ -253,16 +253,17 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const context = await super._prepareContext(options);
     const actor   = this.document;
     const sys     = actor.system;
+    const beh     = EX2E.splatBehaviors[sys.exaltType] ?? EX2E.splatBehaviors.solar;
 
     // Tab definitions (icons shown in vertical right-side nav)
     const tabs = {
       tabMain:      { id: "tabMain",      group: "sheet", icon: "fa-solid fa-user",           label: game.i18n.localize("EX2E.TabMain"),       cssClass: this.tabGroups.sheet === "tabMain"       ? "active" : "" },
       tabCombat:    { id: "tabCombat",    group: "sheet", icon: "fa-solid fa-shield-halved",  label: game.i18n.localize("EX2E.TabCombat"),     cssClass: this.tabGroups.sheet === "tabCombat"     ? "active" : "" },
-      ...(sys.exaltType !== "mortal" ? {
+      ...(beh.showCharms ? {
         tabCharms:      { id: "tabCharms",      group: "sheet", icon: "fa-solid fa-sun",       label: game.i18n.localize("EX2E.TabCharms"),      cssClass: this.tabGroups.sheet === "tabCharms"      ? "active" : "" },
         tabMartialArts: { id: "tabMartialArts", group: "sheet", icon: "fa-solid fa-hand-fist", label: game.i18n.localize("EX2E.TabMartialArts"), cssClass: this.tabGroups.sheet === "tabMartialArts" ? "active" : "" },
       } : {}),
-      ...(sys.exaltType === "sidereal" ? { tabAstrology: { id: "tabAstrology", group: "sheet", icon: "fa-solid fa-star", label: game.i18n.localize("EX2E.SiderealAstrology"), cssClass: this.tabGroups.sheet === "tabAstrology" ? "active" : "" } } : {}),
+      ...(beh.showAstrology ? { tabAstrology: { id: "tabAstrology", group: "sheet", icon: "fa-solid fa-star", label: game.i18n.localize("EX2E.SiderealAstrology"), cssClass: this.tabGroups.sheet === "tabAstrology" ? "active" : "" } } : {}),
       tabInventory: { id: "tabInventory", group: "sheet", icon: "fa-solid fa-suitcase",       label: game.i18n.localize("EX2E.TabInventory"),       cssClass: this.tabGroups.sheet === "tabInventory"  ? "active" : "" },
       tabBiography: { id: "tabBiography", group: "sheet", icon: "fa-solid fa-book",           label: game.i18n.localize("EX2E.TabBiography"),       cssClass: this.tabGroups.sheet === "tabBiography"  ? "active" : "" },
       tabExperience:{ id: "tabExperience",group: "sheet", icon: "fa-solid fa-graduation-cap", label: game.i18n.localize("EX2E.TabExperience"),      cssClass: this.tabGroups.sheet === "tabExperience" ? "active" : "" },
@@ -349,7 +350,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       return labelKey ? game.i18n.localize(labelKey) : key;
     };
     let charmGroups;
-    if (sys.exaltType === "infernal") {
+    if (beh.charmGroupBy === "yozi") {
       const yoziBuckets = new Map();
       for (const c of charms) {
         if (c.system?.isSubmodule) continue;
@@ -395,9 +396,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     // their Sorcery as "Procedures"; that's a display-only swap here.
     const spells = actor.items.filter(i => i.type === "spell")
       .sort((a, b) => (a.system?.circle ?? 0) - (b.system?.circle ?? 0) || a.name.localeCompare(b.name));
-    const sorceryLabelKey = sys.exaltType === "alchemical"
-      ? "EX2E.TraditionProcedures"
-      : "EX2E.TraditionSorcery";
+    const sorceryLabelKey = beh.sorceryLabelKey;
     const SORCERY_CIRCLES = {
       1: game.i18n.localize("EX2E.CircleTerrestrial"),
       2: game.i18n.localize("EX2E.CircleCelestial"),
@@ -611,15 +610,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const xpCosts    = resolveXpCosts(game.settings.get("exalted2e", "xpCosts") ?? {});
     const xpCostRows = buildXpCostRows(sys.exaltType ?? "solar", xpCosts);
 
-    // Limit label varies by splat
-    const limitLabel = (() => {
-      switch (sys.exaltType) {
-        case "abyssal":    return game.i18n.localize("EX2E.LimitVariantResonance");
-        case "infernal":   return game.i18n.localize("EX2E.LimitVariantTorment");
-        case "alchemical": return game.i18n.localize("EX2E.LimitVariantClarity");
-        default:           return game.i18n.localize("EX2E.Limit");
-      }
-    })();
+    const limitLabel = game.i18n.localize(beh.limitLabelKey);
 
     // Heart's Blood forms (Lunar only)
     const forms = this.actor.itemTypes?.form ?? this.actor.items.filter(i => i.type === "form");
@@ -664,16 +655,12 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const showMotivationCampaigns = motivationCampaignsTargetingMe.length > 0
                                   || motivationCampaignsImRunning.length > 0;
 
-    const animaLabel = (() => {
-      const tier = sys.anima;
-      if (tier === "dim" && sys.exaltType === "terrestrial") {
-        return game.i18n.localize("EX2E.AnimaLiminal");
-      }
-      return game.i18n.localize(EX2E.anima[tier] ?? "EX2E.AnimaNone");
-    })();
+    const animaLabel = (beh.animaLiminalAtDim && sys.anima === "dim")
+      ? game.i18n.localize("EX2E.AnimaLiminal")
+      : game.i18n.localize(EX2E.anima[sys.anima] ?? "EX2E.AnimaNone");
 
     const dbFluxTiers = new Set(["burning", "bonfire", "totemic"]);
-    const dbFluxInfo  = (sys.exaltType === "terrestrial" && dbFluxTiers.has(sys.anima))
+    const dbFluxInfo  = (beh.showDbFlux && dbFluxTiers.has(sys.anima))
       ? { ...EX2E.DB_FLUX[sys.anima], tier: sys.anima }
       : null;
 
@@ -689,7 +676,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     const animaPower = actor.items.find(i => i.flags?.exalted2e?.animaPower === true) ?? null;
 
-    const greaterSigns = sys.exaltType === "sidereal"
+    const greaterSigns = beh.showAstrology
       ? actor.items
           .filter(i => i.type === "animapower" && i.system.isGreaterSign === true)
           .filter(i => _greaterSignPrereqMet(actor, i.system.caste))
@@ -703,7 +690,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     // Astrology tab data (Sidereal only)
     const collegeGroups = [];
-    if (sys.exaltType === "sidereal") {
+    if (beh.showAstrology) {
       const EX = game.exalted2e.EX2E;
       const ownMaiden = sys.caste;
       for (const [maiden, maidenLabelKey] of Object.entries(EX.siderealMaidens)) {
@@ -736,8 +723,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       availableCastes,
       abilityGroups,
       specialtiesSection,
-      useFourColumnAbilities: ["lunar", "alchemical"].includes(sys.exaltType),
-      useAttributeCasteUI: ["lunar", "alchemical"].includes(sys.exaltType),
+      useFourColumnAbilities: beh.fourColumnAbilities,
+      useAttributeCasteUI:    beh.attributeCasteUI,
       splatTypeChoices: Object.entries(EX2E.splatTypes).filter(([k]) => k !== "martialarts").map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
       charms,
       charmGroups,
@@ -750,7 +737,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       spellCastButton,
       knacks,
       combos: comboRows,
-      isLunar: sys.exaltType === "lunar",
+      isLunar: beh.isLunar,
       weapons,
       armors,
       backgrounds,

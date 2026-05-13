@@ -114,6 +114,23 @@ EX2E.infernalCastePatron = {
   fiend:      "ebonDragon"
 };
 
+// Per-splat static flags consumed by CharacterSheet._prepareContext to
+// replace inline exaltType switches. Add a new entry here when a new
+// splat type is introduced; the sheet reads beh = splatBehaviors[exaltType].
+EX2E.splatBehaviors = {
+  //                     showCharms  showAstrology  limitLabelKey                      sorceryLabelKey                  charmGroupBy  fourColumnAbilities  attributeCasteUI  showDbFlux  animaLiminalAtDim  isLunar
+  solar:       { showCharms: true,  showAstrology: false, limitLabelKey: "EX2E.Limit",                sorceryLabelKey: "EX2E.TraditionSorcery",    charmGroupBy: "ability", fourColumnAbilities: false, attributeCasteUI: false, showDbFlux: false, animaLiminalAtDim: false, isLunar: false },
+  abyssal:     { showCharms: true,  showAstrology: false, limitLabelKey: "EX2E.LimitVariantResonance", sorceryLabelKey: "EX2E.TraditionSorcery",   charmGroupBy: "ability", fourColumnAbilities: false, attributeCasteUI: false, showDbFlux: false, animaLiminalAtDim: false, isLunar: false },
+  infernal:    { showCharms: true,  showAstrology: false, limitLabelKey: "EX2E.LimitVariantTorment",  sorceryLabelKey: "EX2E.TraditionSorcery",    charmGroupBy: "yozi",    fourColumnAbilities: false, attributeCasteUI: false, showDbFlux: false, animaLiminalAtDim: false, isLunar: false },
+  terrestrial: { showCharms: true,  showAstrology: false, limitLabelKey: "EX2E.Limit",                sorceryLabelKey: "EX2E.TraditionSorcery",   charmGroupBy: "ability", fourColumnAbilities: false, attributeCasteUI: false, showDbFlux: true,  animaLiminalAtDim: true,  isLunar: false },
+  sidereal:    { showCharms: true,  showAstrology: true,  limitLabelKey: "EX2E.Limit",                sorceryLabelKey: "EX2E.TraditionSorcery",   charmGroupBy: "ability", fourColumnAbilities: false, attributeCasteUI: false, showDbFlux: false, animaLiminalAtDim: false, isLunar: false },
+  lunar:       { showCharms: true,  showAstrology: false, limitLabelKey: "EX2E.Limit",                sorceryLabelKey: "EX2E.TraditionSorcery",   charmGroupBy: "ability", fourColumnAbilities: true,  attributeCasteUI: true,  showDbFlux: false, animaLiminalAtDim: false, isLunar: true  },
+  alchemical:  { showCharms: true,  showAstrology: false, limitLabelKey: "EX2E.LimitVariantClarity",  sorceryLabelKey: "EX2E.TraditionProcedures", charmGroupBy: "ability", fourColumnAbilities: true,  attributeCasteUI: true,  showDbFlux: false, animaLiminalAtDim: false, isLunar: false },
+  mortal:      { showCharms: false, showAstrology: false, limitLabelKey: "EX2E.Limit",                sorceryLabelKey: "EX2E.TraditionSorcery",   charmGroupBy: "ability", fourColumnAbilities: false, attributeCasteUI: false, showDbFlux: false, animaLiminalAtDim: false, isLunar: false },
+  spirit:      { showCharms: true,  showAstrology: false, limitLabelKey: "EX2E.Limit",                sorceryLabelKey: "EX2E.TraditionSorcery",   charmGroupBy: "ability", fourColumnAbilities: false, attributeCasteUI: false, showDbFlux: false, animaLiminalAtDim: false, isLunar: false },
+  martialarts: { showCharms: true,  showAstrology: false, limitLabelKey: "EX2E.Limit",                sorceryLabelKey: "EX2E.TraditionSorcery",   charmGroupBy: "ability", fourColumnAbilities: false, attributeCasteUI: false, showDbFlux: false, animaLiminalAtDim: false, isLunar: false },
+};
+
 // Splats that use the classic Limit mechanic. Resisting unnatural mental
 // influence with Willpower ticks the Limit counter (capped at once per
 // scene per attacker) for these splats only. Abyssal (Resonance),
