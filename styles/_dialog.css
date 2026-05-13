@@ -338,6 +338,11 @@
 .social-attack-dialog .claim-check:hover {
   color: var(--ex2e-text-primary);
 }
+.social-attack-dialog .claim-check select {
+  margin-left: 6px;
+  max-width:   160px;
+  font-size:   0.85em;
+}
 .social-attack-dialog .claim-modifier {
   font-family: var(--ex2e-font-ui);
   font-size:   var(--ex2e-font-size-xs);

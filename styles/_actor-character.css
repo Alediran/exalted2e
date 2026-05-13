@@ -164,6 +164,56 @@
 }
 /* Caste-specific rules above are more specific and override the fallback. */
 
+/* ── Character sheet: per-splat accent palette (light mode) ─────────────── */
+body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="solar"] {
+  --ex2e-gold-bright: #7a5500; --ex2e-gold-main: #9a7000; --ex2e-gold-mid: #6a4e00; --ex2e-gold-dark: #c8a040;
+  --ex2e-border-color: rgba(160, 120, 30, 0.5);
+}
+body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="lunar"] {
+  --ex2e-gold-bright: #1a4a7a; --ex2e-gold-main: #2a5a8a; --ex2e-gold-mid: #1a3a60; --ex2e-gold-dark: #7aaacf;
+  --ex2e-border-color: rgba(50, 90, 130, 0.5);
+}
+body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="terrestrial"] {
+  --ex2e-gold-bright: #1a5030; --ex2e-gold-main: #2a6040; --ex2e-gold-mid: #124028; --ex2e-gold-dark: #5aaa7a;
+  --ex2e-border-color: rgba(30, 90, 60, 0.5);
+}
+body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="abyssal"] {
+  --ex2e-gold-bright: #800808; --ex2e-gold-main: #a01818; --ex2e-gold-mid: #600808; --ex2e-gold-dark: #c87070;
+  --ex2e-border-color: rgba(120, 20, 20, 0.5);
+}
+body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="infernal"] {
+  --ex2e-gold-bright: #265a14; --ex2e-gold-main: #3a6a22; --ex2e-gold-mid: #1a4410; --ex2e-gold-dark: #6aaa4a;
+  --ex2e-border-color: rgba(40, 90, 24, 0.5);
+}
+body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="mortal"] {
+  --ex2e-gold-bright: #4a3828; --ex2e-gold-main: #5a4838; --ex2e-gold-mid: #382e22; --ex2e-gold-dark: #9a8878;
+  --ex2e-border-color: rgba(90, 70, 50, 0.5);
+}
+body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"][data-caste="journeys"] {
+  --ex2e-gold-bright: #7a4800; --ex2e-gold-main: #9a6000; --ex2e-gold-mid: #5a3600; --ex2e-gold-dark: #c8a050;
+  --ex2e-border-color: rgba(150, 90, 10, 0.5);
+}
+body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"][data-caste="serenity"] {
+  --ex2e-gold-bright: #004a7a; --ex2e-gold-main: #005a90; --ex2e-gold-mid: #003a60; --ex2e-gold-dark: #6aaacc;
+  --ex2e-border-color: rgba(0, 80, 130, 0.5);
+}
+body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"][data-caste="battles"] {
+  --ex2e-gold-bright: #780808; --ex2e-gold-main: #900a0a; --ex2e-gold-mid: #580606; --ex2e-gold-dark: #c07070;
+  --ex2e-border-color: rgba(120, 10, 10, 0.5);
+}
+body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"][data-caste="secrets"] {
+  --ex2e-gold-bright: #1a5828; --ex2e-gold-main: #206830; --ex2e-gold-mid: #124020; --ex2e-gold-dark: #58a870;
+  --ex2e-border-color: rgba(20, 90, 40, 0.5);
+}
+body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"][data-caste="endings"] {
+  --ex2e-gold-bright: #501878; --ex2e-gold-main: #641a90; --ex2e-gold-mid: #3c1260; --ex2e-gold-dark: #9858c0;
+  --ex2e-border-color: rgba(80, 24, 120, 0.5);
+}
+body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
+  --ex2e-gold-bright: #303060; --ex2e-gold-main: #404080; --ex2e-gold-mid: #282858; --ex2e-gold-dark: #8888b0;
+  --ex2e-border-color: rgba(50, 50, 100, 0.5);
+}
+
 /* ═══════════════════════════════════════════════════════════════════════════
    Ability Flag Button  (single tri-state: none / favored / caste)
 

@@ -928,3 +928,31 @@
   gap: 8px;
   padding-top: 4px;
 }
+
+/* ── Light mode overrides ─────────────────────────────────────────────────── */
+
+body.ex2e-light-mode .exalted2e.sheet {
+  background:  var(--ex2e-bg-dark) !important;
+  border:      1px solid var(--ex2e-gold-dark) !important;
+  box-shadow:  0 4px 24px rgba(80, 60, 10, 0.3), inset 0 0 40px rgba(200, 170, 100, 0.08) !important;
+}
+
+body.ex2e-light-mode .exalted2e.sheet .application-form,
+body.ex2e-light-mode .exalted2e.sheet > form {
+  background: var(--ex2e-bg-dark) !important;
+}
+
+body.ex2e-light-mode .exalted2e.sheet .window-header {
+  background:    linear-gradient(180deg, var(--ex2e-bg-darkest) 0%, var(--ex2e-bg-dark) 100%) !important;
+  border-bottom: 1px solid var(--ex2e-gold-dark) !important;
+}
+
+body.ex2e-light-mode .item-header {
+  background:    linear-gradient(135deg, var(--ex2e-bg-darkest) 0%, var(--ex2e-bg-medium) 100%) !important;
+  border-bottom: 1px solid var(--ex2e-gold-dark) !important;
+}
+
+body.ex2e-light-mode .item-name-input {
+  color:        var(--ex2e-gold-main) !important;
+  border-bottom: 1px solid var(--ex2e-gold-dark) !important;
+}

@@ -605,6 +605,8 @@
     "IntimacyNegative":       "Negativa",
     "IntimacyStrength":       "Fuerza",
     "IntimacyOverCapacity":   "Superas el límite de Intimacies — la ST te pedirá eliminar una en el próximo descanso.",
+    "SocialDmg":              "Daño social",
+    "None":                   "Ninguno",
     "AddIntimacy":            "Añadir Intimacy",
 
     "Splat":                  "Rasgos del Exaltado",
@@ -822,6 +824,10 @@
     "SheetArmor":      "Hoja de Armadura",
     "SheetGenericItem":"Hoja de Objeto",
 
+    "SettingUiTheme":               "Tema de Interfaz",
+    "SettingUiThemeHint":           "Elige entre el tema oscuro de pergamino y el tema claro de pergamino. Esta configuración es por usuario y no afecta a otros jugadores.",
+    "SettingUiThemeDark":           "Oscuro",
+    "SettingUiThemeLight":          "Claro",
     "SettingErrataMaterials":       "Usar Materiales Mágicos de Errata",
     "SettingErrataMaterialsHint":   "Cuando está activado, las bonificaciones de materiales mágicos para armas y armaduras usan los valores de la errata oficial en vez de los del libro básico.",
     "SettingIntimacyIntensity":     "Usar Intensidad de Intimidades (Regla de Casa)",
@@ -1356,6 +1362,7 @@
     "ResolutionResisted":      "Resistido — {wp} WP gastados",
     "ResolutionAcceptedBuild": "Aceptado — narra el resultado (Forjar)",
     "ResolutionAcceptedCompel":"Aceptado — narra el resultado (Compeler)",
+    "ResolutionAblation":      "Daño social en {name} ({after} caja(s) llena(s))",
     "ResolutionEroded":        "Erosionado {name} — fuerza {before} → {after}",
     "InsufficientWillpower":   "Willpower insuficiente para resistir.",
     "NotOwnerSocial":          "Solo el dueño del objetivo o el DJ pueden responder.",

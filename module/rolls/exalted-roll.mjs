@@ -1095,6 +1095,9 @@ export class ExaltedRoll {
       attackerId:                  attacker.id,
       defenderId:                  defender.id,
       intent,
+      targetedIntimacyId:          intent === "erode"
+        ? (claims.opposingIntimacyId ?? null)
+        : null,
       subject,
       claimsVerified:              verified,
       stackingMod,

@@ -100,16 +100,19 @@ export function makeNpcSystem(overrides = {}) {
  * Defaults to a positive Tie.
  */
 export function makeIntimacy(overrides = {}) {
+  const { id, type, name, ...systemOverrides } = overrides;
   return {
-    type: "intimacy",
-    name: "Test Intimacy",
+    id:   id ?? "test-intimacy-id",
+    type: type ?? "intimacy",
+    name: name ?? "Test Intimacy",
     system: {
-      intimacyType: "tie",
-      intensity:    "minor",
-      subject:      "",
-      positive:     true,
-      strength:     0,
-      ...overrides
+      intimacyType:   "tie",
+      intensity:      "minor",
+      subject:        "",
+      positive:       true,
+      strength:       0,
+      ablationDamage: 0,
+      ...systemOverrides
     }
   };
 }

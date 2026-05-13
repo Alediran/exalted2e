@@ -3,6 +3,17 @@ import { sweep }                          from "../_helpers/cleanup.mjs";
 import { createTempCharacter }            from "../_helpers/actors.mjs";
 import { addIntimacy, addMotivation }     from "../_helpers/intimacies.mjs";
 
+// Poll for a condition and return the result when it becomes truthy.
+async function waitFor(predicate, { timeout = 3000, interval = 50 } = {}) {
+  const deadline = Date.now() + timeout;
+  while (Date.now() < deadline) {
+    const result = await predicate();
+    if (result) return result;
+    await new Promise(r => setTimeout(r, interval));
+  }
+  throw new Error(`waitFor: predicate never returned truthy within ${timeout}ms`);
+}
+
 /**
  * Build attacker + defender pair for social-attack tests. Both essence=5
  * for pool/MDV headroom (memory: project_motes_max_overridden_by_derived).
@@ -215,6 +226,141 @@ export function registerSocialAttackFocused(context) {
       const ledger = message.flags.exalted2e.socialAttack;
       assert.equal(ledger.autoFailedByNaturalCap, true,
         "autoFailedByNaturalCap=true when wpDrainedNatural reached the cap");
+    });
+
+    // ── Ablation track ─────────────────────────────────────────────────────
+
+    it("[I01] ablationDamage field persists and can be updated via item.update", async function () {
+      this.timeout(6000);
+      const { defender } = await setupSocialFixture();
+      const intimacy = await addIntimacy(defender, {
+        name: "Test Tie", positive: false, strength: 3, ablationDamage: 0
+      });
+      assert.equal(intimacy.system.ablationDamage, 0, "starts at 0");
+
+      await intimacy.update({ "system.ablationDamage": 2 });
+      const fresh = await waitFor(
+        () => {
+          const i = defender.items.get(intimacy.id);
+          return (i?.system?.ablationDamage ?? 0) === 2 ? i : null;
+        },
+        { timeout: 3000, interval: 50 }
+      );
+      assert.ok(fresh, "ablationDamage persisted to 2");
+      assert.equal(fresh.system.ablationDamage, 2);
+    });
+
+    it("[I02] ablationDamage fills and intimacy weakens (classic: strength -1, ablation resets)", async function () {
+      this.timeout(8000);
+      const { defender } = await setupSocialFixture();
+      await defender.update({
+        "system.virtues.conviction.value":   2,
+        "system.virtues.conviction.current": 2
+      });
+      const intimacy = await addIntimacy(defender, {
+        name: "Test Tie", positive: false, strength: 3, ablationDamage: 1
+      });
+
+      const conviction   = defender.system?.virtues?.conviction?.value ?? 1;
+      const currentDmg   = intimacy.system.ablationDamage ?? 0;
+      const newDamage    = currentDmg + 1;
+      assert.ok(newDamage >= conviction, "sanity: boxes now full");
+
+      const str = intimacy.system.strength ?? 1;
+      await intimacy.update({ "system.strength": str - 1, "system.ablationDamage": 0 });
+
+      const weakened = await waitFor(
+        () => {
+          const i = defender.items.get(intimacy.id);
+          return i?.system?.strength === 2 && (i?.system?.ablationDamage ?? 99) === 0 ? i : null;
+        },
+        { timeout: 3000, interval: 50 }
+      );
+      assert.ok(weakened, `strength 3→2 and ablationDamage reset (str=${weakened?.system?.strength}, dmg=${weakened?.system?.ablationDamage})`);
+    });
+
+    it("[I03] ablationDamage fills and intensity downgrades (defining → major, ablation resets)", async function () {
+      this.timeout(8000);
+      const { defender } = await setupSocialFixture();
+      await defender.update({
+        "system.virtues.conviction.value":   1,
+        "system.virtues.conviction.current": 1
+      });
+      const intimacy = await addIntimacy(defender, {
+        name: "Test Principle", positive: false, intensity: "defining", ablationDamage: 0
+      });
+
+      const order = ["minor", "major", "defining"];
+      const idx   = order.indexOf(intimacy.system.intensity);
+      assert.ok(idx > 0, "defining is at idx 2 — can downgrade");
+      await intimacy.update({ "system.intensity": order[idx - 1], "system.ablationDamage": 0 });
+
+      const downgraded = await waitFor(
+        () => {
+          const i = defender.items.get(intimacy.id);
+          return i?.system?.intensity === "major" && (i?.system?.ablationDamage ?? 99) === 0 ? i : null;
+        },
+        { timeout: 3000, interval: 50 }
+      );
+      assert.ok(downgraded, "defining downgraded to major and ablationDamage reset");
+    });
+
+    it("[I04] clearIntimacyAblation resets all ablationDamage on the actor's intimacies", async function () {
+      this.timeout(8000);
+      const { defender } = await setupSocialFixture();
+      const int1 = await addIntimacy(defender, { name: "Tie 1", positive: false, ablationDamage: 2 });
+      const int2 = await addIntimacy(defender, { name: "Tie 2", positive: true,  ablationDamage: 1 });
+
+      const { clearIntimacyAblation } = await import("../../../module/ui/social-scene.mjs");
+      await clearIntimacyAblation(defender);
+
+      const cleared = await waitFor(
+        () => {
+          const f1 = defender.items.get(int1.id);
+          const f2 = defender.items.get(int2.id);
+          return (f1?.system?.ablationDamage ?? 99) === 0 &&
+                 (f2?.system?.ablationDamage ?? 99) === 0;
+        },
+        { timeout: 3000, interval: 50 }
+      );
+      assert.ok(cleared, "all ablation damage cleared to 0");
+    });
+
+    it("[I05] ledger carries targetedIntimacyId for erode intent", async function () {
+      this.timeout(8000);
+      const { attacker, defender } = await setupSocialFixture();
+      const intimacy = await addIntimacy(defender, { name: "Test Tie", positive: false });
+
+      const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
+      const message = await ExaltedRoll.rollSocialAttack(attacker, {
+        defender,
+        attribute: "charisma",
+        ability:   "presence",
+        intent:    "erode",
+        subject:   "Test Tie",
+        claims:    { opposingIntimacyId: intimacy.id }
+      });
+      assert.ok(message, "message created");
+      const ledger = message.flags?.exalted2e?.socialAttack;
+      assert.equal(ledger.targetedIntimacyId, intimacy.id, "targetedIntimacyId matches intimacy");
+    });
+
+    it("[I06] non-erode intent has targetedIntimacyId null", async function () {
+      this.timeout(8000);
+      const { attacker, defender } = await setupSocialFixture();
+      const intimacy = await addIntimacy(defender, { name: "Test Tie", positive: true });
+
+      const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
+      const message = await ExaltedRoll.rollSocialAttack(attacker, {
+        defender,
+        attribute: "charisma",
+        ability:   "presence",
+        intent:    "build",
+        subject:   "Test Tie",
+        claims:    { supportingIntimacyId: intimacy.id }
+      });
+      const ledger = message.flags?.exalted2e?.socialAttack;
+      assert.equal(ledger.targetedIntimacyId, null, "non-erode targetedIntimacyId is null");
     });
   });
 }

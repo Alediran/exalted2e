@@ -357,6 +357,20 @@ Hooks.once("init", function () {
     restricted: true   // GM-only
   });
 
+  game.settings.register("exalted2e", "uiTheme", {
+    name:     "EX2E.SettingUiTheme",
+    hint:     "EX2E.SettingUiThemeHint",
+    scope:    "client",
+    config:   true,
+    type:     String,
+    choices:  {
+      dark:  "EX2E.SettingUiThemeDark",
+      light: "EX2E.SettingUiThemeLight",
+    },
+    default:  "dark",
+    onChange: value => _applyUiTheme(value),
+  });
+
   // ── Multi-tick action handlers ─────────────────────────────────────────
   // Single-slot per combatant; handlers register here so the wheel-tick
   // loop and commit dispatcher can fire onTick / onComplete /
@@ -638,9 +652,15 @@ Hooks.on("deleteActiveEffect", async (effect, _options, userId) => {
   if (charm?.system?.active && !charm._isBeingDeleted) await charm.update({ "system.active": false });
 });
 
+// ── UI Theme ───────────────────────────────────────────────────────────────
+function _applyUiTheme(theme) {
+  document.body.classList.toggle("ex2e-light-mode", theme === "light");
+}
+
 // ── Ready Hook ─────────────────────────────────────────────────────────────
 Hooks.once("ready", async function () {
   console.log("Exalted 2e | System ready.");
+  _applyUiTheme(game.settings.get("exalted2e", "uiTheme"));
 
   // Action quickbar + tick wheel + JB panel — one instance of each per
   // client, refreshed from the same combat / combatant / active-effect
@@ -2722,9 +2742,12 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       return;
     }
 
-    if (record.intent === "erode") {
-      const hasIntimacies = defender.items.some(i => i.type === "intimacy");
-      if (!hasIntimacies) {
+    if (record.intent === "erode" && record.targetedIntimacyId) {
+      const intimacy  = defender.items.get(record.targetedIntimacyId);
+      const conviction = defender.system?.virtues?.conviction?.value ?? 1;
+
+      if (!intimacy) {
+        // Targeted intimacy no longer exists — treat as narration.
         const appliedInfluenceEffectIds = await applySocialInfluenceEffects(defender, {
           attackerId:      record.attackerId,
           sourceByKeyword: record.attackerSourceByKeyword ?? {},
@@ -2732,19 +2755,83 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
         });
         await message.update({
           "flags.exalted2e.socialAttack.resolution": {
-            outcome:                       "accepted-narration",
-            wpSpentByDefender:             0,
-            erodedIntimacyId:              null,
-            erodedIntimacyStrengthBefore:  null,
-            erodedIntimacyStrengthAfter:   null,
-            erodedIntimacyName:            null
+            outcome:                      "accepted-narration",
+            wpSpentByDefender:            0,
+            erodedIntimacyId:             null,
+            erodedIntimacyStrengthBefore: null,
+            erodedIntimacyStrengthAfter:  null,
+            erodedIntimacyName:           null,
+            ablationDamageBefore:         null,
+            ablationDamageAfter:          null,
+            intimacyDeletedOnErode:       false,
+            intimacySnapshot:             null
           },
           "flags.exalted2e.socialAttack.appliedInfluenceEffectIds": appliedInfluenceEffectIds
         });
       } else {
-        await message.update({ "flags.exalted2e.socialAttack.pendingErodePick": true });
+        const useIntensity = game.settings.get("exalted2e", "useIntimacyIntensity");
+        const currentDmg   = intimacy.system.ablationDamage ?? 0;
+        const newDamage    = currentDmg + 1;
+        let outcome        = "accepted-eroded";
+        let deleted        = false;
+        let snapshot       = null;
+        let strengthBefore = useIntensity ? intimacy.system.intensity : (intimacy.system.strength ?? 0);
+        let strengthAfter  = strengthBefore;
+
+        if (newDamage < conviction) {
+          // Boxes not yet full — just increment.
+          await intimacy.update({ "system.ablationDamage": newDamage });
+          outcome = "accepted-ablation";
+        } else {
+          // Full — weaken or remove.
+          snapshot = intimacy.toObject();
+          if (useIntensity) {
+            const order = ["minor", "major", "defining"];
+            const idx   = order.indexOf(intimacy.system.intensity);
+            if (idx <= 0) {
+              await intimacy.delete();
+              deleted       = true;
+              strengthAfter = null;
+            } else {
+              strengthAfter = order[idx - 1];
+              await intimacy.update({ "system.intensity": strengthAfter, "system.ablationDamage": 0 });
+            }
+          } else {
+            const str = intimacy.system.strength ?? 1;
+            if (str <= 1) {
+              await intimacy.delete();
+              deleted       = true;
+              strengthAfter = null;
+            } else {
+              strengthAfter = str - 1;
+              await intimacy.update({ "system.strength": strengthAfter, "system.ablationDamage": 0 });
+            }
+          }
+        }
+
+        const appliedInfluenceEffectIds = await applySocialInfluenceEffects(defender, {
+          attackerId:      record.attackerId,
+          sourceByKeyword: record.attackerSourceByKeyword ?? {},
+          keywords:        record.attackerCharmKeywords  ?? []
+        });
+        await message.update({
+          "flags.exalted2e.socialAttack.resolution": {
+            outcome,
+            wpSpentByDefender:            0,
+            erodedIntimacyId:             intimacy.id,
+            erodedIntimacyStrengthBefore: strengthBefore,
+            erodedIntimacyStrengthAfter:  strengthAfter,
+            erodedIntimacyName:           intimacy.name,
+            ablationDamageBefore:         currentDmg,
+            ablationDamageAfter:          deleted ? null : newDamage < conviction ? newDamage : 0,
+            intimacyDeletedOnErode:       deleted,
+            intimacySnapshot:             deleted ? snapshot : null
+          },
+          "flags.exalted2e.socialAttack.appliedInfluenceEffectIds": appliedInfluenceEffectIds
+        });
       }
     } else {
+      // Non-erode intent, or erode with no targeted intimacy.
       const appliedInfluenceEffectIds = await applySocialInfluenceEffects(defender, {
         attackerId:      record.attackerId,
         sourceByKeyword: record.attackerSourceByKeyword ?? {},
@@ -2752,57 +2839,20 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       });
       await message.update({
         "flags.exalted2e.socialAttack.resolution": {
-          outcome:                       "accepted-narration",
-          wpSpentByDefender:             0,
-          erodedIntimacyId:              null,
-          erodedIntimacyStrengthBefore:  null,
-          erodedIntimacyStrengthAfter:   null,
-          erodedIntimacyName:            null
+          outcome:                      "accepted-narration",
+          wpSpentByDefender:            0,
+          erodedIntimacyId:             null,
+          erodedIntimacyStrengthBefore: null,
+          erodedIntimacyStrengthAfter:  null,
+          erodedIntimacyName:           null,
+          ablationDamageBefore:         null,
+          ablationDamageAfter:          null,
+          intimacyDeletedOnErode:       false,
+          intimacySnapshot:             null
         },
         "flags.exalted2e.socialAttack.appliedInfluenceEffectIds": appliedInfluenceEffectIds
       });
     }
-    await _rerenderSocialAttackCard(message);
-  });
-
-  // ── Social attack: Pick an Intimacy to erode ──────────────────────────
-  el.querySelector?.(".btn-social-erode-confirm")?.addEventListener("click", async (ev) => {
-    const record = message.flags?.exalted2e?.socialAttack;
-    if (!record || record.resolution || record.reversed) return;
-
-    const defender = game.actors.get(record.defenderId);
-    if (!defender) return;
-    if (!game.user.isGM && !defender.testUserPermission(game.user, "OWNER")) {
-      ui.notifications.warn(game.i18n.localize("EX2E.NotOwnerSocial"));
-      return;
-    }
-
-    const select = el.querySelector(".social-erode-select");
-    const intimacyId = select?.value;
-    const intimacy = intimacyId ? defender.items.get(intimacyId) : null;
-    if (!intimacy) return;
-
-    const before = intimacy.system?.strength ?? 0;
-    const after = Math.max(0, before - 1);
-    await intimacy.update({ "system.strength": after });
-
-    const appliedInfluenceEffectIds = await applySocialInfluenceEffects(defender, {
-      attackerId:      record.attackerId,
-      sourceByKeyword: record.attackerSourceByKeyword ?? {},
-      keywords:        record.attackerCharmKeywords  ?? []
-    });
-    await message.update({
-      "flags.exalted2e.socialAttack.resolution": {
-        outcome:                       "accepted-eroded",
-        wpSpentByDefender:             0,
-        erodedIntimacyId:              intimacy.id,
-        erodedIntimacyStrengthBefore:  before,
-        erodedIntimacyStrengthAfter:   after,
-        erodedIntimacyName:            intimacy.name
-      },
-      "flags.exalted2e.socialAttack.appliedInfluenceEffectIds": appliedInfluenceEffectIds
-    });
-    await message.update({ "flags.exalted2e.socialAttack.pendingErodePick": false });
     await _rerenderSocialAttackCard(message);
   });
 
@@ -2835,11 +2885,27 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       await defender.update({ "system.willpower.value": restored });
     }
 
-    // Refund eroded intimacy strength (existing 3a).
-    if (defender && resolution.erodedIntimacyId && resolution.erodedIntimacyStrengthBefore !== null) {
-      const intimacy = defender.items.get(resolution.erodedIntimacyId);
-      if (intimacy) {
-        await intimacy.update({ "system.strength": resolution.erodedIntimacyStrengthBefore });
+    // Reverse intimacy ablation damage.
+    if (defender && resolution.erodedIntimacyId) {
+      if (resolution.intimacyDeletedOnErode && resolution.intimacySnapshot) {
+        // Intimacy was deleted — re-create from snapshot.
+        await defender.createEmbeddedDocuments("Item", [resolution.intimacySnapshot]);
+      } else if (resolution.ablationDamageBefore !== null) {
+        const intimacy = defender.items.get(resolution.erodedIntimacyId);
+        if (intimacy) {
+          const useIntensity = game.settings.get("exalted2e", "useIntimacyIntensity");
+          if (resolution.erodedIntimacyStrengthBefore !== resolution.erodedIntimacyStrengthAfter) {
+            const patch = { "system.ablationDamage": resolution.ablationDamageBefore };
+            if (useIntensity) {
+              patch["system.intensity"] = resolution.erodedIntimacyStrengthBefore;
+            } else {
+              patch["system.strength"] = resolution.erodedIntimacyStrengthBefore;
+            }
+            await intimacy.update(patch);
+          } else {
+            await intimacy.update({ "system.ablationDamage": resolution.ablationDamageBefore });
+          }
+        }
       }
     }
 
@@ -3140,11 +3206,14 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
 // deletes the combat document directly — both routes funnel through
 // the same `clearSocialScene` helper.
 Hooks.on("deleteCombat", async () => {
-  const { clearSocialScene } = await import("./ui/social-scene.mjs");
+  const { clearSocialScene, clearIntimacyAblation } = await import("./ui/social-scene.mjs");
   await clearSocialScene({ silent: true });
   const { clearActorForms } = await import("./combat/form-charms.mjs");
   const sceneActors = canvas.scene?.tokens?.contents?.map(t => t.actor).filter(Boolean) ?? [];
-  for (const actor of sceneActors) await clearActorForms(actor);
+  for (const actor of sceneActors) {
+    await clearActorForms(actor);
+    await clearIntimacyAblation(actor);
+  }
 });
 
 // ── Social attack: defender Step-2 orchestrator ──────────────────────────
@@ -3312,8 +3381,6 @@ async function _rerenderSocialAttackCard(message) {
 
   const attacker = game.actors.get(record.attackerId);
   const defender = game.actors.get(record.defenderId);
-  const pendingErodePick = message.flags?.exalted2e?.socialAttack?.pendingErodePick === true;
-
   const intimacies = defender
     ? defender.items.filter(i => i.type === "intimacy").map(i => ({
         id:     i.id,
@@ -3372,7 +3439,6 @@ async function _rerenderSocialAttackCard(message) {
         })
       : "",
     defenderIntimacies: intimacies,
-    showErodePicker:  record.intent === "erode" && pendingErodePick && !record.resolution,
     // 3c-1: derived display fields for attacker activated charms + Excellency
     attackerCharmNames: (record.attackerCharmIds ?? [])
       .map(id => attacker?.items?.get(id)?.name)

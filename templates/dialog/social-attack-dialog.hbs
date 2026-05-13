@@ -78,13 +78,35 @@
       <label>{{localize "EX2E.ModifierClaims"}}</label>
       <div class="claim-row">
         <span class="claim-header">{{localize "EX2E.ClaimSupporting"}}</span>
-        <label class="claim-check"><input type="checkbox" name="supportingIntimacy"   {{#if claims.supportingIntimacy}}checked{{/if}}> {{localize "EX2E.IntimacyTie"}} <span class="claim-modifier">−1</span></label>
+        <label class="claim-check">
+          {{localize "EX2E.IntimacyTie"}} <span class="claim-modifier">−1</span>
+          <select name="supportingIntimacyId">
+            <option value="">— {{localize "EX2E.None"}} —</option>
+            {{#each defenderIntimacies as |int|}}
+            <option value="{{int.id}}" {{#if (eq ../claims.supportingIntimacyId int.id)}}selected{{/if}}>
+              {{#if int.positive}}♥{{else}}💀{{/if}} {{int.name}}
+              {{#if @root.useIntimacyIntensity}}({{localize (concat "EX2E.Intensity" (capitalize int.intensity))}}){{else}}({{int.strength}}){{/if}}
+            </option>
+            {{/each}}
+          </select>
+        </label>
         <label class="claim-check"><input type="checkbox" name="supportingVirtue"     {{#if claims.supportingVirtue}}checked{{/if}}> {{localize "EX2E.Virtues"}} ≥3 <span class="claim-modifier">−2</span></label>
         <label class="claim-check"><input type="checkbox" name="supportingMotivation" {{#if claims.supportingMotivation}}checked{{/if}}> {{localize "EX2E.Motivation"}} <span class="claim-modifier">−3</span></label>
       </div>
       <div class="claim-row">
         <span class="claim-header">{{localize "EX2E.ClaimOpposing"}}</span>
-        <label class="claim-check"><input type="checkbox" name="opposingIntimacy"   {{#if claims.opposingIntimacy}}checked{{/if}}> {{localize "EX2E.IntimacyTie"}} <span class="claim-modifier">+1</span></label>
+        <label class="claim-check">
+          {{localize "EX2E.IntimacyTie"}} <span class="claim-modifier">+1</span>
+          <select name="opposingIntimacyId">
+            <option value="">— {{localize "EX2E.None"}} —</option>
+            {{#each defenderIntimacies as |int|}}
+            <option value="{{int.id}}" {{#if (eq ../claims.opposingIntimacyId int.id)}}selected{{/if}}>
+              {{#if int.positive}}♥{{else}}💀{{/if}} {{int.name}}
+              {{#if @root.useIntimacyIntensity}}({{localize (concat "EX2E.Intensity" (capitalize int.intensity))}}){{else}}({{int.strength}}){{/if}}
+            </option>
+            {{/each}}
+          </select>
+        </label>
         <label class="claim-check"><input type="checkbox" name="opposingVirtue"     {{#if claims.opposingVirtue}}checked{{/if}}> {{localize "EX2E.Virtues"}} ≥3 <span class="claim-modifier">+2</span></label>
         <label class="claim-check"><input type="checkbox" name="opposingMotivation" {{#if claims.opposingMotivation}}checked{{/if}}> {{localize "EX2E.Motivation"}} <span class="claim-modifier">+3</span></label>
       </div>

@@ -104,18 +104,6 @@
     {{/if}}
     {{/unless}}
 
-    {{#if showErodePicker}}
-    <div class="social-erode-picker">
-      <label>{{localize "EX2E.PickIntimacyToErode"}}</label>
-      <select class="social-erode-select">
-        {{#each defenderIntimacies as |int|}}
-        <option value="{{int.id}}">{{int.name}} — {{int.system.subject}} (str {{int.system.strength}})</option>
-        {{/each}}
-      </select>
-      <button type="button" class="btn-social-erode-confirm">{{localize "EX2E.Confirm"}}</button>
-    </div>
-    {{/if}}
-
     {{#if resolution}}
     <div class="social-resolution">
       {{#if (eq resolution.outcome "resisted")}}
@@ -123,6 +111,9 @@
       {{/if}}
       {{#if (eq resolution.outcome "accepted-narration")}}
       <strong>{{#if (eq intent "build")}}{{localize "EX2E.ResolutionAcceptedBuild"}}{{else}}{{localize "EX2E.ResolutionAcceptedCompel"}}{{/if}}</strong>
+      {{/if}}
+      {{#if (eq resolution.outcome "accepted-ablation")}}
+      <strong>{{localize "EX2E.ResolutionAblation" name=resolution.erodedIntimacyName after=resolution.ablationDamageAfter}}</strong>
       {{/if}}
       {{#if (eq resolution.outcome "accepted-eroded")}}
       <strong>{{localize "EX2E.ResolutionEroded" name=resolution.erodedIntimacyName before=resolution.erodedIntimacyStrengthBefore after=resolution.erodedIntimacyStrengthAfter}}</strong>

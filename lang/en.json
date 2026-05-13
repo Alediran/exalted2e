@@ -605,6 +605,8 @@
     "IntimacyNegative":       "Negative",
     "IntimacyStrength":       "Strength",
     "IntimacyOverCapacity":   "Over the Intimacy cap — the ST will prompt you to drop one at the next rest.",
+    "SocialDmg":              "Social dmg",
+    "None":                   "None",
     "AddIntimacy":            "Add Intimacy",
 
     "Splat":                  "Exalt-Specific Traits",
@@ -822,6 +824,10 @@
     "SheetArmor":      "Armor Sheet",
     "SheetGenericItem":"Item Sheet",
 
+    "SettingUiTheme":               "UI Theme",
+    "SettingUiThemeHint":           "Choose between the dark parchment theme and the light parchment theme. This setting is per-user and does not affect other players.",
+    "SettingUiThemeDark":           "Dark",
+    "SettingUiThemeLight":          "Light",
     "SettingErrataMaterials":       "Use Errata Magical Materials",
     "SettingErrataMaterialsHint":   "When enabled, magical material bonuses for weapons and armor use the official errata values instead of the core rulebook values.",
     "SettingIntimacyIntensity":     "Use Intimacy Intensity (House Rule)",
@@ -1356,6 +1362,7 @@
     "ResolutionResisted":      "Resisted — {wp} WP spent",
     "ResolutionAcceptedBuild": "Accepted — narrate outcome (Build)",
     "ResolutionAcceptedCompel":"Accepted — narrate outcome (Compel)",
+    "ResolutionAblation":      "Social damage on {name} ({after} box(es) filled)",
     "ResolutionEroded":        "Eroded {name} — strength {before} → {after}",
     "InsufficientWillpower":   "Not enough Willpower to resist.",
     "NotOwnerSocial":          "Only the defender's owner or the GM can respond.",

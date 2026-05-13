@@ -573,6 +573,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       cap,
       overCapacity: count > cap,
       maxStrength:  this.virtues?.conviction?.value ?? 0,
+      conviction:   this.virtues?.conviction?.value ?? 1,
       useIntensity: game.settings.get("exalted2e", "useIntimacyIntensity")
     };
   }

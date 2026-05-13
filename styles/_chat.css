@@ -1,3 +1,37 @@
+/* ── Chat message container (overrides Foundry li.chat-message) ────────── */
+
+.chat-message {
+  background:    var(--ex2e-bg-panel) !important;
+  box-shadow:    none !important;
+  color:         var(--ex2e-text-primary) !important;
+  border-radius: var(--ex2e-border-radius) !important;
+}
+
+:is(.chat-popout, #chat-log, .chat-log) .chat-message {
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: var(--ex2e-border-color) !important;
+}
+
+.chat-message .message-header {
+  background:    transparent !important;
+  border-bottom: 1px solid var(--ex2e-border-color) !important;
+}
+
+.chat-message .message-sender {
+  color: var(--ex2e-gold-main) !important;
+}
+
+.chat-message .message-timestamp,
+.chat-message time {
+  color: var(--ex2e-text-muted) !important;
+}
+
+.chat-message .message-content {
+  background: transparent !important;
+  color:      var(--ex2e-text-primary) !important;
+}
+
 /* ── Chat Roll Card ───────────────────────────────────────────────────────── */
 
 .ex2e-roll-card {
@@ -300,6 +334,7 @@
   font-size:      var(--ex2e-font-size-xs);
 }
 .ex2e-attack-card .holy-upgrade-note i { color: var(--ex2e-gold-bright); }
+
 
 .ex2e-item-card .item-card-actions {
   display:     flex;

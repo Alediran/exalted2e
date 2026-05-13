@@ -47,10 +47,10 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       intent:       options.intent       ?? "build",
       subject:      options.subject      ?? "",
       claims:       options.claims       ?? {
-        supportingIntimacy:   false,
+        supportingIntimacyId: null,
         supportingVirtue:     false,
         supportingMotivation: false,
-        opposingIntimacy:     false,
+        opposingIntimacyId:   null,
         opposingVirtue:       false,
         opposingMotivation:   false,
         immediateThreat:      false,
@@ -151,7 +151,18 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       moteTypeChoices: {
         personal:   game.i18n.localize("EX2E.MotesPersonal"),
         peripheral: game.i18n.localize("EX2E.MotesPeripheral")
-      }
+      },
+      defenderIntimacies: (this._data.target?.items ?? [])
+        .filter(i => i.type === "intimacy")
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map(i => ({
+          id:        i.id,
+          name:      i.name,
+          positive:  i.system?.positive ?? true,
+          intensity: i.system?.intensity ?? "minor",
+          strength:  i.system?.strength  ?? 0
+        })),
+      useIntimacyIntensity: game.settings.get("exalted2e", "useIntimacyIntensity"),
     };
   }
 
@@ -227,6 +238,14 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
     intentSelect?.addEventListener("change", (e) => {
       this._data.intent = e.target.value;
       this.render();
+    });
+    const supportingIntimacySelect = el.querySelector("[name='supportingIntimacyId']");
+    const opposingIntimacySelect   = el.querySelector("[name='opposingIntimacyId']");
+    supportingIntimacySelect?.addEventListener("change", (e) => {
+      this._data.claims.supportingIntimacyId = e.target.value || null;
+    });
+    opposingIntimacySelect?.addEventListener("change", (e) => {
+      this._data.claims.opposingIntimacyId = e.target.value || null;
     });
     // 3c-2: mirror typed Target Motivation into _data so re-renders preserve it.
     const targetMotivationInput = el.querySelector("[name='targetMotivation']");
@@ -319,10 +338,10 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       intent:    data.intent     || "build",
       subject:   data.subject    || "",
       claims: {
-        supportingIntimacy:   !!data.supportingIntimacy,
+        supportingIntimacyId: data.supportingIntimacyId || null,
         supportingVirtue:     !!data.supportingVirtue,
         supportingMotivation: !!data.supportingMotivation,
-        opposingIntimacy:     !!data.opposingIntimacy,
+        opposingIntimacyId:   data.opposingIntimacyId || null,
         opposingVirtue:       !!data.opposingVirtue,
         opposingMotivation:   !!data.opposingMotivation,
         immediateThreat:      !!data.immediateThreat,

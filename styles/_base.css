@@ -37,6 +37,12 @@ body.ex2e-picking-target * {
   cursor: pointer;
 }
 
+/* Light mode: darken window header icons */
+body.ex2e-light-mode .window-header .header-control,
+body.ex2e-light-mode .window-header button {
+  color: var(--ex2e-text-primary) !important;
+}
+
 /* Standard inputs */
 .exalted2e input[type="text"],
 .exalted2e input[type="number"],

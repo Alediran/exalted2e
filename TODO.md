@@ -113,7 +113,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Sorcerous initiation (charm flag `grantsInitiation` — grants Terrestrial/Celestial/Solar or Necromancy access on activation)
 - [ ] Countermagic resolution (Emerald/Sapphire/Adamant reflexive counter, Iron/Onyx/Obsidian necro)
 - [ ] Countermagic cost variance by defended-circle-rank
-- [ ] Spell casting chat card (motes committed during shape, released at cast; reverse button)
+- [x] Spell casting chat card (motes committed during shape, released at cast; reverse button)
 - [ ] Thaumaturgy (degrees and procedures — separate lower-power tier)
 - [ ] Spell-specific duration/effect payloads (many spells create AE-like effects on targets)
 - [ ] Ghost summoning (Black Treatise: extended opposed WP+Ess contest)
@@ -122,7 +122,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 
 ## Martial Arts
 - [x] Style tracking — `martialArtsStyleName` + `martialArtsTier` on charms; `martialartsstyle` item type with sheet, auto-create hook, and Martial Arts tab grouping charms by style on the character sheet
-- [ ] Form-type charm handling (one-at-a-time across ALL styles; scene duration; Combo-Basic)
+- [x] Form-type charm handling (one-at-a-time across ALL styles; scene duration; Combo-Basic)
 - [ ] Style weapon tag validation (M = Melee-or-MA, MO = MA-only; form weapons count as unarmed for style purposes)
 - [ ] Sidereal Martial Arts entry gate (requires ≥1 Celestial style mastered to Form + Sidereal sifu)
 - [ ] Celestial-MA DB initiation charms (Pasiap's Humility+Daana'd etc.)

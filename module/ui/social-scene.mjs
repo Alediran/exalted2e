@@ -27,3 +27,14 @@ export async function clearSocialScene({ silent = false } = {}) {
     ui.notifications.info(game.i18n.localize("EX2E.SceneEndedToast"));
   }
 }
+
+export async function clearIntimacyAblation(actor) {
+  if (!actor) return;
+  const damaged = actor.items.filter(
+    i => i.type === "intimacy" && (i.system?.ablationDamage ?? 0) > 0
+  );
+  if (!damaged.length) return;
+  await actor.updateEmbeddedDocuments("Item",
+    damaged.map(i => ({ _id: i.id, "system.ablationDamage": 0 }))
+  );
+}

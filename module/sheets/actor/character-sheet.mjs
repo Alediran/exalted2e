@@ -190,6 +190,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       rollHealingCharm:    CharacterSheet.#onRollHealingCharm,
       socketHearthstone:   CharacterSheet.#onSocketHearthstone,
       unsocketHearthstone: CharacterSheet.#onUnsocketHearthstone,
+      toggleAblationDot:   CharacterSheet.#onToggleAblationDot,
     }
   };
 
@@ -498,6 +499,14 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const armors     = actor.items.filter(i => i.type === "armor")      .sort((a,b) => a.name.localeCompare(b.name));
     const backgrounds= actor.items.filter(i => i.type === "background") .sort((a,b) => a.name.localeCompare(b.name));
     const intimacies = actor.items.filter(i => i.type === "intimacy")   .sort((a,b) => a.name.localeCompare(b.name));
+    const conviction = actor.system?.virtues?.conviction?.value ?? 1;
+    for (const int of intimacies) {
+      const dmg = int.system?.ablationDamage ?? 0;
+      int.ablationDots = Array.from({ length: conviction }, (_, i) => ({
+        index:  i,
+        filled: i < dmg
+      }));
+    }
     const meritflaws = actor.items.filter(i => i.type === "meritflaw")  .sort((a,b) => a.name.localeCompare(b.name));
     const equipments   = actor.items.filter(i => i.type === "equipment") .sort((a,b) => a.name.localeCompare(b.name));
     const hearthstones = actor.items.filter(i => i.type === "hearthstone").sort((a,b) => a.name.localeCompare(b.name));
@@ -1184,6 +1193,16 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     item?.sheet?.render({ force: true });
   }
 
+  static async #onToggleAblationDot(event, target) {
+    const itemId   = target.dataset.itemId;
+    const dotIndex = parseInt(target.dataset.dotIndex, 10);
+    const item     = this.document.items.get(itemId);
+    if (!item) return;
+    const current  = item.system?.ablationDamage ?? 0;
+    const newValue = dotIndex < current ? dotIndex : dotIndex + 1;
+    await item.update({ "system.ablationDamage": newValue });
+  }
+
   static async #onDeleteItem(event, target) {
     const itemId = target.closest("[data-item-id]")?.dataset.itemId;
     const item   = this.document.items.get(itemId);
@@ -1404,22 +1423,13 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     if (!abilKey || !this.isEditable) return;
     const ab = this.document.system.abilities[abilKey];
     if (!ab) return;
+    if (ab.caste) return;
 
-    let newCaste   = false;
-    let newFavored = false;
-
-    if (!ab.favored && !ab.caste) {
-      // none → favored
-      newFavored = true;
-    } else if (ab.favored && !ab.caste) {
-      // favored → caste
-      newCaste = true;
-    }
-    // caste → none (both remain false)
+    // none → favored → none. Caste is set by the system, never user-toggleable.
+    const newFavored = !ab.favored;
 
     await this.document.update({
       [`system.abilities.${abilKey}.favored`]: newFavored,
-      [`system.abilities.${abilKey}.caste`]:   newCaste
     });
   }
 
@@ -1433,6 +1443,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const attrKey = target.dataset.attr;
     if (!attrKey) return;
     const attr = this.actor.system.attributes?.[attrKey] ?? { caste: false, favored: false };
+    if (attr.caste) return;
     // none → favored → none. Caste is preserved as-is (auto-managed).
     const newFavored = !attr.favored;
     await this.actor.update({
@@ -1577,6 +1588,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     );
     const { clearActorForms } = await import("../../combat/form-charms.mjs");
     await clearActorForms(this.document);
+    const { clearIntimacyAblation } = await import("../../ui/social-scene.mjs");
+    await clearIntimacyAblation(this.document);
   }
 
   static #onConfigureAnimaColors() {
