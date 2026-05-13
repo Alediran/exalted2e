@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 163 / 259 complete** (11 out-of-scope / partial — last updated 2026-05-09)
+**Progress: 165 / 259 complete** (11 out-of-scope / partial — last updated 2026-05-13)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -95,7 +95,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Cooperative keyword (multi-caster charm dialog — DB aspect cooperation)
 
 ## Social Combat
-- [ ] **Intimacy as first-class scored trait** (count capped at Willpower + Compassion, damage ablation = Conviction; currently stub Item type only)
+- [x] **Intimacy as first-class scored trait** (count capped at Willpower + Compassion, damage ablation = Conviction; currently stub Item type only)
 - [x] **MDV axis on actor** (Dodge MDV / Parry MDV derived; social-attack dialog; MDV modifiers via AE plumbing)
 - [x] Social attack rolls (Cha/Man + Presence/Performance/Investigation/Bureaucracy) with MDV resolution
 - [x] Appearance delta ± up to 3 MDV
@@ -220,7 +220,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 ## Character Sheet
 - [x] Effects tab — split into temporal (durationed / dvRefreshable) and permanent
 - [x] Row-per-penalty-level health track with per-level bonus boxes (−0, −1, −2)
-- [ ] Intimacies section (cap enforcement + ablation UI once Intimacy trait is scored)
+- [x] Intimacies section (cap enforcement + ablation UI once Intimacy trait is scored)
 - [x] MDV derived display (Combat tab)
 - [x] Anima banner auto-calculated display (tier shown on Main tab; caste anima power widget with Activate / Deactivate / View buttons)
 - [ ] Per-splat tab(s) surfacing splat-specific mechanics (Sidereal Paradox, Abyssal Resonance, Infernal Torment/Urge, etc.)

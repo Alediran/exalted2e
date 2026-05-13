@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-10 (Circle leave hook + health levelCounts fix + Ox-Body option picker)
+Last updated: 2026-05-13 (Intimacy ablation track + scored trait UI; spell casting chat card + Form-type charm handling marked done)
 
 ---
 
@@ -38,9 +38,13 @@ Last updated: 2026-05-10 (Circle leave hook + health levelCounts fix + Ox-Body o
 | Permanent Essence + Willpower cost general field | Charms | new charm-data fields + activateCharm spending path |
 | First/Second-vs-Third Excellency exclusivity | Charms | roll dialog: detect both activated, block double-use |
 | Infinite Mastery discount | Charms | committed-mote tracking → Excellency cost reduction |
-| Spell casting chat card | Sorcery | commit→cast cycle, reverse button, mote ledger |
 | Countermagic resolution | Sorcery | reflexive roll + mote cost, 3-circle tiering |
-| Form-type charm handling | Martial Arts | track active Forms per actor + style; enforce one-at-a-time; scene duration AE |
+| Spell-specific duration/effect payloads | Sorcery | per-spell AE-like target effects; requires per-spell schema extension |
+| Ghost summoning | Sorcery | extended opposed WP+Ess contest (Black Treatise) |
+| Binding/fetter spells | Sorcery | Piercing the Heel, Soul Brand, Rune of Sweet Passing AE payloads |
+| Demon summoning | Sorcery | bind ritual on new moon/Calibration; bonus dice per demon type |
+| Combo-Basic keyword enforcement | Combat | Form-type MA charm + reflexive only per errata; validate at combo-build time |
+| Flaw-of-Invulnerability +2 WP combo surcharge | Combat | detect Form-type in active combo + surcharge at activation |
 | Style weapon tag validation | Martial Arts | define per-style weapons config (M/MO tags), then enforce at attack time |
 | Sidereal MA entry gate | Martial Arts | check actor owns a Form-type charm from ≥1 Celestial style |
 | Sidereal MA gating (splat section) | Sidereal | same as above; cross-reference in splat section |
@@ -74,7 +78,6 @@ Last updated: 2026-05-10 (Circle leave hook + health levelCounts fix + Ox-Body o
 | Pre-built artifact compendium (daiklaves/armors) | Compendium | data authoring + attunement variants |
 | Headless tests for remaining paths | Testing | test authoring for charm prereqs, multi-tick, sorcery |
 | Social Combos | Social | adapts combo infrastructure for social charms *(soft dep: base combo items still open)* |
-| Intimacy as first-class scored trait | Social | rewrite stub into scored trait with cap + ablation logic — large |
 
 ---
 
@@ -101,14 +104,7 @@ Last updated: 2026-05-10 (Circle leave hook + health levelCounts fix + Ox-Body o
 
 | Item | TODO Section | Blocked by |
 |------|-------------|-----------|
-| Intimacies section (cap + ablation UI) | Sheet | Intimacy as scored trait (Group B) |
 | Countermagic cost variance by circle | Sorcery | Countermagic resolution (Group B) |
-| Spell-specific duration/effect payloads | Sorcery | Spell casting chat card (Group B) |
-| Ghost summoning | Sorcery | Spell casting chat card (Group B) |
-| Binding/fetter spells | Sorcery | Spell casting chat card (Group B) |
-| Demon summoning | Sorcery | Spell casting chat card (Group B) |
-| Combo-Basic keyword enforcement | Combat | Form-type charm handling (Group B) |
-| Flaw-of-Invulnerability +2 WP combo surcharge | Combat | Form-type charm handling (Group B) |
 | Manse geomancy rules | Crafting | Manse item type (Group B) |
 | Workshop & material prerequisites UI | Crafting | Mundane crafting roll resolver (Group B) |
 | Artifact extended-roll builder | Crafting | Mundane crafting roll resolver (Group B) |
@@ -121,12 +117,12 @@ Last updated: 2026-05-10 (Circle leave hook + health levelCounts fix + Ox-Body o
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 3 |
-| B — Ready, Medium | 55 |
+| B — Ready, Medium | 58 |
 | C — Ready, Complex | 10 |
-| D — Blocked | 12 |
-| **Total pending** | **80** |
+| D — Blocked | 5 |
+| **Total pending** | **76** |
 
 **Biggest force-multipliers:**
-- **Spell casting chat card** (Group B) → unblocks 4 sorcery items
-- **Form-type charm handling** (Group B) → unblocks 2 combo items
-- **Intimacy as scored trait** (Group B) → unblocks the social section
+- **Countermagic resolution** (Group B) → unblocks Countermagic cost variance
+- **Manse item type** (Group B) → unblocks Manse geomancy rules
+- **Mundane crafting roll resolver** (Group B) → unblocks Workshop UI + Artifact extended-roll builder
