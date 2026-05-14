@@ -54,6 +54,7 @@ import { registerKeywordGating }            from "./combat/keyword-gating.mjs";
 import { registerCoverStarmetal }           from "./combat/cover-starmetal.mjs";
 import { registerComboImport }              from "./combat/combo-import.mjs";
 import { registerFormCharms }              from "./combat/form-charms.mjs";
+import { registerWillpowerVirtueLimit }    from "./combat/willpower-virtue-limit.mjs";
 // NOTE: Anima Powers feature (_swapAnimaPower) relies on the animapowers compendium
 // and cannot be exercised via Quench. No batch registered for ex2e.anima-powers.
 
@@ -117,5 +118,6 @@ Hooks.once("quenchReady", async quench => {
   quench.registerBatch("ex2e.cover-starmetal",           registerCoverStarmetal,            { displayName: "Cover DV bonuses + Starmetal attack penalty" });
   quench.registerBatch("ex2e.combo-import",              registerComboImport,               { displayName: "Combo import / name-remap" });
   quench.registerBatch("ex2e.form-charms",               registerFormCharms,                { displayName: "Form-type charm handling" });
+  quench.registerBatch("ex2e.willpower-virtue-limit",    registerWillpowerVirtueLimit,       { displayName: "WP / Virtue / Limit automation" });
 
 });

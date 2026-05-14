@@ -230,7 +230,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Permanent + temporal virtue tracks
 - [x] Willpower minimum = sum of two highest Virtues
 - [x] Virtue channel action (spend 1 WP + Virtue, add Virtue dice, consumes per-story channel slot)
-- [ ] Willpower recovery hooks (rest, channel success, stunt)
+- [ ] Willpower recovery hooks (rest, stunt reward)
 - [ ] Limit accumulation automation (Virtue Flaw triggers)
 - [ ] Limit Break scripting at 10 (per-Virtue-Flaw scene template)
 

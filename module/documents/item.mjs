@@ -310,7 +310,7 @@ export class ExaltedItem extends Item {
       await applyCharmAEs(actor, this, this.getRollData?.() ?? {});
     }
 
-    if (!skipChatCard) {
+    if (!skipChatCard && !turningOff) {
       await this.sendToChat({ activation: ledger });
     }
     return true;

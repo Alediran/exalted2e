@@ -171,6 +171,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       endDBT:              CharacterSheet.#onEndDBT,
       nudgeScenePeripheral: CharacterSheet.#onNudgeScenePeripheral,
       endScene:             CharacterSheet.#onEndScene,
+      morningRest:          CharacterSheet.#onMorningRest,
+      rollVirtue:           CharacterSheet.#onRollVirtue,
       installCharm:        CharacterSheet.#onInstallCharm,
       uninstallCharm:      CharacterSheet.#onUninstallCharm,
       addDedicatedSlot:    CharacterSheet.#onAddDedicatedSlot,
@@ -1573,10 +1575,22 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       { "system.scenePeripheral": newSp },
       { scenePeripheralBefore: oldSp }
     );
-    const { clearActorForms } = await import("../../combat/form-charms.mjs");
+    const { clearActorForms }       = await import("../../combat/form-charms.mjs");
     await clearActorForms(this.document);
     const { clearIntimacyAblation } = await import("../../ui/social-scene.mjs");
     await clearIntimacyAblation(this.document);
+    const { stepDownAnima }         = await import("../../combat/anima-math.mjs");
+    await stepDownAnima(this.document);
+  }
+
+  static async #onMorningRest(_event, _target) {
+    await this.document.rollMorningRest();
+  }
+
+  static async #onRollVirtue(_event, target) {
+    const virtue = target.dataset.virtue;
+    if (!virtue) return;
+    await this.document.rollVirtueCheck(virtue);
   }
 
   static #onConfigureAnimaColors() {

@@ -11,6 +11,40 @@ const ANIMA_ORDER = { none: 0, glowing: 1, burning: 2, bonfire: 3, totemic: 4 };
 function _animaLevel(key) { return ANIMA_ORDER[key] ?? 0; }
 
 /**
+ * Attempt to suppress a virtue channel by spending Willpower equal to
+ * `successes`. If the actor's current Willpower is less than the cost,
+ * a warning notification is shown and the function returns `false` without
+ * spending anything.  When the suppressed virtue is the actor's primary
+ * virtue, the actor also gains +1 Limit (capped at 10).
+ *
+ * @param {ExaltedActor} actor       - The actor attempting suppression.
+ * @param {string}       virtueName  - Key in `system.virtues` (e.g. "conviction").
+ * @param {number}       successes   - Number of Willpower points required.
+ * @returns {Promise<boolean>}  `true` on success, `false` when WP is insufficient.
+ */
+export async function applyVirtueSuppression(actor, virtueName, successes) {
+  const wp = actor.system.willpower.value;
+  if (wp < successes) {
+    const label = game.i18n.localize(EX2E.virtues[virtueName] ?? virtueName);
+    ui.notifications.warn(
+      game.i18n.format("EX2E.VirtueSuppressionInsuffWP", { virtue: label, cost: successes })
+    );
+    return false;
+  }
+  const updates = { "system.willpower.value": wp - successes };
+  if (actor.system.primaryVirtue === virtueName) {
+    updates["system.limit"] = Math.min(10, (actor.system.limit ?? 0) + 1);
+  }
+  await actor.update(updates);
+  if (actor.system.primaryVirtue === virtueName) {
+    ui.notifications.info(
+      game.i18n.format("EX2E.LimitGained", { current: actor.system.limit })
+    );
+  }
+  return true;
+}
+
+/**
  * ExaltedActor – extends the base Foundry Actor document with
  * Exalted 2e specific behaviours.
  */
@@ -932,6 +966,40 @@ export class ExaltedActor extends Actor {
     const wp = this.system.willpower;
     const newVal = Math.min(wp.max, (wp.value ?? 0) + amount);
     return this.update({ "system.willpower.value": newVal });
+  }
+
+  async rollMorningRest() {
+    if (this.type !== "character") return;
+    const { ExaltedRoll } = await import("../rolls/exalted-roll.mjs");
+    const pool   = this.system.virtues.conviction.value;
+    const flavor = game.i18n.localize("EX2E.MorningRest");
+    const result = await ExaltedRoll.rollPool(this, { pool, flavor, category: "mental" });
+    if (result.successes > 0) await this.recoverWillpower(result.successes);
+  }
+
+  async rollVirtueCheck(virtueName) {
+    if (this.type !== "character") return;
+    const { ExaltedRoll } = await import("../rolls/exalted-roll.mjs");
+    const pool  = this.system.virtues[virtueName]?.value ?? 0;
+    const label = game.i18n.localize(EX2E.virtues[virtueName] ?? virtueName);
+    const result = await ExaltedRoll.rollPool(this, {
+      pool,
+      flavor:   game.i18n.format("EX2E.RollVirtue", { virtue: label }),
+      category: "mental"
+    });
+    if (!result.successes) return;
+    if (this.system.willpower.value < result.successes) {
+      ui.notifications.warn(
+        game.i18n.format("EX2E.VirtueSuppressionInsuffWP", { virtue: label, cost: result.successes })
+      );
+      return;
+    }
+    const confirmed = await foundry.applications.api.DialogV2.confirm({
+      window:  { title: label },
+      content: `<p>${game.i18n.format("EX2E.SuppressVirtue", { cost: result.successes, virtue: label })}</p>`
+    });
+    if (!confirmed) return;
+    await applyVirtueSuppression(this, virtueName, result.successes);
   }
 
   /**

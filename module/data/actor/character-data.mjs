@@ -244,6 +244,14 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       notes:      new fields.HTMLField({ initial: "" }),
       motivation: new fields.StringField({ initial: "", blank: true }),
 
+      // ── Limit / Primary Virtue ────────────────────────────────────────────
+      primaryVirtue: new fields.StringField({
+        nullable: true,
+        initial:  null,
+        blank:    false,
+        choices:  Object.keys(EX2E.virtues)
+      }),
+
       // ── Purchase Mode ─────────────────────────────────────────────────────
       // Per-actor toggle managed by the GM / Assistant GM via a header
       // button on the character sheet. When true, the sheet locks: field

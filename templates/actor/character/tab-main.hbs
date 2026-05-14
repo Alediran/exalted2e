@@ -110,6 +110,21 @@
                      {{#if (lookup (lookup ../system.virtues v) "channeled")}}checked{{/if}}
                      {{#unless @root.isEditable}}disabled{{/unless}}>
             </label>
+            {{#if @root.isEditable}}
+            <button type="button" class="virtue-roll-btn"
+                    data-action="rollVirtue"
+                    data-virtue="{{v}}"
+                    title="{{localize (concat 'EX2E.Virtue' (capitalize v))}}">
+              <i class="fa-solid fa-dice"></i>
+            </button>
+            <label class="virtue-primary-label" title="{{localize 'EX2E.PrimaryVirtue'}}">
+              <input type="radio"
+                     name="system.primaryVirtue"
+                     value="{{v}}"
+                     {{#if (eq @root.system.primaryVirtue v)}}checked{{/if}}
+                     {{#if @root.document.system.purchaseLocked}}disabled{{/if}}>
+            </label>
+            {{/if}}
           </div>
           {{/each}}
 
@@ -313,6 +328,9 @@
           </div>
           {{#if isGM}}
           <button type="button" data-action="endScene" class="anima-end-scene-btn">{{localize "EX2E.EndScene"}}</button>
+          {{/if}}
+          {{#if isEditable}}
+          <button type="button" data-action="morningRest" class="anima-end-scene-btn">{{localize "EX2E.MorningRest"}}</button>
           {{/if}}
         </div>
 
