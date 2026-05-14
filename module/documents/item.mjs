@@ -109,7 +109,7 @@ export class ExaltedItem extends Item {
    *     reserved for a possible future consolidated-Reverse path.
    * @returns {Promise<boolean>} true if activation succeeded.
    */
-  async activateCharm({ skipXpConfirm = false, skipChatCard = false, via = null } = {}) {
+  async activateCharm({ skipXpConfirm = false, skipChatCard = false, via = null, explicitTargetActor = null } = {}) {
     if (this.type !== "charm") return false;
     const actor = this.actor;
     if (!actor) return false;
@@ -377,14 +377,14 @@ ${capWarning}`;
     }
 
     if (!turningOff && sys.targetEffect?.enabled && sys.targetEffect.trigger === "onActivate") {
-      const targetActor = game.user.targets.first()?.actor;
+      const targetActor = explicitTargetActor ?? game.user.targets.first()?.actor;
       if (targetActor) {
         await targetActor.applyCharmTargetEffect(sys.targetEffect);
       }
     }
 
     if (!turningOff && sys.targetPenalty?.enabled && sys.charmType !== "supplemental") {
-      const targetActor = game.user.targets.first()?.actor;
+      const targetActor = explicitTargetActor ?? game.user.targets.first()?.actor;
       if (targetActor) {
         const rollData = actor.getRollData?.() ?? {};
         const rawAmount = sys.targetPenalty.amountFormula
@@ -418,7 +418,7 @@ ${capWarning}`;
         : 0;
       const total = Math.max(0, result.successes + bonus);
       const healTarget = sys.healingRoll.target === "target"
-        ? (game.user.targets.first()?.actor ?? actor)
+        ? (explicitTargetActor ?? game.user.targets.first()?.actor ?? actor)
         : actor;
       if (total > 0) await healTarget.healDamage(total);
     }
