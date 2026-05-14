@@ -66,10 +66,6 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       maidenAffiliation:    new fields.StringField({ initial: "", blank: true }),
       martialArtsStyleName: new fields.StringField({ initial: "", blank: true }),
       grantsMastery:        new fields.BooleanField({ initial: false }),
-      masteryCommitment: new fields.SchemaField({
-        first:  new fields.NumberField({ integer: true, min: 0, initial: 0 }),
-        second: new fields.NumberField({ integer: true, min: 0, initial: 0 }),
-      }),
       durationFormula:      new fields.StringField({ initial: "", blank: true }),
       // charmUid of the Solar charm this Abyssal (or other splat) charm mirrors.
       // The Mirror keyword indicates it exists; this field provides the stable link.

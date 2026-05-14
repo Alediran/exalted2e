@@ -155,8 +155,7 @@
       <input type="text" name="system.durationFormula" value="{{system.durationFormula}}"
              placeholder="e.g. (Essence) actions" {{#unless isEditable}}readonly{{/unless}}>
     </div>
-    <!-- Excellency (only for Reflexive charms) -->
-    {{#if (eq system.charmType "reflexive")}}
+    <!-- Excellency type -->
     <div class="field-group">
       <label>{{localize "EX2E.Excellency"}}</label>
       <select name="system.excellency" {{#unless isEditable}}disabled{{/unless}}>
@@ -165,7 +164,6 @@
         {{/each}}
       </select>
     </div>
-    {{/if}}
   </div>
 
   <!-- Prerequisites -->
@@ -335,18 +333,6 @@
   </div>
   {{/if}}
 
-  {{#if system.grantsMastery}}
-  <div class="field-group">
-    <label>{{localize "EX2E.MasteryCommitmentFirst"}}</label>
-    <input type="number" name="system.masteryCommitment.first" value="{{system.masteryCommitment.first}}" min="0"
-           {{#unless isEditable}}readonly{{/unless}}>
-  </div>
-  <div class="field-group">
-    <label>{{localize "EX2E.MasteryCommitmentSecond"}}</label>
-    <input type="number" name="system.masteryCommitment.second" value="{{system.masteryCommitment.second}}" min="0"
-           {{#unless isEditable}}readonly{{/unless}}>
-  </div>
-  {{/if}}
 
   <!-- Description -->
   <h2 class="section-header">{{localize "EX2E.Description"}}</h2>

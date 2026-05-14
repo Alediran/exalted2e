@@ -337,11 +337,9 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     this._prepareCombatStats();
     this._prepareMoteMaxima();
     let masteryCommitted = 0;
-    for (const item of (this.parent?.items ?? [])) {
-      if (item.type !== "charm" || !item.system?.grantsMastery) continue;
-      if (!isCharmPassivelyActive(item)) continue;
-      const mc = item.system.masteryCommitment ?? {};
-      masteryCommitted += (mc.first ?? 0) + (mc.second ?? 0);
+    for (const ae of (this.parent?.effects ?? [])) {
+      if (ae.disabled) continue;
+      masteryCommitted += ae.flags?.exalted2e?.masteryCommitment ?? 0;
     }
     if (masteryCommitted > 0) this.motes.peripheral.committed += masteryCommitted;
     this._prepareIntimacies();

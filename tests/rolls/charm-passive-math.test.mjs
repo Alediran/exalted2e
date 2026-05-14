@@ -123,59 +123,50 @@ describe("aggregateSpeedModifierFromAEs", () => {
 });
 
 describe("getMasteryDiscount", () => {
-  const makeActor = (charm) => ({
-    items: { find: (fn) => [charm].find(fn) }
+  const makeAE = (ability, commitment) => ({
+    disabled: false,
+    flags: { exalted2e: { masteryAbility: ability, masteryCommitment: commitment } }
+  });
+  const makeActor = (aes) => ({ effects: aes });
+
+  it("returns 0 when actor has no effects", () => {
+    expect(getMasteryDiscount(makeActor([]), "melee")).toBe(0);
   });
 
-  it("returns {first:0, second:0} when actor has no items", () => {
-    expect(getMasteryDiscount({ items: { find: () => undefined } }, "melee"))
-      .toEqual({ first: 0, second: 0 });
+  it("returns 0 when no AE matches the ability", () => {
+    expect(getMasteryDiscount(makeActor([makeAE("archery", 6)]), "melee")).toBe(0);
   });
 
-  it("returns {first:0, second:0} when no grantsMastery charm matches the ability", () => {
-    const charm = {
-      type: "charm",
-      system: { grantsMastery: true, ability: "archery", duration: "permanent", active: true,
-                masteryCommitment: { first: 4, second: 2 } }
-    };
-    expect(getMasteryDiscount(makeActor(charm), "melee")).toEqual({ first: 0, second: 0 });
+  it("returns floor(commitment/2): 6 motes → discount 3", () => {
+    expect(getMasteryDiscount(makeActor([makeAE("melee", 6)]), "melee")).toBe(3);
   });
 
-  it("returns Math.floor(commitment/2) for each type", () => {
-    const charm = {
-      type: "charm",
-      system: { grantsMastery: true, ability: "melee", duration: "permanent", active: true,
-                masteryCommitment: { first: 4, second: 2 } }
-    };
-    expect(getMasteryDiscount(makeActor(charm), "melee")).toEqual({ first: 2, second: 1 });
+  it("odd commitment rounds down: 5 motes → discount 2", () => {
+    expect(getMasteryDiscount(makeActor([makeAE("melee", 5)]), "melee")).toBe(2);
   });
 
-  it("odd commitment rounds down: first=3 → discount 1", () => {
-    const charm = {
-      type: "charm",
-      system: { grantsMastery: true, ability: "melee", duration: "permanent", active: true,
-                masteryCommitment: { first: 3, second: 0 } }
-    };
-    expect(getMasteryDiscount(makeActor(charm), "melee")).toEqual({ first: 1, second: 0 });
+  it("2 motes → discount 1", () => {
+    expect(getMasteryDiscount(makeActor([makeAE("melee", 2)]), "melee")).toBe(1);
   });
 
-  it("caller floor: Math.max(1, 2 - discount) for Second Exc with discount=1 gives 1m/success", () => {
-    const charm = {
-      type: "charm",
-      system: { grantsMastery: true, ability: "melee", duration: "permanent", active: true,
-                masteryCommitment: { first: 0, second: 2 } }
-    };
-    const { second } = getMasteryDiscount(makeActor(charm), "melee");
-    expect(Math.max(1, 2 - second)).toBe(1);
+  it("0 motes → discount 0 (AE with 0 commitment excluded)", () => {
+    expect(getMasteryDiscount(makeActor([makeAE("melee", 0)]), "melee")).toBe(0);
   });
 
-  it("caller floor: Math.max(1, 1 - discount) for First Exc never goes below 1", () => {
-    const charm = {
-      type: "charm",
-      system: { grantsMastery: true, ability: "melee", duration: "permanent", active: true,
-                masteryCommitment: { first: 10, second: 0 } }
-    };
-    const { first } = getMasteryDiscount(makeActor(charm), "melee");
-    expect(Math.max(1, 1 - first)).toBe(1);
+  it("skips disabled AEs", () => {
+    const disabled = { disabled: true, flags: { exalted2e: { masteryAbility: "melee", masteryCommitment: 6 } } };
+    expect(getMasteryDiscount(makeActor([disabled]), "melee")).toBe(0);
+  });
+
+  it("discount applied: 6 committed motes covers 3 First Exc dice (3m raw, net 0)", () => {
+    const discount = getMasteryDiscount(makeActor([makeAE("melee", 6)]), "melee");
+    const rawCost = 3; // 3 dice × 1m
+    expect(Math.max(0, rawCost - discount)).toBe(0);
+  });
+
+  it("discount applied: 6 committed motes covers 1 Second Exc success + 1 First Exc die (3m raw, net 0)", () => {
+    const discount = getMasteryDiscount(makeActor([makeAE("melee", 6)]), "melee");
+    const rawCost = 2 + 1; // 1 success × 2m + 1 die × 1m
+    expect(Math.max(0, rawCost - discount)).toBe(0);
   });
 });

@@ -63,15 +63,10 @@ export function aggregateSpeedModifierFromAEs(actor, baseSpeed) {
 }
 
 export function getMasteryDiscount(actor, ability) {
-  const charm = actor.items?.find(
-    c => c.type === "charm"
-      && c.system?.grantsMastery
-      && c.system?.ability === ability
-      && isCharmPassivelyActive(c)
+  const ae = actor.effects?.find(
+    e => !e.disabled
+      && e.flags?.exalted2e?.masteryAbility === ability
+      && (e.flags?.exalted2e?.masteryCommitment ?? 0) > 0
   );
-  if (!charm) return { first: 0, second: 0 };
-  return {
-    first:  Math.floor((charm.system.masteryCommitment?.first  ?? 0) / 2),
-    second: Math.floor((charm.system.masteryCommitment?.second ?? 0) / 2),
-  };
+  return ae ? Math.floor((ae.flags.exalted2e.masteryCommitment ?? 0) / 2) : 0;
 }

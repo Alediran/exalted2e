@@ -134,10 +134,11 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       abilityFieldLabel:    game.i18n.localize(usesAttribute ? "EX2E.Attribute"    : "EX2E.Ability"),
       minAbilityFieldLabel: game.i18n.localize(usesAttribute ? "EX2E.MinAttribute" : "EX2E.MinAbility"),
       excellencies: [
-        { value: "",       label: game.i18n.localize("EX2E.ExcellencyNone") },
-        { value: "first",  label: game.i18n.localize("EX2E.FirstExcellency") },
-        { value: "second", label: game.i18n.localize("EX2E.SecondExcellency") },
-        { value: "third",  label: game.i18n.localize("EX2E.ThirdExcellency") }
+        { value: "",                label: game.i18n.localize("EX2E.ExcellencyNone") },
+        { value: "first",           label: game.i18n.localize("EX2E.FirstExcellency") },
+        { value: "second",          label: game.i18n.localize("EX2E.SecondExcellency") },
+        { value: "third",           label: game.i18n.localize("EX2E.ThirdExcellency") },
+        { value: "infiniteMastery", label: game.i18n.localize("EX2E.InfiniteMastery") },
       ],
       damageTypes: [
         { value: "bashing",    label: game.i18n.localize("EX2E.DamageBashing") },

@@ -190,6 +190,47 @@ export class ExaltedItem extends Item {
       }
     }
 
+    // Mastery commitment (Infinite [Ability] Mastery charms).
+    // Stored as a flags-only AE tagged charmSource so _removeCharmWeaponArtifacts
+    // cleans it up automatically on toggle-off or charm deletion.
+    if (!turningOff && sys.excellency === "infiniteMastery") {
+      const existingAE = actor.effects.find(
+        e => e.flags?.exalted2e?.charmSource === this.id
+          && "masteryCommitment" in (e.flags?.exalted2e ?? {})
+      );
+      const oldCommitment = existingAE ? (existingAE.flags.exalted2e.masteryCommitment ?? 0) : 0;
+      if (existingAE) await existingAE.delete();
+
+      const essence   = actor?.system?.essence?.value ?? 1;
+      const maxCommit = essence >= 4 ? 9999 : 6;
+      const content = `
+<div class="field-group">
+  <label>${game.i18n.localize("EX2E.MasteryCommitment")}</label>
+  <input type="number" name="commitment" value="${Math.min(oldCommitment, maxCommit)}"
+         min="0" max="${maxCommit === 9999 ? "" : maxCommit}" style="width:5em">
+</div>`;
+      const result = await foundry.applications.api.DialogV2.prompt({
+        window: { title: game.i18n.format("EX2E.MasteryCommitDialog", { name: this.name }) },
+        content,
+        ok: { callback: (_ev, button) => Math.min(maxCommit, Math.max(0, parseInt(button.form.elements.commitment.value) || 0)) }
+      });
+      if (result === null || result === undefined) return false;
+
+      await actor.createEmbeddedDocuments("ActiveEffect", [{
+        name:     this.name,
+        img:      this.img ?? "icons/svg/aura.svg",
+        transfer: false,
+        flags:    { exalted2e: { charmSource: this.id, masteryCommitment: result, masteryAbility: sys.ability } }
+      }]);
+
+      const delta = result - oldCommitment;
+      if (delta !== 0) {
+        const pool = actor.system.motes.peripheral;
+        await actor.update({ "system.motes.peripheral.value":
+          Math.max(0, Math.min(pool.max ?? 0, (pool.value ?? 0) - delta)) });
+      }
+    }
+
     // Spend all resource costs up front. Shared with castSpell() so both
     // paths use the same resolution order + XP confirmation + ledger shape.
     // When turning a sustained charm OFF, we skip spending entirely — the
@@ -250,6 +291,19 @@ export class ExaltedItem extends Item {
         }
       }
       ledger.cooperation = cooperation;
+    }
+
+    // Restore peripheral motes before the mastery AE is deleted by cleanup.
+    if (turningOff && isToggleable && sys.excellency === "infiniteMastery") {
+      const ae = actor.effects.find(
+        e => e.flags?.exalted2e?.charmSource === this.id
+          && "masteryCommitment" in (e.flags?.exalted2e ?? {})
+      );
+      const commitment = ae ? (ae.flags.exalted2e.masteryCommitment ?? 0) : 0;
+      if (commitment > 0) {
+        const pool = actor.system.motes.peripheral;
+        await actor.update({ "system.motes.peripheral.value": Math.min(pool.max ?? 0, (pool.value ?? 0) + commitment) });
+      }
     }
 
     // Remove all charmSource AEs + weapons when any sustained charm toggles off.

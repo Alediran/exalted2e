@@ -51,6 +51,9 @@ describe("CharmData schema gaps — field presence", () => {
     expect(schema).toHaveProperty("grantsMastery");
     expect(schema.grantsMastery.initial).toBe(false);
   });
+  it("masteryCommitment field was removed from charm schema (commitment now lives in AE flags)", () => {
+    expect(schema).not.toHaveProperty("masteryCommitment");
+  });
 });
 
 describe("areCharmPrereqsMet — virtue prerequisites (B7)", () => {

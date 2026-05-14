@@ -85,19 +85,16 @@ export function registerCharmEconomics(context) {
     });
 
     // ── Infinite Mastery mote commitment ──────────────────────────────────
-    it("[M01] masteryCommitment.first=4 on permanent grantsMastery charm adds 4 to peripheral committed", async () => {
+    it("[M01] mastery AE with commitment=4 adds 4 to peripheral committed", async () => {
       const actor = await createTempCharacter({ name: "Q-CE-Mastery" });
       register(actor);
       await actor.update({ "system.exaltType": "solar" });
       const committedBefore = actor.system.motes.peripheral.committed;
       assert.equal(committedBefore, 0, "baseline committed is zero");
-      await actor.createEmbeddedDocuments("Item", [{
-        name: "Infinite Melee Mastery", type: "charm",
-        system: {
-          charmType: "permanent", duration: "permanent",
-          grantsMastery: true,    ability:  "melee",
-          masteryCommitment: { first: 4, second: 0 }
-        }
+      await actor.createEmbeddedDocuments("ActiveEffect", [{
+        name: "Infinite Melee Mastery",
+        transfer: false,
+        flags: { exalted2e: { masteryCommitment: 4, masteryAbility: "melee" } }
       }]);
       assert.equal(
         actor.system.motes.peripheral.committed - committedBefore,
