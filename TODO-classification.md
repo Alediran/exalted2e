@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-13 (Intimacy ablation track + scored trait UI; spell casting chat card + Form-type charm handling marked done)
+Last updated: 2026-05-13 (Willpower recovery hooks + Limit accumulation automation marked done; Scene-end reset marked partial)
 
 ---
 
@@ -57,8 +57,6 @@ Last updated: 2026-05-13 (Intimacy ablation track + scored trait UI; spell casti
 | Gremlin Syndrome / Dissonance | Alchemical | Clarity track → Dissonance consequences |
 | Resplendent Destiny payloads | Sidereal | extend item type: Ascendant/Descending mechanical effects |
 | Per-splat tabs on character sheet | Sheet | new tab per splat with existing track widgets |
-| Willpower recovery hooks (rest / stunt) | Virtues | hook registration + recovery amounts |
-| Limit accumulation automation | Virtues | trigger Limit increment on Virtue Flaw condition |
 | Per-trait lock overrides | XP | per-field lock flag, purchase mode guard |
 | Circle special buttons (party roll, XP award, rest) | Circle | macro-buttons on folder widget |
 | NPC → character auto-conversion on move-in | Circle | hook + actor-type change |
@@ -117,10 +115,10 @@ Last updated: 2026-05-13 (Intimacy ablation track + scored trait UI; spell casti
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 58 |
+| B — Ready, Medium | 56 |
 | C — Ready, Complex | 10 |
 | D — Blocked | 5 |
-| **Total pending** | **74** |
+| **Total pending** | **72** |
 
 **Biggest force-multipliers:**
 - **Countermagic resolution** (Group B) → unblocks Countermagic cost variance

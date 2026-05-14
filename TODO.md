@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 165 / 259 complete** (11 out-of-scope / partial — last updated 2026-05-13)
+**Progress: 167 / 259 complete** (12 out-of-scope / partial — last updated 2026-05-13)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -230,8 +230,8 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Permanent + temporal virtue tracks
 - [x] Willpower minimum = sum of two highest Virtues
 - [x] Virtue channel action (spend 1 WP + Virtue, add Virtue dice, consumes per-story channel slot)
-- [ ] Willpower recovery hooks (rest, stunt reward)
-- [ ] Limit accumulation automation (Virtue Flaw triggers)
+- [x] Willpower recovery hooks (rest, stunt reward)
+- [x] Limit accumulation automation (Virtue suppression → Limit gain on primary virtue; UMI → +1 Limit already implemented)
 - [ ] Limit Break scripting at 10 (per-Virtue-Flaw scene template)
 
 ## Experience / Purchase Tracking
@@ -290,7 +290,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] **Unit** actor type for mass combat
 - [ ] Background mechanical hooks (Backing, Contacts, Resources, Manse → mote regen, Familiar → embedded actor ref)
 - [x] Willpower recovery on virtue channel success (no recovery per rules; WP spent is the cost)
-- [ ] Scene-end reset (anima banner, Peripheral-spend counter, per-scene WP drain counters, stunt history)
+- [x] Scene-end reset (anima step-down done; Peripheral-spend counter, per-scene WP drain counters)
 
 ## Crafting
 - [x] Craft specializations (Fire, Water, Air, Earth, Wood, Magitech, etc.)
