@@ -109,4 +109,106 @@ export function registerCharmTargetEffect(context) {
       }
     });
   });
+
+  describe("charm targetPenalty.enabled (Simple charm, activation path)", function () {
+    before(assertTestWorld);
+    afterEach(sweep);
+
+    it("creates internalPenalty AE on target when Simple charm activates", async function () {
+      const caster = await createTempCharacter({ name: "M11 Caster" });
+      const target = await createTempCharacter({ name: "M11 Target" });
+      register(caster);
+      register(target);
+
+      const [charm] = await caster.createEmbeddedDocuments("Item", [{
+        name: "Test Simple Penalty",
+        type: "charm",
+        system: {
+          charmType: "simple",
+          duration:  "oneScene",
+          cost:      { motes: 0 },
+          targetPenalty: {
+            enabled:       true,
+            amount:        -2,
+            amountFormula: "",
+            scope:         "physicalAttributes",
+            duration:      "oneScene",
+          },
+        },
+      }]);
+      register(charm);
+
+      // Point game.user.targets at the target token
+      const scene  = game.scenes.active;
+      const tToken = scene?.tokens.find(t => t.actorId === target.id);
+      if (tToken) game.user.updateTokenTargets([tToken.id]);
+
+      try {
+        await charm.activateCharm({ skipChatCard: true });
+      } finally {
+        game.user.updateTokenTargets([]);
+      }
+
+      // Wait for async AE creation to propagate
+      const deadline = Date.now() + 3000;
+      while (!target.effects.some(e => e.flags?.exalted2e?.internalPenalty)) {
+        if (Date.now() > deadline) break;
+        await new Promise(r => setTimeout(r, 50));
+      }
+
+      const ae = [...target.effects].find(e => e.flags?.exalted2e?.internalPenalty);
+      if (ae) register(ae);
+      assert.ok(ae, "internalPenalty AE should exist on target");
+      assert.equal(ae.flags.exalted2e.internalPenalty.type, "physical");
+      assert.equal(ae.flags.exalted2e.internalPenalty.value, 2);
+      assert.equal(ae.name, "Test Simple Penalty");
+    });
+  });
+
+  describe("charm healingRoll.enabled (activation path)", function () {
+    before(assertTestWorld);
+    afterEach(sweep);
+
+    it("heals bashing damage when healingRoll charm activates with target=self", async function () {
+      const healer = await createTempCharacter({ name: "M6 Healer" });
+      register(healer);
+
+      // Deal 3 bashing damage
+      await healer.applyDamage(3, "bashing");
+      const bashingBefore = healer.system.health.bashing;
+      assert.ok(bashingBefore >= 3, `healer should have at least 3 bashing before healing, got ${bashingBefore}`);
+
+      const [charm] = await healer.createEmbeddedDocuments("Item", [{
+        name: "Wound-Mending Test",
+        type: "charm",
+        system: {
+          charmType: "simple",
+          duration:  "instant",
+          cost:      { motes: 0 },
+          healingRoll: {
+            enabled:    true,
+            pool:       "20",
+            bonus:      "",
+            damageType: "bashing",
+            target:     "self",
+          },
+        },
+      }]);
+      register(charm);
+
+      await charm.activateCharm({ skipChatCard: true });
+
+      // Wait for async healDamage to propagate
+      const deadline = Date.now() + 3000;
+      while (healer.system.health.bashing >= bashingBefore) {
+        if (Date.now() > deadline) break;
+        await new Promise(r => setTimeout(r, 50));
+      }
+
+      assert.ok(
+        healer.system.health.bashing < bashingBefore,
+        `bashing should decrease after healing: was ${bashingBefore}, now ${healer.system.health.bashing}`
+      );
+    });
+  });
 }

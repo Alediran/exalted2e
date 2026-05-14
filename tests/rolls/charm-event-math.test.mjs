@@ -4,6 +4,7 @@ import {
   collectStatusApplyCharms,
   computeTargetPenaltyAmount,
   collectWillpowerRecoveryCharms,
+  getTargetPenaltyChanges,
 } from "../../module/rolls/charm-event-math.mjs";
 
 describe("collectMoteRecoveryCharms", () => {
@@ -63,18 +64,7 @@ describe("computeTargetPenaltyAmount", () => {
     const charms = [{ system: { targetPenalty: { enabled: false, amount: -5, scope: "all", duration: "scene" }}}];
     expect(computeTargetPenaltyAmount(charms)).toBe(0);
   });
-});
 
-describe("computeTargetPenaltyAmount — targeted test", () => {
-  it("searing-fist-attack gives -1 to all actions", () => {
-    const charms = [{ system: { targetPenalty: {
-      enabled: true, amount: -1, scope: "all", duration: "scene"
-    }}}];
-    expect(computeTargetPenaltyAmount(charms)).toBe(-1);
-  });
-});
-
-describe("computeTargetPenaltyAmount — amountFormula", () => {
   it("uses amountFormula when set, overriding static amount", () => {
     const charms = [{ system: { targetPenalty: {
       enabled: true, amount: -1, amountFormula: "-3", scope: "all", duration: "scene"
@@ -104,5 +94,59 @@ describe("collectWillpowerRecoveryCharms", () => {
   it("skips disabled charms", () => {
     const charms = [{ system: { willpowerRecovery: { enabled: false, event: "onDamageDealt", formula: "1" }}}];
     expect(collectWillpowerRecoveryCharms(charms, "onDamageDealt")).toHaveLength(0);
+  });
+});
+
+describe("getTargetPenaltyChanges", () => {
+  it("returns empty array when no charms", () => {
+    expect(getTargetPenaltyChanges([])).toEqual([]);
+  });
+
+  it("maps scope to penalty type", () => {
+    const charms = [
+      { name: "Joint-Wounding", system: { targetPenalty: { enabled: true, amount: -1, amountFormula: "", scope: "physicalAttributes", duration: "oneScene" }}},
+      { name: "Mind-Fogging",   system: { targetPenalty: { enabled: true, amount: -2, amountFormula: "", scope: "socialRolls",       duration: "oneScene" }}},
+      { name: "Aim-Breaker",    system: { targetPenalty: { enabled: true, amount: -1, amountFormula: "", scope: "attackRolls",       duration: "oneScene" }}},
+      { name: "All-Crusher",    system: { targetPenalty: { enabled: true, amount: -3, amountFormula: "", scope: "all",               duration: "oneScene" }}}
+    ];
+    const result = getTargetPenaltyChanges(charms, {});
+    expect(result).toHaveLength(4);
+    expect(result[0]).toMatchObject({ type: "physical", value: 1, label: "Joint-Wounding" });
+    expect(result[1]).toMatchObject({ type: "social",   value: 2, label: "Mind-Fogging"   });
+    expect(result[2]).toMatchObject({ type: "attack",   value: 1, label: "Aim-Breaker"    });
+    expect(result[3]).toMatchObject({ type: "all",      value: 3, label: "All-Crusher"    });
+  });
+
+  it("skips disabled charms", () => {
+    const charms = [{ name: "Cripple", system: { targetPenalty: { enabled: false, amount: -5, amountFormula: "", scope: "all", duration: "oneScene" }}}];
+    expect(getTargetPenaltyChanges(charms)).toHaveLength(0);
+  });
+
+  it("skips charms with zero or positive amount", () => {
+    const charms = [{ name: "Noop", system: { targetPenalty: { enabled: true, amount: 0, amountFormula: "", scope: "all", duration: "oneScene" }}}];
+    expect(getTargetPenaltyChanges(charms, {})).toHaveLength(0);
+  });
+
+  it("maps unknown scope to 'all'", () => {
+    const charms = [{ name: "Weird", system: { targetPenalty: { enabled: true, amount: -1, amountFormula: "", scope: "custom", duration: "oneScene" }}}];
+    const result = getTargetPenaltyChanges(charms, {});
+    expect(result[0].type).toBe("all");
+  });
+
+  it("evaluates amountFormula when provided", () => {
+    const charms = [{ name: "Form", system: { targetPenalty: { enabled: true, amount: -1, amountFormula: "-3", scope: "all", duration: "oneScene" }}}];
+    const result = getTargetPenaltyChanges(charms, {});
+    expect(result[0].value).toBe(3);
+  });
+
+  it("includes duration in each change entry", () => {
+    const charms = [{ name: "Scene", system: { targetPenalty: { enabled: true, amount: -1, amountFormula: "", scope: "all", duration: "oneScene" }}}];
+    expect(getTargetPenaltyChanges(charms, {})[0].duration).toBe("oneScene");
+  });
+
+  it("uses 'Charm Penalty' fallback when charm has no name", () => {
+    const charms = [{ system: { targetPenalty: { enabled: true, amount: -1, amountFormula: "", scope: "all", duration: "oneScene" }}}];
+    const result = getTargetPenaltyChanges(charms, {});
+    expect(result[0].label).toBe("Charm Penalty");
   });
 });

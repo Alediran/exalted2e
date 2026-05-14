@@ -1,6 +1,7 @@
 import { normalizeCost } from "../rolls/activation-ledger.mjs";
 import { buildCharmWeaponData } from "./charm-weapon-data.mjs";
 import { getOutOfAspectSurcharge, getForeignCharmSurcharge } from "../helpers/aspect-surcharge.mjs";
+import { SCOPE_TO_TYPE } from "../rolls/charm-event-math.mjs";
 
 /**
  * ExaltedItem – extends the base Foundry Item document.
@@ -380,6 +381,46 @@ ${capWarning}`;
       if (targetActor) {
         await targetActor.applyCharmTargetEffect(sys.targetEffect);
       }
+    }
+
+    if (!turningOff && sys.targetPenalty?.enabled && sys.charmType !== "supplemental") {
+      const targetActor = game.user.targets.first()?.actor;
+      if (targetActor) {
+        const rollData = actor.getRollData?.() ?? {};
+        const rawAmount = sys.targetPenalty.amountFormula
+          ? evaluateCharmFormula(sys.targetPenalty.amountFormula, rollData, sys.targetPenalty.amount ?? 0)
+          : (sys.targetPenalty.amount ?? 0);
+        const penaltyValue = Math.abs(Math.min(0, rawAmount));
+        if (penaltyValue > 0) {
+          const type = SCOPE_TO_TYPE[sys.targetPenalty.scope] ?? "all";
+          await targetActor.createEmbeddedDocuments("ActiveEffect", [{
+            name:     this.name,
+            img:      this.img ?? "icons/svg/regen.svg",
+            disabled: false,
+            transfer: false,
+            flags:    { exalted2e: { internalPenalty: { type, value: penaltyValue }, charmDuration: sys.targetPenalty.duration ?? "oneScene" } }
+          }]);
+        }
+      }
+    }
+
+    if (!turningOff && sys.healingRoll?.enabled) {
+      const { ExaltedRoll } = await import("../rolls/exalted-roll.mjs");
+      const rollData = actor.getRollData?.() ?? {};
+      const poolSize = Math.max(0, evaluateCharmFormula(sys.healingRoll.pool, rollData, 0));
+      const result = await ExaltedRoll.rollPool(actor, {
+        pool:     poolSize,
+        flavor:   game.i18n.localize("EX2E.HealingRoll"),
+        category: "all",
+      });
+      const bonus = sys.healingRoll.bonus
+        ? evaluateCharmFormula(sys.healingRoll.bonus, rollData, 0)
+        : 0;
+      const total = Math.max(0, result.successes + bonus);
+      const healTarget = sys.healingRoll.target === "target"
+        ? (game.user.targets.first()?.actor ?? actor)
+        : actor;
+      if (total > 0) await healTarget.healDamage(total);
     }
 
     if (!turningOff && sys.duration === "permanent") {

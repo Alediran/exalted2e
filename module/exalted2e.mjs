@@ -72,7 +72,7 @@ import { sorceryHandler } from "./combat/multi-tick-sorcery.mjs";
 import { resolveKnockbackChain, onKnockdownResistClick } from "./combat/knockback.mjs";
 import { _seedAnimaPowersCompendium } from "./helpers/anima-power-seeds.mjs";
 import { computeAttackOutcome } from "./rolls/attack-math.mjs";
-import { computeTargetPenaltyAmount, collectStatusApplyCharms } from "./rolls/charm-event-math.mjs";
+import { getTargetPenaltyChanges, collectStatusApplyCharms } from "./rolls/charm-event-math.mjs";
 
 // ── Attack-success hook helper ─────────────────────────────────────────────
 function _tryFireAttackSuccess(newAttack) {
@@ -703,12 +703,15 @@ Hooks.once("ready", async function () {
       const activatedItems = (attack.attackCharms ?? [])
         .map(n => actor.items.find(i => i.name === n))
         .filter(Boolean);
-      const penaltyAmount = computeTargetPenaltyAmount(activatedItems, actor.getRollData());
-      if (penaltyAmount < 0) {
-        await targetActor.applyInternalPenalty(Math.abs(penaltyAmount), {
-          type: "all",
-          label: game.i18n.localize("EX2E.CharmPenalty")
-        });
+      const targetPenalties = getTargetPenaltyChanges(activatedItems, actor.getRollData());
+      for (const { type, value, label, duration } of targetPenalties) {
+        await targetActor.createEmbeddedDocuments("ActiveEffect", [{
+          name:     label,
+          img:      "icons/svg/regen.svg",
+          disabled: false,
+          transfer: false,
+          flags:    { exalted2e: { internalPenalty: { type, value }, charmDuration: duration } }
+        }]);
       }
 
       // Offer resist roll for each statusApply charm activated in this attack.

@@ -55,3 +55,37 @@ export function computeTargetPenaltyAmount(items, rollData = {}) {
   }
   return Math.min(0, total);
 }
+
+export const SCOPE_TO_TYPE = {
+  all:                "all",
+  physicalAttributes: "physical",
+  socialRolls:        "social",
+  attackRolls:        "attack",
+};
+
+/**
+ * Return one { type, value, label, duration } entry per enabled targetPenalty charm.
+ * Respects scope → internal-penalty-type mapping and amountFormula evaluation.
+ * @param {object[]} items
+ * @param {object}   [rollData={}]
+ * @returns {{ type: string, value: number, label: string, duration: string }[]}
+ */
+export function getTargetPenaltyChanges(items, rollData = {}) {
+  const changes = [];
+  for (const c of items) {
+    const tp = c?.system?.targetPenalty;
+    if (!tp?.enabled) continue;
+    const rawAmount = tp.amountFormula
+      ? evaluateCharmFormula(tp.amountFormula, rollData, tp.amount ?? 0)
+      : (tp.amount ?? 0);
+    const value = Math.abs(Math.min(0, rawAmount));
+    if (value <= 0) continue;
+    changes.push({
+      type:     SCOPE_TO_TYPE[tp.scope] ?? "all",
+      value,
+      label:    c.name ?? "Charm Penalty",
+      duration: tp.duration ?? "oneScene",
+    });
+  }
+  return changes;
+}
