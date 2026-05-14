@@ -60,6 +60,7 @@
 
   /* ── Misc ─────────────────────────────────────────────────────────────────── */
   --ex2e-border-radius:    4px;
+  --ex2e-border-radius-sm: 2px;
   --ex2e-border-radius-lg: 8px;
   --ex2e-transition-fast:  0.15s ease;
 }

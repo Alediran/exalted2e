@@ -1,15 +1,15 @@
-<div class="chat-card exalted2e social-attack-card">
-  <header class="chat-card-header">
+<div class="ex2e-roll-card social-attack-card">
+  <div class="card-header">
     <img class="actor-portrait" src="{{attackerImg}}" alt="{{attackerName}}"/>
     <span class="attacker-name">{{attackerName}}</span>
     <span class="arrow">→</span>
     <img class="actor-portrait" src="{{defenderImg}}" alt="{{defenderName}}"/>
     <span class="defender-name">{{defenderName}}</span>
-  </header>
+  </div>
 
-  <div class="chat-card-body">
+  <div class="card-body">
     {{#if isMotivationBreak}}
-    <div class="motivation-break-banner" style="font-weight: 600; padding: 4px; background: var(--ex2e-bg-soft, #f5f5f5);">
+    <div class="motivation-break-banner">
       {{motivationBreakProgressLabel}}
     </div>
     {{/if}}
@@ -47,13 +47,13 @@
     </div>
 
     {{#if perfectDefense}}
-    <div class="line social-resolved-perfect" style="color: var(--ex2e-text-strong); font-weight: 600;">
+    <div class="line social-resolved-perfect">
       {{localize "EX2E.SocialResolvedPerfectDefended"}}
     </div>
     {{/if}}
 
     {{#if motesResistApplied}}
-    <div class="line social-resolved-motes" style="color: var(--ex2e-text-strong); font-weight: 600;">
+    <div class="line social-resolved-motes">
       {{localize "EX2E.SocialResolvedResistedViaMotes"}}
     </div>
     {{/if}}
@@ -62,7 +62,7 @@
 
     {{#if canDefend}}
     <div class="social-step2-controls">
-      <button type="button" class="btn-social-step2">
+      <button type="button" class="btn-roll btn-social-step2">
         <i class="fa-solid fa-shield"></i> {{localize "EX2E.SocialDefendStep2Button"}}
       </button>
     </div>
@@ -70,7 +70,7 @@
     {{/if}}
 
     {{#if autoFailedByNaturalCap}}
-    <div class="line auto-fail-natural-cap" style="color: var(--ex2e-text-muted); font-style: italic;">
+    <div class="line auto-fail-natural-cap">
       {{localize "EX2E.AutoFailedNaturalCap"}}
     </div>
     {{/if}}
@@ -82,23 +82,23 @@
     {{#if isMotivationBreak}}
     {{!-- 3c-2: Motivation-break resolution buttons --}}
     <div class="motivation-break-buttons">
-      <button type="button" class="btn-motivation-refuse" {{#unless canRefuse}}disabled{{/unless}}>
+      <button type="button" class="btn-roll btn-motivation-refuse" {{#unless canRefuse}}disabled{{/unless}}>
         {{localize "EX2E.MotivationBreakRefuseButton"}}
       </button>
-      <button type="button" class="btn-motivation-break" {{#unless canBreak}}disabled{{/unless}}>
+      <button type="button" class="btn-roll btn-motivation-break" {{#unless canBreak}}disabled{{/unless}}>
         {{localize "EX2E.MotivationBreakBreakButton"}}
       </button>
     </div>
     {{else}}
     <div class="social-response-controls">
       {{#if wpToResist}}
-      <button type="button" class="btn-social-resist"
+      <button type="button" class="btn-roll btn-social-resist"
               data-wp="{{wpToResist}}"
               {{#unless canAffordResist}}title="{{localize 'EX2E.InsufficientWillpower'}}"{{/unless}}>
         {{localize "EX2E.SpendWPToResist" count=wpToResist}}
       </button>
       {{/if}}
-      <button type="button" class="btn-social-accept">{{localize "EX2E.AcceptAttack"}}</button>
+      <button type="button" class="btn-roll btn-social-accept">{{localize "EX2E.AcceptAttack"}}</button>
     </div>
     {{/if}}
     {{/if}}
@@ -135,7 +135,7 @@
     {{#if canReverse}}
     {{#unless reversed}}
     <div class="social-reverse-row">
-      <button type="button" class="btn-social-reverse">{{localize "EX2E.ReverseSocialAttack"}}</button>
+      <button type="button" class="btn-roll btn-social-reverse">{{localize "EX2E.ReverseSocialAttack"}}</button>
     </div>
     {{/unless}}
     {{/if}}
