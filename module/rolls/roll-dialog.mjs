@@ -64,7 +64,9 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       // whichever attribute the user picks in the dialog.
       poolPenaltyByAttr:   options.poolPenaltyByAttr   ?? null,
       clarityInfo:         options.clarityInfo         ?? null,
-      virtues:             options.virtues             ?? null
+      virtues:             options.virtues             ?? null,
+      firstExcCostPerDie:   options.firstExcCostPerDie   ?? 1,
+      secondExcCostPerSucc: options.secondExcCostPerSucc ?? 2,
     };
   }
 
@@ -112,6 +114,14 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     let currentFirstExcMax  = this._data.firstExcMax;
     let currentSecondExcMax = this._data.secondExcMax;
 
+    const enforceExcMutualExclusion = () => {
+      if (!firstExcInput || !thirdExcCheck) return;
+      if (thirdExcCheck.checked) firstExcInput.value = "0";
+      const firstDice = parseInt(firstExcInput.value) || 0;
+      thirdExcCheck.disabled = firstDice > 0;
+      firstExcInput.disabled = thirdExcCheck.checked;
+    };
+
     const enforceExcCap = () => {
       if (!firstExcInput || !secondExcInput) return;
       const firstVal  = parseInt(firstExcInput.value)  || 0;
@@ -136,11 +146,14 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     };
 
     const updateTotal = () => {
+      enforceExcMutualExclusion();
       enforceExcCap();
       if (!totalCostEl) return;
       const base       = parseInt(moteCostInput?.value)  || 0;
-      const firstCost  = parseInt(firstExcInput?.value)  || 0;
-      const secondCost = (parseInt(secondExcInput?.value) || 0) * 2;
+      const firstDice  = parseInt(firstExcInput?.value)  || 0;
+      const secondSucc = parseInt(secondExcInput?.value) || 0;
+      const firstCost  = firstDice  * (this._data.firstExcCostPerDie   ?? 1);
+      const secondCost = secondSucc * (this._data.secondExcCostPerSucc ?? 2);
       const thirdCost  = thirdExcCheck?.checked ? 4 : 0;
       totalCostEl.textContent = base + firstCost + secondCost + thirdCost + ' m';
     };

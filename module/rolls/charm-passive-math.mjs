@@ -61,3 +61,17 @@ export function aggregateSpeedModifierFromAEs(actor, baseSpeed) {
   if (!anyEnabled) return baseSpeed;
   return Math.floor(Math.max(globalMin, baseSpeed + totalDelta));
 }
+
+export function getMasteryDiscount(actor, ability) {
+  const charm = actor.items?.find(
+    c => c.type === "charm"
+      && c.system?.grantsMastery
+      && c.system?.ability === ability
+      && isCharmPassivelyActive(c)
+  );
+  if (!charm) return { first: 0, second: 0 };
+  return {
+    first:  Math.floor((charm.system.masteryCommitment?.first  ?? 0) / 2),
+    second: Math.floor((charm.system.masteryCommitment?.second ?? 0) / 2),
+  };
+}

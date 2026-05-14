@@ -18,7 +18,7 @@ import {
 import { computeAttackExcellencyCaps } from "./excellency-math.mjs";
 import { bankStuntReward } from "../combat/stunt-payment.mjs";
 import { computeAttackCharmBonus } from "./charm-combat-math.mjs";
-import { aggregateExtraActionsMaxFromAEs, aggregateSpeedModifierFromAEs } from "./charm-passive-math.mjs";
+import { aggregateExtraActionsMaxFromAEs, aggregateSpeedModifierFromAEs, getMasteryDiscount } from "./charm-passive-math.mjs";
 import { evaluateCharmFormula } from "../documents/item.mjs";
 
 /**
@@ -318,6 +318,10 @@ export class ExaltedRoll {
     const firstExcMax  = keyVal;
     const secondExcMax = Math.floor(keyVal / 2);
 
+    const masteryDiscount    = isAttrBased ? { first: 0, second: 0 } : getMasteryDiscount(actor, ability);
+    const firstExcCostPerDie  = Math.max(1, 1 - masteryDiscount.first);
+    const secondExcCostPerSucc = Math.max(1, 2 - masteryDiscount.second);
+
     // Per-attribute max maps for dynamic dialog updates
     const firstExcMaxPerAttr  = isAttrBased
       ? Object.fromEntries(attributeChoices.map(c => [c.value, attributeValues[c.value] ?? 0]))
@@ -342,6 +346,8 @@ export class ExaltedRoll {
       secondExcMax:        secondExcMax,
       firstExcMaxPerAttr:  firstExcMaxPerAttr,
       secondExcMaxPerAttr: secondExcMaxPerAttr,
+      firstExcCostPerDie,
+      secondExcCostPerSucc,
       poolPenaltyByAttr:   poolPenaltyByAttr,
       clarityInfo: (sys.exaltType === "alchemical" && (_clarityMods.autochthonBonus ?? 0) > 0)
         ? { autochthonBonus: _clarityMods.autochthonBonus }
@@ -358,8 +364,8 @@ export class ExaltedRoll {
     const secondExcSuccesses = dialogResult.secondExcSucc ?? 0;
     const useThirdExcellency = dialogResult.useThirdExc   ?? false;
     const totalMoteCost      = dialogResult.moteCost
-      + firstExcDice
-      + (secondExcSuccesses * 2)
+      + firstExcDice       * firstExcCostPerDie
+      + secondExcSuccesses * secondExcCostPerSucc
       + (useThirdExcellency ? 4 : 0);
 
     if (totalMoteCost > 0 && actor.type === "character") {
@@ -562,6 +568,9 @@ export class ExaltedRoll {
     // higher in this function). The helper is parameterised on attribute
     // for the social-attack pipeline, which uses Cha/Man/App.
     const { firstExcMax, secondExcMax } = computeAttackExcellencyCaps(actor, "dexterity", ability);
+    const attackMasteryDiscount  = isAttrBased ? { first: 0, second: 0 } : getMasteryDiscount(actor, ability);
+    const firstExcCostPerDie     = Math.max(1, 1 - attackMasteryDiscount.first);
+    const secondExcCostPerSucc   = Math.max(1, 2 - attackMasteryDiscount.second);
 
     // Capture a snapshot of the targeted token's defensive stats (both DVs
     // and the soak matching the weapon's damage type). This snapshot travels
@@ -654,6 +663,8 @@ export class ExaltedRoll {
       pool, excellency, firstExcMax, secondExcMax,
       firstExcLabel, secondExcLabel,
       flurryPenalty,
+      firstExcCostPerDie,
+      secondExcCostPerSucc,
       charms:   attackCharms,
       virtues:  actor.type === "character" ? sys.virtues : null
     });
@@ -718,7 +729,7 @@ export class ExaltedRoll {
     // Mote costs (First/Second Excellency only — Third is not used at Step 3)
     const firstExcDice       = dialogResult.firstExcDice  ?? 0;
     const secondExcSuccesses = dialogResult.secondExcSucc ?? 0;
-    const totalMoteCost      = firstExcDice + (secondExcSuccesses * 2);
+    const totalMoteCost      = firstExcDice * firstExcCostPerDie + secondExcSuccesses * secondExcCostPerSucc;
 
     if (totalMoteCost > 0 && actor.type === "character") {
       const spent = await actor.spendMotes(totalMoteCost, dialogResult.moteType);

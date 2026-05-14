@@ -16,6 +16,7 @@ import { registerSorceryShapingFocused }  from "./combat/sorcery-shaping-focused
 import { registerSorceryShapingSmoke }    from "./combat/sorcery-shaping-smoke.mjs";
 import { registerAttackPipelineFocused }  from "./combat/attack-pipeline-focused.mjs";
 import { registerCharmActivation }        from "./combat/charm-activation.mjs";
+import { registerCharmEconomics }         from "./combat/charm-economics.mjs";
 import { registerCharmWeaponArtifacts }   from "./combat/charm-weapon-artifacts.mjs";
 import { registerAttackCharmSmoke }       from "./combat/attack-charm-smoke.mjs";
 import { registerSocialAttackFocused }    from "./combat/social-attack-focused.mjs";
@@ -80,6 +81,7 @@ Hooks.once("quenchReady", async quench => {
   quench.registerBatch("ex2e.sorcery.smoke",            registerSorceryShapingSmoke,    { displayName: "Sorcery shaping (smoke)" });
   quench.registerBatch("ex2e.attack.focused",           registerAttackPipelineFocused,  { displayName: "Attack pipeline (focused)" });
   quench.registerBatch("ex2e.charm.activation",         registerCharmActivation,        { displayName: "Charm activation lifecycle" });
+  quench.registerBatch("ex2e.charm-economics",          registerCharmEconomics,         { displayName: "Charm economics" });
   quench.registerBatch("ex2e.charm.weapon-artifacts",   registerCharmWeaponArtifacts,   { displayName: "Charm weapon artifacts" });
   quench.registerBatch("ex2e.attack-charm.smoke",       registerAttackCharmSmoke,       { displayName: "Attack + charm (smoke)" });
   quench.registerBatch("ex2e.social.focused",           registerSocialAttackFocused,    { displayName: "Social attack (focused)" });

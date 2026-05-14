@@ -285,5 +285,34 @@ export function registerAttackPipelineFocused(context) {
       const card = lastChatMessage();
       assert.equal(card?.id, message.id, "lastChatMessage returns the attack card");
     });
+
+    // 55. Infinite Mastery discount: Second Exc costs 1m/success instead of 2m.
+    it("[055] Infinite Mastery discount reduces Second Exc cost in rollAttack", async function () {
+      const { attacker, defender, weapon } = await setupAttackFixture();
+      await attacker.update({ "system.exaltType": "solar" });
+      // masteryCommitment.second = 2 → discount = Math.floor(2/2) = 1
+      // secondExcCostPerSucc = Math.max(1, 2 - 1) = 1  (down from 2m/success)
+      await attacker.createEmbeddedDocuments("Item", [{
+        name: "Infinite Melee Mastery", type: "charm",
+        system: {
+          charmType: "permanent", duration: "permanent",
+          grantsMastery: true, ability: "melee",
+          masteryCommitment: { first: 0, second: 2 }
+        }
+      }]);
+      await attacker.update({ "system.motes.peripheral.value": 20 });
+      const motesBefore = attacker.system.motes.peripheral.value;
+
+      await stubAttackDialog([defaultDialogResult({ secondExcSucc: 2, moteType: "peripheral" })]);
+      const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
+      await ExaltedRoll.rollAttack(attacker, weapon.id, { explicitTargetActor: defender });
+
+      // 2 successes × 1m/success = 2m spent; without discount it would be 4m.
+      assert.equal(
+        attacker.system.motes.peripheral.value,
+        motesBefore - 2,
+        "2 Second Exc successes cost 2m with mastery discount (not 4m)"
+      );
+    });
   });
 }

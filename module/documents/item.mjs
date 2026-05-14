@@ -116,6 +116,9 @@ export class ExaltedItem extends Item {
     const isToggleable = this.system.duration !== "instant" && this.system.duration !== "permanent";
     const turningOff   = isToggleable && this.system.active;
 
+    const permEss = this.system.cost?.permanentEssence  ?? 0;
+    const permWp  = this.system.cost?.permanentWillpower ?? 0;
+
     if (this.system.isSubmodule && !this.system.effectivelyActive && !turningOff) {
       ui.notifications.warn(game.i18n.localize("EX2E.SubmoduleNotActive"));
       return false;
@@ -198,6 +201,8 @@ export class ExaltedItem extends Item {
       ledger = {
         moteBreakdown: null, willpower: 0, bashing: 0, lethal: 0,
         aggravated: 0, xp: 0,
+        permanentEssence:   0,
+        permanentWillpower: 0,
         toggledOn: false, toggledOff: false,
         spawnedWeapon: false, rolledInstant: false,
         cooperation: null,
@@ -212,11 +217,20 @@ export class ExaltedItem extends Item {
       if (!ledger) return false;
       // Charm-specific ledger flags that _spendActivationCosts doesn't know
       // about live alongside the shared ones.
+      ledger.permanentEssence   = permEss;
+      ledger.permanentWillpower = permWp;
       ledger.toggledOn     = false;
       ledger.toggledOff    = false;
       ledger.spawnedWeapon = false;
       ledger.rolledInstant = false;
       ledger.via           = via;
+
+      if (permEss > 0 || permWp > 0) {
+        await actor.createEmbeddedDocuments("ActiveEffect", [{
+          name:  this.name,
+          flags: { exalted2e: { permanentCost: { essence: permEss, willpower: permWp }, sourceItem: this.id } }
+        }]);
+      }
 
       if (sys.keywords?.includes("Cooperative")) {
         const { CooperativeCharmDialog } = await import("../dialogs/cooperative-charm-dialog.mjs");

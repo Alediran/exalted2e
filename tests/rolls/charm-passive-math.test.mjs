@@ -4,6 +4,7 @@ import {
   isCharmPassivelyActive,
   aggregateExtraActionsMaxFromAEs,
   aggregateSpeedModifierFromAEs,
+  getMasteryDiscount,
 } from "../../module/rolls/charm-passive-math.mjs";
 
 // ── computeWoundReduction ────────────────────────────────────────────
@@ -118,5 +119,63 @@ describe("aggregateSpeedModifierFromAEs", () => {
   it("skips disabled AEs", () => {
     const disabledAE = { disabled: true, flags: { exalted2e: { speedModifier: { delta: -10, minimum: 1 } } } };
     expect(aggregateSpeedModifierFromAEs(makeActor([disabledAE]), 5)).toBe(5);
+  });
+});
+
+describe("getMasteryDiscount", () => {
+  const makeActor = (charm) => ({
+    items: { find: (fn) => [charm].find(fn) }
+  });
+
+  it("returns {first:0, second:0} when actor has no items", () => {
+    expect(getMasteryDiscount({ items: { find: () => undefined } }, "melee"))
+      .toEqual({ first: 0, second: 0 });
+  });
+
+  it("returns {first:0, second:0} when no grantsMastery charm matches the ability", () => {
+    const charm = {
+      type: "charm",
+      system: { grantsMastery: true, ability: "archery", duration: "permanent", active: true,
+                masteryCommitment: { first: 4, second: 2 } }
+    };
+    expect(getMasteryDiscount(makeActor(charm), "melee")).toEqual({ first: 0, second: 0 });
+  });
+
+  it("returns Math.floor(commitment/2) for each type", () => {
+    const charm = {
+      type: "charm",
+      system: { grantsMastery: true, ability: "melee", duration: "permanent", active: true,
+                masteryCommitment: { first: 4, second: 2 } }
+    };
+    expect(getMasteryDiscount(makeActor(charm), "melee")).toEqual({ first: 2, second: 1 });
+  });
+
+  it("odd commitment rounds down: first=3 → discount 1", () => {
+    const charm = {
+      type: "charm",
+      system: { grantsMastery: true, ability: "melee", duration: "permanent", active: true,
+                masteryCommitment: { first: 3, second: 0 } }
+    };
+    expect(getMasteryDiscount(makeActor(charm), "melee")).toEqual({ first: 1, second: 0 });
+  });
+
+  it("caller floor: Math.max(1, 2 - discount) for Second Exc with discount=1 gives 1m/success", () => {
+    const charm = {
+      type: "charm",
+      system: { grantsMastery: true, ability: "melee", duration: "permanent", active: true,
+                masteryCommitment: { first: 0, second: 2 } }
+    };
+    const { second } = getMasteryDiscount(makeActor(charm), "melee");
+    expect(Math.max(1, 2 - second)).toBe(1);
+  });
+
+  it("caller floor: Math.max(1, 1 - discount) for First Exc never goes below 1", () => {
+    const charm = {
+      type: "charm",
+      system: { grantsMastery: true, ability: "melee", duration: "permanent", active: true,
+                masteryCommitment: { first: 10, second: 0 } }
+    };
+    const { first } = getMasteryDiscount(makeActor(charm), "melee");
+    expect(Math.max(1, 1 - first)).toBe(1);
   });
 });

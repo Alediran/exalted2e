@@ -50,8 +50,10 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       // ability being rolled. Rendered as a checkbox list so the attacker
       // can activate Unblockable / Undodgeable (and similar) alongside the
       // attack roll.
-      charms:         options.charms         ?? [],
-      virtues:        options.virtues        ?? null
+      charms:              options.charms              ?? [],
+      virtues:             options.virtues             ?? null,
+      firstExcCostPerDie:  options.firstExcCostPerDie  ?? 1,
+      secondExcCostPerSucc: options.secondExcCostPerSucc ?? 2
     };
   }
 
@@ -134,8 +136,10 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     const updateTotal = () => {
       enforceExcCap();
       if (!totalCostEl) return;
-      const firstCost  = parseInt(firstExcInput?.value)  || 0;
-      const secondCost = (parseInt(secondExcInput?.value) || 0) * 2;
+      const firstDice  = parseInt(firstExcInput?.value)  || 0;
+      const secondSucc = parseInt(secondExcInput?.value) || 0;
+      const firstCost  = firstDice  * (this._data.firstExcCostPerDie   ?? 1);
+      const secondCost = secondSucc * (this._data.secondExcCostPerSucc ?? 2);
       totalCostEl.textContent = firstCost + secondCost;
     };
 
