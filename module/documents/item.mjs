@@ -203,27 +203,40 @@ export class ExaltedItem extends Item {
 
       const essence   = actor?.system?.essence?.value ?? 1;
       const maxCommit = essence >= 4 ? 9999 : 6;
+      const capWarning = maxCommit !== 9999
+        ? `<p class="notification warning" style="margin:4px 0">${game.i18n.format("EX2E.MasteryCommitCapWarning", { max: maxCommit })}</p>`
+        : "";
       const content = `
 <div class="field-group">
   <label>${game.i18n.localize("EX2E.MasteryCommitment")}</label>
   <input type="number" name="commitment" value="${Math.min(oldCommitment, maxCommit)}"
          min="0" max="${maxCommit === 9999 ? "" : maxCommit}" style="width:5em">
-</div>`;
+</div>
+${capWarning}`;
       const result = await foundry.applications.api.DialogV2.prompt({
         window: { title: game.i18n.format("EX2E.MasteryCommitDialog", { name: this.name }) },
         content,
         ok: { callback: (_ev, button) => Math.min(maxCommit, Math.max(0, parseInt(button.form.elements.commitment.value) || 0)) }
       });
       if (result === null || result === undefined) return false;
+      const clampedResult = Math.min(maxCommit === 9999 ? Infinity : maxCommit, Math.max(0, result));
 
       await actor.createEmbeddedDocuments("ActiveEffect", [{
         name:     this.name,
         img:      this.img ?? "icons/svg/aura.svg",
         transfer: false,
-        flags:    { exalted2e: { charmSource: this.id, masteryCommitment: result, masteryAbility: sys.ability } }
+        flags:    {
+          exalted2e: {
+            charmSource:      this.id,
+            masteryCommitment: clampedResult,
+            masteryAbility:    sys.ability,
+            baseCostMotes:     cost.motes ?? 0,
+            charmDuration:     sys.duration
+          }
+        }
       }]);
 
-      const delta = result - oldCommitment;
+      const delta = clampedResult - oldCommitment;
       if (delta !== 0) {
         const pool = actor.system.motes.peripheral;
         await actor.update({ "system.motes.peripheral.value":
@@ -299,10 +312,11 @@ export class ExaltedItem extends Item {
         e => e.flags?.exalted2e?.charmSource === this.id
           && "masteryCommitment" in (e.flags?.exalted2e ?? {})
       );
-      const commitment = ae ? (ae.flags.exalted2e.masteryCommitment ?? 0) : 0;
-      if (commitment > 0) {
+      const f = ae?.flags?.exalted2e ?? {};
+      const totalRestore = (f.masteryCommitment ?? 0) + (f.baseCostMotes ?? 0);
+      if (totalRestore > 0) {
         const pool = actor.system.motes.peripheral;
-        await actor.update({ "system.motes.peripheral.value": Math.min(pool.max ?? 0, (pool.value ?? 0) + commitment) });
+        await actor.update({ "system.motes.peripheral.value": Math.min(pool.max ?? 0, (pool.value ?? 0) + totalRestore) });
       }
     }
 

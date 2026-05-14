@@ -339,7 +339,8 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     let masteryCommitted = 0;
     for (const ae of (this.parent?.effects ?? [])) {
       if (ae.disabled) continue;
-      masteryCommitted += ae.flags?.exalted2e?.masteryCommitment ?? 0;
+      const f = ae.flags?.exalted2e ?? {};
+      masteryCommitted += (f.masteryCommitment ?? 0) + (f.baseCostMotes ?? 0);
     }
     if (masteryCommitted > 0) this.motes.peripheral.committed += masteryCommitted;
     this._prepareIntimacies();
