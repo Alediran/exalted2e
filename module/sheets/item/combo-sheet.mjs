@@ -1,4 +1,5 @@
 import { editImageAction } from "../_edit-image.mjs";
+import { moteCostString } from "../../rolls/activation-ledger.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -75,7 +76,7 @@ export class ComboSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   _charmCostMeta(charm) {
     const c = charm.system?.cost ?? {};
     const parts = [];
-    if (c.motes)            parts.push(`${c.motes}m`);
+    const mStr = moteCostString(c); if (mStr) parts.push(mStr);
     if (c.willpower)        parts.push(`+${c.willpower}wp`);
     if (c.bashingHealth)    parts.push(`${c.bashingHealth}b`);
     if (c.lethalHealth)     parts.push(`${c.lethalHealth}l`);

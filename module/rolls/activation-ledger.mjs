@@ -1,4 +1,36 @@
 /**
+ * Build a human-readable mote cost string that reflects variable-cost fields.
+ *
+ * - Fixed only:        "5m"
+ * - Per-unit only:     "2m/die"  or  "3m + 2m/die"  (when base > 0)
+ * - Tiers only:        "4m Basic / 8m Enhanced"  (or "4m / 8m" with no labels)
+ * - Tiers + per-unit:  "4m / 8m + 2m/die"
+ * - Zero cost:         ""
+ *
+ * @param {object} [cost]
+ * @returns {string}
+ */
+export function moteCostString(cost) {
+  if (cost?.motesLabel) return cost.motesLabel;
+
+  const base      = Math.max(0, Math.floor(Number(cost?.motes)        || 0));
+  const perUnit   = Math.max(0, Math.floor(Number(cost?.motesPerUnit) || 0));
+  const unitLabel = cost?.motesUnitLabel || "unit";
+  const tiers     = Array.isArray(cost?.tiers) ? cost.tiers : [];
+
+  const tierStr = tiers.length > 0
+    ? tiers.map(t => t.label ? `${t.moteCost}m ${t.label}` : `${t.moteCost}m`).join(" / ")
+    : null;
+
+  const unitStr = perUnit > 0 ? `${perUnit}m/${unitLabel}` : null;
+
+  if (tierStr && unitStr) return `${tierStr} + ${unitStr}`;
+  if (tierStr)             return tierStr;
+  if (unitStr)             return base > 0 ? `${base}m + ${unitStr}` : unitStr;
+  return base > 0 ? `${base}m` : "";
+}
+
+/**
  * Normalize a raw charm `system.cost` object to non-negative integer values.
  *
  * Accepts fields in the shape used by `CharmData`:

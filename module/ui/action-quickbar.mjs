@@ -1,6 +1,7 @@
 import { EX2E } from "../config.mjs";
 import { computeSpellCastButtonState } from "./spell-cast-button.mjs";
 import { resolveUserActor } from "../helpers/targeting.mjs";
+import { moteCostString } from "../rolls/activation-ledger.mjs";
 
 /**
  * Lazily create (or return) the shared bottom-HUD flex container that
@@ -372,7 +373,7 @@ export class ActionQuickbar {
         row.classList.add("qb-attack-mode");
         const cost = s.system?.cost ?? {};
         const costParts = [];
-        if (cost.motes)            costParts.push(`${cost.motes}m`);
+        const mStr = moteCostString(cost); if (mStr) costParts.push(mStr);
         if (cost.willpower)        costParts.push(`${cost.willpower}wp`);
         if (cost.bashingHealth)    costParts.push(`${cost.bashingHealth}hl(B)`);
         if (cost.lethalHealth)     costParts.push(`${cost.lethalHealth}hl(L)`);

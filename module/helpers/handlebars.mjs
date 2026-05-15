@@ -1,9 +1,15 @@
 import { EX2E } from "../config.mjs";
+import { moteCostString } from "../rolls/activation-ledger.mjs";
 
 /**
  * Register all Handlebars helpers used by the Exalted 2e system.
  */
 export function registerHandlebarsHelpers() {
+
+  // ── moteCostString ─────────────────────────────────────────────────────
+  // Returns the variable-aware mote cost label for a cost object.
+  // Usage: {{moteCostString system.cost}}
+  Handlebars.registerHelper("moteCostString", cost => moteCostString(cost));
 
   // ── dotRating ──────────────────────────────────────────────────────────
   // Renders a row of clickable round dot pips (permanent ratings).

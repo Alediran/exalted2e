@@ -1,3 +1,4 @@
+import { moteCostString } from "../rolls/activation-ledger.mjs";
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
 /**
@@ -69,7 +70,7 @@ export class Step2SocialDefenseDialog extends HandlebarsApplicationMixin(Applica
       charms:            this._data.charms.map(c => {
         const cost = c.system.cost ?? {};
         const parts = [];
-        if (cost.motes)            parts.push(`${cost.motes}m`);
+        const mStr = moteCostString(cost); if (mStr) parts.push(mStr);
         if (cost.willpower)        parts.push(`${cost.willpower}wp`);
         if (cost.bashingHealth)    parts.push(`${cost.bashingHealth}hl(B)`);
         if (cost.lethalHealth)     parts.push(`${cost.lethalHealth}hl(L)`);
