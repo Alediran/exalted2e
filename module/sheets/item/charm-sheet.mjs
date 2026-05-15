@@ -26,6 +26,8 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       editImage:        editImageAction,
       addKeyword:       CharmSheet.#onAddKeyword,
       removeKeyword:    CharmSheet.#onRemoveKeyword,
+      addCostTier:      CharmSheet.#onAddCostTier,
+      removeCostTier:   CharmSheet.#onRemoveCostTier,
       toggleStep:       CharmSheet.#onToggleStep,
       addAttackTag:     CharmSheet.#onAddAttackTag,
       removeAttackTag:  CharmSheet.#onRemoveAttackTag,
@@ -270,6 +272,20 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const keywords = foundry.utils.deepClone(this.document.system.keywords ?? []);
     keywords.splice(idx, 1);
     await this.document.update({ "system.keywords": keywords });
+  }
+
+  static async #onAddCostTier(event, target) {
+    const tiers = foundry.utils.deepClone(this.document.system.cost.tiers ?? []);
+    tiers.push({ moteCost: 0, label: "" });
+    await this.document.update({ "system.cost.tiers": tiers });
+  }
+
+  static async #onRemoveCostTier(event, target) {
+    const ti = parseInt(target.dataset.tierIndex, 10);
+    if (!Number.isFinite(ti)) return;
+    const tiers = foundry.utils.deepClone(this.document.system.cost.tiers ?? []);
+    tiers.splice(ti, 1);
+    await this.document.update({ "system.cost.tiers": tiers });
   }
 
   static async #onToggleStep(event, target) {

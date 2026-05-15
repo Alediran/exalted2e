@@ -34,6 +34,21 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         permanentEssence:   new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
         permanentWillpower: new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
         motesLabel:       new fields.StringField({ initial: "", blank: true }),
+        // Variable-cost authoring. motesPerUnit > 0 → player picks units at activation;
+        // actualMotes = cost.motes + (units × motesPerUnit). tiers.length > 0 → player
+        // picks one tier; actualMotes = selectedTier.moteCost. Both may be set: tiers
+        // dialog runs first, then units dialog; total is their sum.
+        motesPerUnit:   new fields.NumberField({ initial: 0, min: 0, max: 50, integer: true }),
+        motesUnitLabel: new fields.StringField({ initial: "", blank: true }),
+        motesMin:       new fields.NumberField({ initial: 0, min: 0, max: 50, integer: true }),
+        motesMax:       new fields.NumberField({ initial: 0, min: 0, max: 50, integer: true }),
+        tiers: new fields.ArrayField(
+          new fields.SchemaField({
+            moteCost: new fields.NumberField({ initial: 0, min: 0, max: 50, integer: true }),
+            label:    new fields.StringField({ initial: "", blank: true })
+          }),
+          { initial: [] }
+        ),
         // Authoring metadata — not consumed by the activation ledger yet (Plan 2).
         resonance:        new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),
         limitTrigger:     new fields.NumberField({ initial: 0, min: 0, max: 3,  integer: true })

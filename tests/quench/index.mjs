@@ -48,6 +48,7 @@ import { registerGreaterSigns }             from "./combat/greater-signs.mjs";
 import { registerCooperativeCharm }         from "./combat/cooperative-charm.mjs";
 import { registerWeavingTests }             from "./combat/weaving.mjs";
 import { registerCharmTargetEffect }        from "./combat/charm-target-effect.mjs";
+import { registerCharmVariableCost }        from "./combat/charm-variable-cost.mjs";
 import { registerHearthstone }              from "./combat/hearthstone.mjs";
 import { registerMartialArtsStyle }         from "./combat/martial-arts-style.mjs";
 import { registerVirtueChanneling }         from "./combat/virtue-channeling.mjs";
@@ -113,6 +114,7 @@ Hooks.once("quenchReady", async quench => {
   quench.registerBatch("ex2e.cooperative-charm",        registerCooperativeCharm,        { displayName: "DB Charm cooperation" });
   quench.registerBatch("ex2e.weaving",                  registerWeavingTests,            { displayName: "Alchemical Weaving protocols" });
   quench.registerBatch("ex2e.charm.target-effect",      registerCharmTargetEffect,       { displayName: "Charm target effect (onHit)" });
+  quench.registerBatch("ex2e.charm.variable-cost",      registerCharmVariableCost,       { displayName: "Charm variable mote cost" });
   quench.registerBatch("ex2e.hearthstone",              registerHearthstone,             { displayName: "Hearthstone socketing" });
   quench.registerBatch("ex2e.martial-arts-style",       registerMartialArtsStyle,        { displayName: "Martial Arts style auto-add" });
   quench.registerBatch("ex2e.virtue-channeling",         registerVirtueChanneling,         { displayName: "Virtue channeling (WP / virtue spend)" });

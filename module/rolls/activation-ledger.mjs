@@ -9,12 +9,14 @@
  * Missing / NaN / negative values become 0. Fractional values floor.
  *
  * @param {object} [cost]
+ * @param {object} [overrides]
+ * @param {number} [overrides.motesOverride] - If provided, use this instead of cost.motes
  * @returns {{moteCost: number, willpowerCost: number, bashingCost: number, lethalCost: number, aggravatedCost: number, xpCost: number}}
  */
-export function normalizeCost(cost) {
+export function normalizeCost(cost, { motesOverride } = {}) {
   const n = v => Math.max(0, Math.floor(Number(v) || 0));
   return {
-    moteCost:       n(cost?.motes),
+    moteCost:       motesOverride !== undefined ? n(motesOverride) : n(cost?.motes),
     willpowerCost:  n(cost?.willpower),
     bashingCost:    n(cost?.bashingHealth),
     lethalCost:     n(cost?.lethalHealth),

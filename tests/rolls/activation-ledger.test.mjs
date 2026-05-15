@@ -26,6 +26,29 @@ describe("normalizeCost", () => {
       lethalCost: 0, aggravatedCost: 0, xpCost: 0
     });
   });
+
+  it("uses motesOverride instead of cost.motes when provided", () => {
+    expect(normalizeCost({ motes: 5 }, { motesOverride: 10 })).toMatchObject({ moteCost: 10 });
+  });
+
+  it("does not use motesOverride when it is undefined (no second arg)", () => {
+    expect(normalizeCost({ motes: 5 })).toMatchObject({ moteCost: 5 });
+  });
+
+  it("applies the same floor-and-clamp to motesOverride as to motes", () => {
+    expect(normalizeCost({ motes: 5 }, { motesOverride: 7.9 })).toMatchObject({ moteCost: 7 });
+    expect(normalizeCost({ motes: 5 }, { motesOverride: -3 })).toMatchObject({ moteCost: 0 });
+  });
+
+  it("treats motesOverride of 0 as an explicit override (not undefined fallback)", () => {
+    expect(normalizeCost({ motes: 5 }, { motesOverride: 0 })).toMatchObject({ moteCost: 0 });
+  });
+
+  it("other cost fields are still read from cost when motesOverride is set", () => {
+    expect(
+      normalizeCost({ motes: 5, willpower: 2, xp: 1 }, { motesOverride: 8 })
+    ).toEqual({ moteCost: 8, willpowerCost: 2, bashingCost: 0, lethalCost: 0, aggravatedCost: 0, xpCost: 1 });
+  });
 });
 
 // ── planLedgerRefund ─────────────────────────────────────────────────

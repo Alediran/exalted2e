@@ -13,6 +13,26 @@
              placeholder="e.g. 1m per die" {{#unless isEditable}}readonly{{/unless}}>
     </div>
     <div class="field-group">
+      <label>{{localize "EX2E.MotesPerUnit"}}</label>
+      <input type="number" name="system.cost.motesPerUnit" value="{{system.cost.motesPerUnit}}" min="0"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.MotesUnitLabel"}}</label>
+      <input type="text" name="system.cost.motesUnitLabel" value="{{system.cost.motesUnitLabel}}"
+             placeholder="e.g. extra die" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.MotesMin"}}</label>
+      <input type="number" name="system.cost.motesMin" value="{{system.cost.motesMin}}" min="0"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.MotesMax"}}</label>
+      <input type="number" name="system.cost.motesMax" value="{{system.cost.motesMax}}" min="0"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    <div class="field-group">
       <label>{{localize "EX2E.Willpower"}}</label>
       <input type="number" name="system.cost.willpower" value="{{system.cost.willpower}}" min="0"
              {{#unless isEditable}}readonly{{/unless}}>
@@ -164,6 +184,36 @@
         {{/each}}
       </select>
     </div>
+    {{#unless system.isSubmodule}}
+    <div class="field-group cost-tiers-block" style="grid-column:1/-1">
+      <div class="tags-header">
+        <label>{{localize "EX2E.CostTiers"}}</label>
+        {{#if isEditable}}
+          <button type="button" data-action="addCostTier" title="{{localize 'EX2E.AddCostTier'}}">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        {{/if}}
+      </div>
+      {{#each system.cost.tiers as |tier tIdx|}}
+      <div class="prereq-alt" data-tier-index="{{tIdx}}">
+        {{#if @root.isEditable}}
+          <input type="number" name="system.cost.tiers.{{tIdx}}.moteCost"
+                 value="{{tier.moteCost}}" min="0" style="width:4em"
+                 placeholder="{{localize 'EX2E.TierCost'}}">
+          <input type="text" name="system.cost.tiers.{{tIdx}}.label"
+                 value="{{tier.label}}"
+                 placeholder="{{localize 'EX2E.TierLabel'}}">
+          <button type="button" data-action="removeCostTier" data-tier-index="{{tIdx}}"
+                  title="{{localize 'EX2E.RemoveCostTier'}}">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        {{else}}
+          <span>{{tier.label}}: {{tier.moteCost}}m</span>
+        {{/if}}
+      </div>
+      {{/each}}
+    </div>
+    {{/unless}}
   </div>
 
   <!-- Prerequisites -->
@@ -202,6 +252,8 @@
             {{/each}}
           </select>
           {{#if (eq alt.type "charm")}}
+          <input type="hidden" name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.charmUid" value="{{alt.charmUid}}">
+          <input type="hidden" name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.charmName" value="{{alt.charmName}}">
           <div class="charm-drop-zone" data-drop-type="prereq"
                data-group-index="{{gIdx}}" data-alt-index="{{aIdx}}">
             {{#if alt.charmName}}
@@ -222,6 +274,7 @@
                  value="{{alt.virtueMin}}" min="1" max="5" style="width:3em"
                  {{#unless @root.isEditable}}readonly{{/unless}}>
           {{else}}
+          <input type="hidden" name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.abilityKey" value="{{alt.abilityKey}}">
           <span class="prereq-any-exc-label">{{localize "EX2E.PrereqAnyExcellencyHint"}}</span>
           {{/if}}
           {{/if}}
