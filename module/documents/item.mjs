@@ -270,18 +270,46 @@ ${capWarning}`;
 
       // Resolve variable mote cost. explicitMotesOverride skips dialogs (for tests/automation).
       let motesOverride;
+      let surchargeExtra = null;
       if (explicitMotesOverride !== null) {
         motesOverride = explicitMotesOverride + surcharge;
       } else if (costParsed?.moteVar || costParsed?.surcharge?.length) {
         const resolved = await this._resolveVariableMoteCost(cost, costParsed);
         if (resolved === null) return false;
-        motesOverride = resolved + surcharge;
+        ({ surchargeExtra } = resolved);
+        motesOverride = resolved.motes + surcharge;
       } else if (surcharge > 0) {
         motesOverride = (costParsed?.motes ?? 0) + surcharge;
       }
 
       ledger = await this._spendActivationCosts(cost, { motePool, skipXpConfirm, motesOverride });
       if (!ledger) return false;
+
+      // Spend non-mote costs from the selected surcharge option (motes already in motesOverride).
+      if (surchargeExtra) {
+        if (surchargeExtra.willpower > 0) {
+          const wp = Number(actor.system.willpower?.value) || 0;
+          await actor.update({ "system.willpower.value": Math.max(0, wp - surchargeExtra.willpower) });
+          ledger.willpower += surchargeExtra.willpower;
+        }
+        if (surchargeExtra.bashingHealth > 0) {
+          await actor.applyDamage(surchargeExtra.bashingHealth, "bashing");
+          ledger.bashing += surchargeExtra.bashingHealth;
+        }
+        if (surchargeExtra.lethalHealth > 0) {
+          await actor.applyDamage(surchargeExtra.lethalHealth, "lethal");
+          ledger.lethal += surchargeExtra.lethalHealth;
+        }
+        if (surchargeExtra.aggravatedHealth > 0) {
+          await actor.applyDamage(surchargeExtra.aggravatedHealth, "aggravated");
+          ledger.aggravated += surchargeExtra.aggravatedHealth;
+        }
+        if (surchargeExtra.xp > 0) {
+          const xp = Number(actor.system.experience?.value) || 0;
+          await actor.update({ "system.experience.value": Math.max(0, xp - surchargeExtra.xp) });
+          ledger.xp += surchargeExtra.xp;
+        }
+      }
       // Charm-specific ledger flags that _spendActivationCosts doesn't know
       // about live alongside the shared ones.
       ledger.permanentEssence   = permEss;
@@ -585,17 +613,20 @@ ${capWarning}`;
    *
    * Surcharge pre-step: if parsed.surcharge is set, offer surcharge options first.
    * MoteVar step: if parsed.moteVar is set, open the appropriate picker.
-   * Returns the resolved mote total (base + variable), or null if cancelled.
+   * Returns { motes, surchargeExtra } on success, or null if cancelled.
+   * surchargeExtra is the full ParsedCost of the chosen surcharge option (for non-mote spend),
+   * or null if no surcharge was taken.
    *
    * @param {object}     cost    The charm's system.cost object (has formula field).
    * @param {ParsedCost} parsed  Pre-parsed result of parseCostFormula(cost.formula).
-   * @returns {Promise<number|null>}
+   * @returns {Promise<{motes:number, surchargeExtra:ParsedCost|null}|null>}
    */
   async _resolveVariableMoteCost(cost, parsed) {
     if (!parsed) parsed = parseCostFormula(cost?.formula ?? "");
-    if (!parsed) return 0;
+    if (!parsed) return { motes: 0, surchargeExtra: null };
 
     let selectedMotes = parsed.motes;
+    let surchargeExtra = null;
 
     // ── Surcharge pre-step ───────────────────────────────────────────────────
     if (parsed.surcharge?.length) {
@@ -611,7 +642,7 @@ ${capWarning}`;
           yes: { label: game.i18n.localize("EX2E.Confirm"), icon: "fa-solid fa-check" },
           no:  { label: game.i18n.localize("EX2E.Skip"),   icon: "fa-solid fa-xmark"  }
         });
-        if (confirmed) selectedMotes += opt.cost.motes;
+        if (confirmed) { selectedMotes += opt.cost.motes; surchargeExtra = opt.cost; }
       } else if (available.length > 1) {
         // Multiple options: radio picker
         const rows = available.map((o, i) => {
@@ -632,14 +663,15 @@ ${capWarning}`;
           rejectClose: false
         });
         if (optIdx !== null && optIdx !== "skip" && Number.isFinite(optIdx)) {
-          selectedMotes += available[optIdx]?.cost?.motes ?? 0;
+          const picked = available[optIdx];
+          if (picked) { selectedMotes += picked.cost.motes ?? 0; surchargeExtra = picked.cost; }
         }
       }
     }
 
     // ── MoteVar picker ───────────────────────────────────────────────────────
     const { moteVar } = parsed;
-    if (!moteVar) return selectedMotes;
+    if (!moteVar) return { motes: selectedMotes, surchargeExtra };
 
     if (moteVar.type === "tiered") {
       const tierRows = moteVar.tiers.map((t, i) =>
@@ -700,7 +732,7 @@ ${capWarning}`;
         : units;
     }
 
-    return selectedMotes;
+    return { motes: selectedMotes, surchargeExtra };
   }
 
   /**
