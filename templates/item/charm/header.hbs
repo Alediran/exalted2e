@@ -60,11 +60,6 @@
     <div class="charm-cost-summary">
       <strong>{{localize "EX2E.Cost"}}:</strong>
       {{moteCostString system.cost}}
-      {{#if system.cost.willpower}} +{{system.cost.willpower}}wp{{/if}}
-      {{#if system.cost.bashingHealth}} +{{system.cost.bashingHealth}}hl(B){{/if}}
-      {{#if system.cost.lethalHealth}} +{{system.cost.lethalHealth}}hl(L){{/if}}
-      {{#if system.cost.aggravatedHealth}} +{{system.cost.aggravatedHealth}}hl(A){{/if}}
-      {{#if system.cost.xp}} +{{system.cost.xp}}xp{{/if}}
       {{#unless system.isSubmodule}}&nbsp;·&nbsp; <strong>Type:</strong> {{system.charmType}}{{/unless}}
       &nbsp;·&nbsp; <strong>Duration:</strong> {{system.duration}}
     </div>

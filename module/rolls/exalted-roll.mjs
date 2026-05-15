@@ -665,10 +665,15 @@ export class ExaltedRoll {
     // a truthy return means the cost was paid.
     const activatedCharms = [];
     const activatedKeywords = new Set();
-    for (const id of (dialogResult.charmIds ?? [])) {
+    const activations = dialogResult.charmActivations?.length
+      ? dialogResult.charmActivations
+      : (dialogResult.charmIds ?? []).map(id => ({ id, motesOverride: undefined }));
+    for (const { id, motesOverride } of activations) {
       const c = actor.items.get(id);
       if (!c) continue;
-      const ok = await c.activateCharm();
+      const ok = await c.activateCharm({
+        explicitMotesOverride: motesOverride !== undefined ? motesOverride : null
+      });
       if (!ok) continue;
       activatedCharms.push({ id: c.id, name: c.name });
       for (const kw of (c.system.keywords ?? [])) activatedKeywords.add(kw);
@@ -915,6 +920,7 @@ export class ExaltedRoll {
     rewardKind = "motes",
     // 3c-1
     charmIds = [],
+    charmActivations = [],
     firstExcDice = 0,
     secondExcSucc = 0,
     moteType = "peripheral",
@@ -945,13 +951,19 @@ export class ExaltedRoll {
     // 3c-1: Activate picked charms inline. Each charm's activateCharm posts
     // its own chat card. Failures (insufficient resources, user cancels XP
     // confirm) are dropped; their keywords don't propagate.
-    const pickedCharms = (charmIds ?? [])
-      .map(id => attacker.items.get(id))
-      .filter(c => c && c.type === "charm");
+    const socialActivations = charmActivations.length
+      ? charmActivations
+      : (charmIds ?? []).map(id => ({ id, motesOverride: undefined }));
     const actuallyActivated = [];
-    for (const charm of pickedCharms) {
+    for (const { id, motesOverride } of socialActivations) {
+      const charm = attacker.items.get(id);
+      if (!charm || charm.type !== "charm") continue;
       try {
-        const result = await charm.activateCharm({ skipXpConfirm: false, via: "social-attack" });
+        const result = await charm.activateCharm({
+          skipXpConfirm: false,
+          via: "social-attack",
+          explicitMotesOverride: motesOverride !== undefined ? motesOverride : null
+        });
         if (result !== null && result !== false) actuallyActivated.push(charm);
       } catch (err) {
         console.error(`Charm activation failed: ${charm.name}`, err);

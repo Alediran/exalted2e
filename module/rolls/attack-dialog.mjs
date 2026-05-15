@@ -1,4 +1,4 @@
-import { moteCostString } from "./activation-ledger.mjs";
+import { moteCostString, charmVariableCostCtx, extractCharmActivations } from "./activation-ledger.mjs";
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
 /**
@@ -67,20 +67,17 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       const cost = c.system?.cost ?? {};
       const parts = [];
       const mStr = moteCostString(cost); if (mStr) parts.push(mStr);
-      if (cost.willpower)        parts.push(`${cost.willpower}wp`);
-      if (cost.bashingHealth)    parts.push(`${cost.bashingHealth}hl(B)`);
-      if (cost.lethalHealth)     parts.push(`${cost.lethalHealth}hl(L)`);
-      if (cost.aggravatedHealth) parts.push(`${cost.aggravatedHealth}hl(A)`);
-      if (cost.xp)               parts.push(`${cost.xp}xp`);
       const keywords = c.system?.keywords ?? [];
       return {
         id:          c.id,
         name:        c.name,
         costLabel:   parts.join(" · "),
         keywords,
-        tagLabel:    keywords.filter(k => k === "Unblockable" || k === "Undodgeable").join(", ")
+        tagLabel:    keywords.filter(k => k === "Unblockable" || k === "Undodgeable").join(", "),
+        ...charmVariableCostCtx(c),
       };
     });
+    this._charms = charms;
     return {
       ...context,
       ...this._data,
@@ -174,10 +171,9 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     const fd   = new foundry.applications.ux.FormDataExtended(form);
     const data = fd.object;
 
-    // Collect ticked charm checkboxes — each has name="charm-<id>".
-    const charmIds = Object.keys(data)
-      .filter(k => k.startsWith("charm-") && data[k])
-      .map(k => k.slice("charm-".length));
+    // Collect ticked charm checkboxes + their variable-cost picker selections.
+    const charmActivations = extractCharmActivations(data, this._charms ?? []);
+    const charmIds = charmActivations.map(a => a.id);
 
     this._resolved = true;
     this._resolve({
@@ -189,6 +185,7 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       firstExcDice:       parseInt(data.firstExcDice)  || 0,
       secondExcSucc:      parseInt(data.secondExcSucc) || 0,
       charmIds,
+      charmActivations,
       virtueChannelMode: data.virtueChannelMode || "none",
       virtueChannel:     data.virtueChannelMode === "dice" ? (data.virtueChannel || null) : null
     });

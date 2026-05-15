@@ -1,6 +1,7 @@
 import { EX2E } from "../../config.mjs";
 import { describeAllPrereqs } from "../../helpers/charm-prereqs.mjs";
 import { editImageAction } from "../_edit-image.mjs";
+import { parseCostFormula } from "../../rolls/activation-ledger.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -26,8 +27,6 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       editImage:        editImageAction,
       addKeyword:       CharmSheet.#onAddKeyword,
       removeKeyword:    CharmSheet.#onRemoveKeyword,
-      addCostTier:      CharmSheet.#onAddCostTier,
-      removeCostTier:   CharmSheet.#onRemoveCostTier,
       toggleStep:       CharmSheet.#onToggleStep,
       addAttackTag:     CharmSheet.#onAddAttackTag,
       removeAttackTag:  CharmSheet.#onRemoveAttackTag,
@@ -119,6 +118,32 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     })();
     const charmByUid = new Map(allCharmOptions.map(o => [o.uid, o.name]));
 
+    // Formula parse preview for the charm sheet cost field
+    const _formulaParsed = parseCostFormula(sys.cost?.formula ?? "");
+    let costFormulaPreview = "", costFormulaError = "";
+    if (sys.cost?.formula) {
+      if (_formulaParsed === null) {
+        costFormulaError = game.i18n.localize("EX2E.CharmsSheet.CostFormulaError");
+      } else {
+        const parts = [];
+        if (_formulaParsed.motes > 0)           parts.push(`${_formulaParsed.motes}m base`);
+        if (_formulaParsed.moteVar?.type === "perUnit")
+          parts.push(`${_formulaParsed.moteVar.rate}m/${_formulaParsed.moteVar.unit}`);
+        if (_formulaParsed.moteVar?.type === "openEnded") parts.push("open-ended");
+        if (_formulaParsed.moteVar?.type === "tiered")
+          parts.push(`${_formulaParsed.moteVar.tiers.length} tiers`);
+        if (_formulaParsed.willpower > 0)        parts.push(`${_formulaParsed.willpower}wp`);
+        if (_formulaParsed.lethalHealth > 0)     parts.push(`${_formulaParsed.lethalHealth}lhl`);
+        if (_formulaParsed.bashingHealth > 0)    parts.push(`${_formulaParsed.bashingHealth}bhl`);
+        if (_formulaParsed.aggravatedHealth > 0) parts.push(`${_formulaParsed.aggravatedHealth}ahl`);
+        if (_formulaParsed.xp > 0)               parts.push(`${_formulaParsed.xp}xp`);
+        if (_formulaParsed.permanentEssence > 0) parts.push("perm ess");
+        if (_formulaParsed.permanentWillpower > 0) parts.push("perm wp");
+        if (_formulaParsed.surcharge?.length)    parts.push(`surcharge (${_formulaParsed.surcharge.length} opt)`);
+        costFormulaPreview = parts.join(" · ") || "✓";
+      }
+    }
+
     return {
       ...context,
       item,
@@ -160,6 +185,8 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         uid, index, name: charmByUid.get(uid) ?? "",
       })),
       isEditable:   this.isEditable,
+      costFormulaPreview,
+      costFormulaError,
       yoziPatronOptions: Object.entries(EX2E.yoziPatrons).map(([k, v]) => ({
         key: k, label: game.i18n.localize(v)
       })),
@@ -272,20 +299,6 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const keywords = foundry.utils.deepClone(this.document.system.keywords ?? []);
     keywords.splice(idx, 1);
     await this.document.update({ "system.keywords": keywords });
-  }
-
-  static async #onAddCostTier(event, target) {
-    const tiers = foundry.utils.deepClone(this.document.system.cost.tiers ?? []);
-    tiers.push({ moteCost: 0, label: "" });
-    await this.document.update({ "system.cost.tiers": tiers });
-  }
-
-  static async #onRemoveCostTier(event, target) {
-    const ti = parseInt(target.dataset.tierIndex, 10);
-    if (!Number.isFinite(ti)) return;
-    const tiers = foundry.utils.deepClone(this.document.system.cost.tiers ?? []);
-    tiers.splice(ti, 1);
-    await this.document.update({ "system.cost.tiers": tiers });
   }
 
   static async #onToggleStep(event, target) {

@@ -45,8 +45,7 @@
             {{/if}}
             {{charm.name}}
             <span class="charm-meta">
-              {{charm.system.cost.motes}}m
-              {{#if charm.system.cost.willpower}}+{{charm.system.cost.willpower}}wp{{/if}}
+              {{moteCostString charm.system.cost}}
               · {{charm.system.duration}}
             </span>
           </span>

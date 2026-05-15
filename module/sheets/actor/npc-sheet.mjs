@@ -1,6 +1,7 @@
 import { ExaltedRoll } from "../../rolls/exalted-roll.mjs";
 import { editImageAction } from "../_edit-image.mjs";
 import { ex2eCan } from "../../helpers/permissions.mjs";
+import { parseCostFormula } from "../../rolls/activation-ledger.mjs";
 
 const { ActorSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -53,12 +54,13 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       for (const uid of uids) { const c = byUid.get(uid); if (c) resolved.push(c); else missingCount++; }
       const prev = { motes: 0, willpower: 0, bashing: 0, lethal: 0, aggravated: 0 };
       for (const c of resolved) {
-        const cost = c.system?.cost ?? {};
-        prev.motes      += Number(cost.motes)            || 0;
-        prev.willpower  += Number(cost.willpower)        || 0;
-        prev.bashing    += Number(cost.bashingHealth)    || 0;
-        prev.lethal     += Number(cost.lethalHealth)     || 0;
-        prev.aggravated += Number(cost.aggravatedHealth) || 0;
+        const cost   = c.system?.cost ?? {};
+        const parsed = parseCostFormula(cost.formula ?? "") ?? {};
+        prev.motes      += parsed.motes           ?? 0;
+        prev.willpower  += parsed.willpower        ?? 0;
+        prev.bashing    += parsed.bashingHealth    ?? 0;
+        prev.lethal     += parsed.lethalHealth     ?? 0;
+        prev.aggravated += parsed.aggravatedHealth ?? 0;
       }
       const bits = [];
       if (prev.motes)      bits.push(`${prev.motes}m`);

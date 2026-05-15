@@ -156,6 +156,28 @@
             {{#if this.tagLabel}}<span class="charm-kw">{{this.tagLabel}}</span>{{/if}}
             {{#if this.costLabel}}<span class="charm-cost">{{this.costLabel}}</span>{{/if}}
           </label>
+          {{#if this.hasTiers}}
+          <div class="charm-var-cost charm-tiers">
+            {{#each this.tiers as |tier|}}
+            <label class="charm-tier-opt">
+              <input type="radio" name="charm-tier-{{../this.id}}" value="{{tier.moteCost}}" {{#if @first}}checked{{/if}}>
+              {{#if tier.label}}{{tier.label}} ({{tier.moteCost}}m){{else}}{{tier.moteCost}}m{{/if}}
+            </label>
+            {{/each}}
+          </div>
+          {{/if}}
+          {{#if this.hasPerUnit}}
+          <div class="charm-var-cost charm-per-unit">
+            <label class="charm-per-unit-label">
+              <span>{{this.motesUnitLabel}}:</span>
+              <input type="number" name="charm-units-{{this.id}}"
+                     value="{{this.motesMin}}" min="{{this.motesMin}}"
+                     {{#if this.motesMax}}max="{{this.motesMax}}"{{/if}}
+                     style="width:4em">
+              <span class="charm-per-unit-rate">× {{this.motesPerUnit}}m</span>
+            </label>
+          </div>
+          {{/if}}
         </li>
         {{/each}}
       </ul>

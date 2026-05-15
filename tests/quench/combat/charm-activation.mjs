@@ -77,7 +77,7 @@ export function registerCharmActivation(context) {
     it("[55] spends motes (peripheral first); ledger records moteBreakdown", async function () {
       const actor = await setupCharmActor();
       const charm = await createTempCharm(actor, {
-        cost: { motes: 5 }, duration: "instant"
+        cost: { formula: "5m" }, duration: "instant"
       });
       const ok = await charm.activateCharm({ skipXpConfirm: true });
       assert.equal(ok, true, "activation succeeded");
@@ -98,7 +98,7 @@ export function registerCharmActivation(context) {
     it("[56] overflows peripheral→personal; ledger records the split", async function () {
       const actor = await setupCharmActor({ peripheral: 2, personal: 10 });
       const charm = await createTempCharm(actor, {
-        cost: { motes: 5 }, duration: "instant"
+        cost: { formula: "5m" }, duration: "instant"
       });
       await charm.activateCharm({ skipXpConfirm: true });
       assert.equal(actor.system.motes.peripheral.value, 0, "peripheral drained");
@@ -112,7 +112,7 @@ export function registerCharmActivation(context) {
     it("[57] spends willpower", async function () {
       const actor = await setupCharmActor();
       const charm = await createTempCharm(actor, {
-        cost: { willpower: 2 }, duration: "instant"
+        cost: { formula: "2wp" }, duration: "instant"
       });
       await charm.activateCharm({ skipXpConfirm: true });
       assert.equal(actor.system.willpower.value, 3, "wp 5−2=3");
@@ -126,7 +126,7 @@ export function registerCharmActivation(context) {
       // Snapshot lethal box count BEFORE activation so we can verify damage applied.
       const lethalBefore = actor.system.health?.lethal ?? 0;
       const charm = await createTempCharm(actor, {
-        cost: { lethalHealth: 1 }, duration: "instant"
+        cost: { formula: "1lhl" }, duration: "instant"
       });
       await charm.activateCharm({ skipXpConfirm: true });
       const lethalAfter = actor.system.health?.lethal ?? 0;
@@ -139,7 +139,7 @@ export function registerCharmActivation(context) {
     it("[59] spends XP after confirm", async function () {
       const actor = await setupCharmActor();
       const charm = await createTempCharm(actor, {
-        cost: { xp: 3 }, duration: "instant"
+        cost: { formula: "3xp" }, duration: "instant"
       });
       stubXpConfirm([true]);  // confirm yes
       await charm.activateCharm();
@@ -152,7 +152,7 @@ export function registerCharmActivation(context) {
     it("[60] cancelled XP confirm: no spend, no chat card, returns false", async function () {
       const actor = await setupCharmActor();
       const charm = await createTempCharm(actor, {
-        cost: { motes: 5, willpower: 1, xp: 3 }, duration: "instant"
+        cost: { formula: "5m, 1wp, 3xp" }, duration: "instant"
       });
       const messagesBefore = game.messages.size;
       stubXpConfirm([false]);  // cancel
@@ -169,7 +169,7 @@ export function registerCharmActivation(context) {
     it("[61] reverse refunds across both pools after a peripheral→personal overflow", async function () {
       const actor = await setupCharmActor({ peripheral: 2, personal: 10 });
       const charm = await createTempCharm(actor, {
-        cost: { motes: 5 }, duration: "instant"
+        cost: { formula: "5m" }, duration: "instant"
       });
       await charm.activateCharm({ skipXpConfirm: true });
       assert.equal(actor.system.motes.peripheral.value, 0);
@@ -192,7 +192,7 @@ export function registerCharmActivation(context) {
     it("[62] reverse on already-reversed activation is a no-op", async function () {
       const actor = await setupCharmActor();
       const charm = await createTempCharm(actor, {
-        cost: { motes: 5 }, duration: "instant"
+        cost: { formula: "5m" }, duration: "instant"
       });
       await charm.activateCharm({ skipXpConfirm: true });
       const card = chatMessageByFlag("charmActivation",

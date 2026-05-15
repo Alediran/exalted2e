@@ -10,8 +10,9 @@ describe("CharmData schema gaps — field presence", () => {
   it("B6: dvPenalty exists on schema", () => {
     expect(schema).toHaveProperty("dvPenalty");
   });
-  it("B1: cost has motesLabel field", () => {
-    expect(schema.cost.options).toHaveProperty("motesLabel");
+  it("DSL: cost has formula field", () => {
+    const schema = CharmData.defineSchema();
+    expect(schema.cost.fields).toHaveProperty("formula");
   });
   it("B5: martialArtsStyleName exists on schema", () => {
     expect(schema).toHaveProperty("martialArtsStyleName");

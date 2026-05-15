@@ -36,7 +36,7 @@ async function makeCoopCharm(actor, {
   const charm = await createTempCharm(actor, {
     name,
     keywords: ["Cooperative"],
-    cost: { motes: moteCost },
+    cost: { formula: moteCost > 0 ? `${moteCost}m` : "—" },
     duration,
     ...(attack ? { attack } : {}),
   });

@@ -1,6 +1,6 @@
 import { computeAttackExcellencyCaps } from "../rolls/excellency-math.mjs";
 import { findCampaign, validateNewCampaign } from "../rolls/motivation-break-math.mjs";
-import { moteCostString } from "../rolls/activation-ledger.mjs";
+import { moteCostString, charmVariableCostCtx, extractCharmActivations } from "../rolls/activation-ledger.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -94,11 +94,6 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       const cost = c.system?.cost ?? {};
       const parts = [];
       const mStr = moteCostString(cost); if (mStr) parts.push(mStr);
-      if (cost.willpower)        parts.push(`${cost.willpower}wp`);
-      if (cost.bashingHealth)    parts.push(`${cost.bashingHealth}hl(B)`);
-      if (cost.lethalHealth)     parts.push(`${cost.lethalHealth}hl(L)`);
-      if (cost.aggravatedHealth) parts.push(`${cost.aggravatedHealth}hl(A)`);
-      if (cost.xp)               parts.push(`${cost.xp}xp`);
       const kws = c.system?.keywords ?? [];
       const TAG_KEYWORDS = ["Unnatural Mental Influence", "Compel", "Emotion", "Illusion"];
       const tags = kws.filter(k => TAG_KEYWORDS.includes(k));
@@ -107,9 +102,11 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
         name:      c.name,
         costLabel: parts.join(" · "),
         tagLabel:  tags.join(", "),
-        isUmi:     kws.includes("Unnatural Mental Influence")
+        isUmi:     kws.includes("Unnatural Mental Influence"),
+        ...charmVariableCostCtx(c),
       };
     });
+    this._pickerCharms = pickerCharms;
 
     // 3c-1: Excellency caps
     const { firstExcMax, secondExcMax } = a
@@ -326,10 +323,9 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       }
     }
 
-    // 3c-1: Collect picker charm ids (checkboxes named charm-<id>).
-    const charmIds = Object.keys(data)
-      .filter(k => k.startsWith("charm-") && data[k])
-      .map(k => k.slice("charm-".length));
+    // 3c-1: Collect picker charm ids + variable-cost selections.
+    const charmActivations = extractCharmActivations(data, this._pickerCharms ?? []);
+    const charmIds = charmActivations.map(a => a.id);
 
     this._resolved = true;
     this._resolve({
@@ -353,6 +349,7 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       rewardKind:         data.stuntRewardKind === "willpower" ? "willpower" : "motes",
       // 3c-1
       charmIds,
+      charmActivations,
       firstExcDice:  parseInt(data.firstExcDice)  || 0,
       secondExcSucc: parseInt(data.secondExcSucc) || 0,
       moteType:      data.moteType || "peripheral",

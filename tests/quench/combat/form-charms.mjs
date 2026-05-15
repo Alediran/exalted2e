@@ -136,7 +136,7 @@ export function registerFormCharms(context) {
     it("[F05] activateCharm (Form-type): applies AEs from charm to actor", async function () {
       const actor = await setupActor();
       const charm = await createFormCharm(actor, {
-        cost: { motes: 3 },
+        cost: { formula: "3m" },
         effects: [{ name: "Snake Soak", changes: [{ key: "system.soak.bashing", mode: 2, value: "3" }] }]
       });
       const motesBefore = actor.system.motes.peripheral.value;

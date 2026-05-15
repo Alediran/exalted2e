@@ -374,11 +374,6 @@ export class ActionQuickbar {
         const cost = s.system?.cost ?? {};
         const costParts = [];
         const mStr = moteCostString(cost); if (mStr) costParts.push(mStr);
-        if (cost.willpower)        costParts.push(`${cost.willpower}wp`);
-        if (cost.bashingHealth)    costParts.push(`${cost.bashingHealth}hl(B)`);
-        if (cost.lethalHealth)     costParts.push(`${cost.lethalHealth}hl(L)`);
-        if (cost.aggravatedHealth) costParts.push(`${cost.aggravatedHealth}hl(A)`);
-        if (cost.xp)               costParts.push(`${cost.xp}xp`);
         const costLabel = costParts.join(" ") || "—";
         row.innerHTML = `<span class="mode-label">${s.name}</span><span class="mode-stats">${costLabel}</span>`;
 

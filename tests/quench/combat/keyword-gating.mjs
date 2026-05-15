@@ -22,7 +22,7 @@ function actionOnlyCharmData(name = "Test Action-Only") {
       keywords: ["Action-Only"],
       charmType: "reflexive",
       duration: "instant",
-      cost: { motes: 0, willpower: 0 }
+      cost: { formula: "—" }
     }
   };
 }

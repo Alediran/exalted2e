@@ -17,7 +17,7 @@ export function registerCharmEconomics(context) {
       const [charm] = await actor.createEmbeddedDocuments("Item", [{
         name: "Test Perm Ess", type: "charm",
         system: { charmType: "reflexive", duration: "oneScene",
-          cost: { motes: 0, willpower: 0, permanentEssence: 1, permanentWillpower: 0 } }
+          cost: { formula: "perm ess" } }
       }]);
       const before = actor.effects.filter(e => e.flags?.exalted2e?.permanentCost).length;
       await charm.activateCharm({ skipChatCard: true });
@@ -33,7 +33,7 @@ export function registerCharmEconomics(context) {
       const [charm] = await actor.createEmbeddedDocuments("Item", [{
         name: "Test Perm WP", type: "charm",
         system: { charmType: "reflexive", duration: "oneScene",
-          cost: { motes: 0, willpower: 0, permanentEssence: 0, permanentWillpower: 1 } }
+          cost: { formula: "perm wp" } }
       }]);
       const before = actor.effects.filter(e => e.flags?.exalted2e?.permanentCost).length;
       await charm.activateCharm({ skipChatCard: true });
@@ -50,7 +50,7 @@ export function registerCharmEconomics(context) {
       const [charm] = await actor.createEmbeddedDocuments("Item", [{
         name: "Test No Perm", type: "charm",
         system: { charmType: "reflexive", duration: "oneScene",
-          cost: { motes: 0, willpower: 0, permanentEssence: 0, permanentWillpower: 0 } }
+          cost: { formula: "—" } }
       }]);
       const before = actor.effects.filter(e => e.flags?.exalted2e?.permanentCost).length;
       await charm.activateCharm({ skipChatCard: true });
@@ -65,7 +65,7 @@ export function registerCharmEconomics(context) {
       const [charm] = await actor.createEmbeddedDocuments("Item", [{
         name: "Test Ledger", type: "charm",
         system: { charmType: "reflexive", duration: "oneScene",
-          cost: { motes: 0, willpower: 0, permanentEssence: 1, permanentWillpower: 0 } }
+          cost: { formula: "perm ess" } }
       }]);
       const msgCountBefore = game.messages.size;
       await charm.activateCharm({ skipChatCard: false });

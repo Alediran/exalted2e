@@ -2147,10 +2147,15 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       // allows the attack to land but zeroes out the damage pool.
       let perfectDefenseCharm = null;
       let perfectDefenseType  = null;
-      for (const id of result.charmIds) {
+      const step2Activations = result.charmActivations?.length
+        ? result.charmActivations
+        : (result.charmIds ?? []).map(id => ({ id, motesOverride: undefined }));
+      for (const { id, motesOverride } of step2Activations) {
         const charm = targetActor.items.get(id);
         if (!charm) continue;
-        const ok = await charm.activateCharm();
+        const ok = await charm.activateCharm({
+          explicitMotesOverride: motesOverride !== undefined ? motesOverride : null
+        });
         if (!ok) continue;
         activatedNames.push(charm.name);
         if (!perfectDefenseCharm) {

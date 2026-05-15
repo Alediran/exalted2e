@@ -71,7 +71,7 @@ export function registerCharmTargetEffect(context) {
         system: {
           charmType: "simple",
           duration:  "instant",
-          cost: { motes: 1, willpower: 0, bashingHealth: 0, lethalHealth: 0, aggravatedHealth: 0, xp: 0 },
+          cost: { formula: "1m" },
           targetEffect: {
             enabled:  true,
             trigger:  "onActivate",
@@ -116,7 +116,7 @@ export function registerCharmTargetEffect(context) {
         system: {
           charmType: "simple",
           duration:  "oneScene",
-          cost:      { motes: 0 },
+          cost:      { formula: "—" },
           targetPenalty: {
             enabled:       true,
             amount:        -2,
@@ -165,7 +165,7 @@ export function registerCharmTargetEffect(context) {
         system: {
           charmType: "simple",
           duration:  "instant",
-          cost:      { motes: 0 },
+          cost:      { formula: "—" },
           healingRoll: {
             enabled:    true,
             pool:       "20",

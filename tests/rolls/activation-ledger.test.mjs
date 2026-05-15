@@ -10,16 +10,6 @@ describe("normalizeCost", () => {
     });
   });
 
-  it("floors fractions and clamps negatives to zero", () => {
-    expect(normalizeCost({
-      motes: 3.7, willpower: -2, bashingHealth: "bad", lethalHealth: 2.2,
-      aggravatedHealth: null, xp: -5
-    })).toEqual({
-      moteCost: 3, willpowerCost: 0, bashingCost: 0,
-      lethalCost: 2, aggravatedCost: 0, xpCost: 0
-    });
-  });
-
   it("handles undefined cost argument gracefully", () => {
     expect(normalizeCost(undefined)).toEqual({
       moteCost: 0, willpowerCost: 0, bashingCost: 0,
@@ -27,27 +17,73 @@ describe("normalizeCost", () => {
     });
   });
 
-  it("uses motesOverride instead of cost.motes when provided", () => {
-    expect(normalizeCost({ motes: 5 }, { motesOverride: 10 })).toMatchObject({ moteCost: 10 });
+  it("parses a mote-only formula", () => {
+    expect(normalizeCost({ formula: "5m" })).toMatchObject({ moteCost: 5 });
+  });
+
+  it("treats the dash formula as zero cost", () => {
+    expect(normalizeCost({ formula: "—" })).toMatchObject({ moteCost: 0 });
+  });
+
+  it("parses a willpower-only formula", () => {
+    expect(normalizeCost({ formula: "2wp" })).toMatchObject({ willpowerCost: 2 });
+  });
+
+  it("parses a combined motes + willpower formula", () => {
+    expect(normalizeCost({ formula: "5m, 1wp" })).toMatchObject({ moteCost: 5, willpowerCost: 1 });
+  });
+
+  it("parses a bashing health formula", () => {
+    expect(normalizeCost({ formula: "1bhl" })).toMatchObject({ bashingCost: 1 });
+  });
+
+  it("parses a lethal health formula", () => {
+    expect(normalizeCost({ formula: "2lhl" })).toMatchObject({ lethalCost: 2 });
+  });
+
+  it("parses an aggravated health formula", () => {
+    expect(normalizeCost({ formula: "1ahl" })).toMatchObject({ aggravatedCost: 1 });
+  });
+
+  it("parses an xp formula", () => {
+    expect(normalizeCost({ formula: "3xp" })).toMatchObject({ xpCost: 3 });
+  });
+
+  it("uses motesOverride instead of formula motes when provided", () => {
+    expect(normalizeCost({ formula: "5m" }, { motesOverride: 10 })).toMatchObject({ moteCost: 10 });
   });
 
   it("does not use motesOverride when it is undefined (no second arg)", () => {
-    expect(normalizeCost({ motes: 5 })).toMatchObject({ moteCost: 5 });
+    expect(normalizeCost({ formula: "5m" })).toMatchObject({ moteCost: 5 });
   });
 
   it("applies the same floor-and-clamp to motesOverride as to motes", () => {
-    expect(normalizeCost({ motes: 5 }, { motesOverride: 7.9 })).toMatchObject({ moteCost: 7 });
-    expect(normalizeCost({ motes: 5 }, { motesOverride: -3 })).toMatchObject({ moteCost: 0 });
+    expect(normalizeCost({ formula: "5m" }, { motesOverride: 7.9 })).toMatchObject({ moteCost: 7 });
+    expect(normalizeCost({ formula: "5m" }, { motesOverride: -3 })).toMatchObject({ moteCost: 0 });
   });
 
   it("treats motesOverride of 0 as an explicit override (not undefined fallback)", () => {
-    expect(normalizeCost({ motes: 5 }, { motesOverride: 0 })).toMatchObject({ moteCost: 0 });
+    expect(normalizeCost({ formula: "5m" }, { motesOverride: 0 })).toMatchObject({ moteCost: 0 });
   });
 
-  it("other cost fields are still read from cost when motesOverride is set", () => {
+  it("other cost fields are still read from formula when motesOverride is set", () => {
     expect(
-      normalizeCost({ motes: 5, willpower: 2, xp: 1 }, { motesOverride: 8 })
+      normalizeCost({ formula: "5m, 2wp, 1xp" }, { motesOverride: 8 })
     ).toEqual({ moteCost: 8, willpowerCost: 2, bashingCost: 0, lethalCost: 0, aggravatedCost: 0, xpCost: 1 });
+  });
+
+  it("legacy field-based cost (no formula key) still works", () => {
+    expect(normalizeCost({ motes: 7, willpower: 2 })).toMatchObject({ moteCost: 7, willpowerCost: 2 });
+  });
+
+  it("legacy field-based path floors fractions and clamps negatives to zero", () => {
+    expect(normalizeCost({
+      motes: 3.7, willpower: -2, bashingHealth: "bad", lethalHealth: 2.2,
+      aggravatedHealth: null, xp: -5
+    })).toEqual({
+      moteCost: 3, willpowerCost: 0, bashingCost: 0,
+      lethalCost: 2, aggravatedCost: 0, xpCost: 0
+    });
   });
 });
 

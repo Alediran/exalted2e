@@ -1,4 +1,4 @@
-import { normalizeCost } from "../rolls/activation-ledger.mjs";
+import { normalizeCost, parseCostFormula, moteCostString } from "../rolls/activation-ledger.mjs";
 import { buildCharmWeaponData } from "./charm-weapon-data.mjs";
 import { getOutOfAspectSurcharge, getForeignCharmSurcharge } from "../helpers/aspect-surcharge.mjs";
 import { SCOPE_TO_TYPE } from "../rolls/charm-event-math.mjs";
@@ -117,8 +117,9 @@ export class ExaltedItem extends Item {
     const isToggleable = this.system.duration !== "instant" && this.system.duration !== "permanent";
     const turningOff   = isToggleable && this.system.active;
 
-    const permEss = this.system.cost?.permanentEssence  ?? 0;
-    const permWp  = this.system.cost?.permanentWillpower ?? 0;
+    const _costParsed = parseCostFormula(this.system.cost?.formula ?? "");
+    const permEss     = _costParsed?.permanentEssence  ?? 0;
+    const permWp      = _costParsed?.permanentWillpower ?? 0;
 
     if (this.system.isSubmodule && !this.system.effectivelyActive && !turningOff) {
       ui.notifications.warn(game.i18n.localize("EX2E.SubmoduleNotActive"));
@@ -231,7 +232,7 @@ ${capWarning}`;
             charmSource:      this.id,
             masteryCommitment: clampedResult,
             masteryAbility:    sys.ability,
-            baseCostMotes:     cost.motes ?? 0,
+            baseCostMotes:     _costParsed?.motes ?? 0,
             charmDuration:     sys.duration
           }
         }
@@ -264,22 +265,22 @@ ${capWarning}`;
         via
       };
     } else {
-      const surcharge = getOutOfAspectSurcharge(actor, this) + getForeignCharmSurcharge(actor, this);
+      const surcharge    = getOutOfAspectSurcharge(actor, this) + getForeignCharmSurcharge(actor, this);
+      const costParsed   = _costParsed;   // already computed above
 
       // Resolve variable mote cost. explicitMotesOverride skips dialogs (for tests/automation).
       let motesOverride;
       if (explicitMotesOverride !== null) {
         motesOverride = explicitMotesOverride + surcharge;
-      } else if ((cost.motesPerUnit ?? 0) > 0 || (cost.tiers?.length ?? 0) > 0) {
-        const resolved = await this._resolveVariableMoteCost(cost);
+      } else if (costParsed?.moteVar || costParsed?.surcharge?.length) {
+        const resolved = await this._resolveVariableMoteCost(cost, costParsed);
         if (resolved === null) return false;
         motesOverride = resolved + surcharge;
+      } else if (surcharge > 0) {
+        motesOverride = (costParsed?.motes ?? 0) + surcharge;
       }
 
-      const effectiveCost = motesOverride === undefined && surcharge > 0
-        ? { ...cost, motes: (cost.motes ?? 0) + surcharge }
-        : cost;
-      ledger = await this._spendActivationCosts(effectiveCost, { motePool, skipXpConfirm, motesOverride });
+      ledger = await this._spendActivationCosts(cost, { motePool, skipXpConfirm, motesOverride });
       if (!ledger) return false;
       // Charm-specific ledger flags that _spendActivationCosts doesn't know
       // about live alongside the shared ones.
@@ -304,9 +305,9 @@ ${capWarning}`;
         if (result?.supporters?.length) {
           cooperation = { supporters: [], bonusDice: 0 };
           for (const supporter of result.supporters) {
-            const breakdown = await supporter.spendMotes(sys.cost?.motes ?? 0, "peripheral");
+            const breakdown = await supporter.spendMotes(_costParsed?.motes ?? 0, "peripheral");
             if (breakdown) {
-              cooperation.supporters.push({ actorId: supporter.id, name: supporter.name, motesPaid: sys.cost?.motes ?? 0 });
+              cooperation.supporters.push({ actorId: supporter.id, name: supporter.name, motesPaid: _costParsed?.motes ?? 0 });
             } else {
               ui.notifications?.warn(game.i18n.format("EX2E.CooperationSpendFailed", { name: supporter.name }));
             }
@@ -581,83 +582,122 @@ ${capWarning}`;
 
   /**
    * Open DialogV2 prompts to resolve a variable mote cost at activation time.
-   * - If cost.tiers.length > 0: radio picker for a tier option.
-   * - If cost.motesPerUnit > 0: number input for unit count.
-   * Both dialogs may run sequentially; total = tierCost + (units × motesPerUnit).
-   * Returns the resolved mote total, or null if the player cancelled.
    *
-   * @param {object} cost  The charm's system.cost object.
+   * Surcharge pre-step: if parsed.surcharge is set, offer surcharge options first.
+   * MoteVar step: if parsed.moteVar is set, open the appropriate picker.
+   * Returns the resolved mote total (base + variable), or null if cancelled.
+   *
+   * @param {object}     cost    The charm's system.cost object (has formula field).
+   * @param {ParsedCost} parsed  Pre-parsed result of parseCostFormula(cost.formula).
    * @returns {Promise<number|null>}
    */
-  async _resolveVariableMoteCost(cost) {
-    const {
-      motes = 0, motesPerUnit = 0, motesUnitLabel = "",
-      motesMin = 0, motesMax = 0, tiers = []
-    } = cost;
-    let selectedMotes = motes;
+  async _resolveVariableMoteCost(cost, parsed) {
+    if (!parsed) parsed = parseCostFormula(cost?.formula ?? "");
+    if (!parsed) return 0;
 
-    // ── Tier picker ──────────────────────────────────────────────────────
-    if (tiers.length > 0) {
-      const tierRows = tiers.map((t, i) =>
+    let selectedMotes = parsed.motes;
+
+    // ── Surcharge pre-step ───────────────────────────────────────────────────
+    if (parsed.surcharge?.length) {
+      const available = parsed.surcharge.filter(o => !o.condition || o.conditionMet);
+      if (available.length === 1) {
+        // Single option: confirm dialog
+        const opt    = available[0];
+        const label  = opt.label ?? moteCostString(opt.cost);
+        const prefix = opt.relative ? "+" : "";
+        const confirmed = await foundry.applications.api.DialogV2.confirm({
+          window:  { title: game.i18n.format("EX2E.SurchargeConfirmTitle", { name: this.name }) },
+          content: `<p>${game.i18n.format("EX2E.SurchargeConfirmBody", { cost: prefix + label })}</p>`,
+          yes: { label: game.i18n.localize("EX2E.Confirm"), icon: "fa-solid fa-check" },
+          no:  { label: game.i18n.localize("EX2E.Skip"),   icon: "fa-solid fa-xmark"  }
+        });
+        if (confirmed) selectedMotes += opt.cost.motes;
+      } else if (available.length > 1) {
+        // Multiple options: radio picker
+        const rows = available.map((o, i) => {
+          const prefix = o.relative ? "+" : "";
+          const label  = o.label ?? moteCostString(o.cost);
+          return `<label style="display:block;margin:4px 0;cursor:pointer">
+            <input type="radio" name="surcharge" value="${i}" ${i === 0 ? "checked" : ""}> ${foundry.utils.escapeHTML(prefix + label)}
+          </label>`;
+        }).join("");
+        const optIdx = await foundry.applications.api.DialogV2.wait({
+          window:  { title: game.i18n.format("EX2E.SurchargeConfirmTitle", { name: this.name }) },
+          content: `<div style="padding:8px">${rows}</div>`,
+          buttons: [
+            { action: "confirm", label: game.i18n.localize("EX2E.Confirm"), default: true,
+              callback: (_ev, _btn, dialog) => parseInt(dialog.element.querySelector("input[name=surcharge]:checked")?.value ?? "0", 10) },
+            { action: "skip", label: game.i18n.localize("EX2E.Skip") }
+          ],
+          rejectClose: false
+        });
+        if (optIdx !== null && optIdx !== "skip" && Number.isFinite(optIdx)) {
+          selectedMotes += available[optIdx]?.cost?.motes ?? 0;
+        }
+      }
+    }
+
+    // ── MoteVar picker ───────────────────────────────────────────────────────
+    const { moteVar } = parsed;
+    if (!moteVar) return selectedMotes;
+
+    if (moteVar.type === "tiered") {
+      const tierRows = moteVar.tiers.map((t, i) =>
         `<label style="display:block;margin:4px 0;cursor:pointer">
-          <input type="radio" name="tier" value="${i}" ${i === 0 ? "checked" : ""}> ${foundry.utils.escapeHTML(t.label)} (${t.moteCost}m)
+          <input type="radio" name="tier" value="${i}" ${i === 0 ? "checked" : ""}> ${foundry.utils.escapeHTML(t.label || String(t.moteCost) + "m")} (${t.moteCost}m)
         </label>`
       ).join("");
       const tierId = await foundry.applications.api.DialogV2.wait({
-        window:      { title: game.i18n.format("EX2E.VariableMotePromptTitle", { name: this.name }) },
-        content:     `<div style="padding:8px"><p>${game.i18n.localize("EX2E.SelectTierPrompt")}</p>${tierRows}</div>`,
-        buttons:     [
-          {
-            action:   "confirm",
-            label:    game.i18n.localize("EX2E.Confirm"),
-            default:  true,
-            callback: (_ev, _btn, dialog) =>
-              parseInt(dialog.element.querySelector("input[name=tier]:checked")?.value ?? "0", 10)
-          },
-          {
-            action: "cancel",
-            label:  game.i18n.localize("EX2E.Cancel")
-          }
+        window:  { title: game.i18n.format("EX2E.VariableMotePromptTitle", { name: this.name }) },
+        content: `<div style="padding:8px"><p>${game.i18n.localize("EX2E.SelectTierPrompt")}</p>${tierRows}</div>`,
+        buttons: [
+          { action: "confirm", label: game.i18n.localize("EX2E.Confirm"), default: true,
+            callback: (_ev, _btn, dialog) => parseInt(dialog.element.querySelector("input[name=tier]:checked")?.value ?? "0", 10) },
+          { action: "cancel",  label: game.i18n.localize("EX2E.Cancel") }
         ],
         rejectClose: false
       });
       if (tierId == null || tierId === "cancel") return null;
-      const safeId = Math.min(Math.max(0, tierId), tiers.length - 1);
-      selectedMotes = tiers[safeId]?.moteCost ?? motes;
+      const safeId = Math.min(Math.max(0, tierId), moteVar.tiers.length - 1);
+      selectedMotes = moteVar.tiers[safeId]?.moteCost ?? selectedMotes;
     }
 
-    // ── Per-unit picker ──────────────────────────────────────────────────
-    if (motesPerUnit > 0) {
-      const min = motesMin;
-      const maxAttr = motesMax > 0 ? ` max="${motesMax}"` : "";
+    if (moteVar.type === "perUnit" || moteVar.type === "openEnded") {
+      const isPerUnit   = moteVar.type === "perUnit";
+      const rate        = isPerUnit ? moteVar.rate    : 1;
+      const unitLabel   = isPerUnit ? moteVar.unit    : "mote";
+      const min         = isPerUnit ? moteVar.min     : 0;
+      const maxResolved = isPerUnit ? (moteVar.maxResolved ?? 0) : 0;
+      const maxAttr     = maxResolved > 0 ? ` max="${maxResolved}"` : "";
+      const rateN       = isPerUnit ? (moteVar.rateN ?? 1) : 1;
+      const rateNote    = rateN > 1 ? ` (${rate}m per ${rateN} ${unitLabel})` : ` (${rate}m/${unitLabel})`;
+
       const units = await foundry.applications.api.DialogV2.wait({
-        window:      { title: game.i18n.format("EX2E.VariableMotePromptTitle", { name: this.name }) },
-        content:     `<div style="padding:8px">
-          <p>${game.i18n.format("EX2E.SelectUnitsPrompt", { unit: foundry.utils.escapeHTML(motesUnitLabel) || "unit", cost: motesPerUnit })}</p>
+        window:  { title: game.i18n.format("EX2E.VariableMotePromptTitle", { name: this.name }) },
+        content: `<div style="padding:8px">
+          <p>${game.i18n.format("EX2E.SelectUnitsPrompt", { unit: foundry.utils.escapeHTML(unitLabel), cost: rate })}${rateNote}</p>
           <div class="form-group">
-            <label>${foundry.utils.escapeHTML(motesUnitLabel) || game.i18n.localize("EX2E.MotesPerUnit")}</label>
+            <label>${foundry.utils.escapeHTML(unitLabel)}</label>
             <input type="number" name="units" value="${min}" min="${min}"${maxAttr} style="width:60px">
           </div>
         </div>`,
-        buttons:     [
-          {
-            action:   "confirm",
-            label:    game.i18n.localize("EX2E.Confirm"),
-            default:  true,
+        buttons: [
+          { action: "confirm", label: game.i18n.localize("EX2E.Confirm"), default: true,
             callback: (_ev, _btn, dialog) => {
               const v = parseInt(dialog.element.querySelector("input[name=units]")?.value ?? String(min), 10);
               return Math.max(min, isNaN(v) ? min : v);
             }
           },
-          {
-            action: "cancel",
-            label:  game.i18n.localize("EX2E.Cancel")
-          }
+          { action: "cancel", label: game.i18n.localize("EX2E.Cancel") }
         ],
         rejectClose: false
       });
       if (units == null || units === "cancel") return null;
-      selectedMotes += motesPerUnit * units;
+      // For perUnit: cost += floor(units / rateN) * rate
+      // For openEnded: cost += units (extra motes spent)
+      selectedMotes += isPerUnit
+        ? Math.floor(units / rateN) * rate
+        : units;
     }
 
     return selectedMotes;

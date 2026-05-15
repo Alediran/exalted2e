@@ -50,11 +50,6 @@ export class CounterattackDialog extends HandlebarsApplicationMixin(ApplicationV
         const cost = c.system.cost ?? {};
         const parts = [];
         const mStr = moteCostString(cost); if (mStr) parts.push(mStr);
-        if (cost.willpower)        parts.push(`${cost.willpower}wp`);
-        if (cost.bashingHealth)    parts.push(`${cost.bashingHealth}hl(B)`);
-        if (cost.lethalHealth)     parts.push(`${cost.lethalHealth}hl(L)`);
-        if (cost.aggravatedHealth) parts.push(`${cost.aggravatedHealth}hl(A)`);
-        if (cost.xp)               parts.push(`${cost.xp}xp`);
         return { id: c.id, name: c.name, costLabel: parts.join(" · ") };
       }),
       weaponModes: this._data.weaponModes
