@@ -123,7 +123,7 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     let costFormulaPreview = "", costFormulaError = "";
     if (sys.cost?.formula) {
       if (_formulaParsed === null) {
-        costFormulaError = game.i18n.localize("EX2E.CharmsSheet.CostFormulaError");
+        costFormulaError = game.i18n.localize("EX2E.CostFormulaError");
       } else {
         const parts = [];
         if (_formulaParsed.motes > 0)           parts.push(`${_formulaParsed.motes}m base`);

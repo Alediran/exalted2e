@@ -3,7 +3,7 @@
 const ZERO_COST = () => ({
   motes: 0, committed: false, moteVar: null,
   willpower: 0, lethalHealth: 0, bashingHealth: 0, aggravatedHealth: 0,
-  xp: 0, permanentEssence: 0, permanentWillpower: 0, surcharge: null
+  xp: 0, permanentEssence: 0, permanentWillpower: 0, promise: 0, surcharge: null
 });
 
 function _resolveQuantity(q, rollData) {
@@ -85,8 +85,8 @@ function _parseMoteItem(item, result, rollData) {
   }
 
   // Per-unit: "[BASE m +] RATE m/[N ]UNIT[(CAP)][committed]"
-  // e.g. "1m/die", "1m/die (@str)", "1m/2 dice", "2m + 1m/die (@str)"
-  const puM = /^(?:(@?\w+)\s*m\s*\+\s*)?(\d+)m\/(\d+\s+)?(\w+)(?:\s*\((@?\w[\w.]*)\))?(?:\s*\[committed\])?$/i.exec(item);
+  // e.g. "1m/die", "1m/die (@str)", "1m/2 dice", "2m + 1m/die (@str)", "1m/cubic foot"
+  const puM = /^(?:(@?\w+)\s*m\s*\+\s*)?(\d+)m\/(\d+\s+)?(\w+(?:[\s\-]\w+)*)(?:\s*\((@?\w[\w.]*)\))?(?:\s*\[committed\])?$/i.exec(item);
   if (puM) {
     const committed   = /\[committed\]/i.test(item);
     const base        = puM[1] ? _resolveQuantity(puM[1], rollData) : 0;
@@ -134,17 +134,21 @@ function _parseItem(item, result, rollData) {
   const wpM = /^(\d+)wp$/i.exec(s);
   if (wpM)  { result.willpower += parseInt(wpM[1], 10); return true; }
 
-  const hlM = /^(\d+)(lhl|bhl|ahl)$/i.exec(s);
+  const hlM = /^(\d+)(lhl|bhl|ahl|hl)$/i.exec(s);
   if (hlM) {
     const n = parseInt(hlM[1], 10);
-    if (hlM[2] === "lhl") result.lethalHealth    += n;
-    else if (hlM[2] === "bhl") result.bashingHealth += n;
-    else                       result.aggravatedHealth += n;
+    const t = hlM[2].toLowerCase();
+    if (t === "lhl" || t === "hl") result.lethalHealth    += n;
+    else if (t === "bhl")          result.bashingHealth   += n;
+    else                           result.aggravatedHealth += n;
     return true;
   }
 
   const xpM = /^(\d+)xp$/i.exec(s);
   if (xpM) { result.xp += parseInt(xpM[1], 10); return true; }
+
+  const promM = /^(\d+)p$/i.exec(s);
+  if (promM) { result.promise += parseInt(promM[1], 10); return true; }
 
   const permM = /^perm\s+(ess|essence|wp|willpower)$/i.exec(s);
   if (permM) {

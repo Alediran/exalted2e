@@ -5,7 +5,7 @@ import { parseCostFormula } from "../../module/rolls/activation-ledger.mjs";
 const ZERO = {
   motes: 0, committed: false, moteVar: null,
   willpower: 0, lethalHealth: 0, bashingHealth: 0, aggravatedHealth: 0,
-  xp: 0, permanentEssence: 0, permanentWillpower: 0, surcharge: null
+  xp: 0, permanentEssence: 0, permanentWillpower: 0, promise: 0, surcharge: null
 };
 
 describe("parseCostFormula — empty / no-cost", () => {
@@ -161,6 +161,62 @@ describe("parseCostFormula — surcharge", () => {
   it("parses '—(+3m or +3m, 1wp [@ess >= 5])' with ess=5 → second conditionMet true", () => {
     const r = parseCostFormula("—(+3m or +3m, 1wp [@ess >= 5])", { ess: 5 });
     expect(r.surcharge[1].conditionMet).toBe(true);
+  });
+});
+
+describe("parseCostFormula — generic hl alias", () => {
+  it("parses '1hl' as lethal health", () => {
+    const r = parseCostFormula("1hl");
+    expect(r.lethalHealth).toBe(1);
+    expect(r.motes).toBe(0);
+  });
+  it("parses '2hl' in a compound", () => {
+    const r = parseCostFormula("3m, 2hl");
+    expect(r.motes).toBe(3);
+    expect(r.lethalHealth).toBe(2);
+  });
+});
+
+describe("parseCostFormula — Alchemical promise cost", () => {
+  it("parses '5m, 1p'", () => {
+    const r = parseCostFormula("5m, 1p");
+    expect(r.motes).toBe(5);
+    expect(r.promise).toBe(1);
+  });
+  it("parses '2m, 1wp, 3p'", () => {
+    const r = parseCostFormula("2m, 1wp, 3p");
+    expect(r.motes).toBe(2);
+    expect(r.willpower).toBe(1);
+    expect(r.promise).toBe(3);
+  });
+  it("parses '—' with promise=0 (no cost)", () => {
+    const r = parseCostFormula("—");
+    expect(r.promise).toBe(0);
+  });
+});
+
+describe("parseCostFormula — multi-word unit names", () => {
+  it("parses '1m/cubic foot'", () => {
+    const r = parseCostFormula("1m/cubic foot");
+    expect(r.moteVar?.type).toBe("perUnit");
+    expect(r.moteVar?.unit).toBe("cubic foot");
+    expect(r.moteVar?.rate).toBe(1);
+  });
+  it("parses '1m/penalty cancelled'", () => {
+    const r = parseCostFormula("1m/penalty cancelled");
+    expect(r.moteVar?.type).toBe("perUnit");
+    expect(r.moteVar?.unit).toBe("penalty cancelled");
+  });
+  it("parses '1m/pre-soak damage die'", () => {
+    const r = parseCostFormula("1m/pre-soak damage die");
+    expect(r.moteVar?.type).toBe("perUnit");
+    expect(r.moteVar?.unit).toBe("pre-soak damage die");
+  });
+  it("parses '3m/point of Magnitude, 1wp'", () => {
+    const r = parseCostFormula("3m/point of Magnitude, 1wp");
+    expect(r.moteVar?.type).toBe("perUnit");
+    expect(r.moteVar?.unit).toBe("point of Magnitude");
+    expect(r.willpower).toBe(1);
   });
 });
 
