@@ -273,11 +273,26 @@ ${capWarning}`;
       let surchargeExtra = null;
       if (explicitMotesOverride !== null) {
         motesOverride = explicitMotesOverride + surcharge;
+        // Attack dialog pre-computes total motes and passes them as motesOverride,
+        // skipping the variable-cost dialog.  Compute resolvedUnits here so that
+        // rollAttack pre-eval can scale per-unit effects (e.g. postSoakDicePerMote).
+        if (costParsed?.moteVar?.type === 'perUnit') {
+          const { rate, rateN } = costParsed.moteVar;
+          const base  = costParsed.motes;
+          const units = Math.max(0, Math.round((explicitMotesOverride - base) * rateN / rate));
+          await this.update({ 'system.resolvedUnits': units });
+        }
       } else if (costParsed?.moteVar || costParsed?.surcharge?.length) {
         const resolved = await this._resolveVariableMoteCost(cost, costParsed);
         if (resolved === null) return false;
         ({ surchargeExtra } = resolved);
         motesOverride = resolved.motes + surcharge;
+        if (costParsed.moteVar?.type === 'perUnit') {
+          const { rate, rateN } = costParsed.moteVar;
+          const base  = costParsed.motes;
+          const units = Math.max(0, Math.round((resolved.motes - base) * rateN / rate));
+          await this.update({ 'system.resolvedUnits': units });
+        }
       } else if (surcharge > 0) {
         motesOverride = (costParsed?.motes ?? 0) + surcharge;
       }

@@ -1529,7 +1529,11 @@
     "ABAccuracyDice":             "Accuracy dice add",
     "ABAccuracySuccesses":        "Accuracy auto-successes",
     "ABDamageDice":               "Damage dice add",
+    "ABDamageDicePerMote":        "Scales with motes spent",
+    "ABPostSoakDamageDice":       "Post-soak damage dice",
+    "ABPostSoakDicePerMote":      "Post-soak scales with motes spent",
     "ABIgnoreAccuracyPenalties":  "Ignore accuracy penalties",
+    "PostSoak":                   "post-soak",
 
     "DVBAddPenaltyType":          "+ Add type",
     "DVBDodgeBonus":              "Dodge DV add",

@@ -142,6 +142,12 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         tags:           new fields.ArrayField(new fields.StringField({ blank: true }))
       }),
 
+      // ── Activation Resolution ────────────────────────────────────────────────
+      // Number of units resolved during the last per-unit mote activation dialog
+      // (e.g. how many dice the player bought). Stored so attackBonus effects can
+      // scale their values by motes-spent without opening a second picker.
+      resolvedUnits: new fields.NumberField({ initial: 0, min: 0, integer: true }),
+
       // ── Mechanical Payload Schemas ──────────────────────────────────────────
       // All `enabled` flags default false — existing charms are unaffected.
 
@@ -251,6 +257,12 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         accuracyDice:            new fields.StringField({ initial: "", blank: true }),
         accuracySuccesses:       new fields.StringField({ initial: "", blank: true }),
         damageDice:              new fields.StringField({ initial: "", blank: true }),
+        // When true, damageDice is multiplied by resolvedUnits at roll time.
+        damageDicePerMote:       new fields.BooleanField({ initial: false }),
+        // Post-soak damage dice bypass the soak calculation entirely.
+        postSoakDamageDice:      new fields.StringField({ initial: "", blank: true }),
+        // When true, postSoakDamageDice is multiplied by resolvedUnits at roll time.
+        postSoakDicePerMote:     new fields.BooleanField({ initial: false }),
         ignoreAccuracyPenalties: new fields.BooleanField({ initial: false })
       }),
 

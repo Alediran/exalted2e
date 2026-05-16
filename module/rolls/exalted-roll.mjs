@@ -546,10 +546,10 @@ export class ExaltedRoll {
     const excCharms  = detectExc(excKey);
     const excellency = { first: !!excCharms.first, second: !!excCharms.second };
     const firstExcLabel  = excCharms.first
-      ? `${excCharms.first.name} (${game.i18n.localize("EX2E.FirstExcellency")})`
+      ? excCharms.first.name
       : game.i18n.localize("EX2E.FirstExcellency");
     const secondExcLabel = excCharms.second
-      ? `${excCharms.second.name} (${game.i18n.localize("EX2E.SecondExcellency")})`
+      ? excCharms.second.name
       : game.i18n.localize("EX2E.SecondExcellency");
 
     // Third Excellency availability (checked at Step 4 reroll time, but the
@@ -656,7 +656,8 @@ export class ExaltedRoll {
       firstExcLabel, secondExcLabel,
       flurryPenalty,
       charms:   attackCharms,
-      virtues:  actor.type === "character" ? sys.virtues : null
+      virtues:  actor.type === "character" ? sys.virtues : null,
+      actor,
     });
     if (!dialogResult) return null;
 
@@ -703,12 +704,16 @@ export class ExaltedRoll {
     const resolvedAttackBonusCharms = activatedCharmItems
       .filter(c => c.system.attackBonus?.enabled)
       .map(c => {
-        const ab = c.system.attackBonus;
+        const ab    = c.system.attackBonus;
+        const units = c.system.resolvedUnits ?? 0;
+        const dmgBase      = _evalInt(ab.damageDice,         rollData);
+        const postSoakBase = _evalInt(ab.postSoakDamageDice, rollData);
         return { system: { attackBonus: {
           enabled:                 true,
           accuracyDice:            String(_evalInt(ab.accuracyDice,      rollData)),
-          accuracySuccesses:       String(_evalInt(ab.accuracySuccesses, rollData)),
-          damageDice:              String(_evalInt(ab.damageDice,        rollData)),
+          accuracySuccesses:       String(_evalInt(ab.accuracySuccesses,  rollData)),
+          damageDice:              String(ab.damageDicePerMote    ? dmgBase * units      : dmgBase),
+          postSoakDamageDice:      String(ab.postSoakDicePerMote ? postSoakBase * units  : postSoakBase),
           ignoreAccuracyPenalties: ab.ignoreAccuracyPenalties,
         }}};
       });
@@ -846,6 +851,7 @@ export class ExaltedRoll {
       attackerHasThirdExc,
       attackerExcKey:      excKey,
       weaponDamage:        mode.effectiveDamage + charmAttackBonus.extraDamageDice,
+      postSoakDamageDice:  charmAttackBonus.extraPostSoakDamageDice || 0,
       damageType:          finalDamageType,
       damageTypeLabel:     `${typeSuffix}${overwhelmingSuffix}`,
       // Originating type before the Holy-vs-CoD upgrade, plus a flag the

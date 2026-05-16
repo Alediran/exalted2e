@@ -10,6 +10,7 @@ describe("computeAttackCharmBonus", () => {
       extraAccuracyDice: 0,
       extraAccuracySuccesses: 0,
       extraDamageDice: 0,
+      extraPostSoakDamageDice: 0,
       ignorePenalties: false,
     });
   });
@@ -65,6 +66,42 @@ describe("computeAttackCharmBonus", () => {
     const r = computeAttackCharmBonus(charms, {});
     expect(r.extraAccuracyDice).toBe(0);
     expect(r.ignorePenalties).toBe(false);
+  });
+});
+
+describe("computeAttackCharmBonus — post-soak damage dice", () => {
+  it("sums postSoakDamageDice from enabled charms", () => {
+    const charms = [{ system: { attackBonus: {
+      enabled: true, accuracyDice: "", accuracySuccesses: "", damageDice: "",
+      postSoakDamageDice: "3", ignoreAccuracyPenalties: false
+    }}}];
+    expect(computeAttackCharmBonus(charms, {}).extraPostSoakDamageDice).toBe(3);
+  });
+
+  it("stacks post-soak across multiple charms", () => {
+    const charms = [
+      { system: { attackBonus: { enabled: true, accuracyDice: "", accuracySuccesses: "", damageDice: "", postSoakDamageDice: "2", ignoreAccuracyPenalties: false }}},
+      { system: { attackBonus: { enabled: true, accuracyDice: "", accuracySuccesses: "", damageDice: "", postSoakDamageDice: "1", ignoreAccuracyPenalties: false }}}
+    ];
+    expect(computeAttackCharmBonus(charms, {}).extraPostSoakDamageDice).toBe(3);
+  });
+
+  it("pre-scaled per-mote value is used as-is (scaling done by caller)", () => {
+    // The caller (rollAttack) multiplies by resolvedUnits before passing in.
+    // computeAttackCharmBonus sees already-scaled integers.
+    const charms = [{ system: { attackBonus: {
+      enabled: true, accuracyDice: "", accuracySuccesses: "", damageDice: "",
+      postSoakDamageDice: "4", ignoreAccuracyPenalties: false
+    }}}];
+    expect(computeAttackCharmBonus(charms, {}).extraPostSoakDamageDice).toBe(4);
+  });
+
+  it("resolves formula token in postSoakDamageDice", () => {
+    const charms = [{ system: { attackBonus: {
+      enabled: true, accuracyDice: "", accuracySuccesses: "", damageDice: "",
+      postSoakDamageDice: "@ess", ignoreAccuracyPenalties: false
+    }}}];
+    expect(computeAttackCharmBonus(charms, { ess: 3 }).extraPostSoakDamageDice).toBe(3);
   });
 });
 

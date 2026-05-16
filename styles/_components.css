@@ -583,6 +583,12 @@
   white-space:    nowrap;
 }
 
+/* ── VIRTUE CHANNEL───────────────────────────────────────────────────────── */
+.virtue-channel-radio {
+  display: flex;
+  flex-direction: column;
+}
+
 /* ── DAMAGE CONTROLS ─────────────────────────────────────────────────────── */
 .damage-controls {
   display:    flex;

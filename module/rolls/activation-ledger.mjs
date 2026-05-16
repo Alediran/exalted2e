@@ -238,8 +238,8 @@ export function moteCostString(cost) {
  * @param {ExaltedItem} charm
  * @returns {object}
  */
-export function charmVariableCostCtx(charm) {
-  const parsed = parseCostFormula(charm.system?.cost?.formula ?? "");
+export function charmVariableCostCtx(charm, rollData = null) {
+  const parsed = parseCostFormula(charm.system?.cost?.formula ?? "", rollData);
   const base   = { hasTiers: false, tiers: [], hasPerUnit: false, motesPerUnit: 0, motesMin: 0, motesMax: 0, motesUnitLabel: "unit", baseMotes: parsed?.motes ?? 0 };
   if (!parsed?.moteVar) return base;
   const { moteVar, motes } = parsed;

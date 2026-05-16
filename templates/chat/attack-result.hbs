@@ -1,7 +1,7 @@
 <div class="ex2e-roll-card ex2e-attack-card"
      data-actor-id="{{actorId}}" data-target-id="{{targetId}}"
      data-damage-pool="{{rawDamagePool}}" data-damage-type="{{damageType}}"
-     data-overwhelming="{{overwhelming}}">
+     data-overwhelming="{{overwhelming}}" data-post-soak-dice="{{postSoakDamageDice}}">
   <div class="card-header">
     {{#if actorName}}<span class="roll-actor">{{actorName}}</span>{{/if}}
     <span class="roll-flavor">{{weaponName}} — {{localize "EX2E.AttackRoll"}}</span>
@@ -92,6 +92,7 @@
         {{localize "EX2E.DamagePool"}}: {{weaponDamage}}{{damageTypeLabel}} + {{threshold}}
         {{#if addStrength}} + {{strengthValue}} Str{{/if}}
         = <strong>{{rawDamagePool}}d10 {{damageTypeLabel}}</strong>
+        {{#if postSoakDamageDice}} + <strong>{{postSoakDamageDice}} {{localize "EX2E.PostSoak"}}</strong>{{/if}}
       </div>
 
       {{#if hardnessStops}}
@@ -118,6 +119,35 @@
         <span class="charm-chip">{{counterattackCharm}}</span>
       </div>
       {{/if}}
+      {{#if damageResult}}
+      {{!-- Step 10 resolved: show damage roll result --}}
+      <div class="damage-roll-section">
+        <div class="damage-result">
+          <div class="dice-results">
+            {{#each damageResult.diceDetails as |d|}}
+            <div class="die-result {{d.cls}}" title="{{d.face}}">{{d.face}}</div>
+            {{/each}}
+          </div>
+          <div class="damage-summary">
+            <span>{{damageResult.effectivePool}}d10 ({{damageResult.damagePool}} − {{damageResult.soak}} {{localize "EX2E.Soak"}}{{#if damageResult.postSoakDice}} + {{damageResult.postSoakDice}} {{localize "EX2E.PostSoak"}}{{/if}})</span>
+          </div>
+          <div class="roll-result {{#if damageResult.rawDamage}}success{{else}}failure{{/if}}">
+            <span class="result-label {{#if damageResult.rawDamage}}success{{else}}failure{{/if}}-label">
+              {{#if damageResult.rawDamage}}{{damageResult.rawDamage}} {{damageResult.damageTypeLabel}} {{localize "EX2E.Damage"}}{{else}}{{localize "EX2E.NoDamage"}}{{/if}}
+            </span>
+          </div>
+          {{#if damageResult.showApplyBtn}}
+          <button class="btn-roll btn-apply-damage"
+                  data-damage="{{damageResult.rawDamage}}"
+                  data-damage-type="{{damageResult.damageType}}"
+                  data-target-id="{{damageResult.targetId}}"
+                  data-effective-pool="{{damageResult.effectivePool}}">
+            <i class="fa-solid fa-heart-crack"></i> {{localize "EX2E.ApplyDamage"}}
+          </button>
+          {{/if}}
+        </div>
+      </div>
+      {{else}}
       {{!-- Step 10: hardness + soak + roll button --}}
       <div class="damage-roll-section">
         <div class="damage-soak-row">
@@ -129,6 +159,7 @@
           <i class="fa-solid fa-burst"></i> {{localize "EX2E.RollDamage"}}
         </button>
       </div>
+      {{/if}}
       {{/if}}
       {{else if botch}}
       <div class="roll-result botch">

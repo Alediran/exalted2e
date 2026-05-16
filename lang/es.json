@@ -1528,8 +1528,12 @@
 
     "ABAccuracyDice":             "Accuracy dice add",
     "ABAccuracySuccesses":        "Accuracy auto-successes",
-    "ABDamageDice":               "Damage dice add",
-    "ABIgnoreAccuracyPenalties":  "Ignore accuracy penalties",
+    "ABDamageDice":               "Dados de daño adicionales",
+    "ABDamageDicePerMote":        "Escala con maná gastado",
+    "ABPostSoakDamageDice":       "Dados de daño post-absorción",
+    "ABPostSoakDicePerMote":      "Post-absorción escala con maná gastado",
+    "ABIgnoreAccuracyPenalties":  "Ignorar penalizaciones de precisión",
+    "PostSoak":                   "post-absorción",
 
     "DVBAddPenaltyType":          "+ Add type",
     "DVBDodgeBonus":              "Dodge DV add",

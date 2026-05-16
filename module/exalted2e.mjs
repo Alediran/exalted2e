@@ -2133,10 +2133,10 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
         firstExcMax:   keyVal,
         secondExcMax:  Math.ceil(keyVal / 2),
         firstExcLabel: firstExcCharm
-          ? `${firstExcCharm.name} (${game.i18n.localize("EX2E.FirstExcellency")})`
+          ? firstExcCharm.name
           : game.i18n.localize("EX2E.FirstExcellency"),
         secondExcLabel: secondExcCharm
-          ? `${secondExcCharm.name} (${game.i18n.localize("EX2E.SecondExcellency")})`
+          ? secondExcCharm.name
           : game.i18n.localize("EX2E.SecondExcellency")
       });
       if (!result) return;                          // user cancelled
@@ -2507,17 +2507,18 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
   // "Roll Damage" button on attack result cards
   el.querySelector?.(".btn-roll-damage")?.addEventListener("click", async (event) => {
     const card       = event.currentTarget.closest(".ex2e-attack-card");
-    const damagePool = parseInt(card?.dataset.damagePool) || 0;
-    const damageType = card?.dataset.damageType || "lethal";
+    const damagePool   = parseInt(card?.dataset.damagePool)   || 0;
+    const damageType   = card?.dataset.damageType || "lethal";
     const overwhelming = parseInt(card?.dataset.overwhelming) || 0;
-    const soakEl     = card?.querySelector(".soak-input");
-    const soak       = parseInt(soakEl?.value ?? soakEl?.textContent) || 0;
-    const targetId   = card?.dataset.targetId || null;
+    const postSoakDice = parseInt(card?.dataset.postSoakDice) || 0;
+    const soakEl       = card?.querySelector(".soak-input");
+    const soak         = parseInt(soakEl?.value ?? soakEl?.textContent) || 0;
+    const targetId     = card?.dataset.targetId || null;
 
-    if (damagePool <= 0) return;
+    if (damagePool <= 0 && postSoakDice <= 0) return;
 
-    // Roll the damage pool
-    const effectivePool = Math.max(damagePool - soak, overwhelming);
+    // Roll the damage pool — post-soak dice bypass soak entirely
+    const effectivePool = Math.max(damagePool - soak, overwhelming) + postSoakDice;
     const formula = `${effectivePool}d10`;
     const roll    = new Roll(formula);
     await roll.evaluate();
@@ -2554,34 +2555,25 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
 
     const damageTypeLabel = damageType === "lethal" ? "L" : damageType === "aggravated" ? "A" : "B";
 
-    // Render the damage result
-    const section = card.querySelector(".damage-roll-section");
-    if (section) {
-      let diceHtml = diceDetails.map(d =>
-        `<div class="die-result ${d.cls}" title="${d.face}">${d.face}</div>`
-      ).join("");
+    const autoApply    = game.settings.get("exalted2e", "autoApplyDamage");
+    const showApplyBtn = rawDamage > 0 && !!targetId && !autoApply;
 
-      const autoApply = game.settings.get("exalted2e", "autoApplyDamage");
-      const showApplyBtn = rawDamage > 0 && targetId && !autoApply;
-      const result = new DOMParser().parseFromString(`<div class="damage-result">
-        <div class="dice-results">${diceHtml}</div>
-        <div class="damage-summary">
-          <span>${effectivePool}d10 (${damagePool} − ${soak} ${game.i18n.localize("EX2E.Soak")})</span>
-        </div>
-        <div class="roll-result ${rawDamage > 0 ? 'success' : 'failure'}">
-          <span class="result-label ${rawDamage > 0 ? 'success' : 'failure'}-label">
-            ${rawDamage > 0 ? `${rawDamage} ${damageTypeLabel} ${game.i18n.localize("EX2E.Damage")}` : game.i18n.localize("EX2E.NoDamage")}
-          </span>
-        </div>
-        ${showApplyBtn ? `<button class="btn-roll btn-apply-damage" data-damage="${rawDamage}" data-damage-type="${damageType}" data-target-id="${targetId}" data-effective-pool="${effectivePool}"><i class="fa-solid fa-heart-crack"></i> ${game.i18n.localize("EX2E.ApplyDamage")}</button>` : ""}
-      </div>`, 'text/html');
-
-      section.replaceChildren();
-      section.appendChild(result.body.firstChild);
-    }
+    // Store the damage result in the attack snapshot so re-renders from
+    // renderAttackCardContent (e.g. knockback _persistAndRerender) preserve it.
+    const damageResult = {
+      diceDetails, rawDamage, effectivePool,
+      damagePool, soak, postSoakDice,
+      damageTypeLabel, damageType, targetId,
+      showApplyBtn,
+    };
+    const attack = message.flags?.exalted2e?.attack ?? {};
+    const updatedAttack = { ...attack, damageResult };
+    const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
+    const content = await renderAttackCardContent(updatedAttack);
+    await message.update({ content, flags: { exalted2e: { attack: updatedAttack } } });
 
     // Auto-apply damage to target if setting enabled
-    if (rawDamage > 0 && targetId && game.settings.get("exalted2e", "autoApplyDamage")) {
+    if (rawDamage > 0 && targetId && autoApply) {
       const targetActor = game.actors.get(targetId);
       if (targetActor) {
         await targetActor.applyDamage(rawDamage, damageType);
@@ -2589,14 +2581,10 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       }
     }
 
-    // Update the chat message to persist the damage result
-    await message.update({ content: card.outerHTML });
-
-    // Chain knockback resolution after the card is persisted (auto-apply only).
-    // Order matches the manual-apply path: outer message.update commits the
-    // damage result first, then the knockback chain re-renders on top with
-    // the knockback / stun resolution sub-blocks.
-    if (rawDamage > 0 && targetId && game.settings.get("exalted2e", "autoApplyDamage")) {
+    // Chain knockback resolution (auto-apply only).
+    // _persistAndRerender reads attack from flags — which now includes
+    // damageResult — so the damage dice survive the re-render.
+    if (rawDamage > 0 && targetId && autoApply) {
       const targetActor = game.actors.get(targetId);
       if (targetActor) {
         await resolveKnockbackChain(message, { effectivePool, rawDamage }).catch(err =>
@@ -2607,7 +2595,6 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
   });
 
   el.querySelector?.(".btn-apply-damage")?.addEventListener("click", async (applyEvent) => {
-    const card = applyEvent.currentTarget.closest(".ex2e-attack-card");
     const btn = applyEvent.currentTarget;
     const dmg  = parseInt(btn.dataset.damage) || 0;
     const type = btn.dataset.damageType || "lethal";
@@ -2618,10 +2605,15 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       await targetActor.applyDamage(dmg, type);
       await _applyPerDamageLevelEffects(message, targetActor, dmg);
 
-      const section = card.querySelector(".damage-result");
-      section.removeChild(btn);
-
-      await message.update({ content: card.outerHTML });
+      // Hide apply button via flags — keeps damageResult intact for re-renders.
+      const attack = message.flags?.exalted2e?.attack ?? {};
+      const updatedAttack = {
+        ...attack,
+        damageResult: { ...attack.damageResult, showApplyBtn: false },
+      };
+      const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
+      const content = await renderAttackCardContent(updatedAttack);
+      await message.update({ content, flags: { exalted2e: { attack: updatedAttack } } });
 
       await resolveKnockbackChain(message, { effectivePool, rawDamage: dmg }).catch(err =>
         console.error("exalted2e | knockback chain failed", err)

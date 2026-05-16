@@ -204,21 +204,26 @@
   max-height: 180px;
   overflow-y: auto;
 }
-.ex2e-roll-dialog .attack-charm-row { display: block; }
+.ex2e-roll-dialog .attack-charm-row {
+  display:        flex;
+  flex-direction: row;
+  border:         1px solid var(--ex2e-border-color);
+  border-radius:  var(--ex2e-border-radius);
+  overflow:       hidden;
+}
 .ex2e-roll-dialog .attack-charm-label {
   display:     flex;
   align-items: center;
   gap:         var(--ex2e-gap-sm);
   padding:     3px 8px;
-  border:      1px solid var(--ex2e-border-color);
-  border-radius: var(--ex2e-border-radius);
   cursor:      pointer;
-  transition:  background var(--ex2e-transition-fast),
-               border-color var(--ex2e-transition-fast);
+  transition:  background var(--ex2e-transition-fast);
 }
 .ex2e-roll-dialog .attack-charm-label:hover {
-  background:   var(--ex2e-bg-hover);
-  border-color: var(--ex2e-gold-dark);
+  background: var(--ex2e-bg-hover);
+}
+.ex2e-roll-dialog .attack-charm-row .charm-var-cost {
+  padding:     8px 8px;
 }
 .ex2e-roll-dialog .attack-charm-label .charm-name { flex: 1; color: var(--ex2e-text-primary); }
 .ex2e-roll-dialog .attack-charm-label .charm-kw {
@@ -233,6 +238,44 @@
   font-size:   var(--ex2e-font-size-xs);
   color:       var(--ex2e-text-muted);
 }
+/* ── Round pip inputs (stunt + excellency) ─────────────────────────────── */
+.exalted2e .ex2e-roll-dialog .exc-pip-track {
+  display:     flex;
+  align-items: center;
+  gap:         5px;
+  flex:        1;
+}
+.exalted2e .ex2e-roll-dialog .exc-pip {
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  width:           14px;
+  height:          14px;
+  min-width:       14px;
+  max-width:       14px;
+  min-height:      14px;
+  max-height:      14px;
+  box-sizing:      border-box;
+  border-radius:   50%;
+  border:          1.5px solid var(--ex2e-gold-dark);
+  background:      transparent;
+  cursor:          pointer;
+  padding:         0;
+  flex-shrink:     0;
+  transition:      background var(--ex2e-transition-fast),
+                   border-color var(--ex2e-transition-fast);
+}
+
+.exalted2e .ex2e-roll-dialog .exc-pip.is-filled {
+  background:   var(--ex2e-gold-main);
+  border-color: var(--ex2e-gold-bright);
+}
+.exalted2e .ex2e-roll-dialog .exc-pip:disabled {
+  opacity:        0.3;
+  cursor:         default;
+  pointer-events: none;
+}
+
 .ex2e-roll-dialog .attack-charm-picker .charm-empty {
   margin:     0;
   padding:    var(--ex2e-gap-sm) 0;

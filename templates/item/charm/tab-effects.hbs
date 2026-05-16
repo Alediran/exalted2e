@@ -254,6 +254,38 @@
       </div>
       <div class="field-group">
         <label class="checkbox-label">
+          <input type="checkbox" name="system.attackBonus.damageDicePerMote"
+                 {{#if system.attackBonus.damageDicePerMote}}checked{{/if}}
+                 {{#unless isEditable}}disabled{{/unless}}>
+          {{localize "EX2E.ABDamageDicePerMote"}}
+        </label>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.ABPostSoakDamageDice"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.attackBonus.postSoakDamageDice"
+                 value="{{system.attackBonus.postSoakDamageDice}}"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.attackBonus.postSoakDamageDice"
+                  data-label="{{localize 'EX2E.ABPostSoakDamageDice'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field-group">
+        <label class="checkbox-label">
+          <input type="checkbox" name="system.attackBonus.postSoakDicePerMote"
+                 {{#if system.attackBonus.postSoakDicePerMote}}checked{{/if}}
+                 {{#unless isEditable}}disabled{{/unless}}>
+          {{localize "EX2E.ABPostSoakDicePerMote"}}
+        </label>
+      </div>
+      <div class="field-group">
+        <label class="checkbox-label">
           <input type="checkbox" name="system.attackBonus.ignoreAccuracyPenalties"
                  {{#if system.attackBonus.ignoreAccuracyPenalties}}checked{{/if}}
                  {{#unless isEditable}}disabled{{/unless}}>
