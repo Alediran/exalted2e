@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-13 (Willpower recovery hooks + Limit accumulation automation marked done; Scene-end reset marked partial)
+Last updated: 2026-05-15 (Infinite Mastery, Permanent Essence cost, Permanent Willpower cost marked done)
 
 ---
 
@@ -35,9 +35,7 @@ Last updated: 2026-05-13 (Willpower recovery hooks + Limit accumulation automati
 | Blasphemy / Axiomatic / Dawn damage upgrades | Keywords | mirror of Holy, splat-specific target condition |
 | Training keyword XP debt ledger | Keywords | per-actor debt AE or item field |
 | Merged keyword (learn-once, multi-ability) | Keywords | charm activation routing extension |
-| Permanent Essence + Willpower cost general field | Charms | new charm-data fields + activateCharm spending path |
 | First/Second-vs-Third Excellency exclusivity | Charms | roll dialog: detect both activated, block double-use |
-| Infinite Mastery discount | Charms | committed-mote tracking → Excellency cost reduction |
 | Countermagic resolution | Sorcery | reflexive roll + mote cost, 3-circle tiering |
 | Spell-specific duration/effect payloads | Sorcery | per-spell AE-like target effects; requires per-spell schema extension |
 | Ghost summoning | Sorcery | extended opposed WP+Ess contest (Black Treatise) |
@@ -115,10 +113,10 @@ Last updated: 2026-05-13 (Willpower recovery hooks + Limit accumulation automati
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 56 |
+| B — Ready, Medium | 54 |
 | C — Ready, Complex | 10 |
 | D — Blocked | 5 |
-| **Total pending** | **72** |
+| **Total pending** | **70** |
 
 **Biggest force-multipliers:**
 - **Countermagic resolution** (Group B) → unblocks Countermagic cost variance

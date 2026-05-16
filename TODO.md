@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 167 / 259 complete** (12 out-of-scope / partial — last updated 2026-05-13)
+**Progress: 170 / 259 complete** (10 out-of-scope / partial — last updated 2026-05-15)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -85,11 +85,11 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] XP cost confirmation dialog
 - [x] Automated charm prerequisite validation
 - [x] Expand prerequisite types: Virtue ≥ N, Essence ≥ N, Ability ≥ N, Background ≥ N all implemented
-- [~] Permanent Essence cost (Greater Signs hardcoded; no general charm field — Infernal shintai pending)
-- [~] Permanent Willpower cost (Greater Signs hardcoded; no general charm field)
+- [x] Permanent Essence cost (`cost.formula: "perm ess"` — general DSL field; Greater Signs uses same path)
+- [x] Permanent Willpower cost (`cost.formula: "perm wp"` — general DSL field)
 - [x] Attribute-keyed Excellencies for Lunar/Alchemical (charm.attribute field; activation routing)
 - [ ] First/Second-vs-Third Excellency exclusivity enforcement per roll
-- [ ] Infinite (Ability) Mastery discount tracking (committed motes reduce Excellency cost)
+- [x] Infinite (Ability) Mastery discount tracking (committed motes reduce Excellency cost)
 - [ ] Keyword-as-status-effect registry (systematic Compulsion/Emotion/Illusion/Servitude → AE mapping)
 - [ ] Charm deactivation resolver (scene-end / combat-end / out-of-motes)
 - [x] Cooperative keyword (multi-caster charm dialog — DB aspect cooperation)
