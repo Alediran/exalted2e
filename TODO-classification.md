@@ -21,13 +21,11 @@ Last updated: 2026-05-17 (charms-gap deferred items A2/A6/A7/A9 linked; A1/A8 cr
 |------|-------------|-------------|
 | Range bands with tiered penalties | Combat | config table + range-check rewrite + attack penalty lookup |
 | Combo-building rules (size limits, keyword restrictions) | Combat | charm filter at combo-add time; pre-errata size caps |
-| Consolidated single chat card + combined Reverse | Combat | chat card template redesign |
 | Area attacks | Combat | new attack schema flag + resolution path without accuracy roll |
 | Coordinated attacks | Combat | leader Cha+War roll + DV reduction AE on target |
 | Aim bonus banking | Combat | multi-tick container already exists; add banking counter |
 | Shields as weapons | Defense | new weapon tag handling, DV bonus, mobility penalty |
 | Fatigue penalty mechanic | Defense / Penalty | hook on scene-length exertion + Sta+Res roll |
-| Stackable keyword accumulation | Keywords | per-charm per-target stack counter |
 | Compulsion / Emotion AE | Keywords | keyword → scene-long AE, AE template system |
 | Illusion disbelieve mechanic | Keywords | Per+Investigation check against charm activation |
 | Servitude AE | Keywords | loyalty-binding AE, removal conditions |
@@ -117,10 +115,10 @@ Last updated: 2026-05-17 (charms-gap deferred items A2/A6/A7/A9 linked; A1/A8 cr
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 56 |
+| B — Ready, Medium | 54 |
 | C — Ready, Complex | 12 |
 | D — Blocked | 5 |
-| **Total pending** | **74** |
+| **Total pending** | **72** |
 
 **Biggest force-multipliers:**
 - **Countermagic resolution** (Group B) → unblocks Countermagic cost variance

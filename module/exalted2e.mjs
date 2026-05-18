@@ -1854,6 +1854,46 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       return;
     }
 
+    // ── Combined activation card (combo / multi-supplemental) ─────────────
+    if (record.combined) {
+      for (const entry of record.entries ?? []) {
+        if (entry.reversed) continue;
+        const entryActor = entry.actorId ? game.actors.get(entry.actorId) : actor;
+        if (!entryActor) continue;
+        const { updates } = planLedgerRefund(entry.ledger ?? {}, entryActor.system);
+        if (Object.keys(updates).length > 0) await entryActor.update(updates);
+        const charm = entry.charmId ? entryActor.items.get(entry.charmId) : null;
+        if (charm) {
+          const ledger = entry.ledger ?? {};
+          if (ledger.stackedOn) {
+            const newCount = Math.max(0, (charm.system.stackCount ?? 1) - 1);
+            const upd = { "system.stackCount": newCount };
+            if (newCount === 0) upd["system.active"] = false;
+            await charm.update(upd);
+          } else {
+            if (ledger.toggledOn && charm.system.active) {
+              const upd = { "system.active": false };
+              if (charm.system.keywords?.includes("Stackable")) upd["system.stackCount"] = 0;
+              await charm.update(upd);
+            } else if (ledger.toggledOff && !charm.system.active) {
+              await charm.update({ "system.active": true });
+            }
+            if (ledger.spawnedWeapon) await charm._removeCharmWeaponArtifacts();
+          }
+        }
+      }
+      await message.update({
+        flags: { exalted2e: { charmActivation: { ...record, reversed: true } } }
+      });
+      const btn = ev.currentTarget;
+      btn.disabled = true;
+      btn.classList.add("is-reversed");
+      btn.innerHTML = `<i class="fa-solid fa-check"></i> ${game.i18n.localize("EX2E.CharmReversed")}`;
+      ui.notifications.info(game.i18n.localize("EX2E.CharmReversed"));
+      return;
+    }
+
+    // ── Single activation card ────────────────────────────────────────────
     const ledger = record.ledger ?? {};
     const { updates } = planLedgerRefund(ledger, actor.system);
 
@@ -1862,13 +1902,23 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     // Undo toggle state and weapon artifacts on the charm itself.
     const charm = record.charmId ? actor.items.get(record.charmId) : null;
     if (charm) {
-      if (ledger.toggledOn && charm.system.active) {
-        await charm.update({ "system.active": false });
-      } else if (ledger.toggledOff && !charm.system.active) {
-        await charm.update({ "system.active": true });
-      }
-      if (ledger.spawnedWeapon) {
-        await charm._removeCharmWeaponArtifacts();
+      if (ledger.stackedOn) {
+        // Decrement one stack from a Stackable charm; turn off when the last stack is reversed.
+        const newCount = Math.max(0, (charm.system.stackCount ?? 1) - 1);
+        const updates  = { "system.stackCount": newCount };
+        if (newCount === 0) updates["system.active"] = false;
+        await charm.update(updates);
+      } else {
+        if (ledger.toggledOn && charm.system.active) {
+          const updates = { "system.active": false };
+          if (charm.system.keywords?.includes("Stackable")) updates["system.stackCount"] = 0;
+          await charm.update(updates);
+        } else if (ledger.toggledOff && !charm.system.active) {
+          await charm.update({ "system.active": true });
+        }
+        if (ledger.spawnedWeapon) {
+          await charm._removeCharmWeaponArtifacts();
+        }
       }
     }
 

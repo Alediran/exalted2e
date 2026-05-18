@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 170 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-17)
+**Progress: 173 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-17)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -22,7 +22,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
   - [ ] Flaw-of-Invulnerability + Form-type Combo +2 WP surcharge
   - [x] Shared / compendium-sourced Combos (drag-in from packs)
   - [x] Drag-reorder within the Combo sheet (v1 uses arrow buttons)
-  - [ ] Consolidated single chat card + combined Reverse (fallback if chat gets too noisy)
+  - [x] Consolidated single chat card + combined Reverse (fallback if chat gets too noisy)
   - [x] NPC Combos
 - [x] **Knockback / Knockdown / Stunning** (Stamina + Resistance resist rolls, Prone + stun AE)
 - [ ] **Area attacks** (cone/radius attack forms — Elemental Burst Technique, Tsunami Force Shout, etc.; targets make Essence resist rolls, no accuracy roll; requires dedicated area-attack schema field or charm flag)
@@ -61,7 +61,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Holy (upgrades bashing/lethal → aggravated vs Creature of Darkness)
 - [x] Counterattack (already wired via Step 9)
 - [x] Action-Only (reflexive charms gated to acting ticks, once per tick)
-- [ ] Stackable (allow multi-activation accumulation on same target)
+- [x] Stackable (allow multi-activation accumulation on same target)
 - [ ] Compulsion (scene-long forced-task AE on target)
 - [ ] Emotion (scene-long ±1/±3 internal penalty on actions counter to emotion)
 - [ ] Illusion (Perception+Investigation disbelieve mechanic)

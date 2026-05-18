@@ -109,13 +109,15 @@ export class ExaltedItem extends Item {
    *     reserved for a possible future consolidated-Reverse path.
    * @returns {Promise<boolean>} true if activation succeeded.
    */
-  async activateCharm({ skipXpConfirm = false, skipChatCard = false, via = null, explicitTargetActor = null, explicitMotesOverride = null } = {}) {
+  async activateCharm({ skipXpConfirm = false, skipChatCard = false, ledgerBucket = null, via = null, explicitTargetActor = null, explicitMotesOverride = null } = {}) {
     if (this.type !== "charm") return false;
     const actor = this.actor;
     if (!actor) return false;
 
     const isToggleable = this.system.duration !== "instant" && this.system.duration !== "permanent";
-    const turningOff   = isToggleable && this.system.active;
+    const isStackable  = isToggleable && (this.system.keywords ?? []).includes("Stackable");
+    // Stackable charms never turn off via the sheet button — each click adds a stack.
+    const turningOff   = isToggleable && this.system.active && !isStackable;
 
     const _costParsed = parseCostFormula(this.system.cost?.formula ?? "");
     const permEss     = _costParsed?.permanentEssence  ?? 0;
@@ -259,7 +261,7 @@ ${capWarning}`;
         aggravated: 0, xp: 0,
         permanentEssence:   0,
         permanentWillpower: 0,
-        toggledOn: false, toggledOff: false,
+        toggledOn: false, toggledOff: false, stackedOn: false,
         spawnedWeapon: false, rolledInstant: false,
         cooperation: null,
         via
@@ -419,9 +421,20 @@ ${capWarning}`;
 
     // Toggle active state for sustained Charms
     if (isToggleable) {
-      await this.update({ "system.active": !sys.active });
-      ledger.toggledOn  = !turningOff;
-      ledger.toggledOff = turningOff;
+      if (isStackable) {
+        const newCount = (sys.stackCount ?? 0) + 1;
+        const updates  = { "system.stackCount": newCount };
+        if (!sys.active) updates["system.active"] = true;
+        await this.update(updates);
+        ledger.toggledOn  = !sys.active;  // true only on the first stack
+        ledger.stackedOn  = !!sys.active; // true when adding to an existing stack
+        ledger.toggledOff = false;
+      } else {
+        await this.update({ "system.active": !sys.active });
+        ledger.toggledOn  = !turningOff;
+        ledger.toggledOff = turningOff;
+        ledger.stackedOn  = false;
+      }
     }
 
     if (!turningOff && (sys.charmType === "simple" || sys.charmType === "shintai") && (sys.dvPenalty ?? 0) < 0) {
@@ -488,8 +501,12 @@ ${capWarning}`;
       await applyCharmAEs(actor, this, this.getRollData?.() ?? {});
     }
 
-    if (!skipChatCard && !turningOff) {
-      await this.sendToChat({ activation: ledger });
+    if (!turningOff) {
+      if (ledgerBucket !== null) {
+        ledgerBucket.push({ charmId: this.id, charmName: this.name, charmImg: this.img, actorId: actor.id, ledger });
+      } else if (!skipChatCard) {
+        await this.sendToChat({ activation: ledger });
+      }
     }
     return true;
   }
@@ -924,28 +941,15 @@ ${capWarning}`;
     });
     if (!confirmed) return false;
 
-    // Header chat card — compact summary of what's about to fire.
-    const linesHtml = [
-      ...planned.map(({ charm }) =>
-        `<li>${esc(charm.name)}${charmCost(charm)}</li>`),
-      ...skipped.map(({ charm }) =>
-        `<li><em>${esc(charm.name)} — ${
-          game.i18n.localize("EX2E.ComboPreflightAlreadyActive")}</em></li>`),
-      ...missing.map(() =>
-        `<li><em>${game.i18n.localize("EX2E.ComboBroken")}</em></li>`)
-    ].join("");
-    const headerMessage = game.i18n.format("EX2E.ComboHeaderMessage", {
-      actor: esc(actor.name), name: esc(this.name)
-    });
-    await ChatMessage.create({
-      content: `<div class="ex2e-combo-header"><h3>${headerMessage}</h3>
-                <ul style="margin:4px 0 0 18px">${linesHtml}</ul></div>`,
-      speaker: ChatMessage.getSpeaker({ actor })
-    });
-
-    // Fire each planned charm through the existing pipeline.
+    // Fire each planned charm; collect ledgers for the consolidated activation card.
+    const activationBucket = [];
     for (const { charm } of planned) {
-      await charm.activateCharm({ skipXpConfirm: true, via: "combo" });
+      await charm.activateCharm({ skipXpConfirm: true, via: "combo", ledgerBucket: activationBucket });
+    }
+    if (activationBucket.length > 0) {
+      await sendCombinedActivationCard(actor, activationBucket, {
+        title: game.i18n.format("EX2E.ComboHeaderMessage", { actor: actor.name, name: this.name })
+      });
     }
 
     return true;
@@ -1000,6 +1004,49 @@ ${capWarning}`;
       : {};
     return ChatMessage.create({ content, speaker, flags });
   }
+}
+
+/**
+ * Create one consolidated activation chat card for a batch of charms that fired
+ * together (combo activation or multiple supplementals in an attack dialog).
+ *
+ * @param {ExaltedActor} actor   The actor who activated the charms.
+ * @param {object[]}     entries Array of `{ charmId, charmName, charmImg, actorId, ledger }` — one per charm.
+ * @param {object}       [opts]
+ * @param {string}       [opts.title=""]  Header title for the card.
+ */
+export async function sendCombinedActivationCard(actor, entries, { title = "" } = {}) {
+  const processedEntries = entries.map(e => {
+    const parts = [];
+    const mb = e.ledger?.moteBreakdown;
+    if (mb) {
+      const total = (mb.fromPrimary ?? 0) + (mb.fromSecondary ?? 0);
+      if (total > 0) parts.push(`${total}m`);
+    }
+    if (e.ledger?.willpower)  parts.push(`${e.ledger.willpower}wp`);
+    if (e.ledger?.bashing)    parts.push(`${e.ledger.bashing}b`);
+    if (e.ledger?.lethal)     parts.push(`${e.ledger.lethal}l`);
+    if (e.ledger?.aggravated) parts.push(`${e.ledger.aggravated}a`);
+    if (e.ledger?.xp)         parts.push(`${e.ledger.xp}xp`);
+    return { ...e, costDisplay: parts.join(", ") || "—" };
+  });
+
+  const content = await foundry.applications.handlebars.renderTemplate(
+    "systems/exalted2e/templates/chat/charm-activation-combined.hbs",
+    { title, actorName: actor.name, entries: processedEntries, canReverse: processedEntries.length > 0 }
+  );
+  const speaker = ChatMessage.getSpeaker({ actor });
+  const flags = {
+    exalted2e: {
+      charmActivation: {
+        combined: true,
+        actorId:  actor.id,
+        entries:  entries.map(e => ({ ...e, reversed: false })),
+        reversed: false
+      }
+    }
+  };
+  return ChatMessage.create({ content, speaker, flags });
 }
 
 /**

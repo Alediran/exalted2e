@@ -235,6 +235,40 @@ body.ex2e-light-mode .exalted2e.item.charm[data-exalt-type="mortal"]      { --ex
   line-height: 1.5;
 }
 
+/* Combined activation card (combo / multi-supplemental) */
+.ex2e-combined-card .item-card-charm-list {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--ex2e-gap-xs, 4px);
+  padding:        var(--ex2e-gap-sm) 0;
+}
+
+.ex2e-combined-card .charm-activation-row {
+  display:     flex;
+  align-items: center;
+  gap:         var(--ex2e-gap-sm);
+}
+
+.ex2e-combined-card .charm-row-img {
+  width:         22px;
+  height:        22px;
+  border-radius: 3px;
+  object-fit:    cover;
+  flex-shrink:   0;
+}
+
+.ex2e-combined-card .charm-row-name {
+  flex:      1;
+  font-size: var(--ex2e-font-size-sm);
+  color:     var(--ex2e-text-primary);
+}
+
+.ex2e-combined-card .charm-row-cost {
+  font-size:   var(--ex2e-font-size-xs);
+  color:       var(--ex2e-gold-bright);
+  white-space: nowrap;
+}
+
 .weapon-mode {  
   border-bottom: 1px solid var(--ex2e-gold-dark);
   margin-bottom: 3px;

@@ -19,7 +19,7 @@ import { computeAttackExcellencyCaps } from "./excellency-math.mjs";
 import { bankStuntReward } from "../combat/stunt-payment.mjs";
 import { computeAttackCharmBonus } from "./charm-combat-math.mjs";
 import { aggregateExtraActionsMaxFromAEs, aggregateSpeedModifierFromAEs, getMasteryDiscount } from "./charm-passive-math.mjs";
-import { evaluateCharmFormula } from "../documents/item.mjs";
+import { evaluateCharmFormula, sendCombinedActivationCard } from "../documents/item.mjs";
 
 /**
  * ExaltedRoll – Handles the Exalted 2e d10 dice pool mechanic.
@@ -664,20 +664,32 @@ export class ExaltedRoll {
     // Activate each selected Supplemental/Simple charm. `activateCharm`
     // handles mote/willpower spending and sustained-toggle bookkeeping;
     // a truthy return means the cost was paid.
+    // Ledgers are collected and posted as one consolidated card (or a single
+    // card when only one charm fires) rather than N separate cards.
     const activatedCharms = [];
     const activatedKeywords = new Set();
     const activations = dialogResult.charmActivations?.length
       ? dialogResult.charmActivations
       : (dialogResult.charmIds ?? []).map(id => ({ id, motesOverride: undefined }));
+    const activationBucket = [];
     for (const { id, motesOverride } of activations) {
       const c = actor.items.get(id);
       if (!c) continue;
       const ok = await c.activateCharm({
-        explicitMotesOverride: motesOverride !== undefined ? motesOverride : null
+        explicitMotesOverride: motesOverride !== undefined ? motesOverride : null,
+        ledgerBucket: activationBucket
       });
       if (!ok) continue;
       activatedCharms.push({ id: c.id, name: c.name });
       for (const kw of (c.system.keywords ?? [])) activatedKeywords.add(kw);
+    }
+    if (activationBucket.length === 1) {
+      const soleCharm = actor.items.get(activationBucket[0].charmId);
+      if (soleCharm) await soleCharm.sendToChat({ activation: activationBucket[0].ledger });
+    } else if (activationBucket.length > 1) {
+      await sendCombinedActivationCard(actor, activationBucket, {
+        title: game.i18n.localize("EX2E.SupplementalCharmsActivated")
+      });
     }
     // Charm-spawned weapons (instant or longer-duration) inherit keywords
     // from the charm that created them — the weapon IS that charm, so its
