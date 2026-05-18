@@ -61,6 +61,29 @@ function _masteredElements(actor) {
 }
 
 /**
+ * Return true if the actor is mid-initiation into any Dragon Style —
+ * i.e. owns at least one charm from an elemental MA style but has not
+ * yet earned mastery (the grantsMastery charm) for that same element.
+ * While mid-initiation, ALL MA charm activations incur the +1m surcharge.
+ */
+function _isInitiatingStyle(actor) {
+  const items = actor?.items ?? [];
+  const started  = new Set();
+  const mastered = new Set();
+  for (const item of items) {
+    if (item.type !== "charm") continue;
+    const el = item.system?.martialArtsElement;
+    if (!el) continue;
+    started.add(el);
+    if (item.system?.grantsMastery) mastered.add(el);
+  }
+  for (const el of started) {
+    if (!mastered.has(el)) return true;
+  }
+  return false;
+}
+
+/**
  * Return the out-of-aspect mote surcharge for a Dragon-Blooded activating
  * a charm.
  *
@@ -89,11 +112,20 @@ export function getOutOfAspectSurcharge(actor, charm) {
   if (ability === "martialarts") {
     const tier = _effectiveMATier(charm);
     if (tier === "celestial" || tier === "sidereal") return 0;
-    // Terrestrial-tier MA: apply surcharge unless martialArts is a caste ability.
-    // The actor schema keys this under "martialArts" (camelCase), not "martialarts".
+    // Mid-initiation into any Dragon Style imposes the surcharge on ALL MA
+    // charms, overriding even the Water Aspect's in-aspect exemption.
+    if (_isInitiatingStyle(actor)) return 1;
+    // The actor schema keys martialArts under "martialArts" (camelCase).
     const maData = actor.system.abilities?.martialArts;
     if (!maData) return 0;
-    return maData.caste ? 0 : 1;
+    if (maData.caste) return 0;
+    // Non-caste: mastering the Dragon Style for this element grants exemption.
+    const element = charm?.system?.martialArtsElement;
+    if (element) {
+      const mastered = _masteredElements(actor);
+      if (mastered.has(element)) return 0;
+    }
+    return 1;
   }
 
   const abilityData = actor.system.abilities?.[ability];
@@ -136,8 +168,13 @@ export function getCelestialMASurcharge(actor, charm) {
   const tier = _effectiveMATier(charm);
   if (tier !== "celestial" && tier !== "sidereal") return 0;
 
+  // Mid-initiation into any Dragon Style → +1m on ALL MA charms, including
+  // in-aspect and non-elemental ones.
+  if (_isInitiatingStyle(actor)) return 1;
+
   const element = charm?.system?.martialArtsElement;
-  if (!element) return 0;
+  // Non-Immaculate celestial MA (no element) always costs +1m for DB.
+  if (!element) return 1;
 
   // In-aspect: DB's caste matches the style's element
   if (actor?.system?.caste === element) return 0;

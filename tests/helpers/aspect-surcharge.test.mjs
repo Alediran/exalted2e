@@ -79,6 +79,17 @@ describe("getOutOfAspectSurcharge", () => {
     expect(getOutOfAspectSurcharge(actor, charm)).toBe(1);
   });
 
+  it("mid-initiation: in-aspect terrestrial-tier MA charm still costs 1m while learning a Dragon Style", () => {
+    const inProgressCharm = { type: "charm", system: { grantsMastery: false, martialArtsElement: "air" } };
+    const actor = makeActor({
+      abilities: { martialArts: { value: 3, caste: true, favored: false } },
+      caste: "water",
+      items: [inProgressCharm]
+    });
+    const charm = makeCharm({ ability: "martialarts", martialArtsTier: "" });
+    expect(getOutOfAspectSurcharge(actor, charm)).toBe(1);
+  });
+
   it("returns 0 for Water Aspect using Terrestrial MA (martialArts is caste)", () => {
     const actor = makeActor({
       abilities: { martialArts: { value: 3, caste: true, favored: false } }
@@ -92,6 +103,28 @@ describe("getOutOfAspectSurcharge", () => {
       abilities: { martialArts: { value: 2, caste: false, favored: false } }
     });
     const charm = makeCharm({ ability: "martialarts", martialArtsTier: "" });
+    expect(getOutOfAspectSurcharge(actor, charm)).toBe(1);
+  });
+
+  it("returns 0 for non-Water Aspect who mastered the charm's elemental Dragon Style (terrestrial-tier)", () => {
+    const masteryCharm = makeMasteryCharm("wood");
+    const actor = makeActor({
+      caste: "fire",
+      abilities: { martialArts: { value: 2, caste: false, favored: false } },
+      items: [masteryCharm]
+    });
+    const charm = makeCharm({ ability: "martialarts", martialArtsTier: "", martialArtsElement: "wood" });
+    expect(getOutOfAspectSurcharge(actor, charm)).toBe(0);
+  });
+
+  it("mastery of a different element does not exempt terrestrial-tier MA", () => {
+    const masteryCharm = makeMasteryCharm("wood");
+    const actor = makeActor({
+      caste: "fire",
+      abilities: { martialArts: { value: 2, caste: false, favored: false } },
+      items: [masteryCharm]
+    });
+    const charm = makeCharm({ ability: "martialarts", martialArtsTier: "", martialArtsElement: "earth" });
     expect(getOutOfAspectSurcharge(actor, charm)).toBe(1);
   });
 
@@ -273,10 +306,10 @@ describe("getCelestialMASurcharge", () => {
     expect(getCelestialMASurcharge(actor, charm)).toBe(0);
   });
 
-  it("returns 0 for celestial MA charm with no element set (non-elemental style)", () => {
+  it("returns 1 for non-Immaculate celestial MA (no element set) — DB always pay", () => {
     const actor = makeActor({ exaltType: "terrestrial", caste: "fire" });
     const charm = makeCharm({ ability: "martialarts", martialArtsTier: "celestial", martialArtsElement: "" });
-    expect(getCelestialMASurcharge(actor, charm)).toBe(0);
+    expect(getCelestialMASurcharge(actor, charm)).toBe(1);
   });
 
   it("returns 0 when DB caste matches the style's element (in-aspect)", () => {
@@ -309,6 +342,29 @@ describe("getCelestialMASurcharge", () => {
     const actor = makeActor({ exaltType: "terrestrial", caste: "fire", items: [masteryCharm] });
     const charm = makeCharm({ ability: "martialarts", martialArtsTier: "celestial", martialArtsElement: "air" });
     expect(getCelestialMASurcharge(actor, charm)).toBe(1);
+  });
+
+  it("mid-initiation: in-aspect charm still costs 1m while learning an elemental style", () => {
+    // Fire Aspect learning Air Dragon Style (has one charm, not mastery)
+    const inProgressCharm = { type: "charm", system: { grantsMastery: false, martialArtsElement: "air" } };
+    const actor = makeActor({ exaltType: "terrestrial", caste: "fire", items: [inProgressCharm] });
+    const fireCharm = makeCharm({ ability: "martialarts", martialArtsTier: "celestial", martialArtsElement: "fire" });
+    expect(getCelestialMASurcharge(actor, fireCharm)).toBe(1);
+  });
+
+  it("non-elemental celestial MA always costs 1m (mid-initiation or not)", () => {
+    // Not mid-initiation — still costs 1m
+    const actor = makeActor({ exaltType: "terrestrial", caste: "fire", items: [] });
+    const genericCharm = makeCharm({ ability: "martialarts", martialArtsTier: "celestial", martialArtsElement: "" });
+    expect(getCelestialMASurcharge(actor, genericCharm)).toBe(1);
+  });
+
+  it("completing mastery ends mid-initiation penalty for all MA charms", () => {
+    const masteryCharm = makeMasteryCharm("air");
+    const actor = makeActor({ exaltType: "terrestrial", caste: "fire", items: [masteryCharm] });
+    const fireCharm = makeCharm({ ability: "martialarts", martialArtsTier: "celestial", martialArtsElement: "fire" });
+    // Fire Aspect using Fire-aspected celestial MA — no longer mid-initiation
+    expect(getCelestialMASurcharge(actor, fireCharm)).toBe(0);
   });
 
 });
