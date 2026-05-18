@@ -651,11 +651,19 @@ export class ExaltedRoll {
       return false;
     });
 
+    const lunarFuryActive = actor.items.some(
+      i => i.type === "charm" && i.system?.active
+        && (i.system?.keywords ?? []).includes("Relentless-Lunar-Fury")
+    );
+    const filteredAttackCharms = lunarFuryActive
+      ? attackCharms.filter(c => (c.system?.keywords ?? []).includes("Fury-OK"))
+      : attackCharms;
+
     const dialogResult = await AttackDialog.prompt({
       pool, excellency, firstExcMax, secondExcMax,
       firstExcLabel, secondExcLabel,
       flurryPenalty,
-      charms:   attackCharms,
+      charms:   filteredAttackCharms,
       virtues:  actor.type === "character" ? sys.virtues : null,
       actor,
     });

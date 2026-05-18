@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 176 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-17)
+**Progress: 177 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-18)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -154,7 +154,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Attribute-keyed charms (Excellency system uses attribute for Lunars)
 - [x] Chimera Knacks gated by Casteless + Limit ≥ 5
 - [ ] Gift keyword auto-activation on Deadly Beastman Transformation entry — [charms-gap A6](docs/charms-gap.md)
-- [ ] Fury-OK charm filter during Relentless Lunar Fury (block non-Fury-OK from supplemental picker) — [charms-gap A7](docs/charms-gap.md)
+- [x] Fury-OK charm filter during Relentless Lunar Fury (block non-Fury-OK from supplemental picker) — [charms-gap A7](docs/charms-gap.md)
 
 ### Dragon-Blooded
 - [x] Aspects & breeding (Breeding 1-5 mote-pool bonus)

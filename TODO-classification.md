@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-17 (charms-gap deferred items A2/A6/A7/A9 linked; A1/A8 cross-referenced)
+Last updated: 2026-05-18 (A7 Fury-OK filter done)
 
 ---
 
@@ -69,7 +69,6 @@ Last updated: 2026-05-17 (charms-gap deferred items A2/A6/A7/A9 linked; A1/A8 cr
 | Headless tests for remaining paths | Testing | test authoring for charm prereqs, multi-tick, sorcery |
 | Social Combos | Social | adapts combo infrastructure for social charms *(soft dep: base combo items still open)* |
 | Gift keyword auto-activation | Lunar | DBT entry hook + activate all owned Gift charms — [charms-gap A6](docs/charms-gap.md) |
-| Fury-OK supplemental-picker filter | Lunar | combat state flag (Relentless Lunar Fury active) → block non-Fury-OK — [charms-gap A7](docs/charms-gap.md) |
 
 ---
 
@@ -111,10 +110,10 @@ Last updated: 2026-05-17 (charms-gap deferred items A2/A6/A7/A9 linked; A1/A8 cr
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 50 |
+| B — Ready, Medium | 49 |
 | C — Ready, Complex | 12 |
 | D — Blocked | 5 |
-| **Total pending** | **68** |
+| **Total pending** | **67** |
 
 **Biggest force-multipliers:**
 - **Countermagic resolution** (Group B) → unblocks Countermagic cost variance
