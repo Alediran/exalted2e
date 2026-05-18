@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 170 / 259 complete** (10 out-of-scope / partial — last updated 2026-05-15)
+**Progress: 170 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-17)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -66,10 +66,10 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Emotion (scene-long ±1/±3 internal penalty on actions counter to emotion)
 - [ ] Illusion (Perception+Investigation disbelieve mechanic)
 - [ ] Servitude (loyalty binding AE)
-- [ ] Overdrive pool (temp Peripheral, cap 25, dissipates scene-end)
+- [ ] Overdrive pool (temp Peripheral, cap 25, dissipates scene-end) — [charms-gap A1](docs/charms-gap.md)
 - [ ] Touch keyword mechanics (requires Dex+MA attack vs non-consenting target)
-- [ ] Training keyword (trainee XP debt ledger)
-- [x] Native keyword gating (blocks Eclipse/Moonshadow/Fiend from learning)
+- [ ] Training keyword (trainee XP debt ledger) — [charms-gap A8](docs/charms-gap.md)
+- [x] Native keyword gating (blocks Eclipse/Moonshadow/Fiend from learning) — learn-time enforcement deferred; see [charms-gap A10](docs/charms-gap.md)
 - [x] Mirror keyword navigation UI (show linked charm across splats)
 - [ ] Merged keyword (learn once, usable across listed Abilities)
 - [ ] Martial / Martial-ready gating at charm-learn time
@@ -92,6 +92,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Infinite (Ability) Mastery discount tracking (committed motes reduce Excellency cost)
 - [ ] Keyword-as-status-effect registry (systematic Compulsion/Emotion/Illusion/Servitude → AE mapping)
 - [ ] Charm deactivation resolver (scene-end / combat-end / out-of-motes)
+- [ ] Essence-tiered upgrade branches (Essence 3+/4+ conditional charm effects; description-only currently) — [charms-gap A2](docs/charms-gap.md)
 - [x] Cooperative keyword (multi-caster charm dialog — DB aspect cooperation)
 
 ## Social Combat
@@ -106,6 +107,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Motivation-break mechanic (permanent WP + Essence days without recovery)
 - [x] Intimacy building/erosion via successful social attack (+/−1 or new Intimacy seed)
 - [ ] Social Combos (no Obvious display unless charm is Obvious)
+- [ ] Social charm bonus payload (socialBonus schema — charm-driven pool/MDV modifier, analogous to attackBonus) — [charms-gap A9](docs/charms-gap.md)
 
 ## Sorcery & Necromancy
 - [x] Spell item type (Terrestrial/Celestial/Solar; Shadowland/Labyrinth/Void)
@@ -151,6 +153,8 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Health-track wraps at 10 boxes per line
 - [x] Attribute-keyed charms (Excellency system uses attribute for Lunars)
 - [x] Chimera Knacks gated by Casteless + Limit ≥ 5
+- [ ] Gift keyword auto-activation on Deadly Beastman Transformation entry — [charms-gap A6](docs/charms-gap.md)
+- [ ] Fury-OK charm filter during Relentless Lunar Fury (block non-Fury-OK from supplemental picker) — [charms-gap A7](docs/charms-gap.md)
 
 ### Dragon-Blooded
 - [x] Aspects & breeding (Breeding 1-5 mote-pool bonus)
