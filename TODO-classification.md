@@ -41,7 +41,6 @@ Last updated: 2026-05-18 (A7 Fury-OK filter done)
 | Sidereal MA entry gate | Martial Arts | check actor owns a Form-type charm from ≥1 Celestial style |
 | Sidereal MA gating (splat section) | Sidereal | same as above; cross-reference in splat section |
 | Celestial-MA DB initiation charms | Martial Arts | specific charm data + actor gating for DB access to Celestial styles |
-| Celestial-MA per-charm surcharge | Martial Arts | `martialArtsTier === "celestial"` check in aspect-surcharge.mjs for DB actors |
 | Celestial-MA 1.5× XP | Martial Arts | same tier check in XP cost engine for non-resonant exalts |
 | Martial/Martial-ready keyword gating | Keywords | weapon tag check at charm-learn time using per-style weapons config |
 | Limit Break scripted scene effects | Solar / Virtues | per-Virtue-Flaw AE templates (4 flaws × 2 break types) |
@@ -108,10 +107,10 @@ Last updated: 2026-05-18 (A7 Fury-OK filter done)
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 47 |
+| B — Ready, Medium | 46 |
 | C — Ready, Complex | 12 |
 | D — Blocked | 5 |
-| **Total pending** | **65** |
+| **Total pending** | **64** |
 
 **Biggest force-multipliers:**
 - **Countermagic resolution** (Group B) → unblocks Countermagic cost variance

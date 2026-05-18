@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 179 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-18)
+**Progress: 180 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-18)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -128,7 +128,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Style weapon tag validation (M = Melee-or-MA, MO = MA-only; form weapons count as unarmed for style purposes)
 - [ ] Sidereal Martial Arts entry gate (requires ≥1 Celestial style mastered to Form + Sidereal sifu)
 - [ ] Celestial-MA DB initiation charms (Pasiap's Humility+Daana'd etc.)
-- [ ] Celestial-MA per-charm surcharge for Dragon-Blooded (+1m per activation)
+- [x] Celestial-MA per-charm surcharge for Dragon-Blooded (+1m per activation)
 - [ ] Celestial-MA 1.5× XP for non-resonant Exalts
 
 ## Per-Splat Mechanics
