@@ -136,9 +136,23 @@ export function checkAttackRange(mode, attackerActor, targetActor) {
   if (rangeVal === 0) {
     const hasReach = mode?.tags?.includes("Reach");
     const maxSpaces = hasReach ? 2 : 1;
-    return { inRange: spaces <= maxSpaces, distance, spaces, maxRange: maxSpaces };
+    return { inRange: spaces <= maxSpaces, distance, spaces, maxRange: maxSpaces, band: null, rangePenalty: 0 };
   }
-  return { inRange: distance <= rangeVal, distance, spaces, maxRange: rangeVal };
+
+  if (distance > rangeVal) {
+    return { inRange: false, distance, spaces, maxRange: rangeVal, band: null, rangePenalty: 0 };
+  }
+
+  // Determine range band from config table.
+  const { EX2E } = game.exalted2e ?? {};
+  const bands = EX2E?.rangeBands ?? [];
+  for (const b of bands) {
+    if (distance <= rangeVal * b.maxFraction) {
+      return { inRange: true, distance, spaces, maxRange: rangeVal, band: b.key, rangePenalty: b.penalty };
+    }
+  }
+  // Fallback: treat as long range.
+  return { inRange: true, distance, spaces, maxRange: rangeVal, band: "long", rangePenalty: 2 };
 }
 
 /**

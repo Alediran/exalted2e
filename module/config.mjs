@@ -231,6 +231,15 @@ EX2E.weaponTags = [
   "Natural", "Overwhelming", "Piercing", "Reach", "Single Shot", "Thrown", "Two-handed"
 ];
 
+// Range bands for ranged attacks (mode.range > 0). Each band covers distances
+// up to (maxFraction × effectiveRange). The last band covers up to the full
+// max range; beyond that the attack is refused. penalty is positive (dice removed).
+EX2E.rangeBands = [
+  { key: "short",  maxFraction: 1 / 3, penalty: 0, labelKey: "EX2E.RangeBandShort"  },
+  { key: "medium", maxFraction: 2 / 3, penalty: 0, labelKey: "EX2E.RangeBandMedium" },
+  { key: "long",   maxFraction: 1,     penalty: 2, labelKey: "EX2E.RangeBandLong"   },
+];
+
 EX2E.armorTags = [
   "Concealable"
 ];

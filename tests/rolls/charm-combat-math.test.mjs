@@ -12,6 +12,7 @@ describe("computeAttackCharmBonus", () => {
       extraDamageDice: 0,
       extraPostSoakDamageDice: 0,
       ignorePenalties: false,
+      ignoreRangeBand: false,
     });
   });
 
@@ -66,6 +67,22 @@ describe("computeAttackCharmBonus", () => {
     const r = computeAttackCharmBonus(charms, {});
     expect(r.extraAccuracyDice).toBe(0);
     expect(r.ignorePenalties).toBe(false);
+  });
+
+  it("sets ignoreRangeBand when any enabled charm has ignoreRangeBand", () => {
+    const charms = [{ system: { attackBonus: {
+      enabled: true, accuracyDice: "", accuracySuccesses: "", damageDice: "",
+      ignoreAccuracyPenalties: false, ignoreRangeBand: true
+    }}}];
+    expect(computeAttackCharmBonus(charms, {}).ignoreRangeBand).toBe(true);
+  });
+
+  it("ignoreRangeBand stays false when disabled charm has it", () => {
+    const charms = [{ system: { attackBonus: {
+      enabled: false, accuracyDice: "", accuracySuccesses: "", damageDice: "",
+      ignoreAccuracyPenalties: false, ignoreRangeBand: true
+    }}}];
+    expect(computeAttackCharmBonus(charms, {}).ignoreRangeBand).toBe(false);
   });
 });
 

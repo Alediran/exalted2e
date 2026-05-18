@@ -42,6 +42,20 @@ describe("computeAttackPool", () => {
     })).toBe(12);
   });
 
+  it("range penalty subtracts (positive value reduces pool)", () => {
+    expect(computeAttackPool({
+      attrVal: 3, abilVal: 4, accuracy: 2, rangePenalty: 2
+    })).toBe(7);
+  });
+
+  it("range penalty stacks with other penalties", () => {
+    // 4+4+1=9, -1 wound, -1 flurry, +2 aim, -2 range → 7
+    expect(computeAttackPool({
+      attrVal: 4, abilVal: 4, accuracy: 1,
+      woundPenalty: -1, flurryPenalty: 1, aimBonus: 2, rangePenalty: 2
+    })).toBe(7);
+  });
+
   it("floors at 0 when combined penalties exceed base pool", () => {
     expect(computeAttackPool({
       attrVal: 2, abilVal: 1, accuracy: 0,

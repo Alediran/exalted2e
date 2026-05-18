@@ -19,7 +19,6 @@ Last updated: 2026-05-18 (A7 Fury-OK filter done)
 
 | Item | TODO Section | Key concern |
 |------|-------------|-------------|
-| Range bands with tiered penalties | Combat | config table + range-check rewrite + attack penalty lookup |
 | Combo-building rules (size limits, keyword restrictions) | Combat | charm filter at combo-add time; pre-errata size caps |
 | Area attacks | Combat | new attack schema flag + resolution path without accuracy roll |
 | Coordinated attacks | Combat | leader Cha+War roll + DV reduction AE on target |
@@ -109,10 +108,10 @@ Last updated: 2026-05-18 (A7 Fury-OK filter done)
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 48 |
+| B — Ready, Medium | 47 |
 | C — Ready, Complex | 12 |
 | D — Blocked | 5 |
-| **Total pending** | **66** |
+| **Total pending** | **65** |
 
 **Biggest force-multipliers:**
 - **Countermagic resolution** (Group B) → unblocks Countermagic cost variance

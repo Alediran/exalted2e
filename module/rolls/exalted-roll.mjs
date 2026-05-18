@@ -525,13 +525,6 @@ export class ExaltedRoll {
     const internalPenalty = actor.internalPenaltyFor?.("physical") ?? 0;
     let externalPenalty   = actor.externalPenaltyFor?.("physical") ?? 0;
 
-    const pool = computeAttackPool({
-      attrVal, abilVal,
-      accuracy:       mode.effectiveAccuracy,
-      isInstantCharm: isInstantCharmAttack,
-      woundPenalty, flurryPenalty, internalPenalty, aimBonus
-    }) + (options.extraDice ?? 0);
-
     // Excellency detection (same pattern as rollAttributeAbility)
     const exaltType   = sys.exaltType ?? "";
     const isAttrBased = ["lunar", "alchemical"].includes(exaltType);
@@ -584,11 +577,11 @@ export class ExaltedRoll {
       targetActor = await pickTargetActor();
       if (!targetActor) return null; // cancelled
     }
-    // Range check — abort the attack if the chosen target is beyond the
-    // weapon mode's reach. Counterattacks skip this (they come from the
-    // victim of the original attack, which is always in range by virtue
-    // of having been attacked). `checkAttackRange` returns null when
-    // tokens aren't placed on a scene, in which case we pass through.
+    // Range check — abort if out of range; otherwise capture band + penalty.
+    // Counterattacks skip this (always in range by definition).
+    // `checkAttackRange` returns null when tokens aren't on a scene; pass through.
+    let rangePenalty = 0;
+    let rangeBand    = null;
     if (targetActor && !options.isCounterattack) {
       const { checkAttackRange } = await import("../helpers/targeting.mjs");
       const rangeInfo = checkAttackRange(mode, actor, targetActor);
@@ -598,6 +591,10 @@ export class ExaltedRoll {
           max:      rangeInfo.maxRange
         }));
         return null;
+      }
+      if (rangeInfo) {
+        rangePenalty = rangeInfo.rangePenalty ?? 0;
+        rangeBand    = rangeInfo.band ?? null;
       }
     }
     if (targetActor) {
@@ -633,6 +630,13 @@ export class ExaltedRoll {
         externalPenalty += mmBonuses?.starmetal?.attackPenalty ?? 0;
       }
     }
+
+    const pool = computeAttackPool({
+      attrVal, abilVal,
+      accuracy:       mode.effectiveAccuracy,
+      isInstantCharm: isInstantCharmAttack,
+      woundPenalty, flurryPenalty, internalPenalty, aimBonus, rangePenalty
+    }) + (options.extraDice ?? 0);
 
     // Non-Excellency attack charms: every Supplemental keyed to the rolled
     // ability, plus Reflexive charms flagged as triggering in Step 1
@@ -829,7 +833,8 @@ export class ExaltedRoll {
     // Build and evaluate the attack roll
     const displayName = (wSys.modes?.length ?? 1) > 1 ? `${weapon.name} — ${mode.name}` : weapon.name;
     const attackRoll = new ExaltedRoll({
-      pool:               pool + firstExcDice + charmAttackBonus.extraAccuracyDice + virtueChannelDice,
+      pool:               pool + firstExcDice + charmAttackBonus.extraAccuracyDice + virtueChannelDice
+                        + (charmAttackBonus.ignoreRangeBand ? (rangePenalty ?? 0) : 0),
       flavor:             `${displayName} — ${game.i18n.localize("EX2E.AttackRoll")}`,
       actorName:          actor.name,
       stunt:              dialogResult.stunt,
@@ -902,6 +907,11 @@ export class ExaltedRoll {
       extraActionsAvailable: charmExtraMax || null,
       effectiveSpeed:        charmSpeed !== baseSpeed ? charmSpeed : null,
       aimBonus:              aimBonus || null,
+      rangeBand:             rangeBand || null,
+      rangePenalty:          charmAttackBonus.ignoreRangeBand ? null : (rangePenalty || null),
+      rangeBandLabel:        rangeBand
+        ? game.i18n.localize(game.exalted2e.EX2E.rangeBands.find(b => b.key === rangeBand)?.labelKey ?? "")
+        : null,
     };
 
     const content = await renderAttackCardContent(attack);

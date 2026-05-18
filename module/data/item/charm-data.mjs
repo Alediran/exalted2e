@@ -263,7 +263,8 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         postSoakDamageDice:      new fields.StringField({ initial: "", blank: true }),
         // When true, postSoakDamageDice is multiplied by resolvedUnits at roll time.
         postSoakDicePerMote:     new fields.BooleanField({ initial: false }),
-        ignoreAccuracyPenalties: new fields.BooleanField({ initial: false })
+        ignoreAccuracyPenalties: new fields.BooleanField({ initial: false }),
+        ignoreRangeBand:         new fields.BooleanField({ initial: false })
       }),
 
       // M13 — Speed modifier

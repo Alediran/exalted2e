@@ -9,12 +9,13 @@ import { evaluateCharmFormula } from '../documents/item.mjs';
  * Pass actor.getRollData() as rollData to resolve stat tokens.
  * @param {object[]} charms
  * @param {object}   rollData — actor roll-data for formula evaluation; pass {} if unavailable
- * @returns {{ extraAccuracyDice:number, extraAccuracySuccesses:number, extraDamageDice:number, extraPostSoakDamageDice:number, ignorePenalties:boolean }}
+ * @returns {{ extraAccuracyDice:number, extraAccuracySuccesses:number, extraDamageDice:number, extraPostSoakDamageDice:number, ignorePenalties:boolean, ignoreRangeBand:boolean }}
  */
 export function computeAttackCharmBonus(charms, rollData = {}) {
   let extraAccuracyDice = 0, extraAccuracySuccesses = 0, extraDamageDice = 0;
   let extraPostSoakDamageDice = 0;
   let ignorePenalties = false;
+  let ignoreRangeBand = false;
   for (const c of charms) {
     const ab = c?.system?.attackBonus;
     if (!ab?.enabled) continue;
@@ -23,7 +24,8 @@ export function computeAttackCharmBonus(charms, rollData = {}) {
     extraDamageDice         += evaluateCharmFormula(ab.damageDice,          rollData, 0) | 0;
     extraPostSoakDamageDice += evaluateCharmFormula(ab.postSoakDamageDice,  rollData, 0) | 0;
     if (ab.ignoreAccuracyPenalties) ignorePenalties = true;
+    if (ab.ignoreRangeBand)         ignoreRangeBand = true;
   }
-  return { extraAccuracyDice, extraAccuracySuccesses, extraDamageDice, extraPostSoakDamageDice, ignorePenalties };
+  return { extraAccuracyDice, extraAccuracySuccesses, extraDamageDice, extraPostSoakDamageDice, ignorePenalties, ignoreRangeBand };
 }
 

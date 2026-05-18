@@ -30,6 +30,10 @@
   <div class="exc-bonus-row"><i class="fa-solid fa-crosshairs"></i> +{{aimBonus}} <abbr title="{{localize 'EX2E.AimBonus'}}">{{localize "EX2E.AimBonusAbbr"}}</abbr></div>
   {{/if}}
 
+  {{#if rangePenalty}}
+  <div class="exc-bonus-row"><i class="fa-solid fa-arrows-left-right"></i> −{{rangePenalty}} <abbr title="{{rangeBandLabel}}">{{localize "EX2E.RangePenaltyAbbr"}}</abbr></div>
+  {{/if}}
+
   {{#if attackCharms.length}}
   <div class="defense-charms attack-charms">
     <span class="defense-charms-label">{{localize "EX2E.AttackCharmsUsed"}}:</span>

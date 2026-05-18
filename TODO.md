@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 178 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-18)
+**Progress: 179 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-18)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -10,7 +10,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Multi-step attack resolution (Steps 1 / 2 / 4 / 5 / 8 / 9 on the attack card)
 - [x] Canvas target picker when no token is pre-targeted
 - [x] Range check (melee ≤ 1 square, Reach ≤ 2; ranged ≤ `effectiveRange`)
-- [ ] Range bands (short/medium/long) with tiered penalties (currently binary in-range / out-of-range)
+- [x] Range bands (short/medium/long) with tiered penalties (currently binary in-range / out-of-range)
 - [x] Flurries
   - [x] Declaration dialog (action rows, per-mode rate caps, draw-then-attack)
   - [x] Dice penalty applied in `rollAttack`

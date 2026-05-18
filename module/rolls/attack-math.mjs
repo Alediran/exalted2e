@@ -27,10 +27,11 @@
 export function computeAttackPool({
   attrVal = 0, abilVal = 0, accuracy = 0,
   isInstantCharm = false,
-  woundPenalty = 0, flurryPenalty = 0, internalPenalty = 0, aimBonus = 0
+  woundPenalty = 0, flurryPenalty = 0, internalPenalty = 0, aimBonus = 0,
+  rangePenalty = 0
 } = {}) {
   const basePool = isInstantCharm ? accuracy : (attrVal + abilVal + accuracy);
-  return Math.max(0, basePool + woundPenalty - flurryPenalty - internalPenalty + aimBonus);
+  return Math.max(0, basePool + woundPenalty - flurryPenalty - internalPenalty + aimBonus - rangePenalty);
 }
 
 /**
