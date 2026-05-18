@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 173 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-17)
+**Progress: 174 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-17)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -40,7 +40,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [~] Cover modifiers — light/heavy cover AE-based DV bonus framework implemented; buckler/tower shield items pending
 - [x] Height advantage — custom `heightAdvantage` status effect with `dvBonus: { dodge: 1, parry: 1 }` + compendium seeder entry
 - [x] **Multi-tick action container** — for shaping sorcery, Aim banking across ticks, clinch renewal, extra-action charm flurries with their own tick scheduling
-- [ ] Aim bonus banking (one die per banked tick, consumed on aimed attack)
+- [x] Aim bonus banking (one die per banked tick, consumed on aimed attack)
 - [x] Aborted-Aim divert penalty — `onCommitOther` returns `applyAbortPenalty:true`; `advanceCurrentByTicks` applies `applyInternalPenalty(2, dvRefreshable)` when diverted
 - [x] Minimum-damage errata swap — `Math.max(damagePool − soak, overwhelming)` where `overwhelming` defaults to 1; hardnessStops correctly blocks entirely (no minimum applies)
 

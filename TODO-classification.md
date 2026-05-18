@@ -23,7 +23,6 @@ Last updated: 2026-05-17 (charms-gap deferred items A2/A6/A7/A9 linked; A1/A8 cr
 | Combo-building rules (size limits, keyword restrictions) | Combat | charm filter at combo-add time; pre-errata size caps |
 | Area attacks | Combat | new attack schema flag + resolution path without accuracy roll |
 | Coordinated attacks | Combat | leader Cha+War roll + DV reduction AE on target |
-| Aim bonus banking | Combat | multi-tick container already exists; add banking counter |
 | Shields as weapons | Defense | new weapon tag handling, DV bonus, mobility penalty |
 | Fatigue penalty mechanic | Defense / Penalty | hook on scene-length exertion + Sta+Res roll |
 | Compulsion / Emotion AE | Keywords | keyword → scene-long AE, AE template system |
@@ -115,10 +114,10 @@ Last updated: 2026-05-17 (charms-gap deferred items A2/A6/A7/A9 linked; A1/A8 cr
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 54 |
+| B — Ready, Medium | 53 |
 | C — Ready, Complex | 12 |
 | D — Blocked | 5 |
-| **Total pending** | **72** |
+| **Total pending** | **71** |
 
 **Biggest force-multipliers:**
 - **Countermagic resolution** (Group B) → unblocks Countermagic cost variance

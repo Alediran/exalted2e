@@ -893,6 +893,7 @@ export class ExaltedRoll {
       defense:             null,
       extraActionsAvailable: charmExtraMax || null,
       effectiveSpeed:        charmSpeed !== baseSpeed ? charmSpeed : null,
+      aimBonus:              aimBonus || null,
     };
 
     const content = await renderAttackCardContent(attack);
