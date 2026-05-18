@@ -249,7 +249,9 @@ function _priceCharm(actor, charm, exaltType, costs) {
       if (isMA) {
         if (_isCelestialMa(charm, keywords)) {
           return {
-            xp: maFavored ? _n(s.celestialMaFavored, 12) : _n(s.celestialMaOther, 15),
+            xp: maFavored
+              ? _n(s.celestialMaFavored, Math.ceil(_n(s.charmFavored, 10) * 1.5))
+              : _n(s.celestialMaOther,   Math.ceil(_n(s.charmOther,   12) * 1.5)),
             confident: false
           };
         }

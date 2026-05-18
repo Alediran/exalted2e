@@ -1,10 +1,11 @@
 import { describe, it, expect } from "vitest";
-import { getOutOfAspectSurcharge, getForeignCharmSurcharge } from "../../module/helpers/aspect-surcharge.mjs";
+import { getOutOfAspectSurcharge, getForeignCharmSurcharge, getCelestialMASurcharge } from "../../module/helpers/aspect-surcharge.mjs";
 
 function makeActor({
   exaltType = "terrestrial",
   caste = "",
-  abilities = {}
+  abilities = {},
+  items = []
 } = {}) {
   const allAbilities = [
     "archery","athletics","awareness","bureaucracy","craft","dodge","integrity",
@@ -17,11 +18,15 @@ function makeActor({
     base[k] = { value: 1, caste: false, favored: false };
   }
   Object.assign(base, abilities);
-  return { system: { exaltType, caste, abilities: base } };
+  return { system: { exaltType, caste, abilities: base }, items };
 }
 
-function makeCharm({ ability = "melee", martialArtsTier = "", exaltType = "", duration = "instant" } = {}) {
-  return { system: { ability, martialArtsTier, exaltType, duration } };
+function makeCharm({ ability = "melee", martialArtsTier = "", martialArtsElement = "", exaltType = "", duration = "instant" } = {}) {
+  return { system: { ability, martialArtsTier, martialArtsElement, exaltType, duration } };
+}
+
+function makeMasteryCharm(element) {
+  return { type: "charm", system: { grantsMastery: true, martialArtsElement: element } };
 }
 
 describe("getOutOfAspectSurcharge", () => {
@@ -244,6 +249,98 @@ describe("getForeignCharmSurcharge", () => {
     const actor = makeActor({ exaltType: "infernal", caste: "slayer" });
     const charm = makeCharm({ exaltType: "solar" });
     expect(getForeignCharmSurcharge(actor, charm)).toBe(0);
+  });
+
+});
+
+describe("getCelestialMASurcharge", () => {
+
+  it("returns 0 for non-terrestrial actor (Solar)", () => {
+    const actor = makeActor({ exaltType: "solar" });
+    const charm = makeCharm({ ability: "martialarts", martialArtsTier: "celestial", martialArtsElement: "air" });
+    expect(getCelestialMASurcharge(actor, charm)).toBe(0);
+  });
+
+  it("returns 0 when charm ability is not martialarts", () => {
+    const actor = makeActor({ exaltType: "terrestrial", caste: "fire" });
+    const charm = makeCharm({ ability: "melee", martialArtsTier: "celestial", martialArtsElement: "air" });
+    expect(getCelestialMASurcharge(actor, charm)).toBe(0);
+  });
+
+  it("returns 0 for terrestrial-tier MA charm (not celestial/sidereal)", () => {
+    const actor = makeActor({ exaltType: "terrestrial", caste: "fire" });
+    const charm = makeCharm({ ability: "martialarts", martialArtsTier: "", martialArtsElement: "fire" });
+    expect(getCelestialMASurcharge(actor, charm)).toBe(0);
+  });
+
+  it("returns 0 for celestial MA charm with no element set (non-elemental style)", () => {
+    const actor = makeActor({ exaltType: "terrestrial", caste: "fire" });
+    const charm = makeCharm({ ability: "martialarts", martialArtsTier: "celestial", martialArtsElement: "" });
+    expect(getCelestialMASurcharge(actor, charm)).toBe(0);
+  });
+
+  it("returns 0 when DB caste matches the style's element (in-aspect)", () => {
+    const actor = makeActor({ exaltType: "terrestrial", caste: "air" });
+    const charm = makeCharm({ ability: "martialarts", martialArtsTier: "celestial", martialArtsElement: "air" });
+    expect(getCelestialMASurcharge(actor, charm)).toBe(0);
+  });
+
+  it("returns 1 when DB caste does not match the style's element", () => {
+    const actor = makeActor({ exaltType: "terrestrial", caste: "fire" });
+    const charm = makeCharm({ ability: "martialarts", martialArtsTier: "celestial", martialArtsElement: "air" });
+    expect(getCelestialMASurcharge(actor, charm)).toBe(1);
+  });
+
+  it("returns 1 for sidereal-tier MA with non-matching element (element set)", () => {
+    const actor = makeActor({ exaltType: "terrestrial", caste: "fire" });
+    const charm = makeCharm({ ability: "martialarts", martialArtsTier: "sidereal", martialArtsElement: "water" });
+    expect(getCelestialMASurcharge(actor, charm)).toBe(1);
+  });
+
+  it("returns 0 after mastery (owns grantsMastery charm of matching element)", () => {
+    const masteryCharm = makeMasteryCharm("air");
+    const actor = makeActor({ exaltType: "terrestrial", caste: "fire", items: [masteryCharm] });
+    const charm = makeCharm({ ability: "martialarts", martialArtsTier: "celestial", martialArtsElement: "air" });
+    expect(getCelestialMASurcharge(actor, charm)).toBe(0);
+  });
+
+  it("mastery of a different element does not remove surcharge", () => {
+    const masteryCharm = makeMasteryCharm("water");
+    const actor = makeActor({ exaltType: "terrestrial", caste: "fire", items: [masteryCharm] });
+    const charm = makeCharm({ ability: "martialarts", martialArtsTier: "celestial", martialArtsElement: "air" });
+    expect(getCelestialMASurcharge(actor, charm)).toBe(1);
+  });
+
+});
+
+describe("getOutOfAspectSurcharge — mastery bonus", () => {
+
+  it("mastering Wood Dragon Style exempts Wood-aspect ability charms (archery)", () => {
+    const masteryCharm = makeMasteryCharm("wood");
+    const actor = makeActor({ exaltType: "terrestrial", caste: "fire", items: [masteryCharm] });
+    const charm = makeCharm({ ability: "archery" });
+    expect(getOutOfAspectSurcharge(actor, charm)).toBe(0);
+  });
+
+  it("mastery exemption applies to all 5 abilities of the mastered element", () => {
+    const masteryCharm = makeMasteryCharm("earth");
+    const actor = makeActor({ exaltType: "terrestrial", caste: "fire", items: [masteryCharm] });
+    for (const ab of ["awareness", "craft", "integrity", "resistance", "war"]) {
+      expect(getOutOfAspectSurcharge(actor, makeCharm({ ability: ab }))).toBe(0);
+    }
+  });
+
+  it("mastery of one element does not exempt another element's abilities", () => {
+    const masteryCharm = makeMasteryCharm("wood");
+    const actor = makeActor({ exaltType: "terrestrial", caste: "fire", items: [masteryCharm] });
+    const charm = makeCharm({ ability: "linguistics" }); // air element
+    expect(getOutOfAspectSurcharge(actor, charm)).toBe(1);
+  });
+
+  it("without mastery, out-of-aspect ability still costs 1m", () => {
+    const actor = makeActor({ exaltType: "terrestrial", caste: "fire", items: [] });
+    const charm = makeCharm({ ability: "archery" }); // wood element, not fire
+    expect(getOutOfAspectSurcharge(actor, charm)).toBe(1);
   });
 
 });

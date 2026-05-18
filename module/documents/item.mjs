@@ -1,6 +1,6 @@
 import { normalizeCost, parseCostFormula, moteCostString } from "../rolls/activation-ledger.mjs";
 import { buildCharmWeaponData } from "./charm-weapon-data.mjs";
-import { getOutOfAspectSurcharge, getForeignCharmSurcharge } from "../helpers/aspect-surcharge.mjs";
+import { getOutOfAspectSurcharge, getForeignCharmSurcharge, getCelestialMASurcharge } from "../helpers/aspect-surcharge.mjs";
 import { SCOPE_TO_TYPE } from "../rolls/charm-event-math.mjs";
 
 /**
@@ -267,7 +267,7 @@ ${capWarning}`;
         via
       };
     } else {
-      const surcharge    = getOutOfAspectSurcharge(actor, this) + getForeignCharmSurcharge(actor, this);
+      const surcharge    = getOutOfAspectSurcharge(actor, this) + getForeignCharmSurcharge(actor, this) + getCelestialMASurcharge(actor, this);
       const costParsed   = _costParsed;   // already computed above
 
       // Resolve variable mote cost. explicitMotesOverride skips dialogs (for tests/automation).
@@ -881,7 +881,7 @@ ${capWarning}`;
     const total = { motes: 0, willpower: 0, bashing: 0, lethal: 0, aggravated: 0, xp: 0 };
     for (const { charm } of planned) {
       const c = charm.system?.cost ?? {};
-      total.motes      += (Number(c.motes) || 0) + getOutOfAspectSurcharge(actor, charm) + getForeignCharmSurcharge(actor, charm);
+      total.motes      += (Number(c.motes) || 0) + getOutOfAspectSurcharge(actor, charm) + getForeignCharmSurcharge(actor, charm) + getCelestialMASurcharge(actor, charm);
       total.willpower  += Number(c.willpower)        || 0;
       total.bashing    += Number(c.bashingHealth)    || 0;
       total.lethal     += Number(c.lethalHealth)     || 0;
@@ -903,7 +903,7 @@ ${capWarning}`;
 
     const charmCost = (charm) => {
       const c = charm.system?.cost ?? {};
-      const surcharge = getOutOfAspectSurcharge(actor, charm) + getForeignCharmSurcharge(actor, charm);
+      const surcharge = getOutOfAspectSurcharge(actor, charm) + getForeignCharmSurcharge(actor, charm) + getCelestialMASurcharge(actor, charm);
       const bits = [];
       const motes = (Number(c.motes) || 0) + surcharge;
       if (motes)              bits.push(`${motes}m`);

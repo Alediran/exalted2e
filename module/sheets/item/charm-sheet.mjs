@@ -196,6 +196,12 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
           value: k, label: game.i18n.localize(v)
         }))
       ],
+      martialArtsElementOptions: [
+        { value: "", label: "—" },
+        ...(EX2E.castes.terrestrial ?? []).map(c => ({
+          value: c.key, label: game.i18n.localize(c.label)
+        }))
+      ],
       virtueKeyOptions: Object.entries(EX2E.virtues).map(([k, v]) => ({
         value: k, label: game.i18n.localize(v)
       })),

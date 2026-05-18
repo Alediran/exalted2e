@@ -54,6 +54,14 @@
         <input type="text" name="system.martialArtsStyleName" value="{{system.martialArtsStyleName}}"
                placeholder="e.g. snake-style" {{#unless isEditable}}readonly{{/unless}}>
       </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.MartialArtsElement"}}</label>
+        <select name="system.martialArtsElement" {{#unless isEditable}}disabled{{/unless}}>
+          {{#each martialArtsElementOptions}}
+          <option value="{{this.value}}" {{#if (eq this.value ../system.martialArtsElement)}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+      </div>
       {{/if}}
     </div>
     <!-- Cost Summary -->
