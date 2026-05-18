@@ -292,6 +292,14 @@
           {{localize "EX2E.ABIgnoreAccuracyPenalties"}}
         </label>
       </div>
+      <div class="field-group">
+        <label class="checkbox-label">
+          <input type="checkbox" name="system.attackBonus.ignoreRangeBand"
+                 {{#if system.attackBonus.ignoreRangeBand}}checked{{/if}}
+                 {{#unless isEditable}}disabled{{/unless}}>
+          {{localize "EX2E.ABIgnoreRangeBand"}}
+        </label>
+      </div>
     </div>
     {{/if}}
   </div>
