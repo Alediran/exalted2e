@@ -68,7 +68,6 @@ Last updated: 2026-05-18 (A7 Fury-OK filter done)
 | Pre-built artifact compendium (daiklaves/armors) | Compendium | data authoring + attunement variants |
 | Headless tests for remaining paths | Testing | test authoring for charm prereqs, multi-tick, sorcery |
 | Social Combos | Social | adapts combo infrastructure for social charms *(soft dep: base combo items still open)* |
-| Gift keyword auto-activation | Lunar | DBT entry hook + activate all owned Gift charms — [charms-gap A6](docs/charms-gap.md) |
 
 ---
 
@@ -110,10 +109,10 @@ Last updated: 2026-05-18 (A7 Fury-OK filter done)
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 49 |
+| B — Ready, Medium | 48 |
 | C — Ready, Complex | 12 |
 | D — Blocked | 5 |
-| **Total pending** | **67** |
+| **Total pending** | **66** |
 
 **Biggest force-multipliers:**
 - **Countermagic resolution** (Group B) → unblocks Countermagic cost variance

@@ -1480,7 +1480,16 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   static async #onEndDBT(event, target) {
-    await this.actor.update({ "system.splat.lunar.activeFormId": "" });
+    const actor = this.actor;
+    const activeGifts = actor.items.filter(
+      i => i.type === "charm"
+        && (i.system?.keywords ?? []).includes("Gift")
+        && i.system?.active
+    );
+    for (const charm of activeGifts) {
+      await charm.update({ "system.active": false });
+    }
+    await actor.update({ "system.splat.lunar.activeFormId": "" });
   }
 
   static async #onInstallCharm(event, target) {

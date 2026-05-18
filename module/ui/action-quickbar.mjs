@@ -777,17 +777,41 @@ export class ActionQuickbar {
     const result = await ShapeshiftDialog.prompt({ actor });
     if (result === null) return;  // cancelled — abort
 
-    const { targetFormId, cost } = result;
+    const { targetFormId } = result;
     const targetFormType = result.targetFormType ??
       (actor.items.get(targetFormId)?.system?.formType ?? "");
     const isDBT = targetFormType === "warform";
 
+    // DBT: let the player pick which Gift charms to activate (+2m each).
+    let pickedGiftIds = [];
+    if (isDBT) {
+      const giftCharms = actor.items.filter(
+        i => i.type === "charm" && (i.system?.keywords ?? []).includes("Gift")
+      );
+      if (giftCharms.length) {
+        const essenceMax = actor.system.essence?.value ?? 1;
+        const { GiftPickerDialog } = await import("../dialogs/gift-picker-dialog.mjs");
+        pickedGiftIds = await GiftPickerDialog.prompt({
+          gifts:      giftCharms.map(c => ({ id: c.id, name: c.name, img: c.img })),
+          baseCost:   result.cost,
+          essenceMax
+        });
+      }
+    }
+    const totalCost = result.cost + pickedGiftIds.length * 2;
+
     // Spend motes via the standard overflow-aware path.
-    const breakdown = await actor.spendMotes(cost, "peripheral");
+    const breakdown = await actor.spendMotes(totalCost, "peripheral");
     if (!breakdown) return;  // insufficient motes — spendMotes already showed warn
 
     // Apply the form change.
     await actor.update({ "system.splat.lunar.activeFormId": targetFormId });
+
+    // Activate the player-selected Gift charms.
+    for (const id of pickedGiftIds) {
+      const charm = actor.items.get(id);
+      if (charm) await charm.update({ "system.active": true });
+    }
 
     // Look up target form name for the chat card.
     let targetName;
@@ -804,7 +828,7 @@ export class ActionQuickbar {
       {
         actorName:  actor.name,
         targetName,
-        cost,
+        cost:       totalCost,
         isDBT,
         toLabel:    targetFormId
           ? game.i18n.localize("EX2E.ShapeshiftToForm")

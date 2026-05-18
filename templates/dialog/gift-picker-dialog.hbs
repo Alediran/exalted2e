@@ -1,0 +1,30 @@
+<form autocomplete="off">
+  <div class="dialog-content">
+    <p class="gift-picker-hint">{{localize "EX2E.GiftPickerHint"}} ({{localize "EX2E.GiftPickerMax"}}: {{essenceMax}})</p>
+    {{#if gifts.length}}
+    <div class="gift-picker-list" style="max-height:300px; overflow:auto">
+      {{#each gifts as |g|}}
+      <label class="gift-picker-row" style="display:flex; gap:8px; padding:4px 2px; align-items:center">
+        <input type="checkbox" name="id:{{g.id}}" data-gift-check>
+        <img src="{{g.img}}" alt="{{g.name}}" style="width:24px; height:24px; object-fit:cover">
+        <span style="flex:1">{{g.name}}</span>
+        <span class="gift-cost-badge" style="font-size:0.85em; opacity:0.8">+2m</span>
+      </label>
+      {{/each}}
+    </div>
+    <p class="gift-total-line" style="margin-top:6px; text-align:right">
+      {{localize "EX2E.GiftPickerCostLabel"}}: <strong><span id="gift-total-motes">{{baseCost}}</span>m</strong>
+    </p>
+    {{else}}
+    <p class="empty-msg">{{localize "EX2E.GiftPickerEmpty"}}</p>
+    {{/if}}
+  </div>
+  <div class="dialog-buttons">
+    <button type="button" data-action="confirmGifts">
+      <i class="fa-solid fa-check"></i> {{localize "EX2E.GiftPickerConfirm"}}
+    </button>
+    <button type="button" data-action="skipGifts">
+      {{localize "EX2E.GiftPickerSkip"}}
+    </button>
+  </div>
+</form>
