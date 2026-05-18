@@ -153,9 +153,13 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     // ── Excellency enforcement ───────────────────────────────────────────
     const enforceExcMutualExclusion = () => {
       if (!thirdExcCheck) return;
-      if (thirdExcCheck.checked && firstHidden) firstHidden.value = "0";
-      const firstDice = parseInt(firstHidden?.value) || 0;
-      thirdExcCheck.disabled = firstDice > 0;
+      if (thirdExcCheck.checked) {
+        if (firstHidden)  firstHidden.value  = "0";
+        if (secondHidden) secondHidden.value = "0";
+      }
+      const firstDice  = parseInt(firstHidden?.value)  || 0;
+      const secondDice = parseInt(secondHidden?.value) || 0;
+      thirdExcCheck.disabled = firstDice > 0 || secondDice > 0;
     };
 
     const enforceExcCap = () => {
@@ -163,9 +167,9 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       const secondVal = (parseInt(secondHidden?.value) || 0) * 2;
       const secondAllowed = Math.min(currentSecondExcMax, Math.floor((currentFirstExcMax - firstVal) / 2));
       const firstAllowed  = Math.min(currentFirstExcMax,  currentFirstExcMax - secondVal);
-      const firstEnabled  = !thirdExcCheck?.checked;
-      refreshPips(firstPipTrack,  firstHidden,  Math.max(0, firstAllowed),  firstEnabled);
-      refreshPips(secondPipTrack, secondHidden, Math.max(0, secondAllowed));
+      const excEnabled    = !thirdExcCheck?.checked;
+      refreshPips(firstPipTrack,  firstHidden,  Math.max(0, firstAllowed),  excEnabled);
+      refreshPips(secondPipTrack, secondHidden, Math.max(0, secondAllowed), excEnabled);
       // Clamp hidden values if they now exceed the allowed max
       if (firstVal  > firstAllowed  && firstHidden)  firstHidden.value  = Math.max(0, firstAllowed);
       if ((parseInt(secondHidden?.value) || 0) > secondAllowed && secondHidden)

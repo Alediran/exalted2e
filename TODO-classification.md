@@ -32,7 +32,6 @@ Last updated: 2026-05-17 (charms-gap deferred items A2/A6/A7/A9 linked; A1/A8 cr
 | Blasphemy / Axiomatic / Dawn damage upgrades | Keywords | mirror of Holy, splat-specific target condition |
 | Training keyword XP debt ledger | Keywords | per-actor debt AE or item field — [charms-gap A8](docs/charms-gap.md) |
 | Merged keyword (learn-once, multi-ability) | Keywords | charm activation routing extension |
-| First/Second-vs-Third Excellency exclusivity | Charms | roll dialog: detect both activated, block double-use |
 | Countermagic resolution | Sorcery | reflexive roll + mote cost, 3-circle tiering |
 | Spell-specific duration/effect payloads | Sorcery | per-spell AE-like target effects; requires per-spell schema extension |
 | Ghost summoning | Sorcery | extended opposed WP+Ess contest (Black Treatise) |
@@ -114,10 +113,10 @@ Last updated: 2026-05-17 (charms-gap deferred items A2/A6/A7/A9 linked; A1/A8 cr
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 53 |
+| B — Ready, Medium | 52 |
 | C — Ready, Complex | 12 |
 | D — Blocked | 5 |
-| **Total pending** | **71** |
+| **Total pending** | **70** |
 
 **Biggest force-multipliers:**
 - **Countermagic resolution** (Group B) → unblocks Countermagic cost variance

@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 174 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-17)
+**Progress: 175 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-17)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -88,7 +88,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Permanent Essence cost (`cost.formula: "perm ess"` — general DSL field; Greater Signs uses same path)
 - [x] Permanent Willpower cost (`cost.formula: "perm wp"` — general DSL field)
 - [x] Attribute-keyed Excellencies for Lunar/Alchemical (charm.attribute field; activation routing)
-- [ ] First/Second-vs-Third Excellency exclusivity enforcement per roll
+- [x] First/Second-vs-Third Excellency exclusivity enforcement per roll
 - [x] Infinite (Ability) Mastery discount tracking (committed motes reduce Excellency cost)
 - [ ] Keyword-as-status-effect registry (systematic Compulsion/Emotion/Illusion/Servitude → AE mapping)
 - [ ] Charm deactivation resolver (scene-end / combat-end / out-of-motes)
