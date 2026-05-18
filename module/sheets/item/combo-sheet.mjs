@@ -99,6 +99,34 @@ export class ComboSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     dd.bind(this.element);
   }
 
+  // ── Combo-Basic / Form-type validation helpers ────────────────────────
+  static #isReflexiveForCombo(charm) {
+    return charm.system?.charmType === "reflexive" ||
+           (charm.system?.keywords ?? []).includes("Combo-Basic");
+  }
+
+  static #isComboBasic(charm) {
+    return (charm.system?.keywords ?? []).includes("Combo-Basic");
+  }
+
+  // Returns a localised error string, or null when the addition is legal.
+  static #validateAdd(incoming, existing) {
+    if (incoming.system?.charmType === "form" && existing.some(c => c.system?.charmType === "form"))
+      return game.i18n.localize("EX2E.ComboOneFormType");
+    if (ComboSheet.#isComboBasic(incoming) && existing.some(c => !ComboSheet.#isReflexiveForCombo(c)))
+      return game.i18n.localize("EX2E.ComboBasicOnlyWithReflexive");
+    if (!ComboSheet.#isReflexiveForCombo(incoming) && existing.some(c => ComboSheet.#isComboBasic(c)))
+      return game.i18n.localize("EX2E.ComboBasicOnlyWithReflexive");
+    return null;
+  }
+
+  // Resolve UIDs to charm items for validation.
+  #existingCharms(actor) {
+    return (this.document.system.charmUids ?? [])
+      .map(uid => actor.items.find(i => i.type === "charm" && i.system?.charmUid === uid))
+      .filter(Boolean);
+  }
+
   async _onDrop(event) {
     event.preventDefault();
     const raw = event.dataTransfer?.getData("text/plain");
@@ -122,6 +150,9 @@ export class ComboSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       return;
     }
 
+    const err = ComboSheet.#validateAdd(dropped, this.#existingCharms(actor));
+    if (err) { ui.notifications.warn(err); return; }
+
     const uid = dropped.system?.charmUid;
     if (!uid) return;
 
@@ -141,9 +172,11 @@ export class ComboSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       ui.notifications.warn(game.i18n.localize("EX2E.ComboUnownedPlaceholder"));
       return;
     }
-    const existing = new Set(this.document.system.charmUids ?? []);
+    const existing      = new Set(this.document.system.charmUids ?? []);
+    const existingItems = this.#existingCharms(actor);
     const candidates = actor.items
       .filter(i => i.type === "charm" && i.system?.charmUid && !existing.has(i.system.charmUid))
+      .filter(i => !ComboSheet.#validateAdd(i, existingItems))
       .map(i => ({ uid: i.system.charmUid, name: i.name, img: i.img }))
       .sort((a, b) => a.name.localeCompare(b.name));
 

@@ -926,6 +926,18 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       inp.addEventListener("change", this.#onMoteInputChange.bind(this));
     });
 
+    // Make item rows draggable so they can be dropped onto the combo builder
+    // or other drag-accepting targets (weapons onto attack dialogs, etc.).
+    // The combo sheet's _onDrop already filters to type === "charm".
+    this.element.querySelectorAll(".item-row[data-item-id]").forEach(row => {
+      row.draggable = true;
+      row.addEventListener("dragstart", event => {
+        const item = this.document.items.get(row.dataset.itemId);
+        if (!item) return;
+        event.dataTransfer.setData("text/plain", JSON.stringify({ type: "Item", uuid: item.uuid }));
+      });
+    });
+
     // Restore per-group collapsed state on the Charms tab and wire the
     // toggle listener so clicks update the remembered set in place.
     this.element.querySelectorAll("details.charm-group").forEach(details => {

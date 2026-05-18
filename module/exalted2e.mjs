@@ -1657,6 +1657,20 @@ Hooks.on("updateActor", async (actor, changes, options, userId) => {
   await _postDBFluxCard(actor, tierAfter);
 });
 
+// Reset per-scene anima state for all character actors in a scene when it
+// is deactivated (another scene goes active). scenePeripheral drives the
+// derived anima level, so zeroing it is the only reset needed.
+Hooks.on("updateScene", async (scene, changes, _options, _userId) => {
+  if (!game.user.isGM) return;
+  if (changes.active !== false) return;
+  for (const tokenDoc of scene.tokens) {
+    const actor = tokenDoc.actor;
+    if (actor?.type !== "character") continue;
+    if ((actor.system.scenePeripheral ?? 0) === 0) continue;
+    await actor.update({ "system.scenePeripheral": 0 });
+  }
+});
+
 Hooks.on("updateCombat", async (combat, changes, _options, userId) => {
   if (game.user.id !== userId) return;
   const newTick = changes?.flags?.exalted2e?.currentTick;

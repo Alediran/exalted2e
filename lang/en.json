@@ -777,6 +777,8 @@
     "ComboPickerTitle":               "Add Charms to Combo",
     "ComboPickerEmpty":               "This character has no charms to add.",
     "ComboUnownedPlaceholder":        "Open on an actor to edit charms.",
+    "ComboOneFormType":               "A combo can only contain one Form-type charm.",
+    "ComboBasicOnlyWithReflexive":    "Combo-Basic charms can only be combined with Reflexive charms.",
 
     "NewSpell":              "New Spell",
     "AddSpell":              "Add Spell",

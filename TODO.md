@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 175 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-17)
+**Progress: 176 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-17)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -18,7 +18,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
   - [x] Finish Turn advances by the flurry's max Speed
 - [x] Combos (charm combo creation, activation)
   - [ ] Combo-building rules (size limits, keyword restrictions, pre-errata constraints)
-  - [ ] Combo-Basic keyword enforcement (Form-type MA charm + reflexive only) per errata
+  - [x] Combo-Basic keyword enforcement (Form-type MA charm + reflexive only) per errata
   - [ ] Flaw-of-Invulnerability + Form-type Combo +2 WP surcharge
   - [x] Shared / compendium-sourced Combos (drag-in from packs)
   - [x] Drag-reorder within the Combo sheet (v1 uses arrow buttons)

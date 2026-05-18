@@ -37,7 +37,6 @@ Last updated: 2026-05-17 (charms-gap deferred items A2/A6/A7/A9 linked; A1/A8 cr
 | Ghost summoning | Sorcery | extended opposed WP+Ess contest (Black Treatise) |
 | Binding/fetter spells | Sorcery | Piercing the Heel, Soul Brand, Rune of Sweet Passing AE payloads |
 | Demon summoning | Sorcery | bind ritual on new moon/Calibration; bonus dice per demon type |
-| Combo-Basic keyword enforcement | Combat | Form-type MA charm + reflexive only per errata; validate at combo-build time |
 | Flaw-of-Invulnerability +2 WP combo surcharge | Combat | detect Form-type in active combo + surcharge at activation |
 | Style weapon tag validation | Martial Arts | define per-style weapons config (M/MO tags), then enforce at attack time |
 | Sidereal MA entry gate | Martial Arts | check actor owns a Form-type charm from ≥1 Celestial style |
@@ -59,7 +58,6 @@ Last updated: 2026-05-17 (charms-gap deferred items A2/A6/A7/A9 linked; A1/A8 cr
 | Environmental hazards | Other | Damage/interval + Trauma AE, configurable hazard schema |
 | Manse item type | Other | TypeDataModel + mote-regen integration with hearthstone regen |
 | Background mechanical hooks | Other | AE per background dot (Manse regen, Familiar ref, etc.) |
-| Scene-end reset | Other | hook + reset: anima, scenePeripheral, per-scene WP drain counters |
 | Mundane crafting roll resolver | Crafting | extended roll vs Resources difficulty |
 | Drag-and-drop items between sheets | QoL | improve drop handler across item types |
 | Multi-actor action helpers | QoL | coordinate/cooperative charm dialog |
@@ -113,10 +111,10 @@ Last updated: 2026-05-17 (charms-gap deferred items A2/A6/A7/A9 linked; A1/A8 cr
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 52 |
+| B — Ready, Medium | 50 |
 | C — Ready, Complex | 12 |
 | D — Blocked | 5 |
-| **Total pending** | **70** |
+| **Total pending** | **68** |
 
 **Biggest force-multipliers:**
 - **Countermagic resolution** (Group B) → unblocks Countermagic cost variance
