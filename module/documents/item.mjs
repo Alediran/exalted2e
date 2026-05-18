@@ -424,7 +424,7 @@ ${capWarning}`;
       ledger.toggledOff = turningOff;
     }
 
-    if (!turningOff && sys.charmType === "simple" && (sys.dvPenalty ?? 0) < 0) {
+    if (!turningOff && (sys.charmType === "simple" || sys.charmType === "shintai") && (sys.dvPenalty ?? 0) < 0) {
       await actor.applyDVPenalty("all", Math.abs(sys.dvPenalty), {
         label: this.name,
         icon:  this.img

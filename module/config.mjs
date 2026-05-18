@@ -143,7 +143,8 @@ EX2E.charmTypes = {
   reflexive:    "EX2E.CharmReflexive",
   simple:       "EX2E.CharmSimple",
   extraAction:  "EX2E.CharmExtraAction",
-  permanent:    "EX2E.CharmPermanent"
+  permanent:    "EX2E.CharmPermanent",
+  shintai:      "EX2E.CharmShintai"
 };
 
 EX2E.durations = {
