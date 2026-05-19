@@ -16,18 +16,50 @@
  */
 
 const KEYWORD_LABEL_KEYS = {
-  Compel:   "EX2E.SocialInfluenceCompelEffect",
-  Emotion:  "EX2E.SocialInfluenceEmotionEffect",
-  Illusion: "EX2E.SocialInfluenceIllusionEffect"
+  Compel:    "EX2E.SocialInfluenceCompelEffect",
+  Emotion:   "EX2E.SocialInfluenceEmotionEffect",
+  Illusion:  "EX2E.SocialInfluenceIllusionEffect",
+  Servitude: "EX2E.SocialInfluenceServitudeEffect"
 };
 
 const KEYWORD_ICON = {
-  Compel:   "icons/svg/aura.svg",
-  Emotion:  "icons/svg/sun.svg",
-  Illusion: "icons/svg/eye.svg"
+  Compel:    "icons/svg/aura.svg",
+  Emotion:   "icons/svg/sun.svg",
+  Illusion:  "icons/svg/eye.svg",
+  Servitude: "icons/svg/chains.svg"
 };
 
 const HANDLED_KEYWORDS = Object.keys(KEYWORD_LABEL_KEYS);
+const ROLL_KEYWORDS    = ["Emotion", "Compel", "Servitude"];
+
+/**
+ * Resolve per-charm override values for a social-influence keyword.
+ * Reads `charm.system.keywordEffects` and returns the relevant numeric/bool
+ * overrides with hard-coded rule defaults as fallbacks.
+ *
+ * @param {string} keyword
+ * @param {Item|null} charm
+ * @returns {object}
+ */
+function _resolveEffectValues(keyword, charm) {
+  const ke = charm?.system?.keywordEffects ?? {};
+  if (keyword === "Emotion") {
+    return {
+      penaltyMinor: ke.emotionPenaltyMinor ?? 1,
+      penaltyMajor: ke.emotionPenaltyMajor ?? 3,
+    };
+  }
+  if (keyword === "Compel") {
+    return { wpCostPerResist: ke.compulsionWpCost ?? 1 };
+  }
+  if (keyword === "Servitude") {
+    return {
+      wpCostPerResist: ke.servitudeWpCost    ?? 1,
+      gmOnlyRemoval:   ke.servitudeGmRemoval ?? true,
+    };
+  }
+  return {};
+}
 
 /**
  * Stamp marker AEs on the defender, one per (keyword, sourceCharmId) pair.
@@ -52,6 +84,7 @@ export async function applySocialInfluenceEffects(defender, { attackerId, source
     const charm     = charmId ? attacker?.items?.get(charmId) : null;
     const charmName = charm?.name ?? "?";
     const labelKey  = KEYWORD_LABEL_KEYS[keyword];
+    const effectValues = _resolveEffectValues(keyword, charm);
     toCreate.push({
       name: game.i18n.format("EX2E.SocialInfluenceMarkerSource", {
         keyword: game.i18n.localize(labelKey),
@@ -65,7 +98,8 @@ export async function applySocialInfluenceEffects(defender, { attackerId, source
           socialInfluence: true,
           keyword,
           sourceCharmId: charmId ?? "",
-          attackerId:    attackerId ?? ""
+          attackerId:    attackerId ?? "",
+          ...effectValues,
         }
       }
     });
@@ -101,4 +135,50 @@ export async function clearAllSocialInfluenceEffectsForActor(actor) {
     .map(ae => ae.id);
   if (ids.length === 0) return;
   await actor.deleteEmbeddedDocuments("ActiveEffect", ids);
+}
+
+/**
+ * Build the mental-influence-effects array for the RollDialog.
+ * Reads the actor's active social-influence AEs and returns one entry per
+ * Emotion / Compel / Servitude AE (Illusion is not shown in the roll dialog).
+ *
+ * @param {Actor} actor
+ * @returns {Array<{id,keyword,charmName,penaltyMinor,penaltyMajor,wpCostPerResist,attackerId}>}
+ */
+export function buildMentalInfluenceEffects(actor) {
+  if (!actor) return [];
+  return actor.effects
+    .filter(ae => ae.flags?.exalted2e?.socialInfluence === true && !ae.disabled)
+    .filter(ae => ROLL_KEYWORDS.includes(ae.flags.exalted2e.keyword))
+    .map(ae => {
+      const f = ae.flags.exalted2e;
+      return {
+        id:              ae.id,
+        keyword:         f.keyword,
+        charmName:       ae.name,
+        penaltyMinor:    f.penaltyMinor    ?? 1,
+        penaltyMajor:    f.penaltyMajor    ?? 3,
+        wpCostPerResist: f.wpCostPerResist ?? 1,
+        attackerId:      f.attackerId      ?? "",
+      };
+    });
+}
+
+/**
+ * Return the total Emotion major penalty (−3 by default) that applies when
+ * the roller is attacking the actor who cast the Emotion charm on them.
+ *
+ * @param {Iterable} effects  - actor.effects collection
+ * @param {string}   targetActorId - the id of the current attack target
+ * @returns {number}
+ */
+export function computeEmotionMajorPenalty(effects, targetActorId) {
+  if (!targetActorId) return 0;
+  let total = 0;
+  for (const ae of effects) {
+    const f = ae.flags?.exalted2e;
+    if (!f?.socialInfluence || f.keyword !== "Emotion" || ae.disabled) continue;
+    if (f.attackerId === targetActorId) total += f.penaltyMajor ?? 3;
+  }
+  return total;
 }

@@ -67,6 +67,7 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       virtues:             options.virtues             ?? null,
       firstExcCostPerDie:   options.firstExcCostPerDie   ?? 1,
       secondExcCostPerSucc: options.secondExcCostPerSucc ?? 2,
+      mentalInfluenceEffects: options.mentalInfluenceEffects ?? [],
     };
   }
 
@@ -255,6 +256,26 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     const useThirdExc   = !!data.useThirdExc;
     const baseMotes     = parseInt(data.moteCost)       || 0;
 
+    // ── Mental influence selections ──────────────────────────────────────
+    let mentalInfluencePenalty = 0;
+    let wpToResist             = 0;
+    const resistedEffectIds    = [];
+    for (const [key, value] of Object.entries(data)) {
+      if (!key.startsWith("mi-") || !value) continue;
+      // key format: "mi-{keyword}-{aeId}"  (keyword has no hyphens: Emotion/Compel/Servitude)
+      const dashIdx = key.indexOf("-", 3);               // first "-" after "mi-"
+      const keyword = key.slice(3, dashIdx);
+      const aeId    = key.slice(dashIdx + 1);
+      const ae = this._data.mentalInfluenceEffects.find(e => e.id === aeId);
+      if (!ae || ae.keyword !== keyword) continue;
+      if (keyword === "Emotion") {
+        mentalInfluencePenalty += ae.penaltyMinor ?? 1;
+      } else {
+        wpToResist += ae.wpCostPerResist ?? 1;
+        resistedEffectIds.push(ae.id);
+      }
+    }
+
     this._resolved = true;
     this._resolve({
       pool:               parseInt(data.pool)     || this._data.pool,
@@ -273,7 +294,10 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       secondExcSucc,
       useThirdExc,
       virtueChannelMode: data.virtueChannelMode || "none",
-      virtueChannel:     data.virtueChannelMode === "dice" ? (data.virtueChannel || null) : null
+      virtueChannel:     data.virtueChannelMode === "dice" ? (data.virtueChannel || null) : null,
+      mentalInfluencePenalty,
+      wpToResist,
+      resistedEffectIds,
     });
     this.close();
   }

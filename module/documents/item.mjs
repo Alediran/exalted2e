@@ -840,14 +840,16 @@ ${capWarning}`;
    * the existing `activateCharm({ skipXpConfirm: true, via: "combo" })`
    * pipeline so each keeps its own chat card + Reverse button.
    *
-   * Returns true if the user confirmed and at least one activation ran
-   * (or the header-only case when everything was skippable), false if
-   * the user cancelled.
+   * @param {boolean} [opts.isSocialContext=false]  True when the combo fires as part of a social roll.
+   * @returns {{ success: boolean, activatedCharms: ExaltedItem[] }}
+   *   `success` is false if the user cancelled. Callers that only care about
+   *   cancellation can test `result.success`; callers that need the charm list
+   *   (e.g. social attack pipeline) read `result.activatedCharms`.
    */
-  async activateCombo() {
-    if (this.type !== "combo") return false;
+  async activateCombo({ isSocialContext = false } = {}) {
+    if (this.type !== "combo") return { success: false, activatedCharms: [] };
     const actor = this.actor;
-    if (!actor) return false;
+    if (!actor) return { success: false, activatedCharms: [] };
 
     // Escape user-controlled strings (charm names, actor/combo names,
     // raw UIDs) before they land in dialog / chat HTML.
@@ -939,20 +941,28 @@ ${capWarning}`;
       yes: { label: game.i18n.localize("EX2E.ComboActivate"), icon: "fa-solid fa-bolt" },
       no:  { label: game.i18n.localize("EX2E.Cancel"),        icon: "fa-solid fa-xmark" }
     });
-    if (!confirmed) return false;
+    if (!confirmed) return { success: false, activatedCharms: [] };
 
     // Fire each planned charm; collect ledgers for the consolidated activation card.
     const activationBucket = [];
     for (const { charm } of planned) {
       await charm.activateCharm({ skipXpConfirm: true, via: "combo", ledgerBucket: activationBucket });
     }
+
+    const hasObviousCharm = planned.some(({ charm }) =>
+      charm.system?.keywords?.includes("Obvious")
+    );
+
     if (activationBucket.length > 0) {
       await sendCombinedActivationCard(actor, activationBucket, {
-        title: game.i18n.format("EX2E.ComboHeaderMessage", { actor: actor.name, name: this.name })
+        title:          game.i18n.format("EX2E.ComboHeaderMessage", { actor: actor.name, name: this.name }),
+        isSocialContext,
+        isObvious:      hasObviousCharm,
       });
     }
 
-    return true;
+    const activatedIds = new Set(activationBucket.map(e => e.charmId));
+    return { success: true, activatedCharms: planned.filter(({ charm }) => activatedIds.has(charm.id)).map(({ charm }) => charm) };
   }
 
   /** Shape the charm's attack config into a weapon item's creation data. */
@@ -1013,9 +1023,11 @@ ${capWarning}`;
  * @param {ExaltedActor} actor   The actor who activated the charms.
  * @param {object[]}     entries Array of `{ charmId, charmName, charmImg, actorId, ledger }` — one per charm.
  * @param {object}       [opts]
- * @param {string}       [opts.title=""]  Header title for the card.
+ * @param {string}       [opts.title=""]               Header title for the card.
+ * @param {boolean}      [opts.isSocialContext=false]   True when the activation is part of a social roll.
+ * @param {boolean}      [opts.isObvious=false]         True when at least one charm in the batch has the Obvious keyword.
  */
-export async function sendCombinedActivationCard(actor, entries, { title = "" } = {}) {
+export async function sendCombinedActivationCard(actor, entries, { title = "", isSocialContext = false, isObvious = false } = {}) {
   const processedEntries = entries.map(e => {
     const parts = [];
     const mb = e.ledger?.moteBreakdown;
@@ -1031,9 +1043,11 @@ export async function sendCombinedActivationCard(actor, entries, { title = "" } 
     return { ...e, costDisplay: parts.join(", ") || "—" };
   });
 
+  const socialSubtle = isSocialContext && !isObvious;
+
   const content = await foundry.applications.handlebars.renderTemplate(
     "systems/exalted2e/templates/chat/charm-activation-combined.hbs",
-    { title, actorName: actor.name, entries: processedEntries, canReverse: processedEntries.length > 0 }
+    { title, actorName: actor.name, entries: processedEntries, canReverse: processedEntries.length > 0, socialSubtle }
   );
   const speaker = ChatMessage.getSpeaker({ actor });
   const flags = {

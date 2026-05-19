@@ -3082,6 +3082,54 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     await _rerenderSocialAttackCard(message);
   });
 
+  // ── Social attack: GM Disbelieve Illusion ──────────────────────────────
+  el.querySelector?.(".btn-social-disbelieve")?.addEventListener("click", async (ev) => {
+    if (!game.user.isGM) return;
+    const record = message.flags?.exalted2e?.socialAttack;
+    if (!record) return;
+
+    const defender = game.actors.get(record.defenderId);
+    const attacker = game.actors.get(record.attackerId);
+    if (!defender || !attacker) return;
+
+    // Find the most-recent Illusion AE on the defender
+    const illusionAEs = defender.effects
+      .filter(ae => ae.flags?.exalted2e?.socialInfluence && ae.flags.exalted2e.keyword === "Illusion")
+      .sort((a, b) => b.id.localeCompare(a.id));
+    if (illusionAEs.length === 0) {
+      ui.notifications.warn(game.i18n.localize("EX2E.NoIllusionAE"));
+      return;
+    }
+    const targetAE = illusionAEs[0];
+
+    // Roll Per + Investigation for the defender
+    const per  = defender.system?.attributes?.perception?.value  ?? 0;
+    const inv  = defender.system?.abilities?.investigation?.value ?? 0;
+    const pool = Math.max(1, per + inv);
+    const diff = attacker.system?.essence?.value ?? 1;
+
+    const { ExaltedRoll } = await import("./rolls/exalted-roll.mjs");
+    const roll = new ExaltedRoll({ pool, flavor: game.i18n.format("EX2E.IllusionDisbelieveRoll", {
+      name: defender.name, diff
+    }) });
+    const result = await roll.evaluate();
+    await result.toMessage({ speaker: ChatMessage.getSpeaker({ actor: defender }) });
+
+    const successes = result.successes ?? 0;
+    if (successes >= diff) {
+      await targetAE.delete();
+      await ChatMessage.create({
+        content:  game.i18n.format("EX2E.IllusionDisbelievedSuccess", { charm: targetAE.name }),
+        speaker:  ChatMessage.getSpeaker({ actor: defender }),
+      });
+    } else {
+      await ChatMessage.create({
+        content:  game.i18n.localize("EX2E.IllusionHolds"),
+        speaker:  ChatMessage.getSpeaker({ actor: defender }),
+      });
+    }
+  });
+
   // ── Social attack: Refuse Motivation Break ─────────────────────────────
   el.querySelector?.(".btn-motivation-refuse")?.addEventListener("click", async (ev) => {
     const record = message.flags?.exalted2e?.socialAttack;
@@ -3473,6 +3521,8 @@ async function _rerenderSocialAttackCard(message) {
     canRespond:       game.user.isGM || (defender && defender.testUserPermission(game.user, "OWNER")),
     canAffordResist:  (defender?.system?.willpower?.value ?? 0) >= (record.wpToResist ?? 0),
     canReverse:       game.user.isGM || (attacker && attacker.testUserPermission(game.user, "OWNER")),
+    isGM:             game.user.isGM,
+    hasIllusion:      (record.attackerCharmKeywords ?? []).includes("Illusion"),
     // 3c-2: Motivation-break display flags
     canRefuse: record.isMotivationBreak
             && record.step2Resolved

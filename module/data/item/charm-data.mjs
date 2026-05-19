@@ -232,6 +232,18 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         costPerAction: new fields.NumberField({ initial: 2, min: 0, integer: true })
       }),
 
+      // M18 — Keyword effect magnitudes (Emotion / Compulsion / Servitude)
+      // Override defaults when a charm specifies non-standard penalty values.
+      // All sub-fields default to the rules-standard value so existing charms
+      // need no data migration.
+      keywordEffects: new fields.SchemaField({
+        emotionPenaltyMinor: new fields.NumberField({ integer: true, min: 0, initial: 1 }),
+        emotionPenaltyMajor: new fields.NumberField({ integer: true, min: 0, initial: 3 }),
+        compulsionWpCost:    new fields.NumberField({ integer: true, min: 0, initial: 1 }),
+        servitudeWpCost:     new fields.NumberField({ integer: true, min: 0, initial: 1 }),
+        servitudeGmRemoval:  new fields.BooleanField({ initial: true })
+      }),
+
       // M10 — DV bonus and DV penalty negation
       dvBonus: new fields.SchemaField({
         enabled:            new fields.BooleanField({ initial: false }),

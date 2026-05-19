@@ -351,6 +351,13 @@
 .ex2e-attack-card .holy-upgrade-note i { color: var(--ex2e-gold-bright); }
 
 
+.combo-social-subtle-badge {
+  font-size:    var(--ex2e-font-size-xs);
+  color:        var(--ex2e-text-muted);
+  font-style:   italic;
+  padding:      2px 6px;
+}
+
 .ex2e-item-card .item-card-actions {
   display:     flex;
   justify-content: flex-end;

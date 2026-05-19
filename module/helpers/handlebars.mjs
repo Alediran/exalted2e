@@ -196,6 +196,7 @@ export function registerHandlebarsHelpers() {
   Handlebars.registerHelper("eq",  (a, b) => a == b);
   Handlebars.registerHelper("neq", (a, b) => a != b);
   Handlebars.registerHelper("or",  (a, b) => a || b);
+  Handlebars.registerHelper("and", (a, b) => !!(a && b));
 
   // ── add / subtract ────────────────────────────────────────────────────
   Handlebars.registerHelper("add", (a, b) => Number(a) + Number(b));

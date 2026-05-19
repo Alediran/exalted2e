@@ -3,6 +3,9 @@
     <h3>{{title}}</h3>
     {{#if actorName}}<span class="item-card-actor">{{actorName}}</span>{{/if}}
   </div>
+  {{#if socialSubtle}}
+  <div class="combo-social-subtle-badge">{{localize "EX2E.SocialSubtle"}}</div>
+  {{/if}}
   <div class="item-card-charm-list">
     {{#each entries}}
     <div class="charm-activation-row">

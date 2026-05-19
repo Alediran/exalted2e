@@ -328,6 +328,10 @@ export class ExaltedRoll {
       ? Object.fromEntries(attributeChoices.map(c => [c.value, Math.ceil((attributeValues[c.value] ?? 0) / 2)]))
       : null;
 
+    // Mental influence effects — read actor AEs into dialog
+    const { buildMentalInfluenceEffects } = await import("../ui/social-influence-effects.mjs");
+    const mentalInfluenceEffects = buildMentalInfluenceEffects(actor);
+
     const dialogResult = await RollDialog.prompt({
       pool:                basePoolAfterClarity,
       attribute:           defaultAttr,
@@ -349,11 +353,47 @@ export class ExaltedRoll {
         ? { autochthonBonus: _clarityMods.autochthonBonus }
         : null,
       virtues: actor.type === "character" ? sys.virtues : null,
+      mentalInfluenceEffects,
       ...options
     });
 
-    
+
     if (!dialogResult) return null;
+
+    // ── Mental influence resistance ──────────────────────────────────────
+    const miPenalty     = dialogResult.mentalInfluencePenalty ?? 0;
+    const miWpToResist  = dialogResult.wpToResist             ?? 0;
+    const miResistedIds = dialogResult.resistedEffectIds       ?? [];
+
+    // NPC actors don't track WP meaningfully — skip deduction silently.
+    // The update must complete before virtue-channel code below re-reads willpower.
+    if (miWpToResist > 0 && actor.type === "character") {
+      const curWP = actor.system.willpower?.value ?? 0;
+      await actor.update({ "system.willpower.value": Math.max(0, curWP - miWpToResist) });
+      if (miResistedIds.length > 0) {
+        const resistedNames = miResistedIds
+          .map(id => actor.effects.get(id)?.name ?? "?")
+          .join(", ");
+        await ChatMessage.create({
+          content: game.i18n.format("EX2E.ResistanceSpentWP", {
+            name:  actor.name,
+            wp:    miWpToResist,
+            charm: resistedNames,
+          }),
+          whisper: ChatMessage.getWhisperRecipients("GM"),
+          speaker: ChatMessage.getSpeaker({ actor }),
+        });
+      }
+      // Delete resisted Compel AEs; Servitude carries gmOnlyRemoval and must be lifted by the GM.
+      const compelIds = miResistedIds.filter(id => {
+        const ae = actor.effects.get(id);
+        return ae?.flags?.exalted2e?.keyword === "Compel";
+      });
+      if (compelIds.length > 0) {
+        const { clearSocialInfluenceEffects } = await import("../ui/social-influence-effects.mjs");
+        await clearSocialInfluenceEffects(actor, compelIds);
+      }
+    }
 
     // Total mote cost = base + excellency (flat mastery discount applied across all tiers)
     const firstExcDice       = dialogResult.firstExcDice  ?? 0;
@@ -403,7 +443,7 @@ export class ExaltedRoll {
     const externalSuccessPenalty = physicalKeys.has(finalAttr) ? externalPhysicalPenalty : 0;
 
     const exRoll = new ExaltedRoll({
-      pool:               dialogResult.pool + firstExcDice + virtueChannelDice,
+      pool:               Math.max(0, dialogResult.pool + firstExcDice + virtueChannelDice - miPenalty),
       flavor:             dialogResult.flavor,
       actorName:          actor.name,
       stunt:              dialogResult.stunt,
@@ -577,6 +617,15 @@ export class ExaltedRoll {
       targetActor = await pickTargetActor();
       if (!targetActor) return null; // cancelled
     }
+
+    // Emotion −3: computed after target resolution so the canvas picker path
+    // always yields the correct target id.
+    const { computeEmotionMajorPenalty } = await import("../ui/social-influence-effects.mjs");
+    const emotionMajorPenalty = computeEmotionMajorPenalty(
+      actor.effects,
+      targetActor?.id ?? ""
+    );
+
     // Range check — abort if out of range; otherwise capture band + penalty.
     // Counterattacks skip this (always in range by definition).
     // `checkAttackRange` returns null when tokens aren't on a scene; pass through.
@@ -635,7 +684,7 @@ export class ExaltedRoll {
       attrVal, abilVal,
       accuracy:       mode.effectiveAccuracy,
       isInstantCharm: isInstantCharmAttack,
-      woundPenalty, flurryPenalty, internalPenalty, aimBonus, rangePenalty
+      woundPenalty, flurryPenalty, internalPenalty: internalPenalty + emotionMajorPenalty, aimBonus, rangePenalty
     }) + (options.extraDice ?? 0);
 
     // Non-Excellency attack charms: every Supplemental keyed to the rolled
@@ -962,7 +1011,9 @@ export class ExaltedRoll {
     secondExcSucc = 0,
     moteType = "peripheral",
     // 3c-2
-    targetMotivation = ""
+    targetMotivation = "",
+    // combo selector
+    selectedComboId = null
   } = {}) {
     if (!attacker || !defender) {
       ui.notifications.warn(game.i18n.localize("EX2E.NoTargetSelected"));
@@ -992,18 +1043,39 @@ export class ExaltedRoll {
       ? charmActivations
       : (charmIds ?? []).map(id => ({ id, motesOverride: undefined }));
     const actuallyActivated = [];
-    for (const { id, motesOverride } of socialActivations) {
-      const charm = attacker.items.get(id);
-      if (!charm || charm.type !== "charm") continue;
-      try {
-        const result = await charm.activateCharm({
-          skipXpConfirm: false,
-          via: "social-attack",
-          explicitMotesOverride: motesOverride !== undefined ? motesOverride : null
-        });
-        if (result !== null && result !== false) actuallyActivated.push(charm);
-      } catch (err) {
-        console.error(`Charm activation failed: ${charm.name}`, err);
+    if (selectedComboId) {
+      // Combo path: activate the entire combo and use its social-eligible charms
+      // for keyword aggregation.
+      const combo = attacker.items.get(selectedComboId);
+      if (!combo || combo.type !== "combo") {
+        ui.notifications.warn(game.i18n.localize("EX2E.NoComboFound"));
+        return null;
+      }
+      const comboResult = await combo.activateCombo({ isSocialContext: true });
+      if (!comboResult?.success) return null;
+      // Filter to social-eligible charms for keyword aggregation.
+      const SOCIAL_ABILITIES_SOCIAL = ["presence", "performance", "investigation", "bureaucracy"];
+      const socialCharms = (comboResult.activatedCharms ?? []).filter(c => {
+        const ct = c.system?.charmType;
+        return (ct === "supplemental" ||
+                (ct === "reflexive" && (c.system?.steps ?? []).includes(1))) &&
+               SOCIAL_ABILITIES_SOCIAL.includes(c.system?.ability);
+      });
+      actuallyActivated.push(...socialCharms);
+    } else {
+      for (const { id, motesOverride } of socialActivations) {
+        const charm = attacker.items.get(id);
+        if (!charm || charm.type !== "charm") continue;
+        try {
+          const result = await charm.activateCharm({
+            skipXpConfirm: false,
+            via: "social-attack",
+            explicitMotesOverride: motesOverride !== undefined ? motesOverride : null
+          });
+          if (result !== null && result !== false) actuallyActivated.push(charm);
+        } catch (err) {
+          console.error(`Charm activation failed: ${charm.name}`, err);
+        }
       }
     }
 
@@ -1211,6 +1283,8 @@ export class ExaltedRoll {
       canRespond:       game.user.isGM || defender.testUserPermission(game.user, "OWNER"),
       canAffordResist:  false,                  // Step-2 not yet resolved
       canReverse:       game.user.isGM || attacker.testUserPermission(game.user, "OWNER"),
+      isGM:             game.user.isGM,
+      hasIllusion:      (attackerCharmKeywords ?? []).includes("Illusion"),
       defenderIntimacies: [],
       showErodePicker:  false
     };

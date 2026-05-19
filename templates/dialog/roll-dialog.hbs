@@ -111,6 +111,29 @@
     </div>
     {{/if}}
 
+    {{!-- ── Mental Influence effects (Emotion / Compulsion / Servitude AEs) ── --}}
+    {{#if mentalInfluenceEffects.length}}
+    <div class="field-group mental-influence-section">
+      <label>{{localize "EX2E.MentalInfluenceSection"}}</label>
+      {{#each mentalInfluenceEffects}}
+      <label class="mental-influence-row">
+        <input type="checkbox" name="mi-{{this.keyword}}-{{this.id}}">
+        <span class="mi-charm-name">{{this.charmName}}</span>
+        {{#if (eq this.keyword "Emotion")}}
+        <span class="mi-note">{{localize "EX2E.EmotionActingContrary"}}
+          ({{localize "EX2E.MentalInfluenceDicePenalty" penalty=this.penaltyMinor}})</span>
+        {{else if (eq this.keyword "Compel")}}
+        <span class="mi-note">{{localize "EX2E.CompulsionResisting"}}
+          ({{localize "EX2E.MentalInfluenceWpNote" wpCost=this.wpCostPerResist}})</span>
+        {{else}}
+        <span class="mi-note" data-tooltip="{{localize 'EX2E.ServitudeGmRemovalNote'}}">{{localize "EX2E.ServitudeResisting"}}
+          ({{localize "EX2E.MentalInfluenceWpNote" wpCost=this.wpCostPerResist}})</span>
+        {{/if}}
+      </label>
+      {{/each}}
+    </div>
+    {{/if}}
+
     <div class="field-group">
       <label>{{localize "EX2E.MoteType"}}</label>
       <select name="moteType">

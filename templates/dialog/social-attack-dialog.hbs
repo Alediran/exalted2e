@@ -143,6 +143,21 @@
       </div>
     </div>
 
+    {{!-- 3c-1: Excellency block --}}
+    <div class="field-group excellency-section exc-first-section">
+      <label>{{localize "EX2E.FirstExcellency"}} <span class="exc-cost-tag">1m/{{localize "EX2E.Die"}}</span></label>
+      <div class="exc-pip-track" data-exc="first">
+        <input type="hidden" name="firstExcDice" value="0">
+      </div>
+    </div>
+
+    <div class="field-group excellency-section exc-second-section">
+      <label>{{localize "EX2E.SecondExcellency"}} <span class="exc-cost-tag">2m/{{localize "EX2E.Success"}}</span></label>
+      <div class="exc-pip-track" data-exc="second">
+        <input type="hidden" name="secondExcSucc" value="0">
+      </div>
+    </div>
+
     {{!-- 3c-1: Charm picker --}}
     {{#if hasPickerCharms}}
     <div class="field-group attack-charm-picker">
@@ -189,22 +204,25 @@
     </div>
     {{/if}}
 
-    {{!-- 3c-1: Excellency block --}}
-    <div class="field-group excellency-section exc-first-section">
-      <label>{{localize "EX2E.FirstExcellency"}} <span class="exc-cost-tag">1m/{{localize "EX2E.Die"}}</span></label>
-      <div class="exc-input-row">
-        <input type="number" name="firstExcDice" value="{{firstExcDice}}" min="0" max="{{firstExcMax}}" class="exc-input" />
-        <span class="exc-limit">/ <span class="exc-first-max">{{firstExcMax}}</span></span>
-      </div>
+    {{!-- Social combo selector: shown only when the actor has eligible combos --}}
+    {{#if hasEligibleCombos}}
+    <div class="field-group social-combo-section">
+      <label>{{localize "EX2E.SocialCombosSection"}}</label>
+      <label class="social-combo-row">
+        <input type="radio" name="selectedComboId" value=""
+               {{#unless selectedComboId}}checked{{/unless}}>
+        {{localize "EX2E.SocialCombosIndividual"}}
+      </label>
+      {{#each eligibleCombos}}
+      <label class="social-combo-row">
+        <input type="radio" name="selectedComboId" value="{{this.id}}"
+               {{#if (eq ../selectedComboId this.id)}}checked{{/if}}>
+        {{this.name}}
+        <span class="combo-charm-count">({{localize "EX2E.SocialComboCharms" count=this.charmCount}})</span>
+      </label>
+      {{/each}}
     </div>
-
-    <div class="field-group excellency-section exc-second-section">
-      <label>{{localize "EX2E.SecondExcellency"}} <span class="exc-cost-tag">2m/{{localize "EX2E.Success"}}</span></label>
-      <div class="exc-input-row">
-        <input type="number" name="secondExcSucc" value="{{secondExcSucc}}" min="0" max="{{secondExcMax}}" class="exc-input" />
-        <span class="exc-limit">/ <span class="exc-second-max">{{secondExcMax}}</span></span>
-      </div>
-    </div>
+    {{/if}}
 
     <div class="field-group">
       <label>{{localize "EX2E.MoteType"}}</label>

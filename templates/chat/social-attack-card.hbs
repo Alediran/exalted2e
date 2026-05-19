@@ -140,6 +140,16 @@
     {{/unless}}
     {{/if}}
 
+    {{#if (and isGM hasIllusion)}}
+    {{#unless reversed}}
+    <div class="social-disbelieve-row">
+      <button type="button" class="btn-roll btn-social-disbelieve">
+        <i class="fa-solid fa-eye-slash"></i> {{localize "EX2E.DisbelieveIllusion"}}
+      </button>
+    </div>
+    {{/unless}}
+    {{/if}}
+
     {{#if reversed}}
     <div class="social-resolution reversed"><em>{{localize "EX2E.SocialAttackReversed"}}</em></div>
     {{/if}}

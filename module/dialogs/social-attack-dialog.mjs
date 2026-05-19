@@ -65,7 +65,9 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       firstExcDice: options.firstExcDice ?? 0,
       secondExcSucc: options.secondExcSucc ?? 0,
       // 3c-2: Motivation-break campaign target
-      targetMotivation: options.targetMotivation ?? ""
+      targetMotivation: options.targetMotivation ?? "",
+      // combo selector
+      selectedComboId: options.selectedComboId ?? null
     };
   }
 
@@ -108,6 +110,21 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
     });
     this._pickerCharms = pickerCharms;
 
+    // Eligible combos: actor combos with ≥1 social-ability supplemental/reflexive charm
+    const combos = a?.items?.filter(i => i.type === "combo") ?? [];
+    const eligibleCombos = combos.map(combo => {
+      const charmUids = combo.system?.charmUids ?? [];
+      const socialCount = charmUids.filter(uid => {
+        const charm = a.items.find(c => c.type === "charm" && c.system?.charmUid === uid);
+        if (!charm) return false;
+        if (charm.system.ability !== this._data.ability) return false;
+        if (!SOCIAL_ABILITIES.includes(charm.system.ability)) return false;
+        const ct = charm.system.charmType;
+        return ct === "supplemental" || (ct === "reflexive" && (charm.system.steps ?? []).includes(1));
+      }).length;
+      return socialCount > 0 ? { id: combo.id, name: combo.name, charmCount: socialCount } : null;
+    }).filter(Boolean);
+
     // 3c-1: Excellency caps
     const { firstExcMax, secondExcMax } = a
       ? computeAttackExcellencyCaps(a, this._data.attribute, this._data.ability)
@@ -133,6 +150,8 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       appearanceDelta,
       pickerCharms,
       hasPickerCharms: pickerCharms.length > 0,
+      eligibleCombos,
+      hasEligibleCombos: eligibleCombos.length > 0,
       firstExcMax,
       secondExcMax,
       isBreakIntent,
@@ -166,37 +185,59 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
 
   _onRender(context, options) {
     const el = this.element;
-    const firstExcInput  = el.querySelector("[name='firstExcDice']");
-    const secondExcInput = el.querySelector("[name='secondExcSucc']");
+    const firstPipTrack  = el.querySelector(".exc-pip-track[data-exc='first']");
+    const secondPipTrack = el.querySelector(".exc-pip-track[data-exc='second']");
+    const firstHidden    = el.querySelector("[name='firstExcDice']");
+    const secondHidden   = el.querySelector("[name='secondExcSucc']");
     const totalCostEl    = el.querySelector(".exc-total-cost");
     const umiCheckbox    = el.querySelector("[name='unnaturalInfluence']");
     const umiHint        = el.querySelector(".umi-charm-driven-hint");
     const pickerInputs   = el.querySelectorAll(".attack-charm-picker input[type='checkbox']");
 
-    let currentFirstExcMax  = context.firstExcMax;
-    let currentSecondExcMax = context.secondExcMax;
+    const currentFirstExcMax  = context.firstExcMax;
+    const currentSecondExcMax = context.secondExcMax;
+
+    // ── Pip helpers ──────────────────────────────────────────────────────
+    const buildPipTrack = (track, hidden, count, onPipClick) => {
+      if (!track || count <= 0) return;
+      for (let i = 1; i <= count; i++) {
+        const pip = document.createElement("button");
+        pip.type = "button";
+        pip.className = "exc-pip";
+        pip.dataset.value = i;
+        track.insertBefore(pip, hidden);
+        pip.addEventListener("click", () => onPipClick(i));
+      }
+    };
+
+    const refreshPips = (track, hidden, allowedMax) => {
+      if (!track) return;
+      const current = parseInt(hidden?.value) || 0;
+      track.querySelectorAll(".exc-pip").forEach(pip => {
+        const v = parseInt(pip.dataset.value);
+        pip.classList.toggle("is-filled", v <= current);
+        pip.disabled = v > allowedMax;
+      });
+    };
 
     const enforceExcCap = () => {
-      if (!firstExcInput || !secondExcInput) return;
-      const firstVal  = parseInt(firstExcInput.value)  || 0;
-      const secondVal = (parseInt(secondExcInput.value) || 0) * 2;
+      const firstVal      = parseInt(firstHidden?.value)  || 0;
+      const secondVal     = (parseInt(secondHidden?.value) || 0) * 2;
       const secondAllowed = Math.min(currentSecondExcMax, Math.floor((currentFirstExcMax - firstVal) / 2));
       const firstAllowed  = Math.min(currentFirstExcMax,  currentFirstExcMax - secondVal);
-      secondExcInput.max  = Math.max(0, secondAllowed);
-      firstExcInput.max   = Math.max(0, firstAllowed);
-      const firstMaxEl  = el.querySelector(".exc-first-max");
-      const secondMaxEl = el.querySelector(".exc-second-max");
-      if (firstMaxEl)  firstMaxEl.textContent  = Math.max(0, firstAllowed);
-      if (secondMaxEl) secondMaxEl.textContent = Math.max(0, secondAllowed);
-      if (firstVal  > firstAllowed)  firstExcInput.value  = Math.max(0, firstAllowed);
-      if ((parseInt(secondExcInput.value) || 0) > secondAllowed) secondExcInput.value = Math.max(0, secondAllowed);
+      refreshPips(firstPipTrack,  firstHidden,  Math.max(0, firstAllowed));
+      refreshPips(secondPipTrack, secondHidden, Math.max(0, secondAllowed));
+      if (firstVal > firstAllowed && firstHidden)
+        firstHidden.value = Math.max(0, firstAllowed);
+      if ((parseInt(secondHidden?.value) || 0) > secondAllowed && secondHidden)
+        secondHidden.value = Math.max(0, secondAllowed);
     };
 
     const updateTotal = () => {
       enforceExcCap();
       if (!totalCostEl) return;
-      const firstCost  = parseInt(firstExcInput?.value)  || 0;
-      const secondCost = (parseInt(secondExcInput?.value) || 0) * 2;
+      const firstCost  = parseInt(firstHidden?.value)  || 0;
+      const secondCost = (parseInt(secondHidden?.value) || 0) * 2;
       totalCostEl.textContent = firstCost + secondCost;
     };
 
@@ -216,8 +257,15 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       }
     };
 
-    firstExcInput?.addEventListener("input",  updateTotal);
-    secondExcInput?.addEventListener("input", updateTotal);
+    buildPipTrack(firstPipTrack, firstHidden, currentFirstExcMax, (v) => {
+      firstHidden.value = (parseInt(firstHidden.value) || 0) === v ? 0 : v;
+      updateTotal();
+    });
+    buildPipTrack(secondPipTrack, secondHidden, currentSecondExcMax, (v) => {
+      secondHidden.value = (parseInt(secondHidden.value) || 0) === v ? 0 : v;
+      updateTotal();
+    });
+    updateTotal();
     pickerInputs.forEach(input => input.addEventListener("change", updateUmiLock));
 
     // Re-render on attribute/ability change so the picker filter and
@@ -260,6 +308,24 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
         this._data.rewardKind = e.target.value;
       });
     });
+
+    // Combo selector: toggling a combo radio hides/shows the individual picker.
+    el.querySelectorAll("[name='selectedComboId']").forEach(radio => {
+      radio.addEventListener("change", () => {
+        const checked = el.querySelector("[name='selectedComboId']:checked");
+        this._data.selectedComboId = checked?.value || null;
+        const pickerSection = el.querySelector(".attack-charm-picker");
+        if (pickerSection) {
+          pickerSection.style.display = this._data.selectedComboId ? "none" : "";
+        }
+      });
+    });
+
+    // Apply initial visibility if a combo was pre-selected.
+    if (this._data.selectedComboId) {
+      const pickerSection = el.querySelector(".attack-charm-picker");
+      if (pickerSection) pickerSection.style.display = "none";
+    }
 
     updateTotal();
     updateUmiLock();
@@ -354,7 +420,9 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       secondExcSucc: parseInt(data.secondExcSucc) || 0,
       moteType:      data.moteType || "peripheral",
       // 3c-2
-      targetMotivation: data.targetMotivation ?? this._data.targetMotivation ?? ""
+      targetMotivation: data.targetMotivation ?? this._data.targetMotivation ?? "",
+      // combo selector
+      selectedComboId: this._data.selectedComboId ?? null
     });
     this.close();
   }
