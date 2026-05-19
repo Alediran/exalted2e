@@ -1,4 +1,5 @@
 import { moteCostString, charmVariableCostCtx, extractCharmActivations } from "./activation-ledger.mjs";
+import { refreshPips } from "../helpers/pip-track.mjs";
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
 /**
@@ -123,29 +124,6 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     const currentFirstExcMax  = this._data.firstExcMax;
     const currentSecondExcMax = this._data.secondExcMax;
 
-    // ── Pip helpers ──────────────────────────────────────────────────────
-    const buildPipTrack = (track, hidden, count, onPipClick) => {
-      if (!track || count <= 0) return;
-      for (let i = 1; i <= count; i++) {
-        const pip = document.createElement("button");
-        pip.type = "button";
-        pip.className = "exc-pip";
-        pip.dataset.value = i;
-        track.insertBefore(pip, hidden);
-        pip.addEventListener("click", () => onPipClick(i));
-      }
-    };
-
-    const refreshPips = (track, hidden, allowedMax) => {
-      if (!track) return;
-      const current = parseInt(hidden?.value) || 0;
-      track.querySelectorAll(".exc-pip").forEach(pip => {
-        const v = parseInt(pip.dataset.value);
-        pip.classList.toggle("is-filled", v <= current);
-        pip.disabled = v > allowedMax;
-      });
-    };
-
     // ── Stunt sub-fields ─────────────────────────────────────────────────
     const updateStuntFields = () => {
       const v = parseInt(stuntSelect?.value) || 0;
@@ -180,12 +158,18 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     };
 
     // ── Pip click handlers for excellencies ──────────────────────────────
-    buildPipTrack(firstPipTrack, firstHidden, currentFirstExcMax, (v) => {
+    firstPipTrack?.addEventListener("click", (e) => {
+      const pip = e.target.closest(".exc-pip");
+      if (!pip) return;
+      const v = parseInt(pip.dataset.value);
       const current = parseInt(firstHidden?.value) || 0;
       firstHidden.value = current === v ? 0 : v;
       updateTotal();
     });
-    buildPipTrack(secondPipTrack, secondHidden, currentSecondExcMax, (v) => {
+    secondPipTrack?.addEventListener("click", (e) => {
+      const pip = e.target.closest(".exc-pip");
+      if (!pip) return;
+      const v = parseInt(pip.dataset.value);
       const current = parseInt(secondHidden?.value) || 0;
       secondHidden.value = current === v ? 0 : v;
       updateTotal();

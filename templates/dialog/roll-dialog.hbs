@@ -61,18 +61,14 @@
     {{#if excellency.first}}
     <div class="field-group excellency-section exc-first-section">
       <label>{{localize "EX2E.FirstExcellency"}} <span class="exc-cost-tag">1m/{{localize "EX2E.Die"}}</span></label>
-      <div class="exc-pip-track" data-exc="first" data-max="{{firstExcMax}}">
-        <input type="hidden" name="firstExcDice" value="0">
-      </div>
+      {{pipTrack name="firstExcDice" max=firstExcMax exc="first"}}
     </div>
     {{/if}}
 
     {{#if excellency.second}}
     <div class="field-group excellency-section exc-second-section">
       <label>{{localize "EX2E.SecondExcellency"}} <span class="exc-cost-tag">2m/{{localize "EX2E.Success"}}</span></label>
-      <div class="exc-pip-track" data-exc="second" data-max="{{secondExcMax}}">
-        <input type="hidden" name="secondExcSucc" value="0">
-      </div>
+      {{pipTrack name="secondExcSucc" max=secondExcMax exc="second"}}
     </div>
     {{/if}}
 

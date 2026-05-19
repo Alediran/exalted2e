@@ -1,6 +1,7 @@
 import { computeAttackExcellencyCaps } from "../rolls/excellency-math.mjs";
 import { findCampaign, validateNewCampaign } from "../rolls/motivation-break-math.mjs";
 import { moteCostString, charmVariableCostCtx, extractCharmActivations } from "../rolls/activation-ledger.mjs";
+import { refreshPips } from "../helpers/pip-track.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -197,29 +198,6 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
     const currentFirstExcMax  = context.firstExcMax;
     const currentSecondExcMax = context.secondExcMax;
 
-    // ── Pip helpers ──────────────────────────────────────────────────────
-    const buildPipTrack = (track, hidden, count, onPipClick) => {
-      if (!track || count <= 0) return;
-      for (let i = 1; i <= count; i++) {
-        const pip = document.createElement("button");
-        pip.type = "button";
-        pip.className = "exc-pip";
-        pip.dataset.value = i;
-        track.insertBefore(pip, hidden);
-        pip.addEventListener("click", () => onPipClick(i));
-      }
-    };
-
-    const refreshPips = (track, hidden, allowedMax) => {
-      if (!track) return;
-      const current = parseInt(hidden?.value) || 0;
-      track.querySelectorAll(".exc-pip").forEach(pip => {
-        const v = parseInt(pip.dataset.value);
-        pip.classList.toggle("is-filled", v <= current);
-        pip.disabled = v > allowedMax;
-      });
-    };
-
     const enforceExcCap = () => {
       const firstVal      = parseInt(firstHidden?.value)  || 0;
       const secondVal     = (parseInt(secondHidden?.value) || 0) * 2;
@@ -257,12 +235,18 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       }
     };
 
-    buildPipTrack(firstPipTrack, firstHidden, currentFirstExcMax, (v) => {
-      firstHidden.value = (parseInt(firstHidden.value) || 0) === v ? 0 : v;
+    firstPipTrack?.addEventListener("click", (e) => {
+      const pip = e.target.closest(".exc-pip");
+      if (!pip) return;
+      const v = parseInt(pip.dataset.value);
+      firstHidden.value = (parseInt(firstHidden?.value) || 0) === v ? 0 : v;
       updateTotal();
     });
-    buildPipTrack(secondPipTrack, secondHidden, currentSecondExcMax, (v) => {
-      secondHidden.value = (parseInt(secondHidden.value) || 0) === v ? 0 : v;
+    secondPipTrack?.addEventListener("click", (e) => {
+      const pip = e.target.closest(".exc-pip");
+      if (!pip) return;
+      const v = parseInt(pip.dataset.value);
+      secondHidden.value = (parseInt(secondHidden?.value) || 0) === v ? 0 : v;
       updateTotal();
     });
     updateTotal();

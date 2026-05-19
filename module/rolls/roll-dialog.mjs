@@ -1,3 +1,5 @@
+import { refreshPips } from "../helpers/pip-track.mjs";
+
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
 /**
@@ -119,29 +121,6 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     let currentFirstExcMax  = this._data.firstExcMax;
     let currentSecondExcMax = this._data.secondExcMax;
 
-    // ── Pip helpers ──────────────────────────────────────────────────────
-    const buildPipTrack = (track, hidden, count, onPipClick) => {
-      if (!track || count <= 0) return;
-      for (let i = 1; i <= count; i++) {
-        const pip = document.createElement("button");
-        pip.type = "button";
-        pip.className = "exc-pip";
-        pip.dataset.value = i;
-        track.insertBefore(pip, hidden);
-        pip.addEventListener("click", () => onPipClick(i));
-      }
-    };
-
-    const refreshPips = (track, hidden, allowedMax, enabled = true) => {
-      if (!track) return;
-      const current = parseInt(hidden?.value) || 0;
-      track.querySelectorAll(".exc-pip").forEach(pip => {
-        const v = parseInt(pip.dataset.value);
-        pip.classList.toggle("is-filled", enabled && v <= current);
-        pip.disabled = !enabled || v > allowedMax;
-      });
-    };
-
     // ── Stunt sub-fields ─────────────────────────────────────────────────
     const updateStuntFields = () => {
       const v = parseInt(stuntSelect?.value) || 0;
@@ -191,12 +170,18 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     };
 
     // ── Pip click handlers for excellencies ──────────────────────────────
-    buildPipTrack(firstPipTrack, firstHidden, this._data.firstExcMax, (v) => {
+    firstPipTrack?.addEventListener("click", (e) => {
+      const pip = e.target.closest(".exc-pip");
+      if (!pip) return;
+      const v = parseInt(pip.dataset.value);
       const current = parseInt(firstHidden?.value) || 0;
       firstHidden.value = current === v ? 0 : v;
       updateTotal();
     });
-    buildPipTrack(secondPipTrack, secondHidden, this._data.secondExcMax, (v) => {
+    secondPipTrack?.addEventListener("click", (e) => {
+      const pip = e.target.closest(".exc-pip");
+      if (!pip) return;
+      const v = parseInt(pip.dataset.value);
       const current = parseInt(secondHidden?.value) || 0;
       secondHidden.value = current === v ? 0 : v;
       updateTotal();

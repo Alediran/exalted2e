@@ -50,6 +50,20 @@ export function registerHandlebarsHelpers() {
     return new Handlebars.SafeString(html);
   });
 
+  // ── pipTrack ───────────────────────────────────────────────────────────
+  // Renders a row of clickable pip buttons plus a hidden value input.
+  // Used by the Excellency sections in roll/attack/social-attack dialogs.
+  // Usage: {{pipTrack name="firstExcDice" max=firstExcMax exc="first"}}
+  Handlebars.registerHelper("pipTrack", function(options) {
+    const { name, max = 0, exc = "" } = options.hash;
+    let html = `<div class="exc-pip-track" data-exc="${exc}">`;
+    for (let i = 1; i <= max; i++) {
+      html += `<button type="button" class="exc-pip" data-value="${i}"></button>`;
+    }
+    html += `<input type="hidden" name="${name}" value="0"></div>`;
+    return new Handlebars.SafeString(html);
+  });
+
   // ── healthTrack ────────────────────────────────────────────────────────
   // Renders the Exalted health track as one row per penalty level. Each
   // row carries a label column (-0 / -1 / -2 / -4 / Inc) and a box
