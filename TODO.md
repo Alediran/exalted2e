@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 180 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-18)
+**Progress: 186 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-19)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -62,10 +62,10 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Counterattack (already wired via Step 9)
 - [x] Action-Only (reflexive charms gated to acting ticks, once per tick)
 - [x] Stackable (allow multi-activation accumulation on same target)
-- [ ] Compulsion (scene-long forced-task AE on target)
-- [ ] Emotion (scene-long ±1/±3 internal penalty on actions counter to emotion)
-- [ ] Illusion (Perception+Investigation disbelieve mechanic)
-- [ ] Servitude (loyalty binding AE)
+- [x] Compulsion (scene-long forced-task AE on target)
+- [x] Emotion (scene-long ±1/±3 internal penalty on actions counter to emotion)
+- [x] Illusion (Perception+Investigation disbelieve mechanic)
+- [x] Servitude (loyalty binding AE)
 - [ ] Overdrive pool (temp Peripheral, cap 25, dissipates scene-end) — [charms-gap A1](docs/charms-gap.md)
 - [ ] Touch keyword mechanics (requires Dex+MA attack vs non-consenting target)
 - [ ] Training keyword (trainee XP debt ledger) — [charms-gap A8](docs/charms-gap.md)
@@ -90,7 +90,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Attribute-keyed Excellencies for Lunar/Alchemical (charm.attribute field; activation routing)
 - [x] First/Second-vs-Third Excellency exclusivity enforcement per roll
 - [x] Infinite (Ability) Mastery discount tracking (committed motes reduce Excellency cost)
-- [ ] Keyword-as-status-effect registry (systematic Compulsion/Emotion/Illusion/Servitude → AE mapping)
+- [x] Keyword-as-status-effect registry (systematic Compulsion/Emotion/Illusion/Servitude → AE mapping)
 - [ ] Charm deactivation resolver (scene-end / combat-end / out-of-motes)
 - [ ] Essence-tiered upgrade branches (Essence 3+/4+ conditional charm effects; description-only currently) — [charms-gap A2](docs/charms-gap.md)
 - [x] Cooperative keyword (multi-caster charm dialog — DB aspect cooperation)
@@ -106,7 +106,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Natural influence cap (2 WP drain per scene per attacker)
 - [x] Motivation-break mechanic (permanent WP + Essence days without recovery)
 - [x] Intimacy building/erosion via successful social attack (+/−1 or new Intimacy seed)
-- [ ] Social Combos (no Obvious display unless charm is Obvious)
+- [x] Social Combos (no Obvious display unless charm is Obvious)
 - [ ] Social charm bonus payload (socialBonus schema — charm-driven pool/MDV modifier, analogous to attackBonus) — [charms-gap A9](docs/charms-gap.md)
 
 ## Sorcery & Necromancy

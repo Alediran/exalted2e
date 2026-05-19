@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-18 (A7 Fury-OK filter done)
+Last updated: 2026-05-19 (Mental Influence keywords + Social Combos done)
 
 ---
 
@@ -24,9 +24,6 @@ Last updated: 2026-05-18 (A7 Fury-OK filter done)
 | Coordinated attacks | Combat | leader Cha+War roll + DV reduction AE on target |
 | Shields as weapons | Defense | new weapon tag handling, DV bonus, mobility penalty |
 | Fatigue penalty mechanic | Defense / Penalty | hook on scene-length exertion + Sta+Res roll |
-| Compulsion / Emotion AE | Keywords | keyword → scene-long AE, AE template system |
-| Illusion disbelieve mechanic | Keywords | Per+Investigation check against charm activation |
-| Servitude AE | Keywords | loyalty-binding AE, removal conditions |
 | Overdrive pool | Keywords | temp Peripheral pool tracking + scene-end dissipation — [charms-gap A1](docs/charms-gap.md) |
 | Blasphemy / Axiomatic / Dawn damage upgrades | Keywords | mirror of Holy, splat-specific target condition |
 | Training keyword XP debt ledger | Keywords | per-actor debt AE or item field — [charms-gap A8](docs/charms-gap.md) |
@@ -65,7 +62,6 @@ Last updated: 2026-05-18 (A7 Fury-OK filter done)
 | Pre-built spells compendium | Compendium | data authoring (3 circles × 2 traditions) |
 | Pre-built artifact compendium (daiklaves/armors) | Compendium | data authoring + attunement variants |
 | Headless tests for remaining paths | Testing | test authoring for charm prereqs, multi-tick, sorcery |
-| Social Combos | Social | adapts combo infrastructure for social charms *(soft dep: base combo items still open)* |
 
 ---
 
@@ -76,7 +72,6 @@ Last updated: 2026-05-18 (A7 Fury-OK filter done)
 |------|-------------|-------------|
 | Clinch / Grapple | Combat | new turn-loop: control pool, opposed rolls, sub-actions (throw/crush/hold), per-tick renewal |
 | Mounted combat | Combat | Ride-controlled mount stats, charge bonuses, Ride charm integration |
-| Keyword-as-status-effect registry | Keywords | systematic mapping engine: all Compulsion/Emotion/Illusion/Servitude charms → AEs |
 | Essence-tiered upgrade branches | Charms | `essenceUpgrades[]` schema + branch-selection step in activation dialog — [charms-gap A2](docs/charms-gap.md) |
 | Social charm bonus payload | Social | `socialBonus` sub-schema (pool/MDV modifier) + social-roll pipeline integration — [charms-gap A9](docs/charms-gap.md) |
 | Charm deactivation resolver | Charms | state machine: scene-end / combat-end / out-of-motes, handles all duration types |
@@ -107,10 +102,10 @@ Last updated: 2026-05-18 (A7 Fury-OK filter done)
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 46 |
-| C — Ready, Complex | 12 |
+| B — Ready, Medium | 42 |
+| C — Ready, Complex | 11 |
 | D — Blocked | 5 |
-| **Total pending** | **64** |
+| **Total pending** | **59** |
 
 **Biggest force-multipliers:**
 - **Countermagic resolution** (Group B) → unblocks Countermagic cost variance
