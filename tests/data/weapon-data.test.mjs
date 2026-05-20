@@ -13,6 +13,11 @@ function makeMode(overrides = {}) {
     overwhelming: 1, defense: 0, rate: 1, range: 0,
     minStrength: 0, minDexterity: 0, minMartialArts: 0,
     tags: [],
+    areaShape: "circle",
+    areaSize: "3",
+    areaResistPool: "stamina+resistance",
+    areaResistDifficulty: "1",
+    areaResistEffect: "avoid",
     ...overrides
   };
 }
@@ -132,6 +137,38 @@ describe("WeaponData.prepareDerivedData", () => {
     };
     const result = _prepDerivedData(sys);
     expect(result.modes[0].damageLabel).toBe("5L/3");
+  });
+});
+
+describe("mode schema — area attack fields", () => {
+  it("mode schema has area attack fields with correct defaults", () => {
+    const schema = WeaponData.defineSchema();
+    const modesArrayField = schema.modes;
+    // ArrayField(SchemaField) pattern: .options.options to reach the SchemaField's fields
+    const modeFields = modesArrayField.options.options;
+
+    // Check that all area attack fields exist
+    expect(modeFields.areaShape).toBeDefined();
+    expect(modeFields.areaSize).toBeDefined();
+    expect(modeFields.areaResistPool).toBeDefined();
+    expect(modeFields.areaResistDifficulty).toBeDefined();
+    expect(modeFields.areaResistEffect).toBeDefined();
+
+    // Check initial values
+    const areaShapeInitial = modeFields.areaShape?.getInitialValue?.() ?? modeFields.areaShape?.options?.initial;
+    expect(areaShapeInitial).toBe("circle");
+
+    const areaSizeInitial = modeFields.areaSize?.getInitialValue?.() ?? modeFields.areaSize?.options?.initial;
+    expect(areaSizeInitial).toBe("3");
+
+    const areaResistPoolInitial = modeFields.areaResistPool?.getInitialValue?.() ?? modeFields.areaResistPool?.options?.initial;
+    expect(areaResistPoolInitial).toBe("stamina+resistance");
+
+    const areaResistDifficultyInitial = modeFields.areaResistDifficulty?.getInitialValue?.() ?? modeFields.areaResistDifficulty?.options?.initial;
+    expect(areaResistDifficultyInitial).toBe("1");
+
+    const areaResistEffectInitial = modeFields.areaResistEffect?.getInitialValue?.() ?? modeFields.areaResistEffect?.options?.initial;
+    expect(areaResistEffectInitial).toBe("avoid");
   });
 });
 

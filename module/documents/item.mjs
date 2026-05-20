@@ -1,6 +1,7 @@
 import { normalizeCost, parseCostFormula, moteCostString } from "../rolls/activation-ledger.mjs";
 import { buildCharmWeaponData } from "./charm-weapon-data.mjs";
 import { getOutOfAspectSurcharge, getForeignCharmSurcharge, getCelestialMASurcharge } from "../helpers/aspect-surcharge.mjs";
+import { computeFoiSurcharge } from "../helpers/foi-helpers.mjs";
 import { SCOPE_TO_TYPE } from "../rolls/charm-event-math.mjs";
 
 /**
@@ -607,6 +608,45 @@ ${capWarning}`;
       if (!confirmed) return null;
     }
 
+    // Flaw of Invulnerability selection: fires when hasFoi=true and cost includes XP.
+    if (this.system?.hasFoi && xpCost > 0) {
+      const allOptions = game.exalted2e.EX2E.foiTypes[actor.system.exaltType] ?? [];
+      const owned      = new Set((this.system.flawsOfInvulnerability ?? []).map(f => f.type));
+      const available  = allOptions.filter(o => !owned.has(o.key));
+
+      let newEntry = null;
+      if (allOptions.length === 0) {
+        const customLabel = await foundry.applications.api.DialogV2.prompt({
+          window:  { title: game.i18n.localize("EX2E.FoiCustomLabel") },
+          content: `<div class="field-group"><label>${game.i18n.localize("EX2E.FoiCustomLabel")}</label>
+                    <input type="text" name="result" value="" style="width:100%" autofocus></div>`,
+          ok: { label: game.i18n.localize("EX2E.Confirm"), icon: "fa-solid fa-check" }
+        });
+        if (!customLabel) return null;
+        newEntry = { type: "custom", label: String(customLabel) };
+      } else if (available.length === 0) {
+        await foundry.applications.api.DialogV2.alert({
+          window:  { title: game.i18n.localize("EX2E.FlawsOfInvulnerability") },
+          content: `<p>${game.i18n.localize("EX2E.FoiAllOwned")}</p>`,
+        });
+        return null;
+      } else {
+        const options = available.map(o => `<option value="${o.key}">${o.label}</option>`).join("");
+        const selectedKey = await foundry.applications.api.DialogV2.prompt({
+          window:  { title: game.i18n.localize("EX2E.FoiSelectPrompt") },
+          content: `<div class="field-group"><label>${game.i18n.localize("EX2E.FoiSelectPrompt")}</label>
+                    <select name="result">${options}</select></div>`,
+          ok: { label: game.i18n.localize("EX2E.Confirm"), icon: "fa-solid fa-check" }
+        });
+        if (!selectedKey) return null;
+        const opt = available.find(o => o.key === selectedKey);
+        newEntry = { type: opt.key, label: opt.label };
+      }
+
+      const existing = this.system.flawsOfInvulnerability ?? [];
+      await this.update({ "system.flawsOfInvulnerability": [...existing, newEntry] });
+    }
+
     // Motes (spendMotes returns per-pool breakdown on success, null if pools can't cover).
     if (moteCost > 0) {
       const breakdown = await actor.spendMotes(moteCost, motePool);
@@ -891,6 +931,15 @@ ${capWarning}`;
       total.xp         += Number(c.xp)               || 0;
     }
 
+    // Flaw of Invulnerability surcharge: +2 WP when the combo has a Form-type
+    // charm and at least one charm with repurchased FoI entries.
+    const allComboCharms = [
+      ...planned.map(p => p.charm),
+      ...skipped.map(s => s.charm),
+    ];
+    const foiSurcharge = computeFoiSurcharge(allComboCharms);
+    total.willpower += foiSurcharge;
+
     // Build the preflight body.
     const sectionList = (items, mapFn) =>
       items.length ? `<ul style="margin:4px 0 10px 18px">${items.map(mapFn).join("")}</ul>` : "";
@@ -902,6 +951,9 @@ ${capWarning}`;
     if (total.aggravated) costBits.push(`${total.aggravated}a`);
     if (total.xp)         costBits.push(`${total.xp}xp`);
     const costLine = costBits.length ? costBits.join(", ") : "—";
+    const foiNote  = foiSurcharge > 0
+      ? `<p class="foi-surcharge-note"><em>${game.i18n.localize("EX2E.FoiSurcharge")}: +2wp</em></p>`
+      : "";
 
     const charmCost = (charm) => {
       const c = charm.system?.cost ?? {};
@@ -933,6 +985,7 @@ ${capWarning}`;
       ${planned.length === 0
         ? `<p><em>${game.i18n.localize("EX2E.ComboPreflightNothingToDo")}</em></p>`
         : `<p><strong>${game.i18n.localize("EX2E.ComboPreflightTotal")}:</strong> ${costLine}</p>`}
+      ${foiNote}
     `;
 
     const confirmed = await foundry.applications.api.DialogV2.confirm({

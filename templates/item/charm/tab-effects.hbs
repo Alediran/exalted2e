@@ -536,6 +536,28 @@
         {{/each}}
       </select>
     </div>
+    <div class="effect-body">
+      <label class="effect-enable-row">
+        <input type="checkbox" name="system.hasFoi"
+               {{#if system.hasFoi}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        <span>{{localize "EX2E.HasFoi"}}</span>
+      </label>
+      {{#if system.hasFoi}}
+      <h5 style="margin:4px 0">{{localize "EX2E.FlawsOfInvulnerability"}}</h5>
+      {{#if system.flawsOfInvulnerability.length}}
+      <ul class="foi-list">
+        {{#each system.flawsOfInvulnerability as |foi idx|}}
+        <li class="foi-entry">
+          <span>{{#if foi.label}}{{foi.label}}{{else}}{{foi.type}}{{/if}}</span>
+        </li>
+        {{/each}}
+      </ul>
+      {{else}}
+      <p class="charm-empty">{{localize "EX2E.FoiNoneYet"}}</p>
+      {{/if}}
+      {{/if}}
+    </div>
   </div>
 
   {{!-- M10 DV Bonus / Penalty Negation ───────────────────────────────────── --}}

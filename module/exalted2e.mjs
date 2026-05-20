@@ -2568,6 +2568,98 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     });
   });
 
+  // ── Area resist roll ─────────────────────────────────────────────────
+  el.querySelector?.(".btn-roll-area-resist")?.addEventListener("click", async (ev) => {
+    const btn = ev.currentTarget;
+    const targetId  = btn.dataset.targetId;
+    const messageId = btn.dataset.messageId;
+    if (!targetId || !messageId) return;
+
+    const msg = game.messages.get(messageId);
+    if (!msg) return;
+    const attack = msg.flags?.exalted2e?.attack;
+    if (!attack?.isAreaAttack) return;
+
+    const target = game.actors.get(targetId);
+    if (!target) return;
+    if (!target.testUserPermission(game.user, "OWNER")) {
+      ui.notifications.warn(game.i18n.localize("EX2E.DefenseNotAllowed"));
+      return;
+    }
+
+    const { areaResist } = attack;
+    // Parse simple "ability+attribute" pool formula against target's roll data.
+    const rollData = target.getRollData?.() ?? {};
+    const poolStr = areaResist.pool ?? "stamina+resistance";
+    let pool = 0;
+    for (const part of poolStr.split("+")) {
+      const key = part.trim();
+      pool += rollData.attributes?.[key]?.value
+           ?? rollData.abilities?.[key]?.value
+           ?? (Number(rollData[key]) || 0);
+    }
+    pool = Math.max(1, pool);
+
+    const { ExaltedRoll, renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
+    const roll = new ExaltedRoll({ pool });
+    const result = await roll.evaluate();
+    const successes = result.successes ?? 0;
+    const passed = successes >= (areaResist.difficulty ?? 1);
+
+    // Store result and re-render the card.
+    const existing = attack.areaResistResults ?? {};
+    const updated  = { ...existing, [targetId]: { successes, passed } };
+    const newAttackState = { ...attack, areaResistResults: updated, id: messageId };
+    const content = await renderAttackCardContent(newAttackState);
+    await msg.update({
+      content,
+      "flags.exalted2e.attack.areaResistResults": updated
+    });
+
+    // Post resist roll result to chat.
+    await ChatMessage.create({
+      content: `<div class="ex2e-roll-card">${target.name}: ${successes} ${game.i18n.localize("EX2E.Successes")} vs ${game.i18n.localize("EX2E.AreaResist")} (diff ${areaResist.difficulty})</div>`,
+      rolls: [result.foundryRoll],
+      sound: CONFIG.sounds.dice,
+      speaker: ChatMessage.getSpeaker({ actor: target }),
+    });
+  });
+
+  // ── Remove area template ─────────────────────────────────────────────
+  el.querySelector?.(".btn-remove-area-template")?.addEventListener("click", async (ev) => {
+    if (!game.user.isGM) {
+      ui.notifications.warn(game.i18n.localize("EX2E.EffectGMOnlyRemoval"));
+      return;
+    }
+    const templateId = ev.currentTarget.dataset.templateId;
+    if (!templateId || !canvas.scene) return;
+    await canvas.scene.deleteEmbeddedDocuments("MeasuredTemplate", [templateId]);
+  });
+
+  // ── Apply area damage ────────────────────────────────────────────────
+  el.querySelectorAll?.(".btn-apply-area-damage").forEach(btn => {
+    btn.addEventListener("click", async (ev) => {
+      const b = ev.currentTarget;
+      const targetId     = b.dataset.targetId;
+      const rawDamage    = parseInt(b.dataset.rawDamage)       || 0;
+      const resistSucc   = parseInt(b.dataset.resistSuccesses) || 0;
+      const damageType   = b.dataset.damageType   || "lethal";
+      const resistEffect = b.dataset.resistEffect || "avoid";
+
+      const target = game.actors.get(targetId);
+      if (!target) return;
+      if (!target.testUserPermission(game.user, "OWNER")) {
+        ui.notifications.warn(game.i18n.localize("EX2E.DefenseNotAllowed"));
+        return;
+      }
+
+      const finalDamage = resistEffect === "reduce"
+        ? Math.max(0, rawDamage - resistSucc)
+        : rawDamage;
+      if (finalDamage > 0) await target.applyDamage(finalDamage, damageType);
+    });
+  });
+
   // "Roll Damage" button on attack result cards
   el.querySelector?.(".btn-roll-damage")?.addEventListener("click", async (event) => {
     const card       = event.currentTarget.closest(".ex2e-attack-card");

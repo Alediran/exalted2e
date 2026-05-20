@@ -17,7 +17,12 @@ function modeSchema() {
     minStrength:    new fields.NumberField({ initial: 0, min: 0,  max: 10,  integer: true }),
     minDexterity:   new fields.NumberField({ initial: 0, min: 0,  max: 10,  integer: true }),
     minMartialArts: new fields.NumberField({ initial: 0, min: 0,  max: 10,  integer: true }),
-    tags:           new fields.ArrayField(new fields.StringField({ blank: true }), { initial: [] })
+    tags:              new fields.ArrayField(new fields.StringField({ blank: true }), { initial: [] }),
+    areaShape:         new fields.StringField({ initial: "circle" }),
+    areaSize:          new fields.StringField({ initial: "3" }),
+    areaResistPool:    new fields.StringField({ initial: "stamina+resistance" }),
+    areaResistDifficulty: new fields.StringField({ initial: "1" }),
+    areaResistEffect:  new fields.StringField({ initial: "avoid" })
   });
 }
 

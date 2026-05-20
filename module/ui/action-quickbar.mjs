@@ -667,7 +667,8 @@ export class ActionQuickbar {
     if (key === "rise") return this._handleRise(actor, current, cfg);
     // Aim needs a target-picker and per-combatant aim-state
     // bookkeeping — offloaded to its own handler.
-    if (key === "aim")  return this._handleAim(actor, current, cfg);
+    if (key === "aim")        return this._handleAim(actor, current, cfg);
+    if (key === "coordinate") return this._handleCoordinate(actor, current, cfg);
     const label = game.i18n.localize(cfg.labelKey);
 
     await this._clearPendingAction(actor, current);
@@ -934,6 +935,73 @@ export class ActionQuickbar {
     });
 
     await this._postActionCard(actor, { label, speed: cfg.speed, dvPenalty: cfg.dvMod });
+  }
+
+  async _handleCoordinate(actor, current, cfg) {
+    const { CoordinationDialog } = await import("../dialogs/coordination-dialog.mjs");
+    const combat = this._combat ?? game.combat;
+
+    const result = await CoordinationDialog.prompt({ coordinator: actor, combat });
+    if (!result) return;
+
+    const { target, participants, pool, difficulty } = result;
+    if (!target) return;
+
+    await this._clearPendingAction(actor, current);
+
+    const { ExaltedRoll } = await import("../rolls/exalted-roll.mjs");
+    const roll = new ExaltedRoll({ pool });
+    const rollResult = await roll.evaluate();
+    const successes   = rollResult.successes ?? 0;
+    const dvReduction = Math.max(0, Math.min(successes - difficulty, participants));
+
+    const currentTick = combat?.combatants?.get(combat?.current?.combatantId)?.initiative ?? 0;
+    const label = game.i18n.localize("EX2E.CoordinatedAttack");
+
+    if (dvReduction > 0) {
+      const ae = await target.applyDVPenalty("both", dvReduction, {
+        label,
+        dvRefreshable: false,
+      });
+      if (ae) {
+        await ae.update({
+          "flags.exalted2e.coordinationExpiry": { tick: currentTick }
+        });
+      }
+    }
+
+    const success = successes >= difficulty;
+    const content = await foundry.applications.handlebars.renderTemplate(
+      "systems/exalted2e/templates/chat/coordination-card.hbs",
+      {
+        coordinatorName: actor.name,
+        targetName:      target.name,
+        pool,
+        successes,
+        difficulty,
+        dvReduction,
+        tick:            currentTick,
+        success,
+        failLabel:       game.i18n.localize("EX2E.CoordinationFailed"),
+      }
+    );
+    await ChatMessage.create({
+      content,
+      rolls:   [rollResult.foundryRoll],
+      sound:   CONFIG.sounds.dice,
+      speaker: ChatMessage.getSpeaker({ actor }),
+    });
+
+    const cfgLabel = game.i18n.localize(cfg.labelKey);
+    await current.setFlag("exalted2e", "pendingAction", {
+      actionKey: "coordinate",
+      label:     cfgLabel,
+      speed:     cfg.speed,
+      dvPenalty: 0,
+      abortable: false,
+      dvEffectId: null,
+    });
+    await this._postActionCard(actor, { label: cfgLabel, speed: cfg.speed, dvPenalty: 0 });
   }
 
   async _handleAttack(mode, actor, current) {

@@ -486,6 +486,7 @@ export class ExaltedRoll {
    * @param {number}       [options.modeIndex=0]  Which mode of the weapon to use
    */
   static async rollAttack(actor, weaponId, options = {}) {
+    debugger;
     const { AttackDialog } = await import("./attack-dialog.mjs");
 
     const weapon = actor.items.get(weaponId);
@@ -498,6 +499,19 @@ export class ExaltedRoll {
     const modeIndex = Math.max(0, Math.min(options.modeIndex ?? 0, (wSys.modes?.length ?? 1) - 1));
     const mode      = wSys.modes?.[modeIndex];
     if (!mode) return null;
+
+    // ── Area Attack detection ────────────────────────────────────────────
+    const charm = options.charmSourceId ? actor.items.get(options.charmSourceId) : null;
+    const isAreaAttack = mode.tags.includes("Area") || !!charm?.system?.attack?.areaAttack;
+    const areaConfig = isAreaAttack ? {
+      shape:  charm?.system?.attack?.areaShape    ?? mode.areaShape    ?? "circle",
+      size:   charm?.system?.attack?.areaSize     ?? mode.areaSize     ?? "3",
+      resist: {
+        pool:       charm?.system?.attack?.areaResistPool       ?? mode.areaResistPool       ?? "stamina+resistance",
+        difficulty: charm?.system?.attack?.areaResistDifficulty ?? mode.areaResistDifficulty ?? "1",
+        effect:     charm?.system?.attack?.areaResistEffect     ?? mode.areaResistEffect     ?? "avoid",
+      }
+    } : null;
 
     // Determine ability: ranged uses archery, thrown uses thrown, else melee
     const isMelee = mode.effectiveRange === 0;
@@ -612,7 +626,7 @@ export class ExaltedRoll {
     // aggravated damage bypasses Hardness entirely.
     const ignoresHardness = mode.damageType === "aggravated";
 
-    if (!targetActor && !options.isCounterattack) {
+    if (!targetActor && !options.isCounterattack && !isAreaAttack) {
       const { pickTargetActor } = await import("../helpers/targeting.mjs");
       targetActor = await pickTargetActor();
       if (!targetActor) return null; // cancelled
@@ -631,7 +645,7 @@ export class ExaltedRoll {
     // `checkAttackRange` returns null when tokens aren't on a scene; pass through.
     let rangePenalty = 0;
     let rangeBand    = null;
-    if (targetActor && !options.isCounterattack) {
+    if (targetActor && !options.isCounterattack && !isAreaAttack) {
       const { checkAttackRange } = await import("../helpers/targeting.mjs");
       const rangeInfo = checkAttackRange(mode, actor, targetActor);
       if (rangeInfo && !rangeInfo.inRange) {
@@ -661,22 +675,24 @@ export class ExaltedRoll {
         targetSoak     = tSys.combat?.soak?.[mode.damageType] ?? 0;
         targetHardness = ignoresHardness ? 0 : (tSys.combat?.hardness ?? 0);
       }
-      // Onslaught: RAW, a defender accrues +1 DV penalty every time they
-      // are attacked (hit, miss, perfect-defended — it all triggers).
-      // Applied AFTER the DV snapshot above so this attack's resolution
-      // uses the pre-bump DVs; the next attack will see the bumped total.
-      // Cleared by advanceWheel when the defender becomes free again.
-      await targetActor.addOnslaught();
+      if (!isAreaAttack) {
+        // Onslaught: RAW, a defender accrues +1 DV penalty every time they
+        // are attacked (hit, miss, perfect-defended — it all triggers).
+        // Applied AFTER the DV snapshot above so this attack's resolution
+        // uses the pre-bump DVs; the next attack will see the bumped total.
+        // Cleared by advanceWheel when the defender becomes free again.
+        await targetActor.addOnslaught();
 
-      // Starmetal artifact armor worn by the defender imposes an external
-      // penalty on the attacker's success tally (reduces effective hits).
-      const starmetalArmor = targetActor.items.find(i =>
-        i.type === "armor" && i.system.equipped && i.system.artifact &&
-        i.system.magicalMaterial === "starmetal" && i.system.attuned
-      );
-      if (starmetalArmor) {
-        const mmBonuses = game.exalted2e.EX2E.getActiveArmorMaterialBonuses?.();
-        externalPenalty += mmBonuses?.starmetal?.attackPenalty ?? 0;
+        // Starmetal artifact armor worn by the defender imposes an external
+        // penalty on the attacker's success tally (reduces effective hits).
+        const starmetalArmor = targetActor.items.find(i =>
+          i.type === "armor" && i.system.equipped && i.system.artifact &&
+          i.system.magicalMaterial === "starmetal" && i.system.attuned
+        );
+        if (starmetalArmor) {
+          const mmBonuses = game.exalted2e.EX2E.getActiveArmorMaterialBonuses?.();
+          externalPenalty += mmBonuses?.starmetal?.attackPenalty ?? 0;
+        }
       }
     }
 
@@ -712,6 +728,14 @@ export class ExaltedRoll {
       ? attackCharms.filter(c => (c.system?.keywords ?? []).includes("Fury-OK"))
       : attackCharms;
 
+    // ── Area attack: place template and collect targets before dialog ─────
+    let areaPlacement = null;
+    if (isAreaAttack) {
+      const { placeAreaTemplate } = await import("../helpers/targeting.mjs");
+      areaPlacement = await placeAreaTemplate(actor, { shape: areaConfig.shape, size: areaConfig.size });
+      if (!areaPlacement) return null;
+    }
+
     const dialogResult = await AttackDialog.prompt({
       pool, excellency, firstExcMax, secondExcMax,
       firstExcLabel, secondExcLabel,
@@ -719,8 +743,93 @@ export class ExaltedRoll {
       charms:   filteredAttackCharms,
       virtues:  actor.type === "character" ? sys.virtues : null,
       actor,
+      isAreaAttack: isAreaAttack ?? false,
     });
     if (!dialogResult) return null;
+
+    // ── Area attack path: no accuracy roll, no DV comparison ─────────────
+    if (isAreaAttack) {
+      // Activate selected supplemental charms.
+      const activatedCharms = [];
+      const activationBucket = [];
+      for (const { id, motesOverride } of (dialogResult.charmActivations ?? [])) {
+        const c = actor.items.get(id);
+        if (!c) continue;
+        const ok = await c.activateCharm({
+          explicitMotesOverride: motesOverride !== undefined ? motesOverride : null,
+          ledgerBucket: activationBucket
+        });
+        if (!ok) continue;
+        activatedCharms.push({ id: c.id, name: c.name });
+      }
+
+      // Stunt reward.
+      await bankStuntReward(actor, {
+        stunt:              dialogResult.stunt,
+        advancesMotivation: dialogResult.advancesMotivation ?? false,
+        rewardKind:         dialogResult.rewardKind ?? "motes",
+        sourceMessageId:    null
+      });
+
+      // Post charm activation ledger.
+      if (activationBucket.length === 1) {
+        const soleCharm = actor.items.get(activationBucket[0].charmId);
+        if (soleCharm) await soleCharm.sendToChat({ activation: activationBucket[0].ledger });
+      } else if (activationBucket.length > 1) {
+        await sendCombinedActivationCard(actor, activationBucket, {
+          title: game.i18n.localize("EX2E.SupplementalCharmsActivated")
+        });
+      }
+
+      // Roll damage once (base damage + strength if melee; no threshold).
+      const baseDamagePool = mode.effectiveDamage + (isMelee ? strVal : 0);
+      const damageRoll = new ExaltedRoll({
+        pool:      Math.max(1, baseDamagePool),
+        flavor:    game.i18n.localize("EX2E.AreaDamageRoll"),
+        actorName: actor.name,
+        stunt:     dialogResult.stunt,
+      });
+      const damageResult = await damageRoll.evaluate();
+
+      const resistDifficultyVal = parseFloat(
+        Roll.replaceFormulaData(areaConfig.resist.difficulty, actor.getRollData())
+      ) || 1;
+
+      const areaAttack = {
+        actorId:     actor.id,
+        actorName:   actor.name,
+        weaponName:  (wSys.modes?.length ?? 1) > 1 ? `${weapon.name} — ${mode.name}` : weapon.name,
+        dice:        damageResult.diceDetails,
+        pool:        damageResult.pool,
+        rawDamage:   damageResult.successes ?? 0,
+        damageType:  mode.damageType,
+        stunt:       dialogResult.stunt,
+        moteCost:    0,
+        isAreaAttack: true,
+        templateId:  areaPlacement.templateId,
+        areaShape:   areaConfig.shape,
+        areaTargets: areaPlacement.targets.map(t => ({ id: t.id, name: t.name })),
+        areaResist:  {
+          pool:       areaConfig.resist.pool,
+          difficulty: resistDifficultyVal,
+          effect:     areaConfig.resist.effect,
+        },
+        attackCharms: activatedCharms.map(c => c.name),
+      };
+
+      const content = await foundry.applications.handlebars.renderTemplate(
+        "systems/exalted2e/templates/chat/attack-result.hbs",
+        areaAttack
+      );
+      await ChatMessage.create({
+        content,
+        rolls:   [damageResult.foundryRoll],
+        sound:   CONFIG.sounds.dice,
+        speaker: ChatMessage.getSpeaker({ actor }),
+        flags:   { exalted2e: { attack: areaAttack } }
+      });
+      return null;
+    }
 
     // Activate each selected Supplemental/Simple charm. `activateCharm`
     // handles mote/willpower spending and sustained-toggle bookkeeping;

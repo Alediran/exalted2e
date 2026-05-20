@@ -85,6 +85,42 @@
         {{/each}}
       </div>
     </div>
+
+    {{#if (includes mode.tags "Area")}}
+    <div class="area-config-block" style="margin-top:8px">
+      <div class="field-group">
+        <label>{{localize "EX2E.AreaShape"}}</label>
+        <select name="system.modes.{{mIdx}}.areaShape" {{#unless @root.isEditable}}disabled{{/unless}}>
+          <option value="circle" {{#if (eq mode.areaShape "circle")}}selected{{/if}}>{{localize "EX2E.AreaShapeCircle"}}</option>
+          <option value="cone"   {{#if (eq mode.areaShape "cone")}}selected{{/if}}>{{localize "EX2E.AreaShapeCone"}}</option>
+          <option value="rect"   {{#if (eq mode.areaShape "rect")}}selected{{/if}}>{{localize "EX2E.AreaShapeRect"}}</option>
+          <option value="ray"    {{#if (eq mode.areaShape "ray")}}selected{{/if}}>{{localize "EX2E.AreaShapeRay"}}</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.AreaSize"}}</label>
+        <input type="text" name="system.modes.{{mIdx}}.areaSize" value="{{mode.areaSize}}"
+               {{#unless @root.isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.AreaResistPool"}}</label>
+        <input type="text" name="system.modes.{{mIdx}}.areaResistPool" value="{{mode.areaResistPool}}"
+               {{#unless @root.isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.AreaResistDifficulty"}}</label>
+        <input type="text" name="system.modes.{{mIdx}}.areaResistDifficulty" value="{{mode.areaResistDifficulty}}"
+               {{#unless @root.isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.AreaResistEffect"}}</label>
+        <select name="system.modes.{{mIdx}}.areaResistEffect" {{#unless @root.isEditable}}disabled{{/unless}}>
+          <option value="avoid"  {{#if (eq mode.areaResistEffect "avoid")}}selected{{/if}}>{{localize "EX2E.AreaResistEffectAvoid"}}</option>
+          <option value="reduce" {{#if (eq mode.areaResistEffect "reduce")}}selected{{/if}}>{{localize "EX2E.AreaResistEffectReduce"}}</option>
+        </select>
+      </div>
+    </div>
+    {{/if}}
   </div>
   {{/each}}
 

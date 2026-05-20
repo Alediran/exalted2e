@@ -671,7 +671,7 @@ export class ExaltedActor extends Actor {
    * @param {string} [opts.label]  Human-readable effect name (defaults to the type).
    * @param {string} [opts.icon]   Status icon path.
    */
-  async applyDVPenalty(type, value, { label, icon, sticky = false } = {}) {
+  async applyDVPenalty(type, value, { label, icon, sticky = false, dvRefreshable = true } = {}) {
     if (!type || !Number.isFinite(value) || value <= 0) return null;
     const effectData = {
       name: label ?? type,
@@ -679,7 +679,7 @@ export class ExaltedActor extends Actor {
       flags: {
         exalted2e: {
           dvPenalty:     { type, value },
-          dvRefreshable: true,
+          dvRefreshable,
           // Sticky DV penalties survive the usual "refresh on your next
           // action's tick" clear-out — abortable actions (Aim, Guard)
           // need their DV penalty to persist until the next DIFFERENT

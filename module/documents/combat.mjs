@@ -246,6 +246,20 @@ export class ExaltedCombat extends Combat {
     // freshly-sorted list (next free-and-unacted combatant).
     await this.update({ turn: 0 });
 
+    // Clear expired coordination AEs (tick-based, not refreshable-based).
+    // Strict `<` so combatants on the SAME tick as the expiry still benefit.
+    const newTick = this.combatant?.initiative ?? 0;
+    const toDeleteCoord = [];
+    for (const a of game.actors) {
+      for (const ae of a.effects) {
+        const expiry = ae.flags?.exalted2e?.coordinationExpiry;
+        if (expiry && expiry.tick < newTick) toDeleteCoord.push({ actor: a, aeId: ae.id });
+      }
+    }
+    for (const { actor: a, aeId } of toDeleteCoord) {
+      await a.deleteEmbeddedDocuments("ActiveEffect", [aeId]);
+    }
+
     // Stamp incoming combatant's peripheral so the next Totemic check can tell
     // whether peripheral was spent during this coming action.
     const next = this.combatant;

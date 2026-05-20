@@ -1,0 +1,48 @@
+<form class="ex2e-roll-dialog" autocomplete="off">
+  <div class="dialog-content">
+
+    <div class="field-group">
+      <label>{{localize "EX2E.CoordinatingActor"}}</label>
+      <span>{{coordinatorName}}</span>
+    </div>
+
+    <div class="field-group">
+      <label>{{localize "EX2E.Target"}}</label>
+      {{#if target}}
+      <div class="target-row">
+        <img src="{{target.img}}" alt="{{target.name}}" class="target-img"/>
+        <span class="target-name">{{target.name}}</span>
+        <button type="button" data-action="pickTarget">{{localize "EX2E.PickTarget"}}</button>
+      </div>
+      {{else}}
+      <div class="target-row target-empty">
+        <span class="target-name">—</span>
+        <button type="button" data-action="pickTarget">{{localize "EX2E.PickTarget"}}</button>
+      </div>
+      {{/if}}
+    </div>
+
+    <div class="field-group">
+      <label>{{localize "EX2E.CoordinationParticipants"}}</label>
+      <input type="number" name="participants" value="{{participants}}" min="2" max="20" style="width:5em">
+    </div>
+
+    <div class="field-group">
+      <label>{{localize "EX2E.CoordinationDifficulty"}}</label>
+      <span class="difficulty-display">{{difficulty}}</span>
+    </div>
+
+    <div class="field-group">
+      <label>{{localize "EX2E.Pool"}}</label>
+      <input type="hidden" name="pool" value="{{pool}}">
+      <span>{{pool}}d10 ({{localize "EX2E.AttrCharisma"}} + {{localize "EX2E.AbilityWar"}})</span>
+    </div>
+
+  </div>
+
+  <footer class="form-footer">
+    <button type="button" data-action="confirmCoordination" {{#unless target}}disabled{{/unless}}>
+      <i class="fa-solid fa-people-group"></i> {{localize "EX2E.CoordinationConfirm"}}
+    </button>
+  </footer>
+</form>

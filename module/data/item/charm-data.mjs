@@ -101,6 +101,15 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       // "" = not a perfect defense; "dodge" | "parry" | "soak" = which type
       perfectDefenseType: new fields.StringField({ initial: "", blank: true }),
 
+      hasFoi: new fields.BooleanField({ initial: false }),
+      flawsOfInvulnerability: new fields.ArrayField(
+        new fields.SchemaField({
+          type:  new fields.StringField({ initial: "" }),
+          label: new fields.StringField({ initial: "" }),
+        }),
+        { initial: [] }
+      ),
+
       // ── Activation Tracking ──────────────────────────────────────────────
       active: new fields.BooleanField({ initial: false }),
 
@@ -140,7 +149,13 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         minStrength:    new fields.StringField({ initial: "0" }),
         minDexterity:   new fields.StringField({ initial: "0" }),
         minMartialArts: new fields.StringField({ initial: "0" }),
-        tags:           new fields.ArrayField(new fields.StringField({ blank: true }))
+        tags:              new fields.ArrayField(new fields.StringField({ blank: true })),
+        areaAttack:        new fields.BooleanField({ initial: false }),
+        areaShape:         new fields.StringField({ initial: "circle" }),
+        areaSize:          new fields.StringField({ initial: "3" }),
+        areaResistPool:    new fields.StringField({ initial: "stamina+resistance" }),
+        areaResistDifficulty: new fields.StringField({ initial: "1" }),
+        areaResistEffect:  new fields.StringField({ initial: "avoid" })
       }),
 
       // ── Activation Resolution ────────────────────────────────────────────────

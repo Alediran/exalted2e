@@ -227,9 +227,14 @@ EX2E.errataMagicalMaterialArmorBonuses = {
 }
 
 EX2E.weaponTags = [
-  "Bow", "Clinch", "Disarming", "Flame type", "Lance type", "Martial Arts",
+  "Area", "Bow", "Clinch", "Disarming", "Flame type", "Lance type", "Martial Arts",
   "Natural", "Overwhelming", "Piercing", "Reach", "Single Shot", "Thrown", "Two-handed"
 ];
+
+// Flaw of Invulnerability options keyed by exalt type.
+// Shape: { solar: [{ key: "solar-form", label: "Solar Form" }, ...], ... }
+// Empty by default; populate per-splat as they are implemented.
+EX2E.foiTypes = {};
 
 // Range bands for ranged attacks (mode.range > 0). Each band covers distances
 // up to (maxFraction × effectiveRange). The last band covers up to the full

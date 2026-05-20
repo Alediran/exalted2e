@@ -64,6 +64,49 @@
 
   <div class="attack-resolution">
 
+  {{#if isAreaAttack}}
+  <div class="area-attack-section">
+    <div class="area-attack-badge">
+      <i class="fa-solid fa-burst"></i> {{localize "EX2E.AreaAttack"}} — {{areaShape}}
+    </div>
+    <div class="area-damage-row">
+      {{localize "EX2E.AreaRawDamage"}}: <strong>{{rawDamage}}</strong>
+    </div>
+    <ul class="area-target-list">
+      {{#each areaTargets as |t|}}
+      <li class="area-target-row" data-target-id="{{t.id}}">
+        <span class="area-target-name">{{t.name}}</span>
+        {{#with (lookup ../areaResistResults t.id) as |res|}}
+          {{#if res}}
+            {{#if res.passed}}
+              <span class="area-resist-result area-resist-success">{{localize "EX2E.AreaResisted"}}</span>
+            {{else}}
+              <button type="button" class="btn-roll btn-apply-area-damage"
+                      data-target-id="{{../t.id}}"
+                      data-raw-damage="{{../../rawDamage}}"
+                      data-resist-successes="{{res.successes}}"
+                      data-damage-type="{{../../damageType}}"
+                      data-resist-effect="{{../../areaResist.effect}}">
+                <i class="fa-solid fa-bolt"></i> {{localize "EX2E.ApplyDamage"}}
+              </button>
+            {{/if}}
+          {{else}}
+            <button type="button" class="btn-roll btn-roll-area-resist"
+                    data-target-id="{{../t.id}}"
+                    data-message-id="{{../../id}}">
+              <i class="fa-solid fa-shield"></i> {{localize "EX2E.AreaRollResist"}}
+            </button>
+          {{/if}}
+        {{/with}}
+      </li>
+      {{/each}}
+    </ul>
+    <button type="button" class="btn-roll btn-remove-area-template" data-template-id="{{templateId}}">
+      <i class="fa-solid fa-eraser"></i> {{localize "EX2E.RemoveTemplate"}}
+    </button>
+  </div>
+  {{else}}
+
   {{#if defenseChosen}}
     {{!-- Resolved view: defender has chosen defense, show hit/miss + damage --}}
     <div class="attack-vs">
@@ -287,6 +330,8 @@
   {{localize "EX2E.Stunned"}}
 </div>
 {{/if}}
+
+  {{/if}}{{!-- /else isAreaAttack --}}
 
   </div>
 </div>

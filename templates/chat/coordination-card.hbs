@@ -1,0 +1,30 @@
+<div class="ex2e-roll-card ex2e-coordination-card">
+  <div class="card-header">
+    <span class="roll-actor">{{coordinatorName}}</span>
+    <span class="roll-flavor">{{localize "EX2E.CoordinatedAttack"}}</span>
+  </div>
+
+  <div class="pool-summary">
+    {{pool}}d10 ({{localize "EX2E.AttrCharisma"}} + {{localize "EX2E.AbilityWar"}}) —
+    {{localize "EX2E.CoordinationDifficulty"}}: {{difficulty}}
+  </div>
+
+  <div class="attack-resolution">
+    {{#if success}}
+    <div class="roll-result success">
+      <span class="result-label success-label">
+        <i class="fa-solid fa-people-group"></i>
+        {{successes}} {{localize "EX2E.Successes"}} →
+        {{localize "EX2E.CoordinationDVReduction" amount=dvReduction tick=tick}}
+      </span>
+    </div>
+    <div class="coord-target-row">{{localize "EX2E.Target"}}: <strong>{{targetName}}</strong></div>
+    {{else}}
+    <div class="roll-result failure">
+      <span class="result-label failure-label">
+        <i class="fa-solid fa-xmark"></i> {{failLabel}}
+      </span>
+    </div>
+    {{/if}}
+  </div>
+</div>
