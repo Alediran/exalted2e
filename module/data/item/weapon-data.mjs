@@ -46,7 +46,8 @@ export class WeaponData extends foundry.abstract.TypeDataModel {
       // ── Description / Equipped ───────────────────────────────────────────
       description: new fields.HTMLField({ initial: "" }),
       equipped:    new fields.BooleanField({ initial: false }),
-      slot:        new fields.StringField({ initial: "hands", blank: false, choices: ["hands","feet","armor","head","none"] })
+      slot:        new fields.StringField({ initial: "hands", blank: false, choices: ["hands","feet","armor","head","none"] }),
+      martialArtsStyles: new fields.ArrayField(new fields.StringField({ blank: false }))
     };
   }
 

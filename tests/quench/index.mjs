@@ -118,7 +118,7 @@ Hooks.once("quenchReady", async quench => {
   quench.registerBatch("ex2e.charm.target-effect",      registerCharmTargetEffect,       { displayName: "Charm target effect (onHit)" });
   quench.registerBatch("ex2e.charm.variable-cost",      registerCharmVariableCost,       { displayName: "Charm variable mote cost" });
   quench.registerBatch("ex2e.hearthstone",              registerHearthstone,             { displayName: "Hearthstone socketing" });
-  quench.registerBatch("ex2e.martial-arts-style",       registerMartialArtsStyle,        { displayName: "Martial Arts style auto-add" });
+  quench.registerBatch("ex2e.martial-arts-style",       registerMartialArtsStyle,        { displayName: "Martial Arts style — auto-add + MA gates" });
   quench.registerBatch("ex2e.virtue-channeling",         registerVirtueChanneling,         { displayName: "Virtue channeling (WP / virtue spend)" });
   quench.registerBatch("ex2e.keyword-gating",            registerKeywordGating,             { displayName: "Keyword gating (Native + Action-Only)" });
   quench.registerBatch("ex2e.cover-starmetal",           registerCoverStarmetal,            { displayName: "Cover DV bonuses + Starmetal attack penalty" });

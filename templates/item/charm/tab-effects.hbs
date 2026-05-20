@@ -560,6 +560,16 @@
     </div>
   </div>
 
+  {{!-- Grants Celestial MA ────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.grantsCelestialMA"
+             {{#if system.grantsCelestialMA}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.GrantsCelestialMA"}}</span>
+    </label>
+  </div>
+
   {{!-- M10 DV Bonus / Penalty Negation ───────────────────────────────────── --}}
   <div class="effect-section">
     <label class="effect-enable-row">

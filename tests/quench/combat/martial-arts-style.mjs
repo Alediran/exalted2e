@@ -1,6 +1,6 @@
-import { sweep }               from "../_helpers/cleanup.mjs";
-import { assertTestWorld }     from "../_helpers/world.mjs";
-import { createTempCharacter } from "../_helpers/actors.mjs";
+import { cleanupOnAfter, sweep } from "../_helpers/cleanup.mjs";
+import { assertTestWorld }       from "../_helpers/world.mjs";
+import { createTempCharacter }   from "../_helpers/actors.mjs";
 
 async function waitFor(predicate, { timeoutMs = 2000, intervalMs = 25 } = {}) {
   const deadline = Date.now() + timeoutMs;
@@ -10,6 +10,21 @@ async function waitFor(predicate, { timeoutMs = 2000, intervalMs = 25 } = {}) {
     await new Promise(r => setTimeout(r, intervalMs));
   }
   throw new Error(`waitFor: predicate never returned truthy within ${timeoutMs}ms`);
+}
+
+function stubWarn() {
+  const calls = [];
+  const orig = ui.notifications.warn;
+  ui.notifications.warn = (...args) => { calls.push(args); };
+  cleanupOnAfter(() => { ui.notifications.warn = orig; });
+  return calls;
+}
+
+function stubNonGM() {
+  Object.defineProperty(game.user, "isGM", { value: false, configurable: true, writable: true });
+  cleanupOnAfter(() => {
+    delete game.user.isGM; // remove instance override; prototype getter is restored
+  });
 }
 
 export function registerMartialArtsStyle(context) {
@@ -73,6 +88,115 @@ export function registerMartialArtsStyle(context) {
 
       const after = actor.items.filter(i => i.type === "martialartsstyle").length;
       assert.equal(after, before, "no martialartsstyle item created for non-MA charm");
+    });
+  });
+
+  // ── DB Celestial MA initiation gate ─────────────────────────────────────────
+
+  describe("DB Celestial MA initiation gate", () => {
+    before(() => assertTestWorld());
+    afterEach(async () => { await sweep(); });
+
+    it("[MAS-4] blocks a terrestrial actor without initiation from learning a Celestial MA charm", async () => {
+      const actor = await createTempCharacter({ name: "Q-DB-Celestial-Block" });
+      await actor.update({ "system.exaltType": "terrestrial", "system.purchaseLocked": false });
+      stubNonGM();
+      const warns = stubWarn();
+      const sizeBefore = actor.items.size;
+
+      await actor.createEmbeddedDocuments("Item", [{
+        name: "Test Celestial MA Charm",
+        type: "charm",
+        system: { ability: "martialarts", martialArtsTier: "celestial", martialArtsStyleName: "Snake Style" }
+      }]);
+
+      assert.equal(actor.items.size, sizeBefore, "charm must NOT be created for un-initiated DB");
+      assert.equal(warns.length, 1, "warn must fire exactly once");
+    });
+
+    it("[MAS-5] allows a terrestrial actor WITH a grantsCelestialMA charm to learn a Celestial MA charm", async () => {
+      const actor = await createTempCharacter({ name: "Q-DB-Celestial-Allow" });
+      await actor.update({ "system.exaltType": "terrestrial", "system.purchaseLocked": false });
+      await actor.createEmbeddedDocuments("Item", [{
+        name: "Pasiap's Humility",
+        type: "charm",
+        system: { ability: "martialarts", martialArtsTier: "terrestrial", grantsCelestialMA: true }
+      }]);
+      stubNonGM();
+      const warns = stubWarn();
+      const sizeBefore = actor.items.size;
+
+      await actor.createEmbeddedDocuments("Item", [{
+        name: "Test Celestial MA Charm",
+        type: "charm",
+        system: { ability: "martialarts", martialArtsTier: "celestial", martialArtsStyleName: "Snake Style" }
+      }]);
+
+      assert.equal(actor.items.size, sizeBefore + 1, "charm must be created for initiated DB");
+      assert.equal(warns.length, 0, "no warning for an initiated DB");
+    });
+
+    it("[MAS-6] allows a non-terrestrial actor to learn a Celestial MA charm without initiation", async () => {
+      const actor = await createTempCharacter({ name: "Q-Solar-Celestial-Allow" });
+      await actor.update({ "system.exaltType": "solar", "system.purchaseLocked": false });
+      stubNonGM();
+      const warns = stubWarn();
+      const sizeBefore = actor.items.size;
+
+      await actor.createEmbeddedDocuments("Item", [{
+        name: "Test Celestial MA Charm",
+        type: "charm",
+        system: { ability: "martialarts", martialArtsTier: "celestial", martialArtsStyleName: "Snake Style" }
+      }]);
+
+      assert.equal(actor.items.size, sizeBefore + 1, "charm must be created for a Solar");
+      assert.equal(warns.length, 0, "no warning for a non-terrestrial");
+    });
+  });
+
+  // ── Sidereal MA mastery gate ─────────────────────────────────────────────────
+
+  describe("Sidereal MA mastery gate", () => {
+    before(() => assertTestWorld());
+    afterEach(async () => { await sweep(); });
+
+    it("[MAS-7] blocks an actor without a mastered Celestial charm from learning a Sidereal MA charm", async () => {
+      const actor = await createTempCharacter({ name: "Q-Sidereal-Block" });
+      await actor.update({ "system.exaltType": "sidereal", "system.purchaseLocked": false });
+      stubNonGM();
+      const warns = stubWarn();
+      const sizeBefore = actor.items.size;
+
+      await actor.createEmbeddedDocuments("Item", [{
+        name: "Test Sidereal MA Charm",
+        type: "charm",
+        system: { ability: "martialarts", martialArtsTier: "sidereal", martialArtsStyleName: "Prismatic Arrangement of Creation Style" }
+      }]);
+
+      assert.equal(actor.items.size, sizeBefore, "charm must NOT be created without Celestial mastery");
+      assert.equal(warns.length, 1, "warn must fire exactly once");
+    });
+
+    it("[MAS-8] allows an actor WITH a mastered Celestial charm to learn a Sidereal MA charm", async () => {
+      const actor = await createTempCharacter({ name: "Q-Sidereal-Allow" });
+      await actor.update({ "system.exaltType": "sidereal", "system.purchaseLocked": false });
+      await actor.createEmbeddedDocuments("Item", [{
+        name: "Sidereal Form",
+        type: "charm",
+        system: { ability: "martialarts", martialArtsTier: "celestial", grantsMastery: true, martialArtsStyleName: "Snake Style" }
+      }]);
+      stubNonGM();
+      const warns = stubWarn();
+      const sizeBefore = actor.items.size;
+
+      await actor.createEmbeddedDocuments("Item", [{
+        name: "Test Sidereal MA Charm",
+        type: "charm",
+        system: { ability: "martialarts", martialArtsTier: "sidereal", martialArtsStyleName: "Prismatic Arrangement of Creation Style" }
+      }]);
+
+      assert.equal(actor.items.size, sizeBefore + 1, "charm must be created for an actor with Celestial mastery");
+      assert.equal(warns.length, 0, "no warning for an actor with Celestial mastery");
     });
   });
 }

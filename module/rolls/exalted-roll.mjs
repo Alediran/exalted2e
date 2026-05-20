@@ -736,6 +736,35 @@ export class ExaltedRoll {
       if (!areaPlacement) return null;
     }
 
+    // Martial / Martial-ready weapon validity check
+    const charmKeywords = charm?.system?.keywords ?? [];
+    const hasMartialKw = charmKeywords.includes("Martial") || charmKeywords.includes("Martial-ready");
+    if (hasMartialKw && charm?.system?.martialArtsStyleName) {
+      const { isWeaponValidForStyle } = await import("../helpers/ma-validation.mjs");
+      if (!isWeaponValidForStyle(weapon, charm.system.martialArtsStyleName, actor)) {
+        ui.notifications.warn(game.i18n.localize("EX2E.WeaponNotValidForStyle"));
+        return null;
+      }
+    }
+
+    // Martial / Martial-ready minimum ability check
+    if (hasMartialKw && charm) {
+      const minAbil = charm.system?.minAbility ?? 0;
+      const abilKey = charm.system?.ability ?? "martialArts";
+      const abilVal = sys?.abilities?.[abilKey]?.value ?? 0;
+      if (abilVal < minAbil) {
+        const { canBypassMinAbility } = await import("../helpers/ma-validation.mjs");
+        if (!canBypassMinAbility(actor, charm)) {
+          ui.notifications.warn(game.i18n.format("EX2E.BelowMinAbilityRequirement", {
+            ability: game.i18n.localize(`EX2E.Ability${abilKey.charAt(0).toUpperCase()}${abilKey.slice(1)}`),
+            min: minAbil,
+            current: abilVal,
+          }));
+          return null;
+        }
+      }
+    }
+
     const dialogResult = await AttackDialog.prompt({
       pool, excellency, firstExcMax, secondExcMax,
       firstExcLabel, secondExcLabel,

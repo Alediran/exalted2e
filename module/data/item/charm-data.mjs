@@ -102,6 +102,7 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       perfectDefenseType: new fields.StringField({ initial: "", blank: true }),
 
       hasFoi: new fields.BooleanField({ initial: false }),
+      grantsCelestialMA: new fields.BooleanField({ initial: false }),
       flawsOfInvulnerability: new fields.ArrayField(
         new fields.SchemaField({
           type:  new fields.StringField({ initial: "" }),

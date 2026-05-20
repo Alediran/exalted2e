@@ -71,6 +71,7 @@ import { aimHandler }     from "./combat/multi-tick-aim.mjs";
 import { sorceryHandler } from "./combat/multi-tick-sorcery.mjs";
 import { resolveKnockbackChain, onKnockdownResistClick } from "./combat/knockback.mjs";
 import { _seedAnimaPowersCompendium } from "./helpers/anima-power-seeds.mjs";
+import { canLearnCelestialMA, canLearnSiderealMA } from "./helpers/ma-validation.mjs";
 import { computeAttackOutcome } from "./rolls/attack-math.mjs";
 import { getTargetPenaltyChanges, collectStatusApplyCharms } from "./rolls/charm-event-math.mjs";
 
@@ -1088,6 +1089,33 @@ Hooks.on("preCreateItem", (item, data, options, userId) => {
       game.i18n.format("EX2E.NativeCharmForbidden", { name: item.name })
     );
     return false;
+  }
+
+  // ── DB Celestial MA gate ──────────────────────────────────────────────────
+  // Terrestrial exalts require Celestial MA initiation to learn Celestial
+  // Martial Arts charms.
+  const celestialMAParent = item.parent;
+  if (item.type === "charm" &&
+      celestialMAParent instanceof Actor &&
+      item.system?.martialArtsTier === "celestial" &&
+      celestialMAParent.system?.exaltType === "terrestrial") {
+    if (!game.user.isGM && !canLearnCelestialMA(celestialMAParent)) {
+      ui.notifications.warn(game.i18n.localize("EX2E.NoDBCelestialMAInitiation"));
+      return false;
+    }
+  }
+
+  // ── Sidereal MA gate ──────────────────────────────────────────────────────
+  // Learning a Sidereal Martial Arts charm requires mastery of a Celestial
+  // Martial Arts style first.
+  const siderealMAParent = item.parent;
+  if (item.type === "charm" &&
+      siderealMAParent instanceof Actor &&
+      item.system?.martialArtsTier === "sidereal") {
+    if (!game.user.isGM && !canLearnSiderealMA(siderealMAParent)) {
+      ui.notifications.warn(game.i18n.localize("EX2E.NoSiderealMAGate"));
+      return false;
+    }
   }
 
   // ── Sorcery / Necromancy initiation gate ─────────────────────────────────

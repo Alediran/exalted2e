@@ -594,6 +594,109 @@ details.charm-group > summary.charm-group-header {
 }
 
 
+/* ── Martial Arts Style sheet — weapons editor ──────────────────────────── */
+
+.exalted2e.item.martial-arts-style .weapons-editor {
+  flex-direction: column;
+  align-items:    stretch;
+  gap:            6px;
+  padding:        6px 8px;
+  border:         1px dashed var(--ex2e-border-color, rgba(92,69,16,0.6));
+  border-radius:  4px;
+  background:     rgba(0,0,0,0.15);
+  transition:     background-color 0.15s, border-color 0.15s;
+}
+
+.exalted2e.item.martial-arts-style .weapons-editor.drag-over {
+  background-color: rgba(255, 220, 100, 0.07);
+  border-color:     var(--ex2e-gold-bright, #ffe066);
+  border-style:     solid;
+}
+
+.exalted2e.item.martial-arts-style .weapons-editor > label {
+  font-size:      0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color:          var(--ex2e-text-secondary, #b8a88a);
+  margin-bottom:  2px;
+}
+
+.exalted2e.item.martial-arts-style .weapon-tags {
+  display:    flex;
+  flex-wrap:  wrap;
+  gap:        4px;
+  list-style: none;
+  margin:     0;
+  padding:    0;
+  min-height: 22px;
+}
+
+.exalted2e.item.martial-arts-style .weapon-tags:empty::after {
+  content:    attr(data-empty-hint);
+  color:      var(--ex2e-text-muted, #7a6a50);
+  font-size:  0.82em;
+  font-style: italic;
+}
+
+.exalted2e.item.martial-arts-style .weapon-tags li {
+  display:       inline-flex;
+  align-items:   center;
+  gap:           3px;
+  padding:       2px 6px 2px 8px;
+  background:    rgba(201, 162, 39, 0.12);
+  border:        1px solid var(--ex2e-gold-dark, #5c4510);
+  border-radius: 10px;
+  height:        20.34px;
+  font-size:     0.82em;
+  color:         var(--ex2e-text-primary, #e8dcc8);
+}
+
+.exalted2e.item.martial-arts-style .weapon-tags li button {
+  all:         unset;
+  cursor:      pointer;
+  line-height: 1;
+  font-size:   1em;
+  color:       var(--ex2e-text-muted, #7a6a50);
+  padding:     0 1px;
+  transition:  color 0.1s;
+}
+
+.exalted2e.item.martial-arts-style .weapon-tags li button:hover {
+  color: var(--ex2e-dmg-lethal, #c0392b);
+}
+
+.exalted2e.item.martial-arts-style .add-weapon-row {
+  display:   flex;
+  gap:       4px;
+  margin-top: 2px;
+}
+
+.exalted2e.item.martial-arts-style .add-weapon-row .add-weapon-input {
+  flex:       1;
+  min-width:  0;
+  font-size:  0.85em;
+  padding:    2px 6px;
+  background: var(--ex2e-bg-medium, #0e0e0e);
+  border:     1px solid var(--ex2e-border-color, rgba(92,69,16,0.6));
+  border-radius: 3px;
+  color:      var(--ex2e-text-primary, #e8dcc8);
+}
+
+.exalted2e.item.martial-arts-style .add-weapon-row button {
+  font-size:  0.8em;
+  padding:    2px 8px;
+  background: none;
+  border:     1px solid var(--ex2e-gold-mid, #a07820);
+  border-radius: 3px;
+  color:      var(--ex2e-gold-bright, #ffe066);
+  cursor:     pointer;
+  white-space: nowrap;
+}
+
+.exalted2e.item.martial-arts-style .add-weapon-row button:hover {
+  background: rgba(201, 162, 39, 0.1);
+}
+
 /* ── Form (Lunar Heart's Blood) sheet ────────────────────────────────────
    Form items are exclusively Lunar — apply Lunar moonsilver coloring so the
    sheet's accent variables match the rest of the Lunar visual language.

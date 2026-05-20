@@ -33,11 +33,24 @@
     </select>
   </div>
 
-  <div class="field-group">
+  <div class="form-group weapons-editor">
     <label>{{localize "EX2E.MAStyleWeapons"}}</label>
-    <input type="text" name="system.weapons" value="{{system.weapons}}"
-           placeholder="e.g. Unarmed, spear, staff"
-           {{#unless isEditable}}readonly{{/unless}}>
+    <ul class="weapon-tags" data-empty-hint="{{localize 'EX2E.MAStyleDropWeaponHint'}}">
+      {{#each system.weapons as |wName idx|}}
+      <li>
+        <span>{{wName}}</span>
+        {{#if @root.isEditable}}
+        <button type="button" data-action="removeWeapon" data-index="{{idx}}">×</button>
+        {{/if}}
+      </li>
+      {{/each}}
+    </ul>
+    {{#if isEditable}}
+    <div class="add-weapon-row">
+      <input type="text" class="add-weapon-input" placeholder="{{localize 'EX2E.MAStyleAddWeapon'}}">
+      <button type="button" data-action="addWeapon">{{localize "EX2E.Add"}}</button>
+    </div>
+    {{/if}}
   </div>
 
   <div class="field-group">

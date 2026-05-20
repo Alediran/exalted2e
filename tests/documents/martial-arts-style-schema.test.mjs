@@ -14,9 +14,12 @@ describe("MartialArtsStyleData schema", () => {
     expect(schema).toHaveProperty("nativeExaltType");
     expect(schema.nativeExaltType.options.blank).toBe(true);
   });
-  it("has weapons as a blank StringField", () => {
+  it("has weapons as an ArrayField", () => {
     expect(schema).toHaveProperty("weapons");
-    expect(schema.weapons.options.blank).toBe(true);
+    // Verify that weapons is now an ArrayField (has .options property typical of ArrayField)
+    // and check that it doesn't have the "blank" property that StringField had
+    expect(schema.weapons.options).toBeDefined();
+    expect(schema.weapons.options.blank).toBeUndefined();
   });
   it("has allowsArmor defaulting to true", () => {
     expect(schema).toHaveProperty("allowsArmor");
