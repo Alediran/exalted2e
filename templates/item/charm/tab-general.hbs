@@ -132,6 +132,40 @@
         {{/each}}
       </select>
     </div>
+    {{!-- Countermagic section --}}
+    <div class="field-group" style="grid-column:1/-1">
+      <label class="checkbox-label">
+        <input type="checkbox" name="system.isCountermagic"
+               {{#if system.isCountermagic}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        {{localize "EX2E.IsCountermagic"}}
+      </label>
+    </div>
+    {{#if system.isCountermagic}}
+    <div class="field-group">
+      <label>{{localize "EX2E.CountermagicTier"}}</label>
+      <select name="system.countermagicTier" {{#unless isEditable}}disabled{{/unless}}>
+        <option value="1" {{#if (eq system.countermagicTier 1)}}selected{{/if}}>1 — {{localize "EX2E.CountermagicTierEmerald"}}</option>
+        <option value="2" {{#if (eq system.countermagicTier 2)}}selected{{/if}}>2 — {{localize "EX2E.CountermagicTierSapphire"}}</option>
+        <option value="3" {{#if (eq system.countermagicTier 3)}}selected{{/if}}>3 — {{localize "EX2E.CountermagicTierAdamant"}}</option>
+      </select>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.CountermagicTradition"}}</label>
+      <select name="system.countermagicTradition" {{#unless isEditable}}disabled{{/unless}}>
+        <option value="sorcery"   {{#if (eq system.countermagicTradition "sorcery")}}selected{{/if}}>{{localize "EX2E.TraditionSorcery"}}</option>
+        <option value="necromancy"{{#if (eq system.countermagicTradition "necromancy")}}selected{{/if}}>{{localize "EX2E.TraditionNecromancy"}}</option>
+        <option value="both"      {{#if (eq system.countermagicTradition "both")}}selected{{/if}}>{{localize "EX2E.CountermagicBoth"}}</option>
+      </select>
+    </div>
+    <div class="field-group" style="grid-column:1/-1">
+      {{#if isEditable}}
+      <button type="button" data-action="dispelOther" class="btn-dispel-other">
+        <i class="fa-solid fa-wand-sparkles"></i> {{localize "EX2E.CountermagicDispelOther"}}
+      </button>
+      {{/if}}
+    </div>
+    {{/if}}
   </div>
 
   <!-- Prerequisites -->

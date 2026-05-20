@@ -59,6 +59,7 @@ import { registerFormCharms }              from "./combat/form-charms.mjs";
 import { registerWillpowerVirtueLimit }    from "./combat/willpower-virtue-limit.mjs";
 import { registerMentalInfluence }         from "./combat/mental-influence.mjs";
 import { registerCoordinationTests }       from "./combat/coordination.mjs";
+import { registerCountermagic }            from "./combat/countermagic.mjs";
 // NOTE: Anima Powers feature (_swapAnimaPower) relies on the animapowers compendium
 // and cannot be exercised via Quench. No batch registered for ex2e.anima-powers.
 
@@ -127,5 +128,6 @@ Hooks.once("quenchReady", async quench => {
   quench.registerBatch("ex2e.willpower-virtue-limit",    registerWillpowerVirtueLimit,       { displayName: "WP / Virtue / Limit automation" });
   quench.registerBatch("ex2e.mental-influence",          registerMentalInfluence,             { displayName: "Mental influence keywords" });
   quench.registerBatch("ex2e.coordination",              registerCoordinationTests,           { displayName: "Coordinated attack AE expiry" });
+  quench.registerBatch("ex2e.countermagic",              registerCountermagic,                { displayName: "Countermagic resolution" });
 
 });

@@ -162,6 +162,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       deleteEffect:        CharacterSheet.#onDeleteEffect,
       toggleEffect:        CharacterSheet.#onToggleEffect,
       createEffect:        CharacterSheet.#onCreateEffect,
+      dispelSpellEffect:   CharacterSheet.#onDispelSpellEffect,
       abandonMotivationCampaign: CharacterSheet.#onAbandonMotivationCampaign,
       cycleAttributeFlag:  CharacterSheet.#onCycleAttributeFlag,
       createForm:          CharacterSheet.#onCreateForm,
@@ -799,7 +800,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
           stackGroups.get(eff.name).count++;
           continue;
         }
-        const entry = { id: eff.id, name: eff.name, img: eff.img || "icons/svg/aura.svg", disabled: eff.disabled, durationLabel: "" };
+        const entry = { id: eff.id, name: eff.name, img: eff.img || "icons/svg/aura.svg", disabled: eff.disabled, durationLabel: "", isSpellEffect: !!(eff.flags?.exalted2e?.spellEffect) };
         stackGroups.set(eff.name, { entry, count: 1 });
         permanent.push(entry);
         continue;
@@ -812,7 +813,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         disabled:     eff.disabled,
         durationLabel: refreshable
           ? game.i18n.localize("EX2E.EffectUntilNextTurn")
-          : (durationLabelKey ? game.i18n.localize(durationLabelKey) : (eff.duration?.label ?? ""))
+          : (durationLabelKey ? game.i18n.localize(durationLabelKey) : (eff.duration?.label ?? "")),
+        isSpellEffect: !!(eff.flags?.exalted2e?.spellEffect),
       };
       (isTemporal ? temporal : permanent).push(entry);
     }
@@ -1392,6 +1394,14 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const effect   = this.document.effects.get(effectId);
     if (!effect) return;
     await effect.update({ disabled: !effect.disabled });
+  }
+
+  static async #onDispelSpellEffect(event, target) {
+    const effectId = target.closest("[data-effect-id]")?.dataset.effectId;
+    const ae = this.actor.effects.get(effectId);
+    if (!ae) return;
+    const { CountermagicDialog } = await import("../../dialogs/countermagic-dialog.mjs");
+    await CountermagicDialog.open({ type: "effect-self", ae }, this.actor);
   }
 
   // ── Active Motivation Campaigns ────────────────────────────────────────

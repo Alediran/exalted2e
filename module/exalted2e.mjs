@@ -48,6 +48,7 @@ import { MartialArtsStyleSheet } from "./sheets/item/martial-arts-style-sheet.mj
 import { XpCostsConfigDialog } from "./dialogs/xp-costs-config-dialog.mjs";
 import { PermissionsConfigDialog } from "./dialogs/permissions-config-dialog.mjs";
 import { GmRollPoolDialog, computeGmRollPool } from "./dialogs/gm-roll-pool-dialog.mjs";
+import { CountermagicDialog } from "./dialogs/countermagic-dialog.mjs";
 import { registerHandlebarsHelpers } from "./helpers/handlebars.mjs";
 import { ex2eCan } from "./helpers/permissions.mjs";
 import { resolveUserActor } from "./helpers/targeting.mjs";
@@ -758,6 +759,18 @@ Hooks.once("ready", async function () {
     refreshTokenAnimaGlow(token);
   });
 
+  // ── Socket: GM proxy for countermagic dispel on foreign actors ──────────
+  game.socket.on("system.exalted2e", async (payload) => {
+    if (!game.user.isGM) return;
+    if (payload?.action !== "dispelSpellEffect") return;
+    if (payload.targetGmId && game.user.id !== payload.targetGmId) return;
+    const { actorId, effectId } = payload;
+    const actor = game.actors.get(actorId);
+    if (!actor) return;
+    const ae = actor.effects.get(effectId);
+    if (ae) await ae.delete();
+  });
+
   // Migration: back-fill unarmed attacks onto existing characters that
   // pre-date this feature. GM-only to avoid write races.
   if (!game.user.isGM) return;
@@ -799,6 +812,8 @@ Hooks.once("ready", async function () {
   await _seedEffectsCompendium();
   await _seedAnimaPowersCompendium();
   await _seedTheCircleFolder();
+
+  game.exalted2e._countermagicHelpers = await import("./helpers/countermagic-helpers.mjs");
 });
 
 // ── Quench (in-Foundry test harness) ──────────────────────────────────────
@@ -3733,4 +3748,55 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     );
     await message.update({ content, "flags.exalted2e.gmRollPool": updatedRecord });
   });
+});
+
+// ── Countermagic: inject "Counter Spell" button into combat tracker rows ────
+Hooks.on("renderCombatTracker", (app, html) => {
+  const el = html instanceof HTMLElement ? html : (html?.[0] ?? html);
+  if (!el?.querySelector) return;
+  const combat = app.viewed;
+  if (!combat) return;
+
+  const counterActor = game.canvas?.tokens?.controlled?.[0]?.actor
+                    ?? game.user?.character ?? null;
+
+  for (const combatant of combat.combatants) {
+    const action = combatant.flags?.exalted2e?.multiTickAction ?? null;
+    if (!action) continue;
+    if (action.actionKey !== "sorcery" && action.actionKey !== "necromancy") continue;
+
+    const state     = action.state ?? {};
+    const circle    = state.circle ?? 1;
+    const tradition = action.actionKey === "necromancy" ? "necromancy" : "sorcery";
+
+    if (!game.user.isGM && counterActor) {
+      const { buildEligibleCharms } = game.exalted2e?._countermagicHelpers ?? {};
+      if (typeof buildEligibleCharms === "function") {
+        if (!buildEligibleCharms(counterActor, circle, tradition).length) continue;
+      }
+    }
+
+    const row = el.querySelector(`[data-combatant-id="${combatant.id}"]`)
+             ?? el.querySelector(`[data-id="${combatant.id}"]`);
+    if (!row) continue;
+
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "ex2e-counter-spell-btn";
+    btn.dataset.combatantId = combatant.id;
+    btn.title = game.i18n.format("EX2E.CounterSpellBtn", { spell: state.spellName ?? "" });
+    btn.innerHTML = `<i class="fa-solid fa-wand-sparkles"></i>`;
+    btn.addEventListener("click", async (ev) => {
+      ev.preventDefault();
+      ev.stopPropagation();
+      const actor = game.canvas?.tokens?.controlled?.[0]?.actor
+                 ?? game.user?.character ?? null;
+      if (!actor) {
+        ui.notifications.warn(game.i18n.localize("EX2E.CountermagicNoActor"));
+        return;
+      }
+      await CountermagicDialog.open({ type: "shaping", combatant }, actor);
+    });
+    row.appendChild(btn);
+  }
 });

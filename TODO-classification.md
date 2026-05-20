@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-20 (Area attacks, Coordinated attacks, FoI surcharge, Style weapon tag validation, Sidereal/DB MA gates, Martial-ready gating done)
+Last updated: 2026-05-20 (Area attacks, Coordinated attacks, FoI surcharge, Style weapon tag validation, Sidereal/DB MA gates, Martial-ready gating, Countermagic resolution done)
 
 ---
 
@@ -26,7 +26,7 @@ Last updated: 2026-05-20 (Area attacks, Coordinated attacks, FoI surcharge, Styl
 | Blasphemy / Axiomatic / Dawn damage upgrades | Keywords | mirror of Holy, splat-specific target condition |
 | Training keyword XP debt ledger | Keywords | per-actor debt AE or item field — [charms-gap A8](docs/charms-gap.md) |
 | Merged keyword (learn-once, multi-ability) | Keywords | charm activation routing extension |
-| Countermagic resolution | Sorcery | reflexive roll + mote cost, 3-circle tiering |
+| Countermagic cost variance by circle | Sorcery | tier-based mote slider already exists; extend CountermagicDialog to enforce circle-rank minimums |
 | Spell-specific duration/effect payloads | Sorcery | per-spell AE-like target effects; requires per-spell schema extension |
 | Ghost summoning | Sorcery | extended opposed WP+Ess contest (Black Treatise) |
 | Binding/fetter spells | Sorcery | Piercing the Heel, Soul Brand, Rune of Sweet Passing AE payloads |
@@ -81,7 +81,6 @@ Last updated: 2026-05-20 (Area attacks, Coordinated attacks, FoI surcharge, Styl
 
 | Item | TODO Section | Blocked by |
 |------|-------------|-----------|
-| Countermagic cost variance by circle | Sorcery | Countermagic resolution (Group B) |
 | Manse geomancy rules | Crafting | Manse item type (Group B) |
 | Workshop & material prerequisites UI | Crafting | Mundane crafting roll resolver (Group B) |
 | Artifact extended-roll builder | Crafting | Mundane crafting roll resolver (Group B) |
@@ -96,10 +95,9 @@ Last updated: 2026-05-20 (Area attacks, Coordinated attacks, FoI surcharge, Styl
 | A — Ready, Simple | 1 |
 | B — Ready, Medium | 34 |
 | C — Ready, Complex | 11 |
-| D — Blocked | 5 |
-| **Total pending** | **51** |
+| D — Blocked | 4 |
+| **Total pending** | **50** |
 
 **Biggest force-multipliers:**
-- **Countermagic resolution** (Group B) → unblocks Countermagic cost variance
 - **Manse item type** (Group B) → unblocks Manse geomancy rules
 - **Mundane crafting roll resolver** (Group B) → unblocks Workshop UI + Artifact extended-roll builder

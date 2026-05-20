@@ -103,6 +103,15 @@ export class CharmData extends foundry.abstract.TypeDataModel {
 
       hasFoi: new fields.BooleanField({ initial: false }),
       grantsCelestialMA: new fields.BooleanField({ initial: false }),
+
+      // ── Countermagic ─────────────────────────────────────────────────────
+      isCountermagic:        new fields.BooleanField({ initial: false }),
+      countermagicTier:      new fields.NumberField({ integer: true, min: 1, max: 3, initial: 1, nullable: true }),
+      countermagicTradition: new fields.StringField({
+        choices: ["sorcery", "necromancy", "both"],
+        initial: "sorcery",
+        nullable: true
+      }),
       flawsOfInvulnerability: new fields.ArrayField(
         new fields.SchemaField({
           type:  new fields.StringField({ initial: "" }),

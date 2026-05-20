@@ -1,0 +1,42 @@
+<div class="countermagic-dialog">
+  <div class="spell-info">
+    <strong>{{spellName}}</strong>
+    <span class="tradition-circle">{{traditionLabel}} · {{circleLabel}}</span>
+    {{#if casterName}}<span class="caster-name">{{localize "EX2E.CountermagicCaster"}}: {{casterName}}</span>{{/if}}
+  </div>
+
+  {{#if (gt eligibleCharms.length 1)}}
+  <div class="field-group">
+    <label>{{localize "EX2E.CountermagicCharm"}}</label>
+    <select name="charmIndex">
+      {{#each eligibleCharms as |c i|}}
+      <option value="{{i}}">{{c.name}}</option>
+      {{/each}}
+    </select>
+  </div>
+  {{else}}
+  <input type="hidden" name="charmIndex" value="0">
+  <div class="charm-auto">{{localize "EX2E.CountermagicUsing"}}: <strong>{{eligibleCharms.[0].name}}</strong></div>
+  {{/if}}
+
+  <div class="field-group">
+    <label>{{localize "EX2E.CountermagicMotes"}} ({{moteMin}}–{{moteMax}})</label>
+    <input type="range" name="motes" min="{{moteMin}}" max="{{moteMax}}" value="{{moteMin}}" class="mote-slider">
+    <span class="mote-display">{{moteMin}}m</span>
+  </div>
+
+  <div class="pool-info">
+    <span>{{localize "EX2E.MotesPeripheralShort"}}: {{peripheralVal}}/{{peripheralMax}}</span>
+    <span>{{localize "EX2E.MotesPersonalShort"}}: {{personalVal}}/{{personalMax}}</span>
+  </div>
+
+  <div class="dialog-buttons">
+    <button type="button" data-action="confirm" class="btn-confirm">
+      <i class="fa-solid fa-bolt"></i> {{localize "EX2E.CountermagicConfirm"}}
+    </button>
+    <button type="button" data-action="cancel" class="btn-cancel">
+      {{localize "EX2E.Cancel"}}
+    </button>
+  </div>
+
+</div>

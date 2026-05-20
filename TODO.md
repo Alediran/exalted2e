@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 194 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-20)
+**Progress: 196 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-20)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -113,7 +113,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Spell item type (Terrestrial/Celestial/Solar; Shadowland/Labyrinth/Void)
 - [x] **Shaping-action pipeline** (multi-tick action container; damage-interrupts-with-Wits+Occult roll; Essence Burn botch)
 - [x] Sorcerous initiation (charm flag `grantsInitiation` — grants Terrestrial/Celestial/Solar or Necromancy access on activation)
-- [ ] Countermagic resolution (Emerald/Sapphire/Adamant reflexive counter, Iron/Onyx/Obsidian necro)
+- [x] Countermagic resolution (Emerald/Sapphire/Adamant reflexive counter, Iron/Onyx/Obsidian necro)
 - [ ] Countermagic cost variance by defended-circle-rank
 - [x] Spell casting chat card (motes committed during shape, released at cast; reverse button)
 - [ ] Thaumaturgy (degrees and procedures — separate lower-power tier)

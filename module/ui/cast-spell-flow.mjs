@@ -4,7 +4,7 @@ import {
   buildCastDeclaration
 } from "../combat/sorcery-math.mjs";
 import { SorceryCastDialog } from "../dialogs/sorcery-cast-dialog.mjs";
-import { postCastChatCard } from "../combat/multi-tick-sorcery.mjs";
+import { postCastChatCard, _createSpellEffectAe } from "../combat/multi-tick-sorcery.mjs";
 
 /**
  * Sorcery cast-flow entry point. Shared by:
@@ -49,6 +49,7 @@ export async function castSpellFlow(item) {
       secondaryPool:      moteResult?.secondaryPool ?? "personal",
       wpCommitted:        wpCost
     });
+    await _createSpellEffectAe(actor, item);
     return;
   }
 

@@ -732,3 +732,23 @@ details.charm-group > summary.charm-group-header {
   align-items: center;
   gap:         6px;
 }
+
+/* Countermagic section on charm sheet */
+.btn-dispel-other {
+  width: 100%;
+  margin-top: 4px;
+}
+
+/* Combat tracker Counter Spell button */
+.ex2e-counter-spell-btn {
+  background: transparent;
+  border: 1px solid var(--color-border-dark-tertiary, #999);
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  padding: 1px 4px;
+  color: var(--color-text-dark-primary, #191813);
+}
+.ex2e-counter-spell-btn:hover {
+  background: var(--color-hover-bg, rgba(0,0,0,0.05));
+}

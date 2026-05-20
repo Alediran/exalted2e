@@ -44,7 +44,8 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       addDVIgnorePenaltyType:    CharmSheet.#onAddDVIgnorePenaltyType,
       removeDVIgnorePenaltyType: CharmSheet.#onRemoveDVIgnorePenaltyType,
       addTargetEffectChange:    CharmSheet.#onAddTargetEffectChange,
-      removeTargetEffectChange: CharmSheet.#onRemoveTargetEffectChange
+      removeTargetEffectChange: CharmSheet.#onRemoveTargetEffectChange,
+      dispelOther:              CharmSheet.#onDispelOther
     }
   };
 
@@ -459,6 +460,30 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     );
     changes.splice(idx, 1);
     await this.document.update({ "system.targetEffect.changes": changes });
+  }
+
+  static async #onDispelOther(_event, _target) {
+    const item  = this.item;
+    const actor = item.actor;
+    if (!actor) {
+      ui.notifications.warn(game.i18n.localize("EX2E.CountermagicNoActor"));
+      return;
+    }
+    const { pickTargetActor } = await import("../../helpers/targeting.mjs");
+    const targetActor = await pickTargetActor();
+    if (!targetActor) return;
+
+    const spellEffectAes = (targetActor.effects?.contents ?? []).filter(
+      ae => ae.flags?.exalted2e?.spellEffect
+    );
+    if (!spellEffectAes.length) {
+      ui.notifications.warn(game.i18n.localize("EX2E.CountermagicNoSpellEffects"));
+      return;
+    }
+
+    const ae = spellEffectAes[0];
+    const { CountermagicDialog } = await import("../../dialogs/countermagic-dialog.mjs");
+    await CountermagicDialog.open({ type: "effect-other", targetActor, ae }, actor);
   }
 
   _onRender(context, options) {

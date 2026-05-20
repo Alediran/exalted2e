@@ -45,7 +45,8 @@ export class SpellData extends foundry.abstract.TypeDataModel {
       target:     new fields.StringField({ initial: "", blank: true }),
 
       // ── Description ────────────────────────────────────────────────────
-      description: new fields.HTMLField({ initial: "" })
+      description: new fields.HTMLField({ initial: "" }),
+      countermagicImmune: new fields.BooleanField({ initial: false }),
     };
   }
 }
