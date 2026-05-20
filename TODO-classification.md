@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-19 (Mental Influence keywords + Social Combos done)
+Last updated: 2026-05-20 (Area attacks, Coordinated attacks, FoI surcharge done)
 
 ---
 
@@ -20,8 +20,6 @@ Last updated: 2026-05-19 (Mental Influence keywords + Social Combos done)
 | Item | TODO Section | Key concern |
 |------|-------------|-------------|
 | Combo-building rules (size limits, keyword restrictions) | Combat | charm filter at combo-add time; pre-errata size caps |
-| Area attacks | Combat | new attack schema flag + resolution path without accuracy roll |
-| Coordinated attacks | Combat | leader Cha+War roll + DV reduction AE on target |
 | Shields as weapons | Defense | new weapon tag handling, DV bonus, mobility penalty |
 | Fatigue penalty mechanic | Defense / Penalty | hook on scene-length exertion + Sta+Res roll |
 | Overdrive pool | Keywords | temp Peripheral pool tracking + scene-end dissipation — [charms-gap A1](docs/charms-gap.md) |
@@ -33,7 +31,6 @@ Last updated: 2026-05-19 (Mental Influence keywords + Social Combos done)
 | Ghost summoning | Sorcery | extended opposed WP+Ess contest (Black Treatise) |
 | Binding/fetter spells | Sorcery | Piercing the Heel, Soul Brand, Rune of Sweet Passing AE payloads |
 | Demon summoning | Sorcery | bind ritual on new moon/Calibration; bonus dice per demon type |
-| Flaw-of-Invulnerability +2 WP combo surcharge | Combat | detect Form-type in active combo + surcharge at activation |
 | Style weapon tag validation | Martial Arts | define per-style weapons config (M/MO tags), then enforce at attack time |
 | Sidereal MA entry gate | Martial Arts | check actor owns a Form-type charm from ≥1 Celestial style |
 | Sidereal MA gating (splat section) | Sidereal | same as above; cross-reference in splat section |
@@ -102,10 +99,10 @@ Last updated: 2026-05-19 (Mental Influence keywords + Social Combos done)
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 42 |
+| B — Ready, Medium | 39 |
 | C — Ready, Complex | 11 |
 | D — Blocked | 5 |
-| **Total pending** | **59** |
+| **Total pending** | **56** |
 
 **Biggest force-multipliers:**
 - **Countermagic resolution** (Group B) → unblocks Countermagic cost variance

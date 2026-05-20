@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 186 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-19)
+**Progress: 189 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-19)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -19,13 +19,13 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Combos (charm combo creation, activation)
   - [ ] Combo-building rules (size limits, keyword restrictions, pre-errata constraints)
   - [x] Combo-Basic keyword enforcement (Form-type MA charm + reflexive only) per errata
-  - [ ] Flaw-of-Invulnerability + Form-type Combo +2 WP surcharge
+  - [x] Flaw-of-Invulnerability + Form-type Combo +2 WP surcharge
   - [x] Shared / compendium-sourced Combos (drag-in from packs)
   - [x] Drag-reorder within the Combo sheet (v1 uses arrow buttons)
   - [x] Consolidated single chat card + combined Reverse (fallback if chat gets too noisy)
   - [x] NPC Combos
 - [x] **Knockback / Knockdown / Stunning** (Stamina + Resistance resist rolls, Prone + stun AE)
-- [ ] **Area attacks** (cone/radius attack forms — Elemental Burst Technique, Tsunami Force Shout, etc.; targets make Essence resist rolls, no accuracy roll; requires dedicated area-attack schema field or charm flag)
+- [x] **Area attacks** (cone/radius attack forms — Elemental Burst Technique, Tsunami Force Shout, etc.; targets make Essence resist rolls, no accuracy roll; requires dedicated area-attack schema field or charm flag)
 - [ ] **Clinch / Grapple** (control pool, opposed rolls, throw/crush/hold sub-actions, renew-each-tick)
 - [x] Tick system (Speed-based initiative)
   - [x] `ExaltedCombat` sorts ascending; same-tick tiebreaker Dex → Wits → name → id
@@ -35,7 +35,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
   - [x] Actions quickbar (Move 5, Guard 3, Aim 5, Rise 5, Draw 5, Inactive 5)
 - [x] DV refresh tracking — AE-driven, cleared when the combatant's turn starts
 - [x] Onslaught penalty (−1 DV per attack received; reuse the DV-penalty AE plumbing)
-- [ ] **Coordinated attacks** (leader Cha+War, target DV reduced by successes cap unit size)
+- [x] **Coordinated attacks** (leader Cha+War, target DV reduced by successes cap unit size)
 - [ ] **Mounted combat** (Ride-controlled mount stats, charge bonuses, lance mechanics, Ride charms per splat)
 - [~] Cover modifiers — light/heavy cover AE-based DV bonus framework implemented; buckler/tower shield items pending
 - [x] Height advantage — custom `heightAdvantage` status effect with `dvBonus: { dodge: 1, parry: 1 }` + compendium seeder entry
