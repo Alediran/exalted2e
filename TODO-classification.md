@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-20 (Area attacks, Coordinated attacks, FoI surcharge done)
+Last updated: 2026-05-20 (Area attacks, Coordinated attacks, FoI surcharge, Style weapon tag validation, Sidereal/DB MA gates, Martial-ready gating done)
 
 ---
 
@@ -31,12 +31,7 @@ Last updated: 2026-05-20 (Area attacks, Coordinated attacks, FoI surcharge done)
 | Ghost summoning | Sorcery | extended opposed WP+Ess contest (Black Treatise) |
 | Binding/fetter spells | Sorcery | Piercing the Heel, Soul Brand, Rune of Sweet Passing AE payloads |
 | Demon summoning | Sorcery | bind ritual on new moon/Calibration; bonus dice per demon type |
-| Style weapon tag validation | Martial Arts | define per-style weapons config (M/MO tags), then enforce at attack time |
-| Sidereal MA entry gate | Martial Arts | check actor owns a Form-type charm from ≥1 Celestial style |
-| Sidereal MA gating (splat section) | Sidereal | same as above; cross-reference in splat section |
-| Celestial-MA DB initiation charms | Martial Arts | specific charm data + actor gating for DB access to Celestial styles |
 | Celestial-MA 1.5× XP | Martial Arts | same tier check in XP cost engine for non-resonant exalts |
-| Martial/Martial-ready keyword gating | Keywords | weapon tag check at charm-learn time using per-style weapons config |
 | Limit Break scripted scene effects | Solar / Virtues | per-Virtue-Flaw AE templates (4 flaws × 2 break types) |
 | Shintai / Mantle form-type charms | Infernal | charm activation mode + transformation state AE |
 | Gremlin Syndrome / Dissonance | Alchemical | Clarity track → Dissonance consequences |
@@ -99,10 +94,10 @@ Last updated: 2026-05-20 (Area attacks, Coordinated attacks, FoI surcharge done)
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 39 |
+| B — Ready, Medium | 34 |
 | C — Ready, Complex | 11 |
 | D — Blocked | 5 |
-| **Total pending** | **56** |
+| **Total pending** | **51** |
 
 **Biggest force-multipliers:**
 - **Countermagic resolution** (Group B) → unblocks Countermagic cost variance

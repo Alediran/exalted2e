@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 189 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-19)
+**Progress: 194 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-20)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -72,7 +72,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Native keyword gating (blocks Eclipse/Moonshadow/Fiend from learning) — learn-time enforcement deferred; see [charms-gap A10](docs/charms-gap.md)
 - [x] Mirror keyword navigation UI (show linked charm across splats)
 - [ ] Merged keyword (learn once, usable across listed Abilities)
-- [ ] Martial / Martial-ready gating at charm-learn time
+- [x] Martial / Martial-ready gating (weapon tag + min-ability bypass via `isWeaponValidForStyle` / `canBypassMinAbility`; enforced at attack time)
 - [x] Heretical keyword (Infernal GSP-only enforcement)
 - [ ] Blasphemy / Axiomatic / Dawn-keyword splat-specific damage upgrades (mirror of Holy)
 
@@ -125,9 +125,9 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 ## Martial Arts
 - [x] Style tracking — `martialArtsStyleName` + `martialArtsTier` on charms; `martialartsstyle` item type with sheet, auto-create hook, and Martial Arts tab grouping charms by style on the character sheet
 - [x] Form-type charm handling (one-at-a-time across ALL styles; scene duration; Combo-Basic)
-- [ ] Style weapon tag validation (M = Melee-or-MA, MO = MA-only; form weapons count as unarmed for style purposes)
-- [ ] Sidereal Martial Arts entry gate (requires ≥1 Celestial style mastered to Form + Sidereal sifu)
-- [ ] Celestial-MA DB initiation charms (Pasiap's Humility+Daana'd etc.)
+- [x] Style weapon tag validation (M = Melee-or-MA, MO = MA-only; `isWeaponValidForStyle` enforced at attack time; style item `weapons[]` list drives allowed weapons)
+- [x] Sidereal Martial Arts entry gate (requires ≥1 Celestial style mastered to Form + Sidereal sifu; `canLearnSiderealMA` hook in `preCreateItem`)
+- [x] Celestial-MA DB initiation charms (Pasiap's Humility+Daana'd etc.; `grantsCelestialMA` charm flag; `canLearnCelestialMA` gate in `preCreateItem`)
 - [x] Celestial-MA per-charm surcharge for Dragon-Blooded (+1m per activation)
 - [ ] Celestial-MA 1.5× XP for non-resonant Exalts
 
@@ -170,7 +170,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [~] Resplendent Destiny item type — base item type + sheet shipped; Ascendant/Descending Destiny mechanical payloads still pending
 - [x] Astrological Colleges trait (7 dots; ≥4 in own Maiden's 5)
 - [x] Greater Signs (Essence 4+, 10m; permanent Essence & Willpower cost; chat card reversal)
-- [ ] Sidereal Martial Arts gating (see Martial Arts section)
+- [x] Sidereal Martial Arts gating (see Martial Arts section)
 
 ### Abyssal
 - [x] Castes (mirror Solar with deathknight labels)
