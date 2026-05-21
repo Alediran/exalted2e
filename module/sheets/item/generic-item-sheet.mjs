@@ -18,7 +18,10 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       editImage:           editImageAction,
       toggleIsBreeding:    GenericItemSheet.#onToggleIsBreeding,
       socketHearthstone:   GenericItemSheet.#onSocketHearthstone,
-      unsocketHearthstone: GenericItemSheet.#onUnsocketHearthstone
+      unsocketHearthstone: GenericItemSheet.#onUnsocketHearthstone,
+      addMansePower:    GenericItemSheet.#onAddMansePower,
+      deleteMansePower: GenericItemSheet.#onDeleteMansePower,
+      clearManseLink:   GenericItemSheet.#onClearManseLink
     }
   };
 
@@ -68,6 +71,38 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       };
     }
 
+    let manseBackgrounds       = [];
+    let manseHearthstones      = [];
+    let manseRating            = 0;
+    let manseAspect            = "";
+    let manseAspectLabel       = "";
+    let manseBackgroundName    = "";
+    let manseHearthstoneName   = "";
+    let manseUsedBudget        = 0;
+    let manseRemainingBudget   = 0;
+    let manseOverBudget        = false;
+    if (item.type === "manse") {
+      const actor = item.parent;
+      if (actor) {
+        manseBackgrounds  = actor.items
+          .filter(i => i.type === "background")
+          .map(i => ({ id: i.id, name: i.name, value: i.system.value }));
+        manseHearthstones = actor.items
+          .filter(i => i.type === "hearthstone")
+          .map(i => ({ id: i.id, name: i.name }));
+        const linkedBg       = actor.items.get(sys.backgroundId);
+        const linkedHs       = actor.items.get(sys.hearthstoneId);
+        manseRating          = linkedBg?.system.value ?? 0;
+        manseBackgroundName  = linkedBg?.name ?? "";
+        manseAspect          = linkedHs?.system.hearthstoneType ?? "";
+        manseAspectLabel     = manseAspect ? (EX2E.hearthstoneTypes[manseAspect] ?? "") : "";
+        manseHearthstoneName = linkedHs?.name ?? "";
+      }
+      manseUsedBudget      = (sys.powers ?? []).reduce((sum, p) => sum + (p.cost ?? 0), 0);
+      manseRemainingBudget = manseRating - manseUsedBudget;
+      manseOverBudget      = manseUsedBudget > manseRating;
+    }
+
     const enrichedDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description, {
       secrets: this.document.isOwner, relativeTo: this.document
     });
@@ -80,10 +115,16 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       label: game.i18n.localize(v)
     }));
 
+    const mansePowers = item.type === "manse" ? [...(sys.powers ?? [])] : [];
+
     return { ...context, item, system: sys, typeChoices, isEditable: this.isEditable,
              enrichedDescription, useIntimacyIntensity,
              isGM: game.user.isGM, isBreedingTrait, magicalMaterials,
-             socketedSlots: _buildSocketedSlots(this.document) };
+             socketedSlots: _buildSocketedSlots(this.document),
+             manseBackgrounds, manseHearthstones, manseRating, manseAspect, manseAspectLabel,
+             manseBackgroundName, manseHearthstoneName,
+             manseUsedBudget, manseRemainingBudget, manseOverBudget,
+             mansePowers };
   }
 
   _onRender(context, options) {
@@ -92,6 +133,41 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     for (const pip of this.element.querySelectorAll(".dot-rating .dot")) {
       pip.addEventListener("click", this.#onDotClick.bind(this));
     }
+    if (this.document.type === "manse") {
+      for (const input of this.element.querySelectorAll("[data-power-index]")) {
+        input.addEventListener("change", this.#onPowerFieldChange.bind(this));
+      }
+      for (const zone of this.element.querySelectorAll(".manse-drop-zone")) {
+        zone.addEventListener("dragover", ev => {
+          ev.preventDefault();
+          zone.classList.add("drag-over");
+        });
+        zone.addEventListener("dragleave", () => zone.classList.remove("drag-over"));
+        zone.addEventListener("drop", async ev => {
+          ev.preventDefault();
+          zone.classList.remove("drag-over");
+          let data;
+          try { data = JSON.parse(ev.dataTransfer.getData("text/plain")); } catch { return; }
+          if (data.type !== "Item") return;
+          const dropped = await fromUuid(data.uuid);
+          if (!dropped || dropped.type !== zone.dataset.dropAccepts) return;
+          await this.document.update({ [`system.${zone.dataset.dropField}`]: dropped.id });
+        });
+      }
+    }
+  }
+
+  #onPowerFieldChange(event) {
+    const input = event.currentTarget;
+    const idx   = parseInt(input.dataset.powerIndex);
+    const field = input.dataset.powerField;
+    if (isNaN(idx) || !field) return;
+    const powers = foundry.utils.deepClone(this.document.system.powers ?? []);
+    if (!powers[idx]) return;
+    powers[idx][field] = field === "cost"
+      ? Math.max(0, Math.min(3, parseInt(input.value) || 0))
+      : input.value;
+    this.document.update({ "system.powers": powers });
   }
 
   #onDotClick(event) {
@@ -157,6 +233,26 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const stones    = foundry.utils.deepClone(this.document.system.hearthstones ?? []);
     stones[slotIndex] = "";
     await this.document.update({ "system.hearthstones": stones });
+  }
+
+  static async #onClearManseLink(_event, target) {
+    const field = target.dataset.field;
+    if (!field) return;
+    await this.document.update({ [`system.${field}`]: "" });
+  }
+
+  static async #onAddMansePower(_event, _target) {
+    const powers = foundry.utils.deepClone(this.document.system.powers ?? []);
+    powers.push({ name: "", cost: 1 });
+    await this.document.update({ "system.powers": powers });
+  }
+
+  static async #onDeleteMansePower(_event, target) {
+    const idx = parseInt(target.dataset.powerIndex, 10);
+    if (isNaN(idx)) return;
+    const powers = foundry.utils.deepClone(this.document.system.powers ?? []);
+    powers.splice(idx, 1);
+    await this.document.update({ "system.powers": powers });
   }
 }
 

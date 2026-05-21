@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-20 (Area attacks, Coordinated attacks, FoI surcharge, Style weapon tag validation, Sidereal/DB MA gates, Martial-ready gating, Countermagic resolution done, Mundane crafting roll resolver done)
+Last updated: 2026-05-21 (Area attacks, Coordinated attacks, FoI surcharge, Style weapon tag validation, Sidereal/DB MA gates, Martial-ready gating, Countermagic resolution done, Mundane crafting roll resolver done, Manse item type done)
 
 ---
 
@@ -43,7 +43,7 @@ Last updated: 2026-05-20 (Area attacks, Coordinated attacks, FoI surcharge, Styl
 | Clarity mechanical effects | Alchemical | Clarity track consequences (Virtue suppression thresholds) |
 | Crippling injuries | Other | health track extension + extended surgery roll |
 | Environmental hazards | Other | Damage/interval + Trauma AE, configurable hazard schema |
-| Manse item type | Other | TypeDataModel + mote-regen integration with hearthstone regen |
+| Manse geomancy rules | Crafting | Oadenol's Codex power table, demesne pre-roll (unblocked by Manse item type) |
 | Background mechanical hooks | Other | AE per background dot (Manse regen, Familiar ref, etc.) |
 | Workshop & material prerequisites UI | Crafting | prerequisites check UI for crafting projects |
 | Artifact extended-roll builder | Crafting | Rating cumulative successes; seasons interval; exotic ingredient tracker |
@@ -82,7 +82,6 @@ Last updated: 2026-05-20 (Area attacks, Coordinated attacks, FoI surcharge, Styl
 
 | Item | TODO Section | Blocked by |
 |------|-------------|-----------|
-| Manse geomancy rules | Crafting | Manse item type (Group B) |
 | Unit actor type | Other | Mass combat design (Group C) |
 
 ---
@@ -94,8 +93,8 @@ Last updated: 2026-05-20 (Area attacks, Coordinated attacks, FoI surcharge, Styl
 | A — Ready, Simple | 1 |
 | B — Ready, Medium | 35 |
 | C — Ready, Complex | 11 |
-| D — Blocked | 2 |
-| **Total pending** | **49** |
+| D — Blocked | 1 |
+| **Total pending** | **48** |
 
 **Biggest force-multipliers:**
-- **Manse item type** (Group B) → unblocks Manse geomancy rules
+- **Background mechanical hooks** (Group B) → enables Manse mote-regen, Familiar refs, and other Background-driven automation

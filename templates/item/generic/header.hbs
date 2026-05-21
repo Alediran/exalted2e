@@ -5,5 +5,13 @@
     <input class="item-name-input" type="text" name="name" value="{{item.name}}"
            {{#unless isEditable}}readonly{{/unless}}>
     <span class="keyword-tag">{{item.type}}</span>
+    {{#if (eq item.type "manse")}}
+    <div class="manse-header-stats">
+      <span class="manse-header-label">{{localize "EX2E.ManseRating"}}</span>
+      {{dotRating name="manseRating" value=manseRating max=5 min=0 readonly=true}}
+      <span class="manse-header-label">{{localize "EX2E.ManseAspect"}}</span>
+      <span class="keyword-tag">{{#if manseAspectLabel}}{{localize manseAspectLabel}}{{else}}—{{/if}}</span>
+    </div>
+    {{/if}}
   </div>
 </div>

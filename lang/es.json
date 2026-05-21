@@ -1182,7 +1182,7 @@
     "MAStyleNoStyles":        "Aún no se han aprendido estilos de Artes Marciales.",
     "MAStyleNoCharms":        "No se han aprendido encantamientos para este estilo.",
     "Open":                   "Abrir",
-    "HearthstoneRating": "Rango",
+    "HearthstoneRating": "Nivel",
     "HearthstoneMoteRegen": "Regeneración de Maná",
     "Regen": "Regen",
     "SocketHearthstone": "Encastrar",
@@ -1190,6 +1190,22 @@
     "NoHearthstonesAvailable": "No hay piedras de corazón disponibles.",
     "SelectHearthstone": "Seleccionar piedra de corazón",
     "HearthstoneSlots":  "Ranuras de Piedra del Hogar",
+    "Manse":              "Mansión",
+    "Manses":             "Mansiones",
+    "NewManse":           "Nueva Mansión",
+    "ManseBackground":    "Trasfondo",
+    "ManseRating":        "Nivel",
+    "ManseHearthstone":   "Piedra del Hogar",
+    "ManseAspect":        "Aspecto",
+    "MansePowers":        "Poderes",
+    "MansePowerName":     "Poder",
+    "MansePowerCost":     "Coste",
+    "ManseBudgetPoints":  "pts",
+    "ManseNoPowers":      "Sin poderes registrados.",
+    "ManseAddPower":      "Añadir Poder",
+    "ManseNone":            "Ninguno",
+    "ManseDropBackground":  "Suelta un Antecedente aquí",
+    "ManseDropHearthstone": "Suelta una Piedra Corazón aquí",
     "ResourcesCost":     "Coste en Recursos",
     "Quantity":          "Cantidad",
     "Poison":            "Veneno",
@@ -1836,7 +1852,9 @@
       "form":           "Forma",
       "heartstone":     "Piedra del Corazón",
       "martialartsstyle": "Estilo de Artes Marciales",
-      "urge":           "Impulso"
+      "urge":           "Impulso",
+      "hearthstone": "Piedra del Hogar",
+      "manse": "Mansión"
     }
   }
 }

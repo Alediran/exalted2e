@@ -1190,6 +1190,22 @@
     "NoHearthstonesAvailable": "No unslotted hearthstones available.",
     "SelectHearthstone": "Select a Hearthstone",
     "HearthstoneSlots":  "Hearthstone Slots",
+    "Manse":              "Manse",
+    "Manses":             "Manses",
+    "NewManse":           "New Manse",
+    "ManseBackground":    "Background",
+    "ManseRating":        "Rating",
+    "ManseHearthstone":   "Hearthstone",
+    "ManseAspect":        "Aspect",
+    "MansePowers":        "Powers",
+    "MansePowerName":     "Power",
+    "MansePowerCost":     "Cost",
+    "ManseBudgetPoints":  "pts",
+    "ManseNoPowers":      "No powers recorded.",
+    "ManseAddPower":      "Add Power",
+    "ManseNone":            "None",
+    "ManseDropBackground":  "Drop a Background here",
+    "ManseDropHearthstone": "Drop a Hearthstone here",
     "ResourcesCost":     "Resources Cost",
     "Quantity":          "Quantity",
     "Poison":            "Poison",
@@ -1836,7 +1852,9 @@
       "form":           "Form",
       "heartstone":     "Heartstone",
       "martialartsstyle": "Martial Arts Style",
-      "urge":           "Urge"
+      "urge":           "Urge",
+      "hearthstone": "Hearthstone",
+      "manse": "Manse"
     }
   }
 }

@@ -524,6 +524,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const meritflaws = actor.items.filter(i => i.type === "meritflaw")  .sort((a,b) => a.name.localeCompare(b.name));
     const equipments   = actor.items.filter(i => i.type === "equipment") .sort((a,b) => a.name.localeCompare(b.name));
     const hearthstones = actor.items.filter(i => i.type === "hearthstone").sort((a,b) => a.name.localeCompare(b.name));
+    const manses       = actor.items.filter(i => i.type === "manse")      .sort((a,b) => a.name.localeCompare(b.name));
 
     const artifactSlotMap = {};
     const allActorItems = [...actor.items];
@@ -792,6 +793,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       destinies,
       equipments,
       hearthstones,
+      manses,
       artifactSlotMap,
       maStyles,
       craftingProjects,

@@ -752,3 +752,171 @@ details.charm-group > summary.charm-group-header {
 .ex2e-counter-spell-btn:hover {
   background: var(--color-hover-bg, rgba(0,0,0,0.05));
 }
+
+/* ── Manse item sheet ───────────────────────────────────────────────────── */
+
+.exalted2e.item.generic .manse-header-stats {
+  display:     flex;
+  align-items: center;
+  gap:         var(--ex2e-gap-sm);
+  flex-wrap:   wrap;
+  margin-top:  2px;
+}
+
+.exalted2e.item.generic .manse-header-label {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color:          var(--ex2e-text-muted);
+}
+
+.exalted2e.item.generic .manse-drop-zone {
+  display:        flex;
+  align-items:    center;
+  min-height:     28px;
+  padding:        4px 8px;
+  border:         1px dashed var(--ex2e-gold-dark);
+  border-radius:  var(--ex2e-border-radius);
+  background:     var(--ex2e-bg-darkest);
+  transition:     border-color var(--ex2e-transition-fast),
+                  background   var(--ex2e-transition-fast);
+}
+
+.exalted2e.item.generic .manse-drop-zone.drag-over {
+  border-color: var(--ex2e-gold-main);
+  background:   var(--ex2e-bg-hover);
+}
+
+.exalted2e.item.generic .manse-drop-placeholder {
+  display:        flex;
+  align-items:    center;
+  gap:            6px;
+  font-style:     italic;
+  font-size:      var(--ex2e-font-size-sm);
+  color:          var(--ex2e-text-muted);
+  pointer-events: none;
+}
+
+.exalted2e.item.generic .manse-drop-chip {
+  display:     flex;
+  align-items: center;
+  gap:         6px;
+  width:       100%;
+}
+
+.exalted2e.item.generic .manse-drop-chip-name {
+  flex:      1;
+  font-size: var(--ex2e-font-size-sm);
+  color:     var(--ex2e-text-primary);
+}
+
+.exalted2e.item.generic .manse-drop-clear {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  width:           18px;
+  height:          18px;
+  padding:         0;
+  border:          1px solid var(--ex2e-gold-dark);
+  border-radius:   50%;
+  background:      transparent;
+  color:           var(--ex2e-text-muted);
+  font-size:       10px;
+  cursor:          pointer;
+  flex-shrink:     0;
+  transition:      color            var(--ex2e-transition-fast),
+                   border-color     var(--ex2e-transition-fast);
+}
+
+.exalted2e.item.generic .manse-drop-clear:hover {
+  color:        var(--ex2e-gold-bright);
+  border-color: var(--ex2e-gold-main);
+}
+
+.exalted2e.item.generic .manse-powers-header {
+  display:         flex;
+  justify-content: space-between;
+  align-items:     center;
+  margin-bottom:   var(--ex2e-gap-sm);
+}
+
+.exalted2e.item.generic .manse-budget {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  color:          var(--ex2e-text-muted);
+  letter-spacing: 0.04em;
+}
+.exalted2e.item.generic .manse-budget.budget-over {
+  color: var(--ex2e-dmg-lethal, #c0392b);
+}
+
+.exalted2e.item.generic .manse-powers-table {
+  width:           100%;
+  border-collapse: collapse;
+  font-size:       var(--ex2e-font-size-sm);
+  margin-bottom:   var(--ex2e-gap-sm);
+}
+.exalted2e.item.generic .manse-powers-table th {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color:          var(--ex2e-gold-main);
+  padding:        2px var(--ex2e-gap-sm);
+  text-align:     left;
+}
+.exalted2e.item.generic .manse-powers-table td {
+  padding:        3px var(--ex2e-gap-sm);
+  border-bottom:  1px solid var(--ex2e-border-color);
+  vertical-align: middle;
+}
+.exalted2e.item.generic .manse-powers-table input[type="text"] {
+  width:         100%;
+  background:    var(--ex2e-bg-medium);
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: var(--ex2e-border-radius-sm);
+  color:         var(--ex2e-text-primary);
+  padding:       2px 4px;
+  font-size:     var(--ex2e-font-size-sm);
+}
+.exalted2e.item.generic .manse-powers-table input[type="number"] {
+  width:         3em;
+  background:    var(--ex2e-bg-medium);
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: var(--ex2e-border-radius-sm);
+  color:         var(--ex2e-text-primary);
+  text-align:    center;
+  padding:       2px 4px;
+  font-size:     var(--ex2e-font-size-sm);
+}
+
+.exalted2e.item.generic .manse-no-powers {
+  font-style: italic;
+  color:      var(--ex2e-text-muted);
+  font-size:  var(--ex2e-font-size-sm);
+  text-align: center;
+  margin:     var(--ex2e-gap-sm) 0;
+}
+
+.exalted2e.item.generic .btn-add-power {
+  display:        flex;
+  align-items:    center;
+  gap:            4px;
+  padding:        4px var(--ex2e-gap-sm);
+  border:         1px solid var(--ex2e-gold-dark);
+  border-radius:  var(--ex2e-border-radius);
+  background:     var(--ex2e-bg-darkest);
+  color:          var(--ex2e-gold-bright);
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  letter-spacing: 0.04em;
+  cursor:         pointer;
+  margin-top:     var(--ex2e-gap-xs);
+  transition:     background var(--ex2e-transition-fast),
+                  border-color var(--ex2e-transition-fast);
+}
+.exalted2e.item.generic .btn-add-power:hover {
+  background:   var(--ex2e-bg-hover);
+  border-color: var(--ex2e-gold-main);
+}

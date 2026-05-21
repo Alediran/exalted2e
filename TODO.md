@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 196 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-20)
+**Progress: 197 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-21)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -283,7 +283,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Environmental hazards (Damage/interval, Trauma; fire/cold/drowning/starvation/thirst)
 - [ ] Mass combat (unit actor type: Magnitude, Drill, Might, Endurance, Morale, formations, commander + relays + heroes)
 - [ ] Artifact creation rules (extended Craft roll; Craft+Lore+Occult; seasons interval)
-- [ ] **Manse** item type (rating, aspect, powers, mote-regen grant)
+- [x] **Manse** item type (rating, aspect, powers budget; linked to Background for rating + Hearthstone for aspect)
 - [x] **Hearthstone** item type (rating, type, mote-regen, socketable into artifact weapons/armor/equipment)
 - [x] **Artifact** item type (general; non-weapon/armor artifacts) — covered by `equipment` item type with `artifact: true` flag (magical material, attunement, hearthstone slots)
 - [x] **Mutation** item type (mutationType positive/negative/neutral, pointCost; no mechanics yet)

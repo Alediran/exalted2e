@@ -30,6 +30,7 @@ import { PoisonData }    from "./data/item/poison-data.mjs";
 import { DiseaseData }   from "./data/item/disease-data.mjs";
 import { DrugData }      from "./data/item/drug-data.mjs";
 import { MutationData }  from "./data/item/mutation-data.mjs";
+import { ManseData }     from "./data/item/manse-data.mjs";
 import { CharacterSheet }           from "./sheets/actor/character-sheet.mjs";
 import { NpcSheet }         from "./sheets/actor/npc-sheet.mjs";
 import { CharmSheet }       from "./sheets/item/charm-sheet.mjs";
@@ -183,7 +184,8 @@ Hooks.once("init", function () {
     poison:    PoisonData,
     disease:   DiseaseData,
     drug:      DrugData,
-    mutation:  MutationData
+    mutation:  MutationData,
+    manse:     ManseData
   };
 
   // ── Sheet Registration ──────────────────────────────────────────────────
@@ -221,7 +223,7 @@ Hooks.once("init", function () {
     label:     "EX2E.SheetArmor"
   });
   foundry.documents.collections.Items.registerSheet("exalted2e", GenericItemSheet, {
-    types:     ["background", "intimacy", "meritflaw", "equipment", "hearthstone", "poison", "disease", "drug", "mutation"],
+    types:     ["background", "intimacy", "meritflaw", "equipment", "hearthstone", "poison", "disease", "drug", "mutation", "manse"],
     makeDefault: true,
     label:     "EX2E.SheetGenericItem"
   });
