@@ -4,6 +4,7 @@ import { planCommitOther, dispatchTickAdvance } from "../combat/multi-tick.mjs";
 import { payPendingStuntRewards } from "../combat/stunt-payment.mjs";
 import { EX2E } from "../config.mjs";
 import { sceneChangeFade } from "../combat/anima-fade.mjs";
+import { decrementActionCharmsFor } from "../helpers/charm-deactivation.mjs";
 
 /**
  * ExaltedCombat — wheel-based tick initiative for Exalted 2e.
@@ -342,6 +343,7 @@ export class ExaltedCombat extends Combat {
       if (!landed) continue;
       if (c.actor) {
         await this._refreshDVsFor(c.actor);
+        await decrementActionCharmsFor(c.actor);
         await payPendingStuntRewards(c);
       }
       if (c.getFlag("exalted2e", "committedAction")) {

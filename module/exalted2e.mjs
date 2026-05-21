@@ -1713,11 +1713,14 @@ Hooks.on("updateActor", async (actor, changes, options, userId) => {
 Hooks.on("updateScene", async (scene, changes, _options, _userId) => {
   if (!game.user.isGM) return;
   if (changes.active !== false) return;
+  const { clearSceneCharms } = await import("./helpers/charm-deactivation.mjs");
   for (const tokenDoc of scene.tokens) {
     const actor = tokenDoc.actor;
     if (actor?.type !== "character") continue;
-    if ((actor.system.scenePeripheral ?? 0) === 0) continue;
-    await actor.update({ "system.scenePeripheral": 0 });
+    await clearSceneCharms(actor);
+    if ((actor.system.scenePeripheral ?? 0) > 0) {
+      await actor.update({ "system.scenePeripheral": 0 });
+    }
   }
 });
 
@@ -3463,9 +3466,11 @@ Hooks.on("deleteCombat", async () => {
   const { clearSocialScene, clearIntimacyAblation } = await import("./ui/social-scene.mjs");
   await clearSocialScene({ silent: true });
   const { clearActorForms } = await import("./combat/form-charms.mjs");
+  const { clearSceneCharms } = await import("./helpers/charm-deactivation.mjs");
   const sceneActors = canvas.scene?.tokens?.contents?.map(t => t.actor).filter(Boolean) ?? [];
   for (const actor of sceneActors) {
     await clearActorForms(actor);
+    await clearSceneCharms(actor);
     await clearIntimacyAblation(actor);
   }
 });

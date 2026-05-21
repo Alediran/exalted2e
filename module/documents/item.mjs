@@ -3,6 +3,7 @@ import { buildCharmWeaponData } from "./charm-weapon-data.mjs";
 import { getOutOfAspectSurcharge, getForeignCharmSurcharge, getCelestialMASurcharge } from "../helpers/aspect-surcharge.mjs";
 import { computeFoiSurcharge } from "../helpers/foi-helpers.mjs";
 import { SCOPE_TO_TYPE } from "../rolls/charm-event-math.mjs";
+import { initialRemainingActions } from "../helpers/charm-deactivation.mjs";
 
 /**
  * ExaltedItem – extends the base Foundry Item document.
@@ -226,17 +227,19 @@ ${capWarning}`;
       if (result === null || result === undefined) return false;
       const clampedResult = Math.min(maxCommit === 9999 ? Infinity : maxCommit, Math.max(0, result));
 
+      const _raMastery = initialRemainingActions(sys.duration);
       await actor.createEmbeddedDocuments("ActiveEffect", [{
         name:     this.name,
         img:      this.img ?? "icons/svg/aura.svg",
         transfer: false,
         flags:    {
           exalted2e: {
-            charmSource:      this.id,
+            charmSource:       this.id,
             masteryCommitment: clampedResult,
             masteryAbility:    sys.ability,
             baseCostMotes:     _costParsed?.motes ?? 0,
-            charmDuration:     sys.duration
+            charmDuration:     sys.duration,
+            ...(_raMastery !== null ? { remainingActions: _raMastery } : {})
           }
         }
       }]);
@@ -410,10 +413,11 @@ ${capWarning}`;
         );
         if (pdAE) await pdAE.delete();
       } else {
+        const _raPD = initialRemainingActions(sys.duration);
         await actor.createEmbeddedDocuments("ActiveEffect", [{
           name:     `${game.i18n.localize("EX2E.PerfectDefense")} — ${this.name}`,
           img:      this.img ?? "icons/magic/defensive/shield-barrier-glowing-blue.webp",
-          flags:    { exalted2e: { sustainedPerfectDefense: { type: sys.perfectDefenseType }, charmSource: this.id, charmDuration: sys.duration } },
+          flags:    { exalted2e: { sustainedPerfectDefense: { type: sys.perfectDefenseType }, charmSource: this.id, charmDuration: sys.duration, ...(_raPD !== null ? { remainingActions: _raPD } : {}) } },
           disabled: false,
           transfer: false
         }]);
@@ -462,12 +466,14 @@ ${capWarning}`;
         const penaltyValue = Math.abs(Math.min(0, rawAmount));
         if (penaltyValue > 0) {
           const type = SCOPE_TO_TYPE[sys.targetPenalty.scope] ?? "all";
+          const _penaltyDuration = sys.targetPenalty.duration ?? "oneScene";
+          const _raTP = initialRemainingActions(_penaltyDuration);
           await targetActor.createEmbeddedDocuments("ActiveEffect", [{
             name:     this.name,
             img:      this.img ?? "icons/svg/regen.svg",
             disabled: false,
             transfer: false,
-            flags:    { exalted2e: { internalPenalty: { type, value: penaltyValue }, charmDuration: sys.targetPenalty.duration ?? "oneScene" } }
+            flags:    { exalted2e: { internalPenalty: { type, value: penaltyValue }, charmDuration: _penaltyDuration, ...(_raTP !== null ? { remainingActions: _raTP } : {}) } }
           }]);
         }
       }

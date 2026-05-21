@@ -1,4 +1,5 @@
 import { evaluateCharmFormula } from "../documents/item.mjs";
+import { initialRemainingActions } from "../helpers/charm-deactivation.mjs";
 
 /**
  * Synthesize Foundry AE data objects from charm system fields.
@@ -113,13 +114,14 @@ export function buildCharmSynthAEs(charm, rollData = {}) {
 
   if (!changes.length && !Object.keys(extraFlags).length) return [];
 
+  const _ra = initialRemainingActions(charm.system.duration);
   return [{
     name:     charm.name,
     img:      charm.img ?? "icons/magic/fire/flame-burning-orange.webp",
     changes,
     disabled: false,
     transfer: false,
-    flags:    { exalted2e: { charmSource: charm.id, charmDuration: charm.system.duration, charmStackable: (charm.system.keywords ?? []).includes("Stackable"), ...extraFlags } }
+    flags:    { exalted2e: { charmSource: charm.id, charmDuration: charm.system.duration, charmStackable: (charm.system.keywords ?? []).includes("Stackable"), ...(_ra !== null ? { remainingActions: _ra } : {}), ...extraFlags } }
   }];
 }
 
@@ -138,6 +140,8 @@ export async function applyCharmAEs(actor, charm, rollData = {}) {
     raw.flags.exalted2e.charmSource    = charm.id;
     raw.flags.exalted2e.charmDuration  = charm.system.duration;
     raw.flags.exalted2e.charmStackable = (charm.system.keywords ?? []).includes("Stackable");
+    const _ra = initialRemainingActions(charm.system.duration);
+    if (_ra !== null) raw.flags.exalted2e.remainingActions = _ra;
     return raw;
   });
 

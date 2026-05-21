@@ -1665,6 +1665,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     );
     const { clearActorForms }       = await import("../../combat/form-charms.mjs");
     await clearActorForms(this.document);
+    const { clearSceneCharms }      = await import("../../helpers/charm-deactivation.mjs");
+    await clearSceneCharms(this.document);
     const { clearIntimacyAblation } = await import("../../ui/social-scene.mjs");
     await clearIntimacyAblation(this.document);
     const { stepDownAnima }         = await import("../../combat/anima-math.mjs");
