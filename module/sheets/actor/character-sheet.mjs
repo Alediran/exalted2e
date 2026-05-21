@@ -12,6 +12,8 @@ import { editImageAction } from "../_edit-image.mjs";
 import { sceneChangeFade } from "../../combat/anima-fade.mjs";
 import { AnimaColorDialog } from "../../dialogs/anima-color-dialog.mjs";
 import { sanctifyOathBinding } from "../../helpers/oath.mjs";
+import { CraftingRollDialog } from "../../dialogs/crafting-roll-dialog.mjs";
+import { exceedsCraftCap }    from "../../helpers/crafting-helpers.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -194,6 +196,9 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       socketHearthstone:   CharacterSheet.#onSocketHearthstone,
       unsocketHearthstone: CharacterSheet.#onUnsocketHearthstone,
       toggleAblationDot:   CharacterSheet.#onToggleAblationDot,
+      addCraftingProject:    CharacterSheet.#onAddCraftingProject,
+      rollCraftingProject:   CharacterSheet.#onRollCraftingProject,
+      deleteCraftingProject: CharacterSheet.#onDeleteCraftingProject,
     }
   };
 
@@ -244,7 +249,11 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     tabEffects: {
       template: "systems/exalted2e/templates/actor/character/tab-effects.hbs",
       scrollable: [""]
-    }
+    },
+    tabCrafting: {
+      template: "systems/exalted2e/templates/actor/character/tab-crafting.hbs",
+      scrollable: [""]
+    },
   };
 
   /** Current tab group state */
@@ -270,7 +279,10 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       tabInventory: { id: "tabInventory", group: "sheet", icon: "fa-solid fa-suitcase",       label: game.i18n.localize("EX2E.TabInventory"),       cssClass: this.tabGroups.sheet === "tabInventory"  ? "active" : "" },
       tabBiography: { id: "tabBiography", group: "sheet", icon: "fa-solid fa-book",           label: game.i18n.localize("EX2E.TabBiography"),       cssClass: this.tabGroups.sheet === "tabBiography"  ? "active" : "" },
       tabExperience:{ id: "tabExperience",group: "sheet", icon: "fa-solid fa-graduation-cap", label: game.i18n.localize("EX2E.TabExperience"),      cssClass: this.tabGroups.sheet === "tabExperience" ? "active" : "" },
-      tabEffects:   { id: "tabEffects",   group: "sheet", icon: "fa-solid fa-wand-sparkles",  label: game.i18n.localize("EX2E.TabEffects"),         cssClass: this.tabGroups.sheet === "tabEffects"    ? "active" : "" }
+      tabEffects:   { id: "tabEffects",   group: "sheet", icon: "fa-solid fa-wand-sparkles",  label: game.i18n.localize("EX2E.TabEffects"),         cssClass: this.tabGroups.sheet === "tabEffects"    ? "active" : "" },
+      ...((sys.abilities?.craft?.value ?? 0) >= 1 ? {
+        tabCrafting: { id: "tabCrafting", group: "sheet", icon: "fa-solid fa-hammer", label: game.i18n.localize("EX2E.TabCrafting"), cssClass: this.tabGroups.sheet === "tabCrafting" ? "active" : "" }
+      } : {})
     };
 
     // Build available castes for the current exalt type
@@ -716,6 +728,13 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const destinies = actor.items.filter(i => i.type === "destiny")
       .sort((a, b) => a.name.localeCompare(b.name));
 
+    const craftingProjects = (sys.craftingProjects ?? []).map(p => ({
+      ...p,
+      difficulty:  p.targetResources + (p.isPerfect ? 5 : 0),
+      sizeLabel:   game.i18n.localize(p.size === "small" ? "EX2E.CraftingSizeSmall" : "EX2E.CraftingSizeLarge"),
+      statusLabel: game.i18n.localize(`EX2E.CraftingStatus${p.status.charAt(0).toUpperCase() + p.status.slice(1)}`),
+    }));
+
     return {
       ...context,
       actor,
@@ -774,7 +793,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       equipments,
       hearthstones,
       artifactSlotMap,
-      maStyles
+      maStyles,
+      craftingProjects,
     };
   }
 
@@ -1872,5 +1892,78 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const stones = foundry.utils.deepClone(artifact.system.hearthstones ?? []);
     stones[slotIndex] = "";
     await artifact.update({ "system.hearthstones": stones });
+  }
+
+  static async #onAddCraftingProject(_event, _target) {
+    const actor  = this.document;
+    const sys    = actor.system;
+    const craft  = sys.abilities.craft.value ?? 0;
+    const bestSpec = Math.max(0, ...(sys.abilities.craft.specialties ?? []).map(s => s.value));
+
+    const content = `
+      <div class="form-group">
+        <label>${game.i18n.localize("EX2E.CraftingProjectName")}</label>
+        <input type="text" name="name" required placeholder="${game.i18n.localize("EX2E.CraftingProjectNamePlaceholder")}">
+      </div>
+      <div class="form-group">
+        <label>${game.i18n.localize("EX2E.CraftingProjectSize")}</label>
+        <select name="size">
+          <option value="small">${game.i18n.localize("EX2E.CraftingSizeSmall")}</option>
+          <option value="large">${game.i18n.localize("EX2E.CraftingSizeLarge")}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>${game.i18n.localize("EX2E.CraftingTargetResources")}</label>
+        <input type="number" name="targetResources" min="1" max="5" value="1">
+      </div>
+      <div class="form-group">
+        <label>${game.i18n.localize("EX2E.CraftingIsPerfect")}</label>
+        <input type="checkbox" name="isPerfect">
+      </div>`;
+
+    const result = await foundry.applications.api.DialogV2.prompt({
+      window:  { title: game.i18n.localize("EX2E.CraftingNewProject") },
+      content,
+      ok: {
+        label:    game.i18n.localize("EX2E.CraftingAddProject"),
+        callback: (_ev, button) => new foundry.applications.ux.FormDataExtended(button.form).object
+      }
+    });
+    if (!result) return;
+
+    const targetResources = Math.min(5, Math.max(1, parseInt(result.targetResources, 10) || 1));
+    if (exceedsCraftCap(actor, targetResources)) {
+      ui.notifications.warn(game.i18n.format("EX2E.CraftingCapWarning", { cap: craft + bestSpec }));
+    }
+
+    const projects = foundry.utils.deepClone(sys.craftingProjects ?? []);
+    projects.push({
+      id:              foundry.utils.randomID(),
+      name:            String(result.name || game.i18n.localize("EX2E.CraftingUnnamedProject")),
+      size:            result.size === "large" ? "large" : "small",
+      targetResources,
+      isPerfect:       !!result.isPerfect,
+      bonusDice:       0,
+      status:          "active"
+    });
+    await actor.update({ "system.craftingProjects": projects });
+  }
+
+  static async #onRollCraftingProject(_event, target) {
+    const actor     = this.document;
+    const projectId = target.dataset.projectId;
+    const project   = (actor.system.craftingProjects ?? []).find(p => p.id === projectId);
+    if (!project || project.status !== "active") return;
+    await CraftingRollDialog.open(project, actor);
+  }
+
+  static async #onDeleteCraftingProject(_event, target) {
+    const actor     = this.document;
+    const projectId = target.dataset.projectId;
+    const projects  = foundry.utils.deepClone(actor.system.craftingProjects ?? []);
+    const idx       = projects.findIndex(p => p.id === projectId);
+    if (idx < 0) return;
+    projects.splice(idx, 1);
+    await actor.update({ "system.craftingProjects": projects });
   }
 }

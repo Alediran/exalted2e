@@ -1,0 +1,61 @@
+<div class="tab tab-crafting {{cssClass}}" data-tab="tabCrafting" data-group="sheet">
+  <div class="sheet-body">
+
+    <div class="crafting-header">
+      {{#if @root.isEditable}}
+      <button type="button" data-action="addCraftingProject" class="btn-add-project">
+        <i class="fa-solid fa-hammer"></i>
+        {{localize "EX2E.CraftingNewProject"}}
+      </button>
+      {{/if}}
+    </div>
+
+    {{#if craftingProjects.length}}
+    <table class="crafting-table">
+      <thead>
+        <tr>
+          <th>{{localize "EX2E.CraftingProjectName"}}</th>
+          <th>{{localize "EX2E.CraftingProjectSize"}}</th>
+          <th>{{localize "EX2E.CraftingProjectDiff"}}</th>
+          <th>{{localize "EX2E.CraftingProjectBonus"}}</th>
+          <th>{{localize "EX2E.CraftingProjectStatus"}}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each craftingProjects as |p|}}
+        <tr class="crafting-project-row crafting-status-{{p.status}}">
+          <td class="project-name">
+            {{p.name}}
+            {{#if p.isPerfect}}<em>({{localize "EX2E.CraftingPerfect"}})</em>{{/if}}
+          </td>
+          <td>{{p.sizeLabel}}</td>
+          <td>{{p.difficulty}}</td>
+          <td>{{#if (eq p.status "active")}}{{p.bonusDice}}{{else}}—{{/if}}</td>
+          <td><span class="status-text">{{p.statusLabel}}</span></td>
+          <td class="crafting-row-actions">
+            {{#if (eq p.status "active")}}
+            {{#if @root.isEditable}}
+            <button type="button" data-action="rollCraftingProject" data-project-id="{{p.id}}"
+              class="btn-roll-project" title="{{localize 'EX2E.CraftingRoll'}}">
+              <i class="fa-solid fa-dice"></i>
+            </button>
+            {{/if}}
+            {{/if}}
+            {{#if @root.isEditable}}
+            <button type="button" data-action="deleteCraftingProject" data-project-id="{{p.id}}"
+              class="btn-delete-project" title="{{localize 'EX2E.Delete'}}">
+              <i class="fa-solid fa-times"></i>
+            </button>
+            {{/if}}
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{else}}
+    <p class="crafting-empty">{{localize "EX2E.CraftingNoProjects"}}</p>
+    {{/if}}
+
+  </div>
+</div>

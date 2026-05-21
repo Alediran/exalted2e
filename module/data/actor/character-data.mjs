@@ -260,6 +260,28 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       // append to `purchaseLog`.
       purchaseLocked: new fields.BooleanField({ initial: false }),
 
+      // ── Crafting Projects ─────────────────────────────────────────────────
+      // Per-project retry tracking. `bonusDice` = successes from last failed
+      // attempt (non-cumulative per RAW). Resolved projects are kept until
+      // the player explicitly dismisses them (✕ button on the Crafting tab).
+      craftingProjects: new fields.ArrayField(new fields.SchemaField({
+        id:              new fields.StringField({ initial: "", blank: true }),
+        name:            new fields.StringField({ initial: "", blank: true }),
+        size:            new fields.StringField({
+          choices: ["small", "large"],
+          initial: "small",
+          blank:   false
+        }),
+        targetResources: new fields.NumberField({ integer: true, min: 1, max: 5, initial: 1 }),
+        isPerfect:       new fields.BooleanField({ initial: false }),
+        bonusDice:       new fields.NumberField({ integer: true, min: 0, initial: 0 }),
+        status:          new fields.StringField({
+          choices: ["active", "completed", "botched"],
+          initial: "active",
+          blank:   false
+        })
+      })),
+
       // Append-only ledger of trait purchases made while `purchaseLocked`
       // was true. Entries are kept forever unless a GM explicitly deletes
       // one via the Experience-tab UI (which also refunds the XP).

@@ -298,7 +298,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 
 ## Crafting
 - [x] Craft specializations (Fire, Water, Air, Earth, Wood, Magitech, etc.)
-- [ ] Mundane crafting roll resolver (Int/Per+Craft vs Resources diff; extended for large items)
+- [x] Mundane crafting roll resolver (Int/Per+Craft vs Resources diff; extended for large items)
 - [ ] Artifact extended-roll builder (Rating cumulative successes; seasons interval; exotic ingredient tracker)
 - [ ] Workshop & material prerequisites UI
 - [ ] Manse geomancy rules (Oadenol's Codex) — manse power table, demesne pre-roll

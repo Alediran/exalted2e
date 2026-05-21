@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-20 (Area attacks, Coordinated attacks, FoI surcharge, Style weapon tag validation, Sidereal/DB MA gates, Martial-ready gating, Countermagic resolution done)
+Last updated: 2026-05-20 (Area attacks, Coordinated attacks, FoI surcharge, Style weapon tag validation, Sidereal/DB MA gates, Martial-ready gating, Countermagic resolution done, Mundane crafting roll resolver done)
 
 ---
 
@@ -45,7 +45,8 @@ Last updated: 2026-05-20 (Area attacks, Coordinated attacks, FoI surcharge, Styl
 | Environmental hazards | Other | Damage/interval + Trauma AE, configurable hazard schema |
 | Manse item type | Other | TypeDataModel + mote-regen integration with hearthstone regen |
 | Background mechanical hooks | Other | AE per background dot (Manse regen, Familiar ref, etc.) |
-| Mundane crafting roll resolver | Crafting | extended roll vs Resources difficulty |
+| Workshop & material prerequisites UI | Crafting | prerequisites check UI for crafting projects |
+| Artifact extended-roll builder | Crafting | Rating cumulative successes; seasons interval; exotic ingredient tracker |
 | Drag-and-drop items between sheets | QoL | improve drop handler across item types |
 | Multi-actor action helpers | QoL | coordinate/cooperative charm dialog |
 | Personal/Peripheral commitment split | QoL | artifact attunement choice UI |
@@ -82,8 +83,6 @@ Last updated: 2026-05-20 (Area attacks, Coordinated attacks, FoI surcharge, Styl
 | Item | TODO Section | Blocked by |
 |------|-------------|-----------|
 | Manse geomancy rules | Crafting | Manse item type (Group B) |
-| Workshop & material prerequisites UI | Crafting | Mundane crafting roll resolver (Group B) |
-| Artifact extended-roll builder | Crafting | Mundane crafting roll resolver (Group B) |
 | Unit actor type | Other | Mass combat design (Group C) |
 
 ---
@@ -93,11 +92,10 @@ Last updated: 2026-05-20 (Area attacks, Coordinated attacks, FoI surcharge, Styl
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 34 |
+| B — Ready, Medium | 35 |
 | C — Ready, Complex | 11 |
-| D — Blocked | 4 |
-| **Total pending** | **50** |
+| D — Blocked | 2 |
+| **Total pending** | **49** |
 
 **Biggest force-multipliers:**
 - **Manse item type** (Group B) → unblocks Manse geomancy rules
-- **Mundane crafting roll resolver** (Group B) → unblocks Workshop UI + Artifact extended-roll builder
