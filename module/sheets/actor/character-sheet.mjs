@@ -199,6 +199,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       addCraftingProject:    CharacterSheet.#onAddCraftingProject,
       rollCraftingProject:   CharacterSheet.#onRollCraftingProject,
       deleteCraftingProject: CharacterSheet.#onDeleteCraftingProject,
+      openFamiliarActor:     CharacterSheet.#onOpenFamiliarActor,
     }
   };
 
@@ -526,6 +527,40 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const hearthstones = actor.items.filter(i => i.type === "hearthstone").sort((a,b) => a.name.localeCompare(b.name));
     const manses       = actor.items.filter(i => i.type === "manse")      .sort((a,b) => a.name.localeCompare(b.name));
 
+    const familiars = actor.items
+      .filter(i => i.type === "familiar")
+      .map(i => {
+        const bg          = actor.items.get(i.system.backgroundId);
+        const linkedActor = game.actors?.get(i.system.linkedActorId);
+        return {
+          id:              i.id,
+          img:             i.img,
+          name:            i.name,
+          system:          i.system,
+          bondRating:      bg?.system.value ?? 0,
+          linkedActorName: linkedActor?.name ?? "",
+          linkedActorId:   i.system.linkedActorId
+        };
+      })
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    const cults = actor.items
+      .filter(i => i.type === "cult")
+      .map(i => {
+        const bg     = actor.items.get(i.system.backgroundId);
+        const rating = Math.max(0, Math.min(5, bg?.system.value ?? 0));
+        return {
+          id:        i.id,
+          img:       i.img,
+          name:      i.name,
+          system:    i.system,
+          rating,
+          moteRegen: EX2E.cultMoteRegen[rating],
+          wpHours:   EX2E.cultWpHours[rating]
+        };
+      })
+      .sort((a, b) => a.name.localeCompare(b.name));
+
     const artifactSlotMap = {};
     const allActorItems = [...actor.items];
     for (const item of allActorItems) {
@@ -793,7 +828,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       destinies,
       equipments,
       hearthstones,
-      manses,
+      manses, familiars, cults,
       artifactSlotMap,
       maStyles,
       craftingProjects,
@@ -1967,5 +2002,12 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     if (idx < 0) return;
     projects.splice(idx, 1);
     await actor.update({ "system.craftingProjects": projects });
+  }
+
+  static #onOpenFamiliarActor(_event, target) {
+    const actorId = target.dataset.actorId;
+    if (!actorId) return;
+    const actor = game.actors.get(actorId);
+    actor?.sheet.render(true);
   }
 }

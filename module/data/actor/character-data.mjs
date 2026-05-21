@@ -345,6 +345,8 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
   }
 
   static #PERSONAL_BONUS   = [0, 1, 2, 3, 4, 5];
+  static #CULT_MOTE_REGEN = [0, 0, 2, 3, 4, 6];
+  static #CULT_WP_HOURS   = [0, 24, 24, 24, 12, 6];
   static #PERIPHERAL_BONUS = [0, 2, 3, 5, 7, 9];
   static #ANIMA_REDUCTION  = [0, 0, 0, 0, 1, 2];
 
@@ -355,6 +357,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     this._prepareWillpowerMinimum();
     this._prepareHealthData();
     this._prepareBreedingBonus();
+    this._prepareCultData();
     this._applyCharmInitiation();
     this._prepareCombatStats();
     this._prepareMoteMaxima();
@@ -413,7 +416,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       return;
     }
     const bg = (this.parent?.items ?? []).find(
-      i => i.type === "background" && i.flags?.exalted2e?.isBreeding === true
+      i => i.type === "background" && i.system?.backgroundType === "breeding"
     );
     const rating = bg ? Math.max(0, Math.min(5, bg.system?.value ?? 0)) : 0;
     this.breedingBonus = {
@@ -422,6 +425,24 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       peripheral:     CharacterData.#PERIPHERAL_BONUS[rating],
       animaReduction: CharacterData.#ANIMA_REDUCTION[rating]
     };
+  }
+
+  _prepareCultData() {
+    const actor = this.parent;
+    if (!actor) { this.cultMoteRegen = 0; this.cultWpHours = 0; return; }
+    let totalMotes  = 0;
+    let minInterval = 0;
+    for (const item of actor.items) {
+      if (item.type !== "cult") continue;
+      const bg = actor.items.get(item.system.backgroundId);
+      if (!bg || bg.type !== "background") continue;
+      const rating = Math.max(0, Math.min(5, bg.system.value ?? 0));
+      totalMotes  += CharacterData.#CULT_MOTE_REGEN[rating];
+      const interval = CharacterData.#CULT_WP_HOURS[rating];
+      if (interval > 0) minInterval = minInterval === 0 ? interval : Math.min(minInterval, interval);
+    }
+    this.cultMoteRegen = totalMotes;
+    this.cultWpHours   = minInterval;
   }
 
   _applyCharmInitiation() {

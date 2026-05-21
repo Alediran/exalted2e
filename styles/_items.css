@@ -834,6 +834,37 @@ details.charm-group > summary.charm-group-header {
   border-color: var(--ex2e-gold-main);
 }
 
+.exalted2e.item.generic .familiar-actor-drop-zone {
+  flex-direction: column;
+  align-items:    flex-start;
+  gap:            4px;
+}
+
+.exalted2e.item.generic .cult-stats-row {
+  display:     flex;
+  gap:         var(--ex2e-gap-md);
+  flex-wrap:   wrap;
+}
+
+.exalted2e.item.generic .cult-stat {
+  display:        flex;
+  flex-direction: column;
+  gap:            2px;
+}
+
+.exalted2e.item.generic .cult-stat-label {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color:          var(--ex2e-text-muted);
+}
+
+.exalted2e.item.generic .cult-stat-value {
+  font-size: var(--ex2e-font-size-sm);
+  color:     var(--ex2e-text-primary);
+}
+
 .exalted2e.item.generic .manse-powers-header {
   display:         flex;
   justify-content: space-between;

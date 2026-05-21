@@ -16,12 +16,15 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     form: { submitOnChange: true, closeOnSubmit: false },
     actions: {
       editImage:           editImageAction,
-      toggleIsBreeding:    GenericItemSheet.#onToggleIsBreeding,
       socketHearthstone:   GenericItemSheet.#onSocketHearthstone,
       unsocketHearthstone: GenericItemSheet.#onUnsocketHearthstone,
       addMansePower:    GenericItemSheet.#onAddMansePower,
       deleteMansePower: GenericItemSheet.#onDeleteMansePower,
-      clearManseLink:   GenericItemSheet.#onClearManseLink
+      clearManseLink:          GenericItemSheet.#onClearManseLink,
+      clearFamiliarBackground: GenericItemSheet.#onClearFamiliarBackground,
+      clearFamiliarActor:      GenericItemSheet.#onClearFamiliarActor,
+      createFamiliarActor:     GenericItemSheet.#onCreateFamiliarActor,
+      clearCultBackground:     GenericItemSheet.#onClearCultBackground
     }
   };
 
@@ -70,6 +73,21 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         }))
       };
     }
+    if (item.type === "background") {
+      typeChoices = {
+        backgroundType: EX2E.backgroundTypeGroups.map(group => ({
+          label:   game.i18n.localize(group.labelKey),
+          options: group.keys.map(k => ({
+            value: k,
+            label: game.i18n.localize(EX2E.backgroundTypes[k] ?? k)
+          }))
+        }))
+      };
+    }
+
+    const backgroundTypeLabel = item.type === "background" && sys.backgroundType
+      ? game.i18n.localize(EX2E.backgroundTypes[sys.backgroundType] ?? "")
+      : "";
 
     let manseBackgrounds       = [];
     let manseHearthstones      = [];
@@ -103,12 +121,40 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       manseOverBudget      = manseUsedBudget > manseRating;
     }
 
+    let familiarBackgroundName   = "";
+    let familiarBackgroundRating = 0;
+    let familiarLinkedActorName  = "";
+    if (item.type === "familiar") {
+      const actor = item.parent;
+      if (actor) {
+        const linkedBg    = actor.items.get(sys.backgroundId);
+        const linkedActor = game.actors?.get(sys.linkedActorId);
+        familiarBackgroundName   = linkedBg?.name ?? "";
+        familiarBackgroundRating = linkedBg?.system.value ?? 0;
+        familiarLinkedActorName  = linkedActor?.name ?? "";
+      }
+    }
+
+    let cultBackgroundName   = "";
+    let cultBackgroundRating = 0;
+    let cultMoteRegenDisplay = 0;
+    let cultWpHoursDisplay   = 0;
+    if (item.type === "cult") {
+      const actor = item.parent;
+      if (actor) {
+        const linkedBg = actor.items.get(sys.backgroundId);
+        cultBackgroundName   = linkedBg?.name ?? "";
+        cultBackgroundRating = Math.max(0, Math.min(5, linkedBg?.system.value ?? 0));
+      }
+      cultMoteRegenDisplay = EX2E.cultMoteRegen[cultBackgroundRating] ?? 0;
+      cultWpHoursDisplay   = EX2E.cultWpHours[cultBackgroundRating]   ?? 0;
+    }
+
     const enrichedDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description, {
       secrets: this.document.isOwner, relativeTo: this.document
     });
 
     const useIntimacyIntensity = game.settings.get("exalted2e", "useIntimacyIntensity");
-    const isBreedingTrait = !!(item.flags?.exalted2e?.isBreeding);
 
     const magicalMaterials = Object.entries(EX2E.magicalMaterials).map(([k, v]) => ({
       value: k,
@@ -119,12 +165,15 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
 
     return { ...context, item, system: sys, typeChoices, isEditable: this.isEditable,
              enrichedDescription, useIntimacyIntensity,
-             isGM: game.user.isGM, isBreedingTrait, magicalMaterials,
+             isGM: game.user.isGM, magicalMaterials,
              socketedSlots: _buildSocketedSlots(this.document),
              manseBackgrounds, manseHearthstones, manseRating, manseAspect, manseAspectLabel,
              manseBackgroundName, manseHearthstoneName,
              manseUsedBudget, manseRemainingBudget, manseOverBudget,
-             mansePowers };
+             mansePowers,
+             backgroundTypeLabel,
+             familiarBackgroundName, familiarBackgroundRating, familiarLinkedActorName,
+             cultBackgroundName, cultBackgroundRating, cultMoteRegenDisplay, cultWpHoursDisplay };
   }
 
   _onRender(context, options) {
@@ -155,6 +204,39 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         });
       }
     }
+    if (this.document.type === "familiar" || this.document.type === "cult") {
+      for (const zone of this.element.querySelectorAll(".background-drop-zone")) {
+        zone.addEventListener("dragover", ev => { ev.preventDefault(); zone.classList.add("drag-over"); });
+        zone.addEventListener("dragleave", () => zone.classList.remove("drag-over"));
+        zone.addEventListener("drop", async ev => {
+          ev.preventDefault();
+          zone.classList.remove("drag-over");
+          let data;
+          try { data = JSON.parse(ev.dataTransfer.getData("text/plain")); } catch { return; }
+          if (data.type !== "Item") return;
+          const dropped = await fromUuid(data.uuid);
+          if (!dropped || dropped.type !== "background") return;
+          await this.document.update({ "system.backgroundId": dropped.id });
+        });
+      }
+    }
+    if (this.document.type === "familiar") {
+      const actorZone = this.element.querySelector(".familiar-actor-drop-zone");
+      if (actorZone) {
+        actorZone.addEventListener("dragover", ev => { ev.preventDefault(); actorZone.classList.add("drag-over"); });
+        actorZone.addEventListener("dragleave", () => actorZone.classList.remove("drag-over"));
+        actorZone.addEventListener("drop", async ev => {
+          ev.preventDefault();
+          actorZone.classList.remove("drag-over");
+          let data;
+          try { data = JSON.parse(ev.dataTransfer.getData("text/plain")); } catch { return; }
+          if (data.type !== "Actor") return;
+          const dropped = await fromUuid(data.uuid);
+          if (!dropped) return;
+          await this.document.update({ "system.linkedActorId": dropped.id });
+        });
+      }
+    }
   }
 
   #onPowerFieldChange(event) {
@@ -180,17 +262,6 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const val      = (newValue === 1 && current === 1) ? min : Math.max(min, newValue);
     if (!name) return;
     this.document.update({ [name]: val });
-  }
-
-  static async #onToggleIsBreeding(event, target) {
-    const item = this.document;
-    if (item.type !== "background") return;
-    const current = item.flags?.exalted2e?.isBreeding ?? false;
-    const next    = !current;
-    await item.update({
-      "flags.exalted2e.isBreeding":    next,
-      "flags.exalted2e.gmOnlyRemoval": next
-    });
   }
 
   static async #onSocketHearthstone(_event, target) {
@@ -239,6 +310,36 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const field = target.dataset.field;
     if (!field) return;
     await this.document.update({ [`system.${field}`]: "" });
+  }
+
+  static async #onClearFamiliarBackground(_event, _target) {
+    await this.document.update({ "system.backgroundId": "" });
+  }
+
+  static async #onClearFamiliarActor(_event, _target) {
+    await this.document.update({ "system.linkedActorId": "" });
+  }
+
+  static async #onCreateFamiliarActor(_event, _target) {
+    const name = await foundry.applications.api.DialogV2.prompt({
+      window:      { title: game.i18n.localize("EX2E.FamiliarNewActor") },
+      content:     `<div style="padding:8px"><input type="text" name="actorName" placeholder="${game.i18n.localize("EX2E.FamiliarNewActor")}" style="width:100%" autofocus></div>`,
+      ok:          { label: game.i18n.localize("EX2E.Create"), callback: (_ev, btn) => btn.form.elements.actorName.value },
+      rejectClose: false
+    });
+    if (!name?.trim()) return;
+    const circleFolder = game.folders.find(f => f.type === "Actor" && f.name === "The Circle")
+      ?? await Folder.create({ name: "The Circle", type: "Actor" });
+    const familiarsFolder = game.folders.find(f => f.type === "Actor" && f.name === "Familiars" && f.folder?.id === circleFolder.id)
+      ?? await Folder.create({ name: "Familiars", type: "Actor", folder: circleFolder.id });
+    const ownership = game.user.isGM ? {} : { [game.user.id]: CONST.DOCUMENT_OWNERSHIP_LEVELS.OWNER };
+    const actor = await Actor.create({ name: name.trim(), type: "npc", folder: familiarsFolder.id, ownership });
+    if (!actor) return;
+    await this.document.update({ "system.linkedActorId": actor.id });
+  }
+
+  static async #onClearCultBackground(_event, _target) {
+    await this.document.update({ "system.backgroundId": "" });
   }
 
   static async #onAddMansePower(_event, _target) {

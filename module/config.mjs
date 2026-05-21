@@ -262,6 +262,81 @@ EX2E.hearthstoneTypes = {
   infernal: "EX2E.HearthstoneTypeInfernal"
 };
 
+EX2E.backgroundTypes = {
+  // ── Core (Exalted 2e) ─────────────────────────────────────────────────
+  allies:           "EX2E.BackgroundTypeAllies",
+  artifact:         "EX2E.BackgroundTypeArtifact",
+  backing:          "EX2E.BackgroundTypeBacking",
+  contacts:         "EX2E.BackgroundTypeContacts",
+  cult:             "EX2E.BackgroundTypeCult",
+  familiar:         "EX2E.BackgroundTypeFamiliar",
+  followers:        "EX2E.BackgroundTypeFollowers",
+  influence:        "EX2E.BackgroundTypeInfluence",
+  manse:            "EX2E.BackgroundTypeManse",
+  mentor:           "EX2E.BackgroundTypeMentor",
+  resources:        "EX2E.BackgroundTypeResources",
+  // ── Dragon-Blooded (Manual of Exalted Power) ──────────────────────────
+  areasOfInterest:  "EX2E.BackgroundTypeAreasOfInterest",
+  arsenal:          "EX2E.BackgroundTypeArsenal",
+  breeding:         "EX2E.BackgroundTypeBreeding",
+  command:          "EX2E.BackgroundTypeCommand",
+  family:           "EX2E.BackgroundTypeFamily",
+  henchmen:         "EX2E.BackgroundTypeHenchmen",
+  reputation:       "EX2E.BackgroundTypeReputation",
+  retainers:        "EX2E.BackgroundTypeRetainers",
+  // ── Lunar (Manual of Exalted Power) ───────────────────────────────────
+  connections:      "EX2E.BackgroundTypeConnections",
+  hearthsBlood:     "EX2E.BackgroundTypeHearthsBlood",
+  solarBond:        "EX2E.BackgroundTypeSolarBond",
+  taboo:            "EX2E.BackgroundTypeTaboo",
+  tattooArtifact:   "EX2E.BackgroundTypeTattooArtifact",
+  // ── Sidereal (Manual of Exalted Power) ────────────────────────────────
+  acquaintances:    "EX2E.BackgroundTypeAcquaintances",
+  celestialManse:   "EX2E.BackgroundTypeCelestialManse",
+  savant:           "EX2E.BackgroundTypeSavant",
+  salary:           "EX2E.BackgroundTypeSalary",
+  sifu:             "EX2E.BackgroundTypeSifu",
+  // ── Abyssal (Manual of Exalted Power) ─────────────────────────────────
+  abyssalCommand:   "EX2E.BackgroundTypeAbyssalCommand",
+  liege:            "EX2E.BackgroundTypeLiege",
+  spies:            "EX2E.BackgroundTypeSpies",
+  underworldManse:  "EX2E.BackgroundTypeUnderworldManse",
+  whispers:         "EX2E.BackgroundTypeWhispers",
+  // ── Alchemical (Manual of Exalted Power) ──────────────────────────────
+  class:            "EX2E.BackgroundTypeClass",
+  eidolon:          "EX2E.BackgroundTypeEidolon",
+  module:           "EX2E.BackgroundTypeModule",
+  // ── Infernal (Manual of Exalted Power) ────────────────────────────────
+  unwovenCoadjutor: "EX2E.BackgroundTypeUnwovenCoadjutor",
+  // ── Fair Folk (Graceful Wicked Masks) ─────────────────────────────────
+  birth:            "EX2E.BackgroundTypeBirth",
+  freehold:         "EX2E.BackgroundTypeFreehold",
+  gossamer:         "EX2E.BackgroundTypeGossamer",
+  retinue:          "EX2E.BackgroundTypeRetinue",
+  style:            "EX2E.BackgroundTypeStyle",
+  // ── Dreams of the First Age ───────────────────────────────────────────
+  panoply:          "EX2E.BackgroundTypePanoply",
+  wealth:           "EX2E.BackgroundTypeWealth",
+};
+
+// Ordered groups used to render <optgroup> headers in the background type dropdown.
+// Keys must exist in EX2E.backgroundTypes.
+EX2E.backgroundTypeGroups = [
+  { labelKey: "EX2E.BackgroundGroupCore",         keys: ["allies", "artifact", "backing", "contacts", "cult", "familiar", "followers", "influence", "manse", "mentor", "resources"] },
+  { labelKey: "EX2E.BackgroundGroupDragonBlooded", keys: ["areasOfInterest", "arsenal", "breeding", "command", "family", "henchmen", "reputation", "retainers"] },
+  { labelKey: "EX2E.BackgroundGroupLunar",         keys: ["connections", "hearthsBlood", "solarBond", "taboo", "tattooArtifact"] },
+  { labelKey: "EX2E.BackgroundGroupSidereal",      keys: ["acquaintances", "celestialManse", "salary", "savant", "sifu"] },
+  { labelKey: "EX2E.BackgroundGroupAbyssal",       keys: ["abyssalCommand", "liege", "spies", "underworldManse", "whispers"] },
+  { labelKey: "EX2E.BackgroundGroupAlchemical",    keys: ["class", "eidolon", "module"] },
+  { labelKey: "EX2E.BackgroundGroupInfernal",      keys: ["unwovenCoadjutor"] },
+  { labelKey: "EX2E.BackgroundGroupFairFolk",      keys: ["birth", "freehold", "gossamer", "retinue", "style"] },
+  { labelKey: "EX2E.BackgroundGroupDotFA",         keys: ["panoply", "wealth"] },
+];
+
+// Index 0–5 = background dots 0–5
+EX2E.cultMoteRegen = [0, 0, 2, 3, 4, 6];
+EX2E.cultWpHours   = [0, 24, 24, 24, 12, 6]; // hours between WP recovery; 0 = none
+
 // ── Charm Keywords ──────────────────────────────────────────────────────
 // Predefined list for autocomplete / dropdown suggestions on Charm sheets.
 // Alphabetised and deduped — source categories preserved in comments below

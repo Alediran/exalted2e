@@ -101,6 +101,65 @@
       </div>
     </div>
     {{/each}}
+    <!-- ═══════ FAMILIARS ═══════ -->
+    <div class="section-toolbar" style="margin-top:16px">
+      <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Familiars"}}</h2>
+      {{#if isEditable}}
+      <button class="btn-add-item" data-action="createItem" data-type="familiar">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      {{/if}}
+    </div>
+    {{#each familiars as |f|}}
+    <div class="item-row" data-item-id="{{f.id}}">
+      <img class="item-img" src="{{f.img}}" alt="{{f.name}}">
+      <span class="item-name">{{f.name}}</span>
+      {{#if f.system.species}}<span class="keyword-tag">{{f.system.species}}</span>{{/if}}
+      {{dotRating name="bondRating" value=f.bondRating max=5 min=0 readonly=true}}
+      {{#if f.linkedActorId}}
+      <span class="item-stat">{{f.linkedActorName}}</span>
+      <button data-action="openFamiliarActor" data-actor-id="{{f.linkedActorId}}"
+              title="{{f.linkedActorName}}">
+        <i class="fa-solid fa-up-right-from-square"></i>
+      </button>
+      {{/if}}
+      <div class="item-controls">
+        {{#if @root.isEditable}}
+        <button data-action="editItem"><i class="fa-solid fa-edit"></i></button>
+        <button data-action="deleteItem"><i class="fa-solid fa-trash"></i></button>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
+    <!-- ═══════ CULTS ═══════ -->
+    <div class="section-toolbar" style="margin-top:16px">
+      <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Cults"}}</h2>
+      {{#if isEditable}}
+      <button class="btn-add-item" data-action="createItem" data-type="cult">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      {{/if}}
+    </div>
+    {{#each cults as |c|}}
+    <div class="item-row" data-item-id="{{c.id}}">
+      <img class="item-img" src="{{c.img}}" alt="{{c.name}}">
+      <span class="item-name">{{c.name}}</span>
+      {{#if c.moteRegen}}
+      <span class="item-stat">{{c.moteRegen}}/hr</span>
+      {{/if}}
+      {{#if c.wpHours}}
+      <span class="item-stat">
+        WP {{#if (eq c.wpHours 24)}}{{localize "EX2E.CultWpDaily"}}{{else}}1/{{c.wpHours}}h{{/if}}
+      </span>
+      {{/if}}
+      <div class="item-controls">
+        {{#if @root.isEditable}}
+        <button data-action="editItem"><i class="fa-solid fa-edit"></i></button>
+        <button data-action="deleteItem"><i class="fa-solid fa-trash"></i></button>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
 
     <!-- ═══════ MERITS / FLAWS ═══════ -->
     <div class="section-toolbar" style="margin-top:16px">

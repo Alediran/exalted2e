@@ -18,8 +18,7 @@ function _prepDerivedData(system, items = []) {
 function breedingItem(rating) {
   return {
     type: "background",
-    system: { value: rating },
-    flags: { exalted2e: { isBreeding: true } }
+    system: { value: rating, backgroundType: "breeding" }
   };
 }
 
