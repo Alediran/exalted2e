@@ -4,6 +4,7 @@ import {
   buildCastDeclaration
 } from "../combat/sorcery-math.mjs";
 import { SorceryCastDialog } from "../dialogs/sorcery-cast-dialog.mjs";
+import { postCastChatCard, _createSpellEffectAe } from "../combat/multi-tick-sorcery.mjs";
 
 /**
  * Sorcery cast-flow entry point. Shared by:
@@ -23,14 +24,35 @@ export async function castSpellFlow(item) {
   const actor = item?.actor;
   if (!actor) return;
 
+  const sys = item.system;
   const combatants = (game.combats?.contents ?? []).flatMap(c => c.combatants?.contents ?? []);
   const combatant  = combatants.find(c => c.actorId === actor.id) ?? null;
+  // ── Out-of-combat: no shaping steps, no DV AE — spend and post immediately ─
   if (!combatant) {
-    ui.notifications.warn(game.i18n.localize("EX2E.SpellCastNoCombatant"));
+    const result = await SorceryCastDialog.prompt({ spell: item, actor, circle: sys.circle ?? 1 });
+    if (!result?.ok) return;
+
+    const motesCost  = sys.cost?.motes ?? 0;
+    const wpCost     = sys.cost?.willpower ?? 0;
+    const moteResult = motesCost > 0 ? await actor.spendMotes(motesCost, "peripheral") : null;
+    if (motesCost > 0 && !moteResult) return;  // spendMotes already posted a warning
+
+    if (wpCost > 0) {
+      const currentWp = actor.system?.willpower?.value ?? 0;
+      await actor.update({ "system.willpower.value": Math.max(0, currentWp - wpCost) });
+    }
+
+    await postCastChatCard(actor, item, {
+      motesFromPrimary:   moteResult?.fromPrimary   ?? 0,
+      motesFromSecondary: moteResult?.fromSecondary ?? 0,
+      primaryPool:        moteResult?.primaryPool   ?? "peripheral",
+      secondaryPool:      moteResult?.secondaryPool ?? "personal",
+      wpCommitted:        wpCost
+    });
+    await _createSpellEffectAe(actor, item);
     return;
   }
 
-  const sys = item.system;
   const action = combatant.flags?.exalted2e?.multiTickAction ?? null;
 
   // ── Continue shape (mid-chain) ─────────────────────────────────────────
@@ -111,9 +133,8 @@ export async function castSpellFlow(item) {
       motesFromSecondary:    moteResult?.fromSecondary ?? 0,
       primaryPool:           moteResult?.primaryPool   ?? "peripheral",
       secondaryPool:         moteResult?.secondaryPool ?? "personal",
-      // Legacy display field — chat card reads this for the "Xm peripheral"
-      // label. Equals primaryPool for clean spends; not authoritative for
-      // refund (use motesFromPrimary/Secondary + primary/secondaryPool).
+      // Legacy field retained for refundCommittedCosts fallback path only.
+      // postCastChatCard now reads motesFromPrimary/Secondary for display.
       motePool:              moteResult?.primaryPool   ?? "peripheral",
       dvEffectId
     }

@@ -20,21 +20,13 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       minAbility:   new fields.NumberField({ initial: 1, min: 0, max: 5,  integer: true }),
 
       // ── Cost ────────────────────────────────────────────────────────────
+      // Single DSL formula string encodes all activation costs.
+      // See docs/superpowers/specs/2026-05-15-cost-formula-dsl-design.md
       cost: new fields.SchemaField({
-        motes:            new fields.NumberField({ initial: 0, min: 0, max: 50, integer: true }),
-        willpower:        new fields.NumberField({ initial: 0, min: 0, max: 5,  integer: true }),
-        // Per-type health-level costs — each one inflicts that many damage
-        // boxes of its kind on the caster when the charm activates. Some
-        // charms (e.g. thaumaturgic rites, dark pacts) explicitly choose
-        // which kind of wound they deal.
-        bashingHealth:    new fields.NumberField({ initial: 0, min: 0, max: 5,  integer: true }),
-        lethalHealth:     new fields.NumberField({ initial: 0, min: 0, max: 5,  integer: true }),
-        aggravatedHealth: new fields.NumberField({ initial: 0, min: 0, max: 5,  integer: true }),
-        xp:               new fields.NumberField({ initial: 0, min: 0, max: 50, integer: true }),
-        motesLabel:       new fields.StringField({ initial: "", blank: true }),
-        // Authoring metadata — not consumed by the activation ledger yet (Plan 2).
-        resonance:        new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),
-        limitTrigger:     new fields.NumberField({ initial: 0, min: 0, max: 3,  integer: true })
+        formula:      new fields.StringField({ initial: "", blank: true }),
+        // Non-formula metadata (not part of activation cost)
+        resonance:    new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),
+        limitTrigger: new fields.NumberField({ initial: 0, min: 0, max: 3,  integer: true })
       }),
 
       // ── Type / Duration ──────────────────────────────────────────────────
@@ -63,6 +55,8 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       dvPenalty:            new fields.NumberField({ initial: -1, min: -3, max: 0, integer: true }),
       maidenAffiliation:    new fields.StringField({ initial: "", blank: true }),
       martialArtsStyleName: new fields.StringField({ initial: "", blank: true }),
+      martialArtsElement:   new fields.StringField({ initial: "", blank: true }),
+      grantsMastery:        new fields.BooleanField({ initial: false }),
       durationFormula:      new fields.StringField({ initial: "", blank: true }),
       // charmUid of the Solar charm this Abyssal (or other splat) charm mirrors.
       // The Mirror keyword indicates it exists; this field provides the stable link.
@@ -107,6 +101,25 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       // "" = not a perfect defense; "dodge" | "parry" | "soak" = which type
       perfectDefenseType: new fields.StringField({ initial: "", blank: true }),
 
+      hasFoi: new fields.BooleanField({ initial: false }),
+      grantsCelestialMA: new fields.BooleanField({ initial: false }),
+
+      // ── Countermagic ─────────────────────────────────────────────────────
+      isCountermagic:        new fields.BooleanField({ initial: false }),
+      countermagicTier:      new fields.NumberField({ integer: true, min: 1, max: 3, initial: 1, nullable: true }),
+      countermagicTradition: new fields.StringField({
+        choices: ["sorcery", "necromancy", "both"],
+        initial: "sorcery",
+        nullable: true
+      }),
+      flawsOfInvulnerability: new fields.ArrayField(
+        new fields.SchemaField({
+          type:  new fields.StringField({ initial: "" }),
+          label: new fields.StringField({ initial: "" }),
+        }),
+        { initial: [] }
+      ),
+
       // ── Activation Tracking ──────────────────────────────────────────────
       active: new fields.BooleanField({ initial: false }),
 
@@ -146,15 +159,28 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         minStrength:    new fields.StringField({ initial: "0" }),
         minDexterity:   new fields.StringField({ initial: "0" }),
         minMartialArts: new fields.StringField({ initial: "0" }),
-        tags:           new fields.ArrayField(new fields.StringField({ blank: true }))
+        tags:              new fields.ArrayField(new fields.StringField({ blank: true })),
+        areaAttack:        new fields.BooleanField({ initial: false }),
+        areaShape:         new fields.StringField({ initial: "circle" }),
+        areaSize:          new fields.StringField({ initial: "3" }),
+        areaResistPool:    new fields.StringField({ initial: "stamina+resistance" }),
+        areaResistDifficulty: new fields.StringField({ initial: "1" }),
+        areaResistEffect:  new fields.StringField({ initial: "avoid" })
       }),
+
+      // ── Activation Resolution ────────────────────────────────────────────────
+      // Number of units resolved during the last per-unit mote activation dialog
+      // (e.g. how many dice the player bought). Stored so attackBonus effects can
+      // scale their values by motes-spent without opening a second picker.
+      resolvedUnits: new fields.NumberField({ initial: 0, min: 0, integer: true }),
 
       // ── Mechanical Payload Schemas ──────────────────────────────────────────
       // All `enabled` flags default false — existing charms are unaffected.
 
       // M1 — Permanent health level grants (Ox-Body family)
       healthGrant: new fields.SchemaField({
-        enabled: new fields.BooleanField({ initial: false }),
+        enabled:        new fields.BooleanField({ initial: false }),
+        selectedOption: new fields.NumberField({ initial: 0, min: 0, integer: true }),
         options: new fields.ArrayField(new fields.SchemaField({
           label: new fields.StringField({ initial: "", blank: true }),
           zero:  new fields.NumberField({ initial: 0, min: 0, integer: true }),
@@ -231,6 +257,18 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         costPerAction: new fields.NumberField({ initial: 2, min: 0, integer: true })
       }),
 
+      // M18 — Keyword effect magnitudes (Emotion / Compulsion / Servitude)
+      // Override defaults when a charm specifies non-standard penalty values.
+      // All sub-fields default to the rules-standard value so existing charms
+      // need no data migration.
+      keywordEffects: new fields.SchemaField({
+        emotionPenaltyMinor: new fields.NumberField({ integer: true, min: 0, initial: 1 }),
+        emotionPenaltyMajor: new fields.NumberField({ integer: true, min: 0, initial: 3 }),
+        compulsionWpCost:    new fields.NumberField({ integer: true, min: 0, initial: 1 }),
+        servitudeWpCost:     new fields.NumberField({ integer: true, min: 0, initial: 1 }),
+        servitudeGmRemoval:  new fields.BooleanField({ initial: true })
+      }),
+
       // M10 — DV bonus and DV penalty negation
       dvBonus: new fields.SchemaField({
         enabled:            new fields.BooleanField({ initial: false }),
@@ -257,7 +295,14 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         accuracyDice:            new fields.StringField({ initial: "", blank: true }),
         accuracySuccesses:       new fields.StringField({ initial: "", blank: true }),
         damageDice:              new fields.StringField({ initial: "", blank: true }),
-        ignoreAccuracyPenalties: new fields.BooleanField({ initial: false })
+        // When true, damageDice is multiplied by resolvedUnits at roll time.
+        damageDicePerMote:       new fields.BooleanField({ initial: false }),
+        // Post-soak damage dice bypass the soak calculation entirely.
+        postSoakDamageDice:      new fields.StringField({ initial: "", blank: true }),
+        // When true, postSoakDamageDice is multiplied by resolvedUnits at roll time.
+        postSoakDicePerMote:     new fields.BooleanField({ initial: false }),
+        ignoreAccuracyPenalties: new fields.BooleanField({ initial: false }),
+        ignoreRangeBand:         new fields.BooleanField({ initial: false })
       }),
 
       // M13 — Speed modifier

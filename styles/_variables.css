@@ -60,6 +60,34 @@
 
   /* ── Misc ─────────────────────────────────────────────────────────────────── */
   --ex2e-border-radius:    4px;
+  --ex2e-border-radius-sm: 2px;
   --ex2e-border-radius-lg: 8px;
   --ex2e-transition-fast:  0.15s ease;
+}
+
+/* ── Light mode overrides ──────────────────────────────────────────────── */
+body.ex2e-light-mode {
+  /* Background scale — parchment base */
+  --ex2e-bg-darkest: #faf4e8;
+  --ex2e-bg-dark:    #f2e8d0;
+  --ex2e-bg-medium:  #e8dcc0;
+  --ex2e-bg-panel:   #ddd0a8;
+  --ex2e-bg-hover:   rgba(160, 120, 32, 0.1);
+
+  /* Text */
+  --ex2e-text-primary:   #1a1008;
+  --ex2e-text-secondary: #4a3018;
+  --ex2e-text-muted:     #7a5c2c;
+
+  /* Gold — keep main gold, darken for readability on light bg */
+  --ex2e-gold-bright: #b88a00;
+  --ex2e-gold-main:   #8a6800;
+  --ex2e-gold-mid:    #6a5010;
+  --ex2e-gold-dark:   #c8a84a;
+  --ex2e-gold-shadow: rgba(100, 75, 10, 0.35);
+
+  /* Borders */
+  --ex2e-border-color: rgba(120, 90, 20, 0.45);
+  --ex2e-glow-gold:    0 0 8px rgba(160, 120, 32, 0.4);
+  --ex2e-shadow-md:    0 2px 8px rgba(80, 60, 10, 0.25);
 }

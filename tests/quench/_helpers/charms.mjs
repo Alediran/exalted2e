@@ -36,14 +36,22 @@ export async function createTempCharm(actor, {
   // StringField default. Non-string values are coerced via String().
   attack      = null
 } = {}) {
-  const fullCost = {
-    motes:            cost.motes            ?? 0,
-    willpower:        cost.willpower        ?? 0,
-    bashingHealth:    cost.bashingHealth    ?? 0,
-    lethalHealth:     cost.lethalHealth     ?? 0,
-    aggravatedHealth: cost.aggravatedHealth ?? 0,
-    xp:               cost.xp               ?? 0
-  };
+  // If caller passes { formula }, use it directly.
+  // Otherwise synthesise a formula from the legacy individual fields.
+  let costFormula = cost.formula ?? "";
+  if (!costFormula) {
+    const parts = [];
+    if (cost.motes > 0)            parts.push(`${cost.motes}m`);
+    if (cost.willpower > 0)        parts.push(`${cost.willpower}wp`);
+    if (cost.bashingHealth > 0)    parts.push(`${cost.bashingHealth}bhl`);
+    if (cost.lethalHealth > 0)     parts.push(`${cost.lethalHealth}lhl`);
+    if (cost.aggravatedHealth > 0) parts.push(`${cost.aggravatedHealth}ahl`);
+    if (cost.xp > 0)               parts.push(`${cost.xp}xp`);
+    if (cost.permanentEssence > 0) parts.push("perm ess");
+    if (cost.permanentWillpower > 0) parts.push("perm wp");
+    costFormula = parts.join(", ") || "—";
+  }
+  const fullCost = { formula: costFormula };
 
   const system = {
     cost: fullCost,

@@ -55,8 +55,7 @@ export function registerTerrestrialBreeding(context) {
       await actor.createEmbeddedDocuments("Item", [{
         name: "Breeding",
         type: "background",
-        system: { value: 3 },
-        flags: { exalted2e: { isBreeding: true, gmOnlyRemoval: true } }
+        system: { value: 3, backgroundType: "breeding" }
       }]);
 
       assert.deepEqual(actor.system.breedingBonus,
@@ -83,13 +82,12 @@ export function registerTerrestrialBreeding(context) {
       await actor.createEmbeddedDocuments("Item", [{
         name: "Breeding",
         type: "background",
-        system: { value: 1 },
-        flags: { exalted2e: { isBreeding: true, gmOnlyRemoval: true } }
+        system: { value: 1, backgroundType: "breeding" }
       }]);
 
       // After rating 1
       assert.equal(actor.system.breedingBonus.rating, 1);
-      const bg = actor.items.find(i => i.type === "background" && i.getFlag("exalted2e", "isBreeding"));
+      const bg = actor.items.find(i => i.type === "background" && i.system.backgroundType === "breeding");
 
       await bg.update({ "system.value": 4 });
 
@@ -107,8 +105,7 @@ export function registerTerrestrialBreeding(context) {
       await actor.createEmbeddedDocuments("Item", [{
         name: "Breeding",
         type: "background",
-        system: { value: 5 },
-        flags: { exalted2e: { isBreeding: true } }
+        system: { value: 5, backgroundType: "breeding" }
       }]);
 
       assert.deepEqual(actor.system.breedingBonus,

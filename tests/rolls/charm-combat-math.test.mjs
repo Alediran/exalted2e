@@ -1,8 +1,6 @@
 import { describe, it, expect } from "vitest";
 import {
   computeAttackCharmBonus,
-  computeSpeedModifier,
-  computeExtraActionsMax,
 } from "../../module/rolls/charm-combat-math.mjs";
 
 // ── computeAttackCharmBonus ──────────────────────────────────────────
@@ -12,7 +10,9 @@ describe("computeAttackCharmBonus", () => {
       extraAccuracyDice: 0,
       extraAccuracySuccesses: 0,
       extraDamageDice: 0,
+      extraPostSoakDamageDice: 0,
       ignorePenalties: false,
+      ignoreRangeBand: false,
     });
   });
 
@@ -68,75 +68,57 @@ describe("computeAttackCharmBonus", () => {
     expect(r.extraAccuracyDice).toBe(0);
     expect(r.ignorePenalties).toBe(false);
   });
-});
 
-// ── computeSpeedModifier ─────────────────────────────────────────────
-describe("computeSpeedModifier", () => {
-  it("returns baseSpeed unchanged when no charms", () => {
-    expect(computeSpeedModifier([], 5)).toBe(5);
+  it("sets ignoreRangeBand when any enabled charm has ignoreRangeBand", () => {
+    const charms = [{ system: { attackBonus: {
+      enabled: true, accuracyDice: "", accuracySuccesses: "", damageDice: "",
+      ignoreAccuracyPenalties: false, ignoreRangeBand: true
+    }}}];
+    expect(computeAttackCharmBonus(charms, {}).ignoreRangeBand).toBe(true);
   });
 
-  it("applies negative delta", () => {
-    const charms = [{ system: { speedModifier: { enabled: true, delta: -1, minimum: 3, perMotes: 0 }}}];
-    expect(computeSpeedModifier(charms, 5)).toBe(4);
-  });
-
-  it("clamps to minimum", () => {
-    const charms = [{ system: { speedModifier: { enabled: true, delta: -5, minimum: 3, perMotes: 0 }}}];
-    expect(computeSpeedModifier(charms, 5)).toBe(3);
-  });
-
-  it("stacks multiple deltas and takes global minimum", () => {
-    const charms = [
-      { system: { speedModifier: { enabled: true, delta: -1, minimum: 3, perMotes: 0 }}},
-      { system: { speedModifier: { enabled: true, delta: -1, minimum: 4, perMotes: 0 }}}
-    ];
-    expect(computeSpeedModifier(charms, 5)).toBe(4);
-  });
-
-  it("skips disabled charms", () => {
-    const charms = [{ system: { speedModifier: { enabled: false, delta: -3, minimum: 3, perMotes: 0 }}}];
-    expect(computeSpeedModifier(charms, 5)).toBe(5);
-  });
-
-  it("no minimum field on charm — floors at 3 (fastest legal speed in 2e)", () => {
-    const charms = [{ system: { speedModifier: { enabled: true, delta: -10, perMotes: 0 }}}];
-    expect(computeSpeedModifier(charms, 5)).toBe(3);
-  });
-
-  it("deltaFormula overrides delta when present", () => {
-    const charms = [{ system: { speedModifier: { enabled: true, delta: -1, deltaFormula: "-2", minimum: 3, perMotes: 0 }}}];
-    expect(computeSpeedModifier(charms, 6, {})).toBe(4);
+  it("ignoreRangeBand stays false when disabled charm has it", () => {
+    const charms = [{ system: { attackBonus: {
+      enabled: false, accuracyDice: "", accuracySuccesses: "", damageDice: "",
+      ignoreAccuracyPenalties: false, ignoreRangeBand: true
+    }}}];
+    expect(computeAttackCharmBonus(charms, {}).ignoreRangeBand).toBe(false);
   });
 });
 
-// ── computeExtraActionsMax ───────────────────────────────────────────
-describe("computeExtraActionsMax", () => {
-  it("returns 0 when no charms", () => {
-    expect(computeExtraActionsMax([], {})).toBe(0);
+describe("computeAttackCharmBonus — post-soak damage dice", () => {
+  it("sums postSoakDamageDice from enabled charms", () => {
+    const charms = [{ system: { attackBonus: {
+      enabled: true, accuracyDice: "", accuracySuccesses: "", damageDice: "",
+      postSoakDamageDice: "3", ignoreAccuracyPenalties: false
+    }}}];
+    expect(computeAttackCharmBonus(charms, {}).extraPostSoakDamageDice).toBe(3);
   });
 
-  it("integer maxFormula resolves directly", () => {
-    const charms = [{ system: { extraActions: { enabled: true, maxFormula: "2", costPerAction: 0 }}}];
-    expect(computeExtraActionsMax(charms, {})).toBe(2);
-  });
-
-  it("uses the highest max from all active charms", () => {
+  it("stacks post-soak across multiple charms", () => {
     const charms = [
-      { system: { extraActions: { enabled: true, maxFormula: "3", costPerAction: 0 }}},
-      { system: { extraActions: { enabled: true, maxFormula: "5", costPerAction: 0 }}}
+      { system: { attackBonus: { enabled: true, accuracyDice: "", accuracySuccesses: "", damageDice: "", postSoakDamageDice: "2", ignoreAccuracyPenalties: false }}},
+      { system: { attackBonus: { enabled: true, accuracyDice: "", accuracySuccesses: "", damageDice: "", postSoakDamageDice: "1", ignoreAccuracyPenalties: false }}}
     ];
-    expect(computeExtraActionsMax(charms, {})).toBe(5);
+    expect(computeAttackCharmBonus(charms, {}).extraPostSoakDamageDice).toBe(3);
   });
 
-  it("skips disabled charms", () => {
-    const charms = [{ system: { extraActions: { enabled: false, maxFormula: "10", costPerAction: 0 }}}];
-    expect(computeExtraActionsMax(charms, {})).toBe(0);
+  it("pre-scaled per-mote value is used as-is (scaling done by caller)", () => {
+    // The caller (rollAttack) multiplies by resolvedUnits before passing in.
+    // computeAttackCharmBonus sees already-scaled integers.
+    const charms = [{ system: { attackBonus: {
+      enabled: true, accuracyDice: "", accuracySuccesses: "", damageDice: "",
+      postSoakDamageDice: "4", ignoreAccuracyPenalties: false
+    }}}];
+    expect(computeAttackCharmBonus(charms, {}).extraPostSoakDamageDice).toBe(4);
   });
 
-  it("empty maxFormula yields 0", () => {
-    const charms = [{ system: { extraActions: { enabled: true, maxFormula: "", costPerAction: 0 }}}];
-    expect(computeExtraActionsMax(charms, {})).toBe(0);
+  it("resolves formula token in postSoakDamageDice", () => {
+    const charms = [{ system: { attackBonus: {
+      enabled: true, accuracyDice: "", accuracySuccesses: "", damageDice: "",
+      postSoakDamageDice: "@ess", ignoreAccuracyPenalties: false
+    }}}];
+    expect(computeAttackCharmBonus(charms, { ess: 3 }).extraPostSoakDamageDice).toBe(3);
   });
 });
 
@@ -170,14 +152,3 @@ describe("computeAttackCharmBonus — formula evaluation", () => {
   });
 });
 
-describe("computeExtraActionsMax — formula evaluation", () => {
-  it("@ess formula resolves from rollData", () => {
-    const charms = [{ system: { extraActions: { enabled: true, maxFormula: "@ess", costPerAction: 0 }}}];
-    expect(computeExtraActionsMax(charms, { ess: 3 })).toBe(3);
-  });
-
-  it("missing token falls back to 0", () => {
-    const charms = [{ system: { extraActions: { enabled: true, maxFormula: "@ess", costPerAction: 0 }}}];
-    expect(computeExtraActionsMax(charms, {})).toBe(0);
-  });
-});

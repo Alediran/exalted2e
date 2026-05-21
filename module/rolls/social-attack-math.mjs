@@ -1,11 +1,8 @@
 /**
  * Verify each attacker claim against the defender's actual data.
- * Returns a map of { claimKey: boolean } matching the input shape.
- *
- * Per-Virtue and per-Intimacy specificity is intentionally coarse —
- * "supportingVirtue" is a single boolean even though the defender may
- * have multiple Virtues at ≥3. Refining to per-Virtue addressing is
- * a 3c-or-later concern.
+ * Returns { supportingIntimacy, opposingIntimacy, supportingVirtue, ... } booleans.
+ * Intimacy claims take specific item IDs (supportingIntimacyId / opposingIntimacyId);
+ * the item must exist on the defender and be of type "intimacy".
  */
 export function verifyClaims(claims, defender) {
   const items       = defender.items ?? [];
@@ -13,10 +10,10 @@ export function verifyClaims(claims, defender) {
   const motivation  = defender.system?.motivation ?? "";
   const isCharacter = defender.type === "character";
   return {
-    supportingIntimacy:   !!claims.supportingIntimacy &&
-      items.some(i => i.type === "intimacy" && i.system?.positive === true),
-    opposingIntimacy:     !!claims.opposingIntimacy &&
-      items.some(i => i.type === "intimacy" && i.system?.positive === false),
+    supportingIntimacy:   !!claims.supportingIntimacyId &&
+      items.some(i => i.id === claims.supportingIntimacyId && i.type === "intimacy"),
+    opposingIntimacy:     !!claims.opposingIntimacyId &&
+      items.some(i => i.id === claims.opposingIntimacyId && i.type === "intimacy"),
     supportingVirtue:     !!claims.supportingVirtue &&
       isCharacter && Object.values(virtues).some(v => (v?.value ?? 0) >= 3),
     opposingVirtue:       !!claims.opposingVirtue &&

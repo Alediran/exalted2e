@@ -85,6 +85,42 @@
         {{/each}}
       </div>
     </div>
+
+    {{#if (includes mode.tags "Area")}}
+    <div class="area-config-block" style="margin-top:8px">
+      <div class="field-group">
+        <label>{{localize "EX2E.AreaShape"}}</label>
+        <select name="system.modes.{{mIdx}}.areaShape" {{#unless @root.isEditable}}disabled{{/unless}}>
+          <option value="circle" {{#if (eq mode.areaShape "circle")}}selected{{/if}}>{{localize "EX2E.AreaShapeCircle"}}</option>
+          <option value="cone"   {{#if (eq mode.areaShape "cone")}}selected{{/if}}>{{localize "EX2E.AreaShapeCone"}}</option>
+          <option value="rect"   {{#if (eq mode.areaShape "rect")}}selected{{/if}}>{{localize "EX2E.AreaShapeRect"}}</option>
+          <option value="ray"    {{#if (eq mode.areaShape "ray")}}selected{{/if}}>{{localize "EX2E.AreaShapeRay"}}</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.AreaSize"}}</label>
+        <input type="text" name="system.modes.{{mIdx}}.areaSize" value="{{mode.areaSize}}"
+               {{#unless @root.isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.AreaResistPool"}}</label>
+        <input type="text" name="system.modes.{{mIdx}}.areaResistPool" value="{{mode.areaResistPool}}"
+               {{#unless @root.isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.AreaResistDifficulty"}}</label>
+        <input type="text" name="system.modes.{{mIdx}}.areaResistDifficulty" value="{{mode.areaResistDifficulty}}"
+               {{#unless @root.isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.AreaResistEffect"}}</label>
+        <select name="system.modes.{{mIdx}}.areaResistEffect" {{#unless @root.isEditable}}disabled{{/unless}}>
+          <option value="avoid"  {{#if (eq mode.areaResistEffect "avoid")}}selected{{/if}}>{{localize "EX2E.AreaResistEffectAvoid"}}</option>
+          <option value="reduce" {{#if (eq mode.areaResistEffect "reduce")}}selected{{/if}}>{{localize "EX2E.AreaResistEffectReduce"}}</option>
+        </select>
+      </div>
+    </div>
+    {{/if}}
   </div>
   {{/each}}
 
@@ -114,6 +150,36 @@
         {{#unless isEditable}}disabled{{/unless}}> {{localize "EX2E.CurrentlyAttuned"}}
     </label>
   </div>
+  <div class="field-group">
+    <label>{{localize "EX2E.ArtifactRating"}}</label>
+    <input type="hidden" name="system.artifactRating" value="{{system.artifactRating}}">
+    {{dotRating name="system.artifactRating" value=system.artifactRating max=5 min=0}}
+  </div>
+  <div class="field-group">
+    <label>{{localize "EX2E.HearthstoneSlots"}}</label>
+    <input type="number" name="system.hearthstoneSlots" value="{{system.hearthstoneSlots}}"
+           min="0" max="3" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  {{#if system.hearthstoneSlots}}
+  <div class="hearthstone-socket-rows" style="margin-top:4px">
+    {{#each socketedSlots as |slot|}}
+    <div class="hearthstone-slot-row">
+      {{#if slot.filled}}
+      <span class="socket-label">⬡ {{slot.stoneName}} ★{{slot.stoneRating}}</span>
+      {{#if @root.isEditable}}
+      <button class="socket-btn" data-action="unsocketHearthstone" data-slot-index="{{slot.index}}">×</button>
+      {{/if}}
+      {{else}}
+      {{#if @root.isEditable}}
+      <button class="socket-btn" data-action="socketHearthstone" data-slot-index="{{slot.index}}">○ {{localize "EX2E.SocketHearthstone"}}</button>
+      {{else}}
+      <span class="socket-label socket-empty">○ —</span>
+      {{/if}}
+      {{/if}}
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
   {{/if}}
 
   <!-- ═══════════════ DESCRIPTION ═══════════════ -->

@@ -77,7 +77,7 @@ export function registerCharmActivation(context) {
     it("[55] spends motes (peripheral first); ledger records moteBreakdown", async function () {
       const actor = await setupCharmActor();
       const charm = await createTempCharm(actor, {
-        cost: { motes: 5 }, duration: "instant"
+        cost: { formula: "5m" }, duration: "instant"
       });
       const ok = await charm.activateCharm({ skipXpConfirm: true });
       assert.equal(ok, true, "activation succeeded");
@@ -98,7 +98,7 @@ export function registerCharmActivation(context) {
     it("[56] overflows peripheral→personal; ledger records the split", async function () {
       const actor = await setupCharmActor({ peripheral: 2, personal: 10 });
       const charm = await createTempCharm(actor, {
-        cost: { motes: 5 }, duration: "instant"
+        cost: { formula: "5m" }, duration: "instant"
       });
       await charm.activateCharm({ skipXpConfirm: true });
       assert.equal(actor.system.motes.peripheral.value, 0, "peripheral drained");
@@ -112,7 +112,7 @@ export function registerCharmActivation(context) {
     it("[57] spends willpower", async function () {
       const actor = await setupCharmActor();
       const charm = await createTempCharm(actor, {
-        cost: { willpower: 2 }, duration: "instant"
+        cost: { formula: "2wp" }, duration: "instant"
       });
       await charm.activateCharm({ skipXpConfirm: true });
       assert.equal(actor.system.willpower.value, 3, "wp 5−2=3");
@@ -126,7 +126,7 @@ export function registerCharmActivation(context) {
       // Snapshot lethal box count BEFORE activation so we can verify damage applied.
       const lethalBefore = actor.system.health?.lethal ?? 0;
       const charm = await createTempCharm(actor, {
-        cost: { lethalHealth: 1 }, duration: "instant"
+        cost: { formula: "1lhl" }, duration: "instant"
       });
       await charm.activateCharm({ skipXpConfirm: true });
       const lethalAfter = actor.system.health?.lethal ?? 0;
@@ -139,7 +139,7 @@ export function registerCharmActivation(context) {
     it("[59] spends XP after confirm", async function () {
       const actor = await setupCharmActor();
       const charm = await createTempCharm(actor, {
-        cost: { xp: 3 }, duration: "instant"
+        cost: { formula: "3xp" }, duration: "instant"
       });
       stubXpConfirm([true]);  // confirm yes
       await charm.activateCharm();
@@ -152,7 +152,7 @@ export function registerCharmActivation(context) {
     it("[60] cancelled XP confirm: no spend, no chat card, returns false", async function () {
       const actor = await setupCharmActor();
       const charm = await createTempCharm(actor, {
-        cost: { motes: 5, willpower: 1, xp: 3 }, duration: "instant"
+        cost: { formula: "5m, 1wp, 3xp" }, duration: "instant"
       });
       const messagesBefore = game.messages.size;
       stubXpConfirm([false]);  // cancel
@@ -169,7 +169,7 @@ export function registerCharmActivation(context) {
     it("[61] reverse refunds across both pools after a peripheral→personal overflow", async function () {
       const actor = await setupCharmActor({ peripheral: 2, personal: 10 });
       const charm = await createTempCharm(actor, {
-        cost: { motes: 5 }, duration: "instant"
+        cost: { formula: "5m" }, duration: "instant"
       });
       await charm.activateCharm({ skipXpConfirm: true });
       assert.equal(actor.system.motes.peripheral.value, 0);
@@ -188,11 +188,157 @@ export function registerCharmActivation(context) {
         "ledger reversed flag flipped");
     });
 
+    // ── Stackable keyword accumulation ────────────────────────────────────────
+
+    // 268. First activation of a Stackable charm sets active + stackCount = 1.
+    it("[268] stackable: first activation sets active=true and stackCount=1", async function () {
+      const actor = await setupCharmActor();
+      const charm = await createTempCharm(actor, {
+        cost: { formula: "2m" }, duration: "oneScene", keywords: ["Stackable"]
+      });
+      await charm.activateCharm({ skipXpConfirm: true });
+      assert.equal(charm.system.active,     true, "charm is now active");
+      assert.equal(charm.system.stackCount, 1,    "stackCount is 1");
+      assert.equal(actor.system.motes.peripheral.value, 28, "2m spent");
+    });
+
+    // 269. Second activation on an active Stackable charm adds a stack without toggling off.
+    it("[269] stackable: second activation increments stackCount to 2 and stays active", async function () {
+      const actor = await setupCharmActor();
+      const charm = await createTempCharm(actor, {
+        cost: { formula: "2m" }, duration: "oneScene", keywords: ["Stackable"]
+      });
+      await charm.activateCharm({ skipXpConfirm: true });
+      await charm.activateCharm({ skipXpConfirm: true });
+      assert.equal(charm.system.active,     true, "charm remains active");
+      assert.equal(charm.system.stackCount, 2,    "stackCount is 2");
+      assert.equal(actor.system.motes.peripheral.value, 26, "4m total spent");
+    });
+
+    // 270. Reversing a stacked activation decrements stackCount; charm stays active.
+    it("[270] stackable: reversing a stack decrements stackCount and keeps charm active", async function () {
+      const actor = await setupCharmActor();
+      const charm = await createTempCharm(actor, {
+        cost: { formula: "2m" }, duration: "oneScene", keywords: ["Stackable"]
+      });
+      await charm.activateCharm({ skipXpConfirm: true });
+      await charm.activateCharm({ skipXpConfirm: true });
+
+      // Reverse the second activation card.
+      const cards = [...game.messages].filter(
+        m => m.flags?.exalted2e?.charmActivation?.charmId === charm.id
+      );
+      const secondCard = cards[cards.length - 1];
+      await clickReverseButton(secondCard);
+
+      assert.equal(charm.system.active,     true, "charm stays active with 1 remaining stack");
+      assert.equal(charm.system.stackCount, 1,    "stackCount decremented to 1");
+      assert.equal(actor.system.motes.peripheral.value, 28, "2m refunded");
+    });
+
+    // 271. Reversing the last stack sets active=false and stackCount=0.
+    it("[271] stackable: reversing the last stack deactivates the charm", async function () {
+      const actor = await setupCharmActor();
+      const charm = await createTempCharm(actor, {
+        cost: { formula: "2m" }, duration: "oneScene", keywords: ["Stackable"]
+      });
+      await charm.activateCharm({ skipXpConfirm: true });
+
+      const card = chatMessageByFlag("charmActivation", v => v?.charmId === charm.id);
+      await clickReverseButton(card);
+
+      assert.equal(charm.system.active,     false, "charm deactivated");
+      assert.equal(charm.system.stackCount, 0,     "stackCount reset to 0");
+      assert.equal(actor.system.motes.peripheral.value, 30, "2m fully refunded");
+    });
+
+    // ── Combined activation card ───────────────────────────────────────────────
+
+    // 272. sendCombinedActivationCard posts one message with combined flag + entries.
+    it("[272] sendCombinedActivationCard posts one consolidated card with two entries", async function () {
+      const actor = await setupCharmActor({ peripheral: 10 });
+      const charm1 = await createTempCharm(actor, {
+        cost: { formula: "3m" }, duration: "instant"
+      });
+      const charm2 = await createTempCharm(actor, {
+        cost: { formula: "2m" }, duration: "instant"
+      });
+
+      const entries = [
+        {
+          charmId:   charm1.id,
+          charmName: charm1.name,
+          charmImg:  charm1.img,
+          actorId:   actor.id,
+          ledger: { moteBreakdown: { fromPrimary: 3, fromSecondary: 0, primaryPool: "peripheral", secondaryPool: "personal" },
+                    willpower: 0, bashing: 0, lethal: 0, aggravated: 0, xp: 0 }
+        },
+        {
+          charmId:   charm2.id,
+          charmName: charm2.name,
+          charmImg:  charm2.img,
+          actorId:   actor.id,
+          ledger: { moteBreakdown: { fromPrimary: 2, fromSecondary: 0, primaryPool: "peripheral", secondaryPool: "personal" },
+                    willpower: 0, bashing: 0, lethal: 0, aggravated: 0, xp: 0 }
+        }
+      ];
+
+      const messagesBefore = game.messages.size;
+      const { sendCombinedActivationCard } = await import(
+        "../../../module/documents/item.mjs"
+      );
+      await sendCombinedActivationCard(actor, entries, { title: "Test Combo" });
+
+      assert.equal(game.messages.size, messagesBefore + 1, "exactly one message posted");
+      const record = lastChatMessage().flags?.exalted2e?.charmActivation;
+      assert.ok(record?.combined,          "combined flag set");
+      assert.equal(record.reversed, false, "not yet reversed");
+      assert.equal(record.entries.length, 2, "two entries");
+      assert.equal(record.entries[0].charmId, charm1.id, "first entry is charm1");
+      assert.equal(record.entries[1].charmId, charm2.id, "second entry is charm2");
+    });
+
+    // 273. Reversing a combined card refunds all entries and flips the flag.
+    it("[273] combined card Reverse refunds costs for all entries", async function () {
+      const actor = await setupCharmActor({ peripheral: 10 });
+      const charm1 = await createTempCharm(actor, {
+        cost: { formula: "3m" }, duration: "instant"
+      });
+      const charm2 = await createTempCharm(actor, {
+        cost: { formula: "2m" }, duration: "instant"
+      });
+
+      // Spend the motes as activateCharm would, to get real breakdown objects.
+      const breakdown1 = await actor.spendMotes(3, "peripheral");
+      const breakdown2 = await actor.spendMotes(2, "peripheral");
+      assert.equal(actor.system.motes.peripheral.value, 5, "5m spent before reverse");
+
+      const entries = [
+        { charmId: charm1.id, charmName: charm1.name, charmImg: charm1.img, actorId: actor.id,
+          ledger: { moteBreakdown: breakdown1, willpower: 0, bashing: 0, lethal: 0, aggravated: 0, xp: 0 } },
+        { charmId: charm2.id, charmName: charm2.name, charmImg: charm2.img, actorId: actor.id,
+          ledger: { moteBreakdown: breakdown2, willpower: 0, bashing: 0, lethal: 0, aggravated: 0, xp: 0 } }
+      ];
+
+      const { sendCombinedActivationCard } = await import(
+        "../../../module/documents/item.mjs"
+      );
+      const card = await sendCombinedActivationCard(actor, entries, { title: "Test Combo" });
+
+      await clickReverseButton(card);
+
+      assert.equal(actor.system.motes.peripheral.value, 10,
+        "all 5m refunded — peripheral back to 10");
+      const reloaded = game.messages.get(card.id);
+      assert.equal(reloaded.flags.exalted2e.charmActivation.reversed, true,
+        "combined card marked reversed");
+    });
+
     // 8. Reverse on already-reversed activation is a no-op.
     it("[62] reverse on already-reversed activation is a no-op", async function () {
       const actor = await setupCharmActor();
       const charm = await createTempCharm(actor, {
-        cost: { motes: 5 }, duration: "instant"
+        cost: { formula: "5m" }, duration: "instant"
       });
       await charm.activateCharm({ skipXpConfirm: true });
       const card = chatMessageByFlag("charmActivation",

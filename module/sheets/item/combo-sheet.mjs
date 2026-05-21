@@ -1,4 +1,5 @@
 import { editImageAction } from "../_edit-image.mjs";
+import { moteCostString } from "../../rolls/activation-ledger.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -75,7 +76,7 @@ export class ComboSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   _charmCostMeta(charm) {
     const c = charm.system?.cost ?? {};
     const parts = [];
-    if (c.motes)            parts.push(`${c.motes}m`);
+    const mStr = moteCostString(c); if (mStr) parts.push(mStr);
     if (c.willpower)        parts.push(`+${c.willpower}wp`);
     if (c.bashingHealth)    parts.push(`${c.bashingHealth}b`);
     if (c.lethalHealth)     parts.push(`${c.lethalHealth}l`);
@@ -96,6 +97,34 @@ export class ComboSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       callbacks:    { drop: this._onDrop.bind(this) }
     });
     dd.bind(this.element);
+  }
+
+  // ── Combo-Basic / Form-type validation helpers ────────────────────────
+  static #isReflexiveForCombo(charm) {
+    return charm.system?.charmType === "reflexive" ||
+           (charm.system?.keywords ?? []).includes("Combo-Basic");
+  }
+
+  static #isComboBasic(charm) {
+    return (charm.system?.keywords ?? []).includes("Combo-Basic");
+  }
+
+  // Returns a localised error string, or null when the addition is legal.
+  static #validateAdd(incoming, existing) {
+    if (incoming.system?.charmType === "form" && existing.some(c => c.system?.charmType === "form"))
+      return game.i18n.localize("EX2E.ComboOneFormType");
+    if (ComboSheet.#isComboBasic(incoming) && existing.some(c => !ComboSheet.#isReflexiveForCombo(c)))
+      return game.i18n.localize("EX2E.ComboBasicOnlyWithReflexive");
+    if (!ComboSheet.#isReflexiveForCombo(incoming) && existing.some(c => ComboSheet.#isComboBasic(c)))
+      return game.i18n.localize("EX2E.ComboBasicOnlyWithReflexive");
+    return null;
+  }
+
+  // Resolve UIDs to charm items for validation.
+  #existingCharms(actor) {
+    return (this.document.system.charmUids ?? [])
+      .map(uid => actor.items.find(i => i.type === "charm" && i.system?.charmUid === uid))
+      .filter(Boolean);
   }
 
   async _onDrop(event) {
@@ -121,13 +150,20 @@ export class ComboSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       return;
     }
 
+    const err = ComboSheet.#validateAdd(dropped, this.#existingCharms(actor));
+    if (err) { ui.notifications.warn(err); return; }
+
     const uid = dropped.system?.charmUid;
     if (!uid) return;
 
-    const existing = this.document.system.charmUids ?? [];
+    const existing      = this.document.system.charmUids  ?? [];
+    const existingNames = this.document.system.charmNames ?? [];
     if (existing.includes(uid)) return;   // no-op on duplicate
 
-    await this.document.update({ "system.charmUids": [...existing, uid] });
+    await this.document.update({
+      "system.charmUids":  [...existing,      uid],
+      "system.charmNames": [...existingNames, dropped.name ?? ""]
+    });
   }
 
   static async #onAddCharm(event, target) {
@@ -136,9 +172,11 @@ export class ComboSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       ui.notifications.warn(game.i18n.localize("EX2E.ComboUnownedPlaceholder"));
       return;
     }
-    const existing = new Set(this.document.system.charmUids ?? []);
+    const existing      = new Set(this.document.system.charmUids ?? []);
+    const existingItems = this.#existingCharms(actor);
     const candidates = actor.items
       .filter(i => i.type === "charm" && i.system?.charmUid && !existing.has(i.system.charmUid))
+      .filter(i => !ComboSheet.#validateAdd(i, existingItems))
       .map(i => ({ uid: i.system.charmUid, name: i.name, img: i.img }))
       .sort((a, b) => a.name.localeCompare(b.name));
 
@@ -146,35 +184,47 @@ export class ComboSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const picked = await ComboCharmPickerDialog.prompt({ candidates });
     if (!picked?.length) return;
 
+    // Resolve names from the candidates list so we can store them for
+    // compendium-import remapping (see preCreateItem hook in exalted2e.mjs).
+    const nameByUid    = new Map(candidates.map(c => [c.uid, c.name]));
+    const pickedNames  = picked.map(uid => nameByUid.get(uid) ?? "");
+
     // Append — Foundry's array-element merge is unreliable, so clone and
     // rewrite the full array path (matches the pattern documented in
     // CLAUDE.md under "ArrayField updates").
-    const next = [...(this.document.system.charmUids ?? []), ...picked];
-    await this.document.update({ "system.charmUids": next });
+    const next      = [...(this.document.system.charmUids  ?? []), ...picked];
+    const nextNames = [...(this.document.system.charmNames ?? []), ...pickedNames];
+    await this.document.update({ "system.charmUids": next, "system.charmNames": nextNames });
   }
 
   static async #onRemoveCharm(event, target) {
     const idx = parseInt(target.dataset.index);
     if (!Number.isFinite(idx)) return;
-    const next = foundry.utils.deepClone(this.document.system.charmUids ?? []);
+    const next      = foundry.utils.deepClone(this.document.system.charmUids  ?? []);
+    const nextNames = foundry.utils.deepClone(this.document.system.charmNames ?? []);
     next.splice(idx, 1);
-    await this.document.update({ "system.charmUids": next });
+    nextNames.splice(idx, 1);
+    await this.document.update({ "system.charmUids": next, "system.charmNames": nextNames });
   }
 
   static async #onMoveUp(event, target) {
     const idx = parseInt(target.dataset.index);
     if (!Number.isFinite(idx) || idx <= 0) return;
-    const next = foundry.utils.deepClone(this.document.system.charmUids ?? []);
-    [next[idx - 1], next[idx]] = [next[idx], next[idx - 1]];
-    await this.document.update({ "system.charmUids": next });
+    const next      = foundry.utils.deepClone(this.document.system.charmUids  ?? []);
+    const nextNames = foundry.utils.deepClone(this.document.system.charmNames ?? []);
+    [next[idx - 1], next[idx]]           = [next[idx],      next[idx - 1]];
+    [nextNames[idx - 1], nextNames[idx]] = [nextNames[idx], nextNames[idx - 1]];
+    await this.document.update({ "system.charmUids": next, "system.charmNames": nextNames });
   }
 
   static async #onMoveDown(event, target) {
     const idx = parseInt(target.dataset.index);
     if (!Number.isFinite(idx)) return;
-    const next = foundry.utils.deepClone(this.document.system.charmUids ?? []);
+    const next      = foundry.utils.deepClone(this.document.system.charmUids  ?? []);
+    const nextNames = foundry.utils.deepClone(this.document.system.charmNames ?? []);
     if (idx >= next.length - 1) return;
-    [next[idx], next[idx + 1]] = [next[idx + 1], next[idx]];
-    await this.document.update({ "system.charmUids": next });
+    [next[idx],      next[idx + 1]]      = [next[idx + 1],      next[idx]];
+    [nextNames[idx], nextNames[idx + 1]] = [nextNames[idx + 1], nextNames[idx]];
+    await this.document.update({ "system.charmUids": next, "system.charmNames": nextNames });
   }
 }

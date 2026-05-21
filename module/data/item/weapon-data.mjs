@@ -3,11 +3,6 @@ import { computeWielderPenalty } from "./weapon-math.mjs";
 
 const fields = foundry.data.fields;
 
-/**
- * One mode of use for a weapon. A daiklave in both one-handed and two-handed
- * configurations, a bow used as a club, etc. — each is a separate mode with
- * its own stat line and tags.
- */
 function modeSchema() {
   return new fields.SchemaField({
     name:           new fields.StringField({ initial: "" }),
@@ -22,7 +17,12 @@ function modeSchema() {
     minStrength:    new fields.NumberField({ initial: 0, min: 0,  max: 10,  integer: true }),
     minDexterity:   new fields.NumberField({ initial: 0, min: 0,  max: 10,  integer: true }),
     minMartialArts: new fields.NumberField({ initial: 0, min: 0,  max: 10,  integer: true }),
-    tags:           new fields.ArrayField(new fields.StringField({ blank: true }), { initial: [] })
+    tags:              new fields.ArrayField(new fields.StringField({ blank: true }), { initial: [] }),
+    areaShape:         new fields.StringField({ initial: "circle" }),
+    areaSize:          new fields.StringField({ initial: "3" }),
+    areaResistPool:    new fields.StringField({ initial: "stamina+resistance" }),
+    areaResistDifficulty: new fields.StringField({ initial: "1" }),
+    areaResistEffect:  new fields.StringField({ initial: "avoid" })
   });
 }
 
@@ -39,10 +39,15 @@ export class WeaponData extends foundry.abstract.TypeDataModel {
       magicalMaterial:  new fields.StringField({ initial: "", blank: true }),
       attunementCost:   new fields.NumberField({ initial: 0, min: 0, max: 20, integer: true }),
       attuned:          new fields.BooleanField({ initial: false }),
+      artifactRating:   new fields.NumberField({ initial: 0, min: 0, max: 5,  integer: true }),
+      hearthstoneSlots: new fields.NumberField({ initial: 0, min: 0, max: 3,  integer: true }),
+      hearthstones:     new fields.ArrayField(new fields.StringField({ blank: true })),
 
       // ── Description / Equipped ───────────────────────────────────────────
       description: new fields.HTMLField({ initial: "" }),
-      equipped:    new fields.BooleanField({ initial: false })
+      equipped:    new fields.BooleanField({ initial: false }),
+      slot:        new fields.StringField({ initial: "hands", blank: false, choices: ["hands","feet","armor","head","none"] }),
+      martialArtsStyles: new fields.ArrayField(new fields.StringField({ blank: false }))
     };
   }
 
@@ -50,7 +55,6 @@ export class WeaponData extends foundry.abstract.TypeDataModel {
     const meleeTable       = EX2E.getActiveMeleeMaterialBonuses();
     const artifactAttuned  = this.artifact && this.attuned && this.magicalMaterial;
 
-    // Wielder lookup (same wielder for every mode)
     const actor      = this.parent?.parent;
     const hasWielder = actor?.type === "character";
     const wielderStr = hasWielder ? (actor.system.attributes?.strength?.value  ?? 0) : 0;
@@ -58,7 +62,6 @@ export class WeaponData extends foundry.abstract.TypeDataModel {
     const wielderMA  = hasWielder ? (actor.system.abilities?.martialArts?.value ?? 0) : 0;
 
     for (const mode of this.modes) {
-      // Per-mode material bonus table (ranged vs melee decided by this mode's range)
       const materialTable = mode.range > 0
         ? EX2E.rangedMagicalMaterialBonuses[this.magicalMaterial]
         : meleeTable[this.magicalMaterial];

@@ -58,7 +58,10 @@ export class NpcData extends foundry.abstract.TypeDataModel {
       // ── Powers / Notes ──────────────────────────────────────────────────
       powers:   new fields.HTMLField({ initial: "" }),
       notes:    new fields.HTMLField({ initial: "" }),
-      biography: new fields.HTMLField({ initial: "" })
+      biography: new fields.HTMLField({ initial: "" }),
+
+      // ── XP / Purchase Mode ──────────────────────────────────────────────
+      purchaseLocked: new fields.BooleanField({ initial: false })
     };
   }
 

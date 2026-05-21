@@ -17,9 +17,9 @@ import {
 } from "./attack-math.mjs";
 import { computeAttackExcellencyCaps } from "./excellency-math.mjs";
 import { bankStuntReward } from "../combat/stunt-payment.mjs";
-import { computeAttackCharmBonus, computeSpeedModifier, computeExtraActionsMax }
-  from "./charm-combat-math.mjs";
-import { evaluateCharmFormula } from "../documents/item.mjs";
+import { computeAttackCharmBonus } from "./charm-combat-math.mjs";
+import { aggregateExtraActionsMaxFromAEs, aggregateSpeedModifierFromAEs, getMasteryDiscount } from "./charm-passive-math.mjs";
+import { evaluateCharmFormula, sendCombinedActivationCard } from "../documents/item.mjs";
 
 /**
  * ExaltedRoll – Handles the Exalted 2e d10 dice pool mechanic.
@@ -318,6 +318,8 @@ export class ExaltedRoll {
     const firstExcMax  = keyVal;
     const secondExcMax = Math.floor(keyVal / 2);
 
+    const masteryDiscount = isAttrBased ? 0 : getMasteryDiscount(actor, ability);
+
     // Per-attribute max maps for dynamic dialog updates
     const firstExcMaxPerAttr  = isAttrBased
       ? Object.fromEntries(attributeChoices.map(c => [c.value, attributeValues[c.value] ?? 0]))
@@ -325,6 +327,10 @@ export class ExaltedRoll {
     const secondExcMaxPerAttr = isAttrBased
       ? Object.fromEntries(attributeChoices.map(c => [c.value, Math.ceil((attributeValues[c.value] ?? 0) / 2)]))
       : null;
+
+    // Mental influence effects — read actor AEs into dialog
+    const { buildMentalInfluenceEffects } = await import("../ui/social-influence-effects.mjs");
+    const mentalInfluenceEffects = buildMentalInfluenceEffects(actor);
 
     const dialogResult = await RollDialog.prompt({
       pool:                basePoolAfterClarity,
@@ -346,24 +352,89 @@ export class ExaltedRoll {
       clarityInfo: (sys.exaltType === "alchemical" && (_clarityMods.autochthonBonus ?? 0) > 0)
         ? { autochthonBonus: _clarityMods.autochthonBonus }
         : null,
+      virtues: actor.type === "character" ? sys.virtues : null,
+      mentalInfluenceEffects,
       ...options
     });
 
-    
+
     if (!dialogResult) return null;
 
-    // Total mote cost = base + 1st exc (1m/die) + 2nd exc (2m/success) + 3rd exc (4m)
+    // ── Mental influence resistance ──────────────────────────────────────
+    const miPenalty     = dialogResult.mentalInfluencePenalty ?? 0;
+    const miWpToResist  = dialogResult.wpToResist             ?? 0;
+    const miResistedIds = dialogResult.resistedEffectIds       ?? [];
+
+    // NPC actors don't track WP meaningfully — skip deduction silently.
+    // The update must complete before virtue-channel code below re-reads willpower.
+    if (miWpToResist > 0 && actor.type === "character") {
+      const curWP = actor.system.willpower?.value ?? 0;
+      await actor.update({ "system.willpower.value": Math.max(0, curWP - miWpToResist) });
+      if (miResistedIds.length > 0) {
+        const resistedNames = miResistedIds
+          .map(id => actor.effects.get(id)?.name ?? "?")
+          .join(", ");
+        await ChatMessage.create({
+          content: game.i18n.format("EX2E.ResistanceSpentWP", {
+            name:  actor.name,
+            wp:    miWpToResist,
+            charm: resistedNames,
+          }),
+          whisper: ChatMessage.getWhisperRecipients("GM"),
+          speaker: ChatMessage.getSpeaker({ actor }),
+        });
+      }
+      // Delete resisted Compel AEs; Servitude carries gmOnlyRemoval and must be lifted by the GM.
+      const compelIds = miResistedIds.filter(id => {
+        const ae = actor.effects.get(id);
+        return ae?.flags?.exalted2e?.keyword === "Compel";
+      });
+      if (compelIds.length > 0) {
+        const { clearSocialInfluenceEffects } = await import("../ui/social-influence-effects.mjs");
+        await clearSocialInfluenceEffects(actor, compelIds);
+      }
+    }
+
+    // Total mote cost = base + excellency (flat mastery discount applied across all tiers)
     const firstExcDice       = dialogResult.firstExcDice  ?? 0;
     const secondExcSuccesses = dialogResult.secondExcSucc ?? 0;
     const useThirdExcellency = dialogResult.useThirdExc   ?? false;
-    const totalMoteCost      = dialogResult.moteCost
-      + firstExcDice
-      + (secondExcSuccesses * 2)
-      + (useThirdExcellency ? 4 : 0);
+    const rawExcCost         = firstExcDice + secondExcSuccesses * 2 + (useThirdExcellency ? 4 : 0);
+    const totalMoteCost      = dialogResult.moteCost + Math.max(0, rawExcCost - masteryDiscount);
 
     if (totalMoteCost > 0 && actor.type === "character") {
       const spent = await actor.spendMotes(totalMoteCost, dialogResult.moteType);
       if (!spent) return null;
+    }
+
+    // Handle virtue channeling — spend WP (and optionally 1 virtue channel point)
+    let virtueChannelDice      = 0;
+    let virtueChannelSuccesses = 0;
+    const vMode = dialogResult.virtueChannelMode ?? "none";
+    if (vMode !== "none" && actor.type === "character") {
+      const curWP = actor.system.willpower?.value ?? 0;
+      if (curWP < 1) {
+        ui.notifications.warn(game.i18n.localize("EX2E.NotEnoughWillpower"));
+      } else if (vMode === "success") {
+        await actor.update({ "system.willpower.value": curWP - 1 });
+        virtueChannelSuccesses = 1;
+      } else if (vMode === "dice" && dialogResult.virtueChannel) {
+        const vKey   = dialogResult.virtueChannel;
+        const virtue = actor.system.virtues?.[vKey];
+        const curBox = virtue?.current ?? 0;
+        if (curBox < 1) {
+          ui.notifications.warn(game.i18n.format("EX2E.VirtueChannelNoPoints", {
+            virtue: game.i18n.localize(`EX2E.Virtue${vKey.charAt(0).toUpperCase() + vKey.slice(1)}`)
+          }));
+        } else {
+          await actor.update({
+            "system.willpower.value":             curWP - 1,
+            [`system.virtues.${vKey}.current`]:   Math.max(0, curBox - 1),
+            [`system.virtues.${vKey}.channeled`]: true
+          });
+          virtueChannelDice = virtue?.value ?? 0;
+        }
+      }
     }
 
     // External penalty that applies to this roll's successes — only when
@@ -372,14 +443,14 @@ export class ExaltedRoll {
     const externalSuccessPenalty = physicalKeys.has(finalAttr) ? externalPhysicalPenalty : 0;
 
     const exRoll = new ExaltedRoll({
-      pool:               dialogResult.pool + firstExcDice,
+      pool:               Math.max(0, dialogResult.pool + firstExcDice + virtueChannelDice - miPenalty),
       flavor:             dialogResult.flavor,
       actorName:          actor.name,
       stunt:              dialogResult.stunt,
       moteCost:           totalMoteCost,
       moteType:           dialogResult.moteType,
       firstExcDice:       firstExcDice,
-      secondExcSuccesses: secondExcSuccesses,
+      secondExcSuccesses: secondExcSuccesses + virtueChannelSuccesses,
       useThirdExcellency: useThirdExcellency,
       specialty:          dialogResult.specialty ?? "",
       externalPenalty:    externalSuccessPenalty
@@ -415,6 +486,7 @@ export class ExaltedRoll {
    * @param {number}       [options.modeIndex=0]  Which mode of the weapon to use
    */
   static async rollAttack(actor, weaponId, options = {}) {
+    debugger;
     const { AttackDialog } = await import("./attack-dialog.mjs");
 
     const weapon = actor.items.get(weaponId);
@@ -427,6 +499,19 @@ export class ExaltedRoll {
     const modeIndex = Math.max(0, Math.min(options.modeIndex ?? 0, (wSys.modes?.length ?? 1) - 1));
     const mode      = wSys.modes?.[modeIndex];
     if (!mode) return null;
+
+    // ── Area Attack detection ────────────────────────────────────────────
+    const charm = options.charmSourceId ? actor.items.get(options.charmSourceId) : null;
+    const isAreaAttack = mode.tags.includes("Area") || !!charm?.system?.attack?.areaAttack;
+    const areaConfig = isAreaAttack ? {
+      shape:  charm?.system?.attack?.areaShape    ?? mode.areaShape    ?? "circle",
+      size:   charm?.system?.attack?.areaSize     ?? mode.areaSize     ?? "3",
+      resist: {
+        pool:       charm?.system?.attack?.areaResistPool       ?? mode.areaResistPool       ?? "stamina+resistance",
+        difficulty: charm?.system?.attack?.areaResistDifficulty ?? mode.areaResistDifficulty ?? "1",
+        effect:     charm?.system?.attack?.areaResistEffect     ?? mode.areaResistEffect     ?? "avoid",
+      }
+    } : null;
 
     // Determine ability: ranged uses archery, thrown uses thrown, else melee
     const isMelee = mode.effectiveRange === 0;
@@ -492,14 +577,7 @@ export class ExaltedRoll {
     //   • External (e.g., Prone -1) reduces the success tally after
     //     the roll resolves — applied below, post-threshold.
     const internalPenalty = actor.internalPenaltyFor?.("physical") ?? 0;
-    const externalPenalty = actor.externalPenaltyFor?.("physical") ?? 0;
-
-    const pool = computeAttackPool({
-      attrVal, abilVal,
-      accuracy:       mode.effectiveAccuracy,
-      isInstantCharm: isInstantCharmAttack,
-      woundPenalty, flurryPenalty, internalPenalty, aimBonus
-    }) + (options.extraDice ?? 0);
+    let externalPenalty   = actor.externalPenaltyFor?.("physical") ?? 0;
 
     // Excellency detection (same pattern as rollAttributeAbility)
     const exaltType   = sys.exaltType ?? "";
@@ -515,10 +593,10 @@ export class ExaltedRoll {
     const excCharms  = detectExc(excKey);
     const excellency = { first: !!excCharms.first, second: !!excCharms.second };
     const firstExcLabel  = excCharms.first
-      ? `${excCharms.first.name} (${game.i18n.localize("EX2E.FirstExcellency")})`
+      ? excCharms.first.name
       : game.i18n.localize("EX2E.FirstExcellency");
     const secondExcLabel = excCharms.second
-      ? `${excCharms.second.name} (${game.i18n.localize("EX2E.SecondExcellency")})`
+      ? excCharms.second.name
       : game.i18n.localize("EX2E.SecondExcellency");
 
     // Third Excellency availability (checked at Step 4 reroll time, but the
@@ -531,6 +609,7 @@ export class ExaltedRoll {
     // higher in this function). The helper is parameterised on attribute
     // for the social-attack pipeline, which uses Cha/Man/App.
     const { firstExcMax, secondExcMax } = computeAttackExcellencyCaps(actor, "dexterity", ability);
+    const attackMasteryDiscount = isAttrBased ? 0 : getMasteryDiscount(actor, ability);
 
     // Capture a snapshot of the targeted token's defensive stats (both DVs
     // and the soak matching the weapon's damage type). This snapshot travels
@@ -547,17 +626,26 @@ export class ExaltedRoll {
     // aggravated damage bypasses Hardness entirely.
     const ignoresHardness = mode.damageType === "aggravated";
 
-    if (!targetActor && !options.isCounterattack) {
+    if (!targetActor && !options.isCounterattack && !isAreaAttack) {
       const { pickTargetActor } = await import("../helpers/targeting.mjs");
       targetActor = await pickTargetActor();
       if (!targetActor) return null; // cancelled
     }
-    // Range check — abort the attack if the chosen target is beyond the
-    // weapon mode's reach. Counterattacks skip this (they come from the
-    // victim of the original attack, which is always in range by virtue
-    // of having been attacked). `checkAttackRange` returns null when
-    // tokens aren't placed on a scene, in which case we pass through.
-    if (targetActor && !options.isCounterattack) {
+
+    // Emotion −3: computed after target resolution so the canvas picker path
+    // always yields the correct target id.
+    const { computeEmotionMajorPenalty } = await import("../ui/social-influence-effects.mjs");
+    const emotionMajorPenalty = computeEmotionMajorPenalty(
+      actor.effects,
+      targetActor?.id ?? ""
+    );
+
+    // Range check — abort if out of range; otherwise capture band + penalty.
+    // Counterattacks skip this (always in range by definition).
+    // `checkAttackRange` returns null when tokens aren't on a scene; pass through.
+    let rangePenalty = 0;
+    let rangeBand    = null;
+    if (targetActor && !options.isCounterattack && !isAreaAttack) {
       const { checkAttackRange } = await import("../helpers/targeting.mjs");
       const rangeInfo = checkAttackRange(mode, actor, targetActor);
       if (rangeInfo && !rangeInfo.inRange) {
@@ -566,6 +654,10 @@ export class ExaltedRoll {
           max:      rangeInfo.maxRange
         }));
         return null;
+      }
+      if (rangeInfo) {
+        rangePenalty = rangeInfo.rangePenalty ?? 0;
+        rangeBand    = rangeInfo.band ?? null;
       }
     }
     if (targetActor) {
@@ -583,13 +675,33 @@ export class ExaltedRoll {
         targetSoak     = tSys.combat?.soak?.[mode.damageType] ?? 0;
         targetHardness = ignoresHardness ? 0 : (tSys.combat?.hardness ?? 0);
       }
-      // Onslaught: RAW, a defender accrues +1 DV penalty every time they
-      // are attacked (hit, miss, perfect-defended — it all triggers).
-      // Applied AFTER the DV snapshot above so this attack's resolution
-      // uses the pre-bump DVs; the next attack will see the bumped total.
-      // Cleared by advanceWheel when the defender becomes free again.
-      await targetActor.addOnslaught();
+      if (!isAreaAttack) {
+        // Onslaught: RAW, a defender accrues +1 DV penalty every time they
+        // are attacked (hit, miss, perfect-defended — it all triggers).
+        // Applied AFTER the DV snapshot above so this attack's resolution
+        // uses the pre-bump DVs; the next attack will see the bumped total.
+        // Cleared by advanceWheel when the defender becomes free again.
+        await targetActor.addOnslaught();
+
+        // Starmetal artifact armor worn by the defender imposes an external
+        // penalty on the attacker's success tally (reduces effective hits).
+        const starmetalArmor = targetActor.items.find(i =>
+          i.type === "armor" && i.system.equipped && i.system.artifact &&
+          i.system.magicalMaterial === "starmetal" && i.system.attuned
+        );
+        if (starmetalArmor) {
+          const mmBonuses = game.exalted2e.EX2E.getActiveArmorMaterialBonuses?.();
+          externalPenalty += mmBonuses?.starmetal?.attackPenalty ?? 0;
+        }
+      }
     }
+
+    const pool = computeAttackPool({
+      attrVal, abilVal,
+      accuracy:       mode.effectiveAccuracy,
+      isInstantCharm: isInstantCharmAttack,
+      woundPenalty, flurryPenalty, internalPenalty: internalPenalty + emotionMajorPenalty, aimBonus, rangePenalty
+    }) + (options.extraDice ?? 0);
 
     // Non-Excellency attack charms: every Supplemental keyed to the rolled
     // ability, plus Reflexive charms flagged as triggering in Step 1
@@ -608,26 +720,175 @@ export class ExaltedRoll {
       return false;
     });
 
+    const lunarFuryActive = actor.items.some(
+      i => i.type === "charm" && i.system?.active
+        && (i.system?.keywords ?? []).includes("Relentless-Lunar-Fury")
+    );
+    const filteredAttackCharms = lunarFuryActive
+      ? attackCharms.filter(c => (c.system?.keywords ?? []).includes("Fury-OK"))
+      : attackCharms;
+
+    // ── Area attack: place template and collect targets before dialog ─────
+    let areaPlacement = null;
+    if (isAreaAttack) {
+      const { placeAreaTemplate } = await import("../helpers/targeting.mjs");
+      areaPlacement = await placeAreaTemplate(actor, { shape: areaConfig.shape, size: areaConfig.size });
+      if (!areaPlacement) return null;
+    }
+
+    // Martial / Martial-ready weapon validity check
+    const charmKeywords = charm?.system?.keywords ?? [];
+    const hasMartialKw = charmKeywords.includes("Martial") || charmKeywords.includes("Martial-ready");
+    if (hasMartialKw && charm?.system?.martialArtsStyleName) {
+      const { isWeaponValidForStyle } = await import("../helpers/ma-validation.mjs");
+      if (!isWeaponValidForStyle(weapon, charm.system.martialArtsStyleName, actor)) {
+        ui.notifications.warn(game.i18n.localize("EX2E.WeaponNotValidForStyle"));
+        return null;
+      }
+    }
+
+    // Martial / Martial-ready minimum ability check
+    if (hasMartialKw && charm) {
+      const minAbil = charm.system?.minAbility ?? 0;
+      const abilKey = charm.system?.ability ?? "martialArts";
+      const abilVal = sys?.abilities?.[abilKey]?.value ?? 0;
+      if (abilVal < minAbil) {
+        const { canBypassMinAbility } = await import("../helpers/ma-validation.mjs");
+        if (!canBypassMinAbility(actor, charm)) {
+          ui.notifications.warn(game.i18n.format("EX2E.BelowMinAbilityRequirement", {
+            ability: game.i18n.localize(`EX2E.Ability${abilKey.charAt(0).toUpperCase()}${abilKey.slice(1)}`),
+            min: minAbil,
+            current: abilVal,
+          }));
+          return null;
+        }
+      }
+    }
+
     const dialogResult = await AttackDialog.prompt({
       pool, excellency, firstExcMax, secondExcMax,
       firstExcLabel, secondExcLabel,
       flurryPenalty,
-      charms: attackCharms
+      charms:   filteredAttackCharms,
+      virtues:  actor.type === "character" ? sys.virtues : null,
+      actor,
+      isAreaAttack: isAreaAttack ?? false,
     });
     if (!dialogResult) return null;
+
+    // ── Area attack path: no accuracy roll, no DV comparison ─────────────
+    if (isAreaAttack) {
+      // Activate selected supplemental charms.
+      const activatedCharms = [];
+      const activationBucket = [];
+      for (const { id, motesOverride } of (dialogResult.charmActivations ?? [])) {
+        const c = actor.items.get(id);
+        if (!c) continue;
+        const ok = await c.activateCharm({
+          explicitMotesOverride: motesOverride !== undefined ? motesOverride : null,
+          ledgerBucket: activationBucket
+        });
+        if (!ok) continue;
+        activatedCharms.push({ id: c.id, name: c.name });
+      }
+
+      // Stunt reward.
+      await bankStuntReward(actor, {
+        stunt:              dialogResult.stunt,
+        advancesMotivation: dialogResult.advancesMotivation ?? false,
+        rewardKind:         dialogResult.rewardKind ?? "motes",
+        sourceMessageId:    null
+      });
+
+      // Post charm activation ledger.
+      if (activationBucket.length === 1) {
+        const soleCharm = actor.items.get(activationBucket[0].charmId);
+        if (soleCharm) await soleCharm.sendToChat({ activation: activationBucket[0].ledger });
+      } else if (activationBucket.length > 1) {
+        await sendCombinedActivationCard(actor, activationBucket, {
+          title: game.i18n.localize("EX2E.SupplementalCharmsActivated")
+        });
+      }
+
+      // Roll damage once (base damage + strength if melee; no threshold).
+      const baseDamagePool = mode.effectiveDamage + (isMelee ? strVal : 0);
+      const damageRoll = new ExaltedRoll({
+        pool:      Math.max(1, baseDamagePool),
+        flavor:    game.i18n.localize("EX2E.AreaDamageRoll"),
+        actorName: actor.name,
+        stunt:     dialogResult.stunt,
+      });
+      const damageResult = await damageRoll.evaluate();
+
+      const resistDifficultyVal = parseFloat(
+        Roll.replaceFormulaData(areaConfig.resist.difficulty, actor.getRollData())
+      ) || 1;
+
+      const areaAttack = {
+        actorId:     actor.id,
+        actorName:   actor.name,
+        weaponName:  (wSys.modes?.length ?? 1) > 1 ? `${weapon.name} — ${mode.name}` : weapon.name,
+        dice:        damageResult.diceDetails,
+        pool:        damageResult.pool,
+        rawDamage:   damageResult.successes ?? 0,
+        damageType:  mode.damageType,
+        stunt:       dialogResult.stunt,
+        moteCost:    0,
+        isAreaAttack: true,
+        templateId:  areaPlacement.templateId,
+        areaShape:   areaConfig.shape,
+        areaTargets: areaPlacement.targets.map(t => ({ id: t.id, name: t.name })),
+        areaResist:  {
+          pool:       areaConfig.resist.pool,
+          difficulty: resistDifficultyVal,
+          effect:     areaConfig.resist.effect,
+        },
+        attackCharms: activatedCharms.map(c => c.name),
+      };
+
+      const content = await foundry.applications.handlebars.renderTemplate(
+        "systems/exalted2e/templates/chat/attack-result.hbs",
+        areaAttack
+      );
+      await ChatMessage.create({
+        content,
+        rolls:   [damageResult.foundryRoll],
+        sound:   CONFIG.sounds.dice,
+        speaker: ChatMessage.getSpeaker({ actor }),
+        flags:   { exalted2e: { attack: areaAttack } }
+      });
+      return null;
+    }
 
     // Activate each selected Supplemental/Simple charm. `activateCharm`
     // handles mote/willpower spending and sustained-toggle bookkeeping;
     // a truthy return means the cost was paid.
+    // Ledgers are collected and posted as one consolidated card (or a single
+    // card when only one charm fires) rather than N separate cards.
     const activatedCharms = [];
     const activatedKeywords = new Set();
-    for (const id of (dialogResult.charmIds ?? [])) {
+    const activations = dialogResult.charmActivations?.length
+      ? dialogResult.charmActivations
+      : (dialogResult.charmIds ?? []).map(id => ({ id, motesOverride: undefined }));
+    const activationBucket = [];
+    for (const { id, motesOverride } of activations) {
       const c = actor.items.get(id);
       if (!c) continue;
-      const ok = await c.activateCharm();
+      const ok = await c.activateCharm({
+        explicitMotesOverride: motesOverride !== undefined ? motesOverride : null,
+        ledgerBucket: activationBucket
+      });
       if (!ok) continue;
       activatedCharms.push({ id: c.id, name: c.name });
       for (const kw of (c.system.keywords ?? [])) activatedKeywords.add(kw);
+    }
+    if (activationBucket.length === 1) {
+      const soleCharm = actor.items.get(activationBucket[0].charmId);
+      if (soleCharm) await soleCharm.sendToChat({ activation: activationBucket[0].ledger });
+    } else if (activationBucket.length > 1) {
+      await sendCombinedActivationCard(actor, activationBucket, {
+        title: game.i18n.localize("EX2E.SupplementalCharmsActivated")
+      });
     }
     // Charm-spawned weapons (instant or longer-duration) inherit keywords
     // from the charm that created them — the weapon IS that charm, so its
@@ -643,8 +904,7 @@ export class ExaltedRoll {
     }
     // Collect combat bonuses from activated and equipped charms.
     // attackBonus uses activatedCharmItems (per-attack supplemental cost paid now).
-    // speedModifier and extraActions use all actor items because those effects are
-    // typically sustained across turns, not re-activated on each attack.
+    // speedModifier and extraActions aggregate from actor AEs (synthesized at charm activation).
     const rollData = actor.getRollData?.() ?? {};
     const activatedCharmItems = activatedCharms
       .map(ac => actor.items.get(ac.id))
@@ -655,20 +915,24 @@ export class ExaltedRoll {
     const resolvedAttackBonusCharms = activatedCharmItems
       .filter(c => c.system.attackBonus?.enabled)
       .map(c => {
-        const ab = c.system.attackBonus;
+        const ab    = c.system.attackBonus;
+        const units = c.system.resolvedUnits ?? 0;
+        const dmgBase      = _evalInt(ab.damageDice,         rollData);
+        const postSoakBase = _evalInt(ab.postSoakDamageDice, rollData);
         return { system: { attackBonus: {
           enabled:                 true,
           accuracyDice:            String(_evalInt(ab.accuracyDice,      rollData)),
-          accuracySuccesses:       String(_evalInt(ab.accuracySuccesses, rollData)),
-          damageDice:              String(_evalInt(ab.damageDice,        rollData)),
+          accuracySuccesses:       String(_evalInt(ab.accuracySuccesses,  rollData)),
+          damageDice:              String(ab.damageDicePerMote    ? dmgBase * units      : dmgBase),
+          postSoakDamageDice:      String(ab.postSoakDicePerMote ? postSoakBase * units  : postSoakBase),
           ignoreAccuracyPenalties: ab.ignoreAccuracyPenalties,
         }}};
       });
 
     const charmAttackBonus = computeAttackCharmBonus(resolvedAttackBonusCharms, rollData);
     const baseSpeed        = mode.effectiveSpeed ?? 5;
-    const charmSpeed       = computeSpeedModifier(allCharms, baseSpeed, rollData);
-    const charmExtraMax    = computeExtraActionsMax(allCharms, rollData);
+    const charmSpeed       = aggregateSpeedModifierFromAEs(actor, baseSpeed);
+    const charmExtraMax    = aggregateExtraActionsMaxFromAEs(actor);
 
     const unblockable = activatedKeywords.has("Unblockable");
     const undodgeable = activatedKeywords.has("Undodgeable");
@@ -676,11 +940,42 @@ export class ExaltedRoll {
     // Mote costs (First/Second Excellency only — Third is not used at Step 3)
     const firstExcDice       = dialogResult.firstExcDice  ?? 0;
     const secondExcSuccesses = dialogResult.secondExcSucc ?? 0;
-    const totalMoteCost      = firstExcDice + (secondExcSuccesses * 2);
+    const rawAttackExcCost   = firstExcDice + secondExcSuccesses * 2;
+    const totalMoteCost      = Math.max(0, rawAttackExcCost - attackMasteryDiscount);
 
     if (totalMoteCost > 0 && actor.type === "character") {
       const spent = await actor.spendMotes(totalMoteCost, dialogResult.moteType);
       if (!spent) return null;
+    }
+
+    // Handle virtue channeling
+    let virtueChannelDice      = 0;
+    let virtueChannelSuccesses = 0;
+    const vModeAtk = dialogResult.virtueChannelMode ?? "none";
+    if (vModeAtk !== "none" && actor.type === "character") {
+      const curWP = actor.system.willpower?.value ?? 0;
+      if (curWP < 1) {
+        ui.notifications.warn(game.i18n.localize("EX2E.NotEnoughWillpower"));
+      } else if (vModeAtk === "success") {
+        await actor.update({ "system.willpower.value": curWP - 1 });
+        virtueChannelSuccesses = 1;
+      } else if (vModeAtk === "dice" && dialogResult.virtueChannel) {
+        const vKey   = dialogResult.virtueChannel;
+        const virtue = actor.system.virtues?.[vKey];
+        const curBox = virtue?.current ?? 0;
+        if (curBox < 1) {
+          ui.notifications.warn(game.i18n.format("EX2E.VirtueChannelNoPoints", {
+            virtue: game.i18n.localize(`EX2E.Virtue${vKey.charAt(0).toUpperCase() + vKey.slice(1)}`)
+          }));
+        } else {
+          await actor.update({
+            "system.willpower.value":             curWP - 1,
+            [`system.virtues.${vKey}.current`]:   Math.max(0, curBox - 1),
+            [`system.virtues.${vKey}.channeled`]: true
+          });
+          virtueChannelDice = virtue?.value ?? 0;
+        }
+      }
     }
 
     // Apply Unblockable / Undodgeable to the target-snapshot DVs. We keep
@@ -725,14 +1020,15 @@ export class ExaltedRoll {
     // Build and evaluate the attack roll
     const displayName = (wSys.modes?.length ?? 1) > 1 ? `${weapon.name} — ${mode.name}` : weapon.name;
     const attackRoll = new ExaltedRoll({
-      pool:               pool + firstExcDice + charmAttackBonus.extraAccuracyDice,
+      pool:               pool + firstExcDice + charmAttackBonus.extraAccuracyDice + virtueChannelDice
+                        + (charmAttackBonus.ignoreRangeBand ? (rangePenalty ?? 0) : 0),
       flavor:             `${displayName} — ${game.i18n.localize("EX2E.AttackRoll")}`,
       actorName:          actor.name,
       stunt:              dialogResult.stunt,
       moteCost:           totalMoteCost,
       moteType:           dialogResult.moteType,
       firstExcDice,
-      secondExcSuccesses
+      secondExcSuccesses: secondExcSuccesses + virtueChannelSuccesses
     });
     const result = await attackRoll.evaluate();
 
@@ -767,6 +1063,7 @@ export class ExaltedRoll {
       attackerHasThirdExc,
       attackerExcKey:      excKey,
       weaponDamage:        mode.effectiveDamage + charmAttackBonus.extraDamageDice,
+      postSoakDamageDice:  charmAttackBonus.extraPostSoakDamageDice || 0,
       damageType:          finalDamageType,
       damageTypeLabel:     `${typeSuffix}${overwhelmingSuffix}`,
       // Originating type before the Holy-vs-CoD upgrade, plus a flag the
@@ -796,6 +1093,12 @@ export class ExaltedRoll {
       defense:             null,
       extraActionsAvailable: charmExtraMax || null,
       effectiveSpeed:        charmSpeed !== baseSpeed ? charmSpeed : null,
+      aimBonus:              aimBonus || null,
+      rangeBand:             rangeBand || null,
+      rangePenalty:          charmAttackBonus.ignoreRangeBand ? null : (rangePenalty || null),
+      rangeBandLabel:        rangeBand
+        ? game.i18n.localize(game.exalted2e.EX2E.rangeBands.find(b => b.key === rangeBand)?.labelKey ?? "")
+        : null,
     };
 
     const content = await renderAttackCardContent(attack);
@@ -841,11 +1144,14 @@ export class ExaltedRoll {
     rewardKind = "motes",
     // 3c-1
     charmIds = [],
+    charmActivations = [],
     firstExcDice = 0,
     secondExcSucc = 0,
     moteType = "peripheral",
     // 3c-2
-    targetMotivation = ""
+    targetMotivation = "",
+    // combo selector
+    selectedComboId = null
   } = {}) {
     if (!attacker || !defender) {
       ui.notifications.warn(game.i18n.localize("EX2E.NoTargetSelected"));
@@ -871,16 +1177,43 @@ export class ExaltedRoll {
     // 3c-1: Activate picked charms inline. Each charm's activateCharm posts
     // its own chat card. Failures (insufficient resources, user cancels XP
     // confirm) are dropped; their keywords don't propagate.
-    const pickedCharms = (charmIds ?? [])
-      .map(id => attacker.items.get(id))
-      .filter(c => c && c.type === "charm");
+    const socialActivations = charmActivations.length
+      ? charmActivations
+      : (charmIds ?? []).map(id => ({ id, motesOverride: undefined }));
     const actuallyActivated = [];
-    for (const charm of pickedCharms) {
-      try {
-        const result = await charm.activateCharm({ skipXpConfirm: false, via: "social-attack" });
-        if (result !== null && result !== false) actuallyActivated.push(charm);
-      } catch (err) {
-        console.error(`Charm activation failed: ${charm.name}`, err);
+    if (selectedComboId) {
+      // Combo path: activate the entire combo and use its social-eligible charms
+      // for keyword aggregation.
+      const combo = attacker.items.get(selectedComboId);
+      if (!combo || combo.type !== "combo") {
+        ui.notifications.warn(game.i18n.localize("EX2E.NoComboFound"));
+        return null;
+      }
+      const comboResult = await combo.activateCombo({ isSocialContext: true });
+      if (!comboResult?.success) return null;
+      // Filter to social-eligible charms for keyword aggregation.
+      const SOCIAL_ABILITIES_SOCIAL = ["presence", "performance", "investigation", "bureaucracy"];
+      const socialCharms = (comboResult.activatedCharms ?? []).filter(c => {
+        const ct = c.system?.charmType;
+        return (ct === "supplemental" ||
+                (ct === "reflexive" && (c.system?.steps ?? []).includes(1))) &&
+               SOCIAL_ABILITIES_SOCIAL.includes(c.system?.ability);
+      });
+      actuallyActivated.push(...socialCharms);
+    } else {
+      for (const { id, motesOverride } of socialActivations) {
+        const charm = attacker.items.get(id);
+        if (!charm || charm.type !== "charm") continue;
+        try {
+          const result = await charm.activateCharm({
+            skipXpConfirm: false,
+            via: "social-attack",
+            explicitMotesOverride: motesOverride !== undefined ? motesOverride : null
+          });
+          if (result !== null && result !== false) actuallyActivated.push(charm);
+        } catch (err) {
+          console.error(`Charm activation failed: ${charm.name}`, err);
+        }
       }
     }
 
@@ -1023,6 +1356,9 @@ export class ExaltedRoll {
       attackerId:                  attacker.id,
       defenderId:                  defender.id,
       intent,
+      targetedIntimacyId:          intent === "erode"
+        ? (claims.opposingIntimacyId ?? null)
+        : null,
       subject,
       claimsVerified:              verified,
       stackingMod,
@@ -1085,6 +1421,8 @@ export class ExaltedRoll {
       canRespond:       game.user.isGM || defender.testUserPermission(game.user, "OWNER"),
       canAffordResist:  false,                  // Step-2 not yet resolved
       canReverse:       game.user.isGM || attacker.testUserPermission(game.user, "OWNER"),
+      isGM:             game.user.isGM,
+      hasIllusion:      (attackerCharmKeywords ?? []).includes("Illusion"),
       defenderIntimacies: [],
       showErodePicker:  false
     };

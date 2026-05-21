@@ -1,0 +1,444 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Crafting Tab — project table
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.tab-crafting {
+  padding: var(--ex2e-gap-md);
+}
+
+.tab-crafting .crafting-header {
+  display:         flex;
+  justify-content: flex-end;
+  margin-bottom:   var(--ex2e-gap-md);
+}
+
+.tab-crafting .btn-add-project {
+  display:        flex;
+  align-items:    center;
+  gap:            var(--ex2e-gap-sm);
+  padding:        4px var(--ex2e-gap-md);
+  border:         1px solid var(--ex2e-gold-dark);
+  border-radius:  var(--ex2e-border-radius);
+  background:     var(--ex2e-bg-darkest);
+  color:          var(--ex2e-gold-bright);
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-sm);
+  letter-spacing: 0.04em;
+  cursor:         pointer;
+  transition:     background var(--ex2e-transition-fast),
+                  border-color var(--ex2e-transition-fast);
+}
+.tab-crafting .btn-add-project:hover {
+  background:   var(--ex2e-bg-hover);
+  border-color: var(--ex2e-gold-main);
+}
+
+.tab-crafting .crafting-table {
+  width:           100%;
+  border-collapse: collapse;
+  font-size:       var(--ex2e-font-size-sm);
+  border-bottom:  1px solid var(--ex2e-border-color);
+}
+
+.tab-crafting .crafting-table thead tr {
+  border-bottom: 2px solid var(--ex2e-gold-dark);
+}
+.tab-crafting .crafting-table th {
+  padding:        4px var(--ex2e-gap-sm);
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color:          var(--ex2e-gold-main);
+  text-align:     left;
+  white-space:    nowrap;
+}
+
+.tab-crafting .crafting-project-row td {
+  padding:        5px var(--ex2e-gap-sm);  
+  color:          var(--ex2e-text-primary);
+  vertical-align: middle;
+}
+.tab-crafting .crafting-project-row:hover td {
+  background: var(--ex2e-bg-hover);
+}
+
+.tab-crafting .crafting-project-row .project-name {
+  font-family: var(--ex2e-font-body);
+}
+.tab-crafting .crafting-project-row .project-name em {
+  font-size:  var(--ex2e-font-size-xs);
+  color:      var(--ex2e-gold-bright);
+  font-style: normal;
+}
+
+/* resolved rows fade out */
+.tab-crafting .crafting-project-row.crafting-status-completed td,
+.tab-crafting .crafting-project-row.crafting-status-botched td {
+  opacity:    0.45;
+  font-style: italic;
+}
+
+/* status text colour */
+.tab-crafting .crafting-status-active .status-text    { color: var(--ex2e-text-secondary); }
+.tab-crafting .crafting-status-completed .status-text { color: var(--ex2e-success, #27ae60); }
+.tab-crafting .crafting-status-botched .status-text   { color: var(--ex2e-dmg-lethal, #c0392b); }
+
+.tab-crafting .crafting-row-actions {
+  display:         flex;
+  gap:             4px;
+  justify-content: flex-end;
+}
+
+.tab-crafting .btn-roll-project {
+  padding:       3px 8px;
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: var(--ex2e-border-radius-sm);
+  background:    var(--ex2e-bg-darkest);
+  color:         var(--ex2e-gold-bright);
+  cursor:        pointer;
+  font-size:     var(--ex2e-font-size-xs);
+  transition:    background var(--ex2e-transition-fast),
+                 border-color var(--ex2e-transition-fast);
+}
+.tab-crafting .btn-roll-project:hover {
+  background:   var(--ex2e-bg-hover);
+  border-color: var(--ex2e-gold-main);
+}
+
+.tab-crafting .btn-delete-project {
+  padding:       3px 7px;
+  border:        1px solid var(--ex2e-border-color);
+  border-radius: var(--ex2e-border-radius-sm);
+  background:    transparent;
+  color:         var(--ex2e-text-muted);
+  cursor:        pointer;
+  font-size:     var(--ex2e-font-size-xs);
+  transition:    color var(--ex2e-transition-fast),
+                 border-color var(--ex2e-transition-fast);
+}
+.tab-crafting .btn-delete-project:hover {
+  color:        var(--ex2e-dmg-lethal, #c0392b);
+  border-color: var(--ex2e-dmg-lethal, #c0392b);
+}
+
+.tab-crafting .crafting-empty {
+  text-align:  center;
+  font-style:  italic;
+  color:       var(--ex2e-text-muted);
+  margin-top:  var(--ex2e-gap-xl);
+  font-family: var(--ex2e-font-body);
+  font-size:   var(--ex2e-font-size-md);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CraftingRollDialog — window frame
+   Targets .window-app.crafting-roll-dialog (the ApplicationV2 outer element)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.exalted2e.crafting-roll-dialog {
+  background: var(--ex2e-bg-dark);
+  border:     1px solid var(--ex2e-gold-dark);
+  color:      var(--ex2e-text-primary);
+}
+
+/* ── CraftingRollDialog — inner content div ─────────────────────────────── */
+/* .window-content > .crafting-roll-dialog targets only the template root,  */
+/* not the .window-app element above it.                                     */
+
+.window-content > .crafting-roll-dialog {
+  padding: var(--ex2e-gap-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Project info grid ──────────────────────────────────────────────────── */
+
+.crafting-roll-dialog .crafting-project-info {
+  display:               grid;
+  grid-template-columns: max-content 1fr;
+  gap:                   4px var(--ex2e-gap-lg);
+  margin-bottom:         var(--ex2e-gap-md);
+  padding-bottom:        var(--ex2e-gap-md);
+  border-bottom:         1px solid var(--ex2e-gold-dark);
+}
+
+.crafting-roll-dialog .info-row {
+  display: contents;
+}
+
+.crafting-roll-dialog .info-row .label {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color:          var(--ex2e-text-muted);
+  align-self:     center;
+  white-space:    nowrap;
+}
+
+.crafting-roll-dialog .info-row .value {
+  color:      var(--ex2e-text-primary);
+  font-size:  var(--ex2e-font-size-base);
+  align-self: center;
+}
+
+.crafting-roll-dialog .info-row select {
+  background:    var(--ex2e-bg-medium);
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: var(--ex2e-border-radius-sm);
+  color:         var(--ex2e-text-primary);
+  font-size:     var(--ex2e-font-size-sm);
+  padding:       2px 4px;
+}
+
+.crafting-roll-dialog .crafting-cap-warning {
+  grid-column:    1 / -1;
+  color:          var(--ex2e-dmg-lethal, #c0392b);
+  font-size:      var(--ex2e-font-size-xs);
+  font-family:    var(--ex2e-font-ui);
+  letter-spacing: 0.04em;
+  margin-top:     2px;
+}
+
+/* ── Section headers ────────────────────────────────────────────────────── */
+
+.crafting-roll-dialog .crafting-charms-section,
+.crafting-roll-dialog .crafting-stunt-section {
+  margin:      var(--ex2e-gap-sm) 0;
+  padding-top: var(--ex2e-gap-sm);
+  border-top:  1px solid var(--ex2e-border-color);
+}
+
+.crafting-roll-dialog .crafting-charms-section h4,
+.crafting-roll-dialog .crafting-stunt-section h4 {
+  margin:         0 0 var(--ex2e-gap-sm) 0;
+  font-family:    var(--ex2e-font-title);
+  font-size:      var(--ex2e-font-size-xs);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color:          var(--ex2e-gold-main);
+}
+
+/* ── Charm list ─────────────────────────────────────────────────────────── */
+
+.crafting-roll-dialog .crafting-charm-list {
+  list-style:     none;
+  margin:         0 0 var(--ex2e-gap-sm) 0;
+  padding:        0;
+  max-height:     9rem;
+  overflow-y:     auto;
+  display:        flex;
+  flex-direction: column;
+  gap:            3px;
+}
+
+.crafting-roll-dialog .crafting-charm-list li {
+  border:        1px solid var(--ex2e-border-color);
+  border-radius: var(--ex2e-border-radius);
+}
+
+.crafting-roll-dialog .crafting-charm-list label {
+  display:     flex;
+  align-items: center;
+  gap:         var(--ex2e-gap-sm);
+  padding:     4px 8px;
+  cursor:      pointer;
+  color:       var(--ex2e-text-primary);
+  font-size:   var(--ex2e-font-size-sm);
+  transition:  background var(--ex2e-transition-fast);
+}
+.crafting-roll-dialog .crafting-charm-list label:hover {
+  background: var(--ex2e-bg-hover);
+}
+
+.crafting-roll-dialog .charm-dice-row {
+  display:     flex;
+  align-items: center;
+  gap:         var(--ex2e-gap-sm);
+  margin-top:  var(--ex2e-gap-xs);
+}
+.crafting-roll-dialog .charm-dice-row label {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  color:          var(--ex2e-text-muted);
+  letter-spacing: 0.04em;
+}
+.crafting-roll-dialog .charm-dice-row input[type="number"] {
+  width:         4em;
+  background:    var(--ex2e-bg-medium);
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: var(--ex2e-border-radius-sm);
+  color:         var(--ex2e-text-primary);
+  text-align:    center;
+  padding:       2px 4px;
+  font-size:     var(--ex2e-font-size-sm);
+}
+
+/* ── Stunt radios ───────────────────────────────────────────────────────── */
+
+.crafting-roll-dialog .stunt-options {
+  display:   flex;
+  flex-wrap: wrap;
+  gap:       var(--ex2e-gap-sm) var(--ex2e-gap-md);
+}
+
+.crafting-roll-dialog .stunt-options label {
+  display:     flex;
+  align-items: center;
+  gap:         4px;
+  font-size:   var(--ex2e-font-size-sm);
+  color:       var(--ex2e-text-secondary);
+  cursor:      pointer;
+  transition:  color var(--ex2e-transition-fast);
+}
+.crafting-roll-dialog .stunt-options label:hover {
+  color: var(--ex2e-text-primary);
+}
+
+/* ── Dialog footer ──────────────────────────────────────────────────────── */
+
+.crafting-roll-dialog .crafting-dialog-footer {
+  display:         flex;
+  justify-content: flex-end;
+  gap:             var(--ex2e-gap-sm);
+  margin-top:      var(--ex2e-gap-md);
+  padding-top:     var(--ex2e-gap-md);
+  border-top:      1px solid var(--ex2e-gold-dark);
+}
+
+.crafting-roll-dialog .btn-roll {
+  padding:        5px var(--ex2e-gap-lg);
+  border:         1px solid var(--ex2e-gold-main);
+  border-radius:  var(--ex2e-border-radius);
+  background:     var(--ex2e-bg-darkest);
+  color:          var(--ex2e-gold-bright);
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-sm);
+  letter-spacing: 0.06em;
+  cursor:         pointer;
+  transition:     background var(--ex2e-transition-fast),
+                  box-shadow var(--ex2e-transition-fast);
+}
+.crafting-roll-dialog .btn-roll:hover {
+  background: var(--ex2e-bg-hover);
+  box-shadow: var(--ex2e-glow-gold);
+}
+
+.crafting-roll-dialog .btn-retry,
+.crafting-roll-dialog .btn-complete {
+  padding:       5px var(--ex2e-gap-md);
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: var(--ex2e-border-radius);
+  background:    var(--ex2e-bg-darkest);
+  color:         var(--ex2e-text-secondary);
+  font-family:   var(--ex2e-font-ui);
+  font-size:     var(--ex2e-font-size-sm);
+  cursor:        pointer;
+  transition:    background var(--ex2e-transition-fast),
+                 color var(--ex2e-transition-fast);
+}
+.crafting-roll-dialog .btn-retry:hover,
+.crafting-roll-dialog .btn-complete:hover {
+  background: var(--ex2e-bg-hover);
+  color:      var(--ex2e-gold-bright);
+}
+
+.crafting-roll-dialog .btn-abandon {
+  padding:       5px var(--ex2e-gap-md);
+  border:        1px solid var(--ex2e-border-color);
+  border-radius: var(--ex2e-border-radius);
+  background:    transparent;
+  color:         var(--ex2e-text-muted);
+  font-family:   var(--ex2e-font-ui);
+  font-size:     var(--ex2e-font-size-sm);
+  cursor:        pointer;
+  transition:    color var(--ex2e-transition-fast),
+                 border-color var(--ex2e-transition-fast);
+}
+.crafting-roll-dialog .btn-abandon:hover {
+  color:        var(--ex2e-dmg-lethal, #c0392b);
+  border-color: var(--ex2e-dmg-lethal, #c0392b);
+}
+
+/* ── Post-roll result panel ─────────────────────────────────────────────── */
+
+.crafting-roll-dialog .crafting-result-panel {
+  margin-bottom: var(--ex2e-gap-md);
+}
+
+.crafting-roll-dialog .roll-summary {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  letter-spacing: 0.04em;
+  color:          var(--ex2e-text-muted);
+  margin-bottom:  var(--ex2e-gap-sm);
+  text-transform: uppercase;
+}
+
+.crafting-roll-dialog .crafting-outcome {
+  padding:       var(--ex2e-gap-sm) var(--ex2e-gap-md);
+  border-radius: var(--ex2e-border-radius);
+  border:        1px solid var(--ex2e-border-color);
+  background:    var(--ex2e-bg-panel);
+  font-size:     var(--ex2e-font-size-md);
+}
+
+.crafting-roll-dialog .crafting-outcome strong {
+  font-family:    var(--ex2e-font-title);
+  letter-spacing: 0.06em;
+  color:          var(--ex2e-text-primary);
+}
+
+/* tier-specific colours */
+.crafting-roll-dialog .crafting-outcome.tier-botched,
+.crafting-roll-dialog .crafting-outcome.tier-failed {
+  border-color: rgba(160, 24, 24, 0.5);
+  background:   rgba(80, 8, 8, 0.3);
+}
+.crafting-roll-dialog .crafting-outcome.tier-botched strong,
+.crafting-roll-dialog .crafting-outcome.tier-failed strong {
+  color: var(--ex2e-dmg-lethal, #c0392b);
+}
+
+.crafting-roll-dialog .crafting-outcome.tier-partial {
+  border-color: rgba(180, 120, 0, 0.4);
+  background:   rgba(80, 50, 0, 0.25);
+}
+.crafting-roll-dialog .crafting-outcome.tier-partial strong {
+  color: var(--ex2e-gold-bright);
+}
+
+.crafting-roll-dialog .crafting-outcome.tier-success {
+  border-color: var(--ex2e-gold-dark);
+  background:   var(--ex2e-bg-panel);
+}
+.crafting-roll-dialog .crafting-outcome.tier-success strong {
+  color: var(--ex2e-gold-main);
+}
+
+.crafting-roll-dialog .crafting-outcome.tier-fine {
+  border-color: rgba(201, 162, 39, 0.5);
+  background:   rgba(50, 35, 5, 0.4);
+}
+.crafting-roll-dialog .crafting-outcome.tier-fine strong {
+  color: var(--ex2e-gold-bright);
+}
+
+.crafting-roll-dialog .crafting-outcome.tier-exceptional {
+  border-color: var(--ex2e-gold-main);
+  background:   rgba(80, 60, 5, 0.4);
+  box-shadow:   var(--ex2e-glow-gold);
+}
+.crafting-roll-dialog .crafting-outcome.tier-exceptional strong {
+  color: var(--ex2e-gold-bright);
+}
+
+.crafting-roll-dialog .crafting-st-note {
+  margin-top:  var(--ex2e-gap-sm);
+  font-size:   var(--ex2e-font-size-xs);
+  font-style:  italic;
+  color:       var(--ex2e-text-muted);
+  font-family: var(--ex2e-font-body);
+}

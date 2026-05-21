@@ -8,6 +8,22 @@
  */
 
 /**
+ * Resolve the best available actor for the current user.
+ *
+ * Priority: first controlled token on the canvas → user's assigned character.
+ * Returns null if neither is available.
+ *
+ * Use this anywhere the UI needs "the actor this user is acting as" without
+ * knowing in advance whether the user has a character assigned or a token
+ * selected.
+ *
+ * @returns {Actor|null}
+ */
+export function resolveUserActor() {
+  return game.canvas?.tokens?.controlled?.[0]?.actor ?? game.user.character ?? null;
+}
+
+/**
  * Prompt the user to click a canvas token as an attack target. Resolves
  * with the target's Actor, or `null` if the user right-clicks / hits Esc
  * to cancel.
@@ -120,9 +136,23 @@ export function checkAttackRange(mode, attackerActor, targetActor) {
   if (rangeVal === 0) {
     const hasReach = mode?.tags?.includes("Reach");
     const maxSpaces = hasReach ? 2 : 1;
-    return { inRange: spaces <= maxSpaces, distance, spaces, maxRange: maxSpaces };
+    return { inRange: spaces <= maxSpaces, distance, spaces, maxRange: maxSpaces, band: null, rangePenalty: 0 };
   }
-  return { inRange: distance <= rangeVal, distance, spaces, maxRange: rangeVal };
+
+  if (distance > rangeVal) {
+    return { inRange: false, distance, spaces, maxRange: rangeVal, band: null, rangePenalty: 0 };
+  }
+
+  // Determine range band from config table.
+  const { EX2E } = game.exalted2e ?? {};
+  const bands = EX2E?.rangeBands ?? [];
+  for (const b of bands) {
+    if (distance <= rangeVal * b.maxFraction) {
+      return { inRange: true, distance, spaces, maxRange: rangeVal, band: b.key, rangePenalty: b.penalty };
+    }
+  }
+  // Fallback: treat as long range.
+  return { inRange: true, distance, spaces, maxRange: rangeVal, band: "long", rangePenalty: 2 };
 }
 
 /**
@@ -169,4 +199,148 @@ export function hasAdjacentEnemy(actor, spaces = 1) {
     if ((path?.spaces ?? Infinity) <= spaces) return true;
   }
   return false;
+}
+
+/**
+ * Places a MeasuredTemplate on the canvas interactively and returns the tokens inside it.
+ *
+ * Shows a live preview that follows the mouse (same DOM-event approach as
+ * pickTargetActor — drawPreview() is not reliable in Foundry v13). Left-click
+ * to confirm, right-click or Escape to cancel.
+ *
+ * @param {Actor} _actor  Reserved for future formula resolution.
+ * @param {{ shape: string, size: string }} opts
+ * @returns {Promise<{ targets: Actor[], templateId: string } | null>}
+ */
+export async function placeAreaTemplate(_actor, { shape, size }) {
+  const view = canvas?.app?.view;
+  if (!view || !canvas?.ready) return null;
+
+  const sizeVal = parseFloat(size) || 3;
+  const baseData = {
+    t:           shape,
+    distance:    sizeVal,
+    direction:   0,
+    ...(shape === "cone" ? { angle: 60 } : {}),
+    fillColor:   "#FF0000",
+    fillAlpha:   0.2,
+    borderColor: "#FF0000",
+    user:        game.user.id,
+  };
+
+  const DocClass = CONFIG.MeasuredTemplate.documentClass;
+  const ObjClass = CONFIG.MeasuredTemplate.objectClass;
+
+  // Screen → snapped world coordinates (same formula as pickTargetActor).
+  const toWorld = (clientX, clientY) => {
+    const rect = view.getBoundingClientRect();
+    const raw  = canvas.stage.worldTransform.applyInverse({
+      x: clientX - rect.left,
+      y: clientY - rect.top,
+    });
+    const gs = canvas.grid.size;
+    return { x: Math.round(raw.x / gs) * gs, y: Math.round(raw.y / gs) * gs };
+  };
+
+  return new Promise((resolve) => {
+    let previewObj  = null;
+    let currentPos  = { x: 0, y: 0 };
+    let rafId       = null;
+    let drawPending = false;
+
+    const drawPreview = async (pos) => {
+      if (previewObj) {
+        previewObj.parent?.removeChild(previewObj);
+        try { previewObj.destroy({ children: true }); } catch { /* ignore */ }
+        previewObj = null;
+      }
+      const doc  = new DocClass({ ...baseData, ...pos }, { parent: canvas.scene });
+      const tmpl = new ObjClass(doc);
+      try {
+        await tmpl.draw();
+        canvas.templates.preview.addChild(tmpl);
+        previewObj = tmpl;
+      } catch {
+        try { tmpl.destroy({ children: true }); } catch { /* ignore */ }
+      }
+      drawPending = false;
+    };
+
+    const cleanup = () => {
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+      view.removeEventListener("mousemove",    onMove,    true);
+      view.removeEventListener("mousedown",    onClick,   true);
+      window.removeEventListener("contextmenu", onCancel, true);
+      window.removeEventListener("keydown",     onKeydown, true);
+      if (previewObj) {
+        previewObj.parent?.removeChild(previewObj);
+        try { previewObj.destroy({ children: true }); } catch { /* ignore */ }
+        previewObj = null;
+      }
+    };
+
+    const onMove = (ev) => {
+      currentPos = toWorld(ev.clientX, ev.clientY);
+      if (drawPending) return;
+      drawPending = true;
+      rafId = requestAnimationFrame(() => { rafId = null; drawPreview(currentPos); });
+    };
+
+    const onCancel = (ev) => {
+      ev.preventDefault(); ev.stopPropagation();
+      cleanup(); resolve(null);
+    };
+
+    const onKeydown = (ev) => {
+      if (ev.key !== "Escape") return;
+      ev.preventDefault(); ev.stopPropagation();
+      cleanup(); resolve(null);
+    };
+
+    const onClick = async (ev) => {
+      if (ev.button !== 0) return;
+      ev.preventDefault(); ev.stopPropagation(); ev.stopImmediatePropagation();
+
+      const finalPos = { ...currentPos };
+      cleanup();
+
+      let created;
+      try {
+        [created] = await canvas.scene.createEmbeddedDocuments("MeasuredTemplate", [{
+          ...baseData, ...finalPos,
+        }]);
+      } catch { resolve(null); return; }
+      if (!created) { resolve(null); return; }
+
+      // One tick for the canvas object to be instantiated.
+      await new Promise(r => setTimeout(r, 50));
+
+      const placedDoc = canvas.scene.templates.get(created.id);
+      const placedShape = placedDoc?.object?.shape;
+      if (!placedShape) {
+        resolve({ targets: [], templateId: created.id });
+        return;
+      }
+
+      const targets = canvas.tokens.placeables.filter(t =>
+        placedShape.contains(t.center.x - created.x, t.center.y - created.y)
+      );
+      resolve({
+        targets:    targets.map(t => t.actor).filter(Boolean),
+        templateId: created.id,
+      });
+    };
+
+    view.addEventListener("mousemove",    onMove,    true);
+    view.addEventListener("mousedown",    onClick,   true);
+    window.addEventListener("contextmenu", onCancel, true);
+    window.addEventListener("keydown",     onKeydown, true);
+
+    // Draw an initial preview at the canvas center so something is visible immediately.
+    const rect     = view.getBoundingClientRect();
+    const gs       = canvas.grid.size;
+    const centerRaw = canvas.stage.worldTransform.applyInverse({ x: rect.width / 2, y: rect.height / 2 });
+    currentPos = { x: Math.round(centerRaw.x / gs) * gs, y: Math.round(centerRaw.y / gs) * gs };
+    drawPreview(currentPos);
+  });
 }

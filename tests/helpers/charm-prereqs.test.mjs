@@ -24,6 +24,17 @@ function makeActor(items) {
   return { items: { filter: (fn) => items.filter(fn) } };
 }
 
+function makeFullActor({ essence = 1, abilities = {}, attributes = {}, items = [] } = {}) {
+  return {
+    system: { essence: { value: essence }, abilities, attributes },
+    items:  { filter: (fn) => items.filter(fn) }
+  };
+}
+
+function makeBackground({ id = "bg1", name = "Resources", value = 1 } = {}) {
+  return { id, name, type: "background", system: { value } };
+}
+
 describe("evaluateCharmPrereqs", () => {
   it("returns empty array when actor is null", () => {
     const charm = makeCharm({ prereqGroups: [{ alternatives: [{ type: "charm", charmName: "X" }] }] });
@@ -223,5 +234,89 @@ describe("areCharmPrereqsMet — meetsMinAbility gate", () => {
       items: { filter: () => [] }
     };
     expect(areCharmPrereqsMet(charm, actor)).toBe(true);
+  });
+});
+
+describe("essence prerequisite", () => {
+  function prereq(essenceMin) {
+    return makeCharm({ prereqGroups: [{ alternatives: [{ type: "essence", essenceMin }] }] });
+  }
+
+  it("passes when actor essence equals the minimum", () => {
+    const actor = makeFullActor({ essence: 3 });
+    expect(evaluateCharmPrereqs(prereq(3), actor)[0].satisfied).toBe(true);
+  });
+
+  it("passes when actor essence exceeds the minimum", () => {
+    const actor = makeFullActor({ essence: 5 });
+    expect(evaluateCharmPrereqs(prereq(3), actor)[0].satisfied).toBe(true);
+  });
+
+  it("fails when actor essence is below the minimum", () => {
+    const actor = makeFullActor({ essence: 2 });
+    expect(evaluateCharmPrereqs(prereq(3), actor)[0].satisfied).toBe(false);
+  });
+});
+
+describe("ability prerequisite", () => {
+  function prereq(abilityKey, abilityMin) {
+    return makeCharm({ prereqGroups: [{ alternatives: [{ type: "ability", abilityKey, abilityMin }] }] });
+  }
+
+  it("passes when actor ability meets minimum", () => {
+    const actor = makeFullActor({ abilities: { melee: { value: 4 } } });
+    expect(evaluateCharmPrereqs(prereq("melee", 4), actor)[0].satisfied).toBe(true);
+  });
+
+  it("fails when actor ability is below minimum", () => {
+    const actor = makeFullActor({ abilities: { melee: { value: 3 } } });
+    expect(evaluateCharmPrereqs(prereq("melee", 4), actor)[0].satisfied).toBe(false);
+  });
+
+  it("normalizes camelCase ability key (martialArts vs martialarts)", () => {
+    const actor = makeFullActor({ abilities: { martialArts: { value: 4 } } });
+    expect(evaluateCharmPrereqs(prereq("martialarts", 4), actor)[0].satisfied).toBe(true);
+  });
+
+  it("falls back to attributes when ability key not found in abilities", () => {
+    const actor = makeFullActor({ attributes: { dexterity: { value: 4 } } });
+    expect(evaluateCharmPrereqs(prereq("dexterity", 4), actor)[0].satisfied).toBe(true);
+  });
+
+  it("fails when key not found in either abilities or attributes", () => {
+    const actor = makeFullActor({});
+    expect(evaluateCharmPrereqs(prereq("melee", 1), actor)[0].satisfied).toBe(false);
+  });
+});
+
+describe("background prerequisite", () => {
+  function prereq(backgroundName, backgroundMin = 1) {
+    return makeCharm({ prereqGroups: [{ alternatives: [{ type: "background", backgroundName, backgroundMin }] }] });
+  }
+
+  it("passes when actor owns background at required dots", () => {
+    const actor = makeFullActor({ items: [makeBackground({ name: "Resources", value: 3 })] });
+    expect(evaluateCharmPrereqs(prereq("Resources", 3), actor)[0].satisfied).toBe(true);
+  });
+
+  it("fails when background dots are below minimum", () => {
+    const actor = makeFullActor({ items: [makeBackground({ name: "Resources", value: 2 })] });
+    expect(evaluateCharmPrereqs(prereq("Resources", 3), actor)[0].satisfied).toBe(false);
+  });
+
+  it("fails when background is not owned", () => {
+    const actor = makeFullActor({ items: [] });
+    expect(evaluateCharmPrereqs(prereq("Resources", 1), actor)[0].satisfied).toBe(false);
+  });
+
+  it("matches background name case-insensitively", () => {
+    const actor = makeFullActor({ items: [makeBackground({ name: "RESOURCES", value: 2 })] });
+    expect(evaluateCharmPrereqs(prereq("resources", 2), actor)[0].satisfied).toBe(true);
+  });
+
+  it("passes with default backgroundMin of 1 when background owned at any dots", () => {
+    const charm = makeCharm({ prereqGroups: [{ alternatives: [{ type: "background", backgroundName: "Contacts" }] }] });
+    const actor = makeFullActor({ items: [makeBackground({ name: "Contacts", value: 1 })] });
+    expect(evaluateCharmPrereqs(charm, actor)[0].satisfied).toBe(true);
   });
 });

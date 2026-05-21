@@ -1,5 +1,7 @@
 import { EX2E } from "../config.mjs";
 import { computeSpellCastButtonState } from "./spell-cast-button.mjs";
+import { resolveUserActor } from "../helpers/targeting.mjs";
+import { moteCostString } from "../rolls/activation-ledger.mjs";
 
 /**
  * Lazily create (or return) the shared bottom-HUD flex container that
@@ -136,8 +138,7 @@ export class ActionQuickbar {
     //      Lunars they want to shapeshift between Heart's Blood forms).
     //   2. game.user.character (the user's assigned character, if any).
     //   3. null — buttons render but their click handlers no-op.
-    const selectedActor = canvas.tokens?.controlled?.[0]?.actor ?? null;
-    this._renderPassive(selectedActor ?? game.user.character ?? null);
+    this._renderPassive(resolveUserActor());
   }
 
   _show() { this._root.classList.remove("hidden"); }
@@ -372,12 +373,7 @@ export class ActionQuickbar {
         row.classList.add("qb-attack-mode");
         const cost = s.system?.cost ?? {};
         const costParts = [];
-        if (cost.motes)            costParts.push(`${cost.motes}m`);
-        if (cost.willpower)        costParts.push(`${cost.willpower}wp`);
-        if (cost.bashingHealth)    costParts.push(`${cost.bashingHealth}hl(B)`);
-        if (cost.lethalHealth)     costParts.push(`${cost.lethalHealth}hl(L)`);
-        if (cost.aggravatedHealth) costParts.push(`${cost.aggravatedHealth}hl(A)`);
-        if (cost.xp)               costParts.push(`${cost.xp}xp`);
+        const mStr = moteCostString(cost); if (mStr) costParts.push(mStr);
         const costLabel = costParts.join(" ") || "—";
         row.innerHTML = `<span class="mode-label">${s.name}</span><span class="mode-stats">${costLabel}</span>`;
 
@@ -671,7 +667,8 @@ export class ActionQuickbar {
     if (key === "rise") return this._handleRise(actor, current, cfg);
     // Aim needs a target-picker and per-combatant aim-state
     // bookkeeping — offloaded to its own handler.
-    if (key === "aim")  return this._handleAim(actor, current, cfg);
+    if (key === "aim")        return this._handleAim(actor, current, cfg);
+    if (key === "coordinate") return this._handleCoordinate(actor, current, cfg);
     const label = game.i18n.localize(cfg.labelKey);
 
     await this._clearPendingAction(actor, current);
@@ -781,17 +778,41 @@ export class ActionQuickbar {
     const result = await ShapeshiftDialog.prompt({ actor });
     if (result === null) return;  // cancelled — abort
 
-    const { targetFormId, cost } = result;
+    const { targetFormId } = result;
     const targetFormType = result.targetFormType ??
       (actor.items.get(targetFormId)?.system?.formType ?? "");
     const isDBT = targetFormType === "warform";
 
+    // DBT: let the player pick which Gift charms to activate (+2m each).
+    let pickedGiftIds = [];
+    if (isDBT) {
+      const giftCharms = actor.items.filter(
+        i => i.type === "charm" && (i.system?.keywords ?? []).includes("Gift")
+      );
+      if (giftCharms.length) {
+        const essenceMax = actor.system.essence?.value ?? 1;
+        const { GiftPickerDialog } = await import("../dialogs/gift-picker-dialog.mjs");
+        pickedGiftIds = await GiftPickerDialog.prompt({
+          gifts:      giftCharms.map(c => ({ id: c.id, name: c.name, img: c.img })),
+          baseCost:   result.cost,
+          essenceMax
+        });
+      }
+    }
+    const totalCost = result.cost + pickedGiftIds.length * 2;
+
     // Spend motes via the standard overflow-aware path.
-    const breakdown = await actor.spendMotes(cost, "peripheral");
+    const breakdown = await actor.spendMotes(totalCost, "peripheral");
     if (!breakdown) return;  // insufficient motes — spendMotes already showed warn
 
     // Apply the form change.
     await actor.update({ "system.splat.lunar.activeFormId": targetFormId });
+
+    // Activate the player-selected Gift charms.
+    for (const id of pickedGiftIds) {
+      const charm = actor.items.get(id);
+      if (charm) await charm.update({ "system.active": true });
+    }
 
     // Look up target form name for the chat card.
     let targetName;
@@ -808,7 +829,7 @@ export class ActionQuickbar {
       {
         actorName:  actor.name,
         targetName,
-        cost,
+        cost:       totalCost,
         isDBT,
         toLabel:    targetFormId
           ? game.i18n.localize("EX2E.ShapeshiftToForm")
@@ -914,6 +935,73 @@ export class ActionQuickbar {
     });
 
     await this._postActionCard(actor, { label, speed: cfg.speed, dvPenalty: cfg.dvMod });
+  }
+
+  async _handleCoordinate(actor, current, cfg) {
+    const { CoordinationDialog } = await import("../dialogs/coordination-dialog.mjs");
+    const combat = this._combat ?? game.combat;
+
+    const result = await CoordinationDialog.prompt({ coordinator: actor, combat });
+    if (!result) return;
+
+    const { target, participants, pool, difficulty } = result;
+    if (!target) return;
+
+    await this._clearPendingAction(actor, current);
+
+    const { ExaltedRoll } = await import("../rolls/exalted-roll.mjs");
+    const roll = new ExaltedRoll({ pool });
+    const rollResult = await roll.evaluate();
+    const successes   = rollResult.successes ?? 0;
+    const dvReduction = Math.max(0, Math.min(successes - difficulty, participants));
+
+    const currentTick = combat?.combatants?.get(combat?.current?.combatantId)?.initiative ?? 0;
+    const label = game.i18n.localize("EX2E.CoordinatedAttack");
+
+    if (dvReduction > 0) {
+      const ae = await target.applyDVPenalty("both", dvReduction, {
+        label,
+        dvRefreshable: false,
+      });
+      if (ae) {
+        await ae.update({
+          "flags.exalted2e.coordinationExpiry": { tick: currentTick }
+        });
+      }
+    }
+
+    const success = successes >= difficulty;
+    const content = await foundry.applications.handlebars.renderTemplate(
+      "systems/exalted2e/templates/chat/coordination-card.hbs",
+      {
+        coordinatorName: actor.name,
+        targetName:      target.name,
+        pool,
+        successes,
+        difficulty,
+        dvReduction,
+        tick:            currentTick,
+        success,
+        failLabel:       game.i18n.localize("EX2E.CoordinationFailed"),
+      }
+    );
+    await ChatMessage.create({
+      content,
+      rolls:   [rollResult.foundryRoll],
+      sound:   CONFIG.sounds.dice,
+      speaker: ChatMessage.getSpeaker({ actor }),
+    });
+
+    const cfgLabel = game.i18n.localize(cfg.labelKey);
+    await current.setFlag("exalted2e", "pendingAction", {
+      actionKey: "coordinate",
+      label:     cfgLabel,
+      speed:     cfg.speed,
+      dvPenalty: 0,
+      abortable: false,
+      dvEffectId: null,
+    });
+    await this._postActionCard(actor, { label: cfgLabel, speed: cfg.speed, dvPenalty: 0 });
   }
 
   async _handleAttack(mode, actor, current) {

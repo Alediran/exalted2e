@@ -105,7 +105,7 @@ export function registerAttackCharmSmoke(context) {
         "system.willpower.value": 5,         "system.willpower.max":         5
       });
       const charm = await createTempCharm(actor, {
-        cost: { motes: 5 }, duration: "instant"
+        cost: { formula: "5m" }, duration: "instant"
       });
 
       // Real activation (no XP cost so no confirm dialog needed).

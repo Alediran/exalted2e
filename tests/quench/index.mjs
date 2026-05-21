@@ -16,6 +16,7 @@ import { registerSorceryShapingFocused }  from "./combat/sorcery-shaping-focused
 import { registerSorceryShapingSmoke }    from "./combat/sorcery-shaping-smoke.mjs";
 import { registerAttackPipelineFocused }  from "./combat/attack-pipeline-focused.mjs";
 import { registerCharmActivation }        from "./combat/charm-activation.mjs";
+import { registerCharmEconomics }         from "./combat/charm-economics.mjs";
 import { registerCharmWeaponArtifacts }   from "./combat/charm-weapon-artifacts.mjs";
 import { registerAttackCharmSmoke }       from "./combat/attack-charm-smoke.mjs";
 import { registerSocialAttackFocused }    from "./combat/social-attack-focused.mjs";
@@ -47,15 +48,36 @@ import { registerGreaterSigns }             from "./combat/greater-signs.mjs";
 import { registerCooperativeCharm }         from "./combat/cooperative-charm.mjs";
 import { registerWeavingTests }             from "./combat/weaving.mjs";
 import { registerCharmTargetEffect }        from "./combat/charm-target-effect.mjs";
+import { registerCharmVariableCost }        from "./combat/charm-variable-cost.mjs";
+import { registerHearthstone }              from "./combat/hearthstone.mjs";
+import { registerMartialArtsStyle }         from "./combat/martial-arts-style.mjs";
+import { registerVirtueChanneling }         from "./combat/virtue-channeling.mjs";
+import { registerKeywordGating }            from "./combat/keyword-gating.mjs";
+import { registerCoverStarmetal }           from "./combat/cover-starmetal.mjs";
+import { registerComboImport }              from "./combat/combo-import.mjs";
+import { registerFormCharms }              from "./combat/form-charms.mjs";
+import { registerWillpowerVirtueLimit }    from "./combat/willpower-virtue-limit.mjs";
+import { registerMentalInfluence }         from "./combat/mental-influence.mjs";
+import { registerCoordinationTests }       from "./combat/coordination.mjs";
+import { registerCountermagic }            from "./combat/countermagic.mjs";
+import { registerCrafting }               from "./crafting/crafting-roll.mjs";
+import { registerManse }                from "./manse/manse-item.mjs";
 // NOTE: Anima Powers feature (_swapAnimaPower) relies on the animapowers compendium
 // and cannot be exercised via Quench. No batch registered for ex2e.anima-powers.
 
-Hooks.once("quenchReady", quench => {
+Hooks.once("quenchReady", async quench => {
   // ui.notifications.element is null in the test world — its #postNotification
   // private method crashes whenever ChatMessage.create triggers a notify call.
   // Suppress notify for the whole test session; individual tests that need to
   // assert on warn/error stub those methods directly on ui.notifications.
   if (ui.notifications) ui.notifications.notify = () => {};
+
+  // Delete any combats left active from a previous game session before any
+  // test runs. A lingering combat causes game.combat.combatant to point at
+  // the wrong actor, silently breaking Action-Only and other combat-gated checks.
+  for (const c of (game.combats?.contents ?? [])) {
+    try { await c.delete(); } catch (_) { /* ignore */ }
+  }
 
   quench.registerBatch("ex2e.knockback.focused",        registerKnockbackFocused,       { displayName: "Knockback (focused)" });
   quench.registerBatch("ex2e.knockback.smoke",          registerKnockbackSmoke,         { displayName: "Knockback (smoke)" });
@@ -65,6 +87,7 @@ Hooks.once("quenchReady", quench => {
   quench.registerBatch("ex2e.sorcery.smoke",            registerSorceryShapingSmoke,    { displayName: "Sorcery shaping (smoke)" });
   quench.registerBatch("ex2e.attack.focused",           registerAttackPipelineFocused,  { displayName: "Attack pipeline (focused)" });
   quench.registerBatch("ex2e.charm.activation",         registerCharmActivation,        { displayName: "Charm activation lifecycle" });
+  quench.registerBatch("ex2e.charm-economics",          registerCharmEconomics,         { displayName: "Charm economics" });
   quench.registerBatch("ex2e.charm.weapon-artifacts",   registerCharmWeaponArtifacts,   { displayName: "Charm weapon artifacts" });
   quench.registerBatch("ex2e.attack-charm.smoke",       registerAttackCharmSmoke,       { displayName: "Attack + charm (smoke)" });
   quench.registerBatch("ex2e.social.focused",           registerSocialAttackFocused,    { displayName: "Social attack (focused)" });
@@ -96,5 +119,19 @@ Hooks.once("quenchReady", quench => {
   quench.registerBatch("ex2e.cooperative-charm",        registerCooperativeCharm,        { displayName: "DB Charm cooperation" });
   quench.registerBatch("ex2e.weaving",                  registerWeavingTests,            { displayName: "Alchemical Weaving protocols" });
   quench.registerBatch("ex2e.charm.target-effect",      registerCharmTargetEffect,       { displayName: "Charm target effect (onHit)" });
+  quench.registerBatch("ex2e.charm.variable-cost",      registerCharmVariableCost,       { displayName: "Charm variable mote cost" });
+  quench.registerBatch("ex2e.hearthstone",              registerHearthstone,             { displayName: "Hearthstone socketing" });
+  quench.registerBatch("ex2e.martial-arts-style",       registerMartialArtsStyle,        { displayName: "Martial Arts style — auto-add + MA gates" });
+  quench.registerBatch("ex2e.virtue-channeling",         registerVirtueChanneling,         { displayName: "Virtue channeling (WP / virtue spend)" });
+  quench.registerBatch("ex2e.keyword-gating",            registerKeywordGating,             { displayName: "Keyword gating (Native + Action-Only)" });
+  quench.registerBatch("ex2e.cover-starmetal",           registerCoverStarmetal,            { displayName: "Cover DV bonuses + Starmetal attack penalty" });
+  quench.registerBatch("ex2e.combo-import",              registerComboImport,               { displayName: "Combo import / name-remap" });
+  quench.registerBatch("ex2e.form-charms",               registerFormCharms,                { displayName: "Form-type charm handling" });
+  quench.registerBatch("ex2e.willpower-virtue-limit",    registerWillpowerVirtueLimit,       { displayName: "WP / Virtue / Limit automation" });
+  quench.registerBatch("ex2e.mental-influence",          registerMentalInfluence,             { displayName: "Mental influence keywords" });
+  quench.registerBatch("ex2e.coordination",              registerCoordinationTests,           { displayName: "Coordinated attack AE expiry" });
+  quench.registerBatch("ex2e.countermagic",              registerCountermagic,                { displayName: "Countermagic resolution" });
+  quench.registerBatch("ex2e.crafting",                  registerCrafting,                    { displayName: "Crafting roll resolver" });
+  quench.registerBatch("ex2e.manse",                     registerManse,                       { displayName: "Manse item — data layer" });
 
 });

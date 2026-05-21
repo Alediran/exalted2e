@@ -1,3 +1,5 @@
+import { moteCostString, charmVariableCostCtx, extractCharmActivations } from "./activation-ledger.mjs";
+import { refreshPips } from "../helpers/pip-track.mjs";
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
 /**
@@ -14,7 +16,7 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     // off-axis. Using the standard Foundry window frame gives us
     // predictable, draggable positioning. (Same fix as SocialAttackDialog.)
     classes: ["exalted2e", "roll-dialog", "attack-dialog"],
-    position: { width: 360, height: "auto" },
+    position: { width: 450, height: "auto" },
     window: {
       title:     "EX2E.AttackRoll",
       resizable: false
@@ -50,7 +52,11 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       // ability being rolled. Rendered as a checkbox list so the attacker
       // can activate Unblockable / Undodgeable (and similar) alongside the
       // attack roll.
-      charms:         options.charms         ?? []
+      charms:              options.charms              ?? [],
+      virtues:             options.virtues             ?? null,
+      actor:               options.actor               ?? null,
+      firstExcCostPerDie:  options.firstExcCostPerDie  ?? 1,
+      secondExcCostPerSucc: options.secondExcCostPerSucc ?? 2
     };
   }
 
@@ -59,24 +65,22 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     // Project each charm down to the fields the template needs — name, cost
     // label, and the keywords array so the UI can flag Unblockable /
     // Undodgeable picks.
+    const rollData = this._data.actor?.getRollData?.() ?? {};
     const charms = this._data.charms.map(c => {
       const cost = c.system?.cost ?? {};
       const parts = [];
-      if (cost.motes)            parts.push(`${cost.motes}m`);
-      if (cost.willpower)        parts.push(`${cost.willpower}wp`);
-      if (cost.bashingHealth)    parts.push(`${cost.bashingHealth}hl(B)`);
-      if (cost.lethalHealth)     parts.push(`${cost.lethalHealth}hl(L)`);
-      if (cost.aggravatedHealth) parts.push(`${cost.aggravatedHealth}hl(A)`);
-      if (cost.xp)               parts.push(`${cost.xp}xp`);
+      const mStr = moteCostString(cost); if (mStr) parts.push(mStr);
       const keywords = c.system?.keywords ?? [];
       return {
         id:          c.id,
         name:        c.name,
         costLabel:   parts.join(" · "),
         keywords,
-        tagLabel:    keywords.filter(k => k === "Unblockable" || k === "Undodgeable").join(", ")
+        tagLabel:    keywords.filter(k => k === "Unblockable" || k === "Undodgeable").join(", "),
+        ...charmVariableCostCtx(c, rollData),
       };
     });
+    this._charms = charms;
     return {
       ...context,
       ...this._data,
@@ -91,50 +95,36 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       moteTypeChoices: {
         personal:   game.i18n.localize("EX2E.MotesPersonal"),
         peripheral: game.i18n.localize("EX2E.MotesPeripheral")
-      }
+      },
+      virtueChoices: this._data.virtues
+        ? Object.entries(this._data.virtues)
+            .map(([key, v]) => ({
+              key,
+              label:   game.i18n.localize(`EX2E.Virtue${key.charAt(0).toUpperCase() + key.slice(1)}`),
+              current: v.current ?? 0,
+              rating:  v.value   ?? 0
+            }))
+            .filter(v => v.rating > 0)
+        : []
     };
   }
 
   _onRender(context, options) {
     const el = this.element;
-    const firstExcInput  = el.querySelector("[name='firstExcDice']");
-    const secondExcInput = el.querySelector("[name='secondExcSucc']");
+
+    const stuntSelect    = el.querySelector("[name='stunt']");
+    const firstHidden    = el.querySelector("[name='firstExcDice']");
+    const secondHidden   = el.querySelector("[name='secondExcSucc']");
     const totalCostEl    = el.querySelector(".exc-total-cost");
+    const firstPipTrack  = el.querySelector(".exc-pip-track[data-exc='first']");
+    const secondPipTrack = el.querySelector(".exc-pip-track[data-exc='second']");
+    const motivationRow  = el.querySelector(".stunt-motivation-row");
+    const rewardPrefRow  = el.querySelector(".stunt-reward-pref-row");
 
-    let currentFirstExcMax  = this._data.firstExcMax;
-    let currentSecondExcMax = this._data.secondExcMax;
+    const currentFirstExcMax  = this._data.firstExcMax;
+    const currentSecondExcMax = this._data.secondExcMax;
 
-    const enforceExcCap = () => {
-      if (!firstExcInput || !secondExcInput) return;
-      const firstVal  = parseInt(firstExcInput.value)  || 0;
-      const secondVal = (parseInt(secondExcInput.value) || 0) * 2;
-      const secondAllowed = Math.min(currentSecondExcMax, Math.floor((currentFirstExcMax - firstVal) / 2));
-      const firstAllowed  = Math.min(currentFirstExcMax, currentFirstExcMax - secondVal);
-      secondExcInput.max = Math.max(0, secondAllowed);
-      firstExcInput.max  = Math.max(0, firstAllowed);
-      const firstMaxEl  = el.querySelector(".exc-first-max");
-      const secondMaxEl = el.querySelector(".exc-second-max");
-      if (firstMaxEl)  firstMaxEl.textContent  = Math.max(0, firstAllowed);
-      if (secondMaxEl) secondMaxEl.textContent = Math.max(0, secondAllowed);
-      if (firstVal > firstAllowed)  firstExcInput.value  = Math.max(0, firstAllowed);
-      if ((parseInt(secondExcInput.value) || 0) > secondAllowed) secondExcInput.value = Math.max(0, secondAllowed);
-    };
-
-    const updateTotal = () => {
-      enforceExcCap();
-      if (!totalCostEl) return;
-      const firstCost  = parseInt(firstExcInput?.value)  || 0;
-      const secondCost = (parseInt(secondExcInput?.value) || 0) * 2;
-      totalCostEl.textContent = firstCost + secondCost;
-    };
-
-    firstExcInput?.addEventListener("input", updateTotal);
-    secondExcInput?.addEventListener("input", updateTotal);
-    updateTotal();
-
-    const stuntSelect   = el.querySelector("[name='stunt']");
-    const motivationRow = el.querySelector(".stunt-motivation-row");
-    const rewardPrefRow = el.querySelector(".stunt-reward-pref-row");
+    // ── Stunt sub-fields ─────────────────────────────────────────────────
     const updateStuntFields = () => {
       const v = parseInt(stuntSelect?.value) || 0;
       if (motivationRow) motivationRow.style.display = v >= 1 ? "" : "none";
@@ -142,6 +132,119 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     };
     stuntSelect?.addEventListener("change", updateStuntFields);
     updateStuntFields();
+
+    // ── Excellency cap enforcement ───────────────────────────────────────
+    const enforceExcCap = () => {
+      const firstVal  = parseInt(firstHidden?.value)  || 0;
+      const secondVal = (parseInt(secondHidden?.value) || 0) * 2;
+      const secondAllowed = Math.min(currentSecondExcMax, Math.floor((currentFirstExcMax - firstVal) / 2));
+      const firstAllowed  = Math.min(currentFirstExcMax,  currentFirstExcMax - secondVal);
+      refreshPips(firstPipTrack,  firstHidden,  Math.max(0, firstAllowed));
+      refreshPips(secondPipTrack, secondHidden, Math.max(0, secondAllowed));
+      if (firstVal > firstAllowed && firstHidden)
+        firstHidden.value = Math.max(0, firstAllowed);
+      if ((parseInt(secondHidden?.value) || 0) > secondAllowed && secondHidden)
+        secondHidden.value = Math.max(0, secondAllowed);
+    };
+
+    const updateTotal = () => {
+      enforceExcCap();
+      if (!totalCostEl) return;
+      const firstDice  = parseInt(firstHidden?.value)  || 0;
+      const secondSucc = parseInt(secondHidden?.value) || 0;
+      const firstCost  = firstDice  * (this._data.firstExcCostPerDie   ?? 1);
+      const secondCost = secondSucc * (this._data.secondExcCostPerSucc ?? 2);
+      totalCostEl.textContent = firstCost + secondCost;
+    };
+
+    // ── Pip click handlers for excellencies ──────────────────────────────
+    firstPipTrack?.addEventListener("click", (e) => {
+      const pip = e.target.closest(".exc-pip");
+      if (!pip) return;
+      const v = parseInt(pip.dataset.value);
+      const current = parseInt(firstHidden?.value) || 0;
+      firstHidden.value = current === v ? 0 : v;
+      updateTotal();
+    });
+    secondPipTrack?.addEventListener("click", (e) => {
+      const pip = e.target.closest(".exc-pip");
+      if (!pip) return;
+      const v = parseInt(pip.dataset.value);
+      const current = parseInt(secondHidden?.value) || 0;
+      secondHidden.value = current === v ? 0 : v;
+      updateTotal();
+    });
+
+    updateTotal();
+
+    // ── Virtue channel ───────────────────────────────────────────────────
+    const virtueSelectRow = el.querySelector(".virtue-select-row");
+    const updateVirtueMode = () => {
+      const checked = el.querySelector("[name='virtueChannelMode']:checked")?.value ?? "none";
+      if (virtueSelectRow) virtueSelectRow.style.display = checked === "dice" ? "" : "none";
+    };
+    el.querySelectorAll("[name='virtueChannelMode']").forEach(r => r.addEventListener("change", updateVirtueMode));
+    updateVirtueMode();
+
+    // ── Per-unit charm inputs: pips (bounded) or number (open-ended) ────
+    el.querySelectorAll("input[data-charm-id]").forEach(checkbox => {
+      const charmId  = checkbox.dataset.charmId;
+      const pipTrack = el.querySelector(`.charm-units-pips[data-charm-id="${charmId}"]`);
+
+      if (pipTrack) {
+        // Bounded cost → pip track
+        const unitsHidden = pipTrack.querySelector(`input[name="charm-units-${charmId}"]`);
+        const maxPips = parseInt(pipTrack.dataset.max) || 0;
+        const minPips = parseInt(pipTrack.dataset.min) || 0;
+
+        const refreshCharmPips = () => {
+          const current = parseInt(unitsHidden?.value) || 0;
+          pipTrack.querySelectorAll(".exc-pip").forEach(pip => {
+            const v = parseInt(pip.dataset.value);
+            pip.classList.toggle("is-filled", v <= current);
+            pip.disabled = !checkbox.checked;
+          });
+        };
+
+        for (let i = 1; i <= maxPips; i++) {
+          const pip = document.createElement("button");
+          pip.type = "button";
+          pip.className = "exc-pip";
+          pip.dataset.value = i;
+          pipTrack.insertBefore(pip, unitsHidden);
+          pip.addEventListener("click", () => {
+            if (!checkbox.checked) return;
+            const current = parseInt(unitsHidden?.value) || 0;
+            unitsHidden.value = current === i ? minPips : i;
+            refreshCharmPips();
+          });
+        }
+
+        checkbox.addEventListener("change", () => {
+          if (!checkbox.checked && unitsHidden) unitsHidden.value = minPips;
+          refreshCharmPips();
+        });
+        refreshCharmPips();
+
+      } else {
+        // Open-ended cost → plain number input
+        const unitsInput = el.querySelector(`input[name="charm-units-${charmId}"]`);
+        if (!unitsInput) return;
+        const syncUnits = () => {
+          unitsInput.disabled = !checkbox.checked;
+          if (!checkbox.checked) unitsInput.value = unitsInput.min || 0;
+        };
+        checkbox.addEventListener("change", syncUnits);
+        syncUnits();
+        unitsInput.addEventListener("input", () => {
+          const min = parseInt(unitsInput.min) || 0;
+          const max = unitsInput.max !== "" ? parseInt(unitsInput.max) : Infinity;
+          let val = parseInt(unitsInput.value);
+          if (isNaN(val)) val = min;
+          unitsInput.value = Math.max(min, Math.min(max, val));
+        });
+      }
+    });
   }
 
   static #onConfirmAttack(event, target) {
@@ -149,10 +252,9 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     const fd   = new foundry.applications.ux.FormDataExtended(form);
     const data = fd.object;
 
-    // Collect ticked charm checkboxes — each has name="charm-<id>".
-    const charmIds = Object.keys(data)
-      .filter(k => k.startsWith("charm-") && data[k])
-      .map(k => k.slice("charm-".length));
+    // Collect ticked charm checkboxes + their variable-cost picker selections.
+    const charmActivations = extractCharmActivations(data, this._charms ?? []);
+    const charmIds = charmActivations.map(a => a.id);
 
     this._resolved = true;
     this._resolve({
@@ -163,7 +265,10 @@ export class AttackDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       moteType:           data.moteType           || "peripheral",
       firstExcDice:       parseInt(data.firstExcDice)  || 0,
       secondExcSucc:      parseInt(data.secondExcSucc) || 0,
-      charmIds
+      charmIds,
+      charmActivations,
+      virtueChannelMode: data.virtueChannelMode || "none",
+      virtueChannel:     data.virtueChannelMode === "dice" ? (data.virtueChannel || null) : null
     });
     this.close();
   }

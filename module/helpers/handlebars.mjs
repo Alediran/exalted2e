@@ -1,9 +1,15 @@
 import { EX2E } from "../config.mjs";
+import { moteCostString } from "../rolls/activation-ledger.mjs";
 
 /**
  * Register all Handlebars helpers used by the Exalted 2e system.
  */
 export function registerHandlebarsHelpers() {
+
+  // ── moteCostString ─────────────────────────────────────────────────────
+  // Returns the variable-aware mote cost label for a cost object.
+  // Usage: {{moteCostString system.cost}}
+  Handlebars.registerHelper("moteCostString", cost => moteCostString(cost));
 
   // ── dotRating ──────────────────────────────────────────────────────────
   // Renders a row of clickable round dot pips (permanent ratings).
@@ -44,6 +50,20 @@ export function registerHandlebarsHelpers() {
     return new Handlebars.SafeString(html);
   });
 
+  // ── pipTrack ───────────────────────────────────────────────────────────
+  // Renders a row of clickable pip buttons plus a hidden value input.
+  // Used by the Excellency sections in roll/attack/social-attack dialogs.
+  // Usage: {{pipTrack name="firstExcDice" max=firstExcMax exc="first"}}
+  Handlebars.registerHelper("pipTrack", function(options) {
+    const { name, max = 0, exc = "" } = options.hash;
+    let html = `<div class="exc-pip-track" data-exc="${exc}">`;
+    for (let i = 1; i <= max; i++) {
+      html += `<button type="button" class="exc-pip" data-value="${i}"></button>`;
+    }
+    html += `<input type="hidden" name="${name}" value="0"></div>`;
+    return new Handlebars.SafeString(html);
+  });
+
   // ── healthTrack ────────────────────────────────────────────────────────
   // Renders the Exalted health track as one row per penalty level. Each
   // row carries a label column (-0 / -1 / -2 / -4 / Inc) and a box
@@ -56,10 +76,18 @@ export function registerHandlebarsHelpers() {
   // Usage: {{healthTrack health=system.health}}
   Handlebars.registerHelper("healthTrack", function(options) {
     const { health, exaltType } = options.hash;
-    const bonus = health.bonus ?? { zero: 0, one: 0, two: 0 };
-    const zeroCount = 1 + (bonus.zero ?? 0);
-    const oneCount  = 2 + (bonus.one  ?? 0);
-    const twoCount  = 2 + (bonus.two  ?? 0);
+    // `levelCounts` is written by _prepareHealthData and includes charm bonuses
+    // (Ox-Body etc.). Fall back to manual calculation for contexts that don't
+    // run prepareDerivedData (NPC sheet, isolated template tests).
+    let zeroCount, oneCount, twoCount;
+    if (health.levelCounts) {
+      ({ zero: zeroCount, one: oneCount, two: twoCount } = health.levelCounts);
+    } else {
+      const bonus = health.bonus ?? { zero: 0, one: 0, two: 0 };
+      zeroCount = 1 + (bonus.zero ?? 0);
+      oneCount  = 2 + (bonus.one  ?? 0);
+      twoCount  = 2 + (bonus.two  ?? 0);
+    }
     const totalBoxes = zeroCount + oneCount + twoCount + 1 /* -4 */ + 1 /* Inc */;
 
     const agg    = Math.min(health.aggravated ?? 0, totalBoxes);
@@ -181,10 +209,13 @@ export function registerHandlebarsHelpers() {
   Handlebars.registerHelper("lte", (a, b) => a <= b);
   Handlebars.registerHelper("eq",  (a, b) => a == b);
   Handlebars.registerHelper("neq", (a, b) => a != b);
+  Handlebars.registerHelper("or",  (a, b) => a || b);
+  Handlebars.registerHelper("and", (a, b) => !!(a && b));
 
   // ── add / subtract ────────────────────────────────────────────────────
   Handlebars.registerHelper("add", (a, b) => Number(a) + Number(b));
   Handlebars.registerHelper("sub", (a, b) => Number(a) - Number(b));
+  Handlebars.registerHelper("mul", (a, b) => Number(a) * Number(b));
 
   // ── includes ──────────────────────────────────────────────────────────
   Handlebars.registerHelper("includes", (arr, item) =>

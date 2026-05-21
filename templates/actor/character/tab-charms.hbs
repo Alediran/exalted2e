@@ -64,13 +64,10 @@
         <span class="item-name charm-name">
           {{#with (lookup @root.charmPrereqs charm.id) as |p|}}
             {{#if p.has}}
-              {{#if p.met}}
-              <i class="fa-solid fa-circle-check charm-prereq-ok"
-                 title="{{localize 'EX2E.PrereqMet'}}"></i>
-              {{else}}
+              {{#unless p.met}}
               <i class="fa-solid fa-triangle-exclamation charm-prereq-missing"
                  title="{{p.missing}}"></i>
-              {{/if}}
+              {{/unless}}
             {{/if}}
           {{/with}}
           {{#if (eq charm.system.excellency "first")}}
@@ -80,10 +77,9 @@
           {{else if (eq charm.system.excellency "third")}}
           <span class="charm-excellency-badge" title="{{localize 'EX2E.ThirdExcellency'}}">III</span>
           {{/if}}
-          {{charm.name}}
+          {{charm.name}}{{#with (lookup @root.stackCounts charm.id) as |count|}}{{#if count}} x{{count}}{{/if}}{{/with}}
           <span class="charm-meta">
-            {{charm.system.cost.motes}}m
-            {{#if charm.system.cost.willpower}}+{{charm.system.cost.willpower}}wp{{/if}}
+            {{moteCostString charm.system.cost}}
             · {{charm.system.duration}}
             {{#if (eq @root.system.exaltType "alchemical")}}{{#if charm.system.installed}}{{#if charm.system.essenceCommitment}}<span class="charm-commit">[{{charm.system.essenceCommitment}}m]</span>{{/if}}{{/if}}{{/if}}
           </span>
@@ -147,10 +143,9 @@
                title="{{localize 'EX2E.SubmoduleParentNotInstalled'}}"></i>
             {{/unless}}
             {{sub.name}}
-            {{#if sub.system.cost.motes}}
+            {{#if sub.system.cost.formula}}
             <span class="charm-meta">
-              {{sub.system.cost.motes}}m
-              {{#if sub.system.cost.willpower}}+{{sub.system.cost.willpower}}wp{{/if}}
+              {{moteCostString sub.system.cost}}
             </span>
             {{/if}}
           </span>

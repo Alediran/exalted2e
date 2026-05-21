@@ -3,12 +3,46 @@ import { clampDamage, healInOrder } from "../rolls/health-math.mjs";
 import { aggregatePenalties, sumPenalties } from "./penalties-math.mjs";
 import { collectPermanentTraitChanges } from "./purchase-mode-math.mjs";
 import { getClarityBand } from "../combat/clarity-math.mjs";
-import { computeSoakBonus, aggregateCharmDVBonus, isCharmPassivelyActive } from "../rolls/charm-passive-math.mjs";
+import { isCharmPassivelyActive } from "../rolls/charm-passive-math.mjs";
 import { collectMoteRecoveryCharms, collectWillpowerRecoveryCharms } from "../rolls/charm-event-math.mjs";
 import { evaluateCharmFormula } from "./item.mjs";
 
 const ANIMA_ORDER = { none: 0, glowing: 1, burning: 2, bonfire: 3, totemic: 4 };
 function _animaLevel(key) { return ANIMA_ORDER[key] ?? 0; }
+
+/**
+ * Attempt to suppress a virtue channel by spending Willpower equal to
+ * `successes`. If the actor's current Willpower is less than the cost,
+ * a warning notification is shown and the function returns `false` without
+ * spending anything.  When the suppressed virtue is the actor's primary
+ * virtue, the actor also gains +1 Limit (capped at 10).
+ *
+ * @param {ExaltedActor} actor       - The actor attempting suppression.
+ * @param {string}       virtueName  - Key in `system.virtues` (e.g. "conviction").
+ * @param {number}       successes   - Number of Willpower points required.
+ * @returns {Promise<boolean>}  `true` on success, `false` when WP is insufficient.
+ */
+export async function applyVirtueSuppression(actor, virtueName, successes) {
+  const wp = actor.system.willpower.value;
+  if (wp < successes) {
+    const label = game.i18n.localize(EX2E.virtues[virtueName] ?? virtueName);
+    ui.notifications.warn(
+      game.i18n.format("EX2E.VirtueSuppressionInsuffWP", { virtue: label, cost: successes })
+    );
+    return false;
+  }
+  const updates = { "system.willpower.value": wp - successes };
+  if (actor.system.primaryVirtue === virtueName) {
+    updates["system.limit"] = Math.min(10, (actor.system.limit ?? 0) + 1);
+  }
+  await actor.update(updates);
+  if (actor.system.primaryVirtue === virtueName) {
+    ui.notifications.info(
+      game.i18n.format("EX2E.LimitGained", { current: actor.system.limit })
+    );
+  }
+  return true;
+}
 
 /**
  * ExaltedActor – extends the base Foundry Actor document with
@@ -379,7 +413,7 @@ export class ExaltedActor extends Actor {
     // ── Aggregate DV penalties carried by ActiveEffects ───────────────────
     this._aggregateDVPenalties(systemData);
     this._aggregateMDVPenalties(systemData);
-    this._aggregateCharmDVBonus(systemData);
+    this._aggregateDVBonuses(systemData);
     this._prepareAlchemicalDerived(systemData);
   }
 
@@ -409,24 +443,27 @@ export class ExaltedActor extends Actor {
     systemData.mdvPenalties = aggregatePenalties(this.effects, "mdvPenalty");
   }
 
-  _aggregateCharmDVBonus(systemData) {
-    const charms   = this.items.filter(i => i.type === "charm" && isCharmPassivelyActive(i));
-    const rollData = this.getRollData() ?? {};
-    const resolved = charms
-      .filter(c => c.system.dvBonus?.enabled)
-      .map(c => {
-        const dv = c.system.dvBonus;
-        const ev = (formula, fallback) =>
-          formula ? evaluateCharmFormula(formula, rollData, fallback) : fallback;
-        return { system: { dvBonus: {
-          enabled:            true,
-          dodgeBonus:         ev(dv.dodgeBonusFormula, dv.dodgeBonus ?? 0),
-          parryBonus:         ev(dv.parryBonusFormula, dv.parryBonus ?? 0),
-          ignoreAllPenalties: dv.ignoreAllPenalties,
-          ignorePenaltyTypes: dv.ignorePenaltyTypes ?? [],
-        }}};
-      });
-    systemData.charmDVBonus = aggregateCharmDVBonus(resolved);
+  _aggregateDVBonuses(systemData) {
+    let ignoreAll = false;
+    const ignoreTypes = new Set();
+    let aeDodge = 0, aeParry = 0;
+    for (const ae of this.effects) {
+      if (ae.disabled) continue;
+      const flags = ae.flags?.exalted2e;
+      if (!flags) continue;
+      const ignore = flags.dvBonusIgnore;
+      if (ignore) {
+        if (ignore.all) ignoreAll = true;
+        for (const t of (ignore.types ?? [])) ignoreTypes.add(t);
+      }
+      const legacyDv = flags.dvBonus;
+      if (legacyDv) {
+        aeDodge += legacyDv.dodge ?? 0;
+        aeParry += legacyDv.parry ?? 0;
+      }
+    }
+    systemData.dvBonusIgnore = { all: ignoreAll, types: [...ignoreTypes] };
+    systemData.statusDVBonus = { dodgeBonus: aeDodge, parryBonus: aeParry };
   }
 
   /**
@@ -588,25 +625,21 @@ export class ExaltedActor extends Actor {
   /** DV after current penalties, never below 0. */
   get currentDodgeDV() {
     const s = this.system;
-    const dvb = s.charmDVBonus ?? { dodgeBonus: 0, parryBonus: 0, ignoreAllPenalties: false, ignorePenaltyTypes: [] };
     const base = (this.type === "character" ? (s.dodgeDV ?? 0)
                 : this.type === "npc"       ? (s.combat?.dodgeDV ?? 0)
-                : 0) + dvb.dodgeBonus;
-    const penalty = dvb.ignoreAllPenalties
-      ? 0
-      : this._dvPenaltyIgnoring(new Set(dvb.ignorePenaltyTypes));
+                : 0) + (s.bonuses?.dodgeBonus ?? 0) + (s.statusDVBonus?.dodgeBonus ?? 0);
+    const ignore = s.dvBonusIgnore ?? { all: false, types: [] };
+    const penalty = ignore.all ? 0 : this._dvPenaltyIgnoring(new Set(ignore.types));
     return Math.max(0, base - penalty);
   }
 
   get currentParryDV() {
     const s = this.system;
-    const dvb = s.charmDVBonus ?? { dodgeBonus: 0, parryBonus: 0, ignoreAllPenalties: false, ignorePenaltyTypes: [] };
     const base = (this.type === "character" ? (s.parryDV ?? s.parryDVBase ?? 0)
                 : this.type === "npc"       ? (s.combat?.parryDV ?? 0)
-                : 0) + dvb.parryBonus;
-    const penalty = dvb.ignoreAllPenalties
-      ? 0
-      : this._dvPenaltyIgnoring(new Set(dvb.ignorePenaltyTypes));
+                : 0) + (s.bonuses?.parryBonus ?? 0) + (s.statusDVBonus?.parryBonus ?? 0);
+    const ignore = s.dvBonusIgnore ?? { all: false, types: [] };
+    const penalty = ignore.all ? 0 : this._dvPenaltyIgnoring(new Set(ignore.types));
     return Math.max(0, base - penalty);
   }
 
@@ -638,7 +671,7 @@ export class ExaltedActor extends Actor {
    * @param {string} [opts.label]  Human-readable effect name (defaults to the type).
    * @param {string} [opts.icon]   Status icon path.
    */
-  async applyDVPenalty(type, value, { label, icon, sticky = false } = {}) {
+  async applyDVPenalty(type, value, { label, icon, sticky = false, dvRefreshable = true } = {}) {
     if (!type || !Number.isFinite(value) || value <= 0) return null;
     const effectData = {
       name: label ?? type,
@@ -646,7 +679,7 @@ export class ExaltedActor extends Actor {
       flags: {
         exalted2e: {
           dvPenalty:     { type, value },
-          dvRefreshable: true,
+          dvRefreshable,
           // Sticky DV penalties survive the usual "refresh on your next
           // action's tick" clear-out — abortable actions (Aim, Guard)
           // need their DV penalty to persist until the next DIFFERENT
@@ -770,29 +803,26 @@ export class ExaltedActor extends Actor {
   }
 
   _applyCharmSoak(systemData) {
-    const charms   = this.items.filter(i => i.type === "charm" && isCharmPassivelyActive(i));
-    const rollData = this.getRollData() ?? {};
-    const entries  = charms
-      .filter(c => c.system.soakBonus?.enabled)
-      .map(c => {
-        const sb = c.system.soakBonus;
-        const ev = (formula, fallback) =>
-          formula ? evaluateCharmFormula(formula, rollData, fallback) : fallback;
-        return {
-          bashing:       ev(sb.bashingFormula,    sb.bashing      ?? 0),
-          lethal:        ev(sb.lethalFormula,     sb.lethal       ?? 0),
-          aggravated:    ev(sb.aggravatedFormula, sb.aggravated   ?? 0),
-          hardnessAdd:   sb.hardnessAdd   ?? 0,
-          hardnessSetTo: sb.hardnessSetTo ?? 0,
-        };
-      });
-    const bonus = computeSoakBonus(entries);
     if (!systemData.totalSoak) return;
-    systemData.totalSoak.bashing    += bonus.bashing;
-    systemData.totalSoak.lethal     += bonus.lethal;
-    systemData.totalSoak.aggravated += bonus.aggravated;
-    systemData.hardness = Math.max(systemData.hardness ?? 0, bonus.hardnessSetTo)
-                        + bonus.hardnessAdd;
+
+    // Read AE-backed soak bonuses from the bonuses accumulator populated
+    // by charmSource AEs during charm activation.
+    const b = systemData.bonuses ?? {};
+    systemData.totalSoak.bashing    += b.soakBashing    ?? 0;
+    systemData.totalSoak.lethal     += b.soakLethal     ?? 0;
+    systemData.totalSoak.aggravated += b.soakAggravated ?? 0;
+
+    // hardnessSetTo is non-additive (Math.max) — still scanned directly.
+    const charms = this.items.filter(i => i.type === "charm" && isCharmPassivelyActive(i));
+    let maxHardnessSetTo = 0;
+    for (const c of charms) {
+      if (c.system.soakBonus?.enabled) {
+        const hst = c.system.soakBonus.hardnessSetTo ?? 0;
+        if (hst > maxHardnessSetTo) maxHardnessSetTo = hst;
+      }
+    }
+    systemData.hardness = Math.max(systemData.hardness ?? 0, maxHardnessSetTo)
+                        + (b.hardnessAdd ?? 0);
   }
 
   /**
@@ -830,15 +860,8 @@ export class ExaltedActor extends Actor {
   async applyDamage(amount, type) {
     if (this.type !== "character" && this.type !== "npc") return;
 
-    // Character totalBoxes derives from per-level bonus; NPC reads flat totalBoxes.
-    let totalBoxes;
-    if (this.type === "character") {
-      const b = this.system.health.bonus ?? { zero: 0, one: 0, two: 0 };
-      const bonusTotal = (b.zero ?? 0) + (b.one ?? 0) + (b.two ?? 0);
-      totalBoxes = 7 + bonusTotal;
-    } else {
-      totalBoxes = this.system.health.totalBoxes;
-    }
+    // totalBoxes is computed by _prepareHealthData and includes Ox-Body charm grants.
+    const totalBoxes = this.system.health.totalBoxes;
 
     const h = clampDamage(this.system.health, type, amount, totalBoxes);
     await this.update({ "system.health": h });
@@ -943,6 +966,40 @@ export class ExaltedActor extends Actor {
     const wp = this.system.willpower;
     const newVal = Math.min(wp.max, (wp.value ?? 0) + amount);
     return this.update({ "system.willpower.value": newVal });
+  }
+
+  async rollMorningRest() {
+    if (this.type !== "character") return;
+    const { ExaltedRoll } = await import("../rolls/exalted-roll.mjs");
+    const pool   = this.system.virtues.conviction.value;
+    const flavor = game.i18n.localize("EX2E.MorningRest");
+    const result = await ExaltedRoll.rollPool(this, { pool, flavor, category: "mental" });
+    if (result.successes > 0) await this.recoverWillpower(result.successes);
+  }
+
+  async rollVirtueCheck(virtueName) {
+    if (this.type !== "character") return;
+    const { ExaltedRoll } = await import("../rolls/exalted-roll.mjs");
+    const pool  = this.system.virtues[virtueName]?.value ?? 0;
+    const label = game.i18n.localize(EX2E.virtues[virtueName] ?? virtueName);
+    const result = await ExaltedRoll.rollPool(this, {
+      pool,
+      flavor:   game.i18n.format("EX2E.RollVirtue", { virtue: label }),
+      category: "mental"
+    });
+    if (!result.successes) return;
+    if (this.system.willpower.value < result.successes) {
+      ui.notifications.warn(
+        game.i18n.format("EX2E.VirtueSuppressionInsuffWP", { virtue: label, cost: result.successes })
+      );
+      return;
+    }
+    const confirmed = await foundry.applications.api.DialogV2.confirm({
+      window:  { title: label },
+      content: `<p>${game.i18n.format("EX2E.SuppressVirtue", { cost: result.successes, virtue: label })}</p>`
+    });
+    if (!confirmed) return;
+    await applyVirtueSuppression(this, virtueName, result.successes);
   }
 
   /**

@@ -1,0 +1,44 @@
+<div class="ex2e-roll-card gm-roll-pool-card">
+
+  <div class="card-header">
+    <h3 class="gm-roll-description">{{description}}</h3>
+  </div>
+
+  <div class="card-content">
+    <div class="gm-roll-info">
+      <span class="gm-roll-traits">
+        <strong>{{localize "EX2E.GmRollTraitList"}}:</strong> {{traitList}}
+      </span>
+      <span class="gm-roll-difficulty">
+        <strong>{{localize "EX2E.GmRollDifficulty"}}:</strong> {{difficulty}}
+      </span>
+    </div>
+
+    <div class="gm-roll-action">
+      <button class="btn-roll btn-gm-pool-roll">
+        <i class="fa-solid fa-dice"></i>
+        {{localize "EX2E.Roll"}}
+      </button>
+    </div>
+
+    {{#if rolls.length}}
+    <div class="gm-roll-results">
+      <h4 class="results-header">{{localize "EX2E.GmRollResults"}}</h4>
+      {{#each rolls as |r|}}
+      <div class="gm-roll-result {{#if r.pass}}success{{else}}failure{{/if}}">
+        <span class="roller-name">{{r.actorName}}</span>
+        <span class="roll-successes">{{r.successes}} {{localize "EX2E.Successes"}}</span>
+        <span class="pass-fail-label">
+          {{#if r.pass}}
+          <i class="fa-solid fa-check"></i> {{localize "EX2E.Pass"}}
+          {{else}}
+          <i class="fa-solid fa-times"></i> {{localize "EX2E.Fail"}}
+          {{/if}}
+        </span>
+      </div>
+      {{/each}}
+    </div>
+    {{/if}}
+  </div>
+
+</div>

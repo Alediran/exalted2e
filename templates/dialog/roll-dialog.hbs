@@ -61,20 +61,14 @@
     {{#if excellency.first}}
     <div class="field-group excellency-section exc-first-section">
       <label>{{localize "EX2E.FirstExcellency"}} <span class="exc-cost-tag">1m/{{localize "EX2E.Die"}}</span></label>
-      <div class="exc-input-row">
-        <input type="number" name="firstExcDice" value="0" min="0" max="{{firstExcMax}}" class="exc-input">
-        <span class="exc-limit">/ <span class="exc-first-max">{{firstExcMax}}</span></span>
-      </div>
+      {{pipTrack name="firstExcDice" max=firstExcMax exc="first"}}
     </div>
     {{/if}}
 
     {{#if excellency.second}}
     <div class="field-group excellency-section exc-second-section">
       <label>{{localize "EX2E.SecondExcellency"}} <span class="exc-cost-tag">2m/{{localize "EX2E.Success"}}</span></label>
-      <div class="exc-input-row">
-        <input type="number" name="secondExcSucc" value="0" min="0" max="{{secondExcMax}}" class="exc-input">
-        <span class="exc-limit">/ <span class="exc-second-max">{{secondExcMax}}</span></span>
-      </div>
+      {{pipTrack name="secondExcSucc" max=secondExcMax exc="second"}}
     </div>
     {{/if}}
 
@@ -87,9 +81,52 @@
     </div>
     {{/if}}
 
+    {{#if virtueChoices.length}}
+    <div class="field-group virtue-channel-section">
+      <label>{{localize "EX2E.VirtueChannelMode"}}</label>
+      <div class="virtue-channel-radio">
+        <label><input type="radio" name="virtueChannelMode" value="none" checked> {{localize "EX2E.VirtueChannelNone"}}</label>
+        <label><input type="radio" name="virtueChannelMode" value="success"> {{localize "EX2E.VirtueChannelSuccess"}}</label>
+        <label><input type="radio" name="virtueChannelMode" value="dice"> {{localize "EX2E.VirtueChannelDice"}}</label>
+      </div>
+    </div>
+    <div class="field-group virtue-select-row" style="display:none">
+      <label>{{localize "EX2E.VirtueChannelSelect"}}</label>
+      <select name="virtueChannel">
+        <option value="">—</option>
+        {{#each virtueChoices as |v|}}
+        <option value="{{v.key}}">{{v.label}} ({{v.current}}/{{v.rating}})</option>
+        {{/each}}
+      </select>
+    </div>
+    {{/if}}
+
     {{#if clarityInfo}}
     <div class="field-group clarity-autochthon-reminder">
       <span>+{{clarityInfo.autochthonBonus}} {{localize "EX2E.ClarityAutochthonBonus"}}</span>
+    </div>
+    {{/if}}
+
+    {{!-- ── Mental Influence effects (Emotion / Compulsion / Servitude AEs) ── --}}
+    {{#if mentalInfluenceEffects.length}}
+    <div class="field-group mental-influence-section">
+      <label>{{localize "EX2E.MentalInfluenceSection"}}</label>
+      {{#each mentalInfluenceEffects}}
+      <label class="mental-influence-row">
+        <input type="checkbox" name="mi-{{this.keyword}}-{{this.id}}">
+        <span class="mi-charm-name">{{this.charmName}}</span>
+        {{#if (eq this.keyword "Emotion")}}
+        <span class="mi-note">{{localize "EX2E.EmotionActingContrary"}}
+          ({{localize "EX2E.MentalInfluenceDicePenalty" penalty=this.penaltyMinor}})</span>
+        {{else if (eq this.keyword "Compel")}}
+        <span class="mi-note">{{localize "EX2E.CompulsionResisting"}}
+          ({{localize "EX2E.MentalInfluenceWpNote" wpCost=this.wpCostPerResist}})</span>
+        {{else}}
+        <span class="mi-note" data-tooltip="{{localize 'EX2E.ServitudeGmRemovalNote'}}">{{localize "EX2E.ServitudeResisting"}}
+          ({{localize "EX2E.MentalInfluenceWpNote" wpCost=this.wpCostPerResist}})</span>
+        {{/if}}
+      </label>
+      {{/each}}
     </div>
     {{/if}}
 

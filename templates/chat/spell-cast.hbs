@@ -1,5 +1,5 @@
 <div class="ex2e-roll-card ex2e-spell-cast-card">
-  <div class="roll-header">
+  <div class="card-header">
     <span class="roll-actor">{{actorName}}</span>
     <span class="roll-flavor">{{localize "EX2E.SpellCast"}}</span>
   </div>
@@ -20,5 +20,12 @@
       <span><strong>{{localize "EX2E.Motes"}}:</strong> {{motesSpent}} {{motePoolLabel}}</span>
       <span><strong>{{localize "EX2E.Willpower"}}:</strong> {{wpSpent}}</span>
     </div>
+  </div>
+
+  <div class="spell-cast-actions">
+    <button type="button" class="btn-roll btn-reverse-spell"
+            data-tooltip="{{localize 'EX2E.SpellCastReverse'}}">
+      <i class="fa-solid fa-rotate-left"></i> {{localize "EX2E.SpellCastReverse"}}
+    </button>
   </div>
 </div>

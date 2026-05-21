@@ -1,0 +1,141 @@
+<div class="crafting-roll-dialog">
+
+  {{!-- ── PRE-ROLL PANEL ─────────────────────────────────────────── --}}
+  {{#if (eq phase "preroll")}}
+
+  <div class="crafting-project-info">
+    <div class="info-row">
+      <span class="label">{{localize "EX2E.CraftingProjectName"}}</span>
+      <span class="value">{{project.name}}</span>
+    </div>
+    <div class="info-row">
+      <span class="label">{{localize "EX2E.CraftingProjectSize"}}</span>
+      <span class="value">{{#if (eq project.size "small")}}{{localize "EX2E.CraftingSizeSmall"}}{{else}}{{localize "EX2E.CraftingSizeLarge"}}{{/if}}</span>
+    </div>
+
+    {{#if isLunarAlchemical}}
+    <div class="info-row">
+      <span class="label">{{localize "EX2E.CraftingChooseAttr"}}</span>
+      <select name="chosenAttr">
+        {{#each attrOptions as |opt|}}
+        <option value="{{opt.value}}">{{opt.label}}</option>
+        {{/each}}
+      </select>
+    </div>
+    {{else}}
+    <div class="info-row">
+      <span class="label">{{localize "EX2E.CraftingDicePool"}}</span>
+      <span class="value">{{basePool}}</span>
+    </div>
+    {{/if}}
+
+    <div class="info-row">
+      <span class="label">{{localize "EX2E.CraftingDifficulty"}}</span>
+      <span class="value">{{difficulty}}</span>
+    </div>
+
+    {{#if project.bonusDice}}
+    <div class="info-row">
+      <span class="label">{{localize "EX2E.CraftingBonusDice"}}</span>
+      <span class="value">{{project.bonusDice}}</span>
+    </div>
+    {{/if}}
+
+    <div class="info-row">
+      <span class="label">{{localize "EX2E.CraftingMaterials"}}</span>
+      <span class="value">{{localize "EX2E.ResourcesPrefix"}} {{materialsResources}}</span>
+    </div>
+
+    {{#if capExceeded}}
+    <div class="crafting-cap-warning">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      {{localize "EX2E.CraftingCapWarningShort"}}
+    </div>
+    {{/if}}
+  </div>
+
+  {{#if craftCharms.length}}
+  <div class="crafting-charms-section">
+    <h4>{{localize "EX2E.CraftingCharms"}}</h4>
+    <ul class="crafting-charm-list">
+      {{#each craftCharms as |charm|}}
+      <li>
+        <label>
+          <input type="checkbox" name="selectedCharms" data-charm-id="{{charm.id}}">
+          {{charm.name}}
+        </label>
+      </li>
+      {{/each}}
+    </ul>
+    <div class="charm-dice-row">
+      <label for="charmDice">{{localize "EX2E.CraftingCharmDice"}}</label>
+      <input type="number" id="charmDice" name="charmDice" min="0" value="0">
+    </div>
+  </div>
+  {{/if}}
+
+  <div class="crafting-stunt-section">
+    <h4>{{localize "EX2E.StuntBonus"}}</h4>
+    <div class="stunt-options">
+      <label><input type="radio" name="stunt" value="0" checked> {{localize "EX2E.NoStunt"}}</label>
+      <label><input type="radio" name="stunt" value="1"> {{localize "EX2E.Stunt1"}}</label>
+      <label><input type="radio" name="stunt" value="2"> {{localize "EX2E.Stunt2"}}</label>
+      <label><input type="radio" name="stunt" value="3"> {{localize "EX2E.Stunt3"}}</label>
+    </div>
+  </div>
+
+  <div class="crafting-dialog-footer">
+    <button type="button" data-action="roll" class="btn-roll">
+      {{localize "EX2E.Roll"}}
+    </button>
+  </div>
+
+  {{/if}}
+
+  {{!-- ── POST-ROLL PANEL ────────────────────────────────────────── --}}
+  {{#if (eq phase "result")}}
+
+  <div class="crafting-result-panel">
+    <div class="roll-summary">
+      {{localize "EX2E.CraftingRolled"}} {{successes}} {{localize "EX2E.CraftingSuccesses"}}
+      &nbsp;·&nbsp;
+      {{localize "EX2E.CraftingDifficulty"}} {{difficulty}}
+      {{#unless botch}}
+      &nbsp;·&nbsp;
+      {{localize "EX2E.CraftingThreshold"}} {{threshold}}
+      {{/unless}}
+    </div>
+
+    <div class="crafting-outcome tier-{{outcome.tier}}">
+      <strong>{{tierLabel}}</strong>
+      {{#if outcome.finalResources}}
+        — {{localize "EX2E.ResourcesPrefix"}} {{outcome.finalResources}}
+      {{/if}}
+      {{#if (eq outcome.tier "partial")}}
+        <p class="crafting-st-note">{{localize "EX2E.CraftingPartialNote"}}</p>
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="crafting-dialog-footer">
+    {{#if outcome.canRetry}}
+    <button type="button" data-action="retry" class="btn-retry">
+      {{localize "EX2E.CraftingRetry"}} ({{localize "EX2E.CraftingBonusDice"}}: {{successes}})
+    </button>
+    <button type="button" data-action="abandon" class="btn-abandon">
+      {{localize "EX2E.CraftingAbandon"}}
+    </button>
+    {{else if (eq outcome.tier "botched")}}
+    <button type="button" data-action="abandon" class="btn-abandon">
+      {{localize "EX2E.CraftingDismiss"}}
+    </button>
+    {{else}}
+    <button type="button" data-action="complete" class="btn-complete">
+      {{localize "EX2E.CraftingComplete"}}
+    </button>
+    {{/if}}
+  </div>
+
+  {{/if}}
+
+</div>

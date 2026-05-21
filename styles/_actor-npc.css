@@ -8,3 +8,17 @@
 .exalted2e.actor.npc .actor-name { color: #d4b8f0; }
 
 .exalted2e.actor.npc .section-header { color: #b890e0; border-bottom-color: rgba(120,80,160,0.5); }
+
+/* ── NPC Light Mode Overrides ─────────────────────────────────────────────── */
+
+body.ex2e-light-mode .exalted2e.actor.npc .character-header {
+  background: linear-gradient(135deg, #ede0f5 0%, #dccfee 100%) !important;
+  border-color: rgba(90, 50, 130, 0.4) !important;
+}
+
+body.ex2e-light-mode .exalted2e.actor.npc .actor-name { color: #3d1f6b !important; }
+
+body.ex2e-light-mode .exalted2e.actor.npc .section-header {
+  color: #5a3282 !important;
+  border-bottom-color: rgba(90, 50, 130, 0.4) !important;
+}

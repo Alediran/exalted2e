@@ -12,6 +12,19 @@ function _prepDerivedData(armorSystem) {
   return data;
 }
 
+describe("ArmorData schema — artifact fields", () => {
+  let schema;
+  beforeAll(() => { schema = ArmorData.defineSchema(); });
+
+  it("artifactRating: min 0, max 5, integer, initial 0", () => {
+    expect(schema.artifactRating.options).toMatchObject({ min: 0, max: 5, integer: true, initial: 0 });
+  });
+
+  it("hearthstoneSlots: min 0, max 3, integer, initial 0", () => {
+    expect(schema.hearthstoneSlots.options).toMatchObject({ min: 0, max: 3, integer: true, initial: 0 });
+  });
+});
+
 describe("ArmorData.prepareDerivedData", () => {
   it("unattuned armor gets no material bonus", () => {
     const sys = {

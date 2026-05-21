@@ -142,6 +142,54 @@
   </div>
   {{/each}}
 
+  <!-- Combos -->
+  <div class="section-toolbar" style="margin-top:16px">
+    <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.Combos"}}</h2>
+    {{#if isEditable}}
+    <button class="btn-add-item" data-action="createItem" data-type="combo"
+            title="{{localize 'EX2E.AddCombo'}}">
+      <i class="fa-solid fa-plus"></i> {{localize "EX2E.AddCombo"}}
+    </button>
+    {{/if}}
+  </div>
+  {{#if combos.length}}
+  <div class="charms-list">
+    {{#each combos as |combo|}}
+    <div class="charm-row item-row combo-row" data-item-id="{{combo.id}}">
+      <img class="item-img" src="{{combo.img}}" alt="{{combo.name}}">
+      <span class="item-name charm-name">
+        {{combo.name}}
+        <span class="charm-meta">
+          {{#if combo.costPreview}}{{combo.costPreview}} · {{/if}}
+          {{combo.totalCount}} {{localize "EX2E.Charms"}}
+          {{#if combo.missingCount}}
+            · <i class="fa-solid fa-triangle-exclamation charm-prereq-missing"
+                 title="{{localize 'EX2E.ComboBroken'}}"></i> {{combo.missingCount}}
+          {{/if}}
+        </span>
+      </span>
+      <span class="charm-keywords combo-icon-strip">
+        {{#each combo.iconStrip as |c|}}
+        <img class="combo-strip-img" src="{{c.img}}" alt="{{c.name}}" title="{{c.name}}">
+        {{/each}}
+      </span>
+      <div class="item-controls">
+        <button data-action="activateCombo"
+                {{#unless combo.canActivate}}disabled{{/unless}}
+                title="{{localize 'EX2E.ComboActivate'}}">⚡</button>
+        <button data-action="sendItemToChat" title="{{localize 'EX2E.SendToChat'}}">💬</button>
+        {{#if @root.isEditable}}
+        <button data-action="editItem"   title="Edit">✏️</button>
+        <button data-action="deleteItem" title="Delete">🗑</button>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{else}}
+  <p class="empty-msg">{{localize "EX2E.NoCombos"}}</p>
+  {{/if}}
+
   <!-- Notes -->
   <h2 class="section-header">{{localize "EX2E.NotesPowers"}}</h2>
   <div class="editor-container">

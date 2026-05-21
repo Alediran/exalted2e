@@ -1,3 +1,5 @@
+import { refreshPips } from "../helpers/pip-track.mjs";
+
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
 /**
@@ -63,7 +65,11 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       // future status effects) land here so the displayed pool tracks
       // whichever attribute the user picks in the dialog.
       poolPenaltyByAttr:   options.poolPenaltyByAttr   ?? null,
-      clarityInfo:         options.clarityInfo         ?? null
+      clarityInfo:         options.clarityInfo         ?? null,
+      virtues:             options.virtues             ?? null,
+      firstExcCostPerDie:   options.firstExcCostPerDie   ?? 1,
+      secondExcCostPerSucc: options.secondExcCostPerSucc ?? 2,
+      mentalInfluenceEffects: options.mentalInfluenceEffects ?? [],
     };
   }
 
@@ -81,7 +87,17 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       moteTypeChoices: {
         personal:   game.i18n.localize("EX2E.MotesPersonal"),
         peripheral: game.i18n.localize("EX2E.MotesPeripheral")
-      }
+      },
+      virtueChoices: this._data.virtues
+        ? Object.entries(this._data.virtues)
+            .map(([key, v]) => ({
+              key,
+              label:   game.i18n.localize(`EX2E.Virtue${key.charAt(0).toUpperCase() + key.slice(1)}`),
+              current: v.current ?? 0,
+              rating:  v.value   ?? 0
+            }))
+            .filter(v => v.rating > 0)
+        : []
     };
   }
 
@@ -92,97 +108,20 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     const poolHidden      = el.querySelector("[name='pool']");
     const specialtySelect = el.querySelector("[name='specialty']");
     const moteCostInput   = el.querySelector("[name='moteCost']");
-    const firstExcInput   = el.querySelector("[name='firstExcDice']");
-    const secondExcInput  = el.querySelector("[name='secondExcSucc']");
+    const stuntSelect     = el.querySelector("[name='stunt']");
+    const firstHidden     = el.querySelector("[name='firstExcDice']");
+    const secondHidden    = el.querySelector("[name='secondExcSucc']");
     const thirdExcCheck   = el.querySelector("[name='useThirdExc']");
     const totalCostEl     = el.querySelector(".exc-total-cost");
+    const firstPipTrack   = el.querySelector(".exc-pip-track[data-exc='first']");
+    const secondPipTrack  = el.querySelector(".exc-pip-track[data-exc='second']");
+    const motivationRow   = el.querySelector(".stunt-motivation-row");
+    const rewardPrefRow   = el.querySelector(".stunt-reward-pref-row");
 
-    // Current excellency cap — may be updated when attribute changes (attr-based exalts)
     let currentFirstExcMax  = this._data.firstExcMax;
     let currentSecondExcMax = this._data.secondExcMax;
 
-    const enforceExcCap = () => {
-      if (!firstExcInput || !secondExcInput) return;
-      const firstVal  = parseInt(firstExcInput.value)  || 0;
-      const secondVal = parseInt(secondExcInput.value) * 2 || 0;
-
-      // Remaining budget for each after the other's spend
-      const secondAllowed = Math.min(currentSecondExcMax, Math.floor((currentFirstExcMax - firstVal) / 2));
-      const firstAllowed  = Math.min(currentFirstExcMax,  currentFirstExcMax - secondVal);
-
-      secondExcInput.max = Math.max(0, secondAllowed);
-      firstExcInput.max  = Math.max(0, firstAllowed);
-
-      // Update displayed max labels
-      const firstMaxEl  = el.querySelector(".exc-first-max");
-      const secondMaxEl = el.querySelector(".exc-second-max");
-      if (firstMaxEl)  firstMaxEl.textContent  = Math.max(0, firstAllowed);
-      if (secondMaxEl) secondMaxEl.textContent = Math.max(0, secondAllowed);
-
-      // Clamp values if they now exceed the new max
-      if (firstVal > firstAllowed)  firstExcInput.value  = Math.max(0, firstAllowed);
-      if (secondVal > secondAllowed) secondExcInput.value = Math.max(0, secondAllowed);
-    };
-
-    const updateTotal = () => {
-      enforceExcCap();
-      if (!totalCostEl) return;
-      const base       = parseInt(moteCostInput?.value)  || 0;
-      const firstCost  = parseInt(firstExcInput?.value)  || 0;
-      const secondCost = (parseInt(secondExcInput?.value) || 0) * 2;
-      const thirdCost  = thirdExcCheck?.checked ? 4 : 0;
-      totalCostEl.textContent = base + firstCost + secondCost + thirdCost + ' m';
-    };
-
-    const updatePool = () => {
-      if (!attrSelect) return;
-      const attrVal   = this._data.attributeValues?.[attrSelect.value] ?? 0;
-      const specIdx   = parseInt(specialtySelect?.value);
-      const specBonus = (!isNaN(specIdx) && this._data.specialties[specIdx])
-        ? (this._data.specialties[specIdx].value ?? 1)
-        : 0;
-      // Per-attribute external penalty (negative or zero) — e.g., Prone
-      // subtracts 1 when a physical attribute is selected, 0 otherwise.
-      const extPenalty = this._data.poolPenaltyByAttr?.[attrSelect.value] ?? 0;
-      const newPool = Math.max(0, attrVal + this._data.abilityValue + specBonus + extPenalty);
-      if (poolHidden) poolHidden.value = newPool;
-
-      // For attribute-based Excellencies, update sections and max values dynamically
-      if (this._data.isAttrBased) {
-        const exc = this._data.excellencyPerAttr?.[attrSelect.value] ?? {};
-
-        const firstSec  = el.querySelector(".exc-first-section");
-        const secondSec = el.querySelector(".exc-second-section");
-        const thirdSec  = el.querySelector(".exc-third-section");
-        if (firstSec)  firstSec.style.display  = exc.first  ? "" : "none";
-        if (secondSec) secondSec.style.display = exc.second ? "" : "none";
-        if (thirdSec)  thirdSec.style.display  = exc.third  ? "" : "none";
-
-        currentFirstExcMax  = this._data.firstExcMaxPerAttr?.[attrSelect.value]  ?? 0;
-        currentSecondExcMax = this._data.secondExcMaxPerAttr?.[attrSelect.value] ?? 0;
-
-        // Reset excellency inputs when attribute changes
-        if (firstExcInput)  firstExcInput.value  = 0;
-        if (secondExcInput) secondExcInput.value = 0;
-      }
-
-      updateTotal();
-    };
-
-    attrSelect?.addEventListener("change", updatePool);
-    specialtySelect?.addEventListener("change", updatePool);
-    moteCostInput?.addEventListener("input", updateTotal);
-    firstExcInput?.addEventListener("input", updateTotal);
-    secondExcInput?.addEventListener("input", updateTotal);
-    thirdExcCheck?.addEventListener("change", updateTotal);
-
-    updateTotal(); // initialise displayed total
-
-    // Stunt sub-fields: motivation rider always visible at stunt ≥ 1;
-    // motes/WP preference visible at stunt ≥ 2.
-    const stuntSelect   = el.querySelector("[name='stunt']");
-    const motivationRow = el.querySelector(".stunt-motivation-row");
-    const rewardPrefRow = el.querySelector(".stunt-reward-pref-row");
+    // ── Stunt sub-fields ─────────────────────────────────────────────────
     const updateStuntFields = () => {
       const v = parseInt(stuntSelect?.value) || 0;
       if (motivationRow) motivationRow.style.display = v >= 1 ? "" : "none";
@@ -190,6 +129,105 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     };
     stuntSelect?.addEventListener("change", updateStuntFields);
     updateStuntFields();
+
+    // ── Excellency enforcement ───────────────────────────────────────────
+    const enforceExcMutualExclusion = () => {
+      if (!thirdExcCheck) return;
+      if (thirdExcCheck.checked) {
+        if (firstHidden)  firstHidden.value  = "0";
+        if (secondHidden) secondHidden.value = "0";
+      }
+      const firstDice  = parseInt(firstHidden?.value)  || 0;
+      const secondDice = parseInt(secondHidden?.value) || 0;
+      thirdExcCheck.disabled = firstDice > 0 || secondDice > 0;
+    };
+
+    const enforceExcCap = () => {
+      const firstVal  = parseInt(firstHidden?.value)  || 0;
+      const secondVal = (parseInt(secondHidden?.value) || 0) * 2;
+      const secondAllowed = Math.min(currentSecondExcMax, Math.floor((currentFirstExcMax - firstVal) / 2));
+      const firstAllowed  = Math.min(currentFirstExcMax,  currentFirstExcMax - secondVal);
+      const excEnabled    = !thirdExcCheck?.checked;
+      refreshPips(firstPipTrack,  firstHidden,  Math.max(0, firstAllowed),  excEnabled);
+      refreshPips(secondPipTrack, secondHidden, Math.max(0, secondAllowed), excEnabled);
+      // Clamp hidden values if they now exceed the allowed max
+      if (firstVal  > firstAllowed  && firstHidden)  firstHidden.value  = Math.max(0, firstAllowed);
+      if ((parseInt(secondHidden?.value) || 0) > secondAllowed && secondHidden)
+        secondHidden.value = Math.max(0, secondAllowed);
+    };
+
+    const updateTotal = () => {
+      enforceExcMutualExclusion();
+      enforceExcCap();
+      if (!totalCostEl) return;
+      const base       = parseInt(moteCostInput?.value)  || 0;
+      const firstDice  = parseInt(firstHidden?.value)    || 0;
+      const secondSucc = parseInt(secondHidden?.value)   || 0;
+      const firstCost  = firstDice  * (this._data.firstExcCostPerDie   ?? 1);
+      const secondCost = secondSucc * (this._data.secondExcCostPerSucc ?? 2);
+      const thirdCost  = thirdExcCheck?.checked ? 4 : 0;
+      totalCostEl.textContent = base + firstCost + secondCost + thirdCost + ' m';
+    };
+
+    // ── Pip click handlers for excellencies ──────────────────────────────
+    firstPipTrack?.addEventListener("click", (e) => {
+      const pip = e.target.closest(".exc-pip");
+      if (!pip) return;
+      const v = parseInt(pip.dataset.value);
+      const current = parseInt(firstHidden?.value) || 0;
+      firstHidden.value = current === v ? 0 : v;
+      updateTotal();
+    });
+    secondPipTrack?.addEventListener("click", (e) => {
+      const pip = e.target.closest(".exc-pip");
+      if (!pip) return;
+      const v = parseInt(pip.dataset.value);
+      const current = parseInt(secondHidden?.value) || 0;
+      secondHidden.value = current === v ? 0 : v;
+      updateTotal();
+    });
+
+    // ── Pool / attribute updates ─────────────────────────────────────────
+    const updatePool = () => {
+      if (!attrSelect) return;
+      const attrVal    = this._data.attributeValues?.[attrSelect.value] ?? 0;
+      const specIdx    = parseInt(specialtySelect?.value);
+      const specBonus  = (!isNaN(specIdx) && this._data.specialties[specIdx])
+        ? (this._data.specialties[specIdx].value ?? 1) : 0;
+      const extPenalty = this._data.poolPenaltyByAttr?.[attrSelect.value] ?? 0;
+      const newPool    = Math.max(0, attrVal + this._data.abilityValue + specBonus + extPenalty);
+      if (poolHidden) poolHidden.value = newPool;
+
+      if (this._data.isAttrBased) {
+        const exc = this._data.excellencyPerAttr?.[attrSelect.value] ?? {};
+        const firstSec  = el.querySelector(".exc-first-section");
+        const secondSec = el.querySelector(".exc-second-section");
+        const thirdSec  = el.querySelector(".exc-third-section");
+        if (firstSec)  firstSec.style.display  = exc.first  ? "" : "none";
+        if (secondSec) secondSec.style.display = exc.second ? "" : "none";
+        if (thirdSec)  thirdSec.style.display  = exc.third  ? "" : "none";
+        currentFirstExcMax  = this._data.firstExcMaxPerAttr?.[attrSelect.value]  ?? 0;
+        currentSecondExcMax = this._data.secondExcMaxPerAttr?.[attrSelect.value] ?? 0;
+        if (firstHidden)  firstHidden.value  = 0;
+        if (secondHidden) secondHidden.value = 0;
+      }
+      updateTotal();
+    };
+
+    attrSelect?.addEventListener("change", updatePool);
+    specialtySelect?.addEventListener("change", updatePool);
+    moteCostInput?.addEventListener("input", updateTotal);
+    thirdExcCheck?.addEventListener("change", updateTotal);
+    updateTotal();
+
+    // ── Virtue channel ───────────────────────────────────────────────────
+    const virtueSelectRow = el.querySelector(".virtue-select-row");
+    const updateVirtueMode = () => {
+      const checked = el.querySelector("[name='virtueChannelMode']:checked")?.value ?? "none";
+      if (virtueSelectRow) virtueSelectRow.style.display = checked === "dice" ? "" : "none";
+    };
+    el.querySelectorAll("[name='virtueChannelMode']").forEach(r => r.addEventListener("change", updateVirtueMode));
+    updateVirtueMode();
   }
 
   /** Called when the Roll button is clicked via data-action="confirmRoll". */
@@ -202,6 +240,26 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     const secondExcSucc = parseInt(data.secondExcSucc) || 0;
     const useThirdExc   = !!data.useThirdExc;
     const baseMotes     = parseInt(data.moteCost)       || 0;
+
+    // ── Mental influence selections ──────────────────────────────────────
+    let mentalInfluencePenalty = 0;
+    let wpToResist             = 0;
+    const resistedEffectIds    = [];
+    for (const [key, value] of Object.entries(data)) {
+      if (!key.startsWith("mi-") || !value) continue;
+      // key format: "mi-{keyword}-{aeId}"  (keyword has no hyphens: Emotion/Compel/Servitude)
+      const dashIdx = key.indexOf("-", 3);               // first "-" after "mi-"
+      const keyword = key.slice(3, dashIdx);
+      const aeId    = key.slice(dashIdx + 1);
+      const ae = this._data.mentalInfluenceEffects.find(e => e.id === aeId);
+      if (!ae || ae.keyword !== keyword) continue;
+      if (keyword === "Emotion") {
+        mentalInfluencePenalty += ae.penaltyMinor ?? 1;
+      } else {
+        wpToResist += ae.wpCostPerResist ?? 1;
+        resistedEffectIds.push(ae.id);
+      }
+    }
 
     this._resolved = true;
     this._resolve({
@@ -219,7 +277,12 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       })(),
       firstExcDice,
       secondExcSucc,
-      useThirdExc
+      useThirdExc,
+      virtueChannelMode: data.virtueChannelMode || "none",
+      virtueChannel:     data.virtueChannelMode === "dice" ? (data.virtueChannel || null) : null,
+      mentalInfluencePenalty,
+      wpToResist,
+      resistedEffectIds,
     });
     this.close();
   }

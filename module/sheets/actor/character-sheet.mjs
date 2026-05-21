@@ -3,6 +3,7 @@ import { ExaltedRoll }   from "../../rolls/exalted-roll.mjs";
 import { evaluateCharmPrereqs } from "../../helpers/charm-prereqs.mjs";
 import { evaluateCharmFormula } from "../../documents/item.mjs";
 import { ex2eCan }       from "../../helpers/permissions.mjs";
+import { canEquipToSlot } from "../../helpers/equip-slots.mjs";
 import { buildXpCostRows } from "../../helpers/xp-cost-table.mjs";
 import { computeSpellCastButtonState } from "../../ui/spell-cast-button.mjs";
 import { resolveXpCosts }  from "../../helpers/xp-cost-defaults.mjs";
@@ -11,6 +12,11 @@ import { editImageAction } from "../_edit-image.mjs";
 import { sceneChangeFade } from "../../combat/anima-fade.mjs";
 import { AnimaColorDialog } from "../../dialogs/anima-color-dialog.mjs";
 import { sanctifyOathBinding } from "../../helpers/oath.mjs";
+import { CraftingRollDialog } from "../../dialogs/crafting-roll-dialog.mjs";
+import { exceedsCraftCap }    from "../../helpers/crafting-helpers.mjs";
+
+const { HandlebarsApplicationMixin } = foundry.applications.api;
+const { ActorSheetV2 } = foundry.applications.sheets;
 
 const _ANIMA_ORDER_SHEET = { none: 0, glowing: 1, burning: 2, bonfire: 3, totemic: 4 };
 function _animaLevelSheet(key) { return _ANIMA_ORDER_SHEET[key] ?? 0; }
@@ -98,12 +104,6 @@ export async function _reverseGreaterSignActivation(actor, item) {
   }
 }
 
-const { ActorSheetV2, HandlebarsApplicationMixin } = (() => {
-  const sheets = foundry.applications.sheets;
-  const api    = foundry.applications.api;
-  return { ActorSheetV2: sheets.ActorSheetV2, HandlebarsApplicationMixin: api.HandlebarsApplicationMixin };
-})();
-
 /**
  * True when the current user meets the configured `purchaseMode`
  * permission. Used to gate the Purchase Mode toggle, the Current / Total
@@ -164,6 +164,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       deleteEffect:        CharacterSheet.#onDeleteEffect,
       toggleEffect:        CharacterSheet.#onToggleEffect,
       createEffect:        CharacterSheet.#onCreateEffect,
+      dispelSpellEffect:   CharacterSheet.#onDispelSpellEffect,
       abandonMotivationCampaign: CharacterSheet.#onAbandonMotivationCampaign,
       cycleAttributeFlag:  CharacterSheet.#onCycleAttributeFlag,
       createForm:          CharacterSheet.#onCreateForm,
@@ -173,13 +174,15 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       endDBT:              CharacterSheet.#onEndDBT,
       nudgeScenePeripheral: CharacterSheet.#onNudgeScenePeripheral,
       endScene:             CharacterSheet.#onEndScene,
+      morningRest:          CharacterSheet.#onMorningRest,
+      rollVirtue:           CharacterSheet.#onRollVirtue,
       installCharm:        CharacterSheet.#onInstallCharm,
       uninstallCharm:      CharacterSheet.#onUninstallCharm,
       addDedicatedSlot:    CharacterSheet.#onAddDedicatedSlot,
       addGeneralSlot:      CharacterSheet.#onAddGeneralSlot,
       upgradeSlot:         CharacterSheet.#onUpgradeSlot,
       createSubmodule:     CharacterSheet.#onCreateSubmodule,
-      editImage:           editImageAction,
+      onEditImage:         editImageAction,
       configureAnimaColors: CharacterSheet.#onConfigureAnimaColors,
       activateAnimaPower:  CharacterSheet.#onActivateAnimaPower,
       viewAnimaPower:      CharacterSheet.#onViewAnimaPower,
@@ -190,6 +193,13 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       ventResonance:       CharacterSheet.#onVentResonance,
       activateGreaterSign: CharacterSheet.#onActivateAnimaPower,
       rollHealingCharm:    CharacterSheet.#onRollHealingCharm,
+      socketHearthstone:   CharacterSheet.#onSocketHearthstone,
+      unsocketHearthstone: CharacterSheet.#onUnsocketHearthstone,
+      toggleAblationDot:   CharacterSheet.#onToggleAblationDot,
+      addCraftingProject:    CharacterSheet.#onAddCraftingProject,
+      rollCraftingProject:   CharacterSheet.#onRollCraftingProject,
+      deleteCraftingProject: CharacterSheet.#onDeleteCraftingProject,
+      openFamiliarActor:     CharacterSheet.#onOpenFamiliarActor,
     }
   };
 
@@ -217,6 +227,10 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       template: "systems/exalted2e/templates/actor/character/tab-charms.hbs",
       scrollable: [""]
     },
+    tabMartialArts: {
+      template: "systems/exalted2e/templates/actor/character/tab-martial-arts.hbs",
+      scrollable: [""]
+    },
     tabAstrology: {
       template: "systems/exalted2e/templates/actor/character/_astrology.hbs",
       scrollable: [""]
@@ -236,7 +250,11 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     tabEffects: {
       template: "systems/exalted2e/templates/actor/character/tab-effects.hbs",
       scrollable: [""]
-    }
+    },
+    tabCrafting: {
+      template: "systems/exalted2e/templates/actor/character/tab-crafting.hbs",
+      scrollable: [""]
+    },
   };
 
   /** Current tab group state */
@@ -248,17 +266,24 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const context = await super._prepareContext(options);
     const actor   = this.document;
     const sys     = actor.system;
+    const beh     = EX2E.splatBehaviors[sys.exaltType] ?? EX2E.splatBehaviors.solar;
 
     // Tab definitions (icons shown in vertical right-side nav)
     const tabs = {
       tabMain:      { id: "tabMain",      group: "sheet", icon: "fa-solid fa-user",           label: game.i18n.localize("EX2E.TabMain"),       cssClass: this.tabGroups.sheet === "tabMain"       ? "active" : "" },
       tabCombat:    { id: "tabCombat",    group: "sheet", icon: "fa-solid fa-shield-halved",  label: game.i18n.localize("EX2E.TabCombat"),     cssClass: this.tabGroups.sheet === "tabCombat"     ? "active" : "" },
-      tabCharms:    { id: "tabCharms",    group: "sheet", icon: "fa-solid fa-sun",            label: game.i18n.localize("EX2E.TabCharms"),          cssClass: this.tabGroups.sheet === "tabCharms"     ? "active" : "" },
-      ...(sys.exaltType === "sidereal" ? { tabAstrology: { id: "tabAstrology", group: "sheet", icon: "fa-solid fa-star", label: game.i18n.localize("EX2E.SiderealAstrology"), cssClass: this.tabGroups.sheet === "tabAstrology" ? "active" : "" } } : {}),
+      ...(beh.showCharms ? {
+        tabCharms:      { id: "tabCharms",      group: "sheet", icon: "fa-solid fa-sun",       label: game.i18n.localize("EX2E.TabCharms"),      cssClass: this.tabGroups.sheet === "tabCharms"      ? "active" : "" },
+        tabMartialArts: { id: "tabMartialArts", group: "sheet", icon: "fa-solid fa-hand-fist", label: game.i18n.localize("EX2E.TabMartialArts"), cssClass: this.tabGroups.sheet === "tabMartialArts" ? "active" : "" },
+      } : {}),
+      ...(beh.showAstrology ? { tabAstrology: { id: "tabAstrology", group: "sheet", icon: "fa-solid fa-star", label: game.i18n.localize("EX2E.SiderealAstrology"), cssClass: this.tabGroups.sheet === "tabAstrology" ? "active" : "" } } : {}),
       tabInventory: { id: "tabInventory", group: "sheet", icon: "fa-solid fa-suitcase",       label: game.i18n.localize("EX2E.TabInventory"),       cssClass: this.tabGroups.sheet === "tabInventory"  ? "active" : "" },
       tabBiography: { id: "tabBiography", group: "sheet", icon: "fa-solid fa-book",           label: game.i18n.localize("EX2E.TabBiography"),       cssClass: this.tabGroups.sheet === "tabBiography"  ? "active" : "" },
       tabExperience:{ id: "tabExperience",group: "sheet", icon: "fa-solid fa-graduation-cap", label: game.i18n.localize("EX2E.TabExperience"),      cssClass: this.tabGroups.sheet === "tabExperience" ? "active" : "" },
-      tabEffects:   { id: "tabEffects",   group: "sheet", icon: "fa-solid fa-wand-sparkles",  label: game.i18n.localize("EX2E.TabEffects"),         cssClass: this.tabGroups.sheet === "tabEffects"    ? "active" : "" }
+      tabEffects:   { id: "tabEffects",   group: "sheet", icon: "fa-solid fa-wand-sparkles",  label: game.i18n.localize("EX2E.TabEffects"),         cssClass: this.tabGroups.sheet === "tabEffects"    ? "active" : "" },
+      ...((sys.abilities?.craft?.value ?? 0) >= 1 ? {
+        tabCrafting: { id: "tabCrafting", group: "sheet", icon: "fa-solid fa-hammer", label: game.i18n.localize("EX2E.TabCrafting"), cssClass: this.tabGroups.sheet === "tabCrafting" ? "active" : "" }
+      } : {})
     };
 
     // Build available castes for the current exalt type
@@ -294,6 +319,38 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       };
     }
 
+    // Collapse permanent stackable charms with the same name into one display row.
+    // stackCounts: { representativeId → count } — only entries where count > 1.
+    // stackHidden: set of non-representative ids to suppress from all group lists.
+    const stackCounts = {};
+    const stackHidden = new Set();
+    {
+      const seen = new Map(); // name → first id
+      for (const c of charms) {
+        if (c.system.duration !== "permanent") continue;
+        if (!(c.system.keywords ?? []).includes("Stackable")) continue;
+        if (seen.has(c.name)) {
+          const repId = seen.get(c.name);
+          stackCounts[repId] = (stackCounts[repId] ?? 1) + 1;
+          stackHidden.add(c.id);
+        } else {
+          seen.set(c.name, c.id);
+        }
+      }
+    }
+
+    const maStyleItems = actor.items
+      .filter(i => i.type === "martialartsstyle")
+      .sort((a, b) => a.name.localeCompare(b.name));
+    const maStyleNames = new Set(maStyleItems.map(s => s.name));
+    const maStyles = maStyleItems.map(style => ({
+      item:       style,
+      charms:     charms.filter(c => c.system.martialArtsStyleName === style.name && !stackHidden.has(c.id)),
+      isMastered: charms.some(c =>
+        c.system.martialArtsStyleName === style.name && c.system.grantsMastery
+      )
+    }));
+
     // Group charms by their `system.ability` key. Ability-based exalts
     // store an ability (melee/brawl/…); Lunars and Alchemicals store an
     // attribute (strength/wits/…). Both live on the same field, so one
@@ -309,10 +366,11 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       return labelKey ? game.i18n.localize(labelKey) : key;
     };
     let charmGroups;
-    if (sys.exaltType === "infernal") {
+    if (beh.charmGroupBy === "yozi") {
       const yoziBuckets = new Map();
       for (const c of charms) {
         if (c.system?.isSubmodule) continue;
+        if (stackHidden.has(c.id)) continue;
         const k = c.system?.yoziPatron ?? "";
         if (!yoziBuckets.has(k)) yoziBuckets.set(k, []);
         yoziBuckets.get(k).push(c);
@@ -329,6 +387,10 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       const buckets = new Map();
       for (const c of charms) {
         if (c.system?.isSubmodule) continue;
+        if (stackHidden.has(c.id)) continue;
+        if (c.system?.ability === "martialarts"
+            && c.system?.martialArtsStyleName
+            && maStyleNames.has(c.system.martialArtsStyleName)) continue;
         const k = c.system?.ability ?? "";
         if (!buckets.has(k)) buckets.set(k, []);
         buckets.get(k).push(c);
@@ -350,9 +412,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     // their Sorcery as "Procedures"; that's a display-only swap here.
     const spells = actor.items.filter(i => i.type === "spell")
       .sort((a, b) => (a.system?.circle ?? 0) - (b.system?.circle ?? 0) || a.name.localeCompare(b.name));
-    const sorceryLabelKey = sys.exaltType === "alchemical"
-      ? "EX2E.TraditionProcedures"
-      : "EX2E.TraditionSorcery";
+    const sorceryLabelKey = beh.sorceryLabelKey;
     const SORCERY_CIRCLES = {
       1: game.i18n.localize("EX2E.CircleTerrestrial"),
       2: game.i18n.localize("EX2E.CircleCelestial"),
@@ -387,7 +447,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     spellGroups.necromancy = buildSpellGroups("necromancy", NECROMANCY_CIRCLES);
     spellGroups.weaving    = buildSpellGroups("weaving",    WEAVING_CIRCLES);
     const spellSections = [];
-    if (isAlchemical) {
+    if (isAlchemical && (sys.weaving?.initiation ?? 0) > 0) {
       spellSections.push({
         tradition:       "weaving",
         label:           game.i18n.localize("EX2E.TraditionWeaving"),
@@ -398,7 +458,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         groups:          spellGroups.weaving
       });
     }
-    if (!isAlchemical || (sys.sorcery?.initiation ?? 0) > 0) {
+    if ((sys.sorcery?.initiation ?? 0) > 0) {
       spellSections.push({
         tradition:       "sorcery",
         label:           game.i18n.localize(sorceryLabelKey),
@@ -409,7 +469,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         groups:          spellGroups.sorcery
       });
     }
-    if (!isAlchemical || (sys.necromancy?.initiation ?? 0) > 0) {
+    if ((sys.necromancy?.initiation ?? 0) > 0) {
       spellSections.push({
         tradition:       "necromancy",
         label:           game.i18n.localize("EX2E.TraditionNecromancy"),
@@ -454,7 +514,73 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const armors     = actor.items.filter(i => i.type === "armor")      .sort((a,b) => a.name.localeCompare(b.name));
     const backgrounds= actor.items.filter(i => i.type === "background") .sort((a,b) => a.name.localeCompare(b.name));
     const intimacies = actor.items.filter(i => i.type === "intimacy")   .sort((a,b) => a.name.localeCompare(b.name));
+    const conviction = actor.system?.virtues?.conviction?.value ?? 1;
+    for (const int of intimacies) {
+      const dmg = int.system?.ablationDamage ?? 0;
+      int.ablationDots = Array.from({ length: conviction }, (_, i) => ({
+        index:  i,
+        filled: i < dmg
+      }));
+    }
     const meritflaws = actor.items.filter(i => i.type === "meritflaw")  .sort((a,b) => a.name.localeCompare(b.name));
+    const equipments   = actor.items.filter(i => i.type === "equipment") .sort((a,b) => a.name.localeCompare(b.name));
+    const hearthstones = actor.items.filter(i => i.type === "hearthstone").sort((a,b) => a.name.localeCompare(b.name));
+    const manses       = actor.items.filter(i => i.type === "manse")      .sort((a,b) => a.name.localeCompare(b.name));
+
+    const familiars = actor.items
+      .filter(i => i.type === "familiar")
+      .map(i => {
+        const bg          = actor.items.get(i.system.backgroundId);
+        const linkedActor = game.actors?.get(i.system.linkedActorId);
+        return {
+          id:              i.id,
+          img:             i.img,
+          name:            i.name,
+          system:          i.system,
+          bondRating:      bg?.system.value ?? 0,
+          linkedActorName: linkedActor?.name ?? "",
+          linkedActorId:   i.system.linkedActorId
+        };
+      })
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    const cults = actor.items
+      .filter(i => i.type === "cult")
+      .map(i => {
+        const bg     = actor.items.get(i.system.backgroundId);
+        const rating = Math.max(0, Math.min(5, bg?.system.value ?? 0));
+        return {
+          id:        i.id,
+          img:       i.img,
+          name:      i.name,
+          system:    i.system,
+          rating,
+          moteRegen: EX2E.cultMoteRegen[rating],
+          wpHours:   EX2E.cultWpHours[rating]
+        };
+      })
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    const artifactSlotMap = {};
+    const allActorItems = [...actor.items];
+    for (const item of allActorItems) {
+      const count = item.system?.hearthstoneSlots ?? 0;
+      if (!count) continue;
+      const ids = item.system?.hearthstones ?? [];
+      artifactSlotMap[item.id] = Array.from({ length: count }, (_, i) => {
+        const id    = ids[i] ?? "";
+        const stone = id ? allActorItems.find(s => s.id === id && s.type === "hearthstone") : null;
+        return {
+          index:       i,
+          artifactId:  item.id,
+          filled:      !!stone,
+          stoneId:     id,
+          stoneName:   stone?.name ?? "",
+          stoneRating: stone?.system?.rating ?? 0
+        };
+      });
+    }
+
     const virtueFlaw = actor.items.find(i => i.type === "virtueflaw") ?? null;
     const urgeItem   = actor.items.find(i => i.type === "urge") ?? null;
 
@@ -535,15 +661,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const xpCosts    = resolveXpCosts(game.settings.get("exalted2e", "xpCosts") ?? {});
     const xpCostRows = buildXpCostRows(sys.exaltType ?? "solar", xpCosts);
 
-    // Limit label varies by splat
-    const limitLabel = (() => {
-      switch (sys.exaltType) {
-        case "abyssal":    return game.i18n.localize("EX2E.LimitVariantResonance");
-        case "infernal":   return game.i18n.localize("EX2E.LimitVariantTorment");
-        case "alchemical": return game.i18n.localize("EX2E.LimitVariantClarity");
-        default:           return game.i18n.localize("EX2E.Limit");
-      }
-    })();
+    const limitLabel = game.i18n.localize(beh.limitLabelKey);
 
     // Heart's Blood forms (Lunar only)
     const forms = this.actor.itemTypes?.form ?? this.actor.items.filter(i => i.type === "form");
@@ -588,16 +706,12 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const showMotivationCampaigns = motivationCampaignsTargetingMe.length > 0
                                   || motivationCampaignsImRunning.length > 0;
 
-    const animaLabel = (() => {
-      const tier = sys.anima;
-      if (tier === "dim" && sys.exaltType === "terrestrial") {
-        return game.i18n.localize("EX2E.AnimaLiminal");
-      }
-      return game.i18n.localize(EX2E.anima[tier] ?? "EX2E.AnimaNone");
-    })();
+    const animaLabel = (beh.animaLiminalAtDim && sys.anima === "dim")
+      ? game.i18n.localize("EX2E.AnimaLiminal")
+      : game.i18n.localize(EX2E.anima[sys.anima] ?? "EX2E.AnimaNone");
 
     const dbFluxTiers = new Set(["burning", "bonfire", "totemic"]);
-    const dbFluxInfo  = (sys.exaltType === "terrestrial" && dbFluxTiers.has(sys.anima))
+    const dbFluxInfo  = (beh.showDbFlux && dbFluxTiers.has(sys.anima))
       ? { ...EX2E.DB_FLUX[sys.anima], tier: sys.anima }
       : null;
 
@@ -613,7 +727,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     const animaPower = actor.items.find(i => i.flags?.exalted2e?.animaPower === true) ?? null;
 
-    const greaterSigns = sys.exaltType === "sidereal"
+    const greaterSigns = beh.showAstrology
       ? actor.items
           .filter(i => i.type === "animapower" && i.system.isGreaterSign === true)
           .filter(i => _greaterSignPrereqMet(actor, i.system.caste))
@@ -627,7 +741,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     // Astrology tab data (Sidereal only)
     const collegeGroups = [];
-    if (sys.exaltType === "sidereal") {
+    if (beh.showAstrology) {
       const EX = game.exalted2e.EX2E;
       const ownMaiden = sys.caste;
       for (const [maiden, maidenLabelKey] of Object.entries(EX.siderealMaidens)) {
@@ -650,6 +764,13 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const destinies = actor.items.filter(i => i.type === "destiny")
       .sort((a, b) => a.name.localeCompare(b.name));
 
+    const craftingProjects = (sys.craftingProjects ?? []).map(p => ({
+      ...p,
+      difficulty:  p.targetResources + (p.isPerfect ? 5 : 0),
+      sizeLabel:   game.i18n.localize(p.size === "small" ? "EX2E.CraftingSizeSmall" : "EX2E.CraftingSizeLarge"),
+      statusLabel: game.i18n.localize(`EX2E.CraftingStatus${p.status.charAt(0).toUpperCase() + p.status.slice(1)}`),
+    }));
+
     return {
       ...context,
       actor,
@@ -660,20 +781,21 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       availableCastes,
       abilityGroups,
       specialtiesSection,
-      useFourColumnAbilities: ["lunar", "alchemical"].includes(sys.exaltType),
-      useAttributeCasteUI: ["lunar", "alchemical"].includes(sys.exaltType),
-      splatTypeChoices: Object.entries(EX2E.splatTypes).map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
+      useFourColumnAbilities: beh.fourColumnAbilities,
+      useAttributeCasteUI:    beh.attributeCasteUI,
+      splatTypeChoices: Object.entries(EX2E.splatTypes).filter(([k]) => k !== "martialarts").map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
       charms,
       charmGroups,
       submodulesByParent,
       charmPrereqs,
+      stackCounts,
       spells,
       spellSections,
       spellInitStatus,
       spellCastButton,
       knacks,
       combos: comboRows,
-      isLunar: sys.exaltType === "lunar",
+      isLunar: beh.isLunar,
       weapons,
       armors,
       backgrounds,
@@ -703,7 +825,13 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       animaPower,
       greaterSigns,
       collegeGroups,
-      destinies
+      destinies,
+      equipments,
+      hearthstones,
+      manses, familiars, cults,
+      artifactSlotMap,
+      maStyles,
+      craftingProjects,
     };
   }
 
@@ -715,22 +843,40 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   _buildEffectsData(actor) {
     const temporal = [];
     const permanent = [];
+    const stackGroups = new Map(); // name → { entry, count }
     for (const eff of actor.effects) {
-      const refreshable = !!eff.flags?.exalted2e?.dvRefreshable;
+      const refreshable      = !!eff.flags?.exalted2e?.dvRefreshable;
+      const charmDuration    = eff.flags?.exalted2e?.charmDuration;
+      const charmStackable   = !!eff.flags?.exalted2e?.charmStackable;
+      const durationLabelKey = charmDuration ? (EX2E.durations[charmDuration] ?? null) : null;
+      const isTemporal = refreshable || eff.isTemporary
+        || (charmDuration && charmDuration !== "permanent");
+
+      if (!isTemporal && charmStackable) {
+        if (stackGroups.has(eff.name)) {
+          stackGroups.get(eff.name).count++;
+          continue;
+        }
+        const entry = { id: eff.id, name: eff.name, img: eff.img || "icons/svg/aura.svg", disabled: eff.disabled, durationLabel: "", isSpellEffect: !!(eff.flags?.exalted2e?.spellEffect) };
+        stackGroups.set(eff.name, { entry, count: 1 });
+        permanent.push(entry);
+        continue;
+      }
+
       const entry = {
         id:           eff.id,
         name:         eff.name,
         img:          eff.img || "icons/svg/aura.svg",
         disabled:     eff.disabled,
-        // For turn-refreshable effects there's no formal duration — label
-        // them with a localized "Until next turn" string so the row isn't
-        // blank. Otherwise fall back to Foundry's built-in duration label.
         durationLabel: refreshable
           ? game.i18n.localize("EX2E.EffectUntilNextTurn")
-          : (eff.duration?.label ?? "")
+          : (durationLabelKey ? game.i18n.localize(durationLabelKey) : (eff.duration?.label ?? "")),
+        isSpellEffect: !!(eff.flags?.exalted2e?.spellEffect),
       };
-      const isTemporal = refreshable || eff.isTemporary;
       (isTemporal ? temporal : permanent).push(entry);
+    }
+    for (const { entry, count } of stackGroups.values()) {
+      if (count > 1) entry.name = `${entry.name} x${count}`;
     }
     const byName = (a, b) => a.name.localeCompare(b.name);
     temporal.sort(byName);
@@ -837,6 +983,18 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     // Mote current value inline edits
     this.element.querySelectorAll(".mote-value-input").forEach(inp => {
       inp.addEventListener("change", this.#onMoteInputChange.bind(this));
+    });
+
+    // Make item rows draggable so they can be dropped onto the combo builder
+    // or other drag-accepting targets (weapons onto attack dialogs, etc.).
+    // The combo sheet's _onDrop already filters to type === "charm".
+    this.element.querySelectorAll(".item-row[data-item-id]").forEach(row => {
+      row.draggable = true;
+      row.addEventListener("dragstart", event => {
+        const item = this.document.items.get(row.dataset.itemId);
+        if (!item) return;
+        event.dataTransfer.setData("text/plain", JSON.stringify({ type: "Item", uuid: item.uuid }));
+      });
     });
 
     // Restore per-group collapsed state on the Charms tab and wire the
@@ -1095,6 +1253,16 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     item?.sheet?.render({ force: true });
   }
 
+  static async #onToggleAblationDot(event, target) {
+    const itemId   = target.dataset.itemId;
+    const dotIndex = parseInt(target.dataset.dotIndex, 10);
+    const item     = this.document.items.get(itemId);
+    if (!item) return;
+    const current  = item.system?.ablationDamage ?? 0;
+    const newValue = dotIndex < current ? dotIndex : dotIndex + 1;
+    await item.update({ "system.ablationDamage": newValue });
+  }
+
   static async #onDeleteItem(event, target) {
     const itemId = target.closest("[data-item-id]")?.dataset.itemId;
     const item   = this.document.items.get(itemId);
@@ -1236,6 +1404,16 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const itemId = target.closest("[data-item-id]")?.dataset.itemId;
     const item   = this.document.items.get(itemId);
     if (!item) return;
+
+    if (!item.system.equipped) {
+      if (!canEquipToSlot(this.document, item, itemId)) {
+        const slot      = item.system.slot;
+        const slotLabel = game.i18n.localize(`EX2E.Slot${slot.charAt(0).toUpperCase()}${slot.slice(1)}`);
+        ui.notifications.warn(game.i18n.format("EX2E.SlotFull", { slot: slotLabel }));
+        return;
+      }
+    }
+
     await item.update({ "system.equipped": !item.system.equipped });
   }
 
@@ -1275,6 +1453,14 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     await effect.update({ disabled: !effect.disabled });
   }
 
+  static async #onDispelSpellEffect(event, target) {
+    const effectId = target.closest("[data-effect-id]")?.dataset.effectId;
+    const ae = this.actor.effects.get(effectId);
+    if (!ae) return;
+    const { CountermagicDialog } = await import("../../dialogs/countermagic-dialog.mjs");
+    await CountermagicDialog.open({ type: "effect-self", ae }, this.actor);
+  }
+
   // ── Active Motivation Campaigns ────────────────────────────────────────
   static async #onAbandonMotivationCampaign(event, target) {
     const defenderId = target.dataset.defenderId;
@@ -1305,22 +1491,13 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     if (!abilKey || !this.isEditable) return;
     const ab = this.document.system.abilities[abilKey];
     if (!ab) return;
+    if (ab.caste) return;
 
-    let newCaste   = false;
-    let newFavored = false;
-
-    if (!ab.favored && !ab.caste) {
-      // none → favored
-      newFavored = true;
-    } else if (ab.favored && !ab.caste) {
-      // favored → caste
-      newCaste = true;
-    }
-    // caste → none (both remain false)
+    // none → favored → none. Caste is set by the system, never user-toggleable.
+    const newFavored = !ab.favored;
 
     await this.document.update({
       [`system.abilities.${abilKey}.favored`]: newFavored,
-      [`system.abilities.${abilKey}.caste`]:   newCaste
     });
   }
 
@@ -1334,6 +1511,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const attrKey = target.dataset.attr;
     if (!attrKey) return;
     const attr = this.actor.system.attributes?.[attrKey] ?? { caste: false, favored: false };
+    if (attr.caste) return;
     // none → favored → none. Caste is preserved as-is (auto-managed).
     const newFavored = !attr.favored;
     await this.actor.update({
@@ -1369,7 +1547,16 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   static async #onEndDBT(event, target) {
-    await this.actor.update({ "system.splat.lunar.activeFormId": "" });
+    const actor = this.actor;
+    const activeGifts = actor.items.filter(
+      i => i.type === "charm"
+        && (i.system?.keywords ?? []).includes("Gift")
+        && i.system?.active
+    );
+    for (const charm of activeGifts) {
+      await charm.update({ "system.active": false });
+    }
+    await actor.update({ "system.splat.lunar.activeFormId": "" });
   }
 
   static async #onInstallCharm(event, target) {
@@ -1476,6 +1663,24 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       { "system.scenePeripheral": newSp },
       { scenePeripheralBefore: oldSp }
     );
+    const { clearActorForms }       = await import("../../combat/form-charms.mjs");
+    await clearActorForms(this.document);
+    const { clearSceneCharms }      = await import("../../helpers/charm-deactivation.mjs");
+    await clearSceneCharms(this.document);
+    const { clearIntimacyAblation } = await import("../../ui/social-scene.mjs");
+    await clearIntimacyAblation(this.document);
+    const { stepDownAnima }         = await import("../../combat/anima-math.mjs");
+    await stepDownAnima(this.document);
+  }
+
+  static async #onMorningRest(_event, _target) {
+    await this.document.rollMorningRest();
+  }
+
+  static async #onRollVirtue(_event, target) {
+    const virtue = target.dataset.virtue;
+    if (!virtue) return;
+    await this.document.rollVirtueCheck(virtue);
   }
 
   static #onConfigureAnimaColors() {
@@ -1675,5 +1880,136 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     if (description === null) return;
     await sanctifyOathBinding(actor, targets, description);
+  }
+
+  static async #onSocketHearthstone(_event, target) {
+    const artifactId = target.dataset.artifactId;
+    const slotIndex  = parseInt(target.dataset.slotIndex);
+    const artifact   = this.document.items.get(artifactId);
+    if (!artifact) return;
+
+    const socketedIds = new Set();
+    for (const item of this.document.items) {
+      const stones = item.system?.hearthstones;
+      if (Array.isArray(stones)) {
+        for (const id of stones) { if (id) socketedIds.add(id); }
+      }
+    }
+
+    const available = this.document.items.filter(
+      i => i.type === "hearthstone" && !socketedIds.has(i.id)
+    );
+    if (!available.length) {
+      ui.notifications.warn(game.i18n.localize("EX2E.NoHearthstonesAvailable"));
+      return;
+    }
+
+    const chosenId = await foundry.applications.api.DialogV2.prompt({
+      window:      { title: game.i18n.localize("EX2E.SelectHearthstone") },
+      content:     `<div style="padding:8px"><select name="stoneId" style="width:100%">
+        ${available.map(s => `<option value="${s.id}">${s.name} (★${s.system.rating})</option>`).join("")}
+      </select></div>`,
+      ok:          {
+        label:    game.i18n.localize("EX2E.SocketHearthstone"),
+        callback: (_ev, btn) => btn.form.elements.stoneId.value
+      },
+      rejectClose: false
+    });
+    if (!chosenId) return;
+
+    const stones = foundry.utils.deepClone(artifact.system.hearthstones ?? []);
+    stones[slotIndex] = chosenId;
+    await artifact.update({ "system.hearthstones": stones });
+  }
+
+  static async #onUnsocketHearthstone(_event, target) {
+    const artifactId = target.dataset.artifactId;
+    const slotIndex  = parseInt(target.dataset.slotIndex);
+    const artifact   = this.document.items.get(artifactId);
+    if (!artifact) return;
+
+    const stones = foundry.utils.deepClone(artifact.system.hearthstones ?? []);
+    stones[slotIndex] = "";
+    await artifact.update({ "system.hearthstones": stones });
+  }
+
+  static async #onAddCraftingProject(_event, _target) {
+    const actor  = this.document;
+    const sys    = actor.system;
+    const craft  = sys.abilities.craft.value ?? 0;
+    const bestSpec = Math.max(0, ...(sys.abilities.craft.specialties ?? []).map(s => s.value));
+
+    const content = `
+      <div class="form-group">
+        <label>${game.i18n.localize("EX2E.CraftingProjectName")}</label>
+        <input type="text" name="name" required placeholder="${game.i18n.localize("EX2E.CraftingProjectNamePlaceholder")}">
+      </div>
+      <div class="form-group">
+        <label>${game.i18n.localize("EX2E.CraftingProjectSize")}</label>
+        <select name="size">
+          <option value="small">${game.i18n.localize("EX2E.CraftingSizeSmall")}</option>
+          <option value="large">${game.i18n.localize("EX2E.CraftingSizeLarge")}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>${game.i18n.localize("EX2E.CraftingTargetResources")}</label>
+        <input type="number" name="targetResources" min="1" max="5" value="1">
+      </div>
+      <div class="form-group">
+        <label>${game.i18n.localize("EX2E.CraftingIsPerfect")}</label>
+        <input type="checkbox" name="isPerfect">
+      </div>`;
+
+    const result = await foundry.applications.api.DialogV2.prompt({
+      window:  { title: game.i18n.localize("EX2E.CraftingNewProject") },
+      content,
+      ok: {
+        label:    game.i18n.localize("EX2E.CraftingAddProject"),
+        callback: (_ev, button) => new foundry.applications.ux.FormDataExtended(button.form).object
+      }
+    });
+    if (!result) return;
+
+    const targetResources = Math.min(5, Math.max(1, parseInt(result.targetResources, 10) || 1));
+    if (exceedsCraftCap(actor, targetResources)) {
+      ui.notifications.warn(game.i18n.format("EX2E.CraftingCapWarning", { cap: craft + bestSpec }));
+    }
+
+    const projects = foundry.utils.deepClone(sys.craftingProjects ?? []);
+    projects.push({
+      id:              foundry.utils.randomID(),
+      name:            String(result.name || game.i18n.localize("EX2E.CraftingUnnamedProject")),
+      size:            result.size === "large" ? "large" : "small",
+      targetResources,
+      isPerfect:       !!result.isPerfect,
+      bonusDice:       0,
+      status:          "active"
+    });
+    await actor.update({ "system.craftingProjects": projects });
+  }
+
+  static async #onRollCraftingProject(_event, target) {
+    const actor     = this.document;
+    const projectId = target.dataset.projectId;
+    const project   = (actor.system.craftingProjects ?? []).find(p => p.id === projectId);
+    if (!project || project.status !== "active") return;
+    await CraftingRollDialog.open(project, actor);
+  }
+
+  static async #onDeleteCraftingProject(_event, target) {
+    const actor     = this.document;
+    const projectId = target.dataset.projectId;
+    const projects  = foundry.utils.deepClone(actor.system.craftingProjects ?? []);
+    const idx       = projects.findIndex(p => p.id === projectId);
+    if (idx < 0) return;
+    projects.splice(idx, 1);
+    await actor.update({ "system.craftingProjects": projects });
+  }
+
+  static #onOpenFamiliarActor(_event, target) {
+    const actorId = target.dataset.actorId;
+    if (!actorId) return;
+    const actor = game.actors.get(actorId);
+    actor?.sheet.render(true);
   }
 }

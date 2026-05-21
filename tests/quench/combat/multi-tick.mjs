@@ -201,6 +201,45 @@ export function registerMultiTick(context) {
         "onTick fired once per combatant (2 total)");
     });
 
+    // 8a. computeAimBonus unit tests
+    it("[274] computeAimBonus returns correct banked dice based on elapsed ticks", async function () {
+      const { computeAimBonus } = await import("../../../module/rolls/attack-math.mjs");
+
+      assert.equal(
+        computeAimBonus({ multiTickAction: null, targetActorId: "t1", currentTick: 5 }),
+        0, "no multiTickAction → 0");
+
+      assert.equal(
+        computeAimBonus({
+          multiTickAction: { actionKey: "sorcery", startTick: 0, state: { targetActorId: "t1" } },
+          targetActorId: "t1", currentTick: 3
+        }), 0, "wrong actionKey → 0");
+
+      assert.equal(
+        computeAimBonus({
+          multiTickAction: { actionKey: "aim", startTick: 0, state: { targetActorId: "other" } },
+          targetActorId: "t1", currentTick: 3
+        }), 0, "target mismatch → 0");
+
+      assert.equal(
+        computeAimBonus({
+          multiTickAction: { actionKey: "aim", startTick: 2, state: { targetActorId: "t1" } },
+          targetActorId: "t1", currentTick: 3
+        }), 1, "1 tick elapsed → 1 aim die");
+
+      assert.equal(
+        computeAimBonus({
+          multiTickAction: { actionKey: "aim", startTick: 0, state: { targetActorId: "t1" } },
+          targetActorId: "t1", currentTick: 3
+        }), 3, "3 ticks elapsed → 3 aim dice (cap)");
+
+      assert.equal(
+        computeAimBonus({
+          multiTickAction: { actionKey: "aim", startTick: 0, state: { targetActorId: "t1" } },
+          targetActorId: "t1", currentTick: 10
+        }), 3, "10 ticks elapsed → 3 aim dice (cap enforced)");
+    });
+
     // 8. clearAllMultiTickActions clears flags + fires onAbort
     it("[30] clearAllMultiTickActions clears the flag and fires onAbort", async function () {
       const a = await createTempCharacter({ name: "Alice" });

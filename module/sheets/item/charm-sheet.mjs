@@ -1,6 +1,7 @@
 import { EX2E } from "../../config.mjs";
 import { describeAllPrereqs } from "../../helpers/charm-prereqs.mjs";
 import { editImageAction } from "../_edit-image.mjs";
+import { parseCostFormula } from "../../rolls/activation-ledger.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -43,7 +44,8 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       addDVIgnorePenaltyType:    CharmSheet.#onAddDVIgnorePenaltyType,
       removeDVIgnorePenaltyType: CharmSheet.#onRemoveDVIgnorePenaltyType,
       addTargetEffectChange:    CharmSheet.#onAddTargetEffectChange,
-      removeTargetEffectChange: CharmSheet.#onRemoveTargetEffectChange
+      removeTargetEffectChange: CharmSheet.#onRemoveTargetEffectChange,
+      dispelOther:              CharmSheet.#onDispelOther
     }
   };
 
@@ -117,6 +119,32 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     })();
     const charmByUid = new Map(allCharmOptions.map(o => [o.uid, o.name]));
 
+    // Formula parse preview for the charm sheet cost field
+    const _formulaParsed = parseCostFormula(sys.cost?.formula ?? "");
+    let costFormulaPreview = "", costFormulaError = "";
+    if (sys.cost?.formula) {
+      if (_formulaParsed === null) {
+        costFormulaError = game.i18n.localize("EX2E.CostFormulaError");
+      } else {
+        const parts = [];
+        if (_formulaParsed.motes > 0)           parts.push(`${_formulaParsed.motes}m base`);
+        if (_formulaParsed.moteVar?.type === "perUnit")
+          parts.push(`${_formulaParsed.moteVar.rate}m/${_formulaParsed.moteVar.unit}`);
+        if (_formulaParsed.moteVar?.type === "openEnded") parts.push("open-ended");
+        if (_formulaParsed.moteVar?.type === "tiered")
+          parts.push(`${_formulaParsed.moteVar.tiers.length} tiers`);
+        if (_formulaParsed.willpower > 0)        parts.push(`${_formulaParsed.willpower}wp`);
+        if (_formulaParsed.lethalHealth > 0)     parts.push(`${_formulaParsed.lethalHealth}lhl`);
+        if (_formulaParsed.bashingHealth > 0)    parts.push(`${_formulaParsed.bashingHealth}bhl`);
+        if (_formulaParsed.aggravatedHealth > 0) parts.push(`${_formulaParsed.aggravatedHealth}ahl`);
+        if (_formulaParsed.xp > 0)               parts.push(`${_formulaParsed.xp}xp`);
+        if (_formulaParsed.permanentEssence > 0) parts.push("perm ess");
+        if (_formulaParsed.permanentWillpower > 0) parts.push("perm wp");
+        if (_formulaParsed.surcharge?.length)    parts.push(`surcharge (${_formulaParsed.surcharge.length} opt)`);
+        costFormulaPreview = parts.join(" · ") || "✓";
+      }
+    }
+
     return {
       ...context,
       item,
@@ -127,16 +155,18 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       durations:    Object.entries(EX2E.durations).map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
       splatTypes:   Object.entries(EX2E.splatTypes).map(([k,v]) => ({ value: k, label: game.i18n.localize(v) })),
       usesAttribute,
+      hgHasChoice: (sys.healthGrant?.options?.length ?? 0) > 1,
       // `abilities` is the charm-key dropdown — its contents swap between
       // ability and attribute lists based on `usesAttribute`.
       abilities:    usesAttribute ? attributeOptions : abilityOptions,
       abilityFieldLabel:    game.i18n.localize(usesAttribute ? "EX2E.Attribute"    : "EX2E.Ability"),
       minAbilityFieldLabel: game.i18n.localize(usesAttribute ? "EX2E.MinAttribute" : "EX2E.MinAbility"),
       excellencies: [
-        { value: "",       label: game.i18n.localize("EX2E.ExcellencyNone") },
-        { value: "first",  label: game.i18n.localize("EX2E.FirstExcellency") },
-        { value: "second", label: game.i18n.localize("EX2E.SecondExcellency") },
-        { value: "third",  label: game.i18n.localize("EX2E.ThirdExcellency") }
+        { value: "",                label: game.i18n.localize("EX2E.ExcellencyNone") },
+        { value: "first",           label: game.i18n.localize("EX2E.FirstExcellency") },
+        { value: "second",          label: game.i18n.localize("EX2E.SecondExcellency") },
+        { value: "third",           label: game.i18n.localize("EX2E.ThirdExcellency") },
+        { value: "infiniteMastery", label: game.i18n.localize("EX2E.InfiniteMastery") },
       ],
       damageTypes: [
         { value: "bashing",    label: game.i18n.localize("EX2E.DamageBashing") },
@@ -151,18 +181,25 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         { value: "anyExcellency", label: game.i18n.localize("EX2E.PrereqTypeAnyExcellency") },
         { value: "virtue",        label: game.i18n.localize("EX2E.PrereqTypeVirtue") }
       ],
-      ownedCharmOptions: allCharmOptions,
       mirrorCharmDisplayName: charmByUid.get(sys.mirrorId ?? "") ?? "",
       mergedCharms: (sys.mergedIds ?? []).map((uid, index) => ({
         uid, index, name: charmByUid.get(uid) ?? "",
       })),
       isEditable:   this.isEditable,
+      costFormulaPreview,
+      costFormulaError,
       yoziPatronOptions: Object.entries(EX2E.yoziPatrons).map(([k, v]) => ({
         key: k, label: game.i18n.localize(v)
       })),
       maidenAffiliationOptions: [
         { value: "", label: "—" },
         ...Object.entries(EX2E.siderealMaidens).map(([k, v]) => ({
+          value: k, label: game.i18n.localize(v)
+        }))
+      ],
+      martialArtsElementOptions: [
+        { value: "", label: "—" },
+        ...Object.entries(EX2E.castes.terrestrial ?? {}).map(([k, v]) => ({
           value: k, label: game.i18n.localize(v)
         }))
       ],
@@ -425,6 +462,30 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     await this.document.update({ "system.targetEffect.changes": changes });
   }
 
+  static async #onDispelOther(_event, _target) {
+    const item  = this.item;
+    const actor = item.actor;
+    if (!actor) {
+      ui.notifications.warn(game.i18n.localize("EX2E.CountermagicNoActor"));
+      return;
+    }
+    const { pickTargetActor } = await import("../../helpers/targeting.mjs");
+    const targetActor = await pickTargetActor();
+    if (!targetActor) return;
+
+    const spellEffectAes = (targetActor.effects?.contents ?? []).filter(
+      ae => ae.flags?.exalted2e?.spellEffect
+    );
+    if (!spellEffectAes.length) {
+      ui.notifications.warn(game.i18n.localize("EX2E.CountermagicNoSpellEffects"));
+      return;
+    }
+
+    const ae = spellEffectAes[0];
+    const { CountermagicDialog } = await import("../../dialogs/countermagic-dialog.mjs");
+    await CountermagicDialog.open({ type: "effect-other", targetActor, ae }, actor);
+  }
+
   _onRender(context, options) {
     super._onRender(context, options);
 
@@ -437,25 +498,6 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       if (this._stepsOpen) details.setAttribute("open", "");
       details.addEventListener("toggle", () => { this._stepsOpen = details.open; });
     }
-
-    // Prereq charm-name inputs are paired with a hidden charmUid input.
-    // When the user picks a suggestion from the datalist (or types a name
-    // that matches an owned charm exactly), resolve the uid and write it
-    // into the hidden input BEFORE the form-wide submit fires. Capture
-    // phase puts us ahead of ApplicationV2's form listeners.
-    const byName = new Map(
-      (context.ownedCharmOptions ?? []).map(o =>
-        [String(o.name ?? "").trim().toLowerCase(), o.uid]
-      )
-    );
-    this.element.querySelectorAll(".prereq-charm-name").forEach(input => {
-      input.addEventListener("change", (ev) => {
-        const uidField = ev.currentTarget.parentElement?.querySelector(".prereq-charm-uid");
-        if (!uidField) return;
-        const typed = String(ev.currentTarget.value ?? "").trim().toLowerCase();
-        uidField.value = byName.get(typed) ?? "";
-      }, true); // capture phase — run before the form-submit handler
-    });
 
     if (this.isEditable) {
       this.element.querySelectorAll(".charm-drop-zone").forEach(zone => {
@@ -483,6 +525,15 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
               ids.push(uid);
               await this.document.update({ "system.mergedIds": ids });
             }
+          } else if (zone.dataset.dropType === "prereq") {
+            const gi = parseInt(zone.dataset.groupIndex);
+            const ai = parseInt(zone.dataset.altIndex);
+            if (!Number.isFinite(gi) || !Number.isFinite(ai)) return;
+            const groups = foundry.utils.deepClone(this.document.system.prereqGroups ?? []);
+            if (!groups[gi]?.alternatives?.[ai]) return;
+            groups[gi].alternatives[ai].charmUid  = uid;
+            groups[gi].alternatives[ai].charmName = dropped.name;
+            await this.document.update({ "system.prereqGroups": groups });
           }
         });
       });

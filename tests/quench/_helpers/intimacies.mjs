@@ -18,12 +18,13 @@ export async function addIntimacy(actor, {
   subject      = "",
   positive     = true,
   strength     = 0,
+  ablationDamage = 0,
   description  = ""
 } = {}) {
   const [item] = await actor.createEmbeddedDocuments("Item", [{
     name,
     type: "intimacy",
-    system: { intimacyType, intensity, subject, positive, strength, description }
+    system: { intimacyType, intensity, subject, positive, strength, ablationDamage, description }
   }]);
   register(item);
   return item;

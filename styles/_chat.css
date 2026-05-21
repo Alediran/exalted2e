@@ -1,21 +1,54 @@
+/* ── Chat message container (overrides Foundry li.chat-message) ────────── */
+
+.chat-message {
+  background:    var(--ex2e-bg-panel) !important;
+  box-shadow:    none !important;
+  color:         var(--ex2e-text-primary) !important;
+  border-radius: var(--ex2e-border-radius) !important;
+}
+
+:is(.chat-popout, #chat-log, .chat-log) .chat-message {
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: var(--ex2e-border-color) !important;
+}
+
+.chat-message .message-header {
+  background:    transparent !important;
+  border-bottom: 1px solid var(--ex2e-border-color) !important;
+}
+
+.chat-message .message-sender {
+  color: var(--ex2e-gold-main) !important;
+}
+
+.chat-message .message-timestamp,
+.chat-message time {
+  color: var(--ex2e-text-muted) !important;
+}
+
+.chat-message .message-content {
+  background: transparent !important;
+  color:      var(--ex2e-text-primary) !important;
+}
+
 /* ── Chat Roll Card ───────────────────────────────────────────────────────── */
 
 .ex2e-roll-card {
   background:    linear-gradient(135deg, var(--ex2e-bg-darkest) 0%, var(--ex2e-bg-medium) 100%);
-  border:        1px solid var(--ex2e-gold-dark);
-  border-radius: var(--ex2e-border-radius-lg);
   padding:       var(--ex2e-gap-md);
   font-family:   var(--ex2e-font-body);
   color:         var(--ex2e-text-primary);
 }
 
-.roll-header {
-  display:       flex;
-  flex-wrap:     wrap;
-  gap:           var(--ex2e-gap-sm);
-  border-bottom: 1px solid var(--ex2e-gold-shadow);
+.card-header {
+  display:        flex;
+  flex-wrap:      wrap;
+  gap:            var(--ex2e-gap-sm);
+  align-items:    center;
+  border-bottom:  1px solid var(--ex2e-gold-shadow);
   padding-bottom: var(--ex2e-gap-sm);
-  margin-bottom: var(--ex2e-gap-sm);
+  margin-bottom:  var(--ex2e-gap-sm);
 }
 
 .roll-actor {
@@ -31,6 +64,22 @@
 
 .roll-cost  { color: var(--ex2e-dmg-lethal);   font-size: var(--ex2e-font-size-sm); }
 .roll-stunt { color: var(--ex2e-success);       font-size: var(--ex2e-font-size-sm); }
+
+/* Foundry v13 applies an explicit button color that beats inherited values.
+   Override it for all action buttons inside any chat card. */
+.ex2e-roll-card .btn-roll { color: var(--ex2e-gold-bright); }
+
+.card-title {
+  font-family: var(--ex2e-font-title);
+  color:       var(--ex2e-gold-bright);
+  font-weight: bold;
+}
+
+.card-actor {
+  color:       var(--ex2e-text-muted);
+  font-size:   var(--ex2e-font-size-sm);
+  margin-left: auto;
+}
 
 /* Dice results row */
 .dice-results {
@@ -301,6 +350,14 @@
 }
 .ex2e-attack-card .holy-upgrade-note i { color: var(--ex2e-gold-bright); }
 
+
+.combo-social-subtle-badge {
+  font-size:    var(--ex2e-font-size-xs);
+  color:        var(--ex2e-text-muted);
+  font-style:   italic;
+  padding:      2px 6px;
+}
+
 .ex2e-item-card .item-card-actions {
   display:     flex;
   justify-content: flex-end;
@@ -320,6 +377,26 @@
   box-shadow:    none;
   transform:     none;
   opacity:       0.6;
+}
+.ex2e-spell-cast-card .spell-cast-actions {
+  display:        flex;
+  justify-content: flex-end;
+  margin-top:     var(--ex2e-gap-sm);
+  padding-top:    var(--ex2e-gap-sm);
+  border-top:     1px solid var(--ex2e-gold-dark);
+}
+.ex2e-spell-cast-card .btn-reverse-spell {
+  padding:        2px 10px;
+  font-size:      var(--ex2e-font-size-xs);
+}
+.ex2e-spell-cast-card .btn-reverse-spell.is-reversed {
+  border-color:   var(--ex2e-gold-dark);
+  color:          var(--ex2e-text-muted);
+  cursor:         default;
+  background:     transparent;
+  box-shadow:     none;
+  transform:      none;
+  opacity:        0.6;
 }
 
 /* ── Flurry Declaration card ──────────────────────────────────────────── */
@@ -482,9 +559,7 @@
   color:          var(--ex2e-gold-main);
   font-size:      var(--ex2e-font-size-lg);
   letter-spacing: 0.05em;
-  margin:         0 0 var(--ex2e-gap-sm) 0;
-  padding-bottom: var(--ex2e-gap-sm);
-  border-bottom:  1px solid var(--ex2e-gold-dark);
+  margin:         0;
 }
 
 .ex2e-limit-break-card .ex2e-limit-break-flaw-row {
@@ -512,20 +587,10 @@
   gap:             var(--ex2e-gap-sm);
   justify-content: center;
 }
-.ex2e-limit-break-card .ex2e-limit-break-buttons button {
-  flex:          1;
-  font-family:   var(--ex2e-font-ui);
-  font-size:     var(--ex2e-font-size-xs);
-  padding:       4px 12px;
-  border:        1px solid var(--ex2e-gold-main);
-  border-radius: var(--ex2e-border-radius);
-  background:    var(--ex2e-bg-darkest);
-  color:         var(--ex2e-gold-bright);
-  cursor:        pointer;
-  transition:    background var(--ex2e-transition-fast);
-}
-.ex2e-limit-break-card .ex2e-limit-break-buttons button:hover {
-  background: var(--ex2e-gold-dark);
+.ex2e-limit-break-card .ex2e-limit-break-buttons .btn-roll {
+  flex:      1;
+  padding:   4px 12px;
+  font-size: var(--ex2e-font-size-xs);
 }
 
 .ex2e-limit-break-card .ex2e-limit-break-resolved {
@@ -569,9 +634,7 @@
   color:          var(--ex2e-gold-main);
   font-size:      var(--ex2e-font-size-lg);
   letter-spacing: 0.05em;
-  margin:         0 0 var(--ex2e-gap-sm) 0;
-  padding-bottom: var(--ex2e-gap-sm);
-  border-bottom:  1px solid var(--ex2e-gold-dark);
+  margin:         0;
 }
 
 .ex2e-act-of-villainy-card .ex2e-aov-virtues {
@@ -626,23 +689,7 @@
   justify-content: center;
 }
 
-.ex2e-act-of-villainy-card .ex2e-aov-buttons button {
-  font-family:   var(--ex2e-font-ui);
-  font-size:     var(--ex2e-font-size-xs);
-  padding:       4px 16px;
-  border:        1px solid var(--ex2e-gold-main);
-  border-radius: var(--ex2e-border-radius);
-  background:    var(--ex2e-bg-darkest);
-  color:         var(--ex2e-gold-bright);
-  cursor:        pointer;
-  transition:    background var(--ex2e-transition-fast);
-}
-
-.ex2e-act-of-villainy-card .ex2e-aov-buttons button:hover {
-  background: var(--ex2e-gold-dark);
-}
-
-.ex2e-act-of-villainy-card .ex2e-aov-buttons button:disabled {
+.ex2e-act-of-villainy-card .ex2e-aov-buttons .btn-roll:disabled {
   opacity: 0.5;
   cursor:  default;
 }
@@ -653,4 +700,282 @@
   font-size:   var(--ex2e-font-size-sm);
   color:       var(--ex2e-success);
   padding:     var(--ex2e-gap-xs) 0;
+}
+
+/* ── GM Roll Pool chat card ───────────────────────────────────────────── */
+
+.gm-roll-pool-card .card-header h3 {
+  margin:      0;
+  font-family: var(--ex2e-font-title);
+  font-size:   var(--ex2e-font-size-lg);
+  color:       var(--ex2e-gold-main);
+}
+
+.gm-roll-info {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--ex2e-gap-xs);
+  font-size:      var(--ex2e-font-size-sm);
+  color:          var(--ex2e-text-secondary);
+  margin-bottom:  var(--ex2e-gap-sm);
+}
+
+.gm-roll-action {
+  margin-bottom: var(--ex2e-gap-sm);
+}
+
+.btn-gm-pool-roll {
+  width:    100%;
+}
+
+.gm-roll-results {
+  margin-top:  var(--ex2e-gap-sm);
+  border-top:  1px solid var(--ex2e-gold-dark);
+  padding-top: var(--ex2e-gap-sm);
+}
+
+.gm-roll-results .results-header {
+  margin:      0 0 var(--ex2e-gap-xs);
+  font-family: var(--ex2e-font-ui);
+  font-size:   var(--ex2e-font-size-sm);
+  color:       var(--ex2e-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.gm-roll-result {
+  display:         flex;
+  align-items:     center;
+  gap:             var(--ex2e-gap-sm);
+  padding:         var(--ex2e-gap-xs) var(--ex2e-gap-sm);
+  border-radius:   3px;
+  margin-top:      var(--ex2e-gap-xs);
+  border:          1px solid transparent;
+}
+
+.gm-roll-result.success {
+  background:   rgba(39, 174, 96, 0.08);
+  border-color: var(--ex2e-success);
+}
+
+.gm-roll-result.failure {
+  background:   rgba(127, 140, 141, 0.08);
+  border-color: var(--ex2e-text-muted);
+}
+
+.gm-roll-result .roller-name {
+  font-weight: bold;
+  flex:        1;
+}
+
+.gm-roll-result .roll-successes {
+  font-size: var(--ex2e-font-size-sm);
+  color:     var(--ex2e-text-secondary);
+}
+
+.gm-roll-result .pass-fail-label {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  min-width:      3.5em;
+  text-align:     right;
+}
+
+.gm-roll-result.success .pass-fail-label { color: var(--ex2e-success); }
+.gm-roll-result.failure .pass-fail-label { color: var(--ex2e-text-muted); }
+
+/* ── Social Attack chat card ─────────────────────────────────────────────── */
+
+.social-attack-card .card-header {
+  gap: var(--ex2e-gap-md);
+}
+
+.social-attack-card .actor-portrait {
+  width:         32px;
+  height:        32px;
+  border-radius: 50%;
+  border:        1px solid var(--ex2e-gold-dark);
+  object-fit:    cover;
+  flex-shrink:   0;
+}
+
+.social-attack-card .attacker-name,
+.social-attack-card .defender-name {
+  font-family: var(--ex2e-font-title);
+  color:       var(--ex2e-gold-bright);
+  font-size:   var(--ex2e-font-size-sm);
+}
+
+.social-attack-card .arrow {
+  color:     var(--ex2e-text-muted);
+  font-size: var(--ex2e-font-size-sm);
+}
+
+.social-attack-card .card-body {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--ex2e-gap-xs);
+}
+
+.social-attack-card .line {
+  font-size:   var(--ex2e-font-size-sm);
+  color:       var(--ex2e-text-secondary);
+  line-height: 1.5;
+}
+
+.social-attack-card .charm-pill {
+  display:       inline-block;
+  padding:       1px 7px;
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: 10px;
+  background:    var(--ex2e-bg-panel);
+  color:         var(--ex2e-text-secondary);
+  font-size:     var(--ex2e-font-size-xs);
+  font-family:   var(--ex2e-font-ui);
+}
+
+.social-attack-card .attacker-charms-row,
+.social-attack-card .attacker-excellency-row {
+  font-size: var(--ex2e-font-size-sm);
+  color:     var(--ex2e-text-muted);
+}
+
+.social-attack-card .motivation-break-banner {
+  font-weight:   600;
+  padding:       4px var(--ex2e-gap-sm);
+  background:    var(--ex2e-bg-panel);
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: var(--ex2e-border-radius);
+  margin-bottom: var(--ex2e-gap-xs);
+}
+
+.social-attack-card .social-resolved-perfect,
+.social-attack-card .social-resolved-motes {
+  color:       var(--ex2e-gold-bright);
+  font-weight: 600;
+}
+
+.social-attack-card .auto-fail-natural-cap {
+  color:      var(--ex2e-text-muted);
+  font-style: italic;
+}
+
+.social-attack-card .social-step2-controls,
+.social-attack-card .social-response-controls,
+.social-attack-card .motivation-break-buttons {
+  display:         flex;
+  gap:             var(--ex2e-gap-sm);
+  justify-content: center;
+  flex-wrap:       wrap;
+  margin-top:      var(--ex2e-gap-sm);
+}
+
+.social-attack-card .btn-social-step2,
+.social-attack-card .btn-social-resist,
+.social-attack-card .btn-social-accept,
+.social-attack-card .btn-motivation-refuse,
+.social-attack-card .btn-motivation-break,
+.social-attack-card .btn-social-reverse {
+  font-size: var(--ex2e-font-size-xs);
+  padding:   4px 14px;
+}
+
+.social-attack-card .social-resolution {
+  margin-top:    var(--ex2e-gap-sm);
+  padding:       var(--ex2e-gap-xs) var(--ex2e-gap-sm);
+  background:    var(--ex2e-bg-panel);
+  border:        1px solid var(--ex2e-border-color);
+  border-radius: var(--ex2e-border-radius);
+  font-size:     var(--ex2e-font-size-sm);
+}
+
+.social-attack-card .social-resolution.reversed {
+  color:      var(--ex2e-text-muted);
+  font-style: italic;
+}
+
+.social-attack-card .social-reverse-row {
+  display:         flex;
+  justify-content: flex-end;
+  margin-top:      var(--ex2e-gap-xs);
+}
+
+/* ── Greater Sign Activation card ──────────────────────────────────────── */
+
+.sign-activation-card .card-header {
+  gap: var(--ex2e-gap-sm);
+}
+
+.sign-activation-card .card-header i {
+  color: var(--ex2e-gold-bright);
+}
+
+.sign-activation-card .sign-name {
+  font-family: var(--ex2e-font-title);
+  color:       var(--ex2e-gold-bright);
+}
+
+.sign-activation-card .sign-cost {
+  font-size:     var(--ex2e-font-size-sm);
+  color:         var(--ex2e-text-muted);
+  margin-bottom: var(--ex2e-gap-sm);
+}
+
+.sign-activation-card .sign-footer {
+  display:         flex;
+  justify-content: center;
+  margin-top:      var(--ex2e-gap-sm);
+}
+
+.sign-activation-card .btn-reverse-sign {
+  font-size: var(--ex2e-font-size-xs);
+  padding:   4px 14px;
+}
+
+/* ── Resonance Eruption card ─────────────────────────────────────────────── */
+
+.resonance-eruption-card .card-header {
+  gap: var(--ex2e-gap-sm);
+}
+
+.resonance-eruption-card .card-header img {
+  width:         32px;
+  height:        32px;
+  border-radius: 50%;
+  border:        1px solid var(--ex2e-gold-dark);
+  object-fit:    cover;
+  flex-shrink:   0;
+}
+
+.resonance-eruption-card .card-header .roll-actor {
+  font-family: var(--ex2e-font-title);
+  color:       var(--ex2e-gold-bright);
+}
+
+.resonance-eruption-card .eruption-label {
+  font-weight:   bold;
+  color:         var(--ex2e-text-primary);
+  margin-bottom: var(--ex2e-gap-xs);
+}
+
+.resonance-eruption-card .eruption-level {
+  font-size: var(--ex2e-font-size-sm);
+  color:     var(--ex2e-text-secondary);
+}
+
+/* ── Status Resist card ──────────────────────────────────────────────────── */
+
+.status-resist-card .resist-body {
+  font-size:     var(--ex2e-font-size-sm);
+  color:         var(--ex2e-text-secondary);
+  margin-bottom: var(--ex2e-gap-sm);
+}
+
+.status-resist-card .resist-body p {
+  margin: var(--ex2e-gap-xs) 0;
+}
+
+.status-resist-card .btn-roll-resist {
+  width: 100%;
 }

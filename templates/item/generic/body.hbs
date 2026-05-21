@@ -10,15 +10,50 @@
     <input type="text" name="system.notes" value="{{system.notes}}"
            style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
   </div>
-  {{#if isGM}}
   <div class="field-group" style="margin-top:8px">
-    <label>{{localize "EX2E.IsBreedingTrait"}}</label>
-    <button type="button" data-action="toggleIsBreeding"
-            style="width:auto; padding:2px 8px"
-            {{#unless isEditable}}disabled{{/unless}}>
-      {{#if isBreedingTrait}}✓{{else}}—{{/if}}
-    </button>
+    <label>{{localize "EX2E.BackgroundType"}}</label>
+    {{#if isEditable}}
+    <select name="system.backgroundType">
+      <option value="">—</option>
+      {{#each typeChoices.backgroundType as |group|}}
+      <optgroup label="{{group.label}}">
+        {{#each group.options as |opt|}}
+        <option value="{{opt.value}}" {{#if (eq @root.system.backgroundType opt.value)}}selected{{/if}}>
+          {{opt.label}}
+        </option>
+        {{/each}}
+      </optgroup>
+      {{/each}}
+    </select>
+    {{else}}
+    {{#if system.backgroundType}}
+    <span class="keyword-tag">{{backgroundTypeLabel}}</span>
+    {{/if}}
+    {{/if}}
   </div>
+  {{#if (eq system.backgroundType "family")}}
+  <div class="field-group" style="margin-top:8px">
+    <label>{{localize "EX2E.BackgroundFamily"}}</label>
+    <input type="text" name="system.house" value="{{system.house}}"
+           placeholder="{{localize 'EX2E.BackgroundFamilyPlaceholder'}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  {{/if}}
+  {{#if (and isGM (eq system.backgroundType "artifact"))}}
+  <div class="field-group checkbox-field" style="margin-top:8px">
+    <label><input type="checkbox" name="system.isMonstrance"
+                  {{#if system.isMonstrance}}checked{{/if}}
+                  {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.IsMonstrance"}}</label>
+  </div>
+  {{#if system.isMonstrance}}
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Deathlord"}}</label>
+    <input type="text" name="system.deathlord" value="{{system.deathlord}}"
+           placeholder="{{localize 'EX2E.DeathlordPlaceholder'}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  {{/if}}
   {{/if}}
   {{/if}}
 
@@ -79,6 +114,387 @@
     <label>{{localize "EX2E.Rating"}}</label>
     {{dotRating name="system.value" value=system.value max=5 min=1}}
   </div>
+  {{/if}}
+
+  {{#if (eq item.type "hearthstone")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.HearthstoneType"}}</label>
+    <select name="system.hearthstoneType" {{#unless isEditable}}disabled{{/unless}}>
+      <option value="">—</option>
+      {{#each typeChoices.hearthstoneType}}
+      <option value="{{this.value}}" {{#if (eq this.value ../system.hearthstoneType)}}selected{{/if}}>{{this.label}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.HearthstoneRating"}}</label>
+    <input type="hidden" name="system.rating" value="{{system.rating}}">
+    {{dotRating name="system.rating" value=system.rating max=5 min=1}}
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.HearthstoneMoteRegen"}}</label>
+    <span style="padding:4px 8px">{{mul system.rating 2}}/{{localize "EX2E.Hour"}}</span>
+  </div>
+  {{/if}}
+
+  {{#if (eq item.type "equipment")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.ResourcesCost"}}</label>
+    <input type="hidden" name="system.resourcesCost" value="{{system.resourcesCost}}">
+    {{dotRating name="system.resourcesCost" value=system.resourcesCost max=5 min=0}}
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Quantity"}}</label>
+    <input type="number" name="system.quantity" value="{{system.quantity}}"
+           min="1" style="width:80px" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Equipped"}}</label>
+    <label class="checkbox-inline" style="margin-left:8px">
+      <input type="checkbox" name="system.equipped"
+             {{#if system.equipped}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </label>
+  </div>
+  <div class="field-group checkbox-field" style="margin-top:8px">
+    <label><input type="checkbox" name="system.artifact" {{#if system.artifact}}checked{{/if}}
+                  {{#unless isEditable}}disabled{{/unless}}> {{localize "EX2E.ArtifactItem"}}</label>
+  </div>
+  {{#if system.artifact}}
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.MagicalMaterial"}}</label>
+    <select name="system.magicalMaterial" {{#unless isEditable}}disabled{{/unless}}>
+      <option value="">—</option>
+      {{#each magicalMaterials}}
+      <option value="{{this.value}}" {{#if (eq this.value ../system.magicalMaterial)}}selected{{/if}}>{{this.label}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.AttunementCost"}}</label>
+    <input type="number" name="system.attunementCost" value="{{system.attunementCost}}"
+           min="0" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group checkbox-field" style="margin-top:6px">
+    <label><input type="checkbox" name="system.attuned" {{#if system.attuned}}checked{{/if}}
+                  {{#unless isEditable}}disabled{{/unless}}> {{localize "EX2E.CurrentlyAttuned"}}</label>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.ArtifactRating"}}</label>
+    <input type="hidden" name="system.artifactRating" value="{{system.artifactRating}}">
+    {{dotRating name="system.artifactRating" value=system.artifactRating max=5 min=0}}
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.HearthstoneSlots"}}</label>
+    <input type="number" name="system.hearthstoneSlots" value="{{system.hearthstoneSlots}}"
+           min="0" max="3" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  {{#if system.hearthstoneSlots}}
+  <div class="hearthstone-socket-rows" style="margin-top:4px">
+    {{#each socketedSlots as |slot|}}
+    <div class="hearthstone-slot-row">
+      {{#if slot.filled}}
+      <span class="socket-label">⬡ {{slot.stoneName}} ★{{slot.stoneRating}}</span>
+      {{#if @root.isEditable}}
+      <button class="socket-btn" data-action="unsocketHearthstone" data-slot-index="{{slot.index}}">×</button>
+      {{/if}}
+      {{else}}
+      {{#if @root.isEditable}}
+      <button class="socket-btn" data-action="socketHearthstone" data-slot-index="{{slot.index}}">○ {{localize "EX2E.SocketHearthstone"}}</button>
+      {{else}}
+      <span class="socket-label socket-empty">○ —</span>
+      {{/if}}
+      {{/if}}
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+  {{/if}}
+  {{/if}}
+
+  {{#if (eq item.type "poison")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.PoisonDamage"}}</label>
+    <input type="text" name="system.damage" value="{{system.damage}}"
+           style="width:120px" {{#unless isEditable}}readonly{{/unless}}>
+    <select name="system.damageType" style="margin-left:6px" {{#unless isEditable}}disabled{{/unless}}>
+      <option value="bashing"    {{#if (eq system.damageType "bashing")}}selected{{/if}}>{{localize "EX2E.DamageBashing"}}</option>
+      <option value="lethal"     {{#if (eq system.damageType "lethal")}}selected{{/if}}>{{localize "EX2E.DamageLethal"}}</option>
+      <option value="aggravated" {{#if (eq system.damageType "aggravated")}}selected{{/if}}>{{localize "EX2E.DamageAggravated"}}</option>
+    </select>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.PoisonInterval"}}</label>
+    <input type="text" name="system.interval" value="{{system.interval}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Duration"}}</label>
+    <input type="text" name="system.duration" value="{{system.duration}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Vector"}}</label>
+    <input type="text" name="system.vector" value="{{system.vector}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  {{/if}}
+
+  {{#if (eq item.type "disease")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.DiseaseMorbidity"}}</label>
+    <input type="number" name="system.morbidity" value="{{system.morbidity}}"
+           min="0" max="10" style="width:60px" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Trauma"}}</label>
+    <input type="text" name="system.trauma" value="{{system.trauma}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Duration"}}</label>
+    <input type="text" name="system.duration" value="{{system.duration}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Vector"}}</label>
+    <input type="text" name="system.vector" value="{{system.vector}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  {{/if}}
+
+  {{#if (eq item.type "drug")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.DrugEffect"}}</label>
+    <input type="text" name="system.effect" value="{{system.effect}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Duration"}}</label>
+    <input type="text" name="system.duration" value="{{system.duration}}"
+           style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.Addiction"}}</label>
+    <label class="checkbox-inline" style="margin-left:8px">
+      <input type="checkbox" name="system.addiction"
+             {{#if system.addiction}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+    </label>
+  </div>
+  {{/if}}
+
+  {{#if (eq item.type "mutation")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.MutationType"}}</label>
+    <select name="system.mutationType" {{#unless isEditable}}disabled{{/unless}}>
+      <option value="positive" {{#if (eq system.mutationType "positive")}}selected{{/if}}>{{localize "EX2E.MutationPositive"}}</option>
+      <option value="negative" {{#if (eq system.mutationType "negative")}}selected{{/if}}>{{localize "EX2E.MutationNegative"}}</option>
+      <option value="neutral"  {{#if (eq system.mutationType "neutral")}}selected{{/if}}>{{localize "EX2E.MutationNeutral"}}</option>
+    </select>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.MutationPointCost"}}</label>
+    <input type="number" name="system.pointCost" value="{{system.pointCost}}"
+           min="0" max="10" style="width:60px" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  {{/if}}
+
+  {{!-- ── Manse ────────────────────────────────────────────────────────── --}}
+  {{#if (eq item.type "manse")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.ManseBackground"}}</label>
+    {{#if isEditable}}
+    <div class="manse-drop-zone" data-drop-field="backgroundId" data-drop-accepts="background">
+      {{#if item.system.backgroundId}}
+      <span class="manse-drop-chip">
+        <span class="manse-drop-chip-name">{{manseBackgroundName}}</span>
+        <button type="button" data-action="clearManseLink" data-field="backgroundId"
+                class="manse-drop-clear" title="{{localize 'EX2E.Clear'}}">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </span>
+      {{else}}
+      <span class="manse-drop-placeholder">
+        <i class="fa-solid fa-arrow-down-to-bracket"></i>
+        {{localize "EX2E.ManseDropBackground"}}
+      </span>
+      {{/if}}
+    </div>
+    {{else}}
+    <span class="field-value">{{#if manseBackgroundName}}{{manseBackgroundName}}{{else}}—{{/if}}</span>
+    {{/if}}
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.ManseHearthstone"}}</label>
+    {{#if isEditable}}
+    <div class="manse-drop-zone" data-drop-field="hearthstoneId" data-drop-accepts="hearthstone">
+      {{#if item.system.hearthstoneId}}
+      <span class="manse-drop-chip">
+        <span class="manse-drop-chip-name">{{manseHearthstoneName}}</span>
+        <button type="button" data-action="clearManseLink" data-field="hearthstoneId"
+                class="manse-drop-clear" title="{{localize 'EX2E.Clear'}}">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </span>
+      {{else}}
+      <span class="manse-drop-placeholder">
+        <i class="fa-solid fa-arrow-down-to-bracket"></i>
+        {{localize "EX2E.ManseDropHearthstone"}}
+      </span>
+      {{/if}}
+    </div>
+    {{else}}
+    <span class="field-value">{{#if manseHearthstoneName}}{{manseHearthstoneName}}{{else}}—{{/if}}</span>
+    {{/if}}
+  </div>
+  <div class="field-group manse-powers-section" style="margin-top:10px">
+    <div class="manse-powers-header">
+      <strong>{{localize "EX2E.MansePowers"}}</strong>
+      <span class="manse-budget{{#if manseOverBudget}} budget-over{{/if}}">
+        {{manseUsedBudget}} / {{manseRating}} {{localize "EX2E.ManseBudgetPoints"}}
+      </span>
+    </div>
+    {{#if mansePowers.length}}
+    <table class="manse-powers-table">
+      <thead>
+        <tr>
+          <th>{{localize "EX2E.MansePowerName"}}</th>
+          <th>{{localize "EX2E.MansePowerCost"}}</th>
+          {{#if @root.isEditable}}<th></th>{{/if}}
+        </tr>
+      </thead>
+      <tbody>
+        {{#each mansePowers as |power|}}
+        <tr>
+          <td>
+            {{#if @root.isEditable}}
+            <input type="text" data-power-index="{{@index}}" data-power-field="name" value="{{power.name}}">
+            {{else}}{{power.name}}{{/if}}
+          </td>
+          <td>
+            {{#if @root.isEditable}}
+            <input type="number" data-power-index="{{@index}}" data-power-field="cost" value="{{power.cost}}" min="0" max="3">
+            {{else}}{{power.cost}}{{/if}}
+          </td>
+          {{#if @root.isEditable}}
+          <td>
+            <button type="button" data-action="deleteMansePower" data-power-index="{{@index}}"
+              title="{{localize 'EX2E.Delete'}}">
+              <i class="fa-solid fa-times"></i>
+            </button>
+          </td>
+          {{/if}}
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{else}}
+    <p class="manse-no-powers">{{localize "EX2E.ManseNoPowers"}}</p>
+    {{/if}}
+    {{#if @root.isEditable}}
+    <button type="button" data-action="addMansePower" class="btn-add-power">
+      <i class="fa-solid fa-plus"></i> {{localize "EX2E.ManseAddPower"}}
+    </button>
+    {{/if}}
+  </div>
+  {{/if}}
+
+  {{!-- ── Familiar ──────────────────────────────────────────────────────── --}}
+  {{#if (eq item.type "familiar")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.ManseBackground"}}</label>
+    {{#if isEditable}}
+    <div class="manse-drop-zone background-drop-zone" data-drop-accepts="background">
+      {{#if item.system.backgroundId}}
+      <span class="manse-drop-chip">
+        <span class="manse-drop-chip-name">{{familiarBackgroundName}} ({{dotRating name="familiarBond" value=familiarBackgroundRating max=5 min=0 readonly=true}})</span>
+        <button type="button" data-action="clearFamiliarBackground" class="manse-drop-clear" title="{{localize 'EX2E.Clear'}}">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </span>
+      {{else}}
+      <span class="manse-drop-placeholder">
+        <i class="fa-solid fa-arrow-down-to-bracket"></i> {{localize "EX2E.FamiliarDropBackground"}}
+      </span>
+      {{/if}}
+    </div>
+    {{else}}
+    <span class="field-value">{{#if familiarBackgroundName}}{{familiarBackgroundName}}{{else}}—{{/if}}</span>
+    {{/if}}
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.FamiliarLinkedActor"}}</label>
+    {{#if isEditable}}
+    <div class="manse-drop-zone familiar-actor-drop-zone">
+      {{#if item.system.linkedActorId}}
+      <span class="manse-drop-chip">
+        <span class="manse-drop-chip-name">{{familiarLinkedActorName}}</span>
+        <button type="button" data-action="clearFamiliarActor" class="manse-drop-clear" title="{{localize 'EX2E.Clear'}}">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </span>
+      {{else}}
+      <span class="manse-drop-placeholder">
+        <i class="fa-solid fa-arrow-down-to-bracket"></i> {{localize "EX2E.FamiliarDropActor"}}
+      </span>
+      {{/if}}
+      <button type="button" data-action="createFamiliarActor" class="btn-add-power" style="margin-top:4px">
+        <i class="fa-solid fa-plus"></i> {{localize "EX2E.FamiliarNewActor"}}
+      </button>
+    </div>
+    {{else}}
+    <span class="field-value">{{#if familiarLinkedActorName}}{{familiarLinkedActorName}}{{else}}—{{/if}}</span>
+    {{/if}}
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.FamiliarSpecies"}}</label>
+    {{#if isEditable}}
+    <input type="text" name="system.species" value="{{system.species}}" style="width:100%">
+    {{else}}
+    <span class="field-value">{{#if system.species}}{{system.species}}{{else}}—{{/if}}</span>
+    {{/if}}
+  </div>
+  {{/if}}
+
+  {{!-- ── Cult ─────────────────────────────────────────────────────────── --}}
+  {{#if (eq item.type "cult")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.ManseBackground"}}</label>
+    {{#if isEditable}}
+    <div class="manse-drop-zone background-drop-zone" data-drop-accepts="background">
+      {{#if item.system.backgroundId}}
+      <span class="manse-drop-chip">
+        <span class="manse-drop-chip-name">{{cultBackgroundName}}</span>
+        <button type="button" data-action="clearCultBackground" class="manse-drop-clear" title="{{localize 'EX2E.Clear'}}">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </span>
+      {{else}}
+      <span class="manse-drop-placeholder">
+        <i class="fa-solid fa-arrow-down-to-bracket"></i> {{localize "EX2E.CultDropBackground"}}
+      </span>
+      {{/if}}
+    </div>
+    {{else}}
+    <span class="field-value">{{#if cultBackgroundName}}{{cultBackgroundName}}{{else}}—{{/if}}</span>
+    {{/if}}
+  </div>
+  {{#if cultBackgroundRating}}
+  <div class="field-group cult-stats-row" style="margin-top:8px">
+    <div class="cult-stat">
+      <span class="cult-stat-label">{{localize "EX2E.CultMoteRegen"}}</span>
+      <span class="cult-stat-value">{{cultMoteRegenDisplay}}/hr</span>
+    </div>
+    <div class="cult-stat">
+      <span class="cult-stat-label">{{localize "EX2E.CultWpRecovery"}}</span>
+      <span class="cult-stat-value">
+        {{#if (eq cultWpHoursDisplay 24)}}{{localize "EX2E.CultWpDaily"}}
+        {{else}}1 per {{cultWpHoursDisplay}}h{{/if}}
+      </span>
+    </div>
+  </div>
+  {{/if}}
   {{/if}}
 
   <h2 class="section-header">{{localize "EX2E.Description"}}</h2>

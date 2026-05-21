@@ -27,7 +27,8 @@
     "styles/_items.css",
     "styles/_chat.css",
     "styles/_dialog.css",
-    "styles/_hud.css"
+    "styles/_hud.css",
+    "styles/_actor.css"
   ],
   "languages": [
     {
@@ -83,6 +84,27 @@
       "path": "packs/spells",
       "type": "Item",
       "system": "exalted2e"
+    },
+    {
+      "name":   "panoply",
+      "label":  "Exalted 2e Panoply",
+      "path":   "packs/panoply",
+      "type":   "Item",
+      "system": "exalted2e"
+    },
+    {
+      "name":   "hearthstones",
+      "label":  "Exalted 2e Hearthstones",
+      "path":   "packs/hearthstones",
+      "type":   "Item",
+      "system": "exalted2e"
+    },
+    {
+      "name":   "macros",
+      "label":  "Exalted 2e Macros",
+      "path":   "packs/macros",
+      "type":   "Macro",
+      "system": "exalted2e"
     }
   ],
   "documentTypes": {
@@ -104,7 +126,17 @@
       "form":       {},
       "animapower": {},
       "urge":       {},
-      "destiny":    {}
+      "destiny":    {},
+      "equipment":  {},
+      "hearthstone": {},
+      "martialartsstyle": {},
+      "poison": {},
+      "disease": {},
+      "drug": {},
+      "mutation": {},
+      "manse": {},
+      "familiar": {},
+      "cult": {}
     }
   },
   "socket": false,

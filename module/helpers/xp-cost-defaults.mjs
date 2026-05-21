@@ -83,7 +83,7 @@ export const XP_COST_DEFAULTS = Object.freeze({
     abilityOtherMult:        2,
     charmFavored:           10, charmOther: 12,
     spellFavored:           10, spellOther: 12,
-    celestialMaFavored:     12, celestialMaOther: 15,
+    celestialMaFavored:     15, celestialMaOther: 18,
     maUnfavored:            15                       // MA ability not Favored/Aspect
   },
 

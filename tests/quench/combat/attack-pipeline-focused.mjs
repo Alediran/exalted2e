@@ -285,5 +285,31 @@ export function registerAttackPipelineFocused(context) {
       const card = lastChatMessage();
       assert.equal(card?.id, message.id, "lastChatMessage returns the attack card");
     });
+
+    // 55. Infinite Mastery discount: 6 committed motes → floor(6/2)=3 mote discount.
+    it("[055] Infinite Mastery discount reduces total Excellency cost in rollAttack", async function () {
+      const { attacker, defender, weapon } = await setupAttackFixture();
+      await attacker.update({ "system.exaltType": "solar" });
+      // 6 committed motes → discount = floor(6/2) = 3
+      // 2 Second Exc successes = 4m raw; after 3m discount = 1m spent
+      await attacker.createEmbeddedDocuments("ActiveEffect", [{
+        name: "Infinite Melee Mastery",
+        transfer: false,
+        flags: { exalted2e: { masteryCommitment: 6, masteryAbility: "melee" } }
+      }]);
+      await attacker.update({ "system.motes.peripheral.value": 20 });
+      const motesBefore = attacker.system.motes.peripheral.value;
+
+      await stubAttackDialog([defaultDialogResult({ secondExcSucc: 2, moteType: "peripheral" })]);
+      const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
+      await ExaltedRoll.rollAttack(attacker, weapon.id, { explicitTargetActor: defender });
+
+      // raw = 2×2 = 4m; discount = 3m; net = max(0, 4-3) = 1m
+      assert.equal(
+        attacker.system.motes.peripheral.value,
+        motesBefore - 1,
+        "2 Second Exc successes cost 1m after 3m mastery discount (not 4m)"
+      );
+    });
   });
 }

@@ -1,5 +1,4 @@
 import { EX2E } from "../config.mjs";
-import { evaluateCharmFormula } from "../documents/item.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -475,12 +474,7 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
   }
 
   _computeCharmRateBonus() {
-    const actor = this._actor;
-    if (!actor) return 0;
-    const rollData = actor.getRollData() ?? {};
-    return actor.items
-      .filter(i => i.type === "charm" && i.system.rateBonus?.enabled)
-      .reduce((sum, c) => sum + evaluateCharmFormula(c.system.rateBonus.formula, rollData, 0), 0);
+    return this._actor?.system?.bonuses?.rateBonus ?? 0;
   }
 
   _onClose(options) {

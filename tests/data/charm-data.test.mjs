@@ -39,3 +39,31 @@ describe("CharmData.umiCost", () => {
     expect(f.options?.integer).toBe(true);
   });
 });
+
+describe("CharmData FoI fields", () => {
+  it("hasFoi defaults to false", () => {
+    const schema = CharmData.defineSchema();
+    const f = schema.hasFoi;
+    expect(f).toBeDefined();
+    const initial = f.getInitialValue?.() ?? f.options?.initial;
+    expect(initial).toBe(false);
+  });
+
+  it("flawsOfInvulnerability defaults to empty array", () => {
+    const schema = CharmData.defineSchema();
+    const f = schema.flawsOfInvulnerability;
+    expect(f).toBeDefined();
+    const initial = f.getInitialValue?.() ?? [];
+    expect(Array.isArray(initial)).toBe(true);
+    expect(initial).toHaveLength(0);
+  });
+
+  it("flawsOfInvulnerability entries have type and label StringFields", () => {
+    const schema = CharmData.defineSchema();
+    // Mock: ArrayField(first-arg) → .options = element SchemaField; SchemaField(dict) → .options = dict
+    const entryFields = schema.flawsOfInvulnerability.options?.options
+                     ?? schema.flawsOfInvulnerability.options?.fields;
+    expect(entryFields?.type).toBeDefined();
+    expect(entryFields?.label).toBeDefined();
+  });
+});

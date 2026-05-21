@@ -1,5 +1,7 @@
 import { computeAttackExcellencyCaps } from "../rolls/excellency-math.mjs";
 import { findCampaign, validateNewCampaign } from "../rolls/motivation-break-math.mjs";
+import { moteCostString, charmVariableCostCtx, extractCharmActivations } from "../rolls/activation-ledger.mjs";
+import { refreshPips } from "../helpers/pip-track.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -47,10 +49,10 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       intent:       options.intent       ?? "build",
       subject:      options.subject      ?? "",
       claims:       options.claims       ?? {
-        supportingIntimacy:   false,
+        supportingIntimacyId: null,
         supportingVirtue:     false,
         supportingMotivation: false,
-        opposingIntimacy:     false,
+        opposingIntimacyId:   null,
         opposingVirtue:       false,
         opposingMotivation:   false,
         immediateThreat:      false,
@@ -64,7 +66,9 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       firstExcDice: options.firstExcDice ?? 0,
       secondExcSucc: options.secondExcSucc ?? 0,
       // 3c-2: Motivation-break campaign target
-      targetMotivation: options.targetMotivation ?? ""
+      targetMotivation: options.targetMotivation ?? "",
+      // combo selector
+      selectedComboId: options.selectedComboId ?? null
     };
   }
 
@@ -92,12 +96,7 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
     const pickerCharms = eligible.map(c => {
       const cost = c.system?.cost ?? {};
       const parts = [];
-      if (cost.motes)            parts.push(`${cost.motes}m`);
-      if (cost.willpower)        parts.push(`${cost.willpower}wp`);
-      if (cost.bashingHealth)    parts.push(`${cost.bashingHealth}hl(B)`);
-      if (cost.lethalHealth)     parts.push(`${cost.lethalHealth}hl(L)`);
-      if (cost.aggravatedHealth) parts.push(`${cost.aggravatedHealth}hl(A)`);
-      if (cost.xp)               parts.push(`${cost.xp}xp`);
+      const mStr = moteCostString(cost); if (mStr) parts.push(mStr);
       const kws = c.system?.keywords ?? [];
       const TAG_KEYWORDS = ["Unnatural Mental Influence", "Compel", "Emotion", "Illusion"];
       const tags = kws.filter(k => TAG_KEYWORDS.includes(k));
@@ -106,9 +105,26 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
         name:      c.name,
         costLabel: parts.join(" · "),
         tagLabel:  tags.join(", "),
-        isUmi:     kws.includes("Unnatural Mental Influence")
+        isUmi:     kws.includes("Unnatural Mental Influence"),
+        ...charmVariableCostCtx(c),
       };
     });
+    this._pickerCharms = pickerCharms;
+
+    // Eligible combos: actor combos with ≥1 social-ability supplemental/reflexive charm
+    const combos = a?.items?.filter(i => i.type === "combo") ?? [];
+    const eligibleCombos = combos.map(combo => {
+      const charmUids = combo.system?.charmUids ?? [];
+      const socialCount = charmUids.filter(uid => {
+        const charm = a.items.find(c => c.type === "charm" && c.system?.charmUid === uid);
+        if (!charm) return false;
+        if (charm.system.ability !== this._data.ability) return false;
+        if (!SOCIAL_ABILITIES.includes(charm.system.ability)) return false;
+        const ct = charm.system.charmType;
+        return ct === "supplemental" || (ct === "reflexive" && (charm.system.steps ?? []).includes(1));
+      }).length;
+      return socialCount > 0 ? { id: combo.id, name: combo.name, charmCount: socialCount } : null;
+    }).filter(Boolean);
 
     // 3c-1: Excellency caps
     const { firstExcMax, secondExcMax } = a
@@ -135,6 +151,8 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       appearanceDelta,
       pickerCharms,
       hasPickerCharms: pickerCharms.length > 0,
+      eligibleCombos,
+      hasEligibleCombos: eligibleCombos.length > 0,
       firstExcMax,
       secondExcMax,
       isBreakIntent,
@@ -151,43 +169,53 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       moteTypeChoices: {
         personal:   game.i18n.localize("EX2E.MotesPersonal"),
         peripheral: game.i18n.localize("EX2E.MotesPeripheral")
-      }
+      },
+      defenderIntimacies: (this._data.target?.items ?? [])
+        .filter(i => i.type === "intimacy")
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map(i => ({
+          id:        i.id,
+          name:      i.name,
+          positive:  i.system?.positive ?? true,
+          intensity: i.system?.intensity ?? "minor",
+          strength:  i.system?.strength  ?? 0
+        })),
+      useIntimacyIntensity: game.settings.get("exalted2e", "useIntimacyIntensity"),
     };
   }
 
   _onRender(context, options) {
     const el = this.element;
-    const firstExcInput  = el.querySelector("[name='firstExcDice']");
-    const secondExcInput = el.querySelector("[name='secondExcSucc']");
+    const firstPipTrack  = el.querySelector(".exc-pip-track[data-exc='first']");
+    const secondPipTrack = el.querySelector(".exc-pip-track[data-exc='second']");
+    const firstHidden    = el.querySelector("[name='firstExcDice']");
+    const secondHidden   = el.querySelector("[name='secondExcSucc']");
     const totalCostEl    = el.querySelector(".exc-total-cost");
     const umiCheckbox    = el.querySelector("[name='unnaturalInfluence']");
     const umiHint        = el.querySelector(".umi-charm-driven-hint");
     const pickerInputs   = el.querySelectorAll(".attack-charm-picker input[type='checkbox']");
 
-    let currentFirstExcMax  = context.firstExcMax;
-    let currentSecondExcMax = context.secondExcMax;
+    const currentFirstExcMax  = context.firstExcMax;
+    const currentSecondExcMax = context.secondExcMax;
 
     const enforceExcCap = () => {
-      if (!firstExcInput || !secondExcInput) return;
-      const firstVal  = parseInt(firstExcInput.value)  || 0;
-      const secondVal = (parseInt(secondExcInput.value) || 0) * 2;
+      const firstVal      = parseInt(firstHidden?.value)  || 0;
+      const secondVal     = (parseInt(secondHidden?.value) || 0) * 2;
       const secondAllowed = Math.min(currentSecondExcMax, Math.floor((currentFirstExcMax - firstVal) / 2));
       const firstAllowed  = Math.min(currentFirstExcMax,  currentFirstExcMax - secondVal);
-      secondExcInput.max  = Math.max(0, secondAllowed);
-      firstExcInput.max   = Math.max(0, firstAllowed);
-      const firstMaxEl  = el.querySelector(".exc-first-max");
-      const secondMaxEl = el.querySelector(".exc-second-max");
-      if (firstMaxEl)  firstMaxEl.textContent  = Math.max(0, firstAllowed);
-      if (secondMaxEl) secondMaxEl.textContent = Math.max(0, secondAllowed);
-      if (firstVal  > firstAllowed)  firstExcInput.value  = Math.max(0, firstAllowed);
-      if ((parseInt(secondExcInput.value) || 0) > secondAllowed) secondExcInput.value = Math.max(0, secondAllowed);
+      refreshPips(firstPipTrack,  firstHidden,  Math.max(0, firstAllowed));
+      refreshPips(secondPipTrack, secondHidden, Math.max(0, secondAllowed));
+      if (firstVal > firstAllowed && firstHidden)
+        firstHidden.value = Math.max(0, firstAllowed);
+      if ((parseInt(secondHidden?.value) || 0) > secondAllowed && secondHidden)
+        secondHidden.value = Math.max(0, secondAllowed);
     };
 
     const updateTotal = () => {
       enforceExcCap();
       if (!totalCostEl) return;
-      const firstCost  = parseInt(firstExcInput?.value)  || 0;
-      const secondCost = (parseInt(secondExcInput?.value) || 0) * 2;
+      const firstCost  = parseInt(firstHidden?.value)  || 0;
+      const secondCost = (parseInt(secondHidden?.value) || 0) * 2;
       totalCostEl.textContent = firstCost + secondCost;
     };
 
@@ -207,8 +235,21 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       }
     };
 
-    firstExcInput?.addEventListener("input",  updateTotal);
-    secondExcInput?.addEventListener("input", updateTotal);
+    firstPipTrack?.addEventListener("click", (e) => {
+      const pip = e.target.closest(".exc-pip");
+      if (!pip) return;
+      const v = parseInt(pip.dataset.value);
+      firstHidden.value = (parseInt(firstHidden?.value) || 0) === v ? 0 : v;
+      updateTotal();
+    });
+    secondPipTrack?.addEventListener("click", (e) => {
+      const pip = e.target.closest(".exc-pip");
+      if (!pip) return;
+      const v = parseInt(pip.dataset.value);
+      secondHidden.value = (parseInt(secondHidden?.value) || 0) === v ? 0 : v;
+      updateTotal();
+    });
+    updateTotal();
     pickerInputs.forEach(input => input.addEventListener("change", updateUmiLock));
 
     // Re-render on attribute/ability change so the picker filter and
@@ -228,6 +269,14 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       this._data.intent = e.target.value;
       this.render();
     });
+    const supportingIntimacySelect = el.querySelector("[name='supportingIntimacyId']");
+    const opposingIntimacySelect   = el.querySelector("[name='opposingIntimacyId']");
+    supportingIntimacySelect?.addEventListener("change", (e) => {
+      this._data.claims.supportingIntimacyId = e.target.value || null;
+    });
+    opposingIntimacySelect?.addEventListener("change", (e) => {
+      this._data.claims.opposingIntimacyId = e.target.value || null;
+    });
     // 3c-2: mirror typed Target Motivation into _data so re-renders preserve it.
     const targetMotivationInput = el.querySelector("[name='targetMotivation']");
     targetMotivationInput?.addEventListener("input", (e) => {
@@ -243,6 +292,24 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
         this._data.rewardKind = e.target.value;
       });
     });
+
+    // Combo selector: toggling a combo radio hides/shows the individual picker.
+    el.querySelectorAll("[name='selectedComboId']").forEach(radio => {
+      radio.addEventListener("change", () => {
+        const checked = el.querySelector("[name='selectedComboId']:checked");
+        this._data.selectedComboId = checked?.value || null;
+        const pickerSection = el.querySelector(".attack-charm-picker");
+        if (pickerSection) {
+          pickerSection.style.display = this._data.selectedComboId ? "none" : "";
+        }
+      });
+    });
+
+    // Apply initial visibility if a combo was pre-selected.
+    if (this._data.selectedComboId) {
+      const pickerSection = el.querySelector(".attack-charm-picker");
+      if (pickerSection) pickerSection.style.display = "none";
+    }
 
     updateTotal();
     updateUmiLock();
@@ -306,10 +373,9 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       }
     }
 
-    // 3c-1: Collect picker charm ids (checkboxes named charm-<id>).
-    const charmIds = Object.keys(data)
-      .filter(k => k.startsWith("charm-") && data[k])
-      .map(k => k.slice("charm-".length));
+    // 3c-1: Collect picker charm ids + variable-cost selections.
+    const charmActivations = extractCharmActivations(data, this._pickerCharms ?? []);
+    const charmIds = charmActivations.map(a => a.id);
 
     this._resolved = true;
     this._resolve({
@@ -319,10 +385,10 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       intent:    data.intent     || "build",
       subject:   data.subject    || "",
       claims: {
-        supportingIntimacy:   !!data.supportingIntimacy,
+        supportingIntimacyId: data.supportingIntimacyId || null,
         supportingVirtue:     !!data.supportingVirtue,
         supportingMotivation: !!data.supportingMotivation,
-        opposingIntimacy:     !!data.opposingIntimacy,
+        opposingIntimacyId:   data.opposingIntimacyId || null,
         opposingVirtue:       !!data.opposingVirtue,
         opposingMotivation:   !!data.opposingMotivation,
         immediateThreat:      !!data.immediateThreat,
@@ -333,11 +399,14 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
       rewardKind:         data.stuntRewardKind === "willpower" ? "willpower" : "motes",
       // 3c-1
       charmIds,
+      charmActivations,
       firstExcDice:  parseInt(data.firstExcDice)  || 0,
       secondExcSucc: parseInt(data.secondExcSucc) || 0,
       moteType:      data.moteType || "peripheral",
       // 3c-2
-      targetMotivation: data.targetMotivation ?? this._data.targetMotivation ?? ""
+      targetMotivation: data.targetMotivation ?? this._data.targetMotivation ?? "",
+      // combo selector
+      selectedComboId: this._data.selectedComboId ?? null
     });
     this.close();
   }

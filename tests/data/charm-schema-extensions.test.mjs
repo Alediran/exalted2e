@@ -83,16 +83,6 @@ describe("willpowerRecovery schema", () => {
   });
 });
 
-import { computeSoakBonus } from "../../module/rolls/charm-passive-math.mjs";
-
-describe("soakBonus formula field resolution (pre-evaluated by caller)", () => {
-  it("formula value replaces integer when provided (as pre-evaluated entry)", () => {
-    // Caller evaluates bashingFormula="@sta" → 3, passes entry with bashing=3
-    const entries = [{ bashing: 3, lethal: 0, aggravated: 0, hardnessAdd: 0, hardnessSetTo: 0 }];
-    expect(computeSoakBonus(entries).bashing).toBe(3);
-  });
-});
-
 describe("dvPenalty schema field", () => {
   it("dvPenalty defaults to -1", () => {
     const schema = CharmData.defineSchema();
@@ -106,5 +96,36 @@ describe("dvPenalty schema field", () => {
     const f = schema.dvPenalty;
     expect(f.options?.min ?? f.min).toBe(-3);
     expect(f.options?.max ?? f.max).toBe(0);
+  });
+});
+
+describe("attack schema — area attack fields", () => {
+  it("charm attack schema has areaAttack and area config defaults", () => {
+    const schema = CharmData.defineSchema();
+    const attackSchema = schema.attack;
+    expect(attackSchema.fields.areaAttack).toBeDefined();
+    expect(attackSchema.fields.areaShape).toBeDefined();
+    expect(attackSchema.fields.areaSize).toBeDefined();
+    expect(attackSchema.fields.areaResistPool).toBeDefined();
+    expect(attackSchema.fields.areaResistDifficulty).toBeDefined();
+    expect(attackSchema.fields.areaResistEffect).toBeDefined();
+
+    const areaAttackInitial = attackSchema.fields.areaAttack?.getInitialValue?.() ?? attackSchema.fields.areaAttack?.options?.initial;
+    expect(areaAttackInitial).toBe(false);
+
+    const areaShapeInitial = attackSchema.fields.areaShape?.getInitialValue?.() ?? attackSchema.fields.areaShape?.options?.initial;
+    expect(areaShapeInitial).toBe("circle");
+
+    const areaSizeInitial = attackSchema.fields.areaSize?.getInitialValue?.() ?? attackSchema.fields.areaSize?.options?.initial;
+    expect(areaSizeInitial).toBe("3");
+
+    const areaResistPoolInitial = attackSchema.fields.areaResistPool?.getInitialValue?.() ?? attackSchema.fields.areaResistPool?.options?.initial;
+    expect(areaResistPoolInitial).toBe("stamina+resistance");
+
+    const areaResistDifficultyInitial = attackSchema.fields.areaResistDifficulty?.getInitialValue?.() ?? attackSchema.fields.areaResistDifficulty?.options?.initial;
+    expect(areaResistDifficultyInitial).toBe("1");
+
+    const areaResistEffectInitial = attackSchema.fields.areaResistEffect?.getInitialValue?.() ?? attackSchema.fields.areaResistEffect?.options?.initial;
+    expect(areaResistEffectInitial).toBe("avoid");
   });
 });

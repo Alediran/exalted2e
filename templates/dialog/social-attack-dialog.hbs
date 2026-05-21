@@ -78,13 +78,35 @@
       <label>{{localize "EX2E.ModifierClaims"}}</label>
       <div class="claim-row">
         <span class="claim-header">{{localize "EX2E.ClaimSupporting"}}</span>
-        <label class="claim-check"><input type="checkbox" name="supportingIntimacy"   {{#if claims.supportingIntimacy}}checked{{/if}}> {{localize "EX2E.IntimacyTie"}} <span class="claim-modifier">−1</span></label>
+        <label class="claim-check">
+          {{localize "EX2E.IntimacyTie"}} <span class="claim-modifier">−1</span>
+          <select name="supportingIntimacyId">
+            <option value="">— {{localize "EX2E.None"}} —</option>
+            {{#each defenderIntimacies as |int|}}
+            <option value="{{int.id}}" {{#if (eq ../claims.supportingIntimacyId int.id)}}selected{{/if}}>
+              {{#if int.positive}}♥{{else}}💀{{/if}} {{int.name}}
+              {{#if @root.useIntimacyIntensity}}({{localize (concat "EX2E.Intensity" (capitalize int.intensity))}}){{else}}({{int.strength}}){{/if}}
+            </option>
+            {{/each}}
+          </select>
+        </label>
         <label class="claim-check"><input type="checkbox" name="supportingVirtue"     {{#if claims.supportingVirtue}}checked{{/if}}> {{localize "EX2E.Virtues"}} ≥3 <span class="claim-modifier">−2</span></label>
         <label class="claim-check"><input type="checkbox" name="supportingMotivation" {{#if claims.supportingMotivation}}checked{{/if}}> {{localize "EX2E.Motivation"}} <span class="claim-modifier">−3</span></label>
       </div>
       <div class="claim-row">
         <span class="claim-header">{{localize "EX2E.ClaimOpposing"}}</span>
-        <label class="claim-check"><input type="checkbox" name="opposingIntimacy"   {{#if claims.opposingIntimacy}}checked{{/if}}> {{localize "EX2E.IntimacyTie"}} <span class="claim-modifier">+1</span></label>
+        <label class="claim-check">
+          {{localize "EX2E.IntimacyTie"}} <span class="claim-modifier">+1</span>
+          <select name="opposingIntimacyId">
+            <option value="">— {{localize "EX2E.None"}} —</option>
+            {{#each defenderIntimacies as |int|}}
+            <option value="{{int.id}}" {{#if (eq ../claims.opposingIntimacyId int.id)}}selected{{/if}}>
+              {{#if int.positive}}♥{{else}}💀{{/if}} {{int.name}}
+              {{#if @root.useIntimacyIntensity}}({{localize (concat "EX2E.Intensity" (capitalize int.intensity))}}){{else}}({{int.strength}}){{/if}}
+            </option>
+            {{/each}}
+          </select>
+        </label>
         <label class="claim-check"><input type="checkbox" name="opposingVirtue"     {{#if claims.opposingVirtue}}checked{{/if}}> {{localize "EX2E.Virtues"}} ≥3 <span class="claim-modifier">+2</span></label>
         <label class="claim-check"><input type="checkbox" name="opposingMotivation" {{#if claims.opposingMotivation}}checked{{/if}}> {{localize "EX2E.Motivation"}} <span class="claim-modifier">+3</span></label>
       </div>
@@ -121,6 +143,17 @@
       </div>
     </div>
 
+    {{!-- 3c-1: Excellency block --}}
+    <div class="field-group excellency-section exc-first-section">
+      <label>{{localize "EX2E.FirstExcellency"}} <span class="exc-cost-tag">1m/{{localize "EX2E.Die"}}</span></label>
+      {{pipTrack name="firstExcDice" max=firstExcMax exc="first"}}
+    </div>
+
+    <div class="field-group excellency-section exc-second-section">
+      <label>{{localize "EX2E.SecondExcellency"}} <span class="exc-cost-tag">2m/{{localize "EX2E.Success"}}</span></label>
+      {{pipTrack name="secondExcSucc" max=secondExcMax exc="second"}}
+    </div>
+
     {{!-- 3c-1: Charm picker --}}
     {{#if hasPickerCharms}}
     <div class="field-group attack-charm-picker">
@@ -134,6 +167,28 @@
             {{#if this.tagLabel}}<span class="charm-kw">{{this.tagLabel}}</span>{{/if}}
             {{#if this.costLabel}}<span class="charm-cost">{{this.costLabel}}</span>{{/if}}
           </label>
+          {{#if this.hasTiers}}
+          <div class="charm-var-cost charm-tiers">
+            {{#each this.tiers as |tier|}}
+            <label class="charm-tier-opt">
+              <input type="radio" name="charm-tier-{{../this.id}}" value="{{tier.moteCost}}" {{#if @first}}checked{{/if}}>
+              {{#if tier.label}}{{tier.label}} ({{tier.moteCost}}m){{else}}{{tier.moteCost}}m{{/if}}
+            </label>
+            {{/each}}
+          </div>
+          {{/if}}
+          {{#if this.hasPerUnit}}
+          <div class="charm-var-cost charm-per-unit">
+            <label class="charm-per-unit-label">
+              <span>{{this.motesUnitLabel}}:</span>
+              <input type="number" name="charm-units-{{this.id}}"
+                     value="{{this.motesMin}}" min="{{this.motesMin}}"
+                     {{#if this.motesMax}}max="{{this.motesMax}}"{{/if}}
+                     style="width:4em">
+              <span class="charm-per-unit-rate">× {{this.motesPerUnit}}m</span>
+            </label>
+          </div>
+          {{/if}}
         </li>
         {{/each}}
       </ul>
@@ -145,22 +200,25 @@
     </div>
     {{/if}}
 
-    {{!-- 3c-1: Excellency block --}}
-    <div class="field-group excellency-section exc-first-section">
-      <label>{{localize "EX2E.FirstExcellency"}} <span class="exc-cost-tag">1m/{{localize "EX2E.Die"}}</span></label>
-      <div class="exc-input-row">
-        <input type="number" name="firstExcDice" value="{{firstExcDice}}" min="0" max="{{firstExcMax}}" class="exc-input" />
-        <span class="exc-limit">/ <span class="exc-first-max">{{firstExcMax}}</span></span>
-      </div>
+    {{!-- Social combo selector: shown only when the actor has eligible combos --}}
+    {{#if hasEligibleCombos}}
+    <div class="field-group social-combo-section">
+      <label>{{localize "EX2E.SocialCombosSection"}}</label>
+      <label class="social-combo-row">
+        <input type="radio" name="selectedComboId" value=""
+               {{#unless selectedComboId}}checked{{/unless}}>
+        {{localize "EX2E.SocialCombosIndividual"}}
+      </label>
+      {{#each eligibleCombos}}
+      <label class="social-combo-row">
+        <input type="radio" name="selectedComboId" value="{{this.id}}"
+               {{#if (eq ../selectedComboId this.id)}}checked{{/if}}>
+        {{this.name}}
+        <span class="combo-charm-count">({{localize "EX2E.SocialComboCharms" count=this.charmCount}})</span>
+      </label>
+      {{/each}}
     </div>
-
-    <div class="field-group excellency-section exc-second-section">
-      <label>{{localize "EX2E.SecondExcellency"}} <span class="exc-cost-tag">2m/{{localize "EX2E.Success"}}</span></label>
-      <div class="exc-input-row">
-        <input type="number" name="secondExcSucc" value="{{secondExcSucc}}" min="0" max="{{secondExcMax}}" class="exc-input" />
-        <span class="exc-limit">/ <span class="exc-second-max">{{secondExcMax}}</span></span>
-      </div>
-    </div>
+    {{/if}}
 
     <div class="field-group">
       <label>{{localize "EX2E.MoteType"}}</label>

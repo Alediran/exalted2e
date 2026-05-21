@@ -1,0 +1,66 @@
+<form class="gm-roll-pool-form">
+
+  <div class="field-group gm-roll-description-row">
+    <label>{{localize "EX2E.GmRollDescription"}}</label>
+    <input type="text" name="description" value="{{description}}"
+           placeholder="{{localize 'EX2E.GmRollDescriptionPlaceholder'}}">
+  </div>
+
+  <div class="field-group gm-roll-difficulty-row">
+    <label>{{localize "EX2E.GmRollDifficulty"}}</label>
+    <input type="number" name="difficulty" value="{{difficulty}}" min="1" max="20">
+  </div>
+
+  <div class="trait-section">
+    <h4 class="trait-section-header">{{localize "EX2E.GmRollAttributes"}}</h4>
+    <div class="attribute-groups">
+      {{#each attributeGroups as |group|}}
+      <div class="attribute-group">
+        <span class="group-label">{{group.label}}</span>
+        {{#each group.attrs as |attr|}}
+        <label class="trait-checkbox">
+          <input type="checkbox" name="traits" value="{{attr.key}}">
+          {{attr.label}}
+        </label>
+        {{/each}}
+      </div>
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="trait-section">
+    <h4 class="trait-section-header">{{localize "EX2E.GmRollAbilities"}}</h4>
+    <div class="abilities-grid">
+      {{#each abilityOptions as |ab|}}
+      <label class="trait-checkbox">
+        <input type="checkbox" name="traits" value="{{ab.key}}">
+        {{ab.label}}
+      </label>
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="trait-section">
+    <h4 class="trait-section-header">{{localize "EX2E.GmRollMisc"}}</h4>
+    <div class="misc-grid">
+      {{#each miscOptions as |m|}}
+      <label class="trait-checkbox">
+        <input type="checkbox" name="traits" value="{{m.key}}">
+        {{m.label}}
+      </label>
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="dialog-buttons">
+    <button type="button" data-action="confirm">
+      <i class="fa-solid fa-scroll"></i>
+      {{localize "EX2E.GmRollCreateCard"}}
+    </button>
+    <button type="button" data-action="cancel">
+      <i class="fa-solid fa-times"></i>
+      {{localize "EX2E.Cancel"}}
+    </button>
+  </div>
+
+</form>

@@ -1,5 +1,7 @@
 <div class="ex2e-roll-card ex2e-db-flux-card">
-  <h3 class="ex2e-db-flux-header">{{tierLabel}} — {{actorName}}</h3>
+  <div class="card-header">
+    <h3 class="ex2e-db-flux-header">{{tierLabel}} — {{actorName}}</h3>
+  </div>
 
   <div class="ex2e-db-flux-interval">
     {{#if (eq tier "totemic")}}
@@ -22,7 +24,7 @@
   </div>
 
   <div class="ex2e-db-flux-buttons">
-    <button type="button" class="btn-apply-flux"
+    <button type="button" class="btn-roll btn-apply-flux"
             data-actor-id="{{actorId}}" data-tier="{{tier}}">
       {{localize "EX2E.DBFluxApply"}}
     </button>

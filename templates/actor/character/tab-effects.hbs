@@ -29,6 +29,12 @@
             <a data-action="editEffect" data-tooltip="{{localize 'EX2E.Edit'}}">
               <i class="fa-solid fa-pen-to-square"></i>
             </a>
+            {{#if eff.isSpellEffect}}
+            <a data-action="dispelSpellEffect"
+               data-tooltip="{{localize 'EX2E.CountermagicDispel'}}">
+              <i class="fa-solid fa-wand-sparkles"></i>
+            </a>
+            {{/if}}
             <a data-action="deleteEffect" data-tooltip="{{localize 'EX2E.Delete'}}">
               <i class="fa-solid fa-trash"></i>
             </a>
@@ -60,6 +66,12 @@
             <a data-action="editEffect" data-tooltip="{{localize 'EX2E.Edit'}}">
               <i class="fa-solid fa-pen-to-square"></i>
             </a>
+            {{#if eff.isSpellEffect}}
+            <a data-action="dispelSpellEffect"
+               data-tooltip="{{localize 'EX2E.CountermagicDispel'}}">
+              <i class="fa-solid fa-wand-sparkles"></i>
+            </a>
+            {{/if}}
             <a data-action="deleteEffect" data-tooltip="{{localize 'EX2E.Delete'}}">
               <i class="fa-solid fa-trash"></i>
             </a>

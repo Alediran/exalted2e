@@ -14,10 +14,10 @@ import { makeCharacterSystem, makeNpcSystem, makeIntimacy } from "../_helpers/ma
 
 // ── verifyClaims ─────────────────────────────────────────────────────
 describe("verifyClaims", () => {
-  it("verifies claims a character defender supports", () => {
+  it("supportingIntimacyId matches a positive intimacy on the defender", () => {
     const defender = {
       type: "character",
-      items: [makeIntimacy({ positive: true })],
+      items: [makeIntimacy({ id: "pos-1", positive: true })],
       system: makeCharacterSystem({
         motivation: "Avenge my family",
         virtues: {
@@ -29,7 +29,7 @@ describe("verifyClaims", () => {
       })
     };
     const result = verifyClaims({
-      supportingIntimacy:   true,
+      supportingIntimacyId: "pos-1",
       supportingVirtue:     true,
       supportingMotivation: true
     }, defender);
@@ -38,13 +38,47 @@ describe("verifyClaims", () => {
     expect(result.supportingMotivation).toBe(true);
   });
 
-  it("rejects opposing-intimacy claim when defender has no negative intimacy", () => {
+  it("supportingIntimacyId rejects when ID does not exist on defender", () => {
     const defender = {
       type: "character",
-      items: [makeIntimacy({ positive: true })],
+      items: [makeIntimacy({ id: "pos-1", positive: true })],
       system: makeCharacterSystem()
     };
-    const result = verifyClaims({ opposingIntimacy: true }, defender);
+    const result = verifyClaims({ supportingIntimacyId: "wrong-id" }, defender);
+    expect(result.supportingIntimacy).toBe(false);
+  });
+
+  it("opposingIntimacyId matches a negative intimacy on the defender", () => {
+    const defender = {
+      type: "character",
+      items: [makeIntimacy({ id: "neg-1", positive: false })],
+      system: makeCharacterSystem()
+    };
+    const result = verifyClaims({ opposingIntimacyId: "neg-1" }, defender);
+    expect(result.opposingIntimacy).toBe(true);
+  });
+
+  it("opposingIntimacyId rejects when no matching item exists", () => {
+    const defender = {
+      type: "character",
+      items: [makeIntimacy({ id: "pos-1", positive: true })],
+      system: makeCharacterSystem()
+    };
+    const result = verifyClaims({ opposingIntimacyId: "wrong-id" }, defender);
+    expect(result.opposingIntimacy).toBe(false);
+  });
+
+  it("null IDs produce false for both intimacy booleans", () => {
+    const defender = {
+      type: "character",
+      items: [makeIntimacy({ id: "pos-1", positive: true })],
+      system: makeCharacterSystem()
+    };
+    const result = verifyClaims({
+      supportingIntimacyId: null,
+      opposingIntimacyId:   null
+    }, defender);
+    expect(result.supportingIntimacy).toBe(false);
     expect(result.opposingIntimacy).toBe(false);
   });
 

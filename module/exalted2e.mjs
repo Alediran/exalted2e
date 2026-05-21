@@ -23,7 +23,17 @@ import { FormData }         from "./data/item/form-data.mjs";
 import { AnimaPowerData }   from "./data/item/anima-power-data.mjs";
 import { UrgeData }         from "./data/item/urge-data.mjs";
 import { DestinyData }      from "./data/item/destiny-data.mjs";
-import { CharacterSheet }   from "./sheets/actor/character-sheet.mjs";
+import { EquipmentData }    from "./data/item/equipment-data.mjs";
+import { HearthstoneData }          from "./data/item/hearthstone-data.mjs";
+import { MartialArtsStyleData }     from "./data/item/martial-arts-style-data.mjs";
+import { PoisonData }    from "./data/item/poison-data.mjs";
+import { DiseaseData }   from "./data/item/disease-data.mjs";
+import { DrugData }      from "./data/item/drug-data.mjs";
+import { MutationData }  from "./data/item/mutation-data.mjs";
+import { ManseData }     from "./data/item/manse-data.mjs";
+import { FamiliarData } from "./data/item/familiar-data.mjs";
+import { CultData }     from "./data/item/cult-data.mjs";
+import { CharacterSheet }           from "./sheets/actor/character-sheet.mjs";
 import { NpcSheet }         from "./sheets/actor/npc-sheet.mjs";
 import { CharmSheet }       from "./sheets/item/charm-sheet.mjs";
 import { SpellSheet }       from "./sheets/item/spell-sheet.mjs";
@@ -36,11 +46,15 @@ import { UrgeSheet }       from "./sheets/item/urge-sheet.mjs";
 import { ComboSheet }       from "./sheets/item/combo-sheet.mjs";
 import { FormSheet }        from "./sheets/item/form-sheet.mjs";
 import { AnimaPowerSheet }  from "./sheets/item/anima-power-sheet.mjs";
-import { DestinySheet }     from "./sheets/item/destiny-sheet.mjs";
+import { DestinySheet }          from "./sheets/item/destiny-sheet.mjs";
+import { MartialArtsStyleSheet } from "./sheets/item/martial-arts-style-sheet.mjs";
 import { XpCostsConfigDialog } from "./dialogs/xp-costs-config-dialog.mjs";
 import { PermissionsConfigDialog } from "./dialogs/permissions-config-dialog.mjs";
+import { GmRollPoolDialog, computeGmRollPool } from "./dialogs/gm-roll-pool-dialog.mjs";
+import { CountermagicDialog } from "./dialogs/countermagic-dialog.mjs";
 import { registerHandlebarsHelpers } from "./helpers/handlebars.mjs";
 import { ex2eCan } from "./helpers/permissions.mjs";
+import { resolveUserActor } from "./helpers/targeting.mjs";
 import { ActionQuickbar } from "./ui/action-quickbar.mjs";
 import { TickWheel }                      from "./ui/tick-wheel.mjs";
 import { JoinBattlePanel }                from "./ui/join-battle-panel.mjs";
@@ -61,8 +75,10 @@ import { aimHandler }     from "./combat/multi-tick-aim.mjs";
 import { sorceryHandler } from "./combat/multi-tick-sorcery.mjs";
 import { resolveKnockbackChain, onKnockdownResistClick } from "./combat/knockback.mjs";
 import { _seedAnimaPowersCompendium } from "./helpers/anima-power-seeds.mjs";
+import { canLearnCelestialMA, canLearnSiderealMA } from "./helpers/ma-validation.mjs";
 import { computeAttackOutcome } from "./rolls/attack-math.mjs";
-import { computeTargetPenaltyAmount, collectStatusApplyCharms } from "./rolls/charm-event-math.mjs";
+import { getTargetPenaltyChanges, collectStatusApplyCharms } from "./rolls/charm-event-math.mjs";
+import { ImportDialog } from "./apps/import-dialog.mjs";
 
 // ── Attack-success hook helper ─────────────────────────────────────────────
 function _tryFireAttackSuccess(newAttack) {
@@ -123,7 +139,10 @@ Hooks.once("init", function () {
   console.log("Exalted 2e | Initialising system...");
 
   // Expose config on the game object
-  game.exalted2e = { EX2E };
+  game.exalted2e = {
+    EX2E,
+    gmRollPool: (options = {}) => GmRollPoolDialog.prompt(options)
+  };
 
   // ── Document Classes ────────────────────────────────────────────────────
   CONFIG.Actor.documentClass  = ExaltedActor;
@@ -161,7 +180,17 @@ Hooks.once("init", function () {
     form:       FormData,
     animapower: AnimaPowerData,
     urge:       UrgeData,
-    destiny:    DestinyData
+    destiny:    DestinyData,
+    equipment:   EquipmentData,
+    hearthstone:      HearthstoneData,
+    martialartsstyle: MartialArtsStyleData,
+    poison:    PoisonData,
+    disease:   DiseaseData,
+    drug:      DrugData,
+    mutation:  MutationData,
+    manse:     ManseData,
+    familiar:  FamiliarData,
+    cult:      CultData,
   };
 
   // ── Sheet Registration ──────────────────────────────────────────────────
@@ -199,7 +228,8 @@ Hooks.once("init", function () {
     label:     "EX2E.SheetArmor"
   });
   foundry.documents.collections.Items.registerSheet("exalted2e", GenericItemSheet, {
-    types:     ["background", "intimacy", "meritflaw"],
+    types:     ["background", "intimacy", "meritflaw", "equipment", "hearthstone",
+                "poison", "disease", "drug", "mutation", "manse", "familiar", "cult"],
     makeDefault: true,
     label:     "EX2E.SheetGenericItem"
   });
@@ -238,6 +268,11 @@ Hooks.once("init", function () {
     makeDefault: true,
     label:       game.i18n.localize("EX2E.DestinySheet"),
   });
+  foundry.documents.collections.Items.registerSheet("exalted2e", MartialArtsStyleSheet, {
+    types:       ["martialartsstyle"],
+    makeDefault: true,
+    label:       "EX2E.MartialArtsStyle"
+  });
 
   // ── System Settings ─────────────────────────────────────────────────────
   game.settings.register("exalted2e", "useErrataMaterials", {
@@ -257,6 +292,19 @@ Hooks.once("init", function () {
     config:  true,
     type:    Boolean,
     default: false
+  });
+
+  game.settings.register("exalted2e", "backgroundMethod", {
+    name:    "EX2E.SettingBackgroundMethod",
+    hint:    "EX2E.SettingBackgroundMethodHint",
+    scope:   "world",
+    config:  true,
+    type:    String,
+    choices: {
+      xp:   "EX2E.SettingBackgroundMethodXP",
+      free: "EX2E.SettingBackgroundMethodFree"
+    },
+    default: "xp"
   });
 
   // ── Automation Settings ────────────────────────────────────────────────
@@ -319,6 +367,20 @@ Hooks.once("init", function () {
     restricted: true   // GM-only
   });
 
+  game.settings.register("exalted2e", "uiTheme", {
+    name:     "EX2E.SettingUiTheme",
+    hint:     "EX2E.SettingUiThemeHint",
+    scope:    "client",
+    config:   true,
+    type:     String,
+    choices:  {
+      dark:  "EX2E.SettingUiThemeDark",
+      light: "EX2E.SettingUiThemeLight",
+    },
+    default:  "dark",
+    onChange: value => _applyUiTheme(value),
+  });
+
   // ── Multi-tick action handlers ─────────────────────────────────────────
   // Single-slot per combatant; handlers register here so the wheel-tick
   // loop and commit dispatcher can fire onTick / onComplete /
@@ -335,17 +397,51 @@ Hooks.once("init", function () {
   // ── CONFIG Additions ────────────────────────────────────────────────────
   CONFIG.EX2E = EX2E;
 
-  // Enrich Foundry's built-in Prone status with the 2e "-1 external
-  // penalty on non-reflexive physical actions" rule. Storing it on the
-  // effect's flags means the penalty travels with the AE when Foundry
-  // creates it from the token HUD — the roll pipelines aggregate every
+  // Strip status effects that have no meaning in Exalted 2e. This covers both
+  // Foundry built-ins that don't apply to the system and any extras injected
+  // by modules (shields, blessings, RPG-generic markers, etc.).
+  CONFIG.statusEffects = CONFIG.statusEffects.filter(e => ![
+    "invisible", "frozen",  "burning",
+    "silence",   "marked",  "targeted", "target",
+    "holyShield","magicShield","coldShield","fireShield",
+    "bless",     "eye",     "downgrade", "upgrade",
+    "degen",     "regen",   "curse",     "shock"
+  ].includes(e.id));
+
+  // Enrich Foundry built-in status effects with Exalted 2e mechanical flags.
+  // Storing flags on the entry means the AE Foundry creates from the token HUD
+  // already carries the right payload — the roll pipelines aggregate every
   // active effect with a `flags.exalted2e.externalPenalty` and subtract.
-  const proneEffect = CONFIG.statusEffects.find(e => e.id === "prone");
-  if (proneEffect) {
-    proneEffect.flags = foundry.utils.mergeObject(proneEffect.flags ?? {}, {
-      exalted2e: { externalPenalty: { value: 1, type: "physical" } }
-    });
-  }
+  const _enrichStatus = (id, flags, tooltip) => {
+    const entry = CONFIG.statusEffects.find(e => e.id === id);
+    if (entry) {
+      entry.label = tooltip ?? entry.label;
+      entry.flags = foundry.utils.mergeObject(entry.flags ?? {}, { exalted2e: flags });
+    }
+  };
+
+  _enrichStatus("prone",      { externalPenalty: { value: 1, type: "physical" } });
+  _enrichStatus("stun",    { externalPenalty: { value: 4, type: "all" } });
+  _enrichStatus("blind",      { externalPenalty: { value: 2, type: "physical" }, blind: true });
+  _enrichStatus("deaf",       { deaf: true });
+  // Foundry's "restrained" maps to the 2e Clinch/Grapple condition.
+  _enrichStatus("restrain", { externalPenalty: { value: 2, type: "physical" }, grappled: true }, "EX2E.StatusClinch");
+  _enrichStatus("fly",        { flying: true });
+  // Poison/disease mark the condition for detection; specific penalties come
+  // from the Poison/Disease item that applied the condition.
+  _enrichStatus("poison",     { poisoned: true });
+  _enrichStatus("disease",    { diseased: true });
+
+  // Custom statuses — not in Foundry's built-in list.
+  CONFIG.statusEffects.push(
+    // Cover: defender on higher/behind cover is harder to hit.
+    { id: "lightCover",      label: "EX2E.StatusLightCover",      img: "icons/svg/ruins.svg",   flags: { exalted2e: { dvBonus: { dodge: 1, parry: 0 } } } },
+    { id: "heavyCover",      label: "EX2E.StatusHeavyCover",      img: "icons/svg/castle.svg",  flags: { exalted2e: { dvBonus: { dodge: 2, parry: 1 } } } },
+    // Height advantage: attacker on higher ground is harder to hit in return.
+    { id: "heightAdvantage", label: "EX2E.StatusHeightAdvantage", img: "icons/svg/up.svg",      flags: { exalted2e: { dvBonus: { dodge: 1, parry: 1 } } } },
+    // Crippling injury: −1 internal penalty to all physical actions until surgically healed.
+    { id: "crippled",        label: "EX2E.StatusCrippled",        img: "icons/svg/blood.svg",   flags: { exalted2e: { internalPenalty: { value: 1, type: "physical" }, crippled: true } } }
+  );
 
   console.log("Exalted 2e | System initialised.");
 });
@@ -478,6 +574,45 @@ Hooks.on("createActor", async (actor, _options, userId) => {
   await _ensureUnarmedWeapon(actor);
 });
 
+// When a health-grant charm with multiple options is dropped onto an actor,
+// immediately prompt the player to pick which option applies to this instance.
+Hooks.on("createItem", async (item, _options, userId) => {
+  if (userId !== game.user.id) return;
+  if (item.type !== "charm") return;
+  if (!(item.parent instanceof Actor)) return;
+  const hg = item.system?.healthGrant;
+  if (!hg?.enabled || (hg.options?.length ?? 0) <= 1) return;
+
+  const rows = hg.options.map((opt, i) => {
+    const parts = [
+      opt.zero  ? `${opt.zero}×(−0)` : "",
+      opt.one   ? `${opt.one}×(−1)`  : "",
+      opt.two   ? `${opt.two}×(−2)`  : "",
+      opt.dying ? `${opt.dying}×(Inc)` : ""
+    ].filter(Boolean).join(", ");
+    const label = opt.label ? `<strong>${opt.label}</strong> — ${parts}` : parts;
+    return `<label style="display:block;margin:4px 0;cursor:pointer">
+      <input type="radio" name="hgChoice" value="${i}" ${i === 0 ? "checked" : ""}> ${label}
+    </label>`;
+  }).join("");
+
+  const chosen = await foundry.applications.api.DialogV2.wait({
+    window:      { title: game.i18n.format("EX2E.HGPickTitle", { name: item.name }) },
+    content:     `<div style="padding:8px">${rows}</div>`,
+    buttons:     [{
+      action:    "confirm",
+      label:     game.i18n.localize("EX2E.Confirm"),
+      default:   true,
+      callback:  (_ev, _btn, dialog) =>
+        parseInt(dialog.element.querySelector("input[name=hgChoice]:checked")?.value ?? "0")
+    }],
+    rejectClose: false
+  });
+
+  if (chosen == null) return;
+  await item.update({ "system.healthGrant.selectedOption": chosen });
+});
+
 // Gate the deletion of effects flagged `gmOnlyRemoval`. Flaws seeded
 // from the effects compendium (Creature of Darkness and friends) cannot
 // be shaken off by the player on whose sheet they live — only the GM
@@ -527,9 +662,15 @@ Hooks.on("deleteActiveEffect", async (effect, _options, userId) => {
   if (charm?.system?.active && !charm._isBeingDeleted) await charm.update({ "system.active": false });
 });
 
+// ── UI Theme ───────────────────────────────────────────────────────────────
+function _applyUiTheme(theme) {
+  document.body.classList.toggle("ex2e-light-mode", theme === "light");
+}
+
 // ── Ready Hook ─────────────────────────────────────────────────────────────
 Hooks.once("ready", async function () {
   console.log("Exalted 2e | System ready.");
+  _applyUiTheme(game.settings.get("exalted2e", "uiTheme"));
 
   // Action quickbar + tick wheel + JB panel — one instance of each per
   // client, refreshed from the same combat / combatant / active-effect
@@ -572,12 +713,15 @@ Hooks.once("ready", async function () {
       const activatedItems = (attack.attackCharms ?? [])
         .map(n => actor.items.find(i => i.name === n))
         .filter(Boolean);
-      const penaltyAmount = computeTargetPenaltyAmount(activatedItems, actor.getRollData());
-      if (penaltyAmount < 0) {
-        await targetActor.applyInternalPenalty(Math.abs(penaltyAmount), {
-          type: "all",
-          label: game.i18n.localize("EX2E.CharmPenalty")
-        });
+      const targetPenalties = getTargetPenaltyChanges(activatedItems, actor.getRollData());
+      for (const { type, value, label, duration } of targetPenalties) {
+        await targetActor.createEmbeddedDocuments("ActiveEffect", [{
+          name:     label,
+          img:      "icons/svg/regen.svg",
+          disabled: false,
+          transfer: false,
+          flags:    { exalted2e: { internalPenalty: { type, value }, charmDuration: duration } }
+        }]);
       }
 
       // Offer resist roll for each statusApply charm activated in this attack.
@@ -623,6 +767,18 @@ Hooks.once("ready", async function () {
     refreshTokenAnimaGlow(token);
   });
 
+  // ── Socket: GM proxy for countermagic dispel on foreign actors ──────────
+  game.socket.on("system.exalted2e", async (payload) => {
+    if (!game.user.isGM) return;
+    if (payload?.action !== "dispelSpellEffect") return;
+    if (payload.targetGmId && game.user.id !== payload.targetGmId) return;
+    const { actorId, effectId } = payload;
+    const actor = game.actors.get(actorId);
+    if (!actor) return;
+    const ae = actor.effects.get(effectId);
+    if (ae) await ae.delete();
+  });
+
   // Migration: back-fill unarmed attacks onto existing characters that
   // pre-date this feature. GM-only to avoid write races.
   if (!game.user.isGM) return;
@@ -664,6 +820,8 @@ Hooks.once("ready", async function () {
   await _seedEffectsCompendium();
   await _seedAnimaPowersCompendium();
   await _seedTheCircleFolder();
+
+  game.exalted2e._countermagicHelpers = await import("./helpers/countermagic-helpers.mjs");
 });
 
 // ── Quench (in-Foundry test harness) ──────────────────────────────────────
@@ -717,6 +875,92 @@ const _EFFECT_WRAPPER_SEEDS = [
       },
       description: "Holy-keyword attacks deal aggravated damage to this character instead of bashing or lethal."
     }
+  },
+  {
+    name: "EX2E.StatusBlind",
+    img:  "icons/svg/blind.svg",
+    effect: {
+      flags: {
+        exalted2e: {
+          externalPenalty: { value: 2, type: "physical" },
+          blind: true
+        }
+      },
+      statuses: ["blind"],
+      description: "−2 external penalty to all physical actions. Ranged attacks against unseen targets are impossible."
+    }
+  },
+  {
+    name: "EX2E.StatusDeaf",
+    img:  "icons/svg/deaf.svg",
+    effect: {
+      flags: { exalted2e: { deaf: true } },
+      statuses: ["deaf"],
+      description: "Cannot hear. Surprise attacks from behind are automatic. Awareness rolls requiring hearing automatically fail."
+    }
+  },
+  {
+    name: "EX2E.StatusStunned",
+    img:  "icons/svg/daze.svg",
+    effect: {
+      flags: {
+        exalted2e: {
+          externalPenalty: { value: 4, type: "all" }
+        }
+      },
+      statuses: ["stunned"],
+      description: "−4 external penalty to all actions. Cannot take non-reflexive actions for the remainder of the tick."
+    }
+  },
+  {
+    name: "EX2E.StatusGrappled",
+    img:  "icons/svg/net.svg",
+    effect: {
+      flags: {
+        exalted2e: {
+          externalPenalty: { value: 2, type: "physical" },
+          grappled: true
+        }
+      },
+      statuses: ["restrained"],
+      description: "−2 external penalty to physical actions. Reaching weapons cannot be used. Cannot move freely."
+    }
+  },
+  {
+    name: "EX2E.StatusLightCover",
+    img:  "icons/svg/ruins.svg",
+    effect: {
+      flags: { exalted2e: { dvBonus: { dodge: 1, parry: 0 } } },
+      statuses: ["lightCover"],
+      description: "+1 Dodge DV from light cover (low wall, brush, doorframe)."
+    }
+  },
+  {
+    name: "EX2E.StatusHeavyCover",
+    img:  "icons/svg/castle.svg",
+    effect: {
+      flags: { exalted2e: { dvBonus: { dodge: 2, parry: 1 } } },
+      statuses: ["heavyCover"],
+      description: "+2 Dodge DV, +1 Parry DV from heavy cover (solid wall, fortification)."
+    }
+  },
+  {
+    name: "EX2E.StatusCrippled",
+    img:  "icons/svg/blood.svg",
+    effect: {
+      flags: { exalted2e: { internalPenalty: { value: 1, type: "physical" }, crippled: true } },
+      statuses: ["crippled"],
+      description: "−1 internal penalty to physical actions from a crippling injury. Requires surgery (Int+Medicine) to heal fully."
+    }
+  },
+  {
+    name: "EX2E.StatusHeightAdvantage",
+    img:  "icons/svg/up.svg",
+    effect: {
+      flags: { exalted2e: { dvBonus: { dodge: 1, parry: 1 } } },
+      statuses: ["heightAdvantage"],
+      description: "+1 Dodge DV and +1 Parry DV while on higher ground. Attacks from below are harder to land."
+    }
   }
 ];
 
@@ -751,9 +995,12 @@ async function _seedEffectsCompendium() {
           img:      seed.img,
           // Permanent duration — no rounds / turns / seconds set.
           duration: {},
-          // Flag-driven rather than status-driven, so nothing surfaces on
-          // the token HUD (`statuses` is intentionally omitted).
           flags:    seed.effect.flags ?? {},
+          // `statuses` links the AE to a token HUD condition id so toggling
+          // the status icon also activates this AE. Omitted for flag-only
+          // entries (e.g. Creature of Darkness) where HUD exposure is
+          // undesirable.
+          ...(seed.effect.statuses ? { statuses: seed.effect.statuses } : {}),
           transfer: true,
           disabled: false
         }]
@@ -852,6 +1099,78 @@ Hooks.on("preCreateItem", (item, data, options, userId) => {
     return false;
   }
 
+  // ── Native charm gate ─────────────────────────────────────────────────────
+  // Native charms belong exclusively to their original exalt tradition.
+  // Eclipse, Moonshadow, and Fiend castes cannot learn them even at the
+  // doubled foreign-charm XP rate.
+  const nativeParent = item.parent;
+  if (item.type === "charm" &&
+      nativeParent instanceof Actor &&
+      item.system.keywords?.includes("Native") &&
+      ["eclipse", "moonshadow", "fiend"].includes(nativeParent.system.caste)) {
+    ui.notifications.warn(
+      game.i18n.format("EX2E.NativeCharmForbidden", { name: item.name })
+    );
+    return false;
+  }
+
+  // ── DB Celestial MA gate ──────────────────────────────────────────────────
+  // Terrestrial exalts require Celestial MA initiation to learn Celestial
+  // Martial Arts charms.
+  const celestialMAParent = item.parent;
+  if (item.type === "charm" &&
+      celestialMAParent instanceof Actor &&
+      item.system?.martialArtsTier === "celestial" &&
+      celestialMAParent.system?.exaltType === "terrestrial") {
+    if (!game.user.isGM && !canLearnCelestialMA(celestialMAParent)) {
+      ui.notifications.warn(game.i18n.localize("EX2E.NoDBCelestialMAInitiation"));
+      return false;
+    }
+  }
+
+  // ── Sidereal MA gate ──────────────────────────────────────────────────────
+  // Learning a Sidereal Martial Arts charm requires mastery of a Celestial
+  // Martial Arts style first.
+  const siderealMAParent = item.parent;
+  if (item.type === "charm" &&
+      siderealMAParent instanceof Actor &&
+      item.system?.martialArtsTier === "sidereal") {
+    if (!game.user.isGM && !canLearnSiderealMA(siderealMAParent)) {
+      ui.notifications.warn(game.i18n.localize("EX2E.NoSiderealMAGate"));
+      return false;
+    }
+  }
+
+  // ── Sorcery / Necromancy initiation gate ─────────────────────────────────
+  // Any spell requires a charm that grants initiation at that tradition and
+  // circle or higher. This applies to all exalt types — natural access for
+  // Solar / Sidereal / Abyssal etc. is represented by them having access to
+  // the appropriate initiation charms in the compendium, not by bypassing
+  // this check in code.
+  const spellParent = item.parent;
+  if (item.type === "spell" &&
+      spellParent instanceof Actor &&
+      spellParent.type === "character") {
+    const circle    = item.system.circle    ?? 1;
+    const tradition = item.system.tradition ?? "sorcery";
+    // system.[tradition].initiation is derived by _applyCharmInitiation — it
+    // already reflects any active initiation charm, plus direct DB writes used
+    // by tests and macros. Checking the derived value is simpler and covers both.
+    const hasInitiation = (spellParent.system?.[tradition]?.initiation ?? 0) >= circle;
+    if (!hasInitiation) {
+      const tradKey   = `EX2E.Tradition${tradition.charAt(0).toUpperCase()}${tradition.slice(1)}`;
+      const tradLabel = game.i18n.localize(tradKey);
+      ui.notifications.warn(
+        game.i18n.format("EX2E.SpellInitiationRequired", {
+          name: item.name,
+          tradition: tradLabel,
+          circle
+        })
+      );
+      return false;
+    }
+  }
+
   // ── Purchase Mode: XP-costing items on locked actors ──────────────────
   // Flag the item so the async createItem hook below can run the
   // confirmation flow. preCreateItem is synchronous; we can't `await`
@@ -864,6 +1183,33 @@ Hooks.on("preCreateItem", (item, data, options, userId) => {
       ["charm", "spell", "knack", "background"].includes(item.type) &&
       !options.exalted2e?.mergedGrant) {
     item.updateSource({ "flags.exalted2e.pendingPurchaseConfirm": true });
+  }
+
+  // ── Combo UID remap ───────────────────────────────────────────────────────
+  // When a combo is imported from a compendium onto an actor that has charms
+  // with different UIDs (same names, different source), remap broken UIDs by
+  // matching the stored charmNames against the actor's owned charms.
+  if (item.type === "combo" && item.parent instanceof Actor) {
+    const targetActor = item.parent;
+    const uids  = (data.system?.charmUids  ?? []);
+    const names = (data.system?.charmNames ?? []);
+    if (names.length > 0) {
+      const actorUidSet = new Set(
+        targetActor.items.filter(i => i.type === "charm")
+          .map(i => i.system?.charmUid).filter(Boolean)
+      );
+      const nameToUid = new Map();
+      for (const owned of targetActor.items) {
+        if (owned.type !== "charm" || !owned.system?.charmUid) continue;
+        nameToUid.set(owned.name.toLowerCase(), owned.system.charmUid);
+      }
+      const remapped = uids.map((uid, i) => {
+        if (actorUidSet.has(uid)) return uid;
+        const name = names[i] ?? "";
+        return name ? (nameToUid.get(name.toLowerCase()) ?? uid) : uid;
+      });
+      item.updateSource({ "system.charmUids": remapped });
+    }
   }
 
   const actor = item.parent;
@@ -984,6 +1330,50 @@ Hooks.on("createItem", async (item, options, userId) => {
   }
 });
 
+const _maStyleCreationInFlight = new Set();
+Hooks.on("createItem", async (item, options, userId) => {
+  if (userId !== game.user.id) return;
+  if (item.type !== "charm") return;
+  const styleName = item.system?.martialArtsStyleName;
+  if (!styleName || item.system?.ability !== "martialarts") return;
+  const actor = item.parent;
+  if (!actor || actor.documentName !== "Actor") return;
+
+  const key = `${actor.id}:${styleName}`;
+  if (_maStyleCreationInFlight.has(key)) return;
+  if (actor.items.some(i => i.type === "martialartsstyle" && i.name === styleName)) return;
+
+  _maStyleCreationInFlight.add(key);
+  try {
+    let styleSource = null;
+    for (const pack of game.packs) {
+      if (pack.documentName !== "Item") continue;
+      const index = await pack.getIndex({ fields: ["name", "type"] });
+      const entry = index.find(e => e.type === "martialartsstyle" && e.name === styleName);
+      if (entry) {
+        const doc = await pack.getDocument(entry._id);
+        styleSource = doc.toObject();
+        delete styleSource._id;
+        break;
+      }
+    }
+
+    if (!styleSource) {
+      styleSource = {
+        name:   styleName,
+        type:   "martialartsstyle",
+        system: {
+          tier: item.system.martialArtsTier || "terrestrial"
+        }
+      };
+    }
+
+    await actor.createEmbeddedDocuments("Item", [styleSource]);
+  } finally {
+    _maStyleCreationInFlight.delete(key);
+  }
+});
+
 // Gate deletion of items flagged `gmOnlyRemoval` — mirrors preDeleteActiveEffect.
 Hooks.on("preDeleteItem", (item, options, userId) => {
   const user = game.users.get(userId);
@@ -1046,13 +1436,24 @@ Hooks.on("preUpdateActor", (actor, changes, options, userId) => {
   if (!("folder" in changes)) return;
   const enteringCircle = _isInTheCircle(changes.folder);
   const wasInCircle    = _isInTheCircle(actor.folder?.id ?? null);
-  if (!enteringCircle || wasInCircle) return;
-  foundry.utils.mergeObject(changes, {
-    prototypeToken: {
-      actorLink:   true,
-      disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY
-    }
-  });
+
+  if (enteringCircle && !wasInCircle) {
+    // Moving into The Circle: link token and set Friendly disposition.
+    foundry.utils.mergeObject(changes, {
+      prototypeToken: {
+        actorLink:   true,
+        disposition: CONST.TOKEN_DISPOSITIONS.FRIENDLY
+      }
+    });
+  } else if (wasInCircle && !enteringCircle) {
+    // Moving out of The Circle: restore prototype token defaults.
+    foundry.utils.mergeObject(changes, {
+      prototypeToken: {
+        actorLink:   false,
+        disposition: CONST.TOKEN_DISPOSITIONS.NEUTRAL
+      }
+    });
+  }
 });
 
 // ── Limit Break Detection ──────────────────────────────────────────────────
@@ -1307,6 +1708,23 @@ Hooks.on("updateActor", async (actor, changes, options, userId) => {
   await _postDBFluxCard(actor, tierAfter);
 });
 
+// Reset per-scene anima state for all character actors in a scene when it
+// is deactivated (another scene goes active). scenePeripheral drives the
+// derived anima level, so zeroing it is the only reset needed.
+Hooks.on("updateScene", async (scene, changes, _options, _userId) => {
+  if (!game.user.isGM) return;
+  if (changes.active !== false) return;
+  const { clearSceneCharms } = await import("./helpers/charm-deactivation.mjs");
+  for (const tokenDoc of scene.tokens) {
+    const actor = tokenDoc.actor;
+    if (actor?.type !== "character") continue;
+    await clearSceneCharms(actor);
+    if ((actor.system.scenePeripheral ?? 0) > 0) {
+      await actor.update({ "system.scenePeripheral": 0 });
+    }
+  }
+});
+
 Hooks.on("updateCombat", async (combat, changes, _options, userId) => {
   if (game.user.id !== userId) return;
   const newTick = changes?.flags?.exalted2e?.currentTick;
@@ -1504,6 +1922,46 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       return;
     }
 
+    // ── Combined activation card (combo / multi-supplemental) ─────────────
+    if (record.combined) {
+      for (const entry of record.entries ?? []) {
+        if (entry.reversed) continue;
+        const entryActor = entry.actorId ? game.actors.get(entry.actorId) : actor;
+        if (!entryActor) continue;
+        const { updates } = planLedgerRefund(entry.ledger ?? {}, entryActor.system);
+        if (Object.keys(updates).length > 0) await entryActor.update(updates);
+        const charm = entry.charmId ? entryActor.items.get(entry.charmId) : null;
+        if (charm) {
+          const ledger = entry.ledger ?? {};
+          if (ledger.stackedOn) {
+            const newCount = Math.max(0, (charm.system.stackCount ?? 1) - 1);
+            const upd = { "system.stackCount": newCount };
+            if (newCount === 0) upd["system.active"] = false;
+            await charm.update(upd);
+          } else {
+            if (ledger.toggledOn && charm.system.active) {
+              const upd = { "system.active": false };
+              if (charm.system.keywords?.includes("Stackable")) upd["system.stackCount"] = 0;
+              await charm.update(upd);
+            } else if (ledger.toggledOff && !charm.system.active) {
+              await charm.update({ "system.active": true });
+            }
+            if (ledger.spawnedWeapon) await charm._removeCharmWeaponArtifacts();
+          }
+        }
+      }
+      await message.update({
+        flags: { exalted2e: { charmActivation: { ...record, reversed: true } } }
+      });
+      const btn = ev.currentTarget;
+      btn.disabled = true;
+      btn.classList.add("is-reversed");
+      btn.innerHTML = `<i class="fa-solid fa-check"></i> ${game.i18n.localize("EX2E.CharmReversed")}`;
+      ui.notifications.info(game.i18n.localize("EX2E.CharmReversed"));
+      return;
+    }
+
+    // ── Single activation card ────────────────────────────────────────────
     const ledger = record.ledger ?? {};
     const { updates } = planLedgerRefund(ledger, actor.system);
 
@@ -1512,13 +1970,23 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     // Undo toggle state and weapon artifacts on the charm itself.
     const charm = record.charmId ? actor.items.get(record.charmId) : null;
     if (charm) {
-      if (ledger.toggledOn && charm.system.active) {
-        await charm.update({ "system.active": false });
-      } else if (ledger.toggledOff && !charm.system.active) {
-        await charm.update({ "system.active": true });
-      }
-      if (ledger.spawnedWeapon) {
-        await charm._removeCharmWeaponArtifacts();
+      if (ledger.stackedOn) {
+        // Decrement one stack from a Stackable charm; turn off when the last stack is reversed.
+        const newCount = Math.max(0, (charm.system.stackCount ?? 1) - 1);
+        const updates  = { "system.stackCount": newCount };
+        if (newCount === 0) updates["system.active"] = false;
+        await charm.update(updates);
+      } else {
+        if (ledger.toggledOn && charm.system.active) {
+          const updates = { "system.active": false };
+          if (charm.system.keywords?.includes("Stackable")) updates["system.stackCount"] = 0;
+          await charm.update(updates);
+        } else if (ledger.toggledOff && !charm.system.active) {
+          await charm.update({ "system.active": true });
+        }
+        if (ledger.spawnedWeapon) {
+          await charm._removeCharmWeaponArtifacts();
+        }
       }
     }
 
@@ -1583,6 +2051,62 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     }
   }
 
+  // ── Reverse spell cast ────────────────────────────────────────────────
+  const reverseSpellBtn = el.querySelector?.(".btn-reverse-spell");
+  if (reverseSpellBtn) {
+    const spellRecord = message.flags?.exalted2e?.spellCast;
+    if (spellRecord?.reversed) {
+      reverseSpellBtn.disabled = true;
+      reverseSpellBtn.classList.add("is-reversed");
+      reverseSpellBtn.innerHTML = `<i class="fa-solid fa-check"></i> ${game.i18n.localize("EX2E.SpellCastReversed")}`;
+    } else {
+      reverseSpellBtn.addEventListener("click", async (ev) => {
+        const btn = ev.currentTarget;
+        btn.disabled = true;
+
+        const record = message.flags?.exalted2e?.spellCast;
+        if (!record || record.reversed) return;
+
+        const actor = record.actorId ? game.actors.get(record.actorId) : null;
+        if (!actor) return;
+        if (!actor.testUserPermission(game.user, "OWNER")) {
+          ui.notifications.warn(game.i18n.localize("EX2E.NotOwner"));
+          return;
+        }
+
+        if (typeof actor.recoverMotes === "function") {
+          if ((record.motesFromPrimary ?? 0) > 0) {
+            await actor.recoverMotes(record.motesFromPrimary, record.primaryPool ?? "peripheral");
+          }
+          if ((record.motesFromSecondary ?? 0) > 0) {
+            await actor.recoverMotes(record.motesFromSecondary, record.secondaryPool ?? "personal");
+          }
+        }
+
+        if ((record.wpCommitted ?? 0) > 0) {
+          const currentWp = actor.system?.willpower?.value ?? 0;
+          const maxWp     = actor.system?.willpower?.max  ?? 0;
+          await actor.update({
+            "system.willpower.value": Math.min(maxWp, currentWp + record.wpCommitted)
+          });
+        }
+
+        // Delete any AEs this spell cast created (tagged by payload system).
+        for (const ae of [...actor.effects]) {
+          if (ae.flags?.exalted2e?.spellCastSource === message.id) await ae.delete();
+        }
+
+        await message.update({
+          flags: { exalted2e: { spellCast: { ...record, reversed: true } } }
+        });
+
+        btn.classList.add("is-reversed");
+        btn.innerHTML = `<i class="fa-solid fa-check"></i> ${game.i18n.localize("EX2E.SpellCastReversed")}`;
+        ui.notifications.info(game.i18n.localize("EX2E.SpellCastReversed"));
+      });
+    }
+  }
+
   // ── Limit Break choice buttons ────────────────────────────────────────
   const lbCard = el.querySelector?.(".ex2e-limit-break-card");
   if (lbCard) {
@@ -1643,6 +2167,33 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       }
       const baseDV = defenseType === "dodge" ? attack.targetDodgeDV : attack.targetParryDV;
 
+      // If the target has a sustained perfect defense AE active (from a
+      // non-instant charm toggled on earlier in the scene), apply it
+      // automatically — no Step 2 dialog needed.
+      const sustainedPD = targetActor.effects.find(
+        e => !e.disabled && e.flags?.exalted2e?.sustainedPerfectDefense
+      );
+      if (sustainedPD) {
+        const pdt = sustainedPD.flags.exalted2e.sustainedPerfectDefense.type;
+        const newAttack = {
+          ...attack,
+          defense:                  { type: defenseType, dv: baseDV },
+          defenseCharms:            [sustainedPD.name],
+          defenderHasThirdExc:      false,
+          defenderExcKey:           "",
+          defenderFirstExcDice:     0,
+          defenderSecondExcSucc:    0,
+          defenderHasCounterattack: false,
+          perfectDefenseCharm:      sustainedPD.name,
+          perfectDefenseType:       pdt
+        };
+        _tryFireAttackSuccess(newAttack);
+        const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
+        const content = await renderAttackCardContent(newAttack);
+        await message.update({ content, flags: { exalted2e: { attack: newAttack } } });
+        return;
+      }
+
       // Filter the defender's Reflexive Step-2 Charms and pass them to the
       // dialog. The dialog opens every time the defender picks a defense —
       // it doubles as the confirmation step and renders an empty-state
@@ -1700,10 +2251,10 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
         firstExcMax:   keyVal,
         secondExcMax:  Math.ceil(keyVal / 2),
         firstExcLabel: firstExcCharm
-          ? `${firstExcCharm.name} (${game.i18n.localize("EX2E.FirstExcellency")})`
+          ? firstExcCharm.name
           : game.i18n.localize("EX2E.FirstExcellency"),
         secondExcLabel: secondExcCharm
-          ? `${secondExcCharm.name} (${game.i18n.localize("EX2E.SecondExcellency")})`
+          ? secondExcCharm.name
           : game.i18n.localize("EX2E.SecondExcellency")
       });
       if (!result) return;                          // user cancelled
@@ -1714,22 +2265,25 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       // allows the attack to land but zeroes out the damage pool.
       let perfectDefenseCharm = null;
       let perfectDefenseType  = null;
-      const perfectKeyword = defenseType === "parry" ? "Perfect Parry" : "Perfect Dodge";
-      for (const id of result.charmIds) {
+      const step2Activations = result.charmActivations?.length
+        ? result.charmActivations
+        : (result.charmIds ?? []).map(id => ({ id, motesOverride: undefined }));
+      for (const { id, motesOverride } of step2Activations) {
         const charm = targetActor.items.get(id);
         if (!charm) continue;
-        const ok = await charm.activateCharm();
+        const ok = await charm.activateCharm({
+          explicitMotesOverride: motesOverride !== undefined ? motesOverride : null
+        });
         if (!ok) continue;
         activatedNames.push(charm.name);
         if (!perfectDefenseCharm) {
-          const keywords = charm.system.keywords ?? [];
-          const pdt      = charm.system.perfectDefenseType ?? "";
+          const pdt = charm.system.perfectDefenseType ?? "";
           if (pdt === "soak") {
             perfectDefenseCharm = charm.name;
             perfectDefenseType  = "soak";
-          } else if (keywords.includes(perfectKeyword) || pdt === "parry" || pdt === "dodge") {
+          } else if (pdt === "parry" || pdt === "dodge") {
             perfectDefenseCharm = charm.name;
-            perfectDefenseType  = pdt || (defenseType === "parry" ? "parry" : "dodge");
+            perfectDefenseType  = pdt;
           }
         }
       }
@@ -2068,20 +2622,113 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     });
   });
 
+  // ── Area resist roll ─────────────────────────────────────────────────
+  el.querySelector?.(".btn-roll-area-resist")?.addEventListener("click", async (ev) => {
+    const btn = ev.currentTarget;
+    const targetId  = btn.dataset.targetId;
+    const messageId = btn.dataset.messageId;
+    if (!targetId || !messageId) return;
+
+    const msg = game.messages.get(messageId);
+    if (!msg) return;
+    const attack = msg.flags?.exalted2e?.attack;
+    if (!attack?.isAreaAttack) return;
+
+    const target = game.actors.get(targetId);
+    if (!target) return;
+    if (!target.testUserPermission(game.user, "OWNER")) {
+      ui.notifications.warn(game.i18n.localize("EX2E.DefenseNotAllowed"));
+      return;
+    }
+
+    const { areaResist } = attack;
+    // Parse simple "ability+attribute" pool formula against target's roll data.
+    const rollData = target.getRollData?.() ?? {};
+    const poolStr = areaResist.pool ?? "stamina+resistance";
+    let pool = 0;
+    for (const part of poolStr.split("+")) {
+      const key = part.trim();
+      pool += rollData.attributes?.[key]?.value
+           ?? rollData.abilities?.[key]?.value
+           ?? (Number(rollData[key]) || 0);
+    }
+    pool = Math.max(1, pool);
+
+    const { ExaltedRoll, renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
+    const roll = new ExaltedRoll({ pool });
+    const result = await roll.evaluate();
+    const successes = result.successes ?? 0;
+    const passed = successes >= (areaResist.difficulty ?? 1);
+
+    // Store result and re-render the card.
+    const existing = attack.areaResistResults ?? {};
+    const updated  = { ...existing, [targetId]: { successes, passed } };
+    const newAttackState = { ...attack, areaResistResults: updated, id: messageId };
+    const content = await renderAttackCardContent(newAttackState);
+    await msg.update({
+      content,
+      "flags.exalted2e.attack.areaResistResults": updated
+    });
+
+    // Post resist roll result to chat.
+    await ChatMessage.create({
+      content: `<div class="ex2e-roll-card">${target.name}: ${successes} ${game.i18n.localize("EX2E.Successes")} vs ${game.i18n.localize("EX2E.AreaResist")} (diff ${areaResist.difficulty})</div>`,
+      rolls: [result.foundryRoll],
+      sound: CONFIG.sounds.dice,
+      speaker: ChatMessage.getSpeaker({ actor: target }),
+    });
+  });
+
+  // ── Remove area template ─────────────────────────────────────────────
+  el.querySelector?.(".btn-remove-area-template")?.addEventListener("click", async (ev) => {
+    if (!game.user.isGM) {
+      ui.notifications.warn(game.i18n.localize("EX2E.EffectGMOnlyRemoval"));
+      return;
+    }
+    const templateId = ev.currentTarget.dataset.templateId;
+    if (!templateId || !canvas.scene) return;
+    await canvas.scene.deleteEmbeddedDocuments("MeasuredTemplate", [templateId]);
+  });
+
+  // ── Apply area damage ────────────────────────────────────────────────
+  el.querySelectorAll?.(".btn-apply-area-damage").forEach(btn => {
+    btn.addEventListener("click", async (ev) => {
+      const b = ev.currentTarget;
+      const targetId     = b.dataset.targetId;
+      const rawDamage    = parseInt(b.dataset.rawDamage)       || 0;
+      const resistSucc   = parseInt(b.dataset.resistSuccesses) || 0;
+      const damageType   = b.dataset.damageType   || "lethal";
+      const resistEffect = b.dataset.resistEffect || "avoid";
+
+      const target = game.actors.get(targetId);
+      if (!target) return;
+      if (!target.testUserPermission(game.user, "OWNER")) {
+        ui.notifications.warn(game.i18n.localize("EX2E.DefenseNotAllowed"));
+        return;
+      }
+
+      const finalDamage = resistEffect === "reduce"
+        ? Math.max(0, rawDamage - resistSucc)
+        : rawDamage;
+      if (finalDamage > 0) await target.applyDamage(finalDamage, damageType);
+    });
+  });
+
   // "Roll Damage" button on attack result cards
   el.querySelector?.(".btn-roll-damage")?.addEventListener("click", async (event) => {
     const card       = event.currentTarget.closest(".ex2e-attack-card");
-    const damagePool = parseInt(card?.dataset.damagePool) || 0;
-    const damageType = card?.dataset.damageType || "lethal";
+    const damagePool   = parseInt(card?.dataset.damagePool)   || 0;
+    const damageType   = card?.dataset.damageType || "lethal";
     const overwhelming = parseInt(card?.dataset.overwhelming) || 0;
-    const soakEl     = card?.querySelector(".soak-input");
-    const soak       = parseInt(soakEl?.value ?? soakEl?.textContent) || 0;
-    const targetId   = card?.dataset.targetId || null;
+    const postSoakDice = parseInt(card?.dataset.postSoakDice) || 0;
+    const soakEl       = card?.querySelector(".soak-input");
+    const soak         = parseInt(soakEl?.value ?? soakEl?.textContent) || 0;
+    const targetId     = card?.dataset.targetId || null;
 
-    if (damagePool <= 0) return;
+    if (damagePool <= 0 && postSoakDice <= 0) return;
 
-    // Roll the damage pool
-    const effectivePool = Math.max(damagePool - soak, overwhelming);
+    // Roll the damage pool — post-soak dice bypass soak entirely
+    const effectivePool = Math.max(damagePool - soak, overwhelming) + postSoakDice;
     const formula = `${effectivePool}d10`;
     const roll    = new Roll(formula);
     await roll.evaluate();
@@ -2118,34 +2765,25 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
 
     const damageTypeLabel = damageType === "lethal" ? "L" : damageType === "aggravated" ? "A" : "B";
 
-    // Render the damage result
-    const section = card.querySelector(".damage-roll-section");
-    if (section) {
-      let diceHtml = diceDetails.map(d =>
-        `<div class="die-result ${d.cls}" title="${d.face}">${d.face}</div>`
-      ).join("");
+    const autoApply    = game.settings.get("exalted2e", "autoApplyDamage");
+    const showApplyBtn = rawDamage > 0 && !!targetId && !autoApply;
 
-      const autoApply = game.settings.get("exalted2e", "autoApplyDamage");
-      const showApplyBtn = rawDamage > 0 && targetId && !autoApply;
-      const result = new DOMParser().parseFromString(`<div class="damage-result">
-        <div class="dice-results">${diceHtml}</div>
-        <div class="damage-summary">
-          <span>${effectivePool}d10 (${damagePool} − ${soak} ${game.i18n.localize("EX2E.Soak")})</span>
-        </div>
-        <div class="roll-result ${rawDamage > 0 ? 'success' : 'failure'}">
-          <span class="result-label ${rawDamage > 0 ? 'success' : 'failure'}-label">
-            ${rawDamage > 0 ? `${rawDamage} ${damageTypeLabel} ${game.i18n.localize("EX2E.Damage")}` : game.i18n.localize("EX2E.NoDamage")}
-          </span>
-        </div>
-        ${showApplyBtn ? `<button class="btn-roll btn-apply-damage" data-damage="${rawDamage}" data-damage-type="${damageType}" data-target-id="${targetId}" data-effective-pool="${effectivePool}"><i class="fa-solid fa-heart-crack"></i> ${game.i18n.localize("EX2E.ApplyDamage")}</button>` : ""}
-      </div>`, 'text/html');
-
-      section.replaceChildren();
-      section.appendChild(result.body.firstChild);
-    }
+    // Store the damage result in the attack snapshot so re-renders from
+    // renderAttackCardContent (e.g. knockback _persistAndRerender) preserve it.
+    const damageResult = {
+      diceDetails, rawDamage, effectivePool,
+      damagePool, soak, postSoakDice,
+      damageTypeLabel, damageType, targetId,
+      showApplyBtn,
+    };
+    const attack = message.flags?.exalted2e?.attack ?? {};
+    const updatedAttack = { ...attack, damageResult };
+    const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
+    const content = await renderAttackCardContent(updatedAttack);
+    await message.update({ content, flags: { exalted2e: { attack: updatedAttack } } });
 
     // Auto-apply damage to target if setting enabled
-    if (rawDamage > 0 && targetId && game.settings.get("exalted2e", "autoApplyDamage")) {
+    if (rawDamage > 0 && targetId && autoApply) {
       const targetActor = game.actors.get(targetId);
       if (targetActor) {
         await targetActor.applyDamage(rawDamage, damageType);
@@ -2153,14 +2791,10 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       }
     }
 
-    // Update the chat message to persist the damage result
-    await message.update({ content: card.outerHTML });
-
-    // Chain knockback resolution after the card is persisted (auto-apply only).
-    // Order matches the manual-apply path: outer message.update commits the
-    // damage result first, then the knockback chain re-renders on top with
-    // the knockback / stun resolution sub-blocks.
-    if (rawDamage > 0 && targetId && game.settings.get("exalted2e", "autoApplyDamage")) {
+    // Chain knockback resolution (auto-apply only).
+    // _persistAndRerender reads attack from flags — which now includes
+    // damageResult — so the damage dice survive the re-render.
+    if (rawDamage > 0 && targetId && autoApply) {
       const targetActor = game.actors.get(targetId);
       if (targetActor) {
         await resolveKnockbackChain(message, { effectivePool, rawDamage }).catch(err =>
@@ -2171,7 +2805,6 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
   });
 
   el.querySelector?.(".btn-apply-damage")?.addEventListener("click", async (applyEvent) => {
-    const card = applyEvent.currentTarget.closest(".ex2e-attack-card");
     const btn = applyEvent.currentTarget;
     const dmg  = parseInt(btn.dataset.damage) || 0;
     const type = btn.dataset.damageType || "lethal";
@@ -2182,10 +2815,15 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       await targetActor.applyDamage(dmg, type);
       await _applyPerDamageLevelEffects(message, targetActor, dmg);
 
-      const section = card.querySelector(".damage-result");
-      section.removeChild(btn);
-
-      await message.update({ content: card.outerHTML });
+      // Hide apply button via flags — keeps damageResult intact for re-renders.
+      const attack = message.flags?.exalted2e?.attack ?? {};
+      const updatedAttack = {
+        ...attack,
+        damageResult: { ...attack.damageResult, showApplyBtn: false },
+      };
+      const { renderAttackCardContent } = await import("./rolls/exalted-roll.mjs");
+      const content = await renderAttackCardContent(updatedAttack);
+      await message.update({ content, flags: { exalted2e: { attack: updatedAttack } } });
 
       await resolveKnockbackChain(message, { effectivePool, rawDamage: dmg }).catch(err =>
         console.error("exalted2e | knockback chain failed", err)
@@ -2314,9 +2952,12 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       return;
     }
 
-    if (record.intent === "erode") {
-      const hasIntimacies = defender.items.some(i => i.type === "intimacy");
-      if (!hasIntimacies) {
+    if (record.intent === "erode" && record.targetedIntimacyId) {
+      const intimacy  = defender.items.get(record.targetedIntimacyId);
+      const conviction = defender.system?.virtues?.conviction?.value ?? 1;
+
+      if (!intimacy) {
+        // Targeted intimacy no longer exists — treat as narration.
         const appliedInfluenceEffectIds = await applySocialInfluenceEffects(defender, {
           attackerId:      record.attackerId,
           sourceByKeyword: record.attackerSourceByKeyword ?? {},
@@ -2324,19 +2965,83 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
         });
         await message.update({
           "flags.exalted2e.socialAttack.resolution": {
-            outcome:                       "accepted-narration",
-            wpSpentByDefender:             0,
-            erodedIntimacyId:              null,
-            erodedIntimacyStrengthBefore:  null,
-            erodedIntimacyStrengthAfter:   null,
-            erodedIntimacyName:            null
+            outcome:                      "accepted-narration",
+            wpSpentByDefender:            0,
+            erodedIntimacyId:             null,
+            erodedIntimacyStrengthBefore: null,
+            erodedIntimacyStrengthAfter:  null,
+            erodedIntimacyName:           null,
+            ablationDamageBefore:         null,
+            ablationDamageAfter:          null,
+            intimacyDeletedOnErode:       false,
+            intimacySnapshot:             null
           },
           "flags.exalted2e.socialAttack.appliedInfluenceEffectIds": appliedInfluenceEffectIds
         });
       } else {
-        await message.update({ "flags.exalted2e.socialAttack.pendingErodePick": true });
+        const useIntensity = game.settings.get("exalted2e", "useIntimacyIntensity");
+        const currentDmg   = intimacy.system.ablationDamage ?? 0;
+        const newDamage    = currentDmg + 1;
+        let outcome        = "accepted-eroded";
+        let deleted        = false;
+        let snapshot       = null;
+        let strengthBefore = useIntensity ? intimacy.system.intensity : (intimacy.system.strength ?? 0);
+        let strengthAfter  = strengthBefore;
+
+        if (newDamage < conviction) {
+          // Boxes not yet full — just increment.
+          await intimacy.update({ "system.ablationDamage": newDamage });
+          outcome = "accepted-ablation";
+        } else {
+          // Full — weaken or remove.
+          snapshot = intimacy.toObject();
+          if (useIntensity) {
+            const order = ["minor", "major", "defining"];
+            const idx   = order.indexOf(intimacy.system.intensity);
+            if (idx <= 0) {
+              await intimacy.delete();
+              deleted       = true;
+              strengthAfter = null;
+            } else {
+              strengthAfter = order[idx - 1];
+              await intimacy.update({ "system.intensity": strengthAfter, "system.ablationDamage": 0 });
+            }
+          } else {
+            const str = intimacy.system.strength ?? 1;
+            if (str <= 1) {
+              await intimacy.delete();
+              deleted       = true;
+              strengthAfter = null;
+            } else {
+              strengthAfter = str - 1;
+              await intimacy.update({ "system.strength": strengthAfter, "system.ablationDamage": 0 });
+            }
+          }
+        }
+
+        const appliedInfluenceEffectIds = await applySocialInfluenceEffects(defender, {
+          attackerId:      record.attackerId,
+          sourceByKeyword: record.attackerSourceByKeyword ?? {},
+          keywords:        record.attackerCharmKeywords  ?? []
+        });
+        await message.update({
+          "flags.exalted2e.socialAttack.resolution": {
+            outcome,
+            wpSpentByDefender:            0,
+            erodedIntimacyId:             intimacy.id,
+            erodedIntimacyStrengthBefore: strengthBefore,
+            erodedIntimacyStrengthAfter:  strengthAfter,
+            erodedIntimacyName:           intimacy.name,
+            ablationDamageBefore:         currentDmg,
+            ablationDamageAfter:          deleted ? null : newDamage < conviction ? newDamage : 0,
+            intimacyDeletedOnErode:       deleted,
+            intimacySnapshot:             deleted ? snapshot : null
+          },
+          "flags.exalted2e.socialAttack.appliedInfluenceEffectIds": appliedInfluenceEffectIds
+        });
       }
     } else {
+      // Non-erode intent, or erode with no targeted intimacy.
       const appliedInfluenceEffectIds = await applySocialInfluenceEffects(defender, {
         attackerId:      record.attackerId,
         sourceByKeyword: record.attackerSourceByKeyword ?? {},
@@ -2344,57 +3049,20 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       });
       await message.update({
         "flags.exalted2e.socialAttack.resolution": {
-          outcome:                       "accepted-narration",
-          wpSpentByDefender:             0,
-          erodedIntimacyId:              null,
-          erodedIntimacyStrengthBefore:  null,
-          erodedIntimacyStrengthAfter:   null,
-          erodedIntimacyName:            null
+          outcome:                      "accepted-narration",
+          wpSpentByDefender:            0,
+          erodedIntimacyId:             null,
+          erodedIntimacyStrengthBefore: null,
+          erodedIntimacyStrengthAfter:  null,
+          erodedIntimacyName:           null,
+          ablationDamageBefore:         null,
+          ablationDamageAfter:          null,
+          intimacyDeletedOnErode:       false,
+          intimacySnapshot:             null
         },
         "flags.exalted2e.socialAttack.appliedInfluenceEffectIds": appliedInfluenceEffectIds
       });
     }
-    await _rerenderSocialAttackCard(message);
-  });
-
-  // ── Social attack: Pick an Intimacy to erode ──────────────────────────
-  el.querySelector?.(".btn-social-erode-confirm")?.addEventListener("click", async (ev) => {
-    const record = message.flags?.exalted2e?.socialAttack;
-    if (!record || record.resolution || record.reversed) return;
-
-    const defender = game.actors.get(record.defenderId);
-    if (!defender) return;
-    if (!game.user.isGM && !defender.testUserPermission(game.user, "OWNER")) {
-      ui.notifications.warn(game.i18n.localize("EX2E.NotOwnerSocial"));
-      return;
-    }
-
-    const select = el.querySelector(".social-erode-select");
-    const intimacyId = select?.value;
-    const intimacy = intimacyId ? defender.items.get(intimacyId) : null;
-    if (!intimacy) return;
-
-    const before = intimacy.system?.strength ?? 0;
-    const after = Math.max(0, before - 1);
-    await intimacy.update({ "system.strength": after });
-
-    const appliedInfluenceEffectIds = await applySocialInfluenceEffects(defender, {
-      attackerId:      record.attackerId,
-      sourceByKeyword: record.attackerSourceByKeyword ?? {},
-      keywords:        record.attackerCharmKeywords  ?? []
-    });
-    await message.update({
-      "flags.exalted2e.socialAttack.resolution": {
-        outcome:                       "accepted-eroded",
-        wpSpentByDefender:             0,
-        erodedIntimacyId:              intimacy.id,
-        erodedIntimacyStrengthBefore:  before,
-        erodedIntimacyStrengthAfter:   after,
-        erodedIntimacyName:            intimacy.name
-      },
-      "flags.exalted2e.socialAttack.appliedInfluenceEffectIds": appliedInfluenceEffectIds
-    });
-    await message.update({ "flags.exalted2e.socialAttack.pendingErodePick": false });
     await _rerenderSocialAttackCard(message);
   });
 
@@ -2427,11 +3095,27 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       await defender.update({ "system.willpower.value": restored });
     }
 
-    // Refund eroded intimacy strength (existing 3a).
-    if (defender && resolution.erodedIntimacyId && resolution.erodedIntimacyStrengthBefore !== null) {
-      const intimacy = defender.items.get(resolution.erodedIntimacyId);
-      if (intimacy) {
-        await intimacy.update({ "system.strength": resolution.erodedIntimacyStrengthBefore });
+    // Reverse intimacy ablation damage.
+    if (defender && resolution.erodedIntimacyId) {
+      if (resolution.intimacyDeletedOnErode && resolution.intimacySnapshot) {
+        // Intimacy was deleted — re-create from snapshot.
+        await defender.createEmbeddedDocuments("Item", [resolution.intimacySnapshot]);
+      } else if (resolution.ablationDamageBefore !== null) {
+        const intimacy = defender.items.get(resolution.erodedIntimacyId);
+        if (intimacy) {
+          const useIntensity = game.settings.get("exalted2e", "useIntimacyIntensity");
+          if (resolution.erodedIntimacyStrengthBefore !== resolution.erodedIntimacyStrengthAfter) {
+            const patch = { "system.ablationDamage": resolution.ablationDamageBefore };
+            if (useIntensity) {
+              patch["system.intensity"] = resolution.erodedIntimacyStrengthBefore;
+            } else {
+              patch["system.strength"] = resolution.erodedIntimacyStrengthBefore;
+            }
+            await intimacy.update(patch);
+          } else {
+            await intimacy.update({ "system.ablationDamage": resolution.ablationDamageBefore });
+          }
+        }
       }
     }
 
@@ -2542,6 +3226,54 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       "flags.exalted2e.socialAttack.brokenFromMotivation":      null
     });
     await _rerenderSocialAttackCard(message);
+  });
+
+  // ── Social attack: GM Disbelieve Illusion ──────────────────────────────
+  el.querySelector?.(".btn-social-disbelieve")?.addEventListener("click", async (ev) => {
+    if (!game.user.isGM) return;
+    const record = message.flags?.exalted2e?.socialAttack;
+    if (!record) return;
+
+    const defender = game.actors.get(record.defenderId);
+    const attacker = game.actors.get(record.attackerId);
+    if (!defender || !attacker) return;
+
+    // Find the most-recent Illusion AE on the defender
+    const illusionAEs = defender.effects
+      .filter(ae => ae.flags?.exalted2e?.socialInfluence && ae.flags.exalted2e.keyword === "Illusion")
+      .sort((a, b) => b.id.localeCompare(a.id));
+    if (illusionAEs.length === 0) {
+      ui.notifications.warn(game.i18n.localize("EX2E.NoIllusionAE"));
+      return;
+    }
+    const targetAE = illusionAEs[0];
+
+    // Roll Per + Investigation for the defender
+    const per  = defender.system?.attributes?.perception?.value  ?? 0;
+    const inv  = defender.system?.abilities?.investigation?.value ?? 0;
+    const pool = Math.max(1, per + inv);
+    const diff = attacker.system?.essence?.value ?? 1;
+
+    const { ExaltedRoll } = await import("./rolls/exalted-roll.mjs");
+    const roll = new ExaltedRoll({ pool, flavor: game.i18n.format("EX2E.IllusionDisbelieveRoll", {
+      name: defender.name, diff
+    }) });
+    const result = await roll.evaluate();
+    await result.toMessage({ speaker: ChatMessage.getSpeaker({ actor: defender }) });
+
+    const successes = result.successes ?? 0;
+    if (successes >= diff) {
+      await targetAE.delete();
+      await ChatMessage.create({
+        content:  game.i18n.format("EX2E.IllusionDisbelievedSuccess", { charm: targetAE.name }),
+        speaker:  ChatMessage.getSpeaker({ actor: defender }),
+      });
+    } else {
+      await ChatMessage.create({
+        content:  game.i18n.localize("EX2E.IllusionHolds"),
+        speaker:  ChatMessage.getSpeaker({ actor: defender }),
+      });
+    }
   });
 
   // ── Social attack: Refuse Motivation Break ─────────────────────────────
@@ -2732,8 +3464,16 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
 // deletes the combat document directly — both routes funnel through
 // the same `clearSocialScene` helper.
 Hooks.on("deleteCombat", async () => {
-  const { clearSocialScene } = await import("./ui/social-scene.mjs");
+  const { clearSocialScene, clearIntimacyAblation } = await import("./ui/social-scene.mjs");
   await clearSocialScene({ silent: true });
+  const { clearActorForms } = await import("./combat/form-charms.mjs");
+  const { clearSceneCharms } = await import("./helpers/charm-deactivation.mjs");
+  const sceneActors = canvas.scene?.tokens?.contents?.map(t => t.actor).filter(Boolean) ?? [];
+  for (const actor of sceneActors) {
+    await clearActorForms(actor);
+    await clearSceneCharms(actor);
+    await clearIntimacyAblation(actor);
+  }
 });
 
 // ── Social attack: defender Step-2 orchestrator ──────────────────────────
@@ -2901,8 +3641,6 @@ async function _rerenderSocialAttackCard(message) {
 
   const attacker = game.actors.get(record.attackerId);
   const defender = game.actors.get(record.defenderId);
-  const pendingErodePick = message.flags?.exalted2e?.socialAttack?.pendingErodePick === true;
-
   const intimacies = defender
     ? defender.items.filter(i => i.type === "intimacy").map(i => ({
         id:     i.id,
@@ -2931,6 +3669,8 @@ async function _rerenderSocialAttackCard(message) {
     canRespond:       game.user.isGM || (defender && defender.testUserPermission(game.user, "OWNER")),
     canAffordResist:  (defender?.system?.willpower?.value ?? 0) >= (record.wpToResist ?? 0),
     canReverse:       game.user.isGM || (attacker && attacker.testUserPermission(game.user, "OWNER")),
+    isGM:             game.user.isGM,
+    hasIllusion:      (record.attackerCharmKeywords ?? []).includes("Illusion"),
     // 3c-2: Motivation-break display flags
     canRefuse: record.isMotivationBreak
             && record.step2Resolved
@@ -2961,7 +3701,6 @@ async function _rerenderSocialAttackCard(message) {
         })
       : "",
     defenderIntimacies: intimacies,
-    showErodePicker:  record.intent === "erode" && pendingErodePick && !record.resolution,
     // 3c-1: derived display fields for attacker activated charms + Excellency
     attackerCharmNames: (record.attackerCharmIds ?? [])
       .map(id => attacker?.items?.get(id)?.name)
@@ -2983,3 +3722,122 @@ async function _rerenderSocialAttackCard(message) {
   );
   await message.update({ content });
 }
+
+// ── GM Roll Pool card: Roll button ────────────────────────────────────────
+Hooks.on("renderChatMessageHTML", (message, html) => {
+  const el = html instanceof HTMLElement ? html : html[0] ?? html;
+  const btn = el.querySelector?.(".btn-gm-pool-roll");
+  if (!btn) return;
+
+  btn.addEventListener("click", async (ev) => {
+    ev.preventDefault();
+    btn.disabled = true;
+
+    const record = message.flags?.exalted2e?.gmRollPool;
+    if (!record) { btn.disabled = false; return; }
+
+    const actor = resolveUserActor();
+    if (!actor) {
+      ui.notifications.warn(game.i18n.localize("EX2E.GmRollNoCharacter"));
+      btn.disabled = false;
+      return;
+    }
+
+    const pool = computeGmRollPool(actor, record.traits ?? []);
+    const { ExaltedRoll } = await import("./rolls/exalted-roll.mjs");
+    const roll   = new ExaltedRoll({ pool: Math.max(1, pool), flavor: record.description ?? "", actorName: actor.name });
+    const result = await roll.evaluate();
+    await result.toMessage({ speaker: ChatMessage.getSpeaker({ actor }) });
+
+    const successes = result.successes ?? 0;
+    const pass      = successes >= (record.difficulty ?? 1);
+
+    const updatedRolls = [...(record.rolls ?? []), { actorId: actor.id, actorName: actor.name, successes, pass }];
+    const updatedRecord = { ...record, rolls: updatedRolls };
+
+    const content = await foundry.applications.handlebars.renderTemplate(
+      "systems/exalted2e/templates/chat/gm-roll-pool-card.hbs",
+      updatedRecord
+    );
+    await message.update({ content, "flags.exalted2e.gmRollPool": updatedRecord });
+  });
+});
+
+// ── Countermagic: inject "Counter Spell" button into combat tracker rows ────
+Hooks.on("renderCombatTracker", (app, html) => {
+  const el = html instanceof HTMLElement ? html : (html?.[0] ?? html);
+  if (!el?.querySelector) return;
+  const combat = app.viewed;
+  if (!combat) return;
+
+  const counterActor = game.canvas?.tokens?.controlled?.[0]?.actor
+                    ?? game.user?.character ?? null;
+
+  for (const combatant of combat.combatants) {
+    const action = combatant.flags?.exalted2e?.multiTickAction ?? null;
+    if (!action) continue;
+    if (action.actionKey !== "sorcery" && action.actionKey !== "necromancy") continue;
+
+    const state     = action.state ?? {};
+    const circle    = state.circle ?? 1;
+    const tradition = action.actionKey === "necromancy" ? "necromancy" : "sorcery";
+
+    if (!game.user.isGM && counterActor) {
+      const { buildEligibleCharms } = game.exalted2e?._countermagicHelpers ?? {};
+      if (typeof buildEligibleCharms === "function") {
+        if (!buildEligibleCharms(counterActor, circle, tradition).length) continue;
+      }
+    }
+
+    const row = el.querySelector(`[data-combatant-id="${combatant.id}"]`)
+             ?? el.querySelector(`[data-id="${combatant.id}"]`);
+    if (!row) continue;
+
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "ex2e-counter-spell-btn";
+    btn.dataset.combatantId = combatant.id;
+    btn.title = game.i18n.format("EX2E.CounterSpellBtn", { spell: state.spellName ?? "" });
+    btn.innerHTML = `<i class="fa-solid fa-wand-sparkles"></i>`;
+    btn.addEventListener("click", async (ev) => {
+      ev.preventDefault();
+      ev.stopPropagation();
+      const actor = game.canvas?.tokens?.controlled?.[0]?.actor
+                 ?? game.user?.character ?? null;
+      if (!actor) {
+        ui.notifications.warn(game.i18n.localize("EX2E.CountermagicNoActor"));
+        return;
+      }
+      await CountermagicDialog.open({ type: "shaping", combatant }, actor);
+    });
+    row.appendChild(btn);
+  }
+});
+
+// ── GM Import Buttons ──────────────────────────────────────────────────────
+// Inject an "Import" button into the Items and Actors directory headers so
+// GMs can paste rulebook text directly into Foundry without a compendium.
+
+Hooks.on("renderItemDirectory", (_app, html) => {
+  if (!game.user?.isGM) return;
+  const header = html.querySelector?.(".directory-header") ?? html.querySelector?.("header");
+  if (!header) return;
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "ex2e-import-btn";
+  btn.innerHTML = `<i class="fas fa-file-import"></i> ${game.i18n.localize("EX2E.ImportItems")}`;
+  btn.addEventListener("click", () => ImportDialog.open("item"));
+  header.appendChild(btn);
+});
+
+Hooks.on("renderActorDirectory", (_app, html) => {
+  if (!game.user?.isGM) return;
+  const header = html.querySelector?.(".directory-header") ?? html.querySelector?.("header");
+  if (!header) return;
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "ex2e-import-btn";
+  btn.innerHTML = `<i class="fas fa-file-import"></i> ${game.i18n.localize("EX2E.ImportNPCs")}`;
+  btn.addEventListener("click", () => ImportDialog.open("actor"));
+  header.appendChild(btn);
+});

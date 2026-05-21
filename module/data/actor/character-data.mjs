@@ -1,7 +1,8 @@
 import { EX2E } from "../../config.mjs";
 import { computeWoundPenalty } from "../../rolls/health-math.mjs";
 import { computeTotalClarity, computePermanentClarity } from "../../combat/clarity-math.mjs";
-import { computeHealthGrantBonus, computeWoundReduction, computeMotePoolBonus, applyStatBoostDeltas, isCharmPassivelyActive } from "../../rolls/charm-passive-math.mjs";
+import { computeWoundReduction, isCharmPassivelyActive } from "../../rolls/charm-passive-math.mjs";
+import { computeHearthstoneMoteRegen } from "../../helpers/hearthstone-regen.mjs";
 
 const fields = foundry.data.fields;
 
@@ -69,20 +70,24 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       // value = permanent rating (round pips), current = temporal resource (square boxes)
       virtues: new fields.SchemaField({
         compassion: new fields.SchemaField({
-          value:   new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
-          current: new fields.NumberField({ initial: 1, min: 0, max: 5, integer: true })
+          value:     new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
+          current:   new fields.NumberField({ initial: 1, min: 0, max: 5, integer: true }),
+          channeled: new fields.BooleanField({ initial: false })
         }),
         conviction: new fields.SchemaField({
-          value:   new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
-          current: new fields.NumberField({ initial: 1, min: 0, max: 5, integer: true })
+          value:     new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
+          current:   new fields.NumberField({ initial: 1, min: 0, max: 5, integer: true }),
+          channeled: new fields.BooleanField({ initial: false })
         }),
         temperance: new fields.SchemaField({
-          value:   new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
-          current: new fields.NumberField({ initial: 1, min: 0, max: 5, integer: true })
+          value:     new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
+          current:   new fields.NumberField({ initial: 1, min: 0, max: 5, integer: true }),
+          channeled: new fields.BooleanField({ initial: false })
         }),
         valor: new fields.SchemaField({
-          value:   new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
-          current: new fields.NumberField({ initial: 1, min: 0, max: 5, integer: true })
+          value:     new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
+          current:   new fields.NumberField({ initial: 1, min: 0, max: 5, integer: true }),
+          channeled: new fields.BooleanField({ initial: false })
         })
       }),
 
@@ -129,6 +134,14 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
           one:  new fields.NumberField({ initial: 0, min: 0, max: 20, integer: true }),
           two:  new fields.NumberField({ initial: 0, min: 0, max: 20, integer: true })
         })
+      }),
+
+      // ── Equipment Slots ────────────────────────────────────────────────────
+      slots: new fields.SchemaField({
+        hands: new fields.NumberField({ initial: 2, min: 0, max: 10, integer: true }),
+        feet:  new fields.NumberField({ initial: 1, min: 0, max: 10, integer: true }),
+        armor: new fields.NumberField({ initial: 1, min: 0, max: 10, integer: true }),
+        head:  new fields.NumberField({ initial: 1, min: 0, max: 10, integer: true })
       }),
 
       // ── Experience ─────────────────────────────────────────────────────────
@@ -231,6 +244,14 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       notes:      new fields.HTMLField({ initial: "" }),
       motivation: new fields.StringField({ initial: "", blank: true }),
 
+      // ── Limit / Primary Virtue ────────────────────────────────────────────
+      primaryVirtue: new fields.StringField({
+        nullable: true,
+        initial:  null,
+        blank:    false,
+        choices:  Object.keys(EX2E.virtues)
+      }),
+
       // ── Purchase Mode ─────────────────────────────────────────────────────
       // Per-actor toggle managed by the GM / Assistant GM via a header
       // button on the character sheet. When true, the sheet locks: field
@@ -238,6 +259,28 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       // increases and item creations open a Purchase-confirm dialog and
       // append to `purchaseLog`.
       purchaseLocked: new fields.BooleanField({ initial: false }),
+
+      // ── Crafting Projects ─────────────────────────────────────────────────
+      // Per-project retry tracking. `bonusDice` = successes from last failed
+      // attempt (non-cumulative per RAW). Resolved projects are kept until
+      // the player explicitly dismisses them (✕ button on the Crafting tab).
+      craftingProjects: new fields.ArrayField(new fields.SchemaField({
+        id:              new fields.StringField({ initial: "", blank: true }),
+        name:            new fields.StringField({ initial: "", blank: true }),
+        size:            new fields.StringField({
+          choices: ["small", "large"],
+          initial: "small",
+          blank:   false
+        }),
+        targetResources: new fields.NumberField({ integer: true, min: 1, max: 5, initial: 1 }),
+        isPerfect:       new fields.BooleanField({ initial: false }),
+        bonusDice:       new fields.NumberField({ integer: true, min: 0, initial: 0 }),
+        status:          new fields.StringField({
+          choices: ["active", "completed", "botched"],
+          initial: "active",
+          blank:   false
+        })
+      })),
 
       // Append-only ledger of trait purchases made while `purchaseLocked`
       // was true. Entries are kept forever unless a GM explicitly deletes
@@ -265,7 +308,15 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         soakBashing:           new fields.NumberField({ initial: 0, min: 0, integer: true }),
         soakLethal:            new fields.NumberField({ initial: 0, min: 0, integer: true }),
         soakAggravated:        new fields.NumberField({ initial: 0, min: 0, integer: true }),
-        hardnessAdd:           new fields.NumberField({ initial: 0, min: 0, integer: true })
+        hardnessAdd:           new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        dodgeBonus:            new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        parryBonus:            new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        rateBonus:             new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        motePersonal:          new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        motePeripheral:        new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        healthGrantZero:       new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        healthGrantOne:        new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        healthGrantTwo:        new fields.NumberField({ initial: 0, min: 0, integer: true })
       })
     };
   }
@@ -294,6 +345,8 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
   }
 
   static #PERSONAL_BONUS   = [0, 1, 2, 3, 4, 5];
+  static #CULT_MOTE_REGEN = [0, 0, 2, 3, 4, 6];
+  static #CULT_WP_HOURS   = [0, 24, 24, 24, 12, 6];
   static #PERIPHERAL_BONUS = [0, 2, 3, 5, 7, 9];
   static #ANIMA_REDUCTION  = [0, 0, 0, 0, 1, 2];
 
@@ -304,13 +357,21 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     this._prepareWillpowerMinimum();
     this._prepareHealthData();
     this._prepareBreedingBonus();
-    this._applyCharmStatBoosts();
+    this._prepareCultData();
     this._applyCharmInitiation();
     this._prepareCombatStats();
     this._prepareMoteMaxima();
+    let masteryCommitted = 0;
+    for (const ae of (this.parent?.effects ?? [])) {
+      if (ae.disabled) continue;
+      const f = ae.flags?.exalted2e ?? {};
+      masteryCommitted += (f.masteryCommitment ?? 0) + (f.baseCostMotes ?? 0);
+    }
+    if (masteryCommitted > 0) this.motes.peripheral.committed += masteryCommitted;
     this._prepareIntimacies();
     this._prepareAlchemicalClarity();
     this._prepareAnimaLevel();
+    this.hearthstoneMoteRegen = computeHearthstoneMoteRegen(this.parent?.items ?? []);
   }
 
   /**
@@ -355,7 +416,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       return;
     }
     const bg = (this.parent?.items ?? []).find(
-      i => i.type === "background" && i.flags?.exalted2e?.isBreeding === true
+      i => i.type === "background" && i.system?.backgroundType === "breeding"
     );
     const rating = bg ? Math.max(0, Math.min(5, bg.system?.value ?? 0)) : 0;
     this.breedingBonus = {
@@ -366,22 +427,22 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     };
   }
 
-  _applyCharmStatBoosts() {
-    const items = (this.parent?.items ?? []).filter(isCharmPassivelyActive);
-    const deltas = [];
-    for (const item of items) {
-      const sb = item?.system?.statBoost;
-      if (!sb?.enabled) continue;
-      for (const change of (sb.changes ?? [])) {
-        if (!change.path) continue;
-        const raw = String(change.value ?? "1").trim();
-        // Only integer values are applied here; formula values require Foundry's
-        // Roll.safeEval and are deferred to the schema-extensions plan.
-        if (!/^-?\d+$/.test(raw)) continue;
-        deltas.push({ path: change.path, delta: parseInt(raw, 10) || 0 });
-      }
+  _prepareCultData() {
+    const actor = this.parent;
+    if (!actor) { this.cultMoteRegen = 0; this.cultWpHours = 0; return; }
+    let totalMotes  = 0;
+    let minInterval = 0;
+    for (const item of actor.items) {
+      if (item.type !== "cult") continue;
+      const bg = actor.items.get(item.system.backgroundId);
+      if (!bg || bg.type !== "background") continue;
+      const rating = Math.max(0, Math.min(5, bg.system.value ?? 0));
+      totalMotes  += CharacterData.#CULT_MOTE_REGEN[rating];
+      const interval = CharacterData.#CULT_WP_HOURS[rating];
+      if (interval > 0) minInterval = minInterval === 0 ? interval : Math.min(minInterval, interval);
     }
-    applyStatBoostDeltas(this, deltas);
+    this.cultMoteRegen = totalMotes;
+    this.cultWpHours   = minInterval;
   }
 
   _applyCharmInitiation() {
@@ -397,28 +458,19 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 
   _prepareHealthData() {
     const h = this.health;
-    const allItems   = this.parent?.items ?? [];
-    const items      = allItems.filter(isCharmPassivelyActive);
-    const charmBonus = computeHealthGrantBonus(items);
-
-    // Per-level box counts: -0, -1, -2 accept bonuses; -4 and Incap are
-    // always a single box each regardless of charm / effect bonuses.
     const b = h.bonus ?? { zero: 0, one: 0, two: 0 };
-    const zeroCount = 1 + (b.zero ?? 0) + charmBonus.zero;
-    const oneCount  = 2 + (b.one  ?? 0) + charmBonus.one;
-    const twoCount  = 2 + (b.two  ?? 0) + charmBonus.two;
+    const zeroCount = 1 + (b.zero ?? 0) + (this.bonuses?.healthGrantZero ?? 0);
+    const oneCount  = 2 + (b.one  ?? 0) + (this.bonuses?.healthGrantOne  ?? 0);
+    const twoCount  = 2 + (b.two  ?? 0) + (this.bonuses?.healthGrantTwo  ?? 0);
     const totalBoxes  = zeroCount + oneCount + twoCount + 1 /* -4 */ + 1 /* Incap */;
     const totalDamage = h.aggravated + h.lethal + h.bashing;
     h.totalBoxes  = totalBoxes;
     h.totalDamage = Math.min(totalDamage, totalBoxes);
-    // Cumulative counts so consumers (health-track helper, wound penalty)
-    // can locate which level a given filled-box index belongs to.
     h.levelCounts = { zero: zeroCount, one: oneCount, two: twoCount };
 
-    // Wound penalty = the penalty tier of the most-recently-filled box.
     const filled = Math.min(totalDamage, totalBoxes);
     h.woundPenalty  = computeWoundPenalty(filled, h.levelCounts);
-    h.woundPenalty  = computeWoundReduction(items, h.woundPenalty);
+    h.woundPenalty  = computeWoundReduction(this.bonuses?.woundPenaltyReduction ?? 0, h.woundPenalty);
     h.incapacitated = filled >= totalBoxes;
   }
 
@@ -559,9 +611,8 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     this.motes.personal.max   = personal   + (this.motes.personal.bonus   ?? 0);
     this.motes.peripheral.max = peripheral + (this.motes.peripheral.bonus ?? 0);
 
-    const charmMotes = computeMotePoolBonus((this.parent?.items ?? []).filter(isCharmPassivelyActive));
-    this.motes.personal.max   += charmMotes.personal;
-    this.motes.peripheral.max += charmMotes.peripheral;
+    this.motes.personal.max   += this.bonuses?.motePersonal   ?? 0;
+    this.motes.peripheral.max += this.bonuses?.motePeripheral ?? 0;
   }
 
   _prepareIntimacies() {
@@ -580,6 +631,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       cap,
       overCapacity: count > cap,
       maxStrength:  this.virtues?.conviction?.value ?? 0,
+      conviction:   this.virtues?.conviction?.value ?? 1,
       useIntensity: game.settings.get("exalted2e", "useIntimacyIntensity")
     };
   }

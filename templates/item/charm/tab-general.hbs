@@ -2,45 +2,23 @@
 
   <div class="charm-stats-grid">
     <!-- Cost -->
-    <div class="field-group">
-      <label>{{localize "EX2E.Motes"}}</label>
-      <input type="number" name="system.cost.motes" value="{{system.cost.motes}}" min="0"
+    <div class="field-group" style="grid-column:1/-1">
+      <label>{{localize "EX2E.CostFormula"}}</label>
+      <input type="text"
+             name="system.cost.formula"
+             value="{{system.cost.formula}}"
+             placeholder="e.g. 1m/die (@str), 1wp"
              {{#unless isEditable}}readonly{{/unless}}>
+      {{#if system.cost.formula}}
+      <div class="cost-formula-preview {{#if costFormulaError}}cost-formula-error{{/if}}">
+        {{#if costFormulaError}}
+          <span class="parse-error">⚠ {{costFormulaError}}</span>
+        {{else}}
+          <span class="parse-ok">{{costFormulaPreview}}</span>
+        {{/if}}
+      </div>
+      {{/if}}
     </div>
-    <div class="field-group">
-      <label>{{localize "EX2E.MotesLabelField"}}</label>
-      <input type="text" name="system.cost.motesLabel" value="{{system.cost.motesLabel}}"
-             placeholder="e.g. 1m per die" {{#unless isEditable}}readonly{{/unless}}>
-    </div>
-    <div class="field-group">
-      <label>{{localize "EX2E.Willpower"}}</label>
-      <input type="number" name="system.cost.willpower" value="{{system.cost.willpower}}" min="0"
-             {{#unless isEditable}}readonly{{/unless}}>
-    </div>
-    {{#unless system.isSubmodule}}
-    <div class="field-group">
-      <label>{{localize "EX2E.CostBashingHealth"}}</label>
-      <input type="number" name="system.cost.bashingHealth" value="{{system.cost.bashingHealth}}" min="0"
-             {{#unless isEditable}}readonly{{/unless}}>
-    </div>
-    <div class="field-group">
-      <label>{{localize "EX2E.CostLethalHealth"}}</label>
-      <input type="number" name="system.cost.lethalHealth" value="{{system.cost.lethalHealth}}" min="0"
-             {{#unless isEditable}}readonly{{/unless}}>
-    </div>
-    <div class="field-group">
-      <label>{{localize "EX2E.CostAggravatedHealth"}}</label>
-      <input type="number" name="system.cost.aggravatedHealth" value="{{system.cost.aggravatedHealth}}" min="0"
-             {{#unless isEditable}}readonly{{/unless}}>
-    </div>
-    {{/unless}}
-    {{#unless system.isSubmodule}}
-    <div class="field-group">
-      <label>{{localize "EX2E.CostExperience"}}</label>
-      <input type="number" name="system.cost.xp" value="{{system.cost.xp}}" min="0"
-             {{#unless isEditable}}readonly{{/unless}}>
-    </div>
-    {{/unless}}
     {{#if (eq system.exaltType "abyssal")}}
     <div class="field-group">
       <label>{{localize "EX2E.CostResonance"}}</label>
@@ -95,7 +73,7 @@
       </select>
     </div>
     <!-- Charm-Type Specific Options -->
-    {{#if (eq system.charmType "simple")}}
+    {{#if (or (eq system.charmType "simple") (eq system.charmType "shintai"))}}
     <div class="field-group">
       <label>{{localize "EX2E.Speed"}}</label>
       <input type="number" name="system.speed" value="{{system.speed}}" min="3" max="6"
@@ -145,8 +123,7 @@
       <input type="text" name="system.durationFormula" value="{{system.durationFormula}}"
              placeholder="e.g. (Essence) actions" {{#unless isEditable}}readonly{{/unless}}>
     </div>
-    <!-- Excellency (only for Reflexive charms) -->
-    {{#if (eq system.charmType "reflexive")}}
+    <!-- Excellency type -->
     <div class="field-group">
       <label>{{localize "EX2E.Excellency"}}</label>
       <select name="system.excellency" {{#unless isEditable}}disabled{{/unless}}>
@@ -155,15 +132,40 @@
         {{/each}}
       </select>
     </div>
+    {{!-- Countermagic section --}}
+    <div class="field-group" style="grid-column:1/-1">
+      <label class="checkbox-label">
+        <input type="checkbox" name="system.isCountermagic"
+               {{#if system.isCountermagic}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        {{localize "EX2E.IsCountermagic"}}
+      </label>
+    </div>
+    {{#if system.isCountermagic}}
+    <div class="field-group">
+      <label>{{localize "EX2E.CountermagicTier"}}</label>
+      <select name="system.countermagicTier" {{#unless isEditable}}disabled{{/unless}}>
+        <option value="1" {{#if (eq system.countermagicTier 1)}}selected{{/if}}>1 — {{localize "EX2E.CountermagicTierEmerald"}}</option>
+        <option value="2" {{#if (eq system.countermagicTier 2)}}selected{{/if}}>2 — {{localize "EX2E.CountermagicTierSapphire"}}</option>
+        <option value="3" {{#if (eq system.countermagicTier 3)}}selected{{/if}}>3 — {{localize "EX2E.CountermagicTierAdamant"}}</option>
+      </select>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.CountermagicTradition"}}</label>
+      <select name="system.countermagicTradition" {{#unless isEditable}}disabled{{/unless}}>
+        <option value="sorcery"   {{#if (eq system.countermagicTradition "sorcery")}}selected{{/if}}>{{localize "EX2E.TraditionSorcery"}}</option>
+        <option value="necromancy"{{#if (eq system.countermagicTradition "necromancy")}}selected{{/if}}>{{localize "EX2E.TraditionNecromancy"}}</option>
+        <option value="both"      {{#if (eq system.countermagicTradition "both")}}selected{{/if}}>{{localize "EX2E.CountermagicBoth"}}</option>
+      </select>
+    </div>
+    <div class="field-group" style="grid-column:1/-1">
+      {{#if isEditable}}
+      <button type="button" data-action="dispelOther" class="btn-dispel-other">
+        <i class="fa-solid fa-wand-sparkles"></i> {{localize "EX2E.CountermagicDispelOther"}}
+      </button>
+      {{/if}}
+    </div>
     {{/if}}
-      <div class="field-group">
-        <label>{{localize "EX2E.PerfectDefenseType"}}</label>
-        <select name="system.perfectDefenseType" {{#unless isEditable}}disabled{{/unless}}>
-          {{#each perfectDefenseOptions}}
-          <option value="{{this.value}}" {{#if (eq this.value ../system.perfectDefenseType)}}selected{{/if}}>{{this.label}}</option>
-          {{/each}}
-        </select>
-      </div>
   </div>
 
   <!-- Prerequisites -->
@@ -202,14 +204,15 @@
             {{/each}}
           </select>
           {{#if (eq alt.type "charm")}}
-          <input type="text" class="prereq-charm-name"
-                 name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.charmName"
-                 value="{{alt.charmName}}" placeholder="{{localize 'EX2E.PrereqCharmNamePlaceholder'}}"
-                 {{#if @root.ownedCharmOptions.length}}list="ex2e-prereq-charms"{{/if}}
-                 autocomplete="off">
-          <input type="hidden" class="prereq-charm-uid"
-                 name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.charmUid"
-                 value="{{alt.charmUid}}">
+          <input type="hidden" name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.charmUid" value="{{alt.charmUid}}">
+          <input type="hidden" name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.charmName" value="{{alt.charmName}}">
+          <div class="charm-drop-zone" data-drop-type="prereq"
+               data-group-index="{{gIdx}}" data-alt-index="{{aIdx}}">
+            {{#if alt.charmName}}
+            <span class="drop-zone-label">{{alt.charmName}}</span>
+            {{/if}}
+            <em class="drop-zone-hint">{{localize "EX2E.DropCharmHere"}}</em>
+          </div>
           {{else}}
           {{#if (eq alt.type "virtue")}}
           <select name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.virtueKey"
@@ -223,6 +226,7 @@
                  value="{{alt.virtueMin}}" min="1" max="5" style="width:3em"
                  {{#unless @root.isEditable}}readonly{{/unless}}>
           {{else}}
+          <input type="hidden" name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.abilityKey" value="{{alt.abilityKey}}">
           <span class="prereq-any-exc-label">{{localize "EX2E.PrereqAnyExcellencyHint"}}</span>
           {{/if}}
           {{/if}}
@@ -242,14 +246,6 @@
       <div class="prereq-readonly">
         {{#if prereqSummary}}{{prereqSummary}}{{else}}—{{/if}}
       </div>
-    {{/if}}
-
-    {{#if ownedCharmOptions.length}}
-    <datalist id="ex2e-prereq-charms">
-      {{#each ownedCharmOptions as |opt|}}
-      <option value="{{opt.name}}" data-uid="{{opt.uid}}"></option>
-      {{/each}}
-    </datalist>
     {{/if}}
   </div>
   {{/unless}}
@@ -294,13 +290,6 @@
     {{/if}}
   </div>
 
-  {{#if system.martialArtsTier}}
-  <div class="field-group">
-    <label>{{localize "EX2E.MartialArtsStyleName"}}</label>
-    <input type="text" name="system.martialArtsStyleName" value="{{system.martialArtsStyleName}}"
-           placeholder="e.g. snake-style" {{#unless isEditable}}readonly{{/unless}}>
-  </div>
-  {{/if}}
   {{#if (includes system.keywords "Merged")}}
   <div class="merged-charms-block" style="margin-top:6px">
     <div class="tags-header">
@@ -348,6 +337,7 @@
            {{#unless isEditable}}readonly{{/unless}}>
   </div>
   {{/if}}
+
 
   <!-- Description -->
   <h2 class="section-header">{{localize "EX2E.Description"}}</h2>

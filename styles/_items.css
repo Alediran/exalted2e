@@ -24,10 +24,20 @@
   padding: 6px 4px;
 }
 
+.exalted2e.item.charm .effects-group-header {
+  margin: 8px 0 4px;
+  padding: 2px 4px;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ex2e-gold-bright);
+  border-bottom: 1px solid var(--ex2e-gold-mid);
+}
+
 .exalted2e.item.charm .effect-section {
   border: 1px solid var(--ex2e-gold-mid);
   border-radius: 3px;
-  overflow: hidden;
   margin-bottom: 4px;
 }
 
@@ -131,7 +141,7 @@
 }
 
 
-/* ── Charm sheet: per-splat accent palette ─────────────────────────────── */
+/* ── Charm sheet: per-splat accent palette (dark mode) ─────────────────── */
 .exalted2e.item.charm[data-exalt-type="solar"]       { --ex2e-gold-bright: #ffe066; --ex2e-gold-main: #c9a227; --ex2e-gold-mid: #a07820; --ex2e-gold-dark: #5c4510; }
 .exalted2e.item.charm[data-exalt-type="lunar"]       { --ex2e-gold-bright: #d8eaf8; --ex2e-gold-main: #8aaac8; --ex2e-gold-mid: #5a7a9a; --ex2e-gold-dark: #2a3a50; }
 .exalted2e.item.charm[data-exalt-type="terrestrial"] { --ex2e-gold-bright: #a8ddb8; --ex2e-gold-main: #4a9068; --ex2e-gold-mid: #327050; --ex2e-gold-dark: #1a3e28; }
@@ -140,6 +150,16 @@
 .exalted2e.item.charm[data-exalt-type="infernal"]    { --ex2e-gold-bright: #90d870; --ex2e-gold-main: #4a8030; --ex2e-gold-mid: #326020; --ex2e-gold-dark: #182e10; }
 .exalted2e.item.charm[data-exalt-type="alchemical"]  { --ex2e-gold-bright: #e8d8a8; --ex2e-gold-main: #b09040; --ex2e-gold-mid: #806820; --ex2e-gold-dark: #3a2808; }
 .exalted2e.item.charm[data-exalt-type="mortal"]      { --ex2e-gold-bright: #c8bca8; --ex2e-gold-main: #887868; --ex2e-gold-mid: #685848; --ex2e-gold-dark: #302820; }
+
+/* ── Charm sheet: per-splat accent palette (light mode) ─────────────────── */
+body.ex2e-light-mode .exalted2e.item.charm[data-exalt-type="solar"]       { --ex2e-gold-bright: #7a5500; --ex2e-gold-main: #9a7000; --ex2e-gold-mid: #6a4e00; --ex2e-gold-dark: #c8a040; }
+body.ex2e-light-mode .exalted2e.item.charm[data-exalt-type="lunar"]       { --ex2e-gold-bright: #1a4a7a; --ex2e-gold-main: #2a5a8a; --ex2e-gold-mid: #1a3a60; --ex2e-gold-dark: #7aaacf; }
+body.ex2e-light-mode .exalted2e.item.charm[data-exalt-type="terrestrial"] { --ex2e-gold-bright: #1a5030; --ex2e-gold-main: #2a6040; --ex2e-gold-mid: #124028; --ex2e-gold-dark: #5aaa7a; }
+body.ex2e-light-mode .exalted2e.item.charm[data-exalt-type="sidereal"]    { --ex2e-gold-bright: #303060; --ex2e-gold-main: #404080; --ex2e-gold-mid: #282858; --ex2e-gold-dark: #8888b0; }
+body.ex2e-light-mode .exalted2e.item.charm[data-exalt-type="abyssal"]     { --ex2e-gold-bright: #800808; --ex2e-gold-main: #a01818; --ex2e-gold-mid: #600808; --ex2e-gold-dark: #c87070; }
+body.ex2e-light-mode .exalted2e.item.charm[data-exalt-type="infernal"]    { --ex2e-gold-bright: #265a14; --ex2e-gold-main: #3a6a22; --ex2e-gold-mid: #1a4410; --ex2e-gold-dark: #6aaa4a; }
+body.ex2e-light-mode .exalted2e.item.charm[data-exalt-type="alchemical"]  { --ex2e-gold-bright: #6a5000; --ex2e-gold-main: #8a6a18; --ex2e-gold-mid: #5a4210; --ex2e-gold-dark: #b89040; }
+body.ex2e-light-mode .exalted2e.item.charm[data-exalt-type="mortal"]      { --ex2e-gold-bright: #4a3828; --ex2e-gold-main: #5a4838; --ex2e-gold-mid: #382e22; --ex2e-gold-dark: #9a8878; }
 .exalted2e.item.charm[data-exalt-type="spirit"]      { --ex2e-gold-bright: #d0a8e8; --ex2e-gold-main: #8040a0; --ex2e-gold-mid: #602870; --ex2e-gold-dark: #280838; }
 
 .exalted2e.item.charm .item-header {
@@ -163,7 +183,6 @@
 /* Item card in chat */
 .ex2e-item-card {
   background:    linear-gradient(135deg, var(--ex2e-bg-darkest) 0%, var(--ex2e-bg-medium) 100%);
-  border:        1px solid var(--ex2e-gold-dark);
   border-radius: var(--ex2e-border-radius-lg);
   padding:       var(--ex2e-gap-md);
   font-family:   var(--ex2e-font-body);
@@ -214,6 +233,40 @@
   font-size:   var(--ex2e-font-size-base);
   color:       var(--ex2e-text-primary);
   line-height: 1.5;
+}
+
+/* Combined activation card (combo / multi-supplemental) */
+.ex2e-combined-card .item-card-charm-list {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--ex2e-gap-xs, 4px);
+  padding:        var(--ex2e-gap-sm) 0;
+}
+
+.ex2e-combined-card .charm-activation-row {
+  display:     flex;
+  align-items: center;
+  gap:         var(--ex2e-gap-sm);
+}
+
+.ex2e-combined-card .charm-row-img {
+  width:         22px;
+  height:        22px;
+  border-radius: 3px;
+  object-fit:    cover;
+  flex-shrink:   0;
+}
+
+.ex2e-combined-card .charm-row-name {
+  flex:      1;
+  font-size: var(--ex2e-font-size-sm);
+  color:     var(--ex2e-text-primary);
+}
+
+.ex2e-combined-card .charm-row-cost {
+  font-size:   var(--ex2e-font-size-xs);
+  color:       var(--ex2e-gold-bright);
+  white-space: nowrap;
 }
 
 .weapon-mode {  
@@ -398,6 +451,59 @@ details.charm-group > summary.charm-group-header {
   user-select: none;
 }
 
+/* ── MA STYLE GROUP HEADER ───────────────────────────────────────────────── */
+.ma-style-group > summary.charm-group-header {
+  display:     flex;
+  align-items: center;
+  gap:         6px;
+}
+
+.ma-style-group > summary.charm-group-header .item-img {
+  width:       24px;
+  height:      24px;
+  object-fit:  contain;
+  flex-shrink: 0;
+  border:      1px solid var(--ex2e-gold-dark);
+  border-radius: 3px;
+}
+
+.ma-style-name {
+  flex:           1;
+  text-transform: none;
+  font-family:    var(--ex2e-font-title);
+  font-size:      13px;
+  letter-spacing: 0.04em;
+  color:          var(--ex2e-gold-bright);
+}
+
+.ma-tier-badge {
+  text-transform: capitalize;
+  font-size:      var(--ex2e-font-size-xs);
+}
+
+.ma-mastered-badge {
+  color:            var(--ex2e-gold-bright);
+  background:       rgba(201, 162, 39, 0.18);
+  border-color:     var(--ex2e-gold-mid);
+  font-size:        13px;
+  padding:          0 5px;
+  letter-spacing:   0;
+}
+
+.ma-weapons-hint {
+  font-family:    var(--ex2e-font-body);
+  font-size:      var(--ex2e-font-size-xs);
+  font-style:     italic;
+  color:          var(--ex2e-text-muted);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.charm-mastery-star {
+  color:       var(--ex2e-gold-bright);
+  margin-right: 2px;
+}
+
 .spell-section-toolbar {
   display: flex;
   align-items: center;
@@ -488,6 +594,109 @@ details.charm-group > summary.charm-group-header {
 }
 
 
+/* ── Martial Arts Style sheet — weapons editor ──────────────────────────── */
+
+.exalted2e.item.martial-arts-style .weapons-editor {
+  flex-direction: column;
+  align-items:    stretch;
+  gap:            6px;
+  padding:        6px 8px;
+  border:         1px dashed var(--ex2e-border-color, rgba(92,69,16,0.6));
+  border-radius:  4px;
+  background:     rgba(0,0,0,0.15);
+  transition:     background-color 0.15s, border-color 0.15s;
+}
+
+.exalted2e.item.martial-arts-style .weapons-editor.drag-over {
+  background-color: rgba(255, 220, 100, 0.07);
+  border-color:     var(--ex2e-gold-bright, #ffe066);
+  border-style:     solid;
+}
+
+.exalted2e.item.martial-arts-style .weapons-editor > label {
+  font-size:      0.8em;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color:          var(--ex2e-text-secondary, #b8a88a);
+  margin-bottom:  2px;
+}
+
+.exalted2e.item.martial-arts-style .weapon-tags {
+  display:    flex;
+  flex-wrap:  wrap;
+  gap:        4px;
+  list-style: none;
+  margin:     0;
+  padding:    0;
+  min-height: 22px;
+}
+
+.exalted2e.item.martial-arts-style .weapon-tags:empty::after {
+  content:    attr(data-empty-hint);
+  color:      var(--ex2e-text-muted, #7a6a50);
+  font-size:  0.82em;
+  font-style: italic;
+}
+
+.exalted2e.item.martial-arts-style .weapon-tags li {
+  display:       inline-flex;
+  align-items:   center;
+  gap:           3px;
+  padding:       2px 6px 2px 8px;
+  background:    rgba(201, 162, 39, 0.12);
+  border:        1px solid var(--ex2e-gold-dark, #5c4510);
+  border-radius: 10px;
+  height:        20.34px;
+  font-size:     0.82em;
+  color:         var(--ex2e-text-primary, #e8dcc8);
+}
+
+.exalted2e.item.martial-arts-style .weapon-tags li button {
+  all:         unset;
+  cursor:      pointer;
+  line-height: 1;
+  font-size:   1em;
+  color:       var(--ex2e-text-muted, #7a6a50);
+  padding:     0 1px;
+  transition:  color 0.1s;
+}
+
+.exalted2e.item.martial-arts-style .weapon-tags li button:hover {
+  color: var(--ex2e-dmg-lethal, #c0392b);
+}
+
+.exalted2e.item.martial-arts-style .add-weapon-row {
+  display:   flex;
+  gap:       4px;
+  margin-top: 2px;
+}
+
+.exalted2e.item.martial-arts-style .add-weapon-row .add-weapon-input {
+  flex:       1;
+  min-width:  0;
+  font-size:  0.85em;
+  padding:    2px 6px;
+  background: var(--ex2e-bg-medium, #0e0e0e);
+  border:     1px solid var(--ex2e-border-color, rgba(92,69,16,0.6));
+  border-radius: 3px;
+  color:      var(--ex2e-text-primary, #e8dcc8);
+}
+
+.exalted2e.item.martial-arts-style .add-weapon-row button {
+  font-size:  0.8em;
+  padding:    2px 8px;
+  background: none;
+  border:     1px solid var(--ex2e-gold-mid, #a07820);
+  border-radius: 3px;
+  color:      var(--ex2e-gold-bright, #ffe066);
+  cursor:     pointer;
+  white-space: nowrap;
+}
+
+.exalted2e.item.martial-arts-style .add-weapon-row button:hover {
+  background: rgba(201, 162, 39, 0.1);
+}
+
 /* ── Form (Lunar Heart's Blood) sheet ────────────────────────────────────
    Form items are exclusively Lunar — apply Lunar moonsilver coloring so the
    sheet's accent variables match the rest of the Lunar visual language.
@@ -518,3 +727,227 @@ details.charm-group > summary.charm-group-header {
   gap:            var(--ex2e-gap-xs);
 }
 
+.hearthstone-slot-row {
+  display:     flex;
+  align-items: center;
+  gap:         6px;
+}
+
+/* Countermagic section on charm sheet */
+.btn-dispel-other {
+  width: 100%;
+  margin-top: 4px;
+}
+
+/* Combat tracker Counter Spell button */
+.ex2e-counter-spell-btn {
+  background: transparent;
+  border: 1px solid var(--color-border-dark-tertiary, #999);
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  padding: 1px 4px;
+  color: var(--color-text-dark-primary, #191813);
+}
+.ex2e-counter-spell-btn:hover {
+  background: var(--color-hover-bg, rgba(0,0,0,0.05));
+}
+
+/* ── Manse item sheet ───────────────────────────────────────────────────── */
+
+.exalted2e.item.generic .manse-header-stats {
+  display:     flex;
+  align-items: center;
+  gap:         var(--ex2e-gap-sm);
+  flex-wrap:   wrap;
+  margin-top:  2px;
+}
+
+.exalted2e.item.generic .manse-header-label {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color:          var(--ex2e-text-muted);
+}
+
+.exalted2e.item.generic .manse-drop-zone {
+  display:        flex;
+  align-items:    center;
+  min-height:     28px;
+  padding:        4px 8px;
+  border:         1px dashed var(--ex2e-gold-dark);
+  border-radius:  var(--ex2e-border-radius);
+  background:     var(--ex2e-bg-darkest);
+  transition:     border-color var(--ex2e-transition-fast),
+                  background   var(--ex2e-transition-fast);
+}
+
+.exalted2e.item.generic .manse-drop-zone.drag-over {
+  border-color: var(--ex2e-gold-main);
+  background:   var(--ex2e-bg-hover);
+}
+
+.exalted2e.item.generic .manse-drop-placeholder {
+  display:        flex;
+  align-items:    center;
+  gap:            6px;
+  font-style:     italic;
+  font-size:      var(--ex2e-font-size-sm);
+  color:          var(--ex2e-text-muted);
+  pointer-events: none;
+}
+
+.exalted2e.item.generic .manse-drop-chip {
+  display:     flex;
+  align-items: center;
+  gap:         6px;
+  width:       100%;
+}
+
+.exalted2e.item.generic .manse-drop-chip-name {
+  flex:      1;
+  font-size: var(--ex2e-font-size-sm);
+  color:     var(--ex2e-text-primary);
+}
+
+.exalted2e.item.generic .manse-drop-clear {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  width:           18px;
+  height:          18px;
+  padding:         0;
+  border:          1px solid var(--ex2e-gold-dark);
+  border-radius:   50%;
+  background:      transparent;
+  color:           var(--ex2e-text-muted);
+  font-size:       10px;
+  cursor:          pointer;
+  flex-shrink:     0;
+  transition:      color            var(--ex2e-transition-fast),
+                   border-color     var(--ex2e-transition-fast);
+}
+
+.exalted2e.item.generic .manse-drop-clear:hover {
+  color:        var(--ex2e-gold-bright);
+  border-color: var(--ex2e-gold-main);
+}
+
+.exalted2e.item.generic .familiar-actor-drop-zone {
+  flex-direction: column;
+  align-items:    flex-start;
+  gap:            4px;
+}
+
+.exalted2e.item.generic .cult-stats-row {
+  display:     flex;
+  gap:         var(--ex2e-gap-md);
+  flex-wrap:   wrap;
+}
+
+.exalted2e.item.generic .cult-stat {
+  display:        flex;
+  flex-direction: column;
+  gap:            2px;
+}
+
+.exalted2e.item.generic .cult-stat-label {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color:          var(--ex2e-text-muted);
+}
+
+.exalted2e.item.generic .cult-stat-value {
+  font-size: var(--ex2e-font-size-sm);
+  color:     var(--ex2e-text-primary);
+}
+
+.exalted2e.item.generic .manse-powers-header {
+  display:         flex;
+  justify-content: space-between;
+  align-items:     center;
+  margin-bottom:   var(--ex2e-gap-sm);
+}
+
+.exalted2e.item.generic .manse-budget {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  color:          var(--ex2e-text-muted);
+  letter-spacing: 0.04em;
+}
+.exalted2e.item.generic .manse-budget.budget-over {
+  color: var(--ex2e-dmg-lethal, #c0392b);
+}
+
+.exalted2e.item.generic .manse-powers-table {
+  width:           100%;
+  border-collapse: collapse;
+  font-size:       var(--ex2e-font-size-sm);
+  margin-bottom:   var(--ex2e-gap-sm);
+}
+.exalted2e.item.generic .manse-powers-table th {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color:          var(--ex2e-gold-main);
+  padding:        2px var(--ex2e-gap-sm);
+  text-align:     left;
+}
+.exalted2e.item.generic .manse-powers-table td {
+  padding:        3px var(--ex2e-gap-sm);
+  border-bottom:  1px solid var(--ex2e-border-color);
+  vertical-align: middle;
+}
+.exalted2e.item.generic .manse-powers-table input[type="text"] {
+  width:         100%;
+  background:    var(--ex2e-bg-medium);
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: var(--ex2e-border-radius-sm);
+  color:         var(--ex2e-text-primary);
+  padding:       2px 4px;
+  font-size:     var(--ex2e-font-size-sm);
+}
+.exalted2e.item.generic .manse-powers-table input[type="number"] {
+  width:         3em;
+  background:    var(--ex2e-bg-medium);
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: var(--ex2e-border-radius-sm);
+  color:         var(--ex2e-text-primary);
+  text-align:    center;
+  padding:       2px 4px;
+  font-size:     var(--ex2e-font-size-sm);
+}
+
+.exalted2e.item.generic .manse-no-powers {
+  font-style: italic;
+  color:      var(--ex2e-text-muted);
+  font-size:  var(--ex2e-font-size-sm);
+  text-align: center;
+  margin:     var(--ex2e-gap-sm) 0;
+}
+
+.exalted2e.item.generic .btn-add-power {
+  display:        flex;
+  align-items:    center;
+  gap:            4px;
+  padding:        4px var(--ex2e-gap-sm);
+  border:         1px solid var(--ex2e-gold-dark);
+  border-radius:  var(--ex2e-border-radius);
+  background:     var(--ex2e-bg-darkest);
+  color:          var(--ex2e-gold-bright);
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  letter-spacing: 0.04em;
+  cursor:         pointer;
+  margin-top:     var(--ex2e-gap-xs);
+  transition:     background var(--ex2e-transition-fast),
+                  border-color var(--ex2e-transition-fast);
+}
+.exalted2e.item.generic .btn-add-power:hover {
+  background:   var(--ex2e-bg-hover);
+  border-color: var(--ex2e-gold-main);
+}

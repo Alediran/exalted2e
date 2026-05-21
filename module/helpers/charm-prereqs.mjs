@@ -18,6 +18,14 @@
  *                      against `alt.virtueMin`. The actor is resolved from
  *                      the explicit `actor` arg passed to evaluateCharmPrereqs,
  *                      falling back to `hostCharm.actor` for embedded charms.
+ *   • essence        — checks `actor.system.essence.value >= alt.essenceMin`.
+ *   • ability        — checks an ability or attribute dot rating:
+ *                      `alt.abilityKey` (normalized, case-insensitive) against
+ *                      `alt.abilityMin`. Tries `system.abilities` first, then
+ *                      `system.attributes`.
+ *   • background     — checks that the actor owns a background item whose
+ *                      normalized name equals `alt.backgroundName` and whose
+ *                      `system.value >= alt.backgroundMin` (default 1).
  *
  * Charm-without-an-actor (compendium view, unowned item) cannot be
  * validated; the matrix returns an empty array for those.
@@ -76,6 +84,32 @@ function _altSatisfied(alt, hostCharm, ownedCharms, actor = null) {
     const sys  = actor?.system ?? hostCharm.actor?.system ?? null;
     const rating = sys?.virtues?.[key]?.dotRating ?? 0;
     return rating >= min;
+  }
+  if (alt.type === "essence") {
+    const min = Number(alt.essenceMin ?? 1);
+    const sys = actor?.system ?? hostCharm.actor?.system ?? null;
+    return (sys?.essence?.value ?? 0) >= min;
+  }
+  if (alt.type === "ability") {
+    const key = _norm(alt.abilityKey ?? "");
+    if (!key) return false;
+    const min = Number(alt.abilityMin ?? 1);
+    const sys = actor?.system ?? hostCharm.actor?.system ?? null;
+    if (!sys) return false;
+    const abilEntry = Object.entries(sys.abilities ?? {}).find(([k]) => _norm(k) === key);
+    if (abilEntry) return (abilEntry[1]?.value ?? 0) >= min;
+    const attrEntry = Object.entries(sys.attributes ?? {}).find(([k]) => _norm(k) === key);
+    if (attrEntry) return (attrEntry[1]?.value ?? 0) >= min;
+    return false;
+  }
+  if (alt.type === "background") {
+    const wantName = _norm(alt.backgroundName ?? "");
+    if (!wantName) return false;
+    const min = Number(alt.backgroundMin ?? 1);
+    const a = actor ?? hostCharm.actor ?? null;
+    if (!a) return false;
+    return a.items.filter(i => i.type === "background" && _norm(i.name) === wantName)
+                  .some(i => (i.system?.value ?? 0) >= min);
   }
   return false;
 }
@@ -180,6 +214,22 @@ function _altLabel(alt, actor = null) {
     const min = Number(alt.virtueMin ?? 1);
     if (!key) return "";
     return `${key.charAt(0).toUpperCase() + key.slice(1)} ${min}+`;
+  }
+  if (alt?.type === "essence") {
+    const min = Number(alt.essenceMin ?? 1);
+    return `${game.i18n.localize("EX2E.Essence")} ${min}+`;
+  }
+  if (alt?.type === "ability") {
+    const key = String(alt.abilityKey ?? "").trim();
+    const min = Number(alt.abilityMin ?? 1);
+    if (!key) return "";
+    return `${key.charAt(0).toUpperCase() + key.slice(1)} ${min}+`;
+  }
+  if (alt?.type === "background") {
+    const name = String(alt.backgroundName ?? "").trim();
+    const min  = Number(alt.backgroundMin ?? 1);
+    if (!name) return "";
+    return `${name} ${min}+`;
   }
   const uid = String(alt?.charmUid ?? "").trim();
   if (uid && actor) {

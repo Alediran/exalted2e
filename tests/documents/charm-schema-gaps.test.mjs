@@ -10,8 +10,9 @@ describe("CharmData schema gaps — field presence", () => {
   it("B6: dvPenalty exists on schema", () => {
     expect(schema).toHaveProperty("dvPenalty");
   });
-  it("B1: cost has motesLabel field", () => {
-    expect(schema.cost.options).toHaveProperty("motesLabel");
+  it("DSL: cost has formula field", () => {
+    const schema = CharmData.defineSchema();
+    expect(schema.cost.fields).toHaveProperty("formula");
   });
   it("B5: martialArtsStyleName exists on schema", () => {
     expect(schema).toHaveProperty("martialArtsStyleName");
@@ -46,6 +47,13 @@ describe("CharmData schema gaps — field presence", () => {
     const altFields = schema.prereqGroups.options.options.alternatives.options.options;
     expect(altFields).toHaveProperty("virtueKey");
     expect(altFields).toHaveProperty("virtueMin");
+  });
+  it("grantsMastery exists and defaults false", () => {
+    expect(schema).toHaveProperty("grantsMastery");
+    expect(schema.grantsMastery.initial).toBe(false);
+  });
+  it("masteryCommitment field was removed from charm schema (commitment now lives in AE flags)", () => {
+    expect(schema).not.toHaveProperty("masteryCommitment");
   });
 });
 
@@ -158,12 +166,15 @@ describe("CharacterData — bonus fields", () => {
     expect(f.initial).toBe(0);
   });
 
-  it("bonuses SchemaField has woundPenaltyReduction, soakBashing, soakLethal, soakAggravated, hardnessAdd", () => {
+  it("bonuses SchemaField has all expected NumberFields", () => {
     const b = schema.bonuses.fields;
-    expect(b.woundPenaltyReduction).toBeInstanceOf(fields.NumberField);
-    expect(b.soakBashing).toBeInstanceOf(fields.NumberField);
-    expect(b.soakLethal).toBeInstanceOf(fields.NumberField);
-    expect(b.soakAggravated).toBeInstanceOf(fields.NumberField);
-    expect(b.hardnessAdd).toBeInstanceOf(fields.NumberField);
+    for (const key of [
+      "woundPenaltyReduction",
+      "soakBashing", "soakLethal", "soakAggravated", "hardnessAdd",
+      "dodgeBonus", "parryBonus", "rateBonus", "motePersonal", "motePeripheral",
+      "healthGrantZero", "healthGrantOne", "healthGrantTwo"
+    ]) {
+      expect(b[key], key).toBeInstanceOf(fields.NumberField);
+    }
   });
 });

@@ -50,6 +50,7 @@ EX2E.abilityLabels = {
   linguistics:   "EX2E.AbilityLinguistics",
   lore:          "EX2E.AbilityLore",
   martialArts:   "EX2E.AbilityMartialArts",
+  martialarts:   "EX2E.AbilityMartialArts",
   medicine:      "EX2E.AbilityMedicine",
   melee:         "EX2E.AbilityMelee",
   occult:        "EX2E.AbilityOccult",
@@ -113,6 +114,23 @@ EX2E.infernalCastePatron = {
   fiend:      "ebonDragon"
 };
 
+// Per-splat static flags consumed by CharacterSheet._prepareContext to
+// replace inline exaltType switches. Add a new entry here when a new
+// splat type is introduced; the sheet reads beh = splatBehaviors[exaltType].
+EX2E.splatBehaviors = {
+  //                     showCharms  showAstrology  limitLabelKey                      sorceryLabelKey                  charmGroupBy  fourColumnAbilities  attributeCasteUI  showDbFlux  animaLiminalAtDim  isLunar
+  solar:       { showCharms: true,  showAstrology: false, limitLabelKey: "EX2E.Limit",                sorceryLabelKey: "EX2E.TraditionSorcery",    charmGroupBy: "ability", fourColumnAbilities: false, attributeCasteUI: false, showDbFlux: false, animaLiminalAtDim: false, isLunar: false },
+  abyssal:     { showCharms: true,  showAstrology: false, limitLabelKey: "EX2E.LimitVariantResonance", sorceryLabelKey: "EX2E.TraditionSorcery",   charmGroupBy: "ability", fourColumnAbilities: false, attributeCasteUI: false, showDbFlux: false, animaLiminalAtDim: false, isLunar: false },
+  infernal:    { showCharms: true,  showAstrology: false, limitLabelKey: "EX2E.LimitVariantTorment",  sorceryLabelKey: "EX2E.TraditionSorcery",    charmGroupBy: "yozi",    fourColumnAbilities: false, attributeCasteUI: false, showDbFlux: false, animaLiminalAtDim: false, isLunar: false },
+  terrestrial: { showCharms: true,  showAstrology: false, limitLabelKey: "EX2E.Limit",                sorceryLabelKey: "EX2E.TraditionSorcery",   charmGroupBy: "ability", fourColumnAbilities: false, attributeCasteUI: false, showDbFlux: true,  animaLiminalAtDim: true,  isLunar: false },
+  sidereal:    { showCharms: true,  showAstrology: true,  limitLabelKey: "EX2E.Limit",                sorceryLabelKey: "EX2E.TraditionSorcery",   charmGroupBy: "ability", fourColumnAbilities: false, attributeCasteUI: false, showDbFlux: false, animaLiminalAtDim: false, isLunar: false },
+  lunar:       { showCharms: true,  showAstrology: false, limitLabelKey: "EX2E.Limit",                sorceryLabelKey: "EX2E.TraditionSorcery",   charmGroupBy: "ability", fourColumnAbilities: true,  attributeCasteUI: true,  showDbFlux: false, animaLiminalAtDim: false, isLunar: true  },
+  alchemical:  { showCharms: true,  showAstrology: false, limitLabelKey: "EX2E.LimitVariantClarity",  sorceryLabelKey: "EX2E.TraditionProcedures", charmGroupBy: "ability", fourColumnAbilities: true,  attributeCasteUI: true,  showDbFlux: false, animaLiminalAtDim: false, isLunar: false },
+  mortal:      { showCharms: false, showAstrology: false, limitLabelKey: "EX2E.Limit",                sorceryLabelKey: "EX2E.TraditionSorcery",   charmGroupBy: "ability", fourColumnAbilities: false, attributeCasteUI: false, showDbFlux: false, animaLiminalAtDim: false, isLunar: false },
+  spirit:      { showCharms: true,  showAstrology: false, limitLabelKey: "EX2E.Limit",                sorceryLabelKey: "EX2E.TraditionSorcery",   charmGroupBy: "ability", fourColumnAbilities: false, attributeCasteUI: false, showDbFlux: false, animaLiminalAtDim: false, isLunar: false },
+  martialarts: { showCharms: true,  showAstrology: false, limitLabelKey: "EX2E.Limit",                sorceryLabelKey: "EX2E.TraditionSorcery",   charmGroupBy: "ability", fourColumnAbilities: false, attributeCasteUI: false, showDbFlux: false, animaLiminalAtDim: false, isLunar: false },
+};
+
 // Splats that use the classic Limit mechanic. Resisting unnatural mental
 // influence with Willpower ticks the Limit counter (capped at once per
 // scene per attacker) for these splats only. Abyssal (Resonance),
@@ -125,7 +143,8 @@ EX2E.charmTypes = {
   reflexive:    "EX2E.CharmReflexive",
   simple:       "EX2E.CharmSimple",
   extraAction:  "EX2E.CharmExtraAction",
-  permanent:    "EX2E.CharmPermanent"
+  permanent:    "EX2E.CharmPermanent",
+  shintai:      "EX2E.CharmShintai"
 };
 
 EX2E.durations = {
@@ -208,20 +227,122 @@ EX2E.errataMagicalMaterialArmorBonuses = {
 }
 
 EX2E.weaponTags = [
-  "Bow", "Clinch", "Disarming", "Flame type", "Lance type", "Martial Arts",
+  "Area", "Bow", "Clinch", "Disarming", "Flame type", "Lance type", "Martial Arts",
   "Natural", "Overwhelming", "Piercing", "Reach", "Single Shot", "Thrown", "Two-handed"
+];
+
+// Flaw of Invulnerability options keyed by exalt type.
+// Shape: { solar: [{ key: "solar-form", label: "Solar Form" }, ...], ... }
+// Empty by default; populate per-splat as they are implemented.
+EX2E.foiTypes = {};
+
+// Range bands for ranged attacks (mode.range > 0). Each band covers distances
+// up to (maxFraction × effectiveRange). The last band covers up to the full
+// max range; beyond that the attack is refused. penalty is positive (dice removed).
+EX2E.rangeBands = [
+  { key: "short",  maxFraction: 1 / 3, penalty: 0, labelKey: "EX2E.RangeBandShort"  },
+  { key: "medium", maxFraction: 2 / 3, penalty: 0, labelKey: "EX2E.RangeBandMedium" },
+  { key: "long",   maxFraction: 1,     penalty: 2, labelKey: "EX2E.RangeBandLong"   },
 ];
 
 EX2E.armorTags = [
   "Concealable"
 ];
 
+EX2E.hearthstoneTypes = {
+  air:      "EX2E.HearthstoneTypeAir",
+  earth:    "EX2E.HearthstoneTypeEarth",
+  fire:     "EX2E.HearthstoneTypeFire",
+  water:    "EX2E.HearthstoneTypeWater",
+  wood:     "EX2E.HearthstoneTypeWood",
+  solar:    "EX2E.HearthstoneTypeSolar",
+  lunar:    "EX2E.HearthstoneTypeLunar",
+  sidereal: "EX2E.HearthstoneTypeSidereal",
+  abyssal:  "EX2E.HearthstoneTypeAbyssal",
+  infernal: "EX2E.HearthstoneTypeInfernal"
+};
+
+EX2E.backgroundTypes = {
+  // ── Core (Exalted 2e) ─────────────────────────────────────────────────
+  allies:           "EX2E.BackgroundTypeAllies",
+  artifact:         "EX2E.BackgroundTypeArtifact",
+  backing:          "EX2E.BackgroundTypeBacking",
+  contacts:         "EX2E.BackgroundTypeContacts",
+  cult:             "EX2E.BackgroundTypeCult",
+  familiar:         "EX2E.BackgroundTypeFamiliar",
+  followers:        "EX2E.BackgroundTypeFollowers",
+  influence:        "EX2E.BackgroundTypeInfluence",
+  manse:            "EX2E.BackgroundTypeManse",
+  mentor:           "EX2E.BackgroundTypeMentor",
+  resources:        "EX2E.BackgroundTypeResources",
+  // ── Dragon-Blooded (Manual of Exalted Power) ──────────────────────────
+  areasOfInterest:  "EX2E.BackgroundTypeAreasOfInterest",
+  arsenal:          "EX2E.BackgroundTypeArsenal",
+  breeding:         "EX2E.BackgroundTypeBreeding",
+  command:          "EX2E.BackgroundTypeCommand",
+  family:           "EX2E.BackgroundTypeFamily",
+  henchmen:         "EX2E.BackgroundTypeHenchmen",
+  reputation:       "EX2E.BackgroundTypeReputation",
+  retainers:        "EX2E.BackgroundTypeRetainers",
+  // ── Lunar (Manual of Exalted Power) ───────────────────────────────────
+  connections:      "EX2E.BackgroundTypeConnections",
+  hearthsBlood:     "EX2E.BackgroundTypeHearthsBlood",
+  solarBond:        "EX2E.BackgroundTypeSolarBond",
+  taboo:            "EX2E.BackgroundTypeTaboo",
+  tattooArtifact:   "EX2E.BackgroundTypeTattooArtifact",
+  // ── Sidereal (Manual of Exalted Power) ────────────────────────────────
+  acquaintances:    "EX2E.BackgroundTypeAcquaintances",
+  celestialManse:   "EX2E.BackgroundTypeCelestialManse",
+  savant:           "EX2E.BackgroundTypeSavant",
+  salary:           "EX2E.BackgroundTypeSalary",
+  sifu:             "EX2E.BackgroundTypeSifu",
+  // ── Abyssal (Manual of Exalted Power) ─────────────────────────────────
+  abyssalCommand:   "EX2E.BackgroundTypeAbyssalCommand",
+  liege:            "EX2E.BackgroundTypeLiege",
+  spies:            "EX2E.BackgroundTypeSpies",
+  underworldManse:  "EX2E.BackgroundTypeUnderworldManse",
+  whispers:         "EX2E.BackgroundTypeWhispers",
+  // ── Alchemical (Manual of Exalted Power) ──────────────────────────────
+  class:            "EX2E.BackgroundTypeClass",
+  eidolon:          "EX2E.BackgroundTypeEidolon",
+  module:           "EX2E.BackgroundTypeModule",
+  // ── Infernal (Manual of Exalted Power) ────────────────────────────────
+  unwovenCoadjutor: "EX2E.BackgroundTypeUnwovenCoadjutor",
+  // ── Fair Folk (Graceful Wicked Masks) ─────────────────────────────────
+  birth:            "EX2E.BackgroundTypeBirth",
+  freehold:         "EX2E.BackgroundTypeFreehold",
+  gossamer:         "EX2E.BackgroundTypeGossamer",
+  retinue:          "EX2E.BackgroundTypeRetinue",
+  style:            "EX2E.BackgroundTypeStyle",
+  // ── Dreams of the First Age ───────────────────────────────────────────
+  panoply:          "EX2E.BackgroundTypePanoply",
+  wealth:           "EX2E.BackgroundTypeWealth",
+};
+
+// Ordered groups used to render <optgroup> headers in the background type dropdown.
+// Keys must exist in EX2E.backgroundTypes.
+EX2E.backgroundTypeGroups = [
+  { labelKey: "EX2E.BackgroundGroupCore",         keys: ["allies", "artifact", "backing", "contacts", "cult", "familiar", "followers", "influence", "manse", "mentor", "resources"] },
+  { labelKey: "EX2E.BackgroundGroupDragonBlooded", keys: ["areasOfInterest", "arsenal", "breeding", "command", "family", "henchmen", "reputation", "retainers"] },
+  { labelKey: "EX2E.BackgroundGroupLunar",         keys: ["connections", "hearthsBlood", "solarBond", "taboo", "tattooArtifact"] },
+  { labelKey: "EX2E.BackgroundGroupSidereal",      keys: ["acquaintances", "celestialManse", "salary", "savant", "sifu"] },
+  { labelKey: "EX2E.BackgroundGroupAbyssal",       keys: ["abyssalCommand", "liege", "spies", "underworldManse", "whispers"] },
+  { labelKey: "EX2E.BackgroundGroupAlchemical",    keys: ["class", "eidolon", "module"] },
+  { labelKey: "EX2E.BackgroundGroupInfernal",      keys: ["unwovenCoadjutor"] },
+  { labelKey: "EX2E.BackgroundGroupFairFolk",      keys: ["birth", "freehold", "gossamer", "retinue", "style"] },
+  { labelKey: "EX2E.BackgroundGroupDotFA",         keys: ["panoply", "wealth"] },
+];
+
+// Index 0–5 = background dots 0–5
+EX2E.cultMoteRegen = [0, 0, 2, 3, 4, 6];
+EX2E.cultWpHours   = [0, 24, 24, 24, 12, 6]; // hours between WP recovery; 0 = none
+
 // ── Charm Keywords ──────────────────────────────────────────────────────
 // Predefined list for autocomplete / dropdown suggestions on Charm sheets.
 // Alphabetised and deduped — source categories preserved in comments below
 // for reference (Avatar is Abyssal, Axiomatic is Alchemical, etc.).
 EX2E.charmKeywords = [
-  "Avatar", "Axiomatic",
+  "Action-Only", "Avatar", "Axiomatic",
   "Blasphemy",
   "Combo-Basic", "Combo-OK", "Combo-Permanent", "Compulsion", "Cooperative",
   "Counterattack", "Crippling",
@@ -236,7 +357,7 @@ EX2E.charmKeywords = [
   "Mount (Mundane)", "Mount (any)",
   "Native",
   "Obvious", "Overdrive",
-  "Perfect Dodge", "Perfect Mental Defense", "Perfect Parry", "Poison", "Prayer Strip",
+  "Perfect Mental Defense", "Poison", "Prayer Strip",
   "Rage", "Reactor",
   "Resist Unnatural Mental Influence",
   "Servitude", "Shaping", "Sickness", "Social", "Sorcerous", "Spectral", "Stackable",

@@ -122,7 +122,7 @@ export function registerSubmodules(context) {
           system: { installed: true, installedSlotType: "general" } },
         { name: "Zero-Cost Perm Submod G", type: "charm",
           system: { isSubmodule: true, charmType: "permanent",
-                    cost: { motes: 0, willpower: 0, xp: 0 } } }
+                    cost: { formula: "—" } } }
       ]);
       const parent = actor.items.find(i => i.name === "Installed Parent G");
       const sub    = actor.items.find(i => i.name === "Zero-Cost Perm Submod G");

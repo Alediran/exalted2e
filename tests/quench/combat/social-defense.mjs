@@ -104,7 +104,7 @@ export function registerSocialDefense(context) {
         charmType: "reflexive",
         ability:   "integrity",
         steps:     [2],
-        cost:      { motes: 5 },
+        cost:      { formula: "5m" },
         duration:  "instant"
       });
       const card = await postSocialAttack(attacker, defender);

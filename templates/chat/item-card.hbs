@@ -1,5 +1,5 @@
-<div class="ex2e-item-card">
-  <div class="item-card-header">
+<div class="ex2e-roll-card ex2e-item-card">
+  <div class="card-header">
     <img src="{{item.img}}" alt="{{item.name}}" class="item-card-img">
     <div class="item-card-title">
       <h3>{{item.name}}</h3>
@@ -10,12 +10,7 @@
   {{#if (eq item.type "charm")}}
   <div class="item-card-stats">
     <span><strong>Cost:</strong>
-      {{item.system.cost.motes}}m
-      {{#if item.system.cost.willpower}} +{{item.system.cost.willpower}}wp{{/if}}
-      {{#if item.system.cost.bashingHealth}} +{{item.system.cost.bashingHealth}}hl(B){{/if}}
-      {{#if item.system.cost.lethalHealth}} +{{item.system.cost.lethalHealth}}hl(L){{/if}}
-      {{#if item.system.cost.aggravatedHealth}} +{{item.system.cost.aggravatedHealth}}hl(A){{/if}}
-      {{#if item.system.cost.xp}} +{{item.system.cost.xp}}xp{{/if}}
+      {{moteCostString item.system.cost}}
     </span>
     <span><strong>Type:</strong> {{item.system.charmType}}</span>
     <span><strong>Duration:</strong> {{item.system.duration}}</span>

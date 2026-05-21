@@ -4,6 +4,7 @@ import { planCommitOther, dispatchTickAdvance } from "../combat/multi-tick.mjs";
 import { payPendingStuntRewards } from "../combat/stunt-payment.mjs";
 import { EX2E } from "../config.mjs";
 import { sceneChangeFade } from "../combat/anima-fade.mjs";
+import { decrementActionCharmsFor } from "../helpers/charm-deactivation.mjs";
 
 /**
  * ExaltedCombat — wheel-based tick initiative for Exalted 2e.
@@ -246,6 +247,20 @@ export class ExaltedCombat extends Combat {
     // freshly-sorted list (next free-and-unacted combatant).
     await this.update({ turn: 0 });
 
+    // Clear expired coordination AEs (tick-based, not refreshable-based).
+    // Strict `<` so combatants on the SAME tick as the expiry still benefit.
+    const newTick = this.combatant?.initiative ?? 0;
+    const toDeleteCoord = [];
+    for (const a of game.actors) {
+      for (const ae of a.effects) {
+        const expiry = ae.flags?.exalted2e?.coordinationExpiry;
+        if (expiry && expiry.tick < newTick) toDeleteCoord.push({ actor: a, aeId: ae.id });
+      }
+    }
+    for (const { actor: a, aeId } of toDeleteCoord) {
+      await a.deleteEmbeddedDocuments("ActiveEffect", [aeId]);
+    }
+
     // Stamp incoming combatant's peripheral so the next Totemic check can tell
     // whether peripheral was spent during this coming action.
     const next = this.combatant;
@@ -328,6 +343,7 @@ export class ExaltedCombat extends Combat {
       if (!landed) continue;
       if (c.actor) {
         await this._refreshDVsFor(c.actor);
+        await decrementActionCharmsFor(c.actor);
         await payPendingStuntRewards(c);
       }
       if (c.getFlag("exalted2e", "committedAction")) {
