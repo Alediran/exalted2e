@@ -78,7 +78,7 @@ export function registerCharmTargetEffect(context) {
             label:    "Activation Debuff",
             icon:     "icons/svg/aura.svg",
             duration: "oneScene",
-            changes:  [{ key: "system.attributes.strength.value", mode: 2, value: "-1" }],
+            changes:  [{ key: "system.attributes.strength.value", type: "add", value: "-1" }],
             internalPenalty: { enabled: false, type: "all", amount: -1 },
           },
         },

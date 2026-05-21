@@ -400,22 +400,24 @@ Hooks.once("init", function () {
   // Strip status effects that have no meaning in Exalted 2e. This covers both
   // Foundry built-ins that don't apply to the system and any extras injected
   // by modules (shields, blessings, RPG-generic markers, etc.).
-  CONFIG.statusEffects = CONFIG.statusEffects.filter(e => ![
+  for (const id of [
     "invisible", "frozen",  "burning",
     "silence",   "marked",  "targeted", "target",
     "holyShield","magicShield","coldShield","fireShield",
     "bless",     "eye",     "downgrade", "upgrade",
     "degen",     "regen",   "curse",     "shock"
-  ].includes(e.id));
+  ]) {
+    delete CONFIG.statusEffects[id];
+  }
 
   // Enrich Foundry built-in status effects with Exalted 2e mechanical flags.
   // Storing flags on the entry means the AE Foundry creates from the token HUD
   // already carries the right payload — the roll pipelines aggregate every
   // active effect with a `flags.exalted2e.externalPenalty` and subtract.
   const _enrichStatus = (id, flags, tooltip) => {
-    const entry = CONFIG.statusEffects.find(e => e.id === id);
+    const entry = CONFIG.statusEffects[id];
     if (entry) {
-      entry.label = tooltip ?? entry.label;
+      entry.name = tooltip ?? entry.name;
       entry.flags = foundry.utils.mergeObject(entry.flags ?? {}, { exalted2e: flags });
     }
   };
@@ -433,15 +435,15 @@ Hooks.once("init", function () {
   _enrichStatus("disease",    { diseased: true });
 
   // Custom statuses — not in Foundry's built-in list.
-  CONFIG.statusEffects.push(
+  Object.assign(CONFIG.statusEffects, {
     // Cover: defender on higher/behind cover is harder to hit.
-    { id: "lightCover",      label: "EX2E.StatusLightCover",      img: "icons/svg/ruins.svg",   flags: { exalted2e: { dvBonus: { dodge: 1, parry: 0 } } } },
-    { id: "heavyCover",      label: "EX2E.StatusHeavyCover",      img: "icons/svg/castle.svg",  flags: { exalted2e: { dvBonus: { dodge: 2, parry: 1 } } } },
+    lightCover:      { id: "lightCover",      name: "EX2E.StatusLightCover",      img: "icons/svg/ruins.svg",   flags: { exalted2e: { dvBonus: { dodge: 1, parry: 0 } } } },
+    heavyCover:      { id: "heavyCover",      name: "EX2E.StatusHeavyCover",      img: "icons/svg/castle.svg",  flags: { exalted2e: { dvBonus: { dodge: 2, parry: 1 } } } },
     // Height advantage: attacker on higher ground is harder to hit in return.
-    { id: "heightAdvantage", label: "EX2E.StatusHeightAdvantage", img: "icons/svg/up.svg",      flags: { exalted2e: { dvBonus: { dodge: 1, parry: 1 } } } },
+    heightAdvantage: { id: "heightAdvantage", name: "EX2E.StatusHeightAdvantage", img: "icons/svg/up.svg",      flags: { exalted2e: { dvBonus: { dodge: 1, parry: 1 } } } },
     // Crippling injury: −1 internal penalty to all physical actions until surgically healed.
-    { id: "crippled",        label: "EX2E.StatusCrippled",        img: "icons/svg/blood.svg",   flags: { exalted2e: { internalPenalty: { value: 1, type: "physical" }, crippled: true } } }
-  );
+    crippled:        { id: "crippled",        name: "EX2E.StatusCrippled",        img: "icons/svg/blood.svg",   flags: { exalted2e: { internalPenalty: { value: 1, type: "physical" }, crippled: true } } },
+  });
 
   console.log("Exalted 2e | System initialised.");
 });
@@ -2685,9 +2687,9 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       ui.notifications.warn(game.i18n.localize("EX2E.EffectGMOnlyRemoval"));
       return;
     }
-    const templateId = ev.currentTarget.dataset.templateId;
-    if (!templateId || !canvas.scene) return;
-    await canvas.scene.deleteEmbeddedDocuments("MeasuredTemplate", [templateId]);
+    const drawingId = ev.currentTarget.dataset.drawingId;
+    if (!drawingId || !canvas.scene) return;
+    await canvas.scene.deleteEmbeddedDocuments("Drawing", [drawingId]);
   });
 
   // ── Apply area damage ────────────────────────────────────────────────

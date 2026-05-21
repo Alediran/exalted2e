@@ -56,7 +56,7 @@ export function registerFormCharms(context) {
       const { applyCharmAEs } = await import("../../../module/combat/form-charms.mjs");
       const actor = await setupActor();
       const charm = await createFormCharm(actor, {
-        effects: [{ name: "Test Soak Bonus", changes: [{ key: "system.soak.bashing", mode: 2, value: "3" }] }]
+        effects: [{ name: "Test Soak Bonus", changes: [{ key: "system.soak.bashing", type: "add", value: "3" }] }]
       });
       assert.equal(charm.effects.size, 1, "charm has one embedded effect");
       const effectsBefore = actor.effects.size;
@@ -137,7 +137,7 @@ export function registerFormCharms(context) {
       const actor = await setupActor();
       const charm = await createFormCharm(actor, {
         cost: { formula: "3m" },
-        effects: [{ name: "Snake Soak", changes: [{ key: "system.soak.bashing", mode: 2, value: "3" }] }]
+        effects: [{ name: "Snake Soak", changes: [{ key: "system.soak.bashing", type: "add", value: "3" }] }]
       });
       const motesBefore = actor.system.motes.peripheral.value;
 
@@ -285,7 +285,7 @@ export function registerFormCharms(context) {
       assert.equal(actor.effects.size, effectsBefore + 1, "one AE added to actor");
       const ae = actor.effects.find(e => e.flags?.exalted2e?.charmSource === charm.id);
       assert.ok(ae, "AE tagged with charmSource = charm.id");
-      const change = ae.changes.find(c => c.key === "system.attributes.strength.value");
+      const change = ae.system.changes.find(c => c.key === "system.attributes.strength.value");
       assert.ok(change, "change for system.attributes.strength.value present");
       assert.equal(change.value, "2", "change value is '2'");
     });
@@ -342,8 +342,8 @@ export function registerFormCharms(context) {
       assert.equal(charmAEs.length, 1, "one charmSource AE added to actor");
       const ae = actor.effects.find(e => e.flags?.exalted2e?.charmSource === charm.id);
       assert.ok(ae, "AE tagged with charmSource = charm.id");
-      const bashingChange = ae.changes.find(c => c.key === "system.bonuses.soakBashing");
-      const lethalChange  = ae.changes.find(c => c.key === "system.bonuses.soakLethal");
+      const bashingChange = ae.system.changes.find(c => c.key === "system.bonuses.soakBashing");
+      const lethalChange  = ae.system.changes.find(c => c.key === "system.bonuses.soakLethal");
       assert.ok(bashingChange, "soakBashing change present on AE");
       assert.equal(bashingChange.value, "2", "soakBashing value is '2'");
       assert.ok(lethalChange, "soakLethal change present on AE");
@@ -414,7 +414,7 @@ export function registerFormCharms(context) {
       const change = ae.changes.find(c => c.key === "system.bonuses.rateBonus");
       assert.ok(change, "rateBonus change present");
       assert.equal(change.value, "2", "rateBonus value is '2'");
-      assert.equal(change.mode, 2, "mode is ADD (2)");
+      assert.equal(change.type, "add", 'type is "add"');
     });
 
     // F17 — motePoolBonus personal → ADD change on bonuses.motePersonal
@@ -500,7 +500,7 @@ export function registerFormCharms(context) {
       assert.ok(keys.includes("system.bonuses.healthGrantTwo"),     "healthGrantTwo change present");
       const twoChange = ae.changes.find(c => c.key === "system.bonuses.healthGrantTwo");
       assert.equal(twoChange.value, "2", "value is '2'");
-      assert.equal(twoChange.mode,  2,   "mode is ADD (2)");
+      assert.equal(twoChange.type, "add", 'type is "add"');
       assert.equal(ae.flags?.exalted2e?.charmSource, charm.id, "charmSource tag set");
     });
 

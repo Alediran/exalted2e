@@ -449,7 +449,7 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const changes = foundry.utils.deepClone(
       this.document.system.targetEffect?.changes ?? []
     );
-    changes.push({ key: "", mode: 2, value: "0" });
+    changes.push({ key: "", type: "add", value: "0" });
     await this.document.update({ "system.targetEffect.changes": changes });
   }
 

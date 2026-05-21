@@ -156,8 +156,8 @@ export function registerCoverStarmetal(context) {
 
     // 9. Poisoned/diseased CONFIG.statusEffects entries carry Exalted detection flags
     it("[251] poisoned and diseased status entries carry exalted2e flags", async function () {
-      const poisoned = CONFIG.statusEffects.find(e => e.id === "poison");
-      const diseased = CONFIG.statusEffects.find(e => e.id === "disease");
+      const poisoned = CONFIG.statusEffects["poison"];
+      const diseased = CONFIG.statusEffects["disease"];
       assert.ok(poisoned, "poison entry present in CONFIG.statusEffects");
       assert.ok(diseased, "disease entry present in CONFIG.statusEffects");
       assert.equal(poisoned?.flags?.exalted2e?.poisoned, true,

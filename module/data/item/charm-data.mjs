@@ -339,7 +339,7 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         duration: new fields.StringField({ initial: "oneScene", choices: ["oneScene", "indefinite", "permanent"] }),
         changes: new fields.ArrayField(new fields.SchemaField({
           key:   new fields.StringField({ initial: "", blank: true }),
-          mode:  new fields.NumberField({ initial: 2, integer: true }), // CONST.ACTIVE_EFFECT_MODES.ADD
+          type:  new fields.StringField({ initial: "add", blank: false }),
           value: new fields.StringField({ initial: "0", blank: true }),
         })),
         internalPenalty: new fields.SchemaField({

@@ -835,7 +835,7 @@ export class ExaltedRoll {
         stunt:       dialogResult.stunt,
         moteCost:    0,
         isAreaAttack: true,
-        templateId:  areaPlacement.templateId,
+        drawingId:   areaPlacement.drawingId,
         areaShape:   areaConfig.shape,
         areaTargets: areaPlacement.targets.map(t => ({ id: t.id, name: t.name })),
         areaResist:  {

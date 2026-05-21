@@ -22,10 +22,10 @@ export function buildCharmSynthAEs(charm, rollData = {}) {
     const b = ev(bashingFormula,    bashing);
     const l = ev(lethalFormula,     lethal);
     const a = ev(aggravatedFormula, aggravated);
-    if (b)           changes.push({ key: "system.bonuses.soakBashing",    mode: 2, value: String(b) });
-    if (l)           changes.push({ key: "system.bonuses.soakLethal",      mode: 2, value: String(l) });
-    if (a)           changes.push({ key: "system.bonuses.soakAggravated",  mode: 2, value: String(a) });
-    if (hardnessAdd) changes.push({ key: "system.bonuses.hardnessAdd",     mode: 2, value: String(hardnessAdd) });
+    if (b)           changes.push({ key: "system.bonuses.soakBashing",    type: "add", value: String(b) });
+    if (l)           changes.push({ key: "system.bonuses.soakLethal",      type: "add", value: String(l) });
+    if (a)           changes.push({ key: "system.bonuses.soakAggravated",  type: "add", value: String(a) });
+    if (hardnessAdd) changes.push({ key: "system.bonuses.hardnessAdd",     type: "add", value: String(hardnessAdd) });
   }
 
   if (sys.healthGrant?.enabled) {
@@ -38,9 +38,9 @@ export function buildCharmSynthAEs(charm, rollData = {}) {
       const zero = opt.zero ?? 0;
       const one  = opt.one  ?? 0;
       const two  = opt.two  ?? 0;
-      if (zero) changes.push({ key: "system.bonuses.healthGrantZero", mode: 2, value: String(zero) });
-      if (one)  changes.push({ key: "system.bonuses.healthGrantOne",  mode: 2, value: String(one)  });
-      if (two)  changes.push({ key: "system.bonuses.healthGrantTwo",  mode: 2, value: String(two)  });
+      if (zero) changes.push({ key: "system.bonuses.healthGrantZero", type: "add", value: String(zero) });
+      if (one)  changes.push({ key: "system.bonuses.healthGrantOne",  type: "add", value: String(one)  });
+      if (two)  changes.push({ key: "system.bonuses.healthGrantTwo",  type: "add", value: String(two)  });
     }
   }
 
@@ -48,17 +48,17 @@ export function buildCharmSynthAEs(charm, rollData = {}) {
     const formula = sys.woundReduction.formula;
     // 4 = magnitude of the worst wound-penalty level (−4); blank formula means "negate all".
     const val = (formula === "" || formula == null) ? 4 : Math.abs(parseInt(formula, 10)) || 0;
-    if (val > 0) changes.push({ key: "system.bonuses.woundPenaltyReduction", mode: 2, value: String(val) });
+    if (val > 0) changes.push({ key: "system.bonuses.woundPenaltyReduction", type: "add", value: String(val) });
   }
 
   if (sys.statBoost?.enabled && Array.isArray(sys.statBoost.changes)) {
     for (const ch of sys.statBoost.changes) {
       if (ch.path && parseFloat(ch.value))
-        changes.push({ key: ch.path, mode: 2, value: String(ch.value ?? 0) });
+        changes.push({ key: ch.path, type: "add", value: String(ch.value ?? 0) });
     }
   }
 
-  // Numeric additive bonuses → changes array (Foundry AE mode:2 ADD, written to system.bonuses.*).
+  // Numeric additive bonuses → changes array (Foundry AE type:"add", written to system.bonuses.*).
   // Non-additive or struct data → extraFlags (written to flags.exalted2e.* and scanned imperatively).
 
   if (sys.dvBonus?.enabled) {
@@ -67,8 +67,8 @@ export function buildCharmSynthAEs(charm, rollData = {}) {
       formula ? (evaluateCharmFormula(formula, rollData, fallback) ?? fallback) : fallback;
     const dodge = ev(dv.dodgeBonusFormula, dv.dodgeBonus ?? 0);
     const parry = ev(dv.parryBonusFormula, dv.parryBonus ?? 0);
-    if (dodge) changes.push({ key: "system.bonuses.dodgeBonus", mode: 2, value: String(dodge) });
-    if (parry) changes.push({ key: "system.bonuses.parryBonus", mode: 2, value: String(parry) });
+    if (dodge) changes.push({ key: "system.bonuses.dodgeBonus", type: "add", value: String(dodge) });
+    if (parry) changes.push({ key: "system.bonuses.parryBonus", type: "add", value: String(parry) });
     // Penalty-ignore data is non-additive (union/flag) → extraFlags.
     if (dv.ignoreAllPenalties || (dv.ignorePenaltyTypes ?? []).length > 0) {
       extraFlags.dvBonusIgnore = {
@@ -82,7 +82,7 @@ export function buildCharmSynthAEs(charm, rollData = {}) {
     const val = sys.rateBonus.formula
       ? Math.floor(evaluateCharmFormula(sys.rateBonus.formula, rollData, 0))
       : 0;
-    if (val) changes.push({ key: "system.bonuses.rateBonus", mode: 2, value: String(val) });
+    if (val) changes.push({ key: "system.bonuses.rateBonus", type: "add", value: String(val) });
   }
 
   if (sys.motePoolBonus?.enabled) {
@@ -91,7 +91,7 @@ export function buildCharmSynthAEs(charm, rollData = {}) {
       const key = sys.motePoolBonus.pool === "personal"
         ? "system.bonuses.motePersonal"
         : "system.bonuses.motePeripheral";
-      changes.push({ key, mode: 2, value: String(amount) });
+      changes.push({ key, type: "add", value: String(amount) });
     }
   }
 

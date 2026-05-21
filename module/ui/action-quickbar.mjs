@@ -552,16 +552,9 @@ export class ActionQuickbar {
 
   // ── Move / Dash reach preview ─────────────────────────────────────────
   /**
-   * Render a client-only MeasuredTemplate centered on the active
-   * combatant's token, radius equal to their Move (Dex) or Dash (Dex + 3)
-   * distance. Using Foundry's native template gives us the scene's proper
-   * distance unit, grid-aware fill highlighting, and the built-in distance
-   * ruler for free.
-   *
-   * The template is never saved to the scene — we hand-instantiate the
-   * document + object pair and parent the object under
-   * `canvas.templates.preview` so it lives only on this client's canvas
-   * until `_hideMoveRange` tears it down.
+   * Render a client-only circle on the interface layer showing Move (Dex) or
+   * Dash (Dex + 3) reach for the active combatant's token.
+   * Drawn using PIXI v8 Graphics; torn down by _hideMoveRange on mouse-leave.
    */
   async _showMoveRange(actor, key) {
     this._hideMoveRange();
@@ -576,39 +569,26 @@ export class ActionQuickbar {
       : (sys.movement ?? dex);
     if (distance <= 0) return;
 
-    const color = key === "dash" ? "#f0a500" : "#ffe066";
-    const DocClass = CONFIG.MeasuredTemplate.documentClass;
-    const ObjClass = CONFIG.MeasuredTemplate.objectClass;
-    const doc = new DocClass({
-      t:           "circle",
-      user:        game.user.id,
-      x:           token.center.x,
-      y:           token.center.y,
-      distance,
-      direction:   0,
-      fillColor:   color,
-      borderColor: color,
-      hidden:      false,
-      flags:       { exalted2e: { movePreview: true } }
-    }, { parent: canvas.scene });
+    const hexColor = key === "dash" ? 0xf0a500 : 0xffe066;
+    const radiusPx = distance * canvas.scene.grid.size;
 
-    // Track the pending show so a fast hover→leave doesn't orphan a
-    // half-drawn template on the canvas.
     const token_id = Symbol("ex2e-move-preview");
     this._moveOverlayPending = token_id;
 
-    const template = new ObjClass(doc);
-    await template.draw();
+    await new Promise(r => requestAnimationFrame(r));
 
-    // If the user already moved off the button while draw() was awaiting,
-    // discard this template instead of attaching it.
-    if (this._moveOverlayPending !== token_id) {
-      template.destroy({ children: true });
-      return;
-    }
+    if (this._moveOverlayPending !== token_id) return;
 
-    canvas.templates.preview.addChild(template);
-    this._moveOverlay = template;
+    const gfx = new PIXI.Graphics();
+    gfx.circle(0, 0, radiusPx);
+    gfx.fill({ color: hexColor, alpha: 0.25 });
+    gfx.circle(0, 0, radiusPx);
+    gfx.stroke({ color: hexColor, width: 2, alpha: 0.8 });
+    gfx.position.set(token.center.x, token.center.y);
+
+    if (!canvas?.interface) { gfx.destroy(); return; }
+    canvas.interface.addChild(gfx);
+    this._moveOverlay = gfx;
     this._moveOverlayPending = null;
   }
 
@@ -616,7 +596,7 @@ export class ActionQuickbar {
     this._moveOverlayPending = null;
     if (!this._moveOverlay) return;
     this._moveOverlay.parent?.removeChild(this._moveOverlay);
-    this._moveOverlay.destroy({ children: true });
+    this._moveOverlay.destroy();
     this._moveOverlay = null;
   }
 

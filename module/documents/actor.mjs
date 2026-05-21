@@ -573,7 +573,7 @@ export class ExaltedActor extends Actor {
     if (!te?.enabled) return null;
     const changes = (te.changes ?? [])
       .filter(c => c.key)
-      .map(c => ({ key: c.key, mode: c.mode, value: c.value }));
+      .map(c => ({ key: c.key, type: c.type ?? "add", value: c.value }));
     const flags = { exalted2e: { charmTargetEffect: true, targetEffectDuration: te.duration ?? "oneScene" } };
     if (te.internalPenalty?.enabled) {
       const penaltyValue = Math.abs(te.internalPenalty.amount);
