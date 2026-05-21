@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-21 (Area attacks, Coordinated attacks, FoI surcharge, Style weapon tag validation, Sidereal/DB MA gates, Martial-ready gating, Countermagic resolution done, Mundane crafting roll resolver done, Manse item type done)
+Last updated: 2026-05-21 (Area attacks, Coordinated attacks, FoI surcharge, Style weapon tag validation, Sidereal/DB MA gates, Martial-ready gating, Countermagic resolution done, Mundane crafting roll resolver done, Manse item type done, Background hooks partial: Familiar actor ref + Cult mote regen + 53-type registry with optgroup display)
 
 ---
 
@@ -44,7 +44,7 @@ Last updated: 2026-05-21 (Area attacks, Coordinated attacks, FoI surcharge, Styl
 | Crippling injuries | Other | health track extension + extended surgery roll |
 | Environmental hazards | Other | Damage/interval + Trauma AE, configurable hazard schema |
 | Manse geomancy rules | Crafting | Oadenol's Codex power table, demesne pre-roll (unblocked by Manse item type) |
-| Background mechanical hooks | Other | AE per background dot (Manse regen, Familiar ref, etc.) |
+| Background mechanical hooks | Other | Familiar actor link + Cult mote-regen/WP-recovery + 53-type optgroup registry done; Backing/Contacts/Resources mechanical automation still pending |
 | Workshop & material prerequisites UI | Crafting | prerequisites check UI for crafting projects |
 | Artifact extended-roll builder | Crafting | Rating cumulative successes; seasons interval; exotic ingredient tracker |
 | Drag-and-drop items between sheets | QoL | improve drop handler across item types |
@@ -97,4 +97,6 @@ Last updated: 2026-05-21 (Area attacks, Coordinated attacks, FoI surcharge, Styl
 | **Total pending** | **48** |
 
 **Biggest force-multipliers:**
-- **Background mechanical hooks** (Group B) → enables Manse mote-regen, Familiar refs, and other Background-driven automation
+- **Social charm bonus payload** (Group C) → prerequisite for Mass Combat morale/demoralize pipeline
+- **Charm deactivation resolver** (Group C) → prerequisite for Mass Combat battle-duration effects
+- **Environmental hazards** (Group B) → prerequisite for Mass Combat terrain modifiers

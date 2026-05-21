@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 197 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-21)
+**Progress: 197 / 263 complete** (11 out-of-scope / partial — last updated 2026-05-21)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -297,7 +297,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] **Drug** item type (effect, duration, addiction; no mechanics yet)
 - [ ] **Vehicle / Warstrider** actor type (First Age magitech)
 - [ ] **Unit** actor type for mass combat
-- [ ] Background mechanical hooks (Backing, Contacts, Resources, Manse → mote regen, Familiar → embedded actor ref)
+- [~] Background mechanical hooks — Familiar (actor link, species, bond rating, linked actor creation into The Circle/Familiars) and Cult (mote regen / WP recovery from dot rating) done; 53-type registry with optgroup display; Backing / Contacts / Resources mechanical automation still pending
 - [x] Willpower recovery on virtue channel success (no recovery per rules; WP spent is the cost)
 - [x] Scene-end reset (anima step-down done; Peripheral-spend counter, per-scene WP drain counters)
 
