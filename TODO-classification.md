@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-21 (Area attacks, Coordinated attacks, FoI surcharge, Style weapon tag validation, Sidereal/DB MA gates, Martial-ready gating, Countermagic resolution done, Mundane crafting roll resolver done, Manse item type done, Background hooks partial: Familiar actor ref + Cult mote regen + 53-type registry with optgroup display)
+Last updated: 2026-05-21 (Area attacks, Coordinated attacks, FoI surcharge, Style weapon tag validation, Sidereal/DB MA gates, Martial-ready gating, Countermagic resolution done, Mundane crafting roll resolver done, Manse item type done, Background hooks partial: Familiar actor ref + Cult mote regen + 53-type registry with optgroup display, Charm deactivation resolver done)
 
 ---
 
@@ -67,7 +67,6 @@ Last updated: 2026-05-21 (Area attacks, Coordinated attacks, FoI surcharge, Styl
 | Mounted combat | Combat | Ride-controlled mount stats, charge bonuses, Ride charm integration |
 | Essence-tiered upgrade branches | Charms | `essenceUpgrades[]` schema + branch-selection step in activation dialog — [charms-gap A2](docs/charms-gap.md) |
 | Social charm bonus payload | Social | `socialBonus` sub-schema (pool/MDV modifier) + social-roll pipeline integration — [charms-gap A9](docs/charms-gap.md) |
-| Charm deactivation resolver | Charms | state machine: scene-end / combat-end / out-of-motes, handles all duration types |
 | Thaumaturgy | Sorcery | separate lower-power tier: procedures, degrees, own roll resolver |
 | Artifact creation rules | Crafting | extended Craft roll + Craft+Lore+Occult, seasons interval, exotic ingredient tracker |
 | Pre-built charms compendium | Compendium | hundreds of Solar charms minimum; large data-authoring effort |
@@ -92,11 +91,10 @@ Last updated: 2026-05-21 (Area attacks, Coordinated attacks, FoI surcharge, Styl
 |-------|-------|
 | A — Ready, Simple | 1 |
 | B — Ready, Medium | 35 |
-| C — Ready, Complex | 11 |
+| C — Ready, Complex | 10 |
 | D — Blocked | 1 |
-| **Total pending** | **48** |
+| **Total pending** | **47** |
 
 **Biggest force-multipliers:**
 - **Social charm bonus payload** (Group C) → prerequisite for Mass Combat morale/demoralize pipeline
-- **Charm deactivation resolver** (Group C) → prerequisite for Mass Combat battle-duration effects
 - **Environmental hazards** (Group B) → prerequisite for Mass Combat terrain modifiers

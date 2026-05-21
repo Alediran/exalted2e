@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 197 / 263 complete** (11 out-of-scope / partial — last updated 2026-05-21)
+**Progress: 198 / 263 complete** (11 out-of-scope / partial — last updated 2026-05-21)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -91,7 +91,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] First/Second-vs-Third Excellency exclusivity enforcement per roll
 - [x] Infinite (Ability) Mastery discount tracking (committed motes reduce Excellency cost)
 - [x] Keyword-as-status-effect registry (systematic Compulsion/Emotion/Illusion/Servitude → AE mapping)
-- [ ] Charm deactivation resolver (scene-end / combat-end / out-of-motes)
+- [x] Charm deactivation resolver (scene-end / combat-end) — `clearSceneCharms` sweeps oneScene + action-count AEs at scene/combat end; `decrementActionCharmsFor` counts down per combatant act; indefinite/permanent untouched
 - [ ] Essence-tiered upgrade branches (Essence 3+/4+ conditional charm effects; description-only currently) — [charms-gap A2](docs/charms-gap.md)
 - [x] Cooperative keyword (multi-caster charm dialog — DB aspect cooperation)
 
@@ -285,7 +285,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
   - **Implement these first to avoid hardcoding mass-combat-specific solutions:**
   - [ ] Background mechanical hooks — unit quality and Command roll bonuses derive from War/Leadership backgrounds
   - [ ] Social charm bonus payload (`socialBonus` sub-schema) — morale/demoralize actions route through the MDV pipeline
-  - [ ] Charm deactivation resolver — battle-duration formation and commander-aura effects need scene/combat-end cleanup
+  - [x] Charm deactivation resolver — battle-duration formation and commander-aura effects need scene/combat-end cleanup
   - [ ] Environmental hazards — terrain modifiers (difficult ground, elevation, chokepoints) as a generic per-interval AE schema
 - [ ] Artifact creation rules (extended Craft roll; Craft+Lore+Occult; seasons interval)
 - [x] **Manse** item type (rating, aspect, powers budget; linked to Background for rating + Hearthstone for aspect)
