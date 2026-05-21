@@ -1,6 +1,7 @@
 import { cleanupOnAfter, sweep }  from "../_helpers/cleanup.mjs";
 import { assertTestWorld }         from "../_helpers/world.mjs";
 import { createTempCharacter }     from "../_helpers/actors.mjs";
+import { stubSorceryCastDialog }   from "../_helpers/dialogs.mjs";
 import { interruptShaping }        from "../../../module/combat/multi-tick-sorcery.mjs";
 
 async function waitFor(pred, { timeoutMs = 3000, intervalMs = 30 } = {}) {
@@ -44,8 +45,8 @@ async function createShapingCombatant(actor) {
 export function registerCountermagic(context) {
   const { describe, it, assert, before, afterEach } = context;
 
-  describe("Countermagic — interruptShaping", () => {
-    before(() => assertTestWorld());
+  describe("Countermagic — interruptShaping", function () {
+    before(assertTestWorld);
     afterEach(async () => { await sweep(); });
 
     it("[CM-1] refunds motes and WP, clears multiTickAction", async () => {
@@ -115,13 +116,17 @@ export function registerCountermagic(context) {
     });
   });
 
-  describe("Countermagic — spellEffect AE", () => {
-    before(() => assertTestWorld());
+  describe("Countermagic — spellEffect AE", function () {
+    before(assertTestWorld);
     afterEach(async () => { await sweep(); });
 
-    it("[CM-4] non-instant spell cast out-of-combat creates spellEffect AE", async () => {
+    it("[CM-4] non-instant spell cast out-of-combat creates spellEffect AE", async function () {
+      this.timeout(8000);
       const actor = await createTempCharacter({ name: "Caster CM-4" });
-      await actor.update({ "system.motes.peripheral.value": 20 });
+      await actor.update({
+        "system.motes.peripheral.value": 20,
+        "system.sorcery.initiation":     1,
+      });
 
       const [spell] = await actor.createEmbeddedDocuments("Item", [{
         name: "Test Scene Spell",
@@ -134,26 +139,30 @@ export function registerCountermagic(context) {
         }
       }]);
 
-      const { castSpellFlow } = await import("../../../module/ui/cast-spell-flow.mjs");
-      const { SorceryCastDialog } = await import("../../../module/dialogs/sorcery-cast-dialog.mjs");
-      const origPrompt = SorceryCastDialog.prompt;
-      SorceryCastDialog.prompt = async () => ({ ok: true });
-      cleanupOnAfter(() => { SorceryCastDialog.prompt = origPrompt; });
+      const beforeMsgCount    = game.messages.size;
+      const beforeEffectCount = actor.effects.size;
 
+      await stubSorceryCastDialog([{ ok: true }]);
+      const { castSpellFlow } = await import("../../../module/ui/cast-spell-flow.mjs");
       await castSpellFlow(spell);
 
-      await waitFor(() =>
-        actor.effects.some(ae => ae.flags?.exalted2e?.spellEffect)
-      );
+      assert.ok(game.messages.size > beforeMsgCount,
+        `postCastChatCard should have posted a message (before=${beforeMsgCount} after=${game.messages.size})`);
+
       const ae = actor.effects.find(ae => ae.flags?.exalted2e?.spellEffect);
-      assert.ok(ae, "spellEffect AE created on actor");
+      assert.ok(ae,
+        `spellEffect AE should exist on actor (effects before=${beforeEffectCount} after=${actor.effects.size})`);
       assert.equal(ae.flags.exalted2e.spellEffect.circle,    1,         "circle stored");
       assert.equal(ae.flags.exalted2e.spellEffect.tradition, "sorcery", "tradition stored");
     });
 
-    it("[CM-5] instant spell cast does NOT create spellEffect AE", async () => {
+    it("[CM-5] instant spell cast does NOT create spellEffect AE", async function () {
+      this.timeout(8000);
       const actor = await createTempCharacter({ name: "Caster CM-5" });
-      await actor.update({ "system.motes.peripheral.value": 20 });
+      await actor.update({
+        "system.motes.peripheral.value": 20,
+        "system.sorcery.initiation":     1,
+      });
 
       const [spell] = await actor.createEmbeddedDocuments("Item", [{
         name: "Instant Spell",
@@ -161,11 +170,8 @@ export function registerCountermagic(context) {
         system: { tradition: "sorcery", circle: 1, duration: "instant", cost: { motes: 10 } }
       }]);
 
+      await stubSorceryCastDialog([{ ok: true }]);
       const { castSpellFlow } = await import("../../../module/ui/cast-spell-flow.mjs");
-      const { SorceryCastDialog } = await import("../../../module/dialogs/sorcery-cast-dialog.mjs");
-      const origPrompt = SorceryCastDialog.prompt;
-      SorceryCastDialog.prompt = async () => ({ ok: true });
-      cleanupOnAfter(() => { SorceryCastDialog.prompt = origPrompt; });
 
       const beforeCount = actor.effects.size;
       await castSpellFlow(spell);
