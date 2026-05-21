@@ -282,6 +282,11 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Crippling injuries (4+ HL single hit; surgery Int+Medicine to heal)
 - [ ] Environmental hazards (Damage/interval, Trauma; fire/cold/drowning/starvation/thirst)
 - [ ] Mass combat (unit actor type: Magnitude, Drill, Might, Endurance, Morale, formations, commander + relays + heroes)
+  - **Implement these first to avoid hardcoding mass-combat-specific solutions:**
+  - [ ] Background mechanical hooks — unit quality and Command roll bonuses derive from War/Leadership backgrounds
+  - [ ] Social charm bonus payload (`socialBonus` sub-schema) — morale/demoralize actions route through the MDV pipeline
+  - [ ] Charm deactivation resolver — battle-duration formation and commander-aura effects need scene/combat-end cleanup
+  - [ ] Environmental hazards — terrain modifiers (difficult ground, elevation, chokepoints) as a generic per-interval AE schema
 - [ ] Artifact creation rules (extended Craft roll; Craft+Lore+Occult; seasons interval)
 - [x] **Manse** item type (rating, aspect, powers budget; linked to Background for rating + Hearthstone for aspect)
 - [x] **Hearthstone** item type (rating, type, mote-regen, socketable into artifact weapons/armor/equipment)
