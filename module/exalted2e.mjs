@@ -78,6 +78,7 @@ import { _seedAnimaPowersCompendium } from "./helpers/anima-power-seeds.mjs";
 import { canLearnCelestialMA, canLearnSiderealMA } from "./helpers/ma-validation.mjs";
 import { computeAttackOutcome } from "./rolls/attack-math.mjs";
 import { getTargetPenaltyChanges, collectStatusApplyCharms } from "./rolls/charm-event-math.mjs";
+import { ImportDialog } from "./apps/import-dialog.mjs";
 
 // ── Attack-success hook helper ─────────────────────────────────────────────
 function _tryFireAttackSuccess(newAttack) {
@@ -3811,4 +3812,32 @@ Hooks.on("renderCombatTracker", (app, html) => {
     });
     row.appendChild(btn);
   }
+});
+
+// ── GM Import Buttons ──────────────────────────────────────────────────────
+// Inject an "Import" button into the Items and Actors directory headers so
+// GMs can paste rulebook text directly into Foundry without a compendium.
+
+Hooks.on("renderItemDirectory", (_app, html) => {
+  if (!game.user?.isGM) return;
+  const header = html.querySelector?.(".directory-header") ?? html.querySelector?.("header");
+  if (!header) return;
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "ex2e-import-btn";
+  btn.innerHTML = `<i class="fas fa-file-import"></i> ${game.i18n.localize("EX2E.ImportItems")}`;
+  btn.addEventListener("click", () => ImportDialog.open("item"));
+  header.appendChild(btn);
+});
+
+Hooks.on("renderActorDirectory", (_app, html) => {
+  if (!game.user?.isGM) return;
+  const header = html.querySelector?.(".directory-header") ?? html.querySelector?.("header");
+  if (!header) return;
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "ex2e-import-btn";
+  btn.innerHTML = `<i class="fas fa-file-import"></i> ${game.i18n.localize("EX2E.ImportNPCs")}`;
+  btn.addEventListener("click", () => ImportDialog.open("actor"));
+  header.appendChild(btn);
 });

@@ -1,0 +1,88 @@
+<form class="import-dialog-form">
+
+  {{!-- Controls row --}}
+  <div class="import-controls-grid">
+
+    {{#unless isActorMode}}
+    <div class="form-group">
+      <label>{{localize "EX2E.ImportContentType"}}</label>
+      <select name="contentType">
+        {{#each contentTypeOptions}}
+        <option value="{{value}}">{{label}}</option>
+        {{/each}}
+      </select>
+    </div>
+    {{/unless}}
+
+    <div class="form-group charm-only">
+      <label>{{localize "EX2E.ImportExaltType"}}</label>
+      <select name="exaltType">
+        {{#each exaltTypeOptions}}
+        <option value="{{value}}">{{label}}</option>
+        {{/each}}
+      </select>
+    </div>
+
+    {{#unless isActorMode}}
+    <div class="form-group charm-only">
+      <label>{{localize "EX2E.ImportSource"}}</label>
+      <input type="text" name="source" placeholder="e.g. Core, p.182">
+    </div>
+    {{/unless}}
+
+  </div>
+
+  {{!-- Paste area --}}
+  <div class="form-group import-paste-group">
+    <label>{{localize "EX2E.ImportPaste"}}</label>
+    <textarea name="pasteText" rows="10" placeholder="{{localize 'EX2E.ImportPastePlaceholder'}}"></textarea>
+  </div>
+
+  {{!-- Warning --}}
+  {{#if warning}}
+  <div class="import-warning">
+    <i class="fas fa-exclamation-triangle"></i> {{warning}}
+  </div>
+  {{/if}}
+
+  {{!-- Parse results preview --}}
+  {{#if parsedCount}}
+  <div class="import-results">
+    <div class="import-results-header">
+      <span class="results-count">
+        <i class="fas fa-check-circle"></i>
+        {{parsedCount}} {{localize "EX2E.ImportParsedItems"}}
+      </span>
+      <button type="button" class="results-clear" data-action="clearResults">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <ul class="import-parsed-list">
+      {{#each parsed}}
+      <li class="parsed-item">
+        <span class="item-name">{{name}}</span>
+        {{#if charmType}}<span class="item-tag tag-type">{{charmType}}</span>{{/if}}
+        {{#if exaltType}}<span class="item-tag tag-exalt">{{exaltType}}</span>{{/if}}
+        {{#if cost.formula}}<span class="item-tag tag-cost">{{cost.formula}}</span>{{/if}}
+        {{#if modes.[0].damage}}<span class="item-tag tag-dmg">{{modes.[0].damage}}{{modes.[0].damageType}}</span>{{/if}}
+        {{#if soak.lethal}}<span class="item-tag tag-soak">{{soak.bashing}}B/{{soak.lethal}}L</span>{{/if}}
+        {{#if essence.value}}<span class="item-tag tag-ess">Ess {{essence.value}}</span>{{/if}}
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+  {{/if}}
+
+  {{!-- Footer buttons --}}
+  <div class="form-footer import-footer">
+    <button type="button" data-action="parseText">
+      <i class="fas fa-search"></i> {{localize "EX2E.ImportParseText"}}
+    </button>
+    {{#if parsedCount}}
+    <button type="button" data-action="createDocuments" class="create-btn">
+      <i class="fas fa-plus"></i> {{createLabel}}
+    </button>
+    {{/if}}
+  </div>
+
+</form>
