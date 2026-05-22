@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 198 / 263 complete** (11 out-of-scope / partial — last updated 2026-05-21)
+**Progress: 200 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-22)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -273,20 +273,20 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 ## Other Mechanics
 - [x] Anima powers per exalt type and caste (embedded `animapower` item on actor; 34-entry compendium; swapped on caste/exaltType change; manual activate/deactivate with mote + WP cost)
 - [x] Auto-activate caste anima power at ≥11m peripheral scene spend (bonfire threshold)
-- [~] Anima flux (DB environmental damage shipped; Abyssal Resonance effects shipped)
+- [x] Anima flux (DB environmental damage + visual region ring following token; Abyssal Resonance effects shipped)
 - [x] Resonance track and eruptions (Abyssal) — see Abyssal splat
 - [x] Torment / Act of Villainy tracking (Infernal) — see Infernal splat
 - [ ] Clarity mechanical effects (Alchemical) — see Alchemical splat
 - [x] Paradox track (Sidereal) — see Sidereal splat
 - [ ] Poison / Disease tracking (item types + per-interval AE)
 - [ ] Crippling injuries (4+ HL single hit; surgery Int+Medicine to heal)
-- [ ] Environmental hazards (Damage/interval, Trauma; fire/cold/drowning/starvation/thirst)
+- [x] Environmental hazards (Damage/interval, Trauma; generic Scene Region behavior with resistance rolls, terrain cost, and GM placement flow)
 - [ ] Mass combat (unit actor type: Magnitude, Drill, Might, Endurance, Morale, formations, commander + relays + heroes)
   - **Implement these first to avoid hardcoding mass-combat-specific solutions:**
   - [ ] Background mechanical hooks — unit quality and Command roll bonuses derive from War/Leadership backgrounds
   - [ ] Social charm bonus payload (`socialBonus` sub-schema) — morale/demoralize actions route through the MDV pipeline
   - [x] Charm deactivation resolver — battle-duration formation and commander-aura effects need scene/combat-end cleanup
-  - [ ] Environmental hazards — terrain modifiers (difficult ground, elevation, chokepoints) as a generic per-interval AE schema
+  - [~] Environmental hazards — base hazard system done (Region behavior + placement flow); mass-combat terrain modifier integration (difficult ground, elevation, chokepoints) still pending
 - [ ] Artifact creation rules (extended Craft roll; Craft+Lore+Occult; seasons interval)
 - [x] **Manse** item type (rating, aspect, powers budget; linked to Background for rating + Hearthstone for aspect)
 - [x] **Hearthstone** item type (rating, type, mote-regen, socketable into artifact weapons/armor/equipment)

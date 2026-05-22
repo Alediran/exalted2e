@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-21 (Area attacks, Coordinated attacks, FoI surcharge, Style weapon tag validation, Sidereal/DB MA gates, Martial-ready gating, Countermagic resolution done, Mundane crafting roll resolver done, Manse item type done, Background hooks partial: Familiar actor ref + Cult mote regen + 53-type registry with optgroup display, Charm deactivation resolver done)
+Last updated: 2026-05-22 (Environmental hazards done: HazardDamageBehaviorType + GM placement flow + hazard immunity charm effect + enhancesCharmUid gating; DB Anima Flux visual region done: circle ring follows token via attachment)
 
 ---
 
@@ -42,7 +42,7 @@ Last updated: 2026-05-21 (Area attacks, Coordinated attacks, FoI surcharge, Styl
 | NPC → character auto-conversion on move-in | Circle | hook + actor-type change |
 | Clarity mechanical effects | Alchemical | Clarity track consequences (Virtue suppression thresholds) |
 | Crippling injuries | Other | health track extension + extended surgery roll |
-| Environmental hazards | Other | Damage/interval + Trauma AE, configurable hazard schema |
+| Environmental hazards — mass-combat terrain integration | Other | Base hazard system done; mass-combat terrain modifier (difficult ground, elevation) still pending |
 | Manse geomancy rules | Crafting | Oadenol's Codex power table, demesne pre-roll (unblocked by Manse item type) |
 | Background mechanical hooks | Other | Familiar actor link + Cult mote-regen/WP-recovery + 53-type optgroup registry done; Backing/Contacts/Resources mechanical automation still pending |
 | Workshop & material prerequisites UI | Crafting | prerequisites check UI for crafting projects |
@@ -97,4 +97,4 @@ Last updated: 2026-05-21 (Area attacks, Coordinated attacks, FoI surcharge, Styl
 
 **Biggest force-multipliers:**
 - **Social charm bonus payload** (Group C) → prerequisite for Mass Combat morale/demoralize pipeline
-- **Environmental hazards** (Group B) → prerequisite for Mass Combat terrain modifiers
+- **Environmental hazards mass-combat integration** (Group B) — base hazard system done; terrain modifier integration now unblocked
