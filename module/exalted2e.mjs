@@ -58,6 +58,7 @@ import { registerHandlebarsHelpers } from "./helpers/handlebars.mjs";
 import { ex2eCan } from "./helpers/permissions.mjs";
 import { resolveUserActor } from "./helpers/targeting.mjs";
 import { HazardDamageBehaviorType } from "./data/region-behaviors/hazard-damage.mjs";
+import { checkHazardImmunity }      from "./helpers/hazard-immunity.mjs";
 import { ActionQuickbar } from "./ui/action-quickbar.mjs";
 import { TickWheel }                      from "./ui/tick-wheel.mjs";
 import { JoinBattlePanel }                from "./ui/join-battle-panel.mjs";
@@ -1671,24 +1672,80 @@ async function _postDBFluxCard(actor, tier) {
   });
 }
 
-async function _applyFluxDamage(tier) {
-  const flux = EX2E.DB_FLUX[tier];
-  if (!flux) return;
-  const targets = [...game.user.targets];
-  if (targets.length === 0) {
-    ui.notifications.warn(game.i18n.localize("EX2E.DBFluxNoTargets"));
+// Elemental aspect → hex color for the Anima Flux region ring.
+const _ANIMA_FLUX_COLORS = {
+  air:   0xB0D0F0,
+  earth: 0xE0C030,
+  fire:  0xDC143C,
+  water: 0x2050A0,
+  wood:  0x30B050,
+};
+
+const _FLUX_TIERS = new Set(["burning", "bonfire", "totemic"]);
+
+/**
+ * Create or destroy the Anima Flux Scene Region for a DB actor.
+ * Uses an emanation shape with token attachment so Foundry moves the region
+ * natively when the token moves — no updateToken hook required.
+ */
+async function _createOrUpdateFluxRegion(actor) {
+  const scene = canvas.ready ? canvas.scene : null;
+  const existingRegion = scene?.regions.find(r => r.flags?.exalted2e?.animaFluxActorId === actor.id);
+  if (!_FLUX_TIERS.has(actor.system.anima)) {
+    if (existingRegion) await existingRegion.delete();
     return;
   }
-  for (const token of targets) {
-    const target = token.actor;
+  if (!scene) return;
+  const tokenDoc = scene.tokens.find(t => t.actor?.id === actor.id);
+  if (!tokenDoc) return;
+  const gs     = scene.grid.size;
+  const radius = Math.max(gs, Math.floor((actor.system.essence.value ?? 1) / 3) * gs);
+  const color  = _ANIMA_FLUX_COLORS[actor.system.caste] ?? 0xFF8C00;
+  // Circle center in canvas pixels.
+  const cx     = tokenDoc.x + (tokenDoc.width  * gs) / 2;
+  const cy     = tokenDoc.y + (tokenDoc.height * gs) / 2;
+  if (existingRegion) await existingRegion.delete();
+  await scene.createEmbeddedDocuments("Region", [{
+    name:               `${actor.name} – Anima Flux`,
+    color:              `#${color.toString(16).padStart(6, "0")}`,
+    visibility:         CONST.REGION_VISIBILITY.ALWAYS,
+    shapes:             [{ type: "circle", x: cx, y: cy, radius }],
+    attachment:         { token: tokenDoc.id },
+    displayMeasurements: false,
+    behaviors:          [],
+    flags:              { exalted2e: { animaFlux: true, animaFluxActorId: actor.id, animaFluxColor: color } },
+  }]);
+}
+
+async function _applyFluxDamage(actor, tier) {
+  const flux = EX2E.DB_FLUX[tier];
+  if (!flux) return;
+
+  let usingRegion = false;
+  let targets;
+  if (canvas.ready) {
+    const region = canvas.scene?.regions.find(r => r.flags?.exalted2e?.animaFluxActorId === actor?.id);
+    if (region) {
+      usingRegion = true;
+      targets = [...region.tokens].filter(t => t.actor?.id !== actor.id);
+    }
+  }
+  if (!usingRegion) {
+    targets = [...game.user.targets].map(t => t.document ?? t);
+  }
+  if (targets.length === 0) {
+    if (!usingRegion) ui.notifications.warn(game.i18n.localize("EX2E.DBFluxNoTargets"));
+    return;
+  }
+  for (const tokenDoc of targets) {
+    const target = tokenDoc.actor;
     if (!target) continue;
+    if (checkHazardImmunity(target, true)) continue;
     const lethalSoak = target.type === "character"
       ? (target.system.totalSoak?.lethal ?? 0)
       : (target.system.soak?.lethal        ?? 0);
     if (flux.soakExempt && lethalSoak > 0) continue;
-    if (!flux.soakExempt
-        && target.type === "character"
-        && target.system.exaltType === "terrestrial") continue;
+    if (!flux.soakExempt && target.type === "character" && target.system.exaltType === "terrestrial") continue;
     await target.applyDamage(1, "lethal");
   }
 }
@@ -1701,22 +1758,23 @@ Hooks.on("updateActor", async (actor, changes, options, userId) => {
 
   const tierBefore = _animaTierFor(options.scenePeripheralBefore ?? 0);
   const tierAfter  = actor.system.anima;
-  const fluxTiers  = new Set(["burning", "bonfire", "totemic"]);
 
   if (tierAfter === tierBefore) return;
 
   const combatant = game.combat?.combatants.find(c => c.actorId === actor.id);
   if (combatant) {
-    if (fluxTiers.has(tierAfter)) {
+    if (_FLUX_TIERS.has(tierAfter)) {
       const currentTick = game.combat.combatant?.initiative ?? 0;
       const interval    = EX2E.DB_FLUX[tierAfter].interval;
       await combatant.setFlag("exalted2e", "fluxNextFireTick", currentTick + interval);
-    } else if (fluxTiers.has(tierBefore)) {
+    } else if (_FLUX_TIERS.has(tierBefore)) {
       await combatant.unsetFlag("exalted2e", "fluxNextFireTick");
     }
   }
 
-  if (!fluxTiers.has(tierAfter)) return;
+  await _createOrUpdateFluxRegion(actor);
+
+  if (!_FLUX_TIERS.has(tierAfter)) return;
   await _postDBFluxCard(actor, tierAfter);
 });
 
@@ -1735,6 +1793,9 @@ Hooks.on("updateScene", async (scene, changes, _options, _userId) => {
       await actor.update({ "system.scenePeripheral": 0 });
     }
   }
+  // Remove all anima flux regions from the deactivated scene.
+  const fluxRegions = scene.regions.filter(r => r.flags?.exalted2e?.animaFlux);
+  for (const region of fluxRegions) await region.delete();
 });
 
 Hooks.on("updateCombat", async (combat, changes, _options, userId) => {
@@ -1752,10 +1813,54 @@ Hooks.on("updateCombat", async (combat, changes, _options, userId) => {
     const tier = actor.system.anima;
     if (!EX2E.DB_FLUX[tier]) continue;
 
-    await _applyFluxDamage(tier);
+    await _applyFluxDamage(actor, tier);
     const interval = EX2E.DB_FLUX[tier].interval;
     await combatant.setFlag("exalted2e", "fluxNextFireTick", newTick + interval);
   }
+});
+
+// Remove the Anima Flux region when a DB token is deleted from the scene.
+Hooks.on("deleteToken", async (tokenDoc, _options, userId) => {
+  if (game.user.id !== userId) return;
+  if (!canvas.ready) return;
+  const actorId = tokenDoc.actorId;
+  if (!actorId) return;
+  const region = canvas.scene?.regions.find(r => r.flags?.exalted2e?.animaFluxActorId === actorId);
+  if (region) await region.delete();
+});
+
+// ── Anima Flux Region — visual hooks ──────────────────────────────────────
+// drawRegion: hide the default fill mesh; attach the elemental ring child.
+// refreshRegion: redraw the ring whenever the border/geometry updates.
+
+function _drawAnimaFluxRing(region) {
+  foundry.canvas.borders.drawBorder(
+    region._animaFluxRing,
+    g => region.animationState.polygonTree.drawShape(g),
+    { color: region._animaFluxColor ?? 0xFF8C00 }
+  );
+}
+
+Hooks.on("drawRegion", (region) => {
+  if (!region.document.flags?.exalted2e?.animaFlux) return;
+  // Suppress the default fill by zeroing the highlight mesh alpha.
+  const mesh = canvas.regions._highlights.children.find(m => m.region === region);
+  if (mesh) mesh.alpha = 0;
+  // Add a persistent elemental ring border.
+  const ring = new PIXI.Graphics();
+  ring.name = "exalted2e-anima-ring";
+  region.addChild(ring);
+  region._animaFluxRing   = ring;
+  region._animaFluxColor  = region.document.flags.exalted2e.animaFluxColor ?? 0xFF8C00;
+});
+
+Hooks.on("refreshRegion", (region, flags) => {
+  if (!region._animaFluxRing) return;
+  if (flags.refreshVisibility || flags.refreshState) {
+    const mesh = canvas.regions._highlights.children.find(m => m.region === region);
+    if (mesh) mesh.alpha = 0;
+  }
+  if (flags.refreshBorder) _drawAnimaFluxRing(region);
 });
 
 // ── Combat Tracker Controls ────────────────────────────────────────────────
@@ -2139,7 +2244,8 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
   if (fluxBtn) {
     fluxBtn.addEventListener("click", async (ev) => {
       if (!game.user.isGM) return;
-      await _applyFluxDamage(ev.currentTarget.dataset.tier);
+      const actor = game.actors.get(ev.currentTarget.dataset.actorId);
+      await _applyFluxDamage(actor, ev.currentTarget.dataset.tier);
     });
   }
 

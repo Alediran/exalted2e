@@ -1,4 +1,5 @@
 import { evaluateCharmFormula } from "../../documents/item.mjs";
+import { checkHazardImmunity } from "../../helpers/hazard-immunity.mjs";
 
 export class HazardDamageBehaviorType extends foundry.data.regionBehaviors.RegionBehaviorType {
 
@@ -34,31 +35,13 @@ export class HazardDamageBehaviorType extends foundry.data.regionBehaviors.Regio
     const actor = tokenDoc?.actor;
     if (!actor) return;
 
-    // Check for hazard immunity from active Charm effects.
-    // Multiple Charms can each contribute a scope ("natural" | "supernatural").
-    // Take the most permissive scope across all immunity AEs so that e.g.
-    // Element-Resisting Prana (natural) + Steadfast Elemental Emperor Stance
-    // (supernatural) correctly grants full immunity when both are active.
-    const immunityAEs = actor.effects.filter(e => !e.disabled && e.flags?.exalted2e?.hazardImmunity);
-    if (immunityAEs.length > 0) {
-      // If an immunity AE requires a base Charm to be active (enhancesCharmUid), only count
-      // it when that Charm is currently toggled on. No enhancesCharmUid = always active.
-      const activeImmunities = immunityAEs.filter(ae => {
-        const uid = ae.flags.exalted2e.enhancesCharmUid;
-        if (!uid) return true;
-        return actor.items.some(i => i.type === "charm" && i.system?.charmUid === uid && i.system?.active);
+    if (checkHazardImmunity(actor, this.system.isSupernatural)) {
+      const hazardName = this.parent?.parent?.name ?? "Hazard";
+      await ChatMessage.create({
+        content: `<em>${actor.name} ${game.i18n.localize("EX2E.HazardImmune")} ${hazardName}.</em>`,
+        speaker: ChatMessage.getSpeaker({ actor }),
       });
-      const hasSupernaturalImmunity = activeImmunities.some(e => e.flags.exalted2e.hazardImmunity === "supernatural");
-      const hasNaturalImmunity      = activeImmunities.some(e => e.flags.exalted2e.hazardImmunity === "natural");
-      const isImmune = hasSupernaturalImmunity || (hasNaturalImmunity && !this.system.isSupernatural);
-      if (isImmune) {
-        const hazardName = this.parent?.parent?.name ?? "Hazard";
-        await ChatMessage.create({
-          content: `<em>${actor.name} ${game.i18n.localize("EX2E.HazardImmune")} ${hazardName}.</em>`,
-          speaker: ChatMessage.getSpeaker({ actor }),
-        });
-        return;
-      }
+      return;
     }
 
     if (actor.hasPlayerOwner && this.system.resistDifficulty > 0) {
