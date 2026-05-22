@@ -112,6 +112,10 @@ export function buildCharmSynthAEs(charm, rollData = {}) {
     extraFlags.speedModifier = { delta, minimum: sm.minimum ?? 3 };
   }
 
+  if (sys.hazardImmunity?.enabled) {
+    extraFlags.hazardImmunity = sys.hazardImmunity.scope ?? "natural";
+  }
+
   if (!changes.length && !Object.keys(extraFlags).length) return [];
 
   const _ra = initialRemainingActions(charm.system.duration);

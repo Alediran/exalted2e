@@ -355,6 +355,12 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         enabled:   new fields.BooleanField({ initial: false }),
         tradition: new fields.StringField({ initial: "sorcery", choices: ["sorcery", "necromancy", "weaving"] }),
         level:     new fields.NumberField({ initial: 1, min: 1, max: 3, integer: true })
+      }),
+
+      // M19 — Hazard immunity (natural hazards only, or all hazards including supernatural)
+      hazardImmunity: new fields.SchemaField({
+        enabled: new fields.BooleanField({ initial: false }),
+        scope:   new fields.StringField({ initial: "natural", choices: ["natural", "supernatural"] })
       })
     };
   }

@@ -57,6 +57,7 @@ import { CountermagicDialog } from "./dialogs/countermagic-dialog.mjs";
 import { registerHandlebarsHelpers } from "./helpers/handlebars.mjs";
 import { ex2eCan } from "./helpers/permissions.mjs";
 import { resolveUserActor } from "./helpers/targeting.mjs";
+import { HazardDamageBehaviorType } from "./data/region-behaviors/hazard-damage.mjs";
 import { ActionQuickbar } from "./ui/action-quickbar.mjs";
 import { TickWheel }                      from "./ui/tick-wheel.mjs";
 import { JoinBattlePanel }                from "./ui/join-battle-panel.mjs";
@@ -196,6 +197,9 @@ Hooks.once("init", function () {
     command:   CommandData,
     followers: FollowersData,
   };
+
+  // ── Region Behavior Types ────────────────────────────────────────────────
+  CONFIG.RegionBehavior.dataModels["ex2e.hazardDamage"] = HazardDamageBehaviorType;
 
   // ── Sheet Registration ──────────────────────────────────────────────────
   foundry.documents.collections.Actors.unregisterSheet("core", foundry.appv1.sheets.ActorSheet);
@@ -511,6 +515,7 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/chat/social-attack-card.hbs",
     "systems/exalted2e/templates/chat/shapeshift-card.hbs",
     "systems/exalted2e/templates/chat/limit-break-card.hbs",
+    "systems/exalted2e/templates/chat/hazard-resistance.hbs",
     "systems/exalted2e/templates/dialog/social-attack-dialog.hbs"
   ];
   return foundry.applications.handlebars.loadTemplates(templatePaths);
@@ -3847,4 +3852,186 @@ Hooks.on("renderActorDirectory", (_app, html) => {
   btn.innerHTML = `<i class="fas fa-file-import"></i> ${game.i18n.localize("EX2E.ImportNPCs")}`;
   btn.addEventListener("click", () => ImportDialog.open("actor"));
   header.appendChild(btn);
+});
+
+// ── GM Scene Controls: Place Hazard (one button per shape) ─────────────────
+
+const _HAZARD_SHAPES = [
+  { key: "circle",    tool: "circle",    icon: "fas fa-circle"       },
+  { key: "ring",      tool: "ring",      icon: "fas fa-circle-notch" },
+  { key: "emanation", tool: "emanation", icon: "fas fa-radiation"    },
+  { key: "cone",      tool: "cone",      icon: "fas fa-play"         },
+  { key: "rect",      tool: "rectangle", icon: "fas fa-square"       },
+  { key: "ray",       tool: "line",      icon: "fas fa-minus"        },
+];
+
+let _pendingHazard = null;
+
+async function _openHazardDialog(tool) {
+  const traumaOptions = ["bashing", "lethal", "aggravated"]
+    .map(t => `<option value="${t}">${t.charAt(0).toUpperCase() + t.slice(1)}</option>`)
+    .join("");
+
+  const formHtml = `
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;padding:8px">
+      <label style="grid-column:1/-1">
+        ${game.i18n.localize("EX2E.Name")}
+        <input type="text" name="hazardName" value="Hazard" style="width:100%">
+      </label>
+      <label>
+        ${game.i18n.localize("EX2E.DamagePool")}
+        <input type="text" name="damagePool" value="5" style="width:100%">
+      </label>
+      <label>
+        ${game.i18n.localize("EX2E.DamageType")}
+        <select name="traumaType" style="width:100%">${traumaOptions}</select>
+      </label>
+      <label>
+        ${game.i18n.localize("EX2E.AreaResistDifficulty")} (0 = auto)
+        <input type="number" name="resistDifficulty" value="3" min="0" style="width:100%">
+      </label>
+      <label>
+        ${game.i18n.localize("EX2E.TerrainCost")} (1 = normal)
+        <input type="number" name="terrainCost" value="1" min="1" style="width:100%">
+      </label>
+      <label style="grid-column:1/-1;display:flex;align-items:center;gap:6px">
+        <input type="checkbox" name="damageOnEntry">
+        ${game.i18n.localize("EX2E.DamageOnEntry")}
+      </label>
+      <label style="grid-column:1/-1;display:flex;align-items:center;gap:6px">
+        <input type="checkbox" name="isSupernatural">
+        ${game.i18n.localize("EX2E.HazardSupernatural")}
+      </label>
+    </div>`;
+
+  const config = await foundry.applications.api.DialogV2.wait({
+    window:  { title: game.i18n.localize("EX2E.HazardConfigTitle") },
+    content: formHtml,
+    buttons: [
+      {
+        action:   "confirm",
+        label:    game.i18n.localize("EX2E.Confirm"),
+        callback: (_event, _btn, dialog) => ({
+          name:             dialog.element.querySelector("[name=hazardName]").value.trim() || "Hazard",
+          damagePool:       dialog.element.querySelector("[name=damagePool]").value.trim() || "5",
+          traumaType:       dialog.element.querySelector("[name=traumaType]").value,
+          resistDifficulty: Number(dialog.element.querySelector("[name=resistDifficulty]").value) || 0,
+          terrainCost:      Number(dialog.element.querySelector("[name=terrainCost]").value) || 1,
+          damageOnEntry:    dialog.element.querySelector("[name=damageOnEntry]").checked,
+          isSupernatural:   dialog.element.querySelector("[name=isSupernatural]").checked,
+        }),
+      },
+      { action: "cancel", label: game.i18n.localize("EX2E.Cancel"), default: true },
+    ],
+  });
+
+  if (!config) return;
+  _pendingHazard = config;
+  await ui.controls.activate({ control: "regions", tool });
+}
+
+Hooks.on("getSceneControlButtons", (controls) => {
+  if (!game.user.isGM) return;
+  const regionControls = controls["regions"];
+  if (!regionControls) return;
+  let order = 100;
+  for (const { key, tool, icon } of _HAZARD_SHAPES) {
+    const shapeLabel = game.i18n.localize(`EX2E.AreaShape${key.charAt(0).toUpperCase() + key.slice(1)}`);
+    regionControls.tools[`placeHazard_${key}`] = {
+      name:    `placeHazard_${key}`,
+      order:   order++,
+      title:   `${game.i18n.localize("EX2E.PlaceHazard")}: ${shapeLabel}`,
+      icon,
+      button:  true,
+      onChange: () => _openHazardDialog(tool),
+    };
+  }
+});
+
+// Intercept the next region drawn after a hazard dialog is confirmed.
+Hooks.on("preCreateRegion", (regionDoc, _data, _options, _userId) => {
+  if (!_pendingHazard) return;
+  const config = _pendingHazard;
+  _pendingHazard = null;
+
+  const behaviors = [
+    { type: "ex2e.hazardDamage", system: {
+        damagePool:       config.damagePool,
+        traumaType:       config.traumaType,
+        resistDifficulty: config.resistDifficulty,
+        damageOnEntry:    config.damageOnEntry,
+        isSupernatural:   config.isSupernatural,
+    }},
+  ];
+  if (config.terrainCost > 1) {
+    behaviors.push({ type: "modifyMovementCost", system: { cost: config.terrainCost } });
+  }
+
+  regionDoc.updateSource({ name: config.name, color: "#FF6600", behaviors });
+});
+
+// ── Hazard Resistance Roll ─────────────────────────────────────────────────
+Hooks.on("renderChatMessageHTML", (message, html) => {
+  const el   = html instanceof HTMLElement ? html : html[0] ?? html;
+  const card = el.querySelector?.(".ex2e-hazard-resistance-card");
+  if (!card) return;
+
+  const btn = card.querySelector("[data-action='rollHazardResistance']");
+  if (!btn) return;
+
+  btn.addEventListener("click", async (ev) => {
+    ev.preventDefault();
+    const b = ev.currentTarget;
+    if (b.disabled) return;
+    b.disabled = true;
+
+    const { actorId, damagePool, traumaType, resistDifficulty } = b.dataset;
+    const difficulty = Number(resistDifficulty) || 0;
+
+    const actor = game.actors.get(actorId);
+    if (!actor?.isOwner) {
+      ui.notifications.warn(game.i18n.localize("EX2E.NotOwner"));
+      b.disabled = false;
+      return;
+    }
+
+    try {
+      const { ExaltedRoll }          = await import("./rolls/exalted-roll.mjs");
+      const { evaluateCharmFormula } = await import("./documents/item.mjs");
+
+      const result = await ExaltedRoll.rollAttributeAbility(actor, "stamina", "resistance");
+      if (!result) { b.disabled = false; return; }
+
+      const regionName = card.querySelector(".roll-flavor")?.textContent?.trim() ?? "Hazard";
+
+      if (result.successes >= difficulty) {
+        await ChatMessage.create({
+          content: `<em>${actor.name} ${game.i18n.localize("EX2E.HazardResisted")} (${regionName}).</em>`,
+          speaker: ChatMessage.getSpeaker({ actor }),
+        });
+      } else {
+        const rollData  = actor.getRollData?.() ?? {};
+        const poolSize  = Math.max(1, evaluateCharmFormula(damagePool, rollData, 5));
+        const dmgRoll   = new ExaltedRoll({ pool: poolSize, flavor: regionName, actorName: actor.name });
+        const dmgResult = await dmgRoll.evaluate();
+        await dmgResult.toMessage({ speaker: ChatMessage.getSpeaker({ actor }) });
+        if (dmgResult.successes > 0) {
+          await actor.applyDamage(dmgResult.successes, traumaType);
+        }
+        const msg = game.i18n.format("EX2E.HazardDamageMsg", {
+          hits: dmgResult.successes,
+          type: traumaType,
+        });
+        await ChatMessage.create({
+          content: `<em>${actor.name} ${msg} ${regionName}.</em>`,
+          speaker: ChatMessage.getSpeaker({ actor }),
+        });
+      }
+
+      b.outerHTML = `<span class="ex2e-rolled">${game.i18n.localize("EX2E.Rolled")}</span>`;
+    } catch (err) {
+      console.error("exalted2e | hazard resistance roll failed", err);
+      b.disabled = false;
+    }
+  });
 });

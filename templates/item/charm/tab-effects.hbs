@@ -560,14 +560,25 @@
     </div>
   </div>
 
-  {{!-- Grants Celestial MA ────────────────────────────────────────────────── --}}
+  {{!-- M19 Hazard Immunity ────────────────────────────────────────────────── --}}
   <div class="effect-section">
     <label class="effect-enable-row">
-      <input type="checkbox" name="system.grantsCelestialMA"
-             {{#if system.grantsCelestialMA}}checked{{/if}}
+      <input type="checkbox" name="system.hazardImmunity.enabled"
+             {{#if system.hazardImmunity.enabled}}checked{{/if}}
              {{#unless isEditable}}disabled{{/unless}}>
-      <span>{{localize "EX2E.GrantsCelestialMA"}}</span>
+      <span>{{localize "EX2E.EffectHazardImmunity"}}</span>
     </label>
+    {{#if system.hazardImmunity.enabled}}
+    <div class="effect-body">
+      <div class="field-group">
+        <label>{{localize "EX2E.HazardImmunityScope"}}</label>
+        <select name="system.hazardImmunity.scope" {{#unless isEditable}}disabled{{/unless}}>
+          <option value="natural"      {{#if (eq system.hazardImmunity.scope "natural")}}selected{{/if}}>{{localize "EX2E.HazardImmunityScopeNatural"}}</option>
+          <option value="supernatural" {{#if (eq system.hazardImmunity.scope "supernatural")}}selected{{/if}}>{{localize "EX2E.HazardImmunityScopeSuper"}}</option>
+        </select>
+      </div>
+    </div>
+    {{/if}}
   </div>
 
   {{!-- M10 DV Bonus / Penalty Negation ───────────────────────────────────── --}}
@@ -1169,6 +1180,16 @@
       </div>
     </div>
     {{/if}}
+  </div>  
+
+  {{!-- Grants Celestial MA ────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.grantsCelestialMA"
+             {{#if system.grantsCelestialMA}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.GrantsCelestialMA"}}</span>
+    </label>
   </div>
 
 </div>

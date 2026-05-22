@@ -1,0 +1,19 @@
+<div class="ex2e-roll-card ex2e-hazard-resistance-card">
+  <div class="card-header">
+    <span class="roll-flavor">{{hazardName}}</span>
+  </div>
+  <div class="card-body" style="padding: 6px 8px;">
+    <p>{{localize "EX2E.HazardResistPrompt"}} <strong>{{difficulty}}</strong></p>
+    <p><em>{{traumaType}} damage</em></p>
+    <button class="ex2e-hazard-resist-btn"
+            data-action="rollHazardResistance"
+            data-actor-id="{{actorId}}"
+            data-region-id="{{regionId}}"
+            data-behavior-id="{{behaviorId}}"
+            data-damage-pool="{{damagePool}}"
+            data-trauma-type="{{traumaType}}"
+            data-resist-difficulty="{{difficulty}}">
+      {{localize "EX2E.RollResistance"}}
+    </button>
+  </div>
+</div>

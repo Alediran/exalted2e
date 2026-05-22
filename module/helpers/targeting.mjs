@@ -202,8 +202,7 @@ export function hasAdjacentEnemy(actor, spaces = 1) {
 }
 
 // rotation in radians, 0 = right/east. Circle, ring, and emanation ignore rotation.
-function _buildAreaGfx(shape, pos, radiusPx, rotation = Math.PI / 2) {
-  const color = 0xFF0000;
+function _buildAreaGfx(shape, pos, radiusPx, rotation = Math.PI / 2, color = 0xFF0000) {
   const gfx   = new PIXI.Graphics();
   gfx.lineStyle(2, color, 0.8);
   gfx.beginFill(color, 0.2);
