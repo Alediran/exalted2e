@@ -201,51 +201,83 @@ export function hasAdjacentEnemy(actor, spaces = 1) {
   return false;
 }
 
-function _buildAreaGfx(shape, pos, radiusPx) {
-  const fill = 0xFF0000;
-  const gfx  = new PIXI.Graphics();
-  if (shape === "circle") {
-    gfx.circle(0, 0, radiusPx);
-    gfx.fill({ color: fill, alpha: 0.2 });
-    gfx.circle(0, 0, radiusPx);
-    gfx.stroke({ color: fill, width: 2, alpha: 0.8 });
+// rotation in radians, 0 = right/east. Circle, ring, and emanation ignore rotation.
+function _buildAreaGfx(shape, pos, radiusPx, rotation = Math.PI / 2) {
+  const color = 0xFF0000;
+  const gfx   = new PIXI.Graphics();
+  gfx.lineStyle(2, color, 0.8);
+  gfx.beginFill(color, 0.2);
+  if (shape === "circle" || shape === "emanation") {
+    gfx.drawCircle(0, 0, radiusPx);
+  } else if (shape === "ring") {
+    gfx.drawCircle(0, 0, radiusPx);
+    gfx.beginHole();
+    gfx.drawCircle(0, 0, radiusPx * 0.5);
+    gfx.endHole();
   } else if (shape === "cone") {
-    const half = Math.PI / 6; // 60° cone = ±30°
+    // Draw pointing right (0°); gfx.rotation below handles the actual direction.
+    const half = Math.PI / 6; // ±30° = 60° total
     gfx.moveTo(0, 0);
-    gfx.arc(0, 0, radiusPx, Math.PI / 2 - half, Math.PI / 2 + half);
+    gfx.arc(0, 0, radiusPx, -half, half);
     gfx.lineTo(0, 0);
-    gfx.fill({ color: fill, alpha: 0.2 });
-    gfx.moveTo(0, 0);
-    gfx.arc(0, 0, radiusPx, Math.PI / 2 - half, Math.PI / 2 + half);
-    gfx.lineTo(0, 0);
-    gfx.stroke({ color: fill, width: 2, alpha: 0.8 });
+    gfx.closePath();
+  } else if (shape === "ray") {
+    gfx.drawRect(0, -radiusPx * 0.15, radiusPx, radiusPx * 0.3);
   } else {
-    gfx.rect(-radiusPx / 2, 0, radiusPx, radiusPx);
-    gfx.fill({ color: fill, alpha: 0.2 });
-    gfx.rect(-radiusPx / 2, 0, radiusPx, radiusPx);
-    gfx.stroke({ color: fill, width: 2, alpha: 0.8 });
+    // Rectangle: extends right from origin, vertically centred.
+    gfx.drawRect(0, -radiusPx / 2, radiusPx, radiusPx);
   }
+  gfx.endFill();
   gfx.position.set(pos.x, pos.y);
+  if (shape !== "circle" && shape !== "ring" && shape !== "emanation") gfx.rotation = rotation;
   return gfx;
 }
 
-function _tokensInArea(shape, pos, radiusPx) {
-  if (shape === "circle") {
+// rotation in radians, 0 = right/east. Must match the angle passed to _buildAreaGfx.
+function _tokensInArea(shape, pos, radiusPx, rotation = Math.PI / 2) {
+  if (shape === "circle" || shape === "emanation") {
     const geom = new PIXI.Circle(pos.x, pos.y, radiusPx);
     return canvas.tokens.placeables.filter(t => geom.contains(t.center.x, t.center.y));
   }
+  if (shape === "ring") {
+    const inner = radiusPx * 0.5, outer = radiusPx;
+    return canvas.tokens.placeables.filter(t => {
+      const dx = t.center.x - pos.x, dy = t.center.y - pos.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      return dist >= inner && dist <= outer;
+    });
+  }
   if (shape === "cone") {
-    const half = 30; // degrees
     return canvas.tokens.placeables.filter(t => {
       const dx = t.center.x - pos.x, dy = t.center.y - pos.y;
       if (Math.sqrt(dx * dx + dy * dy) > radiusPx) return false;
-      const deg  = Math.atan2(dy, dx) * (180 / Math.PI);
-      const diff = ((deg - 90 + 540) % 360) - 180; // default direction: down
-      return Math.abs(diff) <= half;
+      const tokenAngle = Math.atan2(dy, dx);
+      const diff = tokenAngle - rotation;
+      const diffNorm = ((diff + Math.PI * 3) % (Math.PI * 2)) - Math.PI;
+      return Math.abs(diffNorm) <= Math.PI / 6; // ±30°
     });
   }
-  const geom = new PIXI.Rectangle(pos.x - radiusPx / 2, pos.y, radiusPx, radiusPx);
-  return canvas.tokens.placeables.filter(t => geom.contains(t.center.x, t.center.y));
+  if (shape === "ray") {
+    const cosR = Math.cos(-rotation);
+    const sinR = Math.sin(-rotation);
+    return canvas.tokens.placeables.filter(t => {
+      const dx = t.center.x - pos.x;
+      const dy = t.center.y - pos.y;
+      const localX =  dx * cosR - dy * sinR;
+      const localY =  dx * sinR + dy * cosR;
+      return localX >= 0 && localX <= radiusPx && Math.abs(localY) <= radiusPx * 0.15;
+    });
+  }
+  // Rectangle: extends from pos in rotation direction, radiusPx wide and tall, centred on perpendicular.
+  const cosR = Math.cos(-rotation);
+  const sinR = Math.sin(-rotation);
+  return canvas.tokens.placeables.filter(t => {
+    const dx = t.center.x - pos.x;
+    const dy = t.center.y - pos.y;
+    const localX =  dx * cosR - dy * sinR;
+    const localY =  dx * sinR + dy * cosR;
+    return localX >= 0 && localX <= radiusPx && Math.abs(localY) <= radiusPx / 2;
+  });
 }
 
 /**
@@ -259,15 +291,17 @@ function _tokensInArea(shape, pos, radiusPx) {
  *
  * @param {Actor} _actor  Reserved for future formula resolution.
  * @param {{ shape: string, size: string }} opts
- * @returns {Promise<{ targets: Actor[], drawingId: string|null } | null>}
+ * @returns {Promise<{ targets: Actor[], regionId: string|null } | null>}
  */
 export async function placeAreaTemplate(_actor, { shape, size }) {
   const view = canvas?.app?.view;
   if (!view || !canvas?.ready) return null;
 
-  const sizeVal  = parseFloat(size) || 3;
-  const gs       = canvas.scene.grid.size;
-  const radiusPx = sizeVal * gs;
+  const sizeVal       = parseFloat(size) || 3;
+  const gs            = canvas.scene.grid.size;
+  const radiusPx      = sizeVal * gs;
+  const needsRotation = ["cone", "rect", "ray"].includes(shape);
+  const autoAnchor    = (shape === "cone" || shape === "ray");
 
   const toWorld = (clientX, clientY) => {
     const rect = view.getBoundingClientRect();
@@ -278,19 +312,36 @@ export async function placeAreaTemplate(_actor, { shape, size }) {
     return { x: Math.round(raw.x / gs) * gs, y: Math.round(raw.y / gs) * gs };
   };
 
+  const toWorldRaw = (clientX, clientY) => {
+    const rect = view.getBoundingClientRect();
+    return canvas.stage.worldTransform.applyInverse({
+      x: clientX - rect.left,
+      y: clientY - rect.top,
+    });
+  };
+
+  // Cone and ray anchor origin to the attacker's token center automatically.
+  let autoOrigin = null;
+  if (autoAnchor) {
+    const tok = _tokenForActor(_actor);
+    if (tok) autoOrigin = { x: tok.center.x, y: tok.center.y };
+  }
+
   return new Promise((resolve) => {
     let previewObj  = null;
     let currentPos  = { x: 0, y: 0 };
+    let originPos   = autoOrigin ? { ...autoOrigin } : null;
+    let currentRot  = Math.PI / 2;      // default: pointing down (π/2 rad = 90°)
     let rafId       = null;
     let drawPending = false;
 
-    const drawPreview = (pos) => {
+    const drawPreview = (pos, rot) => {
       if (previewObj) {
         previewObj.parent?.removeChild(previewObj);
         previewObj.destroy();
         previewObj = null;
       }
-      previewObj = _buildAreaGfx(shape, pos, radiusPx);
+      previewObj = _buildAreaGfx(shape, pos, radiusPx, rot);
       canvas.interface.addChild(previewObj);
       drawPending = false;
     };
@@ -308,11 +359,23 @@ export async function placeAreaTemplate(_actor, { shape, size }) {
       }
     };
 
-    const onMove = (ev) => {
-      currentPos = toWorld(ev.clientX, ev.clientY);
+    const schedulePreview = (pos, rot) => {
       if (drawPending) return;
       drawPending = true;
-      rafId = requestAnimationFrame(() => { rafId = null; drawPreview(currentPos); });
+      rafId = requestAnimationFrame(() => { rafId = null; drawPreview(pos, rot); });
+    };
+
+    const onMove = (ev) => {
+      if (originPos) {
+        // Phase 2: use raw (unsnapped) coords for smooth rotation.
+        const world = toWorldRaw(ev.clientX, ev.clientY);
+        const dx = world.x - originPos.x, dy = world.y - originPos.y;
+        if (dx !== 0 || dy !== 0) currentRot = Math.atan2(dy, dx);
+        schedulePreview(originPos, currentRot);
+      } else {
+        currentPos = toWorld(ev.clientX, ev.clientY);
+        schedulePreview(currentPos, currentRot);
+      }
     };
 
     const onCancel = (ev) => {
@@ -330,20 +393,28 @@ export async function placeAreaTemplate(_actor, { shape, size }) {
       if (ev.button !== 0) return;
       ev.preventDefault(); ev.stopPropagation(); ev.stopImmediatePropagation();
 
-      const finalPos = { ...currentPos };
+      if (needsRotation && !originPos) {
+        // Phase 1 complete: lock origin and enter rotation mode.
+        originPos = { ...currentPos };
+        return;
+      }
+
+      // Final placement.
+      const finalPos = originPos ?? { ...currentPos };
+      const finalRot = currentRot;
       cleanup();
 
-      let drawingId = null;
+      let regionId = null;
       try {
-        const drawingData = _buildDrawingData(shape, finalPos, sizeVal, gs);
-        const [created] = await canvas.scene.createEmbeddedDocuments("Drawing", [drawingData]);
-        drawingId = created?.id ?? null;
+        const regionData = _buildRegionData(shape, finalPos, sizeVal, gs, finalRot);
+        const [created] = await canvas.scene.createEmbeddedDocuments("Region", [regionData]);
+        regionId = created?.id ?? null;
       } catch { /* non-fatal — area attack proceeds without the persistent marker */ }
 
-      const targets = _tokensInArea(shape, finalPos, radiusPx);
+      const targets = _tokensInArea(shape, finalPos, radiusPx, finalRot);
       resolve({
-        targets:   targets.map(t => t.actor).filter(Boolean),
-        drawingId,
+        targets: targets.map(t => t.actor).filter(Boolean),
+        regionId,
       });
     };
 
@@ -355,29 +426,72 @@ export async function placeAreaTemplate(_actor, { shape, size }) {
     const rect      = view.getBoundingClientRect();
     const centerRaw = canvas.stage.worldTransform.applyInverse({ x: rect.width / 2, y: rect.height / 2 });
     currentPos = { x: Math.round(centerRaw.x / gs) * gs, y: Math.round(centerRaw.y / gs) * gs };
-    drawPreview(currentPos);
+    drawPreview(originPos ?? currentPos, currentRot);
   });
 }
 
-function _buildDrawingData(shape, pos, sizeVal, gridSize) {
-  const px   = sizeVal * gridSize;
-  const base = {
-    strokeColor: "#FF0000",
-    strokeWidth: 2,
-    strokeAlpha: 0.8,
-    fillColor:   "#FF0000",
-    fillAlpha:   0.2,
-  };
+// rotation in radians (converted to degrees for Foundry). Default: π/2 = 90° = down.
+function _buildRegionData(shape, pos, sizeVal, gridSize, rotation = Math.PI / 2) {
+  const px     = sizeVal * gridSize;
+  const rotDeg = rotation * (180 / Math.PI);
+  let regionShape;
   if (shape === "circle") {
-    return { ...base, type: "e", x: pos.x - px, y: pos.y - px, width: px * 2, height: px * 2 };
-  }
-  if (shape === "cone") {
-    const half = Math.tan(Math.PI / 6) * px;
-    return {
-      ...base, type: "p",
+    regionShape = { type: "circle", x: pos.x, y: pos.y, radius: px, gridBased: false };
+  } else if (shape === "cone") {
+    regionShape = {
+      type: "cone",
       x: pos.x, y: pos.y,
-      points: [0, 0, half, px, -half, px],
+      radius: px,
+      angle: 60,
+      rotation: rotDeg,
+      curvature: "round",
+      gridBased: false,
+    };
+  } else if (shape === "ring") {
+    regionShape = {
+      type: "ring",
+      x: pos.x, y: pos.y,
+      radius: px * 0.75,
+      innerWidth: px * 0.25,
+      outerWidth: px * 0.25,
+      gridBased: false,
+    };
+  } else if (shape === "emanation") {
+    regionShape = {
+      type: "emanation",
+      base: { type: "circle", x: pos.x, y: pos.y, radius: 0, gridBased: false },
+      radius: px,
+      gridBased: false,
+    };
+  } else if (shape === "ray") {
+    regionShape = {
+      type: "line",
+      x: pos.x, y: pos.y,
+      length: px,
+      width: px * 0.3,
+      rotation: rotDeg,
+      gridBased: false,
+    };
+  } else {
+    // anchorX:0, anchorY:0.5 → origin at left-centre; extends in rotation direction.
+    regionShape = {
+      type: "rectangle",
+      x: pos.x, y: pos.y,
+      width: px, height: px,
+      anchorX: 0, anchorY: 0.5,
+      rotation: rotDeg,
+      gridBased: false,
     };
   }
-  return { ...base, type: "r", x: pos.x - px / 2, y: pos.y, width: px, height: px };
+  return {
+    name:                game.i18n.localize("EX2E.AreaAttackRegion"),
+    color:               "#FF0000",
+    shapes:              [regionShape],
+    elevation:           { bottom: null, top: null },
+    behaviors:           [],
+    visibility:          CONST.REGION_VISIBILITY.ALWAYS,
+    highlightMode:       "coverage",
+    displayMeasurements: true,
+    locked:              false,
+  };
 }

@@ -2692,9 +2692,9 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       ui.notifications.warn(game.i18n.localize("EX2E.EffectGMOnlyRemoval"));
       return;
     }
-    const drawingId = ev.currentTarget.dataset.drawingId;
-    if (!drawingId || !canvas.scene) return;
-    await canvas.scene.deleteEmbeddedDocuments("Drawing", [drawingId]);
+    const regionId = ev.currentTarget.dataset.regionId;
+    if (!regionId || !canvas.scene) return;
+    await canvas.scene.deleteEmbeddedDocuments("Region", [regionId]);
   });
 
   // ── Apply area damage ────────────────────────────────────────────────

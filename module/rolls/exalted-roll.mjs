@@ -486,7 +486,6 @@ export class ExaltedRoll {
    * @param {number}       [options.modeIndex=0]  Which mode of the weapon to use
    */
   static async rollAttack(actor, weaponId, options = {}) {
-    debugger;
     const { AttackDialog } = await import("./attack-dialog.mjs");
 
     const weapon = actor.items.get(weaponId);
@@ -835,7 +834,7 @@ export class ExaltedRoll {
         stunt:       dialogResult.stunt,
         moteCost:    0,
         isAreaAttack: true,
-        drawingId:   areaPlacement.drawingId,
+        regionId:    areaPlacement.regionId,
         areaShape:   areaConfig.shape,
         areaTargets: areaPlacement.targets.map(t => ({ id: t.id, name: t.name })),
         areaResist:  {

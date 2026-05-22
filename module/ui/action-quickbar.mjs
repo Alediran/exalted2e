@@ -580,10 +580,10 @@ export class ActionQuickbar {
     if (this._moveOverlayPending !== token_id) return;
 
     const gfx = new PIXI.Graphics();
-    gfx.circle(0, 0, radiusPx);
-    gfx.fill({ color: hexColor, alpha: 0.25 });
-    gfx.circle(0, 0, radiusPx);
-    gfx.stroke({ color: hexColor, width: 2, alpha: 0.8 });
+    gfx.lineStyle(2, hexColor, 0.8);
+    gfx.beginFill(hexColor, 0.25);
+    gfx.drawCircle(0, 0, radiusPx);
+    gfx.endFill();
     gfx.position.set(token.center.x, token.center.y);
 
     if (!canvas?.interface) { gfx.destroy(); return; }
