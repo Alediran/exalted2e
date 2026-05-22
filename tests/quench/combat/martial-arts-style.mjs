@@ -185,6 +185,13 @@ export function registerMartialArtsStyle(context) {
         type: "charm",
         system: { ability: "martialarts", martialArtsTier: "celestial", grantsMastery: true, martialArtsStyleName: "Snake Style" }
       }]);
+      // The createItem hook auto-creates the "Snake Style" martialartsstyle asynchronously.
+      // Poll until it lands so sizeBefore is stable.
+      const deadline = Date.now() + 2000;
+      while (!actor.items.some(i => i.type === "martialartsstyle" && i.name === "Snake Style")) {
+        if (Date.now() > deadline) break;
+        await new Promise(r => setTimeout(r, 50));
+      }
       stubNonGM();
       const warns = stubWarn();
       const sizeBefore = actor.items.size;
