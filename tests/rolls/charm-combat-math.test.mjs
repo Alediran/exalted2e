@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import {
   computeAttackCharmBonus,
+  computeSocialCharmBonus,
 } from "../../module/rolls/charm-combat-math.mjs";
 
 // ── computeAttackCharmBonus ──────────────────────────────────────────
@@ -149,6 +150,77 @@ describe("computeAttackCharmBonus — formula evaluation", () => {
     }}}];
     // ess not present in rollData — replaceFormulaData substitutes "0"
     expect(computeAttackCharmBonus(charms, {}).extraDamageDice).toBe(0);
+  });
+});
+
+// ── computeSocialCharmBonus ──────────────────────────────────────────
+describe("computeSocialCharmBonus", () => {
+  it("returns zeros when no charms given", () => {
+    expect(computeSocialCharmBonus([], {})).toEqual({
+      poolDice: 0, poolSuccesses: 0, ignorePenalties: false
+    });
+  });
+
+  it("returns zeros when no charm has socialBonus.enabled", () => {
+    const charms = [{ system: { socialBonus: {
+      enabled: false, poolDice: "5", poolSuccesses: "3",
+      poolDicePerMote: false, ignorePenalties: true
+    }}}];
+    expect(computeSocialCharmBonus(charms, {})).toEqual({
+      poolDice: 0, poolSuccesses: 0, ignorePenalties: false
+    });
+  });
+
+  it("sums poolDice and poolSuccesses from enabled charms", () => {
+    const charms = [
+      { system: { socialBonus: { enabled: true, poolDice: "2", poolSuccesses: "1", poolDicePerMote: false, ignorePenalties: false }, resolvedUnits: 1 }},
+      { system: { socialBonus: { enabled: true, poolDice: "1", poolSuccesses: "0", poolDicePerMote: false, ignorePenalties: false }, resolvedUnits: 1 }}
+    ];
+    const r = computeSocialCharmBonus(charms, {});
+    expect(r.poolDice).toBe(3);
+    expect(r.poolSuccesses).toBe(1);
+  });
+
+  it("scales poolDice by resolvedUnits when poolDicePerMote is true", () => {
+    const charms = [
+      { system: { socialBonus: { enabled: true, poolDice: "@cha", poolSuccesses: "1", poolDicePerMote: true, ignorePenalties: false }, resolvedUnits: 2 }}
+    ];
+    // cha = 3 → 3 * 2 = 6 dice
+    const r = computeSocialCharmBonus(charms, { cha: 3 });
+    expect(r.poolDice).toBe(6);
+    expect(r.poolSuccesses).toBe(1);
+  });
+
+  it("does NOT scale poolDice by resolvedUnits when poolDicePerMote is false", () => {
+    const charms = [
+      { system: { socialBonus: { enabled: true, poolDice: "3", poolSuccesses: "", poolDicePerMote: false, ignorePenalties: false }, resolvedUnits: 5 }}
+    ];
+    expect(computeSocialCharmBonus(charms, {}).poolDice).toBe(3);
+  });
+
+  it("sets ignorePenalties when any enabled charm has it", () => {
+    const charms = [
+      { system: { socialBonus: { enabled: true, poolDice: "", poolSuccesses: "", poolDicePerMote: false, ignorePenalties: false }, resolvedUnits: 1 }},
+      { system: { socialBonus: { enabled: true, poolDice: "", poolSuccesses: "", poolDicePerMote: false, ignorePenalties: true  }, resolvedUnits: 1 }}
+    ];
+    expect(computeSocialCharmBonus(charms, {}).ignorePenalties).toBe(true);
+  });
+
+  it("resolves formula tokens from rollData", () => {
+    const charms = [
+      { system: { socialBonus: { enabled: true, poolDice: "@ess", poolSuccesses: "@wp", poolDicePerMote: false, ignorePenalties: false }, resolvedUnits: 1 }}
+    ];
+    const r = computeSocialCharmBonus(charms, { ess: 4, wp: 2 });
+    expect(r.poolDice).toBe(4);
+    expect(r.poolSuccesses).toBe(2);
+  });
+
+  it("uses resolvedUnits = 1 as fallback when field is absent", () => {
+    const charms = [
+      { system: { socialBonus: { enabled: true, poolDice: "2", poolSuccesses: "", poolDicePerMote: true, ignorePenalties: false } } }
+      // no resolvedUnits field → fallback 1 → 2 * 1 = 2
+    ];
+    expect(computeSocialCharmBonus(charms, {}).poolDice).toBe(2);
   });
 });
 

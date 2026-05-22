@@ -2,6 +2,7 @@ import { assertTestWorld }                from "../_helpers/world.mjs";
 import { sweep }                          from "../_helpers/cleanup.mjs";
 import { createTempCharacter }            from "../_helpers/actors.mjs";
 import { addIntimacy, addMotivation }     from "../_helpers/intimacies.mjs";
+import { createTempCharm }               from "../_helpers/charms.mjs";
 
 // Poll for a condition and return the result when it becomes truthy.
 async function waitFor(predicate, { timeout = 3000, interval = 50 } = {}) {
@@ -362,5 +363,40 @@ export function registerSocialAttackFocused(context) {
       const ledger = message.flags?.exalted2e?.socialAttack;
       assert.equal(ledger.targetedIntimacyId, null, "non-erode targetedIntimacyId is null");
     });
+
+    it("[I07] socialBonus.poolDice adds to attacker pool recorded in ledger", async function () {
+      this.timeout(10000);
+      const { attacker, defender } = await setupSocialFixture();
+
+      const charm = await createTempCharm(attacker, {
+        charmType: "supplemental",
+        ability:   "presence",
+        duration:  "instant",
+        cost:      {}
+      });
+      await charm.update({
+        "system.socialBonus.enabled":  true,
+        "system.socialBonus.poolDice": "2"
+      });
+
+      const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
+      const message = await ExaltedRoll.rollSocialAttack(attacker, {
+        defender,
+        attribute: "charisma",
+        ability:   "presence",
+        intent:    "build",
+        subject:   "Test Social Bonus",
+        claims:    {},
+        charmIds:  [charm.id]
+      });
+
+      assert.ok(message, "rollSocialAttack returned a ChatMessage");
+      const ledger = message.flags?.exalted2e?.socialAttack;
+      assert.equal(ledger.charmPoolDice, 2,
+        "charmPoolDice in ledger equals the poolDice value");
+      assert.equal(ledger.pool, ledger.attributeValue + ledger.abilityValue + 2,
+        "pool includes charmPoolDice — not just stored, but wired into finalPool");
+    });
+
   });
 }

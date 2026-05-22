@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-22 (Environmental hazards done: HazardDamageBehaviorType + GM placement flow + hazard immunity charm effect + enhancesCharmUid gating; DB Anima Flux visual region done: circle ring follows token via attachment)
+Last updated: 2026-05-22 (Environmental hazards done: HazardDamageBehaviorType + GM placement flow + hazard immunity charm effect + enhancesCharmUid gating; DB Anima Flux visual region done: circle ring follows token via attachment; Social charm bonus payload done: socialBonus schema + computeSocialCharmBonus + rollSocialAttack integration + Effects tab UI)
 
 ---
 
@@ -66,7 +66,6 @@ Last updated: 2026-05-22 (Environmental hazards done: HazardDamageBehaviorType +
 | Clinch / Grapple | Combat | new turn-loop: control pool, opposed rolls, sub-actions (throw/crush/hold), per-tick renewal |
 | Mounted combat | Combat | Ride-controlled mount stats, charge bonuses, Ride charm integration |
 | Essence-tiered upgrade branches | Charms | `essenceUpgrades[]` schema + branch-selection step in activation dialog — [charms-gap A2](docs/charms-gap.md) |
-| Social charm bonus payload | Social | `socialBonus` sub-schema (pool/MDV modifier) + social-roll pipeline integration — [charms-gap A9](docs/charms-gap.md) |
 | Thaumaturgy | Sorcery | separate lower-power tier: procedures, degrees, own roll resolver |
 | Artifact creation rules | Crafting | extended Craft roll + Craft+Lore+Occult, seasons interval, exotic ingredient tracker |
 | Pre-built charms compendium | Compendium | hundreds of Solar charms minimum; large data-authoring effort |
@@ -91,10 +90,10 @@ Last updated: 2026-05-22 (Environmental hazards done: HazardDamageBehaviorType +
 |-------|-------|
 | A — Ready, Simple | 1 |
 | B — Ready, Medium | 35 |
-| C — Ready, Complex | 10 |
+| C — Ready, Complex | 9 |
 | D — Blocked | 1 |
-| **Total pending** | **47** |
+| **Total pending** | **46** |
 
 **Biggest force-multipliers:**
-- **Social charm bonus payload** (Group C) → prerequisite for Mass Combat morale/demoralize pipeline
+- **Mass Combat** (Group C) — social charm bonus payload now done; morale/demoralize pipeline unblocked
 - **Environmental hazards mass-combat integration** (Group B) — base hazard system done; terrain modifier integration now unblocked

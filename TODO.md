@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 200 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-22)
+**Progress: 201 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-22)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -107,7 +107,8 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Motivation-break mechanic (permanent WP + Essence days without recovery)
 - [x] Intimacy building/erosion via successful social attack (+/−1 or new Intimacy seed)
 - [x] Social Combos (no Obvious display unless charm is Obvious)
-- [ ] Social charm bonus payload (socialBonus schema — charm-driven pool/MDV modifier, analogous to attackBonus) — [charms-gap A9](docs/charms-gap.md)
+- [x] Social charm bonus payload (`socialBonus` schema — charm-driven pool dice/auto-successes/penalty-ignore for social attacks; MDV debuff gap noted in spec) — [charms-gap A9](docs/charms-gap.md)
+  - [ ] Social attack chat card: surface `charmPoolDice` / `charmPoolSuccesses` in pool breakdown line (currently stored in ledger but not rendered)
 
 ## Sorcery & Necromancy
 - [x] Spell item type (Terrestrial/Celestial/Solar; Shadowland/Labyrinth/Void)
@@ -284,7 +285,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Mass combat (unit actor type: Magnitude, Drill, Might, Endurance, Morale, formations, commander + relays + heroes)
   - **Implement these first to avoid hardcoding mass-combat-specific solutions:**
   - [ ] Background mechanical hooks — unit quality and Command roll bonuses derive from War/Leadership backgrounds
-  - [ ] Social charm bonus payload (`socialBonus` sub-schema) — morale/demoralize actions route through the MDV pipeline
+  - [x] Social charm bonus payload (`socialBonus` sub-schema) — morale/demoralize actions route through the MDV pipeline
   - [x] Charm deactivation resolver — battle-duration formation and commander-aura effects need scene/combat-end cleanup
   - [~] Environmental hazards — base hazard system done (Region behavior + placement flow); mass-combat terrain modifier integration (difficult ground, elevation, chokepoints) still pending
 - [ ] Artifact creation rules (extended Craft roll; Craft+Lore+Occult; seasons interval)

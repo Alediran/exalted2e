@@ -17,7 +17,7 @@ import {
 } from "./attack-math.mjs";
 import { computeAttackExcellencyCaps } from "./excellency-math.mjs";
 import { bankStuntReward } from "../combat/stunt-payment.mjs";
-import { computeAttackCharmBonus } from "./charm-combat-math.mjs";
+import { computeAttackCharmBonus, computeSocialCharmBonus } from "./charm-combat-math.mjs";
 import { aggregateExtraActionsMaxFromAEs, aggregateSpeedModifierFromAEs, getMasteryDiscount } from "./charm-passive-math.mjs";
 import { evaluateCharmFormula, sendCombinedActivationCard } from "../documents/item.mjs";
 
@@ -1232,6 +1232,12 @@ export class ExaltedRoll {
       sourceByKeyword: attackerSourceByKeyword
     } = aggregateAttackerCharms(actuallyActivated);
 
+    const rollData = attacker.getRollData?.() ?? {};
+    const charmSocialBonus = computeSocialCharmBonus(
+      actuallyActivated.filter(c => c.system?.socialBonus?.enabled),
+      rollData
+    );
+
     // UMI is forced on if any UMI charm was picked, regardless of manual
     // checkbox. Falls back to manual claim otherwise.
     const unnaturalInfluenceFinal = (umiCostSum > 0) || !!claims.unnaturalInfluence;
@@ -1281,7 +1287,8 @@ export class ExaltedRoll {
     // 5. Roll the attacker's pool.
     const attributeValue = attacker.system?.attributes?.[attribute]?.value ?? 0;
     const abilityValue   = attacker.system?.abilities?.[ability]?.value     ?? 0;
-    const pool = attributeValue + abilityValue + (Number(stuntDice) || 0) + (firstExcDice ?? 0);
+    const pool = attributeValue + abilityValue + (Number(stuntDice) || 0) + (firstExcDice ?? 0)
+               + charmSocialBonus.poolDice;
 
     const intentLabel = game.i18n.localize({
       build:  "EX2E.IntentBuild",
@@ -1293,11 +1300,18 @@ export class ExaltedRoll {
     // but skip its toMessage call so we post only the social card.
     const social_internal = attacker.internalPenaltyFor?.("social") ?? 0;
     const social_external = attacker.externalPenaltyFor?.("social") ?? 0;
+    // woundPenalty is stored as a non-positive integer (0, -1, -2, -4) so it is
+    // added, not subtracted — a negative value already reduces the pool.
     const social_wound    = Number(attacker.system?.health?.woundPenalty) || 0;
     const social_clarity  = (attacker.system?.exaltType === "alchemical")
       ? (attacker.system?.clarityModifiers?.socialPenalty ?? 0)
       : 0;
-    const finalPool = Math.max(0, (pool ?? 0) + social_wound - social_internal - social_clarity);
+    const finalPool = Math.max(0,
+      (pool ?? 0)
+      + (charmSocialBonus.ignorePenalties ? 0 : social_wound)
+      - (charmSocialBonus.ignorePenalties ? 0 : social_internal)
+      - (charmSocialBonus.ignorePenalties ? 0 : social_clarity)
+    );
 
     // Natural-influence drain cap: if this is a non-UMI attack and the
     // defender's per-attacker scene-drain counter is already ≥ 2, the
@@ -1309,6 +1323,9 @@ export class ExaltedRoll {
       pool:               finalPool,
       flavor:             intentLabel,
       actorName:          attacker.name,
+      // social_external is intentionally NOT gated by ignorePenalties; per spec
+      // socialBonus only bypasses wound/internal/clarity (actor internal states),
+      // not external situational penalties applied by the roll environment.
       externalPenalty:    social_external,
       moteCost:           excMoteCost,
       moteType:           moteType,
@@ -1320,7 +1337,7 @@ export class ExaltedRoll {
     // 6. Threshold display only — hit / wpToResist are deferred to
     //    defender Step-2 (orchestrator in exalted2e.mjs computes them
     //    after charm activations + Excellency mote spend resolve).
-    const rollSuccesses = rollResult?.successes ?? 0;
+    const rollSuccesses = (rollResult?.successes ?? 0) + charmSocialBonus.poolSuccesses;
     const netSuccesses = Math.max(0, rollSuccesses - preStep2EffectiveMDV);
 
     // 7. Build chat card content.
@@ -1406,7 +1423,9 @@ export class ExaltedRoll {
       stuntDice,
       pool: finalPool,
       bestSupporting,
-      bestOpposing
+      bestOpposing,
+      charmPoolDice:      charmSocialBonus.poolDice,
+      charmPoolSuccesses: charmSocialBonus.poolSuccesses,
     };
 
     const cardContext = {

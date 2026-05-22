@@ -1113,6 +1113,68 @@
     {{/if}}
   </div>
 
+  {{!-- M18 Social Bonus ───────────────────────────────────────────────────── --}}
+  {{#if (or (eq system.charmType "supplemental") (includes system.keywords "Social"))}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.socialBonus.enabled"
+             {{#if system.socialBonus.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.EffectSocialBonus"}}</span>
+    </label>
+    {{#if system.socialBonus.enabled}}
+    <div class="effect-body effect-grid-2">
+      <div class="field-group">
+        <label>{{localize "EX2E.SCBPoolDice"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.socialBonus.poolDice"
+                 value="{{system.socialBonus.poolDice}}"
+                 placeholder="e.g. @cha"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.socialBonus.poolDice"
+                  data-label="{{localize 'EX2E.SCBPoolDice'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field-group checkbox-field">
+        <label>{{localize "EX2E.SCBPoolDicePerMote"}}</label>
+        <input type="checkbox" name="system.socialBonus.poolDicePerMote"
+               {{#if system.socialBonus.poolDicePerMote}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.SCBPoolSuccesses"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.socialBonus.poolSuccesses"
+                 value="{{system.socialBonus.poolSuccesses}}"
+                 placeholder="e.g. 1"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.socialBonus.poolSuccesses"
+                  data-label="{{localize 'EX2E.SCBPoolSuccesses'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field-group checkbox-field">
+        <label>{{localize "EX2E.SCBIgnorePenalties"}}</label>
+        <input type="checkbox" name="system.socialBonus.ignorePenalties"
+               {{#if system.socialBonus.ignorePenalties}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+  {{/if}}
+
   {{!-- M15 Willpower Recovery ─────────────────────────────────────────────── --}}
   <div class="effect-section">
     <label class="effect-enable-row">

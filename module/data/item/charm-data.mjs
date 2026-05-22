@@ -310,6 +310,15 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         ignoreRangeBand:         new fields.BooleanField({ initial: false })
       }),
 
+      // M18 — Social attack bonus (supplemental / Social-keyword charms)
+      socialBonus: new fields.SchemaField({
+        enabled:         new fields.BooleanField({ initial: false }),
+        poolDice:        new fields.StringField({ initial: "", blank: true }),
+        poolSuccesses:   new fields.StringField({ initial: "", blank: true }),
+        poolDicePerMote: new fields.BooleanField({ initial: false }),
+        ignorePenalties: new fields.BooleanField({ initial: false })
+      }),
+
       // M13 — Speed modifier
       speedModifier: new fields.SchemaField({
         enabled:      new fields.BooleanField({ initial: false }),

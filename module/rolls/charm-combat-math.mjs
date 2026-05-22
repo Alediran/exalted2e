@@ -29,3 +29,26 @@ export function computeAttackCharmBonus(charms, rollData = {}) {
   return { extraAccuracyDice, extraAccuracySuccesses, extraDamageDice, extraPostSoakDamageDice, ignorePenalties, ignoreRangeBand };
 }
 
+/**
+ * Aggregate social attack bonuses from activated supplemental charms.
+ * Formula fields are evaluated via evaluateCharmFormula.
+ * poolDicePerMote fields are scaled by resolvedUnits (set by mote slider
+ * during activation). Pass actor.getRollData() as rollData.
+ * @param {object[]} charms
+ * @param {object}   rollData
+ * @returns {{ poolDice:number, poolSuccesses:number, ignorePenalties:boolean }}
+ */
+export function computeSocialCharmBonus(charms, rollData = {}) {
+  let poolDice = 0, poolSuccesses = 0, ignorePenalties = false;
+  for (const c of charms) {
+    const sb = c?.system?.socialBonus;
+    if (!sb?.enabled) continue;
+    const units = c.system?.resolvedUnits ?? 1;
+    poolDice      += (evaluateCharmFormula(sb.poolDice,      rollData, 0) | 0)
+                     * (sb.poolDicePerMote ? units : 1);
+    poolSuccesses += (evaluateCharmFormula(sb.poolSuccesses, rollData, 0) | 0);
+    if (sb.ignorePenalties) ignorePenalties = true;
+  }
+  return { poolDice, poolSuccesses, ignorePenalties };
+}
+
