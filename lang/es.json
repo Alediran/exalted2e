@@ -1239,10 +1239,21 @@
     "CultMoteRegen": "Regeneración de Motas",
     "CultWpRecovery": "Recuperación de FV",
     "CultWpDaily": "diario",
+    "CommandDropBackground": "Suelta un Antecedente aquí",
+    "CommandUnitType": "Tipo de Unidad",
+    "CommandWarDice": "Dados Bono de Guerra",
+    "CommandMagnitudeCap": "Magnitud Máxima",
+    "FollowersDropBackground": "Suelta un Antecedente aquí",
+    "FollowersType": "Tipo de Seguidores",
+    "FollowersMagnitude": "Magnitud de Unidad",
     "Familiars": "Familiares",
     "Cults": "Cultos",
+    "Commands": "Comandos",
+    "Followers": "Seguidores",
     "NewFamiliar": "Nuevo Familiar",
     "NewCult": "Nuevo Culto",
+    "NewCommand": "Nuevo Comando",
+    "NewFollowers": "Nuevos Seguidores",
     "Create": "Crear",
     "ResourcesCost": "Coste en Recursos",
     "Quantity": "Cantidad",
@@ -1883,7 +1894,11 @@
       "martialartsstyle": "Estilo de Artes Marciales",
       "urge": "Impulso",
       "hearthstone": "Piedra del Hogar",
-      "manse": "Mansión"
+      "manse": "Mansión",
+      "familiar": "Familiar",
+      "followers": "Seguidores",
+      "command": "Comando",
+      "cult": "Culto"
     }
   }
 }

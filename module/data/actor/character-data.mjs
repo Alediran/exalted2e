@@ -344,11 +344,13 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     });
   }
 
-  static #PERSONAL_BONUS   = [0, 1, 2, 3, 4, 5];
-  static #CULT_MOTE_REGEN = [0, 0, 2, 3, 4, 6];
-  static #CULT_WP_HOURS   = [0, 24, 24, 24, 12, 6];
-  static #PERIPHERAL_BONUS = [0, 2, 3, 5, 7, 9];
-  static #ANIMA_REDUCTION  = [0, 0, 0, 0, 1, 2];
+  static #PERSONAL_BONUS    = [0, 1, 2, 3, 4, 5];
+  static #CULT_MOTE_REGEN   = [0, 0, 2, 3, 4, 6];
+  static #CULT_WP_HOURS     = [0, 24, 24, 24, 12, 6];
+  static #PERIPHERAL_BONUS  = [0, 2, 3, 5, 7, 9];
+  static #ANIMA_REDUCTION   = [0, 0, 0, 0, 1, 2];
+  static #COMMAND_WAR_DICE  = [0, 1, 2, 3, 4, 5];
+  static #FOLLOWERS_MAG     = [0, 1, 2, 3, 4, 5];
 
   // ── Derived Data ──────────────────────────────────────────────────────────
 
@@ -358,6 +360,8 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     this._prepareHealthData();
     this._prepareBreedingBonus();
     this._prepareCultData();
+    this._prepareCommandData();
+    this._prepareFollowersData();
     this._applyCharmInitiation();
     this._prepareCombatStats();
     this._prepareMoteMaxima();
@@ -443,6 +447,34 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     }
     this.cultMoteRegen = totalMotes;
     this.cultWpHours   = minInterval;
+  }
+
+  _prepareCommandData() {
+    const actor = this.parent;
+    if (!actor) { this.commandRating = 0; this.commandWarDice = 0; return; }
+    let maxRating = 0;
+    for (const item of actor.items) {
+      if (item.type !== "command") continue;
+      const bg = actor.items.get(item.system.backgroundId);
+      if (!bg || bg.type !== "background") continue;
+      maxRating = Math.max(maxRating, Math.max(0, Math.min(5, bg.system.value ?? 0)));
+    }
+    this.commandRating  = maxRating;
+    this.commandWarDice = CharacterData.#COMMAND_WAR_DICE[maxRating];
+  }
+
+  _prepareFollowersData() {
+    const actor = this.parent;
+    if (!actor) { this.followersRating = 0; this.followersMagnitude = 0; return; }
+    let maxRating = 0;
+    for (const item of actor.items) {
+      if (item.type !== "followers") continue;
+      const bg = actor.items.get(item.system.backgroundId);
+      if (!bg || bg.type !== "background") continue;
+      maxRating = Math.max(maxRating, Math.max(0, Math.min(5, bg.system.value ?? 0)));
+    }
+    this.followersRating    = maxRating;
+    this.followersMagnitude = CharacterData.#FOLLOWERS_MAG[maxRating];
   }
 
   _applyCharmInitiation() {

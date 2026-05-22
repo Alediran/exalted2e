@@ -337,6 +337,13 @@ EX2E.backgroundTypeGroups = [
 EX2E.cultMoteRegen = [0, 0, 2, 3, 4, 6];
 EX2E.cultWpHours   = [0, 24, 24, 24, 12, 6]; // hours between WP recovery; 0 = none
 
+// Command background: bonus War dice and unit Magnitude cap (index = rating 0–5)
+EX2E.commandWarDice   = [0, 1, 2, 3, 4, 5];
+EX2E.commandMagnitude = [0, 1, 2, 3, 4, 5];
+
+// Followers background: mass-combat unit Magnitude cap (index = rating 0–5)
+EX2E.followersMagnitude = [0, 1, 2, 3, 4, 5];
+
 // ── Charm Keywords ──────────────────────────────────────────────────────
 // Predefined list for autocomplete / dropdown suggestions on Charm sheets.
 // Alphabetised and deduped — source categories preserved in comments below

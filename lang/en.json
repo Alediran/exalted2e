@@ -1239,10 +1239,21 @@
     "CultMoteRegen": "Mote Regen",
     "CultWpRecovery": "WP Recovery",
     "CultWpDaily": "daily",
+    "CommandDropBackground": "Drop a Background here",
+    "CommandUnitType": "Unit Type",
+    "CommandWarDice": "War Bonus Dice",
+    "CommandMagnitudeCap": "Magnitude Cap",
+    "FollowersDropBackground": "Drop a Background here",
+    "FollowersType": "Follower Type",
+    "FollowersMagnitude": "Unit Magnitude",
     "Familiars": "Familiars",
     "Cults": "Cults",
+    "Commands": "Commands",
+    "Followers": "Followers",
     "NewFamiliar": "New Familiar",
     "NewCult": "New Cult",
+    "NewCommand": "New Command",
+    "NewFollowers": "New Followers",
     "Create": "Create",
     "ResourcesCost": "Resources Cost",
     "Quantity": "Quantity",
@@ -1883,7 +1894,11 @@
       "martialartsstyle": "Martial Arts Style",
       "urge": "Urge",
       "hearthstone": "Hearthstone",
-      "manse": "Manse"
+      "manse": "Manse",
+      "familiar": "Familiar",
+      "followers": "Followers",
+      "command": "Command",
+      "cult": "Cult"
     }
   }
 }

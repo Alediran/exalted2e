@@ -497,6 +497,92 @@
   {{/if}}
   {{/if}}
 
+  {{!-- ── Command ────────────────────────────────────────────────────────── --}}
+  {{#if (eq item.type "command")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.ManseBackground"}}</label>
+    {{#if isEditable}}
+    <div class="manse-drop-zone background-drop-zone" data-drop-accepts="background">
+      {{#if item.system.backgroundId}}
+      <span class="manse-drop-chip">
+        <span class="manse-drop-chip-name">{{commandBackgroundName}}</span>
+        <button type="button" data-action="clearCommandBackground" class="manse-drop-clear" title="{{localize 'EX2E.Clear'}}">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </span>
+      {{else}}
+      <span class="manse-drop-placeholder">
+        <i class="fa-solid fa-arrow-down-to-bracket"></i> {{localize "EX2E.CommandDropBackground"}}
+      </span>
+      {{/if}}
+    </div>
+    {{else}}
+    <span class="field-value">{{#if commandBackgroundName}}{{commandBackgroundName}}{{else}}—{{/if}}</span>
+    {{/if}}
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.CommandUnitType"}}</label>
+    {{#if isEditable}}
+    <input type="text" name="system.unitType" value="{{system.unitType}}" style="width:100%">
+    {{else}}
+    <span class="field-value">{{#if system.unitType}}{{system.unitType}}{{else}}—{{/if}}</span>
+    {{/if}}
+  </div>
+  {{#if commandBackgroundRating}}
+  <div class="field-group cult-stats-row" style="margin-top:8px">
+    <div class="cult-stat">
+      <span class="cult-stat-label">{{localize "EX2E.CommandWarDice"}}</span>
+      <span class="cult-stat-value">+{{commandWarDice}}</span>
+    </div>
+    <div class="cult-stat">
+      <span class="cult-stat-label">{{localize "EX2E.CommandMagnitudeCap"}}</span>
+      <span class="cult-stat-value">{{commandBackgroundRating}}</span>
+    </div>
+  </div>
+  {{/if}}
+  {{/if}}
+
+  {{!-- ── Followers ──────────────────────────────────────────────────────── --}}
+  {{#if (eq item.type "followers")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.ManseBackground"}}</label>
+    {{#if isEditable}}
+    <div class="manse-drop-zone background-drop-zone" data-drop-accepts="background">
+      {{#if item.system.backgroundId}}
+      <span class="manse-drop-chip">
+        <span class="manse-drop-chip-name">{{followersBackgroundName}}</span>
+        <button type="button" data-action="clearFollowersBackground" class="manse-drop-clear" title="{{localize 'EX2E.Clear'}}">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </span>
+      {{else}}
+      <span class="manse-drop-placeholder">
+        <i class="fa-solid fa-arrow-down-to-bracket"></i> {{localize "EX2E.FollowersDropBackground"}}
+      </span>
+      {{/if}}
+    </div>
+    {{else}}
+    <span class="field-value">{{#if followersBackgroundName}}{{followersBackgroundName}}{{else}}—{{/if}}</span>
+    {{/if}}
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.FollowersType"}}</label>
+    {{#if isEditable}}
+    <input type="text" name="system.followerType" value="{{system.followerType}}" style="width:100%">
+    {{else}}
+    <span class="field-value">{{#if system.followerType}}{{system.followerType}}{{else}}—{{/if}}</span>
+    {{/if}}
+  </div>
+  {{#if followersBackgroundRating}}
+  <div class="field-group cult-stats-row" style="margin-top:8px">
+    <div class="cult-stat">
+      <span class="cult-stat-label">{{localize "EX2E.FollowersMagnitude"}}</span>
+      <span class="cult-stat-value">{{followersMagnitude}}</span>
+    </div>
+  </div>
+  {{/if}}
+  {{/if}}
+
   <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
   <div class="editor-container">
     {{#if isEditable}}

@@ -24,7 +24,9 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       clearFamiliarBackground: GenericItemSheet.#onClearFamiliarBackground,
       clearFamiliarActor:      GenericItemSheet.#onClearFamiliarActor,
       createFamiliarActor:     GenericItemSheet.#onCreateFamiliarActor,
-      clearCultBackground:     GenericItemSheet.#onClearCultBackground
+      clearCultBackground:      GenericItemSheet.#onClearCultBackground,
+      clearCommandBackground:   GenericItemSheet.#onClearCommandBackground,
+      clearFollowersBackground: GenericItemSheet.#onClearFollowersBackground
     }
   };
 
@@ -150,6 +152,32 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       cultWpHoursDisplay   = EX2E.cultWpHours[cultBackgroundRating]   ?? 0;
     }
 
+    let commandBackgroundName   = "";
+    let commandBackgroundRating = 0;
+    let commandWarDice          = 0;
+    if (item.type === "command") {
+      const actor = item.parent;
+      if (actor) {
+        const linkedBg = actor.items.get(sys.backgroundId);
+        commandBackgroundName   = linkedBg?.name ?? "";
+        commandBackgroundRating = Math.max(0, Math.min(5, linkedBg?.system.value ?? 0));
+      }
+      commandWarDice = EX2E.commandWarDice[commandBackgroundRating] ?? 0;
+    }
+
+    let followersBackgroundName   = "";
+    let followersBackgroundRating = 0;
+    let followersMagnitude        = 0;
+    if (item.type === "followers") {
+      const actor = item.parent;
+      if (actor) {
+        const linkedBg = actor.items.get(sys.backgroundId);
+        followersBackgroundName   = linkedBg?.name ?? "";
+        followersBackgroundRating = Math.max(0, Math.min(5, linkedBg?.system.value ?? 0));
+      }
+      followersMagnitude = EX2E.followersMagnitude[followersBackgroundRating] ?? 0;
+    }
+
     const enrichedDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description, {
       secrets: this.document.isOwner, relativeTo: this.document
     });
@@ -173,7 +201,9 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
              mansePowers,
              backgroundTypeLabel,
              familiarBackgroundName, familiarBackgroundRating, familiarLinkedActorName,
-             cultBackgroundName, cultBackgroundRating, cultMoteRegenDisplay, cultWpHoursDisplay };
+             cultBackgroundName, cultBackgroundRating, cultMoteRegenDisplay, cultWpHoursDisplay,
+             commandBackgroundName, commandBackgroundRating, commandWarDice,
+             followersBackgroundName, followersBackgroundRating, followersMagnitude };
   }
 
   _onRender(context, options) {
@@ -204,7 +234,8 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         });
       }
     }
-    if (this.document.type === "familiar" || this.document.type === "cult") {
+    if (this.document.type === "familiar" || this.document.type === "cult"
+        || this.document.type === "command" || this.document.type === "followers") {
       for (const zone of this.element.querySelectorAll(".background-drop-zone")) {
         zone.addEventListener("dragover", ev => { ev.preventDefault(); zone.classList.add("drag-over"); });
         zone.addEventListener("dragleave", () => zone.classList.remove("drag-over"));
@@ -339,6 +370,14 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   }
 
   static async #onClearCultBackground(_event, _target) {
+    await this.document.update({ "system.backgroundId": "" });
+  }
+
+  static async #onClearCommandBackground(_event, _target) {
+    await this.document.update({ "system.backgroundId": "" });
+  }
+
+  static async #onClearFollowersBackground(_event, _target) {
     await this.document.update({ "system.backgroundId": "" });
   }
 

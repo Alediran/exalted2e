@@ -116,7 +116,11 @@ export class ExaltedActor extends Actor {
     }
     // Universal Limit token — every Exalt's anti-virtue counter, regardless
     // of which splat-variant rules apply (Limit / Resonance / Torment / Clarity).
-    data.limit = s.limit ?? 0;
+    data.limit             = s.limit              ?? 0;
+    data.commandRating     = s.commandRating      ?? 0;
+    data.commandWarDice    = s.commandWarDice      ?? 0;
+    data.followersRating   = s.followersRating     ?? 0;
+    data.followersMagnitude = s.followersMagnitude ?? 0;
     return data;
   }
 
