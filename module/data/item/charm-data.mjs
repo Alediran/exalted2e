@@ -61,6 +61,11 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       // charmUid of the Solar charm this Abyssal (or other splat) charm mirrors.
       // The Mirror keyword indicates it exists; this field provides the stable link.
       mirrorId:             new fields.StringField({ initial: "", blank: true }),
+      // charmUid of the Charm this one enhances. When set, all mechanical effects
+      // from this Charm only activate while the referenced Charm is active.
+      // Used for permanent Charms that are prerequisites which upgrade a sustained
+      // base Charm (e.g. Element-Resisting Prana enhances Hardship Surviving Mendicant Spirit).
+      enhancesCharmUid:     new fields.StringField({ initial: "", blank: true }),
       stackCount:           new fields.NumberField({ initial: 0, min: 0, integer: true }),
 
       // ── Prerequisites ────────────────────────────────────────────────────

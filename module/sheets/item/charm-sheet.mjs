@@ -45,7 +45,8 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       removeDVIgnorePenaltyType: CharmSheet.#onRemoveDVIgnorePenaltyType,
       addTargetEffectChange:    CharmSheet.#onAddTargetEffectChange,
       removeTargetEffectChange: CharmSheet.#onRemoveTargetEffectChange,
-      dispelOther:              CharmSheet.#onDispelOther
+      dispelOther:              CharmSheet.#onDispelOther,
+      clearEnhancesCharm:       CharmSheet.#onClearEnhancesCharm
     }
   };
 
@@ -182,6 +183,7 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         { value: "virtue",        label: game.i18n.localize("EX2E.PrereqTypeVirtue") }
       ],
       mirrorCharmDisplayName: charmByUid.get(sys.mirrorId ?? "") ?? "",
+      enhancesCharmDisplayName: charmByUid.get(sys.enhancesCharmUid ?? "") ?? "",
       mergedCharms: (sys.mergedIds ?? []).map((uid, index) => ({
         uid, index, name: charmByUid.get(uid) ?? "",
       })),
@@ -378,6 +380,10 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     await this.document.update({ "system.mirrorId": "" });
   }
 
+  static async #onClearEnhancesCharm() {
+    await this.document.update({ "system.enhancesCharmUid": "" });
+  }
+
   static async #onRemoveMergedCharm(_event, target) {
     const idx = parseInt(target.dataset.index);
     const ids = foundry.utils.deepClone(this.document.system.mergedIds ?? []);
@@ -517,7 +523,9 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
           if (dropped?.type !== "charm") return;
           const uid = dropped.system?.charmUid ?? dropped.id;
           if (!uid) return;
-          if (zone.dataset.dropType === "mirror") {
+          if (zone.dataset.dropType === "enhancesCharm") {
+            await this.document.update({ "system.enhancesCharmUid": uid });
+          } else if (zone.dataset.dropType === "mirror") {
             await this.document.update({ "system.mirrorId": uid });
           } else if (zone.dataset.dropType === "merged") {
             const ids = foundry.utils.deepClone(this.document.system.mergedIds ?? []);

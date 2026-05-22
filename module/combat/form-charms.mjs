@@ -116,6 +116,10 @@ export function buildCharmSynthAEs(charm, rollData = {}) {
     extraFlags.hazardImmunity = sys.hazardImmunity.scope ?? "natural";
   }
 
+  if (sys.enhancesCharmUid) {
+    extraFlags.enhancesCharmUid = sys.enhancesCharmUid;
+  }
+
   if (!changes.length && !Object.keys(extraFlags).length) return [];
 
   const _ra = initialRemainingActions(charm.system.duration);
@@ -125,7 +129,7 @@ export function buildCharmSynthAEs(charm, rollData = {}) {
     changes,
     disabled: false,
     transfer: false,
-    flags:    { exalted2e: { charmSource: charm.id, charmDuration: charm.system.duration, charmStackable: (charm.system.keywords ?? []).includes("Stackable"), ...(_ra !== null ? { remainingActions: _ra } : {}), ...extraFlags } }
+    flags:    { exalted2e: { synthAE: true, charmSource: charm.id, charmDuration: charm.system.duration, charmStackable: (charm.system.keywords ?? []).includes("Stackable"), ...(_ra !== null ? { remainingActions: _ra } : {}), ...extraFlags } }
   }];
 }
 

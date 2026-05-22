@@ -28,6 +28,26 @@ export class ExaltedItem extends Item {
     await this.activateCharm({ skipXpConfirm: true, skipChatCard: true });
   }
 
+  /** @override — re-sync synth AEs for permanent charms when their system data changes. */
+  async _onUpdate(changed, options, userId) {
+    await super._onUpdate(changed, options, userId);
+    if (game.userId !== userId) return;
+    if (this.type !== "charm" || this.system.duration !== "permanent" || !this.actor) return;
+    if (!foundry.utils.hasProperty(changed, "system")) return;
+    const { applyCharmAEs } = await import("../combat/form-charms.mjs");
+    const stale = this.actor.effects.filter(
+      e => e.flags?.exalted2e?.synthAE && e.flags.exalted2e.charmSource === this.id
+    );
+    for (const ae of stale) await ae.delete();
+    // Enhancing charms only have AEs while the base charm is active.
+    const sys = this.system;
+    if (!sys.enhancesCharmUid || this.actor.items.some(
+      i => i.type === "charm" && i.system?.charmUid === sys.enhancesCharmUid && i.system?.active
+    )) {
+      await applyCharmAEs(this.actor, this, this.getRollData?.() ?? {});
+    }
+  }
+
   /**
    * Apply attunement-commitment deltas to the parent character's peripheral
    * pool when the `attuned` flag or `attunementCost` changes on an artifact.
@@ -384,6 +404,13 @@ ${capWarning}`;
 
     // Remove all charmSource AEs + weapons when any sustained charm toggles off.
     if (turningOff && isToggleable) {
+      const myUid = sys.charmUid;
+      if (myUid) {
+        const enhancementAEs = actor.effects.filter(
+          e => e.flags?.exalted2e?.enhancesCharmUid === myUid && e.flags?.exalted2e?.synthAE
+        );
+        for (const ae of enhancementAEs) await ae.delete();
+      }
       await this._removeCharmWeaponArtifacts();
     }
 
@@ -500,12 +527,27 @@ ${capWarning}`;
 
     if (!turningOff && sys.duration === "permanent") {
       const { applyCharmAEs } = await import("../combat/form-charms.mjs");
-      await applyCharmAEs(actor, this, this.getRollData?.() ?? {});
+      // Enhancing charms defer their AEs to when the base charm activates.
+      if (!sys.enhancesCharmUid || actor.items.some(
+        i => i.type === "charm" && i.system?.charmUid === sys.enhancesCharmUid && i.system?.active
+      )) {
+        await applyCharmAEs(actor, this, this.getRollData?.() ?? {});
+      }
     }
 
     if (!turningOff && isToggleable) {
       const { applyCharmAEs } = await import("../combat/form-charms.mjs");
       await applyCharmAEs(actor, this, this.getRollData?.() ?? {});
+      // Also apply synth AEs for permanent charms that enhance this charm.
+      const myUid = sys.charmUid;
+      if (myUid) {
+        const enhancingCharms = actor.items.filter(
+          i => i.type === "charm" && i.system?.enhancesCharmUid === myUid
+        );
+        for (const enhancer of enhancingCharms) {
+          await applyCharmAEs(actor, enhancer, enhancer.getRollData?.() ?? {});
+        }
+      }
     }
 
     if (!turningOff) {

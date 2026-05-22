@@ -330,6 +330,21 @@
     </div>
   </div>
   {{/if}}
+  <div class="field-group">
+    <label>{{localize "EX2E.EnhancesCharm"}}</label>
+    <div class="charm-drop-zone" data-drop-type="enhancesCharm">
+      {{#if enhancesCharmDisplayName}}
+      <span class="drop-zone-label">{{enhancesCharmDisplayName}}</span>
+      {{#if isEditable}}
+      <button type="button" data-action="clearEnhancesCharm" title="{{localize 'EX2E.Clear'}}">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      {{/if}}
+      {{else}}
+      <em class="drop-zone-hint">{{localize "EX2E.DropCharmHere"}}</em>
+      {{/if}}
+    </div>
+  </div>
   {{#if (includes system.keywords "Stackable")}}
   <div class="field-group">
     <label>{{localize "EX2E.StackCount"}}</label>
