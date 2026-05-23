@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 205 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-22)
+**Progress: 205 / 265 complete** (10 out-of-scope / partial — last updated 2026-05-23)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -90,6 +90,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Attribute-keyed Excellencies for Lunar/Alchemical (charm.attribute field; activation routing)
 - [x] First/Second-vs-Third Excellency exclusivity enforcement per roll
 - [x] Infinite (Ability) Mastery discount tracking (committed motes reduce Excellency cost)
+- [ ] Essence Flow innate-powers mechanic — when character owns `(Ability) Essence Flow`, allow the three Excellencies of that ability to be used outside of Combos as innate powers (skip Combo requirement only; dice-pool cap still applies)
 - [x] Keyword-as-status-effect registry (systematic Compulsion/Emotion/Illusion/Servitude → AE mapping)
 - [x] Charm deactivation resolver (scene-end / combat-end) — `clearSceneCharms` sweeps oneScene + action-count AEs at scene/combat end; `decrementActionCharmsFor` counts down per combatant act; indefinite/permanent untouched
 - [ ] Essence-tiered upgrade branches (Essence 3+/4+ conditional charm effects; description-only currently) — [charms-gap A2](docs/charms-gap.md)
@@ -184,6 +185,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [~] Monstrance of Celestial Portion — `isMonstrance` + `deathlord` fields on Background item; full mechanics pending
 - [x] Moonshadow non-Abyssal charm access (16 XP, +2m activation)
 - [x] Creature of Darkness flaw (GM-only removal, flag-based detection)
+- [ ] Ravening Mouth of (Ability) mote recovery — hook into the damage step of `rollAttack`; when a Ravening Mouth AE is active for the attacking ability, regain 1m per HL of damage dealt to sentient beings (non-undead, non-automaton target flag); cap 20m per action across all Ravening Mouth effects; no recovery from spells or ongoing/poison damage ticks
 
 ### Infernal
 - [x] Castes (Slayer / Malefactor / Defiler / Scourge / Fiend)

@@ -39,7 +39,7 @@
     "stackCount": 0,
     "umiCost": 1,
     "cooperationBonusDice": 0,
-    "excellency": "",
+    "excellency": "infiniteMastery",
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [
@@ -56,8 +56,8 @@
         ]
       }
     ],
-    "infiniteMastery": true,
-    "charmUid": "b581c0b2294e47d4"
+    "charmUid": "b581c0b2294e47d4",
+    "mirrorId": "4b1d7f23c9b4e518"
   },
   "folder": "d517bd826bc73b9e",
   "sort": 0,
