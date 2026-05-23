@@ -18,9 +18,31 @@
   color: #c87070;
 }
 
-/* Unit sheet form scrolls its stacked parts */
+/* Contain height so .unit-scroll-body can scroll instead of the window bleeding */
+.exalted2e.sheet.unit .window-content {
+  overflow: hidden;
+  height:   100%;
+}
+
 .exalted2e.sheet.unit .application-form,
 .exalted2e.sheet.unit > form {
+  overflow: hidden;
+  height:   100%;
+}
+
+/* ── Sheet layout: flex column with constrained scroll region ────────────── */
+
+.sheet.unit .unit-sheet.sheet-body {
+  min-height:     0;
+  display:        flex;
+  flex-direction: column;
+  height:         100%;
+  overflow:       hidden;
+}
+
+.sheet.unit .unit-scroll-body {
+  flex:       1;
+  min-height: 0;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -282,6 +304,7 @@
   gap:             var(--ex2e-gap-md);
   background:      linear-gradient(180deg, var(--ex2e-bg-medium) 0%, var(--ex2e-bg-darkest) 100%);
   border-top:      1px solid var(--ex2e-border-color);
+  flex-shrink:     0;
 }
 
 .sheet.unit .attack-pool-label {
