@@ -44,7 +44,7 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [{"alternatives": [{"type": "charm", "charmUid": "8ad7840da0d4ecd8", "charmName": "Keen Sight Technique", "abilityKey": "", "virtueKey": "", "virtueMin": 0}]}],
     "charmUid": "8d6dfa5e4eebb2db"
   },
   "folder": "97d4d497443373f8",

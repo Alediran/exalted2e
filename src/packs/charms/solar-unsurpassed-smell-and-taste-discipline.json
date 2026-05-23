@@ -44,7 +44,7 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [{"alternatives": [{"type": "charm", "charmUid": "61a0a6107c1aa883", "charmName": "Keen Smell and Taste Technique", "abilityKey": "", "virtueKey": "", "virtueMin": 0}]}],
     "charmUid": "bb84c66b7a14a855"
   },
   "folder": "97d4d497443373f8",

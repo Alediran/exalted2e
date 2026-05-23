@@ -44,7 +44,7 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [{"alternatives": [{"type": "charm", "charmUid": "56a9767cbd645a80", "charmName": "Keen Hearing and Touch Technique", "abilityKey": "", "virtueKey": "", "virtueMin": 0}]}],
     "charmUid": "9e976c441a2d5277"
   },
   "folder": "97d4d497443373f8",
