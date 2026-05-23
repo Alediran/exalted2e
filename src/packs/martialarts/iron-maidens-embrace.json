@@ -22,7 +22,13 @@
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": "Combo-OK, Crippling, Mirror (Armor-Shattering Strike), Obvious, Stackable",
+    "keywords": [
+      "Combo-OK", 
+      "Crippling", 
+      "Mirror", 
+      "Obvious", 
+      "Stackable"
+    ],
     "cost": {
       "motes": 5,
       "willpower": 0,

@@ -1,6 +1,6 @@
 {
-  "_id": "4b4d7f23c9b4e50a",
-  "_key": "!items!4b4d7f23c9b4e50a",
+  "_id": "5b1d7f23c9b4e502",
+  "_key": "!items!5b1d7f23c9b4e502",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,33 +9,33 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Agony of the Black Messiah",
+  "name": "Branding Judgment Attack",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "abyssal",
-    "ability": "martialarts",
-    "essence": 5,
-    "minAbility": 5,
+    "exaltType": "solar",
+    "ability": "thrown",
+    "essence": 3,
+    "minAbility": 3,
     "charmType": "permanent",
-    "duration": "permanent",
+    "duration": "indefinite",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
       "Mirror",
-      "Stackable"
+      "Combo-OK"
     ],
     "cost": {
-      "formula": "--",
+      "formula": "-- (2m per attack)",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Each hit produces a stackable -2 wound penalty that lingers until the Abyssal's DV refreshes. It is otherwise identical to its Solar counterpart.</p>",
-    "source": "DotFA",
+    "description": "<p>The Solar Mirror to Burrowing Bone Maggot functions identically, apart from lacking the Avatar keyword and leaving Heaven to decide when to resolve a judgment that outlives its judge.</p>",
+    "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
-    "martialArtsStyleName": "Dark Messiah Style",
+    "martialArtsStyleName": "",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
@@ -44,14 +44,25 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "mirrorId": "dd19f04a457d6a2b",
     "prereqGroups": [
       {
         "alternatives": [
           {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
             "type": "charm",
-            "charmUid": "656538857903e164",
-            "charmName": "Ravaging Blow",
+            "charmUid": "642917154ac80b11",
+            "charmName": "Returning Weapon Concentration",
             "abilityKey": "",
             "virtueKey": "",
             "virtueMin": 0
@@ -59,9 +70,10 @@
         ]
       }
     ],
-    "charmUid": "4b4d7f23c9b4e50a"
+    "charmUid": "5b1d7f23c9b4e502",
+    "mirrorId": ""
   },
-  "folder": "b0b1b2b3b4b5f03e",
+  "folder": "a5a30fa2e730ff58",
   "sort": 0,
   "ownership": {
     "default": 0

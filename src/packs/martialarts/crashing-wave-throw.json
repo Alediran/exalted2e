@@ -25,7 +25,7 @@
     "keywords": [
       "Combo-OK",
       "Enhanced",
-      "Mirror (Lashing Tempest Palm)"
+      "Mirror"
     ],
     "cost": {
       "motes": 3,
@@ -61,13 +61,14 @@
             "charmUid": "5360e9a0985ba210",
             "charmName": "Heaven Thunder Hammer",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
     "charmUid": "738afe92fca4282c",
+    "mirrorId": "fa775967ad345ea8",
     "grantsMastery": false
   },
   "folder": "05bd4dac47a869bd",

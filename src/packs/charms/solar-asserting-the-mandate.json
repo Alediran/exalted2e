@@ -1,6 +1,6 @@
 {
-  "_id": "4b4d7f23c9b4e50a",
-  "_key": "!items!4b4d7f23c9b4e50a",
+  "_id": "5b1d7f23c9b4e503",
+  "_key": "!items!5b1d7f23c9b4e503",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,33 +9,33 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Agony of the Black Messiah",
+  "name": "Asserting the Mandate",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "abyssal",
-    "ability": "martialarts",
-    "essence": 5,
+    "exaltType": "solar",
+    "ability": "occult",
+    "essence": 3,
     "minAbility": 5,
-    "charmType": "permanent",
-    "duration": "permanent",
+    "charmType": "simple",
+    "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
       "Mirror",
-      "Stackable"
+      "Combo-OK"
     ],
     "cost": {
-      "formula": "--",
+      "formula": "5m, 1wp",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Each hit produces a stackable -2 wound penalty that lingers until the Abyssal's DV refreshes. It is otherwise identical to its Solar counterpart.</p>",
-    "source": "DotFA",
+    "description": "<p>The Solar Mirror to Divinity Banishing Contempt is functionally identical but features white and golden light instead of necrotic shadows.</p>",
+    "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
-    "martialArtsStyleName": "Dark Messiah Style",
+    "martialArtsStyleName": "",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
@@ -44,14 +44,13 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "mirrorId": "dd19f04a457d6a2b",
     "prereqGroups": [
       {
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "656538857903e164",
-            "charmName": "Ravaging Blow",
+            "charmUid": "4b50f37c3ae6040e",
+            "charmName": "Spirit-Repelling Diagram",
             "abilityKey": "",
             "virtueKey": "",
             "virtueMin": 0
@@ -59,9 +58,10 @@
         ]
       }
     ],
-    "charmUid": "4b4d7f23c9b4e50a"
+    "charmUid": "5b1d7f23c9b4e503",
+    "mirrorId": ""
   },
-  "folder": "b0b1b2b3b4b5f03e",
+  "folder": "9f789a9f97cf7e28",
   "sort": 0,
   "ownership": {
     "default": 0

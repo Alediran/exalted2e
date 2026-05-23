@@ -1,6 +1,6 @@
 {
-  "_id": "4b4d7f23c9b4e50a",
-  "_key": "!items!4b4d7f23c9b4e50a",
+  "_id": "5b1d7f23c9b4e505",
+  "_key": "!items!5b1d7f23c9b4e505",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,13 +9,13 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Agony of the Black Messiah",
+  "name": "Fiery Solar Chakram",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "abyssal",
-    "ability": "martialarts",
-    "essence": 5,
+    "exaltType": "solar",
+    "ability": "occult",
+    "essence": 3,
     "minAbility": 5,
     "charmType": "permanent",
     "duration": "permanent",
@@ -24,18 +24,18 @@
     "steps": [],
     "keywords": [
       "Mirror",
-      "Stackable"
+      "Holy"
     ],
     "cost": {
-      "formula": "--",
+      "formula": "--(+1wp)",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Each hit produces a stackable -2 wound penalty that lingers until the Abyssal's DV refreshes. It is otherwise identical to its Solar counterpart.</p>",
-    "source": "DotFA",
+    "description": "<p>This Charm improves weapons created with Spirit Weapons, basing the bonus on the character's primary Virtue rather than Whispers. Holy replaces the Avatar keyword, so the Fiery Solar Chakram inflicts aggravated damage to creatures of darkness instead of hated enemies. Although Lawgivers do not gain the unnatural power to throw attacks from their eyes, this Charm lets them substitute Charisma for Dexterity when attacking with Spirit Weapons.</p>",
+    "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
-    "martialArtsStyleName": "Dark Messiah Style",
+    "martialArtsStyleName": "",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
@@ -44,14 +44,13 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "mirrorId": "dd19f04a457d6a2b",
     "prereqGroups": [
       {
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "656538857903e164",
-            "charmName": "Ravaging Blow",
+            "charmUid": "1521cb1353c75443",
+            "charmName": "Spirit Weapons",
             "abilityKey": "",
             "virtueKey": "",
             "virtueMin": 0
@@ -59,9 +58,10 @@
         ]
       }
     ],
-    "charmUid": "4b4d7f23c9b4e50a"
+    "charmUid": "5b1d7f23c9b4e505",
+    "mirrorId": ""
   },
-  "folder": "b0b1b2b3b4b5f03e",
+  "folder": "9f789a9f97cf7e28",
   "sort": 0,
   "ownership": {
     "default": 0
