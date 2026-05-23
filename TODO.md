@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 201 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-22)
+**Progress: 205 / 263 complete** (10 out-of-scope / partial — last updated 2026-05-22)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
