@@ -8,65 +8,80 @@
 
   {{!-- Step 1: Attack Roll --}}
   <div class="combat-step">
-    <div class="step-label">{{localize "EX2E.MassCombatAttack"}} — {{attackPool}}d10 vs {{localize "EX2E.Drill"}} {{defenderDrill}}</div>
+    <div class="step-label">
+      {{localize "EX2E.MassCombatAttack"}} — {{attackPool}}d10
+      {{#if aimBonus}}(+{{aimBonus}} {{localize "EX2E.ActionAim"}}) {{/if}}
+      vs {{localize "EX2E.Drill"}} {{defenderDrill}}
+    </div>
     <div class="dice-results">
       {{#each atkDiceDetails as |d|}}
       <div class="die-result {{d.cls}}">{{d.face}}</div>
       {{/each}}
     </div>
+    <div class="step-detail">
+      {{attackSuccesses}} {{localize "EX2E.Successes"}}
+      {{#if ccrBonus}}+ {{ccrBonus}} {{#if ranged}}{{localize "EX2E.RCR"}}{{else}}{{localize "EX2E.CCR"}}{{/if}}{{/if}}
+      {{#if might}}+ {{might}} {{localize "EX2E.Might"}}{{/if}}
+      {{#if magDiff}}{{#if (gt magDiff 0)}}+{{/if}}{{magDiff}} {{localize "EX2E.Magnitude"}}{{/if}}
+      = {{effectiveSuccesses}} {{localize "EX2E.Effective"}}
+    </div>
     <div class="step-result {{#if hit}}success{{else}}failure{{/if}}">
-      {{attackSuccesses}} {{localize "EX2E.Successes"}} —
       {{#if hit}}{{localize "EX2E.MassCombatHit"}}{{else}}{{localize "EX2E.MassCombatMiss"}}{{/if}}
     </div>
   </div>
 
-  {{!-- Step 2: Damage Roll (only on hit) --}}
+  {{!-- Step 2: Damage Roll --}}
   {{#if hit}}
   <div class="combat-step">
     <div class="step-label">
-      {{localize "EX2E.MassCombatDamage"}} — {{localize "EX2E.Might"}} {{might}}d10 vs {{localize "EX2E.Endurance"}} {{endurance}}d10
+      {{localize "EX2E.MassCombatDamage"}} — {{dmgRating}}d10 vs {{endurance}}d10 + {{armor}} {{localize "EX2E.Armor"}}
     </div>
-    <div class="damage-rolls">
-      <div class="damage-pool-row">
-        <span class="pool-label">{{localize "EX2E.Might"}}:</span>
-        <div class="dice-results">
-          {{#each mightDiceDetails as |d|}}
-          <div class="die-result {{d.cls}}">{{d.face}}</div>
-          {{/each}}
-        </div>
-        <span class="pool-successes">{{mightSuccesses}}</span>
+    <div class="damage-pool-row">
+      <span class="pool-label">{{#if ranged}}{{localize "EX2E.RangedDamageRating"}}{{else}}{{localize "EX2E.CloseDamageRating"}}{{/if}}:</span>
+      <div class="dice-results">
+        {{#each dmgDiceDetails as |d|}}
+        <div class="die-result {{d.cls}}">{{d.face}}</div>
+        {{/each}}
       </div>
-      <div class="damage-pool-row">
-        <span class="pool-label">{{localize "EX2E.Endurance"}}:</span>
-        <div class="dice-results">
-          {{#each enduranceDiceDetails as |d|}}
-          <div class="die-result {{d.cls}}">{{d.face}}</div>
-          {{/each}}
-        </div>
-        <span class="pool-successes">{{enduranceSuccesses}}</span>
-      </div>
+      <span class="pool-successes">{{dmgSuccesses}}</span>
     </div>
-    <div class="step-result {{#if netDamage}}success{{else}}failure{{/if}}">
-      {{localize "EX2E.Magnitude"}}: {{magBefore}} → {{magAfterDamage}}
-      ({{localize "EX2E.MassCombatDamage"}}: {{netDamage}})
+    <div class="damage-pool-row">
+      <span class="pool-label">{{localize "EX2E.Endurance"}}:</span>
+      <div class="dice-results">
+        {{#each endDiceDetails as |d|}}
+        <div class="die-result {{d.cls}}">{{d.face}}</div>
+        {{/each}}
+      </div>
+      <span class="pool-successes">{{endSuccesses}}</span>
+    </div>
+    <div class="step-result {{#if netDamage}}success{{else}}neutral{{/if}}">
+      {{localize "EX2E.NetDamage"}}: {{netDamage}}
+      ({{localize "EX2E.UnitHealth"}}: {{healthBefore}} → {{healthAfter}})
+      ({{localize "EX2E.Magnitude"}}: {{magBefore}} → {{magAfterDamage}})
     </div>
   </div>
 
-  {{!-- Step 3: Rout Check (only when damage > 0) --}}
-  {{#if netDamage}}
+  {{!-- Step 3: Rout Check --}}
+  {{#if magLostToDamage}}
   <div class="combat-step">
     <div class="step-label">
-      {{localize "EX2E.MassCombatRout"}} — {{localize "EX2E.Morale"}} {{morale}}d10 vs {{localize "EX2E.Difficulty"}} {{netDamage}}
+      {{localize "EX2E.MassCombatRout"}} — {{routPool}}d10 vs {{localize "EX2E.Difficulty"}} {{routDiff}}
+      {{#if routFormMod}}({{localize "EX2E.Formation"}} {{localize "EX2E.Modifier"}} {{#if (gt routFormMod 0)}}+{{/if}}{{routFormMod}}){{/if}}
     </div>
     <div class="dice-results">
       {{#each routDiceDetails as |d|}}
       <div class="die-result {{d.cls}}">{{d.face}}</div>
       {{/each}}
     </div>
-    <div class="step-result {{#if holds}}success{{else}}failure{{/if}}">
-      {{moraleSuccesses}} {{localize "EX2E.Successes"}} —
-      {{#if holds}}{{localize "EX2E.MassCombatHolds"}}{{else}}{{localize "EX2E.UnitRouted"}}{{/if}}
-      {{#unless holds}}({{localize "EX2E.Magnitude"}}: {{magAfterDamage}} → {{magAfterRout}}){{/unless}}
+    <div class="step-result {{#if routHolds}}success{{else}}failure{{/if}}">
+      {{routSuccesses}} {{localize "EX2E.Successes"}} —
+      {{#if routHolds}}
+        {{localize "EX2E.MassCombatHolds"}}
+      {{else}}
+        {{localize "EX2E.UnitRouted"}}
+        ({{localize "EX2E.Magnitude"}}: {{magAfterDamage}} → {{magAfterRout}})
+        <br><strong>{{defenderName}} {{localize "EX2E.UnitHesitates"}}</strong>
+      {{/if}}
     </div>
   </div>
   {{/if}}

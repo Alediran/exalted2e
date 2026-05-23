@@ -1,4 +1,3 @@
-import { rollMassCombatAttack } from "../../rolls/mass-combat-roll.mjs";
 import { editImageAction } from "../_edit-image.mjs";
 
 const { ActorSheetV2, HandlebarsApplicationMixin } = (() => {
@@ -14,19 +13,19 @@ export class UnitSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   static DEFAULT_OPTIONS = {
     classes:  ["exalted2e", "actor", "unit"],
-    position: { width: 480, height: 520 },
+    position: { width: 480, height: 620 },
     window:   { resizable: true },
     form:     { submitOnChange: true, closeOnSubmit: false },
     actions: {
-      onEditImage:          editImageAction,
-      setMagnitude:         UnitSheet.#setMagnitude,
-      clearCommander:       UnitSheet.#clearCommander,
-      rollMassCombatAttack: UnitSheet.#rollMassCombatAttack
+      onEditImage:    editImageAction,
+      setMagnitude:   UnitSheet.#setMagnitude,
+      clearCommander: UnitSheet.#clearCommander,
+      declareAction:  UnitSheet.#declareAction
     }
   };
 
   static PARTS = {
-    stats: { template: "systems/exalted2e/templates/actor/unit/unit-sheet.hbs", scrollable: [".unit-sheet"] }
+    stats: { template: "systems/exalted2e/templates/actor/unit/unit-sheet.hbs", scrollable: [".unit-scroll-body"] }
   };
 
   get title() {
@@ -47,6 +46,9 @@ export class UnitSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     }
 
     const commander = sys.commanderActor ?? null;
+    const healthPct = sys.health.max > 0
+      ? Math.round((sys.health.value / sys.health.max) * 100)
+      : 0;
 
     const enrichOpts = { secrets: this.document.isOwner, relativeTo: this.document };
     return {
@@ -57,6 +59,7 @@ export class UnitSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       magnitudeDots,
       commanderName: commander?.name ?? null,
       commanderImg:  commander?.img  ?? null,
+      healthPct,
       enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(
         sys.description, enrichOpts
       )
@@ -72,6 +75,28 @@ export class UnitSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     }
   }
 
+  _onRender(context, options) {
+    super._onRender?.(context, options);
+    if (!this.isEditable) return;
+    for (const pip of this.element.querySelectorAll(".dot-rating .dot")) {
+      pip.addEventListener("click", this.#onDotClick.bind(this));
+    }
+  }
+
+  #onDotClick(event) {
+    const pip      = event.currentTarget;
+    const track    = pip.closest(".dot-rating");
+    const name     = track?.dataset.name;
+    const newValue = parseInt(pip.dataset.value);
+    const min      = parseInt(track?.dataset.min ?? 0);
+    const current  = parseInt(track?.dataset.current ?? 0);
+    const val      = (newValue === 1 && current === 1)
+      ? min
+      : Math.max(min, newValue);
+    if (!name) return;
+    this.document.update({ [name]: val });
+  }
+
   static async #setMagnitude(event, target) {
     const n       = Number(target.dataset.value);
     const current = this.actor.system.magnitude.value;
@@ -83,8 +108,9 @@ export class UnitSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     await this.actor.update({ "system.commanderActorId": "" });
   }
 
-  static async #rollMassCombatAttack(_event, _target) {
+  static async #declareAction(_event, _target) {
     if (this.actor.system.isRouted) return;
-    await rollMassCombatAttack(this.actor);
+    const { MassCombatActionDialog } = await import("../../apps/mass-combat-action-dialog.mjs");
+    await MassCombatActionDialog.prompt({ unitActor: this.actor });
   }
 }

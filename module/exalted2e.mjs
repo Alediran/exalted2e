@@ -39,6 +39,8 @@ import { CharacterSheet }           from "./sheets/actor/character-sheet.mjs";
 import { NpcSheet }         from "./sheets/actor/npc-sheet.mjs";
 import { UnitData }  from "./data/actor/unit-data.mjs";
 import { UnitSheet } from "./sheets/actor/unit-sheet.mjs"; // created in Task 4
+import { JoinWarDialog } from "./apps/join-war-dialog.mjs";
+import { MassCombatActionDialog } from "./apps/mass-combat-action-dialog.mjs";
 import { CharmSheet }       from "./sheets/item/charm-sheet.mjs";
 import { SpellSheet }       from "./sheets/item/spell-sheet.mjs";
 import { WeaponSheet }      from "./sheets/item/weapon-sheet.mjs";
@@ -3612,6 +3614,16 @@ Hooks.on("deleteCombat", async () => {
   }
 });
 
+// ── Join War: open JoinWarDialog when a unit combatant is added ──────────────
+Hooks.on("createCombatant", (combatant) => {
+  if (combatant.actor?.type !== "unit") return;
+  const combat = combatant.parent;
+  if (!combat) return;
+  JoinWarDialog.prompt(combatant, combat).catch(err =>
+    console.error("EX2E | JoinWarDialog failed:", err)
+  );
+});
+
 // ── Social attack: defender Step-2 orchestrator ──────────────────────────
 /**
  * Open the Step-2 social-defense dialog, apply the defender's choices
@@ -3947,6 +3959,63 @@ Hooks.on("renderCombatTracker", (app, html) => {
       await CountermagicDialog.open({ type: "shaping", combatant }, actor);
     });
     row.appendChild(btn);
+  }
+});
+
+// ── Mass Combat: inject unit controls into combat tracker rows ───────────────
+Hooks.on("renderCombatTracker", (app, html) => {
+  const el = html instanceof HTMLElement ? html : (html?.[0] ?? html);
+  if (!el?.querySelector) return;
+  const combat = app.viewed;
+  if (!combat) return;
+
+  for (const combatant of combat.combatants) {
+    if (combatant.actor?.type !== "unit") continue;
+
+    const row = el.querySelector(`[data-combatant-id="${combatant.id}"]`)
+             ?? el.querySelector(`[data-id="${combatant.id}"]`);
+    if (!row) continue;
+
+    if (combatant.flags?.exalted2e?.hesitating) {
+      const nameEl = row.querySelector(".token-name") ?? row.querySelector(".name");
+      if (nameEl) {
+        const badge = document.createElement("span");
+        badge.className = "ex2e-hesitating-badge";
+        badge.title     = game.i18n.localize("EX2E.UnitHesitates");
+        badge.innerHTML = `<i class="fas fa-exclamation-triangle"></i>`;
+        nameEl.appendChild(badge);
+      }
+    }
+
+    const formation = combatant.actor.system.formation ?? "unordered";
+    if (!formation) continue;
+    const formKey   = formation.charAt(0).toUpperCase() + formation.slice(1);
+    const formLabel = game.i18n.localize(`EX2E.Formation${formKey}`);
+    const controlsEl = row.querySelector(".combatant-controls")
+                    ?? row.querySelector(".token-controls");
+    if (controlsEl) {
+      const formSpan = document.createElement("span");
+      formSpan.className   = "ex2e-formation-label";
+      formSpan.textContent = formLabel;
+      controlsEl.prepend(formSpan);
+    }
+
+    const btn = document.createElement("button");
+    btn.type      = "button";
+    btn.className = "ex2e-declare-action-btn";
+    btn.title     = game.i18n.localize("EX2E.DeclareAction");
+    btn.innerHTML = `<i class="fas fa-khanda"></i>`;
+    btn.addEventListener("click", async (ev) => {
+      ev.preventDefault();
+      ev.stopPropagation();
+      try {
+        await MassCombatActionDialog.prompt({ unitActor: combatant.actor });
+      } catch (err) {
+        ui.notifications.error(game.i18n.localize("EX2E.MassCombatActionError"));
+        console.error("EX2E | MassCombatActionDialog failed:", err);
+      }
+    });
+    if (controlsEl) controlsEl.appendChild(btn);
   }
 });
 

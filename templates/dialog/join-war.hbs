@@ -1,0 +1,47 @@
+<div class="join-war-body">
+  <div class="join-war-info">
+    <div class="join-war-unit">
+      <strong>{{unitName}}</strong>
+      <span class="join-war-formation">{{formation}}</span>
+    </div>
+    {{#if commanderName}}
+    <div class="join-war-commander">
+      <i class="fas fa-user-shield"></i> {{commanderName}}
+    </div>
+    <div class="join-war-formula">{{formulaStr}}</div>
+    {{else}}
+    <div class="join-war-no-commander">
+      <i class="fas fa-exclamation-triangle"></i>
+      {{localize "EX2E.JoinWarNoCommander"}}
+    </div>
+    {{/if}}
+  </div>
+
+  {{#if rollResult}}
+  <div class="join-war-roll-result">
+    <div class="dice-results">
+      {{#each rollResult.diceDetails as |d|}}
+      <div class="die-result {{d.cls}}">{{d.face}}</div>
+      {{/each}}
+    </div>
+    <div class="join-war-successes">{{rollResult.successes}} {{localize "EX2E.Successes"}}</div>
+  </div>
+  {{/if}}
+
+  <div class="form-group join-war-manual-tick">
+    <label>{{localize "EX2E.JoinWarManualTickLabel"}}</label>
+    <input type="number" name="manualTick" min="0" value="" placeholder="—" />
+  </div>
+
+  <div class="dialog-buttons">
+    <button type="button" data-action="roll">
+      <i class="fas fa-dice"></i> {{localize "EX2E.JoinWarRoll"}}
+    </button>
+    <button type="button" data-action="confirm">
+      <i class="fas fa-check"></i> {{localize "Confirm"}}
+    </button>
+    <button type="button" data-action="cancel">
+      <i class="fas fa-times"></i> {{localize "Cancel"}}
+    </button>
+  </div>
+</div>

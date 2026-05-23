@@ -62,7 +62,7 @@ import { registerCoordinationTests }       from "./combat/coordination.mjs";
 import { registerCountermagic }            from "./combat/countermagic.mjs";
 import { registerCrafting }               from "./crafting/crafting-roll.mjs";
 import { registerManse }                from "./manse/manse-item.mjs";
-import { registerMassCombat }          from "./combat/mass-combat.mjs";
+import { registerMassCombat, registerMassCombatCCR, registerMassCombatHealth, registerMassCombatJoinWar, registerMassCombatHesitation } from "./combat/mass-combat.mjs";
 // NOTE: Anima Powers feature (_swapAnimaPower) relies on the animapowers compendium
 // and cannot be exercised via Quench. No batch registered for ex2e.anima-powers.
 
@@ -135,5 +135,9 @@ Hooks.once("quenchReady", async quench => {
   quench.registerBatch("ex2e.crafting",                  registerCrafting,                    { displayName: "Crafting roll resolver" });
   quench.registerBatch("ex2e.manse",                     registerManse,                       { displayName: "Manse item — data layer" });
   quench.registerBatch("ex2e.mass-combat",               registerMassCombat,                  { displayName: "Mass combat roll engine" });
+  quench.registerBatch("exalted2e.masscombat.phase2.ccr",         registerMassCombatCCR,         { displayName: "EX2E: Mass Combat Phase 2 — CCR bonus integration" });
+  quench.registerBatch("exalted2e.masscombat.phase2.health",      registerMassCombatHealth,      { displayName: "EX2E: Mass Combat Phase 2 — health track cycling" });
+  quench.registerBatch("exalted2e.masscombat.phase2.joinwar",     registerMassCombatJoinWar,     { displayName: "EX2E: Mass Combat Phase 2 — Join War Dialog smoke" });
+  quench.registerBatch("exalted2e.masscombat.phase2.hesitation",  registerMassCombatHesitation,  { displayName: "EX2E: Mass Combat Phase 2 — Hesitation flag on rout failure" });
 
 });

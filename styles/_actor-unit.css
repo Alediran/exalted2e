@@ -466,3 +466,270 @@ body.ex2e-light-mode .sheet.unit .unit-footer {
 body.ex2e-light-mode .mass-combat-result {
   background: linear-gradient(135deg, #f5e8e8 0%, #ecdcdc 100%) !important;
 }
+
+/* Formation row */
+.sheet.unit .unit-formation-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sheet.unit .unit-formation-select {
+  flex: 1;
+  font-size: 0.9em;
+  background: var(--input-background, transparent);
+  border: 1px solid var(--color-border-light-2);
+  border-radius: 3px;
+  padding: 2px 4px;
+}
+
+/* Health track */
+.sheet.unit .unit-health-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sheet.unit .unit-health-bar-wrap {
+  flex: 1;
+  height: 8px;
+  background: var(--color-border-light-2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.sheet.unit .unit-health-bar {
+  height: 100%;
+  background: var(--color-level-ok, #3a7a3a);
+  border-radius: 4px;
+  transition: width 0.2s ease;
+}
+
+.sheet.unit .unit-health-value,
+.sheet.unit .unit-health-max {
+  width: 40px;
+  text-align: center;
+  border: 1px solid var(--color-border-light-2);
+  background: transparent;
+  font-size: 0.85em;
+  padding: 2px;
+}
+
+.sheet.unit .unit-health-sep {
+  font-size: 0.85em;
+  color: var(--color-text-dark-secondary);
+}
+
+/* Combat Ratings section label */
+.sheet.unit .unit-combat-ratings-section .section-label {
+  margin-bottom: 6px;
+}
+
+/* Hesitating badge in tracker */
+.ex2e-hesitating-badge {
+  color: var(--color-level-warning, #c08030);
+  font-size: 0.9em;
+  margin-left: 4px;
+  cursor: help;
+}
+
+/* Formation label in tracker */
+.ex2e-formation-label {
+  font-size: 0.75em;
+  color: var(--color-text-dark-secondary);
+  margin-right: 4px;
+  font-style: italic;
+}
+
+/* Declare Action button in tracker */
+.ex2e-declare-action-btn {
+  background: var(--color-bg-btn, #5b4b32);
+  color: var(--color-text-light-primary, #f0e6d3);
+  border: 1px solid var(--color-border-dark);
+  border-radius: 3px;
+  padding: 1px 5px;
+  cursor: pointer;
+  font-size: 0.8em;
+}
+
+/* Mass Combat Action dialog */
+.mass-combat-action-dialog .mc-hesitating-banner {
+  background: rgba(192, 64, 64, 0.15);
+  border: 1px solid rgba(192, 64, 64, 0.4);
+  border-radius: 4px;
+  padding: 6px 10px;
+  margin-bottom: 8px;
+  font-size: 0.85em;
+}
+
+.mass-combat-action-dialog .mc-action-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 10px;
+}
+
+.mass-combat-action-dialog .mc-action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  background: var(--color-bg-option, rgba(255,255,255,0.04));
+  border: 1px solid var(--color-border-light-2);
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+.mass-combat-action-dialog .mc-action-row.selected {
+  border-color: var(--color-level-ok, #5b9bd5);
+  background: rgba(91, 155, 213, 0.12);
+}
+
+/* ── Join War Dialog ──────────────────────────────────────────────────────── */
+
+.join-war-dialog .join-war-info {
+  background:    var(--ex2e-bg-panel);
+  border:        1px solid var(--ex2e-unit-dark);
+  border-radius: var(--ex2e-border-radius);
+  padding:       var(--ex2e-gap-md);
+  margin-bottom: var(--ex2e-gap-md);
+}
+
+.join-war-dialog .join-war-unit {
+  display:       flex;
+  align-items:   center;
+  gap:           var(--ex2e-gap-sm);
+  font-family:   var(--ex2e-font-title);
+  font-size:     var(--ex2e-font-size-md);
+  color:         #c87070;
+  margin-bottom: var(--ex2e-gap-xs);
+}
+
+.join-war-dialog .join-war-formation {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color:          var(--ex2e-text-muted);
+  background:     rgba(140, 40, 40, 0.15);
+  border:         1px solid rgba(140, 40, 40, 0.3);
+  border-radius:  var(--ex2e-border-radius-sm);
+  padding:        1px 6px;
+}
+
+.join-war-dialog .join-war-commander {
+  font-family:   var(--ex2e-font-body);
+  font-size:     var(--ex2e-font-size-sm);
+  color:         var(--ex2e-text-secondary);
+  margin-bottom: var(--ex2e-gap-xs);
+}
+
+.join-war-dialog .join-war-no-commander {
+  font-family: var(--ex2e-font-body);
+  font-size:   var(--ex2e-font-size-sm);
+  color:       var(--color-level-warning, #c08030);
+  font-style:  italic;
+}
+
+.join-war-dialog .join-war-formula {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-sm);
+  color:          var(--ex2e-text-muted);
+  letter-spacing: 0.02em;
+}
+
+.join-war-dialog .join-war-roll-result {
+  margin-bottom:  var(--ex2e-gap-md);
+  padding:        var(--ex2e-gap-sm);
+  background:     var(--ex2e-bg-panel);
+  border:         1px solid rgba(140, 40, 40, 0.3);
+  border-radius:  var(--ex2e-border-radius);
+}
+
+.join-war-dialog .join-war-successes {
+  font-family:    var(--ex2e-font-title);
+  font-size:      var(--ex2e-font-size-sm);
+  color:          var(--ex2e-gold-main);
+  letter-spacing: 0.06em;
+  margin-top:     var(--ex2e-gap-xs);
+  text-align:     center;
+}
+
+.join-war-dialog .join-war-manual-tick {
+  display:        flex;
+  align-items:    center;
+  gap:            var(--ex2e-gap-sm);
+  margin-bottom:  var(--ex2e-gap-md);
+}
+
+.join-war-dialog .join-war-manual-tick label {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color:          var(--ex2e-text-secondary);
+  white-space:    nowrap;
+}
+
+.join-war-dialog .join-war-manual-tick input[type="number"] {
+  width:         56px;
+  text-align:    center;
+  background:    var(--ex2e-bg-darkest);
+  border:        1px solid rgba(140, 40, 40, 0.4);
+  border-radius: var(--ex2e-border-radius-sm);
+  color:         var(--ex2e-text-primary);
+  font-family:   var(--ex2e-font-ui);
+  font-size:     var(--ex2e-font-size-sm);
+  padding:       3px 6px;
+  transition:    border-color var(--ex2e-transition-fast);
+}
+
+.join-war-dialog .join-war-manual-tick input[type="number"]:focus {
+  outline:      none;
+  border-color: var(--ex2e-unit-accent);
+}
+
+.join-war-dialog .dialog-buttons {
+  display:         flex;
+  gap:             var(--ex2e-gap-sm);
+  justify-content: flex-end;
+  padding-top:     var(--ex2e-gap-sm);
+  border-top:      1px solid var(--ex2e-border-color);
+}
+
+.join-war-dialog .dialog-buttons button {
+  display:        flex;
+  align-items:    center;
+  gap:            var(--ex2e-gap-xs);
+  padding:        5px var(--ex2e-gap-md);
+  background:     var(--ex2e-bg-darkest);
+  color:          var(--ex2e-text-secondary);
+  border:         1px solid rgba(140, 40, 40, 0.4);
+  border-radius:  var(--ex2e-border-radius-sm);
+  cursor:         pointer;
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  letter-spacing: 0.06em;
+  transition:     background     var(--ex2e-transition-fast),
+                  border-color   var(--ex2e-transition-fast),
+                  color          var(--ex2e-transition-fast);
+}
+
+.join-war-dialog .dialog-buttons button:hover {
+  background:   rgba(140, 40, 40, 0.15);
+  border-color: var(--ex2e-unit-accent);
+  color:        #e07070;
+}
+
+.join-war-dialog .dialog-buttons button[data-action="roll"] {
+  color:        var(--ex2e-gold-main);
+  border-color: rgba(180, 140, 40, 0.4);
+}
+
+.join-war-dialog .dialog-buttons button[data-action="roll"]:hover {
+  background:   rgba(180, 140, 40, 0.12);
+  border-color: var(--ex2e-gold-main);
+  color:        #e0c060;
+}

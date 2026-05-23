@@ -7,7 +7,7 @@
          data-action="onEditImage" />
     <div class="unit-identity">
       <input type="text" name="name" value="{{actor.name}}"
-             class="unit-name" placeholder="Unit Name" />
+             class="unit-name" placeholder="{{localize "EX2E.UnitNamePlaceholder"}}" />
       <select name="system.unitType" class="unit-type-select">
         <option value="extras"  {{#if (eq system.unitType "extras")}}selected{{/if}}>{{localize "EX2E.UnitTypeExtras"}}</option>
         <option value="elite"   {{#if (eq system.unitType "elite")}}selected{{/if}}>{{localize "EX2E.UnitTypeElite"}}</option>
@@ -17,10 +17,38 @@
   </div>
 
   <div class="unit-scroll-body">
+
+  {{!-- Formation --}}
+  <div class="unit-section unit-formation-section">
+    <label class="section-label">{{localize "EX2E.Formation"}}</label>
+    <select name="system.formation" class="unit-formation-select">
+      <option value="none"      {{#if (eq system.formation "none")}}selected{{/if}}>{{localize "EX2E.FormationNone"}}</option>
+      <option value="unordered" {{#if (eq system.formation "unordered")}}selected{{/if}}>{{localize "EX2E.FormationUnordered"}}</option>
+      <option value="skirmish"  {{#if (eq system.formation "skirmish")}}selected{{/if}}>{{localize "EX2E.FormationSkirmish"}}</option>
+      <option value="relaxed"   {{#if (eq system.formation "relaxed")}}selected{{/if}}>{{localize "EX2E.FormationRelaxed"}}</option>
+      <option value="close"     {{#if (eq system.formation "close")}}selected{{/if}}>{{localize "EX2E.FormationClose"}}</option>
+    </select>
+  </div>
+
   {{!-- Magnitude Track --}}
   <div class="unit-section magnitude-section">
     <div class="section-label">{{localize "EX2E.Magnitude"}}</div>
     {{> "systems/exalted2e/templates/actor/unit/_magnitude-track.hbs"}}
+  </div>
+
+  {{!-- Health Track --}}
+  <div class="unit-section unit-health-section">
+    <div class="section-label">{{localize "EX2E.UnitHealth"}}</div>
+    <div class="unit-health-row">
+      <div class="unit-health-bar-wrap">
+        <div class="unit-health-bar" style="width: {{healthPct}}%"></div>
+      </div>
+      <input type="number" name="system.health.value"
+             value="{{system.health.value}}" min="0" class="unit-health-value" />
+      <span class="unit-health-sep">/</span>
+      <input type="number" name="system.health.max"
+             value="{{system.health.max}}" min="1" class="unit-health-max" />
+    </div>
   </div>
 
   {{!-- Core Stats --}}
@@ -43,6 +71,33 @@
     </div>
   </div>
 
+  {{!-- Combat Ratings --}}
+  <div class="unit-section unit-combat-ratings-section">
+    <div class="section-label">{{localize "EX2E.CloseCombatRating"}} / {{localize "EX2E.RangedCombatRating"}}</div>
+    <div class="unit-stats-grid">
+      <div class="stat-row">
+        <label class="stat-label">{{localize "EX2E.CloseCombatRating"}}</label>
+        {{dotRating name="system.closeCombatRating" value=system.closeCombatRating max=5 min=0}}
+      </div>
+      <div class="stat-row">
+        <label class="stat-label">{{localize "EX2E.RangedCombatRating"}}</label>
+        {{dotRating name="system.rangedCombatRating" value=system.rangedCombatRating max=5 min=0}}
+      </div>
+      <div class="stat-row">
+        <label class="stat-label">{{localize "EX2E.CloseDamageRating"}}</label>
+        {{dotRating name="system.closeDamageRating" value=system.closeDamageRating max=5 min=0}}
+      </div>
+      <div class="stat-row">
+        <label class="stat-label">{{localize "EX2E.RangedDamageRating"}}</label>
+        {{dotRating name="system.rangedDamageRating" value=system.rangedDamageRating max=5 min=0}}
+      </div>
+      <div class="stat-row">
+        <label class="stat-label">{{localize "EX2E.Armor"}}</label>
+        {{dotRating name="system.armor" value=system.armor max=5 min=0}}
+      </div>
+    </div>
+  </div>
+
   {{!-- Commander --}}
   <div class="unit-section commander-section">
     <div class="section-label">{{localize "EX2E.Commander"}}</div>
@@ -51,7 +106,7 @@
       <img class="commander-portrait" src="{{commanderImg}}" alt="{{commanderName}}" />
       <span class="commander-name">{{commanderName}}</span>
       <button type="button" class="commander-clear" data-action="clearCommander"
-              title="Clear commander">✕</button>
+              title="{{localize "EX2E.ClearCommander"}}">✕</button>
       {{else}}
       <span class="commander-none">—</span>
       {{/if}}
@@ -71,21 +126,22 @@
       {{/if}}
     </div>
   </div>
-  </div>
 
-  {{!-- Attack Footer --}}
+  </div>{{!-- /unit-scroll-body --}}
+
+  {{!-- Footer --}}
   <div class="unit-footer">
     <span class="attack-pool-label">
       {{localize "EX2E.AttackPool"}}: {{system.attackPool}} {{localize "EX2E.Dice"}}
     </span>
     <button type="button"
             class="btn-attack {{#if system.isRouted}}routed{{/if}}"
-            data-action="rollMassCombatAttack"
+            data-action="declareAction"
             {{#if system.isRouted}}disabled{{/if}}>
       {{#if system.isRouted}}
         <i class="fas fa-flag"></i> {{localize "EX2E.UnitRouted"}}
       {{else}}
-        <i class="fas fa-khanda"></i> {{localize "EX2E.MassCombatAttack"}}
+        <i class="fas fa-khanda"></i> {{localize "EX2E.DeclareAction"}}
       {{/if}}
     </button>
   </div>

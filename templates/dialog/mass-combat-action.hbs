@@ -1,0 +1,72 @@
+<div>
+  {{#if hesitating}}
+  <div class="mc-hesitating-banner">
+    <i class="fas fa-exclamation-triangle"></i>
+    {{localize "EX2E.UnitHesitates"}} {{localize "EX2E.UnitHesitatesNote"}}
+  </div>
+  {{/if}}
+
+  <div class="mc-action-list">
+    {{#each actions as |action|}}
+    {{#unless action.blocked}}
+    <button type="button"
+            class="mc-action-row {{#if action.selected}}selected{{/if}}"
+            data-action="selectAction"
+            data-action-key="{{action.key}}">
+      <span class="mc-action-name">{{action.label}}</span>
+      <span class="mc-action-meta">{{localize "EX2E.Speed"}} {{action.speed}}
+        {{#if (lt action.dvMod 0)}}/ {{localize "EX2E.DV"}} {{action.dvMod}}{{/if}}
+        {{#if (gt action.dvMod 0)}}/ {{localize "EX2E.DV"}} +{{action.dvMod}}{{/if}}
+      </span>
+    </button>
+    {{/unless}}
+    {{/each}}
+  </div>
+
+  {{#if selectedAction}}
+  <div class="mc-action-detail">
+    {{#if selectedNeedsRoll}}
+    <div class="mc-roll-section">
+      {{#if selectedFormula}}
+      <div class="mc-formula">{{selectedFormula}}</div>
+      {{/if}}
+      {{#if rollResult}}
+      <div class="mc-roll-result">
+        <div class="dice-results">
+          {{#each rollResult.diceDetails as |d|}}
+          <div class="die-result {{d.cls}}">{{d.face}}</div>
+          {{/each}}
+        </div>
+        <div class="mc-successes {{#if rollResult.success}}success{{else}}failure{{/if}}">
+          {{rollResultSummary}}
+        </div>
+      </div>
+      {{/if}}
+      <button type="button" data-action="roll">
+        <i class="fas fa-dice"></i> {{localize "EX2E.Roll"}}
+      </button>
+    </div>
+    {{/if}}
+
+    {{#if showFormationSelect}}
+    <div class="mc-formation-select form-group">
+      <label>{{localize "EX2E.Formation"}}:</label>
+      <select name="targetFormation">
+        {{#each formationOptions as |f|}}
+        <option value="{{f.value}}" {{#if f.current}}selected{{/if}}>{{f.label}}</option>
+        {{/each}}
+      </select>
+    </div>
+    {{/if}}
+  </div>
+  {{/if}}
+
+  <div class="dialog-buttons">
+    <button type="button" data-action="confirm" {{#unless selectedAction}}disabled{{/unless}}>
+      <i class="fas fa-check"></i> {{localize "Confirm"}}
+    </button>
+    <button type="button" data-action="cancel">
+      <i class="fas fa-times"></i> {{localize "Cancel"}}
+    </button>
+  </div>
+</div>
