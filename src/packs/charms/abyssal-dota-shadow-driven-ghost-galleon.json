@@ -1,6 +1,6 @@
 {
-  "_id": "7c0b5b178eb1e92e",
-  "_key": "!items!7c0b5b178eb1e92e",
+  "_id": "4b4d7f23c9b4e508",
+  "_key": "!items!4b4d7f23c9b4e508",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,13 +9,13 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Invincible Solar Vessel",
+  "name": "Shadow-Driven Ghost Galleon",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "abyssal",
     "ability": "sail",
-    "essence": 5,
+    "essence": 4,
     "minAbility": 5,
     "charmType": "simple",
     "duration": "indefinite",
@@ -28,28 +28,41 @@
       "Obvious"
     ],
     "cost": {
-      "formula": "8m",
+      "formula": "10m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "",
-    "source": "Dreams of the First Age",
+    "description": "<p>This Charm operates by filling vacant positions on the ship with murky apparitions drawn from the Abyssal's anima. It is otherwise identical to its Solar counterpart.</p>",
+    "source": "DotFA",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "7c0b5b178eb1e92e",
-    "mirrorId": "4b4d7f23c9b4e504"
+    "mirrorId": "0cc997b4c5564d56",
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b634e9d951891dfb",
+            "charmName": "Ruthless Captain Efficiency",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "4b4d7f23c9b4e508"
   },
-  "folder": "dca02b4134c59583",
+  "folder": "b0b1b2b3b4b5f046",
   "sort": 0,
   "ownership": {
     "default": 0

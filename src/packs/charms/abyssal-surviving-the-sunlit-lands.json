@@ -1,6 +1,6 @@
 {
-  "_id": "62fb37503326039f",
-  "_key": "!items!62fb37503326039f",
+  "_id": "4b5d7f23c9b4e509",
+  "_key": "!items!4b5d7f23c9b4e509",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,11 +9,11 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Steadfast Elemental Emperor Stance",
+  "name": "Surviving the Sunlit Lands",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "abyssal",
     "ability": "survival",
     "essence": 3,
     "minAbility": 5,
@@ -30,8 +30,8 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This Charm upgrades its prerequisite, removing the clause for other characters' deliberate actions. Hardship-Surviving Mendicant Spirit now renders the Solar immune to all environmental damage, regardless of its origin. New Abyssal Charm: Surviving the Sunlit Lands (Prerequisite: Maelstrom-Weathering Indifference). This Charm grants the same benefits as Steadfast Elemental Emperor Stance in the lands of the dead, while fully extending the benefits of Element-Resisting Prana to Creation. CRAFT</p>",
-    "source": "Glories of the Most High: Unconquered Sun",
+    "description": "<p>This Charm grants the same benefits as Steadfast Elemental Emperor Stance in the lands of the dead, while fully extending the benefits of Maelstrom-Weathering Indifference to Creation.</p>",
+    "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
@@ -48,19 +48,19 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "c5f65dd6ccbcf4bf",
-            "charmName": "Element-Resisting Prana",
+            "charmUid": "38f5e0ea6b9297ba",
+            "charmName": "Maelstrom-Weathering Indifference",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
-    "charmUid": "62fb37503326039f",
-    "mirrorId": "4b5d7f23c9b4e509"
+    "charmUid": "4b5d7f23c9b4e509",
+    "mirrorId": "62fb37503326039f"
   },
-  "folder": "82dbbb60bb2b2c18",
+  "folder": "b0b1b2b3b4b5f049",
   "sort": 0,
   "ownership": {
     "default": 0

@@ -1,6 +1,6 @@
 {
-  "_id": "8357b9fbb564f845",
-  "_key": "!items!8357b9fbb564f845",
+  "_id": "4b4d7f23c9b4e50a",
+  "_key": "!items!4b4d7f23c9b4e50a",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,12 +9,12 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Golden Artillerist Method",
+  "name": "Agony of the Black Messiah",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
-    "ability": "archery",
+    "exaltType": "abyssal",
+    "ability": "martialarts",
     "essence": 5,
     "minAbility": 5,
     "charmType": "permanent",
@@ -24,31 +24,44 @@
     "steps": [],
     "keywords": [
       "Mirror",
-      "Obvious"
+      "Stackable"
     ],
     "cost": {
       "formula": "--",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "",
-    "source": "Dreams of the First Age",
+    "description": "<p>Each hit produces a stackable -2 wound penalty that lingers until the Abyssal's DV refreshes. It is otherwise identical to its Solar counterpart.</p>",
+    "source": "DotFA",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "8357b9fbb564f845",
-    "mirrorId": "4b4d7f23c9b4e503"
+    "mirrorId": "dd19f04a457d6a2b",
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ac6db668cbc445fb",
+            "charmName": "Ravaging Blow",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "4b4d7f23c9b4e50a"
   },
-  "folder": "e842a3a532908d8d",
+  "folder": "b0b1b2b3b4b5f03e",
   "sort": 0,
   "ownership": {
     "default": 0

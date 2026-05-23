@@ -1,6 +1,6 @@
 {
-  "_id": "ec87729dc6800c98",
-  "_key": "!items!ec87729dc6800c98",
+  "_id": "4b4d7f23c9b4e504",
+  "_key": "!items!4b4d7f23c9b4e504",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,46 +9,60 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Web-cutting Eyes",
+  "name": "Black Fleet Vanguard",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
-    "ability": "socialize",
+    "exaltType": "abyssal",
+    "ability": "sail",
     "essence": 5,
     "minAbility": 5,
-    "charmType": "reflexive",
-    "duration": "instant",
+    "charmType": "simple",
+    "duration": "indefinite",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
       "Mirror",
-      "Combo-OK"
+      "Combo-OK",
+      "Obvious"
     ],
     "cost": {
-      "formula": "5m",
+      "formula": "8m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "",
-    "source": "Dreams of the First Age",
+    "description": "<p>This Charm is identical to its Solar counterpart.</p>",
+    "source": "DotFA",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "ec87729dc6800c98",
-    "mirrorId": "4b4d7f23c9b4e50d"
+    "mirrorId": "7c0b5b178eb1e92e",
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5db6e612dfb3deb3",
+            "charmName": "Hull-Hardening Concentration",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "4b4d7f23c9b4e504"
   },
-  "folder": "5da24482e38ff9ae",
+  "folder": "b0b1b2b3b4b5f046",
   "sort": 0,
   "ownership": {
     "default": 0

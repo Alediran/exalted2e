@@ -1,0 +1,71 @@
+{
+  "_id": "4b5d7f23c9b4e504",
+  "_key": "!items!4b5d7f23c9b4e504",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Charnel Emperor Stance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "melee",
+    "essence": 7,
+    "minAbility": 7,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 7,
+    "dvPenalty": -4,
+    "steps": [],
+    "keywords": [
+      "Mirror",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "15m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm functions identically to its Solar Mirror, save that it permits invocations of Death-Deflecting Technique rather than Heavenly Guardian Defense. The Deathlords are currently Charnel Emperor Stance's only known users. Like all Mirror Charms, the Deathlords are only capable of wielding the Abyssal version of this Charm.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "df15aa54dee692ea",
+            "charmName": "Death-Deflecting Technique",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "4b5d7f23c9b4e504",
+    "mirrorId": "4349b966b5a7e62d"
+  },
+  "folder": "b0b1b2b3b4b5f040",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

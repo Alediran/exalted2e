@@ -1,6 +1,6 @@
 {
-  "_id": "f8040a1de88c6110",
-  "_key": "!items!f8040a1de88c6110",
+  "_id": "4b4d7f23c9b4e506",
+  "_key": "!items!4b4d7f23c9b4e506",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,11 +9,11 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Maelstrom of Celestial Dominance",
+  "name": "Bone-Filled Maelstrom Gust",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "abyssal",
     "ability": "thrown",
     "essence": 6,
     "minAbility": 6,
@@ -32,24 +32,37 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>War</p>",
-    "source": "Dreams of the First Age",
+    "description": "<p>The jagged, weeping slits this Charm's repurchase leaves in the fabric of the world radiate the power of Oblivion and have no Holy aspect. It is otherwise identical to its Solar counterpart.</p>",
+    "source": "DotFA",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "f8040a1de88c6110",
-    "mirrorId": "4b4d7f23c9b4e506"
+    "mirrorId": "f8040a1de88c6110",
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "80d43afc9639b65b",
+            "charmName": "Burrowing Bone Maggot",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "4b4d7f23c9b4e506"
   },
-  "folder": "a5a30fa2e730ff58",
+  "folder": "b0b1b2b3b4b5f04a",
   "sort": 0,
   "ownership": {
     "default": 0

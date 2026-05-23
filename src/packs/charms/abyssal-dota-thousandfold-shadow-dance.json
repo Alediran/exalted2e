@@ -1,6 +1,6 @@
 {
-  "_id": "2b81d3a60fb44e30",
-  "_key": "!items!2b81d3a60fb44e30",
+  "_id": "4b4d7f23c9b4e509",
+  "_key": "!items!4b4d7f23c9b4e509",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,11 +9,11 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Refinement of Flowing Shadows",
+  "name": "Thousandfold Shadow Dance",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "abyssal",
     "ability": "dodge",
     "essence": 4,
     "minAbility": 5,
@@ -30,24 +30,37 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Chapter Ten � Dreams of the First Age</p>",
-    "source": "Dreams of the First Age",
+    "description": "<p>This Charm is identical to its Solar counterpart, save that it delays Flickering Wisp Technique's reflexive relocation until the end of the tick or action, as appropriate.</p>",
+    "source": "DotFA",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "2b81d3a60fb44e30",
-    "mirrorId": "4b4d7f23c9b4e509"
+    "mirrorId": "2b81d3a60fb44e30",
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5370363b83335420",
+            "charmName": "Flickering Wisp Technique",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "4b4d7f23c9b4e509"
   },
-  "folder": "b4b556393b53edae",
+  "folder": "b0b1b2b3b4b5f038",
   "sort": 0,
   "ownership": {
     "default": 0

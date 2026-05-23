@@ -1,6 +1,6 @@
 {
-  "_id": "a07f54fc186566df",
-  "_key": "!items!a07f54fc186566df",
+  "_id": "4b5d7f23c9b4e50a",
+  "_key": "!items!4b5d7f23c9b4e50a",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,11 +9,11 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Unbreakable Warrior's Mastery",
+  "name": "Stitched-Flesh Resilience",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "abyssal",
     "ability": "resistance",
     "essence": 2,
     "minAbility": 5,
@@ -34,7 +34,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>The Solar shakes off wounds that would cripple a lesser person. This Charm applies when someone uses an attack with a Crippling effect against the Solar. The Solar's player rolls (Stamina + Resistance) against a difficulty of the attacker's Essence. If she succeeds, this Charm negates the Crippling effect.</p>",
+    "description": "<p>Hideous tendrils of black Essence burst from the Abyssal's flesh as he is mutilated, reattaching severed limbs and knitting together wounds. This Charm is identical to its Solar counterpart.</p>",
     "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -51,38 +51,20 @@
       {
         "alternatives": [
           {
-            "type": "anyExcellency",
-            "charmUid": "",
-            "charmName": "",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      },
-      {
-        "alternatives": [
-          {
             "type": "charm",
-            "charmUid": "0feb3945130e2008",
-            "charmName": "Ox-Body Technique",
+            "charmUid": "88a14734d2e7af52",
+            "charmName": "Spirit-Hardened Frame",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
-    "statusApply": {
-      "enabled": true,
-      "status": "Crippling",
-      "resistPool": "@sta + @resistance",
-      "onFail": "applyCrippling"
-    },
-    "charmUid": "a07f54fc186566df",
-    "mirrorId": "4b5d7f23c9b4e50a"
+    "charmUid": "4b5d7f23c9b4e50a",
+    "mirrorId": "a07f54fc186566df"
   },
-  "folder": "f05b544008eaceb0",
+  "folder": "b0b1b2b3b4b5f044",
   "sort": 0,
   "ownership": {
     "default": 0

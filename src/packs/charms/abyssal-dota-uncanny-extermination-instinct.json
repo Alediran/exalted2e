@@ -1,6 +1,6 @@
 {
-  "_id": "8357b9fbb564f845",
-  "_key": "!items!8357b9fbb564f845",
+  "_id": "4b4d7f23c9b4e503",
+  "_key": "!items!4b4d7f23c9b4e503",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,11 +9,11 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Golden Artillerist Method",
+  "name": "Uncanny Extermination Instinct",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "abyssal",
     "ability": "archery",
     "essence": 5,
     "minAbility": 5,
@@ -31,24 +31,37 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "",
-    "source": "Dreams of the First Age",
+    "description": "<p>This Charm is identical to its Solar counterpart, including compatibility with Quiver of Souls (the Abyssal counterpart of Inexhaustible Bolts of Solar Fire).</p>",
+    "source": "DotFA",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "8357b9fbb564f845",
-    "mirrorId": "4b4d7f23c9b4e503"
+    "mirrorId": "8357b9fbb564f845",
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "8d12dfc589b5a2cc",
+            "charmName": "Relic Arrow Method",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "4b4d7f23c9b4e503"
   },
-  "folder": "e842a3a532908d8d",
+  "folder": "b0b1b2b3b4b5f033",
   "sort": 0,
   "ownership": {
     "default": 0

@@ -1,6 +1,6 @@
 {
-  "_id": "ec3f100a29e9ed51",
-  "_key": "!items!ec3f100a29e9ed51",
+  "_id": "4b4d7f23c9b4e505",
+  "_key": "!items!4b4d7f23c9b4e505",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,12 +9,12 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Mind-blanking Rebuke",
+  "name": "Howling Shadows of the Void",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
-    "ability": "presence",
+    "exaltType": "abyssal",
+    "ability": "archery",
     "essence": 4,
     "minAbility": 5,
     "charmType": "supplemental",
@@ -25,33 +25,44 @@
     "keywords": [
       "Mirror",
       "Combo-OK",
-      "Compulsion",
-      "Obvious",
-      "Social"
+      "Obvious"
     ],
     "cost": {
       "formula": "5m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "",
-    "source": "Dreams of the First Age",
+    "description": "<p>This Charm is identical to its Solar counterpart, save that the Abyssal may not spare allies with her Compassion. Instead, at Essence 5+, the Charm does not destroy any undead the Abyssal has personally animated.</p>",
+    "source": "DotFA",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "ec3f100a29e9ed51",
-    "mirrorId": "4b4d7f23c9b4e507"
+    "mirrorId": "bdefb153884fdfbd",
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0ea15c694e8c11e7",
+            "charmName": "Splinter Of The Void",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "4b4d7f23c9b4e505"
   },
-  "folder": "e6b3f42bab7e5717",
+  "folder": "b0b1b2b3b4b5f033",
   "sort": 0,
   "ownership": {
     "default": 0

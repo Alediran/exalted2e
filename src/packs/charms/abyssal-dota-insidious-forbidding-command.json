@@ -1,6 +1,6 @@
 {
-  "_id": "ec87729dc6800c98",
-  "_key": "!items!ec87729dc6800c98",
+  "_id": "4b4d7f23c9b4e507",
+  "_key": "!items!4b4d7f23c9b4e507",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,46 +9,62 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Web-cutting Eyes",
+  "name": "Insidious Forbidding Command",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
-    "ability": "socialize",
-    "essence": 5,
+    "exaltType": "abyssal",
+    "ability": "presence",
+    "essence": 4,
     "minAbility": 5,
-    "charmType": "reflexive",
+    "charmType": "supplemental",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
       "Mirror",
-      "Combo-OK"
+      "Combo-OK",
+      "Compulsion",
+      "Obvious",
+      "Social"
     ],
     "cost": {
       "formula": "5m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "",
-    "source": "Dreams of the First Age",
+    "description": "<p>This Charm is identical to its Solar counterpart.</p>",
+    "source": "DotFA",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "ec87729dc6800c98",
-    "mirrorId": "4b4d7f23c9b4e50d"
+    "mirrorId": "ec3f100a29e9ed51",
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "9e2b04746f22956e",
+            "charmName": "Dread Lord's Demeanor",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "4b4d7f23c9b4e507"
   },
-  "folder": "5da24482e38ff9ae",
+  "folder": "b0b1b2b3b4b5f043",
   "sort": 0,
   "ownership": {
     "default": 0

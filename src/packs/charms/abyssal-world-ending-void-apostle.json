@@ -1,0 +1,72 @@
+{
+  "_id": "4b5d7f23c9b4e501",
+  "_key": "!items!4b5d7f23c9b4e501",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "World-Ending Void Apostle",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "integrity",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror",
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "2ahl, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>World-Ending Void Apostle duplicates the benefit of its Solar counterpart, but the Abyssal does not roll to accumulate Limit. Instead, the Charm has a duration of only one scene, and an activation cost of two aggravated health levels and one Willpower.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "34dba180b3c0e491",
+            "charmName": "Immortal Malevolence Enslavement",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "4b5d7f23c9b4e501",
+    "mirrorId": "8b80e2b6568422dd"
+  },
+  "folder": "b0b1b2b3b4b5f039",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

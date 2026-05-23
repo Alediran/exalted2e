@@ -1,6 +1,6 @@
 {
-  "_id": "ec3f100a29e9ed51",
-  "_key": "!items!ec3f100a29e9ed51",
+  "_id": "4b5d7f23c9b4e505",
+  "_key": "!items!4b5d7f23c9b4e505",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,12 +9,12 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Mind-blanking Rebuke",
+  "name": "Life-Severing Blade",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
-    "ability": "presence",
+    "exaltType": "abyssal",
+    "ability": "melee",
     "essence": 4,
     "minAbility": 5,
     "charmType": "supplemental",
@@ -25,33 +25,44 @@
     "keywords": [
       "Mirror",
       "Combo-OK",
-      "Compulsion",
-      "Obvious",
-      "Social"
+      "Obvious"
     ],
     "cost": {
-      "formula": "5m",
+      "formula": "4m or 6m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "",
-    "source": "Dreams of the First Age",
+    "description": "<p>The Abyssal Mirror to Rising Sun Slash has no Holy keyword. Its six-mote option makes attacks undodgeable by mortals, ghosts and the Fair Folk, rather than carrying the Holy keyword.</p>",
+    "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "ec3f100a29e9ed51",
-    "mirrorId": "4b4d7f23c9b4e507"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "64175be5ce190ac9",
+            "charmName": "Artful Maiming Onslaught",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "4b5d7f23c9b4e505",
+    "mirrorId": "ad493422f54e2679"
   },
-  "folder": "e6b3f42bab7e5717",
+  "folder": "b0b1b2b3b4b5f040",
   "sort": 0,
   "ownership": {
     "default": 0

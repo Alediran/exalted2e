@@ -1,6 +1,6 @@
 {
-  "_id": "8357b9fbb564f845",
-  "_key": "!items!8357b9fbb564f845",
+  "_id": "4b5d7f23c9b4e502",
+  "_key": "!items!4b5d7f23c9b4e502",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,46 +9,46 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Golden Artillerist Method",
+  "name": "Sun-Devouring Void Prophet",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
-    "ability": "archery",
-    "essence": 5,
-    "minAbility": 5,
+    "exaltType": "abyssal",
+    "ability": "integrity",
+    "essence": 4,
+    "minAbility": 3,
     "charmType": "permanent",
-    "duration": "permanent",
+    "duration": "formula",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
       "Mirror",
-      "Obvious"
+      "Holy"
     ],
     "cost": {
       "formula": "--",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "",
-    "source": "Dreams of the First Age",
+    "description": "<p>This Charm renders the Abyssal's anima into a comforting shroud of necrotic energy. While shining at the eight-mote level of display, the Abyssal is not subject to any penalties due to being rejected by Creation. Nothing within the radius of the anima (identical to that of the Solar version) is affected by the light of the sun unless that light is produced by a magical source carrying the Holy keyword.</p>",
+    "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "8357b9fbb564f845",
-    "mirrorId": "4b4d7f23c9b4e503"
+    "charmUid": "4b5d7f23c9b4e502",
+    "mirrorId": "2be937a9ae5429bc"
   },
-  "folder": "e842a3a532908d8d",
+  "folder": "b0b1b2b3b4b5f039",
   "sort": 0,
   "ownership": {
     "default": 0

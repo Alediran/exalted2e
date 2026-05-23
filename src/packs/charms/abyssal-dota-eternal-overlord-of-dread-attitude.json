@@ -1,0 +1,73 @@
+{
+  "_id": "4b4d7f23c9b4e502",
+  "_key": "!items!4b4d7f23c9b4e502",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Eternal Overlord of Dread Attitude",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "presence",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror",
+      "Combo-Basic",
+      "Compulsion",
+      "Emotion"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>All characters in existence who possess an Intimacy of fear toward the deathknight find that they cannot intentionally raise a hand against her while this Charm is active. This unnatural mental influence forces such characters who wish to deliberately take some action they believe will bring harm to the Abyssal (be it physical, emotional, political or even financial) to spend one Willpower per action to do so. Spending three Willpower in this fashion within the course of a single scene negates the effects of Eternal Overlord of Dread Attitude for the rest of the scene, but the only way for a target to permanently escape the effect of the Charm is to remove her Intimacy of fear for the Abyssal. A second purchase of this Charm at Presence 7+, Essence 7+ renders mortals incapable of spending Willpower to resist the Charm.</p>",
+    "source": "DotFA",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "mirrorId": "cbb91f270e0837d0",
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5522af7996830902",
+            "charmName": "Broken Heart Triumph",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "4b4d7f23c9b4e502"
+  },
+  "folder": "b0b1b2b3b4b5f043",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

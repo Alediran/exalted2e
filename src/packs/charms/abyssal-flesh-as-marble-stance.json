@@ -1,6 +1,6 @@
 {
-  "_id": "987d4a9bf78ce936",
-  "_key": "!items!987d4a9bf78ce936",
+  "_id": "4b5d7f23c9b4e507",
+  "_key": "!items!4b5d7f23c9b4e507",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,11 +9,11 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Armored in Righteousness Stance",
+  "name": "Flesh as Marble Stance",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "abyssal",
     "ability": "resistance",
     "essence": 3,
     "minAbility": 4,
@@ -30,8 +30,8 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This Charm upgrades its prerequisite, adding (Essence) to the amount of soak provided. For an additional activation cost of one extra mote, Iron Kettle Body becomes compatible with armor as well. As a point of clarification, Iron Kettle Body's Keywords are Combo-OK and Obvious. New Abyssal Charm: Flesh as Marble Stance (Prerequisites: Resilient Corpse Body). This Charm functions identically to its Solar Mirror. Resilient Corpse Body has as its prerequisites Injury-Absorbing Discipline and Spirit-Hardened Frame, and is identical to Iron Kettle Body.</p>",
-    "source": "Glories of the Most High: Unconquered Sun",
+    "description": "<p>This Charm functions identically to its Solar Mirror.</p>",
+    "source": "Core",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
@@ -48,19 +48,19 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "197e16215731d1ab",
-            "charmName": "Iron Kettle Body",
+            "charmUid": "4b5d7f23c9b4e50b",
+            "charmName": "Resilient Corpse Body",
             "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
+            "virtueKey": "",
+            "virtueMin": 0
           }
         ]
       }
     ],
-    "charmUid": "987d4a9bf78ce936",
-    "mirrorId": "4b5d7f23c9b4e507"
+    "charmUid": "4b5d7f23c9b4e507",
+    "mirrorId": "987d4a9bf78ce936"
   },
-  "folder": "f05b544008eaceb0",
+  "folder": "b0b1b2b3b4b5f044",
   "sort": 0,
   "ownership": {
     "default": 0
