@@ -1,5 +1,18 @@
 import { ExaltedRoll }          from "../rolls/exalted-roll.mjs";
 import { rollMassCombatAttack } from "../rolls/mass-combat-roll.mjs";
+import {
+  rollCharge,
+  rollChangeFormation,
+  rollDisengage,
+  rollSplitUnit,
+  rollMergeUnits,
+} from "../rolls/unit-action-roll.mjs";
+import {
+  computeChangeFormationDifficulty,
+  computeChargePool,
+  computeChargeDifficulty,
+  computeMergeMagnitude,
+} from "../rolls/mass-combat-math.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -9,11 +22,16 @@ const ACTIONS = [
   { key: "aim",                labelKey: "EX2E.ActionAim",            speed: 3, dvMod:  0 },
   { key: "guard",              labelKey: "EX2E.ActionGuard",          speed: 3, dvMod:  1 },
   { key: "move",               labelKey: "EX2E.ActionMove",           speed: 5, dvMod:  0, blockedIfHesitating: true },
-  { key: "charge",             labelKey: "EX2E.ActionCharge",         speed: 3, dvMod: -1, needsRoll: true, blockedIfHesitating: true },
+  { key: "charge",             labelKey: "EX2E.ActionCharge",         speed: 3, dvMod: -1, blockedIfHesitating: true },
   { key: "rally",              labelKey: "EX2E.ActionRally",          speed: 4, dvMod: -1, needsRoll: true },
   { key: "change-formation",   labelKey: "EX2E.ActionChangeFormation",speed: 5, dvMod: -1, needsRoll: true },
+  { key: "disengage",          labelKey: "EX2E.ActionDisengage",      speed: 0, dvMod:  0, blockedIfNotEngaged: true },
+  { key: "split",              labelKey: "EX2E.ActionSplitUnit",      speed: 3, dvMod: -1 },
+  { key: "merge",              labelKey: "EX2E.ActionMergeUnits",     speed: 3, dvMod: -1, requiresTarget: true },
   { key: "inactive",           labelKey: "EX2E.ActionInactive",       speed: 1, dvMod:  0}
 ];
+
+const FORMATION_MIN_DRILL = { none: 99, unordered: 1, skirmish: 2, relaxed: 2, close: 3 };
 
 export class MassCombatActionDialog extends HandlebarsApplicationMixin(ApplicationV2) {
 
@@ -48,15 +66,27 @@ export class MassCombatActionDialog extends HandlebarsApplicationMixin(Applicati
   async _prepareContext(options) {
     const context    = await super._prepareContext(options);
     const unitSystem = this._unitActor.system;
+    const sys        = unitSystem;
     const hesitating = this._combatant?.flags?.exalted2e?.hesitating ?? false;
     const commander  = unitSystem.commanderActor ?? null;
 
-    const actions = ACTIONS.map(a => ({
-      ...a,
-      label:   game.i18n.localize(a.labelKey),
-      selected: a.key === this._selectedAction,
-      blocked:  (a.blockedIfHesitating && hesitating) || (a.requiresRanged && !unitSystem.rangedCombatRating)
-    }));
+    const targetToken = [...game.user.targets][0];
+    const targetActor = targetToken?.actor ?? null;
+    const hasTarget   = !!targetActor && targetActor.type === "unit";
+
+    const actions = ACTIONS.map(a => {
+      let blocked =
+        (a.blockedIfHesitating && hesitating) ||
+        (a.requiresRanged && !unitSystem.rangedCombatRating);
+      if (a.blockedIfNotEngaged && !sys.engaged) blocked = true;
+      if (a.requiresTarget && !hasTarget) blocked = true;
+      return {
+        ...a,
+        label:    game.i18n.localize(a.labelKey),
+        selected: a.key === this._selectedAction,
+        blocked
+      };
+    });
 
     const selectedDef = ACTIONS.find(a => a.key === this._selectedAction) ?? null;
     let selectedFormula = null;
@@ -91,11 +121,27 @@ export class MassCombatActionDialog extends HandlebarsApplicationMixin(Applicati
       selectedFormula = game.i18n.localize("EX2E.JoinWarNoCommander");
     }
 
-    const formationOptions = ["none","unordered","skirmish","relaxed","close"].map(k => ({
-      value:   k,
-      label:   game.i18n.localize(`EX2E.Formation${k.charAt(0).toUpperCase() + k.slice(1)}`),
-      current: k === unitSystem.formation
-    }));
+    // Show charge formula preview even though roll happens at confirm time
+    if (this._selectedAction === "charge" && commander) {
+      selectedPool = computeChargePool(
+        commander.system.attributes?.charisma?.value ?? 0,
+        commander.system.abilities?.war?.value ?? 0
+      );
+      selectedDiff = computeChargeDifficulty(sys.magnitude.value, sys.drill);
+    }
+
+    const formationOptions = ["none","unordered","skirmish","relaxed","close"]
+      .filter(k => sys.drill >= (FORMATION_MIN_DRILL[k] ?? Infinity))
+      .map(k => ({
+        value:   k,
+        label:   game.i18n.localize(`EX2E.Formation${k.charAt(0).toUpperCase() + k.slice(1)}`),
+        current: k === unitSystem.formation
+      }));
+
+    const splitMaxMagnitude    = Math.max(1, sys.magnitude.value - 1);
+    const mergeResultMagnitude = hasTarget
+      ? computeMergeMagnitude(sys.magnitude.value, targetActor.system.magnitude.value)
+      : 0;
 
     return {
       ...context,
@@ -112,7 +158,15 @@ export class MassCombatActionDialog extends HandlebarsApplicationMixin(Applicati
         ? game.i18n.format("EX2E.RollResultSummary", { successes: this._rollResult.successes, diff: this._rollResult.diff })
         : null,
       showFormationSelect:  this._selectedAction === "change-formation",
-      formationOptions
+      formationOptions,
+      showAttackedCheckbox: selectedDef?.key === "change-formation",
+      showSplitInput:       selectedDef?.key === "split",
+      splitMaxMagnitude,
+      showMergeInfo:        selectedDef?.key === "merge" && hasTarget,
+      showMergeNoTarget:    selectedDef?.key === "merge" && !hasTarget,
+      mergeTargetName:      hasTarget ? targetActor.name : "",
+      mergeResultMagnitude,
+      hasTarget
     };
   }
 
@@ -141,9 +195,9 @@ export class MassCombatActionDialog extends HandlebarsApplicationMixin(Applicati
       diff = Math.max(1, mag - drill);
     } else {
       // change-formation
-      const engagedMod = unitSystem.engaged ? 2 : 0;
+      const attackedSinceLastAction = this.element?.querySelector('[name="attackedSinceLastAction"]')?.checked ?? false;
       pool = cha + war;
-      diff = Math.max(1, mag - drill + engagedMod);
+      diff = computeChangeFormationDifficulty(mag, drill, { engaged: unitSystem.engaged, attackedSinceLastAction });
     }
 
     if (pool <= 0) {
@@ -153,6 +207,7 @@ export class MassCombatActionDialog extends HandlebarsApplicationMixin(Applicati
     const roll   = new ExaltedRoll({ pool });
     const result = await roll.evaluate();
     this._rollResult = {
+      pool,
       successes:   result.successes,
       diceDetails: result.diceDetails,
       success:     result.successes >= diff,
@@ -173,33 +228,89 @@ export class MassCombatActionDialog extends HandlebarsApplicationMixin(Applicati
     const unit       = this._unitActor;
     const unitSystem = unit.system;
     const hesitating = this._combatant?.flags?.exalted2e?.hesitating ?? false;
+    const targetToken = [...game.user.targets][0];
+    const targetActor = targetToken?.actor ?? null;
+    const hasTarget   = !!targetActor && targetActor.type === "unit";
     const isBlocked  = (action.blockedIfHesitating && hesitating)
-                     || (action.requiresRanged && !unitSystem.rangedCombatRating);
+                     || (action.requiresRanged && !unitSystem.rangedCombatRating)
+                     || (action.blockedIfNotEngaged && !unitSystem.engaged)
+                     || (action.requiresTarget && !hasTarget);
     if (isBlocked) {
       ui.notifications.warn(game.i18n.localize("EX2E.JoinWarRollFirst"));
       return;
     }
 
     // 1. Execute action-specific effect
-    if (this._selectedAction === "close-attack") {
-      await rollMassCombatAttack(unit, { ranged: false });
+    switch (this._selectedAction) {
+      case "close-attack":
+        await rollMassCombatAttack(unit, { ranged: false });
+        break;
 
-    } else if (this._selectedAction === "ranged-attack") {
-      await rollMassCombatAttack(unit, { ranged: true });
+      case "ranged-attack":
+        await rollMassCombatAttack(unit, { ranged: true });
+        break;
 
-    } else if (this._selectedAction === "aim") {
-      await unit.update({ "system.aimBonus": 3 });
+      case "aim":
+        await unit.update({ "system.aimBonus": 3 });
+        break;
 
-    } else if (this._selectedAction === "change-formation") {
-      const select = this.element?.querySelector("select[name='targetFormation']");
-      const newFormation = select?.value ?? unitSystem.formation;
-      if (this._rollResult?.success) {
-        await unit.update({ "system.formation": newFormation });
+      case "charge":
+        await rollCharge(unit);
+        break;
+
+      case "change-formation": {
+        const select = this.element?.querySelector("select[name='targetFormation']");
+        const newFormation = select?.value ?? unitSystem.formation;
+        const attackedSinceLastAction = this.element?.querySelector('[name="attackedSinceLastAction"]')?.checked ?? false;
+        await rollChangeFormation(unit, {
+          newFormation,
+          attackedSinceLastAction,
+          pool:        this._rollResult?.pool ?? 0,
+          successes:   this._rollResult?.successes ?? 0,
+          diceDetails: this._rollResult?.diceDetails ?? [],
+          success:     this._rollResult?.success ?? false,
+          diff:        this._rollResult?.diff ?? 1,
+        });
+        break;
       }
-      await this._postActionChatCard(action, newFormation);
 
-    } else if (action.needsRoll) {
-      await this._postActionChatCard(action, null);
+      case "disengage":
+        await rollDisengage(unit);
+        break;
+
+      case "split": {
+        const newUnitMagnitude = parseInt(
+          this.element?.querySelector('[name="newUnitMagnitude"]')?.value ?? "1",
+          10
+        );
+        await rollSplitUnit(unit, { newUnitMagnitude });
+        break;
+      }
+
+      case "merge": {
+        if (!targetActor) {
+          ui.notifications.warn(game.i18n.localize("EX2E.NoTargetUnit"));
+          return;
+        }
+        const resultMagnitude = computeMergeMagnitude(
+          unit.system.magnitude.value,
+          targetActor.system.magnitude.value
+        );
+        await rollMergeUnits(unit, targetActor, { resultMagnitude });
+        break;
+      }
+
+      default:
+        if (action.needsRoll) {
+          await this._postActionChatCard(action, null);
+        }
+        break;
+    }
+
+    // If this unit was absorbed in a merge, skip housekeeping
+    if (!game.actors.get(this._unitActor.id)) {
+      this.close();
+      return;
     }
 
     // 2. Advance ticks (only when in combat)

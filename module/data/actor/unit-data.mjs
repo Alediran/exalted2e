@@ -13,6 +13,7 @@ export class UnitData extends foundry.abstract.TypeDataModel {
       drill:            new fields.NumberField({ integer: true, min: 1, max: 5, initial: 2 }),
       might:            new fields.NumberField({ integer: true, min: 0, max: 5, initial: 1 }),
       endurance:        new fields.NumberField({ integer: true, min: 1, max: 5, initial: 2 }),
+      armorFatigue:     new fields.NumberField({ integer: true, min: 0, max: 4, initial: 0 }),
       morale:           new fields.NumberField({ integer: true, min: 1, max: 5, initial: 3 }),
       commanderActorId: new fields.StringField({ blank: true, initial: "" }),
       unitType:         new fields.StringField({ choices: ["extras", "elite", "heroic"], initial: "extras", blank: false }),

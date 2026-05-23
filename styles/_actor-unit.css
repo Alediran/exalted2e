@@ -909,3 +909,106 @@ body.ex2e-light-mode .mass-combat-result {
   font-style:  italic;
   margin-top:  var(--ex2e-gap-xs);
 }
+
+/* ── Phase 4 Unit Action Chat Cards ────────────────────────────── */
+
+.mass-combat-result.unit-action {
+  border-left: 3px solid #8b7536;
+}
+
+.mass-combat-result.unit-action .mc-action-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+  color: #5a4010;
+}
+
+.mass-combat-result.unit-action .mc-roll-row {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 0.25rem;
+}
+
+.mass-combat-result.unit-action .mc-dice-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.mass-combat-result.unit-action .mc-result-box {
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  background: #f5f0e8;
+  border: 1px solid #c8b89a;
+  margin-top: 0.25rem;
+}
+
+.mass-combat-result.unit-action .mc-result-box.charge-success,
+.mass-combat-result.unit-action .mc-result-box.formation-success,
+.mass-combat-result.unit-action .mc-result-box.disengage-success,
+.mass-combat-result.unit-action .mc-result-box.split-result.success,
+.mass-combat-result.unit-action .mc-result-box.merge-result.success {
+  background: #eaf4ea;
+  border-color: #5a9a5a;
+}
+
+.mass-combat-result.unit-action .mc-result-box.charge-fail,
+.mass-combat-result.unit-action .mc-result-box.formation-fail,
+.mass-combat-result.unit-action .mc-result-box.disengage-fail,
+.mass-combat-result.unit-action .mc-result-box.split-result.fail,
+.mass-combat-result.unit-action .mc-result-box.merge-result.failure {
+  background: #f9eeee;
+  border-color: #c05050;
+}
+
+.mass-combat-result.unit-action .hesitation-warning {
+  color: #c05050;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.mass-combat-result.unit-action .formation-tag {
+  display: inline-block;
+  background: #e8e0cc;
+  border: 1px solid #b8a87a;
+  border-radius: 3px;
+  padding: 0 0.3rem;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+/* ── Phase 4 Dialog Additions ────────────────────────────────── */
+
+.mc-attacked-row,
+.mc-split-row,
+.mc-merge-info,
+.mc-no-target {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.mc-attacked-row label,
+.mc-split-row label {
+  display: inline-block;
+  min-width: 12rem;
+  vertical-align: middle;
+}
+
+.mc-merge-info {
+  background: #f5f0e8;
+  border: 1px solid #c8b89a;
+  border-radius: 4px;
+  padding: 0.3rem 0.5rem;
+}
+
+.mc-merge-info p {
+  margin: 0.1rem 0;
+}
+
+.mc-no-target {
+  color: #c05050;
+  font-style: italic;
+}

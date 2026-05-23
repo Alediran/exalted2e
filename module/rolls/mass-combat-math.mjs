@@ -80,3 +80,35 @@ export function computeUnitParryDV(commanderParryDV, closeCombatRating) {
 export function computeHeroNetDamage(dmgSuccesses, soak, unitMagnitude) {
   return Math.max(unitMagnitude, dmgSuccesses - soak);
 }
+
+export function computeChargePool(charisma, war) {
+  return Math.max(1, (charisma ?? 0) + (war ?? 0));
+}
+
+export function computeChargeDifficulty(magnitude, drill) {
+  return Math.max(1, magnitude - drill);
+}
+
+export function computeChangeFormationDifficulty(magnitude, drill, { engaged, attackedSinceLastAction }) {
+  const base = Math.max(1, magnitude - drill);
+  const mod = engaged ? 2 : (attackedSinceLastAction ? 1 : 0); // engaged subsumes attacked; modifiers don't stack
+  return base + mod;
+}
+
+export function computeDisengagePool(wits, war, drill, magnitude) {
+  return Math.max(1, (wits ?? 0) + (war ?? 0) + (drill ?? 0) - (magnitude ?? 0));
+}
+
+export function computeDisengageDifficulty(opposingDrill) {
+  return (opposingDrill ?? 0) + 3;
+}
+
+export function computeSplitParentMagnitude(parentMag, newUnitMag) {
+  return Math.max(0, parentMag - Math.max(1, newUnitMag));
+}
+
+export function computeMergeMagnitude(mag1, mag2) {
+  const larger = Math.max(mag1, mag2);
+  const smaller = Math.min(mag1, mag2);
+  return Math.min(5, larger + Math.ceil(smaller / 2));
+}

@@ -1985,7 +1985,22 @@
     "ActionFailed":          "failed",
     "UnitAttacksHero":       "Unit Attacks Hero",
     "UnitDodgeDV":           "Dodge DV",
-    "UnitParryDV":           "Parry DV"
+    "UnitParryDV":           "Parry DV",
+    "ActionDisengage":       "Disengage",
+    "ActionSplitUnit":       "Split Unit",
+    "ActionMergeUnits":      "Merge Units",
+    "ArmorFatigue":          "Armor Fatigue",
+    "AttackedSinceLastAction": "Attacked since last action?",
+    "NewUnitMagnitude":      "New unit Magnitude",
+    "ResultingMagnitude":    "Resulting Magnitude",
+    "ChargeSuccess":         "Charge succeeds",
+    "ChargeFail":            "Charge fails",
+    "DisengageSuccess":      "Disengaged",
+    "DisengageFailed":       "Disengage failed",
+    "SplitSuccess":          "Unit splits",
+    "SplitHesitates":        "Split — unit hesitates",
+    "MergeSuccess":          "Units merged",
+    "MergeFail":             "Merge failed — unit hesitates"
   },
   "TYPES": {
     "Actor": {

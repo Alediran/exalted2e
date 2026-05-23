@@ -1,0 +1,101 @@
+<div class="mass-combat-result unit-action">
+  <h3 class="mc-action-title">
+    {{attackerName}} — {{#if (eq actionKey "charge")}}{{localize "EX2E.ActionCharge"}}
+    {{else if (eq actionKey "change-formation")}}{{localize "EX2E.ActionChangeFormation"}}
+    {{else if (eq actionKey "disengage")}}{{localize "EX2E.ActionDisengage"}}
+    {{else if (eq actionKey "split")}}{{localize "EX2E.ActionSplitUnit"}}
+    {{else if (eq actionKey "merge")}}{{localize "EX2E.ActionMergeUnits"}}
+    {{/if}}
+  </h3>
+
+  {{!-- Roll summary row --}}
+  <div class="mc-roll-row">
+    <span class="mc-label">{{localize "EX2E.Pool"}}: {{pool}}</span>
+    <span class="mc-label">{{localize "EX2E.Successes"}}: {{successes}}</span>
+    <span class="mc-label">{{localize "EX2E.Difficulty"}}: {{difficulty}}</span>
+  </div>
+
+  {{!-- Dice details --}}
+  {{#if diceDetails}}
+  <div class="mc-dice-row dice-results">
+    {{#each diceDetails as |d|}}
+      <div class="mc-die die-result {{d.cls}}">{{d.face}}</div>
+    {{/each}}
+  </div>
+  {{/if}}
+
+  {{!-- Charge result --}}
+  {{#if (eq actionKey "charge")}}
+  <div class="mc-result-box {{#if success}}charge-success{{else}}charge-fail{{/if}}">
+    {{#if success}}
+      <strong>{{localize "EX2E.ChargeSuccess"}}</strong>
+      {{#if enduranceCost}}<p>{{localize "EX2E.Endurance"}}: {{enduranceBefore}} → {{enduranceAfter}}</p>{{/if}}
+    {{else}}
+      <strong>{{localize "EX2E.ChargeFail"}}</strong>
+    {{/if}}
+  </div>
+  {{/if}}
+
+  {{!-- Change Formation result --}}
+  {{#if (eq actionKey "change-formation")}}
+  <div class="mc-result-box {{#if success}}formation-success{{else}}formation-fail{{/if}}">
+    {{#if success}}
+      <strong>{{localize "EX2E.FormationChanged"}}</strong>
+      <p>{{localize "EX2E.Formation"}}: <span class="formation-tag">{{newFormation}}</span></p>
+    {{else}}
+      <strong>{{localize "EX2E.FormationChangeFailed"}}</strong>
+    {{/if}}
+  </div>
+  {{/if}}
+
+  {{!-- Disengage result --}}
+  {{#if (eq actionKey "disengage")}}
+  <div class="mc-result-box {{#if success}}disengage-success{{else}}disengage-fail{{/if}}">
+    {{#if success}}
+      <strong>{{localize "EX2E.DisengageSuccess"}}</strong>
+      <p>{{localize "EX2E.Target"}}: {{defenderName}}</p>
+    {{else}}
+      <strong>{{localize "EX2E.DisengageFailed"}}</strong>
+    {{/if}}
+  </div>
+  {{/if}}
+
+  {{!-- Split result --}}
+  {{#if (eq actionKey "split")}}
+  <div class="mc-result-box {{#if success}}split-result success{{else}}split-result fail{{/if}}">
+    {{#if success}}
+      <strong>{{localize "EX2E.SplitSuccess"}}</strong>
+      <p>{{attackerName}}: {{localize "EX2E.Magnitude"}} {{parentMagAfter}}</p>
+      <p>{{newUnitName}}: {{localize "EX2E.NewUnitMagnitude"}} {{newUnitMag}}</p>
+    {{else}}
+      <strong>{{localize "EX2E.SplitHesitates"}}</strong>
+      <p class="hesitation-warning">{{localize "EX2E.UnitHesitates"}}</p>
+    {{/if}}
+  </div>
+  {{/if}}
+
+  {{!-- Merge result --}}
+  {{#if (eq actionKey "merge")}}
+  {{!-- Roll for target unit --}}
+  {{#if targetDiceDetails}}
+  <div class="mc-roll-row">
+    <span class="mc-label">{{defenderName}} {{localize "EX2E.Pool"}}: {{targetPool}}</span>
+    <span class="mc-label">{{localize "EX2E.Successes"}}: {{targetSuccesses}}</span>
+  </div>
+  <div class="mc-dice-row dice-results">
+    {{#each targetDiceDetails as |d|}}
+      <div class="mc-die die-result {{d.cls}}">{{d.face}}</div>
+    {{/each}}
+  </div>
+  {{/if}}
+  <div class="mc-result-box {{#if success}}merge-result success{{else}}merge-result failure{{/if}}">
+    {{#if success}}
+      <strong>{{localize "EX2E.MergeSuccess"}}</strong>
+      <p>{{localize "EX2E.ResultingMagnitude"}}: {{resultMagnitude}}</p>
+    {{else}}
+      <strong>{{localize "EX2E.MergeFail"}}</strong>
+      <p class="hesitation-warning">{{localize "EX2E.UnitHesitates"}}</p>
+    {{/if}}
+  </div>
+  {{/if}}
+</div>

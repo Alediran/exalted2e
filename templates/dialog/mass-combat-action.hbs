@@ -58,6 +58,37 @@
       </select>
     </div>
     {{/if}}
+
+    {{!-- Attacked since last action checkbox (change-formation only) --}}
+    {{#if showAttackedCheckbox}}
+    <div class="mc-attacked-row form-group">
+      <label>{{localize "EX2E.AttackedSinceLastAction"}}</label>
+      <input type="checkbox" name="attackedSinceLastAction">
+    </div>
+    {{/if}}
+
+    {{!-- New unit magnitude input (split only) --}}
+    {{#if showSplitInput}}
+    <div class="mc-split-row form-group">
+      <label>{{localize "EX2E.NewUnitMagnitude"}}</label>
+      <input type="number" name="newUnitMagnitude" min="1" max="{{splitMaxMagnitude}}" value="1">
+    </div>
+    {{/if}}
+
+    {{!-- Merge info display (merge only, when target is selected) --}}
+    {{#if showMergeInfo}}
+    <div class="mc-merge-info">
+      <p>{{localize "EX2E.Target"}}: {{mergeTargetName}}</p>
+      <p>{{localize "EX2E.ResultingMagnitude"}}: {{mergeResultMagnitude}}</p>
+    </div>
+    {{/if}}
+
+    {{!-- No target warning (merge without target) --}}
+    {{#if showMergeNoTarget}}
+    <div class="mc-no-target">
+      <p>{{localize "EX2E.NoTargetUnit"}}</p>
+    </div>
+    {{/if}}
   </div>
   {{/if}}
 

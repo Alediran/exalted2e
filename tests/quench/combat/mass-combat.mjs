@@ -1,5 +1,6 @@
 import { assertTestWorld } from "../_helpers/world.mjs";
 import { rollMassCombatAttack } from "../../../module/rolls/mass-combat-roll.mjs";
+import { ExaltedRoll } from "../../../module/rolls/exalted-roll.mjs";
 
 export function registerMassCombat(context) {
   const { describe, it, assert, before, after } = context;
@@ -321,6 +322,199 @@ export function registerMassCombatUnitVsHero(context) {
         "floor at magnitude when successes - soak < magnitude");
       assert.strictEqual(computeHeroNetDamage(8, 2, 3), 6,
         "normal soak when successes - soak > magnitude");
+    });
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Phase 4 suites
+// ---------------------------------------------------------------------------
+
+export function registerMassCombatPhase4Actions(context) {
+  const { describe, it, before, after, assert } = context;
+
+  describe("Mass Combat Phase 4 — Unit Actions (Charge, Change Formation, Disengage)", () => {
+    let unitActor, targetActor;
+    let _origEvaluate;
+
+    before(async () => {
+      unitActor = await Actor.create({
+        name: "Phase4TestUnit",
+        type: "unit",
+        system: {
+          formation: "unordered",
+          drill: 2,
+          endurance: 3,
+          armorFatigue: 0,
+          morale: 3,
+          might: 0,
+          magnitude: { value: 3, max: 5 },
+          health: { value: 0, max: 10 },
+          engaged: true,
+        },
+      });
+      targetActor = await Actor.create({
+        name: "Phase4TestTarget",
+        type: "unit",
+        system: {
+          formation: "unordered",
+          drill: 2,
+          endurance: 3,
+          morale: 3,
+          might: 0,
+          magnitude: { value: 2, max: 5 },
+          health: { value: 0, max: 10 },
+          engaged: true,
+        },
+      });
+      // Make all dice rolls return 2 successes
+      _origEvaluate = ExaltedRoll.prototype.evaluate;
+      ExaltedRoll.prototype.evaluate = async function () {
+        this.successes = 2;
+        this.diceDetails = [{ face: 8, cls: "success" }, { face: 8, cls: "success" }];
+        return this;
+      };
+    });
+
+    after(async () => {
+      if (_origEvaluate) ExaltedRoll.prototype.evaluate = _origEvaluate;
+      await unitActor?.delete();
+      await targetActor?.delete();
+    });
+
+    it("[P4-285] rollCharge reduces endurance on success (with armorFatigue=0)", async () => {
+      const { rollCharge } = await import(
+        "/systems/exalted2e/module/rolls/unit-action-roll.mjs"
+      );
+      const enduranceBefore = unitActor.system.endurance;
+      const msgsBefore = game.messages.size;
+
+      const state = await rollCharge(unitActor);
+
+      assert.ok(state.success, "charge should succeed with 2 successes vs diff");
+      assert.equal(state.enduranceCost, 1, "endurance cost should be 1 when armorFatigue=0");
+      // Reload actor to see updated value
+      const reloaded = game.actors.get(unitActor.id);
+      assert.equal(reloaded.system.endurance, enduranceBefore - 1, "endurance should decrease by 1");
+      assert.equal(game.messages.size, msgsBefore + 1, "one chat card should be posted");
+    });
+
+    it("[P4-286] rollChangeFormation updates formation on success", async () => {
+      const { rollChangeFormation } = await import(
+        "/systems/exalted2e/module/rolls/unit-action-roll.mjs"
+      );
+      const msgsBefore = game.messages.size;
+
+      const state = await rollChangeFormation(unitActor, {
+        newFormation: "close",
+        attackedSinceLastAction: false,
+        pool: 4,
+        successes: 2,
+        diceDetails: [{ face: 8, cls: "success" }, { face: 8, cls: "success" }],
+        success: true,
+        diff: 1,
+      });
+
+      assert.ok(state.success, "formation change should succeed");
+      assert.equal(state.newFormation, "close", "new formation in state should be 'close'");
+      const reloaded = game.actors.get(unitActor.id);
+      assert.equal(reloaded.system.formation, "close", "actor formation should be updated to 'close'");
+      assert.equal(game.messages.size, msgsBefore + 1, "one chat card should be posted");
+    });
+
+    it("[P4-287] rollDisengage with no target warns and returns without rolling", async () => {
+      const { rollDisengage } = await import(
+        "/systems/exalted2e/module/rolls/unit-action-roll.mjs"
+      );
+      // Ensure no targets are selected
+      for (const t of [...game.user.targets]) {
+        t.setTarget(false, { user: game.user, releaseOthers: false });
+      }
+      const msgsBefore = game.messages.size;
+
+      // Temporarily capture the warn call count
+      const origWarn = ui.notifications.warn;
+      let warnCount = 0;
+      ui.notifications.warn = () => { warnCount++; };
+
+      let result;
+      try {
+        result = await rollDisengage(unitActor);
+      } finally {
+        ui.notifications.warn = origWarn;
+      }
+
+      assert.equal(result, undefined, "should return undefined when no target");
+      assert.equal(warnCount, 1, "should warn once about no target");
+      assert.equal(game.messages.size, msgsBefore, "no chat card should be posted");
+    });
+  });
+}
+
+export function registerMassCombatPhase4SplitMerge(context) {
+  const { describe, it, before, after, assert } = context;
+
+  describe("Mass Combat Phase 4 — Split and Merge", () => {
+    let parentActor;
+    let _origEvaluate;
+
+    before(async () => {
+      parentActor = await Actor.create({
+        name: "Phase4SplitTestUnit",
+        type: "unit",
+        system: {
+          formation: "close",
+          drill: 3,
+          endurance: 3,
+          morale: 3,
+          might: 0,
+          magnitude: { value: 4, max: 5 },
+          health: { value: 0, max: 10 },
+          engaged: false,
+        },
+      });
+      // Make all rolls succeed (3 successes, diff = max(1, 4-3) = 1)
+      _origEvaluate = ExaltedRoll.prototype.evaluate;
+      ExaltedRoll.prototype.evaluate = async function () {
+        this.successes = 3;
+        this.diceDetails = [{ face: 9, cls: "success" }];
+        return this;
+      };
+    });
+
+    after(async () => {
+      if (_origEvaluate) ExaltedRoll.prototype.evaluate = _origEvaluate;
+      await parentActor?.delete();
+      // Clean up any leftover split actors by name
+      const leftover = game.actors.find(a => a.name === "Phase4SplitTestUnit (Split)");
+      if (leftover) await leftover.delete();
+    });
+
+    it("[P4-288] rollSplitUnit creates new actor with correct magnitude", async () => {
+      const { rollSplitUnit } = await import(
+        "/systems/exalted2e/module/rolls/unit-action-roll.mjs"
+      );
+      const msgsBefore = game.messages.size;
+      const actorCountBefore = game.actors.size;
+
+      const state = await rollSplitUnit(parentActor, { newUnitMagnitude: 2 });
+
+      assert.ok(state.success, "split should succeed with 3 successes");
+      assert.equal(state.newUnitMag, 2, "new unit magnitude in state should be 2");
+      assert.equal(game.actors.size, actorCountBefore + 1, "one new actor should be created");
+      assert.equal(game.messages.size, msgsBefore + 1, "one chat card should be posted");
+
+      // Verify new unit magnitude
+      const newUnit = game.actors.find(a => a.name === "Phase4SplitTestUnit (Split)");
+      assert.ok(newUnit, "new actor should exist");
+      assert.equal(newUnit.system.magnitude.value, 2, "new unit should have magnitude 2");
+
+      // Verify parent magnitude decreased
+      const reloadedParent = game.actors.get(parentActor.id);
+      assert.equal(reloadedParent.system.magnitude.value, state.parentMagAfter, "parent magnitude should decrease");
+
+      // Cleanup the created split actor
+      await newUnit?.delete();
     });
   });
 }

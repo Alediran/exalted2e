@@ -15,7 +15,14 @@ import {
   computeFormationRoutMod,
   computeRoutMagLoss,
   computeUnitParryDV,
-  computeHeroNetDamage
+  computeHeroNetDamage,
+  computeChargePool,
+  computeChargeDifficulty,
+  computeChangeFormationDifficulty,
+  computeDisengagePool,
+  computeDisengageDifficulty,
+  computeSplitParentMagnitude,
+  computeMergeMagnitude
 } from "../../module/rolls/mass-combat-math.mjs";
 
 describe("computeAttackPool", () => {
@@ -239,5 +246,75 @@ describe("computeHeroNetDamage", () => {
   });
   it("zero magnitude → floor at 0, not negative", () => {
     expect(computeHeroNetDamage(1, 5, 0)).toBe(0);
+  });
+});
+
+describe("computeChargePool", () => {
+  it("sums charisma + war, min 1", () => {
+    expect(computeChargePool(3, 2)).toBe(5);
+    expect(computeChargePool(0, 0)).toBe(1);
+    expect(computeChargePool(null, null)).toBe(1);
+  });
+});
+
+describe("computeChargeDifficulty", () => {
+  it("returns max(1, magnitude - drill)", () => {
+    expect(computeChargeDifficulty(4, 2)).toBe(2);
+    expect(computeChargeDifficulty(2, 3)).toBe(1); // min 1
+    expect(computeChargeDifficulty(5, 0)).toBe(5);
+  });
+});
+
+describe("computeChangeFormationDifficulty", () => {
+  it("base diff with no modifiers", () => {
+    expect(computeChangeFormationDifficulty(4, 2, { engaged: false, attackedSinceLastAction: false })).toBe(2);
+  });
+  it("adds +2 when engaged", () => {
+    expect(computeChangeFormationDifficulty(4, 2, { engaged: true, attackedSinceLastAction: false })).toBe(4);
+  });
+  it("adds +1 when attacked but not engaged", () => {
+    expect(computeChangeFormationDifficulty(4, 2, { engaged: false, attackedSinceLastAction: true })).toBe(3);
+  });
+  it("engaged takes precedence over attacked", () => {
+    expect(computeChangeFormationDifficulty(4, 2, { engaged: true, attackedSinceLastAction: true })).toBe(4);
+  });
+});
+
+describe("computeDisengagePool", () => {
+  it("sums wits + war + drill - magnitude, min 1", () => {
+    expect(computeDisengagePool(3, 2, 2, 4)).toBe(3);
+    expect(computeDisengagePool(1, 0, 1, 10)).toBe(1); // min 1
+    expect(computeDisengagePool(null, null, null, null)).toBe(1);
+  });
+});
+
+describe("computeDisengageDifficulty", () => {
+  it("returns opposingDrill + 3", () => {
+    expect(computeDisengageDifficulty(2)).toBe(5);
+    expect(computeDisengageDifficulty(0)).toBe(3);
+    expect(computeDisengageDifficulty(null)).toBe(3);
+  });
+});
+
+describe("computeSplitParentMagnitude", () => {
+  it("subtracts new unit mag from parent, min 0", () => {
+    expect(computeSplitParentMagnitude(5, 2)).toBe(3);
+    expect(computeSplitParentMagnitude(3, 3)).toBe(0);
+    expect(computeSplitParentMagnitude(2, 5)).toBe(0); // min 0
+  });
+  it("enforces new unit mag minimum of 1", () => {
+    expect(computeSplitParentMagnitude(5, 0)).toBe(4); // newUnitMag clamped to 1
+  });
+});
+
+describe("computeMergeMagnitude", () => {
+  it("larger + ceil(smaller/2), max 5", () => {
+    expect(computeMergeMagnitude(4, 2)).toBe(5); // 4 + ceil(2/2) = 5
+    expect(computeMergeMagnitude(3, 2)).toBe(4); // 3 + ceil(2/2) = 4
+    expect(computeMergeMagnitude(3, 3)).toBe(5); // 3 + ceil(3/2) = 5, max 5
+    expect(computeMergeMagnitude(5, 4)).toBe(5); // capped at 5
+  });
+  it("works symmetrically", () => {
+    expect(computeMergeMagnitude(2, 4)).toBe(computeMergeMagnitude(4, 2));
   });
 });
