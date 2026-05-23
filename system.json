@@ -45,14 +45,14 @@
   "packs": [
     {
       "name": "effects",
-      "label": "Exalted 2e Effects",
+      "label": "Effects",
       "path": "packs/effects",
       "type": "Item",
       "system": "exalted2e"
     },
     {
       "name": "animapowers",
-      "label": "Exalted 2e Anima Powers",
+      "label": "Anima Powers",
       "path": "packs/animapowers",
       "type": "Item",
       "system": "exalted2e"
@@ -66,44 +66,44 @@
     },
     {
       "name":   "charms",
-      "label":  "Exalted 2e Charms",
+      "label":  "Charms",
       "path":   "packs/charms",
       "type":   "Item",
       "system": "exalted2e"
     },
     {
       "name": "martialarts",
-      "label": "Exalted 2e Martial Arts",
+      "label": "Martial Arts",
       "path": "packs/martialarts",
       "type": "Item",
       "system": "exalted2e"
     },
     {
       "name": "spells",
-      "label": "Exalted 2e Spells",
+      "label": "Spells",
       "path": "packs/spells",
       "type": "Item",
       "system": "exalted2e"
     },
     {
       "name":   "panoply",
-      "label":  "Exalted 2e Panoply",
+      "label":  "Panoply",
       "path":   "packs/panoply",
       "type":   "Item",
       "system": "exalted2e"
     },
     {
-      "name":   "hearthstones",
-      "label":  "Exalted 2e Hearthstones",
-      "path":   "packs/hearthstones",
-      "type":   "Item",
+      "name":   "macros",
+      "label":  "Macros",
+      "path":   "packs/macros",
+      "type":   "Macro",
       "system": "exalted2e"
     },
     {
-      "name":   "macros",
-      "label":  "Exalted 2e Macros",
-      "path":   "packs/macros",
-      "type":   "Macro",
+      "name":   "hearthstones",
+      "label":  "Hearthstones",
+      "path":   "packs/hearthstones",
+      "type":   "Item",
       "system": "exalted2e"
     }
   ],

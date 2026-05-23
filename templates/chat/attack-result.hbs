@@ -34,6 +34,10 @@
   <div class="exc-bonus-row"><i class="fa-solid fa-arrows-left-right"></i> −{{rangePenalty}} <abbr title="{{rangeBandLabel}}">{{localize "EX2E.RangePenaltyAbbr"}}</abbr></div>
   {{/if}}
 
+  {{#if terrainAttackerDice}}
+  <div class="exc-bonus-row"><i class="fa-solid fa-mountain"></i> +{{terrainAttackerDice}} <abbr title="{{localize 'EX2E.TerrainModifier'}}">{{localize "EX2E.TerrainChatDice"}}</abbr></div>
+  {{/if}}
+
   {{#if attackCharms.length}}
   <div class="defense-charms attack-charms">
     <span class="defense-charms-label">{{localize "EX2E.AttackCharmsUsed"}}:</span>
@@ -110,7 +114,7 @@
   {{#if defenseChosen}}
     {{!-- Resolved view: defender has chosen defense, show hit/miss + damage --}}
     <div class="attack-vs">
-      <span>{{successes}} {{localize "EX2E.Successes"}} vs {{localize defenseLabelKey}} {{targetDV}}{{#if targetName}} ({{targetName}}){{/if}}</span>
+      <span>{{successes}} {{localize "EX2E.Successes"}} vs {{localize defenseLabelKey}} {{targetDV}}{{#if terrainDefenderDV}} <small>(+{{terrainDefenderDV}} {{localize "EX2E.TerrainChatDV"}})</small>{{/if}}{{#if targetName}} ({{targetName}}){{/if}}</span>
     </div>
 
     {{#if defenseCharms.length}}
@@ -204,7 +208,7 @@
         <div class="damage-soak-row">
           {{#if targetHardness}}<label title="{{localize 'EX2E.Hardness'}}">{{localize "EX2E.Hardness"}} {{targetHardness}}</label>{{/if}}
           <label>{{localize "EX2E.Soak"}}</label>
-          <label class="soak-input">{{targetSoak}}</label>
+          <label class="soak-input">{{targetSoak}}{{#if terrainDefenderSoak}} <small>(+{{terrainDefenderSoak}} {{localize "EX2E.TerrainChatSoak"}})</small>{{/if}}</label>
         </div>
         <button class="btn-roll btn-roll-damage">
           <i class="fa-solid fa-burst"></i> {{localize "EX2E.RollDamage"}}
@@ -278,6 +282,9 @@
         {{/if}}
       </button>
     </div>
+    {{#if terrainDefenderDV}}
+    <div class="exc-bonus-row"><i class="fa-solid fa-mountain"></i> +{{terrainDefenderDV}} {{localize "EX2E.TerrainChatDV"}}</div>
+    {{/if}}
     {{else}}
     <div class="defense-manual">
       <label>{{localize "EX2E.TargetDV"}}</label>

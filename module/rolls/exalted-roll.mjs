@@ -20,6 +20,7 @@ import { bankStuntReward } from "../combat/stunt-payment.mjs";
 import { computeAttackCharmBonus, computeSocialCharmBonus } from "./charm-combat-math.mjs";
 import { aggregateExtraActionsMaxFromAEs, aggregateSpeedModifierFromAEs, getMasteryDiscount } from "./charm-passive-math.mjs";
 import { evaluateCharmFormula, sendCombinedActivationCard } from "../documents/item.mjs";
+import { getTerrainBonuses } from "../helpers/terrain.mjs";
 
 /**
  * ExaltedRoll – Handles the Exalted 2e d10 dice pool mechanic.
@@ -695,6 +696,10 @@ export class ExaltedRoll {
       }
     }
 
+    // Terrain: scan scene regions containing attacker/defender tokens.
+    // Returns zeros when tokens aren't on a scene (null-safe).
+    const terrainBonus = getTerrainBonuses(actor, targetActor ?? null);
+
     const pool = computeAttackPool({
       attrVal, abilVal,
       accuracy:       mode.effectiveAccuracy,
@@ -981,6 +986,11 @@ export class ExaltedRoll {
     // the pre-zero values under `targetBase*DV` so the card can strike
     // them through for transparency, and overwrite the live DV with 0 so
     // downstream hit/miss math works without special-casing.
+    // Terrain DV captured in targetBase*DV so transparency lines show it;
+    // Unblockable/Undodgeable still zeros afterwards as needed.
+    targetDodgeDV += terrainBonus.defenderDVBonus;
+    targetParryDV += terrainBonus.defenderDVBonus;
+
     const targetBaseDodgeDV = targetDodgeDV;
     const targetBaseParryDV = targetParryDV;
     if (undodgeable) targetDodgeDV = 0;
@@ -1016,11 +1026,14 @@ export class ExaltedRoll {
       targetHardness = 0;
     }
 
+    targetSoak += terrainBonus.defenderSoakBonus;
+
     // Build and evaluate the attack roll
     const displayName = (wSys.modes?.length ?? 1) > 1 ? `${weapon.name} — ${mode.name}` : weapon.name;
     const attackRoll = new ExaltedRoll({
       pool:               pool + firstExcDice + charmAttackBonus.extraAccuracyDice + virtueChannelDice
-                        + (charmAttackBonus.ignoreRangeBand ? (rangePenalty ?? 0) : 0),
+                        + (charmAttackBonus.ignoreRangeBand ? (rangePenalty ?? 0) : 0)
+                        + terrainBonus.attackerDiceBonus,
       flavor:             `${displayName} — ${game.i18n.localize("EX2E.AttackRoll")}`,
       actorName:          actor.name,
       stunt:              dialogResult.stunt,
@@ -1098,6 +1111,9 @@ export class ExaltedRoll {
       rangeBandLabel:        rangeBand
         ? game.i18n.localize(game.exalted2e.EX2E.rangeBands.find(b => b.key === rangeBand)?.labelKey ?? "")
         : null,
+      terrainAttackerDice:   terrainBonus.attackerDiceBonus  || null,
+      terrainDefenderDV:     terrainBonus.defenderDVBonus    || null,
+      terrainDefenderSoak:   terrainBonus.defenderSoakBonus  || null,
     };
 
     const content = await renderAttackCardContent(attack);

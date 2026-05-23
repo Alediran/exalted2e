@@ -6,7 +6,15 @@
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "pack": "npm run pack:charms && npm run pack:hearthstones && npm run pack:macros && npm run pack:martialarts && npm run pack:panoply && npm run pack:paradox-bites && npm run pack:spells",
+    "pack:charms": "fvtt package pack -n charms --in src/packs/charms --out packs",
+    "pack:hearthstones": "fvtt package pack -n hearthstones --in src/packs/hearthstones --out packs",
+    "pack:macros": "fvtt package pack -n macros --in src/packs/macros --out packs",
+    "pack:martialarts": "fvtt package pack -n martialarts --in src/packs/martialarts --out packs",
+    "pack:panoply": "fvtt package pack -n panoply --in src/packs/panoply --out packs",
+    "pack:paradox-bites": "fvtt package pack -n paradox-bites --in src/packs/paradox-bites --out packs",
+    "pack:spells": "fvtt package pack -n spells --in src/packs/spells --out packs"
   },
   "devDependencies": {
     "@foundryvtt/foundryvtt-cli": "^3.0.3",

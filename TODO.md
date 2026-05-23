@@ -287,7 +287,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
   - [ ] Background mechanical hooks — unit quality and Command roll bonuses derive from War/Leadership backgrounds
   - [x] Social charm bonus payload (`socialBonus` sub-schema) — morale/demoralize actions route through the MDV pipeline
   - [x] Charm deactivation resolver — battle-duration formation and commander-aura effects need scene/combat-end cleanup
-  - [~] Environmental hazards — base hazard system done (Region behavior + placement flow); mass-combat terrain modifier integration (difficult ground, elevation, chokepoints) still pending
+  - [x] Environmental hazards — base hazard system done (Region behavior + placement flow); terrain modifier behavior (elevation, cover) with individual-combat integration done; chokepoints deferred to mass combat design
 - [ ] Artifact creation rules (extended Craft roll; Craft+Lore+Occult; seasons interval)
 - [x] **Manse** item type (rating, aspect, powers budget; linked to Background for rating + Hearthstone for aspect)
 - [x] **Hearthstone** item type (rating, type, mote-regen, socketable into artifact weapons/armor/equipment)

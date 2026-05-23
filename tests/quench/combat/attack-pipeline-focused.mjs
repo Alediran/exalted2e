@@ -286,6 +286,17 @@ export function registerAttackPipelineFocused(context) {
       assert.equal(card?.id, message.id, "lastChatMessage returns the attack card");
     });
 
+    // T01. Smoke test: rollAttack completes without error when no terrain regions exist.
+    it("[T01] rollAttack completes without error when no terrain regions exist", async function () {
+      const { attacker, defender, weapon } = await setupAttackFixture();
+      await stubAttackDialog([defaultDialogResult()]);
+      const { ExaltedRoll } = await import("../../../module/rolls/exalted-roll.mjs");
+      const msg = await ExaltedRoll.rollAttack(attacker, weapon.id, {
+        explicitTargetActor: defender,
+      });
+      assert.ok(msg, "rollAttack returned a ChatMessage");
+    });
+
     // 55. Infinite Mastery discount: 6 committed motes → floor(6/2)=3 mote discount.
     it("[055] Infinite Mastery discount reduces total Excellency cost in rollAttack", async function () {
       const { attacker, defender, weapon } = await setupAttackFixture();

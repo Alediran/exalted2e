@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-22 (Environmental hazards done: HazardDamageBehaviorType + GM placement flow + hazard immunity charm effect + enhancesCharmUid gating; DB Anima Flux visual region done: circle ring follows token via attachment; Social charm bonus payload done: socialBonus schema + computeSocialCharmBonus + rollSocialAttack integration + Effects tab UI)
+Last updated: 2026-05-22 (Environmental hazards done: HazardDamageBehaviorType + GM placement flow + hazard immunity charm effect + enhancesCharmUid gating; DB Anima Flux visual region done: circle ring follows token via attachment; Social charm bonus payload done: socialBonus schema + computeSocialCharmBonus + rollSocialAttack integration + Effects tab UI; Terrain modifier done: TerrainModifierBehaviorType + getTerrainBonuses helper + rollAttack integration + chat card display + GM placement controls in new Terrain scene controls category)
 
 ---
 
@@ -42,7 +42,6 @@ Last updated: 2026-05-22 (Environmental hazards done: HazardDamageBehaviorType +
 | NPC → character auto-conversion on move-in | Circle | hook + actor-type change |
 | Clarity mechanical effects | Alchemical | Clarity track consequences (Virtue suppression thresholds) |
 | Crippling injuries | Other | health track extension + extended surgery roll |
-| Environmental hazards — mass-combat terrain integration | Other | Base hazard system done; mass-combat terrain modifier (difficult ground, elevation) still pending |
 | Manse geomancy rules | Crafting | Oadenol's Codex power table, demesne pre-roll (unblocked by Manse item type) |
 | Background mechanical hooks | Other | Familiar actor link + Cult mote-regen/WP-recovery + 53-type optgroup registry done; Backing/Contacts/Resources mechanical automation still pending |
 | Workshop & material prerequisites UI | Crafting | prerequisites check UI for crafting projects |
@@ -89,11 +88,10 @@ Last updated: 2026-05-22 (Environmental hazards done: HazardDamageBehaviorType +
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 35 |
+| B — Ready, Medium | 34 |
 | C — Ready, Complex | 9 |
 | D — Blocked | 1 |
-| **Total pending** | **46** |
+| **Total pending** | **45** |
 
 **Biggest force-multipliers:**
-- **Mass Combat** (Group C) — social charm bonus payload now done; morale/demoralize pipeline unblocked
-- **Environmental hazards mass-combat integration** (Group B) — base hazard system done; terrain modifier integration now unblocked
+- **Mass Combat** (Group C) — social charm bonus payload + terrain modifier pre-work done; morale/demoralize pipeline unblocked

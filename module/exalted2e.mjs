@@ -58,6 +58,7 @@ import { registerHandlebarsHelpers } from "./helpers/handlebars.mjs";
 import { ex2eCan } from "./helpers/permissions.mjs";
 import { resolveUserActor } from "./helpers/targeting.mjs";
 import { HazardDamageBehaviorType } from "./data/region-behaviors/hazard-damage.mjs";
+import { TerrainModifierBehaviorType } from "./data/region-behaviors/terrain-modifier.mjs";
 import { checkHazardImmunity }      from "./helpers/hazard-immunity.mjs";
 import { ActionQuickbar } from "./ui/action-quickbar.mjs";
 import { TickWheel }                      from "./ui/tick-wheel.mjs";
@@ -200,7 +201,8 @@ Hooks.once("init", function () {
   };
 
   // ── Region Behavior Types ────────────────────────────────────────────────
-  CONFIG.RegionBehavior.dataModels["ex2e.hazardDamage"] = HazardDamageBehaviorType;
+  CONFIG.RegionBehavior.dataModels["ex2e.hazardDamage"]     = HazardDamageBehaviorType;
+  CONFIG.RegionBehavior.dataModels["ex2e.terrainModifier"] = TerrainModifierBehaviorType;
 
   // ── Sheet Registration ──────────────────────────────────────────────────
   foundry.documents.collections.Actors.unregisterSheet("core", foundry.appv1.sheets.ActorSheet);
@@ -3976,6 +3978,7 @@ const _HAZARD_SHAPES = [
 ];
 
 let _pendingHazard = null;
+let _pendingTerrain = null;
 
 async function _openHazardDialog(tool) {
   const traumaOptions = ["bashing", "lethal", "aggravated"]
@@ -4040,44 +4043,136 @@ async function _openHazardDialog(tool) {
   await ui.controls.activate({ control: "regions", tool });
 }
 
+async function _openTerrainDialog() {
+  const typeOptions = [
+    `<option value="elevation">${game.i18n.localize("EX2E.TerrainTypeElevation")}</option>`,
+    `<option value="cover">${game.i18n.localize("EX2E.TerrainTypeCover")}</option>`,
+  ].join("");
+
+  const formHtml = `
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;padding:8px">
+      <label style="grid-column:1/-1">
+        ${game.i18n.localize("EX2E.TerrainLabel")}
+        <input type="text" name="label" style="width:100%" placeholder="${game.i18n.localize("EX2E.TerrainModifier")}">
+      </label>
+      <label>
+        ${game.i18n.localize("EX2E.TerrainType")}
+        <select name="terrainType" style="width:100%">${typeOptions}</select>
+      </label>
+      <label>
+        ${game.i18n.localize("EX2E.TerrainAccuracyBonus")}
+        <input type="number" name="accuracyBonus" value="0" min="0" style="width:100%">
+      </label>
+      <label>
+        ${game.i18n.localize("EX2E.TerrainDVBonus")}
+        <input type="number" name="dvBonus" value="0" min="0" style="width:100%">
+      </label>
+      <label>
+        ${game.i18n.localize("EX2E.TerrainSoakBonus")}
+        <input type="number" name="soakBonus" value="0" min="0" style="width:100%">
+      </label>
+    </div>`;
+
+  const config = await foundry.applications.api.DialogV2.wait({
+    window:  { title: game.i18n.localize("EX2E.PlaceTerrainTitle") },
+    content: formHtml,
+    buttons: [
+      {
+        action:   "confirm",
+        label:    game.i18n.localize("EX2E.Confirm"),
+        callback: (_event, _btn, dialog) => ({
+          label:         dialog.element.querySelector("[name=label]").value.trim(),
+          terrainType:   dialog.element.querySelector("[name=terrainType]").value,
+          accuracyBonus: Number(dialog.element.querySelector("[name=accuracyBonus]").value) || 0,
+          dvBonus:       Number(dialog.element.querySelector("[name=dvBonus]").value) || 0,
+          soakBonus:     Number(dialog.element.querySelector("[name=soakBonus]").value) || 0,
+        }),
+      },
+      { action: "cancel", label: game.i18n.localize("EX2E.Cancel"), default: true },
+    ],
+  });
+
+  if (!config) return;
+  _pendingTerrain = config;
+  await ui.controls.activate({ control: "regions", tool: "rectangle" });
+}
+
 Hooks.on("getSceneControlButtons", (controls) => {
   if (!game.user.isGM) return;
-  const regionControls = controls["regions"];
-  if (!regionControls) return;
+
+  controls["terrain"] = {
+    name:       "terrain",
+    title:      game.i18n.localize("EX2E.TerrainControls"),
+    icon:       "fas fa-mountain",
+    layer:      null,
+    activeTool: "",
+    tools:      {},
+  };
+  const terrainControls = controls["terrain"];
+
   let order = 100;
   for (const { key, tool, icon } of _HAZARD_SHAPES) {
     const shapeLabel = game.i18n.localize(`EX2E.AreaShape${key.charAt(0).toUpperCase() + key.slice(1)}`);
-    regionControls.tools[`placeHazard_${key}`] = {
-      name:    `placeHazard_${key}`,
-      order:   order++,
-      title:   `${game.i18n.localize("EX2E.PlaceHazard")}: ${shapeLabel}`,
+    terrainControls.tools[`placeHazard_${key}`] = {
+      name:     `placeHazard_${key}`,
+      order:    order++,
+      title:    `${game.i18n.localize("EX2E.PlaceHazard")}: ${shapeLabel}`,
       icon,
-      button:  true,
+      button:   true,
       onChange: () => _openHazardDialog(tool),
     };
   }
+
+  terrainControls.tools["placeTerrain"] = {
+    name:     "placeTerrain",
+    order:    order++,
+    title:    game.i18n.localize("EX2E.PlaceTerrainTitle"),
+    icon:     "fas fa-draw-polygon",
+    button:   true,
+    onChange: _openTerrainDialog,
+  };
 });
 
-// Intercept the next region drawn after a hazard dialog is confirmed.
+// Intercept the next region drawn after a hazard or terrain dialog is confirmed.
 Hooks.on("preCreateRegion", (regionDoc, _data, _options, _userId) => {
-  if (!_pendingHazard) return;
-  const config = _pendingHazard;
-  _pendingHazard = null;
+  if (_pendingHazard) {
+    const config = _pendingHazard;
+    _pendingHazard = null;
 
-  const behaviors = [
-    { type: "ex2e.hazardDamage", system: {
-        damagePool:       config.damagePool,
-        traumaType:       config.traumaType,
-        resistDifficulty: config.resistDifficulty,
-        damageOnEntry:    config.damageOnEntry,
-        isSupernatural:   config.isSupernatural,
-    }},
-  ];
-  if (config.terrainCost > 1) {
-    behaviors.push({ type: "modifyMovementCost", system: { cost: config.terrainCost } });
+    const behaviors = [
+      { type: "ex2e.hazardDamage", system: {
+          damagePool:       config.damagePool,
+          traumaType:       config.traumaType,
+          resistDifficulty: config.resistDifficulty,
+          damageOnEntry:    config.damageOnEntry,
+          isSupernatural:   config.isSupernatural,
+      }},
+    ];
+    if (config.terrainCost > 1) {
+      behaviors.push({ type: "modifyMovementCost", system: { cost: config.terrainCost } });
+    }
+    regionDoc.updateSource({ name: config.name, color: "#FF6600", behaviors });
+    return;
   }
 
-  regionDoc.updateSource({ name: config.name, color: "#FF6600", behaviors });
+  if (_pendingTerrain) {
+    const config = _pendingTerrain;
+    _pendingTerrain = null;
+
+    regionDoc.updateSource({
+      name:  config.label || game.i18n.localize("EX2E.TerrainModifier"),
+      color: "#0066FF",
+      behaviors: [
+        { type: "ex2e.terrainModifier", system: {
+            terrainType:   config.terrainType,
+            label:         config.label,
+            accuracyBonus: config.accuracyBonus,
+            dvBonus:       config.dvBonus,
+            soakBonus:     config.soakBonus,
+        }},
+      ],
+    });
+  }
 });
 
 // ── Hazard Resistance Roll ─────────────────────────────────────────────────
