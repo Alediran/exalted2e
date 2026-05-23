@@ -1,0 +1,80 @@
+{
+  "_id": "d24700795d74d3ac",
+  "_key": "!items!d24700795d74d3ac",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Crossed Wings Denial",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "(0+)m"
+    },
+    "description": "<p>What monster kills so beautiful a bird? This Charm may be activated in response to any physical attack of which the martial artist is aware, allowing her to make a perfect unarmed parry even against unblockable attacks. Doing so costs a number of motes equal to the number of times she has activated Crossed Wings Denial previously in the scene. Use of this Charm prevents the martial artist from making any physical attacks on her next action as a special flaw of invulnerability. Counterattacks are not similarly prohibited.</p>",
+    "source": "Glories of the Most High: Maidens of Destiny",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Crane Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "282b22230d2f49de",
+            "charmName": "Crane Form",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "d24700795d74d3ac",
+    "grantsMastery": false
+  },
+  "folder": "c67a8c5f18d732b0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

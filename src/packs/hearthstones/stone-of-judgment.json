@@ -1,0 +1,27 @@
+{
+  "_id": "d2a6c2e6f5c506d9",
+  "_key": "!items!d2a6c2e6f5c506d9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Stone of Judgment",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDWATER00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "water",
+    "rating": 3,
+    "description": "<p>The bearer of this smooth cabochon of the finest lapis lazuli gains an uncanny sense for when people lie. If she asks someone whether he committed a crime or other harmful act, the bearer's player reduces the difficulty of the (Perception + [Investigation or Socialize]) roll to determine the truth of any answer is reduced by -4 (to a minimum of 1).</p>",
+    "source": "Oadenol's Codex"
+  }
+}

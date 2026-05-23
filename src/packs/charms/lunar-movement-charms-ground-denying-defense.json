@@ -1,0 +1,71 @@
+{
+  "_id": "e1f8f0cf350af828",
+  "_key": "!items!e1f8f0cf350af828",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ground-Denying Defense",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "dexterity",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Stewards are masters of territory, and this Charm lets them command their ground in battle. By moving with grace, speed and forethought, the character limits the number of people who may attack him. Simply by spending three motes, he arranges positions on the battlefield such that one fewer people than normal can attack him in close combat. On open ground, this reduces the number from five to four; it</p><p>also protects him from suffering one unexpected attack due to restricted maneuvering. In closer quarters, this Charm reduces the maximum number of attackers to three.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "e1f8f0cf350af828"
+  },
+  "folder": "6d3aed86fa48b120",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

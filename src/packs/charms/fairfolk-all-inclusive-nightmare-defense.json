@@ -1,0 +1,59 @@
+{
+  "_id": "f620987f4b8c1592",
+  "_key": "!items!f620987f4b8c1592",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "All-inclusive Nightmare Defense",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "sword",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Counterattack",
+      "Echo",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>All-Inclusive Nightmare Defense (Waking) Cost: 4m, 1g; Type: Reflexive (Step 9) Keywords: Counterattack, Echo, Obvious Having successfully defended herself, the raksha unleashes a tide of nightmares which cling to her foe's weapon, encumbering it. This Charm may be activated in response to an attack the raksha successfully defends herself against by applying her DV. It removes the weapon used to make the attack from readiness, covering it in a phantasmal layer of tiny dreamcrafted monsters, forcing opponents to use a draw/ready weapon miscellaneous action to shake the tiny nightmares loose from the weapon before it can be used again. Cold iron weapons may not be counterattacked in this fashion.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f620987f4b8c1592"
+  },
+  "folder": "12ff19c775f80093",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

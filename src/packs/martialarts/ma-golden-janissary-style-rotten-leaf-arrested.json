@@ -1,0 +1,58 @@
+{
+  "_id": "475f7db306cd13b6",
+  "_key": "!items!475f7db306cd13b6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Rotten Leaf Arrested",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Holy"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>No foe foreign to Creation can stand before the might of a Golden Janissary. Blows supplemented by this Charm clearly have the martial artist's full strength behind them. The player of any creature of darkness struck with this attack must roll to prevent that creature's knockdown. If the attack inflicts enough raw damage to cause knockdown normally, the roll's difficulty increases by two. Against any target, the attack need only inflict a number of levels of damage equal to the target's (Stamina ­ 1) to make the creature risk becoming stunned. The difficulty to resist being stunned is equal to either the attacker's Essence or (the damage inflicted ­ the target's Stamina)--whichever is higher.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Golden Janissary Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "475f7db306cd13b6"
+  },
+  "folder": "308a6e755f91c2ff",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

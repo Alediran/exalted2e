@@ -1,0 +1,59 @@
+{
+  "_id": "929734f1b19854b4",
+  "_key": "!items!929734f1b19854b4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fortress of One",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Obvious",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "3m per 1L/1B",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>After stomping both feet firmly into the ground beneath him, the martial artist's actions slow as his skin visibly hardens and takes on the aspect of stone. For every three motes spent, the Exalt adds one to both his bashing and lethal soak and ignores fatigue penalties for the rest of the scene. There is no limit on how many motes he may spend on a single activation of this Charm. Martial artists practicing this technique, which is deliberately slow, suffer a -2 Dodge DV penalty without appropriate magic. This Charm ends immediately if the Exalt completely breaks contact with the earth or moves more than a yard from his original position. For this reason, Jade Mountain Style practitioners use Pillar of Marble Stance to resist knockback and other such effects.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Jade Mountain Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "929734f1b19854b4"
+  },
+  "folder": "0b2af474919bf89d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

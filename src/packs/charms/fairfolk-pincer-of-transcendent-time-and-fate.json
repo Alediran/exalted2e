@@ -1,0 +1,58 @@
+{
+  "_id": "5c440083d1d9fa9a",
+  "_key": "!items!5c440083d1d9fa9a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Pincer of Transcendent Time and Fate",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "sword",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "extraAction",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The raksha speaks the names of two aspects of Nishkriya: Aardra, who drenches the Wyld with blood, and Shushka, who dries it. This Charm uses the raksha's shaping action to launch two Sword-shaping attacks, two Staff-shaping attacks or one of each type. Each attack is at the raksha's full dice pool.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "5c440083d1d9fa9a"
+  },
+  "folder": "12ff19c775f80093",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

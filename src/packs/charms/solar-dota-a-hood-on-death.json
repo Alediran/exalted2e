@@ -1,0 +1,57 @@
+{
+  "_id": "f8d7e949ded1f738",
+  "_key": "!items!f8d7e949ded1f738",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "A Hood on Death",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "medicine",
+    "essence": 7,
+    "minAbility": 7,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "20m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Transcending individual treatment, the Solar exercises sovereignty over disease, giving it form at her behest. The Solar selects a specific disease. All instances of the targeted disease within (Essence x 20) miles are immediately pulled from those who suffer from them, traveling at the speed of prayer to the Solar's location. There they coalesce over the course of one day, leaping together in a roiling mass of filth and shadow that eventually becomes a single, powerful plague god of that particular disease--one which harbors an indestructible Intimacy of loyalty to the Solar who caused it to come into being. The spirit may somewhat resemble the Solar in appearance. This god is equivalent to a spirit of the second rank or third rank, depending on the virulence and magnitude of the disease and its outbreak (see The Compass of Celestial Directions, vol. III--Yu-Shan, pp.122-124) The spirit always has the Bane Weapon Charm, which is efficacious against other spirits of the disease it represents, and a special Charm called Consume Sickness, which allows the spirit to spend 10 motes to draw out the sickness it represents from a person and consume it, gaining a point of Willpower or restocking a Virtue channel in the process. This Charm may only function if a number of individuals of Magnitude 6 or above are infected with the disease within the targeted area.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f8d7e949ded1f738"
+  },
+  "folder": "05ee3760b1dfb04f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

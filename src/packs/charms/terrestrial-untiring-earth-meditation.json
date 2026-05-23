@@ -1,0 +1,75 @@
+{
+  "_id": "433fd9553a10d484",
+  "_key": "!items!433fd9553a10d484",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Untiring Earth Meditation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "integrity",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "oneDay",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Leader 5"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With this Charm, the Earth Aspect can imitate the constancy of the Imperial Mountain itself. As long as the Dragon-Blood's feet touch the ground at least once every six ticks, he incurs no fatigue penalties from any source, whether from armor, encumbrance, physical exertion or magical effect. The Charm does not negate any fatigue penalties that were already in existence when the Charm was enacted, but it prevents the Exalt from becoming even more exhausted. The Dragon-Blood can also ignore wound penalties up to his permanent Essence rating. The effect of this Charm ends instantly once the Exalt's feet remain off the ground for more than six ticks. Wearing shoes does not impair the link with the earth, nor do cobblestones or building floors sever the link, provided that they rest on the ground. Therefore, a Dragon-Blood under the effects of this Charm remains alert while standing on the stone surface of the bottom floor of an inn, but once he ascends the stairs to the second floor, the Charm is disrupted.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "3f92f8f607a77506",
+            "charmName": "Unsleeping Earth Meditation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "woundReduction": {
+      "enabled": true,
+      "formula": ""
+    },
+    "charmUid": "433fd9553a10d484"
+  },
+  "folder": "b0b1b2b3b4b5f020",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

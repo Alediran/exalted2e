@@ -1,0 +1,70 @@
+{
+  "_id": "10d782ab684d88e7",
+  "_key": "!items!10d782ab684d88e7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Godscorch Invective",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The gods have much to answer for. This Charm permanently improves its prerequisite, allowing any attack enhanced by Green Sun Nimbus Flare to affect incorporeal beings as if they were solid. Spirits who suffer any levels of damage from the attack's secondary burn manifest and remain perceptible to normal senses as translucent apparitions for the rest of the scene, though they continue to lack solidity unless they actually materialize.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "malfeas",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7f00802e9d652635",
+            "charmName": "Green Sun Nimbus Flare",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "10d782ab684d88e7"
+  },
+  "folder": "1945ba1655ca5f6f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,79 @@
+{
+  "_id": "4664f4fe0150db57",
+  "_key": "!items!4664f4fe0150db57",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Blinding Spark Distraction",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Counterattack",
+      "Crippling",
+      "Leader"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When swords clash, they inevitably give off sparks. Ordinarily, these sparks are an annoyance at most, but few Dragon-Bloods are ordinary. With this Charm, a Dragon-Blood can manipulate such sparks, augmenting them into fiery luminescence with his Essence and then sending them cascading into his opponents eyes. The Exalt can activate this Charm reflexively whenever he successfully avoids an attack from a metal weapon with his Parry DV or simply when he strikes any metal or stone object with his sword, including successful parries. The Essence spent multiplies what would normally be a few flying sparks into a crackling blue and gold spray that flies into his opponent's eyes. The opponent is blinded for the following action, causing her to lose two successes from all attack rolls made</p><p>for her. If the player of the opponent succeeds on a reflexive (Wits + Dodge) roll to have the character look away, however, he suffers only a two-die penalty instead of losing two successes. This is a reflexive Charm that can be used freely without the need for a Combo. It can be activated only on a tick upon which the Dragon-Blood acts, on any intervening tick upon which the Dragon-Blood uses a Counterattack Charm or on any intervening tick upon which the Dragon-Blood evades an attack with his Parry DV.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "88d25525a491e5c0",
+            "charmName": "Dragon-Graced Weapon",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "statusApply": {
+      "enabled": true,
+      "status": "Blinded",
+      "resistPool": "@per + @awareness",
+      "onFail": "applyBlind"
+    },
+    "charmUid": "4664f4fe0150db57"
+  },
+  "folder": "b0b1b2b3b4b5f027",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

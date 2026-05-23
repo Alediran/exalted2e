@@ -1,0 +1,37 @@
+{
+  "_id": "61d2902acba8901b",
+  "_key": "!items!61d2902acba8901b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Yoroi Rapid-response Armor",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>This suit of powered lamellar armor was developed dur- ing the First Age as an advanced version of ashigaru battle armor that was specifically designed to be worn by Exalts (who must commit six motes to this armor to activate it). Although it can be worn by any Exalt, this lightweight armor was primarily designed for Dragon-Blooded commanding companies of mortal troops. In Lookshy, it is particularly common among Dragon-Blooded commanders of ashigaru. Yoroi armor is built using a mixture of magical materials and First Age alloys. Therefore, Exalted wearers gain no magical material bonuses. Because it is designed to be worn by Exalts and is somewhat less ambitious in design than many artifact armors, it does not require regular maintenance and repair. Although this armor is relatively lightweight, the fact that it does not require maintenance and its ease of manufacture causes it to be moderately popular in both Lookshy and the Realm. The armor's features include: Sensory Augmentation Visor: +2 bonus to Awareness; negates all penalties from darkness less than pitch black. Adaptive Camouflage Subsystem: +2 bonus to Stealth while moving or +3 while stationary. This color-changing feature can also be used to provide the armor with the appropriate colors and imagery for parades and other formal occasions. Exomuscular Fibers: +1 bonus to Strength for feats of strength and inflicting damage with attacks. Peripatetic Greaves: + 3 yards per tick to move actions, and +6 yards per tick to dash actions; 10mph marching movement rate. Upkeep: None. Soak Hardness Mobility Fatigue Attune +7L/8B 3L/3B</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 3,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

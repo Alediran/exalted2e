@@ -1,0 +1,57 @@
+{
+  "_id": "a5c17c6980bd9517",
+  "_key": "!items!a5c17c6980bd9517",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Stand-without-strength Intensity",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m per die",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Of all the things that make up the body, the bones are the hardest and the heaviest. Just as the massive beast need not strain against the wind, the Exalt can lock her joints and use the strength of her bones to remain upright despite attack, saving the energy of her muscles for other tasks. Each mote spent purchases a single die toward resisting knockdown or knockback. Successfully remaining upright allows the martial artist to regain a number of motes spent on this Charm equal to her Martial Arts.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Terrible Ascent-driven Beast Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "a5c17c6980bd9517"
+  },
+  "folder": "5ce01017f4c92c09",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

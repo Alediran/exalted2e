@@ -1,0 +1,73 @@
+{
+  "_id": "891654ad84d99b27",
+  "_key": "!items!891654ad84d99b27",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gyroscopic Stability System",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "dexterity",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Internal"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm takes the form of a complex micro-assembly of white jade and moonsilver in the Exalt's inner ear. When activated, the Alchemical enjoys perfect balance and automatically succeeds on all balance-related (Dexterity + Athletics) actions. Submodules: Stabilizer Beacon (Charisma 3): By paying five motes when activating the Charm, an Exalt with this submodule telepathically broadcasts autonomic telemetry impulses and gravity inhibitor waves in a radius of 10 yards for the Charm's</p><p>duration as a Shaping effect. These signals disorient those who mean the Alchemical any harm, imposing a -2 internal penalty to all Athletics actions and a -1 internal penalty to non-reflexive actions using other abilities. Friendly and neutral characters in range benefit from the usual effects of Gyroscopic Stability System and may substitute the Alchemical's Essence rating for their own for the purposes of calculating their Dodge DV.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b881cd5044d18985",
+            "charmName": "Personal Gravity Manipulation Apparatus",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "891654ad84d99b27"
+  },
+  "folder": "b0b1b2b3b4b5f04e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

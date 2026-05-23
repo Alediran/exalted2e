@@ -1,0 +1,68 @@
+{
+  "_id": "d54cfb0aef23f3ae",
+  "_key": "!items!d54cfb0aef23f3ae",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Cost-Compounding Offering",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": "None",
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Cecelyne may demand a fixed price for her gifts, if an openended one. That is usually her way. Still, she is an immortal, and that gives her cause for patience. Whenever an Infernal with this Charm grants a trait dot with Verdant Emptiness Endowment, she can demand repayment at any time and the total number of botches imposed for failing to meet the demand increases by one (i.e. Essence +1). However, she can also wait and let the debt grow. For each Calibration that arrives without having asked for repayment, the total number of botches cumulatively rises by one. There is no limit to this accumulation. Example: A prince bargains with the Endless Desert to assume power, gaining great Influence as a king. Nothing is asked of him, and so he reigns uneasily and eventually thinks himself free. Forty years later, he dreams of silver sands as his patron contacts him once more, demanding his beloved daughter in payment. Should the old king refuse, he faces 51 botches for his impertinence (Essence 10 + 1 + 40). Pity the Celestial whose bargain comes due a millennium hence. Fine Print Bequest</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5fda4f7800955bae",
+            "charmName": "Verdant Emptiness Endowment",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "d54cfb0aef23f3ae"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

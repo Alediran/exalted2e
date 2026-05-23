@@ -1,0 +1,78 @@
+{
+  "_id": "113f6bcbc5111b27",
+  "_key": "!items!113f6bcbc5111b27",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Plague-Eating Kiss",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "medicine",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": -2,
+    "steps": [],
+    "keywords": [
+      "Mirror (Ailment-Rectifying Method; Exalted, p. 223)",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When the Abyssal bites a victim, she can pay one Willpower whenever she consumes one or more health levels from him. Doing so sucks out all Sickness effects from a patient's body. The Abyssal must check for normal exposure to all communicable illnesses removed thus. Fortunately, deathknights' inherent immunities to non-magical diseases minimize this danger, making this Charm an excellent way</p><p>to stock up on plagues to spread to others. Purchasing this Charm also allows the Abyssal to suppress her autonomic immune response to any Sickness effect she carries so that her Essence-infused body does not cleanse it out before she has a chance to use it. Unlike the Sickness effects created by Pestilence-Bearing Touch, these are true infections: The Abyssal can spread them using only their normal vectors.</p><p>THE GREAT(ISH) CONTAGION</p><p>The Great Contagion infected virtually everyone who encountered it, and it killed virtually everyone who</p><p>caught it. Few protective measures worked very well. The original disease no longer exists in Creation, or maybe</p><p>the survivors left present-day folk some slight resistance. The disease that Abyssals can evoke has these traits:</p><p>Virulence: Varies</p><p>Incubation: (Stamina + Essence) days</p><p>Diagnosis: 5</p><p>Treatment (Mundane/Magical): 7/4</p><p>Morbidity: 6</p><p>Treated Morbidity: 4</p><p>Symptoms: Victims suffer waves of different symptoms--nausea, diarrhea, coughing, fever, chills, joint pain,</p><p>you name it. The true illness reveals itself when the victim's skin slowly turns green. At this time, diagnosis</p><p>becomes certain. Unfortunately, at this point non-magical treatment is also probably too late.</p><p>Duration: In the early phase of diverse initial symptoms, victims unsuccessfully treated lose one dot of Stamina</p><p>per day and one dot from Strength and Dexterity. When they reach Stamina 1, their skin turns green and weeping</p><p>sores erupt. The Morbidity check takes place now. If the roll against Morbidity fails, victims lose the last dot of</p><p>Stamina an hour later and die. The body deliquesces at once, leaving nothing but bones within a few days.</p><p>Vector: You can inhale the disease (Virulence 3) or drink it in water contaminated by corpses or excrement</p><p>(Virulence 4). Worst of all, though, you can get it from touching the fluids from the sores and the dissolving</p><p>bodies (Virulence 5; the Virulence used by Pestilence-Bearing Touch). Gauze masks and powerful herbs reduce</p><p>the airborne Virulence to 1; boiling reduces waterborne Virulence the same way; but only layers of tightly-woven,</p><p>oiled silk and greased leather can protect against body fluids. If the slightest smear touches the skin, infection</p><p>is almost certain. The disease becomes infectious one day before symptoms appear.</p><p>Treatment: No reliable, mundane treatment is known, mostly because the Contagion is so hard to recog-</p><p>nize in its early stages. Until the green tinge appears, accurately diagnosed Contagion has a mundane treatment</p><p>difficulty of only 4. Most of the time, though, healers who suspect the Great Contagion can only administer</p><p>their most powerful tonics, treat symptoms, and pray.</p><p>Most people flee Contagion outbreaks, but by then it's probably too late. Public health responses include</p><p>quarantine, burning bodies or having masked soldiers in sealed leather suits find all the sick people, herd them</p><p>into pits and wait for them to die--or burn them alive.</p><p>For what it's worth, anyone who survives the Great Contagion--even the lesser strain available to death-</p><p>knights--becomes immune to all forms of the disease forevermore.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b90da259adc25fa8",
+            "charmName": "Pitiless Triage Judgment",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "statusApply": {
+      "enabled": true,
+      "status": "Sickness",
+      "resistPool": "@sta + @resistance",
+      "onFail": "applySickness"
+    },
+    "charmUid": "113f6bcbc5111b27",
+    "mirrorId": "58ba3e8f89c63057"
+  },
+  "folder": "b0b1b2b3b4b5f03f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

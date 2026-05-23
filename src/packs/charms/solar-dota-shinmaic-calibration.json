@@ -1,0 +1,60 @@
+{
+  "_id": "7dc6fef00ba67349",
+  "_key": "!items!7dc6fef00ba67349",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shinmaic Calibration",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "lore",
+    "essence": 7,
+    "minAbility": 7,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Native",
+      "Obvious",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "20m, 1xp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Having communed with the foundational elements of the cosmos, the Solars forge miracles. This Charm must be activated in a region the Solar has altered with Shinmaic Communion. The character defines a wondrous aspect or blessing for inclusion within the region. Much like artifact crafting, this Charm is conceptually broad and depends on cooperation between players and Storytellers to design uncanny wonders that later Ages will disbelievingly mythologize and dream of. The parameters of the effect depend on the Shinmaic Communion elements affecting the region this Charm is used in. · Nirvikalpa determines the power of the miracle. One point affecting the region permits the Solar to produce works equivalent to mundane effort. Two points may produce uncanny effects equivalent to thaumaturgy. Three points produce wonders equivalent to Terrestrial Circle sorcery. Four points are equivalent to the Celestial Circle, and five points may produce awe-inspiring effects comparable to Solar Circle sorcery. Zero points limits the effects to only the weakest happenstance, the equivalent of mood lighting--effects with no mechanical repercussions at all. · Nishkriya determines the strategy of the miracle. Each point of Nishkriya invested in the region allows one trigger to be built into the miracle. Examples of potential triggers include \"entering the region,\" \"praying to the Yozis,\" \"sleeping within the region,\" \"stealing from a merchant,\" \"marching under the flag of a foreign power,\" or \"disguising one's identity.\" · Dharma determines who the miracle affects. One point permits only a very limited subset of a population--old men of Varangian descent. Two points allows the miracle to affect a population--Varangians. Three points permits a category of magical beings to be targeted (such as gods, or DragonBlooded). Four points affect all individuals who wish to be affected. Five points allows the miracle to target everyone within the region. Zero points limits the miracle to working upon the environment; it cannot affect people at all. · Nirvishesha determines how long the miracle persists. One point causes the effect to last unto the third generation (60 years). Two points last unto the seventh generation (140 years). Three points last until the 30th generation (600 years). Four points last unto the 50th generation (1,000 years). Five points create a permanent miracle. Zero points invested in Nirvishesha produces a miracle lasting a single paltry year. · Nirupadhika determines the scope of the miracle. One point affects all regions the Solar has shaped out of the Wyld within a single Direction. Two points affect all such regions he has shaped within the boundaries of Creation, and any realms of the Faraway which he has visited. Three points affect all of the above, as well as the entirety of Creation. Four points affect all of Creation as well as all directly adjoining realms (the Underworld, Malfeas, Yu-Shan, Autochthonia, the Wyld). Five points are conjectured to affect all of existence--even those conceptual frontiers the Exalted have yet to discover or invent. Zero points invested in Nirupadhika affects only the Shinmaic Communion-marked region in which the Charm is used. For example, a Solar might lay a blessing of protection on a region for seven generations, so that all invading armies are scoured at its borders by enormous pillars of white-hot sunfire and other horrifying manifestations of Adamant Circle destruction. This would require that the region be affected by two points under Nirvishesha, five under Dharma, five under Nirvikalpa, and two under Nishkriya. Or a Solar might attempt to permanently ennoble all the cosmos so that anyone attempting to initiate into the practice of sorcery will receive</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "7dc6fef00ba67349"
+  },
+  "folder": "5b0108cbcf2feaf4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

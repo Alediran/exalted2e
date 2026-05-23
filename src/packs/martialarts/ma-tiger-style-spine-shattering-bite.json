@@ -1,0 +1,58 @@
+{
+  "_id": "2b0ea9cc0fd0ec42",
+  "_key": "!items!2b0ea9cc0fd0ec42",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Spine-shattering Bite",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "3m + (1m per die)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The character's Essence hardens her hands so they cause massive and deadly wounds. The character's unarmed punch attacks inflict a minimum of four levels of lethal damage (whether she uses tiger claws or not). For each additional mote of Essence spent, the character adds one die to a single attack, up to a limit of her [(Dexterity + Martial Arts) x 2]. The attacker's hands can even claw through wooden or ironbound doors and deeply score stone in a single blow.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Tiger Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "2b0ea9cc0fd0ec42"
+  },
+  "folder": "086aba86b0941ecb",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

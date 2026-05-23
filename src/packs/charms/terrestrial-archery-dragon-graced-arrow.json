@@ -1,0 +1,60 @@
+{
+  "_id": "6a6bb04b4c12093d",
+  "_key": "!items!6a6bb04b4c12093d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dragon-Graced Arrow",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "archery",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Elemental",
+      "Leader",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With this Charm, the Dragon-Blood can channel the power of his aligned element into a shaft and unleash it on a target. On a successful Archery attack, the Dragon-Blood may also inflict an elemental effect appropriate to his aspect on the target. Air buffets the target, subtracting two dice from his next action. Earth triggers a tremor beneath the target's feet, forcing his player to successfully roll (Dexterity + Athletics), difficulty 4, to keep him from falling. Fire sets the target ablaze for an action, inflicting four levels of lethal damage. Water fills the target's lungs with seawater, adding three ticks before his next action due to violent coughing. Wood increases the damage of the Dragon-Blood's arrow by +2L due the thorns covering it. The Essence for this Charm must be spent separately for each arrow fired. Although this Charm can be put into a Combo with an extra action Charm such as Swallows Defend the Nest, a particular target cannot be subjected to more than one particular elemental effect at a time. A Fire Aspect, for instance, could fire three separate arrows at three separate targets inflicting four additional levels of fire damage on each one. An Air Aspect and Earth Aspect could each shoot the same target and each inflict their respective penalties on that target, but a Fire Aspect could not hit the same target twice and inflict +8L fire damage. Regardless of the specific elemental version learned, this Charm is always considered a Wood-aspected Charm for purposes of determining whether the one-mote surcharge for out-of-aspect Charms applies, and Dragon-Blooded can learn only the version associated with their aspects.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "6a6bb04b4c12093d"
+  },
+  "folder": "b0b1b2b3b4b5f01a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

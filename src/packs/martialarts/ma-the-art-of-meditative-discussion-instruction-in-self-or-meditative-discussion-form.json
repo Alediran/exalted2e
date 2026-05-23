@@ -1,0 +1,57 @@
+{
+  "_id": "60b0b97a82e0fee9",
+  "_key": "!items!60b0b97a82e0fee9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Instruction in Self (or Meditative Discussion Form)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Form-type"
+    ],
+    "cost": {
+      "formula": "6m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Speaking with care and building a strong foundation against vituperation are the trademarks of the temperate debater. With mastery of the debate, she can stare down the impetuous and the insulting, putting them in their place. For the rest of the scene, the martial artist adds her Temperance as a bonus to her DVs. She also can parry lethal attacks with her bare hands and gains a bonus equal to her Temperance to her lethal soak.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Meditative Discussion",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "60b0b97a82e0fee9"
+  },
+  "folder": "1b2f6d78bc952477",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,68 @@
+{
+  "_id": "6a5ca9619b25ead2",
+  "_key": "!items!6a5ca9619b25ead2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Destiny-Manifesting Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "integrity",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A Solar forges her own destiny, and none gainsay her will. This Charm increases the difficulty of any rolled Shaping effect (see p. 217) used against the character by two. Characters using Shaping effects that involve the character can remove this penalty with any stunt that reconciles the Shaping effect with the Lawgiver's sense of her own destiny. In the Wyld or the Labyrinth, this Charm reduces the frequency of random unfortunate incidents by a factor of 10. There is no cost to use this Charm--it is a permanent enhancement to the Exalt's nature.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "fcd8d48cb2535f60",
+            "charmName": "Integrity-Protecting Prana",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "6a5ca9619b25ead2"
+  },
+  "folder": "b0a1d89a8f7c4cdb",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,58 @@
+{
+  "_id": "b8880b68ec3c5844",
+  "_key": "!items!b8880b68ec3c5844",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Welcoming the Uninvited Guest",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "martial arts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Striking the air with her palm, the Sidereal sets an Essence-vibration racing through the world. The Exalt makes an unarmed martial arts attack; all hidden characters within (Martial Arts x 10) yards must make a reflexive opposed Dexterity + Stealth roll against the attack's successes. Should the Sidereal garner more successes, then a series of ripples and distortions in the air give away the individual's location and render stealth impossible for five actions. This Charm also automatically reveals dematerialized beings within its range in this manner.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "b8880b68ec3c5844"
+  },
+  "folder": "a1b2c3d4e5f60003",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

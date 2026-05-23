@@ -1,0 +1,57 @@
+{
+  "_id": "c7bc0f9b95c8e7f8",
+  "_key": "!items!c7bc0f9b95c8e7f8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Opening the Door",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>In the middle of a fierce debate, to accede gently in the face of great opposition can be disarming. Such a practice can render an opponent's argument nearly harmless to one's cause. The opponent seems churlish or fanatical to onlookers, who consequently dismiss her views. When a martial artist uses this Charm against an attack, he accepts the blow. The foe's attack hits him, but the character intercepts it before it can build up its full force, or he rolls with it. Either way, the blow is weakened. It automatically succeeds, but with only one extra success.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Victorious Concession",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "c7bc0f9b95c8e7f8"
+  },
+  "folder": "fd11958743cc8ca7",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

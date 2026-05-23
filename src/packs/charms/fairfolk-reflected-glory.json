@@ -1,0 +1,57 @@
+{
+  "_id": "8a6943042ee6bdf8",
+  "_key": "!items!8a6943042ee6bdf8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Reflected Glory",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "ring",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Unshaped-Only"
+    ],
+    "cost": {
+      "formula": "5m, (2g)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>An Emanation, bored with the surfeit of pleasures available in the Wyld, sometimes seeks inspiration in other quarters. This Charm permits an unshaped Emanation to experience shaped existence through the eyes of any shaped raksha created by her through the use of either of the prerequisite Charms of Reflected Glory. At a cost of five motes, the Emanation can experience her offspring's life wherever he travels in the Wyld. If the offspring journeys into Creation, the Emanation must expend two additional gossamer to experience his life.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "8a6943042ee6bdf8"
+  },
+  "folder": "e3ab9ab145f6a424",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

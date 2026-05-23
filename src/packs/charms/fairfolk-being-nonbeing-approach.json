@@ -1,0 +1,58 @@
+{
+  "_id": "9f4a9857f8afc55f",
+  "_key": "!items!9f4a9857f8afc55f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Being-nonbeing Approach",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "ring",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Echo",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Opening wide its maw, the God-Monster devours the impression it makes on the world about it. Having done so, it moves on, leaving no trace of its passing. In the Wyld, the raksha spends one mote and two gossamer. For the duration of a shaping battle, the raksha adds one to her DV against all shaping attacks. She also adds her highest feeding Virtue in dice to any rolls to avoid detection by others in the Wyld. Additionally, by spending two gossamer in conjunction with an Assumption, the raksha gains the following innate power: Innate Power (Cost: 1m): The raksha adds her highest feeding Virtue in dice to all Stealth rolls. Although this benefit is technically a work of glamour, it targets the raksha herself and does not provoke Glamour Resistance. It does not, however, provide improved Stealth against All-Encompassing Sorcerer's Sight or other Essence-based means of observation.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "9f4a9857f8afc55f"
+  },
+  "folder": "e3ab9ab145f6a424",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

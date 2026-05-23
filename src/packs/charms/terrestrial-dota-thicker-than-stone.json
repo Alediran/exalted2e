@@ -1,0 +1,59 @@
+{
+  "_id": "5f29c1035ceeba7f",
+  "_key": "!items!5f29c1035ceeba7f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Thicker Than Stone",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "integrity",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Dynasty",
+      "Martyr",
+      "Purity"
+    ],
+    "cost": {
+      "formula": "None",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>It is said that blood is thicker than water. For the Dragon-Blooded, water is an insufficient comparison. Whenever a character with this Charm faces any form of mental or social influence from someone who isn't a blood relative that is intended to make him knowingly harm a blood relative through action or inaction, he treats the attempt as an unacceptable order. If the attack was clearly and intentionally directed to incite betrayal, the Exalt's player may have the character enter uncontrolled Limit Break to punish the would-be manipulator with just enough restraint to avoid harming blood relatives who stay out of the way. A blood relative is defined as anyone with whom the Exalt can trace mutual direct ancestry to a single Dragon-Blooded progenitor. The larger the character's family is, the broader the Charm's protection is (though the character relying on the benefit of the Charm must be aware of the relationship between himself and the person he would otherwise knowingly harm). An Exalt with Essence 6+ extends the benefits of this Charm to all Dragon-Blooded direct descendents with Breeding 3+, allowing him to serve as the common ancestor defining blood relations. Such elders may also use the Martyr keyword to indefinitely extend these benefits as a bulwark against outsiders. The Family Background may be used to represent a character under the benefits of the Martyr form of this Charm (though only if the character possesses Breeding 3+), as with Honored Ancestor Exhalation. The Exalt is considered to be linked by the Charm's Martyr benefit to (Magnitude [2 + Number of dots of Family allocated]) other blood relatives. Storytellers should very carefully consider the implications of allowing characters in Second Age games to purchase this benefit, as it can easily grow to encompass entire Great Houses, potentially shifting the tone of an Exalted series. By default, it is assumed that the Empress has gone to great lengths to discourage the Martyr form of Thicker Than Stone from being used within her Dynasty, as it suits her purposes for her children to constantly be set at the throats of their brothers and sisters. Lookshy, by contrast, has no such manipulative agenda, but the gentes of the Seventh Legion are considerably less numerous than their Dynastic counterparts and have fewer elders to learn the Charm.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "5f29c1035ceeba7f"
+  },
+  "folder": "b0b1b2b3b4b5f020",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

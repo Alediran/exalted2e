@@ -1,0 +1,72 @@
+{
+  "_id": "30c7c0e499baf3c8",
+  "_key": "!items!30c7c0e499baf3c8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Walls Of Salt And Ash",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "sail",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "oneDay",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Compulsion",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A ship is a tiny refuge of human order in the vast, inhuman sea. By tracing the burning yellow Sign of Journeys on a ship's prow, a Sidereal protects the ship and its passengers against supernatural forces. One version of the Charm protects the ship from gods and elementals, another from the Fair Folk and the Wyld, a third from the dead and forces of the Underworld and a fourth from demons and</p><p>forces of Malfeas. A character starts with one form of the Charm, and may buy additional forms of protection for two experience points or one bonus point each. A vessel can carry only one form of protection at a time, though. A banned entity cannot touch or board the ship unless the entity's Essence exceeds the Sidereal's. The Sidereal's Essence is also added to any dice pool or single value needed for the ship or passengers to resist a banned entity or environment, such as the roll to resist Wyld mutation, the dice pool to calculate Defense Value against a demon's claws, or another character's Essence to resist the Malediction power of the Storm Mother Sikunare.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "870b2e4e6d7954cc",
+            "charmName": "Salt into Ash Sleight",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "30c7c0e499baf3c8"
+  },
+  "folder": "b0b1b2b3b4b5f014",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "29c3f2e5bc1d1f4b",
+  "_key": "!items!29c3f2e5bc1d1f4b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gemstone of Solid Water",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDWATER00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "water",
+    "rating": 4,
+    "description": "<p>The bearer of this teardrop-shaped, deep blue hearthstone can solidify—not freeze—an area of water or other liquids, such as oil or wine. For 2 motes, the bearer can solidify (character's Essence x 4) cubic yards of liquid. The effect lasts for one scene. This solid water must be at least one yard wide, but can be in any shape the character desires. Solidified liquid becomes strong enough to support a caravan of loaded yeddim or to stop a speeding ship in its tracks, but remains sufficiently flexible that a ship that runs into it at full speed takes no damage. Any fish or other beings that swim in this water are not harmed—but a swimmer who needs to breathe and who is trapped in this solid water can suffocate. The bearer can use this stone as often as he wants. The bearer cannot use this stone to solidify living blood, but he can use it quite selectively.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

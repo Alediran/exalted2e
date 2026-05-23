@@ -1,0 +1,63 @@
+{
+  "_id": "285219e97903baa8",
+  "_key": "!items!285219e97903baa8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Impervious Skin of Stone Meditation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "resistance",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Leader"
+    ],
+    "cost": {
+      "formula": "1m per 2L/2B soak",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood briefly transmutes her skin to the hardness of stone, enduring blows that would shatter lesser beings. This Charm is activated reflexively in Step 7 of the attack sequence. The character adds (Stamina) dice to her soak roll. Earth Aspects may additionally add their Essence to their Hardness for the purpose of this single attack. This bonus does not stack with other Charms that directly add to soak dice.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "285219e97903baa8",
+    "soakBonus": {
+      "enabled": true,
+      "bashingFormula": "@sta",
+      "lethalFormula": "@sta"
+    }
+  },
+  "folder": "b0b1b2b3b4b5f02b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

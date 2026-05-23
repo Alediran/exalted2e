@@ -1,0 +1,82 @@
+{
+  "_id": "d064fffa5d8dce03",
+  "_key": "!items!d064fffa5d8dce03",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Elemental Defense Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "dodge",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Elemental",
+      "Leader 6",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm creates a glowing aura of elemental energy that radiates for a few feet around the Exalt who activates it and helps protect her from harm. The elemental energy created is determined by the aspect of the Dragon-Blood. Regardless of its nature, however, Elemental Defense Technique provides the following benefits. First, any Archery attacks are totally negated, as any incoming arrows are torn apart by the surging elemental force. Second, anyone attempting to make an unarmed attack against the Exalt suffers four levels of bashing damage, soaked normally. Third, the Exalt gains +2 to her lethal and bashing soaks against attacks with any weapon not made of the magical materials. Finally, each elemental aura grants an additional benefit. Air buffets any close-range attackers, giving the Exalt a +2 to her Dodge DV against hand-to-hand attacks. Earth surrounds the Dragon-Blood</p><p>with a thick cloud of dust, which gives her +2 to her Dodge DV against ranged attacks. Fire inflicts two levels of lethal damage on any hand-to-hand attackers instead of the normal bashing damage. Water totally neutralizes any fire-based attacks directed against the Dragon-Blood and also cushions her against attacks, adding an additional +1 to lethal and bashing soak. Wood surrounds the Dragon-Blood with a thick cloud of pollen and other irritants, and hand-to-hand attackers who fail a (Stamina + Resistance) roll suffer a -1 penalty for the rest of the scene. A Dragon-Blood of the same aspect as the one who invokes this Charm is immune to these aspect-related effects, as is any Dragon-Blooded whose anima banner is at the 8+ motes level. Unlike many elemental Charms, a Dragon-Blood can learn more than one version of Elemental Defense Technique, but she must learn the version associated with her aspect first. Only one version can be maintained at a time, and the activation of a different version cancels out the prior one. Regardless of the specific elemental version learned, each Charm is always considered to be a Fire-aspected Charm for purposes of determining whether the one-mote surcharge for out-of-aspect Charms applies.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "177dcf0493e6b2cb",
+            "charmName": "Safety Among Enemies",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "d064fffa5d8dce03",
+    "soakBonus": {
+      "enabled": true,
+      "bashing": 2,
+      "lethal": 2
+    },
+    "dvBonus": {
+      "enabled": true,
+      "dodgeBonus": 2,
+      "parryBonus": 2
+    }
+  },
+  "folder": "b0b1b2b3b4b5f01f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

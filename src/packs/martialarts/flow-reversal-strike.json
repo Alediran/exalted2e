@@ -1,0 +1,80 @@
+{
+  "_id": "ba7af0f4cae215d6",
+  "_key": "!items!ba7af0f4cae215d6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Flow Reversal Strike",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Crippling",
+      "Touch"
+    ],
+    "cost": {
+      "motes": 4,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "4m"
+    },
+    "description": "<p>By influencing the water Essence inside her target's body, the Immaculate can completely--if only for a moment--reverse the blood in a person's veins. All she need do to enact this Charm is give the target the slightest touch. Some Water Immaculates find ways to begin combat by using this Charm amidst a handshake or other friendly gesture. If an unarmed Martial Arts attack is successful (whether or not it inflicts any damage), the target's player rolls (Stamina + Resistance) at a difficulty equal to the Immaculate's successes on the initial attack roll, before reducing successes from the target's DVs. If the roll fails, he takes one level of unsoakable lethal damage. Whether or not the target succeeds, he loses two dice from all dice pools for a number of actions equal to the Immaculate's Martial Arts. Mortals are less hardy than the Exalted, and those who fail the (Stamina + Resistance) roll die instantly, as do animals of less than twice the Immaculate's size. Most gods, automatons and undead have no blood and are immune to this Charm, but some (such as water elementals or creatures with great amounts of liquid in their forms) are still susceptible and take two levels of lethal damage if they fail the roll.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Water Dragon Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "876c2bb0dfd5b1ff",
+            "charmName": "Water Dragon Form",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "ba7af0f4cae215d6",
+    "grantsMastery": false
+  },
+  "folder": "fc9347d4223ef93b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

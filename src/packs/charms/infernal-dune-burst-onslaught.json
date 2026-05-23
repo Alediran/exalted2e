@@ -1,0 +1,71 @@
+{
+  "_id": "58832160df85610d",
+  "_key": "!items!58832160df85610d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dune-Burst Onslaught",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "cult",
+    "essence": 3,
+    "minAbility": 2,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Messianic",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "-- (5m)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>An Infernal with this Charm may dispense with an attack roll when attacking with Sandstrike Blast (this costs the same as a targeted attack). Instead, the Exalt selects any location within range to be the epicenter of a wider burst. The eruption of sand fills a radius of (Essence x 2) yards around the epicenter, acting as a one-time environmental hazard with (the Infernal's Essence + Cult) lethal piercing Damage and (Infernal's Essence) Trauma. Characters damaged by the burst lose Willpower from Shaping as normal. Transcendent Desert Creature provides immunity to this Charm, in case the Infernal catches himself in the radius. Infernals who know Sands Through Fingers Defense may also initiate a burst centered on themselves when they activate that Charm by paying an additional two motes. Following the burst, the area remains choked with sand as from a violent sandstorm, limiting visibility like fog for the next 10 minutes (see Exalted, p. 135).</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "cecelyne",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d57f67d634bf92b4",
+            "charmName": "Sandstrike Blast",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "58832160df85610d"
+  },
+  "folder": "d852ccb3960d271d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

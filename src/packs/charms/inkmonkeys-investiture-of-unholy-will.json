@@ -1,0 +1,71 @@
+{
+  "_id": "ec9b12daa664ac84",
+  "_key": "!items!ec9b12daa664ac84",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Investiture Of Unholy Will",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "untilCalibration",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Sorcerous"
+    ],
+    "cost": {
+      "formula": "20m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>While the souls of the Yozis must appear before the Exalted when bidden by the proper rites, they may resist enslavement by those who invoke this right. This Charm can enhance any physical attack against a demon, though generally the warlock pulls the blow so as not to harm the target. If the attack hits, it lays a mark of Primordial Essence upon the target until the next Calibration. This mark affects demons as follows: � If they belong to the First or Second Circle, they add the Infernal's Essence in bonus dice on all rolls to resist sorcerous binding or banishment (maximum +5). This does not apply against the warlock who marked them. � They suffer an external penalty of the warlock's Essence on all rolls to resist her attempts to sorcerously bind or banish them. � If multiple Infernals lay their mark on a single demon, only the greatest bonus applies; however, each warlock benefits normally from her own mark when attempting to bind or banish the demon. � If the demon is currently bound and tracks Limit (as per guidelines in Roll of Glorious Divinity I and II) when the mark is placed, the Infernal knows this and may add (his Willpower rating) Limit points to the demon's track. Cecelyne was made to swear she would not use this Charm as part of her surrender oaths. Much to her frustration, she later discovered this prohibition also extended to her akuma. Inauspicious Benediction of Endeavor</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0128e16fadac2999",
+            "charmName": "Demonic Primacy of Essence",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "ec9b12daa664ac84"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

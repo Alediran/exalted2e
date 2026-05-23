@@ -1,0 +1,87 @@
+{
+  "_id": "e3dbae7eebcf3952",
+  "_key": "!items!e3dbae7eebcf3952",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gear Catches Gear Defense",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "motes": 3,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "3m"
+    },
+    "description": "<p>The Exalt moves with mechanical precision, interposing either a rigid grip or the saw-toothed edge of his weapon to catch an incoming strike. The martial artist's parry DV increases by two against an incoming attack, and if it succeeds in stopping the strike entirely, that attack's Speed retroactively increases by one (forcing the attacker's DV to refresh one tick later). If used barehanded, this Charm also allows the character to parry lethal and ranged attacks without a stunt.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Mechanical Weaving Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ca818aef5e774f9b",
+            "charmName": "The Circle Screams",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "dvBonus": {
+      "enabled": true,
+      "dodgeBonus": 0,
+      "parryBonus": 2,
+      "ignoreAllPenalties": false,
+      "ignorePenaltyTypes": []
+    },
+    "charmUid": "e3dbae7eebcf3952",
+    "grantsMastery": false
+  },
+  "folder": "c166a5601fcb1b8f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "71c2231428a133f3",
+  "_key": "!items!71c2231428a133f3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Spy Who Walks in Darkness",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-the-spy-who-walks-in-darkness",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 15,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Conjured servant",
+    "description": "<p>The sorcerer transforms his own shadow into an automaton extension of his will. This ritual takes three hours to cast, requires the aid of an assistant and must be performed on the night of the full moon. The sorcerer stands with his back to the full moon, casting a shadow on the floor in front of him. His assistant paints his shadow with a black paste of pitch, frankincense and clay from a cave that has never seen the sun's light (a Resources 2 purchase). The caster infuses the shape with the spell's Essence and invokes Five Days' Darkness, the shadow-progeny of the Uncon- SHACKLES OF DOOM Motivation: Constrict the sorcerer's foe. Attributes: Strength 5, Dexterity 1, Stamina 6; Charisma 0, Manipulation 0, Appearance 0; Perception 3, Intelligence 0, Wits 3 Virtues: Automaton: Never fails Valor checks, never makes others. Abilities: Awareness 3, Dodge 2, Martial Arts 3 (Clinch +3) Join Battle: 6 Attacks: Clinch: Speed 6, Accuracy 11, Damage 5B, Parry DV --, Rate 1, Range 30 Soak: 3L/6B Health Levels: -0/-0/-0/-1/-1/-1/Incap Dodge DV: 2 Willpower: 10 Essence: 1 quered Sun, as the assistant sets the painted shape on fire. The painted shadow burns for five minutes with a gray, darkening luminescence until the shadow automaton rises, still smoking, to bow before its master. The darkling servant looks like an inky black, elongated version of the caster, without facial features or distinguishing marks, soft yet solid to the touch. The shadow automaton lasts for a number of days equal to the caster's (Intelligence + Occult). During this time, the sorcerer casts no shadow. At the end of the spell's duration, the automaton collapses into a puddle of wet clay, and the caster's normal shadow reappears. If the spell is countered or the spy slain, the caster loses one point of temporary Willpower and takes two levels of bashing damage. His shadow returns, though it shows signs of damage that heals over the course of the spell's remaining duration. USING THE SPY Cost: 5m Target: The shadow automaton Anytime during the shadow automaton's existence, the sorcerer may spend five motes to possess it. While possessing the spy, the caster may take no other actions and is oblivious to his surroundings. The spy who walks in darkness is almost invisible when it moves among other mundane shadows. It can slip through cracks in doors and through windowsills to get to its target. While in possession of the automaton, the sorcerer uses its Physical and Social Attributes and his own Abilities. He cannot use his Charms but may draw on his own Essence pool to cast spells that do not require long rituals or preparation. The sorcerer also has access to the automaton's inherent Charms, but he must use the automaton's Essence to power them. If the sorcerer occupies the spy when it is destroyed, his consciousness flashes back into his body. He suffers levels of bashing damage equal to the total damage taken by the spy. He also loses two points of temporary Willpower. This loss replaces the normal loss indicated previously.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

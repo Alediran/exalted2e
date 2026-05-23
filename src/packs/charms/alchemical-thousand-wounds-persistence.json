@@ -1,0 +1,58 @@
+{
+  "_id": "bef9005d889f23a0",
+  "_key": "!items!bef9005d889f23a0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Thousand Wounds Persistence",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "survival",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The martial artist aligns his Essence, his will, his weapon and his target before striking. This Charm supplements a ranged attack with a gyroscopic chakram. As long as the Exalt commits Essence to this Charm and does not voluntarily recall his weapon, the chakram continues to attack its target until the target is dead or the weapon has botched rather than following the usual re-attack rules (see Chapter Six).</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "bef9005d889f23a0"
+  },
+  "folder": "a1b2c3d4e5f60007",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,78 @@
+{
+  "_id": "c1dcee3ea60b1c88",
+  "_key": "!items!c1dcee3ea60b1c88",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "World-Rupturing Blow",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 1,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "--(1m per yard)"
+    },
+    "description": "<p>The Solar's might is like a black hole, having gravity sufficient to crush worlds with his fist. This Charm permanently enhances its prerequisite. On a successful strike with Heaven Thunder Hammer, the character may choose to spend up to his Strength rating in motes for the purpose of subtracting yards from the distance his target would have flown, to a minimum of zero yards. This creates a well of force which sucks the victim in, preventing him from being launched away as the Solar visibly strains against his own might, gathering a terrible force which spills out into the surrounding landscape, shattering scenery and fracturing air at the motonic level. This moment of devastating collision cannot last. A blast tears through his victim as the Solar completes his attack. The target is ripped away with the force of a hurricane and hurled across the landscape. Multiply the number of reduced yards by three and convert them into automatic damage. Add (Essence) to the number of yards which remain from the effects of Heaven Thunder Hammer for calculating the total distance the target will fly after breaking the Solar's inertia. These extra yards are treated exactly as those accumulated by this Charm's prerequisite. The target suffers any impact with scenery as per the rules of Heaven Thunder Hammer. Teahouse-Shattering Symphony</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Solar Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5360e9a0985ba210",
+            "charmName": "Heaven Thunder Hammer",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "c1dcee3ea60b1c88",
+    "grantsMastery": false
+  },
+  "folder": "05bd4dac47a869bd",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

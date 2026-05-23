@@ -1,0 +1,37 @@
+{
+  "_id": "dec37e9a102a2ece",
+  "_key": "!items!dec37e9a102a2ece",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Slave Collar",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>This is one of the most feared and reviled artifacts surviving from the First Age. While the DragonBlooded of the Shogunate and the modern era can re-create these artifacts, few do because of the fear and disgust they incite. Attempting to create or repair a collar capable of enslaving one of the Exalted is a capital crime in the Realm. This artifact is a collar made from a mixture of the five magical materials, filled with a multitude of powerful Essence-based circuitry. The owner must place it around the neck of the wearer and commit a variable number of motes of Essence to the collar. Putting the collar on someone else and attuning it requires intense concentration and takes at least two minutes of time. This attunement cannot be done in combat or if the target is able to resist. During this time, the collar extends filaments of moonsilver and starmetal into the wearer's brain and spinal column. Once the character commits the correct amount of Essence, the collar automatically closes and locks and will not open until the owner either dies or lets the attunement lapse. Once in place, the collar makes sure that the wearer must always obey the collar's owner. The wearer is free to interpret vague or confusing orders as she sees fit, but almost all collar owners immediately order their wearers to never harm them or their allies or to work against the owners' desires. In addition to ordering the wearer to perform almost any action, if the owner spends two motes, she can instantly determine the wearer's approximate distance and direction. Also, if she spends three motes and one Willpower, she can either use the wearer's senses for one minute or send the wearer a short mental message (of the sort that would take less than a minute to say), which the wearer must obey. All of these abilities can be used regardless of the distance separating the collar wearer from the owner. Mortals who wear this artifact are completely under the thrall of the item. While an Exalt cannot consciously resist commands given by the item's owner, even this potent item cannot override the power of an Exalt's Limit Break. An uncontrolled Limit Break by a Solar or Lunar Exalt and a Dragon-Blooded Limit Break can all temporarily override any commands issued by the collar's owner. In the heat of a Limit Break, however, the Exalt cannot attempt to slay the owner or remove the collar unless doing so is an obvious reaction to the Limit Break. Although no one in Creation knows about the Great Curse, the owner can order the wearer to get control of herself, thereby indirectly ordering the wearer to spend Willpower to control her Limit Break. Orders that go directly against the demands of a controlled Limit Break will still be ignored, though. Slave collars that can only affect mortals (including God-Bloods, beastmen and thaumaturges) have an Artifact cost of two dots and require the owner to commit only four motes of Essence. Collars that can also enslave Exalts are four-dot artifacts and require the owner to commit eight motes of Essence to them. Also, a character cannot place a collar on any being with an Essence higher than her own. While the owner can easily and harmlessly remove a slave collar, attempting to remove a slave collar without the owner's permission is both difficult and exceptionally dangerous. A slave collar has a soak of 10L/10B and is treated the same as the material from a First Age hull--it possesses 10L/10B hardness, and all damage against it must be rolled. Slave collars have five health levels, and the instant one is destroyed, the filaments of magical materials in the wearer's brain tear themselves free. This trauma inflicts a number of dice of aggravated damage to the wearer's brain equal to twice the number of motes committed in the collar--eight to mortals and 16 to Exalts. Because this damage happens inside the wearer's body, armor does not protect against it. Few who try to remove such a collar survive the attempt. Because these collars automatically reshape themselves to fit the wearer's neck, even Lunar Exalted who are forced to wear one of these collars cannot shapeshift themselves into a form where they can slip out of the collar they are wearing.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

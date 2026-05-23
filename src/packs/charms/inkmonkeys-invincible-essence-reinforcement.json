@@ -1,0 +1,65 @@
+{
+  "_id": "83b2929476ebd0d4",
+  "_key": "!items!83b2929476ebd0d4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Invincible Essence Reinforcement",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "resistance",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Undertaking a grueling regimen of endurance training, the Solar folds Essence into his body until his skin becomes hard enough to turn aside blades. The Lawgiver's natural lethal and bashing soak calculations become (Stamina + 3). This Charm may be purchased up to a total of (Resistance) times; each purchase after the first adds 3 to the character's natural lethal and bashing soak. With Essence 4+, the Solar also gains natural lethal and bashing hardness equal to the number of times he has purchased this Charm.</p><p>Moreover, the resilience of the Solar Exalted is only equaled by their courage; a Lawgiver using this Charm reverses even the most grievous of wounds, canceling them out by denying their existence through force of will. Characters who wish to substitute another Virtue for the purposes of this Charm may do so if dramatically appropriate. This Charm may not be used to heal damage from self-inflicted wounds, including damage incurred as part of the activation cost of a Charm. A character may not use Soul Fire Resurgence more than once per action. This Charm's Virtue roll may not be enhanced by other Charms or magic; Virtues enhanced by Epic Zeal of (Virtue) are never applicable for this Charm's effects. Red Dawn Ascending</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "soakBonus": {
+      "enabled": true,
+      "bashing": 3,
+      "lethal": 3,
+      "aggravated": 0,
+      "hardnessAdd": 0,
+      "hardnessSetTo": 0
+    },
+    "charmUid": "83b2929476ebd0d4"
+  },
+  "folder": "b0b1b2b3b4b5f068",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

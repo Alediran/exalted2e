@@ -1,0 +1,66 @@
+{
+  "_id": "f864c00373a6c7ed",
+  "_key": "!items!f864c00373a6c7ed",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Force Of The Mountain",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Leader"
+    ],
+    "cost": {
+      "motes": 2,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "2m"
+    },
+    "description": "<p>Pure inward focus and slow, deliberate movement precedes this attack. Many onlookers are surprised by the great damage such a sluggish blow manages to inflict. The Immaculate adds an amount of damage equal to his Essence on a single Melee or Martial Arts attack. He cannot use this Charm with weapons other than the Earth Dragon's signature weapons--the sledge, the tetsubo or the grand goremaul.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Earth Dragon Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f864c00373a6c7ed",
+    "grantsMastery": false
+  },
+  "folder": "01757ed433605ac5",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

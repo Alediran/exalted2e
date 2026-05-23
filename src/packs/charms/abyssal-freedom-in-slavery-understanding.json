@@ -1,0 +1,72 @@
+{
+  "_id": "fa310e35ff3a284b",
+  "_key": "!items!fa310e35ff3a284b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Freedom In Slavery Understanding",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "integrity",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Avatar (3)",
+      "Obvious",
+      "Social"
+    ],
+    "cost": {
+      "formula": "-- (1ahl, variable wp)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Abyssal Exalted belong to the Neverborn. However hard they struggle against the chains of their enslavement, Dark Fate always drags them back down into damnation and horror. Therefore, lesser slavery cannot hold them. The Abyssal may reflexively pay one level of unsoakable aggravated damage and lose all remaining Willpower points from sudden incontrovertible certainty of her doom. This certainty shatters all long-term Compulsion, Illusion and Servitude effects on her. The Exalt can ignore mental influence that would prevent her from using this Charm to free herself. A character can use this Charm at any time, but an occasion when she uses Whispers would be dramatically appropriate.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "404304fb22021dbc",
+            "charmName": "Lesser Horrors Scorned",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "fa310e35ff3a284b"
+  },
+  "folder": "b0b1b2b3b4b5f039",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

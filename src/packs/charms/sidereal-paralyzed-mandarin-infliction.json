@@ -1,0 +1,58 @@
+{
+  "_id": "bd5a0300b74fe341",
+  "_key": "!items!bd5a0300b74fe341",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Paralyzed Mandarin Infliction",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "bureaucracy",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Compulsion"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal touches the threads of fate binding a bureaucratic official and tangles them until the mandarin's authority becomes indecisive and paralyzed. The character must have a chance to study the target official for at least one scene. The Sidereal's player rolls (Manipulation + Bureaucracy) against the target's Dodge MDV. On a success, the target official becomes afflicted with an inability to make decisive rulings or take bureaucratic action for a number of weeks equal to the Sidereal's Essence. All official paperwork the mandarin touches seems to loop back upon itself, referrals go unresolved, and orders fall into committees without resolution.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "bd5a0300b74fe341"
+  },
+  "folder": "b0b1b2b3b4b5f004",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

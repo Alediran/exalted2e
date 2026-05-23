@@ -1,0 +1,71 @@
+{
+  "_id": "a05d27e2b3e955cc",
+  "_key": "!items!a05d27e2b3e955cc",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unbound Freedom Infiltration",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "1ahl",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Bored with racing across the surface of walls, the Silent Wind may blow through them. Sometimes she leaves, finding freedom; at other times she enters, finding victims. To activate this Charm, the Infernal must be dashing at her maximum speed, and must have maintained this velocity throughout her entire previous action. Upon invocation, it allows her to body to shred apart into a crimson wind which blows through the cracks and gaps in a barrier, to reform on the other side. Smears and stains of blood are left behind in the Infernal's wake. This Charm cannot bypass obstacles more than (Essence) yards thick, or which are airtight (so, a door with a keyhole or a space beneath it, or a wooden wall with gaps between the boards would be valid targets, while a solid wall sheathed in marble would not). This Charm automatically allows the Infernal to bypass anyone attempting to physically impede her with a Blockade Movement action (see Glories of the Most High--Luna, p. 22) At Essence 4+, Unbound Freedom Infiltration may be invoked as an innate power rather than a Charm activation by paying an extra aggravated health level upon activation.</p><p>Voice-Drinking Kiss</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f699dde62507abc4",
+            "charmName": "Gravity-Rebuking Grace",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a05d27e2b3e955cc"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

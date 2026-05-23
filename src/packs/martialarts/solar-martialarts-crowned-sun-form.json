@@ -1,0 +1,79 @@
+{
+  "_id": "3ac71fb76f2d7122",
+  "_key": "!items!3ac71fb76f2d7122",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Crowned Sun Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Form-type",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 7,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "7m"
+    },
+    "description": "<p>The martial artist relaxes into an easy stance, his attitude leonine in both its regality and vigilance, ready for anything. He reduces all multiple action penalties by one, adds (Essence) to the raw damage of his attacks, and is immune to unnatural mental influence within standard or mass combat time. (This last benefit does not apply to long-tick social or mass social combat.) More remarkably, the character's watchful attitude and quick adaptation permit him to use the Sun Burning upon the Mirror technique. After observing an opponent taking at least three actions under the effects of a Form-type Charm, the character may reflexively commit one mote to emulate all benefits of that Charm, including the ability to use in-style weapons with the Martial Arts Ability (though they do not become compatible with other Arms of the Unconquered Sun Charms). The character may emulate only one Form-type Charm at a time, and he loses the basic benefits of Crowned Sun Form while doing so. All emulated benefits cease to apply should he change to another in-style Form-type Charm by way of the Heaven-and-Earth Stairway, though they will resume should he return to Crowned Sun Form later in the scene. Characters cannot emulate Form-type Charms from styles at stations of the Perfected Lotus into which they are unable to be initiated. (For example, a Lunar Exalt or Green Sun Prince could not emulate Charcoal March of Spiders Form.)</p>",
+    "source": "Glories of the Most High: Unconquered Sun",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Arms of the Unconquered Sun Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "44c7561087e0e55f",
+            "charmName": "Heaven-and-Earth Stairway",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "3ac71fb76f2d7122",
+    "grantsMastery": false
+  },
+  "folder": "60c07b8667afdccd",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

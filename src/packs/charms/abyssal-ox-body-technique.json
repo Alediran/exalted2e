@@ -1,0 +1,77 @@
+{
+  "_id": "213f43ac5b2f1bcb",
+  "_key": "!items!213f43ac5b2f1bcb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ox-Body Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "resistance",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Native"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm works exactly the same way for Abyssals as for Solars, though deathknights prefer to give it names like \"Corpse-Body Resilience.\"</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "healthGrant": {
+      "enabled": true,
+      "options": [
+        {
+          "label": "Option A: one -0 and two -2",
+          "zero": 1,
+          "one": 0,
+          "two": 2,
+          "dying": 0
+        },
+        {
+          "label": "Option B: two -1 health levels",
+          "zero": 0,
+          "one": 2,
+          "two": 0,
+          "dying": 0
+        }
+      ]
+    },
+    "charmUid": "213f43ac5b2f1bcb",
+    "mirrorId": "0feb3945130e2008"
+  },
+  "folder": "b0b1b2b3b4b5f044",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

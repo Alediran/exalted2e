@@ -1,0 +1,68 @@
+{
+  "_id": "1bbe7fe596ec9a3d",
+  "_key": "!items!1bbe7fe596ec9a3d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Rapacious Virtue Respiration",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "-- (1wp)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Adorjan is among the most virtuous of Yozis and the most wicked. For her, the two states are one and the same. It is the nature of the Silent Wind to torment the pure and the vile alike to remind all beings how unimportant and helpless they are in the face of all she represents. Whenever the Infernal observes an enemy channel a Virtue, he intuitively recognizes the fact and can reflexively spend one Willlpower to regain a channel of the balancing Virtue (Compassion for witnessing Conviction, Valor yields Temperance, and vice versa). Virtue channeling by neutral or friendly characters offers nothing to breathe in. If multiple Infernals attempt to respire the same Virtue channel, use a standard roll off to determine who wins.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "adorjan",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "3140a56e8c903bdf",
+            "charmName": "Sacred Kamilla's Inhalation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "1bbe7fe596ec9a3d"
+  },
+  "folder": "e1c045f50a834f12",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

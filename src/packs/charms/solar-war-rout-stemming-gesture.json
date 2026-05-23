@@ -1,0 +1,72 @@
+{
+  "_id": "4254865c07ee2713",
+  "_key": "!items!4254865c07ee2713",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Rout-Stemming Gesture",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "war",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "untilNextAction",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "War"
+    ],
+    "cost": {
+      "formula": "4m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The glory of the Solar Exalted steadies those who follow them. The Exalt can target up to her Essence in military units or (Essence x 100) scattered individuals with this Charm. The Exalt chooses the targets insofar as she cares to specify; otherwise, this Charm affects the closest non-enemy targets. Individual targets must be able to see or hear the Exalt. Targeted units must be able to see or hear some sort of Solar-sent signal. This Charm causes targets to succeed automatically on all Valor rolls. If used in the instant one or more targets fail a Valor roll, this Charm allows the targets that failed to reroll, but the reroll does not automatically succeed. This Charm's effects last until the Exalt's next combat or mass combat action.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "4254865c07ee2713"
+  },
+  "folder": "d517bd826bc73b9e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

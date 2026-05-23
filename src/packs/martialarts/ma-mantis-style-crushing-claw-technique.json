@@ -1,0 +1,57 @@
+{
+  "_id": "f1c50dd331939f19",
+  "_key": "!items!f1c50dd331939f19",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Crushing Claw Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Touch"
+    ],
+    "cost": {
+      "formula": "3m per action",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When the character executes a crushing attack in a clinch, the attack inflicts lethal damage equal to the aggressor's (Strength + Martial Arts + extra successes on the clinch roll), rather than bashing damage equal to (Strength + the extra successes).</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Mantis Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f1c50dd331939f19"
+  },
+  "folder": "026302498ba6c9dc",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,59 @@
+{
+  "_id": "6c468435ac285a5a",
+  "_key": "!items!6c468435ac285a5a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shuddering Wyld Inference",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "ring",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Echo",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>In the Wyld, spatial relationships are only one of the illusions to be ignored by the canny warrior, and every raksha knows that the distance from one waypoint to the next is simply the time it takes for something interesting to happen. At a cost of one mote, this Charm allows the raksha to make a Ring- or Staff-shaping attack against a target in another waypoint without any penalty for range.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "6c468435ac285a5a"
+  },
+  "folder": "e3ab9ab145f6a424",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

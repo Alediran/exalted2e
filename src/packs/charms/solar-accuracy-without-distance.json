@@ -1,0 +1,71 @@
+{
+  "_id": "7470c9903a4e8dc3",
+  "_key": "!items!7470c9903a4e8dc3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Accuracy Without Distance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "archery",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "4m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solar fires a single perfect shot. The Exalt spends this Charm's cost and fires an arrow at a valid target. This Charm supplements the player's Archery roll and guarantees that the arrow hits. This Charm can be used in archery contests and for trick shots--such as severing a rope from afar--but it is most often used in attacks. Resolve such attacks normally. If the attack would have missed without this Charm, then it hits, calculating its raw damage based on an assumption of 0 attack successes. This Charm does not change the normal rules for valid targets--shooting \"the gap in his armor\" does not allow the Exalt to bypass armor soak, nor does this Charm allow the Exalt to fire through a stone wall or beyond the maximum Range of his bow without additional magic.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c750b46c5645aee8",
+            "charmName": "There is No Wind",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "7470c9903a4e8dc3"
+  },
+  "folder": "e842a3a532908d8d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

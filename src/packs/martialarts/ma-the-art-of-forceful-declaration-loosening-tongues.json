@@ -1,0 +1,59 @@
+{
+  "_id": "51b29de6d416ba0e",
+  "_key": "!items!51b29de6d416ba0e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Loosening Tongues",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "4m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A skilled debater can inflict his own habits forcibly upon others, and those unused to wielding such passion have trouble restraining it. Some, usually opponents of the style, refer to this tactic as \"dragging us down to their level.\" On a successful strike that inflicts at least one level of damage, the attacker's player rolls his (Valor + Essence) at a difficulty of the target's Temperance. If the attacker is successful, the victim's self control becomes a liability. Should the victim spend more motes of Essence than she has dots of Temperance in any given action, she loses one additional mote from the same pool for each dot of Valor she has, which burns off in an uncontrollable display. Regardless of which pool the motes came from (Peripheral or Personal Essence), they count toward the total that determines the halo effect of the character's anima banner. Each mote so lost also inflicts one level of unsoakable bashing damage.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Forceful Declaration",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "51b29de6d416ba0e"
+  },
+  "folder": "676ebc2abfe88729",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

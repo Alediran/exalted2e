@@ -1,0 +1,37 @@
+{
+  "_id": "e8fc8ea24528daf9",
+  "_key": "!items!e8fc8ea24528daf9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Folding Midnight",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "labyrinth-circle-folding-midnight",
+    "tradition": "necromancy",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 46,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "one year",
+    "target": "One shadowland",
+    "description": "<p>After casting the spell, the necromancer must walk all the way around a shadowland. He travel only at night or only during the day, but the actual trip may take as long as necessary. Once the circuit is complete, the caster has bound the shadowland into Creation, if he traveled by day, or the Underworld, if he traveled at night. For the next year and a day, leaving the shadowland returns a traveler only to the designated world. Mortals who wander in accidentally might never return to Creation, or an unlucky ghost might be stuck away from the Underworld and its palatable death-Essence. Should the shadowland shrink or expand, the curse remains, but completely healing this wound in Creation ends the effect.</p>"
+  },
+  "folder": "562235f47f16c453",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

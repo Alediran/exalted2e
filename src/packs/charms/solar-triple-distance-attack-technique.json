@@ -1,0 +1,57 @@
+{
+  "_id": "39902b4620932b68",
+  "_key": "!items!39902b4620932b68",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Triple-Distance Attack Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "thrown",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>RETURNING WEAPON CONCENTRATION Cost: --; Mins: Thrown 3, Essence 2; Type: Permanent Keywords: None Prerequisite Charms: None The Solar cherishes his weapons. This Charm gives the character three bonus successes on any valid action that, if it succeeds, will physically reclaim one or more of the throwing weapons he owns-- whether by yanking one back to him on a cord, snatching several up while running past, grabbing a knife from the lava's surface before it sinks or snatching a weapon physically from an enemy who has stolen it. This Charm does not affect attempts to reclaim throwing weapons by non-physical means such as persuasion, nor does it help when the character is taking preparatory actions such as running across a hair-thin bridge to where his weapon rests. Returning Weapon Concentration also makes any weapon slide free of any target without resistance, so that the lightest tug can reclaim even a knife sheathed to the hilt in a tree.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "39902b4620932b68"
+  },
+  "folder": "a5a30fa2e730ff58",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

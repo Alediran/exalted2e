@@ -1,0 +1,52 @@
+{
+  "_id": "3de7cec20c0b3d0e",
+  "_key": "!items!3de7cec20c0b3d0e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Tsunami Blade",
+  "type": "weapon",
+  "img": "icons/weapons/swords/sword-ornate-yellow.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "Melee",
+        "speed": 4,
+        "accuracy": 3,
+        "damage": 6,
+        "damageType": "lethal",
+        "overwhelming": 1,
+        "defense": 2,
+        "rate": 3,
+        "range": 0,
+        "minStrength": 2,
+        "minDexterity": 0,
+        "minMartialArts": 1,
+        "tags": [
+          "Two-Handed"
+        ]
+      }
+    ],
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "description": "<p>The artifact version of the spread-the-water knife is four to five feet long with a heavier crossbar, possibly including subsidiary hilts to enable different grips. The blade might also be curved in different ways, including wave-like points to stab into a foe. The crossbar holds one hearthstone setting. Like a spread-the-water knife, a tsunami blade can be wielded one-handed, but a two-handed grip enables greater agility with the weapon.</p>",
+    "source": "Scroll of the Monk",
+    "equipped": false
+  },
+  "folder": "f004a234b56c78a0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

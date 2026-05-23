@@ -1,0 +1,70 @@
+{
+  "_id": "2f956e821ca1ce59",
+  "_key": "!items!2f956e821ca1ce59",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Cloud-Walking Stance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "dexterity",
+    "essence": 4,
+    "minAbility": 4,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Wyld"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Lunars are comfortable traversing the impossible landscapes of madness at the rim of Creation. While the character is in the Wyld this Charm reduces the cost of Graceful Crane Stance to zero motes and extends its Duration to Indefinite. These benefits also extend to Light-Footed Mountain Goat Stance if the character knows that Charm.</p>",
+    "source": "Glories of the Most High: Luna",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "bc34d22cf4334e4b",
+            "charmName": "Graceful Crane Stance",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "2f956e821ca1ce59"
+  },
+  "folder": "6d3aed86fa48b120",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

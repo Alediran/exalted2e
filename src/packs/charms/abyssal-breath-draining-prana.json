@@ -1,0 +1,74 @@
+{
+  "_id": "b83b83eae1f1ce59",
+  "_key": "!items!b83b83eae1f1ce59",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Breath-Draining Prana",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "lore",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm enables a deathknight to feed at a distance without breaking her victim's skin. The deathknight can target creatures up to (Essence x 10) yards away with an unexpected attack using a (Perception + Lore) roll. The victim suffers lethal damage equal to the number of successes, soakable only with Stamina, while the deathknight gains one mote per level of damage inflicted. A victim feels the attack only as a sudden weakness or twinge of pain. Without magical perception, a victim can recognize the source of this attack through a reflexive (Wits + Awareness) roll at difficulty 5, rolled with each attack. Success means the victim recognizes the Abyssal as the source of his sudden weakness, allowing him to dodge attacks that are no longer unexpected. Otherwise, the victim remains clueless as to what is wounding his soul. Alternatively, the deathknight can target another creature's Essence pool and directly steal one mote per success on the attack roll. The Charm becomes Obvious, however, as stolen energies glimmer in faint contrails from the victim to the Abyssal's mouth.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "84551fead8f3e442",
+            "charmName": "Will-Feasting Onslaught",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "moteRecovery": {
+      "enabled": true,
+      "event": "onDamageReceived",
+      "action": "recoverPeripheral",
+      "formula": "1"
+    },
+    "charmUid": "b83b83eae1f1ce59"
+  },
+  "folder": "b0b1b2b3b4b5f03d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

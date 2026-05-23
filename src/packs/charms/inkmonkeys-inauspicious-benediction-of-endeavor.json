@@ -1,0 +1,84 @@
+{
+  "_id": "7d1b9b47c469139e",
+  "_key": "!items!7d1b9b47c469139e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Inauspicious Benediction Of Endeavor",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Shaping",
+      "Sorcerous"
+    ],
+    "cost": {
+      "formula": "15m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Cecelyne grants her favor to organizations whose policies express the madness of her law. This Charm may be used to</p><p>enchant any social unit with a Magnitude no greater than the Infernal's (Essence or Bureaucracy, whichever is higher). The warlock must be socially interacting with the unit's leader and communicate the full intent of the Charm while using it, gaining the leader's assent. It is permissible to secure cooperation prior to activation via social attacks. Larger units must be targeted piecemeal as individual departments or bureaus. The warlock selects one task the organization must perform at recurring intervals or actions that must be avoided at all times; the burden should be strange and onerous without any seeming connection to the organization's function, but the task or taboo must be something the unit can accomplish. The Storyteller assesses how much extra work and hassle the chosen task/ban causes for the target organization from among the options listed below. The severity of the drawback determines how many bonus successes the unit and all of its individual members receive when taking actions that directly further the enchanted unit's Policy. If the organization ignores the blessing the Infernal has given them and does not implement the task/ban within a week, the power of Cecelyne grinds the organization's fate as a Shaping effect. This also happens as soon as the task is not completed on schedule or the taboo is broken. The unit suffers one automatic botch on a critical action as per a broken Eclipse oath, and then the magic ends. Applying appropriate countermagic to the unit leader breaks the effect without any doom, as does complete disbandment of the unit. If the leader changes, the new leader becomes the anchor point for applying countermagic. A change in Policy does not affect the Charm. So long as the unit keeps to its duty or avoids its ban, the enchantment continues indefinitely. Units already enchanted by Inauspicious Benediction of Endeavor can't be targeted with further applications from any character. Inauspicious Benediction of Endeavor may target an individual rather than a social unit, though it would not occur to Cecelyne herself to do so. Affected characters receive the bonus successes awarded by the burden toward actions directly supporting their Motivation. The Infernal may target herself, though the associated burden is no less onerous. Inconvenience (2 successes): The duty isn't fun, but it's not really all that much work either. The primary weight of the burden stems from the distastefulness of the task. Example: stopping work three times a day at fixed times to ritually venerate the law of Cecelyne regardless of whatever else is going on. For taboos, the organization must avoid a particular convenience, but the loss doesn't really impede operations in any measurable way. Example: No one in the organization may imbibe alcohol. An inconvenience that doesn't frustrate members on a regular basis shouldn't qualify for any bonus. Challenge (3 successes): The required task demands that members go out of their way, typically to do something immoral, abhorrent or both, but nothing that would seriously conflict with the average member's Intimacies. Example: Sacrificing a pure white kitten who has never known pain following the close of business each day; once a month, one member chosen at random must voluntarily accept being beaten past unconsciousness by other members. Taboos present equivalent difficulty and can be broken accidentally by the incautious. Example: Never kill a locust; never speak any translation of \"Unconquered Sun.\"</p><p>Hardship (4 successes): The duty or ban seriously impacts the day to day operations of the organization, forcing it to cover up activities that would certainly attract immediate censure from the public and external authorities. Examples: The slow bleeding death of one unblemished baby who has never seen a Calibration assures one month of good fortune; never thank a god or a god's priest for anything, even with hollow or ironic courtesy. Miracle Gift Mastery</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6c0a17ffa6d991e7",
+            "charmName": "Unquestionable Yozi Authority",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6e2984144400b1c4",
+            "charmName": "Sublimation of Ordained Purpose",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "7d1b9b47c469139e"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

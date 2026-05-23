@@ -1,0 +1,68 @@
+{
+  "_id": "d25700f4fcb27645",
+  "_key": "!items!d25700f4fcb27645",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Second Malfeas Excellency-- Essence Triumphant",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Purchase of this Charm expands an Infernal's capacity to wield the First Excellency, allowing her to add successes in lieu of or in addition to adding dice. Every bonus success added this way counts as two bonus dice toward the maximum bonus the Charm may add, like a Combo of the First and Second Solar Excellencies. The addition of successes in all other ways uses the same rules as the Second Excellency of the Lawgivers (see Exalted, p. 184). Note that the Ebon Dragon does not have a version of this Charm, having developed Shadow Spite Curse instead (see pp. 148-149).</p><p>CHARM CONCEPT: INFERNAL EXCELLENCIES Many players may initially balk at the prospect of paying two Charm slots for a single Excellency and having it turn into what amounts to an eight or ten experience point surcharge on each dot of Essence advancement thereafter. Consider that the six listed Excellencies aim to do the work of 25 Excellencies available to Exalted with Ability-based Charms and nine for Lunars and Alchemicals. What Infernals lack in variety they gain in the far broader versatility of each Charm. The system is also designed to discourage players from branching out to get many different Excellencies for all contingencies, especially in games where the Reclamation includes more than the five listed Yozis. Nothing stops a player who wants to cover everything, but such an individual quickly falls behind those who specialize and use teamwork to combine their powers within a coven. Malfeas MYTHOS EXULTANT</p>",
+    "source": "MoP: Infernals",
+    "yoziPatron": "malfeas",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "second",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Appropriate First Malfeas Excellency",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "d25700f4fcb27645"
+  },
+  "folder": "1945ba1655ca5f6f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

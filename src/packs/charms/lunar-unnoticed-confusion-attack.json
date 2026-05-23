@@ -1,0 +1,71 @@
+{
+  "_id": "d5491ede6485b5bf",
+  "_key": "!items!d5491ede6485b5bf",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unnoticed Confusion Attack",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "charisma",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Social"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm may supplement any social attack, allowing the Exalt's player to roll (Charisma + relevant Ability) reflexively, and makes anyone whose Mental Defense Value is less than the successes on that roll forget the supplemented social attack. This unnatural influence may still be countered by spending two points of Willpower.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "3031d3602788c9b7",
+            "charmName": "Cobra Hypnotic Method",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "d5491ede6485b5bf"
+  },
+  "folder": "4e63ba1bd67a09e3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,69 @@
+{
+  "_id": "f3d748ff6d77abba",
+  "_key": "!items!f3d748ff6d77abba",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Elegant Bloodletting Art",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "melee",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": "Mirror (Golden Destruction Cut)",
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The controlled, elegant blows of the Abyssal Exalted bring forth great sheets of blood from their victims, transforming battlefields into impromptu artistic performances. This Charm acts as a permanent upgrade to its prerequisite, allowing the Abyssal's player to count extra successes on the attack roll three times rather than twice for the purpose of determining raw damage. A second purchase, at Melee 6+, allows extra successes to be counted four times rather than three, while a third purchase at Melee 8+ allows extra successes to be counted five times. A fourth and final purchase at Melee 9+ causes each extra success to be counted ten times for the purpose of determining raw damage. War Vermillion Plague Conscription</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1e8fbd3b53715391",
+            "charmName": "Savage Shade Style",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "f3d748ff6d77abba",
+    "mirrorId": "c1d2e3f4a5b60019"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

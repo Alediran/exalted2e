@@ -1,0 +1,64 @@
+{
+  "_id": "1a8998a6de110104",
+  "_key": "!items!1a8998a6de110104",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Restless As The Dead",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "resistance",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror (Tireless Sentinel Technique; follows)",
+      "Taint"
+    ],
+    "cost": {
+      "formula": "3m per day (2xp)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Abyssal transcends the need for sleep and experiences reality as a particularly lucid nightmare. While this Charm is active, he suffers no adverse effects from sleep deprivation besides the lost opportunity for Willpower recovery. A character can use this Charm to go without sleep for (Stamina + Resistance) days. After that, he suffers one level of unsoakable bashing damage per day without sleep, which he must heal through rest before he can activate the Charm again. An Abyssal can also make the Charm permanent as a Taint and never sleep again. He won't take damage, but he forever cuts himself off from the benefits of sleep. Doing so costs one bonus point or two experience points. New Solar Charm: Tireless Sentinel Technique (Prerequisites: None). This Charm works like its analogue, except that Solars cannot permanently abandon the need for sleep.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "willpowerRecovery": {
+      "enabled": true,
+      "event": "onDamageDealt",
+      "formula": "1"
+    },
+    "charmUid": "1a8998a6de110104",
+    "mirrorId": "a1b2c3d4e5f60008"
+  },
+  "folder": "b0b1b2b3b4b5f044",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

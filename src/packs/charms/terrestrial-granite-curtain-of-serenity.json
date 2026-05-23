@@ -1,0 +1,71 @@
+{
+  "_id": "fb7b9b51ab618990",
+  "_key": "!items!fb7b9b51ab618990",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Granite Curtain Of Serenity",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "integrity",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Leader"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A Dragon-Blood who has mastered this Charm can transform his mind and soul into unassailable towers capable of resisting all but the most potent of mind-altering powers. For the duration of a scene, the difficulty to use any supernatural effect against the Dragon-Blood that seeks to sway his emotions, control his mind or induce madness increases by the Dragon-Blood's permanent Essence. This Charm has no effect upon the Great Curse. While this version of the Charm is Earth Aspected, DragonBlooded of the Wood Aspect have access to similar Charm called Verdant Curtain of Serenity. The Wood-aspected version is identical to Granite Curtain of Serenity in all respects except that its minimum Ability is Medicine 5 and it requires Purity of Mind Method (see p. 176) as a prerequisite Charm instead of Ten-Thousand Dragons Fight as One. This is a reflexive Charm that can be used freely without the need for a Combo. It can be activated on any tick.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "63c308702144227d",
+            "charmName": "Ten-Thousand Dragons Fight as One",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "fb7b9b51ab618990"
+  },
+  "folder": "b0b1b2b3b4b5f020",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,59 @@
+{
+  "_id": "cf05f1bd355adb99",
+  "_key": "!items!cf05f1bd355adb99",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Elemental Evocation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Evocation",
+      "Merged",
+      "Shaped-Only"
+    ],
+    "cost": {
+      "formula": "10m, 1g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The raksha summons into Creation a possession that otherwise could not exist there. The form of this summoned possession is elemental in character and must be based upon the element associated with whichever Assumption of (Element) Shape Charm the raksha has active. For example, a raksha wearing the Assumption of Air Shape who summoned forth a hazard might fashion it into a lightning storm or a blizzard, while one who bore the Assumption of Wood Shape might call forth a sudden growth of ambulatory carnivorous plants.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "cf05f1bd355adb99"
+  },
+  "folder": "6dbccd37637d2988",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

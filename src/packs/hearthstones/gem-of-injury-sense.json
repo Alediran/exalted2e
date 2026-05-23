@@ -1,0 +1,27 @@
+{
+  "_id": "06807ec1b0a27cac",
+  "_key": "!items!06807ec1b0a27cac",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gem of Injury Sense",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDWOOD000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "wood",
+    "rating": 1,
+    "description": "<p>Fine, iridescent cracks run through this transparent, blue-green teardrop. The hearthstone's bearer can sense injuries or illnesses as glowing patterns overlaying the bodies of any person or animal she can see clearly. The information revealed by this stone does not provide an exact diagnosis but does tell her both the location and severity of any problem. In addition to reducing the difficulty of Medicine rolls to treat patients she examines by -1 (to a minimum of 1), the stone also allows the bearer to see at once if living allies or foes are near death. She can also tell the living from the undead in even the dimmest lighting.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

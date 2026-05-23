@@ -1,0 +1,69 @@
+{
+  "_id": "5ba58a45dfacb528",
+  "_key": "!items!5ba58a45dfacb528",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Eternal Infatuation Dance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Counterattack",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 8,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "8m"
+    },
+    "description": "<p>She flirted her way across Creation, Taking attention to imply invitation, the character is able to quickly close with those who draw her notice. This Charm may be activated in response to any social or physical attack. The martial artist vanishes in a swirl of collapsing sapphire ribbons, appearing one yard away from her attacker. In the case of long-range social attacks (such as those delivered through sorcery), the Charm's maximum allowable range of movement is (Essence x 20) miles. This action incidentally acts as a perfect dodge upon activation against physical ranged attacks of which the martial artist is aware, assuming the attack can be dodged. Subsequent ranged attacks during the remainder of the Charm's duration must be defended against normally. As long as the martial artist does not voluntarily move away from the individual whom she activated Eternal Infatuation Dance to approach, she may stay within one yard of him at all times, regardless of his movement rate or any exotic movement abilities employed. The initial movement granted by this Charm is considered a counterattack. This Charm may not be invoked more than once per action.</p>",
+    "source": "Glories of the Most High: Maidens of Destiny",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Sapphire Veil of Passion Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "5ba58a45dfacb528",
+    "grantsMastery": false
+  },
+  "folder": "05f82ed74914c6c2",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

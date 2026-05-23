@@ -1,0 +1,59 @@
+{
+  "_id": "5913b1ac6d27140a",
+  "_key": "!items!5913b1ac6d27140a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Variant of Master Lord Chaowin Registrophe, First of Heaven's Chosen Deep Cut",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Crippling",
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Roaring, the martial artist rushes forward, her eyes ablaze with Essence. As long as she inflicts at least one health level of damage, her target is automatically crippled. If the total damage comes to three or more health levels, then the rel- evant limb is completely removed. Even if Exalted, a target so injured has suffered a disabling wound (as described on p. 152 of Exalted), which will continue to inflict penalties until surgically or magically treated.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Even Blade Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "5913b1ac6d27140a"
+  },
+  "folder": "6ac2f15fc6fdff1c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

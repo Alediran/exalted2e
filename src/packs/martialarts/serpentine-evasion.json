@@ -1,0 +1,87 @@
+{
+  "_id": "ca7acae684f60057",
+  "_key": "!items!ca7acae684f60057",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Serpentine Evasion",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "motes": 3,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "3m"
+    },
+    "description": "<p>The serpent bends and weaves with utmost grace. This Charm gives the character +2 Dodge or Parry DV against a single attack.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Snake Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7f4668b46ba10ef1",
+            "charmName": "Striking Cobra Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "dvBonus": {
+      "enabled": true,
+      "dodgeBonus": 2,
+      "parryBonus": 2,
+      "ignoreAllPenalties": false,
+      "ignorePenaltyTypes": []
+    },
+    "charmUid": "ca7acae684f60057",
+    "grantsMastery": false
+  },
+  "folder": "0794fc21c581d830",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

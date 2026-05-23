@@ -1,0 +1,91 @@
+{
+  "_id": "f8144c39edd75cd0",
+  "_key": "!items!f8144c39edd75cd0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Follow The Leader",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Native",
+      "Obvious",
+      "Overdrive"
+    ],
+    "cost": {
+      "formula": "0m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>In order to impose her perfection upon the world, the Whispering Flame must first teach it how to act. When the warlock learns this Charm, she gains an Overdrive pool with a capacity of ten motes. Initially empty, she may fill it by targeting a single opponent and outlawing certain actions. Valid bans include</p><p>specific combat actions (such as Move, Dash, Jump, Attack, Defend Other, Aim, Cast Sorcery, or specific Miscellaneous Actions such as Draw/Ready Weapon or stanching bleeding), using Charms of a particular type (Extra Action, Simple, Supplemental and Reflexive are valid; Permanent Charms are not), or activating Charms with a particular Keyword (such as Poison, Knockback, Emotion, or Counterattack). The warlock signals the banned action to her target, or commands him to desist in a particular behavior, making this Charm unmistakably Obvious. Characters need not interact with the mechanical details of Exalted on the same level that players do; the warlock may relate banned actions to her opponents without being specific. \"No moving!\" would suffice to communicate that she has banned the Move Action, whereas, \"You will cease in such petty behavior!\" would allow her to communicate, in an Obvious fashion, the fact that she has banned a certain type of Charm. The outlawed action should be communicated between players using the technical language of Exalted. Players are the final arbiters of how their characters translate these details to one another. The Infernal gains a single offensive mote the first time during a particular target's action that they engage in the forbidden action. She may target up to her (Essence rating) different individuals with Follow the Leader, but none may share the same ban. The warlock may change the nature of an individual's ban once per action, on her action tick. However, the warlock must also abide by the full index of actions she has banned. If she has forbidden one individual from taking Dash actions and another from using Counterattacks, she is banned from Dashing and Counterattacking. The first time during each action that she violates a particular ban, the Infernal loses a number of offensive motes equal to the number of actions she has currently banned. Outlawed actions disappear from her index at the end of the scene. She may also lift the ban on all or some of the actions she has banned by using this Charm on her action tick. Lease the Flame</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4148837b1b09d931",
+            "charmName": "Chirality Prohibition Index",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "First She Who Lives in Her Name Excellency",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "statusApply": {
+      "enabled": true,
+      "status": "Knockback",
+      "resistPool": "@sta + @athletics",
+      "onFail": "applyKnockback"
+    },
+    "charmUid": "f8144c39edd75cd0"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

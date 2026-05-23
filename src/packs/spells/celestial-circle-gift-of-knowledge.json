@@ -1,0 +1,37 @@
+{
+  "_id": "1aab9526a404d8ed",
+  "_key": "!items!1aab9526a404d8ed",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gift of Knowledge",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "celestial-circle-gift-of-knowledge",
+    "tradition": "sorcery",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 25,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "permanent",
+    "target": "Touched creature",
+    "description": "<p>This spell directly transfers knowledge from the sorcerer to the subject through an hour-long ritual during which both must remain in continuous physical contact. The sorcerer enters a deep trance as small points of light flow from caster to target. The spell can impart a specific memory, or provide full mechanical understanding of a trait — Attributes, Abilities, specialties, spells, Charms, or Combos. Using this spell eliminates all training time for the chosen trait, as long as the caster's rating in that trait exceeds the subject's. The subject must still pay the experience point cost; only one dot of any trait may be transferred per casting. Essence cannot be affected. The spell cannot grant access to traits otherwise unavailable to the subject: a mortal cannot learn Celestial Circle spells, and a Dragon-Blood cannot learn Sidereal Charms.</p>"
+  },
+  "folder": "dcf06d83a3d0a4be",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

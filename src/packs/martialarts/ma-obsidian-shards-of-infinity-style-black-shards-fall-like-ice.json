@@ -1,0 +1,58 @@
+{
+  "_id": "8eaacdbf0b4566da",
+  "_key": "!items!8eaacdbf0b4566da",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Black Shards Fall Like Ice",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "10m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>...who broke her mirror, and dropped the pieces to the ground. With a shout, a step and a ringing clap, the martial artist calls forth a rain of sharpened glass. Her player rolls (Dexterity + Martial Arts) to target the attack. For an area (Essence x 5) yards in radius, obsidian fragments slice down, causing a base 15L piercing damage to everyone caught there. This area need not be centered on the Sidereal, (in fact it had better not be because the Charm grants no immunity to its own effects), but it cannot be farther away than (Essence x 25) yards. The falling shards cannot be parried except by Charms that grant a perfect parry defense. The Sidereal's attack can be dodged, however, and a Charm that can remove the evading character from the Charm's area as he dodges--Leaping Dodge Method, for example--adds three to the character's Dodge DV since he spends less time in the deadly rain. Undodged successes from the attack roll add to the attack's damage as normal.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Obsidian Shards of Infinity Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "8eaacdbf0b4566da"
+  },
+  "folder": "87a660847a455039",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,58 @@
+{
+  "_id": "fbe6df5ded781190",
+  "_key": "!items!fbe6df5ded781190",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "First (grace) Excellency",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "1m per die",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Excellency permits a raksha to augment the traits by which he defines himself for purposes of facilitating a shaping action or defending against one. There are five of these Excellencies--one for each of the four Graces associated with shaping actions and one associated with the Heart Grace, which is used for defensive purposes. When a raksha's player makes a shaping combat roll, he can have the raksha activate the First Excellency associated with the Grace that governs that type of shaping combat (Cup-, Ring-, Staff- or Sword-shaping). This Charm adds one die to the shaping roll per mote spent. The raksha cannot spend more motes on this Charm than (the relevant Grace + Essence). The raksha's player can also add dice to a Join Shaping Battle roll if the raksha has the First Grace Excellency appropriate to his feeding Grace (or Graces). If the raksha wishes to improve his parry defense to a shaping attack, he can also use the First (Grace) Excellency. For every mote spent (up to the maximum of [Grace + Essence]), the raksha's player rolls one die. Each success on this reflexive roll adds one to the raksha's Parry Shaping DV against the incoming shaping attack. The First Heart Excellency works differently. For every mote spent (up to the maximum of the Heart Grace), the raksha's player rolls one die, with each success adding one to the raksha's Dodge Shaping DV. A raksha with the First Heart Excellency can also use it to increase his shaping soak. For every mote spent (up to the maximum of the Grace), the raksha's player rolls one die, with each success adding one to the raksha's shaping soak. A raksha can freely place Charms of the First and Second Excellencies together into a Combo, even Excellencies related to different Graces. No combination of Excellencies (or any other type of Charm), however, can allow a raksha to increase a shaping action dice pool by more than his (relevant Grace + Essence). Also, a raksha can never place more than one Heart Excellency into a Combo. Finally, a raksha can never put a Third Excellency of any type into a Combo with either a First or Second Excellency. A raksha can activate as many Mutation Charms as he can afford simultaneously with an Assumption Charm without the need for a Combo. Combos otherwise follow the rules outlined on pages 244­247 of Exalted.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "fbe6df5ded781190"
+  },
+  "folder": "6dbccd37637d2988",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,73 @@
+{
+  "_id": "4be086932c75c92d",
+  "_key": "!items!4be086932c75c92d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sands Through Fingers Defense",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "8m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>It is the nature of Cecelyne that she borders infinity. No attack can encompass the wholeness of her being, and therefore, no attack can truly hit her. This Charm is a perfect dodge against physical attacks. It can evade undodgeable but not unexpected attacks. As the attack should connect, it merely knocks a random spray of sand from the character's body as she dematerializes and rematerializes around it. Accordingly, attacks that can strike incorporeal beings may not be dodged this way, and the Charm is also vulnerable to the Imperfection of the Endless Desert. It is possible to use this Charm even in realms that do not normally permit dematerializing.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "cecelyne",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "dodge",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f9b13ab624f48a8d",
+            "charmName": "Transcendent Desert Creature",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "4be086932c75c92d"
+  },
+  "folder": "d852ccb3960d271d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

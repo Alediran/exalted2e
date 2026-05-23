@@ -1,0 +1,82 @@
+{
+  "_id": "5d1af1bc70f1304b",
+  "_key": "!items!5d1af1bc70f1304b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Table-Turning Reversal",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      9
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Counterattack",
+      "Emotion"
+    ],
+    "cost": {
+      "motes": 6,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "6m"
+    },
+    "description": "<p>Only a coward would use a weapon to strike down an unarmed man. All Creation rejoices to see a bully given a dose of his own medicine, and the martial artist is the one to do it. This Charm is activated in response to an attack; regardless of whether the attack succeeds, the martial artist may launch a counterattack. This counterattack is a standard disarm attempt (see Exalted, p.158), save that rather than knocking the opponent's weapon away, the martial artist steals and reflexively equips it. If the counterattack succeeds, he may treat the pilfered weapon as though it were an unarmed attack for the purpose of all Black Claw style Charms then for the rest of the scene or until the weapon leaves his grasp, whichever comes first. Weapons made entirely of Essence and attuned artifact weapons are not valid targets for this Charm.</p><p>Additionally, all characters who witness a successful disarm performed with this Charm treat the sight as a scene of work toward building a positive Intimacy for the martial artist. The emotional context of this Intimacy is chosen by the observer's player. This unnatural mental influence costs one Willpower to resist. Outrage-Kindling Cry</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Black Claw Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "bc22374701ca0547",
+            "charmName": "Black Claw Form",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "5d1af1bc70f1304b",
+    "grantsMastery": false
+  },
+  "folder": "03b3e5be01a6c1af",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

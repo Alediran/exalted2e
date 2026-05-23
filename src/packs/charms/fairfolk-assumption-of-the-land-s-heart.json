@@ -1,0 +1,60 @@
+{
+  "_id": "8fde3ec1d1cd2c0b",
+  "_key": "!items!8fde3ec1d1cd2c0b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Assumption of the Land's Heart",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Assumption",
+      "Glamour (2)",
+      "Mutation (2)",
+      "ShapedOnly"
+    ],
+    "cost": {
+      "formula": "10m, 2g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm allows the raksha to transform himself into a subtle Wyld taint that infects an entire region of Creation. When activated as an Assumption Charm (at a cost of 10 motes and two gossamer), the raksha distills his being into a small physical object that contains his Heart Grace. The object can then be transported into Creation by another, and while there, the Heart Grace can perform a series of preprogrammed glamour effects that can affect everyone within the region covered by the taint. For example, the Heart Grace might be programmed to maintain the Fearsome Mien Charm (see p. 214) to perpetually frighten away everyone in the area or the Beguilement Charm (see pp. 206-207) to maintain a specific delusion among the inhabitants of the region. The raksha must know the Charm to be incorporated into the Heart Grace's programming and must pay any necessary costs to incorporate such Charms into the Assumption. The area that can be affected by the Heart Grace is a small area, such as a tiny village of up to 25 people in size. The raksha's entire Essence diffuses across the affected area, and any rolls made by the Heart Grace apply against every valid target within that area. While the Assumption endures, the raksha himself exists as an immaterial spirit-like being diffused across the affected area. He cannot be perceived or harmed except through appropriate magical powers. The disadvantage of using this Charm is that, while the raksha is immaterial and separated from his Heart Grace, he is devoid of self-motivation. The raksha cannot spend Willpower, nor can he initiate any action other than to protect himself, to answer questions put to him or to perform rote tasks. He cannot initiate any new actions. A raksha who activates this Assumption Charm and another one simultaneously can maintain a separate physical form. While wearing that form, the raksha still cannot spend Willpower but otherwise suffers none of the normal penalties of Assumption of the Land's Heart. Detecting a Wyld taint on an area requires a successful difficulty 3 (Perception + Occult) roll. Actually finding the hidden Heart Grace requires a successful difficulty 5 (Perception + Occult) roll. Charms such as All-Encompassing Sorcerer's Sight (see Exalted, p. 222) allow automatic success on such rolls. In addition to its benefits as an Assumption Charm, Assumption of the Land's Heart can be used as a Mutation Charm. By spending two gossamer in conjunction with a different Assumption Charm, the raksha gains the following innate power: Innate Power (Cost: 10m, 1wp): This power allows the raksha to gain the benefits of the Assumption aspect of this Charm even if he did not spend the full cost before entering Creation. In this way, the raksha can travel to the area he seeks to taint and inflict the effects of Assumption of the Land's Heart on it without the need for a third party to carry his Heart Grace to the desired area. This innate power, once activated, otherwise functions exactly like the Assumption Charm. Glamour Resistance: None. Creatures within the affected area resist preprogrammed glamour effects as normal for each effect. Oneiromancy Benefit: Usually incorporated into a higher level oneiromancy spell along with Assumption of (Element) Shape, this Charm allows the spell to affect mortals in a large area that fits within the normal range parameters of the Charm.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "8fde3ec1d1cd2c0b"
+  },
+  "folder": "6dbccd37637d2988",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "2ef0fad164d23c9d",
+  "_key": "!items!2ef0fad164d23c9d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Veil of Fathomless Wickedness",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Created by the Lintha to help them move unnoticed through Exalted-controlled lands, these infernal artifacts take many forms from literal veils and masks to more innocuous jewelry items such as rings and pendants. Any creature of darkness donning such an item may spend one Willpower point (or three uncommitted motes) to power it for a day, thereby cloaking her unholy nature. For the duration of the enchantment, the character has Essence 1, no Essence pool and no access to Essencefueled powers. Her body also changes any extremely minor cosmetic features such as skin tone to fit within human norms and appears completely mortal to all known forms of Essence detection. Since the tainted Essence that defines the bearer as a creature of darkness is actually suppressed, that label does not apply for the duration, and the veil can't be contested by effects that pierce illusions (although perfect truth effects such as Eye of the Unconquered Sun are not deceived). If the bearer travels more than a yard from the veil or voluntarily terminates its power, the enchantment collapses and the artifact cannot be reactivated for the rest of the day. Of the original continental mass of Lintha Ng Oroo, only half-sunken T'foor Na remains, so choked with Kimbery's curses and sorcerous hate that even the victorious Exalted thought it wiser to leave the empty city alone than waste resources dismantling its rotting foundations. Nowadays, the former capital is a wasteland of blasphemies that fouls the waters around its organic spires, a haven for Lintha and other infernalists who wish to pay homage to the captive Primordials. Admiral Leviathan keeps a strike force under his command in the vicinity of the islands, using the city as a lure to attract and annihilate the infernal pilgrims en masse. Nonetheless, they continue to come from every corner of Creation no matter how many bodies the Exalted leave impaled on the beaches or shattered hulls they send to the merciless depths. The admiral has to rotate crews for the strike force each season to maintain morale. The ruins of T'foor Na are located to the far west of An-Teng near the borders of the Wyld, as the continent of Lintha Ng Oroo originally dwelled beyond the border of Creation in a pocket of stable reality sustained by her Great Mother.</p>",
+    "source": "Dreams of the First Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,71 @@
+{
+  "_id": "13dafff7cf599b5e",
+  "_key": "!items!13dafff7cf599b5e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Perfect Reckoning Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "sail",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Echo"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Lawgivers find their way through the most terrible seas. This Charm is a dramatic action to guide the ship toward its destination. The Solar must be on board and authorized to navigate. The ship travels on course at its maximum speed until something--sleep, combat or the need to focus on other matters--distracts the character and causes her to take another action. The Solar's player automatically succeeds at any valid Sail roll made for the character to find her way around known hazards to a given destination--though she must have enough information to make this a valid roll. STORM-WEATHERING ESSENCE INFUSION Cost: 6m, 1wp; Mins: Sail 4, Essence 2; Type: Reflexive (Step 1) Keywords: Combo-OK Duration: One scene</p><p>Prerequisite Charms: Any Sail Excellency Solar heroes can sail into the teeth of a storm. This Charm makes sure that a ship and crew survives a storm, maze of reefs, whirlpool or other hazard. The Solar must be on board and authorized to direct the crew. The Solar and the ship's crew receive two bonus successes on every action that directly serves the survival of the ship--whether repelling a unit of aquatic Fair Folk, patching the ship's side before it sinks or taking a simplified dramatic action to bypass a less interesting hazard.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "13dafff7cf599b5e"
+  },
+  "folder": "dca02b4134c59583",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

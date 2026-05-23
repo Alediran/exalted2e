@@ -1,0 +1,37 @@
+{
+  "_id": "c2ed2dd1e88fff64",
+  "_key": "!items!c2ed2dd1e88fff64",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Pyre-flame Guardian",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "void-circle-pyre-flame-guardian",
+    "tradition": "necromancy",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 50,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "one hour",
+    "target": "Caster",
+    "description": "<p>The caster must possess and swallow a soulsteel vial--one the size of a pinky finger joint--that contains pyre flame. Once she performs that action and finishes the spell's casting, the necromancer swells to twice her normal size. The screams of a dozen random and unlucky ghosts in the Underworld resound around her. Each shrieking ghost is instantly shaped into soulsteel that fuses to the caster's skin, face, hair and eyes. Once she is protected, the caster's skin bursts into a sickly green bonfire of pyre flame. Her new skin gives the character +15L/+15B soak and 12 Hardness. She adds to her Strength rating a value equal to her Essence, and the corrosive flame that engulfs her inflicts three dice of aggravated damage on anyone foolish enough to attack her barehanded. Foes who strike her with a weapon not forged of a magical material end up with weapons burning in their hands, soon to be consumed. Even the mightiest artifact weapons of the Exalted become dangerous, because even though they burn slowly, they can carry the flame to other targets. A character who continues to wield a weapon after it has been smeared with the sticky fire suffers its basic environmental damage unless he wears gauntlets of the magical materials or is otherwise immune to pyre flame, at least until he scrapes it off (see sidebar). Victims of the necromancer's barehanded attacks are likewise afflicted with the touch of the pyre flame. As an attack action, the character can vomit a sticky wad of furiously burning pyre flame at her enemies, using a (Dexterity + Thrown) dice pool. This projectile inflicts six levels of aggravated damage, plus extra successes, and it cannot be parried. Where the green balls of flame land, they leave circles or streaks of green fire. These flames are likely to kill extras before they can hope to scrape off the flames. The spell ends either when the caster chooses, when someone targets it with Obsidian Countermagic, or when one hour has passed in the Underworld. The spell's end causes the necromancer's soulsteel skin to explode off of her. Thousands of fragments PYRE-FLAME GUARDIAN Name Speed Accuracy Damage Rate Pyre Flame Ball 5 +(Essence) +6A Range 20 of shrieking black shrapnel coated in green flame fill the area around her, inflicting five levels or lethal damage and two levels of aggravated damage to all viable targets within 30 yards. Only perfect defenses can block or evade this debris.</p>"
+  },
+  "folder": "447f6cc1520ba234",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

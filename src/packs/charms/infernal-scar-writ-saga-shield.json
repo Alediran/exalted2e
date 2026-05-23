@@ -1,0 +1,68 @@
+{
+  "_id": "e5121559821a45e8",
+  "_key": "!items!e5121559821a45e8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Scar-Writ Saga Shield",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Malfeas does not quietly accept his tortured inversion, but builds up calloused layers and folds them in a vain attempt to seal his wounds and inoculate against future injury. Such efforts cannot achieve their goal, but incidentally toughen the Demon City further. The first purchase of this Charm raises the character's natural lethal soak to her Stamina rating (rather than half) and gives her bashing Hardness equal to her Stamina. The second purchase of Scar-Writ Saga Shield requires Essence 3+ and adds the character's Essence rating to her natural bashing and lethal soak. Her Hardness remains unaffected. An Infernal needs Essence 4+ to buy this Charm a third time, at which point her natural bashing and lethal Hardness increase to match her natural soak. Additionally, attackers with a permanent Essence at least four dots less than the Infernal can no longer inflict minimum damage to her with their attacks if they fail to penetrate her soak.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "malfeas",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "2052ce893e5b1740",
+            "charmName": "By Pain Reforged",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "e5121559821a45e8"
+  },
+  "folder": "1945ba1655ca5f6f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

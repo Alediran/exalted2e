@@ -1,0 +1,58 @@
+{
+  "_id": "b2a6e5b8d9d2d11e",
+  "_key": "!items!b2a6e5b8d9d2d11e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Western Shield Crush Counterattack",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Counterattack"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>If the martial artist's opponent makes an unsuccessful attack, the martial artist makes a reflexive counterattack with her shield, knocking her foe to the ground. The speardancer's player rolls her character's (Dexterity + Martial Arts) reflexively. The martial artist's target can defend against this action normally, but he cannot use a counterattack of his own against this counterattack. If the martial artist's roll succeeds, her target crashes to the dirt and must fight prone (suffering a -2 internal penalty) until he takes an action to get back to his feet. If the speardancer scores more successes than her target's (Strength + Essence) total, the target is knocked flat and winded and prone. The target suffers a -2 internal penalty for fighting prone and another -2 internal penalty for being stunned. Even worse, the target's player must make a reflexive (Wits + weapon-related Ability) roll and score as many successes as the martial artist has dots of Essence. If this roll fails, the character is disarmed (and winded and prone). Make the reflexive roll before applying the penalties. The martial artist may attempt as many Western Shield Crush Counterattacks from one action to the next as she can afford to pay for, one counterattack per attack upon her. As usual, however, a character cannot use this Charm in response to any counterattack Charm.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Crimson Pentacle Blade Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "b2a6e5b8d9d2d11e"
+  },
+  "folder": "dd43fd817c3c8fc1",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

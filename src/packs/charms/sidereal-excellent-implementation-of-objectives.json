@@ -1,0 +1,57 @@
+{
+  "_id": "11a0fae7b7f2e5ee",
+  "_key": "!items!11a0fae7b7f2e5ee",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Excellent Implementation Of Objectives",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "craft",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Superb works of magical or mundane craftsmanship can become tools of destiny in the right hands. With this Charm, the Sidereal craftsman makes it apparent that destiny simply cannot wait for the object he's putting together. As a result, circumstances conspire so the Sidereal finishes his work in a fraction of the time such artifice would normally take. Divide the amount of time a Craft project would normally take by an amount equal to the character's Essence.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "11a0fae7b7f2e5ee"
+  },
+  "folder": "b0b1b2b3b4b5f005",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

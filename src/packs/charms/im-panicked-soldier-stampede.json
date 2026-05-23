@@ -1,0 +1,58 @@
+{
+  "_id": "4331926efe5107df",
+  "_key": "!items!4331926efe5107df",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Panicked Soldier Stampede",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "martial-arts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious",
+      "War"
+    ],
+    "cost": {
+      "formula": "--(+1wp)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Soldiers train to fight other soldiers, not Things That Must Not Be. This Charm permanently improves its prerequisite. By spending an additional Willpower to activate Post-Traumatic Brutality Roar, the scream also induces a rout check in all units successfully penalized by it. This check is made at a +2 difficulty modifier. With Essence 6-7, the rout difficulty modifier rises to +3. It jumps to +4 at Essence 8-10. Rank-Paralyzing Horror Infliction</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "4331926efe5107df"
+  },
+  "folder": "a1b2c3d4e5f60006",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,70 @@
+{
+  "_id": "db2834e6e720a1ad",
+  "_key": "!items!db2834e6e720a1ad",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Golden Savant's Largess",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "lore",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "None"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm permanently enhances PowerAwarding Prana in the following ways: While the Charm's invocation cost remains unchanged, only five motes must now be committed to maintain its effect. Additionally, it may be applied to any unExalted human (although they are still restricted to learning Charms with an Essence minimum no higher than 2). Those who already possess an Essence rating of 2 and/or an Essence pool of 15 motes or more do not receive any additional upgrades to those traits. MEDICINE</p>",
+    "source": "Glories of the Most High: Unconquered Sun",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e05466bf41b9253d",
+            "charmName": "Power-Awarding Prana",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "db2834e6e720a1ad"
+  },
+  "folder": "5b0108cbcf2feaf4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

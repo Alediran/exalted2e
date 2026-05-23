@@ -1,0 +1,58 @@
+{
+  "_id": "ae0142567ea3ff20",
+  "_key": "!items!ae0142567ea3ff20",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ordained Talon of Draconic Fury",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "melee",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Elemental",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "None (1m to draw)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A proper Terrestrial swordsman attains intimate awareness of her favored artifact weapon long before she achieves superhuman mastery. With this Charm, a jade weapon's least god becomes a component of its master's soul, forging permanent attunement without committed motes. Thereafter, the weapon cannot be harmed by any force as long as its owner lives, nor may others attune to or wield it without botching each action taken with it. While the proper character wields it with Melee (or Martial Arts, if it's designed for such use), the weapon glows sun-bright with all benefits of a weapon</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "ae0142567ea3ff20"
+  },
+  "folder": "b0b1b2b3b4b5f027",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

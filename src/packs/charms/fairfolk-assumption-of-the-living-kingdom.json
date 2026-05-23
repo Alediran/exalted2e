@@ -1,0 +1,60 @@
+{
+  "_id": "f4baa608a87d9795",
+  "_key": "!items!f4baa608a87d9795",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Assumption of the Living Kingdom",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Assumption",
+      "Glamour (6)",
+      "Mutation (6)",
+      "ShapedOnly"
+    ],
+    "cost": {
+      "formula": "15m, 1wp, 6g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>As per Assumption of the Land's Heart except that the taint affects a much larger area--a small kingdom capable of supporting up to 100,000 people. If the raksha invokes both this Charm and Assumption of the Land's Heart, she can establish a place of great power. Within the small village-sized area that is the locus for her Heart, the raksha can commune with that Heart. The raksha can take self-directed actions. She cannot choose to spend Willpower, but she can attempt to persuade her Heart Grace to do so. Oneiromancy Benefit: As per Assumption of the Land's Heart.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f4baa608a87d9795"
+  },
+  "folder": "6dbccd37637d2988",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

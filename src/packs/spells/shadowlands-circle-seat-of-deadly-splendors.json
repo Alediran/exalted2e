@@ -1,0 +1,37 @@
+{
+  "_id": "ebddfbbd90dc2180",
+  "_key": "!items!ebddfbbd90dc2180",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Seat of Deadly Splendors",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "shadowlands-circle-seat-of-deadly-splendors",
+    "tradition": "necromancy",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 15,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "one hour",
+    "target": "Caster",
+    "description": "<p>The necromancer lets a drop of Essence-charged blood fall from her finger to the ground while she speaks the secret names of Stygia's monarchs. The ground shakes, and an enormous, skeletal fist bursts forth. Fingers uncurl to reveal jagged claws and the palm reclines until it is supine--the caster may then take her seat in the hand of a long-dead giant, beneath its niter-stained talons. While sitting there, the character's player adds two dice to all rolls involving intimidation, persuasion or perceiving true motives or lies. She can also see dematerialized ghosts as though they were material. Increase the spell's bonuses to three dice when directed at ghosts. These magical effects last one hour, but the skeletal throne remains until someone cuts it down (treat as a stone statue, per the table on p. 154 of Exalted) and removes it. If the throne should be destroyed before the hour is up, the magic ends. Finally, the bone fist can be summoned only from the earth. A building's second story, a ship's deck and other such locales are exempt.</p>"
+  },
+  "folder": "9a7bd83d0a359e00",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

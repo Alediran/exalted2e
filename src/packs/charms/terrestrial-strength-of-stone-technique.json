@@ -1,0 +1,63 @@
+{
+  "_id": "a393f478550058c8",
+  "_key": "!items!a393f478550058c8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Strength of Stone Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "resistance",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Elemental"
+    ],
+    "cost": {
+      "formula": "2m per person",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood draws on elemental earth essence to harden her body against blows, shrugging off impacts that would stagger a mortal. Activated in Step 7 of the attack sequence, this Charm adds the character's Stamina to her natural soak against a single attack. Earth Aspects may choose instead to add one to their Hardness against the triggering attack. This Charm's soak bonus does not stack with other Charms that add directly to soak dice.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "a393f478550058c8",
+    "soakBonus": {
+      "enabled": true,
+      "bashingFormula": "@sta",
+      "lethalFormula": "@sta"
+    }
+  },
+  "folder": "b0b1b2b3b4b5f02b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

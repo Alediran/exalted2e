@@ -1,0 +1,55 @@
+{
+  "_id": "227043ab89d8ca99",
+  "_key": "!items!227043ab89d8ca99",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Subsidiary Personality Implant",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "survival",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "-- [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Duration: Permanent Prerequisite Charms: Identity Recalibration Signal This Charm expands its prerequisite, adding the following option to the list of actions the Alchemical may take while modifying a victim: Hidden Self: The Alchemical may design a new Motivation and suite of Intimacies, then implant them subliminally into her victim. This new personality will emerge for the duration of one scene at some point in the future, replacing the victim's real Motivation and Intimacies in response to a pre-set stimulus. Examples of potential stimuli include sunrise on the first day of Calibration, when you receive orders to attack the Lap and upon hearing someone ask if it snows often in the summer. The victim must be aware of a stimulus in order to react to it. In the preceding example, the effect would not trigger at dawn on the first day of Calibration if the victim were locked in a lightless oubliette without a calendar. It takes one action to design the new personality, one to set an appropriate trigger and one to implant it. Victims have an opportunity to spend four Willpower to resist the effect when it triggers.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "227043ab89d8ca99"
+  },
+  "folder": "a1b2c3d4e5f60007",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

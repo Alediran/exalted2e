@@ -1,0 +1,59 @@
+{
+  "_id": "58ca04a8cbcd4825",
+  "_key": "!items!58ca04a8cbcd4825",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Reflex Sidestep Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "dodge",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The heroes of the dawn are in tune with the Essence of the world. The Exalt invokes this Charm in response to an unexpected attack. The attack is no longer unexpected (but if an appropriate Charm, it remains unblockable). This allows the character to use his Dodge DV and Charms such as Seven Shadow Evasion against the attack.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "58ca04a8cbcd4825"
+  },
+  "folder": "b4b556393b53edae",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

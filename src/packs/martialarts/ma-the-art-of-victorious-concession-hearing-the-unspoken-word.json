@@ -1,0 +1,57 @@
+{
+  "_id": "2ab1d4c2092bc15b",
+  "_key": "!items!2ab1d4c2092bc15b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hearing the Unspoken Word",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Even a beginning debater of Compassion knows how to empathize with her opponents and get a feel for the state of the argument. She can discern where others stand on certain matters and how they will act, sometimes even before they do. The martial artist can sense people in her vicinity. Anyone within a radius of ([Compassion + Essence] x 5) yards cannot hide from her and cannot surprise or ambush her. She is considered aware of all entities and attacks from anyone within that range. This awareness does not give the martial artist the ability to maneuver without sight, though, as the character cannot detect walls, hidden pits and the like through this Charm. Likewise, this Charm cannot detect any creature without true sentience or with a Compassion rating of 0 (such as undead or automata). A character can use Hearing the Unspoken Word to track people outside of battle, but it is hard to distinguish between targets using only strength of empathy or desire as a measure. Only those of great Virtue (4 or more in Compassion or Conviction) or of passionate mind stand out easily from a crowd. Her supernatural sense also enables a practitioner to guess how people will act. When performing a Join Battle action, this Charm gives her two extra dice. Outside of battle, the martial artist's uncanny ability to discern what people have in mind reduces the difficulty of rolls to read motivation by one, and the Exalt's tendency to see through fronts and deceptions often unnerves those with whom she interacts.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Victorious Concession",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "2ab1d4c2092bc15b"
+  },
+  "folder": "fd11958743cc8ca7",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

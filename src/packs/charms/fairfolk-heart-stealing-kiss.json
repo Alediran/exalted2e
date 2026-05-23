@@ -1,0 +1,62 @@
+{
+  "_id": "26d428c02644f0d0",
+  "_key": "!items!26d428c02644f0d0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Heart-stealing Kiss",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "cup",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Glamour (3)",
+      "Native",
+      "Shaped-Only",
+      "Shaping",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "3m, 1wp, 1g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm permits the raksha to ravish a non-consenting Creation-born with just a touch. The raksha must successfully touch the victim, which might require a (Dexterity + Martial Arts) roll against an unwilling victim. The raksha's player may then roll a number of dice equal to her character's feeding Grace. The roll inflicts no damage, but instead, reduces either the target's permanent Willpower or the target's relevant Virtue (the player's choice) by one point per success. For each point that is stripped away in this manner, the raksha regains two motes of temporary Essence. Unlike the permanent effects of Ravishing the Created Form, Virtue or Willpower dots lost via this Charm return at a rate of one dot per day. Glamour Resistance: This Charm is a work of glamour. The raksha who uses it cannot feed from creatures whose (targeted trait + Essence) exceeds the raksha's Presence. Additionally, any attempt to drain the Virtues of an Exalt below the minimum imposed by the Great Curse will automatically fail.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "26d428c02644f0d0"
+  },
+  "folder": "d5d33b95962cd83e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,17 @@
+{
+  "_id": "e722a234b56c78aa",
+  "_key": "!items!e722a234b56c78aa",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Sling of Deadly Prowess",
+  "type": "weapon",
+  "img": "icons/weapons/thrown/sling-leather.webp",
+  "system": {
+    "modes": [
+      { "name": "", "speed": 5, "accuracy": 2, "damage": 4, "damageType": "lethal", "overwhelming": 1, "defense": 0, "rate": 2, "range": 150, "minStrength": 1, "minDexterity": 2, "minMartialArts": 0, "tags": [] }
+    ],
+    "artifact": true, "magicalMaterial": "", "attunementCost": 3, "attuned": false,
+    "artifactRating": 1, "hearthstoneSlots": 0,
+    "description": "", "equipped": false
+  },
+  "folder": "f004a234b56c78a0", "sort": 0, "ownership": { "default": 0 }, "flags": {}, "effects": []
+}

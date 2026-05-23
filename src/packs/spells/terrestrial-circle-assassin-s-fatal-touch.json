@@ -1,0 +1,37 @@
+{
+  "_id": "a51e9fc0ea5407af",
+  "_key": "!items!a51e9fc0ea5407af",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Assassin's Fatal Touch",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-assassin-s-fatal-touch",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 20,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Touched creature",
+    "description": "<p>The sorcerer renders her touch deadly to one selected victim. To cast this spell, the sorcerer must first make skin contact with either her intended victim or some small object the victim touched in the last hour, such as an article of clothing or jewelry. Shaping this spell is a dramatic action that takes 15 minutes. After the spell is completed, its effects linger on the sorcerer for a full day. The sorcerer thereafter must touch her victim. If successful, her player rolls (Intelligence + Medicine). Ten ticks later, the victim suffers (5 + successes) levels of aggravated damage. Mortal targets not instantly killed are knocked unconscious for (6 � target's Stamina) miscellaneous actions. This is a Poison effect and a Touch effect. The spell requires a light touch, so it cannot enhance the damage of a regular Martial Arts attack. Mortals suffer this damage automatically, but an Essence-user can resist. Roll an Essence-using victim's Essence trait when he's subject to Assassin's Fatal Touch. Success indicates he's fought it off. Even if the roll fails, though, the target subtracts his innate lethal soak from the damage inflicted. The spell has no effect against the dead, Abyssals or automata. With a normal stealth attempt (see Exalted, p. 131), the sorcerer may conceal the eponymous fatal touch so it looks accidental. Two extra successes hide the touch entirely. Either way, the spell leaves no physical evidence. The victim simply drops dead or unconscious. It leaves metaphysical traces, however, which medical thaumaturgy can detect. Diagnosing a victim of Assassin's Fatal Touch calls for a (Perception + Medicine) roll, but the investigator suffers an external penalty equal to (5 � her Occult score). The sorcerer can cast Assassin's Fatal Touch against only one creature at a time. If she casts the spell again before touching her first target, the first casting is lost.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

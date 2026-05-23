@@ -1,0 +1,58 @@
+{
+  "_id": "0bf2336914ec629a",
+  "_key": "!items!0bf2336914ec629a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Overriding Construct of Fate",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "cup",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Echo",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With this Charm, the raksha becomes a juggernaut of narrative power, who can force her way through the strongest defenses and compel a target to submit to her story. By spending three motes as part of a Cup- or Staff-shaping attack, the raksha can make her attack unblockable. Also, if the attack is successful and the raksha so desires, the force of her attack can knock the opponent out of the current milieu and into any adjacent waypoint. In addition, if a raksha who knows this Charm also knows the Beguilement Charm (see pp. 206-207), she can spend one additional gossamer when using that Charm against a being of Creation. Doing so renders that being's Dodge MDV inapplicable and forces him to rely on his Parry MDV.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "0bf2336914ec629a"
+  },
+  "folder": "d5d33b95962cd83e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

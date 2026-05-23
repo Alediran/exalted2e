@@ -1,0 +1,73 @@
+{
+  "_id": "3e166b5797dee739",
+  "_key": "!items!3e166b5797dee739",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Life Without Compunction",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "socialize",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Emotion",
+      "Social",
+      "Virtue (Temperance)"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>If a character commits a social faux pas or otherwise violates some cultural taboo, a Sidereal can use this Charm to mitigate the social backlash. She can do so either for herself, or on someone else's behalf. Activating the Charm requires a successful (Manipulation + Socialize) roll. With one success, people no longer care about the social infraction. With three successes, not only do people refuse to hold the infraction against the person who committed it, but they either consider the behavior acceptable under the circumstances or hail the violator as a charming rogue. With five or more successes, acceptance of the behavior becomes part of the community's Policy for the rest of the story. Later, people regain their senses.</p><p>This Charm won't necessarily save the perpetrator from the legal repercussions of breaking laws, only from the way other people might regard him. This Charm permits a special form of dodging in social combat: when the character comes under social attack, she says something outrageously offensive about her attacker, and activates this Charm. With one success, she distracts onlookers from the social attack and doesn't have to answer her attacker's argument. With three, she pulls the sympathy of any onlookers to her side.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "2bde1c6a7365edbb",
+            "charmName": "Shun the Smiling Lady",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "3e166b5797dee739"
+  },
+  "folder": "b0b1b2b3b4b5f015",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

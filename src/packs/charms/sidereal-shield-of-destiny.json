@@ -1,0 +1,72 @@
+{
+  "_id": "0a8a434ab2d1453a",
+  "_key": "!items!0a8a434ab2d1453a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shield Of Destiny",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "resistance",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      8
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "3m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal snares his opponents' fates in combat and uses them to safeguard his own. If an attack should damage the Sidereal while he is thus defended, that damage transfers to one of the opponents whose fate the Sidereal has ensnared. The Sidereal's player may activate this Charm after damage for a successful attack is rolled, but before it is applied. The player rolls (Dexterity + Resistance). For every two successes this roll garners--up to a maximum equal to the levels of damage the attack actually inflicted--the player subtracts one health level from the damage the Sidereal should take and inflicts it instead on his attacker or one of his attacker's present allies. This transferred damage cannot be dodged, parried or soaked except by powers that let a character dodge even undodgeable attacks, parry unblockable attacks or prevent all damage from attacks. If the target does so, neither the Sidereal nor the target suffers the damage. The Sidereal can transfer damage to only one target per attack. He transfers bashing damage as bashing damage, and lethal or aggravated damage as lethal damage.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "055bcb2e6c2a4193",
+            "charmName": "Someone Else's Destiny",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "0a8a434ab2d1453a"
+  },
+  "folder": "b0b1b2b3b4b5f012",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

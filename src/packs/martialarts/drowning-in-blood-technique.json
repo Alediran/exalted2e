@@ -1,0 +1,80 @@
+{
+  "_id": "fde7aeb1c13dcb52",
+  "_key": "!items!fde7aeb1c13dcb52",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Drowning-In-Blood Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 4,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Crippling",
+      "Stackable"
+    ],
+    "cost": {
+      "motes": 4,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "4m"
+    },
+    "description": "<p>The body contains a great deal of water, in the form of sweat, tears... but mostly blood. Immaculates of Water learn the secret tides of blood, and they can strike a target in such a way that it disrupts and diverts a victim's blood. By channeling it into the target's airways and lungs, an Immaculate can actually drown his foe in her own blood. After a successful Martial Arts attack, which does not damage the target, the Immaculate's player (Strength + Martial Arts) opposed by the target's (Stamina + Resistance). If the Immaculate wins, his target suffers internal bleeding and loses one dot of Stamina for a number of actions equal to the Immaculate's extra successes. Subsequent uses of the Charm are cumulative, and a target reduced to 0 Stamina is dead.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Water Dragon Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "487a6b579726361d",
+            "charmName": "Rippling Water Strike",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "fde7aeb1c13dcb52",
+    "grantsMastery": false
+  },
+  "folder": "fc9347d4223ef93b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

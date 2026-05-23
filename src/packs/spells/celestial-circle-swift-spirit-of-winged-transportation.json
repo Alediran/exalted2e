@@ -1,0 +1,37 @@
+{
+  "_id": "36b4d226cad8ebed",
+  "_key": "!items!36b4d226cad8ebed",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Swift Spirit of Winged Transportation",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "celestial-circle-swift-spirit-of-winged-transportation",
+    "tradition": "sorcery",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 25,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Vessel",
+    "description": "<p>The sorcerer stands on the target vessel or within a number of yards of it equal to his Essence. This vessel may be a ship, a wagon or even a small building. The Sign of Ten Thousand Feathers shapes his Essence into an automaton that appears as a mass of huge, feathered wings. It has no head, eyes or other features, save for a pair of gigantic, five-taloned claws. The Swift Spirit is 500 feet long and 200 feet wide, and it can carry up to 1,000 tons. Old texts call it a demon or spirit, but the thing is an automaton: It has no existence outside of its creation by this spell. The automaton lifts the vessel and presses it along its underside, creating a strange canopy of wings that protects the vessel from wind and weather. The automaton flies up to a mile high and 200 miles per hour. If the sorcerer is not aboard the vessel, he must give the swift spirit a destination when he creates the automaton. It flies off for that destination without pause. If the sorcerer is aboard the vessel, he may order the automaton to change direction and destination as he pleases. He can order it to set the vessel on land or sea or even to drop it from a great height. Only flat-bottomed vessels can land intact on dry ground; other vessels are likely to break up or fall over when set down. The largest flat-bottomed vessels appropriate for the use of this spell in Creation today are widebeamed merchant freighters. Such ships are 300 feet long, 120 feet wide and can carry up to 400 people and hundreds of tons of cargo. The automaton exists either until it reaches its destination and lands the vessel, until it is destroyed or countered, or until the sorcerer releases it. SWIFT SPIRIT OF WINGED TRANSPORTATION Motivation: To carry the vessel to its destination Attributes: Strength 55, Dexterity 5, Stamina 20; Charisma 2, Manipulation 2, Appearance 5; Perception 2, Intelligence 3, Wits 2 Virtues: Automaton: Never fails Valor checks, never makes others. Abilities: Athletics 10, Awareness 3, Dodge 4, Martial Arts 5, Resistance 10 Join Battle: 5 Attacks: Though the automaton has mighty talons, it is much too slow and awkward to use them for anything but lifting a massive vessel. Soak: 10L/20B Health Levels: -0x4/-1x6/-2x8/-4x4/Incap Dodge DV: 6 Willpower: 10 (0 against the sorcerer) Essence: 3 Other Notes: The automaton gains a +35 to all Feats of Strength that involve lifting. It also flies at 200 miles per hour (or 100 yards per tick).</p>"
+  },
+  "folder": "dcf06d83a3d0a4be",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

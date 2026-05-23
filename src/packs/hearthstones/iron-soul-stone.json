@@ -1,0 +1,27 @@
+{
+  "_id": "fb1cdbe0805a7422",
+  "_key": "!items!fb1cdbe0805a7422",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Iron Soul Stone",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDEARTH00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "earth",
+    "rating": 5,
+    "description": "<p>This smooth, rounded gray stone looks like an ordinary rock with no special properties. However, it protects its bearer and everything he wears or carries from all effects of the Wyld. It also inflicts one level of aggravated damage every 5 ticks to any Wyld-touched creature (including the Fair Folk and mortals assimilated by the Wyld) who comes within five yards of the bearer. Wyld creatures killed by this deadly power vanish in a puff of fine dust. All creatures associated with the Wyld can sense the stone's deadly cold from 15 yards away. Also, all Fair Folk within a mile instantly sense if the bearer brings this stone into any portion of the Wyld deeper than the Bordermarches. Nearby Fair Folk may attempt to destroy the stone and its bearer, drive the bearer out of the Wyld, or simply flee, as they judge their strength compared to the stone's bearer's.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

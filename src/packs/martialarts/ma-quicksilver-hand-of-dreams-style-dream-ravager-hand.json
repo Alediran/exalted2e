@@ -1,0 +1,59 @@
+{
+  "_id": "f4d76726fceeb68b",
+  "_key": "!items!f4d76726fceeb68b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dream Ravager Hand",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Compulsion",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "2m, 4m or 6m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>though she did not see him. As the martial artist's two hands sweep past his target's head, he catches her dreams or memories of dreams and pulls them forth visibly. The character attempts a normal Martial Arts attack and can pull out dreams if his (Martial Arts + Essence) exceeds his target's Dodge MDV. The Martial Arts attack does not need to inflict damage (either because of the target's soak or the martial artist's restraint) for the dream theft to take place. Waking Level (2 motes): The martial artist pulls out one of the target's dreams. On a sleeping person, this can be the dream she experiences at that moment; on a waking person, it is the memory of the person's most recent dream. Dream Ravager Hand can also pull out daydreams. The martial artist can hold the dream or place it in a dream catcher, if he has one. Losing a single dream is harmless and can even be useful, if the target wants to examine her own dreams with her waking consciousness. Unless the Exalt has a dream catcher handy, the dream vanishes back to its owner as soon as he lets it go. Dreaming Level (4 motes): The martial artist doesn't just pull out a dream; he removes his target's capacity to dream, for as many days and nights as his player scored successes on the attack roll. The target can still sleep--but without dreams, she cannot recover Willpower by doing so. The martial artist needs a dream catcher to store the stolen capacity to dream, or the target's dreams fly back to her once the martial artist himself sleeps or is otherwise forced to stop holding the stolen dreams. Gossamer Level (6 motes): The martial artist strips away the target's capacity to dream for as long as he wants to keep it, with no need for a dream catcher. Without the ability to dream, the target eventually goes mad, as with Peaceful Repose Touch, unless she receives dreams from another source (for instance, dreams granted nightly using Fervent Night Phantasm, or perhaps bought from the Fair Folk). For what it's worth, the Fair Folk cannot ravage or beguile a person who cannot dream. She searched and searched but could not find him. No longer sure whether he is in the real world or wandering in dreams, the martial artist seems to have transcended mere physicality. In the clear light of everyday reality, it seems that he is not exactly where he appeared to be. As the world grows darker or more dubious, the character seems to be in more than one place at a time. Where people cannot see the world or there's no stable reality to see, it is obvious that he is everywhere. Even if he can be seen with perfect clarity, the character may raise his Dodge DV by two while this Charm is active. The martial artist also raises his effective Dexterity by one for calculating movement rates. In a Bordermarch or in conditions where his opponents suffer poor visibility, (see Exalted, p. 135) the bonus to the martial artist's Dodge DV equals his Essence rating. He adds his Essence to his Dexterity for calculating movement rates. The player may roll to reestablish surprise as if the character had cover. Anyone trying to find him on that action doubles any visibility penalty that applies to them at that time. The martial artist himself suffers no penalties to his perception because of the lighting or environment. If a character is in a place where his enemies suffer no visibility, or in a Middlemarch, all dice pools to detect the martial artist are reduced to zero before the use of Charms or stunts. Even if a searcher gets a dice pool, she must double any visibility penalties. Searchers end the search prepared to swear that the martial artist is simply not there. If a foe does miraculously find him, her attack pool likewise drops to zero before the use of Charms and stunts, while the martial artist still adds his Essence to his DV. On the other hand, the martial artist ignores all environmental penalties to any action he takes. His player also adds his Essence to any Perception pool as automatic successes. DREAM CATCHER (ARTIFACT ·) Artifacts can be built to hold the elusive substance of dreams. Most take the form of shimmering orbs made from glass and blue jade, but they can use other magical materials or other shapes: delicate orichalcum nets within glass hoops, for example, or bags woven from fibers of glass and moonsilver. Characters need at least three dots each in Occult, Lore and Craft (Air) to construct such artifacts. Alternatively, a dream catcher can be crafted using the Gossamer Understanding Charm.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Quicksilver Hand of Dreams Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f4d76726fceeb68b"
+  },
+  "folder": "4f4566b64a919114",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

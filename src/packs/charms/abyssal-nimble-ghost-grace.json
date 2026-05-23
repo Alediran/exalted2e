@@ -1,0 +1,71 @@
+{
+  "_id": "a5cbd6992f468ca7",
+  "_key": "!items!a5cbd6992f468ca7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Nimble Ghost Grace",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "athletics",
+    "ability": "",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 3,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Mirror"
+    ],
+    "cost": {
+      "formula": "7m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>At Athletics 6+, Essence 6+ the Solar may add a point of Willpower to the Charm's cost, permitting it to also destroy magical artifacts. This renders the Charm Simple, with a Speed of (Artifact's dot rating) minutes and a DV penalty of -3. N/A artifacts are immune to this Charm, as are objects which are specifically noted as being indestructible.</p>",
+    "source": "Scroll of Errata",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "9c6f7f2204dbe46d",
+            "charmName": "Raiton's Nimble Perch",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a5cbd6992f468ca7"
+  },
+  "folder": "b0b1b2b3b4b5f034",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

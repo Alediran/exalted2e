@@ -1,0 +1,77 @@
+{
+  "_id": "b8414c2685d0455d",
+  "_key": "!items!b8414c2685d0455d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Light-Etched Interceptor Barrier",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "dexterity",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm's outer appearance depends on the prerequisite upon which it builds. When attached to external plating, it takes the form of a bulky gauntlet around one of the Alchemical's wrists. For internal assemblies, a spiral pattern appears to have been seared into the back of the Exalt's arm, centering on an orichalcum nodule. In either case, the Charm hums and crackles upon activation, projecting a shaped potentiality field that appears as a slender wedge of radiance. When presented with an incoming hazard, this field telescopes open into a shield etched from solid light that provides a +3 DV cover bonus against all attacks without any associated fatigue or mobility penalties. Unexpected attacks bypass this protection. The active shield disrupts stealth like an anima banner at the eight- to 10-mote level.</p><p>FOUR FLAWS OF ALCHEMICAL INVULNERABILITY The Alchemical Exalted have their own Four Flaws of Invulnerability, based on the Great Maker's alien understanding of how humans draw heroic strength from their Virtues. Alchemicals may purchase multiple copies of a perfect defense Charm, loaded with alternative Flaws, but may never have more than two different Flaws installed at once among all of their Charms. Compassion: The noblest function of the Alchemical Exalted is to champion the masses from which their souls and heroism arise. Charms with this Flaw only be activated may when the Alchemical leads or is attempting to protect mortals. Conviction: The worthiest function of the Alchemical Exalted is to champion the agendas of state and god. Charms with this Flaw may be activated only when the Alchemical is laboring to support the Policy or carry out the orders of a group to which he belongs. Temperance: The wisest function of the Alchemical Exalted is to accumulate Clarity and, with it, prudence. Charms with this Flaw force the Alchemical to conserve his strength and avoid overextending himself against an opponent so formidable as to demand perfect defenses. The Alchemical may not use a flurry on his next action unless it is created by an extra action Charm. Valor: The purest function of the Alchemical Exalted is to inspire those who created them to emulate their heroism. Charms with this Flaw prevent the Alchemical from voluntarily moving away from the opponent against whom he invoked a perfect defense until his DV has refreshed twice. He must resist any attempt to move him away but he need not be violent in doing so.</p><p>Submodules: Emergency Overcharger (3xp): Whenever the shield applies its penalty to an attack that hits anyway, an Alchemical with this submodule may focus the Charm's power in Step Six to perfectly parry the attack. Doing so does not require a Charm activation, and even unblockable attacks may be stopped. Although the defense has no flaw of invulnerability, parrying an attack this way overloads the shield, involuntarily deactivating the Charm and preventing reactivation until the Exalt spends an hour recalibrating it as a diceless dramatic action. Essence 5+ Alchemicals may prevent overload by paying five motes per parry up to (Essence) times per scene, but they suffer the usual overload to parry afterward. Essence Absorption Screen (Essence 3, 4xp): If the shield is deployed against a damage source composed entirely of fire, lightning or other raw energy or Essence discharge of any type, the Alchemical also regains a number of motes equal to (his Essence x 2) or the raw damage of the attack, whichever is less. The effective raw damage of an attack that misses has zero attack successes applied to it. This absorption occurs whether or not the attack hits, as long as it garners at least one success to aim close enough to drain.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "48b0c3b989ce22ed",
+            "charmName": "Subcutaneous/Exoskeletal Armor Plating",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "b8414c2685d0455d",
+    "dvBonus": {
+      "enabled": true,
+      "parryBonus": 3
+    }
+  },
+  "folder": "b0b1b2b3b4b5f04e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

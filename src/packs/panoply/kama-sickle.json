@@ -1,0 +1,52 @@
+{
+  "_id": "80c1739915b5b51b",
+  "_key": "!items!80c1739915b5b51b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Kama/sickle",
+  "type": "weapon",
+  "img": "icons/weapons/swords/sword-ornate-yellow.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "Melee",
+        "speed": 5,
+        "accuracy": 0,
+        "damage": 2,
+        "damageType": "lethal",
+        "overwhelming": 1,
+        "defense": 1,
+        "rate": 3,
+        "range": 0,
+        "minStrength": 0,
+        "minDexterity": 2,
+        "minMartialArts": 0,
+        "tags": [
+          "Martial Arts"
+        ]
+      }
+    ],
+    "artifact": false,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 0,
+    "hearthstoneSlots": 0,
+    "description": "<p>The kama is a kind of sickle with a curving blade mounted perpendicular to the handle. It is functionally identical to a sickle with a semicircular blade at the end of the handle. Both sorts are used in agriculture throughout Creation, but the listed traits are for a kama or sickle specially made as a weapon. Both weapons are small and short enough to mimic a person clawing with his nails. A martial artist often carries one kama or sickle in each hand.</p>",
+    "source": "Scroll of the Monk",
+    "equipped": false
+  },
+  "folder": "f001a234b56c789d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

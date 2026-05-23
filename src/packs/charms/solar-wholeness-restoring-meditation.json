@@ -1,0 +1,70 @@
+{
+  "_id": "8f5172f9b73abc63",
+  "_key": "!items!8f5172f9b73abc63",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wholeness-Restoring Meditation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "medicine",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Touch"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Essence can repair even severed limbs. Solar Exalted with this Charm can cure any Crippling effect. This Charm guarantees that any attempt they make to treat the effect is considered supernatural. If the Exalt's player rolls five or more successes on a Medicine roll for the Solar to treat an ordinarily incurable Crippling effect, such as limb amputation or Charm-induced paralysis, she can spend five motes and restore the patient. Treating Crippling injuries in this fashion is a dramatic Medicine-based action that takes one hour unless sped by a stunt or Charm. It takes the patient several days of convalescence to repair otherwise permanent damage such as lost limbs or blindness.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ef89e1e74e5bed0e",
+            "charmName": "Flawless Diagnosis Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "8f5172f9b73abc63"
+  },
+  "folder": "05ee3760b1dfb04f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,69 @@
+{
+  "_id": "77d521ac684fa083",
+  "_key": "!items!77d521ac684fa083",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sun-Sword Concentration",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": "Mirror (All Blades Cry for Blood)",
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>An exhausting regimen of training and meditation allows the Solar to distill that part of her spirit which responds to the sunmetal orichalcum, radiating its power into every weapon she ever wields. Any weapon wielded by the Solar using her Melee Ability enjoys a +1 bonus to its Accuracy, Defense and Rate. This bonus stacks with standard magical material bonuses. New Abyssal Charm: All Blades Cry for Blood (Prerequisite: Resplendent Shadow Blade). An Abyssal who has learned this Charm fills her hands with a constant cold yearning for life. Any weapon she wields using her Melee Ability enjoys a +2 bonus to its Accuracy, and drains a number of motes equal to the Abyssal's Essence whenever it hits a target and inflicts at least one health level of damage. The Abyssal does not gain these motes; they simply vanish from the world. This Charm's Accuracy bonus stacks with standard magical material bonuses, save that its mote-drain does not double the yield granted by soulsteel weapons; instead it adds one to the number of motes drained. Molten Sun-Blade</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "45d7c78fc64a2391",
+            "charmName": "Glorious Solar Saber",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "77d521ac684fa083",
+    "mirrorId": "c1d2e3f4a5b60006"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

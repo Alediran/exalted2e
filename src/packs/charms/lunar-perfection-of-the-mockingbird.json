@@ -1,0 +1,71 @@
+{
+  "_id": "d22c6cb4c9419c85",
+  "_key": "!items!d22c6cb4c9419c85",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Perfection Of The Mockingbird",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "manipulation",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Illusion"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Even without a person's heart's blood, a Lunar can fool most people about her identity. When making an action to imitate another person's voice, habit or appearance--or just trying not to be recognized as herself--the character may use this Charm to make the imitation supernaturally deceptive. The imitation sounds or looks perfect; no mundane sense can detect a flaw. Supernaturally perceptive creatures may see through the trick.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "d22c6cb4c9419c85"
+  },
+  "folder": "7e56afbcd2643f32",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

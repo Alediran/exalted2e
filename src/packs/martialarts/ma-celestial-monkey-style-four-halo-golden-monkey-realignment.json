@@ -1,0 +1,57 @@
+{
+  "_id": "6c71cfc05d989f9b",
+  "_key": "!items!6c71cfc05d989f9b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Four Halo Golden Monkey Realignment",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "8m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm enables a Blissful Sage to manipulate her own Gates of Virtue, moving these nexus points within her frame. Doing so creates glowing, spherical fields of Essence around her body wherever she moves the gates, with a radius equal to the length of his forearm. This realignment causes no disturbance within the martial artist, but those who witness him using this Charm see glittering coronas (colored like the Exalt's anima banner) flare around the Exalt's extremities. The martial artist can use these haloes of Essence to parry any incoming attack, hand-to-hand or ranged, using her full (Dexterity + Martial Arts) total as her Defense Value for the scene (not dividing the value by two, per her normal Parry DV). She does not need to move to do so either. The character only needs to be aware of the attacks and have enough Essence and Willpower to activate the Charm.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Celestial Monkey Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "6c71cfc05d989f9b"
+  },
+  "folder": "67fad142ae9122e6",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

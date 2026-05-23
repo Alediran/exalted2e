@@ -1,0 +1,83 @@
+{
+  "_id": "fd553162bbc750b9",
+  "_key": "!items!fd553162bbc750b9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sapphire Binding Pattern",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      10
+    ],
+    "keywords": [
+      "Combo-basic",
+      "Obvious",
+      "Shaping",
+      "Stackable"
+    ],
+    "cost": {
+      "motes": 16,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "16m, 1wp"
+    },
+    "description": "<p>She set about to follow the leash, This Charm may be invoked to enhance a hold during a grapple. Spinning ribbons of sapphire Essence around her target, the martial artist impedes her Essence flows for the rest of the scene. One of the following effects is applied: � All of the target's actions are reduced to 0 dice if not supplemented by a Charm or stunt. � A mote surcharge equal to half the martial artist's Appearance is added to all of the target's Charms. This effect may be applied only to targets of lower Essence. � The target's Dexterity is considered to be 0 for the purpose of calculating Move and Dash actions, and his Strength to be 0 for the purpose of calculating Jump actions. These effects last until the end of the scene, and this Charm may be re-applied to the same target over the course of repeated hold actions in order to inflict additional effects.</p>",
+    "source": "Glories of the Most High: Maidens of Destiny",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Sapphire Veil of Passion Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "542faf8bbd998bc6",
+            "charmName": "Joy in Ownership",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "fd553162bbc750b9",
+    "grantsMastery": false
+  },
+  "folder": "05f82ed74914c6c2",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

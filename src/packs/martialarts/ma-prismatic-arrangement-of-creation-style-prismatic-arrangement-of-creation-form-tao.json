@@ -1,0 +1,57 @@
+{
+  "_id": "a460b18eaaffaa60",
+  "_key": "!items!a460b18eaaffaa60",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Prismatic Arrangement of Creation Form (tao)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Elder Sutra of Essence: The last maiden's name was TAO. These were their names, but they knew them not. As she performs the steps and katas of this Charm, the character refracts infinitely into ambient flows of Essence, leaving her everywhere and nowhere, one with all of Creation. When she manifests again (on her next action), she is consummately aware of everything around her, reacting to intentions before they are formed, to actions before they are taken and to the battle as a whole as easily as to a single blow. This Charm doubles the character's Join Battle dice pool. When she and other characters act on the same tick, the Sidereal always acts first: This is a perfect effect, trumping other Charms that enable a character to act first, unless they also come from a Sidereal martial art. The Exalt is aware of every attack against her and is immune to sensory penalties (which is a perfect effect). She can sense every supernatural effect, object and creature within (her Essence x 10) yards. Noticing something hidden requires a reflexive (Perception + Awareness) roll, adding the Sidereal's Essence in automatic successes. What's more, a character using this form can also invoke any or all of its subsidiary forms, paying the normal Essence cost to do so. As long as this Charm is active, its subsidiary forms can coexist with it and with one another. The character can also invoke other Form-type Charms, but doing so limits her to two other forms. Other forms are but refracted frequencies of the unified brilliance of the transcendent Prismatic Arrangement of Creation Form. While the martial artist uses the Prismatic Arrangement of Creation Form, the character can also use the favored weapons of any other martial arts style whose Form-type Charm she has concurrently active. Attacks with these weapons are treated as an unarmed attack for the purpose of all Martial Arts Charms. This allowance is a specific benefit of the Prismatic Arrangement of Creation Form, not a general rule. This effect does not extend to armor.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Prismatic Arrangement of Creation Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "a460b18eaaffaa60"
+  },
+  "folder": "33c138eb339f4538",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

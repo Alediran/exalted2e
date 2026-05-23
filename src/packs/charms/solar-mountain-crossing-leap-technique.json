@@ -1,0 +1,71 @@
+{
+  "_id": "f10b4ed34117037c",
+  "_key": "!items!f10b4ed34117037c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Mountain-Crossing Leap Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "athletics",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The heroes of the dawn can leap great distances in a single bound. This Charm is a dramatic jumping action, normally taking about five minutes, in which the character leaps up to (Essence x 5) miles. If the character is interrupted mid-leap and forced to take non-reflexive actions, he continues along the original trajectory--but his landing is considered \"falling from a great height\" rather than \"safely completing a jump.\"</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1eb9e9491d5e66b4",
+            "charmName": "Soaring Crane Leap",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "f10b4ed34117037c"
+  },
+  "folder": "481b58529581316b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

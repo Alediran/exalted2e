@@ -1,0 +1,58 @@
+{
+  "_id": "940d10a5c0c81735",
+  "_key": "!items!940d10a5c0c81735",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Deadly Starmetal Offensive (ji)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>...and their names were JI and PENG and LU and ZHOU The character infuses her fingernails with Essence, which hardens, sharpens and lengthens them into deadly weapons. Doing so also causing them to bend, influence and predict the path of fate like starmetal does. They allow for Speed 3, Accuracy +3, Damage +7L, Defense +4 and Rate 3 hand-to-hand attacks and can be used to parry lethal and ranged attacks without a stunt. Treat attacks and parries enhanced with this Charm as unarmed.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Prismatic Arrangement of Creation Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "940d10a5c0c81735"
+  },
+  "folder": "33c138eb339f4538",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

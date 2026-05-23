@@ -1,0 +1,27 @@
+{
+  "_id": "c547b2b4b8e4ecd6",
+  "_key": "!items!c547b2b4b8e4ecd6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Guardian Gem",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDSIDRL00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "sidereal",
+    "rating": 3,
+    "description": "<p>This shimmering silver sphere allows the bearer to influence both her own fate and the fates of others. Twice per story, the bearer's player can reroll any of the character's own rolls. Twice per story, the player can also force someone else to reroll one of his character's actions. Once the bearer's player sees the result of the reroll, she decides whether to keep the original or to use the reroll. The bearer can also sacrifice one of these reroll opportunities to subtract two health levels of damage (after soak has been taken into account) from any attack upon herself or another being.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "_id": "2d1932ef6b8dcc41",
+  "_key": "!items!2d1932ef6b8dcc41",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Invulnerable Wounding Futility",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      9
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Counterattack"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The foolish and the mad sometimes beat their fists against the impregnable walls of the Demon City as though they might crack anything but their own hands. The meaningless rhythms of their blows soothe the Yozi's raging heart to laughter. Invulnerable Wounding Futility momentarily hardens the Infernal's body into a passive weapon upon which attackers crash and break.</p><p>This attack destroys nonmagical projectiles but is far more effective against close-combat attacks, where the rebounding force of the blow can actually inflict injuries. The attacker suffers raw bashing damage equal to (the Infernal's soak against the incoming attack - the raw damage of the incoming attack). This value can't be lower than the Infernal's Essence rating or the raw damage of the original attack, whichever is less. This counterattack may be soaked normally but is considered an undodgeable and unblockable attack for the purposes of valid defenses. Invulnerable Wounding Futility only retaliates against attacks and does not lessen their damage, and it can't respond to an attack the Infernal completely dodged. Completely parried attacks determine their raw damage for the purposes of this Charm using the weapon's base damage without any attack successes.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "malfeas",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f71832c2b37ff4dd",
+            "charmName": "Pathetic Distraction Rebuke",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "2d1932ef6b8dcc41"
+  },
+  "folder": "1945ba1655ca5f6f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

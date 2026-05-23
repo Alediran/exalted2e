@@ -1,0 +1,72 @@
+{
+  "_id": "4e088c27162fd9b4",
+  "_key": "!items!4e088c27162fd9b4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unstoppable Lunar Wound",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "strength",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      10
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m per die",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The might of the Lunar Exalted may not be denied. The Lunar can use this Charm when he damages an opponent. Every two motes spent on this Charm turns a single die of damage into an automatic level of damage in Step 10 of attack resolution. The character may not affect more dice in this way than his Strength.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "742155f223f22ebb",
+            "charmName": "Impressions of Strength",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "4e088c27162fd9b4"
+  },
+  "folder": "aba1efe8ad0bef8a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

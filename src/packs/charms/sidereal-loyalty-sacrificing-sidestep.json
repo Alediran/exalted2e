@@ -1,0 +1,85 @@
+{
+  "_id": "302f8e5abe8ee85f",
+  "_key": "!items!302f8e5abe8ee85f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Loyalty-Sacrificing Sidestep",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "presence",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      5
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Social"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Even as the Sidereal's allies fall to the arguments of his enemies, he remains unconvinced. A Sidereal may activate this Charm after failing to defend against a social attack. He may apply the effects of the attack to one of his acquaintances (as the Background of that name) instead of himself.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e30b4f1bbfe182a3",
+            "charmName": "Impose Motivation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "413f9e5209174034",
+            "charmName": "Presence in Absence Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "302f8e5abe8ee85f"
+  },
+  "folder": "b0b1b2b3b4b5f011",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

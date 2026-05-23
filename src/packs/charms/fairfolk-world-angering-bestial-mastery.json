@@ -1,0 +1,62 @@
+{
+  "_id": "4ebbbf8344e3f0e1",
+  "_key": "!items!4ebbbf8344e3f0e1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "World-angering Bestial Mastery",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Glamour (3)",
+      "Merged",
+      "Obvious",
+      "Shaped-Only",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When the raksha enters Creation wearing the face of an animal, this Charm can be activated along with the Assumption to grant her the following innate ability: Innate Power (Cost: 5m): The raksha reaches out to the beasts of Creation, turning them against the mortals in their midst. By activating this power, the raksha can inflict an environmental penalty equal to his Essence against a single action he witnesses in Creation. The raksha's player must be able to define how some animal in the vicinity disrupts the planned action. This power is reflexive. Glamour Resistance: This Charm is a work of glamour and cannot be used to hinder a Creation-born whose (Dexterity + Essence) exceeds the raksha's Manipulation. Likewise, the raksha cannot call upon the aid of an intelligent animal whose (Wits + Essence) exceeds the raksha's Manipulation.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "4ebbbf8344e3f0e1"
+  },
+  "folder": "6dbccd37637d2988",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

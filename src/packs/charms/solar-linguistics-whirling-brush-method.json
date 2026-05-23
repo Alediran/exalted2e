@@ -1,0 +1,57 @@
+{
+  "_id": "dbd02aa0372f7795",
+  "_key": "!items!dbd02aa0372f7795",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Whirling Brush Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "linguistics",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The diplomats of the Unconquered Sun write with a swift and elegant hand. This Charm supplements a dramatic action to write something down--be it a copy of an existing book, the transcript of a live conversation or an original work. This Charm allows the character to write at (her Essence x 10) times her normal speed. Instead of dedicating 30 hours to copying a manuscript, an Essence 2 character might finish it in an hour and a half. Instead of six hours writing and polishing a treaty, an Essence 3 Eclipse might prepare it in 12 minutes.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "dbd02aa0372f7795"
+  },
+  "folder": "13c99c0e197877e7",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

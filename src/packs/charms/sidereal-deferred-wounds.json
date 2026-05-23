@@ -1,0 +1,71 @@
+{
+  "_id": "39d39b9bc2b229d8",
+  "_key": "!items!39d39b9bc2b229d8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Deferred Wounds",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "medicine",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "Special",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Fate decrees that attacks cause wounds, but the Loom of Fate records a creature's previous condition. The Sidereal carefully twists the weave of fate to remove a creature's wounds--but they are only held in a side-loop of fate, and inevitably return in a few hours. Each use of this Charm pushes one level of damage (Wits + Medicine) hours into the future, when the target's flesh re-opens and he suffers normal wound penalties. (The Charm also, incidentally, defers poisons and environmental damage.) If the target has suffered additional wounds since then, the consequences may be unfortunate.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "8351678bca07c62a",
+            "charmName": "Terminate Illness",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "39d39b9bc2b229d8"
+  },
+  "folder": "b0b1b2b3b4b5f00d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

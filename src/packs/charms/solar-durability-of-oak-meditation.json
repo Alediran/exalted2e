@@ -1,0 +1,62 @@
+{
+  "_id": "20cba12e0ede41be",
+  "_key": "!items!20cba12e0ede41be",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Durability of Oak Meditation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "resistance",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The resilience of the Solar Exalted is legendary. This Charm may be activated reflexively when the character is struck. The player adds (Stamina) dice to the character's soak roll. This bonus does not count toward any Charm-based dice cap. The Charm may be used even in a Combo that does not contain it, so long as it is used to enhance the soak roll against an attack that triggers the Combo.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "20cba12e0ede41be",
+    "soakBonus": {
+      "enabled": true,
+      "bashingFormula": "@sta",
+      "lethalFormula": "@sta"
+    }
+  },
+  "folder": "f05b544008eaceb0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

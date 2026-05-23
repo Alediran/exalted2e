@@ -1,0 +1,61 @@
+{
+  "_id": "bb47b6a6a779bd8d",
+  "_key": "!items!bb47b6a6a779bd8d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Phantom-Warrior Horde",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "war",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Action-Only",
+      "Combo-Basic",
+      "Elemental",
+      "Obvious",
+      "War"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood raises phantom soldiers from elemental essence, conjuring an illusory military force to deceive and intimidate enemies. She creates the appearance of a military unit with Magnitude equal to her Essence, composed of convincing elemental warriors appropriate to her aspect (stone soldiers for Earth Aspects, flame warriors for Fire Aspects, and so on). The phantoms cannot deal damage, but enemies who fail a (Perception + Awareness) roll against a difficulty of the character's War rating believe them to be real troops. This imposes a penalty of -2 to the Magnitude and Drill of any opposing unit that believes the deception.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "bb47b6a6a779bd8d"
+  },
+  "folder": "b0b1b2b3b4b5f032",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

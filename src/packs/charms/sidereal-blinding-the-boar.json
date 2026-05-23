@@ -1,0 +1,59 @@
+{
+  "_id": "ffc966f575cf2fa6",
+  "_key": "!items!ffc966f575cf2fa6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Blinding The Boar",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "stealth",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Illusion",
+      "Virtue (Valor)"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal cloaks herself in the reflections of a thousand possible futures, making it almost impossible to focus on the \"her\" that exists in the present. The character is obviously present and real, perceptible by sight and touch, but determining any specific detail about her proves impossible. Where exactly she stands, what she wears, what she says, her appearance, even her gender.... None of these qualities makes an impression on an observer's mind. To activate this Charm, the player rolls (Manipulation + Stealth). If she scores at least one success, people who see the character cannot understand her words or describe her beyond vague generalities. Also, the effect imposes an external penalty equal to the activation successes on any roll made to affect, influence or notice the Sidereal.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "ffc966f575cf2fa6"
+  },
+  "folder": "b0b1b2b3b4b5f016",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

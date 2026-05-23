@@ -1,0 +1,73 @@
+{
+  "_id": "3edc767b034f0f0a",
+  "_key": "!items!3edc767b034f0f0a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Kill Feint Cleverness",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "-- (1wp)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Ebon Dragon toys with his enemies. Whenever an Infernal uses one or more Infernal Charms to enhance or constitute a physical attack and that attack misses its target, the Infernal may reflexively spend one Willpower to regain all motes spent to activate one attack Charm of her choice. This negates all effects of its activation. This power may only be used once per tick. An attack that hits and fails to do damage is ineligible for mote recovery with this Charm.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "ebonDragon",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f96c304f4e6a6154",
+            "charmName": "Damning Petulance Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "willpowerRecovery": {
+      "enabled": true,
+      "event": "onDamageDealt",
+      "formula": "1"
+    },
+    "charmUid": "3edc767b034f0f0a"
+  },
+  "folder": "7c2ec8d4b84c1156",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

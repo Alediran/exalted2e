@@ -1,0 +1,71 @@
+{
+  "_id": "270fc0aa54f4aef8",
+  "_key": "!items!270fc0aa54f4aef8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Disarming Strike Prana",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Leader"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Even given the existence of Charms such as Blade-Deflecting Palm, an unarmed martial artist facing an armed opponent is usually in great danger. This Charm lets him equal the odds by disarming his opponent more easily by negating the normal -2 penalty for disarming an opponent (see Exalted, p. 158). The Charm does not allow the character to break or take the weapon, but he can choose in which direction the weapon will land, which will be (5 + 1 per additional success) yards away from its wielder.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0db7c9d51069fb41",
+            "charmName": "Become the Hammer",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "270fc0aa54f4aef8"
+  },
+  "folder": "a1b2c3d4e5f60104",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

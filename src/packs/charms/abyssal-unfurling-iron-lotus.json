@@ -1,0 +1,73 @@
+{
+  "_id": "d15247c91da62afb",
+  "_key": "!items!d15247c91da62afb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unfurling Iron Lotus",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "extraaction",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Mirror (Peony Blossom Attack; Exalted, p. 191)",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "2m per attack",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Abyssal spins and thrusts in a cascade of blows, trailing wispy afterimages that fleetingly resemble the petals of a blooming flower before the victim's screams break the serenity of the display.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "254e00511d601ed2",
+            "charmName": "Five Shadow Feint",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "d15247c91da62afb",
+    "mirrorId": "c0c11833e96dfa2c"
+  },
+  "folder": "b0b1b2b3b4b5f040",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,57 @@
+{
+  "_id": "c1ae43ac0c7d3a64",
+  "_key": "!items!c1ae43ac0c7d3a64",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Kiss of the Sun Concentration",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m to 3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The character extends her senses to feel the flow of Essence that connects her weapon to her target. That fine line of possibility between the Righteous Devil and her target flares up invisibly in anticipation of the martial artist's shot firing true. For each mote of Essence spent, the player may reduce the number of ticks it takes to complete an Aim action, though she may not reduce that action's Speed to less than 1 (see Exalted, p. 142). If the Exalt covers targets with successive Aim actions, the player must pay the mote cost anew for each successive action whose Speed she wishes to reduce. If the player spends three motes to activate this Charm, she gets a slightly different effect. She still takes an Aim action, but when she does, the flare-up of Essence that connects her weapon to its target actually burns the target. This burn consumes none of the weapon's firedust ammunition, nor does it require the character actually to discharge the weapon. The effect inflicts no damage on a target other than to mark him with a black circle no larger than half an inch in diameter. With a called shot, the character can use this effect to disarm an opponent by burning his exposed fingers or to ignite a highly flammable substance (such as exposed firedust). Doing so requires a (Dexterity + Martial Arts) roll as normal, with an internal penalty commensurate with the complexity of the called shot. (See p. 158 of Exalted for the rules on called shots.) The roll does benefit from the bonus dice gained from the Aim action, though, as well as any appropriate stunt dice. If the player spends three motes to use the Charm for this purpose, the Aim action takes its full three ticks. If she spends only one or two motes, all she does is decrease the amount of time it takes to complete the Aim action.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Righteous Devil Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "c1ae43ac0c7d3a64"
+  },
+  "folder": "c9f7d573ff8d32af",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

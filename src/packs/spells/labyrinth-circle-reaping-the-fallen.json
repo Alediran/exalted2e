@@ -1,0 +1,37 @@
+{
+  "_id": "cdcc61bfdeb4544a",
+  "_key": "!items!cdcc61bfdeb4544a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Reaping the Fallen",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "labyrinth-circle-reaping-the-fallen",
+    "tradition": "necromancy",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 25,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Caster",
+    "description": "<p>The character's anima leaps into its iconic form, while sparks of black lightning flicker around its edges. For the rest of the scene, the necromancer recovers one mote of Essence every time someone dies within a league of her. A glowing spark of soul-stuff rises from the body, races to her and dissolves in her anima. In settings of ongoing mass carnage, such as a battle, the Storyteller assigns how many motes the necromancer collects per action. The Magnitude of the smallest unit involved in mass combat is reasonable. (So, for instance, in a battle between two armies of Magnitude 7 and Magnitude 8, the character would gain 7 motes per action).</p>"
+  },
+  "folder": "562235f47f16c453",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

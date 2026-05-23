@@ -1,0 +1,71 @@
+{
+  "_id": "c1d2e3f4a5b60006",
+  "_key": "!items!c1d2e3f4a5b60006",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "All Blades Cry for Blood",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror"
+    ],
+    "cost": {
+      "formula": "",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Abyssal channels necrotic Essence into weapons, making them hunger for vital fluid. This Charm is identical to its Solar counterpart, Sun-Sword Concentration.</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "fccabddc690de95e",
+            "charmName": "Resplendent Shadow Blade",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "mirrorId": "77d521ac684fa083",
+    "charmUid": "c1d2e3f4a5b60006"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

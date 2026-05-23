@@ -1,0 +1,57 @@
+{
+  "_id": "c779df0d3db87b8a",
+  "_key": "!items!c779df0d3db87b8a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Behemoth-guiding Ghost Whisper",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "sword",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Unshaped-Only"
+    ],
+    "cost": {
+      "formula": "5+m, 1wp, 1+g, (2g)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Similar to Father's Commanding Voice, this Charm allows an Emanation to send a behemoth into other waypoints or even Creation, to see through its eyes and to command its movements and actions. At a cost of five motes and one Willpower, the Emanation can send a behemoth into any nearby waypoint either to act as a scout or to permit a Sword-shaping weapon against a raksha to be found there. In the latter case, the Emanation can use the behemoth to make a ranged Swordshaping attack. Each Sword-shaping attack made in this way costs two motes and one gossamer per attack. Additionally, if the Emanation adds two gossamer to the activation cost, the Emanation can send the behemoth into Creation. The Emanation can perceive through the behemoth's senses, and it will obey his commands. Each scene in which the behemoth attacks Creation-born or damages physical objects of Creation costs two motes and one gossamer. A behemoth sent into Creation through this Charm is treated as a permanent work of glamour (assuming it wasn't already) and does not provoke Glamour Resistance. These Charms are known to Indefatigable Wanderer, the Way Emanation of the Golden Mirror, and may be learned by any of Golden Mirror's other Emanations or by any being who possesses a Way Grace (see p. 66).</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "c779df0d3db87b8a"
+  },
+  "folder": "12ff19c775f80093",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

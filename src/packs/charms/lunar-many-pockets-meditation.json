@@ -1,0 +1,71 @@
+{
+  "_id": "be03513d258fe8d5",
+  "_key": "!items!be03513d258fe8d5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Many-Pockets Meditation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "wits",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Occasionally, a Lunar must hide something where no one else can find it. Holding any object the character can lift with one hand, he invokes this Charm, and the object disappears into Elsewhere. For smaller objects, Lunars tuck them inside cloaks or pockets to conceal use of this Charm. Because the object is not actually on his person, it cannot be found by any natural means. Withdrawing the item is a miscellaneous action. A character can \"pocket\" no more items in this way than his Essence. Should the character release the Essence committed to an item (or items) hidden in this way, the item falls to the ground at his side.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ab62929f0749eb1e",
+            "charmName": "Thieving Magpie Prana",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "be03513d258fe8d5"
+  },
+  "folder": "03a1efbef258d84f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

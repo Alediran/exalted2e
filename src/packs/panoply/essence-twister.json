@@ -1,0 +1,37 @@
+{
+  "_id": "444250bb5231a58a",
+  "_key": "!items!444250bb5231a58a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Essence Twister",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>During the First Age, this artifact was the premier riot-control weapon of the Solar Deliberative. It also saw extensive use during the Usurpation, where some of the more compassionate Terrestrial Exalted used Essence twisters to incapacitate the legions of mortal followers that the mighty Anathema had shackled to their will. Today, the forces of the Realm regularly use these weapons to put down mortal riots. This weapon is a cylinder four feet long and two feet in diameter, mounted upon a gimbaled base that allows a single user to swiftly aim it in any direction. This weapon was designed to affect large crowds. It affects everyone within range who is in a 40-yard-wide swath in the direction in which the weapon is aimed. Instead of firing a physical or Essence-based projectile, the artifact instead temporarily and violently reverses the Essence flows in its targets' bodies. The result of such an attack is nausea, severe bruising and, in most cases, unconsciousness. While manipulating Essence flows allows this weapon to affect large numbers of targets for a relatively low Essence cost and bypasses the protection provided by armor not made from one of the five magical materials, this form of attack has little effect on beings capable of controlling their own Essence. All Essence users, including mortal thaumaturges, add five points to their soak for resisting this attack. In addition, targets also add five additional points of soak for every dot of Essence above 1 that they possess. So, an Exalt with an Essence of 3 adds 15 points to her soak for resisting this attack. The Realm's Wyld Hunt owns two of these items. It regularly directs the weapons at the large mortal armies raised by the Anathema so that its men can easily identify the Anathema and direct their more lethal attacks accordingly. In the wake of such an attack, the vast majority of mortals will be rendered unconscious, while Exalts are unaffected. Yet if the target's soak plus any bonuses from high Essence or Essence use equals or exceeds the weapon's rolled damage, the target automatically takes no damage. The weapon's operator must spend six motes of Essence to fire this weapon, and his player rolls (Dexterity + Archery) to hit. The weapon automatically affects everyone within the target area with the same roll. Use the highest DV of the mortal targets being fired upon to determine the difficulty of the attack roll. This attack can be dodged, but it cannot be parried. Speed Accuracy Damage Rate Range +3 +20B* * Ignores non-magical armor, -5 damage to Essence users, -5 damage per dot of Essence above 1.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 3,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

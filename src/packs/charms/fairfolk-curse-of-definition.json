@@ -1,0 +1,60 @@
+{
+  "_id": "faaebf2076998c8d",
+  "_key": "!items!faaebf2076998c8d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Curse of Definition",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "cup",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Glamour (12)",
+      "Shaped-Only",
+      "Shaping",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The antithesis of the Charm that precedes it, Curse of Definition allows the raksha to assault the integral nature of his enemy by inflicting upon her a curse in the form of a mundane task at which she will always fail. The raksha chooses a specific Attribute, Ability and specialty each time he purchases this Charm. By spending four gossamer in conjunction with an Assumption, the raksha gains the following innate power: Innate Power (Cost: 10m, 1wp): For the next season, the affected character will automatically fail at the action defined by the (Attribute + Ability [Specialty]) chosen unless the character incorporates a stunt or a Charm into the action. Even then, the character's player suffers a -2 external penalty on the roll. As long as it can be defined by a single, specific Attribute, Ability and specialty combination, the action at which the character is doomed to fail can be quite broad--\"waking up\" and \"drinking water\" are both suitable actions for purposes of this Charm. The effects of this power end prematurely if the raksha terminates his Assumption. Glamour Resistance: This Charm is a work of glamour that cannot affect any character whose (Wits + Essence) exceeds the raksha's Stealth. These Charms permit a raksha to focus the power of Dharma through his Cup Grace and use it to manipulate the Virtues and Graces of other beings, including the Creationborn. These Charms can also be used to affect the amount of shaping damage the raksha can endure, and they are useful in oneiromancy.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "faaebf2076998c8d"
+  },
+  "folder": "d5d33b95962cd83e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

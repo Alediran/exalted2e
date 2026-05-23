@@ -1,0 +1,27 @@
+{
+  "_id": "3dc4c98d69b0fff2",
+  "_key": "!items!3dc4c98d69b0fff2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sign of Chaos",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDAIR0000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "air",
+    "rating": 1,
+    "description": "<p>This hearthstone may appear as almost any fist-sized object: a jewel, an egg, a fruit, a flower. Its bearer gains power over chance and the Wyld, acquiring a rating in the Style Background (see Graceful Wicked Masques, pp. 98-99) equal to the stone's rating. If she is not a raksha, modify the Style rules as follows: Style ·: Stunt pool equals highest Virtue. Style ··: Stunt pool equals sum of two highest Virtues. Style ···: Recover stunt dice equal to lowest Virtue. Style ····: Regain all spent stunt dice upon entering Limit Break. Style ·····: The number of Wyld stunts allowed per story equals the bearer's lowest Virtue. Each Wyld stunt performed in Creation costs 1wp. For purposes of the Style Background, the hearthstone bearer treats environments formed by Oramus's Third Circle souls as Deep Wyld.</p>",
+    "source": "Ink Monkeys"
+  }
+}

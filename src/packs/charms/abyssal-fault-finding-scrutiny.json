@@ -1,0 +1,70 @@
+{
+  "_id": "541776aee0f95fcb",
+  "_key": "!items!541776aee0f95fcb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fault-Finding Scrutiny",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "craft",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Abyssal feels entropy's presence within inanimate objects. This Charm enhances one attack and is explicitly permitted to supplement actions using other Abilities. The attack ignores the soak of non-magical objects or makes the attack piercing against a magical target (though this avails nothing against most artifacts, which are nearly indestructible and lack a listed soak rating). If the attack already inflicts piercing damage, halve the already-reduced soak instead. When the deathknight uses this Charm to supplement an attack against an attack that already inflicts piercing damage, the foe's armor provides only one quarter of its listed soak bonus.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "541776aee0f95fcb"
+  },
+  "folder": "b0b1b2b3b4b5f037",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

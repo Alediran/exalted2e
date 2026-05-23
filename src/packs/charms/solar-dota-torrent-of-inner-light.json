@@ -1,0 +1,57 @@
+{
+  "_id": "b2d8bd4b72a38978",
+  "_key": "!items!b2d8bd4b72a38978",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Torrent of Inner Light",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "thrown",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solar is a living weapon, every mote of his Essence a microcosm of the perfect assassin. The character gains the following permanent benefits: · Triple Distance Attack Technique: The Charm extends the range of thrown weapons by a factor of ten rather than three. At Thrown 6+, Essence 6+ this Charm changes a weapon's range value from yards to miles. · Spirit Weapons: This Charm's Cost becomes zero motes. Additionally, all unexpected Thrown attacks ignore the target's Hardness.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "b2d8bd4b72a38978"
+  },
+  "folder": "a5a30fa2e730ff58",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

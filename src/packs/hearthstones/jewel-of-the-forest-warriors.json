@@ -1,0 +1,27 @@
+{
+  "_id": "2288d69c33f56105",
+  "_key": "!items!2288d69c33f56105",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Jewel of the Forest Warriors",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDWOOD000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "wood",
+    "rating": 5,
+    "description": "<p>Opaque brown veins run through this translucent, emerald-green triangle. The bearer can animate trees as warriors by touching the hearthstone to a tree and committing 2 motes. The tree then uproots itself and gains both mobility and limited intelligence for the next scene. If the bearer also spends a point of Willpower, the tree remains active for the next full day. Animate trees can be verbally commanded and possess a basic knowledge of strategy and tactics. Tree-minds are too alien to affect by either mundane or magical persuasion, however, and the stone insures their absolute loyalty; treat them as automatons. If the hearthstone is broken or unattuned before the trees' animation expires, however, all animate trees are no longer controlled and defend themselves from whatever they perceive as threats—which may extend to attacking anyone who carries fire or chops wood. A forest warrior has: Str/Dex/Sta 7/3/6, Per/Int/Wits/Will 2/2/2/5, Health Levels -0x3/-1x3/-2x3/-4/I, Branches attack: 6/6/7L/Rate 2, Abilities: Awareness 2, Dodge 2, Martial Arts 3, Resistance 3, War 1, Dodge DV/Soak 2/5L/8B.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

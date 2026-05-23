@@ -1,0 +1,37 @@
+{
+  "_id": "afee3a1045f82b3a",
+  "_key": "!items!afee3a1045f82b3a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Artificial Wyld Pockets",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>A sufficiently wealthy and determined person can import material from the Wyld to create a small pocket of partial unreality. A very rich person might do this to keep Wyld creatures in a zoo, as a medical resource (such as the arm-beasts from the Forest of Arms; see p. 132), or for a Wyld cult. Creating such an artificial Wyld zone involves transporting material from the Middlemarches, then containing it within thaumaturgical boundaries. The result is effectively an Artifact, and follows the rules and costs for creating Artifacts. An artificial tainted land is Artifact ··; an artificial Bordermarch is Artifact ···. Such a Wyld pocket requires fresh, monthly infusions of soil, stones, vegetation or other Wyld materials to maintain their potency; the monthly Resource cost is one greater than the pocket's Artifact rating, or two greater on the Blessed Isle.</p>",
+    "source": "Compass of Celestial Directions, Vol. II: The Wyld",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

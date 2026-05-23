@@ -1,0 +1,79 @@
+{
+  "_id": "42c6b931e0b38f22",
+  "_key": "!items!42c6b931e0b38f22",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shattering Fist Strike",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Leader"
+    ],
+    "cost": {
+      "motes": 3,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "3m"
+    },
+    "description": "<p>Immaculates of Earth have an affinity for the inanimate. In many ways, they use objects as one facet of their ideal emulation: a propensity toward stillness, enduring construction and a longterm outlook. This unique perspective gives Immaculates an advantage when taking the inanimate apart. For the duration of the Charm, double the raw damage the Immaculate inflicts on objects (but not living things). This effect stacks with others that increase damage done to objects.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Earth Dragon Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "764ef704adeb8b65",
+            "charmName": "Earth Dragon Form",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "42c6b931e0b38f22",
+    "grantsMastery": false
+  },
+  "folder": "01757ed433605ac5",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

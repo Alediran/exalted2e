@@ -1,0 +1,58 @@
+{
+  "_id": "29209e41c3932d01",
+  "_key": "!items!29209e41c3932d01",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "New Martial Arts Charm: Deadliest of All Weapons",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Poison"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>There is no deadlier weapon than truth, which Sidereals may unleash on destiny's behalf. Should an unarmed attack supplemented by this Charm strike its target, they are poisoned with a toxin with the following traits: (Special/one hour, 5, --/--, -1). Rather than doing damage, this toxin infects the victim's chakras and her mind, rendering her incapable of lying or dissembling. Should she speak, she may only speak the truth as best she knows it.</p>",
+    "source": "Scroll of Errata",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "29209e41c3932d01"
+  },
+  "folder": "a1b2c3d4e5f60003",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

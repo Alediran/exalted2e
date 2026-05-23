@@ -1,0 +1,49 @@
+{
+  "_id": "e631a234b56c78bb",
+  "_key": "!items!e631a234b56c78bb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Khatar",
+  "type": "weapon",
+  "img": "icons/weapons/daggers/dagger-straight-blue.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "",
+        "speed": 5,
+        "accuracy": 0,
+        "damage": 2,
+        "damageType": "lethal",
+        "overwhelming": 1,
+        "defense": 3,
+        "rate": 3,
+        "range": 0,
+        "minStrength": 1,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": []
+      }
+    ],
+    "artifact": false,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 0,
+    "hearthstoneSlots": 0,
+    "description": "<p>A punch dagger with a hilt assembly perpendicular to the blade so that punches deliver deadly stabs; cannot block lethal attacks without a stunt.</p>",
+    "equipped": false
+  },
+  "folder": "f001a234b56c789d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

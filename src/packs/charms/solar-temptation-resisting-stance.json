@@ -1,0 +1,74 @@
+{
+  "_id": "cdb3c9c2d4345ec7",
+  "_key": "!items!cdb3c9c2d4345ec7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Temptation-Resisting Stance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "integrity",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Stackable",
+      "Social"
+    ],
+    "cost": {
+      "formula": "6m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>In foul nests of demons whose ways of corruption assault the human mind; amidst the courts of faeries gluttonous for human souls; in Nexus, surrounded by a thousand temptations--though the whole world seeks to drag him down, the Lawgiver is unmoved. This Charm increases the character's Dodge MDV by his Temperance for the remainder of the scene. Storytellers can allow the Exalt to use his Conviction, Compassion or Valor score instead of Temperance if the character has appropriate motivation.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "cdb3c9c2d4345ec7"
+  },
+  "folder": "b0a1d89a8f7c4cdb",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

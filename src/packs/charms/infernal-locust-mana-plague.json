@@ -1,0 +1,72 @@
+{
+  "_id": "a1b5963c8623fb7f",
+  "_key": "!items!a1b5963c8623fb7f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Locust Mana Plague",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "oneDay",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Desecration",
+      "Shaping",
+      "Sorcerous"
+    ],
+    "cost": {
+      "formula": "15m, 1wp (or 2m)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Living beings are absurdly simple at their core. They want protection from the elements. They want food. In the absence of these basic necessities or a means of transcending them, nothing else matters. When an Infernal activates this Charm, she channels Cecelyne's aspects of hypocrisy above her qualities as the Endless Desert. Accordingly, she can only use this Charm in a place of desolation, but doing so causes a swarm of demon locusts to crawl out of the ground around her. The bugs are iridescent and no two alike. Together, the teeming millions resemble an obscene rainbow. Having crawled from the desolation that spawned them to life, the creatures quiver a moment as though hoping for greater purpose before they spasm and die. The locust corpses fill a radius of (Essence x 15) yards around the Infernal and provide nourishment to feed a unit of humans with Magnitude no greater than her Essence rating. Demon locusts smell and taste delectable to all palettes, faintly sweet and spicy and strangely familiar like an old family recipe the character hasn't sampled in years. They stay fresh without preservation for a week before they dry up and crumble to sand. Mundane preservation techniques can extend this time to a month, and a thaumaturgy ritual found in the Art of Alchemy and also the Art of Demon Summoning named \"Candied Locust Amber\" (1, Perception, 3, one hour) also exists. Each successful casting creates enough green glassy resin to indefinitely preserve a dozen locusts--a single meal--in sugary crystals until cracked open. These treats have begun to appear as occasional delicacies in markets and bazaars across the South. A single meal of these creatures provides complete and balanced nourishment for a whole day, including water. However, the meal also counts as one scene spent building an Intimacy of loyalty to the laws of Cecelyne and a scene toward a second Intimacy of reverence toward the Infernal provider. Characters who have conflicting Intimacies that would interfere with this process find those feelings weakened</p><p>by their meals until nothing stands in the way of forming the new attachments. For one full day following the meal, any Intimacy built or attacked by the Charm can't be lessened or rebuilt, respectively. After a day, the Intimacies may be affected normally. Once a character eats nothing but demon locusts for a full week, she develops the Creature of Darkness mutation as a Desecration effect along with the cosmetic side effect of faintly iridescent eyes, which requires threshold 4+ to notice with a (Perception + Awareness) roll. If the Infernal knows Scoured Perfection of Form (see p. 129), a second week of eating nothing but locusts provides the Transcendent Desert Creature Abomination as further Desecration to those lacking its effects. The associated ocular iridescence grows more noticeable at this point (threshold 2+). After a decade of eating more locusts than other food combined, these mutations become hereditary and breed true. Mating with normal humans only has a 10 percent chance of yielding mutated offspring. Natural unintelligent animals who eat demon locusts gain all the standard effects from doing so, apart from loyalty to the laws of Hell, which they do not understand. Such beasts still become reverently grateful to the Infernal who fed them,</p><p>though. If the Exalt eats her own food, the Intimacy she gains toward herself is one of smug self-satisfaction.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "cecelyne",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f9b13ab624f48a8d",
+            "charmName": "Transcendent Desert Creature",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a1b5963c8623fb7f"
+  },
+  "folder": "d852ccb3960d271d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

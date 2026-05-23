@@ -1,0 +1,60 @@
+{
+  "_id": "cb8db95020c278a0",
+  "_key": "!items!cb8db95020c278a0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Third Craft Excellency-- Essence Resurgent",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "craft",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      4
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Exalted with this Charm recover smoothly from failure. An Exalt's player can invoke this Charm after making a roll based on the relevant Ability. This Charm allows her player to make the roll again, using the new result if the Exalt prefers it. The Exalt can also use this Charm to enhance static values derived from the relevant Ability. Doing so increases the character's effective (Attribute + Ability) rating for one task by the Ability rating. This means that the Essence Resurgent Excellency increases an applicable DV by half the relevant Ability. INFINITE Craft MASTERY</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "third",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "cb8db95020c278a0",
+    "mirrorId": "3b3d7f23c9b4e505"
+  },
+  "folder": "461821c707bbdbb0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

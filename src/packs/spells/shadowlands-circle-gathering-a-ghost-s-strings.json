@@ -1,0 +1,37 @@
+{
+  "_id": "cd5da39bde368436",
+  "_key": "!items!cd5da39bde368436",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gathering a Ghost's Strings",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "shadowlands-circle-gathering-a-ghost-s-strings",
+    "tradition": "necromancy",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 10,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "One ghost",
+    "description": "<p>The caster's eyes become black pits as they gather in all the information they need about one ghost within his sight. He conjures visions of the ghost's Fetters and Motivation, which come one for each inactive action the necromancer takes after his Cast Necromancy action. This knowledge does not grant any inherent power over the ghost, but the knowledge is an advantage with regard to social and political leverage. This effect costs 10 motes. By spending an additional 10 motes, the necromancer may replace a target's Fetters and Motivation. Each one he wishes to change requires an inactive action after the Cast Necromancy action. To resist the necromancer's attempt to alter a Motivation the target's player rolls (Willpower) against a difficulty equal to the caster's Essence. The ghost's altered ties feel (and are) equally strong, but the ghost always knows they are of necromantic origin. Changes fade after a number of months equal to the caster's Essence.</p>"
+  },
+  "folder": "9a7bd83d0a359e00",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

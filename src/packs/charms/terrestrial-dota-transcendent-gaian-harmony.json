@@ -1,0 +1,58 @@
+{
+  "_id": "38b6981c1a8f61fa",
+  "_key": "!items!38b6981c1a8f61fa",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Transcendent Gaian Harmony",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "medicine",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Elemental",
+      "Purity"
+    ],
+    "cost": {
+      "formula": "None",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Beyond mere modulations of aspect, Transcendent Gaian Harmony exploits the inherent interconnectedness of the Elemental Dragons as part of a greater whole. Upon purchasing this Charm, the Exalt permanently gains the anima power of a chosen aspect and no longer has to pay the surcharge to use Charms of that aspect. Whenever he uses a Charm with different effects per aspect, he may choose which known element to express. Charm clusters purchased separately by element are not affected. This Charm does not actually change the Exalt's aspect, it merely permits incorporation of subsidiary elements. Characters can purchase this Charm once per dot of Essence they have above 5, allowing a theoretical Essence 9 Dragon-Blood to integrate all five elements. Savants postulate that a fifth purchase might facilitate evolution into an entirely new type of being.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "38b6981c1a8f61fa"
+  },
+  "folder": "b0b1b2b3b4b5f026",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

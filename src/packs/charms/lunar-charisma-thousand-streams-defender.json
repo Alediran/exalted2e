@@ -1,0 +1,70 @@
+{
+  "_id": "8e23a43231040ca9",
+  "_key": "!items!8e23a43231040ca9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Thousand Streams Defender",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "charisma",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "None"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm acts as a permanent upgrade to Sacred Guardian Renewal, allowing the Lunar to also regain Virtue channels from stunts that serve to protect anything toward which the Lunar has an Intimacy, be it a way of life, a place, a society or a specific individual.</p>",
+    "source": "Glories of the Most High: Luna",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ee3cac4b3f998386",
+            "charmName": "Sacred Guardian Renewal",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "8e23a43231040ca9"
+  },
+  "folder": "4e63ba1bd67a09e3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

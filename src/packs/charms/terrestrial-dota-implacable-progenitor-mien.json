@@ -1,0 +1,58 @@
+{
+  "_id": "2b5687a1a72f9111",
+  "_key": "!items!2b5687a1a72f9111",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Implacable Progenitor Mien",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "socialize",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Dynasty",
+      "Purity"
+    ],
+    "cost": {
+      "formula": "None",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Subsuming the smoldering resolve of her lineage into her spirit, a Dragon-Blood may become equally inviolable and implacable. She adds a bonus to her Dodge and Parry MDV equal to the Magnitude of the unit that would be formed by assembling all her living Dragon-Blooded descendents. This bonus does not apply against the social attacks of a direct ancestor. In addition, all descendents apply this same value as a penalty to their MDV when attempting to resist their ancestor's social attacks unless they also know this Charm.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "2b5687a1a72f9111"
+  },
+  "folder": "b0b1b2b3b4b5f02e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

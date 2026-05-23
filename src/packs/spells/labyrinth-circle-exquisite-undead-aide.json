@@ -1,0 +1,37 @@
+{
+  "_id": "53bb47dfb6f27eea",
+  "_key": "!items!53bb47dfb6f27eea",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Exquisite Undead Aide",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "labyrinth-circle-exquisite-undead-aide",
+    "tradition": "necromancy",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 20,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "One corpse",
+    "description": "<p>The necromancer spends a scene mixing wax with blood, shaping it into a tiny figurine and imagining a personality to go with it. She rubs the waxen figure over a corpse of her choice, channeling the figurine's spirit into the body with a surge of bone-hued Essence. The resulting zombie has a mind, a mixture of the artificial psyche the necromancer imagined and the person it used to be. It looks and sounds like it did in life, though its flesh is cool, pale and slick. It reeks slightly of decay, and it has trouble speaking loudly. The exquisite undead aide starts with the traits of a common zombie, having lost most of its memories. Necromancy grants it Attributes at a rating of 2 or higher (except Appearance, which stays at 1) plus the caster's (Intelligence + Occult) in extra Ability dots, though none of those dots can raise the creature's Abilities above the necromancer's own. Lastly, the thing takes a new Motivation--to serve, love and worship the necromancer above all things. At the Storyteller's discretion, the aide might eventually regain the memories--and Intimacies--of its former life, though its Motivation stays the same. It might even regain trait scores it had in life, though it can never have access to Essence, Charms or other magics it used while living.</p>"
+  },
+  "folder": "562235f47f16c453",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

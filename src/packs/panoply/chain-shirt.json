@@ -1,0 +1,43 @@
+{
+  "_id": "a003b234c56d7892",
+  "_key": "!items!a003b234c56d7892",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Chain Shirt",
+  "type": "armor",
+  "img": "icons/equipment/chest/shirt-mail-shirt-simple.webp",
+  "system": {
+    "soak": {
+      "bashing": 3,
+      "lethal": 5,
+      "aggravated": 0
+    },
+    "hardness": 0,
+    "mobilityPenalty": -1,
+    "fatiguePenalty": -1,
+    "artifact": false,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 0,
+    "hearthstoneSlots": 0,
+    "tags": [
+      "Concealable"
+    ],
+    "description": "<p>A pullover shirt made from links of extremely fine mail protecting the chest, abdomen, shoulders and back; can be worn beneath most clothing.</p>",
+    "equipped": false
+  },
+  "folder": "f002a234b56c789e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

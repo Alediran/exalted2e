@@ -1,0 +1,37 @@
+{
+  "_id": "b3a9c468c9f83417",
+  "_key": "!items!b3a9c468c9f83417",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Commanding Presence of Fire",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-commanding-presence-of-fire",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 10,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "one scene",
+    "target": "Fiery projection",
+    "description": "<p>From the fiery valor within her, the sorcerer creates above herself a huge projection in her own image, dozens of feet tall and wreathed in flame, high enough to be seen for seven miles. Speaking through the image, the sorcerer's voice is amplified so all who see her, even in the clamor of a storm or a battlefield, can hear her. The projection lasts one minute (or one long tick) at minimum, and up to one scene. For every additional minute or long tick the sorcerer wishes the projection to last, her player must succeed at a reflexive Stamina roll. Failure ends the spell. Any social attacks made through the commanding presence of fire gain a dice bonus equal to the sorcerer's Occult rating. Additionally, a sorcerer maintaining this spell counts as two relays in mass combat, or three if the sorcerer serves fully in the position of relay rather than the position of sorcerer.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

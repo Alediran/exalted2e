@@ -1,0 +1,69 @@
+{
+  "_id": "7eadf8f92111426e",
+  "_key": "!items!7eadf8f92111426e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Holistic Miracle Understanding",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "craft",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "None"
+    ],
+    "cost": {
+      "formula": "-",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solar craftsman has progressed beyond applying discrete bits of knowledge and skill--every part of him is an extension of his prowess, and intuitive understanding blossoms from every aspect of the world around him. The Solar perfectly understands how to recreate any object he makes use of. When he climbs into a warstrider, he is able to estimate what prayers accompanied its creation, the temperatures used to forge its armor, and the order in which its parts were assembled. When he fires a bow, he deduces the materials and methods used to create it--and to fletch the arrow it just fired. When he eats a cake, he deduces all the particulars of its recipe. Any effort the Solar undertakes to precisely reproduce an object analyzed by this Charm reduces its cumulative difficulty by half and the total number of successes required by his (Essence x 2), to a minimum of 5. With Craft 6+, Essence 6+ the Solar also counts each hour of work invested in building such a replica as three hours of labor. This Charm cannot perfectly analyze N/A-rated wonders like the Five-Metal Shrike or unique miracles of Primordial (or stranger) design such as the Sword of Creation, the elemental poles, or the Well of Udr. Instead, it grants the Solar a sense of vague but potent inspiration--a clue as to where useful information about or elements of the wonder's construction might be sought. On all occasions when the Solar Exalted have attempted to use Holistic Miracle Understanding to examine an Exaltation, they have experienced only an encouraging-but-vague sense that the answer rests within themselves.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "edc76e076778cb5e",
+            "charmName": "Design Beyond Limit",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }],
+    "charmUid": "edc76e076778cb5e"
+  },
+  "folder": "461821c707bbdbb0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

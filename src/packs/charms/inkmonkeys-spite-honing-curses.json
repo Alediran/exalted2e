@@ -1,0 +1,68 @@
+{
+  "_id": "0e3a042e027d81ca",
+  "_key": "!items!0e3a042e027d81ca",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Spite Honing Curses",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": "None",
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Kimbery has long been known to her fellows as the most bitter and spiteful of their kind, inviting her brethren into her drowning waters for the slightest irritation. But after countless millennia, the Yozis have come to appreciate her talent for vicious slurs. An Exalt with this Charm may use her Overdrive pool to fuel social attacks against reviled characters, without a Combo or Charm activation if entirely paid for by Overdrive motes. Note that doing so on the mass social combat scale is only practical if the Infernal hates everyone present--which is distinctly possible for the adepts of Kimbery. Infernal Monster Charms The Infernal Monster is a force of unwavering, all-consuming rage, fueled by a hunger for violence beyond human comprehension of the word. The style's expansions fulfill this threat, offering an arsenal of blasphemies to Infernal Exalted brutal enough to explore them. The Infernal Monster is not Malfeas. Slayers automatically favor Martial Arts and therefore Infernal Monster Style, so it is easy to forget that they are separate Charm sets. The thematic similarities between Malfeas Charms and Infernal Monster Charms only further clouds the issue. Both sets emphasize overkill and force and rage. Yet there are differences, too. Malfeas cannot restrain himself. He exists only at full volume and full power, unable to conceive of any other state of being. The Infernal Monster is more cunning. It watches and waits for the right moment to unleash its fury. When that moment comes, the monster explodes into a frenzy of hateful ultraviolence expressing pure physical force and visceral horror. There is nothing sophisticated or esoteric about the Infernal Monster's violence. The style does not sear enemies with the cold flames of a mad sun, nor encase its wielders in living metal armor.</p><p>The Infernal Monster remains a fundamentally human beast. It smashes, gnaws and shatters everything in its path. Malfeas conceives of forces beyond the physical, but the Infernal Monster only understands violence. Malfeas hates himself as much or more than he hates his enemies, while the Infernal Monster revels in its unholy might and howls bloody triumph at the sky. The Infernal Monster is not the Lunar Hero. The Hero style of Luna's Chosen is the fighting art of trickster-warriors who guard their friends and control the terms of battle. The Lunar Hero does not permit her enemies to flee. She chooses whom they can attack. When she strikes, she is a whirlwind of sudden and deliberate force. These are not the ways of the Infernal Monster. Its only trick is the trick of mastering terrain and launching devastating ambushes. It does not control the terms of battle in all places; if it must rely upon the environment, then it does so by luring enemies into the dark holes where it can tilt the playing field sharply in its favor. The defining quality of the Infernal Monster's wrath is power, not speed. Yet there is something reminiscent of Lunars in the Infernal Monster's territorial fury. Parts of the style explore the concept of the Old Thing In the Cave, the archetypal menace of humanity that emerges from its hellish lair to hunt and slay everything that crosses its path. Some Stewards take this ogrelike approach, drawing power from the lands they prowl and the caves in which they lair. Accordingly, some of the Infernal Monster Style expansion Charms below include information on Lunar Charms that function very similarly. These Charms are scattered among Lunar Charm trees. They can be monsters or savage kings, but they have no consolidated path to follow. Enlightening Madness Charms These expansions of Infernal Monster Style explore the style's propensity for violent fury. Learning them changes how the character thinks and reacts to the world, invariably making the Exalt crazier and more dangerous to be around. Smoldering Rage Beast</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "be77bc4918a7b1b7",
+            "charmName": "Unerring Grief Discipline",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "0e3a042e027d81ca"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "8ec3a92bb83767e6",
+  "_key": "!items!8ec3a92bb83767e6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Faithful Ally",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "celestial-circle-the-faithful-ally",
+    "tradition": "sorcery",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Caster and one creature",
+    "description": "<p>This spell takes eight hours to perform and requires sapphire dust (Resources 3 cost) mixed with the blood of the caster and one other willing sentient creature. The sorcerer's Essence transubstantiates the mixture into gleaming blue ink, which is used to create an occult tattoo on both targets. Creating the first tattoo doesn't call for a roll, but the second requires a successful (Perception + Craft [Air]) roll, difficulty 4, to copy the tattoo accurately and in the exact same place on the second person's body. The sorcerer herself need not make this tattoo, however. This tattoo acts as an arcane link to the other target. People who see the tattoo do not automatically know it is part of a spell--even with magical perceptions, a player needs a successful (Perception + Occult) roll, difficulty 4, or a (Perception + Lore roll), difficulty 5, for his character to recognize the tattoo as part of a spell. The Faithful Ally may be countered as it is cast, but countermagic does not affect the finished tattoo. A sorcerer may have a number of sorcerous tattoos equal to his Essence active on his body at any given time. ACTIVATING THE LINK Cost: 0m or 20m (from sorcerer) Target: Caster or linked ally By laying two fingers (or similar digits) on the tattoo and concentrating, either the sorcerer or the target can mentally communicate with the other. They can \"talk\" to each other across any distance within Creation or the Wyld as long as they are both willing to concentrate. This ability has no Essence cost. If the sorcerer and target agree to it, the sorcerer may infuse the link between them with Essence, teleporting one of them to the side of the other. This action does not require a roll and can be flurried. The person being transported arrives within 20 yards of the other's position (wherever the caller visualizes the other arriving), with no disorientation. Neither is there a limit on the distance the ally can be transported, as long as both are in Creation. Wards against teleportation, such as Private Plaza of Downcast Eyes, block this effect. A sorcerer with an active means of perceiving Essence (such as All-Encompassing Sorcerer's Sight) can recognize what is happening and may use countermagic to abort the teleportation. Characters cannot try again. The tattoos on both the sorcerer and target vanish when the sorcerer invokes the teleportation power, whether the attempt succeeds or not.</p>"
+  },
+  "folder": "dcf06d83a3d0a4be",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

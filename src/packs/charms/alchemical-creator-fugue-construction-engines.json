@@ -1,0 +1,71 @@
+{
+  "_id": "2cf92e8621066b07",
+  "_key": "!items!2cf92e8621066b07",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Creator Fugue Construction Engines",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "intelligence",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Exemplar 3",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "-- [2m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm enhances its prerequisite, allowing it to extrude clusters of tool-tipped tentacles, dexterous armatures, waldoes and other grossly oversized personal-scale construction equipment. Provided the upgraded Omnitool Implant remains active for the entire period of a Craft project, its supernal tools double any dice and/or successes supplied by Augmentations to Craft actions, as well as doubling the cap on Charm bonus dice to better take advantage of this boost. Exalted with this Charm installed cannot lose Clarity from interacting with mortals. Submodules: Architectural Army of One: While Omnitool Implant is active, that Charm allows the character and his extruded equipment to act as a unit with Magnitude equal to his Essence rating for the purposes of counting as labor for large-scale construction projects such as manse building. He need not be in charge of the project to apply this benefit toward its completion.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "94229af1f021fb19",
+            "charmName": "Omnitool Implant",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "2cf92e8621066b07"
+  },
+  "folder": "b0b1b2b3b4b5f04f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

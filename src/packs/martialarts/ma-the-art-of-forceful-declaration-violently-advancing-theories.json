@@ -1,0 +1,57 @@
+{
+  "_id": "6cdc03789246c2db",
+  "_key": "!items!6cdc03789246c2db",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Violently Advancing Theories",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "untilNextAction",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>By continuing to provide arguments without respite for her opponents, a debater can further her position as she hammers her points home. This tactic is often used when her many philosophic foes' arguments all stand separately. After activating this Charm on her action, the martial artist may precede any of her attacks in a flurry with a full Move action. She may not take less than a half Move action before an attack. Although it is a waste of Essence in single combat, using this Charm before a flurry allows the Exalt to sprint quickly between several enemies. Example: SharpTongued Jiao has a Dexterity of 4 and uses Violently Advancing Theories as she begins her attack. Normally, she may move four yards in a turn and still attack. Splitting her dice pool five ways, she can now move a maximum of 20 yards (four yards before each attack) and a minimum of 10 yards (two yards before each attack). There must actually be a valid target to attack between each move. One may not use this Charm to strike the ground and move 20 yards in an instant.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Forceful Declaration",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "6cdc03789246c2db"
+  },
+  "folder": "676ebc2abfe88729",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

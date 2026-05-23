@@ -1,0 +1,86 @@
+{
+  "_id": "290bf01402094912",
+  "_key": "!items!290bf01402094912",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hardened Killer Training Style",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "war",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneWeek",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror (Tiger Warrior Training; Exalted, p. 198)",
+      "Obvious",
+      "Touch",
+      "Training"
+    ],
+    "cost": {
+      "formula": "10m, 2wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm takes raw recruits and brutally transforms them into incarnate weapons. Units composed of ghosts or</p><p>CHARM CONCEPT: POSITIVE AND NEGATIVE INTIMACIES Positive Intimacies are those rooted in loyalty, love, camaraderie or any other emotional context in which a character feels positively toward the Intimacy's subject. Negative Intimacies involve hate, fear, resentment or any other emotions where the character feels negatively toward the Intimacy's subject. The Storyteller is the judge of whether an Intimacy is positive or negative, but generally the distinction is plainly obvious. the walking dead take twice as long to train as living troops, encouraging Abyssals to train prospective war ghosts prior to their final promotion. Unlike its Solar Mirror, this Charm cannot train Valor and badly damages the psyches of those it teaches. Each week of training poisons the positive Intimacy that most distracts the trainee from his education (assuming any exist), shifting the emotional context of that Intimacy to contempt or hatred.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "aa03afc17d6c2284",
+            "charmName": "Arise and Slaughter",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "9d156a78f71fba1e",
+            "charmName": "Glorious Carnage Typhoon",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "290bf01402094912",
+    "mirrorId": "ab1fcc826118f36e"
+  },
+  "folder": "b0b1b2b3b4b5f04b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

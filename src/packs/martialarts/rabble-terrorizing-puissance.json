@@ -1,0 +1,84 @@
+{
+  "_id": "e9745923bf9b65dd",
+  "_key": "!items!e9745923bf9b65dd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Rabble-Terrorizing Puissance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious",
+      "War"
+    ],
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "--"
+    },
+    "description": "<p>What hope do mortal leaders have of reassuring their troops? They can't stop the Infernal Monster. They can't outplan him. They can't outfight him. They can say the beast will not come back again so soon, that lightning seldom strikes twice. Veterans see through such lies. This Charm permanently improves its prerequisite. The Willpower cost for Essence 1 leaders to rally away the effects of Post-Traumatic Brutality Roar is four Willpower rather than two. With Essence 5+, this resistance cost increase also applies against unit leaders who are First Circle demons, Essence 1-3 UnExalted living Essence users (like Dragon-Kings and Mountain Folk), Essence 1-3 Fair Folk, Essence 1-3 gods, Essence 1-4 elementals and Essence 1-5 ghosts. Infernals who reach Essence 8+ extend the benefit against all Essence 1-5 unit leaders who are not Exalted.</p><p>Panicked Soldier Stampede</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Infernal Monster Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a757bd3b7d4d7d4f",
+            "charmName": "Post-Traumatic Brutality Roar",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "willpowerRecovery": {
+      "enabled": true,
+      "event": "onDamageDealt",
+      "formula": "1"
+    },
+    "charmUid": "e9745923bf9b65dd",
+    "grantsMastery": false
+  },
+  "folder": "ae5a8ed470f7303b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

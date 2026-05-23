@@ -1,0 +1,49 @@
+{
+  "_id": "e632a234b56c78bc",
+  "_key": "!items!e632a234b56c78bc",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Razor Harness",
+  "type": "weapon",
+  "img": "icons/equipment/chest/breastplate-layered-steel.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "",
+        "speed": 6,
+        "accuracy": -1,
+        "damage": 3,
+        "damageType": "lethal",
+        "overwhelming": 1,
+        "defense": 0,
+        "rate": 1,
+        "range": 0,
+        "minStrength": 1,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": []
+      }
+    ],
+    "artifact": false,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 0,
+    "hearthstoneSlots": 0,
+    "description": "<p>A brutal wrestling enhancement consisting of leather straps covering the wearer in spikes and blades that wound grappled foes.</p>",
+    "equipped": false
+  },
+  "folder": "f001a234b56c789d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

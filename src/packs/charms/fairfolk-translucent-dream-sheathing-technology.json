@@ -1,0 +1,59 @@
+{
+  "_id": "405b230236727bd2",
+  "_key": "!items!405b230236727bd2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Translucent Dream Sheathing Technology",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "ring",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Glamour",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "--(+3m, +1g per difficulty point)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Previous Wyld-shaping Charms permit the raksha to dazzle Creation-born who enter her domain with works of glamour. This Charm allows her to directly affect or even harm them. The raksha targets an existing possession (an item, a vessel or a territory) with this Charm and imbues it with an inherent glamour effect that inflicts an automatic predetermined shaping effect on those who interact with it. This Charm can be reflexively used in tandem with Essence-Forging Art, Gossamer-Forging Art, Unreal Shipwright's Method or Principle of Worlds without the need for a Combo, and all motes spent are committed until the item being forged is completed (usually one season). If the Charm is used to enchant a previously existing possession, the raksha must commit the motes to the item for one season, at the end of which the shaping effect becomes a part of the possession's nature. In order to enact this Charm, the raksha's player must roll (Intelligence + Craft [Glamour]) as a Ring-shaping action. The difficulty for the roll is determined by the nature of the shaping effect to be imbued into the possession. This difficulty also determines the gossamer cost for activating the Charm. Particular effects are described as being serviceable, fine, exceptional or perfect, depending on the difficulty applied. The Essence spent on this Charm must remain committed for one tale as appropriate while the raksha carefully sculpts the effect into the desired shape. Generally, if a raksha applies a shaping effect to a possession and then carries it into Creation, the shaping effect goes dormant unless the possession is brought to Creation through an Evocation Charm or the shaping effect is made permanent. Making a shaping effect permanent through this Charm adds one to the Charm's difficulty. From a narrative standpoint, the shaping effect establishes a condition associated with the possession such that anyone who interacts with the item must abide by the normal rules for acceding to or ignoring shaping effects (see p. 117). For example, a raksha might enchant a particular bed in her castle with an exceptional effect (difficulty 3) that states that anyone who laid down on it would fall asleep until \"awoken by love's true kiss.\" If an intruder did lie down on the bed, he would treat the effect as if it were a shaping effect successfully used against him by a raksha with an Essence of 3. In other words, he could either submit to the condition and fall asleep until awoken (thereby gaining a +1 Wyld bonus on all actions while a part of the narrative) or he could spend one Willpower to ignore it and thereafter suffer a -3 Wyld penalty on all future actions for the duration of the tale. If the raksha summons the item into Creation, the Wyld bonus and Wyld penalty last for one season (or until the raksha's Assumption ends). Instead of first creating an item through Essence-Forging Art, Principle of Worlds or Unreal Shipwright's Method and then applying this Charm to it, the raksha has the option of simply creating the object wholesale from Translucent Dream Sheathing Technology. Doing so doubles the Essence and gossamer cost and adds one to the difficulty. A gossamer object cannot be directly created with this Charm. Glamour Resistance: This Charm is a work of glamour. In the Wyld, its effects function against the Creation-born normally. If the enchanted item is evoked into Creation, the shaping effect attached to it by this Charm continues to function, but its condition does not apply at all to any Creation-born whose (Integrity + Essence) exceeds the raksha's Intelligence. Difficulty Description Serviceable. This is a simple shaping effect. It can be overcome by a Charm or a stunt, and any opposing shaping effect defeats it automatically. Otherwise, it inflicts a -1 Wyld penalty on anyone who defies the condition inherent in the shaping effect. Such a person must also pay one Willpower if it is the first violation of local reality during the scene. At this level of difficulty, the shaping effect must be targeted on single object small enough to fit into a 10'-by-10' room. Fine. The raksha's shaping effect can impose a -2 Wyld penalty on anyone who defies the condition. Alternatively, he can impose a -1 penalty on a location small enough fit within a serviceable raksha territory. Exceptional. The raksha's shaping effect can impose a -3 Wyld penalty on anyone who defies the condition. Alternatively, he can impose a -2 penalty on a location small enough to fit into a serviceable raksha territory or a -1 penalty on fine raksha territory. Perfect. The raksha's shaping effect can impose a -4 Wyld penalty on anyone who defies the condition. Alternatively, he can impose a -3 penalty on a serviceable raksha territory, a -2 penalty on a fine territory or a -1 penalty on an exceptional territory. +1 Direct Creation. The raksha shapes the pos- session and the shaping effect attached to it simultaneously as a single Ring-shaping action instead of simply applying the shaping effect to a pre-existing possession. This technique also increases the Essence cost by two. +1 Permanence. The raksha's shaping effect can enter Creation if the raksha evokes the item or territory to which it is attached. Even permanent shaping effects are still subject to Glamour Resistance.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "405b230236727bd2"
+  },
+  "folder": "e3ab9ab145f6a424",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "d3765b9688c8f53d",
+  "_key": "!items!d3765b9688c8f53d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "God-forged Champion of War",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "celestial-circle-god-forged-champion-of-war",
+    "tradition": "sorcery",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "indefinite (committed)",
+    "target": "Caster",
+    "description": "<p>This spell works only when cast under the open sky. The sorcerer speaks several of the Five Hundred Words of War and draws a latticework of Essence around herself. During the day, sparks of sunfire swirl down from the sky to join the lattice, while at night, the sorcerer's anima catches glowing motes of moonlight or starlight. As the magic builds, the sorcerer rises into the air. Dozens of distant voices rise in an indistinct war chant. Least gods from objects in a 50-yard radius awaken, leave their objects and fly toward the Essence-lattice of this spell, where the light of the Incarnae forges them into plates of thick armor, forming a mighty scout- or common-class warstrider around the sorcerer. This warstrider lasts for one hour, though the sorcerer may extend its duration by spending 10 motes per additional hour. (See Wonders of the Lost Age for complete descriptions of warstriders and their equipment.) Armament for the warstrider costs additional committed motes of Essence: one mote per dot of cost for mundane weapons, or two motes per dot for artifact weapons, all suitably scaled for an 18-foot-tall humanoid war machine. If the sorcerer spends an additional five motes at casting (which are not committed), the warstrider gains the benefits of the magical material aligned with the sorcerer's Exaltation, but only if the warstrider is crafted of the appropriate sort of light. Solars gain this benefit only from casting this spell during the day, for example, while Lunars and Sidereals gain this benefit from spells cast at night. When this spell's duration elapses, the least gods return to their objects, imparting in the object a slight glow of sun, moon or starlight that fades in a week. They are completely unharmed.</p>"
+  },
+  "folder": "dcf06d83a3d0a4be",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

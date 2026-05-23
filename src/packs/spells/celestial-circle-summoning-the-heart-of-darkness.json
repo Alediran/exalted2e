@@ -1,0 +1,37 @@
+{
+  "_id": "da7c52ad5f05bc50",
+  "_key": "!items!da7c52ad5f05bc50",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Summoning the Heart of Darkness",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "celestial-circle-summoning-the-heart-of-darkness",
+    "tradition": "sorcery",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 30,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Area",
+    "description": "<p>The sorcerer knots strands of Essence infused with silence, darkness, confusion and terror. A black pillar explodes upward, surrounding the caster and extending outward a mile in every direction and 10 miles into the air. Within this pillar of darkness, blind terror reigns. Sounds become muffled and seem to come from everywhere at once. Only screams ring out clearly, though they still seem to come from all around. In a large group, victims need successful Valor checks, difficulty 3, let they give in to panic. Entire armies have slaughtered themselves when caught by the Heart of Darkness. The ebon column does not have a solid boundary, though. Anyone can enter the area, and anyone who finds its edge can escape it. Creatures with supernaturally enhanced senses or that can perform supernatural tracking may operate within the darkness at a -2 internal penalty to all actions. (The zone is still unnerving and disorienting.) Creatures without such senses become lost within the darkness, wandering around in confused circles or stumbling into one another (often with bloody results). Such creatures have the difficulty of all actions they take increased by an amount equal to the sorcerer's Essence. The caster is not immune to these effects. Unless countered, Heart of Darkness lasts for 24 hours, even if the caster is slain.</p>"
+  },
+  "folder": "dcf06d83a3d0a4be",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

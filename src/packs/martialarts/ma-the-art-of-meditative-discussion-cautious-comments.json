@@ -1,0 +1,57 @@
+{
+  "_id": "380b7d5bb2f5120a",
+  "_key": "!items!380b7d5bb2f5120a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Cautious Comments",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A philosopher of Temperance most often opens a debate by carefully asking questions that offer his position little danger. Only once he becomes familiar with his opponent's beliefs and strategy does he attempt a more direct action. By then, he has studied the form of his opponent's arguments and knows its flaws. This Charm increases both of the martial artist's DVs by an amount equal to his Temperance as long as he takes no attack actions or otherwise attempts to injure someone else. If he takes an offensive action, the bonus disappears. Cautious Comments cannot be activated during attack resolution. After a number of actions equal to his Temperance, the martial artist must pay the Essence cost again to maintain the protection.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Meditative Discussion",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "380b7d5bb2f5120a"
+  },
+  "folder": "1b2f6d78bc952477",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

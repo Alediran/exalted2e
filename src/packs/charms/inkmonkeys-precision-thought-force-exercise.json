@@ -1,0 +1,82 @@
+{
+  "_id": "663fe4c2646dbc21",
+  "_key": "!items!663fe4c2646dbc21",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Precision Thought-Force Exercise",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>She Who Lives In Her Name feels something like pity for humans. They are crippled amputees, incapable of reaching beyond their physical forms. It isn't really pity, of course, but rather an acute and targeted awareness of her superiority and the necessity of upgrading lesser beings to her specifications. The Green Sun Princes who learn this Charm perform a great service, serving as honored prototypes of humaniform transmogrification even as they civilize themselves. This Charm permanently upgrades Mind-Hand Manipulation in the following ways: � The Charm may be used to protect others with Defend Other actions out to its maximum range rather than the usual (Dexterity rating) yards. � The Charm can be used to deliver Touch effects as though the emanated force is part of the Infernal's body. � The Infernal adds +2 to his Parry DV using Mind-Hand Manipulation while taking a Guard action. With Essence 4+, this benefit also applies while using Defend Other to protect someone. Force-Draining Exigence</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "First She Who Lives In Her Name Excellency",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e34e6bd54a2ffc9d",
+            "charmName": "Mind-Hand Manipulation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "663fe4c2646dbc21"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

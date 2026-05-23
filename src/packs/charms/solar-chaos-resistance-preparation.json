@@ -1,0 +1,71 @@
+{
+  "_id": "1e592c0413056ce5",
+  "_key": "!items!1e592c0413056ce5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Chaos-Resistance Preparation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "craft",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "5m, 2wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The chaos of the Wyld corrodes the things of Creation. For every thing the touch of madness improves, one hundred things are ruined. Since the beginning, Lawgivers have opposed the ravages of the Wyld. This Charm makes an object immune to Shaping effects and Wyld chaos for as long as the Essence remains committed. The object is also permanently made stronger. Specifically, in the Wyld, this Charm permanently makes random unfortunate incidents affecting the object 10 times less frequent. This Charm permanently increases the difficulty of rolled Shaping effects targeting the object by two.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "9250c5c1bbd368eb",
+            "charmName": "Object-Strengthening Touch",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "1e592c0413056ce5"
+  },
+  "folder": "461821c707bbdbb0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

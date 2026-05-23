@@ -1,0 +1,73 @@
+{
+  "_id": "a86365eb31f5dfe5",
+  "_key": "!items!a86365eb31f5dfe5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shock And Awe Cannonade Delivery",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "strength",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "supplemental",
+    "duration": "oneAction",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Crippling",
+      "Knockback",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "6m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm functions almost identically to its prerequisite but momentarily folds space to designate the impact point of any ranged attack as the epicenter of its shockwave. All submodules installed for Toroidal Shockwave Catalyst may also be used to enhance this Charm. Because the blast does not emerge from the Champion, he is equally vulnerable to it if he detonates its power too close to himself.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "27845ab0887bec93",
+            "charmName": "Toroidal Shockwave Catalyst",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a86365eb31f5dfe5"
+  },
+  "folder": "b0b1b2b3b4b5f054",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

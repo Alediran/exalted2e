@@ -1,0 +1,58 @@
+{
+  "_id": "7f7450884f2f14ee",
+  "_key": "!items!7f7450884f2f14ee",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Groveling Penitence Prana",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Crippling"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Daring to oppose a master of the Laughing Wounds Style is like begging for humiliation. On a successful attack, the Abyssal may spend four motes to force her enemy's immediate submission. The target's player rolls (Stamina + Integrity) with an external penalty of the Abyssal's Martial Arts. If the roll fails, the target falls to his knees and cannot move from that spot unless the martial artist releases him. She can stalk around him, chiding, mocking and beating him as she wishes. Since her victim can't stand or shift his legs, he cannot use his Dodge DV at all. Any physical action he manages to take suffers a -2 external penalty, and his Parry DV decreases by two. The target may spend a Willpower point for a (Stamina + Integrity) reroll, but if he fails again, he remains at the martial artist's mercy.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Laughing Wounds Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "7f7450884f2f14ee"
+  },
+  "folder": "33b132b15f3f6d2e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

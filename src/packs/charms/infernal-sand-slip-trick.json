@@ -1,0 +1,71 @@
+{
+  "_id": "a537f55416f54a17",
+  "_key": "!items!a537f55416f54a17",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sand-Slip Trick",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Trapped between forever and Malfeas, the Endless Desert has nowhere to move but upon and through herself. A character who knows this Charm doubles her movement speed after all other modifiers when moving across a place of physical desolation. She also doubles the speed at which she can travel over long distances as a subtly non-Obvious effect, provided she employs some form of natural locomotion or rides a steed that is some sort of desert creature. This Charm cannot quicken the five-day journey between Malfeas and Creation. Essence 3+ Infernals with this Charm also can't suffer knockback or knockdown in a place of physical desolation unless the effect has a magical source. This defense manifests by reflexively Shaping their legs (and sometimes lower torso)</p><p>IMPERFECTION OF THE ENDLESS DESERT The other Yozis tasked Cecelyne with keeping the society of demons in line, ensuring that none would rise above their station. Accordingly, it is not fit that those who wield her power should seek conflict against their betters. Charms noted as suffering from the Imperfection of the Endless Desert may not be used to defend against attacks of beings with an Essence rating more than two dots greater than the Infernal's. into pillars of living sand that merge and flow into the ground, only to change back after the force passes.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "cecelyne",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f9b13ab624f48a8d",
+            "charmName": "Transcendent Desert Creature",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a537f55416f54a17"
+  },
+  "folder": "d852ccb3960d271d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,109 @@
+{
+  "_id": "9a049a6bfe3d0f7e",
+  "_key": "!items!9a049a6bfe3d0f7e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Implicit Construction Methodology",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "craft",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Prayer Strip",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "20m, 1wp, 1lhl",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm harnesses fate itself to construct an object at a Sidereal's command. She must procure all the necessary materials and provide a workspace. Then she writes the Scripture of Lover and Maiden on a prayer strip, binds it around her wrists and infuses it with Essence. The prayer strip transforms into a twisting band of blue light around her wrists. (Having this band in place imposes a -2 external penalty to actions that require the use of the character's hands.) Fortunately, actual construction of the object the Sidereal designed doesn't require the use of her hands. The raw materials mold themselves and flow together on their own, assembling themselves as the Sidereal intends. The Craft project still requires its normal dice pools and Ability minimums--but, supplemented by this Charm, each die becomes one automatic success and construction of mundane objects takes 10 minutes per roll. Objects involving the magical materials (except moonsilver, which cannot be part of the construction) require a full hour per roll. Architectural or geomantic projects, such as the construction of a manse, take a week for every year they would normally require. The work proceeds as long as the character keeps the Essence committed and pays attention to the labor. DODGE: THE EWER</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "adbd4f039f9d81b5",
+            "charmName": "Elemental Vision",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f31bac8e01188f0d",
+            "charmName": "Mending Warped Designs",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "fd315135e25f1a37",
+            "charmName": "Predestined Delivery Shaping",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "df395b8cdc90d358",
+            "charmName": "World-Shaping Artistic Vision",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "9a049a6bfe3d0f7e"
+  },
+  "folder": "b0b1b2b3b4b5f005",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,58 @@
+{
+  "_id": "441a74aaa9396e47",
+  "_key": "!items!441a74aaa9396e47",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Angry Predator Frenzy Style",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "extraAction",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Counterattack",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "7m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>As the snarling roar of an ethereal tiger echoes in the air, the character lashes out in a frenzy of deadly blows. A character using this Charm makes two Martial Arts attacks every action (with no multiple-action penalty). In addition, the character may immediately attempt a Martial Arts counterattack whenever she is successfully attacked. The martial artist's player adds the extra successes from the attacker's roll as bonus dice of raw damage to the character's own counterattack. This Charm cannot be used to retaliate against any other counterattack Charm. The character's attacks and counterattacks infl icts lethal damage even if the martial artist does not wear tiger claws. A character who uses Angry Predator Style cannot use any other extra action Charms while this Charm remains active. CHAPTER FOUR SIDEREAL MARTIAL ARTS Creation is more than what composes it. While Celestial martial arts take an aspect of the world or Heaven and seek to emulate its nature, the Sidereal martial arts transcend that limited understanding. Each Sidereal style offers its own enlightenment about the nature of Creation. Rather than acting as a facet of Creation, the designer of a Sidereal martial art integrates Creation as a facet of the style. The Sidereal elders began developing these transcendent martial arts in the First Age, and their motives were not entirely philosophical. In pursuing the utmost secrets both of combat and Essence, they found power along with enlightenment. Each Sidereal art explores one of the fundamental principles shoring up reality. Their advanced Charms suggest the powers of things from beyond Creation, such as the reality-blurring fantasy of the Fair Folk, the destructive rot of the Demon Princes or the all-devouring hunger of Oblivion. Because Sidereal martial arts are so powerful, they remain secret. Such power could inspire jealousy... or fear. Not only do the Sidereals continue to investigate the meaning of these martial arts styles, they refuse to teach these abilities to other Exalted. This is not to say that some few Celestial Exalted have not found tutors over the millennia--just that they're rare and perhaps became targets of Sidereal vengeance. This chapter describes seven martial arts from the Blossom of the Perfected Lotus--seven mystic lenses for viewing Creation and, perhaps, moving beyond it. The Border of Kaleidoscopic Logic Style attacks identity and perception of reality. The Charcoal March of Spiders Style enables practitioners to ensnare, transform and devour their foes. The Citrine Poxes of Contagion Style grants mastery of disease: of the body, of the spirit and of Essence itself. The Obsidian Shards of Infinity Style holds a mirror to Creation and breaks it. The Prismatic Arrangement of Creation Style controls the flows of Essence itself for attack and defense. The Quicksilver Hand of Dreams Style turns battles into nightmares. The Scarlet-Patterned Battlefield Style grants command of motion and conflict. CHARM CONCEPT: SIDEREAL SUTRAS Each Sidereal style has a \"student\" and an \"elder\" sutra. Only the Chosen of Fate (or Eclipse and Moonshadow Caste Exalted who learn the Charms as a Sidereal) can sufficiently master Sidereal styles that they can use these sutras. A martial artist learns the student sutra upon learning the style's Form-type Charm and the elder sutra after completing the entire style. Using either sutra requires the Sidereal to inscribe its text on a prayer strip in advance and then spend a Willpower point when he wants to use it. The prayer strip shines with a light characteristic of the style and rises to float beside the character for the scene. Invoking the student's sutra reduces the cost of using Charms from that style by five motes per action. (In a Combo, subtract five motes from the total cost, not from the cost of using each Charm of the style that makes up the Combo.) The elder sutra reduces that cost by 10 motes and one Willpower per action. Elder sutras cannot reduce the Willpower cost of using Charms from that style below zero, and neither sutra can bring the total Essence cost of the style's Charms below one mote in a given action. Elder sutras trump student sutras. The two effects cannot be combined, but one may simultaneously use the sutras for two or more distinct styles. ...to a room where each found her most favored foods. Home is where the heart is, and many do not keep their hearts in safe enough places. Instead, just as a seductress abuses insecurities of the soul to take a man's heart from his happy home, the martial artist can reshape her victims' loyalties. The Exalt must impress a target with the sheer significance of her mien and how it should feel to be recognized by such a person. Her image assaults a single target, whom the character must be able to see in detail, and her player rolls (Appearance + Martial Arts) against that target's Dodge MDV to steal his secret heart. This social attack always aligns with the target's Temperance, reducing his MDV by two if his Temperance is greater than 2. If she chooses, the martial artist may first instigate a clinch attack against her target. She does not move, instead ensnaring her target with invisible strands of tangible attention. The strong-willed are more easily snared by this grapple. If the martial artist accumulates fewer successes than her target has dots of Willpower, add one automatic success. Once the martial artist successfully clinches her target, her player makes</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Tiger Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "441a74aaa9396e47"
+  },
+  "folder": "086aba86b0941ecb",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,57 @@
+{
+  "_id": "af32f6fa2db57fd3",
+  "_key": "!items!af32f6fa2db57fd3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Grace-forging Charms",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "staff",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "15m, 1g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm allows the raksha to forge a Heart Grace from raw Essence and gossamer. Noble raksha with a Birth Background rating of 4 or higher begin life with this Charm, having shaped themselves into existence. Lesser raksha began existence as the possession of some other raksha, only later winning a Heart Grace, and therefore freedom, for themselves. The raksha can use this Charm to grant a Heart Grace to a minion but not a Creation-born.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "af32f6fa2db57fd3"
+  },
+  "folder": "3a42d6c2417833d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

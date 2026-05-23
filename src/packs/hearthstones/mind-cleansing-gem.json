@@ -1,0 +1,27 @@
+{
+  "_id": "134cbcf2cfbfcf68",
+  "_key": "!items!134cbcf2cfbfcf68",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Mind-Cleansing Gem",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDWATER00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "water",
+    "rating": 2,
+    "description": "<p>This sea-blue topaz dodecahedron helps its bearer to resist all attempts to dominate or influence his mind. Bearers gain +1 to both their Dodge and Parry MDVs. In addition, if touched to someone who is under any form of unnatural mental influence, the stone gives the target a chance to break free. If the target's player wins or ties an opposed Willpower roll against the controller, the stone instantly frees her from this mental influence.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

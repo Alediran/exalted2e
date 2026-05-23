@@ -1,0 +1,57 @@
+{
+  "_id": "157cecb7cd4d4156",
+  "_key": "!items!157cecb7cd4d4156",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Attractive Floor-greasing Posture",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1+m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>By appearing vulnerable, the Exalt lures his opponent into overextending herself. When attacked, the martial artist activates this Charm and tries to dodge or parry the blow. If the attack fails, then the martial artist has maneuvered himself into a position to drive a strike home on his next action. His opponent suffers a cumulative -1 penalty from her DV for each mote the Exalt spent (up to half the character's Martial Arts, rounded up), but only against the character who used the Charm and only if the martial artist uses his next action to attack her.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Ill Lily Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "157cecb7cd4d4156"
+  },
+  "folder": "de797a0f4e672176",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

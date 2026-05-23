@@ -1,0 +1,57 @@
+{
+  "_id": "f7cceb64c253f0ef",
+  "_key": "!items!f7cceb64c253f0ef",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "New Martial Arts Charm: Sifu's Useful Fingers",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Sidereals advise the world; much of their power to act upon the world proceeds from this fact. Disdaining such crude weapons as fighting gauntlets or appropriated barstools, the Sidereal turns others into his instruments--be they pawns or kings. The Sidereal may enlighten an individual with five minutes of oneon-one advice and simple-but-profound martial demonstrations. The beneficiaries of such instruction temporarily enjoy one bonus dot of Martial Arts and add the Sidereal's Martial Arts rating to their Dodge MDV so long as the Vizier commits Essence to this Charm. She may sustain a commitment to up to (Essence x 2) beneficiaries at once. Sidereals know such beneficiaries as shadow fingers. If the character is a Sidereal Exalt, she automatically becomes aware when one of her shadow fingers is attacked, regardless of the distance separating them.</p>",
+    "source": "Scroll of Errata",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f7cceb64c253f0ef"
+  },
+  "folder": "a1b2c3d4e5f60003",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

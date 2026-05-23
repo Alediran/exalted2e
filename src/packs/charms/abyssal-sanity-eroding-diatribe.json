@@ -1,0 +1,77 @@
+{
+  "_id": "b56374f22c25d8e3",
+  "_key": "!items!b56374f22c25d8e3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sanity-Eroding Diatribe",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "presence",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Avatar (1)",
+      "Obvious",
+      "Social"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Sometimes, Abyssals don't really want to persuade anyone of anything. They just want to tear an enemy's mind into broken, gibbering shards of pain. The Abyssal makes a social attack in which her player rolls ([Charisma or Manipulation] + Presence) against the target's Dodge MDV. If the target can gain Limit or Resonance, every three threshold successes increase her Limit or Resonance total by one, though the target may spend two Willpower each rather than gain the points. Other targets instead lose one Willpower for every three threshold successes. Any victims reduced to zero Willpower by this Charm--even those who spend their last Willpower points resisting Limit or Resonance gains--suffer the effects of a Solar Limit Break selected by the Storyteller from those associated with the target's highest rated Virtue (see Exalted pp. 103�105). Mortals cannot partially control induced Limit Breaks, though other victims can. No matter what sort of being an Exalted or mortal victim of this Charm is, he suffers a Solar-style Limit Break if this Charm's effects (or resistance thereto) run him out of Willpower. If the victim is Exalted, this Charm's induced Limit Break wipes out any points of Limit he had before the Limit Break. Deathknights retain any points of Resonance they had, however.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "willpowerRecovery": {
+      "enabled": true,
+      "event": "onDamageDealt",
+      "formula": "1"
+    },
+    "charmUid": "b56374f22c25d8e3"
+  },
+  "folder": "b0b1b2b3b4b5f043",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

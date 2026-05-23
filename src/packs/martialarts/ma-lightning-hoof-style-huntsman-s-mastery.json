@@ -1,0 +1,58 @@
+{
+  "_id": "d3953e9b20df7181",
+  "_key": "!items!d3953e9b20df7181",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Huntsman's Mastery",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Crippling"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Marukan hunters give chase to the prey of the plains. On the back of a superior Marukan steed, they run alongside their prey, matching speeds before they wound it with an arrow. By carefully targeting the prey's weakest locations, the hunter can be sure both that the creature will bleed out quickly and that the wound will remain clean. Attacking with this Charm decreases the duration between damage due to blood loss by one minute, such that a creature with Stamina 4 suffers one level of lethal damage from bleeding after three minutes instead of four. Creatures with Stamina 1 lose one level every six actions or 30 seconds. (See p. 151 of Exalted.) The difficulty to close the wound and stop the bleeding (for Exalted closing their own wounds or for healers closing others') increases by an amount equal to the attacker's Essence. Wounds made by this attack never become infected.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Lightning Hoof Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "d3953e9b20df7181"
+  },
+  "folder": "971155d2668d8a6a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

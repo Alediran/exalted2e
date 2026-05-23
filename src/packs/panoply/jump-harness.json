@@ -1,0 +1,37 @@
+{
+  "_id": "12789beefe6a9291",
+  "_key": "!items!12789beefe6a9291",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Jump Harness",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Although actual flight is the domain of Exalts and gods, as well as few beastmen and other winged magical creations, Dragon-Blooded technicians created these devices during the Shogunate to allow mortals to partially emulate the powers granted to their Air-aspected betters. This artifact was specifically developed for use by jump troops, who would leap out of huge skyships, plummeting safely to the ground. The use of such jump troops allowed the military leaders of the Shogunate to deploy troops exceedingly rapidly and to field troops in regions too dangerous to land skyships. Most drop troops were equipped with ashigaru battle armor and shock pikes, although a few were armed with fire lances. Jump harnesses consist of a large, thick belt made of links of blue jade that is connected to a pair of sturdy mesh straps that encircle the wearer's upper thighs. To use the jump harness, mortal wearers must spend one temporary Willpower--this Willpower is treated as committed and effectively lowers the character's maximum temporary Willpower. Exalts wearing this artifact need spend only two motes of Essence to activate this device for one scene. The device automatically and reflexively draws two motes of Essence from a falling Exalt, unless the Exalt deliberately chooses not to spend these motes. When using this item, the wearer can place it in one of two modes. In swift-descent mode, the unit allows the wearer to fall at normal speed and then it rapidly but safely decelerates the wearer a few yards above the ground, allowing him to fall any distance without harm. In this mode, the wearer falls quite rapidly, attaining an average speed of 30 yards per tick in a 100-yard fall. In slow-decent mode, the wearer falls at a constant speed of five yards per tick, allowing him to survey the terrain below and to attack with distance weapons. Although descent from high altitudes can take as much as several minutes, the wearer can fall any distance without harm. Also, in this mode, the wearer can jump twice her normal jumping distances in both horizontal and vertical jumps. Today, Lookshy has almost 200 of these artifacts and regularly uses them with its Manta-class skyships and Skywolf. In addition, almost a decade ago, the Haslanti League recovered several dozen of these units from the ice-covered city of Tzatli. Today, their elite troops use these artifacts to make daring attacks from Haslanti air boats.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

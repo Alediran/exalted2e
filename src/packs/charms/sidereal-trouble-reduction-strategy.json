@@ -1,0 +1,71 @@
+{
+  "_id": "d6f0aa27c7c64710",
+  "_key": "!items!d6f0aa27c7c64710",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Trouble-Reduction Strategy",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "dodge",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Virtue (Compassion)"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>By joining the fates of other people to her own, a Sidereal not only can escape danger herself but protect people around her as well. In a scene in which this Charm is active, the Sidereal can use any Dodge Charm she knows on behalf of a number of targets whose combined Essence scores do not exceed her own (provided a given target reflexively consents to this protection). Simple Charms use the Sidereal's Dodge Defense Value on the character's action. Reflexive Charms use the Sidereal's Dodge Defense Value as well. Supplemental Charms enhance the protected target's action. Using a Dodge Charm on a willing target's behalf counts as the Sidereal's using that Charm for that action, and the</p><p>Exalt must pay any costs associated with that Charm. The character can use a Dodge Charm that is part of a Combo on a protected target, and still use the other Charm(s) in the Combo on herself.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b7fc85c754e61c93",
+            "charmName": "Duck Fate",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "d6f0aa27c7c64710"
+  },
+  "folder": "b0b1b2b3b4b5f006",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "581851bb8fce96d6",
+  "_key": "!items!581851bb8fce96d6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Armigers of the Maker's Mighty",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "man-machine-protocol-armigers-of-the-maker-s-mighty",
+    "tradition": "weaving",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 10,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Soldiers",
+    "description": "<p>The fight against the terrors hiding in Autochthon's body to preserve and repair the Great Maker is dangerous enough for the Alchemical Exalted, but for the soldiers they lead, it is a deadly duty. To protect those under their care, a weaver may spend 30 motes and petition the design weavers, her hands glowing with radiant energy. Streamers of pure Essence strike the chest of each soldier in a unit with a Magnitude equal to or less than the Alchemical's Essence. The power of the protocol is transferred to each soldier, wrapping miniscule lines of pattern energy together into steel brooches pinned to the soldier's uniform. These brooches bear the stylized insignia of the weaver who created them. These magical brooches imbue the soldier with some of the valorous might of the Exalted. For a scene, a unit of soldiers blessed with these brooches gains both skill and power, adding two to Drill and an additional one to Might on top of the standard bonus for possessing thaumaturgical talismans or alchemical potions. A more precise application of this protocol exists that affects only a single individual. For 10 motes, this protocol instead weaves a single brooch on the clothing of an individual, granting skill and power to the one so blessed. The individual is granted +2 Accuracy with all weapons and is treated as an Exalt with two greater Essence when determining damage minimums for the remainder of the scene.</p>"
+  },
+  "folder": "3b28eb3d74c31f00",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

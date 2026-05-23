@@ -1,0 +1,37 @@
+{
+  "_id": "fa74ce31a8f46544",
+  "_key": "!items!fa74ce31a8f46544",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unity of the Closed Fist",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "solar-circle-unity-of-the-closed-fist",
+    "tradition": "sorcery",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 40,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "permanent",
+    "target": "Caster and creatures",
+    "description": "<p>As this spell is cast, those affected by it stretch and blur into the sorcerer's body, which shifts and shapes itself into a massive composite being. The anima of each entity included in the casting (if they have one) flares in full, iconic glory. No one can be included in this amalgam identity against his will. If the sorcerer tries to include someone who refuses to join, the spell fails. The composite being has the following qualities: � Height equal to the tallest member of the composite, plus 25 percent for each additional participant. � Strength, Dexterity and Stamina equal the highest possessed by any member of the composite, plus one dot for each additional character. � Health levels equal to the participant with the greatest number, plus one -1 and two -2 levels for each additional character involved. The composite being always forms undamaged. � Personal and peripheral Essence pools equal to the sums of these pools for all the participating individuals, and the composite entity can use all individuals' Charms, Combos and anima effects. The Dragon-Blooded ability to use reflexive Charms without counting them as the Charm-per-action applies only to Dragon-Blooded reflexive Charms. Adjudicate other abilities specific to particular Exalt types similarly. � Other Attributes and Abilities equal to the highest held by any member of the composite, and the same with Virtues, effective permanent Essence and permanent and temporary Willpower. � Motivations and Intimacies equal to the sum of the individual participants' Motivations and Intimacies. This blending occasionally causes some problems. � A composite hearthstone, which allows the merged entity to use the powers of all hearthstones borne by the individual members. � Composite armament. The weapon's Accuracy equals the highest of all weapons wielded by the individual members, as do its Damage, Defense and Rate equal the highest of those values. Add the composite's Valor to the weapon's Damage. Its Speed is the lowest of all such weapons. Armor confers bashing soak, lethal soak and Hardness equal to the highest such values among any individual's armor; add the composite's Willpower to both soak values. The spell ends at the end of the scene or when the composite's incapacitated health level is filled with lethal or aggravated damage. If the composite is \"killed,\" it explodes and ejects the individuals who comprised it with only one health level remaining each. Otherwise, all participants are as healthy as they were when they entered the amalgam. Spent Essence is taken equally from the pools of all participants. Because of the protection their tattoos afford them, most Lunar Exalted cannot be a part of this spell. Attempting to include a tattooed Lunar in this spell causes it to fail.</p>"
+  },
+  "folder": "66776f28169b53d7",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

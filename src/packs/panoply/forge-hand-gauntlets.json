@@ -1,0 +1,37 @@
+{
+  "_id": "c81ec81577fe713f",
+  "_key": "!items!c81ec81577fe713f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Forge-hand Gauntlets",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Appearing as gloves of scaled red dragon-skin leather adorned with red jade articulated plates and elaborate orichalcum wire inlay, these remarkable artifacts serve as powerful tools of crafting and, in this fallen Age, deadly weapons. A pair of these devices costs 10 motes to attune, which also resizes them to perfectly fit their owner. Forge-hand gauntlets are completely impervious to all heat, and they confer that same protection on their wearer's hands and arms. An Exalt wearing a pair could reach into the central plasma furnace of a First Age factory-cathedral and scoop out a handful of molten orichalcum, feeling only a pleasant warmth. Because the gloves protect only the hands and arms, however, their imperviousness would not similarly protect a character standing in a bonfire (or otherwise taking damage from heat-based environmental effects). Against attacks based on heat or flame, an Exalt wearing these gloves gains a +10L/10B soak and +10L/+10B hardness, as long as he uses them to parry the attacks (and has a positive Parry DV, of course). The gloves can also heat themselves with a thought, making them hot enough to melt stone and steel. From a utilitarian standpoint, the wearer effectively has an exceptional blacksmith's forge on his person at all time, and his player adds a +2 bonus to all Craft (Fire) rolls to make or repair objects as a result. Used combatively, every unarmed attack against an inanimate object that is not made of a magical material (or comparably invulnerable) permanently reduces all the object's soak values by the pre-soak damage of the attack (to a minimum of 0 soak). Attacks against characters wearing non-indestructible armor likewise permanently reduce the armor's soak values, destroying any armor reduced to 0/0 soak. The gauntlets allow their wearer to parry lethal and ranged attacks without a stunt, and if the gauntlets fully parry a non-magical weapon (i.e., Parry DV cancels all attack successes), the weapon is burnt to ash, bent to twisted slag or otherwise destroyed. Because of their composite construction, forge-hand gauntlets do not provide magical material bonuses and may be used by any Exalted. They are wielded using Martial Arts and suffer no offhand penalties used paired. (Second stat bar reflects item clinched.) Speed Accuracy Damage Defense Rate +0 +7B piercing +2 (+4A while heated) +0 +6B piercing ­ (+3A while heated) Minimums Attune Cost Str ·· ···· Str ·· ···· Tags M C, M</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 4,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

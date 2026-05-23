@@ -1,0 +1,57 @@
+{
+  "_id": "b54b3071aad53769",
+  "_key": "!items!b54b3071aad53769",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Poisoned Rat Moves Without Pride",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>It is always an advantage to throw your opponent off guard. Slow reactions in a deadly conflict show a lack of focus, but making someone else react slowly--that's skill. When the character hits a person with a Martial Arts attack while using this Charm, his target's player rolls (Wits + Awareness) against a difficulty equal to the character's Martial Arts rating. If the roll fails, the martial artist's attack delays his target's next action by a single tick, effectively increasing the Speed of her present action by one. Used cleverly, this technique can provide valuable gaps in opponents' defenses.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "First Pulse Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "b54b3071aad53769"
+  },
+  "folder": "7f4a779293a5eb21",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

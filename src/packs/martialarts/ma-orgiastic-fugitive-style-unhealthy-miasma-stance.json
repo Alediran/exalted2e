@@ -1,0 +1,59 @@
+{
+  "_id": "1789fe3b468f9e23",
+  "_key": "!items!1789fe3b468f9e23",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unhealthy Miasma Stance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Obvious",
+      "Poison"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>After years and years of marathon orgies, the character might find that she can make her friends dizzy, sick or even high just by standing near them. Whether that's an accomplishment or a disgrace, the skillful martial artist finds a way to use anything to her advantage. Using her intimate understanding of the substances involved, she guides her Essence in capturing, refining and expelling the drugs and fatigue poisons in her body into a cloud of strongly drugged and bluish air that hovers about her for several long, dizzying seconds. Assuming the Unhealthy Miasma Stance, the character purges her body of up to (Martial Arts) indulgence penalties, from indulgences of her player's choice. For the Charm's duration, anyone within two yards of her suffers these penalties instead. Each action a character takes within that influence, his player must make a (Stamina + Resistance) roll at a difficulty equal to the character's Essence, or he suffers them for the rest of the scene. Actions that require close, extended contact with the Exalt (such as clinches) increase this difficulty by one.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Orgiastic Fugitive Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "1789fe3b468f9e23"
+  },
+  "folder": "f2585f18db971283",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

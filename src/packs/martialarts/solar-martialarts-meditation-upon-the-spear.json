@@ -1,0 +1,78 @@
+{
+  "_id": "9f5130163cf84bbd",
+  "_key": "!items!9f5130163cf84bbd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Meditation Upon the Spear",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "extraAction",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "motes": 6,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "6m, 1wp"
+    },
+    "description": "<p>The spear carried by the Unconquered Sun is a simple weapon, serving only one purpose. But it is also nimble, able to strike down foes from a multitude of angles. In its simplicity, it is a thing of awe and fear. Drawing from this example, the martial artist unleashes a flurry of strikes along many different vectors at a single opponent, each ultimately connecting in the same place. The character makes an unarmed Martial Arts attack at his full dice pool. Should it inflict damage, he immediately follows it up with another attack, and should that also inflict damage, he repeats this sequence until he has either failed to harm his opponent or (Martial Arts + Essence) total attacks have been delivered. Each attack ignores one cumulative point of the target's soak. All attacks are delivered at full dice pool. The flurry ignores Rate and has a total Speed and DV penalty equal to the highest of any individual attack.</p>",
+    "source": "Glories of the Most High: Unconquered Sun",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Arms of the Unconquered Sun Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "9ac1a948eab52077",
+            "charmName": "Rising Sun Form",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "9f5130163cf84bbd",
+    "grantsMastery": false
+  },
+  "folder": "60c07b8667afdccd",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

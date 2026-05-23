@@ -1,0 +1,58 @@
+{
+  "_id": "6fb76a47cf4ffbd5",
+  "_key": "!items!6fb76a47cf4ffbd5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Jade Mountain Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Form-type",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "6m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The earth around the master of Jade Mountain Style shivers, as she briefly falls to one knee and touches her head to the ground. Rising from the meditative position, she reveals the great strength and might of the mountain within her--this Charm adds almost a foot to her height and 100 pounds to her weight. More stunning are the plates of stone that rip themselves from the earth around her. They lock into place around the martial artist's body, giving her an external musculature to use in battle. The transformation from Exalt to stone juggernaut adds an amount equal to her Essence to her Strength and Stamina. It also allows her to soak lethal with her full (and improved) Stamina and parry lethal attacks unarmed without a stunt. Although it is powerful, the mountain is neither agile nor quick. Jade Mountain Form reduces an Exalt's Dexterity (and corresponding movement rate) by one dot. Should the martial artist lose contact with the earth for more than one whole action, the Charm ends. That is, a Jade Mountain practitioner can leap from the ground on her action, but as long as she lands before or on her next action, she maintains the Charm. If someone grapples her and lifts her from the ground for five ticks, she must take control of the grapple in the next action and escape to the ground, or Jade Mountain Form ends.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Jade Mountain Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "6fb76a47cf4ffbd5"
+  },
+  "folder": "0b2af474919bf89d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

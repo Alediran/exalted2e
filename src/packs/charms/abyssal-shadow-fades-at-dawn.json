@@ -1,0 +1,83 @@
+{
+  "_id": "3935d778153d8e51",
+  "_key": "!items!3935d778153d8e51",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shadow Fades at Dawn",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "dodge",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Illusion"
+    ],
+    "cost": {
+      "formula": "-(+4m)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Mocking laughter marks the Abyssal's relocation away from the area of effect. This Charm is otherwise identical to its Solar counterpart.</p>",
+    "source": "Scroll of Errata",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5370363b83335420",
+            "charmName": "Flickering Wisp Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "8c7d782b6944e56e",
+            "charmName": "Foe-Shaming Defense",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "3935d778153d8e51",
+    "mirrorId": "58029d52340ce947"
+  },
+  "folder": "b0b1b2b3b4b5f038",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

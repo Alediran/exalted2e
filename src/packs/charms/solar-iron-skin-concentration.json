@@ -1,0 +1,80 @@
+{
+  "_id": "d8d91ebf4bca1ac7",
+  "_key": "!items!d8d91ebf4bca1ac7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Iron Skin Concentration",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "resistance",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      7
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Mortal weapons are as the stings of wasps and hornets to the Lawgivers reborn. The Solar invokes this Charm after an attack hits him but before damage is rolled. Roll (his Stamina + Resistance) against a difficulty equal to the attacker's Essence (up to a maximum of 6). On a success, this Charm prevents all damage from the attack; on a failure, this Charm still gives him +4A/+8L/+8B soak. IRON KETTLE BODY Cost: 4m, 1W Mins: Resistance 3 Essence 2; Type: Simple Duration: Scene Prerequisite Charms: Iron Skin Concentration The Lawgivers are armored in righteousness, and many need no other hauberk. This Charm gives the character +4A/+8L/+8B soak for the scene. This Charm cannot be used by characters wearing armor. The defense provided by this Charm is compatible with Iron Skin Concentration's effects.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "20cba12e0ede41be",
+            "charmName": "Durability of Oak Meditation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "soakBonus": {
+      "enabled": true,
+      "bashing": 8,
+      "lethal": 8,
+      "aggravated": 4,
+      "hardnessAdd": 0,
+      "hardnessSetTo": 0
+    },
+    "charmUid": "d8d91ebf4bca1ac7"
+  },
+  "folder": "f05b544008eaceb0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

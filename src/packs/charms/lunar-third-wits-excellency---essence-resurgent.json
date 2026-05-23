@@ -1,0 +1,59 @@
+{
+  "_id": "b3e429ececf2b11f",
+  "_key": "!items!b3e429ececf2b11f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Third Wits Excellency-- Essence Resurgent",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "wits",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      4
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Lunars with this Charm obey their instincts, saving themselves from failure. A character's player may activate this Charm after making a roll based on the relevant Attribute. She then makes the roll again, using the new result if she prefers. The Lunar can use this Charm to enhance static values based on the relevant Attribute. Doing so doubles the character's Attribute for one instant or task, increasing applicable Defense Values by half the relevant Attribute. INSTINCTIVE Wits UNITY</p>",
+    "source": "MoP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "third",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "b3e429ececf2b11f"
+  },
+  "folder": "03a1efbef258d84f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

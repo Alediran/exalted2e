@@ -1,0 +1,37 @@
+{
+  "_id": "c68c028a5b278f61",
+  "_key": "!items!c68c028a5b278f61",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Bone Puppet Dance",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "shadowlands-circle-bone-puppet-dance",
+    "tradition": "necromancy",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 16,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "permanent",
+    "target": "One skeleton",
+    "description": "<p>The necromancer utters a single syllable of deathly command, and a symbol representing the spell ripples toward its target and brands itself in the center of the skeleton's ribcage. The caster now commands that skeleton... not good if a person lives around it. The skeleton moves as the caster wills, from dancing a jig to murdering a child, for a number of hours equal to the caster's (Charisma + Occult). The skeleton acts with either its normal dice pools or those of its normal, fleshly owner. Living targets suffer an internal penalty on these actions equal to their Essence. A living target may resist, using muscles to struggle against the deathly force that animates his bones. Each action in which he does so, he suffers one level of unsoakable lethal damage. Doing so also consumes much more of the spell's energy, reducing the duration by one hour. When the remaining duration reaches zero hours, the spell ends. Skeletons that kill their contravening hosts claw their way free of the body and become permanent walking dead under the caster's control. Similarly, casting this spell on an existing skeleton raises it as a permanent zombie. Targeting a skeleton that is already an active walking dead rips its control from its current master.</p>"
+  },
+  "folder": "9a7bd83d0a359e00",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

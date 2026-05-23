@@ -1,0 +1,73 @@
+{
+  "_id": "86a08a7e1eeedcf6",
+  "_key": "!items!86a08a7e1eeedcf6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Virtuous Negation Defense",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "dodge",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      5
+    ],
+    "keywords": [
+      "Combo-OK",
+      "War"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>If an ally within normal leaping distance (about five yards) is subject to an attack, the Dragon-Blood using this Charm can attempt to move her out of the way. The Exalt's player must first roll (Dexterity + Dodge + Essence). If the player gets no successes, the attack proceeds normally. If the player gets any successes, the character can make himself the target of the attack instead of the ally. If his successes exceed the successes on the attack roll, both the Dragon-Blooded and the ally automatically dodge without a roll. Otherwise, the attacker's remaining successes are applied as damage against the Dragon-Blood (with soak applied normally). This is a reflexive Charm that can be used freely without the need for a Combo. It can be activated on any tick on which the Exalt is subject to an attack.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c68b76c12e337c2c",
+            "charmName": "Hopping Firecracker Evasion",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "86a08a7e1eeedcf6"
+  },
+  "folder": "b0b1b2b3b4b5f01f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

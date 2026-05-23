@@ -1,0 +1,37 @@
+{
+  "_id": "9664eec535770365",
+  "_key": "!items!9664eec535770365",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Battlecruiser",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>One of the more impressive ship designs of the First Age, the Dawning Sun Indomitable class of heavy battlecruisers formed the backbone of the Deliberative's navy. No fully intact copies are known to have survived into the Second Age, though a handful of damaged copies deployed by the Realm still outclass virtually anything else afloat. Built with long, sleek trimaran hulls out of a light organic crystal as durable as the five magical materials with sweeping curves impossible to duplicate with wooden construction, they are breathtakingly beautiful to behold, stylistically reminiscent of birds in flight. From stem to stern, each of the three hulls measure 55 yards long, though the outer hulls are six yards in the beam compared with the 10-yard beam of the center hull. Paddlewheel drive assemblies hang between each hull like those of the smaller Swift Midday Brilliance class vessels, though none of the extant copies of Dawning Sun Indomitable cruisers have functional drives. Although none alive remember, save perhaps a few of the eldest Sidereals and Lunars, all that is needed to activate one of these ship's drives is for a Solar Exalt to take the pilot's position in the center hull and commit 10 motes to take command of the vessel. Only such a captain could redistribute power to feed the ship's integrated weapons systems, which included a range of lightning ballistae, heavy and light implosion bows, Essence cannons and other, more esoteric energy weapons. Nowadays, what scraps of weaponry remain on the relic hulls must be powered directly by the gunner, though most of the guns have been stripped away and replaced with firedust cannons, ballistae and other primitive mechanical weapons. Speed: 10/20mph under sail; 34/70mph under power Maneuverability: -4S under sail; -1S under power Endurance: None Crew: 74/12 (or 1/1, if piloted by a Solar captain under power) Cargo: One wing of infantry or four warstriders or combination/equivalent. Armor: 50B/50L Health Levels: Ux50/Mx30/Cx10/Ix10/D Weapons: Varies</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": false,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 0,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

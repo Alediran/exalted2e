@@ -1,0 +1,37 @@
+{
+  "_id": "8bfd5ba0da91470f",
+  "_key": "!items!8bfd5ba0da91470f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Risen and Screaming",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "void-circle-risen-and-screaming",
+    "tradition": "necromancy",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 40,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Area",
+    "description": "<p>After the Cast Necromancy action, the necromancer paces out a path in Creation, dropping a small dusting of salt crystals every 30 steps. The trail he walks blackens and dries out, as if it had been burned and salted by enemies. Once he rejoins his beginning, the spell's effects appear to end. The area enclosed by his travel has been poisoned with a lasting curse of undeath. Roiling necromantic energy lies concealed just below the surface. Any time a living creature dies within its boundary, the ground softens and crumbles to absorb it. The corpse rises again a few minutes later, its skin years rotted but its bones strong and claws sharp. Zombies created by this spell are under the caster's control. Any zombies left in the region without their master's attention burrow into the ground, which accepts them easily. A buried zombie knows when a living creature comes within 20 yards. It can rip its way out of the ground as part of its Move action before attacking. Noticing a hidden zombie requires a (Perception + Awareness) roll, difficulty 2. These zombies scream loudly when they attack living creatures, and they move at twice the speed of normal zombies. Otherwise, they are identical to zombies on p. 314 of Exalted. Only Obsidian Countermagic, focused, long-term geomancy or repeated applications of Adamant Countermagic can remove this deadly curse.</p>"
+  },
+  "folder": "447f6cc1520ba234",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

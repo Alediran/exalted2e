@@ -1,0 +1,71 @@
+{
+  "_id": "9e8f077385ee1942",
+  "_key": "!items!9e8f077385ee1942",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Force-Draining Exigence",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 4,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Native",
+      "Overdrive"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Whispering Flame knows that the power and problem of the Exalted are one and the same. Upon learning this Charm, the character gains an Overdrive pool with a capacity of ten motes. Initially empty, she may fill it by enacting the following procedure: First, she must use Essence-Dissecting Stare (or a relative effect) to witness an opponent using an Overdrive Charm. She must then analyze the Charm. If it is unknown to her, roll the warlock's Intelligence + Occult against difficulty 5. If successful, the Infernal intuits the nature of how her target's Overdrive Charm functions. She also perceives each time the analyzed Charm delivers offensive motes to her target, and may use this information to form a rough idea of how full her target's Overdrive pool is. Whenever an Infernal with this Charm uses Mind-Hand Manipulation to inflict at least one health level of damage to an opponent whose Overdrive she has analyzed, the Exalt automatically drains one offensive mote from her victim's Overdrive pool, adding it to her own. In addition, the warlock may reflexively modify her attack, diverting health levels of damage in step 10. For each health level of damage she withdraws from the attack, she instead siphons off three of the victim's offensive motes, adding these motes to her own Overdrive pool. Force-Draining Exigence and Will-Crushing Force may not be used to enhance the same attack.</p><p>Adorjan Impatient Tempest Labor</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0badaf4398bcdcd1",
+            "charmName": "Will-Crushing Force",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "9e8f077385ee1942"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

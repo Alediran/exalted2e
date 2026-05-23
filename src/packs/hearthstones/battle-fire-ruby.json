@@ -1,0 +1,27 @@
+{
+  "_id": "d7ab3d366a7898f4",
+  "_key": "!items!d7ab3d366a7898f4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Battle Fire Ruby",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDFIRE000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "fire",
+    "rating": 2,
+    "description": "<p>This hearthstone is a fine ruby with 10 identical, kite-shaped facets. This stone continually fills the bearer with aggression and certainty. When rolling the character's Conviction or Valor, add two dice to the roll. Likewise, when rolling Compassion or Temperance, subtract two dice from the roll (to a minimum of one die).</p>",
+    "source": "Oadenol's Codex"
+  }
+}

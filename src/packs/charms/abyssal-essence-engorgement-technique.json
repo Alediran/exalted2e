@@ -1,0 +1,73 @@
+{
+  "_id": "5747abb90340dd5a",
+  "_key": "!items!5747abb90340dd5a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Essence Engorgement Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "lore",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror (Immanent Solar Glory)",
+      "Native",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Abyssals bloat themselves with stolen motes to sustain them on extended forays into Creation, feeding on the terror</p><p>and death they cause. The secondary pool of Peripheral Essence can be filled using the Abyssal's innate bite attack or by terrorizing and harming a town, army, organization or other social or military unit. Every hour actively spent ravaging the populace--from murders in the night to burning the crops or shaking down peasants for taxes they cannot pay--enables the Abyssal to recover motes equal to the unit's Magnitude.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "5747abb90340dd5a",
+    "mirrorId": "84931bf90a7a307d"
+  },
+  "folder": "b0b1b2b3b4b5f03d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

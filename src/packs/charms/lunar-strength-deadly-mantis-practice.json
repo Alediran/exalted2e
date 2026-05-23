@@ -1,0 +1,71 @@
+{
+  "_id": "d0f2b81b1dfd1ab6",
+  "_key": "!items!d0f2b81b1dfd1ab6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Deadly Mantis Practice",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "strength",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "scene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Concentrating and sustaining her might, the Lunar learns to channel the totality of her body's strength into each limb. While this Charm is in effect, the character may wield weapons with the 2 tag using only one hand with no penalty. Solars possess a similar Charm called Dual Slaying Posture. Its prerequisites are Melee 4, Es- sence 2 and One Weapon, Two Blows. It costs only three motes.</p>",
+    "source": "Glories of the Most High: Luna",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "2d48665f6c46896a",
+            "charmName": "Molted Feather-Weight Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "d0f2b81b1dfd1ab6"
+  },
+  "folder": "aba1efe8ad0bef8a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

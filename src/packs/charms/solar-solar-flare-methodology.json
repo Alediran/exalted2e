@@ -1,0 +1,72 @@
+{
+  "_id": "286291b284e51e4c",
+  "_key": "!items!286291b284e51e4c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Solar Flare Methodology",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "archery",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Holy",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "3m, 1wp or 5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solar shapes his Essence into a firewand. Each such weapon has an appearance unique to the Exalt who conjures it. It has a Range of 15 yards. It has Rate 2 and Accuracy equal to Lawgiver's permanent Essence score. Its raw damage equals 16L, plus extra successes.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d67b8d54669d2118",
+            "charmName": "Inexhaustible Bolts of Solar Fire",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "286291b284e51e4c"
+  },
+  "folder": "e842a3a532908d8d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

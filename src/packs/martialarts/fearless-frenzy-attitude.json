@@ -1,0 +1,76 @@
+{
+  "_id": "2211178eb88914e4",
+  "_key": "!items!2211178eb88914e4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fearless Frenzy Attitude",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": "None",
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "--"
+    },
+    "description": "<p>The Infernal Monster is dauntlessly fierce. This Charm is a permanent enhancement of the Infernal's capabilities that applies if he has Valor 3+. While using Retribution Will Follow or Infernal Monster Form, he adds his Martial Arts rating in bonus successes to all Valor rolls to resist fear and adds this same amount directly to his Valor rating to defend against effects resisted better with a higher rating. He also treats all Emotion effects solely based on instilling fear as unacceptable orders. This does not improve the effectiveness of Valor channels. Finally, he confers this same fearlessness to all Valor 3+ victims driven berserk by his Rage Charms. Infernals with this Charm can choose to reflexively improve it at any time, making themselves permanently fearless even when not using Retribution Will Follow or Infernal Monster Form. The catch is that their \"sane\" resting state becomes identical to a partially-controlled Foolhardy Contempt Limit Break (Exalted, p. 105). Going berserk obviously trumps this behavior, as does Limit Break or behavior-altering Torment. However, when the acute madness ends, the pervasive madness of a mind without fear returns. Once the Infernal embraces a life without fear, he cannot go back to using the Charm as he first learned it. He can only explore deeper into the madness of the Infernal Monster, trading fearlessness for something worse. Fury Is Freedom</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Infernal Monster Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c5785b1d7ebaba97",
+            "charmName": "Retribution Will Follow",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "2211178eb88914e4",
+    "grantsMastery": false
+  },
+  "folder": "ae5a8ed470f7303b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,58 @@
+{
+  "_id": "f721e0bdc949b2a9",
+  "_key": "!items!f721e0bdc949b2a9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fantasy",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 7,
+    "minAbility": 7,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "20m, 2wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>she saw that her lover stood waiting. The martial artist himself does not know whether his dreams are real, but it doesn't matter. For the rest of the scene, he is a lucid dreamer, and everything within (Essence x 10) yards is his dream. Therefore, he chooses what happens. The Exalt cannot force a genuinely impossible event in the context of the scene, nor an event without any apparent cause. For example, his enemies will not simply fall over dead for no reason. He must kill them or decide that they start arguing and kill each other or arrange for them to die in some other understandable way. The Storyteller assigns a stunt value for the story the martial artist invents for the rest of the scene. The stunt value may be enhanced using Chimerical Ascension (almost anything's possible in the Wyld). All through the scene, anyone with an Essence pool who wishes to avoid being drawn into the character's dream narrative may spend a Willpower point to act against the Exalt's version of events. Any actions an unwilling character takes that contradict her vision have their dice pool reduced to zero before the use of Charms. Once the rebel character spends Willpower points equal to the story's stunt value, the fantasy melts away, leaving the martial artist standing bereft in the shreds of her dream. Fantasy may be used only once per scene. WHAT'S THE SECRET? So, who invented the Quicksilver Hand of Dreams Style? And who imparts it to dreaming Exalts? Your guess is as good as anyone's. The world forgets practitioners of this style, just as people forget Sidereals they meet. The Sidereals don't like to think that maybe someone--or something--occludes itself from their memory and awesome investigative powers as effectively as they hide from mortals. They can't refute the possibility, though... Creation also does not encompass all possibilities. The Primordials came before it. The Neverborn and Yozis made whole worlds out of their death and maiming. They cannot be dismissed out of hand as possible sources for any enigma. Finally, the Fair Folk emerge from the same eternal chaos whence the Primordials came. Quicksilver Hand of Dreams Style emulates many feats of the Fair Folk. Could something from the Outer Chaos be reaching into Creation? Only your Storyteller knows... if she thinks it matters. Not every question has an answer.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Quicksilver Hand of Dreams Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f721e0bdc949b2a9"
+  },
+  "folder": "4f4566b64a919114",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

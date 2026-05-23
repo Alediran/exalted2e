@@ -1,0 +1,55 @@
+{
+  "_id": "1ff2e3c7ce6333bd",
+  "_key": "!items!1ff2e3c7ce6333bd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Precise Ink Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "dragonblooded",
+    "ability": "larceny",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Duration: One task Prerequisite Charms: None This Charm is employed by spies and forgers across the Realm. A character using this Charm can duplicate both the handwriting and writing style of another person. The character must either currently have a specimen of the writing to be duplicated or else the player must succeed on a (Perception + Larceny) roll to recall a sample of writing the character has observed in the past. The Charm can be used to forge anything from a simple signature to a document with a maximum number of pages equal to the DragonBlood's Essence. Therefore, while the Charm can easily be used to falsify a legal document, writing an entire novel in the target's handwriting and style would require many repeated uses of the Charm. It is impossible to tell the forgery from the target's normal handwriting by any mundane means. If Charms or similar magic are brought to bear on the forgery, the difficulty for any roll for a person analyzing the document to discover the truth is increased by an amount equal to the Dragon-Blood's Essence.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "1ff2e3c7ce6333bd"
+  },
+  "folder": "b0b1b2b3b4b5f022",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

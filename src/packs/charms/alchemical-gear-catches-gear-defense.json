@@ -1,0 +1,57 @@
+{
+  "_id": "cebfc7ddafda9201",
+  "_key": "!items!cebfc7ddafda9201",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gear Catches Gear Defense",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "survival",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Exalt moves with mechanical precision, interposing either a rigid grip or the saw-toothed edge of his weapon to catch an incoming strike. The martial artist's parry DV increases by two against an incoming attack, and if it succeeds in stopping the strike entirely, that attack's Speed retroactively increases by one (forcing the attacker's DV to refresh one tick later). If used barehanded, this Charm also allows the character to parry lethal and ranged attacks without a stunt.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "cebfc7ddafda9201"
+  },
+  "folder": "a1b2c3d4e5f60007",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

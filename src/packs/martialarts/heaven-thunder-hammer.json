@@ -1,0 +1,79 @@
+{
+  "_id": "5360e9a0985ba210",
+  "_key": "!items!5360e9a0985ba210",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Heaven Thunder Hammer",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Enhanced"
+    ],
+    "cost": {
+      "motes": 3,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "3m"
+    },
+    "description": "<p>The fury of the Lawgivers scatters their enemies like leaves before the storm. This Charm supplements an unarmed Martial Arts attack. It ensures that the Solar's attack throws his enemy backward one yard for each point of pre-soak damage. Targets that strike hard objects take one die of damage for each yard</p><p>FISTS OF IRON TECHNIQUE</p><p>Sledgehammer Fist Punch</p><p>Dragon Coil Technique</p><p>Solar Hero Form</p><p>Heaven Thunder Hammer</p><p>Ox-Stunning Blow</p><p>Hammer on Iron Technique</p><p>Crashing Wave Throw</p><p>Shockwave Technique</p><p>they would otherwise have traveled. This damage is typically bashing but it can be lethal if the target strikes a sufficiently dangerous object.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Solar Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "8e96863f868ad9a4",
+            "charmName": "Solar Hero Form",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "5360e9a0985ba210",
+    "grantsMastery": false
+  },
+  "folder": "05bd4dac47a869bd",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

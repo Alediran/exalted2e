@@ -1,0 +1,72 @@
+{
+  "_id": "eb0be6f6550ce24c",
+  "_key": "!items!eb0be6f6550ce24c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Stormwall Interrupter Circuits",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "appearance",
+    "essence": 4,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 4,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Internal",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "1-3wp [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>An array of lead plates, black jade baffles and Essenceredirecting adamant coils deploy, forcibly suppressing the Alchemical's anima banner. It flickers like a failing circuit and then disappears altogether. The process is briefly but intensely painful. The Exalt's anima is truly dampened out but will flare again with further expenditure of Peripheral Essence. This Charm costs three Willpower if the anima is at the eight- to 10-mote level or brighter, only two Willpower if dimmer than that, and one Willpower if previously activated in the scene.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "77d6745fbb38fff0",
+            "charmName": "Aura-Dampening Component",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "eb0be6f6550ce24c"
+  },
+  "folder": "b0b1b2b3b4b5f04c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

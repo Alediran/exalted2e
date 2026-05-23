@@ -1,0 +1,37 @@
+{
+  "_id": "83c2f2797dc42503",
+  "_key": "!items!83c2f2797dc42503",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dragonfly's Ranging Eye",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>The one-dot version of this item is a simple adamant lens cut as a faceted polyhedron attached to a small node made from First Age alloys. If attuned for a commitment of one mote, the device's owner can touch the node to his temple and tap it once, causing it to adhere tightly to his skin until he taps it again. Worn this way, the lens completely covers one eye. At will, its owner can shift the perspective of the covered eye, allowing him to view from any point and direction within line of sight that is no farther than (his Essence x 20) yards distant. All Perception rolls suffer a -1 internal penalty as long as the character divides his vision this way. Two-dot versions of these devices cost three motes to attune, but they can orient their vantage to locations beyond the user's line of sight. This allows the owner to scry through walls or other obstructions. Three-dot variants cost five motes to attune, but they can scry locations out of sight up to a mile away. Add one dot to the rating of a dragonfly's ranging eye and three motes to its commitment cost if the lens provides Essence sight (see p. 85) for normal and remote viewing.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 1,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

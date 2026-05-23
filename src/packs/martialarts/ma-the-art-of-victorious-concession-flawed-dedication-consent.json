@@ -1,0 +1,58 @@
+{
+  "_id": "247d26355693df72",
+  "_key": "!items!247d26355693df72",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Flawed Dedication Consent",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Counterattack"
+    ],
+    "cost": {
+      "formula": "3m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Remaining quiet, the debater lets her opponent build on a faulty foundation. When the time comes for her to counter the fool's argument, she doesn't need to do anything more than point out its basic fallacy and watch it all come tumbling down. Invoking this Charm, the martial artist sees an attack from both her perspective and that of the attacker. This knowledge lets her identify her opponent's worst mistake and how to counter it. She parries or evades the attack, adding her Compassion score to the DV of her choice. If her defense succeeds, she immediately makes a clinch counterattack against the attacker with a dice pool equal to (Martial Arts + Compassion). For every point by which her DV exceeded her attacker's successes, she adds one additional die.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Victorious Concession",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "247d26355693df72"
+  },
+  "folder": "fd11958743cc8ca7",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

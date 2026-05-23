@@ -1,0 +1,71 @@
+{
+  "_id": "208ee0bfb77eec9c",
+  "_key": "!items!208ee0bfb77eec9c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Irresistible Penetrating Charge",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "ride",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "supplemental",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "War"
+    ],
+    "cost": {
+      "formula": "3m per point of Magnitude, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This variation of Charge of One Hundred Generals can be used only for mass combat maneuvers. The Charm lets the DragonBlood temporarily boost the effectiveness of large groups of mounted cavalry. The Dragon-Blood must spend one Willpower plus three motes for each point of Magnitude the cavalry unit possesses. Beginning with the first action of actual combat and lasting for a number of long ticks equal to the Dragon-Blood's Essence, the Dragon-Blood's (Ride + Essence) is added to the unit's Join Battle roll, and his ([Ride + Essence] � 3) is added to the unit's Close Combat Attack rating. This Charm can be used only during an actual charge and cannot be initiated once combat actually begins. The Dragon-Blood must be a part of the cavalry unit (although he does not have to be the leader), and a unit can benefit from only one use of this Charm at a time.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "13f9cbddaeb2ea25",
+            "charmName": "Charge of One Hundred Generals",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "208ee0bfb77eec9c"
+  },
+  "folder": "b0b1b2b3b4b5f02c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

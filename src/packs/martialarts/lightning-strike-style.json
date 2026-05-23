@@ -1,0 +1,80 @@
+{
+  "_id": "8f7cfa8771b5e535",
+  "_key": "!items!8f7cfa8771b5e535",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Lightning Strike Style",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 4,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Leader",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 4,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 1,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "4m, 1hl"
+    },
+    "description": "<p>The Air Immaculate's fingertips spark with electricity, his eyes flicker with the light of a faraway electrical storm, and his motions take on the sudden, unexpected aspects of lightning. When he attacks, he looses brilliant bolts of lightning at his foes, even striking targets that are far out of reach. For the Charm's duration, the Immaculate's Martial Arts attacks reach to a distance of (Essence x 10) feet. Such attacks inflict (Strength + Essence) in lethal electrical damage. If a target is in range for a normal unarmed attack, using a punch or kick adds to the attack's Accuracy and Damage as normal. For an additional mote, the Dragon-Blood may use a chakram with this Charm to add its Accuracy and Damage to the attack. Wielding such a weapon with this Charm carries the lightning strike farther. Add the Immaculate's Essence to the weapon's Range. Doing so might increase or decrease the Charm's maximum effective range, depending on the Immaculate's Essence.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Air Dragon Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e4e74902c6d16be4",
+            "charmName": "Thunderclap Kata",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "8f7cfa8771b5e535",
+    "grantsMastery": false
+  },
+  "folder": "037a2b61816f0f70",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

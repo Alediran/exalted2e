@@ -1,0 +1,58 @@
+{
+  "_id": "732e929c7ea20198",
+  "_key": "!items!732e929c7ea20198",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Elemental Succor Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "dragonblooded",
+    "ability": "lore",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Elemental"
+    ],
+    "cost": {
+      "formula": "5m and 1wp per lhl",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>While Elemental Empowerment Meditation allows the DragonBlood to replenish her lost Essence, this Charm allows her to restore her own body, using the power of the elements to heal her injuries. The character must immerse herself in her favored element as much as possible (standing in a burning fire, submerging herself in water, etc.) and must spend five motes and one Willpower for every lethal health level healed or two motes per bashing level healed. This Charm cannot be used to heal aggravated damage, nor can it be used to restore lost limbs or heal other such mutilations. An Eclipse or Moonshadow Caste Exalt who learns this Charm can use the Charm with only the element associated with the teacher of the Charm. That is, if an Eclipse learns Elemental Succor Method from a Fire Aspect, he cannot heal himself by immersion in any other element.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "732e929c7ea20198"
+  },
+  "folder": "b0b1b2b3b4b5f024",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

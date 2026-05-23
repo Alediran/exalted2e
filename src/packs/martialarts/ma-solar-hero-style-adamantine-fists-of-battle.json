@@ -1,0 +1,58 @@
+{
+  "_id": "02a4f2b6220d21f8",
+  "_key": "!items!02a4f2b6220d21f8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Adamantine Fists of Battle",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 6,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "7m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Essence coalesces around the character's hands, suffusing them with great and lasting power. For the rest of the scene, the character adds a number of levels (not dice) of damage equal to twice his permanent Essence to all Martial Arts attacks. When this Charm is performed, the character specifies whether these attacks inflict bashing or lethal damage. He can even choose to inflict bashing damage when wielding a weapon that would normally inflict lethal damage (for example, smashing an enemy across the temple with the hilt of a khatar).</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Solar Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "02a4f2b6220d21f8"
+  },
+  "folder": "05bd4dac47a869bd",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

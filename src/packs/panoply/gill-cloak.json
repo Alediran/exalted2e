@@ -1,0 +1,37 @@
+{
+  "_id": "b56d6f0cd0eee381",
+  "_key": "!items!b56d6f0cd0eee381",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gill Cloak",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>These brilliantly colored diaphanous cloaks are beautiful but otherwise unremarkable on land. In the water, however, once the wearer commits two motes to the cloak, the translucent membrane spreads out behind the wearer and collects air dissolved in the nearby water and allows the character to breathe underwater, although it does not let the wearer speak or grant any other capabilities.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 1,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

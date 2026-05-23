@@ -1,0 +1,70 @@
+{
+  "_id": "4db97077ae460682",
+  "_key": "!items!4db97077ae460682",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Soul-Sieve Transmutation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "--(10m, 1wp)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Whether struck by a single blade or pierced by a storm of arrows thick enough to block out the sun, only Cecelyne remains. An Infernal with this Charm may spend five motes and one Willpower rather than three motes when activating Sands Through Fingers Defense. She perfectly dodges the incoming attack as normal but also remains dematerialized until her next action tick. Attacks exploiting the Imperfection of the Endless Desert may ignore this dodge as if the Infernal were solid. The Infernal may invoke this Charm in the absence of an attack. Infernals with Essence 4+ may choose to force their attacker into an incorporeal state as a Shaping effect rather than dematerializing themselves when activating Sands Through Fingers Defense. The attack simply crumbles like sand to flow around and through her and the attacker stays removed from the material world until his next action.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "cecelyne",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4be086932c75c92d",
+            "charmName": "Sands Through Fingers Defense",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "4db97077ae460682"
+  },
+  "folder": "d852ccb3960d271d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

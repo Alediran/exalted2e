@@ -1,0 +1,27 @@
+{
+  "_id": "39145a41ad07707c",
+  "_key": "!items!39145a41ad07707c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Jewel of the Master's Hand",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDEARTH00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "earth",
+    "rating": 3,
+    "description": "<p>Intricate copper filigree covers this rich brown orb. Its bearer gains extra deftness and insight into artifice. The hearthstone gives a +4 bonus to Craft (Earth) rolls, a +2 bonus to Craft rolls aspected to other elements, and a +1 bonus to esoteric Crafts such as Magitech, Moliation or Glamour.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

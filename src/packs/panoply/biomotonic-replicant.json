@@ -1,0 +1,37 @@
+{
+  "_id": "ea43da006fd6c6c0",
+  "_key": "!items!ea43da006fd6c6c0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Biomotonic Replicant",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>While the Chosen flirt with immortality, most of Creation cannot match their vigor or resilience. The sad truth is that mortals die little slower than mayflies, however faithful or beloved they might be. While many Exalted eventually come to accept this truth as part of their transition to elder status, others staunchly refuse to let time and death take what rightly belongs to them. After all, what was made can be remade. A life is no exception. So-called biomotonic replicants are not revivified originals, of course, as resurrection is a particularly stubborn impossibility the Exalted have yet to conquer. The quality of the duplication is akin to an identical twin, however, which is usually more than enough likeness to fondly remember a cherished courtesan. Building a biomotonic replicant requires some sample of the original organism's tissue to serve as an exotic ingredient unless the engineer works from an existing template stored in a genesis lab. In any case, such a facility is absolutely vital for some complex work. Mundane workshops lack the necessary tools. Making a replicant that copies the body of a mortal being who had no Essence powers is comparatively easy, as the replicants are really just humans, albeit artificially gestated ones (·). Unfortunately, such organisms are largely blank slates with the same Attributes as the original, basic starting Virtue allocation and 10 dots of preprogrammed Abilities. Making a replicant that actually copies the personality and memories of the original is significantly harder (··). Such an organism requires additional exotic ingredients that might carry those experiences, such as the original's ghost, intact brain or reincarnated soul. Alternatively, the Exalt can vivisect the original at a genesis laboratory to reverse engineer her template, in which case memories and all learned traits remain frozen at the point of death. This method allows every replicant in the production run to carry that same initial identity. Adding supernatural powers or upgrades to the design only increases the project's complexity and Artifact rating.</p>",
+    "source": "Dreams of the First Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 1,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

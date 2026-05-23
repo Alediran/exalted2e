@@ -1,0 +1,27 @@
+{
+  "_id": "88ee1a656f52a3f5",
+  "_key": "!items!88ee1a656f52a3f5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "False Death Stone",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDABSSL00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "abyssal",
+    "rating": 2,
+    "description": "<p>This pale-yellow amber sphere is marked by a dark crack through its center. It allows the bearer to instantly place herself in a death-like trance. The bearer appears dead to anyone who examines her, but remains conscious and all of her senses continue to function normally. She wakes instantly whenever she chooses or if the stone is removed from her body. In this trance, the bearer does not require food, water or air and is immune to the extremes of climate. However, she is still susceptible to injury.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

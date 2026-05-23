@@ -1,0 +1,70 @@
+{
+  "_id": "ae75b6db74e65c76",
+  "_key": "!items!ae75b6db74e65c76",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Implausible Lunar Panoply",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "wits",
+    "essence": 4,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "14m, 2wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>FOR REFERENCE: FROZEN RIPPLE LAIR In case you don't have Dreams of the First Age, here is Frozen Ripple Lair for reference.</p>",
+    "source": "Glories of the Most High: Luna",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "424f67d3ef96562e",
+            "charmName": "Many-Pockets Meditation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "ae75b6db74e65c76"
+  },
+  "folder": "03a1efbef258d84f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,71 @@
+{
+  "_id": "2811dca7d15a5309",
+  "_key": "!items!2811dca7d15a5309",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "(Element) Shelter Creation Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "survival",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "one day",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Elemental",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm allows a Dragon-Blood to reach out with her elemental anima to fashion a crude structure out of whatever elemental material is handy. Each different Charm is primarily</p><p>useful in a particular environmental setting. Air is only useful in extremely cold, snowy climes and causes ice crystals to form out of the air itself into a simple igloo that retains heat remarkably well. Earth is most useful in open fields or on mountaintops and causes rocky slabs to slowly rise up out of the earth to form a lean-to. Fire is primarily used in the desert and causes sand to temporarily form into jagged silicate slabs that form a sheltered outcropping. The sandstone does not transfer heat to those taking shelter beneath it, and the outcropping is ideally situated to let wind flow through while keeping out sand. Water is primarily used on the ocean, although it can be used on other large bodies of water. The Charm causes seaweed, sunken debris and other material found within and beneath the waters to rise up to the surface and cling together, forming a remarkably buoyant life raft that can stay afloat in all but the most treacherous of weather. Wood can be used in any forest area, causing saplings to sprout from the forest floor to form a crude hut. The hut is camouflaged against observers, who must get more successes on a (Perception + Survival) roll than the Dragon-Blood's Essence in order to detect it. All versions of this Charm are warded against intrusion by mundane animals. Such animals will not attempt to enter the shelter absent some type of magical compulsion. Once the Charm is activated, it takes about 30 minutes for the protective structure to form. The structure lasts for about a day, although the Dragon-Blood can extend the effect by committing the Essence indefinitely. The shelter is capable of protecting the Exalt herself and up to six other human-sized beings. If the Exalt wishes the shelter to hold more, she must spend an additional mote of Essence per extra person, although she cannot spend more extra motes than her Essence. Therefore, the maximum number of people who can fit in the same shelter consists of the Dragon-Blood herself, plus (Essence + 6) other people.</p><p>This Charm is actually a cluster of Charms, one for each of the five elements. A Dragon-Blood can learn multiple versions of this Charm, but he must learn the one associated with his affinity element first. Regardless of which version is used, the Charm is always considered a Wood-aspected Charm for purposes of determining whether the one-mote surcharge for out-of-aspect Charms applies. EXTENSION OF THE (ELEMENT)</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "87754baeb9c39096",
+            "charmName": "Hostile Environment Preparation Method",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "2811dca7d15a5309"
+  },
+  "folder": "b0b1b2b3b4b5f030",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

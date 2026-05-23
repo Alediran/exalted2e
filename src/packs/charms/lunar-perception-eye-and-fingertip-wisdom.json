@@ -1,0 +1,71 @@
+{
+  "_id": "08e950a10b672b94",
+  "_key": "!items!08e950a10b672b94",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Eye and Fingertip Wisdom",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "perception",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Clever Stewards laugh at the feeble efforts of men and gods to hide their secrets. By touching a closed container, the Lunar instantly knows everything that is contained within. At Essence 3+, this Charm may also be used to touch a structure to gain full knowledge of its layout and floor plans, including hidden chambers (though not necessarily how to access them). This Charm does not bestow knowledge about who or what is in any of a structure's various rooms.</p>",
+    "source": "Glories of the Most High: Luna",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f407607568cfc438",
+            "charmName": "Any Perception Excellency",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "08e950a10b672b94"
+  },
+  "folder": "fa2edda343cdd2b0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,75 @@
+{
+  "_id": "43b05b5d315dbade",
+  "_key": "!items!43b05b5d315dbade",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Cosmic Transcendence Of (Virtue)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>It is unfair to say that She Who Lives In Her Name is without Virtue. Like her fellow Yozi Adorjan, the Principle of Hierarchy merely understands the bigger picture. Infernal Exalts can purchase this Charm once per dot of Integrity (to a maximum of four times), with each purchase enhancing one Virtue rated 5+. The choice can't be altered, but the Charm's effects recede if the Infernal lacks a sufficient Virtue rating for whatever reason. The Infernal regains one channel for each Virtue augmented by this Charm once per day at sunset. Additionally, whenever an Infernal would roll dice for a Virtue enhanced by a purchase of this Charm (whether as a pool by itself or bonus dice from a channel), the Charm converts these dice into automatic successes. This isn't optional, so characters must always spend Willpower to resist the urges of extreme Virtue. See below for how Virtues express themselves differently through this Charm. Lawgivers have a Charm \"Epic Zeal of (Virtue)\" that has identical effects, but requires Integrity 4 and any Integrity Excellency as a prerequisite. This is not the only form of extreme Virtue Solars of the First Age explored, only one transhumanist paradigm. Compassion: The Infernal cares for other people as she would care about the chips of bone or fibers of sinew that compose someone she cares about. She certainly does not wish the pieces harm, but places their wellbeing far below the health of the whole. The specifics of the Infernal's greater good must be worked out with the Storyteller and must make sense for the character's Intimacies and other Virtue ratings. Within this expansive ethos, she can sacrifice millions of lives to save billions more. She can channel Compassion on any action that serves her greater good, even actions that oppose smaller conceptions of Compassion. However, she must spend Willpower to take actions that oppose the greater good, even those actions that demonstrate immediate Compassion. Conviction: Inhuman extremes of Conviction do not wildly deviate from the ethics of mortal paragons except by</p><p>degree. Therefore, the applicability of Conviction channels does not increase. However, whenever mental influence seeks to alter the emotional context of any of her Intimacies, lessen them outright or alter her beliefs or memory with an Illusion effect, the Exalt may spend one Willpower and one Conviction channel to perfectly dodge that influence. Doing so breaks any ongoing effects from the dodged influence, and this may be done later to throw off influence as an alternative to dodging the initial social attack or other source. In addition to the normal behavioral prohibitions on high Conviction, an Infernal with this Charm can't knowingly act against any of her Intimacies unless she has spent Willpower to act against her beliefs for a scene. Temperance: With extreme self control comes absolute clarity of purpose. Whenever mental influence would build an Intimacy or exert an Emotion effect over her, the Infernal may dodge by spending one Willpower and one Temperance channel. This defense follows the same overall rules as the dodge afforded by Cosmic Transcendence of Conviction apart from the types of influence it defends against. The range of actions that extreme Temperance can enhance does not improve. Unfortunately, her ascetic devotion also requires her to spend Willpower to act dishonestly or show bias in any situation, not just matters of importance. She must also spend Willpower to break promises, even those lacking that formality and solemnity of a sworn oath. Valor: The Infernal knows no peers or superiors and, therefore, ceases to understand fear as a meaningful concept. If she would somehow fail a Valor check despite 5+ automatic successes, she still succeeds with threshold of one. She treats all mental influence that would instill fear or alter her behavior through playing on fears as unacceptable orders, also terminating any fear-based Intimacies upon purchase of this Charm. The Storyteller decides when this defense applies. Cosmic Transcendence of Valor does not broaden the range of actions that Valor channels can aid, nor does it broaden the scope of prohibited actions.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "sheWhoLivesInHerName",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a094f0d9df36ee4f",
+            "charmName": "Factual Determination Analysis",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "willpowerRecovery": {
+      "enabled": true,
+      "event": "onDamageDealt",
+      "formula": "1"
+    },
+    "charmUid": "43b05b5d315dbade"
+  },
+  "folder": "37c208aaa9a4b179",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

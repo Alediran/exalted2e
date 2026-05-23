@@ -1,0 +1,81 @@
+{
+  "_id": "2901b4cd6db0cc6d",
+  "_key": "!items!2901b4cd6db0cc6d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Cobra-Eye Splendor",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Emotion"
+    ],
+    "cost": {
+      "motes": 5,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "5m"
+    },
+    "description": "<p>The cobra's eye flashes as he marks his targets, instilling them with paralyzing fear. The martial artist imbues opponents with this terror and himself with the cobra's impossible grace. This Charm inflicts an external penalty equal to the Martial Artist's (Presence � 2, round up) on all attacks against him, as an Emotion effect which may not be resisted with Willpower. If an incoming attack is undodgeable, this Charm removes that quality. King Cobra Strikes</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Cobra Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4822ee51eff9b421",
+            "charmName": "Showing the Cobra's Fangs",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "2901b4cd6db0cc6d",
+    "grantsMastery": false
+  },
+  "folder": "0332050481272115",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

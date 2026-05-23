@@ -1,0 +1,59 @@
+{
+  "_id": "cdfb7e80f12b7f3e",
+  "_key": "!items!cdfb7e80f12b7f3e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Breathing on the Black Mirror",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 7,
+    "minAbility": 7,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Obvious",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "20m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>and they all believed her. With a breath that lays a dark mist before him, the Sidereal steps back, then brings his palm forward in a strike that seems to craze the very air. This Charm may be used only during a climactic scene, when fate hangs heavy and the balance is easily tipped. Time stops. The martial artist sees five reflections of the scene before him, each representing a possible conclusion to the scene. He must choose one by stepping into it: · In one shard, he has won an immediate conflict, with difficulty. Ei Zou fought Ligier, the Green Sun, in its human form until the blood of each spattered the demon lord's palace of brass--and in the end, the demon bowed his shining head in defeat. · In one shard, he is offered great joy, but no other gain. Searching the brass palace of the Green Sun for his foe, Ei Zou found his wife--lost a thousand years before--confined within a vault. Unable to believe his fortune, he took her tenderly in his arms--and Ligier, in those long moments, escaped. · In one shard, he has suffered a minor loss but gained a greater, long-term victory. Ei Zou knew he could not fight Ligier and his horde of demon minions--but the bargain he struck with the Green Sun gave him part of what he needed to extort a great secret from the Yozi Cecelyne. · In one shard, he learns something that completely changes his opinion on an important matter. A chance comment by the Green Sun led Ei Zou to realize just how deep Kejak's treachery went. He knew he could no longer support the Bronze Faction campaign to eliminate the Solar Exalted. Abandoning his plan to fight the demon, Ei Zou strode from the brass palace and went straight to the Gold Faction. · In one shard, he loses something dear to him, but one of his greatest enemies is killed or neutralized. Ei Zou saw himself weeping before the open gates of the Demon Prince Malfeas. He had utterly broken his former nemesis, and crippled every one of its lower souls--but had been forced to sacrifice his own daughter to do it. Though he will remember using Breathing on the Black Mirror, the Sidereal will not be able to recall the contents of any of the other shards once he has stepped into one. No one else will know that he influenced fate at all.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Obsidian Shards of Infinity Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "cdfb7e80f12b7f3e"
+  },
+  "folder": "87a660847a455039",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

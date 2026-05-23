@@ -1,0 +1,60 @@
+{
+  "_id": "3c73ab451d030205",
+  "_key": "!items!3c73ab451d030205",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Intolerable Burning Truths (Never Forgive)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "presence",
+    "essence": 4,
+    "minAbility": 4,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Social",
+      "Emotion",
+      "Compulsion"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Where Hate Springs Eternal fans existing flames, Never Forgive creates new ones from nothing — the Infernal reminds the target of an injury, insult, or injustice so expertly that forgiveness becomes literally impossible. Supplementing a social attack, this charm implants a Defining Intimacy of hatred or grudge toward a specified target (a person, organization, or abstract principle) even if the target had previously forgiven the associated wrong, or even if the wrong was trivial to begin with.</p><p>The compulsion is metaphysically permanent: the implanted grudge cannot be removed by any social action, charm, or sorcery of Essence lower than the Infernal's own. Even perfect social defenses that block the initial attack must succeed twice — once to block the surface social attack and once to block the deeper Compulsion that the charm's Essence carries as an undertone. This charm is the prerequisite for Unerring Grief Discipline, which builds upon permanent grudge-installation to leverage that hatred as a navigational tool.</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "3c73ab451d030205"
+  },
+  "folder": "b0b1b2b3b4b5f067",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

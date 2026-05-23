@@ -1,0 +1,37 @@
+{
+  "_id": "ab81055b6a54a124",
+  "_key": "!items!ab81055b6a54a124",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gates of Auspicious Passage",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>The minds of the Celestial Exalted were very adept at bypassing the challenges presented by Creation's vast distances. Probably the most astonishing facet of the High First Age infrastructure was the powerful transportation system called gates of auspicious passage, which allowed an Exalt to enter the gate portal in one city and exit the gate portal a few steps later in a different city after passing the intervening distance Elsewhere. Every large city had at least one gate of auspicious passage, and passing from Meru to Denandsor or Hollow to Sperimin was no more difficult than walking five yards. In most cities, the gates were solely for use by the Celestial Exalted, as even a single passage required an incredible amount of Essence. A single Exalted luminary and her entourage might literally require 1,000 motes. Depending on how many manses (or other Essence sources) powered the gates, the time between uses could be anywhere between hours and weeks. Terrestrial Exalted were sometimes allowed to use gates of auspicious passage if their Celestial overseers needed to transfer troops from one city to another in a short period of time. On special occasions, as an exceptionally high honor, mortal scholars and heroes were allowed to use the gates as well, but this practice was never common. Gates of auspicious passage were not merely stationary artifacts, they were the result of a complicated system of artifacts and, therefore, wholly a product of the First Age's extensive sorcerous infrastructure. In the fallen Second Age, all that remains of these portals--and only in a handful of cities--are decorative metal gates and very short (but highly ornamented) passageways that lead directly into a wall covered with periapts, complex glyphs and jade tiles inscribed with sutras to the Maiden of Journeys. The gates of auspicious passage were among the first major infrastructural losses after the Usurpation. Even minute changes in the system's calibration caused significant problems. Not even the most accomplished Sidereal lore masters and savants were able to fathom the arcane principles that allowed the gates to function, and when important Shogunate officials began disappearing in transit (or emerging horribly changed from their passage), the system was shut down entirely. The gates themselves were often removed or built over in many cities, to remove yet one more reminder of the Shogunate's technological plummet. The gates were left standing in many cities, and considering their centuries of abandonment, they are in surprisingly good condition, especially in those places where the gates were preserved by being built over or hidden. Restoring the system that made gates of auspicious passage possible would require an Exalt to restore vast portions of the First Age infrastructure not just in one city, but in the cities at both ends of the passage he's attempting to restore. Given the unknown nature of Elsewhere, it's also possible that the paths between gates might have changed or healed shut in the intervening centuries. Certain spirits--city fathers, gods of technology or even the Maiden of Journeys herself--might be willing and able to provide suggestions to Exalts who have curried their favor, but even with assistance, the task is a daunting one. With assistance from an appropriate spirit or god, the task requires 100 successes on an extended (Intelligence + Lore) roll for each end of the connection. This is a dramatic action, and one roll can be made for each week of solid research and work on reactivating the portal. In the absence of divine assistance or tutoring from some entity who understands the system (a savant surviving from the First Age, for example), the number of necessary successes is doubled (to a total of 400 to reactivate both ends of a connection). The Savant Background can be used to enhance this roll.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": false,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 0,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

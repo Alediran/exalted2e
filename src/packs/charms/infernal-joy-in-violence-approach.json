@@ -1,0 +1,75 @@
+{
+  "_id": "c4241cdb0700bcb2",
+  "_key": "!items!c4241cdb0700bcb2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Joy In Violence Approach",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m per success",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Nothing fills Adorjan's heart with childlike glee like the prospect of a massacre. This Charm enhances a Join Battle roll, adding one bonus success per mote spent, up to (lower of Dexterity or Wits rating) successes, as well as additional successes equal to the number of times the Infernal has purchased Wind-Born Stride. As a final benefit, the Infernal regains one Willpower from elation the first time she uses this Charm in a given scene, or two Willpower if she joined battle while participating in social combat. The Charm provides no Willpower if another character initiates hostilities against the Exalt or she interjects herself into an ongoing battle. She must start the fight. RANGED CLOSE COMBAT Adorjan doesn't like inflicting violence callously and dispassionately from afar, and her Charms support this. Nonetheless, she is against range, not ranged weapons. Any attacks made at melee range count as close combat attacks, regardless of the weapon used. Likewise, any attacks made beyond this distance count as ranged combat for the purpose of Adorjani Charms.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "adorjan",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c170d8d3f72bf298",
+            "charmName": "Wind-Born Stride",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "willpowerRecovery": {
+      "enabled": true,
+      "event": "onDamageDealt",
+      "formula": "1"
+    },
+    "charmUid": "c4241cdb0700bcb2"
+  },
+  "folder": "e1c045f50a834f12",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "782406be1fcf33e5",
+  "_key": "!items!782406be1fcf33e5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Death Mask",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "shadowlands-circle-death-mask",
+    "tradition": "necromancy",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 14,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Caster",
+    "description": "<p>To cast this spell, the necromancer must first oversee the painful sacrifice of a living human. As life flees the body, the caster invokes Death Mask to capture her victim's higher soul and wash away its sentience, leaving an empty shell of soul-stuff. (Victims of this spell never rise as normal ghosts, but their lower souls usually become hungry ghosts.) The spell then hides the cloak of ghostly plasm Elsewhere. Later, the caster can invoke the spell again and spend 10 minutes easing the soul-shell from Elsewhere and donning it. Acting too quickly can tear the soul and render it useless. While wearing the soul-cloak, the necromancer appears to all eyes like a normal ghost. A successful (Perception + [Awareness or Occult]) roll at a difficulty equal to the caster's Essence allows an onlooker to recognize an impostor spirit. Living creatures cannot see the plasmic disguise at all without using techniques to see Essence. Any lethal or aggravated damage the caster suffers while wearing the cloak also affects the disguise. Once it suffers four levels of damage, it falls off in tatters and reveals the necromancer. In order to use the spell again, the necromancer must prepare another soul. If the death mask is not destroyed, however, it recovers one health level per full week it remains Elsewhere. Worn in Creation, the cloak is intangible and takes damage only from attacks that harm dematerialized spirits. The necromancer claps his hands, and his Essence rings like a dull but very loud gong. When the sound strikes a ghost, the ghost becomes sluggish and has difficulty moving. All ghosts within 50 yards of the caster move at half speed (minimum one yard per tick) and double the Essence costs of all movement-related Arcanoi. Creation mutes the sound of the gong, reducing the range to 25 yards. The caster may instead focus the spell on a single ghost in range. That ghost becomes unable to move at all, and the Essence costs of movement-related Arcanoi triple.</p>"
+  },
+  "folder": "9a7bd83d0a359e00",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

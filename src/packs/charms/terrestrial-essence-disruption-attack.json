@@ -1,0 +1,75 @@
+{
+  "_id": "b4fcf9d68c63f12b",
+  "_key": "!items!b4fcf9d68c63f12b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Essence Disruption Attack",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "awareness",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "3+m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The ultimate form of Awareness is the ability to perceive Essence, and the ultimate form of Awareness manipulation is perhaps this Charm, which allows the Dragon-Blood to suppress her target's ability to perceive and manipulate the Essence around him. The Dragon-Blood must pay a minimum of three motes and one Willpower, and she can spend an additional number of motes up to her permanent Essence. The Dragon-Blood's player must then roll (Awareness + Essence) with a difficulty of 3 for the character to analyze the patterns of Essence that surround the intended target. The target must be in sight and no farther away from her than a number of feet equal to her (permanent Essence x 10). If the initial roll succeeds, the player can then roll (Willpower + Essence) against a difficulty equal to the target's Essence. Each net success on this roll increases the cost of all Charms and spells used by the target by one mote plus one additional mote for each extra mote of Essence the user spent activating the Charm. This surcharge is applied to every application of a Charm made by the target for a number of ticks equal to the Dragon-Blood's (Essence x 5). If the target uses a reflexive defensive Charm multiple times in a single action, he must pay the surcharge for each use. If he uses a Combo, he must pay the surcharge on each individual Charm that makes up the Combo.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "69eaf37f25c41548",
+            "charmName": "Sense-Destroying Method",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "willpowerRecovery": {
+      "enabled": true,
+      "event": "onDamageDealt",
+      "formula": "1"
+    },
+    "charmUid": "b4fcf9d68c63f12b"
+  },
+  "folder": "b0b1b2b3b4b5f01c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

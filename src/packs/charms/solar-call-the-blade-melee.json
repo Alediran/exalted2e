@@ -1,0 +1,77 @@
+{
+  "_id": "b3aae75052f980da",
+  "_key": "!items!b3aae75052f980da",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Call The Blade",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Merged",
+      "Mirror (Hungry Missile Technique)",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "--(1m)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When a Lawgiver has been separated from her weapon—whether disarmed, having set it down, or having thrown it at a target—she reaches out her hand and the weapon leaps to her grip in an instant. The weapon flies back from wherever it has gone, even from a wall or the ground, and arrives in her palm at the end of Step 2, just before damage is rolled. This Charm can only affect weapons owned by and attuned to the character. A Lawgiver can store a weapon in Elsewhere by paying the attunement cost and using this Charm; thereafter, she can pay 1m to summon it on Step 2. This Charm will not recall a weapon held by another creature.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "428f064f78b1cfba",
+            "charmName": "One Weapon, Two Blows",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "b3aae75052f980da",
+    "mergedIds": [
+      "7eefeb7437ae6390"
+    ]
+  },
+  "folder": "fd05b302be1cc260",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

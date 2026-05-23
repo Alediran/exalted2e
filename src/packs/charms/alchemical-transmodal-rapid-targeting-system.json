@@ -1,0 +1,71 @@
+{
+  "_id": "650fca7011715379",
+  "_key": "!items!650fca7011715379",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Transmodal Rapid Targeting System",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "dexterity",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "extraaction",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "3m per target [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm takes the form of an advanced lattice of synthetic neural clusters and psychokinetic vector modulators painstakingly wired into an Alchemical's arms, spine and brain. Externally, this nerve-lattice appears as a set of geometric tattoos and filigree that glows when powered with Peripheral Essence. Upon activating this Charm, the Exalt may direct a single projectile to strike multiple targets in succession, either slashing past them or punching clean through their bodies before arcing in the air to hunt out another unfortunate victim. This Charm creates a magical flurry with a Speed and DV penalty equal to the highest values of any action within the flurry. All attacks are made at the Exalt's full dice pool, ignore Rate and must be aimed at a different target. The Exalt may purchase up to (Essence + 1) attacks. Every attack within the flurry that successfully inflicts damage immediately reimburses two motes of its cost through sympathetic Essence resonance.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "82ce511ce4f6421e",
+            "charmName": "Aim-Calibrating Sensors",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "650fca7011715379"
+  },
+  "folder": "b0b1b2b3b4b5f04e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

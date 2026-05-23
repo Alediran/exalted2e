@@ -1,0 +1,59 @@
+{
+  "_id": "72dfda687ff1f0b8",
+  "_key": "!items!72dfda687ff1f0b8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Third Perception Augmentation-- Essence Recalibrated",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "perception",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      4
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>In the highly interconnected technoecology of Autochthonia, personal failure can lead to cascade failure for others. Such risk is unacceptable. This Charm may be purchased once per Attribute and allows rerolls for actions using the Attribute in question (or doubles the Attribute for calculating a static rating), similar to the Third Excellency of the Lawgivers. The cost to activate this Charm depends on where it is used: 0m within the Godhead of the Elemental Pole of Crystal, 2m inside an Alchemical city, 3m in a healthy area of Autochthonia outside a city and 5m everywhere else. FOURTH Perception AUGMENTATION-- ESSENCE INTEGRATED</p>",
+    "source": "MoP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "third",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "72dfda687ff1f0b8"
+  },
+  "folder": "b0b1b2b3b4b5f052",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

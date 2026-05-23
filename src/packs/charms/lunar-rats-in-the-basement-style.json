@@ -1,0 +1,70 @@
+{
+  "_id": "7f21e5f92001be38",
+  "_key": "!items!7f21e5f92001be38",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Rats In The Basement Style",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "wits",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm mimics the effects of its prerequisite Charm, but is a dramatic action (half an hour) that allows the character to conceal a unit from detection. This can be a group of barbarians in the jungles of the Southeast, a street gang in Nexus or awkward socialites at a large party.</p><p>The player rolls a Wits-based dice pool (usually combining it with Survival or Stealth) and conceals a unit with no greater a Magnitude that his Essence. The unit must be cooperative, and it receives the same protections from detection as the Spider's Trap Door. If the unit moves appreciably from its position or deviates from the character's instructions to remain concealed, the deception is ruined. Individuals who peel off from the unit cease to be concealed but do not ruin it for the entire unit unless the departure reduces the unit's Magnitude.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f51f7242119cb622",
+            "charmName": "The Spider's Trap Door",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "7f21e5f92001be38"
+  },
+  "folder": "03a1efbef258d84f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

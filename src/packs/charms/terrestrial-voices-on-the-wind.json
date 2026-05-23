@@ -1,0 +1,70 @@
+{
+  "_id": "0bfeec9b0ab80fb7",
+  "_key": "!items!0bfeec9b0ab80fb7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Voices On The Wind",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "linguistics",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "3+ motes",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A favorite of spies and intelligence operatives across the Realm, this Charm permits a Dragon-Blood to hear the faintest trace of words echoing through the air, allowing him to eavesdrop on conversations at seemingly impossible distances. The Essence cost of the Charm is determined by how far away the Exalt is from the conversation he wishes to hear. For the basic cost, the Exalt can clearly hear any normal speech originating anywhere within (listener's Essence x 100) feet, as well as pinpoint the approximate location of the speaker if he doesn't already know. Each additional mote of Essence increases the range by a factor of 10. The Dragon-Blood must specify which speaker he desires to spy upon. He cannot indicate a general target such as \"anyone plotting against me.\" Rather, he must name an individual and then listen to see if she is currently within range and speaking aloud. If he can hear a named speaker, however, the Dragon-Blooded can also automatically hear the replies of anyone in the speaker's immediate vicinity with whom she is conversing. This Charm cannot be used to listen to conversations taking place within airtight rooms, and it may also be defeated by certain supernatural warding effects. (Enchanted wind chimes are commonly used for this purpose.) Finally, spying with this Charm demands total concentration, and the listener cannot perform any other action while this Charm is being employed.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6a3f9bfc4858e93a",
+            "charmName": "Wind-Carried Words Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "0bfeec9b0ab80fb7"
+  },
+  "folder": "b0b1b2b3b4b5f023",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,57 @@
+{
+  "_id": "80de1f08c434d906",
+  "_key": "!items!80de1f08c434d906",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ivory Obstruction Kata",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "martial-arts",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The martial artist deftly whips her weapon between the legs of her opponent to trip him and send him flying. No matter what the raw damage of a successful attack that is supplemented with this Charm, the attack deals Knockback, and the target's player must roll to resist Knockdown (see Exalted, p. 153). The attacker can add her permanent Essence score either to the difficulty to resist Knockdown or to the number of yards the target is knocked back: She can increase the distance her opponent moves or the chance that he falls to the ground, but not both. Use of Ivory Obstruction Kata in a flurry is self-limiting. If the martial artist hurls an opponent beyond her weapon's reach, she cannot continue attempting to strike or throw him further. Whirling Pestle Kata</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "80de1f08c434d906"
+  },
+  "folder": "719cd5296b990a6b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,55 @@
+{
+  "_id": "b9b25ed9be8279af",
+  "_key": "!items!b9b25ed9be8279af",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Held-without-hands Perfection",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Despite its great bulk, the beast is deft enough to maneuver itself and avoid the depredations of those that would harm it. Some students of the style even suggest that it uses its massive and flexible limbs to capture its meals and carry them along with it as it flees. Learning this Charm enhances its three prerequisites, allowing an Exalt to invoke each of them while controlling a clinch. In the case of Walking-on-the-Dragon Life Defense, invoking it while in either side of a grapple allows the martial artist to use his Dodge DV while grappling, but without the +2 DV bonus. When using the other two Charms, the Exalt still needs to flurry if he wants to take a second action while controlling the grapple. Additionally, he may spend an additional two motes on either Charm in order to use his captive as a weapon, inflicting the damage from the attack upon both captive and target. No martial artist can learn both this Charm and Beyondthe-Idol Perfection</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Terrible Ascent-driven Beast Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "b9b25ed9be8279af"
+  },
+  "folder": "5ce01017f4c92c09",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

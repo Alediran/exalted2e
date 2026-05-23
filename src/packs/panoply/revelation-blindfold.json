@@ -1,0 +1,37 @@
+{
+  "_id": "191a71599c3b01c2",
+  "_key": "!items!191a71599c3b01c2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Revelation Blindfold",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>This wonder takes the form of a green silk blindfold, woven around a secret known to only one living being and passed on by a dying breath. To properly prepare a revelation blindfold, this breath must be caught between the lips of the one dying and the ear of the listener. The difficulty of such a feat is the primary reason for the rarity of these artifacts. Revelation blindfolds cost five motes to attune, and must be worn constantly for any benefit to be granted. For the first (11 ­ Essence) days after donning the artifact, the wearer suffers all normal penalties for blindness and no benefits. At the end of this period, she aligns with the deeper secrets the world around her is trying to impart. Her blindness penalty disappears, and she constantly benefits from an effect identical to All-Encompassing Sorcerer's Sight. She may also reflexively use the spirit Charm Measure the Wind as an innate power at no cost on any individual who speaks to her. Another full adjustment period is required if the blindfold is removed for any reason.</p>",
+    "source": "Glories of the Most High: The Maidens of Destiny",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

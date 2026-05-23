@@ -1,0 +1,68 @@
+{
+  "_id": "2b72383e1db336d4",
+  "_key": "!items!2b72383e1db336d4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Instinctive Strength Unity",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "strength",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "scene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "2m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Lunar Exalted find ways to become perfectly in touch with their natures. Every two motes spent when activating this Charm reduces the mote cost for the first three Strength Excellencies by one, to a minimum of 0. A Lunar can spend up to (Essence x 2) motes on this Charm. The discount applies to the total expenditure on Excellencies relating to a given roll. In all other ways, Instinctive Strength Unity works the same as the Solars' Infinite Strength Mastery (see Exalted, pp. 185-186). FLAWLESS Strength FOCUS</p>",
+    "source": "MoP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "2b72383e1db336d4"
+  },
+  "folder": "aba1efe8ad0bef8a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

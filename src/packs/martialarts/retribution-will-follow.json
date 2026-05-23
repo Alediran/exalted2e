@@ -1,0 +1,71 @@
+{
+  "_id": "c5785b1d7ebaba97",
+  "_key": "!items!c5785b1d7ebaba97",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Retribution Will Follow",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      10
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "motes": 1,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "1m"
+    },
+    "description": "<p>Striking an Infernal Monster stylist makes him angry. This is unwise. Whenever the martial artist suffers one or more levels of damage, his player may activate this Charm. Doing so causes him to enter a savage killing frenzy for a scene like that imposed by an uncontrolled Berserk Anger Limit Break (Exalted, p. 105). The enraged character is immune to all negative effects from wound penalties (including dice</p><p>penalties and slowing) and treats all forms of mental influence from beings of equal or lesser Essence as unacceptable orders. He regains no Willpower points from the rampage. Characters who have Limit tracks bleed off a single point of accrued Limit from this induced catharsis rather than resetting to zero, but this only happens once the character kills or horribly maims someone with an unarmed attack during the scene. Characters do not gain or require any conscious knowledge of the Great Curse to use this Charm.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "ebonDragon",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Infernal Monster Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "woundReduction": {
+      "enabled": true,
+      "formula": ""
+    },
+    "charmUid": "c5785b1d7ebaba97",
+    "grantsMastery": false
+  },
+  "folder": "ae5a8ed470f7303b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

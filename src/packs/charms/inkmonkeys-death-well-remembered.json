@@ -1,0 +1,73 @@
+{
+  "_id": "c1d2e3f4a5b60007",
+  "_key": "!items!c1d2e3f4a5b60007",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Death Well-Remembered",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Martial-ready",
+      "Mirror",
+      "Native"
+    ],
+    "cost": {
+      "formula": "",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Abyssal's guard is the memory of every blow she has ever deflected — every death she has witnessed. This Charm is identical to its Solar counterpart, Perfect Blade Aegis.</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e8177e6c08d3eaf0",
+            "charmName": "Bulwark Stance",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "mirrorId": "47bd4132f45872a1",
+    "charmUid": "c1d2e3f4a5b60007"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

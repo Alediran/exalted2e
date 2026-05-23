@@ -1,0 +1,37 @@
+{
+  "_id": "d2ce243b52158d77",
+  "_key": "!items!d2ce243b52158d77",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Collar of Dutiful Submission",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>This jade-and-peachwood torc ensures that its wearer obeys the wishes of whomever put the collar on him. To use the collar, the owner of the artifact spends a mote of Essence to activate it (she recovers this Essence normally). She then places the collar on the subject and orders him to commit 2 motes of Essence to the collar. Since the collar will not lock until</p>",
+    "source": "Compass of Celestial Directions, Vol. III: Yu-Shan",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 5,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

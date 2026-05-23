@@ -1,0 +1,37 @@
+{
+  "_id": "25c5ca2c69e8a64b",
+  "_key": "!items!25c5ca2c69e8a64b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Essence Inversion",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "solar-circle-essence-inversion",
+    "tradition": "sorcery",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 50,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "One creature",
+    "description": "<p>Twisting her fingers together and flicking them toward her enemy, the sorcerer releases a roiling black and violet beam that penetrates his target's chest. Only Charm-enhanced parries or dodges may resist the beam, in which case the sorcerer's player rolls (Intelligence + Occult) to aim it. Otherwise, this is a perfect attack. Beginning on the action after he's hit, the target suffers 10 dice of lethal damage every five ticks as the Essence of his life rips from his body and twists into black and violet streamers of death. This damage may be soaked only with Stamina and Charms. The curse persists until Adamant Countermagic dispels it, the sorcerer decides to end his torment, or her foe finally dies. As the last of the victim's life erupts and inverts, the death-cloud rushes back into the corpse and dissolves it to nothing.</p>"
+  },
+  "folder": "66776f28169b53d7",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,78 @@
+{
+  "_id": "8acf8a8ee08cb825",
+  "_key": "!items!8acf8a8ee08cb825",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Soul-Invading Glance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "investigation",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Illusion",
+      "Social",
+      "Spectral"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The first step to breaking an enemy is understanding what he cares about. An Abyssal can use this Charm against anyone he can see. His player rolls (Perception + Investigation) against the target's Dodge MDV. If the roll succeeds, the Abyssal learns the target's Motivation. Each threshold success adds knowledge of the target's current intentions in the scene (which can change as circumstances warrant), the target's Intimacies and the target's Virtue ratings. The Abyssal can also seek knowledge of a ghost's fetters. The Abyssal can select how to \"spend\" these threshold successes and can specify whether he wants positive or negative Intimacies. He can also filter out Intimacies that he already know or feels sure about, though the player must make note beforehand of what Intimacies to filter. The Spectral keyword represents that the Charm costs an additional Willpower point when used against anyone but the dead. The target immediately feels that a malevolent presence is trying to invade her mind, but she cannot identify the source of the intrusion. The target may spend two Willpower points to resist the unnatural mental influence. If she does so,</p><p>the Abyssal may not target her with this Charm for the rest of the day. Afterward, Soul-Invading Glance erases the target's memory of the intrusion as an Illusion effect. Only if the target resists through Willpower (or escapes the Charm through a perfect defense against mental influence) does she remember that something attempted to violate her mind.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c6955c914bf2db1b",
+            "charmName": "Deception-Piercing Stare",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "willpowerRecovery": {
+      "enabled": true,
+      "event": "onDamageDealt",
+      "formula": "1"
+    },
+    "charmUid": "8acf8a8ee08cb825"
+  },
+  "folder": "b0b1b2b3b4b5f03a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

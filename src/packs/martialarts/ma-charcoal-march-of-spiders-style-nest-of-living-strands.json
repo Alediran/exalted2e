@@ -1,0 +1,58 @@
+{
+  "_id": "a8befec00883031f",
+  "_key": "!items!a8befec00883031f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Nest of Living Strands",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Crippling",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "15m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>And the small maiden began Hundreds of fine, transparent filaments of Essence launch from the character's hands, weaving around the surroundings and each other to entangle all opponents within (Essence x 10) yards. On each action, the Sidereal's player reflexively rolls (Dexterity + Martial Arts). Enemies inside the Charm's area of effect, or who enter that area before the character's next action, suffer a cumulative external penalty to their physical-action dice pools and Defense Values equal to half the number of successes the Sidereal's player rolled. These characters receive the same penalty to their natural movement rate in yards (subtracting half the result of the roll from the target's Dexterity in determining movement per tick). This penalty fades by one die, one point of DV and one yard per action that the victim spends outside the radius, as the threads come untangled. These threads move with the martial artist, catching new opponents who enter the radius yet eerily bending out of the way of anyone he wishes to give passage. If the martial artist does not keep moving, the threads thicken and become more visible, first as glints of reflected light in the air, then a faint visual impression like cobweb and ultimately (after five minutes of stillness) an opaque morass of webbing around the martial artist. At this point, the web is as impassible as stone for those to whom the character hasn't offered passage. As a stunt, the Sidereal could use the congealed threads to build a bridge, a simple fortification or other structure.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Charcoal March of Spiders Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "a8befec00883031f"
+  },
+  "folder": "1c3b8957c92799e4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

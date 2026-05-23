@@ -1,0 +1,80 @@
+{
+  "_id": "2c5fbb6a7fe9e2ad",
+  "_key": "!items!2c5fbb6a7fe9e2ad",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wrathful Winds Maneuver",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Crippling",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 4,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "4m"
+    },
+    "description": "<p>The Immaculate opens his mouth wide, loosing a fearsome shout that can shatter stone and eardrums alike. A gale-force blast leaves his mouth in a 90-degree arc, out to a distance of (Essence x 10) feet. His player makes a (Strength + Martial Arts) roll as an attack, which can only be dodged, not parried. Players of anyone affected by the Charm roll their characters' ([Dexterity or Stamina] + [Athletics or Resistance]) against a difficulty of the total successes on the martial artist's roll (before subtracting DV). If both her Strength and Athletics are less than the monk's net successes, a victim suffers knockdown and her player must roll her (Wits</p><p>+ Resistance) at difficulty 1 to avoid immediately becoming inactive for a single action. Victims of this Charm who suffer both effects are also deafened for a number of actions equal to the Immaculate's Martial Arts. Deafened targets lose two dice from all actions. By spending a point of Willpower, the Immaculate can focus the shout on a single target. The target cannot avoid the attack without a perfect defense, and the shout inflicts a number of health levels of lethal damage equal to the Immaculate's (Strength + Essence), which bypasses armor. In addition, add any levels of damage inflicted to the difficulty to avoid knockdown.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Air Dragon Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b5999e84081c0b43",
+            "charmName": "Avenging Wind Strike",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "2c5fbb6a7fe9e2ad",
+    "grantsMastery": false
+  },
+  "folder": "037a2b61816f0f70",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

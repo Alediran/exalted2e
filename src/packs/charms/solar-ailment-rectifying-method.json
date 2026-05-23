@@ -1,0 +1,70 @@
+{
+  "_id": "58ba3e8f89c63057",
+  "_key": "!items!58ba3e8f89c63057",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ailment-Rectifying Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "medicine",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "permanent",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Touch"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Disease and corruption cannot stand against the Solars' healing light. Solar Exalted with this Charm can cure any Sickness effect. This Charm guarantees that any attempt Solars make to treat a sickness is considered supernatural. It halves the length of the patient's convalescence. If the Exalt's player rolls five or more successes on a Medicine roll for the Solar to treat an ordinarily incurable illness, such as the Great Contagion, she can spend five motes and banish it from the patient's system. Treating sickness in this fashion is a dramatic Medicine-based action that takes one hour unless sped by a stunt or Charm.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ef89e1e74e5bed0e",
+            "charmName": "Flawless Diagnosis Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "58ba3e8f89c63057"
+  },
+  "folder": "05ee3760b1dfb04f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

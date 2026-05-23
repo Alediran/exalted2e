@@ -1,0 +1,37 @@
+{
+  "_id": "eb1afeb24ddac329",
+  "_key": "!items!eb1afeb24ddac329",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Viridian Mantle of Underwater Journeys",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-viridian-mantle-of-underwater-journeys",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Caster and up to (Essence) willing targets",
+    "description": "<p>This spell grants its caster and a number of willing targets equal to the caster's Essence the ability to move and breathe underwater without difficulty. The targets must stand or tread water while the sorcerer unleashes tendrils of Essence about them. The tendrils seek out aquatic plant life and transform it into fronds of sorcerous seaweed. As the sorcerer speaks the Ineffable Incantation of the Waves, the fronds envelop the targets and cover them like a second skin from head to toe. Filaments of the plant extend down each target's throat and into their lungs, a strange but painless experience. While so covered, targets can breathe water without difficulty and may walk or swim at their normal movement rate. They may also apply the make haste bonus from Exalted p. 267 underwater. The tough fronds also grant a +1L/+2B bonus to the creature's soak. This is considered a natural soak and slides beneath armor. Creatures who wear armor that is too restricting to permit this (i.e., those with mobility penalties exceeding -1 from armor) cannot be targets of this spell. The Viridian Mantle lasts as long as the targets remain immersed in water. Once the spell is cast, they can range any distance from one another. Six ticks after a target leaves the water, the seaweed shrivels up and flakes off, leaving the target damp but unharmed.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

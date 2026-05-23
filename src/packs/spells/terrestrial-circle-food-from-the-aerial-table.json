@@ -1,0 +1,37 @@
+{
+  "_id": "a4026005a450c9e8",
+  "_key": "!items!a4026005a450c9e8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Food From the Aerial Table",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-food-from-the-aerial-table",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Conjured food",
+    "description": "<p>The Essence around the sorcerer condenses into a cascade of pink flakes that resemble flower petals. The soft, edible flakes can feed at least five people. For every additional five motes and Shape Terrestrial Circle Sorcery action taken, the spell creates another 10 servings of food. If the spell is interrupted during casting, the food produced up to that point already exists, but no more is conjured. The additional Essence spent is lost, as all the motes used in casting this spell are spent with the first Shape Terrestrial Circle Sorcery action. The magical food is nourishing and filling, but it lacks flavor. The food keeps for a number of days equal to the sorcerer's Essence before dissolving into ash. The food does not rot, nor can it be poisoned, but it dissolves if it is mixed into other foods or cooked in any way. After a day or two, animals find the food unappetizing, increasing their control ratings +1 per two days with no other viands. Food from the Aerial Table will not sustain mortal life forever. After one week with no other food, creatures receive a -1 external penalty to all physical actions due to slight weakness and lethargy. After six months with no other victuals, a character requires double the normal amount to nourish him. This is doubled again every six months that a character goes without real food, but the time is reset after consuming a day's worth of actual food.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

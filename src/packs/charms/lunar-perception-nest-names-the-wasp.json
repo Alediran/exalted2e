@@ -1,0 +1,70 @@
+{
+  "_id": "6cd29482e287cc59",
+  "_key": "!items!6cd29482e287cc59",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Nest Names the Wasp",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "perception",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "8m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Lunars are familiar with the intimate ties between territory, object and owner. Spending a moment scrutinizing an object or structure, the character is able to determine who, if anyone, owns it. A SHAPING DISTINCTION The moonsilver tattoos of the Lunar Exalted offer perfect protection from any and all effects that would alter a character's body, which includes many effects with the Shaping keyword. The tattoos do not, however, offer blanket protection from all Shaping effects. Tattooed Lunars are still vulnerable to any Shaping effect that targets their mind or soul. As a further item of clarification, the tattoos are nondiscriminatory in their protection. They lock out all non-Lunar shapeshifting influence, even beneficial magic cast by the Lunar on himself. This explicitly includes sorcery and necromancy spells, weaving protocols, thaumaturgy, astrology, foreign Charms learned by the Lunar, shape-altering artifacts and martial arts styles other than Lunar Hero style and its custom extensions. Only a Lunar's own Lunar Charms, Knacks and inherent shapeshifting may change the shape of a tattooed Lunar's body. INTELLIGENCE</p>",
+    "source": "Glories of the Most High: Luna",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "19df6abf44a9e34a",
+            "charmName": "Eye and Fingertip Wisdom",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "6cd29482e287cc59"
+  },
+  "folder": "fa2edda343cdd2b0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

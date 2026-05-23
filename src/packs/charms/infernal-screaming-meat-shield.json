@@ -1,0 +1,57 @@
+{
+  "_id": "9d120fc9b1ec11fd",
+  "_key": "!items!9d120fc9b1ec11fd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Screaming Meat Shield",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "9m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The best defense is to break an enemy's will to fight. Gorol learned this the hardest possible way when he overheard the Neverborn whisper the Great Curse and sought to integrate the lesson into Infernal Monster Style. This Charm may defend against any perceived physical attack by changing the target from the martial artist to a victim she is holding with World-Breaker Grip. The attack is resolved as if the new target were its original target and cannot be aborted. If an attacker kills a held character toward whom she has a positive Intimacy as a result of this attack redirection, the attacker loses one Willpower from despair. A mortal who inadvertently kills a close loved one this way (such as a spouse or child) loses all remaining Willpower points as his will breaks along with his heart (see Exalted, p. 174).</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "ebonDragon",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "9d120fc9b1ec11fd"
+  },
+  "folder": "a1b2c3d4e5f60006",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

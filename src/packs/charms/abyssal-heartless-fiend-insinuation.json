@@ -1,0 +1,78 @@
+{
+  "_id": "91225f5c4e048a0b",
+  "_key": "!items!91225f5c4e048a0b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Heartless Fiend Insinuation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "presence",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Avatar (1)",
+      "Combo-OK",
+      "Social"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Those who open their hearts to love, respect and loyalty must accept the risk of indirect attacks aimed at those Intimacies. Emptying the heart carries its own dangers, however, for desolate or hate-poisoned souls open themselves to the Neverborn and their thralls. Heartless Fiend Insinuation grants power over characters who have Compassion 1 or lack positive Intimacies. Whenever an Abyssal with this Charm makes any social attack using any Ability against such a character, the target's MDV is halved against the attack.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "statusApply": {
+      "enabled": true,
+      "status": "Poisoned",
+      "resistPool": "@sta + @resistance",
+      "onFail": "applyPoison"
+    },
+    "charmUid": "91225f5c4e048a0b"
+  },
+  "folder": "b0b1b2b3b4b5f043",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

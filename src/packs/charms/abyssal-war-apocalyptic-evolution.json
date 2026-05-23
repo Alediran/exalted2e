@@ -1,0 +1,71 @@
+{
+  "_id": "dad7f23c9b4e5838",
+  "_key": "!items!dad7f23c9b4e5838",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Apocalyptic Evolution of War",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "war",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror (Divine Transcendence of War)"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm is the Abyssal Mirror of Divine Transcendence of War. Its effects are identical to its Solar counterpart — all War Charms reduce their minimum Ability and Essence ratings by one when the character attempts to learn them, and subsidiary powers within such Charms also lower their requisite ratings by one. This Charm cannot reduce the requirements of any Charm with minimums of War 10 or Essence 10. Charms retain their original ratings for all other purposes, such as building Combos. Upon achieving War 10, Essence 10, this Charm vanishes and the Abyssal is refunded its cost.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "mirrorId": "bad7f23c9b4e5819",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "war",
+            "minCount": 1,
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "dad7f23c9b4e5838"
+  },
+  "folder": "b0b1b2b3b4b5f04b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

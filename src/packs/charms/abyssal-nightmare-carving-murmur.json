@@ -1,0 +1,86 @@
+{
+  "_id": "9d609a8b32bf200f",
+  "_key": "!items!9d609a8b32bf200f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Nightmare-Carving Murmur",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "lore",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Mirror (Wyld-Shaping Technique; Exalted, p. 216)",
+      "Obvious",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "20m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>As Lawgivers give form to the chaos of the Wyld, so may Abyssals impose the horrors of their imagination on the Underworld. This Charm is an extended dramatic action using a dice pool of the Abyssal's (Intelligence + Lore). Each roll requires five hours of work, and the character must pay the Charm's cost with each roll. The base difficulty is 3 in the Labyrinth and 10 in the Underworld. Accumulated successes may be spent at any time in increments up to five successes on any of the following effects, shaping an area no farther than a number of miles equal to the Abyssal's Essence from the epicenter of the Exalt: Demesne: The deathknight drills into the deepest inchoate madness of the Neverborn, allowing their Essence to bleed up from beneath and coagulate into an Abyssal demesne with a rating equal to the successes spent. Land: The Exalt alters the Underworld's geography as desired, provided that the changes make the area more inherently</p><p>desolate, inhospitable, frightening or dangerous. The number of successes required depends on the Resources value of the new land. Ore-rich volcanoes bubbling with the smoldering quicksilver blood of the Neverborn, for example, would cost more successes to create than barren fog-shrouded plains. Magical Things: The Abyssal applies successes from this Charm directly to the creation rolls for Abyssal manses or destructive artifacts as defined by World-Slaying Arsenal Epiphany (see p. 153) and is explicitly permitted to supplement this process with Craft Charms such as Soul-Forging Fury. Wealth: The deathknight cracks open fissures revealing long-forgotten grave goods conforming to his desires with a Resources value equal to the successes spent. Objects created with this Charm crumble into Oblivion upon their destruction and follow the same material state as ghosts if removed from the Underworld. Such items also disintegrate into oily, putrid smoke when touched by the light of Creation's sun. Any use of this Charm offends the Neverborn, who object to their destroyers creating anything. The Abyssal gains one Resonance point for every dice roll in the extended action. If the character's Resonance total reaches 10, he suffers an immediate Resonance eruption.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Two Lore Excellencies",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ec36e05b89b93957",
+            "charmName": "Dream-Slaying Defense",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "9d609a8b32bf200f",
+    "mirrorId": "786435aaeb53865d"
+  },
+  "folder": "b0b1b2b3b4b5f03d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

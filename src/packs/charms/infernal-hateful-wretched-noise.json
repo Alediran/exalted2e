@@ -1,0 +1,57 @@
+{
+  "_id": "40beb21fe62bcecd",
+  "_key": "!items!40beb21fe62bcecd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hateful Wretched Noise",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Compulsion"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>As the embodiment of silence, Adorjan senses her antithesis with unparalleled sensitivity. This Charm permanently upgrades the Infernal's sense of hearing to levels comparable to simultaneous use of Keen Hearing and Touch Technique and Unsurpassed Hearing and Touch Discipline (see Exalted, pp. 225-226), save that only hearing improves and not touch. This acuity comes at a price, however, as the character finds sound painful. While the Exalt can hear any sounds louder than a whisper, he suffers a -1 internal penalty to all non-reflexive actions. This penalty rises to -2 while subjected to noises of comparable volume to shouting. Such loud noises also impose an unnatural Compulsion to impose corrective silence by any means necessary, starting with the loudest noise and working down from there. The character can't take non-reflexive actions unrelated to imposing quiet until this goal is complete, but actions serving the Compulsion are not penalized. The Infernal may ignore all penalties and tune out the Charm's Compulsion for one scene while retaining all of the magic's advantages for one Willpower. Fortunately for those mad enough to befriend students of Adorjan, Infernals with</p><p>Hateful Wretched Noise can tolerate noises up to normal speaking volume from known allies with only a -1 penalty and no Compulsion. Anything louder arouses the usual ire of the Silent Wind.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "adorjan",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "40beb21fe62bcecd"
+  },
+  "folder": "e1c045f50a834f12",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

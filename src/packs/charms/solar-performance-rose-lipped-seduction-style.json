@@ -1,0 +1,71 @@
+{
+  "_id": "8e588b9ea0573e45",
+  "_key": "!items!8e588b9ea0573e45",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Rose-Lipped Seduction Style",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "performance",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Compulsion"
+    ],
+    "cost": {
+      "formula": "6m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A favorite of many hedonistic (or simply predatory) Solars in the First Age, this Charm figures prominently in Immaculate legends of the Anathema. While the Charm is in effect, all characters who possess any sort of romantic Intimacy toward the Solar (love or lust, it makes no difference) have their MDVs set to 0 against seduction attempts by her. Shaking off this unnatural mental influence in order to assert MDV normally costs one Willpower per action. The embedded Intimacy of a Solar's Lunar mate always qualifies for this Charm, even if the Lunar chooses to articulate the bond as platonic friendship.</p>",
+    "source": "Glories of the Most High: Unconquered Sun",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "04163b63b0fda83e",
+            "charmName": "Husband-Seducing Demon Dance",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "8e588b9ea0573e45"
+  },
+  "folder": "e38c83836f199624",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,81 @@
+{
+  "_id": "444b7757ae9caae9",
+  "_key": "!items!444b7757ae9caae9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Break The Storm",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Counterattack"
+    ],
+    "cost": {
+      "motes": 5,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "5m"
+    },
+    "description": "<p>A Solar's intercepting fist may even split a bolt of lightning. By paying five motes, the Solar may interrupt an attack made against him with one of his own. This Charm must be activated in step 2. The character rolls a standard unarmed Martial Arts counterattack in Step 6, subtracting her successes from any remaining successes the attacker may have accumulated after comparing his attack to the Solar's DV. The Solar then applies the rolled counterattack to her opponent in Step 9, doing damage as normal if it lands successfully. This counterattack may be used to respond to lethal and ranged attacks, but may not strike an opponent who is out of range, nor may it be used to respond to an unblockable or unexpected attack. An attack negated with this Charm is considered to have been stopped by the Solar's Parry DV. Chained Thunder Strike</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Solar Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "2e7ebc109265447f",
+            "charmName": "Knockout Blow",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "444b7757ae9caae9",
+    "grantsMastery": false
+  },
+  "folder": "05bd4dac47a869bd",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

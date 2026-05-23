@@ -1,0 +1,27 @@
+{
+  "_id": "c4969e8ccbe2c8b4",
+  "_key": "!items!c4969e8ccbe2c8b4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gem of Perfection",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDEARTH00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "earth",
+    "rating": 2,
+    "description": "<p>This smooth, moss-green oval enables its bearer to ignore the effects of any long-term injuries, scars or birth defects. Congenital conditions, paralysis and chronic pain all instantly vanish. It can even restore missing limbs or organs, although an entire limb requires two months to regenerate. The bearer cannot ignore penalties from recently suffered wounds, but after a week of healing all remaining wound penalties vanish. After carrying this stone for two months, all of the Crippling effects of injuries and defects are permanently restored. Such benefits do not reverse themselves if the character later loses the hearthstone. The Exalted seldom suffer long-term crippling, but the Gem of Perfection trumps any enduring damage induced by Charms. It also heals damage from wounds suffered before Exaltation. Enlightened mortals, who learned to Channel Essence without Exaltation, value the Gem of Perfection even more highly.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

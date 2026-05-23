@@ -1,0 +1,37 @@
+{
+  "_id": "c38181b7ad81be65",
+  "_key": "!items!c38181b7ad81be65",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Courier",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Created as quick and discreet modes of transportation for traveling diplomats and assassins operating in the West, a surprising number of these portable First Age submersibles have survived into the Second Age. Most belong to the Realm, though Lookshy has a few that it lends to elite operatives tasked with covert missions on the Blessed Isle. The elder Lunar Leviathan has several dozen stored in his sunken city of Luthe, which he guards as zealously as all other treasures buried in his domain (despite having no use for them). In their portable mode, Resplendent Dolphin-class vessels appear as black jade-alloy eggs just small enough to fit inside a barrel. Despite their size and density, they weigh only 200 pounds in either configuration, making them eminently transportable by wagon, mount or hidden in a cargo hold aboard a ship. Transforming the courier into vehicle mode requires that the pilot attune to it for a cost of five motes. With this commitment of Essence, the vehicle may be commanded to instantly unfold into a small, sleek vessel nine yards long and three yards in diameter shaped roughly like a stylized fish. The top of the vessel is a narrow walkway (one yard wide) flanked by narrow fins that serve as low railing. A small hatch in the center of the walkway provides the only means of entrance or exit, and only one character may do so at a time using a miscellaneous action. The vessel's interior is not so much cramped as cozy, with a surprising passenger capacity for the ship's size. Behind the passenger cabin is a small cargo hold that may be locked from the outside (useful for transporting prisoners). While powered with its pilot's Essence and the energies of an inset hearthstone, the vessel supplies pure water extracted and filtered from the outside, and pure air created entirely out of Essence. It has lavatory facilities, and its seats can recline to serve as small beds. The pilot's chair sits in front of the others and is also larger than the rest, with crystal control panels set in each armrest. Two large transparent windows like eyes allow the pilot to navigate visually, while geomantic instruments allow her to navigate underwater based entirely on sensor readings. Speed: 20/40mph on surface; 12/25mph submerged Maneuverability: +1S (Lore 2, Sail 3) Endurance: Requires a level-2+ hearthstone plugged into the control panel to operate, and the pilot must also attune the vessel for a commitment of five motes. After 250 cumulative hours of operation since its last maintenance, it begins suffering one level of unsoakable bashing damage every further 10 cumulative hours of operation it is overdue. Crew: 1/1 Cargo: Seven passengers in comfort, plus four barrels (or equivalently sized cargo, such as two additional passengers carried uncomfortably in the locked hold). Armor: 15L/15B Health Levels: Ux8/Mx6/Cx4/Ix2/D Weapons: None (though a few have added mounts for a single light implosion bow, which must be removed and stowed prior to submerging or the weapon is ruined and its drag halves the vessel's submerged Speed)</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 4,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

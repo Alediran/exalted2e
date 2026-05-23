@@ -1,0 +1,60 @@
+{
+  "_id": "b168efd05b72f7d4",
+  "_key": "!items!b168efd05b72f7d4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Cast Out Beyond Regard",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "performance",
+    "essence": 8,
+    "minAbility": 8,
+    "charmType": "supplemental",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Native",
+      "Obvious",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "40m, 2wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Creation was given into the hands of the Lawgivers; it is theirs to govern and to judge, forever. Through the power of this Charm, a Solar may exile those who have proven themselves unworthy to exist in the world he rules. The Lawgiver's player makes a prayer roll against a difficulty of (5 + Magnitude of group targeted); this works in the same fashion as Catching the Sun's Glance, save that the Charm cannot discriminate to target sub-groups within a geographic region; for example, it can only target \"everyone in Nexus,\" not \"all Guildsmen in Nexus.\" Unlike its prerequisite, the Charm does not render its targets creatures of darkness. If used while the sun is out, the day grows dark as night as the Unconquered Sun turns his face away from what is to come. If used by night, the light of the stars becomes weird and green, casting everything into a febrile haze. Creation's Essence sizzles and screams at the culmination of the Lawgiver's ritual condemnation; the boundaries of the cursed area blacken, char, and erupt into flights of blind doves. A patina of silver sand drips from the stars. These omens persist for one long tick following the successful conclusion of the Lawgiver's prayer, which must be uttered within earshot of at least one targeted individual. At the end of that long tick, the entire targeted region and all inhabitants who have not fled or established Shaping defenses are torn from Creation in a surge of crimson Essence. Where the targeted region stood, there is only a plain of black glass holding Ligier's sullen reflection. He speaks a grudging word of ritual thanks for the Solar's offering, and then vanishes. The targeted region is deposited somewhere within a random layer of the Demon City, which reflexively reorganizes its geography to make room for the new arrival. The lethal miasma of Malfeas avoids such imported bits of Creation, but this is the only mercy the new deportees are granted; demons are always quite interested in the novelty of a freshly-arrived army encampment or city, and soon come to investigate. The Sidereal Exalted have repeatedly pressed for legislation to outlaw the use of this Charm, or at least require Deliberative-authorized advance warning of its deployment, as it wreaks untold havoc on the Loom of Fate whenever it is used. To date, these efforts have met with little success.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "b168efd05b72f7d4"
+  },
+  "folder": "e38c83836f199624",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

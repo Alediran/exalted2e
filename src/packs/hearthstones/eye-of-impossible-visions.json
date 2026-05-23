@@ -1,0 +1,27 @@
+{
+  "_id": "49baee626bf5b004",
+  "_key": "!items!49baee626bf5b004",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Eye of Impossible Visions",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDAIR0000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "air",
+    "rating": 3,
+    "description": "<p>By meditating upon this silky white stone for one week and spending one Willpower, the bearer casts her gaze across the Beyond--that transcendent realm that contains such things as cannot be, have never existed and never will come to pass--in order to better understand that which is. Treat this scrying as a vision-quest (Compass of Celestial Directions: the Wyld, pp. 139-141). Using the stone requires only one day of meditation within the landscape of any of Oramus' Third Circle souls.</p>",
+    "source": "Ink Monkeys"
+  }
+}

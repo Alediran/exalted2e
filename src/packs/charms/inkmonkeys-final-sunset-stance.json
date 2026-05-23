@@ -1,0 +1,81 @@
+{
+  "_id": "ddde37717342afbe",
+  "_key": "!items!ddde37717342afbe",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Final Sunset Stance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Martial-ready",
+      "Native"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Bronze Tigers stand as a warning to the enemies of Creation: those who sow the wind reap the whirlwind. Using this Charm raises the character's Melee-derived Parry DV by 1 for one tick. This bonus does not count as dice added by a Charm and ignores maximum DV limitations. Furthermore, any time a character using Final Sunset Stance successfully parries an attack with this DV, she stocks a free reflexive attack which she may withhold or unleash at a moment of her choosing. Free reflexive attacks may not be accrued with the aid of Charms bearing a Flaw of Invulnerability. Unused stocked attacks vanish from the Solar's arsenal when the scene ends. A Solar may stock no more than (Dexterity + 3) attacks in this fashion through any combination of any Charms which stock free reflexive attacks, such as Shrike Saving Discretion (see p. 19). Martial-ready: Martial Arts Fading Light Quickening</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "814b43ac1daef5f5",
+            "charmName": "Dipping Swallow Defense",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "dvBonus": {
+      "enabled": true,
+      "dodgeBonus": 0,
+      "parryBonus": 1,
+      "ignoreAllPenalties": false,
+      "ignorePenaltyTypes": []
+    },
+    "charmUid": "ddde37717342afbe"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,74 @@
+{
+  "_id": "741e8edc7fb943eb",
+  "_key": "!items!741e8edc7fb943eb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Broken Toys Riposte",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      9
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Counterattack",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "Weapon Damage modifier +1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Void strikes down weapons that dare to assault its champions. An Abyssal may use this Charm (also called the Corrosive Parry) only when he defends against attack using his Parry DV; his own weapon flares with necrotic Essence. If the parry succeeds, his opponent's weapon crumbles to dust. Weapons made of the magical materials or otherwise enchanted survive the Corrosive Parry but are ripped from their wielder's grasp and hurled a number of yards away equal to the Abyssal' Essence. The Essence cost of this Charm is one mote greater than the Damage bonus of the parried weapon. Therefore, disintegrating a knife costs only three motes, while corroding a mace costs nine motes. Wrenching a starmetal grand grimscythe out of a Sidereal foe's hand with a parry would cost 18 motes.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "abc2cbf472d6949e",
+            "charmName": "Vengeful Riposte",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "741e8edc7fb943eb"
+  },
+  "folder": "b0b1b2b3b4b5f040",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

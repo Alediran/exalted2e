@@ -1,0 +1,37 @@
+{
+  "_id": "0a8b13fa9f763eb1",
+  "_key": "!items!0a8b13fa9f763eb1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Bauble of the Captive Soul",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "labyrinth-circle-bauble-of-the-captive-soul",
+    "tradition": "necromancy",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 15,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Bone",
+    "description": "<p>Just as Shade Prison Amulet (see p. 32) prepares a bone to trap a hungry ghost, so this spell prepares one to catch any sort of ghost. The more powerful the ghost, the more its presence may disturb a living host. Otherwise, this spell's effects are the same as those of its Iron Circle predecessor.</p>"
+  },
+  "folder": "562235f47f16c453",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

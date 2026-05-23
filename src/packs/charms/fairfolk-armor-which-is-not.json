@@ -1,0 +1,59 @@
+{
+  "_id": "4c0c619a6df050c0",
+  "_key": "!items!4c0c619a6df050c0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Armor Which Is Not",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "ring",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "oneSeason",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "5m, 1+g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm improves upon Gossamer-Forging Art and allows the raksha to forge shaping armor, which helps to protect against shaping attacks. Mechanically, this Charm functions like Gossamer-Forging Art except as follows. First, the raksha shapes the armor into existence through a Ringshaping action and spends an amount of gossamer equal to the difficulty of the roll. The raksha must also commit five motes to the item and let it spend an entire season absorbing the power of the Wyld. The shaping armor is a work of glamour that cannot survive in Creation absent the use of an Evocation Charm. If summoned into Creation, the armor adds its normal shaping soak bonus to the raksha's bashing and lethal soak. This bonus soak does not apply to attacks made by Creation-born whose (attack Ability + Essence) exceeds the raksha's Craft. The same set of armor can serve as both shaping armor and gossamer armor, with the soak bonuses stacking, but the gossamer cost increases to twice this Charm's normal cost, and the raksha must commit 10 motes for the duration of a season. Difficulty Description Serviceable. The armor is the equivalent of assertion gauze. Fine. The armor is the equivalent of fate weave or fine assertion gauze. Exceptional. The armor is the equivalent of form chitin, fine fate weave or perfect assertion gauze. Alternatively, if the raksha also knows Crafter's Arsenal, he can produce a courtier's call. Perfect. The armor is the equivalent of perfect assertion gauze, exceptional fate weave, fine form chitin or a fine courtier's caul. +1 Permanence. The raksha's armor can enter Creation without an Evocation Charm, and it does not provoke Glamour Resistance.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "4c0c619a6df050c0"
+  },
+  "folder": "e3ab9ab145f6a424",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

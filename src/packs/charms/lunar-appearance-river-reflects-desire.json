@@ -1,0 +1,84 @@
+{
+  "_id": "f74a56fc7800247b",
+  "_key": "!items!f74a56fc7800247b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "River Reflects Desire",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "appearance",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Illusion",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "3m or 5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm may be activated as soon as a specific individual catches sight of the Lunar. Rather than seeing the Steward for who she really is, the target instead perceives the Lunar to be the person she most wishes to see at that moment. This unnatural Illusion effect costs two Willpower points to shake off for the rest of the scene. If the Lunar pays three motes, then only her target perceives her to be anyone other than herself. For a cost of five motes, all characters present perceive the Lunar as the target of the Charm does. The Steward does not automatically know who her target believes her to be. This Charm's three-mote version may be invoked against a different target even when the Exalt is already disguised, though only the savviest Lunar tricksters are able to convincingly impersonate multiple unknown individuals at once.</p>",
+    "source": "Glories of the Most High: Luna",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "8d1d7598ba1f2de7",
+            "charmName": "Any Appearance Excellency",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7de381949ff77a73",
+            "charmName": "New Friend Aroma",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "f74a56fc7800247b"
+  },
+  "folder": "8313b495b23ed35c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

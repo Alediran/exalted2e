@@ -1,0 +1,79 @@
+{
+  "_id": "94c1e6caef00a5eb",
+  "_key": "!items!94c1e6caef00a5eb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Flesh-Rending Gear Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 4,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "4m, 1wp"
+    },
+    "description": "<p>The martial artist delivers her blows with remorseless precision. Great bladed gears erupt from her anima to momentarily solidify around an unarmed attack, radically boosting the trauma it inflicts on its unfortunate target. An unarmed attack enhanced by this Charm counts the martial artist's Strength twice for the purpose of calculating raw damage. Additionally, its minimum damage increases by one die. This Charm may not enhance natural unarmed attacks that inflict bashing damage.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Mechanical Weaving Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6048b37ffe795961",
+            "charmName": "Thousand Wounds Gear Form",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "94c1e6caef00a5eb",
+    "grantsMastery": false
+  },
+  "folder": "c166a5601fcb1b8f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

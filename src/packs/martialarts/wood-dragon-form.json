@@ -1,0 +1,79 @@
+{
+  "_id": "b7e322827ceb25a4",
+  "_key": "!items!b7e322827ceb25a4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wood Dragon Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Form-type",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 5,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "5m"
+    },
+    "description": "<p>Striking his own body in a series of precise, quick blows, the Immaculate removes all blocks on the flow of wood Essence through</p><p>his frame. Even the tiniest misplacement of one such strike causes the Charm to fail. Thereafter, the Dragon-Blood almost glows with life, and green Essence sometimes flashes in his eyes or trails behind his body as he moves. While Wood Dragon Form is active, the Immaculate regenerates one health level of bashing damage on every action and one health level of lethal damage every other action. If the monk is slain, the Charm ends, and he stops regenerating.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Wood Dragon Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "aa1e7b60092f3186",
+            "charmName": "Soul-Marking Strike",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "b7e322827ceb25a4",
+    "grantsMastery": false
+  },
+  "folder": "9aed05734440bb9c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

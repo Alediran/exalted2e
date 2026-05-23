@@ -1,0 +1,68 @@
+{
+  "_id": "b19c4ab69c0a3ac9",
+  "_key": "!items!b19c4ab69c0a3ac9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Invincible Fury Of The Dawn",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solar burns with holy prowess in battle and moves like lightning. This Charm increases the maximum number of attacks received from Peony Blossom Attack and Iron Whirlwind Attack by two. It may improve custom Melee extra-action Charms at the discretion of the Storyteller. CALL THE BLADE Cost: 1m; Mins: Melee 2, Essence 2; Type: Reflexive (Step 2) Keywords: Obvious Duration: Instant</p><p>Prerequisite Charms: None The Solar's weapons know their master. The Solar holds out her hand and calls to the Essence of one of her weapons. If the desired weapon is within (Essence x 10) yards, and a flight path exists between the weapon and her hand, this Charm draws the weapon into her grasp. She must own the weapon she calls. This Charm can be used to draw and ready a sheathed weapon reflexively.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0b94e24678e06b00",
+            "charmName": "Iron Whirlwind Attack",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "b19c4ab69c0a3ac9"
+  },
+  "folder": "fd05b302be1cc260",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

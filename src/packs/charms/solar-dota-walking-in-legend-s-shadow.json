@@ -1,0 +1,58 @@
+{
+  "_id": "fa2610e73d6adc87",
+  "_key": "!items!fa2610e73d6adc87",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Walking in Legend's Shadow",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "stealth",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Illusion"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Legend and fact soon become interchangeable in the lives of the Exalted, and the Solars embody this principle-- to the degree that the Princes of the Earth sometimes find it necessary to hide even from themselves. This Charm allows the character to walk directly out of the ongoing narrative of his life, either dimming himself to the eyes of history, or increasing interest in his legend until he himself is all but forgotten. Should the Solar dim himself, he passes from the active thoughts of Creation. His personal acquaintances will still recognize him, but strangers will not. Even if the Solar stands directly next to a poster bearing his face and name, those</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "fa2610e73d6adc87"
+  },
+  "folder": "07815dca7bd3d3d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

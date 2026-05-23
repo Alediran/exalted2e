@@ -1,0 +1,57 @@
+{
+  "_id": "a6d998a4be69172e",
+  "_key": "!items!a6d998a4be69172e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Spectacular Insanity",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "heart",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mutation (1)"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Invoking this Charm transforms bedlam from a debilitating curse to a blessing, if not a very enjoyable one. This Charm may be activated in conjunction with an Assumption or reflexively while in the Wyld. In the former case, it lasts while the Assumption does. In the latter case, it lasts for the duration of the tale. In either case, when the raksha enters bedlam, she can spend five motes to instantly recover temporary Willpower and gain new gossamer equal to the Virtue with which the bedlam is associated. This action is reflexive.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "a6d998a4be69172e"
+  },
+  "folder": "de1b86005c09a461",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

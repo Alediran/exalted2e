@@ -1,0 +1,72 @@
+{
+  "_id": "c642f73dea9fca98",
+  "_key": "!items!c642f73dea9fca98",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Semiotic Flare Projector",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "charisma",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 4,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "War"
+    ],
+    "cost": {
+      "formula": "4m, 1wp [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A pair of telescoping orichalcum fins extends from the back of the Alchemical's shoulders. When charged with Essence, these hum audibly and agitate the Champion's anima banner to the 11- to 15-mote level if it is not there already. The anima display is either projected high into the air or, in more cramped environments, distributed along the ground as a vast, roiling fog that creeps back in among the Exalt's troops. When the Alchemical relays orders, his anima flashes pictoglyphic images that are intuitively understood by all soldiers fighting under his command and encrypted against opponents. This Charm replaces the need for up to three relays for a unit in which the Alchemical is a special character, leaving additional special character slots for heroes and sorcerers. Submodules: Fear Override Device (Charisma 5, 5xp): An affected unit's Morale becomes equal to its Drill for the duration of the Charm (if its Morale was originally lower) or perfect if the unit has Drill 5+. As a further Axiomatic effect, the units with Drill 4 or less gain perfect morale while engaged with an enemy unit consisting chiefly of creatures of the Void. All benefits of this submodule require the Champion's unit to be arranged in close formation. Transdivine Synergy Beacon (Charisma 5): The Charm becomes even more powerful when the Champion is a special character in a unit consisting entirely of Alchemical Exalted, Jadeborn, automata or machine spirits; completely obviating the need for relays. Units with Drill 4+ also enjoy this bonus. Tireless Army of Order (Charisma 6; 4xp): Whenever the unit leader of an affected unit rallies for a second wind as a miscellaneous action (see Exalted, p. 165) and this action succeeds, the rally restores all the unit's Endurance points. Central Command Beacon (Charisma 7): Whenever a unit enhanced by the Charm takes a miscellaneous action to signal units (see Exalted, p. 165), the signal may be sent to any number of allied units who can see the signaling unit, regardless of the number of relays it has in its ranks. If the Exalt has Essence 4+, units that cannot see the Champion's unit are also valid targets, provided they are within one mile and the Alchemical knows they are in range to target. In such cases, luminous glyphs flash in front of the receiving unit leader's face in a quick strobe to deliver the message.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Charisma Augmentation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "c642f73dea9fca98"
+  },
+  "folder": "b0b1b2b3b4b5f04d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

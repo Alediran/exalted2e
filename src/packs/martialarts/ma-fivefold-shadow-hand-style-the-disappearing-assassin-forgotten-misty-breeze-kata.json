@@ -1,0 +1,60 @@
+{
+  "_id": "949b3d79e895ff89",
+  "_key": "!items!949b3d79e895ff89",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Disappearing Assassin (forgotten Misty Breeze Kata)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Illusion",
+      "Share-Forgotten",
+      "Share-Mist"
+    ],
+    "cost": {
+      "formula": "7m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Accidentally spotted, the martial artist flicks her smallest fingers together then touches the thumb and ring finger of one hand to the ring finger and thumb (respectively) of the other hand, while ducking around a corner. Those who saw her are confused into believing they saw a cat, a falling leaf or nothing at all. If the character can escape all searchers' sight for five actions, then those who don't have a (Wits + Essence) score higher than her Martial Arts forget they ever saw her. Forgotten Misty Breeze Kata can be used on a maximum number of targets equal to the character's Martial Arts. Any target may spend two Willpower to resist the Charm's effects. If a target is reminded of the particular person he saw, the illusion breaks. (The reminder must be specific and direct. For example, a guard might recall what he saw if his DragonBlooded superior says, \"Don't you remember the masked girl who was standing right there a moment ago?\" Without such a reminder, being told that he raised the alarm, or even spotting a shoe that the martial artist left behind, will only lead the confounded guard to further rationalizations.)</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Fivefold Shadow Hand Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "949b3d79e895ff89"
+  },
+  "folder": "30abfdbff9e8ecc7",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

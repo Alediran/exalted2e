@@ -1,0 +1,37 @@
+{
+  "_id": "04071243d441d80b",
+  "_key": "!items!04071243d441d80b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Elemental Exoskeleton",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>One of the more useful wonders of the High First Age, the elemental exoskeleton is an elegantly carved and constructed framework of orichalcum made to be worn by an Exalt. The passenger/wearer would generally don the exoskeleton after summoning an elemental. The Exalt would have the elemental dematerialize, sculpt its gauzy immaterial form to match the exoskeleton, command the elemental to stretch itself over the frame of the exoskeleton and then have the spirit rematerialize in its new configuration. The outside of the exoskeleton is covered with knobs and studs that serve as anchoring points for the elemental. The elemental would need time to \"heal\" its form around the exoskeleton, usually a week or so, at which point the device could be donned and put to use. Elemental exoskeletons were not generally used as armor so much as they were used for important industrial or infrastructural tasks such as creating tunnels or building bridges, but they could be used in battle with relative ease. Wearing such an exoskeleton carried with it a number of general advantages, among them: · The Exalt within adds the elemental's soak to his own as though he were wearing armor. · The wearer gains the benefits of this armor with no fatigue penalty. · The exoskeleton decreases Dodge DV by one but increases Parry DV by one. In addition to these benefits, the wearer also gains advantages based on the particular nature of the elemental bound to the exoskeleton. Wearing an air elemental grants the ability to fly at a rate equal to the elemental's movement rate, grants the wearer immunity to electrical damage and keeps the wearer cool in temperatures up to 200 degrees. Having an earth elemental stretched across the exoskeleton frame allows the character to move through solid earth and stone at the elemental's full movement rate or to dig through the same at half the elemental's movement rate. Wearing an earth elemental in this way also grants the passenger hardness equal to the elemental's lethal soak. A fire elemental stretched over the exoskeleton grants complete immunity to any fire that's native to Creation. This immunity includes natural fires and the anima flux of Fire-aspected Terrestrial Exalts, but excludes, for example, the green flames of the demon Ligier. It also keeps the passenger warm in even the most chilling temperatures. Putting a water elemental over the exoskeleton grants the ability to glide through water at the elemental's full movement rate. If instructed to do so, the water elemental can also act as an enormous gill, channeling air from the water into the interior to allow an air-breather to breathe normally. Wearing a wood elemental grants the exoskeleton's passenger the ability to move through dense forest or even solid wood at the elemental's full movement rate. This arrangement also allows the wearer to move trees and plants through the earth, to relocate them, without causing any damage to the tree.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 4,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

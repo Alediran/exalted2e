@@ -1,0 +1,57 @@
+{
+  "_id": "f2210491076715e1",
+  "_key": "!items!f2210491076715e1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Auspicious Recruitment Drive",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "war",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "War"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Destiny leads soldiers to a Sidereal's command. When the Sidereal engages in recruitment activities designed to drum up a mass combat unit (or heal one between battles), his efforts achieve the desired result in a fraction of the time. Whereas building up or healing a single dot of Magnitude normally takes a number of days equal to (the unit's current Magnitude + 1)--see Exalted, p. 169--a Sidereal who uses this Charm can achieve the same result in half that time. The Sidereal can increase a unit's Magnitude by only one dot at a time with this Charm.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f2210491076715e1"
+  },
+  "folder": "b0b1b2b3b4b5f019",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

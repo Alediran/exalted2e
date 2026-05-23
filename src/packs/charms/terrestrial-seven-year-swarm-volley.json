@@ -1,0 +1,71 @@
+{
+  "_id": "73f88c0610f118d7",
+  "_key": "!items!73f88c0610f118d7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Seven-Year Swarm Volley",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "archery",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneAction",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Leader"
+    ],
+    "cost": {
+      "formula": "3m, 1wp + 1m per person defended",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Having mastered the art of protecting himself from ranged attacks by shooting projectiles out of the sky, the Dragon-Blood can now extend this protection to his allies. The Dragon-Blood must spend a base cost of three motes and one Willpower plus one mote per person to be protected, including himself. He must also have two arrows per person handy. His player then rolls (Dexterity + Archery). For every success rolled, the DV of every protected ally increases by one against ranged attacks. Once this Charm is in effect, the Dragon-Blood cannot take any other actions (such as combining his defense with another action as part of a flurry), nor can he undertake any non-reflexive actions until his next regular action, or else, the Charm's effect ends immediately.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e65d3f1dd670ca85",
+            "charmName": "Dragonfly Finds Mate",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "73f88c0610f118d7"
+  },
+  "folder": "b0b1b2b3b4b5f01a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

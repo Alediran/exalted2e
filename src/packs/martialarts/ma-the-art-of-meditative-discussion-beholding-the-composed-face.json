@@ -1,0 +1,58 @@
+{
+  "_id": "539c74e34c21e5e5",
+  "_key": "!items!539c74e34c21e5e5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Beholding the Composed Face",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Compulsion",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "2wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When a philosopher achieves true serenity, she knows that Temperance is truly the Virtue of most value and worth. Her assurance brooks no argument. She may ignore the debate that rages around her, and most cease to argue in the face of her perfect composure. They step down, for they also know she is correct. When the martial artist chooses to meditate upon the truths of the world, those around her realize the depths of her tranquility, and their hearts weep. Each time another character wishes to attack her, he must succeed at a Willpower check at a difficulty of (the character's Temperance). While using this Charm, the character may only take half Move actions and defend herself with reflexive actions and Charms. If she acts otherwise, the Charm ends.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Meditative Discussion",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "539c74e34c21e5e5"
+  },
+  "folder": "1b2f6d78bc952477",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

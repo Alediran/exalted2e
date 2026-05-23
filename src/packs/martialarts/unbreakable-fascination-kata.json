@@ -1,0 +1,80 @@
+{
+  "_id": "517b4c8c2e4429e5",
+  "_key": "!items!517b4c8c2e4429e5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unbreakable Fascination Kata",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Compulsion",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 4,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "4m, 1wp"
+    },
+    "description": "<p>The motions associated with this Charm resemble both the way vines grow up trees in the Southeastern jungles and the movements of Southern snakes. So mesmerizing are the Immaculate's katas that she transfixes her opponents, rooting them to the spot. The character's player rolls her (Charisma + Martial Arts + Essence) against the Dodge MDVs of all who can see her clearly. As long as the Immaculate continues to exercise the kata, those whose MDVs were not hardy enough become inactive as they do nothing other than stare at her with rapt fascination. While executing the kata, the Immaculate may speak, move at half pace or dodge with a -2 DV penalty. Any other action ends the Charm. Wood Immaculates often use this Charm to close with an opponent before attacking.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Wood Dragon Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b7e322827ceb25a4",
+            "charmName": "Wood Dragon Form",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "517b4c8c2e4429e5",
+    "grantsMastery": false
+  },
+  "folder": "9aed05734440bb9c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

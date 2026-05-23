@@ -1,0 +1,57 @@
+{
+  "_id": "b5d50186b5757fca",
+  "_key": "!items!b5d50186b5757fca",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Golden Exhalation Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Form-type"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Calling on her experience with the flame and firewand to protect her, the Exalt uses both as defensive tools. Her lethal soak increases by two, and she gains an additional two points of lethal soak against all types of flame. She can catch attacks of all kinds on her firewand and deflect them--she can parry with her firewand, which gains a Defense of +2 for the rest of the scene. And finally, she can use her own Essence to fuel her bursts of flame. Until the Charm ends, she can reflexively spend one mote to load her firewand rather than taking an action and using a charge of firedust to do so.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Golden Exhalation Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "b5d50186b5757fca"
+  },
+  "folder": "792dc280d116c2e8",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "bbf6683f0de864ca",
+  "_key": "!items!bbf6683f0de864ca",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Spirit Sword",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-spirit-sword",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 20,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "one scene",
+    "target": "Caster",
+    "description": "<p>This spell uses the Sword-God Mudra, the sacred hand-sign that the least gods of all the swords in Creation make anytime one of the Incarnae takes up his or her blade. The spell's Essence forges a shard of the caster's own soul into a blade that shimmers with a thousand hues and rings like an iron bell when it strikes. The sorcerer may use either Melee or Occult to wield the sword, which lasts for one scene or until countered. The magical blade requires minimum Strength �. The spirit sword reveals much about the caster: Solars create swords of magnificent golden opalescence, while Lunars evoke sleek weapons of shimmering moonlight. Abyssal blades are jagged black weapons of howling nothingness, and Sidereals wield rapiers of glimmering starlight. Dragon-Blooded sorcerers reveal their elemental affinity: blades of red flame, rippling water, polished wood, razor-like ice or chipped flint. Regardless, spirit swords have the same traits, as seen below. The blade, as a thing of spirit, strikes only spirit. The sword can strike dematerialized spirits if the wielder can perceive them. Moreover, it passes through mundane armor to strike at the spirit-infused flesh of the target beneath it. By the same token, however, the blade cannot parry mundane weapons. Any weapon or armor crafted of the magical materials and/or which is committed using Essence provides defense against the spirit sword, because it carries the spiritual Essence of its owner.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

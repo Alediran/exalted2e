@@ -1,0 +1,81 @@
+{
+  "_id": "814b43ac1daef5f5",
+  "_key": "!items!814b43ac1daef5f5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dipping Swallow Defense",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Martial",
+      "Mirror (Elegant Flowing Deflection)"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The maneuver named Dipping Swallow Defense restores defensive advantage to a beleaguered or overextended fighter.</p><p>Fire and Stones Strike</p><p>Hungry Tiger Technique</p><p>One Weapon, Two Blows</p><p>Solar Counterattack</p><p>(Any Melee Excellency)</p><p>Peony Blossom Attack</p><p>Ready in Eight Directions Stance</p><p>Dipping Swallow Defense</p><p>Iron Whirlwind Attack</p><p>Fivefold Bulwark Stance</p><p>Bulwark Stance</p><p>Invincible Fury of the Dawn</p><p>Heavenly Guardian Defense</p><p>Protection of Celestial Bliss</p><p>This Charm is used in response to an attack. It allows the Exalt to ignore all penalties that apply to her Parry DV when resolving that attack. Her Parry DV is still 0 if it's inapplicable, but it takes no further penalties.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "dvBonus": {
+      "enabled": true,
+      "dodgeBonus": 0,
+      "parryBonus": 0,
+      "ignoreAllPenalties": true,
+      "ignorePenaltyTypes": []
+    },
+    "charmUid": "814b43ac1daef5f5"
+  },
+  "folder": "fd05b302be1cc260",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

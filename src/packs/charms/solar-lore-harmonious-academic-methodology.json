@@ -1,0 +1,73 @@
+{
+  "_id": "fb7a9e238ad5af1d",
+  "_key": "!items!fb7a9e238ad5af1d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Harmonious Academic Methodology",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "lore",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneWeek",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious",
+      "Touch",
+      "Training"
+    ],
+    "cost": {
+      "formula": "10m, 2wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Enlightened Lawgivers bring wisdom to the masses. This Charm involves training an organized social group such as a class, ministry or guild. This action requires five or more hours of effort in any given week to bear fruit. In each week of training, the trainer picks one trait to train: Conviction, Temperance, Perception, Intelligence, Craft (Air, Earth, Fire, Water or Wood), Investigation, Lore, Linguistics, Performance, Presence or Socialize. This Charm increases that trait for each member of the unit by one dot, to a maximum of 4. The Solar can train</p><p>with the group or as a solo character, increasing her own traits. She cannot increase others' traits past her own.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "lore",
+            "minCount": 2,
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "fb7a9e238ad5af1d"
+  },
+  "folder": "5b0108cbcf2feaf4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

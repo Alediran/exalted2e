@@ -1,0 +1,86 @@
+{
+  "_id": "12634a19e1bff1f2",
+  "_key": "!items!12634a19e1bff1f2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Flight Of Mercury",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      1
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "motes": 1,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "2m"
+    },
+    "description": "<p>The Vizier gives her attack the speed of the Maiden of Journeys. This Charm reduces the Speed of Martial Arts attacks by 1, to a minimum of 3. Each mote spent confers this benefit for one action, but the character cannot spend more motes than her Martial Arts rating.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Violet Bier of Sorrows Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6f1ec0bade0c8722",
+            "charmName": "Secrets of Future Strife",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "speedModifier": {
+      "enabled": true,
+      "delta": -1,
+      "minimum": 3,
+      "perMotes": 0
+    },
+    "charmUid": "12634a19e1bff1f2",
+    "grantsMastery": false
+  },
+  "folder": "02ed0088cf82499d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

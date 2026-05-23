@@ -1,0 +1,55 @@
+{
+  "_id": "8878f939640a90ac",
+  "_key": "!items!8878f939640a90ac",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dark Water Odyssey",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "sail",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Duration: Special Prerequisite Charms: Any Sail Excellency The Abyssal captain invokes and journeys on secret currents created by the Primordials for their own use. A deathknight may activate this Charm only aboard a ship he owns. Its effects last until he leaves the ship or the light of Creation's sun touches the hull. A vessel enchanted with Dark Water Odyssey travels at twice its maximum speed without any need for usual propulsion methods, carried along by unnatural currents that leave no wake or sign of the ship's passage. The total absence of a trail results in automatic failure for would-be trackers and adds a number of automatic successes equal to the Abyssal's Essence rating if another Charm contests this effect. Finally, the ship and all aboard are also outside fate while journeying thus. Used aboard an aerial vessel, this Charm does not replace the need for propulsion, but doubles the speed of the craft and obscures its passage.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "8878f939640a90ac"
+  },
+  "folder": "b0b1b2b3b4b5f046",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,92 @@
+{
+  "_id": "12c21c8a3f9e5161",
+  "_key": "!items!12c21c8a3f9e5161",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "White Reaper Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "scene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Form-type",
+      "Obvious",
+      "War"
+    ],
+    "cost": {
+      "motes": 5,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "5m"
+    },
+    "description": "<p>The martial artist rears up into a grim and terrifying battle posture, regarding her opponents as little more than grass to be scythed down before her. All unarmed attacks made by the martial artist add one to their Accuracy and Rate, and her bare-handed attacks inflict lethal damage. More notably, every time the character slays an opponent or inflicts damage on a complementary unit in mass combat while this Charm is active, a halo of sizzling silver-white Essence surges around her like a second skin and adds one to her Dodge MDV. The martial artist may retain up to (Essence) halos at once. Any opponents slain in excess of this number simply create a brilliant argent discharge around the martial artist, accomplishing nothing. All standing halos dissipate when this Form-type Charm is deactivated.</p>",
+    "source": "Glories of the Most High: Luna",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "White Reaper Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "cc4d8c493b1eeadc",
+            "charmName": "Falling Scythe Flash",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e9087e0d04267b30",
+            "charmName": "Revolving Crescent Defense",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "12c21c8a3f9e5161",
+    "grantsMastery": false
+  },
+  "folder": "43ff6bd7e0e2d9c2",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

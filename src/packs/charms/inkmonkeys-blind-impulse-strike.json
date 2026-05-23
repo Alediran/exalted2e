@@ -1,0 +1,86 @@
+{
+  "_id": "29ffb924603b29a3",
+  "_key": "!items!29ffb924603b29a3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Blind Impulse Strike",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      9
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Counterattack",
+      "Martial-ready"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Sensing the pulse of Essence along which an attack was fired, a Lawgiver may send a strike back at his opponent with perfect form and blazing speed. This Charm allows the Solar to respond to an attack with a Melee attack of his own. This attack has infinite range, ignores cover, and may be made even if the Solar is unable to see his target. If assailed by a ranged weapon, the source of the attack is rent by a razor-edged heat shimmer of Essence at his location. At Essence 6+ the Solar may use Blind Impulse Strike in response to social attacks he is aware of, so long as they occur within the same realm of existence. At Essence 7+ the Solar may use this Charm to respond to all social attacks, regardless of where the perpetrator is. Blind Impulse Strike may only be activated once in response to a written social attack, no matter how many times the Solar re-reads it. Martial-ready: Martial Arts</p><p>Flawless Mirror Trance</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1d04e939ae15b231",
+            "charmName": "Iron Raptor Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7d8ac977a388a09f",
+            "charmName": "Solar Counterattack",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "29ffb924603b29a3"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

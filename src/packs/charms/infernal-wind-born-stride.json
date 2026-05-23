@@ -1,0 +1,57 @@
+{
+  "_id": "323c4fdbe94b4f30",
+  "_key": "!items!323c4fdbe94b4f30",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wind-born Stride",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Where Adorjan blows, few can run fast or far enough to escape her touch. This Charm permanently enhances an Infernal's Dash actions (see Exalted, p. 143). First, dashing carries a DV penalty of -0. Second, the character automatically succeeds in crossing treacherous terrain without needing a roll. Finally, the Exalt adds his Essence rating to his Dexterity for the purposes of calculating his base dashing speed and does not subtract wound penalties from this calculation. These benefits apply equally to running and other means of locomotion encompassed by a dash action, such as climbing or swimming. Other effects that increase the Exalt's speed use the Wind-Born Stride-enhanced value as the Infernal's natural base speed before applying their modifiers. This Charm may be purchased a maximum number of times equal to the Exalt's Essence rating, with each purchase stacking to cumulatively increase dashing speed. The other benefits of the Charm do not improve with repurchase.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "adorjan",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "323c4fdbe94b4f30"
+  },
+  "folder": "e1c045f50a834f12",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "09f503a737b82cf2",
+  "_key": "!items!09f503a737b82cf2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Blackstorm Coffle",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "void-circle-blackstorm-coffle",
+    "tradition": "necromancy",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 48,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "permanent",
+    "target": "Area",
+    "description": "<p>This spell summons a rain of arrows like that created by Clamoring Shackles (see pp. 37-38). On his Cast Necromancy action, the caster's player makes a single (Perception + Archery) attack roll that applies to all targets within a 100-yard radius of a point the necromancer picks within 500 yards. Any arrow that misses dissolves into a foul black smoke. Each ghost slain by an arrow suffers the same effects as in Clamoring Shackles, and the chains thus created latch onto the nearest surviving ghost. Two sets of chains will not latch onto the same ghost; one instead finds a new target. These chains cannot be made permanent, but they last for a number of months equal to the caster's Essence, at which point they dissolve into acrid smoke. Used in war, the caster makes the attack against a unit and, if he's commanding another unit, adds its Ranged Combat rating as bonus successes. If the attack succeeds and reduces the target unit's Magnitude at all, it doubles that Magnitude reduction (reducing by one point of Magnitude becomes two, two becomes four, and so on) as the slain spirits imprison the surviving spirits. Against units that don't consist solely of ghosts (or in which ghosts are, at least, the vast majority), the attack inflicts only half raw damage and does not have any special effect.</p>"
+  },
+  "folder": "447f6cc1520ba234",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

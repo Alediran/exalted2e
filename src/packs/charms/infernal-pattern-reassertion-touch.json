@@ -1,0 +1,73 @@
+{
+  "_id": "f7d18d037742ed85",
+  "_key": "!items!f7d18d037742ed85",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Pattern-Reassertion Touch",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Shaping",
+      "Sorcerous",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "15m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Though she is not kind, She Who Lives In Her Name cannot abide seeing others twisted against her understanding of their nature. Upon activating this Charm and touching a target being or object, the target becomes infused with the Essence of perfected hierarchy, and the Infernal intuits all Shaping effects that have altered the target as if the effects were Obvious to her. She may select any number of these effects as undesirable in whatever order she chooses. The</p><p>infusion begins sequentially reversing these effects at the same rate as Ego-Infused Pattern Primacy operates (but no faster than an interval of one minute). Once this list has been corrected, Pattern-Reassertion Touch abates. If an Infernal knows other Charms that enhance the scope of what Ego-Infused Pattern Primacy can fix, the same options apply to enhance the range of this Charm.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "sheWhoLivesInHerName",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e9195262d245e10e",
+            "charmName": "Ego-Infused Pattern Primacy",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "f7d18d037742ed85"
+  },
+  "folder": "37c208aaa9a4b179",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

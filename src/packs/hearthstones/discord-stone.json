@@ -1,0 +1,27 @@
+{
+  "_id": "28a4a19f53dd6f29",
+  "_key": "!items!28a4a19f53dd6f29",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Discord Stone",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDFIRE000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "fire",
+    "rating": 3,
+    "description": "<p>The bearer of this dark-blue disc can make people around her argue and disagree. The character can affect (Essence x 2) people, and this power can only be used once per day. To affect a target, the bearer must be within 10 feet and her player must win a resisted (Essence + Willpower) roll. If the target succeeds, his moment of truculence passes. Otherwise, his player must succeed at a Temperance roll or spend a Willpower point for the character to resist any opportunity to argue with another person. The effect lasts for half a day, or until the character spends three Willpower points. After the effect ends, targets whose players successfully roll (Intelligence + Occult), difficulty 3, realize that these pugnacious urges were some form of unnatural mental influence.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

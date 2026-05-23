@@ -1,0 +1,73 @@
+{
+  "_id": "d6722bd53ad77309",
+  "_key": "!items!d6722bd53ad77309",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Chattering Magpie Inflection",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "manipulation",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      1
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Social"
+    ],
+    "cost": {
+      "formula": "3m per",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Lunar Exalted are inherently flexible, not just in their form but in their attention. Chattering Magpie Inflection enables a character to make many more social attacks in a single flurry than normal, increasing the rate of all social \"weapons\" by one for every three motes spent. This Charm can no more than double a social attack's rate.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "d6722bd53ad77309"
+  },
+  "folder": "7e56afbcd2643f32",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

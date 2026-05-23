@@ -1,0 +1,80 @@
+{
+  "_id": "e8177e6c08d3eaf0",
+  "_key": "!items!e8177e6c08d3eaf0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Bulwark Stance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "untilNextAction",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-Basic",
+      "Martial"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Like a terrible war machine, the Solar walks through the field of his enemy's blades and is unmoved. This Charm causes the character to ignore penalties that apply to his Parry DV until his next action. This includes penalties invoked by his own attacks. Note that the effects of inapplicability are not a \"penalty\" on DV.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "814b43ac1daef5f5",
+            "charmName": "Dipping Swallow Defense",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "dvBonus": {
+      "enabled": true,
+      "dodgeBonus": 0,
+      "parryBonus": 0,
+      "ignoreAllPenalties": true,
+      "ignorePenaltyTypes": []
+    },
+    "charmUid": "e8177e6c08d3eaf0"
+  },
+  "folder": "fd05b302be1cc260",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

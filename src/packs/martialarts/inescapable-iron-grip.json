@@ -1,0 +1,78 @@
+{
+  "_id": "fe2ee015fb3dc9dd",
+  "_key": "!items!fe2ee015fb3dc9dd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Inescapable Iron Grip",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "motes": 5,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "5m"
+    },
+    "description": "<p>The Chosen of the Void can hold their victims in death's own grip. This Charm supplements a grapple attack. As the deathknight and his foe struggle to control the grapple, the dice pool for the victim takes an internal penalty equal to the number of actions for which the Abyssal has already controlled the grapple. What's more, as long as the Abyssal controls the grapple, his victim cannot breathe. In a long struggle, the rules for holding breath (see Exalted, p. 130) could even come into play. The (Stamina + Resistance) roll to resist asphyxiation is always difficulty 3. More immediately, the victim cannot cry out or make any other sound in the Abyssal's grip.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Dark Messiah Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "62a9c6cfaae9ba03",
+            "charmName": "Dead Man's Grasp",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "fe2ee015fb3dc9dd",
+    "grantsMastery": false
+  },
+  "folder": "a06a42dc7ec7fc33",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,72 @@
+{
+  "_id": "67f8818b547dc6f3",
+  "_key": "!items!67f8818b547dc6f3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Iron Tyrant Reign",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "bureaucracy",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Compulsion",
+      "Emotion",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Fear of darkness empowers it. All characters with an Intimacy of fear toward the Abyssal cannot knowingly take any actions that would harm the deathknight or lessen their fear of him unless they pay one Willpower point to overcome this Charm's unnatural mental influence for a scene. This Compulsion also forces characters to resist social attacks with their best mental defenses if those attacks would make them take prohibited actions. Even if wretches who live in fear of the Abyssal dare to face their terror, prohibited actions still suffer an internal penalty equal to the deathknight's Essence rating.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e04fc13ce32a79c3",
+            "charmName": "Regime-Toppling Lord of Misrule",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "67f8818b547dc6f3"
+  },
+  "folder": "b0b1b2b3b4b5f036",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

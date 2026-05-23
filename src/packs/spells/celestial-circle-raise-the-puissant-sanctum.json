@@ -1,0 +1,37 @@
+{
+  "_id": "49c82007155cfed2",
+  "_key": "!items!49c82007155cfed2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Raise the Puissant Sanctum",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "celestial-circle-raise-the-puissant-sanctum",
+    "tradition": "sorcery",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 30,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Demesne",
+    "description": "<p>The Lunar and Sidereal Exalted rarely have the luxury of huge crews of workmen to build their manses. The Lunars demand self-sufficiency, and the Sidereals desire secrecy. This rite provides both. A sorcerer can raise a manse from a demesne rated no higher than (her Essence � 2). Armed with a design for the manse she wishes to create (see Exalted, p. 133 for the rules on designing manses), the sorcerer enters the demesne. For a number of weeks equal to the rating of the manse to be raised, she studies the plans and visualizes the structure she intends to create. The sorcerer must remain attuned to the demesne for this entire time of reflection and interact with no companion but the manse's designer (if she didn't design it herself). Once she is prepared, the sorcerer casts the spell and feeds her Essence into the demesne. The land then reshapes itself. Stone rises to form walls, sand crystallizes into glass, and plants grow into the geomantic patterns needed to channel the demesne's Essence. This</p>"
+  },
+  "folder": "dcf06d83a3d0a4be",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

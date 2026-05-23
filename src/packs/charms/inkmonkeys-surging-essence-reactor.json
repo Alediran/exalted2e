@@ -1,0 +1,70 @@
+{
+  "_id": "48471ace8af80cc8",
+  "_key": "!items!48471ace8af80cc8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Surging Essence Reactor",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "resistance",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Native"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Like the sun they emulate, the Solar Exalted draw unlimited power by their very existence. This Charm creates an interaction between all Charms possessing the keywords Overdrive and Reactor. A character who has Surging Essence Reactor as well as Overdrive and Reactor Charms gains the following benefits: whenever the character generates more than twenty motes by use of a Reactor effect, the overflow motes go instantly into the character's Overdrive mote pool; additionally, if the Solar's regular mote pools are full upon using a Reactor effect, overflow motes go into her Overdrive mote pool. Twilight Caste Investigation Virtue-Discerning Sight</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "43ee9b8aabf2f6b1",
+            "charmName": "Essence-Gathering Temper",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "48471ace8af80cc8"
+  },
+  "folder": "b0b1b2b3b4b5f068",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

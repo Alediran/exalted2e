@@ -1,0 +1,27 @@
+{
+  "_id": "665a836db4c049c8",
+  "_key": "!items!665a836db4c049c8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gemstone of Entrance",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDWOOD000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "wood",
+    "rating": 3,
+    "description": "<p>The owner of this faceted, shimmering blue hexagon can unlock all locked doors and windows at a touch. However, this stone only opens locks on points of entrance and egress and has no affect on locked strongboxes or shackles.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

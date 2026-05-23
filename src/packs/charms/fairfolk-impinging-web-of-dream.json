@@ -1,0 +1,58 @@
+{
+  "_id": "51e7da42d36d6e9b",
+  "_key": "!items!51e7da42d36d6e9b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Impinging Web of Dream",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "ring",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "extraAction",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Echo",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "4m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Just as a fly compresses all of its possible futures into one by falling into a spider's web, so does the raksha's enemy work his own doom by falling into innumerable strands of the raksha's ingenious plans. This Charm allows the raksha to make a magical Ring- or Staff-shaping flurry. Each attack is at the raksha's full dice pool, and the total number of attacks is equal to her Essence.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "51e7da42d36d6e9b"
+  },
+  "folder": "e3ab9ab145f6a424",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

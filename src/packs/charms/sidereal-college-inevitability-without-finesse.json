@@ -1,0 +1,59 @@
+{
+  "_id": "ad9052ae0acdf9b5",
+  "_key": "!items!ad9052ae0acdf9b5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Inevitability Without Finesse",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "college",
+    "essence": 4,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious",
+      "Fate",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "7m, 1p",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Grasping the skein of fate in his fist, the Sidereal forges an unalterable path between his killing intent and the heart of an opponent. The Vizier makes an attack at his full dice pool with the offensive Ability of his choice. This attack is unblockable, undodgeable, and strikes with a threshold of at least 0 successes for the purpose of calculating raw damage, even if it should have otherwise missed. No attack may strike the Sidereal until his next action.</p>",
+    "source": "Glories of the Most High: Maidens of Destiny",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "ad9052ae0acdf9b5"
+  },
+  "folder": "84b20a7805198847",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

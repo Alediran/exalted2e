@@ -1,0 +1,37 @@
+{
+  "_id": "3d6038d0b2e37b8a",
+  "_key": "!items!3d6038d0b2e37b8a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Jade Saddle",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Developed during the Shogunate era, these saddles allow Terrestrial Exalted to ride horses and other steeds into battle without risking these animals dying from exposure to the rider's anima banner. This artifact remains popular in Lookshy, where local artificers continue to manufacture them in moderate number. In addition to its continued use of Shogunate era tactics and battle formations, in Lookshy, this artifact is also essential to the close relationship that nation has with the Marukani horselords. The Marukani would be unwilling to sell their finest horses if they knew that these excellent steeds would suffer injury or death simply by being ridden into battle. This saddle runs a field of semi-solid Essence just over the mount's skin. Because this Essence field is attuned to the rider's own Essence flows, it protects the mount from all damage caused by the rider's anima banner. In addition to protecting mounts from anima damage, this Essence field is also designed to respond to the rider's unconscious commands and give the mount subtle physical cues as the rider's wishes. As a result, it adds two dice both to Ride rolls and to all Survival rolls made to tame or train the steed wearing it. Attuning to this saddle costs five motes, and as soon as the rider does so, the saddle adjusts to perfectly fit both steed and rider. These adjustments allow the same saddle to fit any Exalt and to be used on horses, simhata, camels, gryphons or most other steeds. Some of the elite cavalry in Lookshy have three-dot versions of this saddle that provide four dice to appropriate Survival and Ride rolls and contain a setting for a single hearthstone. When this saddle is attuned to the rider, this hearthstone affects both rider and the steed. If the rider dismounts, the hearthstone continues to affect the steed. Riders typically place hearthstones that provide either protection or healing in this setting. The attunement cost of this saddle is identical to the normal two-dot saddle.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

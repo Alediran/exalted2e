@@ -1,0 +1,37 @@
+{
+  "_id": "69c9c417888753b8",
+  "_key": "!items!69c9c417888753b8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Automaton Assassin",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>One of the earliest and simplest automaton designs, these elegant weapons of espionage and assassination resemble jewelry carved in the stylized likeness of small animals, most commonly spiders, snakes, insects, lizards or other vermin, though a few First Age models appear as miniature versions of larger animals totemic to the Celestial Exalted. In their inactive state, these automata coil about their wearers, disguised as heavy earrings, rings or perhaps as a belt buckle or amulet clinging to a necklace chain. Attuning an automaton assassin requires the commitment of one mote. This cost does not make the device actually function, but instead serves as a security precaution preventing it from being seized and activated by enemies. In order to animate the weapon, an attuned user must touch it and reflexively spend between five and 20 motes. These motes are transferred directly into the device's own Essence pool on a one-for-one basis. After each hour it stays active, it consumes five of its stored motes. Injecting a dose of the device's venom (see below) also costs five motes, so employing its offensive power sharply limits how long it can be deployed. While animated, its master can telepathically control it and perceive the world through its own senses at will as long as the device does not pass into an area magically warded against scrying (which causes it to wait motionless until mental contact can be restored). All actions use the creature's own dice pools rather than those of its master, though it obviously does not limit its master's Intelligence while operating it. If it cannot pay the Essence cost necessary to animate itself after any hour interval, it collapses back to its jewelry configuration awaiting retrieval by its master. Most automaton assassins can only scuttle about, though they can do so across walls, ceilings and other surfaces as readily as the ground. They are also preternaturally deft, able to perfectly balance on the narrowest twigs and safely perch on the lightest flower petals. Superior models also exist (Artifact 3) that can actually fly at twice their running speed, vastly improving their reach and opening entirely new angles of attack for enterprising assassins. Typically built to resemble dragonflies, wasps or hummingbirds, these models also have sharp, spring-loaded wings, allowing them to be animated and thrown as chakrams. A successful attack inflicts normal damage for a chakram and may inject a dose of venom, after which time the device can fly normally and make its own attacks as directed by its master. The largest variants of automaton assassins (Artifact 4) are roughly the size of cats, making them impossible to wear as jewelry and typically impractical as covert weapons. Called reaver drones, these devices can be opened by an attuned master, revealing an internal hearthstone socket. If a hearthstone is placed inside the device from a manse to which its master is attuned, the weapon can draw Essence directly from the stone as if it were an Essence wielder. This allows it to fly about indefinitely, though it might have to wait an hour or two before it can fly again if it uses up its Essence reserves injecting venom. Because they do not actually depend upon regular Essence infusions from their masters, reaver drones cost five motes to attune instead of 1, but they are more durable and powerful in all, as reflected by their superior statistics. During the Usurpation, the Dragon-Blooded fielded even more deadly automaton assassins loaded with infernally enchanted mescalaro venom that caused its victims to burn from within whenever they spent Essence. These assassins are five-dot artifacts. They possess all properties of reaver drones except that they are as small as Artifact 3 models and inject a venom with the following effects: Damage special/minute, Toxicity 5, Tolerance ­/­, Penalty ­5. In lieu of direct damage, characters under the effects of this poison suffer one die of unsoakable bashing damage for every mote of Essence they spend. As far as savants can tell, none of these hideous war machines survived the Usurpation, though it is possible that Sidereal Exalted of the Bronze Faction might have a couple stored in hidden vaults within Yu-Shan as emergency weapons. Attributes: Strength 1/3, Dexterity 5/6, Stamina 3; Charisma 0, Manipulation 0, Appearance 0; Perception 4, Intelligence 0, Wits 4 Virtues: Automaton: Never fails Valor checks, never makes others Abilities: Athletics 3/5 (Climbing or Flight, as appropriate +3), Awareness 3 (While Undetected +3), Dodge 5/6, Integrity 5, Martial Arts 2 (Bite/Sting +3), Stealth 5/3 (Hiding +3), Survival 1 (Tracking +3/+5) Join Battle: 7/10 Attacks: Bite/Sting: Speed 5, Accuracy 10/11, Damage 1L (plus venom, if an attack successfully inflicts damage and the user commands injection), Defense ­, Rate 3 Soak: 1L/3B (Reaver drones have 5L/5B) Health Levels: -0/-1/-1/-2/-4/Incap (Reaver drones have -0/-1/-1/-1/-2/-2/-2/-4/Incap) Dodge DV: 5/6Willpower: 10 (0 against its control- ler) Essence: 1 Essence Pool: 20 Other Notes: Automaton physiology (see p. 96-97). Statistics after the slash represent those of reaver drones. Attacks against smaller automaton assassin mod- els suffer a -3 external penalty as a result of their miniscule size and unpredictable movements. Attacks against the larger reaver drones suffer a -1 external penalty. The bite/sting attack of an automaton assassin gains the appropriate magical material benefit for the device's construction (soulsteel versions drain three motes per wounding attack); attuning a device of the wrong material requires double Essence cost as normal. Automaton assassin venom has the following statistics: Damage 10L/minute, Toxicity 5, Tolerance ­/­, Penalty -5. Recognizing an inactive automaton assassin as anything other than pretty jewelry (or a statuette for reaver drones) requires a successful (Intelligence + Lore) check, difficulty 4.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

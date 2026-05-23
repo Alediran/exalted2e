@@ -1,0 +1,77 @@
+{
+  "_id": "6c4c679df74fc91b",
+  "_key": "!items!6c4c679df74fc91b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Teaching Incomprehensible Truths",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "lore",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Avatar (1)",
+      "Touch",
+      "Training"
+    ],
+    "cost": {
+      "formula": "1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Chosen of the Void generously impart their own dark enlightenment. The Abyssal can open a willing pupil's mind to the chthonic glory of the Neverborn, teaching him one dot of Whispers as a Training effect. This psychic onslaught incidentally strips the student of all his remaining Willpower points. If the student has experience to spend, he can permanently gain one dot of Whispers for three experience points. If not, he has Whispers for as long as the deathknight chooses to continue paying one Willpower per day. Students need not understand what they are about to receive, provided they do not resist when they feel the skittering murmur caress the back of their mind.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "84551fead8f3e442",
+            "charmName": "Will-Feasting Onslaught",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "willpowerRecovery": {
+      "enabled": true,
+      "event": "onDamageDealt",
+      "formula": "1"
+    },
+    "charmUid": "6c4c679df74fc91b"
+  },
+  "folder": "b0b1b2b3b4b5f03d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

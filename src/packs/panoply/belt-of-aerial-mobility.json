@@ -1,0 +1,37 @@
+{
+  "_id": "496d066cc91dcc18",
+  "_key": "!items!496d066cc91dcc18",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Belt of Aerial Mobility",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>This artifact almost always consists of a belt formed of links of blue jade, and in First Age versions of this artifact, these links are usually inlaid with small amounts of orichalcum. When the wearer commits three motes of Essence to the belt, it sizes to fit and can thereafter be comfortably worn with any garment. Anytime the wearer reflexively spends three motes of Essence to empower the artifact, she rises an inch or so into the air and can walk on air for the rest of the scene. During this scene, the wearer can walk safely over water, quicksand, pools of acid or rivers of molten lava. Alternatively, she can will herself to rise up into the air in a form of movement that resembles walking on air as much as it does true flight. The character can walk or run normally, and in combat, she can use both the move or dash maneuvers at her normal movement rate (which she can enhance with Charms normally). The character can use this item to move in any direction, including up or down. Moving using this belt requires no more concentration or effort than normal walking or running. This belt's buckle contains a setting for a single hearthstone. During the First Age, many Exalts wished to move swiftly and easily through the towers of Chiaroscuro and to the vast floating palaces that floated above the largest cities. Others used this item to enter and leave skyships with ease. In addition to being a convenient form of movement, there were also entire talons of Dragon-Blooded warriors who used these artifacts to allow them to serve as troops on board skyships. They could rapidly deploy from the ship to the ground as well as easily attack and board other flying vehicles as part of vast aerial battles. Today, these items are difficult but possible to create, and many dozens survive from the First Age and the Shogunate.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 3,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

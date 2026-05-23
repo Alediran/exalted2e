@@ -1,0 +1,71 @@
+{
+  "_id": "746f24f3068255ce",
+  "_key": "!items!746f24f3068255ce",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shining Razor Wind",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-basic",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "3m per die, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A brilliant red-gold corona erupts around the Lawgiver's weapon, empowering him to strike down his enemies. This Charm allows the character to enchant a weapon with Fire and Stones Strike for the duration of a scene rather than a single attack, at a cost of three motes per die added, following the same rules for maximum dice. This also counts toward the maximum number of dice that may be purchased with a subsequent normal activation of Fire and Stones Strike. Any nonmagical weapon forced to channel such power is destroyed when the Charm ends. At Essence 5+, dice purchased with this Charm no longer counts toward the maximum number of dice that may be purchased with a subsequent normal activation of Fire and Stones Strike.</p>",
+    "source": "Glories of the Most High: Unconquered Sun",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ba897c2f69c99959",
+            "charmName": "Fire and Stones Strike",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "746f24f3068255ce"
+  },
+  "folder": "fd05b302be1cc260",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

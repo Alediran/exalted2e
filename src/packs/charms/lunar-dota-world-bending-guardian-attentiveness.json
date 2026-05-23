@@ -1,0 +1,58 @@
+{
+  "_id": "8a144a68fd73f0bb",
+  "_key": "!items!8a144a68fd73f0bb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "World-bending Guardian Attentiveness",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "dexterity",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious",
+      "Wyld"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Stewards guard the world; in exchange, the world guards them. The Lunar imbues the fluid world around him with a portion of his Essence and charges it with his defense. The Exalt's surroundings bend to make him safe, from effects as mundane as a bending tree branch or dipping swallow intersecting a missile to space bending or air becoming dense as steel to deflect a blade. The character constantly benefits from the effects of a Defend Other action used on his behalf by the Wyld itself. This Defend Other action has a DV of two per degree of surrounding Wyld, from two in the Bordermarches to eight in Pure Chaos. Since the defender is the Wyld itself, attackers may not choose to divert their attacks to strike the Wyld rather than the Lunar, and no other effect may force them to attempt to do so. Lunar Exalted use this Charm for an advantage against the Fair Folk on those monsters' own turf.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "8a144a68fd73f0bb"
+  },
+  "folder": "6d3aed86fa48b120",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

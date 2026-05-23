@@ -1,0 +1,68 @@
+{
+  "_id": "6360757203ba418e",
+  "_key": "!items!6360757203ba418e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unconquered Hero's Faith",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "integrity",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "—",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Within every Abyssal lies a dim and flickering hope, a shining spark of Solar glory that no necromancy or unholy darkness can entirely suppress. Tapping into this legacy, a deathknight with this Charm may learn Solar Charms as if she were a member of the Moonshadow Caste. In addition, she may accept a point of Resonance to activate a Solar Mirror of a known Abyssal Charm as if she knew the Mirror. It is not possible to use an Abyssal Charm while its Mirror remains active or vice versa, nor may an Abyssal copy a Mirror if either Charm is permanent. As a final side effect, deathknights who know this Charm automatically pass into Lethe upon their demise rather than Oblivion. It is not yet known if a Solar analogue is possible that enables a Lawgiver to learn Abyssal Charms and delivers her to Oblivion upon death.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1dee6b3d562e46cc",
+            "charmName": "Integrity Essence Flow",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "6360757203ba418e"
+  },
+  "folder": "b0b1b2b3b4b5f039",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

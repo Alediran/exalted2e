@@ -1,0 +1,58 @@
+{
+  "_id": "9fa267dc0c09ca20",
+  "_key": "!items!9fa267dc0c09ca20",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Cannibalistic Heritage Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Counterattack",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "20m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Elder Sutra of Consumption: The maiden became a mother... When someone successfully attacks a martial artist who knows this Charm, the martial artist may consume the power of the attack and respond with a devastating counterattack. Swirling his hands in a hypnotic pattern, the character creates a vortex of Essence that draws in and disrupts the physical substance of the attack. Striking this vortex (instead of the martial artist) immediately inflicts the martial artist's (Dexterity + Martial Arts) total in dice of unblockable, undodgeable lethal damage or shatters any normal weapon used against him. If this damage kills an unarmed attacker or destroys an armed attacker's weapon, the martial artist suffers no damage from the attack. Using this Charm to defend against a ranged attack or an area affect (such as an explosion) offers no counterattack against the attacker or condition. Instead, it subtracts a number of successes from the attack's damage roll equal to the martial artist's (Dexterity + Martial Arts). Any successes left over on the damage roll thereafter (if any) affect the target normally. An attacker can use a perfect block or a perfect dodge to avoid the counterattack's damage, but doing so requires aborting the original attack (as technically it's the act of striking the vortex that inflicts the damage). Either way, the Exalt may make a number of unarmed counterattacks from within the safety of his vortex equal to his Martial Arts score, doubling their raw damage. He can use this Charm in response to a counterattack Charm such as Crimson Palm Counterstrike, but other counterattack Charms do not receive counterattacks against this Charm.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Charcoal March of Spiders Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "9fa267dc0c09ca20"
+  },
+  "folder": "1c3b8957c92799e4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

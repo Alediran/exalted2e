@@ -1,0 +1,37 @@
+{
+  "_id": "e6eddd468bde2f8d",
+  "_key": "!items!e6eddd468bde2f8d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sleep of Stony Safety",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-sleep-of-stony-safety",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 15,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Caster and up to (Willpower) additional willing subjects",
+    "description": "<p>Sleep of Stony Safety takes a minute to cast and can be cast only at night. The sorcerer spreads fine white sand in a circle on the ground, large enough to encompass all the targets. The participants lie with their heads touching and their feet extended outward. The sorcerer chants the Irresistible Song of Stone used by earth elementals to while away the seasons. The white sand dissolves into a glowing mist that creeps upwards, arcing over the targets to solidify into a dome of white sandstone. While within the sandstone dome, the participants of the spell can sleep even in the bulkiest armor, though the spell does not force slumber. Inconvenient natural processes are halted while participants rest in stone. The dome has 15L/15B soak, 5L/5B Hardness and 25/30 health levels. If it is attacked, a soft chiming within the dome rouses the sorcerer and any other sleepers. Sleep of Stony Safety ends when dawn arrives or when the sorcerer wakes up and chooses to end the spell. The sleepers rise at that point, brought instantly to their feet as the dome crumbles into harmless sand.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

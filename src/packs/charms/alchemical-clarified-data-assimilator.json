@@ -1,0 +1,55 @@
+{
+  "_id": "3a320986e66753ef",
+  "_key": "!items!3a320986e66753ef",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Clarified Data Assimilator",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "survival",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "4+m [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Keywords: Combo-OK, Exemplar 1, Internal Duration: Instant Prerequisite Charms: Any Mental Attribute Augmentation This Charm takes the form of thousands of microscopic automata scuttling through the Exalt's entire nervous system. When powered with Essence, these creatures link their spindly legs in artificial neural chains that vastly upgrade the interconnectivity of thought and memory. As they combine, the automata resonate in perfect synchronicity with the psychic emanations of the Machine God. Upon activation, the Alchemical gains a point of temporary Clarity, and this Charm replaces the natural rating of any single Ability with the Exalt's total Clarity for one action. The Ability's rating does not change apart from determining the number of dice contributed to the one roll or static value calculation. Actions benefiting from this Charm cannot also benefit from a Virtue channel. The base cost to activate Clarified Data Assimilator is four motes, but each invocation also adds a cumulative one-mote surcharge to future use until the Champion spends an hour meditating to reset his mind.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "3a320986e66753ef"
+  },
+  "folder": "a1b2c3d4e5f60007",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

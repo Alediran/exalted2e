@@ -1,0 +1,72 @@
+{
+  "_id": "e4828add62e6d93f",
+  "_key": "!items!e4828add62e6d93f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Imprinted Data Cluster",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "intelligence",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Internal",
+      "Stackable",
+      "Training"
+    ],
+    "cost": {
+      "formula": "-- [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Champion has an ornate set of adamant polyhedral memory crystals implanted in the frontal lobe of his brain. A complicated network of neural wires connects these nodes and links the entire assembly to the prongs of his soulgem. Each installation of this Charm holds three artificial specialties of the Exalt's choosing, which may be reconfigured at the vats. A character may not add more than three dice from specialties to any roll. The Exalt may pay three experience points to permanently learn an installed specialty without any training time. Up to (Essence) installations of this Charm may be active at once. Submodules: Lucid Dream Calibration (Intelligence 6, Essence 4): The Exalt may reassign a specialty contained in the Charm by spending one hour in meditation and paying one Willpower without needing to return to a vats complex. CLARIFIED DATA ASSIMILATOR Cost: 4+m [1m]; Mins: Intelligence 3, Essence 2; Type: Supplemental</p><p>Keywords: Combo-OK, Exemplar 1, Internal Duration: Instant Prerequisite Charms: Any Mental Attribute Augmentation This Charm takes the form of thousands of microscopic automata scuttling through the Exalt's entire nervous system. When powered with Essence, these creatures link their spindly legs in artificial neural chains that vastly upgrade the interconnectivity of thought and memory. As they combine, the automata resonate in perfect synchronicity with the psychic emanations of the Machine God. Upon activation, the Alchemical gains a point of temporary Clarity, and this Charm replaces the natural rating of any single Ability with the Exalt's total Clarity for one action. The Ability's rating does not change apart from determining the number of dice contributed to the one roll or static value calculation. Actions benefiting from this Charm cannot also benefit from a Virtue channel. The base cost to activate Clarified Data Assimilator is four motes, but each invocation also adds a cumulative one-mote surcharge to future use until the Champion spends an hour meditating to reset his mind.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Mental Attribute Augmentation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "e4828add62e6d93f"
+  },
+  "folder": "b0b1b2b3b4b5f04f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

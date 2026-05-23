@@ -1,0 +1,70 @@
+{
+  "_id": "7245add9665030db",
+  "_key": "!items!7245add9665030db",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fateful Sail Excellency-- Essence Auspicious",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "sail",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      1
+    ],
+    "keywords": [],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The target number of any dice roll using the chosen Ability decreases by one for every mote the player spends. For one mote, any roll of 6 or higher becomes a success; two motes grant success on rolls of 5 or higher. This Excellency cannot reduce a target number below 4. Alternatively, the player can spend one Willpower point and enough Essence to reduce the target number to 3. This grants an \"auspicious success\": the player forgoes the actual roll but transforms every die in the dice pool into an automatic success instead. If the player declares in Step 2 of attack resolution that he wants to purchase an auspicious success for a defensive Ability, the expenditure of one Willpower and enough Essence to lower the target number to 3 doubles his appropriate Defense Value against that attack. PROPITIOUS Sail ALIGNMENT</p>",
+    "source": "MoP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "7245add9665030db"
+  },
+  "folder": "b0b1b2b3b4b5f014",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

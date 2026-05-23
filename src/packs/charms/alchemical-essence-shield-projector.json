@@ -1,0 +1,71 @@
+{
+  "_id": "e2a9d6fcc081084f",
+  "_key": "!items!e2a9d6fcc081084f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Essence Shield Projector",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "stamina",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "5m [3m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When charged with Essence, crystal lattices embedded in the Alchemical's skin sculpt her anima into an impenetrable barrier. This luminous force field obviates stealth at the level of an eight- to 10-mote banner display. This mobile barrier adjusts itself to the Alchemical's movements, imposing no penalty on any of her actions. It offers an ongoing protection of 20B/15L/10A Hardness, deflecting all but the mightiest attacks in crackling discharges of Essence. Yet, the first time an attack manages to overwhelm the barrier's Hardness, the Charm involuntarily deactivates itself and can't be reactivated until the Alchemical spends</p><p>an hour recalibrating his lattice arrays as a diceless dramatic action. This overload occurs only if the barrier is defeated by raw damage, not if a Charm causes an attack to ignore Hardness or by any other such means. The attack that destroys the barrier has its damage completely absorbed. Submodules: Motic Field Stabilizers: Installing this submodule reduces the Charm's activation cost to four motes and extends its duration to Indefinite. The shield also does not glow and is not Obvious by default, but becomes so on any tick that it stops damage. Layered Ablation Nodes (Stamina 6, Essence 4): Once it has been overloaded, a shield with this submodule may be reactivated in the same scene without needing the usual calibration. Jumpstarting the disrupted Charm this way automatically flares the Champion's anima to its iconic level, and this method can be used only a number of times equal to his Essence rating before the Charm needs actual recalibration to repair.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Stamina Augmentation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "e2a9d6fcc081084f"
+  },
+  "folder": "b0b1b2b3b4b5f053",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

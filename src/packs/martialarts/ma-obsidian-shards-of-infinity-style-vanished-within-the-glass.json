@@ -1,0 +1,58 @@
+{
+  "_id": "e705f8bb8e47f4e5",
+  "_key": "!items!e705f8bb8e47f4e5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Vanished Within the Glass",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 6,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "15m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>but it seemed as though none could see it. Who can resist looking in a mirror? The Sidereal shows his enemy her reflected image--and while the enemy looks, he throws her in. With a touch or a successful Martial Arts attack by the Sidereal, the target of this Charm vanishes. It seems to her that she walks through the world, tries to speak to others or pick things up, but nothing she does affects her surroundings. The only way to see her is to see her reflection. She appears in polished silver just as she would if she were actually in Creation, and any who see her there can hear her as well, but not directly affect her in any way. The martial artist himself can sense her normally, but he can't affect her either. The Essence spent on this Charm is committed as long as the target remains trapped. If the Sidereal touches her insubstantial form and voluntarily releases that Essence, or if he dies, then she is freed.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Obsidian Shards of Infinity Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "e705f8bb8e47f4e5"
+  },
+  "folder": "87a660847a455039",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,57 @@
+{
+  "_id": "c9ab69b7a9d3349c",
+  "_key": "!items!c9ab69b7a9d3349c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Burn Life",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "athletics",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "permanent",
+    "speed": 5,
+    "dvPenalty": -2,
+    "steps": [],
+    "keywords": [
+      "Virtue (Conviction)"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal folds a strand of his destiny over itself, shortening his overall lifespan by a few days in return for a brief boost of physical power. When the character does so, his player rolls (Essence + Athletics). For every success this roll garners, the player may add one dot to the character's Strength, Dexterity or Stamina for the rest of the scene. (Each point added thus costs three motes of Essence.) These dice count against the maximum number of bonus dice a character can receive from Charms.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "c9ab69b7a9d3349c"
+  },
+  "folder": "b0b1b2b3b4b5f002",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

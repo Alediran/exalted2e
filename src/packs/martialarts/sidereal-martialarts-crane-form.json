@@ -1,0 +1,78 @@
+{
+  "_id": "82a22a53fbac12ae",
+  "_key": "!items!82a22a53fbac12ae",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Crane Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Form-type"
+    ],
+    "cost": {
+      "motes": 6,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "6m"
+    },
+    "description": "<p>The crane is not a violent animal, it is an elegant one. While this Charm is active, the martial artist ignores the off-hand penalty for actions while wielding paired form weapons. If wearing clothing with long, flowing sleeves, she adds one to her Parry DV (and her clothing will never be torn or stained by using it to parry attacks), and her barehanded attacks gain the R tag. She automatically succeeds on all Athletics checks to retain her balance and exerts no effective weight on any solid object, allowing her to balance on a pine tree's needles or run across a spider web as readily as firm ground. The Charm doubles the dice bonus (but not actual level) of all stunts made to enhance unarmed Martial Arts actions and allows such stunts to recover a Compassion channel in place of other awards if the action succeeds. Finally, all damage inflicted by the martial artist's unarmed attacks is limited to bashing injury as per the effects of Empowering Justice Redirection.</p>",
+    "source": "Glories of the Most High: Maidens of Destiny",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Crane Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "bbc936bade183471",
+            "charmName": "Empowering Justice Redirection",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "82a22a53fbac12ae",
+    "grantsMastery": false
+  },
+  "folder": "c67a8c5f18d732b0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,74 @@
+{
+  "_id": "e4930033807728a8",
+  "_key": "!items!e4930033807728a8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Spirit-Desolating Sphere",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "occult",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Compulsion",
+      "Mirror (Spirit-Repelling Diagram; Exalted, p. 221)",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "10m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Everything visibly darkens in a radius around the Abyssal, creating a zone of entropy that sickens dematerialized spirits who do not flee it.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d6c7f874fe08e08e",
+            "charmName": "Corpus-Rending Blow",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "e4930033807728a8",
+    "mirrorId": "4b50f37c3ae6040e"
+  },
+  "folder": "b0b1b2b3b4b5f041",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

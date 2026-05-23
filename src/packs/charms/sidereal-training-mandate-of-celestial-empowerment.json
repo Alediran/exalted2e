@@ -1,0 +1,82 @@
+{
+  "_id": "4fd9f14a874320d2",
+  "_key": "!items!4fd9f14a874320d2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Training Mandate Of Celestial Empowerment",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "war",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneMonth",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic"
+    ],
+    "cost": {
+      "formula": "6m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal can train a small team of spirits or Exalted into an elite fighting unit. This team can include no more members than the Sidereal has (War + Essence). When he trains them in this way, though, the Sidereal weaves their fates into a stout lash that strikes as one, even when the characters are not physically together. The individuals affected by the Charm are treated as a single being for the purposes of Sidereal astrology effects in the House of Battles. This solo unit's Essence equals the average of the group's members' ratings (rounded down) for determining the astrology effect's Scope. While the effect lasts, the Sidereal trainer's astrology effects in the House of Battles that are directed at the unit apply equally to each member of that team, even when those team members work independently.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "31a8efd5abc1a21c",
+            "charmName": "Predestined Triumph Practice",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5de0abc3771c4a28",
+            "charmName": "Training Mandate of Auspicious Battle",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "4fd9f14a874320d2"
+  },
+  "folder": "b0b1b2b3b4b5f019",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

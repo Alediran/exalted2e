@@ -1,0 +1,27 @@
+{
+  "_id": "bbf950d369441cb8",
+  "_key": "!items!bbf950d369441cb8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Willstone of the Strategos",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDEARTH00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "earth",
+    "rating": 4,
+    "description": "<p>This bright-red, spindle-shaped hearthstone has a dark-purple center. This stone provides the commander of any battle with profound insights into the likely course of events and how he can use his troops to best effect. When in mass combat, the player can roll the character's (Wits + War) as a Speed 3, -0 DV action: Every two successes scored (round up) adds 1 to her unit's Valor, and every four successes (round up) adds 1 to all of the unit's other dice pools involving mass combat. If this stone raises the combat unit's Valor above 5, the soldiers become temporarily immune to fear and will not fail any Valor checks until their Valor falls to 5 or lower. The commander must be able to communicate with her troops to grant them these benefits. Also, all bonuses are reduced by one every 6 mass combat ticks. Bonuses gained from successive rolls do not stack, but higher rolls can supplant earlier rolls at the bearer's option. Charms (including Excellencies) cannot be used to improve the (Wits + War) pool, but the character can channel Virtues to do so—Valor is always appropriate, and Conviction normally is.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

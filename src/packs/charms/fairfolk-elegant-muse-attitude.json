@@ -1,0 +1,60 @@
+{
+  "_id": "1574735f5ca5dae7",
+  "_key": "!items!1574735f5ca5dae7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Elegant Muse Attitude",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Glamour (3)",
+      "Merged",
+      "Shaped-Only"
+    ],
+    "cost": {
+      "formula": "1m per die",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The raksha can use the emotion she symbolizes to bolster her own aims or to inspire (or terrify) others. Upon entering Creation and assuming an emotional resonance, the raksha can use this Charm to give herself the following innate power: Innate Power (Cost: 1m): The raksha can reflexively grant a two-die bonus on any action she takes consistent with the emotion or belief she has assumed. A seductress of love, for example, can gain a two-die bonus to her Socialize rolls to influence besotted lovers, while the Cataphract of fear might gain a two-die bonus on Presence rolls to frighten away challengers. The raksha can also grant a similar benefit to any action performed by another she witnesses, subject to the limitations of Glamour Resistance. Glamour Resistance: This power is a work of glamour. When used to confer an emotional bonus on a Creationborn, the power fails if the recipient's (Integrity + Essence) exceeds the raksha's Charisma.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "1574735f5ca5dae7"
+  },
+  "folder": "6dbccd37637d2988",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

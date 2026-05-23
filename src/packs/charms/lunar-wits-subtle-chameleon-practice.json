@@ -1,0 +1,70 @@
+{
+  "_id": "c95ccd9d80d78ce0",
+  "_key": "!items!c95ccd9d80d78ce0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Subtle Chameleon Practice",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "wits",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "None"
+    ],
+    "cost": {
+      "formula": "-- (+3m)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>By focusing additional Essence into her magics, a Lunar is able to veil her wonders in the faceless aspect of the new moon. For a three-mote surcharge, any expenditure of Peripheral Essence may be considered Personal for the purpose of contributing to the Lunar's anima banner display.</p>",
+    "source": "Glories of the Most High: Luna",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "cda804b1787865c4",
+            "charmName": "The Spider's Trap Door",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "c95ccd9d80d78ce0"
+  },
+  "folder": "03a1efbef258d84f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

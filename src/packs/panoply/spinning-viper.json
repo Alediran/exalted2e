@@ -1,0 +1,52 @@
+{
+  "_id": "23fdf85cc8975a2f",
+  "_key": "!items!23fdf85cc8975a2f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Spinning Viper",
+  "type": "weapon",
+  "img": "icons/weapons/swords/sword-ornate-yellow.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "Melee",
+        "speed": 4,
+        "accuracy": 2,
+        "damage": 5,
+        "damageType": "bashing",
+        "overwhelming": 1,
+        "defense": -1,
+        "rate": 3,
+        "range": 0,
+        "minStrength": 1,
+        "minDexterity": 3,
+        "minMartialArts": 0,
+        "tags": [
+          "Reaching"
+        ]
+      }
+    ],
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 1,
+    "hearthstoneSlots": 0,
+    "description": "<p>An artifact combat yo-yo at least a foot across; pressing a button erupts blades of magical material from its sides.</p>",
+    "source": "Armorium",
+    "equipped": false
+  },
+  "folder": "f004a234b56c78a0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

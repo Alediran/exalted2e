@@ -1,0 +1,57 @@
+{
+  "_id": "ec2bbc1891319a0f",
+  "_key": "!items!ec2bbc1891319a0f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Whirling Pestle Kata",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "martial-arts",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "extraAction",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The martial artist spins his staff to launch a series of rapidfire attacks against his foe. The resulting flurry is limited to the weapon's Rate +1, and the attacker still suffers a DV penalty from each attack, but the attack rolls do not take any penalty for multiple actions. The martial artist cannot take additional actions besides the Charm-enhanced flurry, except his normal, reflexive Move. Stick and Staff Stunting Stick and staff-type weapons are excellent for stunting. Pole vaulting with a staff is only the start. You can spin them to strike with extra speed and force (and look cool). You can cross a pair of smaller weapons to catch an opponent's weapon in an X (a stunt for a parry or attempt to disarm). You can play a drum solo on your enemies' helmets as you beat them silly! Options expand even further when you think of all the things that could be used as improvised stick or staff weapons, or that you could incorporate in such a weapon. In the classic martial arts movie Circle of Iron, for instance, a staff doubled as a flute. Let your imagination run wild! Ivory Pestle Form</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "ec2bbc1891319a0f"
+  },
+  "folder": "719cd5296b990a6b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

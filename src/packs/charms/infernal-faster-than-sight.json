@@ -1,0 +1,55 @@
+{
+  "_id": "a2b17057a1ca1b02",
+  "_key": "!items!a2b17057a1ca1b02",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Faster Than Sight",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Duration: Indefinite Prerequisite Charms: Wind-Born Stride (x3), Unimpeded Perfection of Exertion The wind is felt, not seen. So long as he maintains maximum dashing speed, the Infernal is invisible and as inaudible as desired. This state imposes a -2 external penalty on all attempts to notice or attack him and provides two bonus successes on contested Stealth rolls, but these benefits do not stack with each other. Ranged attacks against the Exalt automatically miss without aid of a Charm or stunt. Efforts to track the Infernal automatically fail. If a perfect tracking effect contests this effect, add the Infernal's Essence rating in automatic successes to the opposed roll. SACRED KAMILLA'S INHALATION</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "adorjan",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "a2b17057a1ca1b02"
+  },
+  "folder": "e1c045f50a834f12",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

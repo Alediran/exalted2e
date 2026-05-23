@@ -1,0 +1,80 @@
+{
+  "_id": "ec104781ed43bc27",
+  "_key": "!items!ec104781ed43bc27",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Enthralling Blow Attack",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Compulsion",
+      "Touch"
+    ],
+    "cost": {
+      "motes": 8,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "8m, 1wp"
+    },
+    "description": "<p>Certain pressure points cause a subject to relax uncontrollably, momentarily losing all motivation to move or act. If the Immaculate makes a successful Martial Arts attack on his target, his player does not roll damage. Instead, add the Exalt's Essence to the number of successes on the attack (before reduction from DV). Should this value top the target's MDV, the target is enthralled and becomes inactive for a number of actions equal to the Charm's extra successes. In subsequent actions, the target's player can attempt to have the target shake off the effects by rolling (Willpower + Integrity) at a difficulty of (1 + the successes rolled by the Immaculate's player on the opposed roll). This Charm works only on living creatures.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Wood Dragon Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "517b4c8c2e4429e5",
+            "charmName": "Unbreakable Fascination Kata",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "ec104781ed43bc27",
+    "grantsMastery": false
+  },
+  "folder": "9aed05734440bb9c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

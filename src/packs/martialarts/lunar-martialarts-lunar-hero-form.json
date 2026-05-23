@@ -1,0 +1,91 @@
+{
+  "_id": "ca1f95c7c3bba0c7",
+  "_key": "!items!ca1f95c7c3bba0c7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Lunar Hero Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Form-type",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 6,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "6m"
+    },
+    "description": "<p>Drawing the Essence of Luna into her, the Exalt becomes an endlessly fluid warrior, seamlessly flowing from one movement to the next and capable of surprising her targets with every blow. The character reduces Defense Value penalties from onslaught by 1 and from coordinated attacks by 2. Her attacks often catch people from behind while she stands in front or strike at her enemies through innocuous objects and scenery. Double the dice bonus (but not Essence reward) for stunts of this nature.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Lunar Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4e380bf233973ccf",
+            "charmName": "Rabid Beast Attitude",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1b40feabe645fd41",
+            "charmName": "Thousand Claw Infliction",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "ca1f95c7c3bba0c7",
+    "grantsMastery": false
+  },
+  "folder": "a80aa95faaf8766a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

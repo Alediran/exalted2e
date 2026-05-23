@@ -1,0 +1,58 @@
+{
+  "_id": "4f6b51e333d8166a",
+  "_key": "!items!4f6b51e333d8166a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Smooth Transition",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "medicine",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Virtue (Valor)"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal smooths the passage of a living being through states of change—recovery, illness, or the transition between life and death. This Charm assists natural healing or disease recovery. The character may use this Charm on a patient to ease them through a difficult medical transition, reducing the difficulty of any Medicine roll made to treat the patient by the Sidereal's Essence. Additionally, a dying patient stabilized while under this Charm's influence loses an additional die penalty to attempts to cling to life.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "4f6b51e333d8166a"
+  },
+  "folder": "b0b1b2b3b4b5f00d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

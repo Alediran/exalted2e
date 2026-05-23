@@ -1,0 +1,27 @@
+{
+  "_id": "0b753a9dab543b14",
+  "_key": "!items!0b753a9dab543b14",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Stone of the Earthweb",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDEARTH00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "earth",
+    "rating": 2,
+    "description": "<p>Black veins crawl across this rough, light-gray octagon. An Exalt bearing this hearthstone never need fear sneak attacks or stumbling around in the dark. While wearing it, the Exalt can feel the earth around her just as a spider can feel the strands of its web. Within a radius of 10 yards, the Exalt feels everything resting upon the ground or on the same floor that she stands upon. She can feel size, approximate weight and any movement of all such objects and individuals. A large chest would be a heavy rectangular weight, while even the most carefully hidden assassin would feel like a live person standing very still. So long as the bearer stands upon the ground or a floor that is built directly upon the ground, she can feel everything upon the ground that is within her range. However, if she stands on the upper story of a building, then these perceptions only apply to objects and people resting upon that upper floor. Also, the mystical perception granted by the hearthstone does not extend to anything that is not on the floor. Hanging lamps or assassins crouching on desks cannot be felt with this item (although the desk might seem oddly heavy). In addition, the character will not trip over obstacles in the dark or suffer other penalties to movement based on poor visibility.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "_id": "631bc21c06b55112",
+  "_key": "!items!631bc21c06b55112",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Moth To The Candle",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "presence",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Compulsion",
+      "War"
+    ],
+    "cost": {
+      "formula": "4m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Cunning Dragon-Blooded often use this Charm to draw their enemies into traps or simply to lure them away from overmatched allies. The target of this Charm becomes fixated on engaging the Dragon-Blood in hand-to-hand combat. The Exalt's player must roll (Manipulation + Presence), comparing successes to the target's Dodge MDV. Parry MDV is not applicable to this Charm. The Dragon-Blood must be within 10 yards of the target, who must have a lower Essence than the Exalt. Once the Charm is activated, the target can take no action other than to approach the Exalt at her normal Speed and attack him if she is able to do so. The target cannot be compelled to approach through obviously suicidal means (attempting to run through flowing lava to get at the Exalt, for</p><p>example), but she is willing to cross dangerous hazards such as fires or raging rivers to reach the object of her ire.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5020ee4d8153bba8",
+            "charmName": "Unbearable Taunt Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "631bc21c06b55112"
+  },
+  "folder": "b0b1b2b3b4b5f02a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

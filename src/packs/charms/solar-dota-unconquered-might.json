@@ -1,0 +1,59 @@
+{
+  "_id": "fb8ccc50d16da304",
+  "_key": "!items!fb8ccc50d16da304",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unconquered Might",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "athletics",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Mirror (Oblivion's Triumph)",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "7m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>No barrier can hold against the Lawgiver's righteous strength. This is a perfect effect that supplements a feat of strength to break an object or shatter an obstruction. The object breaks; the door shatters. At Athletics 6+, Essence 6+ the Solar may add a point of Willpower to the Charm's cost, permitting it to also destroy magical artifacts. This renders the Charm Simple, with a Speed of (Artifact's dot rating) minutes and a DV penalty of -3. N/A artifacts are immune to this Charm, as are objects which are specifically noted as being indestructible.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "fb8ccc50d16da304"
+  },
+  "folder": "481b58529581316b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

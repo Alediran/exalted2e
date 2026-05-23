@@ -1,0 +1,88 @@
+{
+  "_id": "2f693f7233f35bd5",
+  "_key": "!items!2f693f7233f35bd5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Blazing Solar Bolt",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 4,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Holy",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "3m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solar's Caste Mark blazes. She then casts solar fire from her weapon at her enemy. This Charm is a Melee-based attack. Its attack pool equals (Dexterity + Melee + Essence). It has a Range of (Essence x 10) yards and cannot exceed it. It cannot be blocked or dodged without the use of Charms or other magic. It ignores cover, including shields, but it cannot otherwise strike around obstacles. It deals lethal damage with a base damage, before adding attack successes, of (the Exalt's Strength + Willpower). It deals aggravated damage against creatures of darkness (see below). CHARM CONCEPT: \"CREATURES OF DARKNESS\" Some Charms have special effects against \"creatures of darkness.\" These are the enemies of the world, so named--where judgment is required-- by the judgment of the Unconquered Sun. These include, but are not limited to: Yozis, demons, Neverborn, walking dead, ghosts, Deathlords, unshaped Fair Folk, Abyssal Exalted and Infernal Exalted. The Storyteller can make exceptions or add other groups to this list as appropriate. A sympathetic ghost might not be a creature of darkness, while a horror that eats at the world's heart would be. STRATEGY Unless your Storyteller tells you otherwise, it's safe to assume that you'll fight creatures of darkness at some point during the game--but it might not happen very often. If you want the visceral thrill of smiting evil with holy power instead of consummate skill, or if you'll be fighting demons and walking dead on a regular basis, then it's worth taking Charms that hurt creatures of darkness.</p>",
+    "attack": {
+      "enabled": true,
+      "name": "Blazing Solar Bolt",
+      "speed": "4",
+      "accuracy": "@dex + @melee + @ess",
+      "damage": "@str + @wp",
+      "damageType": "lethal",
+      "overwhelming": "1",
+      "defense": "0",
+      "rate": "1",
+      "range": "@ess * 10",
+      "minStrength": "0",
+      "minDexterity": "0",
+      "minMartialArts": "0",
+      "tags": []
+    },
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1d04e939ae15b231",
+            "charmName": "Iron Raptor Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "2f693f7233f35bd5"
+  },
+  "folder": "fd05b302be1cc260",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

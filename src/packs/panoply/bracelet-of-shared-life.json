@@ -1,0 +1,37 @@
+{
+  "_id": "bdc941a5588e0e32",
+  "_key": "!items!bdc941a5588e0e32",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Bracelet of Shared Life",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Although they are not especially difficult to create, few Exalts are willing to use these items. Most First Age versions of this artifact are beautifully carved bracelets made from green jade and starmetal. Ones made later are solely of jade. Unlike the vast majority of artifacts, this bracelet does nothing if the owner wears it. Instead, it is specifically designed to be worn by a non-Exalt about whom the owner cares a great deal. The owner must place it around another individual's wrist and then commit five motes of Essence to this item. At this point, the bracelet automatically closes and sizes to fit the wearer, then it extends a multitude of hair-fine jade filaments into the wearer's arm. This item draws upon the Exalt's Essence and infuses a portion of it into the wearer's body to enhance her metabolism. As a result, the wearer now ages at the same rate as the artifact's owner. If the owner dies or lets the Essence commitment lapse, the bracelet falls off, and the wearer experiences several minutes of agony as the jade filaments rip themselves from her body. This process inflicts seven automatic and unsoakable levels of bashing damage on the subject. In addition, the severe metabolic shock produced by severing the Essence flow from the Exalt causes the wearer to instantly age one month. Unless the owner places this item back on the wearer, the wearer then begins to age normally. As long as this Essence remains committed, however, the mortal wearer can live for centuries or even millennia. In addition, the wearer heals, resists infection, poison, disease and stops bleeding as well as one of the Exalted. The wearer gains none of the other abilities of the mighty Exalted, however, and cannot soak lethal damage. Because this artifact permanently deprives an Exalt of a portion of her power, many are unwilling to make such a sacrifice to keep a mortal friend or lover alive. Mortals given such gifts also inspire jealousy in their fellows, especially amidst the complex and occasionally deadly politics of the Realm. Because the wearer's longevity depends upon the whims of the Exalt, the dynamics of this relationship can easily begin to eat at the roots of even the most enduring love. Nevertheless, some Exalts find that their love is sufficiently strong to warrant the use of such an item. Exalts, gods and even especially long-lived GodBloods can all activate these items, and they can be worn by any living being who has at least one parent who was born in Creation.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

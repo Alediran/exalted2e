@@ -1,0 +1,37 @@
+{
+  "_id": "f701aa4945cf01c7",
+  "_key": "!items!f701aa4945cf01c7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Essence Wall Projector",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>This item is a combination gauntlet and bracer that extends up the wearer's arm to the elbow. It is made from a mixture of the five magical materials and is fitted with four specially carved pieces of white jade set into the gauntlet's knuckles. This white jade focuses a hearthstone's energies into a stable creation of solid Essence. This artifact contains sockets for two hearthstones. To use this item, the character must spend six motes of Essence to attune the item and set a hearthstone in the socket nearest the gauntlet's fist. The character gains no benefit from this hearthstone other than the ability to activate this item. Once he has attuned to this item, the character can create freestanding walls of solid Essence. The character points the knuckle stones of the gauntlet at the area where he wants to create the barrier and spends a variable quantity of Essence. Using this artifact in combat is a five-tick action that reduces that character's DV by three because of the concentration required. These immovable walls of translucent force have a soak equal to twice character's Essence and cover an area of five square yards per mote spent by the character. Each wall must be at least one yard wide and one yard long, and all walls created by this artifact are only a tenth of an inch thick. These walls are considered inanimate objects for the purposes of Charms, except that damage against them is rolled rather than directly applied. For every level of damage that exceeds the wall's soak, it loses 1L from its soak. These walls also lose 1L for every full hour that passes since their creation. When the wall's soak reaches zero or when its creator dismisses it, the barrier instantly disintegrates. Characters can create a number of separate Essence walls equal to their permanent Essence. They cannot create additional walls unless they first dismiss one or wait for it to decay. Characters can shape a wall of force into any geometric configuration they can imagine, from simple walls to cages, but at least one point on the surface must be within (Essence) yards of the creator when the wall first materializes. The wall must also be touching a solid surface on at least one point. Furthermore, these walls are fixed in place on the surface it is touching and cannot move unless the surface moves. The character can instead spend two motes for every five square yards of wall, causing its lethal soak to rise to five times the character's permanent Essence. If the wall is used as a bridge, every 1L of protection can support 200 pounds, so a 6L wall can support 1,200 pounds at a time, allowing it to support a light horse and a rider. In addition to being vulnerable to damage and time, these essence walls can also be destroyed by Sapphire, Adamant or Obsidian Countermagic.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 4,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,58 @@
+{
+  "_id": "95aa9726c0176407",
+  "_key": "!items!95aa9726c0176407",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Creation-based Crafting Charms",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "ring",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Glamour"
+    ],
+    "cost": {
+      "formula": "1g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Pity the Creation-born, who can possess only those things that already exist. This Charm permits a raksha in Creation to forge gossamer into any mundane object he desires. The raksha's player rolls (Intelligence + Craft [Glamour]). The raksha can create any mundane object that would normally exist in Creation provided its Resources cost does not exceed the successes on the roll. Under no circumstances can this Charm create any of the following: a living being, any item with inherent magical properties, any item forged of one of the magical materials or of cold iron, or any item with a Resources cost in excess of 5. Each application of this Charm creates a single item no bigger than a human being. Each additional point of gossamer expended doubles the size of the creation, but each application still can create only a single item. Thus, with sufficient gossamer stores a raksha could fashion a palatial estate for himself, but one without even a single scrap of furniture. This Charm is more commonly used to create objets d'art or exceptional equipment. This Charm is a permanent work of glamour. Objects created by it do not provoke Glamour Resistance and are not affected by the touch of cold iron. This Charm literally transmutes gossamer into a real object of Creation.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "95aa9726c0176407"
+  },
+  "folder": "e3ab9ab145f6a424",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,63 @@
+{
+  "_id": "6cc4a515bade8974",
+  "_key": "!items!6cc4a515bade8974",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Optimistic Security Practice",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "resistance",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 5,
+    "dvPenalty": -1,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Emotion"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal catches the destinies of weapons or other sources of damage in a net of Essence. This Charm raises her bashing, lethal and aggravated soak by an amount equal to her Essence. In addition, opponents whose Essence is lower than the Sidereal's Compassion must spend one Willpower point any time they take an action intended to damage or disable her. (This expenditure must be separate from Willpower spent for bonus successes or to channel Virtues.) If an opponent does not do so, the action fails automatically. The Sidereal cannot benefit from this Charm while she is wearing armor.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "6cc4a515bade8974",
+    "soakBonus": {
+      "enabled": true,
+      "bashingFormula": "@ess",
+      "lethalFormula": "@ess"
+    }
+  },
+  "folder": "b0b1b2b3b4b5f012",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

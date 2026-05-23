@@ -1,0 +1,57 @@
+{
+  "_id": "367646ae7732c593",
+  "_key": "!items!367646ae7732c593",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Quicksilver Staircase",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Enlightening"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>As she slept, she fought and loved and saw the world The martial artist learns to take control of his inner self. He is now an entirely lucid dreamer and may remember his dreams perfectly (excepting those in which he learns this style). He also gains certain related benefits: · The martial artist perceives the true nature of objects crafted from glamour or gossamer, the dream-stuffs of the Fair Folk. This does not intrinsically grant the power to see the reality behind glamours, but at least the character knows to try. · The character can handle raw dream-stuff, such as dreams pulled out using Dream Ravager Hand, as if he held a physical object. Because other people can't normally hold THE WAKING, DREAMING AND GOSSAMER LEVELS The three second-tier Charms of the Quicksilver Hand of Dreams Style can be learned in any order, but the character requires a higher Martial Arts and Essence rating for each subsequent Charm. The first Charm (whether Peaceful Repose Touch, Fervent Night Phantasm or Dream Ravager Hand) requires only Martial Arts 3 and Essence 2. The next Charm of the trio requires Martial Arts 4 and Essence 3, and the third Charm requires Martial Arts 5 and Essence 4. What's more, the Charms grow mightier as characters learn more of the set. Each Charm has three levels of power, the Waking, Dreaming and Gossamer Levels. When a character learns her first Charm of the three, she practices it only at the Waking Level, the weakest, for she is still almost entirely a creature of the waking world. Once a character learns a second Charm, she can practice both at the stronger Dreaming Level. When a character learns the third Charm, she can use all three at the Gossamer Level. When using these Charms, though, a character can voluntarily employ a weaker level. As martial artists advance in the Quicksilver Hand of Dreams Style, however, they find it reshaping them. Not only do they gain an otherworldly aspect, but Creation starts to forget them. The forgetting begins once a character learns a Charm beyond The Quicksilver Staircase. Every scene in which the martial artist uses a Quicksilver Hand of Dreams Charm, someone who knows her has a chance to forget her. The Storyteller picks someone at whim. The selected person's player must succeed on a (Wits + Essence) roll or forget the martial artist completely. He does not recall her name or anything about her, and he loses any Intimacies related to her (if any). He substitutes other people in memories whose loss would be noticed or makes some other excuse to himself that explains away her presence. Since something like this happens to Sidereal Exalted anyway, those few who know this style are rarely upset--but Solars and Abyssals might find it disturbing... and even Sidereals aren't supposed to forget each other. When a character uses a Charm at its Waking Level, the person who might forget the character must have known him for less than a scene. If a Charm is used at the Dreaming Level, a person who knew the martial artist for less than a month has a chance to forget her. Any Investigation rolls concerning actions the martial artist took during the scene take an external penalty of one, as casual observers' memories fade. A character who uses the Gossamer Level, or a more advanced Charm in the style, is so far outside Creation's compass that even her husband, daughter or best friend can forget her. Investigation rolls made to uncover what the character did during the scene of Charm use take an external penalty of three as even the physical evidence of his existence disappears. Moreover, the character has a 50% chance to lose one dot from a Background based on contact with other people. Influence, Allies and Reputation are good examples. She does not lose Backgrounds that have nothing to do with people, such as Familiar, Artifact or Manse, by using Quicksilver Hand of Dreams. (This roll, like the other character's roll to forget the martial artist, need be made only once per scene.) dreams, however, he cannot hand one to someone else unless he places it in a dream catcher (see p. 141). · The martial artist resists mental and physical warping from the Wyld. Treat all Wyld zones as one step closer to Creation. For example, the character resists the Deep Wyld as if it were only a Middlemarch.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Quicksilver Hand of Dreams Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "367646ae7732c593"
+  },
+  "folder": "4f4566b64a919114",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

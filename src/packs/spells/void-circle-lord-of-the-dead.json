@@ -1,0 +1,37 @@
+{
+  "_id": "08e0d8e39dbe239e",
+  "_key": "!items!08e0d8e39dbe239e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Lord of the Dead",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "void-circle-lord-of-the-dead",
+    "tradition": "necromancy",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 25,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Caster",
+    "description": "<p>The necromancer's caste mark burns a baleful red on her forehead. For the next 24 hours, she may command any creature of death with a lower Essence than her own as she wills, and such creatures will not attack her--even if they hate her. Only Abyssal Exalted, Deathlords and Neverborn can resist this perfect Servitude effect.</p>"
+  },
+  "folder": "447f6cc1520ba234",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

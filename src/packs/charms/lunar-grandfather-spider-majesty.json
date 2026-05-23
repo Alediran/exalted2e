@@ -1,0 +1,68 @@
+{
+  "_id": "ebda82f83013cb72",
+  "_key": "!items!ebda82f83013cb72",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Grandfather Spider Majesty",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "perception",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm permanently enhances Watchful Spider Stance, and allows the Lunar's player to declare conditions that allow the character to activate Watchful Spider Stance reflexively and immediately observe the phenomenon. Examples include the following: � When a person or party the Lunar does not know enters the territory. � Various odd effects, such as unusual weather patterns, cultural migrations or encroachment of the Wyld. � When a specifically named person enters the territory, subtract successes on any Stealth or Survival roll made</p><p>to conceal that person from the Lunar's Perception. If this number is greater than zero, the character may choose to reflexively activate Watchful Spider Stance. � When a Charm or Essence power is activated within the character's territory, add the power's minimum Essence requirement (if it has one) to the Lunar's Perception. If that number is greater than six, the character may choose to reflexively activate Watchful Spider Stance. Treat powers without a minimum Essence requirement as minimum Essence zero for this purpose. Players should come up with conditions relevant to their characters. A character may not set more conditions than her Essence.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a6ae1e323ccf9f2c",
+            "charmName": "Watchful Spider Stance",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "ebda82f83013cb72"
+  },
+  "folder": "fa2edda343cdd2b0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

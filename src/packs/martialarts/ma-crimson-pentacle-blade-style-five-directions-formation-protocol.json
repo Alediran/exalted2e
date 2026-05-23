@@ -1,0 +1,57 @@
+{
+  "_id": "d591b706f5c77846",
+  "_key": "!items!d591b706f5c77846",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Five Directions Formation Protocol",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "Varies",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The five fundamental beams that make up the Crimson Pentacle work together to complete the whole. If one beam is out of place or absent, the pentacle cannot exist. Such is the underlying theme of the protocols that speardancers practice as they study the Crimson Pentacle Blade Style. A single speardancer is fearsome, but when a troupe of liketrained dancers works together, it can accomplish what no dancer alone could do. Working together, usually under the leadership of a martial artist who has adopted the Eastern True Spear Posture, speardancers create specialized offensive and defensive routines known as protocols. The Five Directions Formation Protocol is the catchall \"Charm\" that allows speardancers to create and participate in these routines. Protocols are not proper Charms themselves, but rather Combos assembled by a troupe of speardancers and shared equally among its members. That is, a protocol takes individual Charms from separate characters and forges those Charms into a single Combo that each member of the troupe who contributed a Charm can use when the entire troupe works together. Like regular Combos, protocols must be named and have a signature appearance that distinguishes them to those who have seen them before. Protocols for a troupe are assembled just as normal Combos are for a single character. (The rules for doing so appear on pp. 244-245 of Exalted.) Since the component Charms come from separate characters, though, certain costs must be divided when the protocol is both designed and used. The total experience point cost for developing a protocol is the same as it would be for a single character developing a Combo, namely the sum of the minimum Ability values of the component Charms. The time and the arduous training it takes to develop the protocol is the same for the team as it would be for a single Exalt developing the Charms into a Combo. When the team develops the protocol, each member pays a number of experience points equal to the minimum Ability value of the Charm(s) she contributed to the protocol. (If the players design a protocol that they want their characters to share at character creation, each player need spend only one bonus point per Charm her character contributed to the protocol.) These development costs cannot be bartered or split up any other way among the characters. When the protocol is activated, the costs are divided more evenly among the troupe members. First of all, every member must spend a single point of Willpower in order to use the protocol. This Willpower cost is above and beyond any other cost associated with the protocol's component Charms. As with a regular Combo, the cost to activate a protocol is equal to the total cost of every component Charm, payable in full up front. The total Essence cost for using a protocol is divided as evenly as possible between all members of the troupe, regardless of how much any single component Charm costs to activate. The character with the highest Essence score pays the remainder motes. (If two characters' scores are tied, use the character with the highest [Dexterity + Martial Arts] total.) If one or more of the component Charms has a variable Essence cost, calculate the required total using the minimum possible Essence cost of the variable-cost Charm. The character who contributed that Charm to the protocol may then pay extra motes of Essence to increase that Charm's effects. (This increased effect applies to every member of the troupe, though, not just the contributing character.) This division of motes is only a guideline, however. If the players want to divide the Essence cost up differently based on their current circumstances, they can do so. If one of the component Charms in the protocol requires an activation roll of some variety, the player of the character who contributed the Charm makes the appropriate roll. This roll enjoys a one-die bonus for every person performing the protocol, including the character whose player is making the roll. Every Exalt in the formation must know the Five Directions Formation Protocol Charm in order to be able to contribute to or participate in the protocol. Every member in the formation must also add at least one Charm to the protocol. No single character in the formation needs to know all of the component Charms, though. Nor must every character who is part of a speardancer troupe contribute to the development of a new protocol. Only those speardancers who contribute may participate in that protocol, however. The protocol cannot include Form-type Charms, and no more than one Form-type Charm can be used by all the participants for the protocol's duration. (Since participants most likely all use the Crimson Pentacle Blade Form, this restriction seldom becomes onerous.) Speardancers who wish to activate and participate in a protocol must be within the same 10-yard-radius area when the protocol is activated. Every member of the formation must be present as well, and they must all be conscious, mobile and able to take reflexive actions. For the formation to act together, every member's player rolls Join Battle normally. Even if the protocol isn't used at the start of a fight, this roll is needed to see how quickly the characters can join and activate the Combo. The speardancers must all wait until the last character is ready before they simultaneously take their actions and gain the benefits of the Combo. (This placement on the reaction count can change if a Charm that boosts movement speed is part of the protocol.) One member, usually the leader, then attempts to activate the protocol as a reflexive action immediately after the Join Battle roll. When this character does so, the rest of the formation's members instantly recognize his intent and must reflexively decide whether to participate. Speardancers who must wait for slower teammates to \"catch up\" are considered to be taking a Guard action until everyone is ready to begin the Combo. Only if all members of the protocol decide to participate does the protocol actually activate. Otherwise, the protocol does not engage, and the characters are free to act as they wish individually. If all troupe members do agree and they can pay the activation cost, each participating member enjoys for one action the use of the protocol Combo created from their disparate Charms. Characters participating in a protocol need not apply their actions to the same target, but they are not prevented from doing so. Should the characters choose to attack the same target and use a custom protocol to do so, their attacks are not inherently considered to be coordinated. Only Exalts of the same type may combine their Charms into protocols using Five Directions Formation Protocol. Terrestrials can blend their Charms with other Terrestrials to form protocols, Solars can blend Charms with other Solars, and so on. What's more, Exalts who are not Terrestrials must pay double the experience costs to develop these protocol Combos. Eclipse Castes and Moonshadow Castes can violate these rules, but only if they spent the extra time (and experience points) to learn all the Charms in the Crimson Pentacle Blade Style, and any other Charms they place in a Combo as if they were the same kind of Exalt as their partners in the protocol. For instance, if a Quicksilver Falcon learned this style's Charms as a Terrestrial Exalt, he could participate in protocols with Dragon-Blooded characters. He could not form protocols with Lunars, Sidereals or even other Solar characters--because as far as other speardancers are concerned, he is a Terrestrial Exalt.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Crimson Pentacle Blade Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "d591b706f5c77846"
+  },
+  "folder": "dd43fd817c3c8fc1",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

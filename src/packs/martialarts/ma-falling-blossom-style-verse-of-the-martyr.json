@@ -1,0 +1,55 @@
+{
+  "_id": "eae9dfeff7485bdb",
+  "_key": "!items!eae9dfeff7485bdb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Verse of the Martyr",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneDay",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "15m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The ultimate expression of this martial style's ethic is the death of the practitioner in service to his charge. It is, of course, better to survive to serve another day, but that ideal is not always attainable. If a Falling Blossom must die so his charge can live, this Charm helps the martial artist guide the hand of fate just enough to do so under his chosen circumstances. This Charm requires preparation. The martial artist meditates and writes a heartbreaking haiku that tells of his readiness to die for his cause. The Loom of Fate itself accepts the doomed martial artist's proposition and realigns events so that his death is honorable--but also gives him a chance to defeat the enemies of his charge. If his enemies hide, he will find them. If they set a trap, he will evade it. Heaven itself will bring them together for a final confrontation. Further, any time during the rest of that day that the character channels a Virtue for any roll that helps him toward his destiny, his player gains a number of automatic successes to his roll equal to the channeled Virtue, rather than simply adding dice. Although it is considered no downside to the Falling Blossom, using this Charm means that the martial artist's death is assured before the rise of the sun on the next day--often in a manner suggested by his haiku. Should the character somehow cheat death, however--regardless of whether that was his intent--his destiny snarls in the Loom of Fate. The weavers in the Loom must painstakingly pick the snarl apart and reweave all the threads around it, and they are never pleased to have this inconvenience thrust upon them. Holding the trouble against the martial artist, they weave for him a long and ugly future in which he is destined to fail at any important task he undertakes... especially any attempt at suicide. In fact, from that point forward, he gains five dots of the Destiny Background to ensure that very thing. As a final insult, the failed master can never use the Charms of the Falling Blossom Style again.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Falling Blossom Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "eae9dfeff7485bdb"
+  },
+  "folder": "dd497199f5d1964b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

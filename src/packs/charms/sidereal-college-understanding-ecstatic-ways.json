@@ -1,0 +1,59 @@
+{
+  "_id": "31185a206382af8f",
+  "_key": "!items!31185a206382af8f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Understanding Ecstatic Ways",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "college",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneDay",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Emotion",
+      "Fate",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "11m, 3p",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Vizier wraps himself in the destiny of the exotic outsider. For the next day, it is impossible for any violent action he undertakes to give offense, either to his victim or to witnesses. He may assault the Tri-Khan of Chiaroscuro, pick fights with random merchants or even murder a village head- man's wife in broad daylight. No one will become upset or angry with him, understanding that these are simply the Sidereal's strange foreign ways. This Charm does not protect the Vizier from the legal repercussions of his actions, should someone feel obligated to arrest him out of duty. Understanding Ecstatic Ways constitutes an unnatural Emotion effect costing three Willpower to resist.</p>",
+    "source": "Glories of the Most High: Maidens of Destiny",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "31185a206382af8f"
+  },
+  "folder": "84b20a7805198847",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,58 @@
+{
+  "_id": "0c59457a2c25b9bb",
+  "_key": "!items!0c59457a2c25b9bb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Paralyzing Touch Attack",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Crippling",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "6m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With this Charm, a character can stun or incapacitate a target with a precise strike to one of five vital nerve clusters. To do so, the character lightly taps the target on one of several possible nerve points, using a jolt of her own Essence to disrupt the Essence flowing through the spot and confuse the target's nerves. This (Dexterity + Martial Arts) attack inflicts no damage, but the Exalt's player rolls a number of dice equal to her character's (Martial Arts + the number of extra successes she made on the attack) against a difficulty equal to the target's Essence. Each extra success the player rolls above the difficulty reduces the target's Dexterity by one dot for the scene. If the target's Dexterity drops to 0, he is paralyzed. The effect of this Charm can be mitigated if the player of a character with Medicine and Martial Arts at 3 or higher succeeds at a (Wits + Martial Arts) roll, difficulty 3, to restore the proper flow of Essence through the victim's body. Removing paralysis is a simple action (Speed 6), and the target can move normally on his next action. With a successful (Wits + Stealth) roll, difficulty 1, this touch can be disguised as an amiable nudge or unintentional jostling in a crowd. This attack cannot be used against the undead, automata or other beings that lack vital centers.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Ebon Shadow Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "0c59457a2c25b9bb"
+  },
+  "folder": "8ba2fc566f928c7a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

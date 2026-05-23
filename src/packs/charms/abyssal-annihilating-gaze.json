@@ -1,0 +1,68 @@
+{
+  "_id": "740fcf3ab8f47453",
+  "_key": "!items!740fcf3ab8f47453",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Annihilating Gaze",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "craft",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Abyssal's eyes flash with incandescent malice, unmaking whatever offends his sight. This Charm enhances its prerequisite, allowing the Abyssal to \"touch\" any valid target within (Essence x 100) yards with a (Perception + Craft) roll for the attack. The Abyssal must use the Craft Ability that best corresponds to the creation or composition of the object. Items on an individual's person benefit from their bearer's defenses to avoid this attack. In addition, the Abyssal can change the duration of his All-Consuming Entropy Attack to Indefinite by committing the Essence he spends on the attack. He delays the Charm's effects until he withdraws the commitment. Upon reflexively ending the Charm, the deathknight may either destroy the object or spare it.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "2694cff80f4a4a50",
+            "charmName": "All-Consuming Entropy Attack",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "740fcf3ab8f47453"
+  },
+  "folder": "b0b1b2b3b4b5f037",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

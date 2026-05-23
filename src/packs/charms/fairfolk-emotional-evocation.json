@@ -1,0 +1,59 @@
+{
+  "_id": "57c8f26c962d7d78",
+  "_key": "!items!57c8f26c962d7d78",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Emotional Evocation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Evocation",
+      "Merged",
+      "Shaped-Only"
+    ],
+    "cost": {
+      "formula": "10m, 1g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm functions as per Elemental Evocation (see pp. 162-163), except that the summoned possession, rather than having an elemental aspect, instead carries an emotional one. For example, a warrior of rage and a temptress of lust might each summon forth a suit of armor or a pet dog. For the warrior, the armor would be appropriately terrifying and the dog would be a slathering, enraged mastiff. For the temptress, the armor might be fashioned of delicate, pink adamant, while the dog would be an adorable lap dog fit for a boudoir.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "57c8f26c962d7d78"
+  },
+  "folder": "6dbccd37637d2988",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

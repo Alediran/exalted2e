@@ -1,0 +1,71 @@
+{
+  "_id": "c4d7f23c9b4e5823",
+  "_key": "!items!c4d7f23c9b4e5823",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Apocalyptic Evolution of Bureaucracy",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "bureaucracy",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror (Divine Transcendence of Bureaucracy)"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm is the Abyssal Mirror of Divine Transcendence of Bureaucracy. Its effects are identical to its Solar counterpart — all Bureaucracy Charms reduce their minimum Ability and Essence ratings by one when the character attempts to learn them, and subsidiary powers within such Charms also lower their requisite ratings by one. This Charm cannot reduce the requirements of any Charm with minimums of Bureaucracy 10 or Essence 10. Charms retain their original ratings for all other purposes, such as building Combos. Upon achieving Bureaucracy 10, Essence 10, this Charm vanishes and the Abyssal is refunded its cost.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "mirrorId": "a4d7f23c9b4e5804",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "bureaucracy",
+            "minCount": 1,
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "c4d7f23c9b4e5823"
+  },
+  "folder": "b0b1b2b3b4b5f036",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

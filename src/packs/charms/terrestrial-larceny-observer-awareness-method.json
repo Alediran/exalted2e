@@ -1,0 +1,57 @@
+{
+  "_id": "978a4e8c4280cc59",
+  "_key": "!items!978a4e8c4280cc59",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Observer Awareness Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "larceny",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Officially, this Charm's sole utility is to uncover spies and aid in preventing eavesdropping. Even the mere suggestion that this Charm is often used by Dragon-Blooded thieves, spies and assassins is a blasphemy to some Immaculate monks. With just one success on a (Perception + Larceny) check, the Dragon-Blood instantly knows if he is being watched. Additional successes will pinpoint the specific location of observers.</p><p>This is a reflexive Charm that can be used freely without the need for a Combo. It can be used on any tick.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "978a4e8c4280cc59"
+  },
+  "folder": "b0b1b2b3b4b5f022",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

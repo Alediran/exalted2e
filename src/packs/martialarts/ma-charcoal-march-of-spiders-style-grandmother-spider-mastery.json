@@ -1,0 +1,57 @@
+{
+  "_id": "4fe49b6fc9e5b25e",
+  "_key": "!items!4fe49b6fc9e5b25e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Grandmother Spider Mastery",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 7,
+    "minAbility": 6,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "20m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>...she ate them. To master this style is to emulate the grandeur of Asna, the first of the pattern spiders. When the character strikes, she seems to divide into many onrushing warriors at once or spin endless invisible filaments of web, as with Rain of Unseen Threads. Either way, fighting such a character is like taking on an army of Asna's own young. Her attacks buffet the victim from all sides, as she surrounds and bewilders her foes. When she uses this Charm, the martial artist seems to divide into solid, identical duplicates or simply move fast enough to appear to be in several places at once. So doing, she applies each unarmed Martial Arts attack she makes in one action against all visible opponents twice each, regardless of how far away from her they are when the action begins. Grandmother Spider Mastery is a simple Charm that cannot be used in a Combo. It gives no benefit to characters without access to fully independent actions. (That is, characters not already using Charcoal March of Spiders Form.)</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Charcoal March of Spiders Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "4fe49b6fc9e5b25e"
+  },
+  "folder": "1c3b8957c92799e4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

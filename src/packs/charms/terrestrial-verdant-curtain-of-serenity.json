@@ -1,0 +1,71 @@
+{
+  "_id": "c9dbcd7b0ab38ce3",
+  "_key": "!items!c9dbcd7b0ab38ce3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Verdant Curtain Of Serenity",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "medicine",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Leader"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>As per Granite Curtain of Serenity on page 145. JADE CRUCIBLE METHOD Cost: Special, 1wp; Mins: Medicine 5, Essence 4; Type: Simple</p><p>Keywords: Combo-OK Duration: Instant Prerequisite Charms: Grievous Wound Alteration Energy, Purity of Mind Method With this Charm, the Exalt approaches the Immaculate Dragons themselves in his understanding of the interrelationship between the physical body and the Essence that animates it. This Charm allows the Dragon-Blood to tap into the hidden wellspring of Essence within himself by sacrificing some of his own health and vitality to release new Essence for more immediate use. The player of the character invoking this Charm must decide how many health levels are to be sacrificed in its activation. He then rolls (the character's permanent Essence + Medicine). Each success on the roll grants one mote of Peripheral Essence per health level expended. The resulting damage to the Dragon-Blooded is considered lethal, and any resulting damage penalties do not apply until after the roll is made for this Charm. Essence gained in this way can increase the character's Peripheral Essence pool in excess of its normal limit, but any such excess Essence is lost at the end of the scene.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f3b75a693c34abfb",
+            "charmName": "Purity of Mind Method",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "c9dbcd7b0ab38ce3"
+  },
+  "folder": "b0b1b2b3b4b5f026",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

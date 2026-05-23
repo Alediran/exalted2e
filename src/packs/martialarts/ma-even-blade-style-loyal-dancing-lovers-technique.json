@@ -1,0 +1,57 @@
+{
+  "_id": "b63e4bbba1512b10",
+  "_key": "!items!b63e4bbba1512b10",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Loyal Dancing Lovers Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "7m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Pulling her hands apart, one with sword and one with its sheath, the martial artist sizes up her opponent, then flicks blade or sheath into the space directly before her. As long as the character's other hand wields the weapon or sheath, its mate will dance gracefully in midair in exquisite counterpoint. Whichever item \"dances,\" the martial artist has a choice each action how to use the sword and sheath. The character can attack with both sword and sheath, gaining an extra action. Alternatively, the character can attack with one item while the other deflects attacks upon her. In this case, the hovering weapon or sheath counters all penalties the martial artist may suffer for coordinated attacks or onslaughts, with a further +1 bonus to her Parry DV. The sheath inflicts damage equal to its blade, but that damage is bashing. The martial artist may decide which is dancing--sword or sheath--at the beginning of each action. Targeting the weapon or sheath requires a normal Disarm roll against the martial artist. The sheath is considered to have a DV equal to the character's own, whereas the blade is not considered to be parrying. At any time, as long as the martial artist holds one of the pair, she may reflexively call the sword or sheath to her other hand. Loyal Dancing Lovers Technique may be used barehanded (though the suggestion one might do so is enough to put Master Azure Crane in a sarcastic mood for weeks). When activated without a weapon, it simply renders the martial artist ambidextrous.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Even Blade Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "b63e4bbba1512b10"
+  },
+  "folder": "6ac2f15fc6fdff1c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

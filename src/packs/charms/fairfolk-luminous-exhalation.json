@@ -1,0 +1,59 @@
+{
+  "_id": "404ab7bcde83d8b7",
+  "_key": "!items!404ab7bcde83d8b7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Luminous Exhalation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "ring",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Echoes",
+      "Obvious",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "--(2m per attack)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Generally, ranged Ring-shaping attacks and actions require ammunition, usually in the form of gossamer. Those who master this Charm are free of that limitation. Upon purchasing Luminous Exhalation, the raksha gains the permanent ability to spend Essence in place of gossamer for purposes of any gossamer ammunition cost. The raksha must spend two motes of Essence for every gossamer point the attack would normally have cost.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "404ab7bcde83d8b7"
+  },
+  "folder": "e3ab9ab145f6a424",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

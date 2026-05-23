@@ -1,0 +1,57 @@
+{
+  "_id": "7110fc23561c3751",
+  "_key": "!items!7110fc23561c3751",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dancing with Strife Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>To achieve her true Solar greatness, a master warrior must challenge herself constantly against foes of at least equal greatness. Those who have mastered this Charm understand this principle, throwing themselves at more and more talented foes to feel the joy of battle. Anytime the Solar successfully defends herself from an attack that accumulated no fewer successes than either the Solar's Essence or 5 (whichever is higher), she may activate this Charm to gain a temporary Willpower point. That is, the Solar's Dodge or Parry DV (including any bonuses from weapons, shields or magical effects) must completely cancel out an attack roll of no fewer than the aforementioned number of successes. This Charm does not allow the Solar to gain more temporary Willpower than her permanent rating. Simply having the fortitude or the armor to absorb all the damage inflicted by an attack does not qualify as a successful defense for the purposes of activating this Charm.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Solar Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "7110fc23561c3751"
+  },
+  "folder": "05bd4dac47a869bd",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

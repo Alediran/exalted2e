@@ -1,0 +1,60 @@
+{
+  "_id": "df87fc386f8be3df",
+  "_key": "!items!df87fc386f8be3df",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Command of Quiescence",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Compulsion",
+      "Stackable",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A practiced orator for Temperance can manipulate her opponent's psyche by slipping subtle admonitions into the debate. Done once or twice, this technique can produce a distracting stutter or a disengaged train of thought. Enough of these quietly stinging words can drive even a master rhetorician into a stunned silence. With a command of Essence and knowledge of Temperance that only a master possesses, the warrior injects a substantial amount of her calm and considering Essence into the soul of a foe. This must be done by touch, requiring a successful strike or that the two combatants be grappling. The attacker's player rolls (Martial Arts + Temperance) against a difficulty of the target's Essence. If the martial artist wins, the victim becomes reluctant to act, gaining a one-die penalty to all actions. This penalty lasts the rest of the scene and is cumulative. Once the penalty equals a target's Valor, he becomes entirely quiescent, overcome with Temperance and unable to act for the rest of the scene. For each action he considers, he immediately thinks of good reasons not to do it. A target suffering this effect takes only Inactive or Guard actions. Someone under the effects of this Charm may spend a point of Willpower in order to ignore the penalty for a number of actions equal to his Valor. He may do so reflexively on his action. If a victim of this Charm isn't acting already, he can spend Willpower only on a tick in which the target would normally renew his inactive or guarding status, but it allows him to act immediately thereafter.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Meditative Discussion",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "df87fc386f8be3df"
+  },
+  "folder": "1b2f6d78bc952477",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

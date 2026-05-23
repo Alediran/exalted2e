@@ -1,0 +1,57 @@
+{
+  "_id": "7953a7813d1fa3ff",
+  "_key": "!items!7953a7813d1fa3ff",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ecstatic Reproduction Style",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "staff",
+    "essence": 4,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "20m, 5g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>By these means are many of the raksha nobility summoned into being. The raksha opens himself up to the Wyld and for an instant, they become as one. From this union, a new raksha is summoned into existence, her Heart Grace coming instantly and inevitably into her raksha parent's hand. In order to give birth to a new raksha, the character's player rolls (Intelligence + Occult) as a Staff-shaping action. The difficulty for birthing a commoner raksha is 5. For heroic commoners, the difficulty is 7, and for nobles, it is 9. This roll is not an extended one. If the shaping action succeeds, the raksha creates the desired Fair Folk, which has all five Graces (an appropriate number of which are feeding Graces). The raksha who gave birth possesses and owns all of his child's Graces. Botching the shaping action creates a deformed or possibly insane child or even a monster, one who owns her own Graces and despises her raksha parent.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "7953a7813d1fa3ff"
+  },
+  "folder": "3a42d6c2417833d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

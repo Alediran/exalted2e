@@ -1,0 +1,60 @@
+{
+  "_id": "25a016256da9f1e1",
+  "_key": "!items!25a016256da9f1e1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Waypoint-sealing Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "sword",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Echo",
+      "Obvious",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "3m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Such is the power of the Sword that all who are wise seek to stay out of its reach. This Charm lets the raksha prevent his opponent from entering the same waypoint in which he stands. Whenever an opponent seeks to enter a waypoint the raksha occupies or controls, the raksha's player rolls (Dexterity + Melee) as an undodgeable Sword-shaping attack. If this attack overcomes the opponent's Shaping DV, the opponent cannot enter the waypoint for a number of actions equal to the raksha's Sword. In addition, the raksha who knows this Charm gains access to the following innate power in Creation: Innate Power (Cost: 3m, 1wp): The raksha assumes a defensive posture that Creation-born fear to challenge. The raksha's player rolls (Dexterity + Melee) or (Dexterity + Martial Arts). For the rest of the scene, any Creation-born character whose Valor does not exceed the raksha's successes is unable to approach the raksha closely enough to engage her in close combat. The Creation-born can still make ranged attacks, and he can overcome the effect to make Martial Arts or Melee attacks by spending one Willpower per attack. When the Creation-born has spent three Willpower, the effect is overcome completely. The raksha can advance toward affected characters and force them to back away, but the effect ends if she either backs the characters into a corner or engages in any hostile action against them. Glamour Resistance: The innate power aspect of this Charm is a work of glamour that cannot affect characters whose (Valor + Essence) exceed the raksha's Dexterity.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "25a016256da9f1e1"
+  },
+  "folder": "12ff19c775f80093",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

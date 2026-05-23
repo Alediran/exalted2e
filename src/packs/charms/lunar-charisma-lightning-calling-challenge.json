@@ -1,0 +1,73 @@
+{
+  "_id": "c190b0b5167aaf78",
+  "_key": "!items!c190b0b5167aaf78",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Lightning-Calling Challenge",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "charisma",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 3,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Compulsion",
+      "Social"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Lunar curses the cowardice of his enemies, drawing their blades away from those under his protection and toward himself. The player rolls (Charisma + Presence) at a difficulty of the target's MDV. If the roll succeeds, the target must direct any attacks he makes at the Lunar for the duration of the Charm. Shaking off this compulsion costs four Willpower points--two Willpower if the target is attacked by any individual other than the Lunar during the Charm's duration. For a surcharge of one Willpower, the Lunar's player may instead roll (Charisma + Performance) for the character to draw all enemies whose MDV is less than his successes to attack him. This Charm functions equally well in social and physical combat. MANIPULATION</p>",
+    "source": "Glories of the Most High: Luna",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c08603420e943e19",
+            "charmName": "Foe-Turning Rebuke",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "c190b0b5167aaf78"
+  },
+  "folder": "4e63ba1bd67a09e3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

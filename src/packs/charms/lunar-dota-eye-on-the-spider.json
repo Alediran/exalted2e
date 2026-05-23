@@ -1,0 +1,58 @@
+{
+  "_id": "e03318e48ccccc1a",
+  "_key": "!items!e03318e48ccccc1a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Eye on the Spider",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "perception",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Stewards are in tune with their protectorate, Creation. The Lunar's eyes shine silver with a rainbow patina, and he becomes aware of the threads that bind people to fate. He gains a general sense of where the Loom tugs them, incidentally adding a number of automatic successes equal to his Essence to divine a person's future (usually through the thaumaturgic Art of Astrology). The Lunar also discerns whether any given creature is or is not bound to the Loom of Fate.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "e03318e48ccccc1a"
+  },
+  "folder": "fa2edda343cdd2b0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

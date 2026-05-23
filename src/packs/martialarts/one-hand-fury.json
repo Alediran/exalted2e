@@ -1,0 +1,102 @@
+{
+  "_id": "cbc688b8df411955",
+  "_key": "!items!cbc688b8df411955",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "One Hand Fury",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 0,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "-- (1wp)"
+    },
+    "description": "<p>Masters of Infernal Monster Style gain a new and terrible form weapon. Purchase of this Charm permanently transforms one of the character's hands into a demonic artifact weapon. This change is explicitly compatible with Lunar tattoos. The hand doesn't have to look different, but many stylists consider it a mark of pride and deliberately choose for it to permanently assume some unnatural qualities such as disproportionate size or transmutation into black stone inlaid with brass, etc. The weapon permanently adds three bashing damage to the hand's punch and clinch statistics. Furthermore, the artifact is completely indestructible while the martial artist lives. If somehow amputated, the weapon disintegrates and the character regenerates the limb to full functionality after five days of healing. A regenerated limb and hand always show inhuman disfigurements of the player's choice. Activating Infernal Monster Form or any Sidereal style Form automatically causes Old Realm characters to smolder into existence over the weapon's entire surface, narrating the Scripture of the One-Handed Maiden in runes ornamented with spiraling whorls of green flame (see sidebar). Leather gloves made from human or demon skin can hide this. These runes provide the following powers and drawbacks: � The character's punch attacks have the following striking statistics in lieu of the basic damage bonus above: Speed 5, Accuracy (+Essence), Damage +(Essence + Willpower)</p><p>B, Rate Infinite, Tags: N, P. The weapon's clinch stats are Speed 6, Accuracy +0, Damage +(Essence + Willpower)B, Rate 1, Tags: C, N, P. The weapon is considered in-form for all Sidereal styles in addition to Infernal Monster Style. � If the character would gain a temporary dot of Strength from Infernal Monster Form and has already reached the maximum number of dots the Charm can bestow, she gains a cumulative +1 raw damage bonus to attacks using the hand instead. There is no limit on how high the bonus can go, save that it resets to zero when the character deactivates the Form (or the scene ends). Normal Charm limits on bonus dice caps do not apply. � All social attacks by Yozis and Third Circle demons against the martial artist are undodgeable for one full day following any flaring of the runes. The character may argue against the Yozis or their core aspects (i.e., parry) but can't ignore or reject the nature of the weapon she has become. Worse, once in the lifetime of any Infernal Monster Style master, the Yozis may telepathically command her to act as they please for one scene across any distance or realms of existence. Resistance is not possible, and defenses that trump this control merely postpone it to another time. The character can be ordered to betray her Motivation but can't be given an unacceptable order. This effect is a closely guarded secret of the Yozis and remains unknown to their Infernal Exalted and the Fivescore Fellowship alike. If any SCRIPTURE OF THE ONE-HANDED MAIDEN Once there was a maiden... ...who struck an iron wall until it shattered her hand. She did not stop, though cracks spread throughout her bones. She did not stop, though blood sprayed her eyes. She did not stop until she shattered the wall. \"Survival is fury,\" she said.</p><p>individual masters suspect the danger or have discovered this curse the hard way, they have kept the knowledge to themselves. Anys Syn, elder aide to Chejop Kejak and chief architect of the Immaculate Dragon Styles, would personally prosecute any of the Maidens' Chosen found to be compromised in such a manner, her own predilection for wearing gloves to major battles notwithstanding.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "ebonDragon",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Infernal Monster Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4587092a71ae1d45",
+            "charmName": "Fists of the Old Ones",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "459b3699eb050138",
+            "charmName": "Joyful Cessation of Restraint",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f428756b1b39215e",
+            "charmName": "Screaming Meat Shield",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "cbc688b8df411955",
+    "grantsMastery": false
+  },
+  "folder": "ae5a8ed470f7303b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

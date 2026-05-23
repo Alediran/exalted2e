@@ -1,0 +1,79 @@
+{
+  "_id": "56326ba45139ce1e",
+  "_key": "!items!56326ba45139ce1e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Snake Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 3,
+    "dvPenalty": -1,
+    "steps": [],
+    "keywords": [
+      "Form-type",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 5,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "5m"
+    },
+    "description": "<p>The Exalt adopts the attitude and stance of a wary snake--head back, ready to advance or retreat. The Essence of the snake hardens his skin. His sinuous movements slow and distract his enemies. For the rest of the scene, this Charm adds the character's Martial Arts score to his bashing soak. If an enemy attacks him, and the enemy can see the character's hypnotic motions, this Charm subtracts the Exalt's Essence in dice from the attacker's attack pool. Characters cannot use more than one Martial Arts Formtype Charm at a time. The character must end Snake Form to assume another Martial Arts form.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Snake Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ca7acae684f60057",
+            "charmName": "Serpentine Evasion",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "56326ba45139ce1e",
+    "grantsMastery": false
+  },
+  "folder": "0794fc21c581d830",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

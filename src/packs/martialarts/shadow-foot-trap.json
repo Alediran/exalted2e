@@ -1,0 +1,88 @@
+{
+  "_id": "a50d6e6b1e95a4d6",
+  "_key": "!items!a50d6e6b1e95a4d6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shadow Foot Trap",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      1
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Martial",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 2,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "2m"
+    },
+    "description": "<p>Before the Solar Exalted, light could only chase shadow; due to the Lawgivers, it may capture it as well. This Charm may enhance a Martial Arts attack. The character lashes out at his target's shadow, pinning it to the ground, a wall, a tree or other immobile scenery; this attack is unblockable and undodgeable without the use of magic. When pinned in such a way, the victim is trapped within a yard of his shadow until he is able to pull it free, a feat requiring a miscellaneous (Strength + Athletics) roll at a difficulty of the Solar's (Martial Arts rating x 2). The successes gained on multiple attempts to pull free are added together cumulatively, but the target may make only one such attempt per action. While rooted, the target may not be moved by knockback effects; if knocked back, such as by Heaven Thunder Hammer, the target is considered to strike a hard surface after traveling only one yard. Martial: Archery, Melee, Thrown</p><p>Titan-Straightening Method</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Solar Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "075e00631f0af681",
+            "charmName": "Dragon Coil Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "statusApply": {
+      "enabled": true,
+      "status": "Knockback",
+      "resistPool": "@sta + @athletics",
+      "onFail": "applyKnockback"
+    },
+    "charmUid": "a50d6e6b1e95a4d6",
+    "grantsMastery": false
+  },
+  "folder": "05bd4dac47a869bd",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

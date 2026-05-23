@@ -1,0 +1,86 @@
+{
+  "_id": "96b9cab20766c2db",
+  "_key": "!items!96b9cab20766c2db",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "End Debate",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "bureaucracy",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Compulsion",
+      "Obvious",
+      "Prayer Strip",
+      "Virtue (Temperance)"
+    ],
+    "cost": {
+      "formula": "10m, 1wp, 1lhl",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal activates this Charm using a prayer strip marked with the Scripture of the Maiden and the Dust. When she infuses the strip with Essence and casts the strip on the ground, the strip explodes in a flash of amethyst light. While the Sidereal himself is immune to the effect, all the people present feels an unnatural mental influence to cease their arguing over whatever they disagree about. A customer would stop haggling with the vendor and just split the difference between the listed price and what he wanted to pay before, which the vendor would gladly accept just to make a sale. Two rowdy street gangs would decide to just let this turf squabble go this time and move off in separate directions. The senators of the Lesser House of the Deliberative would cease their semi-civilized bickering and just put the contentious issue to a vote. Characters with a higher Essence than the Sidereal are immune to the effect, but they cannot force affected characters to continue arguing. Individuals can resist the Charm by spending three Willpower. The Sidereal can use this Charm to affect a group of characters whose Magnitude does not exceed his Essence. THE SCRIPTURE OF THE MAIDEN AND THE DUST Once, there was a maiden... ...who learned that the faster she ran, the faster she could run. Thus, running consumed her, Until one day, she flew beyond the ending of her life. \"And here I thought it'd last forever,\" she said. \"But --\" \"There's always an ending,\" said the run. INTEGRITY: THE RISING SMOKE (VIRTUE) ESSENCE REPLENISHMENT</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "bd5a0300b74fe341",
+            "charmName": "Paralyzed Mandarin Infliction",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1abea5bbb5e8c260",
+            "charmName": "Terminal Sanction",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "96b9cab20766c2db"
+  },
+  "folder": "b0b1b2b3b4b5f004",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "6f5b051084f48577",
+  "_key": "!items!6f5b051084f48577",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Farmer's Stone",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDWOOD000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "wood",
+    "rating": 1,
+    "description": "<p>Any crops tended by the owner of this angular, pale-blue spindle grow and bear unusually well. If these crops receive at least minimal water and care, they yield an unusually abundant and early harvest despite poor soil or weather. This hearthstone affects any size of farm, so long as the bearer regularly helps to tend it. The bearer may also aid a farm that he does not normally work by spending one full day tending it shortly after planting has taken place. When used in this fashion, the stone aids up to (bearer's Essence) square miles. In either case, the stone only protects the crops from natural problems such as droughts, flooding, insects or blights. It provides no protection against armies burning or trampling the fields, although the stone would help the fields recover more rapidly than normal.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

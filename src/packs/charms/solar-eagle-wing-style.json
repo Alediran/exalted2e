@@ -1,0 +1,82 @@
+{
+  "_id": "7e8a71d182e0b81e",
+  "_key": "!items!7e8a71d182e0b81e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Eagle-Wing Style",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "athletics",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solar hero focuses her Essence and repels the ground. She leaps skyward and continues to fly until the scene ends or she wills herself to land. She can fly at triple her normal Move and Dash rates, but must move at least half her normal Move on every tick or she will have to land and end this Charm. The character must remain within ([Strength + Athletics] x 3) yards of a surface. She can \"climb\" walls or cliffs by zooming along their surface, but she can't naturally rise more than the stated distance above the ground. To direct the flows of Essence, the character must keep one hand extended before her. This prevents the use of bows and other two-handed weapons while flying. The character may use thrown weapons, fight unarmed or wield one-handed weapons normally, regardless of how fast she is moving. The character can engage in aerial duels with characters capable of taking to the air, or she can hurl thrown weapons at foes on the ground or swoop down and strike them as she flies past.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0a15a9445f812fa8",
+            "charmName": "Spider-Foot Style",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f7e1fe5f34b670bd",
+            "charmName": "Feather-Foot Style",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "7e8a71d182e0b81e"
+  },
+  "folder": "481b58529581316b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

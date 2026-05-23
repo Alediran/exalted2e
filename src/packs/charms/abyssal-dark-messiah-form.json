@@ -1,0 +1,57 @@
+{
+  "_id": "ae4ce92f091411ed",
+  "_key": "!items!ae4ce92f091411ed",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dark Messiah Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "socialize",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Form-type"
+    ],
+    "cost": {
+      "formula": "6m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>While the Abyssal performs the kata to assume Dark Messiah Form, she concentrates on every pain the world ever inflicted on her. Farewell ethics, it's time for bloody, brutal payback! While using this Charm, all the character's unarmed attacks inflict piercing damage (if they didn't already). The martial artist can make an unarmed Martial Arts parry against ranged and lethal attacks without a stunt. What's more, Dark Messiah Form eliminates multiple-action penalties for the first (Martial Arts � 2, rounded up) actions in a flurry. At Martial Arts 5, an Abyssal can punch three times in a flurry with no penalty at all. Any actions after the penalty-free number, however, take the same penalties as if this Charm had not been active. As a final benefit, a Dark Messiah stylist can attune to soulsteel form weapons (if he couldn't before) and gain all the motes stripped from a target by such weapons. The amoral ferocity of Dark Messiah Form comes at a price, though. While using the form, characters cannot channel their Virtues.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "ae4ce92f091411ed"
+  },
+  "folder": "b0b1b2b3b4b5f047",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

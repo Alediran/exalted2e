@@ -1,0 +1,37 @@
+{
+  "_id": "fe8129151644cd58",
+  "_key": "!items!fe8129151644cd58",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Curse of Unyielding Mist",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "solar-circle-curse-of-unyielding-mist",
+    "tradition": "sorcery",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 40,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Area",
+    "description": "<p>As the sorcerer stands within the area she hates (which must all, in the local tongue, fall under a single name), the sorcerer intones the reason for her rage and names a condition that will alleviate her curse. This condition may be as simple--\"The king of this country must kneel before me, and kiss my feet\"--or as arcane--\"Everyone within this land must speak nothing but the exact truth for a month\"--as the sorcerer wishes, as long as it could conceivably be fulfilled within the land's borders. The spell fails if the condition requires actions from the Incarnae, major spirit courts or anyone else with no particular connection to the region. As the sorcerer speaks, purple lightning flickers in her anima. She catches these sparks and ties them into 15 knots. Tendrils of fog reach from her anima and spread through the cursed land. Dank gray mist fills the land from the ground to 100 feet above. Nothing, even the most immediate of objects, is clearly visible, and even the vague shadows of one's surroundings fade into the grayness within 10 feet. Day or night makes no difference, for the fog shines with its own faint, eldritch radiance. Characters within the mist quickly grow dispirited, inflicting a -2 internal penalty on all social interactions therein. (Essence wielders may avoid this penalty by succeeding on a daily Valor check.) The mist covers (Essence x 10) square miles. Within a month, all the plants that grow within that place have withered and begun to rot. Bizarre fungi grow and spread rapidly, from films of mold to gigantic shelf fungi and puffballs. The fungi will not grow on the flesh of living creatures, but it will grow on their clothes and fingernails, and in their hair. The ecology of decay will eventually eat up anything organic within the mist, but it cannot grow outside the mist and is destroyed by the slightest touch of sunlight. Invulnerable to all outside forces save the will of the Incarnae--including, once it has been cast, Adamant Countermagic--the mist forever will darken the lives and hearts of everyone within, unless and until the sorcerer's condition is met. If everyone leaves in despair, the mist shall never lift. The evil mist has shrouded few horror-haunted provinces since the First Age, and no one now knows how to lift the curse.</p>"
+  },
+  "folder": "66776f28169b53d7",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

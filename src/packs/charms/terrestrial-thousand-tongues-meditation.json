@@ -1,0 +1,77 @@
+{
+  "_id": "b9e1a5240d1eb48a",
+  "_key": "!items!b9e1a5240d1eb48a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Thousand Tongues Meditation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "linguistics",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Social"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>While the Language-Learning Ritual grants total fluency in a tongue for an extended period, this Charm allows the DragonBlooded to quickly grasp the essentials of an unknown language for a brief period. For the duration of the Charm, the Dragon-Blood can speak and understand any foreign language. Furthermore, in the presence of multiple people speaking different languages, the Exalted can understand and be understood by all of them. The maximum number of speakers with whom the Dragon-Blood can interact using a single application of this Charm is equal to the character's permanent Essence. Communication is limited, however, and the Dragon-Blood suffers a -4 penalty on all social and communicative actions, reduced by one for each point of permanent Essence by which she exceeds the minimum. Also, this Charm affects only verbal speech. Neither written speech nor sign language can be conveyed with this Charm. POISONED TONGUE TECHNIQUE Cost: 2m, 1wp, Mins: Linguistics 3, Essence 3; Type: Simple Keywords: Combo-OK, Social</p><p>Duration: Concentration Prerequisite Charms: Any Linguistics Excellency To the Children of Mela, words can be weapons just as deadly as a blade or an arrow. With this Charm, a Dragon-Blood can manipulate a conversation she overhears, causing other listeners to hear what she desires instead of what was actually said. The Exalt must be able to hear the conversation in order to manipulate it with this Charm, and while eavesdropping through Charms or other magical means is acceptable, the Dragon-Blood must be within (the Exalt's permanent Essence x 100) feet from all participants. The Dragon-Blood's player must roll (Manipulation + Linguistics), with the successes determining the level of control. One success allows the Dragon-Blood to alter minor details, enough to confuse, offend or even arouse one of the parties. Three or more successes allows the Exalt to alter significant details, perhaps enough to completely color one participant's impressions of another. With five or more successes, the Exalt can control any aspect of the conversation. Participants in the conversation may notice the effect with a reflexive (Wits + Perception) roll against a difficulty equal to the Dragon-Blood's Essence. On a successful roll, the participant knows that the conversation is being manipulated and can attempt to communicate this through nonverbal means. On a failure, none of the participants recognize that their own words are being changed or that the other parties do not hear what the speaker intends to say. In the Realm, abuse of this Charm is a serious breach of etiquette. In some situations, it is even considered a crime.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "46936387b7f7b269",
+            "charmName": "Language-Learning Ritual",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "statusApply": {
+      "enabled": true,
+      "status": "Poisoned",
+      "resistPool": "@sta + @resistance",
+      "onFail": "applyPoison"
+    },
+    "charmUid": "b9e1a5240d1eb48a"
+  },
+  "folder": "b0b1b2b3b4b5f023",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,57 @@
+{
+  "_id": "204778fff349be9b",
+  "_key": "!items!204778fff349be9b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Pasiap's Humility",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Pasiap's humble nature caused him to remain with his disciples after the other Immaculate Dragons left Creation and the cycle of reincarnation behind. In learning his humility, an Immaculate monk achieves the necessary recognition that the world is wider--and deeper--than she may have previously known. Activating this Charm lets the Dragon-Blood see immaterial spirits as though they were material and manifest. Unfortunately, use of this Charm renders the physical world more difficult to perceive. Immaculates practicing Pasiap's Humility suffer a -2 internal penalty to all actions intended to affect any corporeal target, even a materialized spirit. If necessary, monks can refocus their attentions on the real world as an unrolled miscellaneous action, ending the Charm early.</p>",
+    "source": "Manual of Exalted Power: The Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "special",
+    "martialArtsStyleName": "Dragon-Blooded Celestial Initiation",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "204778fff349be9b"
+  },
+  "folder": "e3be407e46ea8110",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

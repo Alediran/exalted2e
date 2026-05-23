@@ -1,0 +1,58 @@
+{
+  "_id": "72e8c8084d8f50c8",
+  "_key": "!items!72e8c8084d8f50c8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hateful Coin Curse",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "ring",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Glamour (9)",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "3g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Creation's lore is replete with tales of wealthy and powerful mortals reduced to penury by a chance encounter with the Fair Folk. This Charm permits a raksha to inflict a curse of poverty on one of the Creation-born. The raksha interacts with the target, then his player rolls (Intelligence + Bureaucracy). An affected character instantly loses a number of Resources dots equal to the successes on the roll. The effects on the character's panoply are instantaneous. Each and every possession the character has that she no longer has enough Resources to justify either disappears (with other characters even forgetting she ever possessed such wealth) or is instantly ruined. Her clothes become tattered and torn. Her servants leave her, angrily complaining that they have not been paid in months. Even the most ostentatious mansion becomes a rotted, leaky hovel. As an additional side effect, the Charm inflicts a -2 external penalty on all mercantile or financial transactions of any sort between the affected being and any other Creation-born. The effects of this Charm last for one season in Creation but end early if the raksha terminates her Assumption Charm prematurely. Glamour Resistance: This Charm is a work of glamour. It will not affect the Resources rating of any character whose (Wits + Essence) exceeds the raksha's Bureaucracy. All other characters will forget that the affected being was ever wealthy save for the victim herself and any characters who knew her previously whose (Perception + Essence) exceeds the raksha's Bureaucracy. The -2 penalty on transactions will not affect transactions between the victim and a merchant if the merchant has a (Wits + Essence) that exceeds the raksha's Bureaucracy. Closely related to Creation-Based Crafting, these Charms permit the raksha to forge new possessions for herself within the Wyld. These possessions can exist only in the Wyld unless the raksha summons them to Creation through an Evocation Charm such as Elemental Evocation (see pp. 162-163) or Emotional Evocation (see p. 167) or unless the raksha goes to the trouble of making them permanent possessions.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "72e8c8084d8f50c8"
+  },
+  "folder": "e3ab9ab145f6a424",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

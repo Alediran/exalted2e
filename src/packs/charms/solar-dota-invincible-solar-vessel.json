@@ -1,0 +1,59 @@
+{
+  "_id": "7c0b5b178eb1e92e",
+  "_key": "!items!7c0b5b178eb1e92e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Invincible Solar Vessel",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "sail",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Mirror (Black Fleet Vanguard)",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "8m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "7c0b5b178eb1e92e"
+  },
+  "folder": "dca02b4134c59583",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

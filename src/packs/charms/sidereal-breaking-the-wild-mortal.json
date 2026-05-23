@@ -1,0 +1,79 @@
+{
+  "_id": "bb3dabfc34c96e26",
+  "_key": "!items!bb3dabfc34c96e26",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Breaking The Wild Mortal",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "ride",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": -2,
+    "steps": [],
+    "keywords": [
+      "Compulsion",
+      "Fate",
+      "Obvious",
+      "Servitude",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm works just as Ordained Bridle of Mercury does, but this Charm affects people. The Sidereal chooses a person--or has the Maiden of Journeys choose one of</p><p>a preferred occupation and personality for him--and receives Mercury's bridle in a shape that fits a human head. When a chosen mortal sees the bit, he calmly allows the Sidereal to fit it to him, at which point the bridle and the memory of accepting it fade away. If the Sidereal selects a mortal, the Charm costs an additional Willpower point. The Sidereal gains one dot of the Acquaintances Background. Uses after the first against the same mortal either intensify the bond between the mortal and the Sidereal or expand the familiarity effect among an increasing number of the mortal's own acquaintances. For example, one use of this power enables a single mortal to recognize the Sidereal as a friendly stranger the mortal's seen around before. The next use might rope the mortal's close friends into the effect as well. With the third use, not only the original mortal and his close friends recognize the Sidereal, but all the regulars at the gambling house where the mortal and his pals hang out do as well. In order for the Sidereal to expand her network of acquaintances in this way with this Charm, she must use it repeatedly on the same mortal. (See pp. 102-103 for details about the Acquaintances Background.) As with Ordained Bridle of Mercury, the new acquaintances last only through a single story, unless the player spends experience points or the character makes a special effort to secure their friendship. Likewise, a Sidereal can use this Charm on (i.e., apply the actual bridle itself to) a maximum number of people equal to her permanent Essence.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a26592c6a9db0205",
+            "charmName": "Ordained Bridle of Mercury",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "willpowerRecovery": {
+      "enabled": true,
+      "event": "onDamageDealt",
+      "formula": "1"
+    },
+    "charmUid": "bb3dabfc34c96e26"
+  },
+  "folder": "b0b1b2b3b4b5f013",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

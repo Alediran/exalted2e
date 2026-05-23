@@ -1,0 +1,66 @@
+{
+  "_id": "60ebc4c4e86eb160",
+  "_key": "!items!60ebc4c4e86eb160",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Glowing Coal Radiance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "presence",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "oneAction",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Dynasty",
+      "Emotion",
+      "Leader",
+      "Obvious",
+      "War"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The blazing elemental fury of the Dragon-Blooded is such that lesser men are humbled by their mere presence. When this Charm is activated, the Dragon-Blood is surrounded by a nimbus of Essence with the color associated with her aspect. Anyone attempting to look at the Dragon-Blood or to make a melee attack against her must score at least one success on a reflexive Willpower check. Even if that roll is successful, any attack made on the Dragon-Blooded before his next action suffers a dice penalty equal to the DragonBlood's Presence. This effect lasts until the Dragon-Blood's next action. The Charm affects only those individuals within yards a number of yards equal to the Dragon-Blood's Essence, and it doesn't impair ranged attacks.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "60ebc4c4e86eb160",
+    "targetPenalty": {
+      "enabled": true,
+      "amountFormula": "-@presence"
+    }
+  },
+  "folder": "b0b1b2b3b4b5f02a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

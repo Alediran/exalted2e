@@ -1,0 +1,58 @@
+{
+  "_id": "0e7a7dba95f0e796",
+  "_key": "!items!0e7a7dba95f0e796",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Guiding Words of Solar Wisdom",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "linguistics",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Training"
+    ],
+    "cost": {
+      "formula": "15m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Lawgiver passes on her holy insight. Perhaps by writing a tome or inventing a mantra, she gives a lesson focused on a number of teachings equal to her Linguistics. (These teachings may include specific Abilities, Charms, Essence, et cetera.) Those who study her teachings may increase those traits as though she were tutoring them. This Charm may be explicitly placed in a Combo with any Training-Keyword Charm, even in violation of standard Combo rules, permitting those effects to be encoded into the resultant magical training manual.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "0e7a7dba95f0e796"
+  },
+  "folder": "13c99c0e197877e7",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

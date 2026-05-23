@@ -1,0 +1,59 @@
+{
+  "_id": "1ad3b4bb1f7adee2",
+  "_key": "!items!1ad3b4bb1f7adee2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Subtle Breath of Ruin",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "cup",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Echo",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "3m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Prince moves closer, bringing doom with him. The raksha's player rolls (Manipulation + Larceny) as a Cup-shaping attack. If the attack roll is successful, ignore the damage roll. Instead, this Charm increases the difficulty of all of the target's shaping actions by an amount equal to the raksha's Essence for the rest of the shaping battle.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "1ad3b4bb1f7adee2"
+  },
+  "folder": "d5d33b95962cd83e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

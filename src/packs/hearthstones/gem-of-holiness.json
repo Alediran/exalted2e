@@ -1,0 +1,27 @@
+{
+  "_id": "1d0a06b32db0aa53",
+  "_key": "!items!1d0a06b32db0aa53",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gem of Holiness",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDSIDRL00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "sidereal",
+    "rating": 1,
+    "description": "<p>This hemisphere of silver-flecked blue stone imbues its bearer with a general aura of holiness. If the character avoids words or actions that obviously contradict this aura, anyone meeting her instinctively regards her as trustworthy and devout. If they don't know better, they may assume she is a priest. The bearer receives one additional die to any Manipulation or Charisma rolls to gain trust or convince someone of her honesty.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

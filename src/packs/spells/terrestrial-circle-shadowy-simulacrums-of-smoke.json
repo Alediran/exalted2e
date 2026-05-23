@@ -1,0 +1,37 @@
+{
+  "_id": "839ac2a3fa169a5e",
+  "_key": "!items!839ac2a3fa169a5e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shadowy Simulacrums of Smoke",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-shadowy-simulacrums-of-smoke",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 15,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Area around caster",
+    "description": "<p>A black, obscuring cloud rises from the sorcerer's anima, extending 15 yards from her person. Shadowy, distracting figures dart about within it. Sounds are muffled within the cloud, and their directions become unclear. Anyone other than the sorcerer within the cloud suffers a -1 external penalty to sight and hearing. Every time an affected character within the cloud attacks, his player must attempt a reflexive (Perception + Awareness) roll at a difficulty equal to the sorcerer's Essence (and the -1 penalty still applies). On a success, he selects his intended target. On a failure, he attacks one of the simulacra and wastes his action. On a botch, he attacks the ally closest to him by mistake. If a character flurries multiple attacks against the same target, every subsequent attack in the flurry hits the same target, be it enemy, simulacrum or ally--but characters who attack undesired targets may abort flurries after the first attack. The simulacra have no substance to them, and no health levels. They constantly disperse and reform within the cloud. The cloud endures for the entire scene or until the sorcerer disperses it. It does not move with the sorcerer, but remains centered on where she stood at the moment of casting. Regular winds won't affect the cloud, but gusts of high-speed winds can shift its location at the Storyteller's discretion. Sustained high-speed winds can disperse the cloud.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

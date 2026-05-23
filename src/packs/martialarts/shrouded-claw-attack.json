@@ -1,0 +1,79 @@
+{
+  "_id": "6b279e6a7194d2dd",
+  "_key": "!items!6b279e6a7194d2dd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shrouded Claw Attack",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 3,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "3m"
+    },
+    "description": "<p>The Exalt's Void-charged anima lashes out from beneath her flesh as a phantom image moving ahead of her own blow. The soul-chilling touch of this projection halves the pool used to calculate the target's DV against the attack, rounded down. This Charm can enhance an attack to initiate a grapple as readily as a strike. Shrouded Claw Attack also causes any dematerialized being \"touched\" by it to manifest visibly to all onlookers as a translucent apparition for the rest of the scene. This effect applies whenever the attack would hit its target, even if the character has no way to make physical contact with immaterial beings (such as Hungry Ghost Form).</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Hungry Ghost Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "09df8bc7f0122141",
+            "charmName": "Blood-Scenting Hunger",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "6b279e6a7194d2dd",
+    "grantsMastery": false
+  },
+  "folder": "a204aba47ca9154b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,69 @@
+{
+  "_id": "27765cad1de6a0ab",
+  "_key": "!items!27765cad1de6a0ab",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Immortal Rider's Advantages",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "ride",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": "Mirror (Fell Rider's Advantages), Mount (Mundane), Native",
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solars reinvent that which defines their legends. A character who purchases this Charm gains the following benefits: Ride Charms no longer count as Charm activations, and Ride Charms may be activated to enhance a mount the Solar is not presently riding, so long as he can perceive that animal or it is within one mile. In addition to these advantages, the Solar</p><p>A Snowbound Mystery The mountains surrounding Diamond Hearth conceal a particular curiosity: in a crag tucked between two mountains, a boneyard stretches for nearly half a mile. Filled with the gigantic femurs, spines, and bristle-toothed skulls of tyrant lizards, the place--known to history as Tyrant's Grave--has puzzled savants for centuries. What could induce a cold-blooded creature to wander so far into the wastes of the frozen north, where it would almost certainly die? Was this the proof of some sort of instinctual death ritual, leading the tyrant lizards to a place somehow hallowed to their senses? And if so, why has there never been a sighting of a tyrant lizard trekking north across the snowy plains? The truth is not nearly so remarkable. During the middle First Age, a hedonistic Exalt established a luxurious palace on the snowy slopes of the mountains near Diamond Hearth. Open year-round as a pleasure house to the ranks of the Exalted, this palace played host to numerous spectacles, including a particular sport invented by bored Lawgivers: lizard slaloms. It was a simple game: the Solars would ride tyrant lizards down the slopes of the mountain, sledding them down a treacherous path of boulders, trees and ramps. If that wasn't exciting enough, their Lunar mates would drop obstacles onto the course, and if that still wasn't enough challenge, they might also toss raksha captives or other enemies of the Realm onto the course to be seized and eaten as a kind of challenge objective. Unfortunately, as much as the Solars loved to ride their tyrant lizards off ramps built at the edge of gigantic cliffs, few beasts could last long under such treatment. Perhaps to the eyes of history this game seems to be little more than another issue of Solar barbarism, but at Tyrant's Grave the bones of those long-dead mounts have been carefully arranged, their skulls ordered by their number of victories on the slopes, with notches on their femurs to indicate the number of felons which each great beast devoured in his or her triumphs on the course. Ride Charms such as Horse Skids Trick and Draft Horse Measure were used to great effect in lizard slaloms.</p><p>gains an auxiliary peripheral mote pool containing (Essence + Ride + 5) motes. The Solar may only use this pool to pay for Charms of the Ride ability. When this pool runs out, the character may then use her personal and peripheral mote pools to pay for Ride Charm activations. This mote pool refills by normal means, including stunts. A repurchase of Immortal Rider's Advantages at Essence 4+ doubles this mote pool. Another purchase at Essence 5+ doubles it once more. This Charm only applies under the following conditions: � The mount must be a living being (i.e. not a Windblade or other accouterment which incidentally use the Ride ability). � The mount must belong to the Solar (see Exalted, p. 238) or be the character's Familiar. Exalts, gods, and other powerful NPCs never qualify. � Phantom Steed is expressly permitted to benefit from Immortal Rider's Advantages. New Abyssal Charm: Fell Rider's Advantages (Prerequisites: Soul Reins). This Charm is identical to its Solar counterpart, save for allowing ghostly animal mounts. Horse Skids Trick</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "832a4492cc4094d4",
+            "charmName": "Master Horseman's Techniques",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "27765cad1de6a0ab",
+    "mirrorId": "c1d2e3f4a5b60014"
+  },
+  "folder": "b0b1b2b3b4b5f069",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

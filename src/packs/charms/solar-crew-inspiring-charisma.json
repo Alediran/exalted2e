@@ -1,0 +1,73 @@
+{
+  "_id": "a1b2c3d4e5f60009",
+  "_key": "!items!a1b2c3d4e5f60009",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Crew-Inspiring Charisma",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "sail",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Emotion",
+      "Mirror"
+    ],
+    "cost": {
+      "formula": "",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Once a Solar masters this Charm, ships she commands function at full efficiency and with no penalties, even with crew complements as low as a skeleton crew. In addition, each scene the Lawgiver spends commanding her crew counts as a scene of building an Intimacy of adoration in them unless they have an Essence rating equal to or greater than her own. Those who develop such Intimacies cannot take any actions that would knowingly result in harm to their captain or remove her from her position while aboard a ship she owns, unless they spend two Willpower points per day to overcome the unnatural mental influence of this Charm. The Solar Mirror builds Intimacies of adoration to deter mutiny rather than terror, but otherwise operates the same way as its Abyssal counterpart.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "mirrorId": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b07718511848c0e1",
+            "charmName": "Salty Dog Method",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a1b2c3d4e5f60009",
+    "mergedIds": []
+  },
+  "folder": "dca02b4134c59583",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

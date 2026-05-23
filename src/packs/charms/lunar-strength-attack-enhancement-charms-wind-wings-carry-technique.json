@@ -1,0 +1,70 @@
+{
+  "_id": "f78f9fd1c4eac6d6",
+  "_key": "!items!f78f9fd1c4eac6d6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wind-Wings Carry Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "strength",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m or 2m per",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Little escapes the Stewards' reach. Every mote spent on this Charm increases the range of a single attack by a factor of (1 + motes spent). Melee and Martial Arts attacks cost two motes to do the same thing one mote accomplishes for naturally ranged weapons, and the Charm becomes Obvious as Essence does the work where the character cannot reach. As a rule, the range of a hand-to-hand attack is equal to one yard plus the length of the weapon.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "f78f9fd1c4eac6d6"
+  },
+  "folder": "aba1efe8ad0bef8a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

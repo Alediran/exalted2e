@@ -1,0 +1,71 @@
+{
+  "_id": "1342fb3af8c9a0f6",
+  "_key": "!items!1342fb3af8c9a0f6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Pattern Facilitation Module",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "charisma",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Compulsion"
+    ],
+    "cost": {
+      "formula": "6m, 1wp [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Alchemical has an artificial complex implanted into her brain, attached to a tiny transmitter diode located just above her ear. It emits a subliminal pulse when triggered, tipping popular opinion toward an agenda the Exalt promotes. This Charm functions identically to Taboo Inflicting Diatribe (see Exalted, p. 238) with the following exceptions: It may be used only to encourage the adoption of a new course of action that does not conflict with the group's current Policy. The new agenda remains part of the group's Policy until its leader spends a total of six Loyalty to remove it. Only one Loyalty can be spent in this manner per day.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Charisma Augmentation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "1342fb3af8c9a0f6"
+  },
+  "folder": "b0b1b2b3b4b5f04d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

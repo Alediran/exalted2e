@@ -1,0 +1,84 @@
+{
+  "_id": "47a1e7cbe926e56e",
+  "_key": "!items!47a1e7cbe926e56e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Eagle-Fish Transition Prophecy",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "perception",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Wyld"
+    ],
+    "cost": {
+      "formula": "12m, 2wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Stewards use any means necessary to protect their chosen wards--including the Wyld. Some Lunars learn to read its tides of chaos and narrative nature, as a way to predict future events. Lunars use this to reduce the uncertainty of thaumaturgic astrology. Eagle-Fish Transition Prophecy is a dramatic action that requires one scene. It resembles vision-questing in the Wyld, wandering through the chaos to find a relevant scene, but this Charm aids the Lunar's perceptions and draws the proper clues to him. The player poses a specific question about the future, such as \"Will Lookshy fall if I attack it?\" or \"How can I find the Sidereal Vlan Mors before he finds my lover?\" Questions that are more specific pose higher difficulties to the (Intelligence + Occult) roll the player makes, as do questions with answers that are more complicated. The simplest yes/no questions are difficulty 1, while very specific questions with potentially lengthy answers are as high as difficulty 5 or 6. Some examples follow: Difficulty 1--\"Will my chosen culture flourish?\" \"Do the Arczeckhi attack Nexus before I can gather my pack?\" Difficulty 3--\"Where do I find the secret to the Empress' defeat?\" \"Does civil war break out in the current Realm before the 15th day of Ascending Wood of next year?\" Difficulty 5+--\"How can I recover the lost Lunar Castes?\" \"Where am I in exactly 236 days?\"</p><p>Results play out in a scene that the Lunar observes or experiences. Straightforward answers usually receive straightforward answers: an image of the culture flourishing or the city untouched by war is enough to communicate clearly. Questions that are more difficult reveal scenes that are more complicated, which the character must interact with to find his answer. Some questions have no \"simple\" solutions, and the scenes they reveal may be improbable, incomprehensible or far from immediately clear or useful. This Charm has some consequences. Failing to meet the difficulty by two successes or more produces a flawed scene that the character does not realize is incorrect. Botching the roll gives the character a vision of whatever answer he most fears.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "intelligence",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "47a1e7cbe926e56e"
+  },
+  "folder": "fa2edda343cdd2b0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

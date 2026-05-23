@@ -1,0 +1,55 @@
+{
+  "_id": "eb1de9800f4dbee2",
+  "_key": "!items!eb1de9800f4dbee2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Extruded Stomach Feeding",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "cup",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The raksha temporarily enacts a change in her own sense of self in order to elevate a Minor Grace to the position of feeding Grace. By this method, the raksha can feed on a Virtue that is not ordinarily her preference. This Charm functions exactly like Ravishing the Created Form except that the raksha can feed using any Grace. Glamour Resistance: This Charm is a work of glamour. The raksha who uses it cannot feed from creatures whose (targeted Virtue + Essence) exceeds the raksha's Willpower. Additionally, any attempt to drain the Virtues of an Exalt below the minimum imposed by the Great Curse automatically fails.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "eb1de9800f4dbee2"
+  },
+  "folder": "d5d33b95962cd83e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

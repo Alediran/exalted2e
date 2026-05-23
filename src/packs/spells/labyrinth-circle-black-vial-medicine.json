@@ -1,0 +1,37 @@
+{
+  "_id": "e5b512971a3be382",
+  "_key": "!items!e5b512971a3be382",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Black Vial Medicine",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "labyrinth-circle-black-vial-medicine",
+    "tradition": "necromancy",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 24,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Area",
+    "description": "<p>This spell resembles Silent Master's Pollen (p. 33) but manifests instead as a crystal vial containing a starry blackness. When thrown with (Dexterity + [Thrown or Occult]), it bursts open and spills a cloud of stars on all ghosts within 10 yards of that point. The roll to resist Lethe is made at difficulty 2, but successful players then roll the character's Willpower again at difficulty 4 to resist entering Oblivion. Black Vial Medicine frees affected ghosts of bonds from the Iron and Onyx Circles and from Charms of Essence 4 or less. Each ghost that falls into the Void returns one mote to the necromancer as its agony feeds her power.</p>"
+  },
+  "folder": "562235f47f16c453",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

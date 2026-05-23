@@ -1,0 +1,70 @@
+{
+  "_id": "020232a2b976eaed",
+  "_key": "!items!020232a2b976eaed",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Killing Clause Largesse",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When Cecelyne strikes a bargain, doom befalls those who break it. Sometimes, this is insufficient. Upon learning Killing Clause Largesse, the Infernal may optionally increase the price of defaulting whenever she uses Verdant Emptiness Endowment to grant a trait dot. Should the beneficiary fail to carry out the price demanded of him, he does not face botches. Instead, for each botch he would have suffered, the Storyteller chooses one time in which to enhance a physical attack solely targeting him as a Shaping effect. Attacks enhanced this way become unblockable, undodgeable and unsoakable. If an attack does not hit in spite of these advantages, the \"botch\" is not spent and lingers on for another opportunity to slay him. Whenever a warlock attacks someone who has pending \"botches\" hanging over him as a result of her prior use of Verdent Emptiness Endowment, she immediately knows this fact in step 1 and may spend one of the \"botches\" to augment her attack. Deliberately spending a \"botch\" this way uses it up, even if the attack misses. With Essence 4+, any mortal hit by a \"botch\" enhanced attack automatically dies as a Shaping effect before resolving damage. Against victim shielded from this automatic death, damage may still suffice to do the job.</p><p>Cost-Compounding Offering</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5fda4f7800955bae",
+            "charmName": "Verdant Emptiness Endowment",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "020232a2b976eaed"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

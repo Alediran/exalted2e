@@ -1,0 +1,27 @@
+{
+  "_id": "e61a9ae99f016da5",
+  "_key": "!items!e61a9ae99f016da5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Jewel of the Clever Merchant",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDWATER00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "water",
+    "rating": 1,
+    "description": "<p>This silvery-white, many-faceted oval grants a +3 bonus to all Mental or Social rolls involving trade, bargaining, contract negotiations and other business dealing.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

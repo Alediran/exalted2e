@@ -1,0 +1,58 @@
+{
+  "_id": "027a1328a38e32b0",
+  "_key": "!items!027a1328a38e32b0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Abandoned by All Creatures Curse",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "cup",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Glamour (9)",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "3g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The gossamer unleashed by the Fair Folk on unsuspecting mortals transforms into a hailstorm of misery and bad luck. In this manner, the raksha rewrites the part a mortal plays, reducing him in stature from a leading role to a mere bit player. After the raksha interacts with a Creation-born, her player rolls (Manipulation + Larceny) in an opposed roll against the target's (Charisma + Integrity). For each extra success accumulated by the raksha, the target loses one dot in Allies, Followers or Mentor, as chosen by the raksha. A sudden argument causes an ally to storm away from the character. A follower becomes distracted by some urgent business and can no longer attend to the character's needs. The mentor is distracted, preoccupied, kidnapped or otherwise unable to come to the character's aid. This Charm will never actually result in the death of affected allies, followers or mentors, it merely severs their connection to the target character. This Charm lasts for a maximum of one season but will end prematurely if the raksha terminates her Assumption before then. For unshaped raksha, this Charm works as it does for shaped raksha, save that it can be used to sever a relationship only if the affected character and his allies, followers or mentor (as appropriate) are all within the raksha's waypoint. Glamour Resistance: This Charm is a work of glamour. It cannot drive away allies, followers or mentors whose (Wits + Essence) exceeds the raksha's Stealth. Additionally, if the target has a (Wits + Essence) exceeding the raksha's Stealth, the target can use a stunt or Charm to hunt down lost associates and convince them that their anger or preoccupation is an illusion. Any affected allies, followers or mentors whose (Intelligence + Essence) exceeds the raksha's Stealth will realize that their actions were unnaturally influenced. Otherwise, an affected character will simply rationalize his conduct.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "027a1328a38e32b0"
+  },
+  "folder": "d5d33b95962cd83e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

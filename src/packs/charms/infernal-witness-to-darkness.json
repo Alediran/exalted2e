@@ -1,0 +1,55 @@
+{
+  "_id": "984cfad987c93638",
+  "_key": "!items!984cfad987c93638",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Witness To Darkness",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Ebon Dragon sees through darkness lesser than himself. The Infernal can ignore all penalties and sensory impairment associated with darkness in any form, treating pitch black as though illumined by clear noon. Witness to Darkness grants no additional capability to see through other forms of visual impairment such as fog and smoke. This attunement to darkness has a price, as direct sunlight in Creation imposes a -1 internal penalty to all non-reflexive actions. Should the Infernal suffer a Crippling effect that blinds her, she may perfectly ignore the effect as a defense to see clearly. However, for as long as this benefit is used, Primordial Essence leaks from the eye (or socket), making this Charm Obvious. The player defines how the leakage manifests. Finally, the Infernal is unimpressed with the murk of others' guile and adds her Essence rating to her MDVs against Manipulation-based attacks and as bonus successes to recognize or pierce another's deceptions. Her attunement to lies makes it harder to be honest, however, imposing an internal penalty of her Essence rating to any Charisma-based social attack.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "ebonDragon",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "984cfad987c93638"
+  },
+  "folder": "7c2ec8d4b84c1156",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

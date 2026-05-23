@@ -1,0 +1,55 @@
+{
+  "_id": "abb2618ae2c4e55d",
+  "_key": "!items!abb2618ae2c4e55d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "New Martial Arts Charm: World as Weapon Mastery",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Those who wield the world as a weapon are never alone, and as such, cannot be defeated. The attacks of the Sidereal's shadow fingers are now considered to be her unarmed attacks for the purpose of Charms of Throne Shadow style. Chapter Ten � Dreams of the First Age Throne Shadow Extensions</p>",
+    "source": "Scroll of Errata",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "abb2618ae2c4e55d"
+  },
+  "folder": "a1b2c3d4e5f60003",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

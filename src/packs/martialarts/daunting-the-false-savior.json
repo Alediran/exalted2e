@@ -1,0 +1,78 @@
+{
+  "_id": "3c785694a11c7693",
+  "_key": "!items!3c785694a11c7693",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Daunting The False Savior",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneAction",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "motes": 5,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "5m"
+    },
+    "description": "<p>Solars of the Dawn Caste are the greatest of all warriors, capable of feeling the truth of a foe's conviction in the spirit of his attacks. A hand that lies has no strength over the Lawgiver, and only the truest salvos may strike the Solar Hero. A character activating this Charm modifies his opponent's attacks. For one action, all attacks against the Exalt suffer an internal penalty equal to the difference between the Ability being used and the lowest of the attacker's Archery, Martial Arts, Melee and Thrown ratings. Daunting the False Savior must be activated while the character is using a Form-type Charm and may expressly enhance any Form-type Charm the character knows. The Sidereal Exalted employ an identical Charm called Eyes Toward an Ending, whose prerequisite is Throne Shadow Form.</p><p>Sun-Suffusing Slag</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Throne Shadow Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "8e96863f868ad9a4",
+            "charmName": "Solar Hero Form",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "3c785694a11c7693",
+    "grantsMastery": false
+  },
+  "folder": "0489c660869ce271",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

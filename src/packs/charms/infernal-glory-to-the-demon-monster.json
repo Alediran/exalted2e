@@ -1,0 +1,55 @@
+{
+  "_id": "424dfa9fb9dbfd67",
+  "_key": "!items!424dfa9fb9dbfd67",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Glory To The Demon-monster",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Infernal Monster draws power from its limitless anger. Whenever the character has Retribution Will Follow and Infernal Monster Form simultaneously active, the cost to activate all Infernal Monster Style Charms and Infernal-only expansions to the style decreases by one mote (or two motes if the martial artist has Essence 6+ and knows One Hand Fury). This reduction is cumulative with other cost reductions, but it cannot reduce the Essence cost of a Charm activation below zero motes. If magic allows Infernal Monster Form to coexist with another Form-Style Charm, then that style's Charms benefit as if they were Infernal Monster Style Charms.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "ebonDragon",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "424dfa9fb9dbfd67"
+  },
+  "folder": "a1b2c3d4e5f60006",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

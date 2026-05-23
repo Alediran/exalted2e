@@ -1,0 +1,64 @@
+{
+  "_id": "2c4327e3501761d4",
+  "_key": "!items!2c4327e3501761d4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Enshrined Divinity Apparatus",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "stamina",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 3,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Internal"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm takes the form of a miniscule brass and orichalcum tabernacle housed in the Alchemical's stomach. His digestive processes serve as sacrificial offerings to the multitude of microscopic mechanical gods that live in this tiny shrine. The doors of the shrine open when this Charm is active, sending tiny divinities scurrying throughout the Champion's body. The Alchemical is immune to new Sickness effects while enjoying the benefits of this Charm and suffers no ill effect from any Sickness he might currently harbor. Additionally, he adds three automatic successes to all attempts to overcome illnesses afflicting him. The bonus also applies to anyone's efforts to treat his illnesses.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "statusApply": {
+      "enabled": true,
+      "status": "Sickness",
+      "resistPool": "@sta + @resistance",
+      "onFail": "applySickness"
+    },
+    "charmUid": "2c4327e3501761d4"
+  },
+  "folder": "b0b1b2b3b4b5f053",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

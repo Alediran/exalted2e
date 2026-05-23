@@ -1,0 +1,57 @@
+{
+  "_id": "265b5ab9ab263ed2",
+  "_key": "!items!265b5ab9ab263ed2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Muscle-without-bone Relaxation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m per die",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Enormous constrictor snakes, all too common in the humid Southeastern Threshold, have such flexible skeletons that they can crush their prey with every ounce of their strength. The giant creature of the jungle can use a different method: It simply falls on its victims. Martial artists using this technique can purchase additional dice of crushing damage in a clinch. Each die costs one mote, up to a maximum of the Exalt's Strength plus extra successes on the clinch attack or opposed grapple check. For every two levels of damage inflicted by the attack past the target's soak, the Exalt regains one mote spent on the Charm, to a maximum amount equal to her Martial Arts.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Terrible Ascent-driven Beast Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "265b5ab9ab263ed2"
+  },
+  "folder": "5ce01017f4c92c09",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

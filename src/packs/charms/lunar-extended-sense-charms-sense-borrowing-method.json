@@ -1,0 +1,71 @@
+{
+  "_id": "ed8587ab4d847da8",
+  "_key": "!items!ed8587ab4d847da8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sense-Borrowing Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "perception",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Lunar Exalted can tap other creatures for their senses. This Charm requires the character to touch his target. Against animals with ordinary, animal intelligence and Essence 1, the Charm succeeds automatically. Against other targets, the character's player rolls (Perception + Occult + Essence) at a difficulty of (the target's Intelligence + Essence). On a success, the Lunar acquires access to all of his target's perceptions. Attunement to or relinquishment of the target's sense requires a dramatic action of one minute. While tapping the target's senses, the character shares his target's every sensation: sight, hearing, touch, taste and smell. He depends on his target's Awareness or Perception actions for the volume of information--that is, the target's player rolls to determine what scents or sounds she picks up--but effects that provide automatic successes add to the target's roll to determine what the Lunar notices. The character remains slightly aware of his own perceptions while experiencing those of his target. The Lunar may take actions at a -3 external penalty. Strong interruptions, such as violent shaking or taking any amount of damage, shock the Lunar directly back to his body, where he suffers a -1 external penalty to all actions for the next five actions. As long as the Essence for this Charm remains committed, the character may borrow the target's perceptions at any time. The character can affect multiple targets simultaneously as long as he commits the Essence for each of them. Subjects of this Charm usually do not know they are \"ridden\" in this way, and detecting this Charm is a difficulty 3 (Perception + Awareness) roll even for characters who can see Essence flows. Sense-Borrowing Method does not allow a character to control his targets' actions or where they focus their senses. The Lunar must use other Charms for such effects.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "ed8587ab4d847da8"
+  },
+  "folder": "fa2edda343cdd2b0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

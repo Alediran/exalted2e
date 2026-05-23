@@ -1,0 +1,55 @@
+{
+  "_id": "240cff061190f6a3",
+  "_key": "!items!240cff061190f6a3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Slave-spawn Summons",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "20+m Target: One First Circle demon",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When the Yozis require the services of an inferior slave to attend them, they reach out across the infinitudes of existence and drag the creature through the folds of Elsewhere, teleporting it to attend them. This spell has the same cost and overall effects as the spell Demon of the First Circle (see Exalted, pp. 252-253) but does not require a lengthy ritual and may be accomplished in the span of a normal Emerald Circle casting. Only sorcerers initiated via Infernal Charms may learn this spell. The laws of fate and the warding power of the Unconquered Sun normally block this spell from working in Creation, Yu-Shan or any other realms where the Loom holds sway. However, a single crack opens at sunset each day through which a sorcerer can cast this spell. The spell functions in shadowlands as in Creation but does not work in the Underworld at all. As the Neverborn know too well, Primordials may scream for help or bellow orders in the barren darkness until the end of days and never be heard. Demons bound by another casting of Slave-Spawn Summons may be stolen away and their existing bindings traded for new enslavement to the sorcerer. The current master feels the attempt and may resist, requiring the usurping sorcerer to overcome the owner in opposed rolls as though attempting to bind the demon. Neither sorcerer may spend Essence on this contest, and stealing a demon does not remove the need for a second struggle to bind it when it arrives. Demons bound by this spell may be stolen with Demon of the First Circle using this same system, save that the Exalted thief may spend Essence to lower the current master's dice pool as if he were the demon being summoned. When this spell successfully binds a demon, the creature instantly develops an Intimacy toward the caster with a context of terrified awe or reverence as desired, which cannot be weakened during the period of binding. When this spell fails to bind demons, most flee the sorcerer rather than attacking him for fear of reprisal under Cecelyne's law. Only the stupidest, maddest or strangest demons dare attack, but the hordes of Malfeas hold no shortage of such monsters. The binding imposed by this spell is fully compatible with Abscissic binding rules (see The Books of Sorcery, Vol. V--The Roll of Glorious Divinity II, pp. 31-40). This spell's second circle equivalent is called FiendVassal Conscription. It costs 30+ motes and follows the same rules with the following exceptions: The cost to lower the demon's resistance pools is 10 motes. The demon may only be summoned (as a basic Sapphire Circle spell with no ritual) at twilight on the new moon or during Calibration and not at all outside of this time frame. It travels through Elsewhere rather than Cecelyne and arrives at midnight with one Willpower drained by the rigors of its journey. Its Intimacy is based on either respect or hate. The third circle equivalent of this spell is called All-Commanding Oversoul Beckoning. It costs 40 motes and may be cast at sunset on the night of the new moon or any night of Calibration, requiring a ritual lasting until midnight as normal. At that time, the targeted Third Circle demon teleports to the sorcerer's presence as a Blasphemy effect with severity equal to the demon's Essence. This cannot summon an alreadybound demon. The sorcerer cannot bind the will of the summoned demon, though an irresistable Compulsion prevents it from knowingly harming the sorcerer until he attempts to harm it or the first light of dawn strikes Creation. Its MDV is halved against the sorcerer during this period. It will not leave the sorcerer's presence until at least the end of the scene. Once the grace period elapses, the demon may act as it sees fit. Angered demons are unlikely to express their displeasure with the favored champions of the Yozis lethally, but Exalted hardiness leaves significant room for corrective lessons shy of that point. Wise Infernals treat the unquestionable as valued allies rather than conjured lackeys.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "ebonDragon",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "240cff061190f6a3"
+  },
+  "folder": "a1b2c3d4e5f60006",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

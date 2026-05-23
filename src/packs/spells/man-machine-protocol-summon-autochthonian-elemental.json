@@ -1,0 +1,37 @@
+{
+  "_id": "7cb6e7fc7f40db7b",
+  "_key": "!items!7cb6e7fc7f40db7b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Summon Autochthonian Elemental",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "man-machine-protocol-summon-autochthonian-elemental",
+    "tradition": "weaving",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "one month",
+    "target": "Elemental",
+    "description": "<p>This protocol is exactly like the Terrestrial Circle spell Summon Elemental (see Exalted, p. 254), but only the elementals common to Autochthonia--crystal, lightning, metal, oil, smoke and steam--may be summoned with it. For more information on Autochthonian elementals, see pages 64-74. By use of Abscissic binding (The Books of Sorcery, Vol. IV--The Roll of Glorious Divinity I, pp. 79�84), elementals may be bound up to one month.</p>"
+  },
+  "folder": "3b28eb3d74c31f00",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

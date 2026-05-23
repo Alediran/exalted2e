@@ -1,0 +1,37 @@
+{
+  "_id": "d4ff3ad39711172e",
+  "_key": "!items!d4ff3ad39711172e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Soul-Twisting Defilement Radiance",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "solar-circle-soul-twisting-defilement-radiance",
+    "tradition": "sorcery",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 50,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "indefinite (committed)",
+    "target": "Area within (Essence) miles",
+    "description": "<p>The sorcerer begins casting at dawn and chants discordant hymns of praise to the Yozis throughout the day, committing the requisite motes for the full duration. The ritual ends at sunset, when serpentine shadows sparking with green fire strike every being within (Essence) miles. Creatures of darkness regain all spent Willpower from the surge of unholy Essence. Beings who are not creatures of darkness gain the 'creature of darkness' mutation as a Desecration effect and become natives of Malfeas; Essence users may spend one Willpower to resist this Shaping effect. The sorcerer may also inflict one derangement mutation of their choice on all newly-created creatures of darkness. Least gods always resist this effect automatically.</p>"
+  },
+  "folder": "66776f28169b53d7",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

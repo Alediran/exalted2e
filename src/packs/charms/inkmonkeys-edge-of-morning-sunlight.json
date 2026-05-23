@@ -1,0 +1,73 @@
+{
+  "_id": "20cf7c47149ff05d",
+  "_key": "!items!20cf7c47149ff05d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Edge Of Morning Sunlight",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 3,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Crippling",
+      "Holy",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "1m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With a flash from his blade, the Solar sears a burning image into the mind of his enemy. A character who activates this Charm unleashes a glint of perfect light, caught in the motion of his weapon. This Charm creates a ranged Melee attack against a single target up to (Essence x 10) yards away. A flash of light, accompanied by a hollow, glassy pop, stuns the victim. This attack is guaranteed to land; it will strike the target with a threshold of at least zero successes. However, Edge of Morning Sunlight does not inflict health level damage. Instead it blinds and dazes the target, inflicting a -1 internal penalty to the target's combat actions for every health level of damage it would have inflicted.</p><p>This debilitating condition lasts for (Essence x 2) ticks. When placed in a Combo, any attack which includes Edge of Morning Sunlight inflicts no damage. Finally, Edge of Morning Sunlight is not Stackable, and may only be used against the same target once every five actions. If used to target a creature of darkness, the Solar adds his Essence to the attack's accuracy. Corona of Radiance</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1d04e939ae15b231",
+            "charmName": "Iron Raptor Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "20cf7c47149ff05d"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,74 @@
+{
+  "_id": "a1b2c3d4e5f60001",
+  "_key": "!items!a1b2c3d4e5f60001",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wind Full of Knives",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "thrown",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "extraaction",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Mirror",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The radiance of the sun glows around the Lawgiver's weapon as he prepares to throw it. The shining weapon whirls from target to target, cutting them down with Solar fury. This Charm is a magical flurry of up to (Thrown) attacks with no multiple-action penalties, all of which must be aimed at targets within the weapon's range. Because the attacks all use a single Thrown weapon, the flurry ignores the weapon's Rate and has a DV penalty of the highest penalty for any attack.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "mirrorId": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "39902b4620932b68",
+            "charmName": "Triple-Distance Attack Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a1b2c3d4e5f60001",
+    "mergedIds": []
+  },
+  "folder": "a5a30fa2e730ff58",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,58 @@
+{
+  "_id": "bc050d8719dbae5f",
+  "_key": "!items!bc050d8719dbae5f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dark Visionary Defense",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "integrity",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": "Combo-OK, Mirror (Staring at the Sun), Social",
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Filling her heart and mind with the glories of death, the Abyssal becomes briefly inured to the beauty of the world around her. The red lips of a paramour, the divine authority of a shining Exalt--how could such trifles compare to the black majesty of the grave and what lies beyond? Activating this Charm in response to a social attack, the Abyssal becomes immune to any penalties that might be imposed by the attacker's Appearance rating. At Essence 3+ this Charm's duration becomes one action. New Solar Charm: Staring at the Sun. Solars avoid being dazzled by the world around them by contemplating their own magnificence, or that of their divine patron, who is without equal and whose blessing they carry. This Charm is otherwise identical to its Abyssal counterpart. Bright Days Painted Black</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "bc050d8719dbae5f",
+    "mirrorId": "c1d2e3f4a5b60018"
+  },
+  "folder": "b0b1b2b3b4b5f05d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

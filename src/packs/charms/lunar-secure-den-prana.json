@@ -1,0 +1,70 @@
+{
+  "_id": "28c917e9d05631b7",
+  "_key": "!items!28c917e9d05631b7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Secure Den Prana",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "wits",
+    "essence": 4,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 7,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Every animal cares about safety, and often, the Lunar Exalted also desire a touch of security. Activating this Charm, a character steps through an invisible door into a small area of Elsewhere just big enough for her to rest comfortably. The door closes instantly behind her, leaving her safe and sound within her small hole. Inside, the den looks just as the real place the Lunar feels most safe; over a significant number of uses of this Charm, the den may grow colorless and indistinct as Elsewhere becomes her safest location. The Steward may rest there until she ends the Charm, at which point she steps back to the point she left behind. The Elsewhere refuge does not offer a view outside, so the character can only guess when it's safe to leave. For four additional motes per person, the Lunar may bring up to (Essence) companions into her Elsewhere den. The den grows to accommodate them all comfortably. The door cannot be seen by any mundane means, so the character often needs to direct companions through it. The Lunar steps through last, but always on the same tick as when she opened the door. This means that everyone who enters must be within one move action of the Lunar. When the Lunar does not enter alone, uninvited guests may attempt to dash through the door. All characters roll (Dexterity + Athletics) to determine who gets inside in what order. Characters with the lowest results get shut out. Ending Secure Den Prana is equal to the Lunar leaving the den: All inhabitants then leave, and no one may leave until that time.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "be03513d258fe8d5",
+            "charmName": "Many-Pockets Meditation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "28c917e9d05631b7"
+  },
+  "folder": "03a1efbef258d84f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

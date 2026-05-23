@@ -1,0 +1,70 @@
+{
+  "_id": "74c0b458a076bb50",
+  "_key": "!items!74c0b458a076bb50",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fetter The Deathless Beast",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "survival",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "oneDay",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Touch"
+    ],
+    "cost": {
+      "formula": "10m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The ghostly familiars of the Abyssal Exalted make excellent spies in Creation, but their incorporeal state severely limits the tasks they can perform. By touching his familiar and reflexively spending 10 motes, a deathknight can force it into a materialized state for a day. She can return the creature to its natural state with another touch. It is possible to \"touch\" currently incorporeal beings with this Charm by reaching into the space they inhabit. In addition to these effects, an Abyssal with this Charm who lacks a familiar may claim one whenever he kills a natural animal by reflexively paying a number of experience points equal to the number of dots the slain animal would be worth as a familiar. Doing so rips the animal's soul out and binds it to the Abyssal, after which it regenerates within his shadow as normal.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5581ced89e44bd86",
+            "charmName": "Superior Predator Style",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "74c0b458a076bb50"
+  },
+  "folder": "b0b1b2b3b4b5f049",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

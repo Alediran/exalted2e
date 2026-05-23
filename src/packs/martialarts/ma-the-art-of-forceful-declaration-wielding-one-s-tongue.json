@@ -1,0 +1,57 @@
+{
+  "_id": "79906ab6442a2199",
+  "_key": "!items!79906ab6442a2199",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wielding One's Tongue",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "3m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Arguers skilled in Valor know that, to succeed in the debate, one must take up any point one can to turn the discussion to one's advantage, whether that point is integral to the foundation of one's argument or not. Such an attitude can sometimes get a debater into a tough position. Once a martial artist activates this Charm, she may use any weapon with her Martial Arts abilities and her Martial Arts Charms, excluding any Charms with the Touch keyword. Additionally, the character can wield even the heaviest weapon in one hand. The Accuracy and Defense bonuses of the weapon are ignored--the weapon becomes too much an extension of the martial artist.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Forceful Declaration",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "79906ab6442a2199"
+  },
+  "folder": "676ebc2abfe88729",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,74 @@
+{
+  "_id": "752f1af60c3b141d",
+  "_key": "!items!752f1af60c3b141d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sun and Moon Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "presence",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      1
+    ],
+    "keywords": [
+      "Obvious",
+      "Emotion",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm is the result of Solar paranoia in the High First Age. When alone with one another, certain Solars referred to it by an alternate title, \"Lunar-Taming Leash.\" With a touch, the Lawgiver infuses his Essence into the link constructed into his Lunar mate's Exaltation, vastly strengthening it. The Lunar gains the benefits (and drawbacks) of a five-dot rating in the Solar Bond Background. This unnatural mental influence remains in effect until five Willpower is spent at one time to remove it. In the event that a Solar's Lunar mate is not available, he may touch himself and activate the Charm instead. Doing so grants the Solar an infallible sense of the direction in which his mate can be found, even if he has never met the Lunar in question before. If the Lunar is in another realm of existence, the Charm leads the Lawgiver to the nearest point of entry to that realm.</p>",
+    "source": "Glories of the Most High: Unconquered Sun",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "9a4f9b1e7ffa9b69",
+            "charmName": "Presence Essence Flow",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "752f1af60c3b141d"
+  },
+  "folder": "e6b3f42bab7e5717",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "330a9904197052fb",
+  "_key": "!items!330a9904197052fb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Kata-Sculpting Gem",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDWATER00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "water",
+    "rating": 2,
+    "description": "<p>This pearly white disk glows with a faint white light that brightens and dims in time with its bearer's heartbeat. The gem allows a Dragon-Blooded martial artist to focus her Essence so that she can activate any known Celestial-level Form-type Charms without her player having to succeed at a (Dexterity + Martial Arts) roll. Only Terrestrial Exalts with Martial Arts of 3 or more possess the precision needed to use the instinctive knowledge of fighting katas provided by this hearthstone. This stone also reduces the Essence cost to activate all Martial Arts Form-type Charms by 2 motes (minimum of 1); all Exalted can gain this benefit.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

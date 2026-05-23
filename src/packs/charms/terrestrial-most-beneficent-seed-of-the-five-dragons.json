@@ -1,0 +1,70 @@
+{
+  "_id": "f4fbb927c1619042",
+  "_key": "!items!f4fbb927c1619042",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Most Beneficent Seed Of The Five Dragons",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "medicine",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "8m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blooded are each attuned to one of the five elements, but like all living beings, each also contains a piece of all five elements. Having mastered the secrets of life itself, the Dragon-Blood who knows this Charm can cause the seed of any of the five elements to blossom within herself. For the duration of this Charm, the Dragon-Blood can assume the elemental aspect of any element other than the one to which she is normally aligned. The Dragon-Blood's anima power changes to that of the new element, and she will find that she need no longer pay the one-mote surcharge for out-of-aspect Charms for the new aspect, but must pay it for her old aspect. If the Dragon-Blood has mastered an out-of-aspect Glorious Dragon Style, she can still use Charms of that aspect without paying a surcharge, and she cannot change her \"extra\" aspect with this Charm. Only her natural aspect is affected. The character can end the effects of this Charm on any tick during the scene as a reflexive action, but doing so will instantly terminate any benefits gained from the use of the new anima power. Because the Charm lasts for only a scene, it cannot affect which Abilities are considered favored by the character for experience cost or training time purposes. Many elemental Charms have different effects depending on the aspect of the Dragon-Blood who uses them. Some only allow a Dragon-Blood to use the version associated with her normal aspect, while others represent a cluster of five elemental Charms that can all be learned independently. If a Dragon-Blood who deploys Most Beneficent Seed of the Five Dragons has any elemental Charms of the former group, the aspect of those Charms switches to the Exalt's new aspect for the duration of the scene. If the Dragon-Blood has any Charms of the latter group (i.e., Charms that can be learned for any aspect), those Charms are not altered. This Charm is explicitly allowed to be included in Combos along with Charms of other Abilities. PERFORMANCE TALENTED IMPROVISATION Cost: 1m; Mins: Performance 2, Essence 1; Type: Simple</p><p>Keywords: Combo-OK Duration: One scene Prerequisite Charms: Any Performance Excellency There are a vast number of musical instruments in Creation, more than any single Exalt could ever completely master. With this Charm, however, the Dragon-Blood can instantly become proficient (if not more so) at any single musical instrument. For the duration of the scene, the Dragon-Blood can apply his Performance Ability without penalty to any instrument for which he does not possess a specialty. He can also intuitively understand forms of musical notation that are alien to him, such as First Age compositions.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "185770732d23fd46",
+            "charmName": "Jade Crucible Method",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "f4fbb927c1619042"
+  },
+  "folder": "b0b1b2b3b4b5f026",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

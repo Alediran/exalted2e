@@ -1,0 +1,37 @@
+{
+  "_id": "1dd98629c6fea03c",
+  "_key": "!items!1dd98629c6fea03c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Stones Worn Smooth",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "shadowlands-circle-stones-worn-smooth",
+    "tradition": "necromancy",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 18,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "One ghost",
+    "description": "<p>His hand a rigid claw, the necromancer gestures toward a ghost within 15 yards. Unless the ghost's player succeeds in a Willpower roll with a difficulty equal to the caster's Essence, the spirit flies through the air to the caster, where his grasping hand impales her. (Success on the roll ends the spell.) The ghost, now robbed of all vitality, slides from the necromancer's hand, leaving a pale pink heart behind. Turning his claw into a fist, the caster crushes the heart into a black diamond the size of a walnut. The rest of ghost's corpus boils away into a thin layer of dust. The diamond lets the necromancer draw on the Essence of the ghost and the Underworld, acting as a hearthstone of a level equal to the ghost's Essence. It can only replenish Essence, offering no additional powers. After a number of weeks equal to the caster's Essence, the false hearthstone shatters and dissolves, at which time the ghost re-forms or passes on to Lethe or Oblivion as normal. If it is exposed to the light of the Unconquered Sun, the hearthstone breaks and the spell ends.</p>"
+  },
+  "folder": "9a7bd83d0a359e00",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

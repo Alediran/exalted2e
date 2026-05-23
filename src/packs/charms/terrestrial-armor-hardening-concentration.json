@@ -1,0 +1,70 @@
+{
+  "_id": "7f7f90182f67fb3e",
+  "_key": "!items!7f7f90182f67fb3e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Armor-Hardening Concentration",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "war",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m per person",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Exalt focuses, invoking the durability of the Earth as an enchantment on his armor. The degree of benefit is determined by the composition of the armor as described in the following chart, as armor that is more durable to begin with can more easily resist having its nature altered by Essence. The Exalt can also extend this benefit to any ally within a number of yards equal to his (Essence x 3) by paying the same cost for each ally protected. A character can benefit from the application of this Charm only once during a scene, and the Charm ends prematurely if the armor is removed for any reason before the end of the scene.</p><p>Armor Type Non-Magical Armor Magical Armor Jade Armor White Jade Armor</p><p>Soak Bonus 1L/2B 2L/2B 2L/3B 3L/3B</p><p>PHANTOM-WARRIOR HORDE Cost: 2m; Mins: War 2, Essence 2; Type: Reflexive (Step 3) Keywords: Combo-Basic, Elemental, Obvious, War</p><p>Duration: Instant Prerequisite Charms: Enfolded in the Dragon's Wings The wise commander knows that sometimes the appearance of superior numbers is as valuable as actually having enough troops to outnumber the enemy. This Charm allows a Dragon-Blood to fashion illusory troops from her aligned element. The area around the Dragon-Blood appears to be filled with warriors fashioned out of the element to which he is aspected. Although the Charm is Elemental in nature, there is no difference in its effects beyond cosmetics. For example, fire warriors appear to be formed of smoke and embers, while earth warriors appear to be made of dust, and wood warriors of leaves and grass assembled into a roughly humanoid shape. While the phantoms are illusory, they are also quite intimidating, and the player of any enemy of the Dragon-Blood in the area must successfully roll his character's Valor or suffer a -1 penalty on all dice pools through his next action. Mortals must score as many successes on the Valor roll as the Dragon-Blood's Presence, while beings with an Essence higher than 1 need only a single success. The phantom warriors are spread out over an area with a radius equal to the Dragon-Blood's (permanent Essence x 10), and they affect everyone in that area who is not allied with the Dragon-Blood who created them. If the Charm is deployed in mass combat, the opposing force must make an immediate rout check at a -1 penalty. If the roll is successful, the opposing force suffers no other penalty. This is a reflexive Charm that can be used freely without the need for a Combo. However, the Dragon-Blood is limited in using the Charm as follows: The Charm can only be activated on a tick when the Dragon-Blood performs an action. It cannot be activated on the ticks between actions. In Mass Combat, it can be activated on any long tick in which the Dragon-Blood acts. BLAZING COURAGEOUS SWORDSMEN INSPIRATION Cost: Varies; Mins: War 3, Essence 2; Type: Simple</p><p>Keywords: None Duration: One scene Prerequisite Charms: Phantom-Warrior Horde The Dragon-Blooded were fashioned by the five Elemental Dragons to serve as the ultimate troop leaders, and this Charm symbolizes their ancient responsibility of looking after their troops. The Dragon-Blood spends one mote per warrior that she commands, and each soldier gains one additional Bruised health level for the duration of the scene. The maximum number of troops who can be affected by this Charm is equal to the Dragon-Blood's (Essence + War). The participants must all hold hands while the Charm is activated.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e2ad71603a128e7a",
+            "charmName": "Enfolded in the Dragon's Wings",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "7f7f90182f67fb3e"
+  },
+  "folder": "b0b1b2b3b4b5f032",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

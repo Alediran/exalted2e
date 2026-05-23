@@ -1,0 +1,57 @@
+{
+  "_id": "8750a2a603238b89",
+  "_key": "!items!8750a2a603238b89",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Pillar of Marble Stance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1+m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>By letting her Essence flow into the ground, the Exalt anchors herself. So strong is her connection to the earth beneath her, she cannot be moved. For one mote, she may ignore any single, non-magical effect that would incur knockdown, knockback or otherwise move her. If a Charm or other magic inflicts such an effect, the martial artist must spend motes equal to the attacker's Essence, and this Charm does not function if that attacker has a greater permanent Essence than the character.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Jade Mountain Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "8750a2a603238b89"
+  },
+  "folder": "0b2af474919bf89d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

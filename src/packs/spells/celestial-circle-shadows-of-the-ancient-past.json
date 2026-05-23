@@ -1,0 +1,37 @@
+{
+  "_id": "88f3e312125efd09",
+  "_key": "!items!88f3e312125efd09",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shadows of the Ancient Past",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "celestial-circle-shadows-of-the-ancient-past",
+    "tradition": "sorcery",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Area",
+    "description": "<p>Essence remembers. The dragon lines of an area preserve subtle records of every event. The sorcerer using this spell sends shimmering threads of silver-blue Essence into the dragon lines of an area, delving into its past, then resurfacing as a silvery fog that spreads (Essence x 20) yards from the caster. This area does not move thereafter. A scene from the past plays out on this mystic screen as a ghostly overlay on the sorcerer's present surroundings. The sorcerer has a choice. She can specify a time in the past, such as \"50 years ago, third day of Resplendent Earth, four hours after sunrise,\" or she can specify an event that involved a particular object in the area, such as \"When you died,\" (for a skull she unearthed) or \"When your construction was complete\" (for a manse). In the former case, the sorcerer knows when a scene happened, but doesn't know in advance whether she will see something important. In the latter case, the sorcerer can aim for an important event, but doesn't know when it actually happened. Either way, the sorcerer must give some objective definition of a time. The sorcerer is also limited to scenes that occurred at most (Occult x 100) years in the past. If the Wyld passed through an area, however, it shattered the memory of the dragon lines there, and the spell can only view the time after the Wyld receded. Shadows of the Past runs for a number of minutes equal to the sorcerer's Willpower. In this time, the sorcerer or other people can move around the scene to look at details and other angles. By spending another five motes, the sorcerer can freeze the action for one minute to examine something more closely, but doing so does not extend the spell's total duration. The sorcerer can move no faster than a normal Move action. If the sorcerer is attacked, her player must roll just as if the spell were interrupted during the Shape Celestial Circle Sorcery actions. Failure means the spell ends.</p>"
+  },
+  "folder": "dcf06d83a3d0a4be",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "f67d74d96c96dd8c",
+  "_key": "!items!f67d74d96c96dd8c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Rattled Bones of War",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "labyrinth-circle-rattled-bones-of-war",
+    "tradition": "necromancy",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 25,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "permanent",
+    "target": "Summoned warstrider",
+    "description": "<p>Gesticulating like a mad conductor, the character draws forth long-buried bones from the earth around her. The rising bones grow pearlescent, then shine with a faintly greenish light. They lift from the ground and surround the caster in an osseous whirlwind. The winds lift the character from where she stands as the bones lock into place around her to form greaves and cuisse, gauntlet and vambrace, a helm with a visor and cuirass marked with the character's personal sigil, often a stylized version of an Exalt's icon. Finally, the spell forms a warstrider dire lance from the long thighbone of a dead giant or the stiffened spine and tailbone of an enormous creature. When casting the spell, the character gets to choose between either a common or scout warstrider, as defined by the appendix of Wonders of the Lost Age. Cured ligaments serve as her interface with the giant suit of bone armor that surrounds her, and she is attuned and ready to fight as soon as the spell is complete. The warstrider remains for one full hour; the bone-forged siege weapon then loses cohesion and falls apart. The caster may reflexively spend another 12 motes to purchase another hour. Otherwise, she lands safely on the ground surrounded by discarded bones. If the character casts the spell while wearing an attuned hearthstone rated 3 or more, the warstrider can run for a full day without any additional Essence before it falls apart. Hearthstones used in this way no longer provide the character with Essence or other powers for the spell's duration. Note that the fatigue a necromancer almost definitely accrues while piloting the warstrider does not magically dissipate. The character may ease the spell's casting by sacrificing sentient beings in the minutes before shaping the spell. Each sacrifice must be performed with an obsidian knife sanctified to the Abyss. For each point of the victims' permanent Essence, the spell's cost (and commitment) drops by one mote, to a maximum of (caster's Essence x 2). Each purposeful murder adds layers of scarlet, mingled with the darker red of congealed blood, to the warstrider's appearance. It drips bile and bloodied phlegm everywhere it goes. Beyond the disgusting appearance the warstrider derives from the caster's victims, this weapon is identical to the spell when cast without sacrifices. The version of this spell cast using more than two or three sacrifices is often referred to as Walking Gore Titan.</p>"
+  },
+  "folder": "562235f47f16c453",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

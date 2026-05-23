@@ -1,0 +1,70 @@
+{
+  "_id": "a8bdc1528e44fd0d",
+  "_key": "!items!a8bdc1528e44fd0d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Perfect Mirror",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "larceny",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "--(+3m, 1wp)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solar Exalted know the secrets of others' hearts. This Charm involves creating a disguise, and the Solar's player rolls ([Wits or Manipulation] + Larceny) to determine the disguise's quality. This Charm functions as Flawlessly Impenetrable Disguise, save that it has a shorter duration, a higher cost and two additional abilities.</p><p>First, the character can halve or double his apparent Essence-- as seen by creatures capable of perceiving such things--and can appear to possess a mystical trait to the extent that he can emulate its mechanical effects. For example, an Essence 4 character could disguise himself as an Essence 8 god. If that god's hair writhes and the god floats an inch above the ground, the character convincingly models these traits. He does not actually float, however. Second, if the character has sufficient familiarity to disguise himself as someone else and that person's appearance is within the limits of this Charm, the character can perfectly imitate that person. Characters with ordinary senses cannot use Awareness or Investigation to see through this disguise, and even characters with inhuman sensory acuity--such as Lawgivers using All-Encompassing Sorcerer's Sight to spot the disguise Charm or demons recognizing the master to whom they are bound--have a +4 difficulty penalty on the opposed roll to penetrate the disguise. Note that, because ordinary Investigation cannot see through this disguise, the character has all the important distinguishing features of the imitated target--mannerisms, scent, accent and all. He does not know things that only the target can know, however, so he cannot give passwords or issue countersigns. He is flawless at covering up his ignorance when someone attempts to ferret him out, though.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a33cb84cc6a7f695",
+            "charmName": "Flawlessly Impenetrable Disguise",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a8bdc1528e44fd0d"
+  },
+  "folder": "e2cfe49eaa1f7c53",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

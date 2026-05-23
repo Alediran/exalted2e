@@ -1,0 +1,59 @@
+{
+  "_id": "c16bd9d815494c9c",
+  "_key": "!items!c16bd9d815494c9c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Essence-disrupting Infectious Atemi",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Sickness",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "12m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>whence this malady its birth received. The character learns the 25 underlying principles of infection and may apply them in combination to inflict the First or Second Circle illness of his choosing on his opponent. Doing so requires a Martial Arts attack supplemented by this Charm. Characters can develop their own First or Second Circle infections for use with EssenceDisrupting Infectious Atemi. This requires an (Intelligence + Medicine) roll, the difficulty of which equals the Magical Treatment Difficulty for the sickness. Reduce the difficulty of learning by one if another Sidereal Exalt teaches the character how to inflict the disease. Normally, characters practice inflicting new spiritual infections before testing them in battle. Developing diseases extemporaneously imposes a +2 internal difficulty penalty. Doing so also requires Storyteller permission and a separate action from the blow that inflicts the disease.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Citrine Poxes of Contagion Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "c16bd9d815494c9c"
+  },
+  "folder": "9eef66b2ef45a641",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,68 @@
+{
+  "_id": "d1e2f3a4b5c60789",
+  "_key": "!items!d1e2f3a4b5c60789",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Stone Dragon's Skin",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "Until next action",
+    "speed": 0,
+    "dvPenalty": 0,
+    "steps": [
+      "7"
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Leader"
+    ],
+    "cost": {
+      "motes": 2,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "2m"
+    },
+    "description": "<p>Dragons of Earth spend months training their bodies to ignore pain and resist harm. After thousands of punches made into tuns of gravel and many hours spent lying between two massive sheets of rock, they learn to channel their Essence into their skin, hardening it against misfortune.</p><p>The Immaculate adds his Martial Arts rating to his natural lethal and bashing soak until his next action. Furthermore, hardening his skin in this way allows him to also parry weapons with his bare hands.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Earth Dragon Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "d1e2f3a4b5c60789",
+    "grantsMastery": false
+  },
+  "folder": "01757ed433605ac5",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

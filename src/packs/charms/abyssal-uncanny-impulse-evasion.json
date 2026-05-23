@@ -1,0 +1,61 @@
+{
+  "_id": "6eeb2fb4db72bac2",
+  "_key": "!items!6eeb2fb4db72bac2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Uncanny Impulse Evasion",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "dodge",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Mirror (Reflex Sidestep Technique; Exalted, p. 227)"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When faced with an unexpected attack, an Abyssal who knows this Charm can let her supernatural instincts to take over. She moves before she knows why she moves, forestalling the immediacy of her ruin with the inevitability of suffering to come. Tapping into these instincts adds a point of Resonance to the deathknight's total but allows her to defend normally with her Dodge DV or (in a Combo) other Dodgebased defenses.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "6eeb2fb4db72bac2",
+    "mirrorId": "58ca04a8cbcd4825"
+  },
+  "folder": "b0b1b2b3b4b5f038",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

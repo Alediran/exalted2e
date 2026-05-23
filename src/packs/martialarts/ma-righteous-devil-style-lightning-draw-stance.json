@@ -1,0 +1,58 @@
+{
+  "_id": "4106a88b24a9be27",
+  "_key": "!items!4106a88b24a9be27",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Lightning Draw Stance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With this Charm, the martial artist need not have her weapon in hand before Join Battle is rolled to use it. Vibrant bands of crackling Essence coalesce about her forearms, and the Exalt readies her firewand and fires it all in the same action (without suffering the -1 DV penalty normally associated with readying a weapon). Aside from the surprise factor this Charm allows, it also enables the character to attack more quickly, adding one extra automatic success to her Join Battle roll per dot of Essence she has. On successive actions, however, the character must take an action to reload a single-shot firewand after every shot. If the character wants to draw a firedust weapon after combat has begun, the Charm enables her to draw and fire in a single action, without the DV penalty for readying a weapon.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Righteous Devil Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "4106a88b24a9be27"
+  },
+  "folder": "c9f7d573ff8d32af",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

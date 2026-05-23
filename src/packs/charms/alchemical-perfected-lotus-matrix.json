@@ -1,0 +1,55 @@
+{
+  "_id": "63fce5f7266be225",
+  "_key": "!items!63fce5f7266be225",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Perfected Lotus Matrix",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "perception",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "-- [2m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm fits into a circular port at the base of the Alchemical's skull, with 10 memory crystals housed in a wheel at its edges, each painstakingly cut to contain one thousand facets. The device enables the Champion to learn, invent and use martial arts Charms by physically housing an infinite capacity library of martial techniques and transcendent epiphanies. Like a Weaving Engine, this Charm may not be placed in an Array and can't be removed.</p><p>Submodules: Lotus Filament Conduction (One complete Celestial martial arts style, Essence 4, 6xp): This submodule reduces the cost of learning Terrestrial martial arts Charms to seven experience points. Other Exalted have developed similar powers: Lunar Exalted have a Knack called Terrestrial Bloodline Integration (One complete Celestial martial arts style, Wits 3, Essence 4) that sets their prices at six experience points if Martial Arts is Favored, and eight experience points if not. Solars, Abyssals and Green Sun Princes have a trio of hero style extension Charms: Swallowing the Lotus Root, Blood-Soaked Lotus Root and Root of the Brass Lotus. Sidereals have developed a unique stand-alone Sidereal Martial Arts Charm called Perfected Lotus Mastery. These Charms all reduce the cost of Terrestrial Martial Arts Charms to four experience points if Martial Arts is Favored or six if it isn't, reduce training time for Terrestrial styles by half and require Martial Arts 5, Essence 4 and one complete Celestial martial arts style. Solars and Abyssals additionally require Martial Arts Essence Flow, while Green Sun Princes need any variant of So Speaks (Yozi) and Sidereals must know the Fateful Martial Arts Excellency. AUTOCHTHONIAN MARTIAL ARTS In addition to the martial arts styles known in Creation, Alchemicals practice a number of styles created within Autochthonia. Celestial examples include Steel Fang, Hydraulic Tremor, Enlightened Armatures and Plague Rat styles. Some more notable Terrestrial styles are Thrashing Steam Dragon, Stalwart Iron Hero, Thousand-Faceted Warrior, Racing Lightning, Cascade Disruption and Endlessly Turning Wheel. THOUSAND WOUNDS GEAR STYLE This strange Celestial martial art is one of the most widespread in Autochthonia. It is unusual when compared to Creation's fighting styles in that it revolves around the mastery of an advanced magitech weapon, the gyroscopic chakram, and responds poorly to attempts to practice it with less complex tools.</p><p>Formulated over 3,000 years ago, Thousand Wounds Gear style explores the calculating certainty of law and artfully expresses the terrible agony that awaits transgressors. It is renowned for the horrific damage it inflicts, and its practitioners' aptitude for rendering targets helpless before calmly slicing them to pieces. In riot situations, the art is deployed as a tool of shock and awe. In the Reaches, it serves to cripple powerful gremlins as a prelude to their termination. Weapons and Armor: Attacks made with gyroscopic chakrams (see Chapter Six) are treated as unarmed for the purposes of this style's Charms, regardless of whether they are made at close or long range. Standard chakrams and wind-fire wheels may be substituted as alternative form weapons, but forcing the style to harmonize with these primitive tools imposes a one-mote surcharge on all of its Charms. Thousand Wounds Gear Style is fully compatible with armor.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "63fce5f7266be225"
+  },
+  "folder": "b0b1b2b3b4b5f052",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

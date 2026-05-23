@@ -1,0 +1,73 @@
+{
+  "_id": "f834a5a5932b4c2e",
+  "_key": "!items!f834a5a5932b4c2e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Principle-Invoking Onslaught",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Shaping",
+      "Sorcerous"
+    ],
+    "cost": {
+      "formula": "1m (+1wp)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>All of existence is a weapon to the opened mind. This Charm can enhance any direct telekinetic attack using MindHand Manipulation. Instead of exerting damage through projected force, a successful hit allows the Infernal to shape any instant-duration, damaging phenomenon into existence to injure the target, even if the phenomenon is wholly imagined and has no natural counterpart in Creation's patterns. It is theorized that truly fantastic and seemingly impossible attacks refract principles lost to the Three Spheres Cataclysm. The default attack from this Charm is a pulse of disintegrating white fire, but the Infernal can conjure lightning, grinding earth, boiling acid mist, low-frequency screams that split bowels or new colors of light that erase mass. The nature of the effects can alter stunts, but the actual statistics of the attack follow basic telekinetic attack options. Should the attack kill the target, an appropriate Shaping can transmute her corpse to any other matter with a Resources value less than the Infernal's Essence. Thus, a golden fog that turns flesh to gold may leave alloyed statues of gold glistening with tarnished inclusions of emerald brass. Characters immune to Shaping effects can't be hurt by this Charm. This Charm costs one mote and One Willpower to enhance a telekinetic clinch. A grapple augmented this way creates a lingering snare or binding that maintains the clinch using the Exalt's normal traits to do so. Independent Shaping clinches apply successes equal to half their dice pool in lieu of rolling and can only attempt to hold their target immobile.</p><p>If the clinch is broken or dispelled or the creator wishes, the confinement shatters and its prisoner is free to act immediately. A maximum of (Essence) independent clinches may be maintained at one time.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "sheWhoLivesInHerName",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e34e6bd54a2ffc9d",
+            "charmName": "Mind-Hand Manipulation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "f834a5a5932b4c2e"
+  },
+  "folder": "37c208aaa9a4b179",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,61 @@
+{
+  "_id": "18d5c6cc7a65e47b",
+  "_key": "!items!18d5c6cc7a65e47b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Assumption of Dreams and Passion",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Assumption",
+      "Glamour (1)",
+      "Mutation (1)",
+      "ShapedOnly",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "10m, 1g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm permits a shaped raksha to exist in Creation in a humanoid form without the obviously inhuman appearance associated with most Assumption Charms. The raksha's new form is cunningly crafted to invoke in those around him a particular emotion or passion or belief important to the raksha's identity. While wearing this shape, the raksha adds one automatic success to all social rolls where invoking that emotion is useful. For example, a beautiful Luminary who had assumed the aspect of love might gain one automatic success on all rolls to seduce mortals, while a terrible Cataphract who had assumed the aspect of fear might gain an automatic success to intimidation rolls. A raksha could also use this Charm in order to pose as a specific individual, adding one automatic success to all rolls necessary to maintain the imposture. The raksha chooses the emotion or passion or belief when invoking this Charm and cannot change it without entering the Wyld to dispel and then reapply this Charm. If he is willing to pay the cost, however, the raksha may choose to activate more than one version of this Charm simultaneously. For example, he could assume one form based on love and another based on fear and a third that lets him pose as a specific individual such as the madam of a local whorehouse or the Dragon-Blooded satrap of the whole city. Although only one of those forms is physically apparent at a time, the raksha can draw upon the automatic success benefits of all three versions. A raksha cannot, however, add more than one automatic success to a single roll no matter how many concurrent versions of this Charm he has active. Raksha who rely on this Charm to walk in Creation have access to an array of related Charms--the Emotional Influence Charms beginning on page 166--to further improve the quality of their emotional forms. Glamour Resistance: A raksha who bases his form on the Assumption of Dreams and Passion cannot apply his automatic success bonus to social rolls against Creation-born whose (Temperance + Essence) exceeds her Manipulation. Oneiromancy Benefit: Incorporated into an oneiromancy spell, this Charm allows the spell to exist in Creation in some kind of emotionally resonant form, such as a heartshaped locket to represent love or a blood-stained whip to represent fear.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "18d5c6cc7a65e47b"
+  },
+  "folder": "6dbccd37637d2988",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

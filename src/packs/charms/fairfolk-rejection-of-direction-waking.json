@@ -1,0 +1,57 @@
+{
+  "_id": "92af046810bc33dc",
+  "_key": "!items!92af046810bc33dc",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Rejection of Direction (Waking)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Echo"
+    ],
+    "cost": {
+      "formula": "--(1g)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Fair Folk do not allow themselves to be encumbered by the world as they pass through it. The character may spend one gossamer to erase all of her memories of a specific journey or route. If she holds an Intimacy toward that journey or route, it is instantly erased. A token of the forgotten journey or route appears at the raksha's feet in a form related to travel--perhaps a map leading to nowhere, a sextant, or an old road-worn boot. Any character who falls asleep while touching the token dreams of the journey or route the raksha has chosen to forget. Should the raksha ever touch the token, it immediately vanishes, the lost memory is restored, and the raksha may never use Rejection of Direction to forget it again.</p>",
+    "source": "Scroll of Errata",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "92af046810bc33dc"
+  },
+  "folder": "719cd5296b990a6b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

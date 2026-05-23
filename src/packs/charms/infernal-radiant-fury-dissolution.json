@@ -1,0 +1,76 @@
+{
+  "_id": "29a46892bc90bc5e",
+  "_key": "!items!29a46892bc90bc5e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Radiant Fury Dissolution",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>By the authority of the deposed King of the Primordials, the Infernal commands the universe itself to sunder a slain enemy into component motes. This Charm permanently im-</p><p>proves Green Sun Nimbus Flare. Whenever a flare's damage is enough to kill a non-Yozi target, the surge of Essence spreads out from the wound like a bonfire doused with oil, growing exponentially brighter and hotter until nothing remains of the victim but glittering ash, a rising cloud of smoke in the shape of a fungal bloom and the victim's silhouette burned into the ground. Spirits can't reform from this demise, while Infernals with Essence 7+ can actually unravel the souls of beings with perfect reincarnation who normally resist permanent destruction, such as Dragon Kings and Jadeborn. However, not even Malfeas can sunder a Celestial Exaltation or permanently slay beings with Yozi-level immortality, such as Deathlords. Anyone who sleeps within 100 yards of a victim's shadow experiences horrific visions of the victim that impose a onedie penalty on rolls to regain Willpower upon waking. This radius contracts by one yard per century that passes until the being's Essence has been scattered to the reaches of eternity. That Malfeas only sentences hated enemies to 10,000 years of suffering shows the upper limits of his magnanimity.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "malfeas",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7f00802e9d652635",
+            "charmName": "Green Sun Nimbus Flare",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "willpowerRecovery": {
+      "enabled": true,
+      "event": "onDamageDealt",
+      "formula": "1"
+    },
+    "charmUid": "29a46892bc90bc5e"
+  },
+  "folder": "1945ba1655ca5f6f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

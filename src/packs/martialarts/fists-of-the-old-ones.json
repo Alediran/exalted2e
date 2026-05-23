@@ -1,0 +1,79 @@
+{
+  "_id": "4587092a71ae1d45",
+  "_key": "!items!4587092a71ae1d45",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fists Of The Old Ones",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Knockback",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "--"
+    },
+    "description": "<p>Those hurled away by the unholy might of an Infernal Monster's blows may count themselves fortunate. It is always possible they will land out of sight and not die, just as it is always possible that the monster will forget about them in favor of new prey. Such are the limits of their hope. Whenever the martial artist hits a target with a fierce blow (see Exalted, p. 158) enhanced with God-Smashing Blow, she may use any type of closed-fist striking technique instead of relying solely upon overhand hammer-fists. The opponent flies back in the direction of the blow, so the attacker may choose any remotely plausible vector. Fists of the Old Ones launches victims (Strength x 5) yards in the chosen direction. Upon landing or striking any barrier in the path of flight, the character suffers falling damage as if he had plummeted straight down by the distance he actually traversed before being interrupted. Unlike conventional falls, victims can't arrest their momentum with a (Wits + Athletics) roll, although they can mitigate damage by tumbling as normal. A successful roll also keeps characters</p><p>blasted back into high barriers from bouncing off and falling again for a third round of damage from the attack. All of the usual effects of God-Smashing Blow go into effect at the victim's final destination point after any bounce. This Charm is subject to the normal limits of falling damage.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "ebonDragon",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Infernal Monster Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6e2bd2825acc62ef",
+            "charmName": "God-Smashing Blow",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "4587092a71ae1d45",
+    "grantsMastery": false
+  },
+  "folder": "ae5a8ed470f7303b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

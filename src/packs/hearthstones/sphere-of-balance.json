@@ -1,0 +1,27 @@
+{
+  "_id": "d0b3d7d336b2e999",
+  "_key": "!items!d0b3d7d336b2e999",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sphere of Balance",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDEARTH00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "earth",
+    "rating": 2,
+    "description": "<p>The bearer of this white-veined, dark-green orb gains superb balance and stability on her feet. Whether walking along a tightrope or dashing along wet ice, her Athletics is treated as 4 greater than it really is for purposes of keeping her balance on unstable footing. If that isn't enough for the character to keep her balance automatically, the (Dexterity + Athletics) roll for her to avoid falling still receives a +2 bonus. So do rolls to resist knockdown. A similar, three-dot hearthstone gives its bearer perfect balance and renders him completely unable to be knocked off his feet, so long as he keeps at least one foot on the ground.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

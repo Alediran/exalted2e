@@ -1,0 +1,58 @@
+{
+  "_id": "09f9009f5063670f",
+  "_key": "!items!09f9009f5063670f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Singular Escape Stratagem",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 6,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Compulsion"
+    ],
+    "cost": {
+      "formula": "12m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>and the birds all fly away, In some situations, danger and death threatens from all sides, and there is only one way to evade them. Princes escape murder by signing away their inheritances, and daughters escape unwanted betrothals by fleeing with their lovers. Sometimes, it's not actually the only way out, but it looks like it at the time. When the character activates this Charm, he launches an assault at his target. His attack seems so perfectly planned that his foe sees only one possible way to avoid its deadly consequences. Activating this Charm, the character's player names an action that his target must take in order to escape his flawless maneuver. The victim instinctively knows what that action is. She knows that performing it on her next action may be the only way to avoid near-certain death. Any single action is valid--attack a certain target, flee, use a certain Combo, whatever--as long as the target can perform it on her next action. If the named action is an unacceptable order for the target (see Exalted, p. 180), like something suicidal, the target may spend a point of Willpower in order not to perform the action and not suffer the Charm's other effects. Naming an action that the target cannot perform is an impossible action, and the Charm then has no effect. Choosing to escape the maneuver means the target uses her next action as the martial artist's player dictated upon activating the Charm. The target of this Charm does not necessarily perform the action cleanly and willingly. Instead, by accepting the attack's escape, the target acts in some way that makes her next action equivalent to the declared action. Even knowing that not performing the action could mean death, the target may choose not to take the \"escape.\" Refusing the escape forces her to suffer the final effect of this Charm. A target who does not perform the required action leaves herself completely vulnerable to the character's planned attack, which he takes on the action following his target's choice and may not be part of a flurry. The martial artist may choose to perform another action, aborting the Charm. The target cannot use any defense against the attack. The Sidereal can use any Martial Arts-based attack available to him, but it becomes a perfect attack that bypasses even perfect defenses (normally impossible--but the target was already offered a perfect defense and turned it down). Example: The Sidereal Paan Uttara's exploration of the deathly city of Stygia has gone very wrong. His Abyssal foe, Augur of Sorrow's End, now fights him above the Mouth of Oblivion. Paan recognizes that Augur's mighty soulsteel shield protects him too well and that unless the Sidereal can eliminate that advantage, Augur will kill him. Using Singular Escape Stratagem, Paan maneuvers himself and Augur into the necessary position, and Paan's player declares that Augur must throw the shield into the Mouth of Oblivion. The key moment in that maneuvering comes on Augur's next action, when he chooses to throw the shield away. Had Augur decided to keep his shield, Paan's next action would have been quite painful for his target. Descriptively, Augur of Sorrow's End becomes aware of the threat. Seeing the only way to escape Paan Uttara's closing trap, Augur unstraps his great shield and swings it at Paan like a huge door. At that moment, Paan needs only a small tap to send the shield spinning into the Void. It sounds much cooler than saying, \"I throw the shield away,\" even though that is the equivalent action.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Scarlet Patterned Battlefield Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "09f9009f5063670f"
+  },
+  "folder": "8d69b74ca0e132d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

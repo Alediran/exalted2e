@@ -1,0 +1,57 @@
+{
+  "_id": "2bcaeb59b551e036",
+  "_key": "!items!2bcaeb59b551e036",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "All-encompassing Discussion",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A wise person knows there are wiser heads than her own. She, therefore, shares her debates with others so that she can come to the correct decision. This Charm allows a martial artist to deflect the pointed arguments of her foes to others, weakening their foundation along the way. Against any attack, this defense cuts the attacker's successes in half (round up) before comparing them to the character's DV. A successful parry against that number means the martial artist deflects the attack--with its original number of successes--toward someone in the direction from which the attack came. Successfully dodging against the halved successes allows her to redirect the rest of the assault toward someone in the direction the attack was going. The new target must be within (Essence) yards. Should the character's defense fail, the attack hits her as if the successes had not been halved. Martial artists use this Charm both to break up an attack among friends, making it easier to parry and to bend attacks back at their foe's allies. The deflected attack cannot target the person who launched the attack.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Meditative Discussion",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "2bcaeb59b551e036"
+  },
+  "folder": "1b2f6d78bc952477",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

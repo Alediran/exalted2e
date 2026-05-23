@@ -1,0 +1,70 @@
+{
+  "_id": "3a87b827b1f3b34e",
+  "_key": "!items!3a87b827b1f3b34e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "She Who Lives In Her Name Inevitability Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Yozis exist beyond fate, warping the flow of causality merely through the lightest touch of their cosmic infinitude. Whenever an Infernal activates the appropriate First She Who Lives In Her Name Excellency to improve a rolled action, she may pay an additional Willpower to lower the enhanced action's target number to 6. This benefit is not cumulative with other effects that reduce target number. The Shaping effect of this Charm warps reality as a whole rather than any individual target; the improved Excellency use does not itself become a Shaping effect. Infernals with Essence 7+ no longer need to spend Willpower to benefit from this Charm; such characters automatically drop the target number of rolled actions to 6 whenever they use the appropriate First She Who Lives In Her Name Excellency. EFFORTLESS She Who Lives In Her Name DOMINANCE</p>",
+    "source": "MoP: Infernals",
+    "yoziPatron": "sheWhoLivesInHerName",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Appropriate First She Who Lives In Her Name Excellency",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "3a87b827b1f3b34e"
+  },
+  "folder": "37c208aaa9a4b179",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

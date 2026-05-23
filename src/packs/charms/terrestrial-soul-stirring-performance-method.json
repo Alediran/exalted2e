@@ -1,0 +1,73 @@
+{
+  "_id": "6e517a451f3d56a2",
+  "_key": "!items!6e517a451f3d56a2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Soul-Stirring Performance Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "performance",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Compulsion",
+      "Emotion",
+      "Social"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A Dragon-Blooded performer can invoke a powerful response in her audience, one capable of creating a degree of emotional control or even of inflicting a compulsion on the audience. There is virtually no limitation on the degree of emotional control that the Dragon-Blooded can exert over an audience with this Charm other than the fact that individuals cannot be overwhelmed with suicidal despair. A compulsion inflicted on the audience can be anything from \"only buy goods from House V'neef\" to \"burn down this building.\" The Charm cannot induce any single audience member to violate a Motivation or breach an Intimacy, however, nor can it motivate the audience to do anything particularly dangerous other than to simply riot. Triggering a riot is not something one does lightly, though, as the Dragon-Blood using this Charm has no control over the audience once the riot breaks out. Beyond these limitations, normal mortals are virtually powerless to resist the effect, but any heroic mortal in the audience might be able to resist if his MDV exceeds the Dragon-Blood's successes on a (Manipulation + Performance) roll. Exalted and spirits are immune to this Charm. The Dragon-Blood's player must roll (Charisma + Performance), and the difficulty is determined by the number of people in the audience--a single success is sufficient to affect a small crowd of only a few dozen, while three successes give influence over hundreds and five successes can reach thousands. The character can deliberately set out to affect only part of the audience (such as turning the poor people in the cheap seats against the patricians in the boxes), but this selectivity must be declared before the roll is made. The medium of the performance can be almost anything and does not even require the Dragon-Blood to verbally communicate with the audience. Plays,</p><p>sanxian recitals, ballets or poetry readings are all equally as capable of influencing the audience's collective mood. If the roll is successful, the Dragon-Blood can either inspire a deep-seated emotion in the audience or invoke a minor compulsion.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "6e517a451f3d56a2"
+  },
+  "folder": "b0b1b2b3b4b5f029",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

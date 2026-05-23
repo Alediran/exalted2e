@@ -1,0 +1,83 @@
+{
+  "_id": "992f2aae9040b1b5",
+  "_key": "!items!992f2aae9040b1b5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Meditation Upon the Horn",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      9
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Counterattack",
+      "Emotion"
+    ],
+    "cost": {
+      "motes": 3,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "3m"
+    },
+    "description": "<p>When the Unconquered Sun winds his horn, the unrighteous tremble, feeling their feeble pretensions of strength drain away. This Charm may be invoked in response to an attack, whether it actually strikes the martial artist or not. Stepping forward, he unleashes a powerful and fearful kiai that disrupts his opponent's Essence. The martial artist's player rolls (Charisma + Martial Arts) with a number of bonus successes equal to his Essence and compares it to his attacker's Dodge MDV. Should the total successes exceed that MDV, the target is filled with soul-deep terror. This unnatural mental influence costs three Willpower to resist. If not resisted, the target's DV does not replenish itself upon his next action (though other effects dependent upon his DV refreshing, such as being able to use a new Charm selection, still occur).</p>",
+    "source": "Glories of the Most High: Unconquered Sun",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Arms of the Unconquered Sun Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5a902f4807167e77",
+            "charmName": "Shining Sun Form",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "992f2aae9040b1b5",
+    "grantsMastery": false
+  },
+  "folder": "60c07b8667afdccd",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

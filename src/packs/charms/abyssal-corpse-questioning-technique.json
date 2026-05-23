@@ -1,0 +1,82 @@
+{
+  "_id": "4b95e4453ca0c58c",
+  "_key": "!items!4b95e4453ca0c58c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Corpse Questioning Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "investigation",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "6m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Even after death, some knowledge lingers in the Essence of a corpse. Cadavers imbued with the deathknight's Essence open their mouths and speak in feeble gasps but have no real personality and no further animation. The corpse understands the languages the person knew in life. Corpses cannot lie or hide the truth, but the (former) person's effective Intelligence drops by one for each week after death, to a minimum of 1. Ancient, unearthed skulls can barely comprehend anything more than the simplest yes-or-no questions. Magic that forestalls decay also preserves the corpse's Intelligence, while the best Sijanese embalming stabilizes a corpse at Intelligence 2. A headless corpse offers no impediment to this Charm. In that case, the Abyssal simply eats a handful of the cadaver's flesh or gnaws on a bone for a while. The answer to his question appears in his mind.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "8acf8a8ee08cb825",
+            "charmName": "Soul-Invading Glance",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "10c94a2fecf97cb1",
+            "charmName": "Crime-Unveiling Wickedness",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "4b95e4453ca0c58c"
+  },
+  "folder": "b0b1b2b3b4b5f03a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

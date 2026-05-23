@@ -1,0 +1,70 @@
+{
+  "_id": "fd3e5bd4318cab9e",
+  "_key": "!items!fd3e5bd4318cab9e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Vanishing From Mind's Eye Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "stealth",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>In the night, surrounded by the brooding things of darkness, it is sometimes hard to remember the sun. This Charm allows</p><p>the character to apply Stealth retroactively. The Solar's player rolls ([Wits or Manipulation] + Stealth), adding a number of automatic successes equal to the Exalt's Essence. This stealth veils the character in others' memories. The first time in each day that someone attempts to remember an event involving the character or attempts to recognize the character, that person's player must reflexively roll (Wits + Lore) and achieve more successes than did the Exalt's player. If he fails, the character does not remember or recognize the character--in his memories of past interactions with the character, the character is either a nameless, unremembered figure or simply not present at all.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "526ad6ec0f62c7d6",
+            "charmName": "Mental Invisibility Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "fd3e5bd4318cab9e"
+  },
+  "folder": "07815dca7bd3d3d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

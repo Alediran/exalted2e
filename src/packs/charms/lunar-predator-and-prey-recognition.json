@@ -1,0 +1,57 @@
+{
+  "_id": "a201287ccf90e86e",
+  "_key": "!items!a201287ccf90e86e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Predator And Prey Recognition",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "wits",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Lunar sniffs at the local game trails and looks at her surroundings, then she is master of her domain. On a successful (Wits + Survival) roll, she knows the species that are common in the area, which are good food and which are dangerous, for a region (successes x 10) miles in diameter. Being in Wyld areas, or in areas where foreign animals have been imported, can levy a one- to four-die penalty to the roll. LUNAR HERO STYLE This supernatural martial art comes naturally to the Lunar Exalted. Although it is a complete style, Lunars (and their players) may design custom Charms that bridge off of this style. (See the expansion Charms on pp. 151-152 for examples.) Other Exalted may not.</p><p>Lunar Hero Style is best practiced only with natural weapons. Lunar Exalted often use the claws, teeth, hooves or horns of the Deadly Beastman Transformations with it, but other Exalted rarely have that capability. Practitioners may emulate this with tiger claws, even to the point of being usable with Charms. Because they are not truly part of the warrior, tiger claws (and razor claws) lose their accuracy bonus when used with this style. Practitioners other than Lunars substitute their Martial Arts rating for the Dexterity requirements for this style. This does not extend to any Lunar Charms outside this style: Eclipse and Moonshadow Caste Exalted must still possess the minimum Dexterity requirement to learn Lunar Charms that branch off from this basic tree.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "a201287ccf90e86e"
+  },
+  "folder": "03a1efbef258d84f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

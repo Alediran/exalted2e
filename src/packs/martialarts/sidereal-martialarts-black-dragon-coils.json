@@ -1,0 +1,81 @@
+{
+  "_id": "a3ce2b31b6849444",
+  "_key": "!items!a3ce2b31b6849444",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Black Dragon Coils",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 5,
+      "willpower": 3,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "5m, 3wp"
+    },
+    "description": "<p>and smiling girls. Stepping back from determined opposition, the martial artist swirls with onyx ribbons. Channeling her understanding of the female principle of Essence, she enhances an unarmed parry against any attack she can perceive, even unblockable attacks, rendering the defense it provides perfect. Additionally, the martial artist regains one channel of any Virtue of her choice for every five motes or fraction thereof the opponent spent on the blocked attack. For example, if an opponent spends one to five motes, the martial artist regains one channel. If an opponent spends six to 10 motes, the martial artist regains two channels (one for the first set of five motes, and another for the remainder in the second set of five motes).</p>",
+    "source": "Glories of the Most High: Maidens of Destiny",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Sapphire Veil of Passion Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e64a1b16f3d580bd",
+            "charmName": "Yellow Dragon Flight",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a3ce2b31b6849444",
+    "grantsMastery": false
+  },
+  "folder": "05f82ed74914c6c2",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

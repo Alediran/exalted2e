@@ -1,0 +1,37 @@
+{
+  "_id": "00d642088e89a437",
+  "_key": "!items!00d642088e89a437",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Empathic Wind",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-empathic-wind",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 15,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "instant",
+    "target": "One individual",
+    "description": "<p>The sorcerer imposes an instant's worth of sensory impressions on a passing gust of wind, then bids the gust to deliver those impressions to a compatriot up to (caster's Essence x 50) miles away. Within a minute, the wind reaches its recipient despite any barrier and delivers the experience. The sorcerer's player rolls (Perception + Awareness). Each success allows the character to choose one sense to convey. If the roll scores more than five successes, the Empathic Wind delivers the caster's emotions during that instant as well. The target has full access to these sensory impressions for three seconds, after which he remembers them but no longer experiences them. Reading any long text in the sorcerer's field of vision requires success on a (Wits + Linguistics) roll on the part of the recipient. If the sorcerer is in sufficient pain to suffer wound penalties and wishes to transmit the sense of touch, the recipient also suffers those wound penalties for one action.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

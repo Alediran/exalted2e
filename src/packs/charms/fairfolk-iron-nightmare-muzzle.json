@@ -1,0 +1,59 @@
+{
+  "_id": "f7a4c9e7152cf44c",
+  "_key": "!items!f7a4c9e7152cf44c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Iron Nightmare Muzzle",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "staff",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Glamour",
+      "Mutation",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "5m, 1g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Like a cruel master striking a bowl of rice from his starving worker's hands, this Charm allows the raksha to deprive his enemies of the opportunity to gain sustenance. The raksha can seal over an enemy's feeding Grace with a successful Staffshaping attack. The target need not be within the raksha's immediate vicinity but must be within one waypoint. If the Staff-shaping attack succeeds, it inflicts no damage. Instead, the target must double the Essence cost of all Charms associated with the muzzled Grace until she can reopen it by some means (such as Gaping Virtue Mouth). In addition, a raksha who spends one gossamer in conjunction with an Assumption Charm gains the following innate power while in Creation: Innate Power (Cost: 5m, 1g; Speed: 4) The raksha can fling one point of gossamer at a Creation-born enemy, clogging the target's Essence-gathering organs with a miasma of confused impossibility on a successful hit. In order to do so, the raksha's player must successfully roll (Intelligence + Thrown) against the target's DV. This attack can be dodged, but it is unblockable absent perfect defenses. If the attack is successful, the target doubles all Essence costs for Charms and other magical effects for one scene per extra success on the attack roll. Glamour Resistance: The Staff-shaping attack aspect of this Charm has no Glamour Resistance. By definition, any creature who has consented to receiving a feeding Grace is vulnerable to this Charm. The innate power aspect of the Charm, however, is a work of glamour that cannot affect any Creationborn whose (Occult + Essence) exceeds the raksha's Thrown.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f7a4c9e7152cf44c"
+  },
+  "folder": "3a42d6c2417833d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

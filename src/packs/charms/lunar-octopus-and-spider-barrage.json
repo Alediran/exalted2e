@@ -1,0 +1,71 @@
+{
+  "_id": "a5b0810b677215cc",
+  "_key": "!items!a5b0810b677215cc",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Octopus And Spider Barrage",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "dexterity",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "extraaction",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "6m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Lunar Exalted are talented improvisers, using every method and advantage at hand to survive. This Charm gives a character one attack at her full dice pool for every combat-capable extremity she has. Each limb must actually be used for the attack--a character cannot use a weapon for each attack unless she can use it with each relevant limb. A Lunar in typical human form using this Charm receives four attacks when using this Charm, one for each arm and leg. In her war form, she may receive more attacks due to antlers, tusks or extra sets of limbs.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1314998f9ee7f379",
+            "charmName": "Wasp Sting Blur",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a5b0810b677215cc"
+  },
+  "folder": "6d3aed86fa48b120",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

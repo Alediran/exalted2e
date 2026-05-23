@@ -1,0 +1,60 @@
+{
+  "_id": "ed176b398ef227b3",
+  "_key": "!items!ed176b398ef227b3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Soldier Bee Emulation Extraction",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "wits",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Counterattack",
+      "Obvious",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Steward creates invisible pouches of Elsewhere that he uses in combat. For the Charm's duration, any person who attacks him risks losing his weapon into one of these pockets. Only a body's natural weapons are safe. Any attack the Lunar successfully parries or dodges slips into a pouch, unless he chooses otherwise. Players of characters who successfully strike the Lunar roll (Wits + [relevant Ability]) at a difficulty equal to the Lunar's Wits, unless the Lunar chooses otherwise. Failure indicates that the weapon disappears into Elsewhere. No more weapons disappear than a number equal to the Lunar's Essence. The Charm lasts until the Lunar releases the commitment, at which time the weapons fall to the ground before the people from whom he stole them.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "ed176b398ef227b3"
+  },
+  "folder": "03a1efbef258d84f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "d3f446708d71db3f",
+  "_key": "!items!d3f446708d71db3f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Onyx Countermagic",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "labyrinth-circle-onyx-countermagic",
+    "tradition": "necromancy",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 15,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Caster, or nearby Terrestrial Circle sorcery spell, or nearby Shadowlands or Labyrinth Circle necromancy spell",
+    "description": "<p>This spell functions just like Iron Countermagic (see p. 30), but it also affects Labyrinth Circle necromancy and Terrestrial Circle sorcery.</p>"
+  },
+  "folder": "562235f47f16c453",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

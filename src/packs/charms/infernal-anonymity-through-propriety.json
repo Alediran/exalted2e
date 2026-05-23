@@ -1,0 +1,77 @@
+{
+  "_id": "2039df019c8377ef",
+  "_key": "!items!2039df019c8377ef",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Anonymity Through Propriety",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "cult",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "oneDay",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Compulsion",
+      "Messianic"
+    ],
+    "cost": {
+      "formula": "8m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>It is not the place of inferiors to pry into the lives of the great and powerful. This Charm exerts unnatural mental influence against all characters (including animals) within (Essence x 100) yards who have a Dodge MDV less than the Infernal's (Charisma + Bureaucracy + Cult), compelling them to pay no attention to the Exalt or his affairs unless the Infernal's actions directly interact with or involve the weaker being. By the law of Cecelyne, the Charm cannot compel characters of greater Essence, even if their Dodge MDV is sufficiently low. Affected beings still notice the Infernal with their senses and remember everything they observe about him, though they steadfastly refuse to think about or discuss this obviously powerful, important and likely dangerous figure. Ignoring all uses of this Charm from all characters for one day costs one Willpower. Once a character has spent five consecutive days resisting this Charm, she grows jaded to its effects and does not have to spend Willpower again for another month. Infernals with Essence 4+ may purchase this Charm a second time to expand the radius to (Essence rating) miles.</p><p>Each dot of Essence above 4 allows another purchase, cumulatively multiplying the range by a factor of 10. Thus, with Essence 6, it affects valid targets within 600 miles. At Essence 10, it affects all valid targets in the same realm of existence.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "cecelyne",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0128e16fadac2999",
+            "charmName": "Demonic Primacy of Essence",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "willpowerRecovery": {
+      "enabled": true,
+      "event": "onDamageDealt",
+      "formula": "1"
+    },
+    "charmUid": "2039df019c8377ef"
+  },
+  "folder": "d852ccb3960d271d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

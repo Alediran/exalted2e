@@ -1,0 +1,79 @@
+{
+  "_id": "9af3728cdf7aa2b6",
+  "_key": "!items!9af3728cdf7aa2b6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hellraiser's Instinct",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Native",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 6,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "--(6m)"
+    },
+    "description": "<p>This Charm allows the Lawgiver to deliver an ironic comeuppance to his enemy. Whenever the Solar uses a throw to ram his opponent into scenery, or a Charm which causes such an impact directly (such as Heaven Thunder Hammer), he may pay six motes to trigger this Charm's effects: � When the opponent impacts with a solid surface, the impact causes extreme damage to the structure in question. To determine how much damage is done, use the Lawgiver's ratings to roll a (Dexterity + Martial Arts + Essence) dice attack against the structure in question. Treat this attack as one being enhanced by Sledgehammer Fist Punch (see Exalted, p. 242), doubling the pre-soak damage of the attack. � When the target takes health levels of damage from such an impact, the Exalt's player may choose to defer a number of health levels from the victim and transfer them into the structure his victim has impacted with. Each health level deferred in this way translates to five automatic levels of damage done to the structure in question. If the attack would have been sufficient to kill the opponent, and accrued more than seven successes on the damage roll, the damage done to the structure is automatically sufficient to destroy it. � If the opponent takes any health levels of damage upon impact, he is dazed by the collision and takes a -5 internal penalty as a Crippling effect for one action. This effect applies even if the Lawgiver uses this Charm to reduce the health levels of damage his victim receives to 0. At Essence 4+ this Charm expressly allows the Solar to destroy magical objects or structures, but does not allow him to destroy imperishable objects or structures (such as daiklaves or the Imperial Manse). In addition, victims of this Charm may never be used to destroy magical objects or structures they do not own (see Exalted, p. 238). Therefore, hurling a peasant at his master's manse will only make a mess, rather than destroy the manse. Break Through the World</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Solar Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "49774ab300335229",
+            "charmName": "Sledgehammer Fist Punch",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "9af3728cdf7aa2b6",
+    "grantsMastery": false
+  },
+  "folder": "05bd4dac47a869bd",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

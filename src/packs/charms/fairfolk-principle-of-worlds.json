@@ -1,0 +1,59 @@
+{
+  "_id": "5437322a06d3beef",
+  "_key": "!items!5437322a06d3beef",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Principle of Worlds",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "ring",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "3m, 0g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Having mastered the shaping of things, the raksha now progresses to the crafting of places. This Charm permits a raksha to use a shaping Charm to craft the landscape of an area of the Wyld up to one waypoint in size into a raksha territory. The raksha's player must roll (Intelligence + Craft [Glamour]) as a Ring-shaping action against a waypoint he possesses. The difficulty is determined both by the size of the territory to be created and the degree to which the shaped territory satisfies all the raksha's material needs. While in the Wyld, a raksha territory can theoretically be as big as its creator wishes. When a Creation-born enters the territory, however, and attempts to traverse it through Charms, the territory is conceptually reduced to a maximum diameter of 30 miles, and most territories are much smaller than that. A raksha territory created through this Charm is considered a possession of its creator and can be summoned into Creation through an Evocation Charm. When used to evoke a territory into Creation, however, all Essence and gossamer costs associated with the Evocation Charm are increased by the difficulty originally needed to shape the raksha territory. Evoking a raksha's territory into Creation does not literally rewrite local reality into the territory as it existed in the Wyld. Rather, the evocation changes local reality so that it resembles the milieu of the original territory with only important landmarks of the Wyld literally translated into reality. Affected regions of Creation thus resemble strange amalgamations of reality and raksha territory. A farmer in an affected area might be surprised to discover that everything on his farm was now colored bright pink including the clothes on his back. The farm itself, however, would remain largely unchanged by the evocation... except for the 40-story pink crystal palace that now stands in the farmer's cornfield. Glamour Resistance: When a raksha territory is evoked into Creation, the evocation is considered a work of glamour. Living things within the affected area are always unaffected absent the use of other Charms, and items that are physically in the possession of a Creation-born within the region remain unaffected if the Creation-born's (Integrity + Essence) exceeds the raksha's Craft. Glamour Resistance does not apply to permanent raksha territories, but even then, living beings caught within the transformed area are not personally affected absent the use of other Charms. Difficulty Description Serviceable. The raksha territory is a simple landscape or home--a meadow, a swamp or a small manor house. For Creation-born attempting to traverse it in the Wyld, it has a maximum diameter of one mile. If summoned into Creation, the evocation affects a maximum area of just under 10,000 square yards (about two acres). Only a few simple thematic elements are translated into Creation, enough to turn the skies green, for example. Fine. The raksha territory is large enough for a palace with spacious grounds or a landscape comparable to a small to medium-sized forest. For Creation-born attempting to traverse it in the Wyld, it has a maximum diameter of eight miles. If summoned into Creation, the evocation affects a maximum area of about three square miles. One or two geographic features or landmarks can be translated across wholesale. Several significant thematic elements can be incorporated into the area, enough to give all animals the power of speech, for example. Exceptional. The raksha territory is an enormous place complete with entire towns populated by the raksha lord's servants and playthings. Less developed territories might include a large forest or swamp or a small lake or desert. For Creation-born attempting to traverse it in the Wyld, it has a maximum diameter of 15 miles. If summoned into Creation, the evocation affects a maximum area of about 20 square miles. The area is dominated by bizarre landmarks, disturbing geographic features and impossible weather phenomena (although none are harmful to local Creation-born residents absent other Charms such as Translucent Dream Sheath- ing Technology). Several highly sophisticated thematic elements can be introduced into an affected part of Creation, such as applying a consistent color scheme to all objects in the area or surrounding the Creation-born caught within the territory with all the trappings of some arcane raksha holiday. Perfect. The raksha territory is a small nation with multiple cities that venerate the raksha lord as a god-king. Less developed territories might be the equivalent of Creation's largest forests, seas or deserts. For Creation-born at- tempting to traverse the territory in the Wyld, it has a maximum diameter of 30 miles. It is currently impossible to evoke a perfect raksha territory into Creation, as the Realm Defense Grid's automated systems would swat it down instantly. During the Balorian Crusade, when the Grid was initially inactive, the Fair Folk evoked perfect territories throughout Creation to serve as beachheads for the unshaped raksha who followed. +1 Permanence. The raksha's territory can enter Creation without an Evocation Charm, and it does not provoke Glamour Resistance.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "5437322a06d3beef"
+  },
+  "folder": "e3ab9ab145f6a424",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,71 @@
+{
+  "_id": "fe9802f6ab04f966",
+  "_key": "!items!fe9802f6ab04f966",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Tireless Footfalls Cadence",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "war",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Cooperative"
+    ],
+    "cost": {
+      "formula": "2m per fang",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>From lowly fanglords to the greatest generals, all DragonBlooded officers are gifted at motivating the soldiers under their command into extraordinary feats of endurance. With this cooperative Charm, one or more Dragon-Blooded begin a rhythmic cadence of some kind, such as a fighting song or a call-and-response chant. The affected soldiers find that their packs lighten, their resolve stiffens and their morale improves. As long as the Exalt maintains the Charm, her unit gains a number of automatic successes on fatigue checks equal to her Essence � 2 (minimum 1). Also, the unit's movement rate is doubled. The Charm can be used to affect only infantry units, and a single Dragon-Blood can affect only a number of fangs equal to (her Essence + 2). If multiple Dragon-Blooded activate this Charm together, each participant can affect a number of fangs equal to (his Essence + 2), and the total number of automatic successes gained on fatigue checks is equal to (the combined Essence of</p><p>all participants � 2). The maximum number of participants who can join in a single cooperative use of this Charm is equal to the highest permanent Essence of any participant. The Essence spent is committed for the duration of the Charm, which can last for a number of hours equal to the lowest permanent (Essence + Stamina) total of any participant.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e2ad71603a128e7a",
+            "charmName": "Enfolded in the Dragon's Wings",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "fe9802f6ab04f966"
+  },
+  "folder": "b0b1b2b3b4b5f032",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

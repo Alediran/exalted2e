@@ -1,0 +1,57 @@
+{
+  "_id": "0f8d3066bf19c76a",
+  "_key": "!items!0f8d3066bf19c76a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Cloud of Ebon Devils",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Firewands are prized and powerful weapons, but most flame weapons fire only a single shot. For a Solar with this Charm, however, a firewand becomes a much more efficient and terrible weapon in battle. After the character attacks with her weapon, the player may spend one mote for the character and attempt a reflexive (Wits + Martial Arts) roll, difficulty 2. If the roll succeeds, the character's hands move in a blur, trailing faint clouds of black firedust in the air around her, as she reloads her weapon and brings it to bear before her next action. The Exalt still suffers the -1 DV penalty for reloading. If the roll fails, the character still suffers the penalty but does not load the weapon correctly. A botch means the trails of black firedust ignite around the martial artist's upper torso. An appropriate stunt can also allow another character to target and ignite the \"ebon devils\" surrounding a Righteous Devil. Either way, the igniting firedust inflicts the weapon's base damage to the character, but only if the martial artist fails or botches the reloading roll. If she loads her weapon properly, she does not leave enough firedust floating in the air for an enemy to do her harm.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Righteous Devil Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "0f8d3066bf19c76a"
+  },
+  "folder": "c9f7d573ff8d32af",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

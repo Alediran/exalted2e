@@ -1,0 +1,71 @@
+{
+  "_id": "fcebb9bf0630be9c",
+  "_key": "!items!fcebb9bf0630be9c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Life-Denying Hate",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 4,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Sorcerous"
+    ],
+    "cost": {
+      "formula": "8m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Ebon Dragon does not accept that life is hope. His curses prove otherwise. The character must choose a living being within sensory range that he inflicted damage upon earlier in the scene. Until the scene ends, the target can't heal damage by any means, including effects that convert injuries to less serious types of damage (lethal to bashing, etc.). Whenever a wound would heal and does not, black Essence oozes like tar from it instead, making the curse Obvious. If the Charm is dispelled, the vile secretions combust in a single flare of green fire, inflicting one die of lethal damage that ignores armor but also renders the target immune to further activations of this Charm for the rest of the scene. Charms that build on Life-Denying Hate as a prerequisite with similar effects do not stack the damage burst for being dispelled. Whenever a spirit cursed by this Charm dies, SoulAbsorbing Barrage shunts the spirit into darkness beyond existence unless it perishes exposed to sunlight. Within this oubliette of perfect solitude, the spirit experiences the passage of time and nothing else, forever. From time to time, the Infernal dreams of the exiled spirit's pain, but the exile is functionally annihilated from the perspective of Creation and ceases to be a valid target for effects. Essence 4+ Infernals may purchase this Charm a second time, in which case the curse lasts until dispelled but remains vulnerable to Emerald Circle Countermagic. A third and final purchase at Essence 7+ upgrades the curse to require Sapphire Circle Countermagic for removal.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "ebonDragon",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "eadf94805c960dd0",
+            "charmName": "Life-Blighting Emptiness Attack",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "fcebb9bf0630be9c"
+  },
+  "folder": "7c2ec8d4b84c1156",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

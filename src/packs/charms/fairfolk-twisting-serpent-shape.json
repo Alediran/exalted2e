@@ -1,0 +1,59 @@
+{
+  "_id": "963283f361b80224",
+  "_key": "!items!963283f361b80224",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Twisting Serpent Shape",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "ring",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Echo",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The raksha reaches out his will to envelop his enemy in the crushing grip of pointless custom and choking ennui, wherever she seeks to hide from him. As with Luminous Exhalation, this Charm permits the raksha to make a ranged Ring- or Staff-shaping attack without the need for gossamer. Instead of merely replacing the cost of gossamer, however, this Charm actually lets the raksha unleash a special ranged attack with unique traits. The attack uses the attack pool and Accuracy bonus of the raksha's readied shaping weapon, which must have a range equal to one waypoint or higher. The base damage of this attack is (the raksha's Perception + 10), its range is 10 waypoints, and the attack has a Speed of 4.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "963283f361b80224"
+  },
+  "folder": "e3ab9ab145f6a424",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

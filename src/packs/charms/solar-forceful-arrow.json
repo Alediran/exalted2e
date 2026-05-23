@@ -1,0 +1,78 @@
+{
+  "_id": "59433ddb2c3cea0e",
+  "_key": "!items!59433ddb2c3cea0e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Forceful Arrow",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "archery",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Knockback",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Essence imbues the Lawgiver's arrow with great force. This Charm supplements an Archery-based attack. If the attack hits and rolls even one die of damage, the enemy's player rolls (Stamina + Resistance) against a difficulty of (the attack's post-soak damage dice). On failure, the attack knocks the enemy away from the Exalt a number of yards equal to the Exalt's Essence. Objects do not get a roll, but are instead knocked back automatically if (the raw damage x 50) exceeds the object's weight in pounds.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c750b46c5645aee8",
+            "charmName": "There is No Wind",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "statusApply": {
+      "enabled": true,
+      "status": "knockback",
+      "resistPool": "@sta + @resistance",
+      "onFail": "knockback"
+    },
+    "charmUid": "59433ddb2c3cea0e"
+  },
+  "folder": "e842a3a532908d8d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "8240f0796d4003ac",
+  "_key": "!items!8240f0796d4003ac",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Summon Spirit Boat",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "celestial-circle-summon-spirit-boat",
+    "tradition": "sorcery",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 30,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Summoned ship",
+    "description": "<p>As the sorcerer wades out from the beach, a ship builds itself from the sun's light upon the waves, becoming a sparkling, translucent white bireme under her feet. She may speak the name of any maritime location from where she stands on the deck, and the spirit boat rows her there. The bireme serves tempting repasts to the sorcerer and her guests and can create individual rooms for as many people as it can carry. The sentient boat is clever enough to avoid submerged hazards such as reefs or shoals, and it requires no crew to row or direct it beyond the sorcerer herself. The sorcerer may delegate command to someone else, as long as that person has at least one dot of Sail and has always treated the ship with respect. She may place conditions upon that command, however. (For example, \"Virtuous Lion may command this ship, provided he does not direct it to Lookshy.\") Countermagic does not dispel the bireme, for it is summoned rather than conjured. That means, however it was summoned from somewhere--namely the private boathouse of the Dragon Fakharu, Celestial Censor of the West (see Exalted, p. 302). Fakharu does not mind lending his biremes to sorcerers, but he automatically knows the name, status and current whereabouts of anyone who borrows one of his ships. Should such a person ever offended him, he might express his ire by, for instance, recalling his boat while leaving the passengers 100 miles from land. On the other hand, water spirits recognize the bireme as the Censor's, which ensures nigh-excessive politeness and good behavior on their part. Note also that the ship cannot ferry a sorcerer to a location Fakharu does not know. This limiting factor is almost never relevant, though. Many sorcerers don't even realize it exists. SPIRIT BOAT Speed: 30/60 mph Maneuverability: +4S Endurance: One journey Crew: 1/2 (only the sorcerer) Cargo: One talon of infantry, or equivalent mass and volume Armor: 20L/20B Health Levels: Ux25/Mx10/Cx10/Ix5/D Weapons: None Other Notes: The bireme's hull functions like a First Age hull, so it doesn't take on water like a normal ship.</p>"
+  },
+  "folder": "dcf06d83a3d0a4be",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "aaff04d7dadd04ad",
+  "_key": "!items!aaff04d7dadd04ad",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Stone of Passion",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDFIRE000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "fire",
+    "rating": 1,
+    "description": "<p>This dark-purple teardrop improves the sound and quality of its bearer's voice whenever the bearer speaks about a topic about which he cares deeply. The bearer's player gains one additional die on all Charisma and Manipulation-based rolls that have to do with such topics.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

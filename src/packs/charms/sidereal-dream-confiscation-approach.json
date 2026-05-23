@@ -1,0 +1,78 @@
+{
+  "_id": "a42a6b17d7d9454d",
+  "_key": "!items!a42a6b17d7d9454d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dream Confiscation Approach",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "larceny",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Crippling",
+      "Touch",
+      "Virtue (Temperance)"
+    ],
+    "cost": {
+      "formula": "6m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Essence of dreams is subtler even than fate--too subtle for Sidereals to shape, but not too subtle for them to mangle. The Sidereal attempts the lightest, most surreptitious touch to his victim while her player rolls (Wits + Larceny), against a difficulty equal to the victim's Essence. If the roll succeeds, the Seer slips a net of Essence into her victim--delicate by most standards, but a strangling mesh of cable compared to dreams. The victim can no longer dream while the Sidereal maintains the Essence commitment, and grows listless and distracted. For the Charm's duration, the victim cannot regain Willpower or regenerate his Essence normally. As a dubious benefit, the Fair Folk cannot feed on the victim unless they discern and remove the net of Essence. The dream-crushing net becomes more dangerous when used against the Fair Folk themselves, for they are made of dreams. The Charm inflicts a number of dice of aggravated damage equal to the Sidereal's Essence. When that happens, the Fair Folk victim immediately becomes ravenous as well as a bit mad (well, madder than usual), though not so deranged it will not try to avoid further attacks.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1091304da8c830f7",
+            "charmName": "Name-Pilfering Practice",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "willpowerRecovery": {
+      "enabled": true,
+      "event": "onDamageDealt",
+      "formula": "1"
+    },
+    "charmUid": "a42a6b17d7d9454d"
+  },
+  "folder": "b0b1b2b3b4b5f009",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

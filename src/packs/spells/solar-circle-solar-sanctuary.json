@@ -1,0 +1,37 @@
+{
+  "_id": "332535c4ef922343",
+  "_key": "!items!332535c4ef922343",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Solar Sanctuary",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "solar-circle-solar-sanctuary",
+    "tradition": "sorcery",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 70,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Area",
+    "description": "<p>The caster must create five jeweled orichalcum statues of himself (Resource cost incalculable) and arrange them around the area he wishes to make his sanctuary. On a day when the sun is high in the sky, five people must simultaneously pray to the caster at each statue. The caster himself must cast the spell at the center of the area demarcated by the five statues. With his Cast Sorcery action, shafts of golden light lance upward from the statues, bursting through any obstacle to reach the sky, where they curve downward to converge above the caster. Sunshine lances briefly through the sorcerer, and a faint transparent dome flickers into and out of visibility over the affected area. This area, which may not exceed a radius of (Essence x 1,000) yards, is now the character's sanctuary, almost arbitrarily under his control. The area acquires the following qualities: � All demesnes become aspected to the character's Essence, and a manse of the appropriate level spontaneously grows from the ground to cap each demesne. As per Raise the Puissant Sanctum, the sorcerer can control each manse's appearance and function. The sorcerer is automatically attuned to all manses, whose hearthstones appear immediately in his possession. Manses whose aspects do not change continue to produce the same hearthstones; the Solar dictates new and changed manses' hearthstones. � The sorcerer can reshape the land and structures as if using Wyld-Shaping Technique in the Bordermarches of the Wyld (see Exalted, p. 216). If he actually invokes the Charm, treat the region as Deep Wyld. He cannot create magical things, people or portable wealth. Any changes seem perfectly natural to all mortal inhabitants. � Mortals become susceptible to the sorcerer's will. Reduce the MDVs of all mortals with respect to the sorcerer's will by half as long as they are within the spell's borders. � The sorcerer can be aware of any place within the sanctuary as long as he is also within its boundaries. When outside the sanctuary, he has only a distinct sense of when it is threatened. He is instantly aware when one of the statues is damaged, and which one. � The sorcerer can claim motes of Essence equal to the rating of one of the manses within his sanctuary reflexively, once per action. Doing so disrupts the normal flow of Essence and suppresses the normal activity of its hearthstone for the rest of the day. � By spending one miscellaneous action disappearing and his next action reappearing, the sorcerer may travel almost instantaneously within his sanctuary. � While within the sanctuary, the sorcerer can see through the eyes of any one of the enchanted statues as a reflexive action. Should the character desire, he can create multiple sanctuaries. Sanctuaries that border each other may share one or two statues and, once completed, count as a single sanctuary. The sanctuary lasts as long as the statues all remain intact. Each statue has a bashing and lethal soak and hardness of 20, as well as 400 health levels. It also repairs itself completely when the first rays of dawn strike it. When a statue is destroyed, the sanctuary shatters. The land remains as it has been shaped, as do the demesnes and manses, though the sorcerer is no longer attuned to them.</p>"
+  },
+  "folder": "66776f28169b53d7",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

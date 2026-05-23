@@ -1,0 +1,81 @@
+{
+  "_id": "1f7c6918eb7bf8c1",
+  "_key": "!items!1f7c6918eb7bf8c1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Limb-Shielding Growth",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "stamina",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Gift",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Lunar extrudes a wide, flexible, bony carapace over the back of one of her arms, stretching from shoulder to wrist. This shield provides a +3 DV cover bonus against all attacks without any associated fatigue or mobility penalties, and does not restrict the use of the Lunar's hands. Unexpected attacks bypass this protection. The Lunar may also apply this shield as a costless Step 2 perfect parry without an associated Flaw of Invulnerability, even against unblockable attacks; doing so over-stresses the shield, however, causing it to shatter. A shield which is broken in this manner may not be reactivated for the rest of the scene. At Essence 5+, the Lunar may apply this parry up to three times within the course of a scene before the shield shatters. When the Lunar uses Deadly Beastman Transformation, she may commit two motes to add a shield to her war form. If the shield should shatter, she must wait a scene before she may re-assume the war form to reactivate Limb-Shielding Growth as a Gift. Weapon-Trapping Body Dominion</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "691ba592de0e007b",
+            "charmName": "Armor-Forming Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "dvBonus": {
+      "enabled": true,
+      "dodgeBonus": 3,
+      "parryBonus": 3,
+      "ignoreAllPenalties": false,
+      "ignorePenaltyTypes": []
+    },
+    "charmUid": "1f7c6918eb7bf8c1"
+  },
+  "folder": "b0b1b2b3b4b5f06c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

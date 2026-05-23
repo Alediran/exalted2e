@@ -1,0 +1,37 @@
+{
+  "_id": "a1a5fb035452783e",
+  "_key": "!items!a1a5fb035452783e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Lightning Whip Smites the Water",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-lightning-whip-smites-the-water",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 15,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Conjured whip",
+    "description": "<p>After the sorcerer casts this spell with a sharp, lashing gesture, a copper whip appears in his hand. Cracking the whip dissolves it into a single bolt of redstreaked copper lightning, which the sorcerer can aim at anything within half a mile using his (Perception + Thrown) pool. Attacking structures, such as ships, is difficulty 1; there are no range penalties. The eldritch lightning inflicts (5 + successes) dice of piercing aggravated damage to people or structures. Once it hits, the lightning flares out into a ball of sparks that inflicts three dice of piercing aggravated damage on everyone within five yards of the impact who has a Dodge DV lower than the sorcerer's Essence. The lightning may be dodged normally or parried with a Charm or stunt, but if parried, then the defender automatically suffers the effects of the sparking ball, centered on himself. As air controls water, so earth shapes air. Should a sorcerer use this spell on land, the lightning grounds itself harmlessly. Only the caster may use the whip, and if she doesn't use it before the next dawn, it falls apart into copper dust.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

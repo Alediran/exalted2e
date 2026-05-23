@@ -1,0 +1,70 @@
+{
+  "_id": "ea05900345555264",
+  "_key": "!items!ea05900345555264",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wrath-Stoked Bonfire Soul",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 4,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Infernal feeds the cosmic fires that rage within her. She inflicts up to (Essence) lethal levels of damage with Green Sun Nimbus Flare rather than a flat 2L. This damage is aggravated against gods. If she has Essence 6+, her surges inflict aggravated damage to all targets, though she may still vary the number of levels inflicted with each use. The bodies of victims killed by an augmented flare twist inside out as they burn, leaving jagged bone fragments penetrating like haphazard quills from between ropy masses of viscera and slabs of folded meat hot with boiled gore. The cadavers mummify over time but do not naturally decay. Natural animals will starve to death before they scavenge such remains, and even erymanthoi won't lick the marrow from the refuse. Curiously, starving humans seldom have such qualms and can eat the preserved corpses centuries later if they stumble upon them, but humans were always filthy creatures.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "malfeas",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7f00802e9d652635",
+            "charmName": "Green Sun Nimbus Flare",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "ea05900345555264"
+  },
+  "folder": "1945ba1655ca5f6f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

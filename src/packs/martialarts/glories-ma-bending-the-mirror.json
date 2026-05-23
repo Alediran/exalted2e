@@ -1,0 +1,58 @@
+{
+  "_id": "c63cadf3d4cbd469",
+  "_key": "!items!c63cadf3d4cbd469",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Bending the Mirror",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "oneDay",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Fate",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "14m, 4p",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal inverts his own destiny at the point where his soul and his Exaltation are joined. For the duration of this Charm, the Vizier gains perfect recall of one of his Exaltation's previous incarnations. To invoke this Charm, the character must know the name of the previous life he is attempting to assume. He does not gain access to additional Ability dots or other traits--merely the opportunity to retrieve lost wisdom. While under the effects of this Charm, the Vizier cannot remember his own identity or Motivation, though his Intimacies and personality remain unchanged. When the Charm ends, the character immediately forgets everything he learned from his former incarnation. Writing down important revelations before the Charm's duration elapses is strongly suggested.</p>",
+    "source": "Glories of the Most High: The Maidens of Destiny",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Sapphire Veil of Passion Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "c63cadf3d4cbd469"
+  },
+  "folder": "05f82ed74914c6c2",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

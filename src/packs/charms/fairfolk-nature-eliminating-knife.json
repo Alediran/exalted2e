@@ -1,0 +1,57 @@
+{
+  "_id": "be69f9505e8ba218",
+  "_key": "!items!be69f9505e8ba218",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Nature-eliminating Knife",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "ring",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "None"
+    ],
+    "cost": {
+      "formula": "1wp, 1g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The God-Monster's hunger is relentless, finally turning with greedy claws and smacking lips on the raksha who has invoked it. Activating this Charm utterly destroys one of the raksha's own Graces, no matter where it currently is or who possesses it. As a side effect, this Charm permanently adds the \"Graces of the Wyld\" benefit to the raksha's God-Monster Body. If that benefit is already part of the raksha's GodMonster Body, he adds any other benefit of his choice.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "be69f9505e8ba218"
+  },
+  "folder": "e3ab9ab145f6a424",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

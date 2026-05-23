@@ -1,0 +1,58 @@
+{
+  "_id": "c75bf4805101282c",
+  "_key": "!items!c75bf4805101282c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Patient Questions",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Among the debaters of the Virtues, only the philosophers of Temperance regularly ask questions. They claim it helps reveal their opponents' arguments to them and lets them more properly prepare their defenses. It irks their foes all the more that it seems to work. Focusing on his enemies, a warrior can judge their strengths and weaknesses while they fight. After activating this Charm, he must spend a number of Guard actions equal to the opponent's permanent Essence judging an opponent; the action in which he uses this Charm counts. The Guard actions need not be consecutive. At the end of that period, the Storyteller should tell the player a strength or a weakness of his foe's combat prowess, Charms or tactics. As an alternative to being told a strength or weakness of the opponent, the warrior may add a bonus of one success to his attacks or +1 to his DVs against the target. The total number of bonuses may not exceed the martial artist's Essence. Only the Storyteller's judgment limits how many strengths or weaknesses he may learn. The bonus lasts the rest of the scene. Example: Transcendent Rhetoric, a Solar practitioner of Meditative Discussion, fights Ourous, the Ravening Wolf, a Full Moon Lunar of Essence 3 who has 18 lethal and bashing soak, Hardness 12 and wields a moonsilver daiklave and related Charms. Upon activating Patient Questions and defending himself for three actions, Rhetoric learns the following: His opponent's hide and armor are far too thick to be affected by any light blows Rhetoric might inflict. It would be best either to focus his blows in one strong strike at a time or to pick up a convenient nearby sledge to lend weight to her offensive. If Rhetoric were to activate the Charm again and spend another three actions observing Ourous, he might learn that some of his opponent's most effective Charms require the use of his moonsilver weapons. Removing them, then, would significantly reduce Ourous' combat prowess. As an alternative for either of those, Rhetoric's player might request a bonus success on attack rolls and DVs with respect to Ourous, which would last the rest of the scene.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Meditative Discussion",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "c75bf4805101282c"
+  },
+  "folder": "1b2f6d78bc952477",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

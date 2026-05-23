@@ -1,0 +1,37 @@
+{
+  "_id": "7729bce2d29b89ba",
+  "_key": "!items!7729bce2d29b89ba",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Clockwork Steed",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Appearing as full-scale metal sculptures of various animals large enough for riding, clockwork steeds were chiefly built in the High First Age as works of art rather than practical transportation. Yet those who preferred these vain curiosities over conventional skyships found them serviceable enough and certainly far superior to living mounts. With the tireless stamina of all automata, clockwork horses could run at full gallop for days on end, while clockwork mammoths served as industrial machines for demolition using their reinforced steel tusks or bearing heavy supplies across untold miles without complaint. With the fall of the First Age and the decline of its wonders, the rare clockwork steeds to survive in pristine condition are treasured far more than they ever were in their own day. As the Seventh Legion knows only too well, skyships are hideously expensive to maintain and repair, and many other First Age vehicles no less so. In contrast, clockwork steeds were built to endure and impress audiences across millennia with minimal upkeep, and so, those Exalted wealthy or lucky enough to afford one find them priceless treasures. Clockwork steeds have the statistics of the animals they replicate, with the following modifiers: +2 Strength, +1 Dexterity, +3 Stamina, +5L/+10B armored soak, +3L damage to all attacks, Virtues and Willpower as per automata, twice the usual number of health levels (of each wound penalty category), plus automaton physiology (see pp. 96-97). Typically, they are twice as heavy as their living counterparts, which matters when crossing flimsy bridges and the like but has little impact on most travel. By design, Ride Charms affect these devices normally, though some (such as those that negate fatigue) are largely irrelevant. These machines cannot speak, but they have Intelligence 2 and can understand commands spoken in Old Realm. Because the machines have self-recharging Essence baffles, they do not need continuous infusions of Essence or inset hearthstones to operate, which is perhaps their greatest strength. Once per season, they suffer a level of unsoakable lethal damage, reflecting basic wear and tear of delicate components. Attuning one requires the commitment of a single mote, and only an attuned master (or someone verbally designated by an attuned master) can command the beast. Clockwork horses (and similarly sized steeds) are Artifact 3. Larger or notably more impressive templates such as mammoths, simhata or yeddim raise the cost to Artifact 4, as does a template capable of flight. The largest and deadliest superpredators capable of serving as potent war machines in their own right are Artifact 5, but these mechanized dinosaurs and siaka are all but unheard of.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 3,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

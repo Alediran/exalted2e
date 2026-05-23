@@ -1,0 +1,59 @@
+{
+  "_id": "5247358423f7d132",
+  "_key": "!items!5247358423f7d132",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Essence-forging Art",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "ring",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "3m, 0g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm is the most basic representation of the effortless versatility inherent in Wyld-shaping and allows the raksha to forge a mundane possession. With it, a raksha can instantly create nearly anything he can imagine from pure Essence, subject to the following limitations. First, the object must be a mundane object. It cannot be an artifact, a shaping weapon or a living thing. It cannot be bigger than twice the size of a human being, nor can it cover a large enough area to permit two human-sized creatures to fight without environmental penalties. Once forged, the item is real and permanent within the Wyld but dissolves instantly in Creation absent the use of an Evocation Charm. Creating an object with this Charm requires the raksha's player to roll (Intelligence + Craft [Glamour]) as a Ringshaping action. The difficulty of this roll is determined by the quality of the item to be created. Once evoked into Creation, a mundane possession is real for all purposes except when opposed by Glamour Resistance. Glamour Resistance: As a work of glamour, mundane possessions created with this Charm have no effect on Creation-born whose (Perception + Essence) exceeds the raksha's Intelligence. Against such unaffected beings, armor affords no soak bonus and weapons inflict no damage. Glamour-forged tools still function in such a being's presence, but they confer no benefits when used directly by that Creation-born or when that Creation-born acts against the one who employs a gossamer tool. If the possession is a permanent work of glamour, however, it does not provoke Glamour Resistance. Difficulty Description Serviceable. The item is no better than what could be forged by a mortal in Creation. At the Storyteller's discretion, the raksha might be able to imbue the item with minor super- natural properties, but at the cost of reducing its normal traits. For example, the raksha might be able to fashion a chakram that was very good at ricocheting so that the raksha can strike targets behind cover with a stunt. It would, however, suffer penalties to Accuracy and Damage to balance that quality. Fine. The item is of fine quality. See Exalted, page 365. Exceptional. The item is of exceptional quality. See Exalted, page 365. Perfect. The item is of perfect quality. See Exalted, page 366. +1 Permanence. The raksha's possession can enter Creation without an Evocation Charm and it does not provoke Glamour Resistance.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "5247358423f7d132"
+  },
+  "folder": "e3ab9ab145f6a424",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

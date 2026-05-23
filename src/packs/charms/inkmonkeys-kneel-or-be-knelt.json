@@ -1,0 +1,79 @@
+{
+  "_id": "bd124e360d05071a",
+  "_key": "!items!bd124e360d05071a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Kneel Or Be Knelt",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      9
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Counterattack"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The onetime King of the Primordials will not tolerate those who would stride past without stopping to show respect for his majesty, forcing them to kiss the ground if they will not do so of their own accord. This Charm may be activated whenever another character seeks to pass by the Infernal within (Essence) yards (the target must attempt to pass the Infernal; simply walking up, attacking, and then moving back would not suffice, nor may the Charm be activated if the Infernal is passing another character that is not attempting to bypass him); complementary units are never valid targets for this Charm. The warlock lashes out with a sudden lightning-fast attack in response; a favored method among Slayers is to slam an iron-hard arm into a target's throat, while Malfeas himself buckles the surface of his streets and slams the doors of his buildings into the faces of those who offend him. This is treated as a standard counterattack at full dice pool using a combat ability of the Infernal's choice. Ranged attacks are still limited to striking those who pass within the prohibited radius. Regardless of whether the attack inflicts any damage, a successful hit automatically knocks the target prone. Only one such counterattack may be directed at a single target per action. The Infernal adds three automatic successes to all attacks directed at characters knocked prone by this Charm. At Essence 3+ this Charm gains the Knockback keyword, and the warlock gains the option of knocking opponents back up to (Essence x 2) yards rather than simply knocking them down, if desired. Opponents who strike unyielding surfaces take dice of bashing (or lethal, for sharp surfaces) damage equal to half the number of yards they would have continued to travel if not brought up short, rounded up. Triumph of the Will</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "2052ce893e5b1740",
+            "charmName": "By Pain Reforged",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "statusApply": {
+      "enabled": true,
+      "status": "Knockback",
+      "resistPool": "@sta + @athletics",
+      "onFail": "applyKnockback"
+    },
+    "charmUid": "bd124e360d05071a"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

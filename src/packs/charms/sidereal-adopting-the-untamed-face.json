@@ -1,0 +1,60 @@
+{
+  "_id": "89fe197e69c22339",
+  "_key": "!items!89fe197e69c22339",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Adopting The Untamed Face",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "survival",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "supplemental",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Compulsion",
+      "Social",
+      "Virtue (Compassion)"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A Sidereal braids her own fate with that of the animal she can see and its totemic god. This Charm not only enables the character to communicate with a single animal</p><p>and engage in normal social actions with it, but she can also bind it to serve her goals. Simple communication works automatically. If the successes on a ([Charisma or Manipulation] + Survival) roll equal or exceed the animal's Control Rating (see Exalted, p. 154), the Vizier can impose an unnatural mental influence on the animal. The character can make an animal hostile or friendly to another creature, protect or shun a location or otherwise gain attitudes that would count as an Intimacy in a human being. Any suggestion that goes beyond an animal's normal understanding, however, becomes an unacceptable order. Later experience may break the magical Intimacy--for instance, if a \"new friend\" attacks the animal.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "89fe197e69c22339"
+  },
+  "folder": "b0b1b2b3b4b5f017",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "09a388183fa397bc",
+  "_key": "!items!09a388183fa397bc",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Death-Sense Stone",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDABSSL00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "abyssal",
+    "rating": 3,
+    "description": "<p>This disc of opaque white enables the bearer to sense any deaths that occur within a one mile radius. He knows their precise location and can easily find the location. He can also sense and locate any deaths in this radius that have occurred within the last month and can tell the exact moment of each death. The bearer gains no information about a death other than its location and time.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

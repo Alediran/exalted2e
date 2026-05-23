@@ -1,0 +1,37 @@
+{
+  "_id": "fa33b94fb2de8006",
+  "_key": "!items!fa33b94fb2de8006",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hemisphere of Undersea Respite",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>This artifact allows characters to use the floors of lakes or the ocean as long-term bases of operation, where they can plan attacks, recover from injuries and even assemble their allies. Although they are difficult to replicate in the Age of Sorrows, these items were fortunately quite common during the High First Age and the Shogunate. Details of their appearance differ, but all of these artifacts appear to be large trunks or chests made from black jade. The size of a large human torso, these chests are typically inlaid with silver or coral and are most often covered in inlaid or carved images of sea life. These artifacts contain a single obvious hearthstone setting. The owner must commit four motes of Essence and place a hearthstone of at least level 2 in the setting to open the chest and transform it into a small but comfortable dwelling. The hearthstone provides no benefits beyond powering this artifact. Once activated, hidden panels on the chest open, and the user can unfold the artifact into a domeshaped dwelling of black jade. This dome can be unfolded only underwater, however, and once it is in place, it cannot be moved unless the character first refolds it. It is impossible to remove the hearthstone from this artifact while it is unfolded. This dwelling is 25 feet across, 10 feet high at the center and stands on five retractable jade legs that can each be extended to seven feet in length. The walls all have a soak of 10L/16B, and they require 25 health levels to damage and 50 to destroy. There is an opening on one side of the dome's floor that is six feet in diameter. Powerful enchantments on the dome keep the air inside fresh and pure and prevent water from entering. In addition, a round, low pillar in the center of the dome provides both food and fresh water (even if the artifact is in the open ocean or another body of salt water) sufficient to permanently provide for the needs of up to 10 people. The water comes from a low fountain that can be turned on or off with a touch, and the food consists of small, somewhat fishy, but highly nutritious ovoids that are also dispensed by touching the pillar. The owner can alter the interior of this dwelling as she wishes, including adding any sort of simple furniture or walls. These changes are always relatively gradual and will not endanger anyone inside the artifact, nor can these changes make the artifact any less safe or habitable.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 3,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

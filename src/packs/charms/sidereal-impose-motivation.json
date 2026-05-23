@@ -1,0 +1,60 @@
+{
+  "_id": "e30b4f1bbfe182a3",
+  "_key": "!items!e30b4f1bbfe182a3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Impose Motivation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "presence",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Fate",
+      "Servitude",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>As the Sidereal touches her target's forehead to bless him, a ghostly image of the Sidereal's caste mark appears on the target's left palm. The player then rolls (Charisma + Presence) against the victim's Dodge Mental Defense Value, and adds her Essence in automatic successes. If this roll succeeds, the victim gains the Sidereal's Motivation in addition to his own.</p><p>Both are equally strong and are equally valid for the purposes of social combat and regaining Willpower. This state of dual Motivation lasts for as long as the Sidereal keeps the Essence committed. The victim can spend a point of Willpower to ignore the urges of the Sidereal's Motivation in favor of the victim's own for one day, during which time the Sidereal's Motivation is no longer valid for social combat or regaining Willpower. If the victim pushes the Sidereal's Motivation aside a number of times equal to the Sidereal's Essence, the Charm's effect (and the Essence commitment) ends.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "e30b4f1bbfe182a3"
+  },
+  "folder": "b0b1b2b3b4b5f011",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

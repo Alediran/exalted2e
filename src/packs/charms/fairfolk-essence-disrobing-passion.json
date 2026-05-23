@@ -1,0 +1,61 @@
+{
+  "_id": "d007eafdb2b6bc2a",
+  "_key": "!items!d007eafdb2b6bc2a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Essence-disrobing Passion",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Emotion",
+      "Shaped-Only",
+      "Shaping",
+      "Social"
+    ],
+    "cost": {
+      "formula": "2m, 1g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>successes on the attack as a Shaping effect. Additionally, the target suffers a -1 internal penalty on all actions for the rest of the scene as the emotion the raksha represents overwhelms him. This unnatural mental influence may be resisted by spending two points of Willpower.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "d007eafdb2b6bc2a"
+  },
+  "folder": "6dbccd37637d2988",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

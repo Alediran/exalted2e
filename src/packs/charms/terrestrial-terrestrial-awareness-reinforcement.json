@@ -1,0 +1,71 @@
+{
+  "_id": "a42976d58ec679f8",
+  "_key": "!items!a42976d58ec679f8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Terrestrial Awareness Reinforcement",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "awareness",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "scene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The two greatest strengths of the Dragon-Blooded have always been their superior numbers and their boundless capacity for teamwork. In the First Age, the Terrestrial Exalted were the unit commanders who led troops into battle under the direction of Celestial generals. In the modern era, Dragon-Blooded retain the</p><p>capacity to elevate the mortals around them to greatness, if only temporarily. A Dragon-Blood with this Charm can improve the ratings of his allies in the relevant Ability for brief periods of time, effectively transferring the benefits of the First Excellency to another person for the duration of an entire scene. All allies to be affected must hold hands at the time of the Charm's activation. The Dragon-Blood must spend one mote for every ally to be augmented and one mote for every two dice that are added to each person's rating in the relevant Ability. The maximum number of allies who can have their Ability ratings boosted at one time is equal to the Dragon-Blood's permanent Essence. The Charm has two limitations. First, no ally's Ability rating can be raised above the Ability rating of the Exalt who invokes this Charm. Second, no ally's Ability rating can be increased to more than twice its normal rating. Therefore, the ally must have at least one dot in the Ability for this Charm to affect him at all. The extra Ability dots apply for an entire scene for all purposes. If the augmented Ability affects one of the ally's DV ratings, the relevant DV should be recalculated for the duration of the scene. As is normal for dice-adding Charms, fractional motes left over by pool-size restrictions are lost. AIR ASPECT The Immaculate Texts describe Mela as the eldest of the Immaculate Dragons, Exalting remarkably late in her mortal life. Prior to Exaltation, she was described as a teacher, scholar and tutor to the children of the Solar Exalted. Indeed, it was through her observations of the Anathema's mistreatment of their own children that Mela realized the Solars were completely corrupted. When she Exalted, she used her Dragon-blessed abilities to spy on the parents of her charges prior to the Great Uprising and later to steal away or sabotage many powerful artifacts from the Solars before they could be used against her fellow Dragon-Blooded. Celestial Exalted who recall the Air Aspects of the Primordial War claim that they were bred by the Elemental Dragons to fill two primary roles: sorcerer's apprentice or personal assassin. Those Air Aspects who specialized in Linguistics, Lore and Occult were usually assigned as support staff for Twilight and No Moon Caste sorcerers, while those who excelled at Stealth and Thrown were prized by the Night Caste for their ability to slay targets with perfect discretion.</p>",
+    "source": "MoP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a42976d58ec679f8"
+  },
+  "folder": "b0b1b2b3b4b5f01c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

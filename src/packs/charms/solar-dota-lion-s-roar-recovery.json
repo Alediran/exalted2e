@@ -1,0 +1,58 @@
+{
+  "_id": "8610f55de421b383",
+  "_key": "!items!8610f55de421b383",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Lion's Roar Recovery",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "integrity",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror",
+      "Native"
+    ],
+    "cost": {
+      "formula": "-",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Reality itself bows to the prowess of the Solar Exalted when they act in accordance with the power infusing their Exaltation. All of the Solar's stunts are upgraded by one category (to a maximum of being three-point stunts) when the Lawgiver's actions reinforce her role as a god-king. Specifically, the Solar's actions must involve: ruling over or protecting those less powerful than herself; administrating territory or resources she owns; educating others; spreading either the worship of the Unconquered Sun or herself; or combating creatures of darkness. Successful stunts that are upgraded from two to three points by this Charm are not elligible to draw a point of experience as a reward. Natural three point stunts, rather than being upgraded, add automatic successes rather than dice. If a stunt has already been upgraded due to resonance with the Solar's Motivation, Lion's Roar Recovery provides no benefit.</p>",
+    "source": "Dreams of the First Age and Scroll of Errata",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "8610f55de421b383",
+    "mirrorId": "e06b794aecef0d49"
+  },
+  "folder": "b0a1d89a8f7c4cdb",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "ade6633000bb70ff",
+  "_key": "!items!ade6633000bb70ff",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Abyssal Aegis",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "void-circle-abyssal-aegis",
+    "tradition": "necromancy",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 20,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "one day",
+    "target": "Caster",
+    "description": "<p>The necromancer's aura seems to catch the light and shine... before she peels off that light, wads it into a ball, and consigns it to Oblivion with the Three Unspeakable Words. Until the next sunrise, a halo of shadow and emptiness hangs about the necromancer. The Abyssal Aegis adds the necromancer's permanent Essence to her bashing and lethal soak. More importantly, she becomes immune to magic designed to hurt her specifically because she is aspected with death. Therefore, although a Zenith Caste can still attack her with a blade, his anima power cannot raise his minimum damage. A Blazing Solar Bolt vanishes in a swirl of shadow. Not even Solar Circle sorcery designed to harm creatures of darkness will have the desired effect against the necromancer.</p>"
+  },
+  "folder": "447f6cc1520ba234",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

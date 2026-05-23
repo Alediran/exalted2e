@@ -1,0 +1,71 @@
+{
+  "_id": "d1db83282929215c",
+  "_key": "!items!d1db83282929215c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Lightspeed Body Dynamics",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "dodge",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Native",
+      "Reactor"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The body and soul of the Solar Exalted are as one, transcending all limits in emulation of the light from which they were born. A Lawgiver who has purchased this Charm has perfected his body at the motonic level through a mastery of Dodge techniques, allowing him to accrue ambient motes as a matter of course. Whenever the Solar successfully avoids an attack by applying his Dodge DV, he gains (attacker's Essence</p><p>� 2, round up) motes in step 10. This Charm is subject to the following limitations: � The attack must be made with intent to injure the Lawgiver, and must also be capable of harming him. For example, this Charm would offer no benefit if the character were attacked with a firewand while carrying a hearthstone which rendered him immune to fire. � The Charm offers no benefit if the Solar defends himself with a Charm carrying a Flaw of Invulnerability. � Lightspeed Body Dynamics is incompatible with any other Charm which grants the character motes of Essence. Night's Avenger Lunge</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f38567b7502a0b1d",
+            "charmName": "Shadow Over Water",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "d1db83282929215c"
+  },
+  "folder": "b0b1b2b3b4b5f05c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,63 @@
+{
+  "_id": "a296a300975895d5",
+  "_key": "!items!a296a300975895d5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "(Directional) Mastery Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "stamina",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "6m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Stewards may guard even the farthest, least-hospitable reaches of Creation without discomfort. (Directional) Mastery Technique is actually five Charms. Each Charm defines a category of environmental damage to which the Lunar is immune. The Charms are based upon the five directions: � Center: The character is immune to environmental crippling effects. She takes no damage from avalanches or cave-ins, and being crushed by a ton of rubble is a mere inconvenience. A sandstorm tickles her skin. � East: The character is unaffected by plant-based toxins. Irritating insects avoid her or cannot penetrate her skin, and she never develops annoying rashes. Other creatures that swarm ignore her. Insects that actually damage her subtract three from their dice pools and raw damage values. � North: The character takes no damage from chill or extreme cold. She never catches a chill. Terrible ice storms provide a pleasant massage. She never feels uncomfortably cold, only pleasantly cool.</p><p>� South: The character may walk through natural and magical flames without pain. Fire does not burn her clothing. Extreme heat does not harm her. She never feels uncomfortably hot, only pleasantly warm. In sandstorms, particles do not even get stuck in her clothing. � West: The character is comfortable and can breathe at all depths. Venoms of marine life do not affect her, and she takes no damage from schools of small, dangerous fish or other masses of underwater creatures. These Charms are meant to be complete, protecting the character from all environmental dangers inherent to a given direction. Specific environmental threats not mentioned should fall under one of the five Charms. Some (such as sandstorms) may fall under more than one. When another character deliberately causes or uses environmental effects with intent to harm the Lunar, she is not immune.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "statusApply": {
+      "enabled": true,
+      "status": "Crippling",
+      "resistPool": "@sta + @resistance",
+      "onFail": "applyCrippling"
+    },
+    "charmUid": "a296a300975895d5"
+  },
+  "folder": "956290ccde1dea72",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

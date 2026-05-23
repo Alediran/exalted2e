@@ -1,0 +1,37 @@
+{
+  "_id": "6804af341fa25a93",
+  "_key": "!items!6804af341fa25a93",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Parting of the Seas",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-the-parting-of-the-seas",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 20,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Body of water",
+    "description": "<p>Her arms spread wide and her face held skyward, the sorcerer calls up the behemoth Genai, who appears in his aspect as twin phantom giants. The twins wade into a body of water of the sorcerer's choice and split it in two. Each holds back one wall of water as if it were solid, leaving the ground between them dry. Rivers continue to flow even if Genai seems to block them off--the water mystically flows from one side of the trench to the other without passing through the space in between. This effect does not carry over to things living in the water or boats traversing its surface. The dry trench is a number of yards wide equal to the sorcerer's Essence and up to (Essence x 100) yards long. The giants hold the water back for as long as the sorcerer concentrates: She may travel and converse, but not engage in any strenuous activity such as combat. If the sorcerer wishes, the giants can walk alongside her, parting the water before her and letting it rejoin behind her. In RY 400, Ragara Kyrol, a then-notable Dragon-Blooded sorcerer, crossed the Inland Sea without a vehicle in this manner, using Charms to negate her need for sleep. Two years later, her twin brother and rival Ragara Disagu attempted the same feat, lost concentration halfway and died, crushed below millions of tons of falling water. Anyone caught in the trench when it collapses is subject to damage, ranging from light in the case of a shallow stream to instantly fatal in the case of an ocean. The actual damage inflicted is up to the Storyteller.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

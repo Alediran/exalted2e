@@ -1,0 +1,57 @@
+{
+  "_id": "40b56214b9aeb386",
+  "_key": "!items!40b56214b9aeb386",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Even Blade Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Form-type"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With a narrow glance left, right, then straight ahead, the martial artist extends his blade before him and watches a gleam chase down its edge. His mind calms, and his eyes darken; he is beyond distraction and imprecision. For the rest of the scene, the character cannot be perturbed or confused by anything that would distract him at a crucial moment or disrupt his battle focus, even if it is a magical effect specifically designed for that purpose. Furthermore, due to the martial artist's lightning-swift cuts and supernatural exactitude, his DV refreshes one tick earlier than it should based on his action's Speed. (The effect excludes counterattacks.) The character cannot act again until the proper interval of ticks has elapsed, but his DV refreshes one tick early. Yet, even if he somehow achieves a Speed of 2 or lower, the Even Blade Form can never remove the associated DV penalty for an action on the tick directly after the martial artist performed it. Example: Azure Crane's exquisite, mirror-bright blade has a Speed of 4. She performs a flurry on tick one, her sword moving in a brilliant blur as she slices at her opponent's arm, cuts open his leg and finishes with a casual, insulting flick across his cheek. On ticks two and three, her DV is reduced by three because of the three attacks, but her DV will be back to its original value on tick four, rather than on tick five when she acts again. If she obtained a magic blade of light and air with a Speed of 1, though, she would still take the DV penalty on tick two, even if she attacked again, because that is the tick directly after the tick on which she previously acted. Although the Even Blade Form is intended partly to exalt the sword, it can be used perfectly well without one. If a character begins use of the Form-type Charm while wielding a sword, however, being disarmed or losing his blade instantly deactivates the Charm. The martial artist will have to activate it again (taking six ticks and five motes of Essence) to gain its benefits.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Even Blade Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "40b56214b9aeb386"
+  },
+  "folder": "6ac2f15fc6fdff1c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

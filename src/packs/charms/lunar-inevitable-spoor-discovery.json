@@ -1,0 +1,70 @@
+{
+  "_id": "df263e6801f8a19b",
+  "_key": "!items!df263e6801f8a19b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Inevitable Spoor Discovery",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "perception",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Stewards know their territory better that most people know their bedrooms. The player makes a (Perception + Investigation) roll to detect the scents or Essence residue left behind by everyone who has passed through an area recently. The number of successes on the roll dictates how far back the character detects. One success provides traces from the last 24 hours, and each additional success doubles that number. The vast catalog of information available on a roll with many successes does not overwhelm the Lunar, and the character knows how recently (or within which time-category) each scent visited. These scents lack connection to names or faces unless the Lunar is already familiar with a person. Otherwise, the player receives a reflexive (Perception + Awareness) roll to</p><p>notice the scent of a person identified by this Charm when that person comes nearby. The player makes no more than one such roll per person in a single scene. Characters may target weapons, concubines or other tools to lift the scents of people who have touched them.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "df263e6801f8a19b"
+  },
+  "folder": "fa2edda343cdd2b0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

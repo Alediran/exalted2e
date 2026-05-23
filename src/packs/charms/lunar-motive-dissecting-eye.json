@@ -1,0 +1,71 @@
+{
+  "_id": "9f1228bfd091c823",
+  "_key": "!items!9f1228bfd091c823",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Motive-Dissecting Eye",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "perception",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Fury-OK"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Lunar Exalted have incredible insight into the souls of others. This Charm allows the character's player to roll ([Perception or Intelligence] + Investigation) at difficulty 1. Subtract an external penalty of ([the target's Manipulation + Socialize] � 2). On a success, the character learns one of the following about the target (player's choice): � Motivation � Primary Virtue � A chosen Virtue's value � A previously unknown Intimacy � A current intention, desire or emotion, including intent to attack someone A character may attempt to learn many of these things simply by reading other people (see Exalted, p. 131), but this Charm provides that information more quickly, and often without any evidence on the target's part. When this Charm is activated as a part of Relentless Lunar Fury, the character's heightened awareness makes him aware of all attacks upon him.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "8de14bef07bd834f",
+            "charmName": "Blood-Kin Sense",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "9f1228bfd091c823"
+  },
+  "folder": "fa2edda343cdd2b0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

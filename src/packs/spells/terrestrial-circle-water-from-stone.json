@@ -1,0 +1,37 @@
+{
+  "_id": "b93e6776e886429d",
+  "_key": "!items!b93e6776e886429d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Water From Stone",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-water-from-stone",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 10,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "permanent",
+    "target": "Boulder",
+    "description": "<p>With her clenched fist, the sorcerer strikes a large boulder as hard as she can while shouting the name of Daana'd. Out from the resultant crack pours a stream of pure, cool water. Enough water pours forth to quench the thirst of a military unit of Magnitude equal to half the sorcerer's Essence, rounded up, or an equivalent number of individuals. The duration of the stream depends on the climate of the area. In all cases, the stream lasts for a number of units of time equal to the sorcerer's Essence. It lasts for years in rainforests or marshlands, months in regions of average climate, and mere days in arid regions. In a region of no water at all, however, the full torrent halts within hours, but a thin trickle becomes permanent, enough so that an oasis might form over the course of decades or centuries following the casting. Slowly, the extremes of Creation balance themselves, and sorcerers can help this process along.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

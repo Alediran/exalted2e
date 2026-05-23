@@ -1,0 +1,71 @@
+{
+  "_id": "008aaecaa6494e92",
+  "_key": "!items!008aaecaa6494e92",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Virtue-Discerning Sight",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "investigation",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Social"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Solar Exalted appraise the righteousness of others with a glance. A Lawgiver using this Charm gains the following powers: � Whenever another character the Solar can perceive channels a Virtue or one of her Virtues affects her MDV in social combat, the Lawgiver's player learns the rating of the Virtue in question. � The Lawgiver adds +2 bonus successes to all efforts to read the Motivation of another character, provided he discerned one or more of her Virtue ratings using this Charm earlier in the scene. � Characters suffer an MDV penalty of -4 instead of -2 whenever the Solar makes a social attack exploiting one of their Virtues. This benefit only applies if the Lawgiver discerned the exploited Virtue rating using this Charm earlier in the scene, and only if the social attack has exactly one target. Night Caste Athletics Glorious Temple Body</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a6d882774dcd4fb7",
+            "charmName": "Courtier's Eye Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "008aaecaa6494e92"
+  },
+  "folder": "b0b1b2b3b4b5f05f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

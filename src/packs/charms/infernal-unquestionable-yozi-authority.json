@@ -1,0 +1,70 @@
+{
+  "_id": "6c0a17ffa6d991e7",
+  "_key": "!items!6c0a17ffa6d991e7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unquestionable Yozi Authority",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Compulsion"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Yozis transcend all lesser aspects of themselves. While active, this Charm exerts an unnatural compulsion against demons with a lower Essence rating, preventing them from making any physical attacks that would knowingly target or risk obvious immediate harm to the Infernal, even in self-defense. The compulsion does not deter demons forced to attack by sorcerous binding, however. Demons with an Essence rating one dot lower than the Infernal may overcome this Compulsion for a scene by paying one Willpower, allowing them to attack freely during that time. Demons of lesser Essence can't muster resistance. Hostile demons can work around this Charm to an extent. An area attack that encompasses the Infernal's location is forbidden, since this would cause obvious immediate harm, but attacking a cliff to catch the Infernal in a rockslide is acceptable, since the rockslide is an indirect consequence of the attack that triggered it. Once an Infernal has Essence 6+, the cost to activate this Charm reduces to zero motes, and demons of equal Essence are affected by a resistible compulsion (and those with one dot less can no longer resist). Even demons of equal Essence lose the opportunity to resist once the Infernal has Essence 8+. Repurchasing this Charm at Essence 4+ extends its effects to gods as though they were demons. All the usual loopholes apply, which is how the bravest gods aided the Exalted during the Primordial War.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "cecelyne",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0128e16fadac2999",
+            "charmName": "Demonic Primacy of Essence",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "6c0a17ffa6d991e7"
+  },
+  "folder": "d852ccb3960d271d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

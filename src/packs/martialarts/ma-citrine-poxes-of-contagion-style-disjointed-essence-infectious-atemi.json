@@ -1,0 +1,60 @@
+{
+  "_id": "f877b83755fd1cfd",
+  "_key": "!items!f877b83755fd1cfd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Disjointed Essence Infectious Atemi",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Compulsion",
+      "Sickness",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "12m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>these practices, but with enraged disdain, darts forth such pestilent malignant beams... Throwing off the enemy's guard with jerky, flitting feints, the character closes in and infects a victim's Essence with the spastic, divisive Drunken Moth Sickness, a Second Circle spiritual disease. A victim of this sickness can't entirely control her own behavior. The disease inflicts a general-purpose Compulsion effect specified by the Sidereal--something along the lines of \"embarrass yourself,\" \"protect me\" or \"beat up your family.\" Treat this influence as an unnatural persuasion; the character can spend one Willpower point per action to resist its effects. On each subsequent action, the infected character may either use a simple Charm, use a Combo or spend at least half her non-reflexive actions serving the disease's purpose. (This last assumes that the character is using a flurry, and the \"half\" rounds up. If the character takes just one action, it must serve the compulsion.) Fortunately, the disease forces her to take action only when an obvious way of fulfilling its purpose exists, either without using any Charms or using Charms already active. Otherwise, the character is free to act as she pleases. The Storyteller is the final arbiter of whether an opportunity exists to fulfill the inflicted compulsion. The Drunken Moth Sickness occasionally infects a victim who eats something that contains a bound spirit. Treatment is the same as for the Charm-induced infection. Virulence: (Essence) Incubation: Immediate Diagnosis: 3 Difficulty to Treat (Mundane/Magical): 6/4 Morbidity: 6 Treated Morbidity: 1</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Citrine Poxes of Contagion Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f877b83755fd1cfd"
+  },
+  "folder": "9eef66b2ef45a641",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,72 @@
+{
+  "_id": "9d156a78f71fba1e",
+  "_key": "!items!9d156a78f71fba1e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Glorious Carnage Typhoon",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "war",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Obvious",
+      "War"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Legions fall like scythed grass before the Abyssal's attack. Glorious Carnage Typhoon can enhance any attack against a Magnitude 3+ complementary unit, provided the Abyssal fights as a solo unit. This Charm negates the DV bonus for the target's superior Magnitude and doubles the raw damage of the attack (or triples damage against units arranged in close formation). If the target unit loses Magnitude as a result of the deathknight's attack, all members lost this way die rather than escaping. This effect does not affect the resolution of damage against the unit but prevents remnants from being gathered together as reinforcements by any rally action later in the scene.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "9d156a78f71fba1e"
+  },
+  "folder": "b0b1b2b3b4b5f04b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

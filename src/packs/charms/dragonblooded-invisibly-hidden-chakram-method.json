@@ -1,0 +1,55 @@
+{
+  "_id": "f4e31f8bb2a18d0b",
+  "_key": "!items!f4e31f8bb2a18d0b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Invisibly Hidden Chakram Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "dragonblooded",
+    "ability": "thrown",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Keywords: Combo-OK Duration: Instant Prerequisite Charms: Persistent Hornet Attack The Dragon-Blood can conceal any number of thrown weapons Elsewhere and store them there for later use. Each weapon thus concealed costs 10 Essence and one Willpower. When the Dragon-Blood is ready to attack, he can reflexively summon any or all of them at no additional cost and attack on the same action. Such an attack suffers no penalties to the normal (Dexterity + Thrown) pool, and in fact, the Dragon-Blood remains free to use Charms to aid in the attack. The Dragon-Blood can hide a number of weapons equal to twice his Essence. These weapons cannot be detected except by beings or powers capable of perceiving items stored Elsewhere.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f4e31f8bb2a18d0b"
+  },
+  "folder": "b0b1b2b3b4b5f031",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

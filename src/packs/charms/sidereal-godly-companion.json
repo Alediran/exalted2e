@@ -1,0 +1,72 @@
+{
+  "_id": "af8a04e9fd54715d",
+  "_key": "!items!af8a04e9fd54715d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Godly Companion",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "ride",
+    "essence": 4,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": -2,
+    "steps": [],
+    "keywords": [
+      "Servitude",
+      "Shaping",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "20m, 1wp, 3xp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A Sidereal can promote his uplifted small god familiar. The small god's Essence and Intelligence increase to a minimum of 3 (if either was lower). The small god can transport</p><p>itself and at least one other creature between Yu-Shan and Creation. The small god also gains four additional points of Virtues, distributed as the Storyteller chooses; two additional spirit Charms, also of the Storyteller's choosing; and an additional alternative appearance. The small god's Background rating rises by one dot. The familiar also gains new responsibilities. It must safely escort the character the familiar serves to and from YuShan as necessary. (The Celestial Bureaucracy also holds the small god responsible for the character's conduct in Heaven.) The small god must travel regularly between Creation and Heaven to carry messages to or from the Sidereal the familiar serves. Finally, the familiar must file regular reports on the character's activities. A harried, many-limbed spirit named Jagoth, who was once just an uplifted familiar spirit himself, receives the reports at the Bureau of Destiny's mailroom. Jagoth's \"IN\" box is an architectural marvel often mistaken for a library shelf. His \"OUT\" box is dusty. A Sidereal can use this Charm only on a familiar he has previously uplifted with Spirit-Shape Companion.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4afd0dfdffa3757e",
+            "charmName": "Spirit-Shape Companion",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "af8a04e9fd54715d"
+  },
+  "folder": "b0b1b2b3b4b5f013",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

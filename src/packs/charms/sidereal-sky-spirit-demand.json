@@ -1,0 +1,73 @@
+{
+  "_id": "022b9691509ce1ed",
+  "_key": "!items!022b9691509ce1ed",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sky Spirit Demand",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "survival",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Emotion",
+      "Social",
+      "Virtue (Compassion)"
+    ],
+    "cost": {
+      "formula": "8m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With an impassioned argument and a subtle tug on the strands of fate, the Sidereal can impose a goal on an Air elemental with an Essence no greater than her own. To do so, the Sidereal's player rolls (Manipulation + Survival) against the spirit's Dodge Mental Defense Value, adding the character's Essence in automatic successes. If the roll succeeds, the targeted spirit gains an Intimacy of the Seer's choosing--affection for one person, hostility to a particular town, a fear of a certain location or the like. The spirit may eventually discard this Intimacy, but it certainly lasts through one story. Characters can use this Charm on elementals of Earth, Fire, Water or Wood, but doing so adds +2 to the difficulty. If the targeted elemental's natural Motivation is specifically and diametrically opposed to the Intimacy the Sidereal tries to impose, the attempt becomes an unacceptable order.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "79a79cc3fe6607bb",
+            "charmName": "Sky and Rain Mantra",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "022b9691509ce1ed"
+  },
+  "folder": "b0b1b2b3b4b5f017",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

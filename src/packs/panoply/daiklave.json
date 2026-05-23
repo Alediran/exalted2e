@@ -1,0 +1,49 @@
+{
+  "_id": "e701a234b56c7890",
+  "_key": "!items!e701a234b56c7890",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Daiklave",
+  "type": "weapon",
+  "img": "icons/weapons/swords/sword-broad-crystal.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "",
+        "speed": 5,
+        "accuracy": 3,
+        "damage": 6,
+        "damageType": "lethal",
+        "overwhelming": 1,
+        "defense": 2,
+        "rate": 3,
+        "range": 0,
+        "minStrength": 2,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": []
+      }
+    ],
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 5,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 1,
+    "description": "<p>A sword of the First Age, its blade as long as a man is tall, forged from one of the magical materials. The iconic weapon of the Solar Exalted.</p>",
+    "equipped": false
+  },
+  "folder": "f004a234b56c78a0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

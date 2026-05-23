@@ -1,0 +1,73 @@
+{
+  "_id": "ce4f3a983a0f76b9",
+  "_key": "!items!ce4f3a983a0f76b9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Blood On The Wind",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "perception",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Like a wolf on the hunt, the Lunar can track any quarry whose scent she has sampled, no matter how far the prey has fled. This Charm supplements a (Perception + Survival) tracking roll. The Lunar may track any target whose scent she has encountered within the current scene, ignoring all penalties for terrain, distance, or time elapsed during the scene. The scent trail remains vivid in the Lunar's senses for as long as the Essence commitment is maintained, and she can follow it unerringly even in darkness or across difficult ground. This Charm cannot track across open water; a submerged or offshore target breaks the trail entirely.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "df263e6801f8a19b",
+            "charmName": "Inevitable Spoor Discovery",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "ce4f3a983a0f76b9",
+    "mergedIds": [
+      "efab2a088cca09df"
+    ]
+  },
+  "folder": "fa2edda343cdd2b0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

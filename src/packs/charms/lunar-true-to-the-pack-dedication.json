@@ -1,0 +1,71 @@
+{
+  "_id": "acf37ed89d95227c",
+  "_key": "!items!acf37ed89d95227c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "True-To-The-Pack Dedication",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "intelligence",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Fury-OK"
+    ],
+    "cost": {
+      "formula": "5m, 2wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Lunar Exalted often feel unbreakable bonds to their packmates. Activating this Charm instantly shatters any mental influences on the Lunar that turn him against his pack, his Solar mate, other Lunar Exalted or Luna. The character may activate True-to-the-Pack Dedication as a perfect defense against such mental attacks. Knowing this Charm also allows the character to designate whom he considers \"his pack\" by touching a person and spending a mote. He may mark no more than (Compassion x 2) individuals. Activating this Charm with Relentless Lunar Fury perfectly protects the character against any mental influence that costs two Willpower points or less to overcome. This protection lasts as long as the fury itself.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b5faa8c4de77f0a1",
+            "charmName": "Righteous Lion Defense",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "acf37ed89d95227c"
+  },
+  "folder": "8b05ba7cc3e236b8",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

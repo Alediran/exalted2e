@@ -1,0 +1,85 @@
+{
+  "_id": "599d7bd2d72f08f6",
+  "_key": "!items!599d7bd2d72f08f6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Five Seasons Response",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "archery",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      9
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Counterattack"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>If skill cannot protect one of the Maidens' Chosen, then she may trust to the world's esteem for her office and duties. If not to that, then to Creation's fear of what she hopes to save it from. If not to that, to the world's dreams of glories faded that may yet return. And if all these fail, she may ask for luck and revenge. These are the Five Seasons Response. If an Archery-based attack strikes the Sidereal, she may invoke this Charm to reflect that attack back to its source. The attacker receives his own attack, using the same attack roll and including any Charms he used.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "abba75dacfa8519d",
+            "charmName": "Every Direction Arrow",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f10ba18cba72288e",
+            "charmName": "Opportune Shot",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "599d7bd2d72f08f6"
+  },
+  "folder": "b0b1b2b3b4b5f001",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

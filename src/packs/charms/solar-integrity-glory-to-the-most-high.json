@@ -1,0 +1,72 @@
+{
+  "_id": "8b80e2b6568422dd",
+  "_key": "!items!8b80e2b6568422dd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Glory to the Most High",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "integrity",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneDay",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Mirror (World-Ending Void Apostle)",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "0m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Although the power of even the youngest of Lawgivers is sufficient to rock the pillars of Heaven and slay the makers of the world, some Chosen find themselves unsatisfied with any limitations upon their power. Reaching beyond, they grasp for greater might at any cost. As a permanent upgrade to his competence, the Solar gains the ability to spend experience normally to buy his Essence rating up to a dot higher than his age would otherwise allow (see Exalted, p. 275). This is treated as his real, natural rating for the purpose of buying Attribute and Ability dots, Charms and other such traits. Yet, he may enjoy the benefits of this higher Essence rating only while Glory to the Most High is active. When the Charm is not active, he is treated as though his Essence rating is whatever it would be if he did not possess Glory to the Most High, and as though he did not possess any Charms or dots that this lower Essence rating would not permit him to obtain. The Solar's anima immediately flares to its full iconic splendor when Glory to the Most High is activated, and recedes at its normal rate. The character also gains 10 motes of Essence (three in the Personal Essence pool, seven in the Peripheral Essence pool) filling out the sudden difference in his Essence pool's capacity. When this Charm ends, the character must roll the higher of (Essence) or his primary Virtue, and add a number of points of Limit equal to his successes. This Charm may never be learned or used by non-Solar Exalted under any circumstances. New Abyssal Charm: World-Ending Void Apostle (Prerequisite: Immortal Malevolence Enslavement). This Charm duplicates the benefit of its Solar counterpart, but the Abyssal does not roll to accumulate Limit. Instead, the Charm has a duration of only one scene, and an activation cost of (2ahl, 1wp).</p>",
+    "source": "Glories of the Most High: Unconquered Sun",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7be682797ef0f798",
+            "charmName": "Phoenix Renewal Tactic",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "8b80e2b6568422dd"
+  },
+  "folder": "b0a1d89a8f7c4cdb",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

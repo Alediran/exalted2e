@@ -1,0 +1,49 @@
+{
+  "_id": "e626a234b56c78b0",
+  "_key": "!items!e626a234b56c78b0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Chopping Sword",
+  "type": "weapon",
+  "img": "icons/weapons/swords/sword-scimitar-steel.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "",
+        "speed": 4,
+        "accuracy": 1,
+        "damage": 5,
+        "damageType": "lethal",
+        "overwhelming": 2,
+        "defense": -1,
+        "rate": 2,
+        "range": 0,
+        "minStrength": 2,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": []
+      }
+    ],
+    "artifact": false,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 0,
+    "hearthstoneSlots": 0,
+    "description": "<p>A sword with a chopping blade about three feet long, designed for delivering solid blows that hack through armor and bone rather than fencing and agility.</p>",
+    "equipped": false
+  },
+  "folder": "f001a234b56c789d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

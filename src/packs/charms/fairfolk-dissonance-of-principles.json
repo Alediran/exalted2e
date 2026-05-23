@@ -1,0 +1,59 @@
+{
+  "_id": "11838e0a2338e7da",
+  "_key": "!items!11838e0a2338e7da",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dissonance of Principles",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "cup",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Echo",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "1m per die",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The raksha dazzles her enemies with circuitous arguments and logical fallacies, leaving them sputtering and impotent. Upon activating this Charm, the raksha spends a variable number of motes (up to a maximum equal to twice her Valor). The raksha then makes a Cup-shaping or Staff-shaping attack. If the attack hits, no damage is rolled. Instead, the raksha stuns her adversary. The raksha's player rolls one die for every mote spent on the Charm (plus dice for extra attack successes, as normal), applying the enemy's Temperance as soak to this roll. For the rest of the shaping battle, the target suffers an internal penalty on all shaping dice pools equal to the successes on the roll. Additionally, the raksha can spend one gossamer in conjunction with an Assumption Charm to gain the following innate power: Innate Power (Cost: variable): The raksha must spend a variable number of motes (up to a maximum equal to twice her Valor). For the duration of one day, the raksha inflicts an internal penalty equal to the number of motes spent on all rolls made against the raksha by others in the context of social combat. This power represents a form of unnatural mental influence. An affected character can ignore the penalty for one scene by spending one Willpower point. The effect is completely overcome when the character has spent a number of Willpower points equal to the raksha's Essence. Glamour Resistance: The innate power of this Charm is a work of glamour that will not inflict any penalties on a Creation-born whose (Investigation + Essence) exceeds the raksha's Manipulation.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "11838e0a2338e7da"
+  },
+  "folder": "d5d33b95962cd83e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

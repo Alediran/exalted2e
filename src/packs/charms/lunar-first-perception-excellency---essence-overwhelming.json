@@ -1,0 +1,59 @@
+{
+  "_id": "9dc4e87591fe2ca4",
+  "_key": "!items!9dc4e87591fe2ca4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "First Perception Excellency-- Essence Overwhelming",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "perception",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      1
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Some Lunar Exalted excel at using their natural talents. The Exalt's player can invoke this Charm when making a roll based on the relevant Attribute. This Charm adds one die to that roll per mote spent. This Charm is the most common source of dice added to rolls; no combination of Charms can add more than Perception dice to the roll. This Charm can also enhance unrolled uses of the relevant Attribute. Common examples of this are increasing Defense Values with the Dexterity Excellency, climbing the Feat of Strength chart with the Strength Excellency or increasing alcohol Tolerance with the Stamina Excellency. When enhancing a static value, each success rolled with dice from this Excellency increases the effective relevant Attribute by two for an instant. Thus, one success increases Defense Value by one. This Excellency, other Excellencies and other dice-adding Charms cannot \"create\" actions. They may supplement existing actions or increase static values that are already in use. Each Charm use also functions only for a single instant or task--the Charm supplements a single attack or defense but must be activated multiple times for multiple attacks or defenses, even on the same tick. Essence Overwhelming may be Comboed with the Second Excellency, but can never be used on the same roll as the Third Excellency. SECOND Perception EXCELLENCY--</p>",
+    "source": "MoP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "first",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "9dc4e87591fe2ca4"
+  },
+  "folder": "fa2edda343cdd2b0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

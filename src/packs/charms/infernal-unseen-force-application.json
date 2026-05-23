@@ -1,0 +1,68 @@
+{
+  "_id": "91d64c6116b93bb7",
+  "_key": "!items!91d64c6116b93bb7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unseen Force Application",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Malfeas relishes gaudy displays of power, but She Who Lives In Her Name does not need shallow theatrics to justify herself. Unseen Force Application enhances its prerequisite by removing the Obvious keyword at will, allowing the Charm to move objects invisibly without giving away who is responsible. Onlookers can still make educated guesses that the Infernal has attacked through scrutiny of his body language; this requires a difficulty 4 (Wits + Awareness) roll as a miscellaneous action, with success revealing that the Infernal has attacked via some unseen means and allowing the witness to recognize whenever he does so again later in the scene. The tingling surge of Essence that precedes the telekinetic force like an aura still allows Essence-using targets of telekinetic attacks to defend normally, though at an additional -2 DV penalty from lacking a clear sensory impression of the attack. Mortals can't block these attacks and are at -3 DV to dodge them.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "sheWhoLivesInHerName",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e34e6bd54a2ffc9d",
+            "charmName": "Mind-Hand Manipulation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "91d64c6116b93bb7"
+  },
+  "folder": "37c208aaa9a4b179",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

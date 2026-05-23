@@ -1,0 +1,84 @@
+{
+  "_id": "f99ad55d9c28e0ba",
+  "_key": "!items!f99ad55d9c28e0ba",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Serenity In Blood",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>As with Impeding the Flow, the character's weapon trails evanescent streamers of crimson stardust, visible only to those who can see dematerialized spirits. This dust parts not only the most obvious conjunctions of fate that bind the character to her attackers, but the subtlest ones as well. This Charm is a parry that perfectly defends against any attack, even if it is unblockable. The Sidereal's player may even invoke Serenity in Blood to block unexpected attacks, although in those cases, the player must succeed at a (Perception + Melee) roll at difficulty 3 for the parry to be effective. This Charm has one of the Four Flaws of Invulnerability (see Exalted, p. 194).</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4c3917971480040f",
+            "charmName": "Harmony of Blows",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "dc4b91bc6c8ea958",
+            "charmName": "Impeding the Flow",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "f99ad55d9c28e0ba"
+  },
+  "folder": "b0b1b2b3b4b5f00e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

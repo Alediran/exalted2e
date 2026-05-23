@@ -1,0 +1,78 @@
+{
+  "_id": "d78ea4e6f8f357c1",
+  "_key": "!items!d78ea4e6f8f357c1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Cast Down Stars Condemnation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "permanent",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 10,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "--(+10m, 1wp)"
+    },
+    "description": "<p>A Lawgiver who suffers the works of the wicked is not patient, only busy. Cast Down Stars Condemnation makes a Solar's feelings known--in the form of absolute destruction unleashed. This Charm permanently enhances its prerequisite; upon activating it, the Solar may pay an additional ten motes, one Willpower for the following benefits: First, double the raw damage the target suffers from colliding with an object. Next, increase the base environmental damage produced by the victim's impact detonation to 20L. Finally, upon impact the victim plows through scenery like a falling star, shattering the landscape and creating a massive explosion while his body digs a gigantic trench in the earth or bowls through towers, devastating a skyline. In addition to the enhanced base damage of Cancel the Apocalypse, all non-artifact scenery within (Solar's Essence x 100) yards of the victim's point of impact takes an arbitrary amount of damage sufficient to destroy it. The Storyteller may describe this destruction as multiple explosions that level a city, massive shockwaves that flatten a forest, terrifying implosions that leave a mountainside a smoking crater, and so forth. This Charm may not be used if the hurled opponent's Essence rating is lower than 4.</p><p>Sky Breaker Throw</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Solar Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d04355ebb73184fb",
+            "charmName": "Cancel the Apocalypse",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "d78ea4e6f8f357c1",
+    "grantsMastery": false
+  },
+  "folder": "05bd4dac47a869bd",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

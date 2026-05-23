@@ -1,0 +1,59 @@
+{
+  "_id": "1f0d6b03617cfca5",
+  "_key": "!items!1f0d6b03617cfca5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unassailable Tower of (shaping Trait)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "heart",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Glamour",
+      "Mutation",
+      "Shaped-Only"
+    ],
+    "cost": {
+      "formula": "1g per point of increase",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Generally, when a raksha wishes to affect a thing or being within the confines of Creation, she must do so through a work of glamour. A being of Creation can see through such works of glamour if the being's (opposed trait + Essence) exceeds the raksha's (shaping trait). The precise traits involved in resisting a work of glamour are detailed under each Charm's description. This Charm permits the raksha to bolster the integrity of her fictions. For every point of gossamer spent on this Charm, the raksha increases her shaping trait by one for purposes of determining whether beings of Creation can resist the glamour. This Charm may be purchased multiple times. Each time it applies to a different trait, which is typically an Attribute or Ability. If the raksha uses a version of this Charm to boost a particular shaping trait, then the increase applies to all works of glamour for which that trait determines Glamour Resistance for the duration of the story. A raksha cannot boost a shaping trait by more than her Heart Grace. CHARMS OF THE MASK These Charms permit a shaped raksha to pass through Nirakara and exist in some manner within the confines of Creation or some other shaped realm. The Charms of the Mask are not associated with any of the Graces or with any other trait. The minimum Essence requirement is the only trait-based prerequisite a raksha must meet in order to purchase one of these Charms. These Charms govern the circumstances by which a raksha enters Creation or some other shaped realm. Only a raksha who has already shaped an identity for herself through the Gateway of Sundraprisha Charm is capable of then refining that body through an Assumption Charm. In other words, unshaped raksha can never use Assumption Charms while still remaining unshaped, although unshaped can learn Assumption Charms and frequently use them in crafting oneiromantic effects and other such phenomena. The Assumption Charm (or Charms) deployed by a raksha may influence the form she takes in Creation, but any alterations to her appearance are purely cosmetic absent the application of mutations or other Charms. These Charms are Stackable in that a raksha can activate as many Assumptions simultaneously as she can afford. A raksha who carries multiple active Assumptions can choose the form in which she appears from all the choices her active Assumption Charms give her. The magical benefits of all of her active Assumption Charms are constantly available.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "1f0d6b03617cfca5"
+  },
+  "folder": "de1b86005c09a461",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

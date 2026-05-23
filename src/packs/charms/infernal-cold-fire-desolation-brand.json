@@ -1,0 +1,70 @@
+{
+  "_id": "38e491f08ebc7cde",
+  "_key": "!items!38e491f08ebc7cde",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Cold Fire Desolation Brand",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Sickness"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When Malfeas strikes down the impudent, only the most fortunate die quickly. This Charm permanently improves Green Sun Nimbus Flare, causing all burns that Charm inflicts to automatically infect their victims with Green Sun Wasting (see p. 110). Infernals with Essence 4+ inflict a disease with penalties that start at full strength rather than building over the course of hours, though this does not accelerate other symptoms. With Essence 5+, Cold Fire Desolation Brand infects victims with Final Viridescence. At Essence 6+, the type of Final Viridescence is so extreme that only magical treatment can remove it; all Morbidity checks automatically fail absent such magic.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "malfeas",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7f00802e9d652635",
+            "charmName": "Green Sun Nimbus Flare",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "38e491f08ebc7cde"
+  },
+  "folder": "1945ba1655ca5f6f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,84 @@
+{
+  "_id": "ab4f3ebd1a200713",
+  "_key": "!items!ab4f3ebd1a200713",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gift Of A Broken Mask",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "stealth",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "oneWeek",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Shaping",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "6m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereals can grant other people their own concealment from the world, as a blessing to assist them... or a curse. The Vizier must touch her target; the Vizier's player rolls (Dexterity + Stealth) at a difficulty of the target's Essence. Success means the target gains Arcane Fate of his own, with all the advantages and inconveniences that Sidereals know so well. On the other hand, he becomes immune to the Arcane Fates of others; the Sidereals' gift makes the target an honorary member of the Five-Score Fellowship while the Charm lasts. The target's Essence cannot exceed the Sidereal's own. The Gift of a Broken Mask lasts a day. After that, the Sidereal can extend the gift another day by spending another two motes, without the need to touch the target again. The Sidereal can also rescind the gift at any time. For double the initial and subsequent cost in Essence and Willpower, a Sidereal can extend the Gift of a Broken Mask to a social unit. He must lead the social unit (most likely through a resplendent destiny), or the social unit must be led by an ally or acquaintance (per the Background). The difficulty becomes the sum of the unit's Magnitude and the highest Essence of any member of the group, other than the Sidereal himself. As with a single target, no member's Essence score may exceed the Sidereal's own; the unit's Magnitude cannot exceed his Stealth. While the Seer continues the Charm, all activities of the social group as a whole are easily overlooked, and other people tend to ignore the unit's existence. In mass social combat, apply an internal penalty of -3 to the defender's side of the contested (Manipulation + Socialize) vs. (Wits + Awareness) roll to establish surprise and make unexpected social attacks.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6df30ee45027fc6c",
+            "charmName": "Soft Presence Practice",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "ab4f3ebd1a200713"
+  },
+  "folder": "b0b1b2b3b4b5f016",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

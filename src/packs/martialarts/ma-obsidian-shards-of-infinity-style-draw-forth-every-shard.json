@@ -1,0 +1,59 @@
+{
+  "_id": "4e126dc377952194",
+  "_key": "!items!4e126dc377952194",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Draw Forth Every Shard",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Obvious",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "2m per duplicate, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>and portrait after portrait after that, Gesturing to one side, then the other, the Sidereal's form multiplies as if reflected between mirrors. The doubles do not move in unison, but similarly. They all dedicate themselves to whatever the original is doing, be it crafting a daiklave, climbing a cliff or fighting an army. Every reflection gains the benefits of the Obsidian Shards of Infinity Form. The martial artist may use his other Charms of this style through any of them, but he must pay a one-mote surcharge if he wishes to extend the effects to another duplicate. (For example, he may use Black Shards Fall Like Ice through one duplicate for 10 motes, then pay one mote for each additional double who uses it at the same time.) The duplicates cannot use Draw Forth Every Shard--only the Sidereal himself. If more than one duplicate attacks the same person, they perform a coordinated attack (see Exalted, p. 144). The target suffers the maximum possible penalty for the number of attackers. The doubles always act on the same tick as the Sidereal. Only the first use of this Charm in a scene costs Willpower. The martial artist may create a maximum number of duplicates at a time equal to (his Martial Arts x Essence), and they can venture only as far away as they can be perceived, either by their creator or by each other. None but the Sidereal himself has a reflection.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Obsidian Shards of Infinity Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "4e126dc377952194"
+  },
+  "folder": "87a660847a455039",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

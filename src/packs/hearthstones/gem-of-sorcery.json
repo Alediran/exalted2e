@@ -1,0 +1,27 @@
+{
+  "_id": "8eb2423731870d49",
+  "_key": "!items!8eb2423731870d49",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gem of Sorcery",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDSOLAR00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "solar",
+    "rating": 3,
+    "description": "<p>Though transparent, this many-pointed crystal has an oily golden sheen and glows with inner light. Once per day, its bearer can reduce the cost of casting a spell by 10 motes.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

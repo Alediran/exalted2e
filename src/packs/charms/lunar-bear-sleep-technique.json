@@ -1,0 +1,68 @@
+{
+  "_id": "d21fa18b3c92d2c2",
+  "_key": "!items!d21fa18b3c92d2c2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Bear Sleep Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "stamina",
+    "essence": 4,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Stewards save their power for when the land truly needs them. Some Moonchildren used this Charm to remain safely separate from a world that hated them until the present day. Most of those sleepers are now awakened... but who knows? Activating this Charm, the Lunar settles down for a long hibernation, fueled by his will and Essence. The character's player declares up to (Essence) conditions that will awaken the Lunar. One of these conditions must be a maximum duration the character will sleep. Other conditions may be anything the character might perceive when asleep; the character's player makes relevant rolls as normal to determine if the sleeping Lunar detects the conditions. Suffering a wound always ends the hibernation. While a Lunar hibernates, he does not age or need food, air or water. Lunars use Bear Sleep Technique to pass time they do not consider important to experience. They also use this Charm to stay alive in times of famine, drought or lack of breathable air.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "3d459eb2129c1b51",
+            "charmName": "Steadfast Yeddim Meditation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "d21fa18b3c92d2c2"
+  },
+  "folder": "956290ccde1dea72",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

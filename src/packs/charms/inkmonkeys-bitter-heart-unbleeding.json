@@ -1,0 +1,57 @@
+{
+  "_id": "80b19b6d23635466",
+  "_key": "!items!80b19b6d23635466",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Bitter Heart Unbleeding",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "resistance",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 3,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Abyssal's hatred is an inexhaustible resource, and she has learned to draw upon it when life itself fails her. Activating this charm reflexively after suffering damage that would Incapacitate or kill her, the Exalted converts all damage that would exceed Incapacitated to non-damage — she remains standing at -4, sustained by spite and bitterness alone. Additionally, all wound penalties the Abyssal currently suffers are negated for the remainder of the tick, as her rage overrides the body's complaint.</p><p>The charm functions because the Abyssal's hatred genuinely sustains her beyond physical limits, meaning she must have at least one active Intimacy of hatred, grudge, or desire for revenge to activate it. If all such Intimacies are removed, the charm cannot function. This charm is the prerequisite for The Tide Turns, which escalates this spite-fueled endurance into a terrifying reversal of fortune.</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "80b19b6d23635466"
+  },
+  "folder": "b0b1b2b3b4b5f068",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,41 @@
+{
+  "_id": "a006b234c56d7895",
+  "_key": "!items!a006b234c56d7895",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Reinforced Breastplate",
+  "type": "armor",
+  "img": "icons/equipment/chest/breastplate-metal-rimmed-blue.webp",
+  "system": {
+    "soak": {
+      "bashing": 6,
+      "lethal": 7,
+      "aggravated": 0
+    },
+    "hardness": 0,
+    "mobilityPenalty": -2,
+    "fatiguePenalty": -1,
+    "artifact": false,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 0,
+    "hearthstoneSlots": 0,
+    "tags": [],
+    "description": "<p>A breastplate with attached shoulder guards, crotch skirt, greaves and bracers; the standard armor of the Realm's heavy infantry.</p>",
+    "equipped": false
+  },
+  "folder": "f002a234b56c789e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

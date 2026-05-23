@@ -1,0 +1,27 @@
+{
+  "_id": "f417ba406c4ac7b5",
+  "_key": "!items!f417ba406c4ac7b5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gem of Desire",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDFIRE000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "fire",
+    "rating": 3,
+    "description": "<p>This transparent yellow hearthstone is shaped like a faceted heart. Once per day, the bearer can inflame someone with desire for some specific object or person. Such desires can range from a sudden thirst for any strong alcohol to a passion for a specific person. To inflict this desire on someone, the bearer's player must succeed in a reflexive, resisted (Willpower + Essence) roll while the character is no more than 10 yards from the target. If the target succeeds, she is unaffected by this desire. If she fails, she feels this until the sun next rises. If she botches this roll, she feels this desire for the next week. For this duration, the target must make a Willpower roll with a difficulty equal to half the bearer's Essence (round up) to avoid any opportunity to satisfy her desire.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

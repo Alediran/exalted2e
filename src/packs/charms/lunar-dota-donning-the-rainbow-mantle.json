@@ -1,0 +1,57 @@
+{
+  "_id": "1d272069df519321",
+  "_key": "!items!1d272069df519321",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Donning the Rainbow Mantle",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "intelligence",
+    "essence": 7,
+    "minAbility": 7,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "5+m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Stewards command the surroundings they protect. Invoking this Charm surrounds the character in a diaphanous cloak of shifting sensations. Most stimuli are colors of Creation, but some are impossible, unknown hues, curious sounds, smells and so on. For the duration, the Lunar may use Charms with the Wyld keyword as though she were in a Wyld zone. Every five motes committed to this Charm increases the effective depth, from five motes for Bordermarches to 20 motes for Pure Chaos. The Lunar extends this capability to others at a cost of two additional Willpower per person.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "1d272069df519321"
+  },
+  "folder": "8b05ba7cc3e236b8",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

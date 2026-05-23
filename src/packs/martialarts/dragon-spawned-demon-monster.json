@@ -1,0 +1,78 @@
+{
+  "_id": "7a6ce928bead1378",
+  "_key": "!items!7a6ce928bead1378",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dragon-Spawned Demon-Monster",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Native"
+    ],
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "--"
+    },
+    "description": "<p>Terrestrial akuma achieve greatness their former peers cannot imagine. Through Infernal Monster Style, fallen DragonBlooded become incarnate natural disasters. Dragon-Spawned Demon-Monster is solely Native to Terrestrial akuma and can't be learned by other beings. It provides the following benefits: � The akuma is not obligated to attack his Yozi master or any of its component Third Circle demons while in a berserk state (such as that induced by Retribution Will Follow) unless said entities physically attacked him earlier in the scene. � Weapons of elemental energy created by Terrestrial Charms are considered form weapons for Infernal Monster Style (e.g. Refining the Inner Blade). If such Charms have the Holy keyword, they permanently lose their special benefits against creatures of darkness and cease to be Holy. If this results in a Charm that doesn't make sense, the Storyteller should exclude that Charm from conversion. � Instant-duration Terrestrial Charms that damage targets through direct exposure to elemental energy are also considered form weapons for Infernal Monster Style (e.g. Elemental Bolt Attack). If such Charms are Holy, they are converted as previously explained. The akuma may also choose for such attacks to emerge from his mouth like the breath of a dragon.</p><p>ALCHEMICAL EXALTED</p><p>Alchemical Charms Labor and Utility Universal Pilot Key</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Infernal Monster Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "77978587bd55a6a4",
+            "charmName": "Infernal Monster Form",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "7a6ce928bead1378",
+    "grantsMastery": false
+  },
+  "folder": "ae5a8ed470f7303b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

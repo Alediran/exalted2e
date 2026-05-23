@@ -1,0 +1,59 @@
+{
+  "_id": "fdd03b62a83c42b9",
+  "_key": "!items!fdd03b62a83c42b9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Swallowing the Sun",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "stealth",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 3,
+    "dvPenalty": -2,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Mirror (OblivionConsigned Essence)",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "2wp, 1hl",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Uniting her mind and Essence in a supreme act of will, the Lawgiver snuffs out her own radiance by drawing her anima banner into her body and extinguishing it. Further expenditures flare the banner from the beginning, as though the Solar had not previously spent any Peripheral Essence in the scene. New Abyssal Charm: Oblivion-Consigned Essence (Prerequisites: None). This Charm functions identically to its Solar Mirror.</p>",
+    "source": "Glories of the Most High: Unconquered Sun",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "fdd03b62a83c42b9"
+  },
+  "folder": "07815dca7bd3d3d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

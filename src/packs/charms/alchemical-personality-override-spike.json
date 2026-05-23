@@ -1,0 +1,72 @@
+{
+  "_id": "704afb0aae043346",
+  "_key": "!items!704afb0aae043346",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Personality Override Spike",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "manipulation",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      10
+    ],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "10m, 1wp [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm constitutes a spike mounted in one of the Alchemical's limbs, which can be extended or retracted at any time with a miscellaneous action to draw or ready a weapon. The probe may be stabbed into a victim as a stiletto (Speed 5, Accuracy +2, Damage +3L, Defense +0, Rate 3, Tags P) or inserted without damage into a willing or restrained subject (including those held in a clinch). The spike is not intended to serve as a weapon, however, but rather as an instrument of mind control. The Charm may be invoked on Step Ten when the Exalt damages or harmlessly pierces a being of equal or lower Essence. Once inserted, the spike releases hundreds of Essence-sculpted microscopic automata that rapidly thread their way through nerve bundles to the spine and up into the brain. The Exalt immediately attempts to force his victim into a mindscape. This is resolved as a roll to control a clinch, but the Exalt uses her ([higher of Manipulation or Wits] + Presence) as the attacking dice pool, resisted by the victim's (Wits + Integrity). If the Exalt wins, she may deploy only the psychic equivalent of a hold action, forcing the victim into an empty mindscape marred only by his own psyche and a vague awareness of the Alchemical's presence. Physically, a victim trapped within his own mind is considered Inactive</p><p>as though held in a standard clinch. If the victim wins, he may only break the clinch, pushing the spike harmlessly out of his body. The invading automata then denature into raw Essence. The Alchemical's player continues to make this roll on each subsequent action until the victim breaks the psychic clinch or the Alchemical chooses to retract the spike. She may take no other actions while holding a target's mind hostage with this Charm.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Manipulation Augmentation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "704afb0aae043346"
+  },
+  "folder": "b0b1b2b3b4b5f050",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,62 @@
+{
+  "_id": "807dda3e0d3f302c",
+  "_key": "!items!807dda3e0d3f302c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Post-Traumatic Brutality Roar",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "martial-arts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneWeek",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Emotion",
+      "Obvious",
+      "Sorcerous",
+      "Stackable",
+      "War"
+    ],
+    "cost": {
+      "formula": "15m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Infernal screams his fury, and the armies who have faced him remember his wrath. The thunderous bellow can be heard for a mile. Within that radius, the scream affects all organized Magnitude 3+ military units that engaged with the Infernal in the past day in mass combat while he fought as a solo unit. Even units not currently engaged in battle are affected, provided they are camped or marching together and clearly operating as a group. The Infernal's player rolls Charisma + Martial Arts, adding a number of bonus successes equal to his Valor. Any affected unit led by a character with a Dodge MDV less than the number of successes rolled suffers an unnatural Emotion effect that imposes a -1 penalty to its Drill and Morale ratings as an unnatural Emotion effect. Units with perfect Morale are immune. Gaining perfect Morale terminates ongoing applications of the Charm affecting the unit. Leaders can pay two points of their own Willpower to rally the unit in hopes of reversing this damage; if the rally succeeds, the penalty is removed. Multiple roars stack their penalty, each of which requires a separate Willpower-fueled rally to remove. With Essence 4+, the roar carries out to a radius of (Limit + 1) miles. The radius at which the roar may be heard by everyone does not improve with Essence 5+, but magic carries the sound to the ears of all valid targets in the same realm of existence. Affected units hear the magic-born cry as a faint and distant sound, clearly made by something far away--but not nearly far enough. Rabble-Terrorizing Puissance</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "807dda3e0d3f302c"
+  },
+  "folder": "a1b2c3d4e5f60006",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

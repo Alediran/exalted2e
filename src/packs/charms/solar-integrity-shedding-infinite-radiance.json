@@ -1,0 +1,70 @@
+{
+  "_id": "17e06bc16eb13f34",
+  "_key": "!items!17e06bc16eb13f34",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shedding Infinite Radiance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "integrity",
+    "essence": 4,
+    "minAbility": 2,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror (Void King Ascension)"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Embracing the judgment of the Unconquered Sun and searing that wisdom into her heart, the Solar becomes an avatar of her caste. The effects of this Charm vary depending on the character's caste. This Charm cannot be learned by non-Solar Exalted under any circumstances. � Dawn: When employing her anima power, the Exalt gains +2 to her DV against all opponents, regardless of Valor. Even automatons and the walking dead find the blazing radiance of the Lawgiver impossible to behold directly. Additionally, the awful gravity of the Unconquered Sun's wrath lends surety and power to the character's blows, raising the Accuracy of all weapons (including natural weapons) the Solar wields by one and their Damage by two. � Zenith: When employing her anima power, the Exalt doubles the normal soak benefit against creatures of darkness and may reflexively burn every inanimate corpse within 30 yards for a single mote. While her anima flares at the (11+)-mote level, she may also burn corpses for a cost of 0m with a touch, and the minimum damage of attacks directed at creatures of darkness is raised by one die. � Twilight: When her anima flares at the (11+)mote level, the Exalt reduces the cost of all sorcery by half, to a minimum of one mote. This reduction does not apply to necromancy. � Night: The cost of the stealth field aspect of the Exalt's anima power is reduced from 10 motes to five motes, and the difficulty of rolls to track or notice the character rises by (Essence) rather than (Essence/2). � Eclipse: The Exalt takes the laws of Heaven into her own hands. Whenever someone breaks an oath she has sanctified, the Eclipse is immediately aware of both the transgression and transgressor. Indeed, if she so desires, the Solar may even specify the circumstances in which the oath-breaker's botches will manifest (though subject to Storyteller approval). The Exalt may not actually forgive the oath-breaker of any punishment, and Heaven will vent its wrath in the usual manner if the Storyteller judges that the specified circumstances are implausible enough that the transgressor is unlikely to ever actually suffer punishment. As a final, as-yet-unrealized benefit, the Eclipse anima power as enhanced by this Charm may find purchase upon the very Yozis themselves. When deferred with the Fiend anima power, the Ebon Dragon suffers punishment in the oathbreaker's stead thanks to an obscure and overlooked clause in his surrender oath. New Abyssal Charm: Void King Ascension (Prerequisites: Eternal Enmity Approach). Embracing the doom the Neverborn have crafted them to inflict on the world, Abyssals gain the following benefits: � Dusk: Like Dawns, the malicious shadows of the Dusk anima deepen until Valor becomes irrelevant, with the same benefits. Additionally, to facilitate the slaying of multitudes, weapons wielded by the Abyssal (including natural weapons) add one to their Defense and two to their Rate. � Midnight: Zombies raised with the anima power no longer automatically decay. � Daybreak: As the Twilight benefit, but applicable only to necromancy, not sorcery. � Day: The Abyssal crawls with concealing shadows, making her difficult to target. When at the (11+)-mote level of display, all attacks against the Abyssal suffer a -1 external penalty. � Moonshadow: As the Eclipse benefit, save that rather than specifying the circumstances of botches, the Moonshadow may instead choose to immediately inflict a Dark Fate manifestation on the oathbreaker constructed with a number of successes equal to the number of botches that would have been otherwise inflicted. TWILIGHT REVISITED While the anima powers of most of the Chosen are static enhancements to their mystic prowess, the Twilight anima shield directly scales in strength as a character rises in Essence. For Storytellers running higherEssence games who find that this power produces undesired balance disparities, the following optional rule is suggested: When the anima banner of a Twilight Caste (or Daybreak, or Defiler) is flaring at the (11+)mote level of display, she automatically subtracts only a single health level of damage. Five motes may still be spent to enjoy the anima power's full benefit, if desired. PRAYER PIECE (ARTIFACT ���) These marvels of First Age craftsmanship resemble the humble flame piece in outline, but could never be mistaken under closer examination for a mortal weapon. Rather than a trigger, prayer pieces have an Essence-sensitive chit carved from pure red jade, leading up into a jade-and-orichalcum barrel. The interior of the gun's barrel is carved with a series of hair-thin rifled grooves, and into the interior of these grooves are etched even more incredibly delicate, painstakingly detailed shrines and prayers to the Unconquered Sun. Microscopic least gods slumber within these shrines, their only purpose to convey martial veneration to the Highest of Holies. Each prayer piece can chamber five rounds of ammunition at once. Unlike their distant rela- Speed Accuracy Damage +2 10L* *10A against creatures of darkness Rate Range Ammo 5 Attune 6 tive, the alchemical flame weapon, prayer piece ammunition requires no expensive thaumaturgy to produce. Only a great investment of skill and time is required. Prayer pieces are designed to fire slugs made of any relatively soft metal, although First Age Solars considered gold to be the only substance worthy of the honor. Each round to be fired by a prayer piece must be completely covered in a specific, detailed prayer to the Unconquered Sun, its hair-thin characters completing the matching verses carved within the weapon's barrel. Producing such a round requires five hours of work, knowledge of Old Realm and a (Dexterity + Craft [Air]) roll at difficulty 3. In order to fire a prayer piece, the user must feed it a single mote of Essence. Doing so catalyzes the prayers inscribed on the slug, awakens the least gods within the weapon and fuses hope, devotion and will into a singular moment of focused martial intent. The slug erupts from the weapon with a roar and a gout of smoke, which carries the completed prayer to Heaven. Because their attacks are Holy in nature, prayer pieces fail to function when wielded by creatures of darkness.</p>",
+    "source": "Glories of the Most High: Unconquered Sun",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "55957d156f9da655",
+            "charmName": "Righteous Lion Defense",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "17e06bc16eb13f34"
+  },
+  "folder": "b0a1d89a8f7c4cdb",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

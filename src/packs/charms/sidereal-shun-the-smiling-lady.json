@@ -1,0 +1,59 @@
+{
+  "_id": "2bde1c6a7365edbb",
+  "_key": "!items!2bde1c6a7365edbb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shun The Smiling Lady",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "socialize",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Emotion",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "7m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>An office of the Bureau of Destiny holds a list of every person in a generation who is destined to fall in love. A spurned, vindictive or simply overprotective Sidereal can remove a person's name from this roster for as long as the Sidereal commits Essence to this Charm. When he does so, the victim's Appearance drops to 1 before the application of any supernatural effects. For the victim to apply such effects, he must pay the standard cost of the effect, and then his player must spend a Willpower point and succeed at a (Manipulation + Socialize) roll with a difficulty of the Sidereal's Essence.</p><p>If a person with romantic feelings toward the victim has a permanent Essence score lower than the Sidereal's, that person's romantic feelings cease immediately. Intimacies related to those romantic feelings also disappear. Neither the feelings nor the Intimacies may be re-established until the Charm ends. A player whose character's Motivation centers on love for the Charm's victim must immediately choose a new Motivation. This does not cost experience points. If the player wants to resume the old Motivation once the Charm ends, however, this does incur the normal cost of two experience points.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "2bde1c6a7365edbb"
+  },
+  "folder": "b0b1b2b3b4b5f015",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,71 @@
+{
+  "_id": "6bc4ed269e9470c9",
+  "_key": "!items!6bc4ed269e9470c9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wayward Serf Remonstrations",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Native",
+      "Overdrive"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>There is one crime Cecelyne cannot forgive--any demon which raises a claw against its creators must experience the full fury of the Endless Desert. This Charm grants an Overdrive pool with a capacity of ten motes. Initially empty, it gains motes under the following circumstances: Whenever the Infernal rolls Join Battle against one or more demons, she gains a number of offensive motes equal to the highest Essence rating among the demons opposing her. Afterwards, so long as she remains in battle against at least one demon, she gains one offensive mote on each of her action ticks.</p><p>Specks Before Infinity</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0128e16fadac2999",
+            "charmName": "Demonic Primacy of Essence",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "6bc4ed269e9470c9"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

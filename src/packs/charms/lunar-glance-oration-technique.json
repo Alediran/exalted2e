@@ -1,0 +1,77 @@
+{
+  "_id": "fa9114760a46abde",
+  "_key": "!items!fa9114760a46abde",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Glance-Oration Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "appearance",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Lunar's body language becomes incredibly graceful, eloquent and effective. With a single sultry glance, a subtle turn of the head, the lightest caress or many other aspects of body language, the character can communicate as effectively and completely in a silent instant as he can with a lengthy speech. He can use Performance, Presence, Socialize and other Abilities potentially hindered by a lack of speech, and he reduces the Speed of all social combat actions by one while the Charm lasts. Outside of social combat, the character may communicate significant messages instantly. Furthermore, the character can speak to anyone or anything, regardless of native tongue, though he may not always understand the answer. Many things are unable to comprehend the Lunar's message or respond, such as rocks, but he can still communicate with them easily with only his appearance and body language. This is especially useful when a Lunar finds human form imprudent, but wants to tell someone that a Realm legion approaches or her child is trapped in a collapsed mineshaft.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "speedModifier": {
+      "enabled": true,
+      "delta": -1,
+      "minimum": 3,
+      "perMotes": 0
+    },
+    "charmUid": "fa9114760a46abde"
+  },
+  "folder": "8313b495b23ed35c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

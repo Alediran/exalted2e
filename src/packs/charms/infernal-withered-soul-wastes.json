@@ -1,0 +1,70 @@
+{
+  "_id": "a8af195196f3a0fd",
+  "_key": "!items!a8af195196f3a0fd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Withered Soul Wastes",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "oneDay",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Places of physical desolation most closely resonate with Cecelyne. She is, after all, more geography than goddess. However, the scope of her dominion goes far deeper than harsh lands. Upon activating this Charm, the character's understanding of the term \"place of desolation\" expands to include regions afflicted by spiritual desolation that aren't part of the Underworld. Wherever any community dwells where a majority of members suffer endemic social injustice fueled by corruption and vice, the razor grit of Cecelyne trickles as inevitably as through an hourglass. Unsettled but lush areas remain useless to the Charm, as do regions inhabited by predominantly just societies. While most major cities in Creation offer bastions to Cecelyne, most small villages and farmsteads adhere to community standards that keep her out (at least during peacetime). Such communities are becoming rarer as the Time of Tumult worsens.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "cecelyne",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f9b13ab624f48a8d",
+            "charmName": "Transcendent Desert Creature",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a8af195196f3a0fd"
+  },
+  "folder": "d852ccb3960d271d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

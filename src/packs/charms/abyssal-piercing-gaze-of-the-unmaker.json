@@ -1,0 +1,74 @@
+{
+  "_id": "3c1a7c9da2137240",
+  "_key": "!items!3c1a7c9da2137240",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Piercing Gaze Of The Unmaker",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "awareness",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Avatar (1)",
+      "Combo-OK",
+      "Mirror (Eye of the Unconquered Sun; Exalted, p. 226)",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "12m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Neverborn gaze into Creation even in their sleep, compounding their hatred of all that was stolen from them. While this Charm is active, the Exalt's eyes glow with unholy power. He may view any location within (Essence) miles by looking directly at it, seeing that place as clearly as if he stood there, bypassing intervening objects. Only areas warded from scrying remain impenetrably darkened to his sight. Anyone upon whom the Abyssal spies using this Charm gains a vague feeling of being watched by something malevolent if her player makes a reflexive (Perception + Occult) roll at difficulty 5. Only those with appropriate forms of Essence-based perception, however, can actually recognize and understand the Charm at work.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4b1ffdcecef76593",
+            "charmName": "Entropic Awakening of Sight",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "3c1a7c9da2137240",
+    "mirrorId": "e97965e2996ac055"
+  },
+  "folder": "b0b1b2b3b4b5f035",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

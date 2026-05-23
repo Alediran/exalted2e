@@ -1,0 +1,58 @@
+{
+  "_id": "0ddd5dcac95841b2",
+  "_key": "!items!0ddd5dcac95841b2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Charcoal March of Spiders Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Form-type",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "12m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>to climb the waterspout again. The character moves her hands with the deft, arachnid precision of a weaver, her fingers flicking like the limbs of a spider. With such grace and coordination, she may take three fully independent physical actions at a time. For instance, she might invoke a Guard action when attacked, then invoke a reflexive Charm while making an ordinary Martial Arts attack, then split her dice pool to use Maw of Dripping Venom against two nearby opponents. Fully independent actions follow exactly the same rules as taking successive single actions, except that: · Only one action actually elapses, which matters for some Charm effects and durations (and also means the sutra discount applies only once). The slowest of the three actions the character takes is the one that determines how many ticks must pass before she can take her next three actions. · A character who has split her dice pools can interweave her multiple actions. For example, she can split her first action's dice pool to attack twice but take the second of her three independent actions between the first and second attack in the flurry. Split actions penalize a character's dice pools only in the independent set of actions she is splitting. That is, she subtracts a base penalty from every action in one independent set equal to the number of actions she takes in that set alone, not equal to the total number she takes in all sets combined. · The character may move only once. · Characters cannot also use extra action Charms or Combos containing those Charms when taking more than one independent action. Also, if the character chooses to use this Charm on a given action, she cannot take any non-reflexive social or mental actions. The character does not have to use this ability on every action in a scene after she's invoked the Charm. If she would prefer to use an extra action Charm, use a Combo or take a social or mental action, she can do so (taking only a single action) then resume taking three independent actions per action thereafter. Characters using this Charm automatically receive the benefits of the Unnatural Many-Step Stride and Dance of the Hungry Spider Charms in every action.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Charcoal March of Spiders Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "0ddd5dcac95841b2"
+  },
+  "folder": "1c3b8957c92799e4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

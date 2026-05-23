@@ -1,0 +1,54 @@
+{
+  "_id": "cacb1e795e0c47db",
+  "_key": "!items!cacb1e795e0c47db",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unarmed (Clinch)",
+  "type": "weapon",
+  "img": "icons/weapons/swords/sword-ornate-yellow.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "Clinch",
+        "speed": 6,
+        "accuracy": 0,
+        "damage": 0,
+        "damageType": "bashing",
+        "overwhelming": 1,
+        "defense": 0,
+        "rate": 1,
+        "range": 0,
+        "minStrength": 1,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": [
+          "Clinch Enhancer",
+          "Natural",
+          "Piercing"
+        ]
+      }
+    ],
+    "artifact": false,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 0,
+    "hearthstoneSlots": 0,
+    "description": "<p>A grappling attack that pins and controls the opponent; clinch attacks may use Strength instead of Dexterity.</p>",
+    "source": "Core Rules",
+    "equipped": false
+  },
+  "folder": "f001a234b56c789d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

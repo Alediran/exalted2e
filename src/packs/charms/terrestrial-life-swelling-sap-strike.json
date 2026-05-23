@@ -1,0 +1,72 @@
+{
+  "_id": "6e70fa1a5dc2419a",
+  "_key": "!items!6e70fa1a5dc2419a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Life-Swelling Sap Strike",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "archery",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Holy",
+      "Leader"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Of all the Immaculate Dragons, none was as implacable a foe to the undead as Sextes Jylis, for it was his way as an embodiment of life itself to oppose the forces of death. When a Wood Aspect fires an arrow toward one of the undead and activates this Charm, the arrow sprouts leaves in mid-flight without affecting its trajectory. Upon striking an undead creature, it erupts into full bloom, ensnaring the foul thing in crushing vines. As a result of this magic,</p><p>the arrow inflicts aggravated damage on its undead target instead of lethal. This Charm is equally as useful against materialized ghosts, nemissaries and hungry ghosts. It has no special effect against Abyssals, Deathlords or the living, however, though a successful hit still inflicts normal damage.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1843d9df4685afa9",
+            "charmName": "Unobstructed Hunter's Aim",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "6e70fa1a5dc2419a"
+  },
+  "folder": "b0b1b2b3b4b5f01a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

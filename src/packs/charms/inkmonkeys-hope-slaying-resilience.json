@@ -1,0 +1,71 @@
+{
+  "_id": "979fce821e65adb8",
+  "_key": "!items!979fce821e65adb8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hope-Slaying Resilience",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "resistance",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Emotion"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The invincibility of the Abyssal Exalted is sufficient to drive heroes to despair. While this Charm is active, whenever an opponent strikes the Abyssal but fails to successfully roll any damage against him they are automatically subjected to an unnatural Emotion effect which fills them with a sense of utter hopelessness. This lassitude inflicts a -3 internal penalty to all aggressive actions directed against the Abyssal for the rest of the scene. Opponents may resist this despair for a scene by paying three points of Willpower. As a point of clarification, in order for this Charm to trigger, opponents must roll at least one die of damage and gain no successes--this Charm will not trigger if the Abyssal uses a Charm to reduce damage to 0 or to ensure that no damage could possibly be inflicted, such as with Wounds Mean Nothing. If the Abyssal has Essence 4+, opponents who fail to damage her a second time while already suffering from despair inflicted by Hope-Slaying Resilience automatically gain an Intimacy of fear against the deathknight. This unnatural mental influence may be resisted by paying one point of Willpower. Survival Cannibalistic Empowerment Understanding</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "88a14734d2e7af52",
+            "charmName": "Spirit-Hardened Frame",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "979fce821e65adb8"
+  },
+  "folder": "b0b1b2b3b4b5f068",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

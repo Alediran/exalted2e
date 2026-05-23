@@ -1,0 +1,71 @@
+{
+  "_id": "289252018d6a8dca",
+  "_key": "!items!289252018d6a8dca",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Blinking Eye Of Chaos",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "wits",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "extraaction",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious",
+      "Wyld"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With mastery of the Wyld comes a deeper understanding of its tides. Sometimes, the Wyld bends time, accelerating or slowing this aspect of Creation. In the Deep Wyld and Pure Chaos, eddies of bent time can flow right past each other. Luna's Chosen are immune to such effects, but by predicting and perhaps calling for such an eddy, they can force it over their enemies and gain a temporary edge.</p><p>The character directs the fight into an eddy of slow time--or perhaps creates one; cause and effect can be hard to discern in the Wyld. Everyone else involved in the scene (apart from other Lunars) slows down. In effect, the character acts once, then gets to act again in the same tick as though she had waited for her next action. To everyone else, she appears to move and bend impossibly as time blurs their perceptions. For the Lunar, each action is fully independent: She may flurry in each, and use Charms or Combos in each without conflicting with the use of this Charm or Charms or Combos used in the other action.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e3b6eaeae9c35c0b",
+            "charmName": "Many-Armed Monkey Style",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "289252018d6a8dca"
+  },
+  "folder": "03a1efbef258d84f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

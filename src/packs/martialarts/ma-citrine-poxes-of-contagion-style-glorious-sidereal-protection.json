@@ -1,0 +1,58 @@
+{
+  "_id": "08f988c80cf46ac4",
+  "_key": "!items!08f988c80cf46ac4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Glorious Sidereal Protection",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 7,
+    "minAbility": 6,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "15m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>what is whole The character learns to protect himself and others from even the most terrible attacks by manipulating a target's Essence. Under the effects of this Charm, the Sidereal's target (himself or another person) automatically converts any aggravated damage the attack inflicts to lethal damage, before soak. This protection stacks with other Charms that convert lethal to bashing damage, such as the Four Magical Materials Form, though it can't stack with itself. Characters who are under such a combination of effects convert all damage directly to bashing (and all before soak).</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Citrine Poxes of Contagion Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "08f988c80cf46ac4"
+  },
+  "folder": "9eef66b2ef45a641",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

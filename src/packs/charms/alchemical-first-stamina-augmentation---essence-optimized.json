@@ -1,0 +1,59 @@
+{
+  "_id": "228ea555d19230db",
+  "_key": "!items!228ea555d19230db",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "First Stamina Augmentation-- Essence Optimized",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "stamina",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      1
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>In moments of critical necessity, intrinsic competence can receive exponential augmentation. This Charm may be purchased once for each of the nine Attributes, allowing motes to add dice to any Attribute-based action like the First Excellency of the Solar Exalted (see Exalted, p. 183). This Charm and other Attribute Augmentations are Excellencies with another name. The term Excellency was not coined until after Autochthon fashioned the Alchemical blueprints, however, so Champions still use his original nomenclature. SECOND Stamina AUGMENTATION-- ESSENCE EFFICIENT</p>",
+    "source": "MoP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "first",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "228ea555d19230db"
+  },
+  "folder": "b0b1b2b3b4b5f053",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

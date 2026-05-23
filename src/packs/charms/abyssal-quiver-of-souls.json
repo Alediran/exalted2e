@@ -1,0 +1,79 @@
+{
+  "_id": "9d740e6cfda2dad8",
+  "_key": "!items!9d740e6cfda2dad8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Quiver Of Souls",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "archery",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Mirror (Inexhaustible Bolts of Solar Fire; Exalted, p. 189)",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "8m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Abyssal archers arm themselves with malice and the Void, unleashing effortless demise on all who oppose them. The deathknight who uses this Charm can produce arrows or charges of firedust for firewands or flame pieces. Ammunition created in this manner adds one die to its normal damage. While using the Charm, the deathknight regains one mote whenever his conjured ammunition successfully strikes an animate being (regardless of whether the attack inflicts damage).</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "8d12dfc589b5a2cc",
+            "charmName": "Relic Arrow Method",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "moteRecovery": {
+      "enabled": true,
+      "event": "onAttackSuccess",
+      "action": "recoverPeripheral",
+      "formula": "1"
+    },
+    "charmUid": "9d740e6cfda2dad8",
+    "mirrorId": "d67b8d54669d2118"
+  },
+  "folder": "b0b1b2b3b4b5f033",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,57 @@
+{
+  "_id": "df36e5c5e412f458",
+  "_key": "!items!df36e5c5e412f458",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Incautious Point of Contention",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When there is no time to create a true defense for a claim, sometimes a sham will do just as well. The debater of Conviction recognizes this and does not hesitate to use falsehoods and partial truths to accomplish her goals. This defense will not weather the fiercest analysis, however. When it falls, it falls hard, pulling the weight of lies and misdirections upon its wielder. Weaving a complex but delicate defense with her martial skills and Essence, the Exalt adds an amount equal to her Conviction to her Parry DV against all the attacks against her in a single action. If this is enough to turn the blows, then the danger is over. When she does not successfully parry an attack, however, the conflict is resolved as though her DV had been zero the entire time--and against any later attacks, until she takes a new action.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Relentless Persuasion",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "df36e5c5e412f458"
+  },
+  "folder": "9f5e4d584840c173",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

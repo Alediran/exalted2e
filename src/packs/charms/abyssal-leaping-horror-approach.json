@@ -1,0 +1,58 @@
+{
+  "_id": "a98ff02f94cac17e",
+  "_key": "!items!a98ff02f94cac17e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Leaping Horror Approach",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "athletics",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Abyssal explodes from stillness into terrifying motion, covering the distance between predator and prey in a single impossible leap suffused with deathly essence. This charm supplements a Rush action or movement-based attack, allowing the Exalted to leap up to (Strength + Athletics) × 5 yards as a single movement, arriving at her destination already in the midst of an attack. The target of the leap must succeed on a Valor roll at difficulty 2 or suffer a two-die penalty on their next action from the shock of the approach.</p><p>The Obvious quality of this charm is apparent in the unnatural arc of the leap and the bone-chilling shriek of displaced grave-wind that accompanies the Abyssal's passage. This charm is prerequisite to the Hungry Ghost Form, which transforms this explosive mobility into a sustained state of predatory prowess.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "a98ff02f94cac17e"
+  },
+  "folder": "b0b1b2b3b4b5f034",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,52 @@
+{
+  "_id": "0e919176bccde91c",
+  "_key": "!items!0e919176bccde91c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Stick",
+  "type": "weapon",
+  "img": "icons/weapons/swords/sword-ornate-yellow.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "Martial Arts",
+        "speed": 4,
+        "accuracy": 0,
+        "damage": 0,
+        "damageType": "bashing",
+        "overwhelming": 1,
+        "defense": 0,
+        "rate": 1,
+        "range": 0,
+        "minStrength": 0,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": [
+          "Martial Arts"
+        ]
+      }
+    ],
+    "artifact": false,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 0,
+    "hearthstoneSlots": 0,
+    "description": "<p>Any light baton, from a parasol-handle to a large wooden spoon, can be used as a weapon. The stick can also represent a lightweight wooden practice sword or the scabbard of a regular sword. Sticks deal little damage compared to a club but are easier to maneuver, giving them superior Speed, Defense and Rate. They are probably the most common form of improvised weapon. Most improvised weapons have considerably worse statistics, but a person with basic Martial Arts proficiency can use any sturdy stick as a decent weapon.</p>",
+    "source": "Scroll of the Monk",
+    "equipped": false
+  },
+  "folder": "f001a234b56c789d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

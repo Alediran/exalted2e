@@ -1,0 +1,64 @@
+{
+  "_id": "dd2ec3ae25873d48",
+  "_key": "!items!dd2ec3ae25873d48",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Speed And Mobility Personal Gravity Manipulation Apparatus",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "strength",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "scene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm is housed as a set of reinforcing components and Essence capacitors in the lower legs. When activated, the device allows the Alchemical to twist gravity's pull in one of two ways. Each mode of the Charm must be activated separately if the two are to function concurrently. In the primary mode, the Exalt controls the orientation of \"down\" in relation to himself. Doing so allows the character to walk or run along any surface that would be capable of bearing his weight if it were down, including walls and ceilings. Moving the soles of his feet more than (Essence) yards from a surface results in gravity reassuming its normal properties but does not end the Charm, allowing all manner of improbable acrobatics such as somersaulting off of a wall to land on the ceiling. In its secondary mode, the Champion gains the ability to reduce his weight to as little as 15 percent of normal. Doing so permits the Exalt to move at double his normal movement rate and jump twice as far, but it also doubles penalties due to high wind, doubles knockback distance and imposes whatever other effects the Storyteller deems appropriate for the change in weight.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "statusApply": {
+      "enabled": true,
+      "status": "Knockback",
+      "resistPool": "@sta + @athletics",
+      "onFail": "applyKnockback"
+    },
+    "charmUid": "dd2ec3ae25873d48"
+  },
+  "folder": "b0b1b2b3b4b5f054",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

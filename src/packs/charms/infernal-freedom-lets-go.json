@@ -1,0 +1,72 @@
+{
+  "_id": "10bac2ad89f6ca61",
+  "_key": "!items!10bac2ad89f6ca61",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Freedom Lets Go",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A pariah among her siblings, Adorjan no longer hates the Exalted who defeated and imprisoned her. She has found deeper freedom in her confinement by flaying away the burdens of her heart, scouring true love and vengeful bitterness alike. Even as Malfeas crushes himself with brooding layers of rage, Adorjan flies free and perversely innocent. It is for her unthinkable acceptance of her state that the other Yozis find her disturbing, not her tendency to impose casual genocide on their children. This Charm immediately terminates an Infernal's emotional attachment to an Intimacy, removing it. If the focus of attachment is present, the Infernal must physically turn her back on that object or individual and begin walking away as part of activating this Charm. Intimacies beyond the character's senses may be terminated the same way, save that the character silently mouths the name of the subject and reminisces a moment before putting the feelings out of mind. By emptying her heart of individual ties, the Exalt gives herself room to develop her empathy more abstractly, regaining one spent Compassion channel the first time she uses this Charm each scene. Whenever the Exalt cuts away attachment toward a character, she also cancels any ongoing Emotion effects imposed on her by that character. She may also choose to delete all of her memories pertaining to that character. Deleted memories leave the Infernal with knowledge of past experiences involving the offending character, but she misattributes or misremembers events and deeds specific to that character.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "adorjan",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "3140a56e8c903bdf",
+            "charmName": "Sacred Kamilla's Inhalation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "10bac2ad89f6ca61"
+  },
+  "folder": "e1c045f50a834f12",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

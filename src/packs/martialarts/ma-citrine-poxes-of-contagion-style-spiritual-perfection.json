@@ -1,0 +1,55 @@
+{
+  "_id": "4166a807b7e8272e",
+  "_key": "!items!4166a807b7e8272e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Spiritual Perfection",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Elder Sutra of Decay: Once, there was a crippled maiden... For a single mote of Essence, a character with this Charm renders himself permanently immune to any Poison or Sickness effect to which he has been exposed or subjected. (The character must pay one mote for each such effect individually.) He can also spend a mote of Essence to halve the damage from a single attack--after the attacker's player rolls damage--or to reflexively protect himself from any disabling effect upon his body or mind. Spiritual Perfection is (appropriately) a perfect defense against such effects. The Sidereal must invoke the Charm once apiece for every such attack or effect he suffers. The character cannot cure disabilities that arise from factors outside his body, such as being unable to move because he's tied up in the back of a Nexus pulley car.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Citrine Poxes of Contagion Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "4166a807b7e8272e"
+  },
+  "folder": "9eef66b2ef45a641",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

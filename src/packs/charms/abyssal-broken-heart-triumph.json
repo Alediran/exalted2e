@@ -1,0 +1,74 @@
+{
+  "_id": "5522af7996830902",
+  "_key": "!items!5522af7996830902",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Broken Heart Triumph",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "presence",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Emotion",
+      "Mirror (You Can Be More; follows)",
+      "Social"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Midnight philosophers debate whether it is more effective to destroy what someone loves or destroy the love itself. This Charm enhances any Presence-based social attack aimed at eroding a positive Intimacy. If the attempt succeeds, it becomes unnatural mental influence that requires two Willpower to resist; the target's spending the Willpower prevents any further use of the Charm on that target during the scene. Absent resistance to the Charm, the Intimacy remains, but its emotional context shifts to resentment or outright hatred as chosen by the Abyssal. If an Abyssal has Essence 4+, he may use this Charm to attack a mortal's Motivation rather than an Intimacy. If successful, the victim's player must spend Willpower to resist (if possible) or else choose a new un-heroic Motivation for the character, though not necessarily one that is harmful. Thus might an idealistic rebel be dissuaded from his crusade into returning home and spending his days tending his farm. A heroic mortal diminished in this way becomes an extra, which also ends any hope he will attain Solar or Lunar Exaltation. The Motivations of mortals destined to become Sidereal Exalted cannot be diminished with this Charm. New Solar Charm: You Can Be More (Prerequisites: Hypnotic Tongue Technique; Exalted, p. 203). The Solar Mirror to Broken Heart Triumph enhances (Charisma + Presence)-based attacks to build or repair Intimacies that the Lawgiver shares with her target. Success enables the Solar to achieve the desired effect instantly. With Essence 4+, a mortal's Motivation may be \"attacked\" in order to confer a new and more heroic Motivation (chosen by the mortal's player). Mortals are explicitly not forced to resist this effect. Success also transforms an extra into a heroic mortal.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7cf5e7305d424357",
+            "charmName": "Poisoning the Will",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "5522af7996830902",
+    "mirrorId": "45683c1be83489ce"
+  },
+  "folder": "b0b1b2b3b4b5f043",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

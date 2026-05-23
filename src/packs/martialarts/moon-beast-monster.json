@@ -1,0 +1,78 @@
+{
+  "_id": "c564c0d7e1d0b177",
+  "_key": "!items!c564c0d7e1d0b177",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Moon-Beast Monster",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Native"
+    ],
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "--"
+    },
+    "description": "<p>Lunar akuma are among the most savage weapons the Yozis command. It is not much of a leap from fury to rage or anger to madness. Moon-Beast Monster is only Native to Lunar akuma and may not be learned by other types of Infernals. The Charm provides the following effects: � The akuma is not obligated to attack his Yozi master or any of its component Third Circle demons while in a berserk state (such as that induced by Retribution Will Follow) unless said entities physically attacked him earlier in the scene.</p><p>� Whenever the akuma activates Relentless Lunar Fury, he can simultaneously activate Retribution Will Follow as an innate power rather than a Charm activation. This still requires the usual commitment, but the use of Relentless Lunar Fury takes the place of suffering damage as a trigger condition. � Infernal Monster Form gains the Gift keyword. Whenever the akuma shifts into war form, he may commit the usual cost to activate Infernal Monster Form. Used this way, the Form Charm remains active for as long as the Lunar remains in war form. This does not alter the way Infernal Monster Form accumulates its Strength bonus, so it still resets to zero at the end of each scene even if the Charm remains active. � Armor created with Lunar Charms counts as armor created with Infernal Charms for the purposes of compatibility with Infernal Monster Style. Fallen Star Fury</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Infernal Monster Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "77978587bd55a6a4",
+            "charmName": "Infernal Monster Form",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "c564c0d7e1d0b177",
+    "grantsMastery": false
+  },
+  "folder": "ae5a8ed470f7303b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

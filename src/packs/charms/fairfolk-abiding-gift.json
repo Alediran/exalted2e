@@ -1,0 +1,58 @@
+{
+  "_id": "4f14317576f574ee",
+  "_key": "!items!4f14317576f574ee",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Abiding Gift",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "cup",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Shaped-Only",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>As Imposition of Law permits the raksha to incorporate into herself a truth that cannot be denied, this Charm allows her to grant a similar benefit to one of the Creation-born. This Charm functions exactly like Imposition of Law (see p. 168), except that instead of guaranteeing an automatic success for herself on a specific (Attribute + Ability [Specialty]) roll, the raksha defines such a roll upon which the target of this Charm will always succeed. The Charm adds three gossamer to the cost of an Assumption and confers the following innate power: Innate Power (Cost: 10m, 1wp): For one season, the raksha guarantees a Creation-born at least one success on the (Attribute + Ability [Specialty]) roll the raksha has chosen to improve. If internal penalties reduce the Creation-born's dice pool to 0, he still gets one success. If external penalties (including DV) reduce his successes to 0, he still gets one success. In combat (assuming the dice pool to which this power is applied is an attack roll), the raksha will always hit his target, although this power does nothing to aid him in penetrating soak. As with Imposition of Law, there are two limitations on this power. First, the Creation-born does not gain an automatic success if his action is opposed either by Charms or by a stunt. Second, the Creation-born cannot do something that is simply impossible. For example, the raksha might choose (Charisma + Socialize [Seduction]) so that a Creation-born farm boy might win a princess's love. Generally, the young man is assured of seducing his target regardless of social penalties, MDVs and so forth. If the farm boy is never allowed to even meet the princess, however, this power would not guarantee his success. Similarly, he does not gain the single automatic success if the princess stunts (convincing the simple farm boy that she's merely the princess's servant) or uses an Integrity Charm to resist the youth's pitched woo. Glamour Resistance: This Charm is a work of glamour. The raksha cannot confer the benefits of this Charm on any character whose (Wits + Essence) exceeds the raksha's Intelligence, no matter how much the character might wish to be the recipient of this blessing.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "4f14317576f574ee"
+  },
+  "folder": "d5d33b95962cd83e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

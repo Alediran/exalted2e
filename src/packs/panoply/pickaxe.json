@@ -1,0 +1,53 @@
+{
+  "_id": "9bc709d411db7f42",
+  "_key": "!items!9bc709d411db7f42",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Pickaxe",
+  "type": "weapon",
+  "img": "icons/weapons/swords/sword-ornate-yellow.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "Melee",
+        "speed": 6,
+        "accuracy": 0,
+        "damage": 5,
+        "damageType": "lethal",
+        "overwhelming": 1,
+        "defense": -1,
+        "rate": 1,
+        "range": 0,
+        "minStrength": 3,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": [
+          "Overwhelming",
+          "Piercing"
+        ]
+      }
+    ],
+    "artifact": false,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 0,
+    "hearthstoneSlots": 0,
+    "description": "<p>MMiinneerrss bbrreeaakk ssttoonnee wwiitthh ppiicckkss,, aanndd llaabboorreerrss uussee tthheemm ttoo cchhoopp uupp ssoodd oorr hheeaavvyy,, ppaacckkeedd ssooiill.. WWaarrrriioorrss sometimes use a variation of this common tool. The long, heavy spike of a pick can punch through armor to leave deep but narrow wounds.</p>",
+    "source": "Scroll of the Monk",
+    "equipped": false
+  },
+  "folder": "f001a234b56c789d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

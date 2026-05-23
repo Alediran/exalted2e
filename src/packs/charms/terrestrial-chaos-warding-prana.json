@@ -1,0 +1,57 @@
+{
+  "_id": "5b8a93286cc5f34f",
+  "_key": "!items!5b8a93286cc5f34f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Chaos-Warding Prana",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "integrity",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Leader 7"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood channels the ordered elemental essence of Creation into a ward against chaos and Wyld influence. While this Charm is active, the character is immune to the disorienting and mutation-causing effects of the soft Wyld, and adds (Essence) to the difficulty of any Wyld or chaos-based effect attempting to alter her mind or form. She may also extend this protection to a number of companions equal to her Essence who remain within (Essence x 5) yards of her. Earth and Wood Aspects are especially suited to this Charm, as their elements most strongly represent order.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "5b8a93286cc5f34f"
+  },
+  "folder": "b0b1b2b3b4b5f020",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

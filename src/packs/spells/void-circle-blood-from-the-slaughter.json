@@ -1,0 +1,37 @@
+{
+  "_id": "664d46d2c73c17c9",
+  "_key": "!items!664d46d2c73c17c9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Blood From the Slaughter",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "void-circle-blood-from-the-slaughter",
+    "tradition": "necromancy",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 35,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Caster",
+    "description": "<p>As the necromancer's anima bursts into its full iconic form, insubstantial serpents of Essence erupt from its edges and vanish. For the remainder of the scene, a bloody haze and the sound of distant death agonies surround the necromancer. Every time someone within a league of the sorcerer dies a violent death, a phantom snake appears coiled around the body as it falls, then withdraws to the caster in a dark blaze. Each death heals the necromancer of a health level of bashing or lethal damage, to a maximum of her Essence in health levels per action.</p>"
+  },
+  "folder": "447f6cc1520ba234",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

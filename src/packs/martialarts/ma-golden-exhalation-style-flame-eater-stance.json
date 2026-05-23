@@ -1,0 +1,58 @@
+{
+  "_id": "5070d08746e0a67d",
+  "_key": "!items!5070d08746e0a67d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Flame-eater Stance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Exalt angles his firewand so that another firewand's burst flies right down its barrel, and he uses his Essence to solidify it into the ammunition for his next shot. In order to perform this prodigious feat, his player must make a (Wits + Martial Arts) roll and get as many or more successes than the attacker's player did on her attack. If Golden Exhalation Form is active, that +2 applies to this roll. This replaces his normal defense attempt. If his firewand is already loaded with a charge, the martial artist may fire twice on his next action, but waiting longer than that gives the Essence-charge time to dissipate. If his weapon was empty, the Essence coalesces into real firedust. For an additional mote, the Exalt may use any fire-based attack or effect in this manner.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Golden Exhalation Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "5070d08746e0a67d"
+  },
+  "folder": "792dc280d116c2e8",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

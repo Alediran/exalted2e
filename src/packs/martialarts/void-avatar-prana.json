@@ -1,0 +1,102 @@
+{
+  "_id": "5e2e6514bd8c058d",
+  "_key": "!items!5e2e6514bd8c058d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Void Avatar Prana",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "permanent",
+    "speed": 1,
+    "dvPenalty": -1,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 1,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "--(+5m, 1wp)"
+    },
+    "description": "<p>A master of the Dark Messiah Style attunes her body, mind and Essence so perfectly to Oblivion that she becomes a conduit for its dread power to strike down any who lay hands upon her. A Dark Messiah stylist activates this Charm immediately after assuming Dark Messiah Form (effectively, making assuming the form a Speed 6 action that costs an additional Willpower point). While using Void Avatar Prana, the martial artist can reflexively spend one mote in response to any attack, or when she makes an attack. For a moment, her anima surrounds her in dark necrotic fire while her body becomes a black silhouette. This effect supplies a perfect block against any attack, even attacks that are normally unblockable. What's more, anyone who touches the Abyssal at that moment (whether casual contact, held in a grapple or making a hand-to-hand attack) suffers unsoakable lethal damage equal to the Abyssal's Essence score. The character can also activate Void Avatar Prana at the moment of making her own hand-to-hand attack and add this damage if her attack succeeds. Finally, the Abyssal's anima flashes totemic for that moment, with the usual effects on onlookers' Morale (see p. 101) given by all totemic Abyssal auras. In fact, if a non-Abyssal learned and used this Charm, his own anima would momentarily flare with the same effects as if he were an Abyssal. This Charm carries one of the Four Flaws of Abyssal Invulnerability.</p><p>HUNGRY GHOST STYLE In the final centuries of the Solar Deliberative, some Exalted explored the Underworld more than was prudent. Groups such as the Black Nadir Concordat did not want merely to protect Creation from the Underworld and the Neverborn, they wanted to make its power their own. The obscure and terrible Hungry Ghost Style emerged from these explorations and experiments. Given the style's associations, it seems likely that its creator became one of the Deathlords. It also seems likely that no style in existence could better metaphysically embody the innate cruelty and malice of the deathknights. At present, no one except Deathlords and Abyssals know Hungry Ghost Style. At least, no one else admits to it... Weapons and Armor: Hungry Ghost practitioners cannot activate or maintain their Charms while wearing armor. The style treats attacks made with tiger claws, fighting chains and razor harnesses as unarmed attacks. Complementary Skills: Hungry Ghost practitioners must know the way necrotic Essence flows. To learn this style, characters need at least one Occult or Lore Specialty related to ghosts or the Underworld, or initiation to Shadowlands Circle Necromancy.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Dark Messiah Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b25587ac2592984c",
+            "charmName": "Bone-Shattering Blow",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6c9a15e266a89250",
+            "charmName": "Illustrative Overkill Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "fa775967ad345ea8",
+            "charmName": "Lashing Tempest Palm",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "5e2e6514bd8c058d",
+    "grantsMastery": false
+  },
+  "folder": "a06a42dc7ec7fc33",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

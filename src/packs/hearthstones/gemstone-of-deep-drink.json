@@ -1,0 +1,27 @@
+{
+  "_id": "beb611c631026356",
+  "_key": "!items!beb611c631026356",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gemstone of Deep Drink",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDWOOD000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "wood",
+    "rating": 2,
+    "description": "<p>This sharp-edged chunk of grass-green stone grants its bearer the ability to drink as many and as much intoxicants as she likes without incurring any penalty. The stone protects a character from all the affects of alcohol and more exotic drugs and renders her immune to all natural ingested poisons. Other than their taste, everything from alcohol to the juice of the deadliest poisonous berries becomes as harmless as pure water.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

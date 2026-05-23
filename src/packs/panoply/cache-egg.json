@@ -1,0 +1,37 @@
+{
+  "_id": "a4fb5c45a3336aa1",
+  "_key": "!items!a4fb5c45a3336aa1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Cache Egg",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Created to store treasured or particularly useful possessions Elsewhere, both to keep them \"nearby\" at all times and out of the reach of thieves, these jade vessels have the shape and texture of large eggs. The volume of a cache egg determines its artifact rating as follows: · one cubic foot or less ··· three cubic yards or less ·· up to one cubic yard ···· up to 10 cubic yards Eggs rated at three dots or better are all but unheard of in the Second Age. Most are lost, having been either broken or banished Elsewhere by long-dead owners. Opening or closing a cache egg requires a touch and costs one mote. Up to half the shell may be opened from any point on its surface. The interior is hollow and may be filled with any inanimate cargo up to its maximum volume. If the shell is completely sealed and the vessel contains nothing living, a character may touch it and spend 20 motes (uncommitted) to banish the vessel as a diceless miscellaneous action, causing it to flicker and vanish from the world into the non-space of Elsewhere. While banished, the egg retains an arcane link to the character who banished it, allowing her to recall it at any time into a space large enough to contain it by spending another 20 motes as an action. Recalled vessels return in physical contact with their owners, where they may be opened and their contents reclaimed. Objects stored Elsewhere experience no passage of time from the moment they are banished until they return to Creation. Characters cannot have more than one egg linked to them, and banishing a second vessel while the first remains Elsewhere shatters the earlier connection, most likely exiling the egg and its contents to remain forever apart from the world. Celestial Exalted can sometimes recall cache eggs banished by prior incarnations of their Essence, but doing so is extremely difficult, requiring a successful (Intelligence + Lore) roll at difficulty 10 and Sto- ryteller approval. Some First Age Exalted took advantage of this feature to leave behind \"time capsules\" for future incarnations containing journals, dreamstones or prized treasures they wanted to bequeath to their future selves.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 1,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

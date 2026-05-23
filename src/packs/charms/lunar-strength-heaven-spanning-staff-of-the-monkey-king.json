@@ -1,0 +1,72 @@
+{
+  "_id": "769af1a8dccd4e57",
+  "_key": "!items!769af1a8dccd4e57",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Heaven-Spanning Staff of the Monkey King",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "strength",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Gift",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "8m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Muscles surging with flashes of argent Essence, the Lunar becomes mighty enough to wield any weapon ever devised. The character is able to wield any weapon without suffering size-based penalties--a warstrider grand daiklave fits her grip as well as a hunting knife. This Charm allows the Lunar to wield only those objects designed as DEFEND OTHER ACTION Without Charms, defending another individual is a Speed 5, DV -1 miscellaneous action. It requires that the character be within (Dexterity) yards of his ward, and allows him to interpose his Parry DV against attacks that target the individual he is protecting. If an attacker bypasses the character's Parry DV, she has the option of either letting the attack continue on to the guardian's ward (in which case the attack will need to use its remaining successes to also beat the ward's DVs) or letting the attack strike the guardian himself. Parry-based perfect defenses such as Heavenly Guardian Defense may be used to automatically guard others, while dodge-based perfect defenses such as Seven Shadow Evasion do not impede attacks against the character's ward at all. Only one Defend Other action may be placed in a flurry. If multiple characters attempt to defend a single target, one guardian (generally the individual with the highest Parry DV) becomes the leader of the guard, who actually applies his DV against attacks. Each additional character guarding the same ward raises the leader's Parry DV by one when defending the ward. Up to five characters may simultaneously guard one human-sized ward on open ground. Blockade Movement Action Without Charms, blocking another individual's movement is a miscellaneous Speed 5, DV -1 action. It requires that the character be directly interposed between the individuals whose movement he is attempting to restrict and the place he is attempting to keep them from reaching (such as a doorway or another character). When the targets attempt to move past the blocker, make a contested ([Strength or Dexterity] + Athletics) roll for both parties. Ties favor the blocker. If the blocker wins, the target cannot move past him toward the blocked destination. If the target wins, she may move as she wishes. A single blocker may impede up to three targets per Blockade Movement action at a time. Blockade Movement may be flurried to impede more than three individuals at once, if needed. weapons. Improvised weapons are not compatible with its magic. When the Lunar uses Deadly Beastman Transformation, she may commit four motes to enjoy this Charm's benefits for the duration of her time in that form. As an additional benefit, this Charm permanently upgrades Molted Feather-Weight Technique, granting it the Fury-OK keyword. This permits the character to employ its benefit to all attacks made while Relentless Lunar Fury remains active. DEXTERITY</p>",
+    "source": "Glories of the Most High: Luna",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "2d48665f6c46896a",
+            "charmName": "Molted Feather-Weight Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "769af1a8dccd4e57"
+  },
+  "folder": "aba1efe8ad0bef8a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

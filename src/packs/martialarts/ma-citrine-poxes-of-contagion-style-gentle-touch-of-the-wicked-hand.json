@@ -1,0 +1,59 @@
+{
+  "_id": "04a8f5a8fe3bc830",
+  "_key": "!items!04a8f5a8fe3bc830",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gentle Touch of the Wicked Hand",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 7,
+    "minAbility": 6,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Sickness",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "15m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>...who told me this: \"You shall know your enemies when they teach you to forget With this terrifying Charm, a Sidereal can use an infectious Martial Arts attack to contaminate a victim with arbitrary Third Circle illnesses. Characters develop their own Third Circle illnesses for use with Gentle Touch of the Wicked Hand (just as they invent lesser diseases with Essence-Disrupting Infectious Atemi). Infection follows the ordinary rules for infectious Martial Arts attacks, save that it is intrinsically more difficult for a victim to resist a Third Circle infection. Creating such a blight requires an (Intelligence + Medicine) roll, and the Storyteller sets a difficulty between 5 and 10, based on the disease's effects. Reduce this difficulty by one if another Sidereal teaches the character how to inflict a certain disease. Normally, characters practice inflicting new spiritual infections before testing them in battle. Developing diseases extemporaneously imposes a +2 internal difficulty penalty. Doing so also requires Storyteller permission and a separate action from the blow that inflicts the disease.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Citrine Poxes of Contagion Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "04a8f5a8fe3bc830"
+  },
+  "folder": "9eef66b2ef45a641",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

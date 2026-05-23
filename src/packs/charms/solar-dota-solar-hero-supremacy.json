@@ -1,0 +1,58 @@
+{
+  "_id": "dd19f04a457d6a2b",
+  "_key": "!items!dd19f04a457d6a2b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Solar Hero Supremacy",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "martialarts",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror (Agony of the Black Messiah)",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Prerequisite Charms: Fists of Iron Technique The Chosen of the Most High need no esoteric lessons to rock the world back on its heels--their strength and prowess are weapons enough. The Solar's unarmed attacks automatically stun opponents they strike and roll damage against (see Exalted, p. 153). This stunning effect is cumulative--if a Solar made a three-attack flurry and struck his opponent with all three attacks, his target would suffer a -6 internal penalty until the Solar's next action. New Abyssal Charm: Agony of the Black Messiah (Prerequisite: Ravaging Blow). This Charm causes each hit to produce a stackable -2 wound penalty that lingers until the Abyssal's DV refreshes. It is otherwise identical to its Solar counterpart.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "dd19f04a457d6a2b"
+  },
+  "folder": "a1b2c3d4e5f60101",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

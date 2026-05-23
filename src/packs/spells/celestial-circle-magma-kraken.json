@@ -1,0 +1,37 @@
+{
+  "_id": "e9fdc4b709c70822",
+  "_key": "!items!e9fdc4b709c70822",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Magma Kraken",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "celestial-circle-magma-kraken",
+    "tradition": "sorcery",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 35,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Area",
+    "description": "<p>The sorcerer combines the Prayer to the Kraken with the Mudra of Burning Earth that volcano gods make when theirmountainsspewfire.RedstrandsofEssencethenlance toward the targeted area, which begins to rumble. Five ticks after the sorcerer's Cast Sorcery action ends, tentacles of lava erupt from the ground. The sorcerer can place these writhing limbs anywhere in a circle 50 yards wide, at most 500 yards away. Anyone in the area when this happens is knocked prone unless their players succeed at a reflexive (Dexterity + Athletics) roll, difficulty 2. The tentacles are magical constructs that Join Battle on the tick they appear and lash out at anyone the sorcerer names an enemy, either to strike or grapple. These act with Strength 10, Dexterity 4 and Martial Arts 4. They use Dexterity to initiate grapples, but Strength to maintain them, giving the traits listed on p. 77. The damage inflicted by the tentacles is considered partial fire damage: Targets that are immune to heat and firehalveanydamagetaken,aftersoak.Thetentaclesnever dodge or parry; they have 10L soak and are immune to bashing damage. Ten levels of damage destroy a tentacle, but at the beginning of every action, surviving tentacles regenerate all damage they have taken up to that point. The sorcerer can also direct tentacles using a special Control Tentacle action. A sorcerer can direct one more Magma Kraken tentacle with each Control Tentacle action, up to an amount equal to his Perception score. Directing multiple tentacles does not count as a flurry. Control Tentacle (Speed 6, DV -1): The sorcerer can direct a tentacle to strike, clinch or perform some other simple task, such as to lift a heavy object. It acts on the sorcerer's actions, even if it has not yet recovered from its previous action. A tentacle uses the sorcerer's Name Tentacle Strike Tentacle Clinch Speed 6 6 MAGMA KRAKEN Accuracy Damage (15 + sorcerer's Essence)L 8 (initiate)/ (15 + sorcerer's Essence)L 16 (maintain) Parry DV -- -- Rate Tags 1 N, R 1 C, N, R (Wits + Martial Arts) to attack but suffers a -1 internal penalty per 50 yards between the sorcerer and the battle. While controlling a tentacle, the sorcerer can take only reflexive actions. If the sorcerer's struck, his player must roll to maintain concentration, just as for interrupted spell casting. Should the sorcerer break concentration, any tentacles he's directing immediately end their clinches. A Join Battle roll follows, using the sorcerer's (Wits + Awareness), for them to rejoin combat as normal. The tentacles last for an entire scene, unless destroyed or countered. When the spell ends, the tentacles harden into impressive serpentine shapes of obsidian.</p>"
+  },
+  "folder": "dcf06d83a3d0a4be",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

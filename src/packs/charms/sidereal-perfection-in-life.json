@@ -1,0 +1,58 @@
+{
+  "_id": "edf299e8ee7885bb",
+  "_key": "!items!edf299e8ee7885bb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Perfection In Life",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "performance",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Virtue (Compassion)"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Not every person in Creation has a glorious destiny, but every person can live up to his destiny with grace. One of the duties of the Chosen of Venus, then, is to see that mortals and Exalted all live up to their potential. A Sidereal uses this Charm while he gives a performance of some kind, such as singing, dancing, reciting an epic poem or the like. Audience members feel the sense</p><p>of completion, triumph and peace--the exaltation--that comes from knowing you are exactly where you should be, doing what you should do. The Seer's player rolls (Charisma + Performance) against the highest Dodge Mental Defense Value of his assembled audience. If the roll succeeds, everyone who witnessed the Exalt's entire performance (and is not a creature outside fate) gains a temporary Willpower point. A person can receive this bonus from the same Exalt only once per day, but the extra point can put the person over his Willpower maximum for the scene.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "edf299e8ee7885bb"
+  },
+  "folder": "b0b1b2b3b4b5f010",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

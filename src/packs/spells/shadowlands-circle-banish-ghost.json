@@ -1,0 +1,37 @@
+{
+  "_id": "a790c9b65d8bc7dd",
+  "_key": "!items!a790c9b65d8bc7dd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Banish Ghost",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "shadowlands-circle-banish-ghost",
+    "tradition": "necromancy",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "One ghost",
+    "description": "<p>The ease of casting this spell displays the sheer power an experienced necromancer can wield over inhabitants of the Underworld. Banish Ghost has special timing rules. The character can cast it as a reflexive Shape Shadowlands Circle Necromancy action that takes 0 ticks. Once the spell is cast, the necromancer and targeted ghost enter a battle of wills. Their players each roll (Essence + Willpower) as a Speed 3, -1 DV action. This resisted roll must continue until one accumulates three more successes than the other. The ghost suffers a -1 internal penalty for every three additional motes the necromancer spends on the spell. If the ghost wins, she ignores the banishment and the necromancer may not try to banish her again for three days. Should the necromancer win, he may inflict one of the following penalties: � Banish the ghost from Creation to the analogous point in the Underworld. The ghost may not return to Creation for three days. � Banish the ghost into her tomb, corpse or place of death for three days. She may not leave the confines of her tomb or stray farther than five yards from her body or place of death. � Banish the ghost from the character's presence for three days. If the necromancer sees the ghost before the spell's effect ends, the ghost suffers one unsoakable level of bashing damage each action until she escapes his gaze. Cruel necromantic masters banish a loyal servant from sight while still expecting flawless service.</p>"
+  },
+  "folder": "9a7bd83d0a359e00",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

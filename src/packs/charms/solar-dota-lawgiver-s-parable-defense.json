@@ -1,0 +1,57 @@
+{
+  "_id": "c2dfaa51ba5ae9f0",
+  "_key": "!items!c2dfaa51ba5ae9f0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Lawgiver's Parable Defense",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "investigation",
+    "essence": 7,
+    "minAbility": 7,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK Native"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A Lawgiver can stop the hands of time to protect the ones he loves. This Charm allows the character to find evidence of crimes that have yet to be committed, thereby preventing future tragedies. The Solar may make (Wits + Investigation) rolls to detect impending threats to any person or location he has an Intimacy toward, even those posed by individuals he has not profiled. The difficulty of this roll is always 5. This warning manifests itself one week before the danger actualizes itself. For example: \"The mercantile district of Hollow will be destroyed by a magically-triggered earthquake\" or \"My Lunar mate will be slain by another Exalt.\" Spending one Willpower when the roll is made grants the Solar a flash of intuitive insight gleaned through context clues in his surroundings--the Storyteller informs the Solar's player of a place where he might profitably begin investigating the impending disaster. As the Era of Dreams progresses, a growing number of Solars have stopped using this Charm, suspecting some defect in its design--surely Lawgiver's Parable Defense must be in error when it points to the Solars themselves as the threats that menace the things they love.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "c2dfaa51ba5ae9f0"
+  },
+  "folder": "404dccadf2c8e04a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,55 @@
+{
+  "_id": "f9b13ab624f48a8d",
+  "_key": "!items!f9b13ab624f48a8d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Transcendent Desert Creature",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Cecelyne is always home within herself, finding sanctuary in her eternal wastes. An Infernal who learns this Charm gains the following powers as permanent enhancements to his competence: � He suffers no negative effects from exposure to a place of desolation, including penalties, environmental damage and even visual impairment. � All foraging rolls that would normally have a difficulty of 4+ have a difficulty of 1 instead (see Exalted, p. 139). This does not make impossible rolls possible in a place where the Storyteller determines absolutely nothing edible can be found.</p><p>� The total penalty for starvation or thirst cannot rise above -3 within a place of desolation. The Exalt's perfected metabolism no longer produces waste of any kind, including sweat. � All mundane attempts to track the character automatically fail with zero successes unless the character allows himself to be tracked. Magically assisted tracking efforts suffer an external penalty of the Infernal's Essence rating instead. � He adds his Essence rating to the difficulty of all efforts to notice him with an Awareness roll in a place of physical desolation (spiritually desolate places as defined by Withered Soul Wastes don't count for characters who know that Charm). This benefit may be turned on and off at will.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "cecelyne",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f9b13ab624f48a8d"
+  },
+  "folder": "d852ccb3960d271d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,70 @@
+{
+  "_id": "8c9b54ea5544e4d6",
+  "_key": "!items!8c9b54ea5544e4d6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shattering Grasp",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "craft",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The secrets of mending include the secrets of breaking. This Charm is a dramatic action taken to disassemble an object or structure. The character chooses whether to harmlessly or destructively take the object apart. This Charm allows the disassembly of only those objects the character can break with a feat of strength, adding twice the character's Craft to the character's (Strength + Athletics) pool to determine valid feats. This Charm can disassemble a single object in (8 � Essence) minutes, with a minimum of three minutes. This Charm can target larger structures, such as castles and villages. In such cases, the Exalt proceeds methodically from one major component to the next, taking them apart at the normal rate, until he is interrupted or the task is complete. To take apart a large structure, the Exalt must dedicate at least (8 � Essence) hours, with a minimum of three hours, to the task; he cannot stop early unless he finishes or unexpected events interrupt him. The Exalt cannot demolish anything larger than a large castle or village with a single invocation of this Charm.</p><p>CHARM CONCEPT: OBJECTS AND STRUCTURES \"Objects\" and \"structures\" are things that are in a permanent inactive state. If it can't take actions on its own, it's an object or a structure. Things smaller than a yeddim that a player can reasonably consider a single item are \"objects\"--including walls, small buildings, belts and bags of marbles, but not collections such as \"the swords those guards are holding.\" Things larger than a yeddim are \"structures\" and are treated as a collection of smaller compo- nents, such as walls and windows.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "8c9b54ea5544e4d6"
+  },
+  "folder": "461821c707bbdbb0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

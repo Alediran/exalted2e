@@ -1,0 +1,74 @@
+{
+  "_id": "1dc23f1b6f8fe7cc",
+  "_key": "!items!1dc23f1b6f8fe7cc",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Essence Thorn Practice",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "thrown",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal motions as if pulling back an elastic strand of the target's fate. A blade of pure, glowing Essence forms in the Sidereal's hand, and he seems to attach this blade to the strand. When he releases it, the blade streaks toward the target, pulling the Sidereal up to 20 yards in the blade's wake. (The Sidereal chooses how far he travels.) The attack has a range of (the Sidereal's Essence x 20) yards and suffers no range penalties. It has Accuracy +(character's Essence), and Damage +6L. The attack cannot be parried, only dodged.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "attack": {
+      "enabled": true,
+      "name": "Essence Thorn Practice",
+      "speed": "6",
+      "accuracy": "@dex + @thrown + @ess",
+      "damage": "6",
+      "damageType": "lethal",
+      "overwhelming": "1",
+      "defense": "0",
+      "rate": "1",
+      "range": "@ess * 20",
+      "minStrength": "0",
+      "minDexterity": "0",
+      "minMartialArts": "0",
+      "tags": []
+    },
+    "prereqGroups": [],
+    "charmUid": "1dc23f1b6f8fe7cc"
+  },
+  "folder": "b0b1b2b3b4b5f018",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

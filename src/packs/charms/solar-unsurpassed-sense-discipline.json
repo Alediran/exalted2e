@@ -1,0 +1,70 @@
+{
+  "_id": "e645960e3feee277",
+  "_key": "!items!e645960e3feee277",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unsurpassed (Sense) Discipline",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "awareness",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "scene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "ComboOK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Essence grants the character supreme sensory prowess. Unsurpassed (Sense) Discipline is actually three Charms. One heightens sight, one heightens hearing and touch, and one heightens smell and taste. This Charm doubles the character's successes on Awareness rolls, before subtracting any external penalties. Should the character employ this Charm in combination with the appropriate Keen (Sense) Technique, it is reasonable to imagine that she could critique the mating practices of insects, read with her fingertips or gauge an individual's mood by scent.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Appropriate Keen (Sense) Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "e645960e3feee277"
+  },
+  "folder": "97d4d497443373f8",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

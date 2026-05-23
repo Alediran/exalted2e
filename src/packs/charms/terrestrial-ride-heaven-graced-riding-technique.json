@@ -1,0 +1,57 @@
+{
+  "_id": "d7169ec856c49f1b",
+  "_key": "!items!d7169ec856c49f1b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Heaven-Graced Riding Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "ride",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "oneAction",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With this Charm, the Exalted rider forges a bond with his mount, fortifying and strengthening it with Essence. Until the Dragon-Blood's next action, he can add his Ride rating in yards to his mount's movement rate and also add that amount to the distance the mount can safely jump. Also, during that time, the rider gains a +2 bonus on all Ride-related dice pools, and his Ride is considered to be one dot higher for purposes of limiting his dice pools on other actions taken while on horseback. This Charm is a reflexive one that can be used freely without the need for a Combo. It can be used on any tick.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "d7169ec856c49f1b"
+  },
+  "folder": "b0b1b2b3b4b5f02c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

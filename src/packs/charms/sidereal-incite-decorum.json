@@ -1,0 +1,63 @@
+{
+  "_id": "5cca10d19f2fbacd",
+  "_key": "!items!5cca10d19f2fbacd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Incite Decorum",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "occult",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Compulsion"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A Sidereal can invoke his Maiden's authority to facilitate polite dealings with elementals and gods. Any spirit whose Essence does not surpass the Sidereal's must remain calm, reasonable and peaceful in the Vizier's presence. The spirit must spend two Willpower points to initiate violence against the Seer, and any Charm the spirit uses against the character costs one additional Willpower. (This includes Charms that normally do not cost Willpower at all.) The effect ends automatically if the Sidereal opens hostilities himself.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "willpowerRecovery": {
+      "enabled": true,
+      "event": "onDamageDealt",
+      "formula": "1"
+    },
+    "charmUid": "5cca10d19f2fbacd"
+  },
+  "folder": "b0b1b2b3b4b5f00f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

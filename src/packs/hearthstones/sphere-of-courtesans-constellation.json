@@ -1,0 +1,27 @@
+{
+  "_id": "0e1cf46eebc0d1b2",
+  "_key": "!items!0e1cf46eebc0d1b2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sphere of Courtesans' Constellation",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDSOLAR00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "solar",
+    "rating": 2,
+    "description": "<p>This gold-flecked, orange globe raises its possessor's Appearance to 3, if it does not equal or exceed that value already. The bearer's Appearance drops to its original level the moment the Sphere leaves his person. In addition, the bearer's player gains a +2 bonus to all Performance and Presence rolls.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "_id": "78831c0fe338b222",
+  "_key": "!items!78831c0fe338b222",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Image of Death Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "oneDay",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Illusion"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Withdrawing her Essence deep into her body, the character drops to the ground and temporarily appears to be dead. A careful examination and a successful (Perception + Medicine) roll, difficulty 3, is necessary to determine that the character is actually still alive. The martial artist using this Charm can hold her breath 10 times as long as normal, and she does not need to eat or drink--handy if she's hiding from enemies at the bottom of a river or wants them to think they killed her. Although the character's senses of hearing, touch and smell function normally, she cannot see or move. She can act normally the action after she chooses to end this Charm.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Ebon Shadow Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "78831c0fe338b222"
+  },
+  "folder": "8ba2fc566f928c7a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,59 @@
+{
+  "_id": "a282c667f04f706f",
+  "_key": "!items!a282c667f04f706f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Void Stares Back",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "awareness",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Taint"
+    ],
+    "cost": {
+      "formula": "3m (2xp)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Abyssal's pupils ooze outward to stain iris and white alike with featureless and pitiless darkness. Enemies who stare into this darkness sometimes see their own death reflected within, the death they fear or perhaps the death the Neverborn wish for them (though such visions carry no true prophetic power). More practically, the deathknight can see perfectly in the dark without any penalties or reduction in visibility. He is no better able to see through fog or other visual obstructions. The Taint drawback to this Charm is that the Abyssal's eyes become painfully sensitive to direct sunlight within Creation, imposing a -1 internal penalty to all non-reflexive actions while so illuminated unless he closes his eyes completely. His eyes also immediately betray his supernatural nature if he cannot somehow hide their stain. The Taint costs one bonus point or two experience points.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "a282c667f04f706f"
+  },
+  "folder": "b0b1b2b3b4b5f035",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

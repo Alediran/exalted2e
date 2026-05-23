@@ -1,0 +1,72 @@
+{
+  "_id": "e2ad71603a128e7a",
+  "_key": "!items!e2ad71603a128e7a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Enfolded In The Dragon's Wings",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "war",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "one day",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Elemental",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>It is difficult to achieve success as a military commander if one cannot avoid immolating one's own troops. For each mote committed, the Dragon-Blood may temporarily render one soldier partially immune to the damaging effects of her elemental anima. Any damage inflicted on a protected soldier by the Dragon-Blood's anima or by other elemental effects attributable to her aspect is reduced by the Dragon-Blood's Essence. The nature of this Charm is such that a Dragon-Blood can only protect a mortal soldier who is considered at least nominally \"under her command.\" Therefore, neither bystanders nor fellow Exalts can be protected by it. When the Charm is activated, all participants must be holding hands. This is a reflexive Charm that can be used freely without the need for a Combo. It can be activated on any tick.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "01cfec1bc81a3048",
+            "charmName": "Terrestrial War Reinforcement",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "e2ad71603a128e7a"
+  },
+  "folder": "b0b1b2b3b4b5f032",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

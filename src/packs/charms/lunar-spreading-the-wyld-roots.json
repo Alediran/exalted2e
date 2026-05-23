@@ -1,0 +1,72 @@
+{
+  "_id": "03ecd99e7e5fe17e",
+  "_key": "!items!03ecd99e7e5fe17e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Spreading The Wyld Roots",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "dexterity",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Wyld"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Within the Wyld, space is not always a matter of here and there. Sometimes, one location is in multiple places, or many points all fit into one small space. Though the Lunar Exalted are immune to such space-bending (to a degree), some learn how to exploit it. By perceiving and striking at one such multispatial point, or perhaps creating it with the Charm, the character attacks (Essence) points simultaneously with a single blow. The character may target multiple individuals (who must all be within 30 yards), a single person or any mix thereof. Attacking one target with multiple strikes reduces that target's Defense Value by the total number of blows laid on the target, as if multiple people launched a coordinated attack. Example: A Lunar with Essence 4 levies three blows against one target and one against another. The first target suffers a -3 DV penalty against the attack; the second target suffers no penalty.</p><p>By attacking each target with two blows, the Lunar could give each a -2 DV penalty instead. The Lunar's player only rolls a single attack, which is applied against the Defense Values of all chosen targets simultaneously.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a5b0810b677215cc",
+            "charmName": "Octopus and Spider Barrage",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "03ecd99e7e5fe17e"
+  },
+  "folder": "6d3aed86fa48b120",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

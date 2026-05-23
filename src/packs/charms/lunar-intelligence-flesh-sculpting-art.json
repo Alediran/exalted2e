@@ -1,0 +1,74 @@
+{
+  "_id": "e46f96c5420523a8",
+  "_key": "!items!e46f96c5420523a8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Flesh-Sculpting Art",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "intelligence",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Shaping",
+      "Stackable",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "8m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Lunar is able to sculpt flesh like clay, painlessly passing her hands through the anatomy of her target with no difficulty. Each invocation of this Charm may be used to perform one of the following actions: � Automatically stanch a subject's bleeding. � Repair one Crippling injury, with the exception of full amputation. Even amputations may be repaired for a one-Willpower surcharge if the character is in the Wyld. � Produce cosmetic changes to the target, though the Appearance trait may not be increased or reduced. Exalted heal these changes, if undesired, after one week. At the Storyteller's discretion, stunts may be employed to produce other potential uses for this Charm, such as hollowing out a pouch of flesh in which to smuggle goods or letters, which the character could later retrieve with another activation. The Lunar may use this Charm on himself.</p>",
+    "source": "Glories of the Most High: Luna",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4a0dc4dde8e15b20",
+            "charmName": "Any Intelligence Excellency",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "e46f96c5420523a8"
+  },
+  "folder": "8b05ba7cc3e236b8",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

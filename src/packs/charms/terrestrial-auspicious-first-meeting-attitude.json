@@ -1,0 +1,59 @@
+{
+  "_id": "0ca243000a95df3f",
+  "_key": "!items!0ca243000a95df3f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Auspicious First Meeting Attitude",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "presence",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Emotion",
+      "Social"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm can be used on a target only once, when the DragonBlood and the target first meet in a non-combat, social situation. During this initial encounter, the Dragon-Blood can read the subject perfectly, intuitively adjusting his behavior so as to make the best possible first impression. The target will be generally be open to the Exalt and will leave the encounter with a favorable impression of him. Even if the two never meet again, the target of the Charm will generally</p><p>speak well of the Dragon-Blood to others regarding his obvious good breeding and superior virtue. Mechanically, the Dragon-Blood's player gains two extra dice to roll on every Bureaucracy, Presence or Socialize roll during this first encounter and one extra die on the second encounter, if any. The Dragon-Blood may also gain indirect insights about the target's loyalties, Virtues and Motivations, as the Storyteller will warn the player ahead of time that an intended action or statement may affect the target's MDV (whether positively or negatively). This Charm can be used only in non-combat and non-threatening social settings where a pleasant first impression can realistically be made. Consequently, it is unlikely that this Charm can ever be used effectively on a battlefield, though it might be useful in peace talks with a hateful enemy or when entering a rough tavern in a bad part of town. If the Dragon-Blood deliberately antagonizes the subject in any way, the effect ends. This is a reflexive Charm that can be used freely without the need for a Combo. It cannot be used in physical combat, but can be invoked during any long tick of social combat.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "0ca243000a95df3f"
+  },
+  "folder": "b0b1b2b3b4b5f02a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

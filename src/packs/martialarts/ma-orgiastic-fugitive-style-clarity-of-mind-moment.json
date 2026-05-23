@@ -1,0 +1,57 @@
+{
+  "_id": "7a0c52def46e3c1d",
+  "_key": "!items!7a0c52def46e3c1d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Clarity-of-mind Moment",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Despite the tangle that rice wine and hashish can inflict upon his mind, the martial artist manages to correctly interpret the situation and react in an appropriate fashion. Whether his drunken fist needs to find a nose or his dilated pupils tell him when to duck, the character is not as hindered as his pleasantly induced state would normally make him. For one action, he may ignore all internal penalties deriving from drugs or sexual exhaustion. The penalties still count for any Charm that utilizes them (such as Saturnalia Memoriam Kick), but they do not detract from the character's dice pools.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Orgiastic Fugitive Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "7a0c52def46e3c1d"
+  },
+  "folder": "f2585f18db971283",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

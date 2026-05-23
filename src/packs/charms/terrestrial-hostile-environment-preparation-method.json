@@ -1,0 +1,58 @@
+{
+  "_id": "87754baeb9c39096",
+  "_key": "!items!87754baeb9c39096",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hostile Environment Preparation Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "survival",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Elemental"
+    ],
+    "cost": {
+      "formula": "3m + 1m per companion",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood draws upon her elemental attunement to prepare herself and her companions for hostile environments. With ten minutes of preparation, the character may attune a group of up to (Essence) individuals, including herself, to a specific hostile environment. For one day, the prepared individuals treat all environmental hazards from that environment as one category less severe—intense heat becomes uncomfortable, bitter cold becomes chilly, toxic air becomes merely unpleasant. Elemental aspects whose element matches the environment (e.g., Fire Aspects in volcanic regions) may also extend this protection to double their Essence in individuals.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "87754baeb9c39096"
+  },
+  "folder": "b0b1b2b3b4b5f030",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

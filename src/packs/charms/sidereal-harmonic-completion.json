@@ -1,0 +1,84 @@
+{
+  "_id": "ffbc9dca1ebc5f50",
+  "_key": "!items!ffbc9dca1ebc5f50",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Harmonic Completion",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "performance",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Emotion",
+      "Prayer Strip"
+    ],
+    "cost": {
+      "formula": "16m, 1wp, 1lhl",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal activates this Charm using a prayer strip marked with the Scripture of the Dancer. When she wraps the prayer strip around her eyes and infuses it with Essence, the strip becomes a band of starmetal and blue jade. (This event is Obvious, but subsequent Charm effects are not.) The prayer strip remains as durable as any other activated prayer strip (see p. 125), but it can be pulled from the character's head if someone's attack manages to get past the Sidereal's defenses and the strip's own Parry Defense Value. If the band comes off the Sidereal's head for any reason, the Charm's effect ends. The Exalt is blind to Creation while she wears the prayer strip (with all the normal penalties to physical actions), but her words ring with the power of higher truth and ageless wisdom. Any Performance roll for the character (including Charms) automatically succeeds with one success for every die. Anyone who pays attention to the Sidereal's performance immediately gains an Intimacy to this performer who speaks with the voice of Heaven. Finally, the static values of the Sidereal's Dodge Defense Value and Dodge Mental Defense Value increase by an amount equal to her unmodified Performance, as fate itself strives to protect the source of such blessed assurance. THE SCRIPTURE OF THE DANCER Once, there was a maiden... ...who stood at the center of every dance. Back then, she knew all the dances. She never missed a step. One day, she heard something in the music, as a singer dropped the beat. It taught her of the joy of dancing poorly. She started dancing more and more awry. \"Love has no rules,\" she said. SOCIALIZE: THE LOVERS</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "04e78b4f32b631f0",
+            "charmName": "Defense of Shining Joy",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "3837f18eb919df60",
+            "charmName": "Ice and Fire Binding",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "ffbc9dca1ebc5f50"
+  },
+  "folder": "b0b1b2b3b4b5f010",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

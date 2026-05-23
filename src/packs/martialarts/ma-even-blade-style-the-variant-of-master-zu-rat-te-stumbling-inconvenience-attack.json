@@ -1,0 +1,57 @@
+{
+  "_id": "078c444487193d6f",
+  "_key": "!items!078c444487193d6f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Variant of Master Zu Rat Te Stumbling Inconvenience Attack",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Completely imperturbable, the martial artist's expression hardly changes as his hand flashes out to smack his opponent. Supplemented with three motes, the character's attack inflicts bashing damage even if a sword or Charm is used, but if he hits, then he may choose where. His choice of target has the following effects: · Wrists: Unless his opponent succeeds on a normal roll to avoid being disarmed, she cries out and drops her weapon like a disciplined child. · Face: For a number of actions equal to the health levels inflicted by the attack, the target suffers an additional -1 wound penalty due to the viciously stinging, swelling welts across both cheeks. · Stomach: The target doubles over and falls ignominiously prone unless her player succeeds on a (Stamina + Athletics) roll with an external penalty equal to the martial artist's Essence. Use of this Charm does not require that a character's blade be drawn, even if he uses it. Players must succeed on a (Perception + Awareness) roll for their characters to see the strike coming, even if the martial artist stands directly in front of them and they watch him carefully. If the target fails this roll, then Stumbling Inconvenience Attack is treated as an unexpected attack (see Exalted, p. 155). If the target succeeds, and a fight has not already begun, she may roll Join Battle against the character as usual. When a character uses this Charm in the middle of a conflict, the martial artist is not considered to be re-establishing surprise, so players rolling (Perception + Awareness) for their characters to spot the enhanced attack don't gain any relevant bonuses.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Even Blade Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "078c444487193d6f"
+  },
+  "folder": "6ac2f15fc6fdff1c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

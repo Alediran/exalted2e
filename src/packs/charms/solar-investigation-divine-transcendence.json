@@ -1,0 +1,72 @@
+{
+  "_id": "a8d7f23c9b4e5808",
+  "_key": "!items!a8d7f23c9b4e5808",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Divine Transcendence of Investigation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "investigation",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Native",
+      "Mirror (Apocalyptic Evolution of Investigation)"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>All limitations in existence shrink in the face of Solar determination. That which is impossible becomes merely difficult; that which is indestructible crumbles; that which cannot be slain lies dead upon the earth. When a Solar crashes against the boundaries of her own power, that limit also falters. All Charms within the Investigation Ability reduce their minimum Ability and Essence ratings by one when the character attempts to learn them. All subsidiary powers contained within such Charms also lower their requisite Ability and Essence ratings by one. Divine Transcendence of Investigation cannot reduce the requirements of any Charm with minimums of Investigation 10 or Essence 10. Charms retain their original ratings for all other purposes, such as building Combos. Upon achieving Investigation 10, Essence 10, this Charm vanishes and the Solar is refunded its cost.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "mirrorId": "c8d7f23c9b4e5827",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "investigation",
+            "minCount": 1,
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a8d7f23c9b4e5808"
+  },
+  "folder": "404dccadf2c8e04a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

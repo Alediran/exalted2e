@@ -1,0 +1,37 @@
+{
+  "_id": "cdd54eb13f4417c4",
+  "_key": "!items!cdd54eb13f4417c4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sweet Voice Familiar",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "labyrinth-circle-sweet-voice-familiar",
+    "tradition": "necromancy",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 32,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Area",
+    "description": "<p>This spell gives a mouth to the inchoate ramblings of the Neverborn. The caster surrenders her body to Oblivion's whispers. Her legs bend, she balances impossibly on the balls of her feet, and her body seems suspended by invisible puppeteer's strings. Her head lolls to one side and her jaw opens, and the never-spoken mad words of the dead Primordials issue from her unmoving mouth, magnified by the spell's power. Any ghost within a number of miles equal to the caster's Essence hears these whispers, and their players must roll (Integrity + Willpower) at a difficulty equal to (caster's Whispers + 5) to resist the taint. Any who fail have been poisoned, mind and soul, as if they had been exposed to the whispers of Oblivion. They soon become spectres and belong to the Abyss. Success means the ghost merely loses one point of Willpower. Mortals who hear the untranslatable, corrupted words resist in the same way, but at half the difficulty. For every success by which a character fails, he loses a point of temporary Willpower. Those who hear this spell multiple times before their death are more likely to become ghosts--and they often rise as spectral mortwights. Casting the spell in the echoing Labyrinth doubles its range. Creation, on the other hand, is not hospitable to the Neverborn and reduces the range to a flat 250 yards.</p>"
+  },
+  "folder": "562235f47f16c453",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

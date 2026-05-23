@@ -1,0 +1,59 @@
+{
+  "_id": "7c8380573dfd9e04",
+  "_key": "!items!7c8380573dfd9e04",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Irresistible Silver Spirit",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "appearance",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      1
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When the Stewards focus their efforts, they can nearly match the Lawgivers in their skill at handling people and cultures. Activating this Charm, the character's personality becomes attractive to those around her. People want to help her, the things she says make sense and she seems very convincing. She could act outgoing and positive or distantly alluring. Irresistible Silver Spirit adds one automatic success to all social actions (but not her Mental Defense Values). The character ignores fatigue penalties and increases the maximum number of dice she may add from her Social Attribute Excellencies to (Attribute + Essence). After activating the Charm, the Lunar's player names an objective she wishes to achieve through social combat. Each action, she must make a social attack in an effort to reach that goal. It requires a (Willpower) roll to take any other action (even another social attack), and that suffers a -2 internal penalty. Her player must roll (Willpower) at a difficulty of her Essence in order to end the Charm prematurely.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "7c8380573dfd9e04"
+  },
+  "folder": "8313b495b23ed35c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

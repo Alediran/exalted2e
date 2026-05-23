@@ -1,0 +1,52 @@
+{
+  "_id": "55e2bf693e03a7d1",
+  "_key": "!items!55e2bf693e03a7d1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Yo-yo",
+  "type": "weapon",
+  "img": "icons/weapons/swords/sword-ornate-yellow.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "Martial Arts",
+        "speed": 6,
+        "accuracy": 0,
+        "damage": 2,
+        "damageType": "lethal",
+        "overwhelming": 1,
+        "defense": 0,
+        "rate": 1,
+        "range": 0,
+        "minStrength": 0,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": [
+          "Martial Arts"
+        ]
+      }
+    ],
+    "artifact": false,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 0,
+    "hearthstoneSlots": 0,
+    "description": "<p>As scholars of the fighting arts know, this popular children's toy began as a weapon used by certain tribes in the East, who used weights on cords to stun birds and small game, and weighted blades on cords to attack each other. Casting a yo-yo with sufficient force to inflict damage requires basic Martial Arts proficiency. Catching the bladed form without cutting off your own hand requires a little more. The first trait bar describes a bladed yo-yo; the second describes the blunt version.</p>",
+    "source": "Scroll of the Monk",
+    "equipped": false
+  },
+  "folder": "f001a234b56c789d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

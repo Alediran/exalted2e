@@ -1,0 +1,83 @@
+{
+  "_id": "0e4ebf564bb46b61",
+  "_key": "!items!0e4ebf564bb46b61",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "You And Yours Stance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "socialize",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Emotion"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Using this Charm, a Vizier can make other people want to please him; actually harming him seems unthinkable. For the scene, anyone whose character wants to attack the Sidereal must succeed at a Conviction roll with a difficulty equal to the Sidereal's Essence. Knowingly acting in a way that will not please the Sidereal requires a successful Temperance roll at the same difficulty. What's more, any roll made for the Sidereal to seduce someone receives a number of bonus successes equal to the Sidereal's Essence.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "75676a419f09a61d",
+            "charmName": "Cash and Murder Games",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "3e166b5797dee739",
+            "charmName": "Life Without Compunction",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "0e4ebf564bb46b61"
+  },
+  "folder": "b0b1b2b3b4b5f015",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

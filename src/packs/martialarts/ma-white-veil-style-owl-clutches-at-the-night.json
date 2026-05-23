@@ -1,0 +1,57 @@
+{
+  "_id": "1c6187cd76110275",
+  "_key": "!items!1c6187cd76110275",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Owl Clutches at the Night",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When the silent-winged owl dives into the field and rises from the attack with claws empty, it becomes invisible in the darkness of night as if it had never appeared. Similarly, a character with this Charm may retract his claws as if he never bared them. Owl Clutches at the Night replaces reroll Charms and cannot be used in concert with one. The martial artist may invoke it after seeing the quality of his attack in Step 3 of attack resolution but before comparing it to his target's DVs. His player rolls (Wits + Martial Arts) at a difficulty of (target's Perception + 1). If successful, attack resolution ends immediately. It is as if he never attacked, though observers with a Perception greater than the number of successes rolled know he tried something... odd.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "White Veil Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "1c6187cd76110275"
+  },
+  "folder": "9bc25daf1d6d2ecb",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

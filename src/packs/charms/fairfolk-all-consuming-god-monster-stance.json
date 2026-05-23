@@ -1,0 +1,58 @@
+{
+  "_id": "d0ed0a5c2559003a",
+  "_key": "!items!d0ed0a5c2559003a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "All-consuming God-monster Stance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "ring",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Stance-type",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Assuming the stance of the God-Monster, the raksha allows it to devour him, even as he devours it. From their mad dance of mutual consumption, a new and terrifying shape emerges. The shape is called the \"God-Monster SAMPLE GOD-MONSTER BODY BENEFITS The following are some of the most common benefits available to raksha who adopt the God-Monster Body. At the Storyteller's discretion, the player may be permitted to come up with other acceptable benefits, provided they fit in with the general theme of the All-Consuming God-Monster Stance. Advaita Harmony: The God-Monster transcends a conventional understanding of Virtue, simultaneously becoming both compassionate and cruel, obsessive and blasé, courageous and cowardly. The raksha divides three extra dots among her Virtues while in her God-Monster Body (permanently assigned when this benefit is selected). Also, she gains the ability to violate her own Virtues without spending Willpower. Calling upon the Dragon's Ire: The raksha can activate the All-Consuming God-Monster Stance simultaneously with an Assumption Charm, allowing him to access the benefits of the stance while in Creation. This benefit is also required for any raksha who has taken an Assumption Charm as a permanent mutation. Unshaped raksha Emanations may not acquire this benefit. Chain-Defying Art: The raksha reflexively heals one level of shaping damage on every six ticks in shaping combat. In Creation, his healing rate is doubled. Fearsome Radiance: Characters with Valor less than the God-Monster's Essence suffer a -2 internal penalty when attacking him with shaping or normal actions, as well as a -1 penalty to both shaping and normal DV. Graces of the Wyld: The raksha is immune to bedlam while in God-Monster form. Heart-Stopping Numinous Power: The raksha increases her effective Essence by two for all purposes while in God-Monster form. Lumbering Feet of God: The God-Monster's form defies a conventional understanding of spatial relationships. In the Wyld, he can take a Journey action across three waypoints per scene. In Creation, the raksha's normal Move and Dash rates are tripled. Miasma of Principle: Prerequisite: Unshapeable Transcendent Essence. The raksha's Essence is now added to his shaping soak, his natural bashing soak and his natural lethal soak. Terrible Shaping Suasion: The raksha's player adds two dice to all shaping rolls while his character is in GodMonster form. While in Creation, he reduces the gossamer cost for all Charms by one (to a minimum of 0). This aspect of the Charm will not reduce the gossamer cost for Assumption Charms or Mutation Charms activated in conjunction with Assumption Charms. Unshapeable Transcendent Essence: Add the raksha's Essence to her soak against all shaping attacks. Untouchable Infinite Spirit: Prerequisite: Chain-Defying Art. Choose one shaping damage track when buying this Charm. The God-Monster reflexively heals all shaping damage of that type every six ticks in shaping combat, plus one point of each other shaping damage type. In Creation, the God-Monster's healing rate is multiplied by four. This replaces the benefit of Chain-Defying Art. World-Devourer's Shadow: Prerequisite: Fearsome Radiance. The player of any character whose Essence is less than that of the God-Monster must succeed on a difficulty 2 Valor roll before her character may make either a shaping attack or a physical attack against him. Even if the roll succeeds, the attacker still suffers the effects of Fearsome Radiance. Body,\" and this Charm brings it forth. When a raksha purchases this Charm, he receives three benefits, which his player must choose immediately from the list above. A shaped raksha can purchase this Charm only once. An unshaped raksha can do so a number of times equal to half its Essence, with each subsequent iteration of the Charm granting two benefits. Customarily, this Charm is not compatible with any Assumption Charm, so a shaped raksha cannot activate All-Consuming God-Monster Stance while in Creation or maintain it while passing from the Wyld into Creation. The benefit Calling upon the Dragon's Ire negates this limitation, and those raksha who possess it can unleash their GodMonster Body on an unsuspecting Creation. This is a Stance-type Charm. A character cannot use more than one Stance-type Charm at a time, and activating a new stance terminates the previous one.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "d0ed0a5c2559003a"
+  },
+  "folder": "e3ab9ab145f6a424",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

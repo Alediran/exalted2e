@@ -1,0 +1,55 @@
+{
+  "_id": "9b88f9ca8212597b",
+  "_key": "!items!9b88f9ca8212597b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Reed In The Wind",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "dodge",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": "None",
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solar Exalted understand the humble wisdom of the reed and the willow. The greater the force directed against them, the more nimble they become to avoid harm. Whenever the Lawgiver uses his Dodge DV to avoid a physical attack, he adds a bonus equal to half the attacker's Essence, rounded up. This bonus counts as dice added by a Charm. Lightspeed Body Dynamics</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "9b88f9ca8212597b"
+  },
+  "folder": "b0b1b2b3b4b5f05c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

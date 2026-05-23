@@ -1,0 +1,57 @@
+{
+  "_id": "56a9767cbd645a80",
+  "_key": "!items!56a9767cbd645a80",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Keen Hearing and Touch Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "awareness",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Essence enhances the Solar's hearing and touch. Gives two bonus successes on Awareness actions using hearing or touch and allows perception of impressions normally too faint for human senses. The character can gauge fabric quality by touch, reduces the external penalty to target unseen characters to -1 and blindness penalty to -2, can hear conversations through thick stone walls, and with a legendary success can read by touch.</p>",
+    "source": "Core Rules",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "56a9767cbd645a80"
+  },
+  "folder": "97d4d497443373f8",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

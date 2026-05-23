@@ -1,0 +1,59 @@
+{
+  "_id": "22779d2f1fec7e32",
+  "_key": "!items!22779d2f1fec7e32",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unlimited Resplendence",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "cup",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Glamour (2 or 6)",
+      "Illusion",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "2g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Subtle yet potent, the raksha's cunning disguise allows him to penetrate ever deeper into the narrative structure of Creation, transforming himself into a person of importance to be respected by the Creation-born. This Charm allows a raksha who has entered Creation to insinuate himself into the social structures of the Creation-born as represented by the Backing, Influence and Resources Backgrounds. The raksha's player spends two gossamer in conjunction with an Assumption and rolls the raksha's (Manipulation + Performance). For each success, the raksha gains one dot that can be allocated between Backing, Influence or Resources for the duration of the Assumption. None of these Backgrounds can be increased above the raksha's Essence, though the raksha can divide up his successes among different Influences or Backing organizations. The raksha can choose general regional influence or influence within a specific organization. Glamour Resistance: This Charm is a work of glamour. Influence or Backing gained from it cannot be used to give the raksha influence over Creation-born whose (Perception + Essence) exceeds the raksha's Performance. Unaffected characters realize instantly that the raksha is not entitled to the authority he claims. A cunning raksha can circumvent unaffected characters, however, by filtering his orders through intermediaries who are affected and who have sufficient Influence or Backing in their own right to simply order the unaffected character to do as the raksha wishes. A Creation-born whose (Wits + Essence) exceeds the raksha's Performance penetrates the raksha's pretend-Resources, seeing it for the fool's gold it is.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "22779d2f1fec7e32"
+  },
+  "folder": "d5d33b95962cd83e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

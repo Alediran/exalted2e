@@ -1,0 +1,71 @@
+{
+  "_id": "3e220b24936d0ec1",
+  "_key": "!items!3e220b24936d0ec1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Devil-Restraining Grip",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "perception",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>What the Stewards see, they can command. This Charm targets a single spirit that the Lunar can perceive. The player rolls (Perception + Occult) at a difficulty of the target's Essence as she binds the spirit to her awareness. If the roll succeeds, the spirit cannot stray farther than (spirit's Essence x 4) yards from the Lunar. It may not dematerialize unless the Lunar allows it, and it must materialize if the Lunar wishes. If the spirit lacks enough Essence to pay for the Materialize Charm when the Lunar demands it, the Lunar must pay the balance. If they cannot afford it in a sum, the spirit does not materialize. No Essence is wasted.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "57bc85bc99e07f74",
+            "charmName": "Eye of the Cat",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "3e220b24936d0ec1"
+  },
+  "folder": "fa2edda343cdd2b0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

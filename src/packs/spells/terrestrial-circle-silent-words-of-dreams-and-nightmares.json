@@ -1,0 +1,37 @@
+{
+  "_id": "d9ee4c41f288d1b4",
+  "_key": "!items!d9ee4c41f288d1b4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Silent Words of Dreams and Nightmares",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-silent-words-of-dreams-and-nightmares",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 10,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Person",
+    "description": "<p>This rite takes 10 minutes to perform. It requires a pair of silvered mirrors, incense made from rare lotuses (a Resources 3 purchase) and an arcane link to its target. The mirrors face each other with the arcane link between them. The sorcerer lights the incense. As she speaks the Five Words of Dreams, the incense smoke wafts toward the mirrors--and into them. With this spell, the sorcerer can send the target any sort of dream. The caster's player can roll (Manipulation + Occult), difficulty equal to the target's Dodge MDV, to use the dream as an otherwise normal social attack. Applications including sending nightmares to erode Intimacies or \"prophetic\" dreams to convince the target to take a certain action. The dream-borne social attack may also prevent the victim from recovering Willpower the next morning. People cannot spend Willpower in their sleep to resist the spell's effects. The caster may attempt a single social attack through each use of this spell.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,58 @@
+{
+  "_id": "b8d551f61ad6bf8b",
+  "_key": "!items!b8d551f61ad6bf8b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Anticipatory Simulation Processor",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "survival",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Internal"
+    ],
+    "cost": {
+      "formula": "1m�3m [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm connects its prerequisite(s) to a core of tangled starmetal monofilaments buried in the center of the Exalt's brain. This core autonomously collates and processes sensory data in conjunction with precognitive modeling of future events using Autochthon's Design. Use of Anticipatory Simulation Processor against an unexpected physical attack removes the \"unexpected\" label and allows normal defense. Against a physical attack the character can see coming, the Charm instead negates all onslaught or coordinated attack penalties associated with the attack. The Charm's base activation cost is two motes, but attackers outside the fate of Creation and the Design of Autochthon add a one-mote surcharge, while mortals apply a one-mote discount. Submodules: Intuitive Necessity Algorithm (Wits 4, Essence 3): The Exalt may invoke the Charm against a surprise attack without it counting as a Charm use, though doing so adds a two-Willpower surcharge to the activation cost.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "b8d551f61ad6bf8b"
+  },
+  "folder": "a1b2c3d4e5f60007",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

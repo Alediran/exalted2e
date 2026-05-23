@@ -1,0 +1,60 @@
+{
+  "_id": "dc4b91bc6c8ea958",
+  "_key": "!items!dc4b91bc6c8ea958",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Impeding The Flow",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "melee",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With a flick of his wrist, the Sidereal uses his weapon to separate the conjoined strands of fate that allow others to attack him. His weapon trails streamers of red stardust that are visible only to creatures that can see dematerialized spirits, and that dust parts the offending strands of fate. When that happens, the character instantaneously reduces the number of successes on an incoming attack to zero, provided that attack has a physical component and is not unblockable. Keep in mind that some Charm-supplemented attacks can hit even with zero successes (such as Accuracy Without Distance, on p. 187 of Exalted). Also, keep in mind that while the character invokes the Charm on Step 2 of combat, the Charm's effects take place in Step 3 and Step 4.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "dc4b91bc6c8ea958"
+  },
+  "folder": "b0b1b2b3b4b5f00e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

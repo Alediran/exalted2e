@@ -1,0 +1,73 @@
+{
+  "_id": "3fddd8530a3235b9",
+  "_key": "!items!3fddd8530a3235b9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ghost-Fire Blade",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Holy",
+      "Leader",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "2m or 4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Since the Great Uprising, the Dragon-Blooded have accepted the burden of defending the masses of humanity against the depredations of angry ghosts and truculent spirits. Chief among their arsenal in this ongoing battle is this Charm, which permits a Dragon-Blood to charge his melee weapon with Essence so that it can damage ghosts and spirits even while they are dematerialized. Additionally, if the Exalt spends four motes instead of just two, the weapon is considered Holy for the Charm's duration and inflicts aggravated damage against creatures of darkness. The charge lasts for only a single action, although its effects do apply to each attack in a flurry. Essence for the Charm must be spent before the attack is initiated. The Charm provides no additional bonus against creatures not born of darkness.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "88d25525a491e5c0",
+            "charmName": "Dragon-Graced Weapon",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "3fddd8530a3235b9"
+  },
+  "folder": "b0b1b2b3b4b5f027",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

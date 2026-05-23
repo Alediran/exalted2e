@@ -1,0 +1,68 @@
+{
+  "_id": "e609a234b56c7898",
+  "_key": "!items!e609a234b56c7898",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Spear",
+  "type": "weapon",
+  "img": "icons/weapons/polearms/spear-flared.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "Jab",
+        "speed": 5,
+        "accuracy": 1,
+        "damage": 4,
+        "damageType": "lethal",
+        "overwhelming": 1,
+        "defense": 2,
+        "rate": 2,
+        "range": 0,
+        "minStrength": 2,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": [
+          "Reaching"
+        ]
+      },
+      {
+        "name": "Charge",
+        "speed": 5,
+        "accuracy": 1,
+        "damage": 7,
+        "damageType": "lethal",
+        "overwhelming": 1,
+        "defense": 2,
+        "rate": 2,
+        "range": 0,
+        "minStrength": 2,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": [
+          "Reaching"
+        ]
+      }
+    ],
+    "artifact": false,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 0,
+    "hearthstoneSlots": 0,
+    "description": "<p>One of the most versatile and simple weapons ever produced; inexpensive and effective, one of the most common armaments of soldiers everywhere.</p>",
+    "equipped": false
+  },
+  "folder": "f001a234b56c789d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

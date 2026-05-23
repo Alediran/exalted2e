@@ -1,0 +1,72 @@
+{
+  "_id": "8d96a57dc846528b",
+  "_key": "!items!8d96a57dc846528b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Soul-Forging Fury",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "craft",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Avatar (1)",
+      "Obvious",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Of all the myriad horrors an Abyssal can impose on a ghost, dooming it to an eternity of impotent agony within soulsteel is easily the worst. The deathknight touches a ghostly victim and commits three motes to poison its corpus with the Essence of the Neverborn until the smelting into soulsteel is complete. Next, the Abyssal or a designated subordinate spends a dramatic action brutally beating the ghost into malleable hopelessness, taking a number of minutes equal to the ghost's (Willpower + Essence). The Charm ends and must be reactivated if interrupted for any reason, so the victim must be restrained to prevent it from initiating combat or escaping. Once the ghost breaks down, the Abyssal strikes a final clanging blow heard for a mile, hammering the victim's corpus into a whimpering mass of raw soulsteel. Obviously, ghosts must be material with respect to the Abyssal throughout their forging, effectively limiting this Charm's use to the Underworld or a shadowland at night. Note that soulsteel artifacts need one soul for every 10 accumulated successes required for their design (rounded up). Abyssals with Essence 5+ may use this Charm within the Underworld to forge captive gods with Essence 3 or less into starmetal, but they cannot use subordinates, and the initial torture takes a number of hours equal to the god's (Willpower + Essence). The wasteful inefficiency of this process means that the same number of gods must be forged to make a starmetal artifact as the ghosts needed for soulsteel devices. Deathlords primarily use this starmetal as bribes for the Five-Score Fellowship (not accepted as often as they'd like), though they keep some for their own depraved use.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "2d77570036c32dee",
+            "charmName": "Frenzied Forge Within",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "8d96a57dc846528b"
+  },
+  "folder": "b0b1b2b3b4b5f037",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

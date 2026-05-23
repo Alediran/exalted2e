@@ -1,0 +1,68 @@
+{
+  "_id": "8ce57fe92c131c7d",
+  "_key": "!items!8ce57fe92c131c7d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Kimbery Mythos Exultant",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "—",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Yozis revel in the exercise of their purview, drawing power from the very strategies they use to spread that power through Creation. This Charm may be purchased once for each First Kimbery Excellency the character knows, though she can only enhance a given action with one of the versions. Whenever the Infernal succeeds while stunting on an action that could benefit from the appropriate Excellency, she may choose to receive the alternate rewards listed below instead. Characters may partake of these awards even if they did not use the pertinent Excellency to assist the action, just so long as doing so was an option. Malfeas: Exercising unrestrained force stokes the flames at the heart of the Demon City, doubling any motes awarded for the successful stunt. Cecelyne: The Endless Desert is a creature of balance, forming the dividing line between Creation and Malfeas, the finite and infinite. A successful two or three point stunt provides Willpower in addition to motes, rather than forcing the character to select one or the other. She Who Lives In Her Name: The flame-filled spheres of the Transcendent Hierarchy know their purpose, individually and especially jointly as part of a greater identity. The Infernal doubles any Willpower points awarded by the stunt. Adorjan: The Silent Wind defines her path as a field of opposition over which she must scour her legend. Her passage is death. One perceived target within (Essence) yards suffers</p><p>dice of unsoakable lethal damage equal to the stunt rating from flensing breezes that swirl around him. Magical beings may reduce the raw damage by one die per three motes spent, sheltering their souls within an ablative layer of Essence. Ebon Dragon: The Shadow of All Things is an unstoppable force of antagonism. Unlike the permutations of other Yozis, the Ebon Dragon's version of this Charm may enhance the stunt itself rather than its reward, converting the bonus dice into bonus successes. If the stunt succeeds, the character has already reaped the rewards of his dark glory and gains nothing further. Kimbery INEVITABILITY TECHNIQUE</p>",
+    "source": "MoP: Infernals",
+    "yoziPatron": "kimbery",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Appropriate First Kimbery Excellency",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "8ce57fe92c131c7d"
+  },
+  "folder": "62f1b1afdfe8fbd5",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

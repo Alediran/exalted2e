@@ -1,0 +1,77 @@
+{
+  "_id": "2ececeba091e2bfd",
+  "_key": "!items!2ececeba091e2bfd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unsinking Derelict Preservation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "sail",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      10
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Mirror (Shipwreck-Surviving Stamina; Exalted, p. 237)",
+      "Obvious",
+      "Stackable",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Even riddled with holes and rot, a deathknight's ship refuses to obey natural law and sink.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5db6e612dfb3deb3",
+            "charmName": "Hull-Hardening Concentration",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "2ececeba091e2bfd",
+    "mirrorId": "eb7cc6a27ae3c08d"
+  },
+  "folder": "b0b1b2b3b4b5f046",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,59 @@
+{
+  "_id": "9e929114a3da99f3",
+  "_key": "!items!9e929114a3da99f3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Laughing Into the Teeth of Madness",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "intelligence",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Lunar draws his mercurial power into a tightly compacted and nigh-inviolable Essence core. Efforts to shape the Lunar are drawn into and rejected by this incomparable well of shapeshifting power, rendering her completely immune to all unwanted Shaping effects; the only sign that such magic has had any effect at all is a quick, bright flaring of the Lunar's caste mark. In the First Age, some Lunars uneasily noted that their caste marks seemed to have very subtly changed shape after extensive use of this Charm. Casteless Lunars in the Second Age who use this Charm risk aggravating the Wyld taint that infects their Exaltation. Every use of this Charm adds one die to the Casteless one's Wyld Taint dice pool. These dice are lost at the same rate as normal Wyld Taint dice (see The Manual of Exalted Power-- The Lunars, p. 201).</p>",
+    "source": "Glories of the Most High: Luna",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "9e929114a3da99f3"
+  },
+  "folder": "8b05ba7cc3e236b8",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

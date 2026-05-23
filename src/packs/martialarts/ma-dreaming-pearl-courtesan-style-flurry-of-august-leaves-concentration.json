@@ -1,0 +1,58 @@
+{
+  "_id": "e660acd2cd230dec",
+  "_key": "!items!e660acd2cd230dec",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Flurry of August Leaves Concentration",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "2m per weapon",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The martial artist with this Charm casts her fans or sashes into the air, making them swoop and slash out at an opponent before obediently returning to her. If she activates this Charm while using the Dreaming Pearl Courtesan Form, the martial artist can have as many props as that Charm allows make multiple attacks against one target. This Charm allows the martial artist to strike a target up to (Martial Arts x 5) yards away. The Exalt's player rolls a single normal Martial Arts attack, regardless of how many weapons the character controls. Successes from the roll, penalized by the target's DV, apply to all weapons simultaneously, and the damage is calculated normally as if she had performed the attack manually. The opponent does suffer an onslaught penalty to his DV for being attacked by multiple props, but each prop applies its damage separately. Botched attacks can result in broken or lost props, if not injury to the martial artist who cast them. Also, this Charm can be used only on props that can be separated from the Exalt's body. (She can't lash out at a target 25 yards away with the hem of her ball gown, for instance, unless she's wearing one damn long train.)</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Dreaming Pearl Courtesan Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "e660acd2cd230dec"
+  },
+  "folder": "7769b16bd9ec72b1",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

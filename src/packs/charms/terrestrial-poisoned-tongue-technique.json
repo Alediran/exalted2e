@@ -1,0 +1,59 @@
+{
+  "_id": "717bd34e429768db",
+  "_key": "!items!717bd34e429768db",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Poisoned Tongue Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "linguistics",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Social",
+      "War"
+    ],
+    "cost": {
+      "formula": "2m, 1wp, Mins: Linguistics 3, Essence 3",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood weaves essence into her words, lacing them with subtle poison that undermines the listener's resolve. When the character makes a social attack supplemented by this Charm, the attack carries additional venom beyond mere argument. If the attack succeeds, the target not only suffers the normal social effect but also loses one point of temporary Willpower as the corrosive words eat away at their certainty. This effect does not apply to targets who resist the attack with a successful Dodge MDV roll—the poison requires a chink in the listener's defenses to take hold.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "717bd34e429768db"
+  },
+  "folder": "b0b1b2b3b4b5f023",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

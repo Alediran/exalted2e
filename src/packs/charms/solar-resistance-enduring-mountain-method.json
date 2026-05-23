@@ -1,0 +1,70 @@
+{
+  "_id": "06476cfe1857cb25",
+  "_key": "!items!06476cfe1857cb25",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Enduring Mountain Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "resistance",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "-- (+2m)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm upgrades Unbreakable Warrior's Mastery. By paying a two-mote surcharge, it may be invoked as an inherent ability that does not count as a Charm use. ADAMANT SKIN TECHNIQUE As a point of clarification, this Charm (and its Abyssal mirror) reduces the raw and final damage of an incoming attack or similar phenomenon to zero after all other modifiers and effects. Damage added to an attack after soak is applied, such as by Fire and Stones Strike, cannot harm a character who activates Adamant Skin Technique. SURVIVAL</p>",
+    "source": "Glories of the Most High: Unconquered Sun",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a07f54fc186566df",
+            "charmName": "Unbreakable Warrior's Mastery",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "06476cfe1857cb25"
+  },
+  "folder": "f05b544008eaceb0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,74 @@
+{
+  "_id": "5338c766fd0987be",
+  "_key": "!items!5338c766fd0987be",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Bloodthirsty Sword-Dancer Spirit",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "resistance",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 7,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When ordinary means have failed, and there is nothing left save life and death, then it befits the god-kings of legend to give themselves over to the battle-trance and make themselves implacable enemies to their foes. This Charm functions as Battle Fury Focus but is in all ways greater. It gives the character three extra dice to all combat-related pools and removes all wound penalties. The character's mind is consumed by the battle-trance. The character cannot speak coherently and cannot retreat. She may only take one or more of the following actions: moving toward her current target by the shortest route, attacking enemies within range, waiting for an attacker to engage her or selecting the nearest enemy as a new target when her previous target is incapacitated, dead or not locatable. This Charm lasts until the character can no longer locate an enemy to kill. Enemies include known enemies and those who get in her way. Strangers and acquaintances can earn the enemy label if they are dressed like the enemy or if they act in a suspicious fashion. The character will not attack close friends, relatives or lovers for suspicious action or clothing--they must actively interfere to become targets of attack. To end this Charm prematurely, the Solar must spend three Willpower and gain one Limit. Reduce this to one Willpower and no Limit if a loved one or friend attempts to restrain the character. Unfortunately, if the Exalt does not spend the Willpower when a loved one attempts to break her battle-trance, she is almost certain to lash out at the unrecognizable blur distracting her from slaying her target. OX-BODY TECHNIQUE Cost: --; Mins: Resistance 1, Essence 1; Type: Permanent</p><p>Keywords: Stackable Duration: Permanent Prerequisite Charms: None The Exalted are like the mountains: not easily worn down by such mortal things as men. This Charm gives the Lawgiver additional health levels. A player may purchase this Charm up to once per dot of the Resistance Ability her character possesses. Each purchase provides one of the following, at the player's option, determined at the time of purchase: � One -0 health level � Two -1 health levels � One -1 health level and two -2 health levels</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "072368fff7831d6f",
+            "charmName": "Battle Fury Focus",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "woundReduction": {
+      "enabled": true,
+      "formula": ""
+    },
+    "charmUid": "5338c766fd0987be"
+  },
+  "folder": "f05b544008eaceb0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

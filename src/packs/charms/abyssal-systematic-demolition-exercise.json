@@ -1,0 +1,58 @@
+{
+  "_id": "6d4ee8890f0c3ffc",
+  "_key": "!items!6d4ee8890f0c3ffc",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Systematic Demolition Exercise",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "craft",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Mirror (Shattering Grasp; Exalted, p. 212)"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Abyssal does not build — she unmakes. Channeling the Underworld's intimate understanding of entropy and structural failure, the Exalted identifies the precise stress points, load-bearing elements, and material weaknesses in any construction. When applied to a demolition task, this charm allows the Abyssal to bring down structures, breach fortifications, or destroy objects with terrifying efficiency, adding her Essence in automatic successes to any Craft (Destruction) or similar roll and halving the time required.</p><p>Against inanimate objects and structures, the Abyssal's attacks deal full damage as though the target had no soak, as her supernatural knowledge of structural weakness bypasses the inherent toughness of materials. This charm is the prerequisite for the all-consuming entropy attack, representing the foundational principle that understanding what something is made of is the first step to ensuring it ceases to exist.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "6d4ee8890f0c3ffc"
+  },
+  "folder": "b0b1b2b3b4b5f037",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,57 @@
+{
+  "_id": "f6814d7a6fc9b383",
+  "_key": "!items!f6814d7a6fc9b383",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Insatiable Slave Stamina",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic"
+    ],
+    "cost": {
+      "formula": "6m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Grinning as black bruises darken her skin, the martial artist has a greater appetite for pain than she expects even from her slaves. She cannot be brought to Incapacitated with bashing damage, and any bashing damage sustained after she takes her last -4 health level does not roll over into lethal--indeed, it does not register at all. She can, however, still use Sensuous Torment to gain Essence from the pain. People restrained by the martial artist find themselves unwilling to break free. The character may apply this Charm to any clinch attack. If the character succeeds, then--as long as she maintains the mote commitment--her target no longer truly wants to free himself from her grip. The target must spend one Willpower just for his player to attempt the roll to gain control of the clinch, and the roll takes the Abyssal's Appearance as an internal penalty. If the target intends to use control of the clinch to do anything other than break free--such as crush the Abyssal or hold her helpless--then he need not spend Willpower or take the penalty.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Laughing Wounds Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f6814d7a6fc9b383"
+  },
+  "folder": "33b132b15f3f6d2e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

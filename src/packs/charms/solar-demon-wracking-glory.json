@@ -1,0 +1,76 @@
+{
+  "_id": "a1b2c3d4e5f6000d",
+  "_key": "!items!a1b2c3d4e5f6000d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Demon-Wracking Glory",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "performance",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant (see below)",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Holy",
+      "Illusion",
+      "Mirror",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm expands the capabilities of Phantom-Conjuring Performance to increase its range. The maximum radius for evoking effects extends to (Essence x 100) yards, or (Essence x 5) miles if the Solar has Essence 6+. More importantly, the Lawgiver may use these effects to cause physical injury to creatures of darkness within (Essence x 10) yards while leaving all other creatures unharmed. The Charm has the Holy keyword for its Performance-based attacks, inflicting aggravated damage to targeted creatures of darkness. Attacks take the form of bright fires, scorching beams of sunlight, phantom executioners and the like.</p><p>Demon-Wracking Glory inflicts harm in three ways, chosen each use. Activating the Charm costs Willpower; continuing it costs Essence per action. A character gains one attack form when she learns the Charm; additional forms cost one experience point each, or all three for one bonus point.</p><p><strong>Area, Continuing:</strong> Inflicts one level of lethal damage per two motes spent (max Essence) to all creatures of darkness whose Dodge MDV is less than successes from (Charisma + Performance).</p><p><strong>Single Target, Continuing:</strong> Chosen creature of darkness suffers one level of unsoakable aggravated damage per action (costs three motes per action).</p><p><strong>Single Target, Instant:</strong> Spend up to (Stamina + Essence) motes to inflict that many dice of aggravated damage plus extra successes.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "mirrorId": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c7efdb2e7c781f0a",
+            "charmName": "Phantom-Conjuring Performance",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a1b2c3d4e5f6000d",
+    "mergedIds": []
+  },
+  "folder": "e38c83836f199624",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

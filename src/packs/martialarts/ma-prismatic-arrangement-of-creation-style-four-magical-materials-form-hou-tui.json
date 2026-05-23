@@ -1,0 +1,58 @@
+{
+  "_id": "f6f746bf63417601",
+  "_key": "!items!f6f746bf63417601",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Four Magical Materials Form (hou Tui)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Form-type",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "15m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>and HOU TUI The character draws on the flows of Creation's interwoven fates--the raw power, progressive change and elemental stability that play out all around her. In so doing, she becomes like unto a living artifact. When using this Charm, the character continuously receives the benefits of its four prerequisite Charms. In addition, she becomes unbreakable like a magical artifact. That is, she automatically converts any lethal damage she receives to bashing damage (before soak), unless the attack could damage one of the five magical materials. The youngest Sidereals wonder (though not where their elders can hear) if a fifth contributing Charm might exist, which allows a Sidereal to mimic the properties of soulsteel. If such a Charm has been (or were to be) developed, this form would theoretically allow the Sidereal to incorporate those benefits as well.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Prismatic Arrangement of Creation Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f6f746bf63417601"
+  },
+  "folder": "33c138eb339f4538",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

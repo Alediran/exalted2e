@@ -1,0 +1,74 @@
+{
+  "_id": "a1b2c3d4e5f6000b",
+  "_key": "!items!a1b2c3d4e5f6000b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Demon-Binding Redemption",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "occult",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror",
+      "Obvious",
+      "Servitude"
+    ],
+    "cost": {
+      "formula": "",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm expands the capabilities of Ghost-Eating Technique, giving the Solar the option to bind a slain demon with an unnatural Servitude effect rather than unmake it. At the moment when the demon would fade away completely, it instead heals back to its lowest -4 health level with no Willpower points remaining and must obey its killer's orders without the possibility of resistance for a year and a day. Beings enslaved thus must obey normally unacceptable orders, but they need follow only the wording of commands and not their spirit. Actual sorcerous or necromantic binding trumps this Charm and prematurely ends its effects. The Solar Mirror to Spirit-Chaining Doom functions identically, except it affects only the demon-spawn of the surrendered Primordials.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "mirrorId": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b6977eae1a392e18",
+            "charmName": "Ghost-Eating Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a1b2c3d4e5f6000b",
+    "mergedIds": []
+  },
+  "folder": "9f789a9f97cf7e28",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

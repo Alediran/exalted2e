@@ -1,0 +1,60 @@
+{
+  "_id": "e59df4f23f1af0bb",
+  "_key": "!items!e59df4f23f1af0bb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Cat Disguise (misty Forgotten Breeze Kata)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Illusion",
+      "Share-Breeze",
+      "ShareMist"
+    ],
+    "cost": {
+      "formula": "6m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Those who practice the Fivefold Shadow Hand Style rightly pride themselves on their brilliant and unexpected disguises. With her thumbs, pressed firmly together and the ring finger and smallest finger of one hand touching the smallest and ring finger (respectively) of the other, the martial artist may remove any penalties she takes to Larceny disguise rolls for not having props or for disguising herself as something absurd. She cannot hide anything on her person while using this Charm, and the player must make the disguise roll as normal (see Exalted, p. 128). People whose players succeed on the normal disguise-penetrating check will not be fooled, and neither will anyone whose (Perception + Essence) is higher than the character's Martial Arts. The Misty Forgotten Breeze Kata cannot mask the character as anything smaller than a cat or larger than a moose, but within those parameters, she can pretend to be anything from an animal to a coat rack. She cannot, however, become any specific thing--for example, her enemy's favorite pet or the Scarlet Empress's personal coat rack. Also, if anyone tries to interact with her in the capacity she has assumed--for example, petting her or putting his coat on her--then the martial artist must spend a Willpower point, or the illusion will fall. The illusion automatically breaks if the character fails to maintain her gesture, or if someone points out that the coat rack is actually a person. It also fails if the character takes any actions that her chosen disguise couldn't do. For instance, pets don't draw weapons (usually), and coat racks don't walk around. Observers may spend two Willpower to resist the illusion, if they have some reason to doubt it.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Fivefold Shadow Hand Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "e59df4f23f1af0bb"
+  },
+  "folder": "30abfdbff9e8ecc7",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,76 @@
+{
+  "_id": "f991ff4a53809482",
+  "_key": "!items!f991ff4a53809482",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Persistent Hornet Attack",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "thrown",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Leader 6"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The unearthly control of the Air Aspects over their throwing weapons continues to improve with this Charm. After the DragonBlood throws a weapon at a target, the weapon takes on a life of its own and continues to make extra attacks. The number of extra attacks is equal to the Exalt's permanent Essence, and each attack has the normal Speed for that particular weapon for determining the ticks upon which subsequent attacks occur. The attack roll made for the weapon is equal to the Dragon-Blood's (Perception + Thrown) pool. The Dragon-Blood can perform any other actions he desires as the weapon's independent attacks proceed, including using this Charm again on the same target with additional throwing weapons. The player must declare that he is invoking this Charm before rolling the first attack, and the target of the weapon cannot be changed during the Charm's duration. The target (or anyone else) can attempt to strike the weapon out of the air. Doing so requires an attack roll against a difficulty equal to the Dragon-Blood's permanent Essence. If this attack roll is successful, the weapon is knocked to the ground, where it will rest inert. If a character uses this Charm as part of a Combo, he must pay the Essence cost for the other Charms each time the weapon uses them, and the additional Charms must be used on each attack made. The Exalt needs to pay the Willpower cost of the Combo only once, though. The Loyal Weapon Charm is an exception to this rule, and if Loyal Weapon is put in a Combo with Persistent Hornet Attack, the weapon will make all of its requisite attacks and only then return to the Exalt. The Essence for the Loyal Weapon Charm needs to be paid only once. INVISIBLY HIDDEN CHAKRAM METHOD Cost: 10m per weapon, 1wp; Mins: Thrown 4, Essence 3; Type: Simple</p><p>Keywords: Combo-OK Duration: Instant Prerequisite Charms: Persistent Hornet Attack The Dragon-Blood can conceal any number of thrown weapons Elsewhere and store them there for later use. Each weapon thus concealed costs 10 Essence and one Willpower. When the Dragon-Blood is ready to attack, he can reflexively summon any or all of them at no additional cost and attack on the same action. Such an attack suffers no penalties to the normal (Dexterity + Thrown) pool, and in fact, the Dragon-Blood remains free to use Charms to aid in the attack. The Dragon-Blood can hide a number of weapons equal to twice his Essence. These weapons cannot be detected except by beings or powers capable of perceiving items stored Elsewhere.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "381ccd0d176cb880",
+            "charmName": "Loyal Weapon",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "f991ff4a53809482",
+    "extraActions": {
+      "enabled": true,
+      "maxFormula": "@ess",
+      "costPerAction": 0
+    }
+  },
+  "folder": "b0b1b2b3b4b5f031",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

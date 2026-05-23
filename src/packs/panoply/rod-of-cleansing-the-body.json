@@ -1,0 +1,37 @@
+{
+  "_id": "491d50302239be02",
+  "_key": "!items!491d50302239be02",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Rod of Cleansing the Body",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Made from a mixture of all the magical materials save soulsteel, this artifact is a rod the thickness of a grown man's thumb and nine inches long. To use this wonder, the user must first commit two motes of Essence to it. She can then touch this rod to the bare skin of someone suffering from a disease or infection and attempt to cure him. Operating this item requires the user to spend one mote of Essence and her player to make a successful (Perception + Medicine) roll for the character to determine to precise locations she must touch to correctly rebalance the patient's Essence flows. The difficulty of the roll to treat a disease or infection is equal to the disease's normal difficulty to treat--serious illnesses can be extremely difficult to cure. Fortunately, the user can expend additional motes to reduce the difficulty of this roll. Each additional mote the user spends reduces the difficulty of the roll by one. The user cannot drop the difficulty of this roll below 1, however. Treating a disease or infection requires the user to spend a number of minutes equal to the difficulty to treat the disease examining the patient and locating the correct Essence points on his body. If the patient suffers from multiple diseases or a disease and an infection, the physician must treaty each one individually. The user can also automatically stop all bleeding simply by touching the patient and spending one mote of Essence. She can even do so as an action in combat (5 ticks/-2 DV), and her player does not need to make a Medicine roll for her to do so. This device can be used to treat any living being, including humans, animals, Exalts, beastmen, God-Bloods or Wyld mutants. Gods, demons and raksha do not suffer from mortal maladies, so this artifact cannot treat them.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

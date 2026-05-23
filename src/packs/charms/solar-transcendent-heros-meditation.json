@@ -1,0 +1,72 @@
+{
+  "_id": "f71972d9a351a929",
+  "_key": "!items!f71972d9a351a929",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Transcendent Hero's Meditation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "integrity",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Social"
+    ],
+    "cost": {
+      "formula": "10m, 4wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Lawgivers shatter delusions and see all things truly. This Charm shatters all long-term Compulsion, Illusion and Servitude effects upon the Solar. The character can ignore mental influence that would prevent her from using this Charm. Characters can substitute an unsoakable aggravated health level of damage for the mote portion of this Charm's cost if they are otherwise unable to pay.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "bdd5bd0958f6b906",
+            "charmName": "Elusive Dream Defense",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "f71972d9a351a929"
+  },
+  "folder": "b0a1d89a8f7c4cdb",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

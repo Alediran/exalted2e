@@ -1,0 +1,72 @@
+{
+  "_id": "b634e9d951891dfb",
+  "_key": "!items!b634e9d951891dfb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ruthless Captain Efficiency",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "sail",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Emotion",
+      "Mirror (Crew-Inspiring Charisma; follows)"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Once an Abyssal masters this Charm, ships he command function at full efficiency and with no penalties, even with crew complements as low as a skeleton crew. In addition, each scene the deathknight spends commanding his crew counts as a scene of building an Intimacy of submissive fear in them unless they have an Essence rating equal to or greater than his own. Those who develop such Intimacies cannot take any actions that would knowingly result in harm to their captain or remove him from his position while aboard a ship he owns, unless they spend two Willpower points per day to overcome the unnatural mental influence of this Charm. New Solar Charm: Crew-Inspiring Charisma (Prerequisites: Salty Dog Method; Exalted, p. 236). The Solar Mirror to this Charm builds Intimacies of adoration to deter mutiny rather than terror, but otherwise operates the same way. SEA-SCANNING GLARE Cost: 3m; Mins: Sail 5, Essence 3; Type: Simple Keywords: Avatar (1), Mirror (Oceanic Omniscience Intuition; follows), Spectral</p><p>Duration: Until disembarking Prerequisite Charms: Deck-Striding Phantom, Any Sail Excellency The sea holds many dangers, especially for champions of Oblivion. Prudent captains keep a close eye on the waves and horizon, watching for any trace of an enemy's approach. An Abyssal can activate this Charm only aboard a ship he owns; it ends when he leaves the ship for any reason. While active, the Exalt ignores all visibility limitations or other penalties that would inhibit his ability to navigate. He also becomes preternaturally aware of his environment out to a distance of (Sail x 10) miles. Through this Charm's awareness, the Exalt perfectly understands all weather conditions and mentally maps all terrain that is not magically obscured from scrying. He can spot reefs and other hazards long before they threaten his ship, not to mention noticing distant coasts before his lookouts do. His awareness lets him pinpoint other ships of seaworthy size. He also senses comparably large animals such as whales and siaka unless they are magically hidden in some way, though the Charm alone only reveals the size, speed and bearing of these objects. Used aboard an aerial vessel, this Charm maps terrain and tracks other aerial vehicles or animals of suitable size. New Solar Charm: Oceanic Omniscience Intuition (Prerequisites: Any Sail Excellency, Salty Dog Method; Exalted, p. 236). This Charm functions much like its Mirror, except it lacks the Avatar and Spectral keywords, and costs one additional Willpower point to activate.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "008d7af14645e8e1",
+            "charmName": "Deck-Striding Phantom",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "b634e9d951891dfb",
+    "mirrorId": "a1b2c3d4e5f60009"
+  },
+  "folder": "b0b1b2b3b4b5f046",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

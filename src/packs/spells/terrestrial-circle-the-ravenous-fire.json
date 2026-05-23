@@ -1,0 +1,37 @@
+{
+  "_id": "413304c2c9f2d799",
+  "_key": "!items!413304c2c9f2d799",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Ravenous Fire",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-the-ravenous-fire",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 15,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "permanent",
+    "target": "Inanimate object",
+    "description": "<p>The sorcerer's Essence flares around him, and he makes the sign of Essence Consumed over an object. A jet of blue-white flame leaps up to a yard from his fingertips to ignite the target of the spell. Wood sears to ash. Stone softens and burns like wax, while metals crumble to ash and slag. The flames consume the material to which they were originally set but leave other substances alone. For example, setting fire thus to the stone in a statue crafted of marble, silver and emerald leaves a pile of melted, seared stone, with undestroyed silver and emeralds among the slag. Nor can the fire consume enchanted objects, the magical materials or anything alive. The flames feel icy cold but cannot harm living flesh. The Ravenous Fire consumes up to 27 cubic feet of material (about the size of a human-sized statue and its base) per dot of the sorcerer's permanent Essence. The fire gutters out once it devours this amount of material. Only countermagic can extinguish it before then.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

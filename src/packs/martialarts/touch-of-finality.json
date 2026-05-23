@@ -1,0 +1,86 @@
+{
+  "_id": "63d20a753fcff455",
+  "_key": "!items!63d20a753fcff455",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Touch Of Finality",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      10
+    ],
+    "keywords": [
+      "Combo-Basic"
+    ],
+    "cost": {
+      "motes": 4,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "4m, 1wp"
+    },
+    "description": "<p>This strike is feared as one of the deadliest in martial arts. This Charm may be activated in step 10 during an unarmed Martial Arts attack that successfully inflicted damage on its target. If the target is already poisoned, the total Damage of all poisons in their system discharges at once--rather than moving through them at one die per interval, the total damage value of all poisons is combined and rolled at once. This damage becomes aggravated regardless of previous type, and has a Toxicity rating equal to that of the highest value among all poisons, plus 2. If the target survives Touch of Finality and had any poisons in his system, all poisons are burned out of his system, but he suffers a -4 internal penalty for two actions due to excruciating pain, and takes an automatic aggravated health level of damage in addition to any inflicted by the poisons. Marked by Eternity</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Cobra Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "65c7ba00793afcf6",
+            "charmName": "Forked Tongue Transition",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "statusApply": {
+      "enabled": true,
+      "status": "Poisoned",
+      "resistPool": "@sta + @resistance",
+      "onFail": "applyPoison"
+    },
+    "charmUid": "63d20a753fcff455",
+    "grantsMastery": false
+  },
+  "folder": "0332050481272115",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

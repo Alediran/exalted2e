@@ -1,0 +1,73 @@
+{
+  "_id": "262da72c1a8b0f8e",
+  "_key": "!items!262da72c1a8b0f8e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Topiary Culture Meditation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "charisma",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Mandate",
+      "Social",
+      "Compulsion"
+    ],
+    "cost": {
+      "formula": "6m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Stewards shape cultures by removing weaknesses--or by dictating weaknesses. This Charm's social attack targets a group. The Lunar's player rolls (Charisma + [Performance or Socialize]) with an external penalty equal to the unit leader's Dodge Mental Defense Value plus half the unit's Magnitude. On a success, the Lunar's player names one Intimacy that is part of the target unit's Policy; that Intimacy becomes less valued and harder to defend. The unit must spend two Loyalty points for the group to resist any compulsion that opposes or is opposed by the targeted Intimacy. The leader can completely remove this unnatural mental influence by spending eight points of Loyalty. Acting against the compulsion for a scene costs one point of Loyalty. Units that break off from a parent unit affected by this Charm must also spend eight points of Loyalty to free themselves of this Charm. Topiary Culture Meditation has no effect on individuals. In the long term, this Charm makes targeted Intimacies less valuable to the unit. Groups are likely to forsake Intimacies that become too difficult to maintain or otherwise represent a weakness. Topiary Culture Meditation increases the difficulty of the targeted dominion to resist the Lunar's dominion's conquest or diplomacy actions by two, provided the Lunar can find an appropriate Intimacy held by the target dominion's populace to target.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "cb4b98018078185a",
+            "charmName": "Culling the Pride",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "262da72c1a8b0f8e"
+  },
+  "folder": "4e63ba1bd67a09e3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

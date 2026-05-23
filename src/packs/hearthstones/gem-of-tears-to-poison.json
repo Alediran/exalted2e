@@ -1,0 +1,27 @@
+{
+  "_id": "6fbeb541f130c38e",
+  "_key": "!items!6fbeb541f130c38e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gem of Tears to Poison",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDWATER00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "water",
+    "rating": 2,
+    "description": "<p>This smooth, azure teardrop transforms the bearer's tears into a mild poison (2B/1 day, 3M, --/--, -3). These tears have no effect on skin contact, but they induce pain and vomiting if ingested or introduced into a wound. Tears do not become poisonous until they are shed. Tears not ingested within one day of being shed revert to normal tears.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

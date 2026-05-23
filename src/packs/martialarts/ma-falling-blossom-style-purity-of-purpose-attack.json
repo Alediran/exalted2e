@@ -1,0 +1,57 @@
+{
+  "_id": "392bcb0ab9ed3c75",
+  "_key": "!items!392bcb0ab9ed3c75",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Purity of Purpose Attack",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "3m, 1wp, 1xp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Learning this Charm shows that the martial artist has learned to dedicate his very soul to battle and service to another. With it, the Falling Blossom makes an unarmed attack (or an attack with a sword or a knife). His player rolls the attack as normal. As long as the attack roll yields even a single success, his attack strikes its target. Should the difficulty of the attack be more than 1 or should the target's DV reduce the successes to 0, the attack still inflicts its base damage. Only a perfect defense can stop this attack. The Storyteller should note every experience point spent on the activation of this Charm. Every three points spent purchases a point of the special Destiny Background for the martial artist (see p. 151), though the nature of that destiny is up to the Storyteller. As a general guide, the destiny should provide an opportunity for the martial artist to die in a manner that proves his faithful dedication and leaves him well remembered as an example of virtuous devotion to his charge.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Falling Blossom Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "392bcb0ab9ed3c75"
+  },
+  "folder": "dd497199f5d1964b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

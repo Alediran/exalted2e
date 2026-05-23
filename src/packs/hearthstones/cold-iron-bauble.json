@@ -1,0 +1,27 @@
+{
+  "_id": "34b79c4b6192f420",
+  "_key": "!items!34b79c4b6192f420",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Cold Iron Bauble",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDEARTH00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "earth",
+    "rating": 2,
+    "description": "<p>These small spherical hearthstones of black iron are relatively common on the Blessed Isle, especially in Earth manses near the Imperial Mountain. However, they are most treasured in those portions of the Threshold that adjoin the Wyld. Any weapon fitted with a cold iron bauble inflicts aggravated damage to Fair Folk, just as if the weapon itself was made of cold iron. This hearthstone also inflicts a -1 external penalty on any Fair Folk powers used against its bearer.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

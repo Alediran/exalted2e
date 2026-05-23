@@ -1,0 +1,37 @@
+{
+  "_id": "63d63e84196f5703",
+  "_key": "!items!63d63e84196f5703",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Call the Black Sun",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "void-circle-call-the-black-sun",
+    "tradition": "necromancy",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 40,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "permanent",
+    "target": "One Abyssal Exaltation",
+    "description": "<p>When an Abyssal Exaltation is left without a Monstrance, this spell retrieves and binds it. It requires a blank Monstrance, the name of the Exaltation's previous host, part of the previous host's body, and one additional arcane link. The ritual lasts from dusk to midnight. At the end, the lost Exaltation appears inside the Monstrance and is bound to it henceforth. If two necromancers simultaneously attempt to capture the same Exaltation, the one with higher Essence wins; ties go to higher Willpower; if still tied, each has an equal chance. The spell cannot function if the lost Exaltation is currently bound to a Monstrance.</p>"
+  },
+  "folder": "447f6cc1520ba234",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

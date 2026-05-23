@@ -1,0 +1,37 @@
+{
+  "_id": "ba6b434ff6d4064f",
+  "_key": "!items!ba6b434ff6d4064f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Islebreaker",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Islebreaker is the personal weapon of Admiral Leviathan, crafted for the Lunar by his Solar men- tor Kendik Arkadi during the First Age. The moonsilver trident is a potent artifact, capable of crushing artifact ship hulls with the force of a tsunami. Nonetheless, the Admiral's great trident is of little use to most Exalted, as it is enchanted so that it requires others to possess Strength + Athletics of at least 60 to lift or wield; Leviathan and Kendik Arkadi, or any incarnation of their Essences, may wield Islebreaker as normal. When charged with Essence, Islebreaker may deliver particularly devastating blows to objects. During Step 1 of combat, the wielder may spend one mote per extra +1L added to the weapon's base damage dice for a single attack against an object. The wielder may spend up to 60 motes of Essence for extra damage in this manner, but motes are lost even if the blow misses. The extra damage is not subject to Charms or effects that multiply damage, and if such effects are in play the Islebreaker's extra damage is added to the new base damage after they have been calculated. Islebreaker has one hearthstone setting placed where the three prongs meet. Speed Acc. Damage Defense Rate Range Minimums Attune Cost Tags +2 +8L/+12L +2 2 40 Str ··· 6 ····· 2, D, R, L, T (special) Note: These traits do not reflect the moonsilver material bonus for melee or thrown weapons.</p>",
+    "source": "Compass of Terrestrial Directions, Vol. II: The West",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 5,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

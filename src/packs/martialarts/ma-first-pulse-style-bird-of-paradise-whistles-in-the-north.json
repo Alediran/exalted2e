@@ -1,0 +1,58 @@
+{
+  "_id": "1dea4ea12a1d797e",
+  "_key": "!items!1dea4ea12a1d797e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Bird-of-paradise Whistles in the North",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Counterattack"
+    ],
+    "cost": {
+      "formula": "3m or 5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>One of the best things a back-alley warrior can do when attacked from surprise is to whip the attacker out of hiding, especially when she can toss him into a circle of her friends. When someone successfully hits a First Pulse practitioner with an unexpected attack, she may activate this Charm as the attacker inflicts damage. She gets an automatic clinch counterattack with her full ([Strength or Dexterity] + Martial Arts) dice pool. If successful, the martial artist automatically breaks the hold by throwing him either to the ground (prone) or across a distance equal to her Strength in yards in any direction. (See \"Grappling\" on p. 157 of Exalted.) Her aggressor also suffers a -2 internal penalty to any attempts to return to hiding for the martial artist's next two actions. By spending two additional motes, the First Pulse Stylist may instead strike back with a deadly blow as soon as she feels a violent touch, contusing organs or cracking bones. She might be a little high-strung, but she'll have the reputation she wants. Rather than a clinch and throw, the martial artist applies a counterattack at her full dice pool against her aggressor. If the character would inflict bashing damage with this counterattack, she instead inflicts lethal. If her weaponry (or another Charm) allows her to strike with lethal force, she adds +3L to the blow's raw damage. She does not gain the counter-stealth benefits when using this version of the Charm, which is known as Kicking the Black Wolfhound. As usual for counterattacks, either form of this Charm reduces the character's DVs by one for the rest of her action.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "First Pulse Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "1dea4ea12a1d797e"
+  },
+  "folder": "7f4a779293a5eb21",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,55 @@
+{
+  "_id": "0b6d4e511a419b95",
+  "_key": "!items!0b6d4e511a419b95",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Inevitable Pursuit",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "awareness",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "4m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A Sidereal with this Charm can follow his prey through the scrubbed-crystal streets of Chiaroscuro, across the windblown tundra of the North or even across the endless oceans themselves. The Sidereal notes his prey's path not by physical traces but by evidence the character leaves on the Tapestry itself. As the quarry's fate weaves its way across Creation, the fate affects all other fates with which the quarry's fate interacts. The Sidereal can even follow creatures outside fate by using this Charm to follow the disturbances in the Tapestry such creatures leave behind them. If the area is largely uninhabited, the Sidereal can follow a trail of this kind that is no older than (character's Essence) days. If the Sidereal tracks his prey thus through a more populous region, such as a city or a heavily traveled road, the chaos of interweaving destinies becomes harder to read. He can follow trails no older than (character's Essence) hours. In instances when this Charm conflicts with Charms that make a creature harder to track, use the normal Charm versus Charm rules (see Exalted, p. 179), using (Essence + Awareness) for the Sidereal's side of the contest.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "0b6d4e511a419b95"
+  },
+  "folder": "b0b1b2b3b4b5f003",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

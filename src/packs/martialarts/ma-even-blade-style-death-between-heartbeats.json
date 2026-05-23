@@ -1,0 +1,57 @@
+{
+  "_id": "538397f20f8167aa",
+  "_key": "!items!538397f20f8167aa",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Death Between Heartbeats",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Briefly standing very still, the martial artist tilts her head. Then, with a shout, she strikes suddenly, surprising her enemies. This Charm may be used when a character performs an attack action (but not a flurry) on a tick in which others also take actions: Her attack goes before any other actions on that tick. Her target uses the lower of his DVs from before his action or from after his action to defend against her, and the martial artist herself uses the higher of her DVs from before her action or after her action against all attacks on that tick. If other characters use similar Charms to make their actions go first, then everyone involved acts simultaneously, as discussed on page 141 of Exalted.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Even Blade Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "538397f20f8167aa"
+  },
+  "folder": "6ac2f15fc6fdff1c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

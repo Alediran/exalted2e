@@ -1,0 +1,80 @@
+{
+  "_id": "4905a5b5a6f8c1ac",
+  "_key": "!items!4905a5b5a6f8c1ac",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Essence-Igniting Nerve Strike",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Shaping",
+      "Touch"
+    ],
+    "cost": {
+      "motes": 4,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "5m, 1wp"
+    },
+    "description": "<p>The Immaculate channels fire essence through her fingertips into the target's essence meridians, setting them ablaze with agonizing heat. On a successful hit supplemented by this Charm, the attack inflicts two levels of lethal damage regardless of soak (though the character still rolls for damage normally and takes the higher result). Additionally, the target's Essence channels are disrupted; she loses a number of motes equal to the attacker's Essence from her Peripheral pool, or from her Personal pool if her Peripheral is empty. This Charm is part of the Fire Dragon Style.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Fire Dragon Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b95f25878aee2e58",
+            "charmName": "Fire Dragon Form",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "4905a5b5a6f8c1ac",
+    "grantsMastery": false
+  },
+  "folder": "bf9bc7e761367908",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

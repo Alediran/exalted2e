@@ -1,0 +1,58 @@
+{
+  "_id": "bbeac5183311b6f3",
+  "_key": "!items!bbeac5183311b6f3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ebon Shadow Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Form-type",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Although the Exalt's body does not become indistinct or drink in light like a true shadow, he still moves with the eerie speed and grace of a candle-wavering silhouette. While using this Charm, the character adds his Martial Arts score to his Join Battle dice pool. He also adds a value equal to his Essence to his Stealth score and his Dodge DV. When the character makes a Martial Arts attack (with hands, feet, sais or fighting chains), he can inflict either bashing or lethal damage at will. If a character using this Charm is killed before the duration expires, his body dissipates into thick black smoke. He leaves no ghost, and his physical remains provide no evidence of his identity (though his gear might).</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Ebon Shadow Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "bbeac5183311b6f3"
+  },
+  "folder": "8ba2fc566f928c7a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

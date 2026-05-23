@@ -1,0 +1,37 @@
+{
+  "_id": "171f99526a436fdb",
+  "_key": "!items!171f99526a436fdb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Bracers of Universal Crafting",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>These bracers were first created during the Shogunate and remain popular in Lookshy. Carved from green jade a quarter inch thick and two inches wide, these artifacts must be surgically grafted to an Essence user to function. Failure inflicts one level of unsoakable lethal damage for every success by which the roll fell short. A botch inflicts the consequences of normal failure and also damages the bracers, requiring they be repaired. Success implants the bracers on the subject's arms, where they lie flush with the skin. Because the items must be implanted, users need not commit Essence to them, but they must spend two motes of Essence to activate these items for one scene. Once activated, the bracers create temporary projections of solidified Essence that can act as both tools and extra hands. This item allows the character to add a number of automatic successes equal to her Essence to all rolls involving fine manipulation. Such rolls include picking locks and surgery, as well as many Craft rolls, including most uses of Craft (Magitech), Craft (Air), cooking or any other careful task where precision matters more than strength. If the character works for more than one scene, she need only spend another two motes of Essence every additional scene to cause the tools to remain as long as she requires them. The tools and other manipulators created by these bracers vanish the instant they cease being used, and the character wearing these bracers can control them as easily as she can manipulate her own fingers. In addition to being compatible with all Craft Charms, these bracers negate the need for any additional tools and eliminate all penalties for performing an action without proper tools. In addition, if the character is in Yu-Shan or a god's sanctum, this artifact allow her to craft items from both ambrosia and quintessence (forms of solidified prayer), even if she otherwise lacks Charms that would allow her to work these exotic materials. Surgery: 10/1 hour/5 ­ patient's Essence /3</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 3,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

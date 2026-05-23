@@ -1,0 +1,37 @@
+{
+  "_id": "e03b9745d1e35428",
+  "_key": "!items!e03b9745d1e35428",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Eternal Crystalline Encasement",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "celestial-circle-eternal-crystalline-encasement",
+    "tradition": "sorcery",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 20,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "One creature or object",
+    "description": "<p>Beginning at dawn on a clear day, the sorcerer catches strands of Essence and new sunlight in her hands and sings an old weaving song of the First Age. She weaves through the fullness of the day, wrapping her target in a glowing field of light. The target cannot exceed 27 cubic feet (more than enough for a human being). Living beings must be unconscious through the entire process, as any motion ruins the weaving. As the sun sets on that day, the sorcerer speaks the Word of Solidity and the Essence-woven light hardens into a crystal coating in all the hues of the rising and setting sun. With the last bits of light and Essence, the sorcerer weaves a thin wand of the same material. Items so encased are immune to the ravages of time, neither suffering corrosion or decay, nor aging. Encased creatures do not perceive time's passage. The crystalline encasement is absurdly strong (50L/50B soak), but brittle (only a single health level). It ignores mortal sources of damage such as attacks made without Charms or magical weapons. Overcoming its soak by even a single level of damage shatters the crystalline encasement. The crystal shell also crumbles to golden dust if countered with Sapphire Countermagic or if the wand created at the end of the spell's casting is touched to it.</p>"
+  },
+  "folder": "dcf06d83a3d0a4be",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,60 @@
+{
+  "_id": "33dee4071cfdecca",
+  "_key": "!items!33dee4071cfdecca",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Blood-freezing Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "socialize",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Crippling",
+      "Obvious",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "6m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The martial artist wounds an enemy's chakras with brutal precision, and his target feels the chill of the grave race through his veins. If the Abyssal's attack inflicts any damage, the target's next action is delayed by one tick as her muscles shiver and joints momentarily stiffen. What's more, her target loses one dot of Dexterity. This drain correspondingly reduces traits derived from Dexterity, including DV values. Lost dots return at the rate of one per minute. The Dexterity loss stacks; the delay in the target's next action does not. Victims reduced to Dexterity 0 are paralyzed. They can take no physical actions, though they can still think, talk (though chattering teeth) and use Charms that do not require them to move in any way. Blood-Freezing Technique does not affect creatures who are immune to cold or not alive, such as automata or ghosts.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "33dee4071cfdecca"
+  },
+  "folder": "b0b1b2b3b4b5f047",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

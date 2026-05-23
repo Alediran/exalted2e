@@ -1,0 +1,71 @@
+{
+  "_id": "ab2afeb51114d8a5",
+  "_key": "!items!ab2afeb51114d8a5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dune-Drowned Oasis Ritual",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "cult",
+    "essence": 4,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Messianic",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Infernal basks in the worship of her followers, harvesting and focusing the Essence from their symphony of obscene chants and mad rites into a mockery of geomantic power. This Charm can only be activated within an area the Exalt has blighted with Holy Land Infliction. For as long as the area remains marked as a Dune-Drowned Oasis Ritual site, worshipers can \"build\" a level one Cecelyne demesne using the same overall rules as building a manse (see Exalted, p. 133). For this ritual to work, the Infernal must design a catechism for the project as per blueprint construction, using Linguistics in place of Craft (Lore and Occult requirements remain as is). Only another character who knows this Charm can check the accuracy of the rites. The cost of raw materials is the same as for slave labor, representing consumed ritual implements and carefully planned offerings. All members of the workforce must belong to the Infernal's cult, though the Exalt herself only has to personally witness the rite begin and remain observant for its final five days. If the constant worship follows the catechism to success, the area consecrates and exudes the Yozi energy of the Endless Desert as it comes into existence attuned to the Infernal. Terminating this Charm prior to completion spoils the effort, requiring a completely new catechism. The ritual also spoils if the blight reverts to mundane desert around the nascent demesne, perhaps as a result of countermagic. Destroying the blight after the demesne fully forms does not harm or weaken the place of power. This Charm may be repeatedly applied to increase the power of a demesne it has created, but each dot of increase requires a new catechism and the same effort as if building a manse of the new rating from scratch. Moreover, the process of upgrading cannot take less than a year per dot.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "cecelyne",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d382091cff5a0832",
+            "charmName": "Holy Land Infliction",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "ab2afeb51114d8a5"
+  },
+  "folder": "d852ccb3960d271d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

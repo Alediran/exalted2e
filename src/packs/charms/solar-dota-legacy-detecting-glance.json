@@ -1,0 +1,57 @@
+{
+  "_id": "17768f9bac29537b",
+  "_key": "!items!17768f9bac29537b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Legacy-detecting Glance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "investigation",
+    "essence": 4,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The superior detective is aware that the physiognomy of a subject may reveal that subject's history. The Lawgiver knows this and more, for he may see into souls. The character makes a quick study of a subject, allowing him to see his target's genetic inheritance so acutely that he may discern their ethnicity and even the bloodline from which they arose--commensurate with his Lore rating. The character's discernment of heredity is so keen that he can tell which gente's bloodline a Terrestrial descends from at a glance. As the Lawgiver grows in experience, so does this Charm's capabilities. At Investigation 5+, Essence 5+, the Solar catches physiognomic cues more readily; he can know if people are genetically related just by looking at them, and in what manner; or what a Dragon-Blooded target's Breeding is and exactly who the Terrestrial is descended from. The Lawgiver is also able to see into spirits; by glancing into a person's eyes or speaking to them for any length of time, the Lawgiver can see who they were in their former life. At Investigation 6+, Essence 6+, the Solar need only look at someone while using this Charm to see directly into</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "17768f9bac29537b"
+  },
+  "folder": "404dccadf2c8e04a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

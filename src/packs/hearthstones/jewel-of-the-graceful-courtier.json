@@ -1,0 +1,27 @@
+{
+  "_id": "c7baecf35360e757",
+  "_key": "!items!c7baecf35360e757",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Jewel of the Graceful Courtier",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDLUNAR00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "lunar",
+    "rating": 2,
+    "description": "<p>This oval, opalescent jewel seems to shift color with every change of light and background. The jewel's bearer blends easily into any social situation with the protean ease of the Changing Moon Caste, and never makes an unintentional faux pas: The stone adds one success to all Socialize rolls, making botches impossible and failures less likely in even the most demanding social venues.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

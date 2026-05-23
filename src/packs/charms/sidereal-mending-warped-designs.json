@@ -1,0 +1,59 @@
+{
+  "_id": "f31bac8e01188f0d",
+  "_key": "!items!f31bac8e01188f0d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Mending Warped Designs",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "craft",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Shaping",
+      "Virtue (Valor)"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal perceives the subtle flaws in the design of objects, plans, or works and mends them with a touch of fate. This Charm allows the character to identify and correct fundamental flaws in a crafted object or engineered design. By spending an hour in meditation with the flawed work, the Sidereal may remove a single fundamental defect—a hidden stress fracture, a flawed formula, a structural error—that would otherwise cause the work to eventually fail. Objects repaired with this Charm gain a measure of fated durability.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f31bac8e01188f0d"
+  },
+  "folder": "b0b1b2b3b4b5f005",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

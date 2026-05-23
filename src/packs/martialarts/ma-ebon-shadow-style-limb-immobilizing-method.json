@@ -1,0 +1,59 @@
+{
+  "_id": "48ee7e1440e5648a",
+  "_key": "!items!48ee7e1440e5648a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Limb-immobilizing Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Crippling",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With the slightest touch, like a shadow falling on bare skin, the martial artist immobilizes one of his target's limbs. The character need simply touch an unsuspecting foe, though his attempt to do so can be blocked or dodged as normal. The attacker chooses which limb to paralyze--not necessarily the one he touched--and the chosen limb is immobilized for the rest of the scene. See Exalted, p. 152 for the effects on a character who lacks a full set of functioning limbs. Since most people don't keep a crutch handy, the player of a target with a paralyzed leg must also attempt a reflexive (Dexterity + Athletics) roll for her character to maintain her balance every time that character is struck. Characters with both legs immobilized must generally perform stunts to attack or even guard. Immobilizing an arm keeps the target from using that arm to attack--which can be devastating if the victim is an archer. This attack has no effect against the undead, automata or other beings that have no vital functions to obstruct.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Ebon Shadow Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "48ee7e1440e5648a"
+  },
+  "folder": "8ba2fc566f928c7a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

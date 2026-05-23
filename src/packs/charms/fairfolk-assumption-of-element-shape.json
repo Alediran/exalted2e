@@ -1,0 +1,60 @@
+{
+  "_id": "5cdb972641a64236",
+  "_key": "!items!5cdb972641a64236",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Assumption of (element) Shape",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Assumption",
+      "Glamour (1)",
+      "Mutation (1)",
+      "ShapedOnly"
+    ],
+    "cost": {
+      "formula": "10m, 1g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm permits a shaped raksha to enter Creation in a form (usually humanoid) aspected to one of the five elements. This is the most commonly used Assumption among noble raksha. This Charm is actually a cluster of five separate Charms, each of which confers a different benefit and must be learned separately. The raksha chooses the element he will assume when invoking this Charm and cannot change it without reentering the Wyld to dispel and then reapply this Charm. Raksha who rely on this Charm to construct shapes for themselves in Creation have access to an array of related Charms--the Elemental Influence Charms beginning on page 161--to further improve the quality of their elemental forms. A raksha who maintains multiple versions of this Charm has the option of wearing any of the forms available to him or of combining two or more elements into a single form. For example, a raksha who had activated both Assumption of Air Shape and Assumption of Fire Shape would have the option of appearing as a being of solid smoke, while another raksha could combine Assumption of Earth Shape and Assumption of Water Shape to manifest as a creature of mud. Assumption of Air Shape: A raksha who enters Creation in this form suffers no ill effects from cold and can walk on ice or snow as if it were solid, stable ground. Raksha protected by Assumption of Air Shape often appear to be made of ice or snow, or simply have luminescent white skin. Assumption of Earth Shape: A raksha who enters Creation in this form can see clearly in the darkest depths. Raksha protected by Assumption of Earth Shape often have bodies of stone, earth or precious gems, or simply have brown or jet-black skin. Assumption of Fire Shape: A raksha who enters Creation in this form is immune to all non-magical heat- and fire-based forms of damage. Raksha protected by Assumption of Fire Shape frequently appear to be made of fire or magma, or simply have red, orange or black skin. Assumption of Water Shape: A raksha who enters Creation in this form can swim at her normal movement rate, can breathe water as well as air and can otherwise function freely in an aquatic environment. Raksha protected by Assumption of Water Shape often have liquid forms, or simply possess blue or green skin. Assumption of Wood Shape: A raksha who enters Creation in this form can maintain his balance on even the thinnest tree branch. The raksha can also resist any natural poison with just one success on a (Stamina + Resistance) roll. Raksha protected by Assumption of Wood Shape appear to be covered in bark, leaves or moss, or simply possess brown or green skin. Oneiromancy Benefit: Incorporated into an oneiromancy spell, this Charm allows the spell to exist in Creation in some kind of elemental form, such as an object of wood or paper (which is based on Assumption of Wood Shape), a potion (which is based on Assumption of Water Shape), or one made of metal (which is based on Assumption of Earth Shape or Assumption of Fire Shape).</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "5cdb972641a64236"
+  },
+  "folder": "6dbccd37637d2988",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

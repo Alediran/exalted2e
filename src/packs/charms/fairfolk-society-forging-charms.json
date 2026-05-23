@@ -1,0 +1,57 @@
+{
+  "_id": "57045f001f8af982",
+  "_key": "!items!57045f001f8af982",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Society-forging Charms",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "staff",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "4g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The raksha binds himself to another consenting raksha in a lasting relationship. The relationship can be anything--true love, bitter rivalry, an ongoing prank war, a hunter-prey relationship, et cetera. In every story in which the raksha actively pursues the relationship, he gains one bonus gossamer. If the raksha ever permanently ends the relationship, however, it instantly destroys his Staff Grace.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "57045f001f8af982"
+  },
+  "folder": "3a42d6c2417833d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

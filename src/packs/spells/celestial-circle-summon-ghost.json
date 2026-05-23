@@ -1,0 +1,37 @@
+{
+  "_id": "14918ce64918d9ad",
+  "_key": "!items!14918ce64918d9ad",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Summon Ghost",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "celestial-circle-summon-ghost",
+    "tradition": "sorcery",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 15,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Ghost",
+    "description": "<p>This spell works like the necromancy version (see The Black Treatise, pp. 34-35), but the ghost may not be compelled to serve for longer than a month. The rite also takes three hours instead of one, and the caster sprinkles honey, wine and barley upon the ground as well as blood.</p>"
+  },
+  "folder": "dcf06d83a3d0a4be",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

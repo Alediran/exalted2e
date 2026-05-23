@@ -1,0 +1,58 @@
+{
+  "_id": "36490bbf1f9a7ab5",
+  "_key": "!items!36490bbf1f9a7ab5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Reaching Through the Mirror",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "8m per target",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>which showed so many visions of her face. Gesturing at an opponent, the Sidereal calls that opponent's reflection to face her. Any reflective surfaces around the target, no matter how they are angled, show that person. For the rest of the scene, the martial artist can attack the reflection of her foe with even more facility than she could attack the foe himself. Attacks against the reflections are undodgeable, and the target takes a -2 external penalty to parry them. And, as the mirror breaks or the water ripples beneath the martial artist's hand, her enemy feels cracks lancing across his skin. The damage is lethal, and the target's soak is halved against that strike.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Obsidian Shards of Infinity Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "36490bbf1f9a7ab5"
+  },
+  "folder": "87a660847a455039",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

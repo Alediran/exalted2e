@@ -1,0 +1,37 @@
+{
+  "_id": "8a68e7316f654044",
+  "_key": "!items!8a68e7316f654044",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Eye of Alliance",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-eye-of-alliance",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 5,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "one year",
+    "target": "Up to (sorcerer's Essence x 2) people",
+    "description": "<p>Dragon-Blooded sworn brotherhoods, and other Terrestrials who expect to work together for any length of time, favor this spell. The ritual takes 30 minutes to cast. The participants link hands around the sorcerer; if the sorcerer wishes to be included in this link, he joins hands with the rest. A brilliant white glow flows from each participant to the center of the circle and then back again, coalescing before each participant as a crystal to pluck from the air. These crystals have one facet per participant. One mote per crystal remains committed by the sorcerer who cast this spell, and the crystals remain intact for a year and a day. The sorcerer may not decommit these motes unless he decommits them all, destroying the spell and dissolving the crystals. The crystals serve as arcane links to every member of the ritual, so their owners must guard them carefully. A sorcerer or thaumaturge also gains a number of automatic successes equal to the sorcerer's Essence to attempts to scry upon or gain magical information about the character whose crystal he possesses. The real purpose of the crystals is to send emotions to other participants or to reflexively sense their emotions. Subjects can use this spell simply to keep tabs on one another from afar. The emotional link can also reveal valuable information in a social situation: Those capable of sensing a character's emotional state can often resist that character's attempts to lie to them, gaining a +2 bonus to Mental DVs against social attacks based on Manipulation. Dynasts sometimes use this aspect of the spell in tense negotiations to keep the other participants honest. These crystals cannot be used to locate other participants without some other form of divinatory magic or artifact. When he sets his crystal into the hearthstone socket of an artifact, however, the bearer instantly knows the condition of the other participants if they are within one mile. He may also reflexively spend one Willpower to transfer a number of motes of Essence equal to the total number of participants in the ritual to one of the others whose stone is likewise set in an artifact. Any given participant may do so only once per day, and it causes his stone to grow cloudy, rendering it useless for that 24 hour period, though others may still sense him. If a participant in the spell dies, her crystal dissolves, and one facet of each remaining crystal cracks and turns black. All bearers immediately know who died, though they might not know the circumstances of her death.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

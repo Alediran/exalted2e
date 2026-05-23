@@ -1,0 +1,81 @@
+{
+  "_id": "c566686d2ad67c89",
+  "_key": "!items!c566686d2ad67c89",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Owl Seizes Mouse",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      1
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 3,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "3m or 3m, 1wp"
+    },
+    "description": "<p>The Abyssal selects an adversary within (Martial Arts x 5) yards and either pounces upon her in a single leap or closes the distance in a gliding blur of similarly impossible speed. The character can leap only as part of making an unarmed striking or grappling Martial Arts attack against a target. The cost to activate this Charm is normally three motes. If the Abyssal initiates a grapple and pays a point of Willpower, however, he adds to the attack roll a number of bonus successes equal to his Essence, and the defender cannot block or dodge the attack, except with a perfect defense.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Hungry Ghost Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "2895720300b257e8",
+            "charmName": "Dark Messiah Form",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "c566686d2ad67c89",
+    "grantsMastery": false
+  },
+  "folder": "a204aba47ca9154b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

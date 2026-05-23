@@ -1,0 +1,93 @@
+{
+  "_id": "542faf8bbd998bc6",
+  "_key": "!items!542faf8bbd998bc6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Joy in Ownership",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Illusion",
+      "Servitude",
+      "Touch"
+    ],
+    "cost": {
+      "motes": 20,
+      "willpower": 2,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "20m, 2wp"
+    },
+    "description": "<p>She could not recall when or where she had acquired such fetters. The martial artist gently touches a target she has rendered unconscious during the scene, manipulating the flow of his Essence through the chakra points known as the gates of desire. Upon awakening, the target gains a second Motivation to \"Love and obey (the martial artist).\" Her memories are also altered so that she believes the martial artist is an old friend or lover (whichever is appropriate to her normal sexual preferences). Memories that might contradict this belief are suppressed. Resisting this unnatural mental influence requires that the target spend three Willpower within the space of a scene, over a number of scenes equal to (10 � target's Essence). While Joy in Ownership remains in effect, the target is metaphysically considered to be the martial artist's property.</p>",
+    "source": "Glories of the Most High: Maidens of Destiny",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Sapphire Veil of Passion Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "532c9600457b6cef",
+            "charmName": "Silken Rope Trick",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "68916c5f7b14676a",
+            "charmName": "Someone Else's Consequence",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "542faf8bbd998bc6",
+    "grantsMastery": false
+  },
+  "folder": "05f82ed74914c6c2",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

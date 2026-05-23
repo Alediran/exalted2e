@@ -1,0 +1,37 @@
+{
+  "_id": "2c155793f66eacee",
+  "_key": "!items!2c155793f66eacee",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hound of the Five Winds",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-hound-of-the-five-winds",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 15,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Conjured automaton",
+    "description": "<p>The sorcerer hurls his Essence into the air and makes the Gesture of the Huntsman. Winds from the five elemental poles swirl together and form a massive, horse-sized wolfhound. This magical automaton can scent its prey up to 100 miles away and chase it tirelessly, as long as it has been introduced to the scent already. It can also serve the sorcerer as a bodyguard, warrior or even a riding beast (control rating 1). The creature exists for up to eight hours after its creation. When tracking prey, the hound can hunt alone, lead the sorcerer or a deputy assigned by the sorcerer or even lead normal hunting beasts. The supernatural hound understands complex instructions and automatically succeeds at tracking mortal prey. The Storyteller may roll (Perception + Survival) against creatures that magically hide their tracks. This roll is opposed by whatever dice pool represents the prey's power, or (Wits + Survival) as a default. The hound adds to this opposed roll a number of automatic suc- HOUND OF THE FIVE WINDS Motivation: To serve the sorcerer Attributes: Strength 5, Dexterity 6, Stamina 5; Charisma 1, Manipulation 1, Appearance 2; Perception 5, Intelligence 3, Wits 3 Virtues: Automaton: Never fails Valor checks, never makes others. Abilities: Athletics 3, Awareness 3, Dodge 3, Martial Arts 5, Presence 5, Resistance 5 (Running +3), Stealth 2 (Stalking +2), Survival 5 (Tracking +3), War 2 Join Battle: 6 Attacks: Bite: Speed 4, Accuracy 12, Damage 7L, Parry DV --, Rate 2 Soak: 7L/7B (Rough hide, 5L/2B) Health Levels: -0/-0/-1/-1/-2/-2/-4/Incapacitated Dodge DV: 4 Willpower: 10 (0 against sorcerer) Essence: 1 Other Notes: The hound of the five winds can perform a Move action of 20 yards and a Dash action of 60 yards. In war situations, hound of the five winds units have a long tick movement of 200 yards per tick. cesses equal to the sorcerer's Essence. Only perfect effects can throw the hound off the scent. Even then, the hound will know if the target's scent reappears within 100 miles. This spell can be countered only during casting. Once the hound appears, only killing it gets rid of it. When the duration of the spell ends or the hound is slain, it explodes in a violent eruption of wind that inflicts environmental damage (Damage 5B; Trauma 3) to anyone within three yards of it. Healing magic does not work on the hound. In war, the hound is so ferocious it is considered a Magnitude 3 solo unit, for the purposes of comparing Magnitude with other war units. Treat packs of the hounds as Magnitude 3 + (1 per additional hound in the pack), to a maximum Magnitude of 8. A hound of the five winds does not receive this bonus when incorporated into a unit of some other sort. It must have the freedom to savage its way through enemy ranks.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,71 @@
+{
+  "_id": "09471d6c91b93a13",
+  "_key": "!items!09471d6c91b93a13",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Weapon-Shaping Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "dexterity",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "3m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Although nearly anything can be a weapon in a Lunar's hands, this Charm and the character's inconstant Essence make it literal. As long as no one else owns (see Exalted, p. 238) an object the character picks up, she may reflexively change it into an unremarkable, mundane weapon. An object can only become a weapon with about the same mass. Arrows are an exception--even the lightest materials can become arrows, though many objects may be too heavy. Picking up an object to turn it into a weapon is an action equivalent to drawing a normal weapon of that sort: Picking up a stone as a sword is a miscellaneous action, while snapping off a twig to become an arrow is a reflexive part of launching that arrow. When the character lets go of an object-turned-weapon in this way, the object returns to its original form at the end of the tick. This provides enough time for thrown weapons and arrows shaped by this Charm to reach their targets before they revert. Objects crafted of the magical materials cannot be affected by this Charm.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d29c6024b8b98df4",
+            "charmName": "Clay-Wetting Practice",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "09471d6c91b93a13"
+  },
+  "folder": "6d3aed86fa48b120",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,15 @@
+{
+  "_id": "c002d234e56f7891",
+  "_key": "!items!c002d234e56f7891",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Torch",
+  "type": "equipment",
+  "img": "icons/sundries/lights/torch-wall-lit.webp",
+  "system": {
+    "resourcesCost": 1,
+    "quantity": 10,
+    "description": "",
+    "equipped": false
+  },
+  "folder": "f003a234b56c789f", "sort": 0, "ownership": { "default": 0 }, "flags": {}, "effects": []
+}

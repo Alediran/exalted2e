@@ -1,0 +1,59 @@
+{
+  "_id": "6428d7e10f82c88c",
+  "_key": "!items!6428d7e10f82c88c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Red Haze",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "war",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Holy",
+      "Stackable",
+      "War"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Crimson stardust, visible only to Sidereals or characters with supernatural senses, wafts down from the sky onto a unit of soldiers, whose Magnitude cannot exceed the Sidereal's Essence. Every combatant, man, beast or spirit, gains a primal opposition to entities from beyond Creation. If the anointed soldiers face demons, the dead, the Fair Folk or other creatures of darkness during the five-day duration, the soldiers enjoy a +1 bonus to their Drill rating. A single Sidereal can affect a given unit only once at a time, but several Sidereals working together can affect the same unit simultaneously, increasing the bonus. The maximum bonus equals the highest Essence rating among the Sidereals activating the Charm simultaneously, but the unit's Magnitude cannot exceed the lowest Essence rating among their group.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "6428d7e10f82c88c"
+  },
+  "folder": "b0b1b2b3b4b5f019",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

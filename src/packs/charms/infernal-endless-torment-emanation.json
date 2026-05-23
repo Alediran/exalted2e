@@ -1,0 +1,72 @@
+{
+  "_id": "25ddb8cc58bc56fa",
+  "_key": "!items!25ddb8cc58bc56fa",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Endless Torment Emanation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "oneWeek",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Shaping",
+      "Sorcerous"
+    ],
+    "cost": {
+      "formula": "15m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Endless Desert is more than a place. She is also an idea adjoining space and time. This Charm exudes the Essence of Cecelyne as a spherical aura extending to a radius of (Essence x 10) yards from the Infernal. Once created, the psychic field remains stationary and endures for one week. Within this space, all efforts to erode positive Intimacies need only a single scene of appropriate action to succeed regardless of the listener's Conviction rating. The effort required to build negative Intimacies likewise decreases. If eroding a particular positive Intimacy or building a particular negative Intimacy would conflict with a character's Motivation, the effort requires normal effort to succeed. Additionally, the area is considered a place of spiritual desolation (see Withered Soul Wastes). The effects of this Charm are extremely subtle and virtually imperceptible, even to Essence sight and similar magical awareness. Characters get a faint sense that something is indefinably wrong with a successful reflexive difficulty 3 (Perception + Socialize) roll made by their players.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "cecelyne",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a8af195196f3a0fd",
+            "charmName": "Withered Soul Wastes",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "25ddb8cc58bc56fa"
+  },
+  "folder": "d852ccb3960d271d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

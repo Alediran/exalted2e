@@ -1,0 +1,58 @@
+{
+  "_id": "f7cc32bcc201193b",
+  "_key": "!items!f7cc32bcc201193b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Crossing Plutonian Shores",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "college",
+    "essence": 4,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Fate",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "20m, 4p",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal solemnly makes the Lesser Sign of the Maiden of Ashes. She becomes a creature of death and respires Essence accordingly. This Charm remains in effect until the character is next touched by the light of the sun. FATED WEAPONS These rare weapons may be legally created only after a direct petition to the Maidens themselves, for they require removing a living strand of destiny from the Loom of Fate to be forged into the artifact. Fated weapons use the same traits as a normal starmetal weapon artifact of the desired type, such as a daiklave or grand grimcleaver, with one of the following modifications as an additional benefit: � If the weapon inflicts damage on a creature outside fate, that being is brought into fate for the rest of the scene. All attack rolls made with the fated weapon against a being it has brought into fate are made at a default target number 6 while the target remains so. � Attack rolls made with the fated weapon against creatures outside fate have a default target number 6. � Attack rolls made with the fated weapon against a specific category of creatures outside fate (valid categories include beings of the Wyld, the Underworld, Malfeas or Autochthonia) are made at a default target number 5. The Artifact rating of a fated weapon is its normal rating plus two dots.</p>",
+    "source": "Glories of the Most High: Maidens of Destiny",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f7cc32bcc201193b"
+  },
+  "folder": "84b20a7805198847",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

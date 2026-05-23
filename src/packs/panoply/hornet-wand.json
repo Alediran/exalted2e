@@ -1,0 +1,52 @@
+{
+  "_id": "f7bfef0db26636dd",
+  "_key": "!items!f7bfef0db26636dd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hornet Wand",
+  "type": "weapon",
+  "img": "icons/weapons/swords/sword-ornate-yellow.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "Melee",
+        "speed": 5,
+        "accuracy": 2,
+        "damage": 4,
+        "damageType": "bashing",
+        "overwhelming": 1,
+        "defense": 2,
+        "rate": 3,
+        "range": 0,
+        "minStrength": 1,
+        "minDexterity": 2,
+        "minMartialArts": 0,
+        "tags": [
+          "Martial Arts"
+        ]
+      }
+    ],
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 1,
+    "hearthstoneSlots": 0,
+    "description": "<p>An unassuming short metal stick that uses carefully applied pressure to deliver stinging pain to vital areas. Cannot block lethal attacks. Counts as cestus.</p>",
+    "source": "Armorium",
+    "equipped": false
+  },
+  "folder": "f004a234b56c78a0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

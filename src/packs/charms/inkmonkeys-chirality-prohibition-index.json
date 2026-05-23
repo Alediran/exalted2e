@@ -1,0 +1,66 @@
+{
+  "_id": "4148837b1b09d931",
+  "_key": "!items!4148837b1b09d931",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Chirality Prohibition Index",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Servitude",
+      "Shaping",
+      "Sorcerous"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Whispering Flame embodies the perfection of design and order as does no other. She pities the world for being less perfect than herself, and imposes her nature upon it as an act of mercy. This Charm permits the warlock to re-order the land around her to reflect the principle of hierarchy, shifting the position of trees and walls, straightening or bending roads and rivers, reconfiguring the arrangement of buildings or moving them altogether to express the symmetrical perfection of a greater design. The Infernal may reorder the landscape in any manner she chooses, with the following limitations: The changes she demands occur gradually, over the course of the next hour, too slowly to inflict damage on any living thing. The Infernal cannot intentionally create new landscape features--she only reconfigures what is already there. The Charm cannot reshape a demesne, the Wyld, or any area within ten</p><p>miles of the border of another landscape that has been reshaped through Chirality Prohibition Index or Holy Land Infliction. She might reconfigure a small village into a series of staggered circles around a central green, or into a rigid, balanced grid. An orchard could be rewoven into a perfect circular border of trees around a central field whose grass has been ranked into impressed-circles which confer the sacred order of the principle of hierarchy. Even the sky conforms to the symmetry of She Who Lives in Her Name, channeling clouds into a slow spiral around the central point of her design. The imposed changes span a circular area around the Infernal with a radius of (Willpower x 10) yards. The changes, when viewed from above, must reflect a greater symmetry with the rest of the world. This symmetry is subject only to the superior perspective of the warlock, who exudes the truth of her Essence into the pattern of existence. Others who look upon the Infernal's design may see only a mystifying sprawl of indecipherable but tantalizing meaning. Such are the limits of their minds that they cannot understand the order the warlock seeks to bring--though they wish to. Nearby mortals within one mile become fascinated by the sacred geometry of the Whispering Flame, and will settle in and around the edges of the symmetrical landscape. After each week an individual spends lingering within a mile of the affected area, they are automatically subjected to a social attack with a dice pool of the warlock's (Essence + Occult). Success counts as a scene spent working toward building an Intimacy of loyalty toward a new social unit--a cult dedicated to the study and veneration of the land's sacred design. This unnatural mental influence may be resisted for two Willpower. Once a character has gained this loyalty, she must follow the Policy of the cult as an unnatural Servitude effect. The Infernal constructs the group's Policy at the time of this Charm's activation, as follows: � Members of the cult loathe all things marked by the touch of the Wyld--they will attempt to drive Wyld mutants, raksha and beastmen out of the community, violently if necessary. � Members of the cult dress in a similar, uniform manner as defined by the Infernal. The sacred landscapes created by She Who Lives in Her Name promote conservative black-andwhite outfits which cover most of the body and leave little individuality for either men or women, but Infernals may enforce any sort of appearance they desire--or even outlaw clothing altogether. � Members of the cult will prefer to speak a language of the Infernal's choice, and will seek to learn the favored language if they do not already know it. They will also refuse to speak any languages the Infernal forbids, or to respond to individuals who address them in forbidden tongues. She Who Lives in Her Name permits only Old Realm to be spoken in her domains, but Infernals may set the parameters of their dominions to their liking. � Members of the cult will proscribe certain knowledge as defined by the Infernal. They will not teach forbidden information, nor speak of it, nor tolerate its dissemination among their ranks. This could be anything from Immaculate dogma to histories of a region that differ from a certain tale the Infernal has approved to knowledge of how to grow wheat--the bans included in the group's Policy are entirely up to the warlock.</p><p>� Members of the cult will proscribe certain sorts of action as defined by the Infernal. They will not engage in forbidden acts, nor permit individuals who do to remain within their community. This could be anything from worship of the gods (or of a particular god) to homosexual relationships to leaving the lands controlled by the cult. Again, the bans are whatever suits the Infernal's purpose. � Members of the cult have one obligation to the group that they must perform, defined by the Infernal. This could be anything from tithing money to a certain member of the community (or to the Infernal), to providing sexual favors to a certain class of individuals, to promoting immigration to and settlement within the land. They also compulsively reconfigure their habitations to conform to the greater symmetry of the Infernal's design. � Members of the cult will spend at least one hour every day attempting to puzzle out the secrets of the land's sacred geometry. The Infernal exists as a persistent blind spot in their awareness--they will not seek to interact with the warlock unless she first interacts with them, and will not turn on her if they observe her acting in violation of the cult's Policy. Affected individuals may spend one Willpower to act against the group's Policy for a scene. Only breaking the Intimacy will permanently free a character from the Servitude effect. Once the majority of the inhabitants of the region within a mile of the sacred landscape have gained an Intimacy of loyalty toward its cult, the range of the symmetrical landscape expands by a radius of one mile, and its mental influence spreads out to target all mortals within a mile of the new borders, at which point the cycle begins to repeat itself. This expansion causes the newly assimilated land to reconfigure itself to fit the symmetrical pattern of the sacred land. If the land's expanding border pushes into a region tainted by the Wyld, the tides of chaos recede. The land is no longer Sorcerous at this time and may no longer be destroyed by countermagic; only rooting out the cult and engaging in public works to destroy the Infernal's geometric patterns may return the land to normal. When the sacred land spans ten miles or more, it becomes a persistent Blasphemy. When the Infernal reaches Essence 3+, hints of the landscape's authorship begin to appear in all lands she has affected and all lands she subsequently reshapes. Trees show a few crystalline leaves mixed in among the normal foliage, chiming softly when the wind stirs them. Inconsequential examples of Malfean wildlife may be found within the altered land--faintly luminous, hair-thin worms float upon the air; puffs of soft white seeds fall from the clouds, sprouting crystalline flowers where they land and take root; the Things Which Lurk in Corners may occasionally be glimpsed at sunrise and sunset. Follow the Leader</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "willpowerRecovery": {
+      "enabled": true,
+      "event": "onDamageDealt",
+      "formula": "1"
+    },
+    "charmUid": "4148837b1b09d931"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

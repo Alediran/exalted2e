@@ -1,0 +1,58 @@
+{
+  "_id": "90b5637d668687e5",
+  "_key": "!items!90b5637d668687e5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Freeing the Father from the Child",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 7,
+    "minAbility": 6,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "15m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>and release from obligation. One has never learned enough, but the victim of this Charm will never learn again. When the character attacks (with whatever Martial Arts attack she wants), her slashing knife hand looks bladed and devilishly sharp, and her victim appears to onlookers like a figure of shining threads. The attack inflicts lethal piercing damage. It reduces the effectiveness of mundane armor by five bashing and lethal soak and magical armor by two until it can be repaired. The Charm must inflict damage to take full effect, but each success on the damage roll also reduces the target's MDV by one against the following assault. The martial artist's player immediately rolls (Manipulation + Martial Arts + Essence) against the target's reduced MDV. Success imposes upon the target a permanent case of anterograde amnesia. The victim remembers everything in his life until the point when the Charm affected him. Nothing that happens after the decisive attack sticks with him. He remembers the last five to 10 minutes. This is enough for the victim to make sense of a combat scene or a brief verbal exchange, but anything further in the past gets muddled. His memory is fuzzy enough that he does not react violently when he wakes up in a different location than he went to sleep, but he does need to meet people and learn events all over again. As time passes, he becomes more and more dissociated from reality. To the victim, it seems like everything's changed since just last night. A target of this Charm may exert his will to keep some additional memories. He may spend one point of Willpower beforehand to retain everything that happens over the next hour or after-the-fact to remember the last scene. The victim may still spend experience to improve traits. Muscle memory and trained reflexes still function, allowing him to increase physical skills. It is harder to learn a language or improve one's Lore, but it's possible with patience and Willpower. Eliminating the problem does not allow the victim to regain lost memories--they are gone for good, barring use of Two Score Mirror Glance to experience that period all over again. Yet it does allow him to begin remembering what he experiences. Double the Essence cost of any Charm used to cure this mental condition.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Border of Kaleidoscopic Logic Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "90b5637d668687e5"
+  },
+  "folder": "74e10a76522315aa",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

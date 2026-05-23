@@ -1,0 +1,37 @@
+{
+  "_id": "566121d13464849a",
+  "_key": "!items!566121d13464849a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Torc of Unified Action",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>This device is a braided torc woven from strands of each of the five magical materials and filled with Essence-based circuitry vaguely similar to those found in slave collars (see p. 63). Each of these items contains a setting for a single hearthstone. To attune this artifact, the owner must commit three motes of Essence. Alone, this artifact is nothing more than a setting for a hearthstone, but these torcs are typically found in groups of between two and five. (Each character who wishes one must purchase this artifact separately.) If several characters put on these items, hold hands and each spend a point of temporary Willpower, their torcs then extend filaments made from each of the five colors of jade into their wearers' brains and spines. These filaments magically link the wearers until they choose to let the attunement lapse. The blue jade filaments facilitate communication between the wearers. The white jade filaments link the wearers' bodies. Red jade filaments allow them each a share of the others' vitality. Black jade filaments link the wearers' subconscious. The green jade filaments link the wearers' life force, allowing the wearers to move and even think as one. Once the wearers have attuned their collars to one another, any of them can spend one mote to be able to communicate with any or all of the other wearers for a full scene. Wearers can send messages to all other wearers or any subset of wearers they wish, regardless of how far the wearers are from each other. All such communication is reflexive and takes no more effort than ordinary speech. The only limit on this communication is that telling a lie using these torcs is impossible because the other wearers automatically know if a message projected by these torcs is a deliberate lie or if the sender is otherwise intentionally twisting the truth. Wearers can also send any or all sensory impression they are experiencing to other wearers. If two or more wearers both spend one mote to initiate communication, they can choose to share their surface thoughts. Characters cannot gain access to each other's memories unless a character is willing to share them with others. Characters do automatically know each other's every movement, emotion and thought, however. As a result, a group of characters wearing these torcs can automatically coordinate attacks (see Exalted, p. 144). The character leading the attack gains a number of automatic successes equal to the number of characters wearing torcs who have opened themselves up to communication. These automatic successes can be used to coordinate attacks only between linked torc wearers, and the maximum possible bonus gained from this coordinated attack is limited to the number of characters involved in the coordinated attack. Although this artifact was originally developed during the High First Age, many Celestial Exalted were unwilling to share themselves so closely with anyone except their spouses. As a result, this artifact was more widely used by sworn brotherhoods during the Shogunate. Although several workshops in the Realm can make these devices, today, these artifacts are mostly used by Immaculate monks and members of the Wyld Hunt because few other Dynasts will tolerate even their sworn brothers knowing their innermost thoughts. This artifact remains popular in Lookshy, however, where it is regularly used by elite special-forces units. Even here, the mental intimacy it produces largely limits its use to warfare or when wearers need to send discreet or otherwise important messages.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

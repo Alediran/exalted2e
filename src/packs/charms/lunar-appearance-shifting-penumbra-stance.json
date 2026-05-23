@@ -1,0 +1,72 @@
+{
+  "_id": "54a027e8fe5c7797",
+  "_key": "!items!54a027e8fe5c7797",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shifting Penumbra Stance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "appearance",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Illusion",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Wrapping her anima tight around herself, the Lunar appears as a shifting congeries of light and power. It becomes impossible to discern not only the character's identity, but even what manner of being she is. Even the most learned of savants are unsure whether they face a god, demon, raksha, Anathema or something even stranger. This is an unnatural Illusion effect, costing three Willpower points to resist. Such resistance only dispels the Charm's supernatural confusion. The character's precise identity is still impossible to discern, and if an observer has never seen this Charm in action before, she still might not realize she is looking at a Lunar Exalt.</p>",
+    "source": "Glories of the Most High: Luna",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "848f6904f3841b83",
+            "charmName": "Hide of the Cunning Hunter",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "54a027e8fe5c7797"
+  },
+  "folder": "8313b495b23ed35c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

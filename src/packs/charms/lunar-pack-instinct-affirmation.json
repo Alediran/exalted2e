@@ -1,0 +1,71 @@
+{
+  "_id": "bc1584ea73df4e38",
+  "_key": "!items!bc1584ea73df4e38",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Pack Instinct Affirmation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "charisma",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "10m, 1wp, 1xp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Stewards need faithful companions. The Lunar uses this Charm on a natural animal already loyal to her, and can only use it if she has no familiar. This is a dramatic action of several hours of personal interaction with the animal. Pack Instinct Affirmation functions identically to Spirit-Tied Pet (see Exalted, p. 209) except as further noted. If the animal is the same creature as the character's spirit shape, the Charm increases the Familiar Background by two dots. Characters who have mastered the Shifting Knack Luna's Hidden Face can also use this Charm on animals mutated by the Wyld. Some such creatures require more than three dots of the Familiar Background before they become the character's familiar.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "94a7f8753edf2bdd",
+            "charmName": "Dog-Tongue Method",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "bc1584ea73df4e38"
+  },
+  "folder": "4e63ba1bd67a09e3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

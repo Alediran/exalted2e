@@ -1,0 +1,83 @@
+{
+  "_id": "022f4072e60ba9cf",
+  "_key": "!items!022f4072e60ba9cf",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Knowing The Desolate Heart",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Social"
+    ],
+    "cost": {
+      "formula": "3m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Cecelyne understands failure. Her failure to transcend all limits galls her even more than the fact that the Exalted imposed this punishment upon her. This Charm enhances an action to understand an observed target's emotions and displayed Intimacies in a social scene (see Exalted, p. 131). By the power of Cecelyne, the action automatically succeeds regardless of the roll results, as if the character had rolled twice the number of required successes. Furthermore, the Infernal understands all Intimacies that have been displayed in any way during the scene (as determined by the Storyteller) and their context toward other characters who are present. Finally, if the character would have succeeded by any threshold without this Charm, she intuits what the target believes his greatest failure in life has been.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "cecelyne",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "873cc5b458ad460b",
+            "charmName": "Hellscry Chakra",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f9b13ab624f48a8d",
+            "charmName": "Transcendent Desert Creature",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "022f4072e60ba9cf"
+  },
+  "folder": "d852ccb3960d271d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

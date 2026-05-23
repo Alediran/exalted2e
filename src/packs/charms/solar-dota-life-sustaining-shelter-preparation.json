@@ -1,0 +1,58 @@
+{
+  "_id": "cecdf2635cbd698a",
+  "_key": "!items!cecdf2635cbd698a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Life-sustaining Shelter Preparation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "survival",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solar Exalted may survive anywhere. By his mastery of Survival, he may guarantee this protection to his followers. Even in the depths of Hell or the tunnels of the Labyrinth, Solars using this Charm may erect a shelter which is stable and safe from forces which would seek to harm those within. Once she has found shelter large enough to protect all of her followers from the elements (an Intelligence + Survival roll with a difficulty of the Magnitude of the character's entourage), the Solar personally builds this shelter. She places representations the five elements at the center and directional boundaries of the shelter (these representations can be actual examples of each element, such as twigs, stone, cinders, etc, or the Solar may use a few drops of blood, paper effigies, Dragon-Blooded willing to sit still, or other tokens) during its construction, blessing the configuration with his power and claiming all within its borders as his dominion. For a larger group, the Solar supervises the process of building this shelter (an action normally requiring one hour), but otherwise using the same process as described above. This Charm protects an area large enough to house the Solar and up to her Essence in Magnitude of her followers. The inclement conditions of harsh weather hold no sway over the camp--all individuals within are protected as though with Hardship-Surviving Mendicant Spirit. Moreover, the camp is immune to the inclement conditions of alien worlds. The Wyld will not mutate the camp's land, the Solar's followers, or their belongings, nor will Malfeas's toxic miasma poison them. The Solar and her followers may respire Essence normally even in the Underworld or the Blight Zones of Autochthonia. Moreover, the Solar's followers will take no harm from any nourishment scavenged within the confines of the camp. Wyld berries will not poison them, nor singing fish give them mutations. The iridescent locusts which swarm across the sands of Cecelyne will not infect them with demonic taint. Finally, the Solar's Food-Gathering Exercise may secure enough food to feed the entire camp with only a single use-- even if there is no food to be had in the region. As if produced by faith alone, the Solar finds clean water flowing from the rocks of Malfeas, fresh fish in the acrid seas of Kimbery, and living fruit upon dead branches. A second purchase of this Charm at Survival 6+, Essence 6+ sanctifies the camp as Holy ground. Creatures of darkness must spend five points of Willpower to set foot within the camp unless formally invited by the Solar.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "cecdf2635cbd698a"
+  },
+  "folder": "82dbbb60bb2b2c18",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "406a6ae24ec6ac20",
+  "_key": "!items!406a6ae24ec6ac20",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Animalcommanding Masks",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Each of these masks depicts the visage of one of the animals known and respected by the folk of An-Teng: the tiger, the elephant, the ape and several others. Each mask is wrought of bronze, adorned with moonsilver, enamel and jewels. The Prince of the High Lands loans out the masks of lesser animals to favored nobles but keeps the masks of powerful animals close at hand. The High Prince himself owns the Tiger Lord Mask while his guard commander keeps the Ape Lord Mask. The bearers of the masks are collectively called the Masked Commanders of the Animals. A mask's wearer can summon and command all animals of the mask's type within 100 miles of his location. The animals regard the Masked Commander as they would a greater animal spirit, readily obeying any command that is not actively suicidal. This power enables the Masked Commanders to assemble mass combat units of animals, though they can find subtler uses as well. (For instance, a horde of monkeys could befoul an army's provisions and baggage.) Wielding this power costs one Willpower point per day. A Masked Commander can reflexively spend a Willpower point to transform himself into the type of animal the mask depicts. The wearer can do this once per day (or night, if the animal is nocturnal) and stay in the animal's form for a scene. While in animal form, the Masked Commander has the Physical Attributes and related Abilities of the animal or his own, whichever are higher. His Mental and Social Attributes and related Abilities stay the same. Transformed characters can communicate with animals of their type and retain the mask's power of command, though they lose human speech for the duration. Animal-commanding masks do not affect animal spirits (much less the animal avatars). Such spirits are not intrinsically hostile to Masked Commanders, but they do resent any uses of the masks that result in harm for their type of animal.</p>",
+    "source": "Compass of Terrestrial Directions, Vol. IV: The South",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 4,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

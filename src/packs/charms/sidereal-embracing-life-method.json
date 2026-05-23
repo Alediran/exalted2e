@@ -1,0 +1,73 @@
+{
+  "_id": "528175d498da85f6",
+  "_key": "!items!528175d498da85f6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Embracing Life Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "investigation",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Compulsion",
+      "Shaping",
+      "Virtue (Compassion)"
+    ],
+    "cost": {
+      "formula": "10m, 1wp, 1lhl",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal writes a prayer strip with the Scripture of That Old Thing as she ponders a specific question or subject of interest to her. The Sidereal buries the prayer strip like a seed and waters it with her own blood. In a single day, the strip sprouts roots and rapidly grows into a tall mulberry tree that attracts the gratified attention of local wood spirits. These spirits either leave small gifts or write secrets on the fallen leaves. The Sidereal may return to the site on the fifth day. Her player then rolls (Charisma + Investigation) as the character looks through the wood spirits' offerings. For each success on the roll, the Sidereal finds a piece of information useful to resolving her quandary--some hint about the answer</p><p>to her question or an idea about where to look for more information--as well as an interesting trinket. These gifts seldom possess significant monetary value... but occasionally turn out to be just what the character needs later. Returning to the tree before five days pass offends the spirits before they finish leaving gifts. For each day the Sidereal refuses to wait, remove one success from the player's roll. THE SCRIPTURE OF THAT OLD THING Once, there was that old thing... ...that wasn't like a shadow, because you could see it too well. ...and that wasn't like a light, because it didn't make flowers grow. So, it had to be a maiden, but she didn't mind. \"To know the world is to love it,\" said she. LARCENY: THE GUARDIANS</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "416352d70c00ec19",
+            "charmName": "Research Assistant Invocation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "528175d498da85f6"
+  },
+  "folder": "b0b1b2b3b4b5f008",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

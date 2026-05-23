@@ -1,0 +1,27 @@
+{
+  "_id": "0bc85f634877e7a4",
+  "_key": "!items!0bc85f634877e7a4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Stone of Inhuman Beauty",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDSOLAR00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "solar",
+    "rating": 4,
+    "description": "<p>This iridescent white oval adds four dots to the wearer's Appearance, raising it to a maximum of 7. In addition, the bearer cannot be made to look anything other than beautiful: nothing short of Solar Circle Sorcery can even temporarily reduce his Appearance. If dressed in rags and covered in mud, he appears handsomely disheveled; if disguised to look horribly scarred, he seems to bear noble wounds that must obviously have come from performing some grand feat of heroism. Other people always notice the bearer unless he uses stealth, Charms or the cover of darkness to conceal himself.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

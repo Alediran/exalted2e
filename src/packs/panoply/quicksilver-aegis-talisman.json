@@ -1,0 +1,37 @@
+{
+  "_id": "78ffd7df259f312f",
+  "_key": "!items!78ffd7df259f312f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Quicksilver Aegis Talisman",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Originally fashioned by the No Moons of the Lunar Exalted to be an intelligent weapon as flexible and protean as themselves, quicksilver aegis talismans appear as bejeweled chrome sculptures of cephalopods with various tentacles looped in hypnotic whorls. When caressed and attuned for eight motes of Essence (16 motes for non-Lunars), the devices spring to life, looping themselves around the bearer's forearm or neck as desired to form an exotic bracer or torc. The device's moonsilver tentacles extend and liquefy, covering the wearer in undulating metal spirals that sit flush against the skin like armor plates. While attractive and striking, the tendrils serve as more than exotic armor. They may also lash out with razor-tipped strands or shape into rigid blades protruding from any of the wearer's limbs, or even flail about to deflect attacks and grant protection comparable to a shield. Best of all, the automaton weapons can attack on their own when directed, allowing the bearer to focus on one opponent while the talisman attacks another or systematically executes minor opponents who come too close. Fortunately, the devices can be directed and programmed with a thought, so they do not accidentally strike at allies. An attuned bearer can use her own miscellaneous action or the action of her quicksilver aegis talisman to shift its form between offensive and defensive modes. In all, the device has five bonus points to allocate among its features as desired with each shift. It is also possible to allocate no points, leaving it to appear as an innocuous (if odd) piece of jewelry. Each of these points can do any of the following: · Add two extra levels of lethal damage to the damage of the talisman's lash and blade attacks. Without any points spent to increase damage, the automaton is incapable of attacking. · Add 2L/2B to its wearer's armored soak, without fatigue or mobility penalties. This bonus is compatible and cumula- tive with other armor, but it cannot add more than 6L/6B to armor. (No such limitations apply when the character is otherwise unarmored.) The device's moonsilver tendrils are all but indestructible and cannot be directly attacked to any real effect. The actual amulet can be attacked, however, with a -3 external penalty for its small size, and it always has its listed soak, regardless of points spent to increase the armor value. If it is \"killed\" by damage, the device's tendrils retract, and the amulet falls off, inert until repaired. · Add one to both of its owner's Dodge DV and Parry DV. This is considered a shield bonus but it is not cumulative with the use of other shields. Only the best value applies. Attributes: Strength 5, Dexterity 5, Stamina 1; Charisma 0, Manipulation 0, Appearance 0; Perception 3, Intelligence 1, Wits 3 Virtues: Automaton: Never fails Valor checks, never makes others. Abilities: Athletics 2, Awareness 2 (Detect Ambush +3), Integrity 5, Melee 5 (Itself +3) Join Battle: 8 Attacks: Lash: Speed 4, Accuracy 15, Damage 5L (up to 15L), Defense 15, Rate 3 Blade: Speed 4, Accuracy +4, Damage +0L (up to +10L), Defense +1, Rate 3 Soak: 20L/20B (Moonsilver construction, 19L/19B; Hard- ness: 15L/15B) Health Levels: -0/ -0/ -0/ -0/ -0/Incap Dodge DV: 2 Willpower: 10 (0 against its owner) Essence: 1 Other Notes: A quicksilver aegis talisman can make lash or blade attacks out to a range of four yards. The blades it grows are weapons useable by its bearer rather than itself. These automata are not actually sentient, but capable of identifying threats to their bearer and immediately responding to those threats with deadly force. Unless directed otherwise, they will linger \"dormant\" with maximized ar- mor, shifting to attack anyone who initiates hostilities with as much force as per- ceived necessary to eliminate the threat. To this end, their perceptions are omni-directional, negating any stealth bonuses gained by sneaking up from behind and helping to avoid most surprise attacks.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 5,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

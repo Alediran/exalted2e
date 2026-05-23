@@ -1,0 +1,67 @@
+{
+  "_id": "43ee9b8aabf2f6b1",
+  "_key": "!items!43ee9b8aabf2f6b1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Essence-Gathering Temper",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "resistance",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      8
+    ],
+    "keywords": [
+      "Dawn",
+      "Native",
+      "Overdrive"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The more terrible the enemies and adversities they face, the greater the power of a Solar's spirit. The Solar invokes this Charm when hit by an attack with the potential to damage her--that is, an attack with a calculated raw damage exceeding her Hardness, which therefore rolls at least one die of damage. The Solar's player rolls two dice for each damage die rolled. For each success on this roll, to a maximum of her Stamina in successes, the Lawgiver receives a number of motes of Essence equal to her permanent Essence score. For example, an Essence 2 Solar with Stamina 3 would receive two motes with one success, four motes with two successes and six motes with three or more successes. This Charm cannot increase the Solar's Essence pool past its normal maximum, and the Solar can never gain more than 20 motes from any combination of Charms including Essence-Gathering Temper during a single one of her actions.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "moteRecovery": {
+      "enabled": true,
+      "event": "onDamageReceived",
+      "action": "recoverPeripheral",
+      "formula": "@ess"
+    },
+    "charmUid": "43ee9b8aabf2f6b1"
+  },
+  "folder": "f05b544008eaceb0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

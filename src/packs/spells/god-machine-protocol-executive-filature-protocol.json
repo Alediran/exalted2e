@@ -1,0 +1,37 @@
+{
+  "_id": "5f7b82690dca677c",
+  "_key": "!items!5f7b82690dca677c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Executive Filature Protocol",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "god-machine-protocol-executive-filature-protocol",
+    "tradition": "weaving",
+    "circle": 2,
+    "minimumClarity": 8,
+    "cost": {
+      "motes": 5,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "one day",
+    "target": "One individual",
+    "description": "<p>This protocol has special timing rules. The Exalt casts it as a sequence of Weave Protocol actions that can add up to far more than the two normally required for GodMachine Protocols. Reaching out to touch the very pattern of another being within (Essence) feet, the Exalt grabs hold of the strands and begins unweaving that pattern from the Design, unraveling her victim trait by trait as a Shaping effect. This terrifying protocol manifests as lightning streaking from the Alchemical's hands to illuminate the victim's skeleton as he is flayed from existence. At the start of the third Weave Protocol action, the target is filled with a sense of anxiety and dread as his pattern is accessed, and he loses an Attribute dot per action, starting with the highest Attribute and working downward. Once all of the target's Attributes are reduced to 1, the target begins losing health levels, growing increasingly transparent until he fades entirely after the last health level is lost. At that point, his soulgem clatters to the ground, all memory of its current incarnation purged from it. Prior to this point, the Exalt can spend five motes per dot to weave traits or health levels back in each action, provided no more than one day has passed. Interrupting the protocol before it is finished terminates its effects but does not reverse them. In Creation, the souls of those unmade by this protocol slip instantly into Lethe. In less enlightened times, this protocol was deliberately left unfinished to reduce a target to a pathetic wretch before exiling him to the Reaches, where he would have to fend for himself, unlikely to last long at all. Alchemicals must obtain this protocol either from the Divine Ministers or from the design weavers themselves.</p>"
+  },
+  "folder": "07b5963f5e930aca",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

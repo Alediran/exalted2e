@@ -1,0 +1,59 @@
+{
+  "_id": "8a468707f5373d12",
+  "_key": "!items!8a468707f5373d12",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Blessing of Righteous Solar Spark Meditation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Holy",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With this Charm, the Solar Exalted meditates and invokes a blessing on his weapon. When he finishes, flames of brilliant Essence writhe along the barrel of his firewand or similar weapon, covering it in intricate golden filigree. The player spends two motes of Essence for the character to invoke the blessing, and these motes are committed until the Exalt fires the weapon, releasing the charge (at which point, the filigree vanishes). Add the character's permanent Essence to the base damage of the prepared weapon when it is next fired. If the character uses this Charm against creatures of darkness (see the Charm Concept box on p. 192 of Exalted), the weapon deals aggravated damage. If the Exalt using this Charm also invokes Blossom of Inevitable Demise Technique, the bonus dice are added after the damage has been doubled. The dice increase gained with Blessing of Righteous Solar Spark Meditation cannot be doubled with any other Charm that doubles base damage. If the martial artist has multiple firewands, such as a matched pair of plasma tongue repeaters, this Charm works on only one at a time. Blessing a weapon in combat takes two actions (Speed 6 for each). Finally, if the Solar using a \"blessed\" firewand activates a Charm that allows him to make multiple attacks, the bonus damage must be divided evenly among her targets.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Righteous Devil Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "8a468707f5373d12"
+  },
+  "folder": "c9f7d573ff8d32af",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

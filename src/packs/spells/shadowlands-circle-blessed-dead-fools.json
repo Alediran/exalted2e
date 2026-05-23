@@ -1,0 +1,37 @@
+{
+  "_id": "11528dc8e62946f7",
+  "_key": "!items!11528dc8e62946f7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Blessed Dead Fools",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "shadowlands-circle-blessed-dead-fools",
+    "tradition": "necromancy",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 13,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Up to six ghosts",
+    "description": "<p>Spending 10 minutes, the caster sings a small pavilion and flag of pale blue flame into existence around her. Visible for leagues in the Underworld, it tugs at ghosts who see it. Any ghost who steps into the tent understands the bargain: The spell grants a willing ghost Performance 5 in exchange for the commitment to appear and perform at a certain place and time. Necromancers use this spell to \"hire\" trustworthy and skilled performers for their parties and banquets. Ghosts who accept are bound not to speak of the event or anything they learn there. When the sixth ghost agrees to the deal or the event begins, whichever comes first, the blue-flame pavilion gutters out. Even with the bindings, the ghost gets a bargain. Master necromancers' parties are grandiose affairs, and a ghost can meet prominent mask-makers and dreamstone merchants. Additionally, the music a ghost plays at the party is as real and vivid as anything the ghost heard while alive--the dead could even find such a rare sensation addictive.</p>"
+  },
+  "folder": "9a7bd83d0a359e00",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

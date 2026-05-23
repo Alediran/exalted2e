@@ -1,0 +1,57 @@
+{
+  "_id": "0c7960251f970cc1",
+  "_key": "!items!0c7960251f970cc1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Extinction of Desire",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "staff",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The raksha achieves a perfected understanding of Nirvikalpa and redefines his own role in the drama of the Wyld. Upon activating this Charm, the raksha shapes himself into a Wyld artifact. The Charm destroys the raksha's Heart and Ring Graces instantly, along with her volition and awareness of self. She loses her Motivation and cannot spend Willpower for any purpose. She also loses the capacity to use any Charms of the Ring. Even though the raksha no longer has a Ring Grace, however, she does not suffer the Curse of Namelessness, nor does she cease to exist. Instead, the raksha becomes a sentient, if unmotivated, Wyld artifact under the total control of the first raksha to attune to her. Attunement costs one mote and requires six scenes of interaction. Once attuned, the other raksha can command the character as if in possession of her Heart Grace. Raksha who become artifacts through this Charm gain the following benefits. · The artifact ignores all shaping damage. · The artifact gains +6L/6B soak against all attacks. · The artifact becomes unbreakable, automatically converting all lethal damage to bashing damage before applying soak, unless the attack could damage one of the magical materials. · If the raksha is slain in Creation, the artifact can be repaired as if it were a three-dot artifact. · The raksha gains the benefits of the Mad God Mien Charm (see pp. 160-161). An artifact created through this Charm is a permanent work of glamour that may be carried into Creation without an Evocation Charm and that does not provoke Glamour Resistance among Creation-born.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "0c7960251f970cc1"
+  },
+  "folder": "3a42d6c2417833d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

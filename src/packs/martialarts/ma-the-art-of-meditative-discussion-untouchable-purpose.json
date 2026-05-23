@@ -1,0 +1,58 @@
+{
+  "_id": "2f0ec0bddc3f4795",
+  "_key": "!items!2f0ec0bddc3f4795",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Untouchable Purpose",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "2m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A true master of Temperance looks upon the world and knows that its distractions cannot sway him. He resists both worldly temptations and the convincing face of his opponent, no matter the costs. No argument may pierce his defense because he has already considered every reasonable objection. Performing an impossibly simple kata, the martial artist completely blocks any single attack that targets him, including unblockable attacks. This defense carries with it the Temperance Flaw of Invulnerability. After invoking it, the character may not take any movement actions until his DV refreshes twice. (See Exalted, p. 194 for more information on the Four Flaws of Invulnerability.)</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Meditative Discussion",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "2f0ec0bddc3f4795"
+  },
+  "folder": "1b2f6d78bc952477",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

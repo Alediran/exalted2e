@@ -1,0 +1,62 @@
+{
+  "_id": "fbe0c8b68ad8a288",
+  "_key": "!items!fbe0c8b68ad8a288",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Subcutaneous Armor Plating",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "stamina",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 3,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Internal"
+    ],
+    "cost": {
+      "formula": "4xp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Layers of five-metal alloy plating are woven beneath the Alchemical's outer hull, providing integrated natural armor that moves with her body without restricting flexibility. Once installed, this modification adds three to both Bashing and Lethal natural soak. Unlike worn armor, the plating imposes no mobility penalty and cannot be removed by opponents.</p><p>The plating is detectable as hard ridges beneath the Alchemical's surface material, and is apparent to anyone who examines her closely or strikes her — the characteristic ring of metal-on-metal announces her internal protection. Upgraded installations can improve this bonus further, representing denser or more sophisticated alloy compositions developed by Autochthon's greatest artificers.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "fbe0c8b68ad8a288",
+    "soakBonus": {
+      "enabled": true,
+      "bashing": 3,
+      "lethal": 3
+    }
+  },
+  "folder": "b0b1b2b3b4b5f053",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

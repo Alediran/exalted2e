@@ -1,0 +1,74 @@
+{
+  "_id": "a1b2c3d4e5f60010",
+  "_key": "!items!a1b2c3d4e5f60010",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Excellent Emissary's Tongue",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "linguistics",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "formula",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror",
+      "Stackable",
+      "Training"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>By immersing herself in extended conversation with a native speaker, the Solar absorbs a new language through the power of Solar Essence. This Charm supplements an extended interaction lasting at least one scene. If the Lawgiver gains any successes on a (Intelligence + Linguistics) roll, she may choose one language spoken by the target and gains total fluency in it for as long as she commits motes, including a specialty in the target's dialect. This effect does not increase her actual Linguistics rating. A Solar with experience to spend can also permanently absorb a language as a diceless miscellaneous action, terminating the Charm to instantly raise the Lawgiver's Linguistics rating and/or purchase the appropriate dialect specialty as a Training effect.</p><p>This Charm may be separately activated any number of times to learn multiple languages, provided the Solar commits Essence for each tongue.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "mirrorId": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e0f8f471898825b1",
+            "charmName": "Poetic Expression Style",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a1b2c3d4e5f60010",
+    "mergedIds": []
+  },
+  "folder": "13c99c0e197877e7",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

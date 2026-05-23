@@ -1,0 +1,70 @@
+{
+  "_id": "abb2afe6e4bc26ad",
+  "_key": "!items!abb2afe6e4bc26ad",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Truth Shines Through",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "integrity",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "None"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The virtue of the Lawgivers is like the sun at noon. Clouds might obscure it, but its light can never truly be banished or denied. This Charm may be subconsciously activated whenever the character suffers under a source of unnatural mental influence that alters his behavior, even if another effect would otherwise bar the Solar from invoking it. The effects of the unnatural mental influence become Obvious to all observers, making it clear that the Solar labors under some manner of curse or trickery rather than his own desires. Immaculate doctrine already accounts for this with tales of Anathema as wicked spirits possessing the unlucky. The Charm also makes it Obvious that the Solar is not himself (though it does not make the source of his odd behavior Obvious) when in Limit Break, but only to those who harbor a positive Intimacy toward the character. The Neverborn tremble in their tombs when their curse is laid bare before the world thus. This Charm's effect upon observers cannot be resisted, as it is not a form of mental influence. It is simply the truth.</p>",
+    "source": "Glories of the Most High: Unconquered Sun",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "fcd8d48cb2535f60",
+            "charmName": "Integrity-Protecting Prana",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "abb2afe6e4bc26ad"
+  },
+  "folder": "b0a1d89a8f7c4cdb",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

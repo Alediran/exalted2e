@@ -1,0 +1,84 @@
+{
+  "_id": "06955f597847f29f",
+  "_key": "!items!06955f597847f29f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Tornado Offense Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "extraAction",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 3,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "3m per attack"
+    },
+    "description": "<p>The Immaculate becomes a whirlwind of death and destruction, spinning around an opponent faster than the eye can follow and unleashing a series of devastating attacks. This Charm is a magical flurry. For every three motes, the Immaculate makes an additional ranged or Martial Arts attack with his full dice pool, to a maximum number of attacks equal to his Martial Arts rating. The DV penalty for this flurry is equal to one-half the DV penalty for all attacks. AVENGING WIND STRIKE Cost: 3m; Mins: Martial Arts 5, Essence 3; Type: Supplemental</p><p>Keywords: Combo-OK, Knockback, Obvious Duration: Instant Prerequisite Charms: Tornado Offense Technique With superb command over her element, the Immaculate channels impossibly strong gusts of air behind her attacks. Air Immaculates favor wearing down their foes with chakrams while using this Charm to prevent their foes from closing with them. For every point of raw damage the attack inflicts above the target's Stamina, the target suffers three yards of knockback. Targets may also have to check against knockdown, if the attack inflicts more damage than the target's (Stamina + Resistance) as normal. Some Immaculates use the wind to carry their attacks farther. Using this Charm with a thrown weapon increases the attack's range increment by an amount equal to the martial artist's Essence in addition to the Charm's normal effects.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Air Dragon Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "de146d36e15ef386",
+            "charmName": "Air Dragon Form",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "extraActions": {
+      "enabled": true,
+      "maxFormula": "@martialarts",
+      "costPerAction": 3
+    },
+    "charmUid": "06955f597847f29f",
+    "grantsMastery": false
+  },
+  "folder": "037a2b61816f0f70",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

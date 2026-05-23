@@ -1,0 +1,59 @@
+{
+  "_id": "81ad5e82dd2e7cb1",
+  "_key": "!items!81ad5e82dd2e7cb1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Speed of Light Approach",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "athletics",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Mirror (Swifter Than a Scream)",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "7m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A Solar who dedicates herself to the principles of speed is as omnipresent as sunlight, and just as impossible to grasp. All of the character's movement rates are doubled, as long as she is moving under her own power. More importantly, whenever the character takes a Move, Dash or Jump action, she vanishes into a blur, only to reappear at her destination. The Lawgiver is impossible to target while moving, unless the attacker succeeds on a reflexive (Perception + Awareness) roll against a Difficulty of (Solar's Dexterity). The Solar may be targeted normally during any tick on which she takes an action other than to Move, Dash or Jump. A second purchase of this Charm at Athletics 7+, Essence 7+ triples the character's movement rates and causes any Move, Dash or Jump action she takes to count as an opportunity to re-establish surprise. New Abyssal Charm: Swifter Than a Scream (Prerequisite: Death Draws Near). This Charm is identical to its Solar counterpart.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "81ad5e82dd2e7cb1"
+  },
+  "folder": "481b58529581316b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

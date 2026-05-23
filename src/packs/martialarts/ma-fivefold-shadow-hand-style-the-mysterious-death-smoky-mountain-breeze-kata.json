@@ -1,0 +1,59 @@
+{
+  "_id": "b8e0f63703451ef3",
+  "_key": "!items!b8e0f63703451ef3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Mysterious Death (smoky Mountain Breeze Kata)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Share-Breeze",
+      "Share-Mountain"
+    ],
+    "cost": {
+      "formula": "4m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>After she snaps her index fingers together and touches the middle and smallest fingers of one hand to the smallest and middle fingers (respectively) of the other hand, the martial artist's sudden strike leaves no evidence to betray her. After using the Smoky Mountain Breeze Kata, the character's next successful attack (using Martial Arts or anything else) within five actions inflicts the normal amount of pain and damage--but no wounds whatsoever, as the stability of Earth holds the victim's body together. No amount of examination will determine what hurt the target as long as the investigator works from the bodily evidence alone. Attempts to heal the target using mundane Medicine suffer a -2 external penalty because the healer can't find what's damaged.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Fivefold Shadow Hand Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "b8e0f63703451ef3"
+  },
+  "folder": "30abfdbff9e8ecc7",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

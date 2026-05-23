@@ -1,0 +1,37 @@
+{
+  "_id": "8bfb4c9b98593336",
+  "_key": "!items!8bfb4c9b98593336",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unstoppable Fountain of the Depths",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-unstoppable-fountain-of-the-depths",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 20,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "permanent",
+    "target": "Area",
+    "description": "<p>Shouting the Birthing Word of Rivers and unleashing the blue-tinged Essence of this spell, the caster strikes the ground with his foot, fist or weapon. The ground before him cracks open, and a roaring torrent of water gushes forth, flattening everything before it in an area three yards wide, two yards high and 20 yards long. The crushing force of the Unstoppable Fountain of the Depths lasts for 10 minutes, after which it slows to a gentle stream of pure water. This stream lasts for a number of days equal to the sorcerer's permanent Essence, during which time it cannot be poisoned or otherwise fouled, save by spells cast by a sorcerer or necromancer of greater Essence than the caster's own. Anyone caught in the path of the birthing torrent could be swept away. The sorcerer's player rolls (Perception + Occult), adding a number of successes equal to his permanent Essence. This is the attack roll for the wave of water, using a base damage of 10B. The wave of water cannot be parried without the use of Charms. If the wave of water inflicts enough damage to result in a knockdown (see Exalted, p. 153), the difficulty to resist this effect is 5. Those who suffer knockdown are caught up by the water and carried along. The players of such characters may roll (Strength + Athletics), with a difficulty equal to the caster's Occult rating, for their characters to stand up. Handholds in the area add up to three automatic successes to such attempts. After the initial burst, the unstoppable fountain becomes an environmental effect three yards wide and extending 20 yards before the water's force dissipates--or maybe longer, if it flows down steep terrain. A creature caught in the path of the fountain, whether it remains standing or is swept along, suffers three levels of bashing damage (Trauma equal to the sorcerer's permanent Essence), which may be reduced as normal for environmental effects (see Exalted, p. 131).</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

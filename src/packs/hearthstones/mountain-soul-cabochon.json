@@ -1,0 +1,27 @@
+{
+  "_id": "426af7dd37cd5332",
+  "_key": "!items!426af7dd37cd5332",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Mountain-Soul Cabochon",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDAIR0000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "air",
+    "rating": 3,
+    "description": "<p>Like a stair carved into the side of a mountain, this rainbowflecked black stone provides an unshakable foundation for its bearer's aspirations. In any scene in which the bearer is actively attempting to further an as-yet unachieved ideal toward which he possesses a positive Intimacy, that Intimacy cannot be eroded or altered in any way.</p>",
+    "source": "Ink Monkeys"
+  }
+}

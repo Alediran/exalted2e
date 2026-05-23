@@ -1,0 +1,76 @@
+{
+  "_id": "eb15a2a71cda1f6d",
+  "_key": "!items!eb15a2a71cda1f6d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hollowing Echo Venom",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Poison"
+    ],
+    "cost": {
+      "formula": "-- (+1wp)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Ebon Dragon is spiteful and refuses to let enemies escape. Whenever an Infernal with this Charm activates its prerequisite, she may pay an additional one Willpower to worsen its power. If the Charm inflicts any damage, the Essence of the attack lingers in the wound as a disruptive Poison effect formed entirely of tenebrous Essence rather than matter. On the following tick, the character suffers the same raw damage as the raw damage from Life-Blighting Emptiness Attack, but this injury bypasses armor entirely rather than being merely piercing.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "ebonDragon",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "eadf94805c960dd0",
+            "charmName": "Life-Blighting Emptiness Attack",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "statusApply": {
+      "enabled": true,
+      "status": "Poison",
+      "resistPool": "@sta + @resistance",
+      "onFail": "applyPoison"
+    },
+    "charmUid": "eb15a2a71cda1f6d"
+  },
+  "folder": "7c2ec8d4b84c1156",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

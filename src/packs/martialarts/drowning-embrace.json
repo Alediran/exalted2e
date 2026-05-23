@@ -1,0 +1,77 @@
+{
+  "_id": "430a3213baef8e65",
+  "_key": "!items!430a3213baef8e65",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Drowning Embrace",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "varies",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "motes": 1,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The salty embrace of the sea is loving but deadly. Every minute spent in mother ocean's arms makes it increasingly hard to ever leave. Practitioners of this style learn how to make their clinches increasingly deadly as they seep inside their foes' defenses. Initiating a clinch attack, the martial artist pulls his victim into an awkward position and puts pressure on her throat and diaphragm, forcing the air from her lungs and keeping it out. The victim begins to suffocate almost immediately, and her only recourse is to escape the clinch as quickly as possible. Clinch damage from this attack</p><p>is normal as the Charm's target uses the last of her air, but each successive action in which the Terrestrial Hero Style practitioner continues to control the grapple, the victim takes one additional level of unsoakable bashing damage from suffocation. Drowning Embrace ends when the martial artist loses control of the clinch or chooses to end it. It has no effect on creatures that do not need to breathe, such as constructs or zombies.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Terrestrial Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "df9fa606f7912aad",
+            "charmName": "Terrestrial Hero Form",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "430a3213baef8e65",
+    "grantsMastery": false
+  },
+  "folder": "0317adc9f10289d9",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

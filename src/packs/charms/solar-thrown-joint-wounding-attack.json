@@ -1,0 +1,78 @@
+{
+  "_id": "fd7e191f532df03b",
+  "_key": "!items!fd7e191f532df03b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Joint-Wounding Attack",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "thrown",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Crippling",
+      "Martial-ready"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Even in a pitched battle, the Lawgivers strike with controlled precision. This Charm enhances a Thrown-based attack so that it stuns or cripples the Solar's opponent. For each health level of damage this attack inflicts, this Charm subtracts one die (as a -1 internal penalty) from the target's Physical Attribute dice pools and one point from the equivalent static ratings. This is a Crippling effect that lasts for the remainder of the scene. The players and Storyteller decide how the effect is inflicted--it could be an injured hand, slashed tendons or a stunning blow to the head. Storytellers will have to work with the players to determine how the attack cripples more exotic opponents such as automata and the walking dead. OBSERVER-DECEIVING ATTACK Cost: 3m; Mins: Thrown 3, Essence 2; Type: Supplemental Keywords: Combo-OK</p><p>Duration: Instant Prerequisite Charms: Any Thrown Excellency The Solars' opponents are often arrogant and attempt to predict how and when the Lawgivers will strike. Such is their folly that they cannot see the vengeance of the Unconquered Sun even when it comes upon them. This Charm conceals a Thrown-based attack. Characters watching the Solar need (the Solar's Essence) successes on a reflexive (Wits + Awareness) roll to notice him making the attack. This success requirement decreases by one each additional time the Solar uses this Charm in a scene. For characters not watching the Solar, all evidence indicates that the attack comes from a direction and distance named by the Solar when making the attack. For example, a Solar attacking from behind might wound an enemy in the side or chest by having his missile curve at the last moment.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "statusApply": {
+      "enabled": true,
+      "status": "Crippling",
+      "resistPool": "@sta + @resistance",
+      "onFail": "applyCrippling"
+    },
+    "charmUid": "fd7e191f532df03b"
+  },
+  "folder": "a5a30fa2e730ff58",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

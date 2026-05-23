@@ -1,0 +1,72 @@
+{
+  "_id": "7412955c67351b75",
+  "_key": "!items!7412955c67351b75",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Vitriolic Corona Endowment",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "6m, 1lhl",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Infernal brandishes her weapon and salutes the sky with it, drawing and readying that weapon for use as part of activating this Charm. Green light falls upon the weapon from distant skies, superheating it as per Rebuking Impudent Arms for the rest of the scene. The Infernal becomes immune to the heat of her enchanted weapon once it chars one lethal level of damage from her hand. While this enchantment lasts, the Exalt may activate Green Sun Nimbus Flare to enhance any of the glowing weapon's attacks as an innate power rather than a Charm activation, though this still costs the usual motes. With a second purchase of this Charm, she can summon a spear of radiant green light in lieu of enchanting an existing weapon. The spear has all the statistics of an attuned dire lance with no magical material bonus and the following improvements: infinite Rate, aggravated damage to gods and the usual enhancements provided by a single purchase of this Charm. Like all infinite rate weapons, this spear can't attack in the absence of any dice pool to do so, even with additional successes supplied by Excellencies or other Charms.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "malfeas",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c856e7e5e839a5b8",
+            "charmName": "Rebuking Impudent Arms",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "7412955c67351b75"
+  },
+  "folder": "1945ba1655ca5f6f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,83 @@
+{
+  "_id": "2715b36186cdf99d",
+  "_key": "!items!2715b36186cdf99d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Cunning Porcupine Defense",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "strength",
+    "essence": 4,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Stewards control their surroundings. A Lunar activates this Charm when he desires to keep people away from himself in close combat or inflict greater damage on them. This Charm applies a measure of the Lunar's shapeshifting talents to his anima, allowing it to manifest needles of deadly-looking silver light that emanate from the character and shift rapidly around him. Any creature that attempts to engage the Lunar in unarmed combat automatically suffers (Lunar's Strength) dice of lethal damage per attack, and one that actually dares enter a grapple with him suffers (Strength + 5)L damage on each action that the grapple persists. Lunars can use this both to scare foes away from unarmed combat or to make them more deadly clinchers, as this damage is separate from any inflicted by the Lunar.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "3f11ead09febde40",
+            "charmName": "Wasp-Binding Method",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "19a5c37aae35e7ee",
+            "charmName": "Jaws of the River Dragon",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "2715b36186cdf99d"
+  },
+  "folder": "aba1efe8ad0bef8a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

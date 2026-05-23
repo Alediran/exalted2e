@@ -1,0 +1,59 @@
+{
+  "_id": "466674962745f0e5",
+  "_key": "!items!466674962745f0e5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Touch of Divinity",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious",
+      "Shaping",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "3m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm enables a spirit to commit three motes of its Essence to a favored mortal. The process can take many forms, such as a light kiss on the brow, a sigil branded on the mortal's back, a chanted rite ending in a drink of strong wine or whatever suits the spirit's fancy. Elemental versions emphasize the spirit's chosen element. Demons favor cruelty, pain and degradation. Nephwracks or other powerful ghosts might place the subject in a bone-strewn coffin. The procedure involved can range from less than a minute to hours. Whatever form the Charm takes, the blessed recipient feels the unaccustomed power of Essence flood through her body in an unmistakable, electric surge. All her senses seem sharper, colors look brighter, and she feels transcendent joy--or terror. Touch of Divinity grants no measurable benefits beyond enabling its recipient to perceive Essence in use. The spirit can take back its committed Essence whenever it wants. A mortal can use his new sense for Essence to learn how to channel it himself, though. After each month the recipient carries the borrowed Essence, the recipient's player rolls ([highest Mental Attribute] + Martial Arts) at difficulty 3. Once the roll succeeds, the mortal gains his own Essence pool, and the spirit can take back the committed motes. The mortal's permanent Essence hasn't changed (that requires bonus points or experience points to raise), but he has joined the supernatural world. The enlightened mortal character can now learn supernatural martial arts. The mortal gains an affinity for whatever divine force empowered her. A mortal empowered by a sacred cavern's elemental, for instance, is aspected to the element earth. A mortal empowered by a demon would possess a demonic aspect, while a ghost's use of this Charm would confer a necromantic aspect. This affinity of Essence does not affect how an enlightened mortal learns or practices supernatural martial arts, but it could become important in other circumstances. (For instance, any Exalt would feel justifiable suspicion of any mortal whose Essence carries a demonic taint.) Touch of Divinity offers little benefit to people who are already Exalted or otherwise able to use Essence. The spirit simply passes three motes to the recipient. If the recipient has a full Essence pool already, the three motes are wasted. NEW KEYWORD: ENLIGHTENING Charms with this keyword enable a person to perceive and channel Essence in a new and greater way. In some cases (such as the Charms that prepare Terrestrial Exalted to perform Celestial martial arts), the subject of the Charm is the Exalt herself. In other cases, the Exalt enlightens another person. Most Enlightening Charms have a permanent effect.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Terrestrial Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "466674962745f0e5"
+  },
+  "folder": "0317adc9f10289d9",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

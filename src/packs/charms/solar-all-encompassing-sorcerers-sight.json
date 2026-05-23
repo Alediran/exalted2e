@@ -1,0 +1,70 @@
+{
+  "_id": "2116640001866888",
+  "_key": "!items!2116640001866888",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "All-Encompassing Sorcerer's Sight",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "occult",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      1
+    ],
+    "keywords": [],
+    "cost": {
+      "formula": "6m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Nothing is hidden from the Lawgivers. The character augments his vision with the ability to see patterns of Essence. This Charm allows the character to see motes, Essence-fueled effects, power and invisible but magical creatures and effects. These things become valid targets for the character's visual Awareness rolls, including reflexive visual Awareness rolls. The ability to perceive Essence patterns has the following effects: All Charms are treated as Obvious with respect to the character. Dematerialized and invisible creatures and effects are considered visible. The character recognizes all artifacts, manses and demesnes as such. The character can automatically recognize a creature with Essence 4+ as a supernatural creature. Characters using Stealth to avoid detection are not automatically revealed by their Charms, Essence trait or carried artifacts--for the same reason that colorful clothing does not automatically void mundane attempts at stealth. Instead, add the target's Essence in dice to any attempt by the character to pierce mundane or magical Stealth. Similarly, this Charm does not automatically void disguises, magical disguises and similar deceptions, although circumstances might warrant a bonus to see through them. If the character makes a conscious attempt to analyze what he sees, this Charm allows an (Intelligence + Occult) roll to do</p><p>so. Identifying the exact effects of an unknown Charm or spell is difficulty 5. Gauging the rating of a person's Essence trait, a demesne, a manse or an artifact has difficulty 2.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "38631b16e9ce778d",
+            "charmName": "Spirit-Detecting Glance",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "2116640001866888"
+  },
+  "folder": "9f789a9f97cf7e28",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

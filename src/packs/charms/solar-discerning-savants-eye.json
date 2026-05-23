@@ -1,0 +1,72 @@
+{
+  "_id": "a1b2c3d4e5f60011",
+  "_key": "!items!a1b2c3d4e5f60011",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Discerning Savant's Eye",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "linguistics",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "6m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solar effortlessly comprehends the deepest layers of text and speech, cutting through codes, ciphers, obfuscation and deliberate ambiguity. For the rest of the scene, the Lawgiver automatically understands the deeper meaning and intent behind any written or spoken communication she encounters. Ciphers, secret languages, metaphorical codes and deliberate misdirection all become transparent to her. She can read any written language and understand any spoken tongue as if she had a perfect command of it, regardless of her actual Linguistics rating. The Solar's insight extends to body language and subtext, making it nearly impossible to deceive her through linguistic or rhetorical tricks.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "mirrorId": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "23f31acd8f158a53",
+            "charmName": "Sagacious Reading Of Intent",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a1b2c3d4e5f60011",
+    "mergedIds": []
+  },
+  "folder": "13c99c0e197877e7",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

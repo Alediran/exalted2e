@@ -1,0 +1,37 @@
+{
+  "_id": "9192745a4dc1e491",
+  "_key": "!items!9192745a4dc1e491",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Barred Tomb",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "void-circle-barred-tomb",
+    "tradition": "necromancy",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 40,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "one hour",
+    "target": "Recently dead creature",
+    "description": "<p>Barred Tomb functions like Denying the Call (see pp. 39-40), except that its binding is stronger. Souls are bound back to life for up to one hour (or until slain again). They also possess a number of unwounded health levels equal to the caster's Essence, each of which is vulnerable only to aggravated damage. Barred Tomb cannot be cast on someone who was previously revived by this spell or Denying the Call. Likewise, Denying the Call doesn't work on someone who was once revived by Barred Tomb. Ghosts that rise after being targeted by this spell have only a single health level. Barred Tomb is the utmost limit to necromantic attempts to deny death. Even the Obsidian Circle cannot truly return the dead to life.</p>"
+  },
+  "folder": "447f6cc1520ba234",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

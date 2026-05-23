@@ -1,0 +1,60 @@
+{
+  "_id": "2364f49d264b9216",
+  "_key": "!items!2364f49d264b9216",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Second Presence Excellency-- Essence Triumphant",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "presence",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      1
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m per success",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Solar Exalted with this Charm are known for their unwavering perfection. The Exalt's player can invoke this Charm</p><p>CHARMS AND POOLS Charms can increase a Lawgiver's dice pools by only an amount equal to (the relevant Attribute + Ability). No combination of Charms can increase a Solar Exalt's dice pools by more than this amount. Charms that add automatic successes or remove penalties do not count as increases to a dice pool unless otherwise stated. For unrolled activities such as DV (see p. 146), Mental DV (see p. 172) or feats of strength (see p. 127), Charms increase a character's static rating by adding to (the relevant Attribute + Ability). This bonus increases the (Attribute + Ability) pool, not the final result of any calculations, so if the (Attribute + Ability) is divided in half, the bonus rating will be applied before the division, not afterward. The result is that player will normally have to add two \"dice\" to increase a static value by one--although the First Excellency (see p. 183) provides a discount of sorts for this, increasing static values by one per success rolled. Regardless, no combination of Charms, including the First Excellency, can increase a static rating by more than half the (Attribute + Ability), and Charms that remove penalties do not count as increasing the character's static rating. Treat Willpower as an Attribute for this purpose. If there is no applicable Attribute, Charms can add only a number of dice equal to the character's Ability.</p><p>EXAMPLES</p><p>Pool or Rating</p><p>Maximum Increase</p><p>Perception + Awareness</p><p>Perception + Awareness</p><p>Dexterity + Melee + Specialties + Weapon Accuracy Dexterity + Melee</p><p>Charisma + Presence � Penalties</p><p>Charisma + Presence</p><p>Dexterity + Stealth + Bonus</p><p>Dexterity + Stealth</p><p>Essence + Presence + 10</p><p>Presence</p><p>Dodge DV</p><p>(Dexterity + Dodge) � 2</p><p>Parry DV with Sword</p><p>(Dexterity + Melee) � 2</p><p>Parry DV with Fists</p><p>(Dexterity + Martial Arts) � 2</p><p>Mental Dodge DV</p><p>(Willpower + Integrity) � 2</p><p>Example: Thorn has Dexterity 5 and Melee 3 and two specialties in Sword. Melee Excellency adds at most eight dice to her</p><p>attack pool or +4 to her parry DV, even if she is using a sword and therefore has a 10-die attack.</p><p>Charms that increase others' dice pools or static ratings count as a dice bonus from Charms. A Solar cannot add</p><p>more dice to his pool by combining his Charms with assistance from another Exalt than he could alone. Charms that</p><p>increase the dice pools or static ratings of creatures that do not wield Essence can increase those pools by a maximum of</p><p>the creature's Ability, without benefit from Ability specialties.</p><p>when making a roll based on the relevant Ability. The Exalt then spends up to (Attribute + Ability) in motes. This Charm adds one success to a roll for every two motes spent. Each success purchased with Essence Triumphant is the equivalent of purchasing two dice with the First Excellency or some other dice adder. Therefore, if a Solar had a (Dexterity + Melee) total of 8, he could purchase up to four successes with the Second Excellency. Any magical effects that hinge on the character buying dice will then react as if the character had just bought eight (Dexterity + Melee) dice. The character could not add dice from the effects of other Charms because he has reached his maximum of eight by purchasing the four successes. The Exalt can also use this Charm to enhance unrolled uses of the relevant Ability. Each two motes spent increases his effective (Attribute + Ability) rating for one task by two. This means that every two motes spent on this Excellency increase a static value like a DV by one. The First Excellency is thus considerably more efficient for increasing static values than the Second Excellency, but not reliably so. This Charm can be Comboed or used together with the First Excellency, but it is incompatible with the Third Excellency, and it can never be used on the same roll as the Third Excellency.</p><p>THIRD Presence EXCELLENCY--</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "second",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "2364f49d264b9216",
+    "mirrorId": "3b2d7f23c9b4e511"
+  },
+  "folder": "e6b3f42bab7e5717",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

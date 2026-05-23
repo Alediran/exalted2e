@@ -1,0 +1,58 @@
+{
+  "_id": "adbd4f039f9d81b5",
+  "_key": "!items!adbd4f039f9d81b5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Elemental Vision",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "craft",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "supplemental",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Social",
+      "Virtue (Compassion)"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal gains a special understanding of the element associated with a particular Maiden. This understanding permits him to channel Willpower through his Compassion to aid in dice rolls pertaining to social dealings with appropriate elementals and gods, regardless of the circumstances. This bonus also applies to the Sidereal's social dealings with Dragon-Blooded of the appropriate element. (See the descriptions of each Sidereal caste in Chapter Four for the Maidens' elemental associations.) A Sidereal has no trouble gaining this Charm for his Maiden's favored element, as long as he has the form of Craft associated with that element. Gaining an understanding of other elements requires special permission from that element's Maiden or her deputy in the Bureau of Destiny. Heaven does not pay special attention to the use of this Charm, though. A Seer can gain an affinity for as many elements as he likes, but every such understanding requires a separate purchase of this Charm, and at least two dots in the proper elemental Craft.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "adbd4f039f9d81b5"
+  },
+  "folder": "b0b1b2b3b4b5f005",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

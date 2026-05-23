@@ -1,0 +1,37 @@
+{
+  "_id": "0ffe47a7a86c00f2",
+  "_key": "!items!0ffe47a7a86c00f2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Five Gifts",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "shadowlands-circle-five-gifts",
+    "tradition": "necromancy",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 12,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "one day",
+    "target": "One ghost",
+    "description": "<p>Strong passions and Fetters enable the dead to resist the sweet call of Lethe, but the Underworld is a dull place. Its winds and parties are tepid, food tastes like dust, and habits are carved into stone. By anointing a willing ghost with five drops of blood, the caster lets a ghost experience the world as he did while alive. Blood is bright instead of faded pink, and the sobs of the enslaved dead sound joyfully abominable. Foods of the Underworld actually taste of something, and sacrificed foods from the living world are as sweet or savory as if they were fresh from the oven. Ghostly targets of this spell gain a number of Willpower points equal to the caster's Essence from the experience of the world to which they cling. This boon can take a ghost above his maximum Willpower. Both the enhanced senses and any Willpower above the maximum fade after one day. Ghosts of moderate means might beggar themselves to purchase an invocation of this spell, and necromancers who know it have a powerful bargaining chip. Using this spell on ghosts makes them thankful... and pliable. Targets of this spell cut their MDVs in half with regard to the caster for a full week unless they spend two points of Willpower to resist the inclination the first time the caster makes a social attack. For ghosts who have experienced this spell in the past, holding Five Gifts over their heads during negotiation results in the same sway, unless they pay the same two Willpower points to clear their heads.</p>"
+  },
+  "folder": "9a7bd83d0a359e00",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

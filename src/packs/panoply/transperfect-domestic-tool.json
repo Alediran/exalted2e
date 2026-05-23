@@ -1,0 +1,37 @@
+{
+  "_id": "bff2d1a8f30546f4",
+  "_key": "!items!bff2d1a8f30546f4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Transperfect Domestic Tool",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>The Realm affords its citizens commonplace luxuries surpassing the wildest extravagance imagined outside its borders. Artifact versions of common tools and utensils are virtually unbreakable (15L/15B soak, 10 levels needed to damage/20 to destroy) and perform their functions so well that they provide a two-die bonus to actions using them for this purpose. Alternatively, such devices provide a single minor enchantment appropriate to their nature--such as selfheating cooking pots, self-rotating millstones, self-cooling storage jars, stained-glass windows that provide sufficient illumination for a room or incense braziers whose smoke prevents airborne transmission of non-magical diseases within an enclosed area. Generally, such enchantments always function while the artifact is in use without requiring further effort or power from the user, powered entirely by ambient Essence from abundant intersections of dragon lines. Because of their durability and reliability, transperfect domestic tools usually outlast their owners to become treasured family heirlooms, though they do not function in geomantically damaged areas such as shadowlands or the Wyld. In addition to facilitating comfort and making life easier, these artifacts also serve a subtler purpose as magical reminders of Exalted benevolence. Specifically, the decorations on these minor wonders depict popular legends or iconography glorifying the Chosen. Each scene spent using one of these tools for its intended purpose counts as a scene of building or reinforcing an Intimacy of loyalty to the Deliberative.</p>",
+    "source": "Dreams of the First Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 1,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

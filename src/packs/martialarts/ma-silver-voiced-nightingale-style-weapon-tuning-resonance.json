@@ -1,0 +1,57 @@
+{
+  "_id": "536e6e2ac0dbedc1",
+  "_key": "!items!536e6e2ac0dbedc1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Weapon-tuning Resonance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A Silver-Voiced Nightingale's natural weapon is sound itself. But if song can be forged into a weapon, so can weapons produce sounds. This Charm allows the martial artist to bring a weapon into the chorus of her battle, making it compatible with Martial Arts attacks and Charms of this style. For a wielder to \"tune\" a weapon using this Charm, it must be built or modified to have a harmonic quality. A character who knows this Charm knows the principles of musical weaponry. Actually building the weapon requires three dots in Craft (Air) and two dots in a Craft related to the weapon in question. Two characters--a smith and a poet-warrior, for example--can work together to create a musical weapon. It's difficult for such weapons to be naturally useful in battle. A silver blade beaten together from filigree-fine chimes, for example, is more decorative than deadly, even in the hands of a master swordsman. Unless it is tuned, harmonic weaponry takes at least a -1 penalty to Accuracy because it isn't optimized for combat. Some forms of armor can be tuned as well, such as a breastplate shaped to ring like steel drums, for instance. Harmonic armor has its lethal and bashing soak reduced by one point each. Once a Nightingale spends a six-tick action committing four motes to her weapon, the above weaknesses disappear, and the weapon gains a +1 bonus to each of its traits. If the weapon in question is a bow, its range increases by 50 yards. (Any other ranged weapon gains 10 yards.) Harmonic armor gains one point of lethal and bashing soak above normal. Although bell-toned swords and magical singing staves would seem to be the most obvious choices, some Nightingales have made others. A minor goddess of archery keeps the bow of one long-dead practitioner on display in Yu-Shan, its hollow, flute-toned arrows arrayed tastefully before it. The only limitation on what may be made into a harmonic weapon is that it must actually be a weapon. Violins or wind chimes, no matter how sharp, cannot be used with this Charm.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Silver-voiced Nightingale Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "536e6e2ac0dbedc1"
+  },
+  "folder": "f8d2ffb92c6967bb",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

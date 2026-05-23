@@ -1,0 +1,85 @@
+{
+  "_id": "6f79c141592ed5c6",
+  "_key": "!items!6f79c141592ed5c6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Beast Spirit Defense",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "strength",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Disdaining finesse, Luna's Chosen may defend themselves with raw power. The Lunar moves forward to meet an oncoming attack, striking it with her mightiest blow. A great surge of Essence erupts before her limb or weapon, taking the form of her spirit shape; this Essence-icon catches the attack and dissipates in the act of throwing it aside. This Charm acts as a perfect parry which may block any attack of which the Lunar is aware, even if that attack is unblockable. This Charm has one of the Four Flaws of Invulnerability (see Exalted, p. 194).</p><p>Lion's Roar Rebuke</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "parry",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f7d3c10743fd6b4c",
+            "charmName": "Ferocious Biting Tooth",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "742155f223f22ebb",
+            "charmName": "Impressions of Strength",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "6f79c141592ed5c6"
+  },
+  "folder": "b0b1b2b3b4b5f06e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

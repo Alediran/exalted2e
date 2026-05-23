@@ -1,0 +1,86 @@
+{
+  "_id": "7666641f820132fc",
+  "_key": "!items!7666641f820132fc",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wanting And Fearing Prayer",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "socialize",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Emotion",
+      "Illusion",
+      "Prayer Strip",
+      "Virtue (Conviction)"
+    ],
+    "cost": {
+      "formula": "10m, 1wp, 1hl",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>In each hand, the Sidereal holds a prayer strip bearing the Scripture of the Whore. He infuses the strips with Essence and names a target for each strip. (These targets must both be within 10 miles of the Sidereal.) The prayer strips disappear in flashes of blue flame (an Obvious event, but nothing about the Charm is Obvious to the targets). Each one then reappears wrapped around a bone in the named targets' bodies. The targets can't feel or see the embedded prayer strip unless the flesh over the strip is somehow removed. For as long as the Charm remains in effect, those particular bones become as difficult to damage as the prayer strips themselves (per the rules on destroying a prayer strip, on p. 125). When the Sidereal's player activates the Charm, he attempts two separate (Manipulation + Socialize) rolls--one against each target's Dodge Mental Defense Value, and adds his Essence in automatic successes each time. If he succeeds both times, he can then craft a new relationship (social and emotional) between the two targets. This relationship lasts for as long as the strips remain within the targets' bodies, even if the targets have never met each other before: fate inexorably pushes the two characters together into their new relationship. While the Sidereal's Essence remains committed, the targets experience a magically enforced Intimacy toward each other, and a target must spend a Willpower point to act significantly at odds with the relationship for a scene. If a character spends a number of Willpower points equal to the Sidereal's Essence on subsequent occasions to allow himself to act at odds with the relationship, the effect ends for that character. (Half of the committed Essence is no longer committed.) The other targeted character remains under the effect, however. Surgery can dislodge a prayer strip, but doing so requires 12 successes on an extended (Dexterity + Medicine) action and inflicts one level of unsoakable lethal damage. If a strip is removed in this way, the Essence committed to the strip is no longer committed, but the other strip is not affected. Once the Charm ends, the targets still have the designated Intimacies toward each other, but they become normal Intimacies. Without the Illusion effect to reinforce the Intimacy, the two characters can lose the Intimacy by normal means, or keep it if they (and their players) so desire. THE SCRIPTURE OF THE WHORE Once, there was a maiden... ...and things didn't go so well for her. It was just the way of the world, you know? She had to give up power to get it, and she didn't get much. Some people hated her for getting any power at all. She needed a protector, so she gave herself to a man named Necessity. \"Love is hard,\" she said.</p><p>BATTLES: THE CRIMSON PANOPLY OF VICTORY ARCHERY: THE QUIVER</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "28f92695791c8667",
+            "charmName": "Fortuitous Fellowship",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0e4ebf564bb46b61",
+            "charmName": "You and Yours Stance",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "7666641f820132fc"
+  },
+  "folder": "b0b1b2b3b4b5f015",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

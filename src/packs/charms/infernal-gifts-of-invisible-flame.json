@@ -1,0 +1,79 @@
+{
+  "_id": "9a53895124b1e04f",
+  "_key": "!items!9a53895124b1e04f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gifts Of Invisible Flame",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Sickness",
+      "Sorcerous",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Infernal touches an object (see Exalted p. 213) and bathes it in the Essence of Malfeas. Although the item does not appear any different to normal senses, all forms of Essence perception can automatically sense the terrible power radiating from it. Any being that isn't native to Malfeas must check for exposure to Green Sun Wasting (see p. 110) every full hour that they spend within one yard of the tainted object. If the object is consumed, infection is automatic. The Virulence of this infection starts at 6 and drops by 1 per week. If a tainted object is scattered among non-tainted goods (such as when poisoning a well or a grain silo), the Storyteller should assign a reduced Virulence proportional to the level of contaminant present. Once there is more non-tainted material than tainted in an object, the effect is too dilute to do more than induce mild queasiness. Infernals with Essence 4+ may target themselves with this Charm as if they were objects. At Essence 6+, the speed of infection increases so that potential victims must make an exposure check as soon as they enter into range of a cursed object (and after every full hour of exposure thereafter).</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "malfeas",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "38e491f08ebc7cde",
+            "charmName": "Cold Fire Desolation Brand",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "statusApply": {
+      "enabled": true,
+      "status": "Sickness",
+      "resistPool": "@sta + @resistance",
+      "onFail": "applySickness"
+    },
+    "charmUid": "9a53895124b1e04f"
+  },
+  "folder": "1945ba1655ca5f6f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

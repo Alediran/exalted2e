@@ -1,0 +1,60 @@
+{
+  "_id": "bab9db14fa14c3bd",
+  "_key": "!items!bab9db14fa14c3bd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Chimerical Ascension",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Obvious",
+      "Shaping",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "10+m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>and as she rose from her bed and blinked the last tears away, The martial artist strikes the air and Creation breaks, letting the Wyld pour in. The area around her becomes otherworldly and peculiar--it is shaped into a Middlemarch, and players of any characters within (50 yards for every 10 motes spent on this Charm) must roll to avoid both mutation and addiction in the initial surge of the Wyld. The martial artist himself is immune. A martial artist who knows this Charm treats all Wyld zones as three steps closer to Creation (so only the pure, formless Wyld beyond Creation can affect him... unless he allows the Wyld to change him, of course). This Middlemarch lasts the rest of the scene. Then it fades to a Bordermarch for a number of days equal to the Exalt's Essence, before finally stabilizing as Creation once more--but still faintly tainted by the Wyld. While in this zone, the character can use other Quicksilver Hand of Dreams Charms such as Ephemeral Presence Technique. She may also count her stunts as one level higher for every five motes she spends, to a maximum total stunt level of her Essence. Furthermore, if the Exalt has any gossamer equipment, it is empowered. For every five motes she spends, she gains +1 to the Accuracy, Damage, Defense and Rate of a weapon, or +1L/+1B for armor. Any living creatures made of glamour or gossamer fall under the martial artist's control--unless they are controlled by another, in which case the character's player attempts a resisted roll of his Essence versus the controller's Essence to seize command. Spending another five motes on this Charm allows the Exalt to roll another die and add it to her previous successes. A character cannot spend more motes on this Charm than (Martial Arts x 5). Finally, when the martial artist crafts gossamer in her Middlemarch, she can make anything with a difficulty of 5 or less in a number of actions equal to that difficulty.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Quicksilver Hand of Dreams Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "bab9db14fa14c3bd"
+  },
+  "folder": "4f4566b64a919114",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

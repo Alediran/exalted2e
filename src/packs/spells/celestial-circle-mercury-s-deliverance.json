@@ -1,0 +1,37 @@
+{
+  "_id": "2a8e0d6723f8c7b2",
+  "_key": "!items!2a8e0d6723f8c7b2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Mercury's Deliverance",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "celestial-circle-mercury-s-deliverance",
+    "tradition": "sorcery",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 30,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Area",
+    "description": "<p>Mercury's Deliverance grants defense against all spells of the Emerald and Sapphire Circles. Before casting the spell, the sorcerer must etch a circle around the area to defend. The maximum diameter is (caster's Essence x 100) yards. She marks it at the five points of a pentagram with small hexagrams the size of her hand, and she scribes a sixth hexagram in the direct center of the circle. Within each hexagram, she writes a symbol of the Maiden of Journeys. This painstaking process takes about half an hour. The sorcerer must touch the center hexagram while she casts the spell. Essence floods through the lines of the circle. Five ticks after her Cast Sorcery action, a lance of saffron light rises from the first hexagram. Every five ticks thereafter, a spear of light rises from another hexagram, moving clockwise around the circle: beams of crimson, cerulean, emerald and deep violet. Five ticks after the violet ray, a pure white lance of light rises from the center hexagram and the five colored beams bend inward until they arc into the midst of the white light. Scintillating waves of multi-hued Essence wash over the circle to form a dome of a thousand colors--then it go out. Until this happens, the ward does not function--but from then on until the spell expires, no spells of the Emerald or Sapphire Circles, nor spells of the Shadowlands Circle of necromancy, can pass the outer barrier. Spells function normally within and outside the invisible dome, but should any sorcerer attempt to affect anyone on the other side of the boundary, it flares to life again, negating the spell and warning anyone who can see the dome that magic is afoot. The spell also blocks all scrying, teleportation and similar long-distance effects, as well as preventing items that are enchanted or created by sorcery from crossing the boundary. From outside the dome, only Adamant Countermagic can destroy the spell, but Sapphire Countermagic can dispel it from inside. Otherwise, it lasts until the sun next crosses the horizon. The circle can be reused as long as the diagram remain intact. Destroying the diagram once the spell has been cast has no effect.</p>"
+  },
+  "folder": "dcf06d83a3d0a4be",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

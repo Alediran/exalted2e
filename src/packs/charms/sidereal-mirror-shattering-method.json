@@ -1,0 +1,70 @@
+{
+  "_id": "13d9351832a6eb4d",
+  "_key": "!items!13d9351832a6eb4d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Mirror-Shattering Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "sail",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "5m (+1wp)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal commits the required motes and casts a handful of salt over the edge of her vessel. The whiteness of the salt spreads out in all directions. In a blink, the Sidereal finds her vessel and crew bobbing on a solid field of white that shifts between miniature whitecaps, miniature sand dunes, loose flower petals or palm-sized paper snowflakes. From any witness' points of view, the vessel seems to vanish. The sea of white is a particular view of a dematerialized stratum of reality. From Creation, the ship looks like a faint transparent silhouette moving in a gust of wind. (Awareness rolls to notice the vessel or any rolls to track it suffer a two-dice external penalty.) While the ship moves thus, it travels at twice its normal pace, unimpeded by obstacles or weather conditions. The ship can even travel over dry land. Dematerialized entities can see the ship clearly. Charms and spells that enable one to see or affect dematerialized entities can also reveal or affect the ship. No one aboard the ship, however, can see the surroundings of Creation through which the ship moves. Plotting a course that takes the use of this Charm into account, or</p><p>setting a different course for a new destination once this Charm is in effect, requires a successful (Intelligence + Sail) roll at difficulty 3. Once this Charm is invoked, though, maintaining a heading in the plain of white is as simple as lashing the wheel in place. The journey ends when the Sidereal ends the commitment of motes at the journey's planned end, at the end of five days or if the Sidereal dies or falls off the vessel. In these cases, the vessel reappears fully in Creation. This can be awkward, if the ship was sailing over land at the time. If anyone falls off the ship, he reappears in Creation and cannot board again. (If the Charm ends because the Sidereal falls overboard, however, the Sidereal also reappears in Creation, next to the vessel.) As an alternative to cross-Creation travel, a Sidereal can use this Charm to sail a ship from Creation to Yu-Shan or back. The trip takes exactly five days from the moment the Sidereal sets course for Heaven. The Celestial port authorities do not like Sidereals arriving unannounced with a shipload of goggle-eyed mortals, unruly Solars or what-have-you, and will surely file a request for censure at the Bureau of Destiny. Travel to other locations, such as Malfeas or the darkling seas of the Underworld, may also be possible; if so, the Bureau of Destiny keeps these navigational courses strictly secret. Assuming these alternate courses are possible, each</p><p>additional otherworldly destination costs two experience points (or one bonus point). The journey between worlds always takes five days. A Sidereal can also use this Charm personally, just by throwing salt into any body of water (a mud puddle will do) and jumping in. However, this incurs the additional cost of one Willpower point. From then on, the character is swimming in the sea of white until she lets the Charm lapse. See Exalted, p. 130, for the effects of prolonged, strenuous activity. However, the character does swim twice as fast as normal. Note: The Fate keyword applies to passengers aboard a vessel when the Sidereal uses this Charm. The ship and its crew disappear as normal, but beings outside fate are left behind in Creation.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "fc5dadcc7cd100a3",
+            "charmName": "Stone Skipping Spirit",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "13d9351832a6eb4d"
+  },
+  "folder": "b0b1b2b3b4b5f014",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

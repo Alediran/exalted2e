@@ -1,0 +1,37 @@
+{
+  "_id": "ab193f724e360ce9",
+  "_key": "!items!ab193f724e360ce9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Keel Cleaves the Clouds",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-keel-cleaves-the-clouds",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 25,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Ship",
+    "description": "<p>As fog or clouds touch the sea before her ship, the sorcerer persuades the vessel's spirit that they are true water, and sails forward onto them. This spell works only in misty conditions. The ship travels upon the mist as quickly as it would on water, at the mercy of the wind or the strength of the rowers as usual. If the fog lifts, the ship rises with it until it sails on clouds. The enchantment depends on the Essence of everything associated with the ship believing it travels on water. Dropping anything over the side or lowering something below the fog disabuses it of that notion, causing the whole ship to descend. The caster must stay on board, too. After 12 hours, this spell must be recast, lest the ship return downward through the clouds. Even if earth lies below it rather than sea, it will land softly, undamaged (but likely stranded). Accustomed to their element controlling water, air spirits dislike this invasion. Powerful spirits might attack a cloud-sailing ship if the captain cannot somehow placate them.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

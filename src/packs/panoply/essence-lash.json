@@ -1,0 +1,37 @@
+{
+  "_id": "9925c29431638614",
+  "_key": "!items!9925c29431638614",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Essence Lash",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>This jade and steel tube is one foot long and two inches in diameter. The Essence lash is one of the simpler Essence-based weapons, and it is still manufactured in the Realm. This artifact channels raw Essence into a jagged-lightning-like beam that can be used to scourge or enwrap opponents. One of this weapon's great advantages is that it can be used to strike opponents up to 10 yards away. Users must commit six motes to this weapon and then spend two motes to activate the weapon for a full scene. Wielders can use either Melee or Martial Arts to attack with an Essence lash. In addition to being able to be used to strike a single foe with a burning swath of Essence, the wielder can cause this weapon to simultaneously produce multiple strands of Essence-fire. Characters can produce a number of separate strands of Essence up to their permanent Essence. Characters can use these multiple strands to attack multiple targets at the same time, without using a flurry. In this state, the Essence lash resembles a multi-stranded flail of crackling energy. The character makes a single attack roll and the results are separately compared to the opponents' DV + other defenses. The character suffers no increases in difficulty for performing this attack, but when using this weapon to attack multiple targets, she can use it to attack only once in a flurry. In addition to the Essence cost of activating this weapon for a scene, each additional attack costs two motes, and this cost is paid every time the weapon is used to attack multiple targets simultaneously. Using this weapon to make multiple attacks counts as an extra action and is subject to the same restrictions as every extra action Charm. Because each of these weapons is primarily built from jade, Exalts add the appropriate magical material bonuses when using it (but non-Terrestrial Exalts must pay extra to attune, as normal). Speed 5 Accuracy Damage Defense Rate Minimums Attune Tags +3 +6L +3 Str ·, Dex ··· 6 ­</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 3,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

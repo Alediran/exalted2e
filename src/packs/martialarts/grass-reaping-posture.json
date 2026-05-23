@@ -1,0 +1,78 @@
+{
+  "_id": "3c79f4eacc0ea7aa",
+  "_key": "!items!3c79f4eacc0ea7aa",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Grass Reaping Posture",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 5,
+    "dvPenalty": -1,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "motes": 3,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "3m, 1wp"
+    },
+    "description": "<p>The character imposes her rhythm upon another, taking control of the battle. This Charm begins with a low, sudden leg sweep. The character makes an unarmed Martial Arts attack. Resolve this attack normally; if the attack strikes the target, they suffer automatic knockdown. Thereafter the martial artist shuffles about her downed foe, confusing him and buffeting him to the ground with her legs should he try to escape. So long as the martial artist remains within unarmed attacking range of her prone target, all the target's attempts to rise from prone provoke a reflexive contested Dexterity + Martial Arts roll. If the target wins, he rises from prone successfully. If the Grass Dancer wins or ties, the target remains prone. Grass Reaping Posture lasts until the martial artist moves out of range or until the target successfully rises from prone.</p><p>Serenading the Reed</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Swaying Grass Dance Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1f64cdd3f5129ee8",
+            "charmName": "Inescapable Tumbleweed Prana",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "3c79f4eacc0ea7aa",
+    "grantsMastery": false
+  },
+  "folder": "073695664523b177",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

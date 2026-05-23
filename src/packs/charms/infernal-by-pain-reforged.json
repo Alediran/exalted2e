@@ -1,0 +1,61 @@
+{
+  "_id": "2052ce893e5b1740",
+  "_key": "!items!2052ce893e5b1740",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "By Pain Reforged",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1hl",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Pain puts life in perspective, pushing aside all other distractions. This is the simplest truth Malfeas has learned from his imprisonment within himself. Use of this Charm allows an Infernal to ignore all negative effects associated with bashing damage she has suffered. Such injuries do not cause wound penalties or slow her down in any way. If reduced to Incapacitated by bashing wounds, she does not fall unconscious, but remains fully aware as further bashing trauma converts to lethal. Aggravated and lethal injuries penalize characters protected by this Charm normally. When this Charm ends, all suspended penalties resume immediately.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "malfeas",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "woundReduction": {
+      "enabled": true,
+      "formula": ""
+    },
+    "charmUid": "2052ce893e5b1740"
+  },
+  "folder": "1945ba1655ca5f6f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

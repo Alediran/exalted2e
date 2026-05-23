@@ -1,0 +1,41 @@
+{
+  "_id": "b105a234c56d7894",
+  "_key": "!items!b105a234c56d7894",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Artifact Reinforced Breastplate",
+  "type": "armor",
+  "img": "icons/equipment/chest/breastplate-metal-trimmed.webp",
+  "system": {
+    "soak": {
+      "bashing": 9,
+      "lethal": 10,
+      "aggravated": 0
+    },
+    "hardness": 8,
+    "mobilityPenalty": -1,
+    "fatiguePenalty": -1,
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 4,
+    "attuned": false,
+    "artifactRating": 3,
+    "hearthstoneSlots": 2,
+    "tags": [],
+    "description": "<p>A reinforced breastplate forged from one of the magical materials; the standard artifact armor of Exalted heavy infantry.</p>",
+    "equipped": false
+  },
+  "folder": "f005a234b56c78a1",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,59 @@
+{
+  "_id": "9b3881e6835bd8e3",
+  "_key": "!items!9b3881e6835bd8e3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unassailable Rebuff Position",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Knockback",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "7m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>...who was very vain. A soldier protects what is his to protect. By taking this stance on the battlefield, the character makes sure that the ground on which he stands remains inviolate. Should any foe approach, that foe is forced back in an instant. For the Charm's duration, the character may attack anyone who approaches within (Essence x 2) yards. These attacks take the form of pushing gestures. The martial artist never touches his enemies, but they feel the force of his Essence. For every yard by which a target has pierced this boundary, the character adds one die to his reflexive attack. Any target he successfully hits also suffers knockback, moving a number of yards per die of raw damage equal to his Strength. The character may not take Move or Dash actions while this Charm is active. He may end the Charm early, if he wishes.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Scarlet Patterned Battlefield Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "9b3881e6835bd8e3"
+  },
+  "folder": "8d69b74ca0e132d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

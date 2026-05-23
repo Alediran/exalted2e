@@ -1,0 +1,71 @@
+{
+  "_id": "8dfd5956b7b7d8a8",
+  "_key": "!items!8dfd5956b7b7d8a8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Storm-Gathering Practice",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "archery",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Native",
+      "Overdrive"
+    ],
+    "cost": {
+      "formula": "",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solar's heart is a storm that gathers power in the idle moments between life and death. This Charm creates an Overdrive pool with a capacity of ten motes. Initially empty, it fills at a rate of one offensive mote per action, to a maximum of five, when the Solar is outside the engagement range (p. 20) of all of his enemies. The Solar must be in battle to gain this benefit. Once the storm has rolled in and vented its wrath, it moves back out to sea to fill its quiver with new lightning. The Solar may renew this Charm's Overdrive benefit by moving into the engagement range of at least one opponent and remaining</p><p>there for a full action. While there, he must make at least one attack against that or any other opponent rolled into combat. Doing so will reestablish the offensive mote drip as soon as the Lawgiver moves out of the engagement range of all opponents. This practice may be repeated an unlimited number of times throughout the course of battle. Thrust Shot Evasion</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c750b46c5645aee8",
+            "charmName": "There Is No Wind",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "8dfd5956b7b7d8a8"
+  },
+  "folder": "b0b1b2b3b4b5f056",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

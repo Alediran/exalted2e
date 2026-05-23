@@ -1,0 +1,59 @@
+{
+  "_id": "a23a6d7197ee5524",
+  "_key": "!items!a23a6d7197ee5524",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shadow Foot Trap",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "martial-arts",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Martial",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Before the Solar Exalted, light could only chase shadow; due to the Lawgivers, it may capture it as well. This Charm may enhance a Martial Arts attack. The character lashes out at his target's shadow, pinning it to the ground, a wall, a tree or other immobile scenery; this attack is unblockable and undodgeable without the use of magic. When pinned in such a way, the victim is trapped within a yard of his shadow until he is able to pull it free, a feat requiring a miscellaneous (Strength + Athletics) roll at a difficulty of the Solar's (Martial Arts rating x 2). The successes gained on multiple attempts to pull free are added together cumulatively, but the target may make only one such attempt per action. While rooted, the target may not be moved by knockback effects; if knocked back, such as by Heaven Thunder Hammer, the target is considered to strike a hard surface after traveling only one yard. Martial: Archery, Melee, Thrown Titan-Straightening Method</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "a23a6d7197ee5524"
+  },
+  "folder": "a1b2c3d4e5f60008",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "28bd7661e8e9ce54",
+  "_key": "!items!28bd7661e8e9ce54",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shade Prison Amulet",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "shadowlands-circle-shade-prison-amulet",
+    "tradition": "necromancy",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 10,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Bone",
+    "description": "<p>Hungry ghosts can be trapped, but only once-living bone can hold them. The necromancer cuts a rune into a piece of bone while infusing it with Essence. Thereafter, if it ever touches a hungry ghost, that ghost is sucked in and caught. Only if the trinket breaks will the ghost be released. This spell may enchant a living creature's bone if the necromancer slices through its flesh to reach it, in which case the creature itself becomes a vessel for the next ghost it touches. This is not a comfortable experience for either the live victim or the hungry ghost. Although it feels fine during the day, the holding creature suffers anxiety, vicious urges and nightmares when the sun is down, and it will be rid of its captive only if the etched bone breaks.</p>"
+  },
+  "folder": "9a7bd83d0a359e00",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

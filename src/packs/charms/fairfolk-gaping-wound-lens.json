@@ -1,0 +1,59 @@
+{
+  "_id": "0fb6956f4a849462",
+  "_key": "!items!0fb6956f4a849462",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gaping Wound Lens",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "ring",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Echo",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The raksha tears away a piece of her soul and uses it as a viewing lens to focus her ire on her enemy with the intensity of 10,000 suns. This Charm allows the raksha to fashion a ranged shaping weapon from her own body. This weapon becomes one of her possessions for the duration of the shaping battle. The lens has an Accuracy bonus and a Rate both equal to the raksha's Essence. It has a Speed of 4, and a Range of up to 10 waypoints. The raksha can use the lens as a shaping weapon for Ring-shaping attacks, for which it has a base Damage equal to (Perception + Essence), or for Staff-shaping attacks, for which it has a base Damage equal to (Charisma + Essence). Neither type of attack has any damage cap for Perception or Charisma.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "0fb6956f4a849462"
+  },
+  "folder": "e3ab9ab145f6a424",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

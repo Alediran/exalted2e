@@ -1,0 +1,71 @@
+{
+  "_id": "9107b61cc534b761",
+  "_key": "!items!9107b61cc534b761",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Vanishing March Maneuver",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "war",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "War"
+    ],
+    "cost": {
+      "formula": "5m or 5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solars used this Charm to sow confusion amongst enemy forces and control the tenor of battle. Upon paying five motes to activate this Charm, the Solar makes a critical combat maneuver which completely obscures him to all opponents in combat, rendering him impossible to target. By paying an additional point of Willpower, the Lawgiver may extend this benefit</p><p>to a complementary unit he leads. The effect of this maneuver is perfect: it does not require cover. At the beginning of the next tick, when the Solar emerges from cover, all opponents within (Essence x 20) yards are considered to have made a Join Battle roll. Vanishing March Maneuver may not be activated if there are any opponents within 30 yards of the Solar, nor may it be re-used after activation until the character's DV has refreshed five times. Zenith Caste Integrity Righteous Avenger's Aspect</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "2b2a2e80ae811f1c",
+            "charmName": "Cover Shrouding Movement",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "9107b61cc534b761"
+  },
+  "folder": "b0b1b2b3b4b5f071",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

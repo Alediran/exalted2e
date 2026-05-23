@@ -1,0 +1,58 @@
+{
+  "_id": "5877b56c71fbc612",
+  "_key": "!items!5877b56c71fbc612",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Bone-shattering Blow",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "socialize",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Crippling"
+    ],
+    "cost": {
+      "formula": "1m or 3m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm imbues an Abyssal's attacks with horrible, crushing force, enabling her to break bones, dislocate joints and pulp organs with casual savagery. If the character inflicts two or more levels of damage with an unarmed attack, he may reflexively activate this Charm to reduce the attack's damage to only a single level of lethal damage but inflict one amputation disability (see Exalted, p. 152). Because the target organ or limb is mangled beyond use rather than actually severed, Exalted victims (and others with similar healing) can recover from the Crippling effect by spending a day resting, though they cannot heal any other wounds or other damage while regenerating this way. This Charm normally costs three motes and one Willpower to activate, but it costs only one mote if the victim is a mortal extra.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "5877b56c71fbc612"
+  },
+  "folder": "b0b1b2b3b4b5f047",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "8ffabb97870a0e82",
+  "_key": "!items!8ffabb97870a0e82",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sins of the Father",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "void-circle-sins-of-the-father",
+    "tradition": "necromancy",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 50,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "one year",
+    "target": "One living person",
+    "description": "<p>Concluding the spell, the caster reaches out and lightly caresses the face of her victim. Her Essencecharged touch sears the person, leaving a scar that no magic or medicine can heal. A (Dexterity + Martial Arts) roll is needed for the necromancer to touch her victim if that person tries to avoid her. Over the next week, identical brands appear on all the target's children, and any of his later descendants are born displaying the mark. Otherwise, someone so marked suffers no other effects during his lifetime. After death, however, the character automatically rises as a ghost in the Underworld after the normal three days. As a ghost, his Motivation becomes \"Serve She Who Cursed Me,\" he gains an Intimacy to \"She Who Cursed Me,\" and the necromancer who cursed him becomes a mighty Fetter for him. Finally, he is compelled to seek out his new master after his death, and he must obey her commands. All his descendents suffer the same fate. Even the caster's death does not free the accursed family. Instead, their loyalties transition seamlessly to the next incarnation of the necromancer's Essence. (For an Abyssal, this becomes the next person to receive her Exaltation.) If no such incarnation appears after a year and a day, the ghost-slaves are released from their eternal bondage. Obsidian Countermagic can free a single individual and all that person's offspring from the curse, but none of his siblings, cousins or other lateral relations. Adamant Countermagic can free a single victim of the curse, but it invariably kills the target unless a Zenith Caste priest holds the target in his anima. The Unconquered Sun himself can also lift the curse off a person and his descendants, if one can reach him and prove oneself worthy. Exaltation protects an individual and his soul from this manner of enslavement, but a person who was cursed before his Exaltation can still pass the curse to his children. Creatures without souls or those whose souls never enter the Underworld are immune to the spell's effects.</p>"
+  },
+  "folder": "447f6cc1520ba234",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

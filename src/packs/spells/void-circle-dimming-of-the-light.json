@@ -1,0 +1,37 @@
+{
+  "_id": "96458419c1c421cc",
+  "_key": "!items!96458419c1c421cc",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dimming of the Light",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "void-circle-dimming-of-the-light",
+    "tradition": "necromancy",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 80,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "permanent",
+    "target": "One Solar Exaltation",
+    "description": "<p>This rite transforms a Solar Exalt into an Abyssal, performed only inside an Inauspicious Citadel or in the Labyrinth. The Solar must be inside the Monstrance of Celestial Portion and agree to the transformation, whether deliberately or because their will is broken. In a ceremony from dusk to midnight the Solar renounces the Unconquered Sun, formally curses each Charm she knows, and pledges fealty to the Neverborn. When the transformation occurs, the Solar's anima flares iconic as her caste shifts to its Abyssal analogue (Dawn to Dusk, etc.). Her caste mark turns black and streams blood. She loses all Solar Charms and gains an equivalent number of Abyssal Charms, loses all Combos, and may no longer access Solar Circle sorcery. The Great Curse recedes, replaced by Dark Fate.</p>"
+  },
+  "folder": "447f6cc1520ba234",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

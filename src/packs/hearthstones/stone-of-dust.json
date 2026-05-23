@@ -1,0 +1,27 @@
+{
+  "_id": "27941ba9b1193e93",
+  "_key": "!items!27941ba9b1193e93",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Stone of Dust",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDABSSL00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "abyssal",
+    "rating": 3,
+    "description": "<p>This spherical gray stone's surface seems covered in powdery dust. If the character spends 1 mote of Essence and touches any single item made of dead organic tissue, such as leather, bone, wood or ivory, he can instantly turn the object to dust. The character must touch the item directly, and the item can weigh no more than (character's Essence x 10) pounds. This stone does not affect artifacts, enchanted items or undead of any sort.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

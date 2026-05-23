@@ -1,0 +1,58 @@
+{
+  "_id": "5d14ac843f0094a9",
+  "_key": "!items!5d14ac843f0094a9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ignoring Denials of Truth",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "4m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The practiced debater of Conviction can learn when to ignore certain strictures and guidelines laid upon the debate, allowing him an opportunity to freely express his arguments and make his impact before a discussion's moderator slams the rules down once more. Essence makes things less solid, allowing the Exalt to ignore whatever inanimate objects stand between him and his target. The target of this attack gains no benefit from armor. Additionally, if there is something solid, such as a door, a wall or a window, between the martial artist and his target, the attack passes through it without affecting or being affected by it. Range for such an attack is hand-to-hand range, typically one yard. Attacking someone through an opaque object applies a -2 external penalty for not being able to see the target. A character may reduce this penalty to -1 if he knows his target's precise location.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Relentless Persuasion",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "5d14ac843f0094a9"
+  },
+  "folder": "9f5e4d584840c173",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

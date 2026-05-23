@@ -1,0 +1,59 @@
+{
+  "_id": "c45e276edd40ea01",
+  "_key": "!items!c45e276edd40ea01",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Laugh at the Enemy's Aim (forgotten Misty Mountain Kata)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Share-Mist",
+      "Share-Mountain"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Thumbs come together and middle and smallest fingers of one hand touch the smallest and middle fingers (respectively) of the other as the martial artist dances back from her opponent. If her opponent \"seems to\" hit her within five actions while she is using this Charm, then it turns out that she was really just far too quick and clever to have actually been hit. Unless her opponent has a higher (Wits + Essence) than her Martial Arts, he actually hit something else. The character does not pick the object that is confused for her, and it must be dramatically unimportant, mundane, moveable and at least a yard long. Suitable objects include chairs, logs, barrels or even watermelons with chopsticks for arms and legs. Cluttered places might give targets of this Charm an external penalty to their (Wits + Essence) total ranging from -1 to -3. In a forest at night, for instance, every shrub and tree-branch can look like an assassin poised to strike.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Fivefold Shadow Hand Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "c45e276edd40ea01"
+  },
+  "folder": "30abfdbff9e8ecc7",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

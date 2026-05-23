@@ -1,0 +1,37 @@
+{
+  "_id": "9c556ce68c63b9ad",
+  "_key": "!items!9c556ce68c63b9ad",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Flying Guillotine",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-flying-guillotine",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 10,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Creature",
+    "description": "<p>The sorcerer makes the Sign of the Hooded Headsman. His Essence congeals into a barbed chain two feet long that spins as it arcs toward the target at 170 yards per tick (about 340 miles per hour). The sorcerer can attack anyone he can see within 500 yards. The sorcerer's player rolls (Perception + Occult) in the Cast Sorcery action, adding the character's Essence as automatic successes to the roll. This attack may not be parried without a stunt or Charm. If this is a surprise attack, the chain's great speed increases the difficulty to spot it by +2. The Flying Guillotine avoids obstacles (negating cover and shield bonuses) and can even turn corners to chase a foe. The silver weapon wraps about whatever body part it strikes and secures itself into a loop of chain with barbs along the inside. The chain spins with great speed as it tightens, inflicting horrific damage. The spell inflicts 18 levels of lethal damage, plus the successes gained on the attack roll. The chain always aims for the neck of the target. If the Flying Guillotine reduces the victim below Incapacitated,itdecapitatesthetarget.Mostcreaturesfind this instantly fatal. The chain itself seals shut the severed neck on the head, making it not so messy a trophy. If the damage does not kill the target, the chain has wraps around a shoulder, chest or limb thrown up as part of the defense, cuts deeply, and then vanishes in a flash of silver light. The chain likewise disappears if the target dodges, parries or otherwise counters the attack. When used in war, this spell negates the normal penalty for attacking commanders and special characters, as it whips past all soldiers and fortifications on its way to its foe.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

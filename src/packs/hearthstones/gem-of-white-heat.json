@@ -1,0 +1,27 @@
+{
+  "_id": "59698a3692f897e0",
+  "_key": "!items!59698a3692f897e0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gem of White Heat",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDFIRE000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "fire",
+    "rating": 3,
+    "description": "<p>This translucent, red-orange dodecahedron grants another Essence user the ability to surround herself with an aura of fire identical to a Fire-aspected Terrestrial Exalt's anima power. Fire-aspected Dragon-Blooded who use this stone add this damage to the normal damage done by their anima power. Producing this imitation anima banner costs Essence. Double the number of motes the character spends, however, to find the intensity of the flaming aura conferred by the hearthstone. (Of course, the Essence expenditure may well trigger the character's own anima as well.)</p>",
+    "source": "Oadenol's Codex"
+  }
+}

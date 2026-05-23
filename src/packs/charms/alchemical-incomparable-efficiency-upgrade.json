@@ -1,0 +1,60 @@
+{
+  "_id": "a7c53ee942dd89f0",
+  "_key": "!items!a7c53ee942dd89f0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Incomparable Efficiency Upgrade",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "survival",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Internal",
+      "Obvious",
+      "Variable"
+    ],
+    "cost": {
+      "formula": "6m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Prerequisite Charms: Dynamic Reaction Enhancement System Relay crystals implanted throughout the Champion's nervous system optimize her ability to perform extended, complicated tasks. While active, the Charm quickens all dramatic actions using Attributes for which the character has an Augmentation installed, dividing the time necessary to complete them by (the Alchemical's Essence x 2). While under the effects of this Charm, the Exalt's movements become clipped and mechanical, lacking any organic grace. This Charm cannot shorten training times, but it may be toggled on and off to shorten some parts of ongoing tasks and not others as circumstances warrant. Submodules: Hypercalibration Benediction: As a Touch effect, the Exalt may activate the Charm to bless a target instead of himself. The blessing persists while Essence remains committed, even if the target leaves the presence of her benefactor. The target quickens only actions using the same Attributes that the Charm enhances for the Alchemical. If a target is the recipient of multiple instances of this Charm from different Alchemicals, divide the time to complete relevant tasks by an amount equal to the cumulative Essence rating of all benefactors.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "a7c53ee942dd89f0"
+  },
+  "folder": "a1b2c3d4e5f60007",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

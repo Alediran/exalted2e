@@ -1,0 +1,57 @@
+{
+  "_id": "650e63c150b4dc3b",
+  "_key": "!items!650e63c150b4dc3b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Soulsteel Reaper Spirit",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "integrity",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Dusk"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Wielding the power of soulsteel, a deathknight may draw Essence from his victims. This Charm enhances that proclivity. If the Exalt has an Overdrive pool, he may select to divert soulsteel-drained motes to his Overdrive pool. If the deathknight selects to place all the motes reaped from a single attack into his Overdrive pool, he gains an additional offensive mote. Dark Visionary Defense</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "650e63c150b4dc3b"
+  },
+  "folder": "b0b1b2b3b4b5f05d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

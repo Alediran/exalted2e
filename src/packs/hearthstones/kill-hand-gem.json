@@ -1,0 +1,27 @@
+{
+  "_id": "1f89610180c33064",
+  "_key": "!items!1f89610180c33064",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Kill-Hand Gem",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDEARTH00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "earth",
+    "rating": 2,
+    "description": "<p>This greenish-black stone is shaped like a jagged-edged triangle. When desired, it hardens the bearer's hands and feet, allowing him to deal lethal damage with all unarmed attacks.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

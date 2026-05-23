@@ -1,0 +1,69 @@
+{
+  "_id": "e458314a98211ec6",
+  "_key": "!items!e458314a98211ec6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Barrow King's Authority",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "presence",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": "Mirror (Shining on Dark Realms)",
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Abyssals are the rightful kings of the dead and masters of the realm below. Those that recognize this fact may shelter in the deathknight's shadow, protected by his fell majesty. Any ghost with an Intimacy of loyalty toward an Abyssal who knows this Charm is immune to being summoned and bound through necromancy or sorcery by any individual other than the Abyssal himself. Furthermore, any attempts to mentally influence such a ghost to betray the Abyssal or abandon her Intimacy suffer a -1 external penalty. New Solar Charm: Shining on Dark Realms (Prerequisite: Majestic Radiant Presence). The Solar Exalted are a light that may shine even in the darkest of realms, providing protection and hope to those that call the Underworld home. This Charm is identical to its Abyssal counterpart. Hungry Darkness Prana</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "9e2b04746f22956e",
+            "charmName": "Dread Lord's Demeanor",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "e458314a98211ec6",
+    "mirrorId": "c1d2e3f4a5b60017"
+  },
+  "folder": "b0b1b2b3b4b5f067",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

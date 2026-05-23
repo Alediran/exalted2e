@@ -1,0 +1,106 @@
+{
+  "_id": "6c7bc54628d0f7f4",
+  "_key": "!items!6c7bc54628d0f7f4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Outrage-Kindling Cry",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      9
+    ],
+    "keywords": [
+      "Combo-Basic",
+      "Compulsion",
+      "Counterattack"
+    ],
+    "cost": {
+      "motes": 10,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "10m, 1wp"
+    },
+    "description": "<p>These things are natural in Creation, but not Malfeas: To cheer for the underdog, to feel one's heart go out to another in pain, and to abhor injustice. Thus pious critics of Black Claw style are revealed as hypocrites; this technique employs the weapons of Creation, not Hell. This Charm may be activated in response to an attack that successfully strikes the martial artist. It takes the form of a kiai that compresses the character's agony into a heart-rending wail. Roll ([Manipulation or Appearance] + Performance), adding a number of successes equal to any wound penalties the martial artist may be suffering, and apply it against the Dodge MDV of all witnesses within earshot save for the attacker himself. Those who succumb to this unnatural mental influence (spending the standard one Willpower to resist immunizes a listener for the rest of the scene) suffer a Compulsion to assault the martial artist's attacker and to protect the martial artist. This behavior persists until either the attacker or the martial artist has been out of sight for one minute, or the scene ends, whichever comes first. The attack is considered automatically successful against all listeners who have a positive intimacy toward the martial artist, a negative intimacy toward the attacker, or who believe the attacker started the fight. Heart-Ripping Claw</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Black Claw Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ab3afffb3848ab45",
+            "charmName": "Storm-Calming Embrace",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "cc01cd4cfbda01a5",
+            "charmName": "Doe Eyes Defense",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5d1af1bc70f1304b",
+            "charmName": "Table-Turning Reversal",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "6c7bc54628d0f7f4",
+    "grantsMastery": false
+  },
+  "folder": "03b3e5be01a6c1af",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

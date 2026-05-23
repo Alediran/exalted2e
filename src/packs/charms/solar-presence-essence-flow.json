@@ -1,0 +1,68 @@
+{
+  "_id": "9a4f9b1e7ffa9b69",
+  "_key": "!items!9a4f9b1e7ffa9b69",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Presence Essence Flow",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "presence",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Essence of the Solar Exalted flows through them and brings their intentions and their actions into perfect harmony. Purchasing this Charm allows the Solar to invoke the First, Second and Third Excellencies for the relevant Ability as innate powers rather than Charms. This means that the character can use them even with a Combo that does not contain them or when she has already used a Charm for an action. However, she cannot use them out of place on the order of combat actions (see p. 145), nor may she apply the same Charm repeatedly to a single roll. The character must abide by the dice pool maximums as normal. For instance, if a character has a (Dexterity + Melee) of 8, and the player buys four dice through the First Excellency, the player could not use the Second Excellency to buy more than two successes, even if one of those Excellencies was invoked as a natural ability. The Third Excellency remains incompatible with the first two, even if some or all of them are invoked as natural Abilities. The effects are the effects of a Charm used by the character in all ways, save that they can be used with other Charms from the Ability without being placed in a Combo. (See p. 244 for the Combo rules.) The character must first buy the relevant Excellency to use it with this Charm, but he need not buy this Charm for each Excellency. This Charm is incompatible with any effect that reduces the mote cost of the first three Excellencies. Characters using these Charms as innate powers cannot benefit from any discount.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "9a4f9b1e7ffa9b69"
+  },
+  "folder": "e6b3f42bab7e5717",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

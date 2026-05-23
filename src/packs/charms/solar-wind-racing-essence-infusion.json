@@ -1,0 +1,72 @@
+{
+  "_id": "a1b2c3d4e5f6000f",
+  "_key": "!items!a1b2c3d4e5f6000f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wind-Racing Essence Infusion",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "ride",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm expands Flashing Thunderbolt Steed, infusing the Solar's steed with supernatural speed granted by the Unconquered Sun. Once purchased, whenever the Lawgiver activates Flashing Thunderbolt Steed, her mount's travel rate becomes (the creature's Stamina + the Exalt's Essence) × 20 miles per hour. Unlike its Abyssal Mirror (Primal Terror Spurs), this Charm's benefits apply anywhere in Creation and beyond, not just within the realms of the dead.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "mirrorId": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "41ce33cbb7bfef0a",
+            "charmName": "Flashing Thunderbolt Steed",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a1b2c3d4e5f6000f",
+    "mergedIds": []
+  },
+  "folder": "edcc4814a971a872",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

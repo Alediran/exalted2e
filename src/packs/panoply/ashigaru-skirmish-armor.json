@@ -1,0 +1,37 @@
+{
+  "_id": "2813a69ecc32dc3f",
+  "_key": "!items!2813a69ecc32dc3f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ashigaru Skirmish Armor",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>The ashigaru were First Age units comprised of mortals trained as fast-attack light infantry and scouts. To this end, their ashigaru skirmish armor aids wearers in reconnaissance and skirmish missions. Beings ca- pable of channeling Essence may commit four motes to attune this armor. Mortals may either use aegis-inset amulets (see p. 71) or else commit one point of Willpower. Characters who have committed Willpower to ashigaru armor at any time in a season age one extra week during that time. In appearance, the suit combines a helmet and a skintight bodysuit layered with light plates of magical alloys protecting the legs, arms and torso. The artifact has the following features: Sensory Augmentation Visor*: +2 bonus to Awareness; negates all penalties from darkness less than pitch black. Filtration Baffles*: +2 bonus to Resistance against poison or all forms of disease (including wound infection); one-hour supply of fresh air (refilling the tank in fresh air takes one minute per five minutes of air added to the tank). Adaptive Camouflage Subsystem*: +2 bonus to Stealth while moving, or +3 while stationary. Upkeep: Maintenance required every 150 hours of use; every 10 missed hours randomly disables one of the powers marked with an asterisk. Soak Hardness Mobility Fatigue Attune 7L/6B 4L/4B -2 4m or 1W Other Notes: This armor offers no magical material bonuses, owing to its composite alloy construction. The listed powers and statistics are for ashigaru armor built during the Shogu- nate or Second Age. No copies from the High First Age are known to have survived, but such copies would be Artifact 3 and have the following upgrades: no upkeep required; mobility penalty -0.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

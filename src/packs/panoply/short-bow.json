@@ -1,0 +1,49 @@
+{
+  "_id": "e618a234b56c7881",
+  "_key": "!items!e618a234b56c7881",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Self Bow",
+  "type": "weapon",
+  "img": "icons/weapons/bows/shortbow-recurve-brown.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "",
+        "speed": 6,
+        "accuracy": 0,
+        "damage": 3,
+        "damageType": "lethal",
+        "overwhelming": 1,
+        "defense": -2,
+        "rate": 2,
+        "range": 150,
+        "minStrength": 1,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": []
+      }
+    ],
+    "artifact": false,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 0,
+    "hearthstoneSlots": 0,
+    "description": "<p>A stout length of spring wood about three feet long, bent along the wood's natural shape; simple construction but not very powerful.</p>",
+    "equipped": false
+  },
+  "folder": "f001a234b56c789d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

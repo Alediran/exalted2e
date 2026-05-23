@@ -1,0 +1,55 @@
+{
+  "_id": "67f5566210e11f8c",
+  "_key": "!items!67f5566210e11f8c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unhearing Dedication",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "integrity",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Viziers are deaf to foolish prattle that might sway lesser folk from their duties. The player selects a plan or program endorsed by one of the Sidereal's superiors--from her faction, one of her conventions or her division in the Bureau of Destiny--and forges a supernaturally intense Intimacy to that plan. Any mental influence to betray or abandon that plan becomes an unacceptable order (see Exalted, p. 180). The Charm lasts as long as the character maintains that Intimacy or the Vizier's superiors judge the plan completed to their satisfaction. The character can then apply Unhearing Dedication to a new goal once the next story begins. At any time, though, a player can also shift the Charm to a new Intimacy by spending one experience point.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "67f5566210e11f8c"
+  },
+  "folder": "b0b1b2b3b4b5f007",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

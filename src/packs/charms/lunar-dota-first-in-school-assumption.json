@@ -1,0 +1,59 @@
+{
+  "_id": "164886c5ca650704",
+  "_key": "!items!164886c5ca650704",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "First in School Assumption",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "manipulation",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "supplemental",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Social",
+      "War"
+    ],
+    "cost": {
+      "formula": "4m, 2wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Stewards suffer no armies on their soil not allied with them. The Lunar causes the target military or social unit to treat her as its commander or leader for all purposes. She must be a solo unit to use this Charm. Her player makes a contested roll of (Manipulation + [Performance or War]) against the current leader's (Charisma + [Performance + War]); the Lunar suffers an external penalty equal to the unit's effective Drill. If successful, the unit treats the Lunar as its leader for the rest of the scene. The previous leader becomes a solo unit or, if he's willing, a special character in the stolen unit. When individuals in a stolen unit normally recognize their true leader through supernatural means--if they're zombies with a link to the necromancer who raised them, for instance, or creatures created through sorcery--this Charm functions for (Essence x 2) long ticks before it ends. If the original leader (or a legitimate replacement) does not reclaim command, the group becomes a mob. Lunars who look too different from a legitimate leader--such as a dashing human commanding stolen demon troops--suffer the same time restriction.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "164886c5ca650704"
+  },
+  "folder": "7e56afbcd2643f32",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

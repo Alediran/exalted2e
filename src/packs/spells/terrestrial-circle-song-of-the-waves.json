@@ -1,0 +1,37 @@
+{
+  "_id": "ad7f7276cad41b9d",
+  "_key": "!items!ad7f7276cad41b9d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Song of the Waves",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-song-of-the-waves",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 20,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "One opponent",
+    "description": "<p>The sorcerer's anima flares upward to form a great phantom wave behind her. From it emerges the watery head and forelimbs of a huge horse that blasts the intended victim with a stream of water and earsplitting symphonic noise. The weird, cacophonous display enchants a target into a berserk but directed rage, driving him to attack the sorcerer's enemies with abandon. The sorcerer's player rolls (Manipulation + Occult), adding a number of automatic successes equal to her Essence. For every success rolled over the target's Dodge MDV, the target spends one action attacking the nearest enemy of the sorcerer. The target can resist this unnatural mental influence by paying four points of Willpower. After his last action under this Total Control effect, the target regains his self-control and remembers what he did--and who was responsible.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,59 @@
+{
+  "_id": "390b054515eb711c",
+  "_key": "!items!390b054515eb711c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Snarling Watchdog Retribution",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Emotion",
+      "Native",
+      "Overdrive"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Nothing could be more foolish than harming those under the protection of Luna's Chosen. The Stewards are swift to anger when their wards are threatened, and their wrath is terrible indeed. This Charm grants an Overdrive pool with a capacity of ten motes. Whenever an enemy attacks a character protected by the Lunar's Defend Other action and deals damage, the Steward's wrath is provoked. Attacks that damage him add a single offensive mote to this pool, while those that harm his ward grant one offensive mote for each level of damage dealt. Gaining motes from the latter condition counts as a scene spent building an Intimacy of enraged hatred towards the attacker (or eroding any other Intimacies to them), an unnatural Emotion that cannot be resisted. Once the Lunar has fully established this Intimacy towards an enemy, any further offense sends his fury surging beyond all limits. Should that character trigger this Overdrive again with damage to the Lunar's ward, the Steward enters a furor duplicating a controlled Curse of the Hungry Wolverine for the duration of the scene, driving him to defend his ward at all costs and kill the aggressor (see The Manual of Exalted Power--The Lunars, p. 122). All mote rewards from this Charm are increased by a single mote, but the Lunar can only claim them from harm to his ward--his own suffering becomes meaningless. The Lunar does not recover points of temporary Willpower, nor does it bleed off any Limit.</p>",
+    "source": "Scroll of Errata",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "390b054515eb711c"
+  },
+  "folder": "a1b2c3d4e5f60002",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

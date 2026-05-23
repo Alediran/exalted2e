@@ -1,0 +1,59 @@
+{
+  "_id": "4ee877ff469ce997",
+  "_key": "!items!4ee877ff469ce997",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wyldlife Birthing Charms",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "staff",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Glamour",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "3m, 0g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Drawing upon her understanding of the Staff, the raksha forges dreams and fancies into living things to serve her. This Charm permits the raksha to create a lesser minion. Such creatures have no Motivation other than to serve their mistress. They have an Essence of 1 and no Willpower at all. In order to create a minion with this Charm, the raksha's player must roll (Intelligence + Socialize) as a Staff-shaping action. If the roll is successful, the raksha instantly creates either a minion animal or a non-sentient humanoid minion servant. If the minion has a humanoid form, this Charm grants it three dots in the Craft or Performance Ability of its creator's choice. If the minion is an animal, the Charm grants it one extra dot in the Physical Attribute of its creator's choice. These benefits are in addition to those outlined in the chart according to the difficulty level of the shaping effect. The extreme versatility of this Charm permits a player to define her minion in terms of the hazard it represents pursuant to the \"Knowing the Opposition\" section in Exalted, page 247. A minion created through this Charm can be summoned into Creation through an Evocation Charm but otherwise is incapable of entering Creation unless made permanent. Glamour Resistance: This Charm is a work of glamour. A minion created by it cannot harm or otherwise affect a Creation-born whose (Wits + Essence) exceeds the raksha's Socialize. If the minion is made permanent, Glamour Resistance does not apply. Difficulty Description Serviceable. The minion has the traits of a citizen (see Exalted, pp. 278­279) or an animal comparable in utility to a horse. The minion represents Hazard 0. Fine. The minion has the traits of an elite soldier (see Exalted, p. 280) or an animal with combat training comparable to a war dog. The minion represents a Hazard ·. Exceptional. The minion has the traits of a powerful mortal hero (but still not true self- awareness--see Exalted, p. 280) or an animal comparable to a claw strider or great cat. The minion represents Hazard ··. Perfect. The minion has traits roughly com- parable to a God-Blood (but still not true self-awareness--see Exalted, pp. 281­282) or an animal comparable to a tyrant lizard. The minion represents Hazard ···. +1 Permanence. The minion can enter Creation at its master's bidding without the use of an Evocation Charm, and it does not provoke Glamour Resistance.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "4ee877ff469ce997"
+  },
+  "folder": "3a42d6c2417833d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

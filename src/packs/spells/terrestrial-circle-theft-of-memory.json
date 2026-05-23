@@ -1,0 +1,37 @@
+{
+  "_id": "13378fc7ebb55792",
+  "_key": "!items!13378fc7ebb55792",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Theft of Memory",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-theft-of-memory",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 15,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Person",
+    "description": "<p>The Theft of Memory spell permits the sorcerer to snatch a memory from his victim, though it acts subtly--a rarity among spells. The sorcerer must bear an emerald (of at least Resources 2 value) in his hand and touch it to his target. He makes the Mudra of Remembrance and Forgetting with his other hand and releases the Essence of the spell. The spell's Essence display can manifest as any number of noticeable phenomena--simple alchemical pyrotechnics from a street performer, weather effects or the light of the sun playing across the area. In order to conceal the casting of this spell, the caster's player must succeed LESSER MINION OF THE EYELESS FACE Motivation: Serve the sorcerer who pulled it from imprisonment Attributes: Strength 3, Dexterity 3, Stamina 3; Charisma 1, Manipulation 2, Appearance 0; Perception 2, Intelligence 2, Wits 3 Virtues: Compassion 1, Conviction 3, Temperance 2, Valor 4 Abilities: Athletics 3, Awareness 2, Dodge 4, Linguistics 1 (Pantomime +3), Martial Arts 2, Melee 3, Presence 2, Ride 1, Stealth 2, War 3 Join Battle: 5 Attacks: Punch: Speed 5, Accuracy 6, Damage 3B, Parry DV 3, Rate 3 Kick: Speed 5, Accuracy 5, Damage 6B, Parry DV 1, Rate 2 Clinch: Speed 6, Accuracy 5, Damage 3B, Parry DV --, Rate 1 Soak: 5L/5B (Rubbery hide, 4L/2B) Health Levels: -0/-0/-0/-1/-1/-2/-4/Incap Dodge DV: 3 Willpower: 7 Essence: 1 Other Notes: A lesser minion does not bleed, suffer from infection or from Poison or Sickness effects, but it cannot heal or be healed. at a (Wits + Larceny) roll. People watching the scene realize the character just cast a spell if their players gain more successes on a (Perception + Occult) roll than the sorcerer's roll to conceal the spell. Moreover, all the legerdemain in the world will not conceal this spell from creatures able to view the flows of Essence. To Essence sight or Charms such as All-Encompassing Sorcerer's Sight, it is very clear that the sorcerer just cast a spell. The sorcerer must know what memory he wants to steal. When he touches his victim, his player rolls (Charisma + Occult) as a social attack against the target's Dodge MDV. If the attack succeeds, the target relives the memory for a moment and then it is gone, trapped in the gemstone. Failure indicates that the sorcerer does not steal that memory, cannot steal any other memory from that victim and suffers a -2 internal penalty on all Mental Attribute-based rolls for the rest of the scene. Theft of Memory cannot be cast in combat. Memories are either buried beneath the disciplined mind of a warrior or lost amid the fear most other creatures feel in such situations. Once the gem contains a memory, any creature may clasp the gem to its forehead and concentrate to relive the memory. During this time, the creature can perform no other action and is unaware of sights and sounds around it, though physical contact can break the experience.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

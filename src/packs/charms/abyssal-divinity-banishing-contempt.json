@@ -1,0 +1,75 @@
+{
+  "_id": "f5bb2a5a1cc3d577",
+  "_key": "!items!f5bb2a5a1cc3d577",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Divinity-Banishing Contempt",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "occult",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Mirror (Asserting the Mandate; follows)",
+      "Knockback",
+      "Obvious",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>SORCERY AND NECROMANCY Deathknights can learn sorcery up to the Celestial Circle and necromancy down to the Void Circle. Both magical arts see widespread use among the Abyssal Exalted, largely because they have such powerful and knowledgeable teachers in their Deathlord masters. Precious few libraries in Creation or even Yu-Shan can rival the vaults of the ancient Solar ghosts, who have literally spent ages hoarding as much mystical lore as they could find in search of a way to murder the world. Deathlords hesitate to teach Void Circle Necromancy, though, which could render Abyssals largely independent of them. In fact, Deathlords prefer to dole out necromantic teaching in small pieces, so they can monitor their underlings' progress and test their continued loyalty. In case it needs to be said, Eclipse Caste Solars cannot learn Void Circle Necromancy; the same applies to Moonshadows and Solar Circle Sorcery. Spells resemble Charms in many ways, but they are not Charms. Even if (at the Storyteller's option) the two castes could learn the base Charms of Solar Circle or Void Circle initiation, they could not learn the actual spells, any more than they could learn Lunar Knacks.</p><p>The Abyssal touches a spirit and blasts it with the Essence of this Charm. Successful contact throws the target back a number of yards equal to (Abyssal's Essence x 10) and knocks it prone. In addition, the Charm forces the spirit into its natural state, terminating the effects of any Materialize or Dematerialize Charms. Abyssals with Essence 5+ may \"touch\" spirits up to 100 yards away using an unblockable (but dodgeable) attack pool of (Charisma + Occult). New Solar Charm: Asserting the Mandate (Prerequisites: Spirit-Repelling Diagram--Exalted, p. 221). The Solar Mirror is functionally identical but features white and golden light instead of necrotic shadows.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e4930033807728a8",
+            "charmName": "Spirit-Desolating Sphere",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "f5bb2a5a1cc3d577",
+    "mirrorId": "4b50f37c3ae6040e"
+  },
+  "folder": "b0b1b2b3b4b5f041",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,83 @@
+{
+  "_id": "58029d52340ce947",
+  "_key": "!items!58029d52340ce947",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Divine Witness of Utter Safety",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "dodge",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "-(+4m)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>tack which inflicts damage on everything within an area (such as Lambent Bolt of Annihilation). The Solar's dodge deposits her at the nearest safe edge of the damage effect, if that location is within (Essence x 50) yards; walls and other obstacles are no impediment to this evasion. She may also carry out any consenting characters she is protecting with Defend Other actions at the time of activation. At Dodge 6+, Essence 6+ this restriction disappears, and the Solar's leaping dodges will carry her as far as necessary to remove her from the effect.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "07b851dda38ad32f",
+            "charmName": "Leaping Dodge Method",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "850e948dc390c37c",
+            "charmName": "Seven Shadow Evasion",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "58029d52340ce947",
+    "mirrorId": "3935d778153d8e51"
+  },
+  "folder": "b4b556393b53edae",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

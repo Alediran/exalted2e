@@ -1,0 +1,27 @@
+{
+  "_id": "9fdca17ab1bac6c8",
+  "_key": "!items!9fdca17ab1bac6c8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hardened Spirit Gemstone",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDEARTH00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "earth",
+    "rating": 1,
+    "description": "<p>This octagon of dark, perfectly clear amethyst grants its bearer one additional die to all Conviction rolls, including rolls to regain Willpower. The bearer must have a permanent Willpower of 6+ or a Conviction rating of 3+ to gain this benefit.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

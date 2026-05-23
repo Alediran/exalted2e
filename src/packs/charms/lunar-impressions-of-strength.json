@@ -1,0 +1,78 @@
+{
+  "_id": "742155f223f22ebb",
+  "_key": "!items!742155f223f22ebb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Impressions Of Strength",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "strength",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Fury-OK",
+      "Knockback"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The blows of the Lunar Exalted possess an unparalleled raw power. This Charm supplements an attack, to which the character applies one of the following edges. Ogre's Loving Caress. Damage dice that show 10 count as two successes. Rock-to-Pebbles Attitude. Increase pre-soak damage by three dice for each time this edge is activated. Undeniable Might. Increase post-soak damage by one die for each time this edge is activated. Birth of Flight. Add (Strength) to the difficulty of any knockdown or knockback check caused by the attack. Mighty Ram Practice. Targets of this attack must check against knockback; this edge increases knockback distance (from a potential base of zero) by one yard for each activation. The Charm provides one edge initially. Characters may acquire additional edges for one bonus point or two experience points each. At Essence 4, a character may apply two edges at once (or the same edge twice) for four motes. An Essence 5 char-</p><p>acter can spend six motes for three applications. Using more than two edges at once makes the attack flare with Essence, becoming Obvious. When this Charm is used with Relentless Lunar Fury, the character adds one of these effects (her choice) to all attacks.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "statusApply": {
+      "enabled": true,
+      "status": "Knockback",
+      "resistPool": "@sta + @athletics",
+      "onFail": "applyKnockback"
+    },
+    "charmUid": "742155f223f22ebb"
+  },
+  "folder": "aba1efe8ad0bef8a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

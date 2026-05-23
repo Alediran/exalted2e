@@ -1,0 +1,57 @@
+{
+  "_id": "3cd63336723f9e2e",
+  "_key": "!items!3cd63336723f9e2e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Empathy Simulation Engine",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "manipulation",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Despite its usefulness, an abundance of Clarity makes interaction with less enlightened beings difficult. This Charm was designed to mitigate that problem. It takes the form of a riveted implant in the neck, from which a web of barbed tendrils emerges and stretches taut along the skin to reenter the skull at key anchor points. These tendrils are held in place by means of hooks in the brain. Activating the Charm produces a moment of excruciating pain, there and gone. For the remainder of the scene, the Alchemical ignores all Clarity-based penalties to Compassion or social actions. He receives no opportunity to reduce Clarity as a result of human interaction, however. When the Charm ends, the Exalt gains a point of Clarity for simulating emotions rather than embracing the human condition.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "3cd63336723f9e2e"
+  },
+  "folder": "b0b1b2b3b4b5f050",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

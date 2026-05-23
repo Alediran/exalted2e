@@ -1,0 +1,73 @@
+{
+  "_id": "8dd1f3e531bc609b",
+  "_key": "!items!8dd1f3e531bc609b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Memory Implantation Surge",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "manipulation",
+    "essence": 4,
+    "minAbility": 6,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Illusion",
+      "Internal",
+      "Shaping",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "-- [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm expands the function of Identity Recalibration Signal, adding the following options to the list of actions the Alchemical may take while crushing a victim: Craft Memory: She may alter the victim's memory by dedicating consecutive actions to doing so. One action suffices to make superficial changes, such as \"you arrived to work on time today,\" where in fact the subject had been late to his shift but had not been discovered or reprimanded. Two actions allow gross changes that need not mesh with associative memory continuity. For example, \"You Exalted as one of the Anathema this afternoon,\" where in fact the subject took a nap. Three actions allow one sweeping change that permeates throughout the victim's memory, such as \"You were the son of a Dynast,\" where the subject is a peasant. Four actions allow for the complete rewriting of a segment of memory up to five years long, while five consecutive actions allow the Alchemical to completely reconfigure the victim's life story. Victims confronted with evidence of false memories may spend one Willpower to remember the truth behind them for one scene. Once a victim has spent a total of 10 Willpower this way (or five Willpower if an Essence user), her memories are fully restored. Spending Willpower this way is considered resisting unnatural mental influence. Restore Memory: The Alchemical may restore false or deleted memories she has located. She does not have the option of previewing the truth behind such mental alterations before returning them to her patient, although the option of altering them again remains available if they prove inconvenient. SUBSIDIARY PERSONALITY IMPLANT Cost: -- [1m]; Mins: Manipulation 5, Essence 4; Type: Permanent Keywords: Illusion, Internal, Shaping</p><p>Duration: Permanent Prerequisite Charms: Identity Recalibration Signal This Charm expands its prerequisite, adding the following option to the list of actions the Alchemical may take while modifying a victim: Hidden Self: The Alchemical may design a new Motivation and suite of Intimacies, then implant them subliminally into her victim. This new personality will emerge for the duration of one scene at some point in the future, replacing the victim's real Motivation and Intimacies in response to a pre-set stimulus. Examples of potential stimuli include sunrise on the first day of Calibration, when you receive orders to attack the Lap and upon hearing someone ask if it snows often in the summer. The victim must be aware of a stimulus in order to react to it. In the preceding example, the effect would not trigger at dawn on the first day of Calibration if the victim were locked in a lightless oubliette without a calendar. It takes one action to design the new personality, one to set an appropriate trigger and one to implant it. Victims have an opportunity to spend four Willpower to resist the effect when it triggers.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "bfff96dba597e364",
+            "charmName": "Mind-Ripping Probe",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "8dd1f3e531bc609b"
+  },
+  "folder": "b0b1b2b3b4b5f050",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

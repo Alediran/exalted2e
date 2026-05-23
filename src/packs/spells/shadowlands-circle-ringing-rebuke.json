@@ -1,0 +1,37 @@
+{
+  "_id": "e8750dc2bc136299",
+  "_key": "!items!e8750dc2bc136299",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ringing Rebuke",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "shadowlands-circle-ringing-rebuke",
+    "tradition": "necromancy",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 19,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Caster",
+    "description": "<p>Looking much like a common charlatan magician, the caster pulls two iron rings from thin air. Struck against each other, both ring with a slightly different tone. Even though the caster makes them \"disappear\" again, the ringing sounds persist for the next hour. Ghosts find the combined tones abhorrent and have difficulty approaching the caster. To come within five yards, a ghost must expend two points of Willpower. Even then, it has trouble attacking the necromancer. The caster adds an effective +2L/+3B soak against all attacks from ghosts that come from within the fiveyard radius. When the character walks into a crowd of ghosts, they part for him unless any decided to spend the Willpower to endure the constant ringing.</p>"
+  },
+  "folder": "9a7bd83d0a359e00",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

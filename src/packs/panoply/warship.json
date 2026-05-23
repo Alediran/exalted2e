@@ -1,0 +1,37 @@
+{
+  "_id": "a8cd28587819cc70",
+  "_key": "!items!a8cd28587819cc70",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Warship",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>The most widely manufactured type of vessel in the navies of the Solar Deliberative and the Dragon-Blooded Shogunate alike, the Swift Midday Brilliance class of light warships remains the most common First Age design afloat. Several dozen mostly intact copies exist, most controlled by the fleets of the Realm, while twice that number float in various states of disrepair as flagships of various coastal principalities and island nations throughout Creation. The nearly organic hulls of these ships are 27 yards long and six yards in the beam, with a broad curved rudder set in the stern and a pair of four-yard-diameter paddlewheels mounted to either side of that. A single mast rises from the center of the deck, capable of folding back and retracting in a long dorsal compartment or else rising up, telescoping and locking in place for wind-powered use. Activating the ship's paddlewheel drive requires a commitment of five motes channeled into its pilot station controls. By rotating the paddlewheels together or adjusting relative speeds, the warships may be propelled or swiftly maneuvered. The drive system can be used for a cumulative total of only 10 hours, requiring two hours powered down to lower the tolerated total by one hour. While not in use, the wheels spin freely without friction and do not impede wind-powered travel. The original armament for these warships included two light implosion bows (see p. 130) mounted on the foredeck and one aft (just behind the pilot's station), plus two lightning ballistae mounted facing forward on limited turrets. Very few copies in the Second Age feature all (or even any) of these original weapons, as most of these valuable cannons were scavenged for use elsewhere. Since none of the cannons were actually powered by the ship itself, such scavenging does not actually impair function. By default, the artifact rating given for a Swift Midday Brilliance assumes no First Age weapons, each of which must be obtained as separate artifacts. For a cost of Artifact 5, however, a ship may be assumed to have one light implosion bow still mounted in one of the original turrets. Speed: 15/30mph under sail; 24/50mph under power Maneuverability: -3S under sail; -1S under power Endurance: None Crew: 15/4 (or 1/1, if piloted by an Essence-channeler using the drive system) Cargo: Two common warstriders curled in a fetal position, one talon of infantry or equivalent cargo. Armor: 30L/30B Health Levels: Ux35/Mx20/Cx10/I/D Weapons: None; varies</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 4,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

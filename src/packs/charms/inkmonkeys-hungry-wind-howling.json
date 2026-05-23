@@ -1,0 +1,71 @@
+{
+  "_id": "7859f00865bbedff",
+  "_key": "!items!7859f00865bbedff",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hungry Wind Howling",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 5,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Native",
+      "Overdrive"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Adorjan knows what it is to feel loss. It is the pang of hunger that fuels her ravenous abattoir winds. This Charm grants an Overdrive pool with a capacity of ten motes. Initially empty, it gains motes under the following circumstances: Any time the Infernal witnesses an opponent slain by another's hand, she gains a single offensive mote per opponent slain. The Silent Wind is driven into ardor when she is denied her sup. If the slain victim is an Essence-user, she accrues (Essence � 2, rounded up) motes. The warlock must be rolled into battle to benefit from this Overdrive. Unbound Freedom Infiltration</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e89d8dd9b1fa1e89",
+            "charmName": "Murder is Meat",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "7859f00865bbedff"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

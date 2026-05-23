@@ -1,0 +1,69 @@
+{
+  "_id": "3675cc84e39e6b3c",
+  "_key": "!items!3675cc84e39e6b3c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Art of Permanence",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "craft",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "None"
+    ],
+    "cost": {
+      "formula": "-",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Lawgiver leaves the world eternal monuments to her genius. Anything she uses Craft to create will not age, erode, wear out or otherwise diminish through the natural processes of time and use. Nor will it require maintenance. It can, however, be deliberately destroyed. Applying this Charm's benefit raises an item's effective Resources value by one. Applying it to an artifact raises the artifact's effective background rating by one dot. The benefit granted by this Charm is optional; the Solar may still produce lesser works, if she wishes.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f40608b48f3519ed",
+            "charmName": "Durability-Enhancing Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }],
+    "charmUid": "3675cc84e39e6b3c"
+  },
+  "folder": "461821c707bbdbb0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

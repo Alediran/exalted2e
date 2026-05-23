@@ -1,0 +1,70 @@
+{
+  "_id": "f062c55f54c17cf1",
+  "_key": "!items!f062c55f54c17cf1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Searing After-image Passion",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "presence",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror"
+    ],
+    "cost": {
+      "formula": "-",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Lawgiver personifies one blazing ideal, choosing an emotion, one of her Intimacies or her Motivation. When she makes social attacks inspiring or furthering her passion, targets must spend an additional two Willpower points to resist. The Solar must choose one passion at a time, but the player may spend one experience point to switch this Charm to a new one. This Charm may not force a target to spend more than 5 Willpower to resist a single instance of mental influence. New Abyssal Charm: Stalking the Shadowed Mind (Prerequisite: Sanity-Eroding Diatribe). This Charm may only be used to enhance a negative emotion, negative Intimacy, or the Abyssal's Motivation; it is otherwise identical to its Solar counterpart.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1efc1f23c71c6d44",
+            "charmName": "Enemy-Castigating Solar Judgment",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "f062c55f54c17cf1",
+    "mirrorId": "e92c716b997b7866"
+  },
+  "folder": "e6b3f42bab7e5717",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

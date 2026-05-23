@@ -1,0 +1,83 @@
+{
+  "_id": "53c119419f7b7724",
+  "_key": "!items!53c119419f7b7724",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unflagging Vengeance Meditation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "integrity",
+    "essence": 4,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Leader",
+      "Social"
+    ],
+    "cost": {
+      "formula": "5m, 1wp (additional allies must each pay 1wp)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Just as the hottest of flames can lose its intensity unless it is contained by the walls of a furnace, so too does the steady strength of the Earth Dragon help contain and focus the inner flame of vengeance. To activate this Charm, the Exalt must spend three motes and one Willpower while speaking aloud the terms of a vendetta to which the character commits himself with all his soul. The goal must be a simply stated purpose such as \"Avenge my father's death at the hands of Tepet Arada\" or \"Humble Sesus Chenow Lahor for his insult on my honor.\" Swearing such an oath provides the Dragon-Blood with several benefits. First, for as long as the vendetta lasts, it counts as an Intimacy for the Dragon-Blood with all the benefits and drawbacks of any Intimacy. Second, whenever confronted by any effect, magical or otherwise, that might deter the Dragon-Blood from pursuing his vengeance, he adds his Essence to his Dodge MDV. Furthermore, he can ignore any unnatural influence that would compel him to abandon the vendetta, treating such commands as unacceptable orders. Third, until the Exalt fulfills the vendetta or abandons it, he does not need to eat, sleep or rest as long as he remains in pursuit of his vengeance. The character incurs no penalties from any sort of fatigue, whether natural, magical or even from encumbrance or armor. Fourth, the Exalt can soak both lethal and bashing damage with his full Stamina, and he adds his Integrity to both his lethal and bashing soaks.</p><p>Unflagging Vengeance Meditation can be sustained without ill effect for a number of days equal to the Exalt's Essence. After that, the character suffers one health level of unsoakable bashing damage every time a number of days equal to his Essence passes. This damage cannot be healed while the Charm remains in force, and even after the Charm lapses, healing this damage takes twice as long as normal. When a Dragon-Blood swears a vendetta with this Charm, a number of additional characters equal to his Essence can join him. Each additional participant must pay one temporary Willpower point but need not expend any Essence. Once invoked, the Charm ends either when the vendetta is satisfied or when the Dragon-Blood who initiated it voluntarily abandons it. If anyone who is party to the Charm, including the Dragon-Blood who initiated it, terminates his involvement prematurely, he suffers a number of levels of lethal damage equal to the sum of the permanent Essences of all characters involved. This damage is unsoakable in any fashion.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "433fd9553a10d484",
+            "charmName": "Untiring Earth Meditation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "63c308702144227d",
+            "charmName": "Ten-Thousand Dragons Fight as One",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "53c119419f7b7724"
+  },
+  "folder": "b0b1b2b3b4b5f020",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

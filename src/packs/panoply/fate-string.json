@@ -1,0 +1,55 @@
+{
+  "_id": "4577a13e4863867a",
+  "_key": "!items!4577a13e4863867a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fate String",
+  "type": "weapon",
+  "img": "icons/weapons/swords/sword-ornate-yellow.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "Clinch",
+        "speed": 6,
+        "accuracy": 4,
+        "damage": 4,
+        "damageType": "lethal",
+        "overwhelming": 1,
+        "defense": 0,
+        "rate": 1,
+        "range": 0,
+        "minStrength": 1,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": [
+          "Two-Handed",
+          "Clinch Enhancer",
+          "Martial Arts",
+          "Piercing"
+        ]
+      }
+    ],
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 1,
+    "hearthstoneSlots": 0,
+    "description": "<p>An impossibly thin wire of magical materials used as a strangling cord; favorite of skilled assassins as it silences clinched opponents.</p>",
+    "source": "Armorium",
+    "equipped": false
+  },
+  "folder": "f004a234b56c78a0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

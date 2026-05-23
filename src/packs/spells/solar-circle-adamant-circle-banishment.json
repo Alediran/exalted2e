@@ -1,0 +1,37 @@
+{
+  "_id": "0c4b0af5180908b8",
+  "_key": "!items!0c4b0af5180908b8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Adamant Circle Banishment",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "solar-circle-adamant-circle-banishment",
+    "tradition": "sorcery",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "A demon or demons within (Essence x 15) yards of the sorcerer",
+    "description": "<p>As the Emerald Circle Banishment, the sorcerer may use this spell to remove demons from Creation. The Victory over Primordials Mudra, augmented by the Calibration-Denying Sign, can expel a demon of the Third Circle, making it as though the Calibration during which it was summoned had never happened. This spell has special timing rules. The charac- ter can cast it as three reflexive Shape Solar Circle Sorcery actions that take 0 ticks. It has a range of (Essence x 15) yards. Adamant Circle Banishment automatically casts a Second Circle demon or a group of First Circle demons back to Malfeas. It can banish a Third Circle demon, but doing so forces a contest of wills, handled exactly as for Emerald Circle Banishment (see p. 44). If the demon wins, it remains in Creation and the sorcerer cannot attempt to banish it again for five days. The spell can also banish a group of Second Circle demons. This contest is handled as for a Third Circle demon, but the group uses the most powerful demon's (Willpower + Essence) as the base pool, then adds +1 to the pool per additional demon. If the sorcerer defeats the group by accumulating successes equal to the highest demon's Essence, the demons are all banished. If the demons accumulate a number of successes equal to the sorcerer's Essence, they remain. In that case, the sorcerer may not attempt to banish any of them (singly or as a group) for five days. In war, successful use of this spell can reduce a unit of First or Second Circle demons by a single dot of Magnitude.</p>"
+  },
+  "folder": "66776f28169b53d7",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

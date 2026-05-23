@@ -1,0 +1,58 @@
+{
+  "_id": "4e3186710f23d484",
+  "_key": "!items!4e3186710f23d484",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Remembering the Best Times",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "college",
+    "essence": 4,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "untilCalibration",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Fate",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "13m, 3p",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Those who regard the Vizier well find that he is never far from their hearts, like it or not. All characters who hold a positive Intimacy toward the Sidereal at the time of this Charm's invocation find that for its duration, that Intimacy cannot be permanently removed. If lost or altered, the Intimacy reasserts itself an hour after the next sunset. This Charm cannot be invoked during Calibration.</p>",
+    "source": "Glories of the Most High: Maidens of Destiny",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "4e3186710f23d484"
+  },
+  "folder": "84b20a7805198847",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

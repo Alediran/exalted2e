@@ -1,0 +1,59 @@
+{
+  "_id": "bc05704c7d8c8190",
+  "_key": "!items!bc05704c7d8c8190",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Loving Oration",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Compulsion",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "5+m, 1+wp, 1 lhl",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A speech of perfect kindness and love flows from the font of the debater's nigh-infinite compassion. All who are near him bask in his forgiveness and support, growing strong in their debate. Anyone who does not receive a bolstering word suffers a severe disadvantage in the prolonged discussion ahead. Gentle light flows from the martial artist's palms and touches everyone nearby with his comforting influence and power. All living creatures within (his Essence x 10) yards heal one health level for every success on a (Martial arts + Compassion) roll, recovering more deadly wounds before lesser injuries. This Charm heals aggravated damage, but it must first \"spend\" one level of healing to change the aggravated wound level to a lethal wound level. Example: This Charm affects Without Fear Lei after a battle that left him drained. He suffered two aggravated wounds, two lethal wounds and one bashing wound. The wash of healing gives him five levels of healing. The first four levels eliminate the two aggravated wounds: two levels to turn each of them into lethal wounds and then two more to heal them completely. The last level of healing removes one of Lei's lethal wounds. He is left with one lethal and one bashing wound. If Lei suffered three aggravated wounds instead of two, the last level of healing would change the last aggravated wound to lethal. He would go from three aggravated, two lethal, one bashing to three lethal and one bashing. In addition, invocation of this Charm acts as a social attack. Compare successes on the roll to the Dodge MDV of all sentient creatures within range. Targets have the opportunity to activate relevant defenses if they have not already used other Charms. Any target overwhelmed by the burst of supernal love cannot harm any other living creature until the martial artist leaves her presence or the scene ends. Someone affected by this aspect of the Charm can spend one point of Willpower to act normally for an action, and once she does so three times, she is free of the compulsion. If he desires, the devotee of Compassion may single out people whom the Charm shall not heal. Doing so costs him one additional mote per person, and to do so at all, he must spend an additional point of Willpower to subdue his overwhelming Compassion for all things. Such a target is not subject to the social effect. Loving Oration does not stack. A single character cannot use it repeatedly to keep healing injured people. Any damage that remains after one use must heal naturally or be healed by other Charms (including those of other practitioners of Victorious Concession).</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Victorious Concession",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "bc05704c7d8c8190"
+  },
+  "folder": "fd11958743cc8ca7",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,71 @@
+{
+  "_id": "93e096e37dffdf30",
+  "_key": "!items!93e096e37dffdf30",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Palaces Like Sandcastles",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Shaping",
+      "Sorcerous"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Fortunes rise. Fortunes fall. A prince dwells in splendor one day and walks the streets destitute the next. A pauper takes his place. Dunes swell to mountains, then crumble away in the wind. The cycle repeats. It is all meaningless. Upon learning Palaces Like Sandcastles, the Infernal learns how to teach existence the truths best known to Cecelyne.</p><p>Whenever the warlock uses Bestowal of Accursed Fortune to grant Background dots to a beneficiary who accepts them, she may optionally choose a victim whom she touched or socially interacted with in the past day. The victim must possess the Background the warlock wishes to bestow at a rating equal or greater than the end result of her blessing. Should all these criteria be met, the victim loses dots at the same rate that the beneficiary gains them. Improbable coincidences ensure the good fortune of the victim actually transfers to the beneficiary, so it may be that an unfortunate student falls out of favor with his Sifu and is supplanted by a new pupil. A rich man may find his Resources confiscated by the state and given to a rising star as a reward for loyal service to his country. The Storyteller decides the story that ensures the transfer. Any time in the weeks that lead up to the final outcome, appropriate countermagic applied to the victim removes the curse and spoils the blessing entirely. The curse is also a Shaping effect and may be excised accordingly to ruin the warlock's plans. Once the transfer is complete, the effect ends and cannot be reversed with countermagic or anti-Shaping effects. Depending on the tale the Storyteller uses to explain the Charm's effects, the victim may realize his good fortune has gone to another or not. Even if the transfer isn't immediately obvious, investigation may suffice to reveal it. Few victims appreciate such turn of events and most seek retribution of some sort. If the beneficiary should perish before the transfer is complete, the curse is broken and nothing is lost. The Infernal may choose for the narrative to be blatantly clear at the time of activation in order to incite this very outcome, forcing the Storyteller to choose a tale that ensures it. The reverse is not true. Though the warlock may cover up the transfer through mundane means, she can't activate the Charm in such a way that the transfer automatically remains secret. Fate is capricious even when compelled. She Who Lives In Her Name Chirality Prohibition Index</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4678a657f99402f6",
+            "charmName": "Bestowal of Accursed Fortune",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "93e096e37dffdf30"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

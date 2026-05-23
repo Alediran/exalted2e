@@ -1,0 +1,73 @@
+{
+  "_id": "a1b2c3d4e5f60002",
+  "_key": "!items!a1b2c3d4e5f60002",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hill-Hurling Might",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "athletics",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Mirror"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solar channels the might of the Unconquered Sun through her muscles, enhancing her ability to hurl large objects to destructive effect (Exalted, p. 127):</p><ul><li>Add +5 to the character's (Strength + Athletics) total for determining what she can throw as a weapon</li><li>Multiply the attack's base Range by 10</li><li>Increase the attack's Accuracy to +3 instead of -3</li></ul><p>If such an attack hits a character no larger than the projectile, the target automatically falls prone. She must lift the object off as a miscellaneous action or use some other means to free herself before she can rise or move. Identical apart from its prerequisite to its Abyssal Mirror.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "mirrorId": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c00e9d7c7ddd694d",
+            "charmName": "Increasing Strength Exercise",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a1b2c3d4e5f60002",
+    "mergedIds": []
+  },
+  "folder": "481b58529581316b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

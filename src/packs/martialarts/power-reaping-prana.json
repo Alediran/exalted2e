@@ -1,0 +1,80 @@
+{
+  "_id": "0f8656a961c24144",
+  "_key": "!items!0f8656a961c24144",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Power-Reaping Prana",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      10
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "motes": 1,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "4m"
+    },
+    "description": "<p>The Exalt greedily siphons Essence expended by his enemies for his own sinister purposes. These stolen motes glitter in trails winding into his opened mouth. When the character uses the Charm, he selects a target within (Essence x 5) yards who uses a Charm. The martial artist must have already used Blood-Scenting Hunger to assess the target's Essence pool. The character gains a number of motes equal to half the total number the target spent activating all Charms during that tick (rounded down), up to a maximum award of (Martial Arts x 2) motes.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Hungry Ghost Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "9b8f60f94d38e33b",
+            "charmName": "Hungry Ghost Form",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "0f8656a961c24144",
+    "grantsMastery": false
+  },
+  "folder": "a204aba47ca9154b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

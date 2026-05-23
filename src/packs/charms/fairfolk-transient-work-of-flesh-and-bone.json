@@ -1,0 +1,60 @@
+{
+  "_id": "e395ef5822fd26ce",
+  "_key": "!items!e395ef5822fd26ce",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Transient Work of Flesh and Bone",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "sword",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Echo",
+      "Obvious",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "3m, 1g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Transient Work of Flesh and Bone (Waking) Cost: 5m, 2g Keywords: Echo, Obvious, Shaping Duration: One scene This Charm permits the raksha to summon a monster or army into existence in Creation or in the Wyld. The monster has the traits of a mundane animal of the raksha's choice (superpredators such as tyrant lizards and river dragons tend to be preferred, but sometimes a raksha simply needs a reliable mount such as a horse or austrech with which to show off in style), plus a number of mutation points equal to the raksha's (Sword x 2). The army is Magnitude 3, with the traits of elite soldiers and Drill equal to the raksha's Sword. Both monsters and armies are perfectly loyal to the raksha, are fully real to the Creation-born, and are not suitable for use as shaping weapons. They vanish at the end of the scene. This Charm may not be reactivated to replenish members of a defeated army during the scene.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "e395ef5822fd26ce"
+  },
+  "folder": "12ff19c775f80093",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

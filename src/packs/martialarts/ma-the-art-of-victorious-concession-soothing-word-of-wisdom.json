@@ -1,0 +1,59 @@
+{
+  "_id": "216b4a924f634f3e",
+  "_key": "!items!216b4a924f634f3e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Soothing Word of Wisdom",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Stackable",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "2m or 3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A choice word can lift a man's spirits and soothe his troubled mind. This principle holds in debate, as a philosopher of Compassion can use her knowledge to repair the arguments of her friends. She can also help her enemies, knowing that it is hard to oppose one who does you such kindness. Any blow struck with the Soothing Word of Wisdom heals rather than harms. On a successful strike, which need not actually inflict damage, the martial artist's power heals one level of damage. Each time the character heals an individual, however, her Essence subverts his body. Anyone affected by this Charm suffers a -1 external penalty to any attack on the martial artist's person. This penalty lasts for the rest of the scene and accumulates to a maximum equal to (the target's Compassion x 2). Using this Charm costs two motes to heal a bashing wound and three to heal a lethal wound. It cannot heal aggravated damage. This Charm has no effect on a target who is in perfect health.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Victorious Concession",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "216b4a924f634f3e"
+  },
+  "folder": "fd11958743cc8ca7",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

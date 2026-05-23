@@ -1,0 +1,57 @@
+{
+  "_id": "b1e7d4f731f085ac",
+  "_key": "!items!b1e7d4f731f085ac",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Statements of Bent Purpose",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>By rephrasing an opponent's position to make it sound more like his own, the debater can use her arguments to defend himself. This tactic can be quite damaging for the opponent, who is forced to defend her foe's points to save his own. When the character controls a grapple, he can use this Charm to swing around and insert his victim's person between himself and another attacker. The interposed individual may apply her Parry DV against the attack in full. If the parry is not successful, the raw damage splits evenly between both grappling parties in Step 7, before applying soak. In a scrum where more than two people engage in a large grapple, the character must choose whom he uses, and only he and his victim are in danger of suffering damage from the attack. Some stunts and Charm-enhanced attacks may be proof against this defense at the Storyteller's discretion.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Meditative Discussion",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "b1e7d4f731f085ac"
+  },
+  "folder": "1b2f6d78bc952477",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,59 @@
+{
+  "_id": "191f6953a28355a5",
+  "_key": "!items!191f6953a28355a5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "False Burrow Gift",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "manipulation",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Ok",
+      "Illusion",
+      "Social"
+    ],
+    "cost": {
+      "formula": "6m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Stewards tend others' homes. This Charm instills in its target a false belief about their concept of \"home\" and reinforces this belief with an Intimacy. The beliefs that home is under attack, is already destroyed, is nearby or is lost forever count, as do the ideas that the target has been exiled from home, that home embodies certain political views or that home is a different place altogether. Instilling this false belief requires a successful (Manipulation + [Performance or Presence]) roll against the target's MDV. Against a group, the highest MDV contests it. It costs two Willpower points for a victim to ignore the belief for one scene.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "191f6953a28355a5"
+  },
+  "folder": "7e56afbcd2643f32",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

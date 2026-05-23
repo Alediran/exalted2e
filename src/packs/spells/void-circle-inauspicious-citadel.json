@@ -1,0 +1,37 @@
+{
+  "_id": "e2477774151d9dd3",
+  "_key": "!items!e2477774151d9dd3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Inauspicious Citadel",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "void-circle-inauspicious-citadel",
+    "tradition": "necromancy",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 60,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 1,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Conjured citadel",
+    "description": "<p>In the gloom of a shadowland, the necromancer stands above a hole so deep that torches cannot light its depths. At his behest, 100 people have been sacrificed, their teeth and eyes lining the pit's edge. At last, he cuts the Last Sign of the Labyrinth over his own heart, spreads his arms and steps off the edge--and his foot comes down on the roof of an iron tower that surges up into the middle of the hole. It keeps rising until five minutes later, an entire fortress of black iron, basalt and obsidian blights the earth. Any onlooker who doesn't run for her life will be crushed as the citadel grows. Each citadel is unique, but defensible and complete. Its walls bear the mazy marks of the Labyrinth. The eyes of the sacrifices line its halls, glowing brightly enough to illuminate them; mosaics of their teeth adorn the walls, and their skins upholster furniture carved from bone. The tower has its own perverted geomancy, focused on the necromancer himself. It is like a manse for which he is the hearthstone, and whenever he's there, it behaves like one. Therefore, as long as he's within his inauspicious citadel, the character regains Essence as if he were within a level-3 manse to which he was attuned, and he may also choose a level-3 hearthstone power that he can use within its walls. The necromancer cannot, however, use the hearthstone power or regain Essence at an increased rate when he is not in residence. The citadel's lowest chamber is a shrine to the Neverborn. Here, the necromancer's pit now leads to the Void, and anything that falls in will be sent there. If the pit is ever blocked off completely, the citadel collapses. Even when he's not there, the necromancer's energies sustain the fortress, and he cannot support more than one. If the character dies or erects a second inauspicious citadel, then the first crumbles into Oblivion.</p>"
+  },
+  "folder": "447f6cc1520ba234",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

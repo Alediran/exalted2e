@@ -1,0 +1,81 @@
+{
+  "_id": "139b1e5b31101b02",
+  "_key": "!items!139b1e5b31101b02",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Crimson Palm Counterstrike",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 5,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "6m"
+    },
+    "description": "<p>Reading his opponent's movements in the weave of fate, the Sidereal interrupts his attack with a nigh-preemptive counterattack. If he's a skilled enough combatant, the Sidereal not only can weave over his opponent's attack but can supplant it with an attack of his own. When the Sidereal's foe attacks, the Sidereal may reflexively defend himself with this Charm, his player rolling his own (Dexterity + Martial Arts) pool in a contest against the attacker's attack roll. After taking successes out of the attacker's roll based on the Sidereal's normal Parry Defense Value, the Sidereal's successes on this roll then cancel out leftover successes from the attack roll one for one. If the Sidereal's Parry Defense Value and (Dexterity + Martial Arts) result cancels out all of the attacker's successes and still has successes left over, those extra successes are applied against the original attacker as a counterattack. The Sidereal cannot use this Charm against a counterattack, and he must be physically able to attack his foe.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Violet Bier of Sorrows Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "8dec44904d734733",
+            "charmName": "Violet Bier of Sorrows Form",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "139b1e5b31101b02",
+    "grantsMastery": false
+  },
+  "folder": "02ed0088cf82499d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

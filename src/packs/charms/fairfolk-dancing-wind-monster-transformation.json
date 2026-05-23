@@ -1,0 +1,59 @@
+{
+  "_id": "3ce8468045511c59",
+  "_key": "!items!3ce8468045511c59",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dancing Wind Monster Transformation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "staff",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Echo",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "6m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Having had his sport and finished his business, the Laughing Monster fades away, leaving only the sound of his mocking laughter and the enraged bellows of his beaten foes. While this Charm is active, the raksha adds his Essence to his Shaping DV for the remainder of the shaping battle. The Prince of Chaos is a terrifying figure to the Fair Folk, for it is his way to transform desire into obsession, to turn a raksha's capacity for positive emotion into a soul-deadening fountain of despair. Associated with Cup-shaping combat, the Spirit-Twisting Obsession Style teaches Entertainers to kill with kindness and to burn with a kiss. A raksha who plays the part of the Prince of Chaos must never channel his Compassion during a shaping combat, or else he will be unable to use any of the Charms of this style for the duration of that combat, and all persistent Charms already activated will end immediately. Additionally, a raksha who plays the part of the Prince of Chaos must adopt the mien of a cruel and sadistic villain. He must never openly display kindness or concern for the weak or innocent or ignore an opportunity to demonstrate his contempt for his lessers. If he ever does so, any costs associated with the Charms of this style double for the duration of his current tale.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "3ce8468045511c59"
+  },
+  "folder": "3a42d6c2417833d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

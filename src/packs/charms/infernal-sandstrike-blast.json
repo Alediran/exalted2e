@@ -1,0 +1,74 @@
+{
+  "_id": "d57f67d634bf92b4",
+  "_key": "!items!d57f67d634bf92b4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sandstrike Blast",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "cult",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 4,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Messianic",
+      "Obvious",
+      "Shaping",
+      "Sorcerous"
+    ],
+    "cost": {
+      "formula": "1m or 3m (or 3m, 1wp)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When angered, the Endless Desert erupts skyward in a burst of lacerating sand, cutting everything in her path to ribbons. Activating this Charm requires an aggressive or vulgar gesture in the direction of a targeted adversary within (Essence x 50) yards. Roll the Infernal's (Charisma + Occult) as a ranged attack; the explosion of sand can't be blocked without a stunt or Charm and bypasses all forms of cover. If it hits, the attack inflicts (the Infernal's Essence + Cult + attack successes) lethal piercing damage, and the target loses one Willpower from psychic shock. While the Willpower loss is a Shaping effect, the attack itself is not. This Charm costs three motes normally but only one mote against a target in a place of desolation. This attack can strike materialized beings while the Infernal is dematerialized, but the cost is three motes and one Willpower regardless of the area's desolation, and the attack is no more unexpected than if the Infernal were solid.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "cecelyne",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f9b13ab624f48a8d",
+            "charmName": "Transcendent Desert Creature",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "d57f67d634bf92b4"
+  },
+  "folder": "d852ccb3960d271d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

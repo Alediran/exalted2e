@@ -1,0 +1,59 @@
+{
+  "_id": "0cd99ff9ba877ba0",
+  "_key": "!items!0cd99ff9ba877ba0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Coercion by Any Means",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious",
+      "Fate",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "5m, 1p",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Passing a hand across his eyes, the Sidereal is no longer fooled by society's subtle distinctions in the application of uneven force--they are all the same to him. For the rest of the scene, when the Exalt is in control of a grapple, he may opt to inflict standard Emotion, Illusion or Compulsion attacks rather than crushing to inflict damage. These attacks are natural mental influence costing one Willpower to resist, but they bypass MDV and are considered automatically successful. Bound by the Sidereal's superior strength, the target finds herself powerless to reject his words.</p>",
+    "source": "Glories of the Most High: The Maidens of Destiny",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Sapphire Veil of Passion Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "0cd99ff9ba877ba0"
+  },
+  "folder": "05f82ed74914c6c2",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

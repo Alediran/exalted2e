@@ -1,0 +1,69 @@
+{
+  "_id": "cbe084900a766718",
+  "_key": "!items!cbe084900a766718",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Pomegranates Full And Fine",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "survival",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": "Combo-OK, Emotion, Mirror (Food-Gathering Exercise)",
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The viands of the dead and the meat of spectral beasts do little to sustain living mortals, though the Abyssal Exalted and other Essence-users have no difficulty surviving on such pale repast. Still, it is unseemly for a deathknight's guests to starve to death because of their host's ill-preparedness. This Charm constitutes an attempt to forage for food in the Underworld, automatically accumulating enough food to sustain a unit with a magnitude no greater than the Abyssal's Essence for a day. Alternately, it may be activated to prepare a meal of alreadylocated food, in which case the Charm's type becomes Simple (One dramatic action), encompassing the meal's preparation time. This Charm may only be used in the Underworld and in shadowlands; it will not function in Creation, nor on food originating in Creation. Food located or prepared with this Charm is fully nourishing to both the living and the dead. Moreover, each meal of such food counts as a scene spent building an Intimacy of fascination toward the Underworld and a second Intimacy toward the Abyssal who provided the repast. This Intimacy may be of awe, fear, or respect--whichever is most appropriate to the situation. Should characters who partake of a meal possess conflicting Intimacies, the meal counts as a scene of work toward eroding those Intimacies. Should the Abyssal consume his own prepared meals, he gains no Intimacies; the food is simply more enjoyable, flavored with a bittersweet mixture of life and death in perfect equilibrium. With Essence 3+, the Abyssal's repast becomes more potent. This enhancement is non-optional. Mortals who spend a fortnight eating nothing but the food of the dead enchanted by this Charm become permanently able to consume the fare of the Underworld... and just as permanently unable to draw sustenance from any food originating in the living world, save for human flesh (food originating in shadowlands counts as food of the underworld for this purpose). This change is a Shaping effect, and attempts to reverse the condition treat it as a Wyld mutation. Wisp Light Summons</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "cbe084900a766718",
+    "mirrorId": "8103b29280f61e93"
+  },
+  "folder": "b0b1b2b3b4b5f06f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,84 @@
+{
+  "_id": "b6ebbf93d4719c6d",
+  "_key": "!items!b6ebbf93d4719c6d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Invocation Of The Storm-Following Silence",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "medicine",
+    "essence": 4,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 4,
+    "dvPenalty": -1,
+    "steps": [],
+    "keywords": [
+      "Obvious",
+      "Compulsion",
+      "Virtue (Valor)"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Exalted did not need to fight ghosts at the start of the Primordial War, because the Underworld did not yet exist. Later, the Maidens saw the need for Charms to affect the restless dead. A bright flash of violet light radiates from the Sidereal to fill an area (character's Essence x 10) yards in radius. He brings a Smooth Transition to all valid targets in that area. Zombies collapse, and ghosts might vanish to the Underworld. The Sidereal's player makes a single (Charisma + Medicine) roll for all targets.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4f6b51e333d8166a",
+            "charmName": "Smooth Transition",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "b6ebbf93d4719c6d"
+  },
+  "folder": "b0b1b2b3b4b5f00d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

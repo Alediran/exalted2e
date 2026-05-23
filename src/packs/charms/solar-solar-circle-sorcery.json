@@ -1,0 +1,73 @@
+{
+  "_id": "0f3980c54a14ac7f",
+  "_key": "!items!0f3980c54a14ac7f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Solar Circle Sorcery",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "occult",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The sorcery reserved for the Lawgivers is a work of perfection and adamant. The spells of Solar Circle Sorcery are awesome beyond words--they can bring life to regions or slay entire armies. This Charm permits the character to take Solar Circle Sorcery actions (see p. 252).</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c16209f48b5ad619",
+            "charmName": "Celestial Circle Sorcery",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "0f3980c54a14ac7f",
+    "grantsInitiation": {
+      "enabled": true,
+      "tradition": "sorcery",
+      "level": 3
+    }
+  },
+  "folder": "9f789a9f97cf7e28",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

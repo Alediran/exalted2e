@@ -1,0 +1,37 @@
+{
+  "_id": "3b7fe17f6c1afd0a",
+  "_key": "!items!3b7fe17f6c1afd0a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Plague of Bronze Snakes",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-plague-of-bronze-snakes",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 15,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Conjured automata",
+    "description": "<p>This spell can be cast only at night. Speaking the sibilant Verdigris Serpent Chant, the sorcerer makes the Sign of the Hammer. His Essence coalesces into a great brass mallet, decorated with twining serpents. He strikes the ground once, twice, thrice to cast the sorcery. On the third strike, the hammer opens a hole in the ground and is swallowed up. Three heartbeats later, a number of bronze serpents equal to (caster's Willpower x 2) wriggle out of the hole, encircle the sorcerer and bow to him. Then they slither away, moving up to as many miles from their hole as the caster has dots of Occult. Motion attracts the serpents, though they bite only livestock and other domesticated animals. Their bite injects magical venom that turns their victims to granite after a period of excruciating pain. The snakes return to their hole after biting one target, or shortly before sunrise, and wait for the following night. They never venture out during the day. These serpents remain active for a number of nights equal to the caster's Essence. If they have not been destroyed before the spell's duration ends, the snakes return to their den and decompose into tarnished metal segments.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

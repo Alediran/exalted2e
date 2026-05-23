@@ -1,0 +1,43 @@
+{
+  "_id": "b101a234c56d7890",
+  "_key": "!items!b101a234c56d7890",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Artifact Breastplate",
+  "type": "armor",
+  "img": "icons/equipment/chest/breastplate-simple-metal.webp",
+  "system": {
+    "soak": {
+      "bashing": 4,
+      "lethal": 6,
+      "aggravated": 0
+    },
+    "hardness": 2,
+    "mobilityPenalty": 0,
+    "fatiguePenalty": 0,
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 2,
+    "attuned": false,
+    "artifactRating": 1,
+    "hearthstoneSlots": 1,
+    "tags": [
+      "Concealable"
+    ],
+    "description": "<p>A breastplate forged from one of the magical materials; provides superior protection without encumbering the wearer.</p>",
+    "equipped": false
+  },
+  "folder": "f005a234b56c78a1",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

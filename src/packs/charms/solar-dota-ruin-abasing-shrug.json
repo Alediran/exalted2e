@@ -1,0 +1,55 @@
+{
+  "_id": "26e1b9be9a03cfe7",
+  "_key": "!items!26e1b9be9a03cfe7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ruin-abasing Shrug",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "resistance",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Keywords: Combo-OK, Mirror (Far Beyond Ruin) Duration: Instant Prerequisite Charms: Adamant Skin Technique Considerate of others, a Solar may choose not to flaunt his invincibility until the very last instant. This Charm is a perfect defense, having one of the Four Flaws of Invulnerability (see Exalted, p. 194). Upon activation, reduce the final damage inflicted by an attack to zero. Those crippled by iniquity are not availed of perfection. Characters with two or more points of Limit experience a failure in this defense: final damage is reduced to a number equal to the Solar's (Limit / 2, round down), as a crack in the Solar's aegis allows damage to slip through. Under this condition, Ruin-Abasing Shrug loses its Flaw of Invulnerability. Ruin-Abasing Shrug may not be used in a Combo with any Charm carrying the Reactor Keyword if it carries a Flaw of Invulnerability. A repurchase at Essence 7 allows the Lawgiver to extend this Charm's duration to One Tick by paying seven motes upon activation, or to One Action by paying seven motes, one Willpower. New Abyssal Charm: Far Beyond Ruin (Prerequisites: Wounds Mean Nothing). This Charm is identical to its Solar counterpart, save that Abyssals substitute Resonance for Limit.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "26e1b9be9a03cfe7"
+  },
+  "folder": "f05b544008eaceb0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

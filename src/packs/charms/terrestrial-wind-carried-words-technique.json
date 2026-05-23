@@ -1,0 +1,58 @@
+{
+  "_id": "6a3f9bfc4858e93a",
+  "_key": "!items!6a3f9bfc4858e93a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wind-Carried Words Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "linguistics",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Social"
+    ],
+    "cost": {
+      "formula": "1m per message, plus distance",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The wind carries many things, and for the Children of Mela, sound is one of them. With this Charm, a Dragon-Blood can whisper his words aloud and know that the winds will convey them to his intended listener, wherever that listener is. For a base cost of one mote, the character can transmit one message to the ear of any single person within range. The words actually do not need to be spoken, but the Dragon-Blood must at least mouth them. The base range of the Charm is equal to (the speaker's Essence x 100) feet. Also, each additional mote spent increases the range by a factor of 10. Therefore, a character with an Essence of 4 can transmit a message 400 feet for one mote, 4,000 feet for two motes</p><p>or 40,000 feet for three motes. This total quantity of motes must be expended for each individual message, which can be no more than 25 words in length. The sending character need not know the exact location of the intended recipient, but she must know her approximate location, which is defined as \"within (sender's Essence x 5) miles.\" The targeted location can, however, be some place that the sender has never even been, such as \"the command HQ of the Fourth Legion stationed in Arjuf.\" This Charm is considered essential to military operations for both the Realm and the Seventh Legion. Most Dragon-Blooded with any military background know this Charm, and all but the least proficient graduates of the House of Bells do.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "6a3f9bfc4858e93a"
+  },
+  "folder": "b0b1b2b3b4b5f023",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

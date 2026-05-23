@@ -1,0 +1,70 @@
+{
+  "_id": "a62cae28f79a6dac",
+  "_key": "!items!a62cae28f79a6dac",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wary Yellow Dog Attitude",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "socialize",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The wise Exalt remains constantly aware of the ebb and flow of the social dynamics that surround her. Therefore, she is prepared when a genteel social encounter suddenly turns into a violent confrontation. During an unexpected combat situation (i.e., an unexpectedly violent situation that explodes out of an initially nonviolent interaction), the character who activates this Charm can add three dice to her Join Battle roll and gains a +1 DV bonus for the first three actions of combat. This is a reflexive Charm which can be used freely without the need for a Combo. It can be activated on any tick.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5c566c4328093eb4",
+            "charmName": "Sweeten-the-Tap Method",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a62cae28f79a6dac"
+  },
+  "folder": "b0b1b2b3b4b5f02e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

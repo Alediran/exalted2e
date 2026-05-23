@@ -1,0 +1,58 @@
+{
+  "_id": "0790b7834b6e2866",
+  "_key": "!items!0790b7834b6e2866",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Legend-drawing Invocation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "lore",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>By speaking to the soul of an artifact, a Solar may remind a broken wonder of its legendary purpose, briefly restoring it to working order. Channeling Essence through her sagacious knowledge, the Solar is able to revive a legendary wonder and temporarily restore it to functionality. The Solar may restore a broken or damaged artifact to full working order so long as Essence is committed to sustain this Charm. In order to use this Charm, the Solar must know what the artifact in question is and what it does.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "0790b7834b6e2866"
+  },
+  "folder": "5b0108cbcf2feaf4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,71 @@
+{
+  "_id": "7d22fa43641bc95c",
+  "_key": "!items!7d22fa43641bc95c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unstoppable Juggernaut Incarnation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "stamina",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm allows a Lunar to remain upright even when everything demands that he be dead. A character uses Unstoppable Juggernaut Incarnation when he takes damage that would place a lethal wound in his Incapacitated health level. He does not suffer any damage beyond that Incapacitated level, and instead of taking that damage, he temporarily sets it aside and the player does not mark it wounded. He continues to operate as normal, but only as long as the three motes spent on the Charm remain committed. Characters may activate this Charm multiple times in order to \"delay\" multiple killing blows. Each time the Lunar does so, another lethal wound enters his pool of waiting damage. Releasing one mote of Essence committed to this Charm releases them all. Having just one \"delayed\" Incapacitated wound level fills all the character's wound boxes when he releases it. Each additional delayed wound fills one of the character's Dying health levels with lethal damage. This Charm is ineffective against aggravated damage.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "3d459eb2129c1b51",
+            "charmName": "Steadfast Yeddim Meditation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "7d22fa43641bc95c"
+  },
+  "folder": "956290ccde1dea72",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

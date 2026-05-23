@@ -1,0 +1,37 @@
+{
+  "_id": "b6667565c76e56c8",
+  "_key": "!items!b6667565c76e56c8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Cantata of Empty Voices",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "celestial-circle-cantata-of-empty-voices",
+    "tradition": "sorcery",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 30,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Area",
+    "description": "<p>The sorcerer makes the Mudra of the Tomb-Harp, and her Essence forms a chorus of vaporous entities that sing in perfect harmony. Their crystalline song inspires lethal grief and pain. Every sentient being within 100 yards of the sorcerer weeps and suffers environmental damage (2L/5 ticks, Trauma 3). The stinging tears and agony inflict a -2 internal penalty to all actions. Essence wielders who reduce the environmental damage by at least one step may ignore these penalties. The cantata continues for (Essence x 10) ticks. The caster is immune to the singing and may take normal actions once the spell is cast. The visages always surround him, but they are without substance and grant him neither cover nor defense.</p>"
+  },
+  "folder": "dcf06d83a3d0a4be",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

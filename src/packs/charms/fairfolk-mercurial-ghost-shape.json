@@ -1,0 +1,60 @@
+{
+  "_id": "6b612dcde5aa326c",
+  "_key": "!items!6b612dcde5aa326c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Mercurial Ghost Shape",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Merged",
+      "Obvious",
+      "Shaped-Only",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "3m per die, 1wp, 1g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm duplicates Mercurial Element Shape, save that the raksha's player must define the granted benefit in the context of ghostly phenomena. Merged: Mercurial Beast Shape, Mercurial Element Shape, Mercurial Passion Shape</p>",
+    "source": "Scroll of Errata",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "6b612dcde5aa326c"
+  },
+  "folder": "719cd5296b990a6b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

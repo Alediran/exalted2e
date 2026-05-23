@@ -1,0 +1,70 @@
+{
+  "_id": "0a2e1dce6040a133",
+  "_key": "!items!0a2e1dce6040a133",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Phantom Crossfire Feint",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "intelligence",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "--(+5m)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Lunar Exalted claim to be Creation's premiere battlesorcerers; thanks to Charms such as Phantom Crossfire Feint, this is no idle boast. The Lunar may reflexively pay a five mote surcharge when taking a Shape Sorcery action. She blurs and fades from vision, reappearing at a random point somewhere within one hundred yards...along with a number of Essencesculpted duplicates equal to her Essence. This relocation never takes the Lunar or any doubles outside of the targeting range or placement necessary for her spell to strike its intended target(s). These doubles all mimic the Lunar's every action, going through the motions of shaping a spell as she does; they are indistinguishable from the Lunar through mundane scrutiny. Opponents wishing to attack the Lunar must succeed at a miscellaneous Speed 5, DV -1 (Perception + Occult) roll at a difficulty of the number of duplicates produced in order to determine which Lunar is real, or else strike at random and hope to injure the true Steward. (It may help for the Storyteller to number the Lunar's duplicates in order to keep track of them.) These duplicates vanish when the spell is cast or interrupted. Wits Cold Breath of the Moon</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c16209f48b5ad619",
+            "charmName": "Celestial Circle Sorcery",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "0a2e1dce6040a133"
+  },
+  "folder": "b0b1b2b3b4b5f05e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

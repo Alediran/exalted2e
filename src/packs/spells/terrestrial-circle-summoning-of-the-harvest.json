@@ -1,0 +1,37 @@
+{
+  "_id": "4f9f4f095242809c",
+  "_key": "!items!4f9f4f095242809c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Summoning of the Harvest",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-summoning-of-the-harvest",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 15,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Area",
+    "description": "<p>The sorcerer weeps a single tear and uses it to trace a glyph of Sextes Jylis on the ground. The tear imbues fertility into all the vegetation and animals within 50 yards of the caster. Within a minute, plants mature and bring forth bountiful crops, and pregnant animals birth their offspring. No affected living thing is harmed in any way by this spell. Summoning of the Harvest does not affect intelligent creatures. The spell can be used only once per year on the same patch of land. Additional attempts in that time fail automatically--even those cast by other sorcerers. Sorcerers often use this spell on areas afflicted with drought, as it forces a successful harvest even in the absence of proper irrigation.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

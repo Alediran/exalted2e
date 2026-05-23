@@ -1,0 +1,59 @@
+{
+  "_id": "a653b495e5f1f28f",
+  "_key": "!items!a653b495e5f1f28f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Biting Remark",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Crippling",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A debater strong in Valor often knows how to make cutting remarks that pierce deeply into the arguments, ideals and egos of her opponents. The points a martial artist makes with this technique are more dangerous than they appear and can tear an unsuspecting foe's foundation to shreds. If the character's Martial Arts attack wounds his target, the character sends a surge of angry red-black Essence flowing into the injury. Biting Remark becomes Obvious only as the attack inflicts damage, meaning potential victims can't know if the Exalt used the Charm until it is too late. In Step 10 of attack resolution, damage dice from this attack that come up 10 count as two successes. Additionally, the martial artist's player rolls a dice pool equal to the number of damage successes in Step 10. If this roll garners successes equal to or greater than the target's Essence, the attack cripples the target permanently. One limb, appropriate to the description of the attack, is rendered completely useless. Only supernatural healing can return it to functionality. Even Exalted do not heal this injury naturally.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Forceful Declaration",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "a653b495e5f1f28f"
+  },
+  "folder": "676ebc2abfe88729",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

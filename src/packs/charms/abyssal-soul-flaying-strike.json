@@ -1,0 +1,58 @@
+{
+  "_id": "459319ca32b2ab9f",
+  "_key": "!items!459319ca32b2ab9f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Soul-Flaying Strike",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "10m, 1wp, 1lhl",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Abyssal's strike passes through physical protections entirely, targeting the soul rather than the flesh. Armor, magical soak, and even the protective shell of spiritual essence offer no resistance as the blow strikes the essential self of the target directly. The supplemented attack completely ignores all forms of soak and Hardness, dealing its full raw damage directly to the target's health track, though the damage type becomes aggravated as the attack tears at something more fundamental than mortal flesh.</p><p>The Obvious nature of this strike is unmistakable: a visible darkness flows from the attacker's weapon into the target's body at the point of impact, their ghost-light flickering as their very soul is wounded. Targets reduced to Incapacitated by this charm do not die — instead their soul is stripped from their body and held in a state of essence-suspension, available for the Abyssal to interrogate, bind, or deliver to Oblivion. This charm is prerequisite to Soul-Consuming Transcendence.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "459319ca32b2ab9f"
+  },
+  "folder": "b0b1b2b3b4b5f040",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

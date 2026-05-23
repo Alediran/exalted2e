@@ -1,0 +1,37 @@
+{
+  "_id": "7baa3351fea728e4",
+  "_key": "!items!7baa3351fea728e4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Geyser of Corrosion",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "celestial-circle-geyser-of-corrosion",
+    "tradition": "sorcery",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 30,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Area",
+    "description": "<p>The sorcerer speaks the Word of Vitriol and gathers his Essence into an amber ball of light. He can launch the ball at any visible point within 50 yards. When it hits, a gout of scalding, stinking acid erupts and sprays over everything within 20 yards of that point. The spray cannot be parried, but it can be dodged. Creatures, objects and scenery covered by the acid take environmental damage (3A/6 ticks, Trauma 3). This acid ignores five points of soak of any inanimate objects (including weapons and armor), and inflicts eight levels of lethal damage instead. This vile substance continues to eat away whatever it covers until it is either washed off (which requires enough water to immerse the person or object) or until the scene ends. Areas affected by this spell are often eaten away to pools of viscous sludge, scoured to the bedrock by the vitriol.</p>"
+  },
+  "folder": "dcf06d83a3d0a4be",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

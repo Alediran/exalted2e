@@ -1,0 +1,84 @@
+{
+  "_id": "c560b43b8a0adc7c",
+  "_key": "!items!c560b43b8a0adc7c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Order-Affirming Blow",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "lore",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Shaping",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "15m, 1wp per Essence",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Lawgivers restore the hidden patterns of the soul. This Charm targets an individual, whom the Solar must touch. The Lawgiver spends 15 motes and an amount of Willpower equal to the target's permanent Essence. This Charm shatters all Shaping effects on the target, including long-term or permanent effects such as Wyld mutations and Sidereal astrology. The target is immune to further Shaping effects for the remainder of the scene. Using this Charm outside the Wyld on one of the Fair Folk destroys the target. The dream-wrought bodies of the Fair Folk are a Shaping effect, and this Charm renders them into statues, dreams, objects, animals or ordinary humans at the Storyteller's discretion. Note that the Exalt must successfully touch Fair Folk to use this Charm against them.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "786435aaeb53865d",
+            "charmName": "Wyld-Shaping Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b6556519b203161e",
+            "charmName": "Will-Bolstering Method",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "c560b43b8a0adc7c"
+  },
+  "folder": "5b0108cbcf2feaf4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

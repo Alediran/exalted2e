@@ -1,0 +1,59 @@
+{
+  "_id": "185770732d23fd46",
+  "_key": "!items!185770732d23fd46",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Jade Crucible Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "medicine",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Merged",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood uses jade as a focus for channeling elemental essence into the body of a patient, purifying toxins and accelerating natural healing. The healer must possess a piece of jade worth at least one Resources dot. The player rolls (Intelligence + Medicine) and for each success, one level of bashing damage is converted to no damage, or one level of lethal damage is converted to bashing. Additionally, the character may neutralize any poison or disease in the patient's body with a Medicine roll against a difficulty equal to the affliction's potency. Jade used in this way does not lose its properties.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "185770732d23fd46"
+  },
+  "folder": "b0b1b2b3b4b5f026",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

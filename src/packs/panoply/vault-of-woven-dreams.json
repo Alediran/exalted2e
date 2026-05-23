@@ -1,0 +1,37 @@
+{
+  "_id": "5bfc1c843dca2049",
+  "_key": "!items!5bfc1c843dca2049",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Vault of Woven Dreams",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Repair: 5 Technologically simi- lar to the reality engines used to terraform the Wyld, vaults of woven dreams are complex enchanted structures with malleable internal reality designed to accommodate their owner's every fantasy. The size of the vault determines its artifact rating (··· for a single room the size of a large office or ···· for a vault the size of a luxurious townhouse). These artifacts also require an inset hearthstone of an equal rating for power and must receive maintenance once a month or they malfunction with whatever horrific consequences the Storyteller imagines for a broken reality engine. With proper power and upkeep, the interior of a vault of woven dreams can be controlled by addressing its integrated perfected calculation array and spending a variable number of uncommitted motes as a diceless reflexive action. For each mote spent, the user may instantly apply the effects of one success with Wyld-Shaping Technique to create people or inanimate objects as portable wealth (see Exalted, p. 216­217) or alter created people or units as if using Wyld Cauldron Technology (see Exalted, p. 217). Alternatively, the vault can delete any number of its current constructs for a single mote. Entities created within a vault of woven dreams partake some of their reality from the user who requested them. Therefore, they may know anything that that individual does to the degree that such copying is intended as part of the construct's design (for instance, to produce a challenging sparring partner or ideal concubine). Objects or people created in the vault have even less reality than those shaped out of the Wyld, so they instantly evaporate into scattering wisps of light if they are taken outside the vault or if the device loses power. As a security precaution, a vault of woven dreams may be configured at the time of its creation to obey only a particular type of Exalt, a specific individual, anyone with the appropriate password or according to any other filter. These hard-coded fail-safes can't be altered, however, without dismantling and rebuilding the artifact as a Repair 6 maintenance. The most sophisticated models of this artifact are no larger than a wardrobe, with a mosaic panel on one surface artistically rendering the device's contents in real time. What makes these five-dot, Repair 6 wonders so miraculous is their power to fold Elsewhere around their internal geometry like a divine sanctum, making them larger on the inside than the outside. Within such a vault, the user may expand the boundaries of its internal space by spending motes like successes used to create land with Wyld-Shaping Technique, and may shape all facets of the interior from the outside by manipulating the mosaic. Furthermore, the flow of time within the vault may be reset relative to the flow of time through Creation for a single mote, provided nothing real exists within the device to interfere with the distortion. This quality allows created societies or worlds to model tectonic events or new sociological paradigms before introducing such elements into Creation at large. Indestructible adamant walls such as those of Yu-Shan border the created space, with only the mosaic as a portal in the wall permitting travel to the artifact's exterior. (Recognized users may spend a single mote to pass through in either direction.) Keep in mind that the slightest interruption in power deletes all constructs and shunts everything real outside of the vault, so a backup power system is highly recommended. All attempts to permanently stabilize one of these artifacts as a recursive sub-Tapestry have met with spectacular failure, to the point the Maidens have kindly requested that the Solar Exalted stop taking pattern spiders from the Loom of Fate for the experiments.</p>",
+    "source": "Dreams of the First Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 3,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "6cda831188d461a4",
+  "_key": "!items!6cda831188d461a4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Essence Matrix Inversion Procedure",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "god-machine-protocol-essence-matrix-inversion-procedure",
+    "tradition": "weaving",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 10,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Weaver",
+    "description": "<p>This protocol has no Obvious qualities until it interacts with another Essence-based effect, but any character whose player makes a successful (Perception + Investigation) roll, difficulty 4, perceives a slight mirage-like ripple in the air around the weaver. Anyone using Essence sight will see the weaver's body radiating long quills of silvery light. For an entire day, the weaver's own Essence-flow pattern becomes highly reflective, turning all incoming protocols, sorcery spells and necromancy effects back upon the one who launched them--with the exception of Solar Circle Sorcery and Void Circle Necromancy. This includes spells that target the sorcerer or areas of effect that include him, as well as the effects of Essence weapons such as lightning ballistae and Essence cannons, which are reflected back at the attacking weapon.</p>"
+  },
+  "folder": "07b5963f5e930aca",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

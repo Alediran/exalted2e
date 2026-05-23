@@ -1,0 +1,68 @@
+{
+  "_id": "ac14482d0f1144d3",
+  "_key": "!items!ac14482d0f1144d3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Impervious Primacy Mantle",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "-- (4m per scene)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>It is inconceivable that another could hold authority over Malfeas, no matter what oaths spilled from his mouth in momentary forgetfulness of his omnipotence. Accordingly, he treats any mental influence framed as a command as an unacceptable order. Social attacks framed as supplication or humble suggestions bypass this defense, though any insincere displays necessitate the attacker use Manipulation rather than Charisma. The Storyteller remains final arbiter over whether a given attack bypasses this Charm or not. The basic defense of this Charm presents more of an inconvenience to social adversaries, who can easily stunt around it if they can swallow their pride or cultivate a taste for caustic irony. Against these clever opponents, the Infernal may reflexively spend four motes to add his Essence to his Dodge MDV for a scene.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "malfeas",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "bbc3e23937efb50c",
+            "charmName": "Nightmare Fugue Vigilance",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "ac14482d0f1144d3"
+  },
+  "folder": "1945ba1655ca5f6f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

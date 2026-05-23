@@ -1,0 +1,57 @@
+{
+  "_id": "6314018cd9fed7eb",
+  "_key": "!items!6314018cd9fed7eb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Northern Lotus Petal Discernment Meditation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A speardancer who adopts the Northern posture is as beautiful and graceful in moments of stillness as her Southern compatriots are in thrashing revel. With a cold, reptilian economy of energy, the Northern-posture speardancer cuts through the wasteful excess of her enemy's defenses. When the Exalt invokes this Charm, her target suffers a DV penalty equal to the martial artist's Essence against the martial artist's attack. Other attacks that happen to occur on that same tick are unaffected.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Crimson Pentacle Blade Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "6314018cd9fed7eb"
+  },
+  "folder": "dd43fd817c3c8fc1",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

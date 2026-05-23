@@ -1,0 +1,99 @@
+{
+  "_id": "f519847c51a8b376",
+  "_key": "!items!f519847c51a8b376",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Flexing The Emerald Claw",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Illusion",
+      "Obvious",
+      "Poison"
+    ],
+    "cost": {
+      "motes": 3,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "3m or 4m"
+    },
+    "description": "<p>Even for the unjustly wronged, there comes a time to strike back. Students of the Black Claw opt to do so with deceptive force. By paying three motes to supplement an unarmed attack, the martial artist's hand becomes wreathed in a bilious green spray of Essence. If the attack hits, it inflicts normal damage and the victim becomes afflicted with a dose of poison with the following statistics: (7L/action, 3, --/--, -2). This poison is exceptionally subtle, displaying no outward symptoms as it destroys its victim from the inside. By paying four motes instead, the martial artist may veil his strike in an unnatural Illusion effect, removing the Obvious tag for all observers save the Charm's target. This Illusion may be ignored by observers who spend one Willpower. Black Claw Form</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Black Claw Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6394bf547f7caa91",
+            "charmName": "Open Palm Caress",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0aa9de149988af9b",
+            "charmName": "Torn Lotus Defense",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "statusApply": {
+      "enabled": true,
+      "status": "Poison",
+      "resistPool": "@sta + @resistance",
+      "onFail": "applyPoison"
+    },
+    "charmUid": "f519847c51a8b376",
+    "grantsMastery": false
+  },
+  "folder": "03b3e5be01a6c1af",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

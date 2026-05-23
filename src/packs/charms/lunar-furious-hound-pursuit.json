@@ -1,0 +1,72 @@
+{
+  "_id": "0bf45019c43a03d8",
+  "_key": "!items!0bf45019c43a03d8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Furious Hound Pursuit",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "dexterity",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Fury-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Once a Lunar Exalt chooses her prey, it cannot escape. The Lunar's player designates a single target, which the Lunar must have seen within the last hour. The character's Move and Dash actions both become one yard greater than those of her quarry, if that is greater than her current movement, and she automatically beats the target in contested rolls to determine relative speed by at least one success. In long-term movement, the character automatically moves one mile per day greater than her target. By spending a point of Willpower at activation, the Duration becomes Indefinite: As long as the character does not stop pursuing the target, the Charm persists. If the target uses Charms to increase speed, the Lunar does not accelerate; his advanced movement is based on the target's natural values. At Essence 4, the Charm allows the Lunar to match her target's movement rates, including magic. Activating this Charm in conjunction with Relentless Lunar Fury provides the Charm's benefit against any one target at a time, which she may reflexively re-designate each action.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ee5e3e76f358065a",
+            "charmName": "Instinct-Driven Beast Movement",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "0bf45019c43a03d8"
+  },
+  "folder": "6d3aed86fa48b120",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

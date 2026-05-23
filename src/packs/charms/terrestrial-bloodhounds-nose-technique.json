@@ -1,0 +1,82 @@
+{
+  "_id": "8f0ae1f7ef6862c8",
+  "_key": "!items!8f0ae1f7ef6862c8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Bloodhound's Nose Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "investigation",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "scene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "6m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood must first spend 10 minutes investigating the scene of a crime (or any other event he wishes to investigate). The Dragon-Blood's player makes a normal Investigation roll for the Exalt to find ordinary pieces of evidence, although this roll can be augmented with other Charms. After spending the Essence and Willpower to activate this Charm, the player can then roll (Intelligence + Investigation), with even one success leading the Dragon-Blood in the general direction of the person who left the incriminating evidence. With three or more successes, the DragonBlood also receives a brief glimpse of the culprit at the scene of the crime. If the culprit uses some type of supernatural effect to protect her identity, this Charm fails automatically unless the Dragon-Blood has a higher Essence than the culprit. The Charm will always fail when confronted with a culprit using Trackless Walk Style (see p. 167).</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "55e2a2f7433dfcd8",
+            "charmName": "Scent-of-Crime Method",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ad4c9d67089f0ea6",
+            "charmName": "Tampering Detection Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "8f0ae1f7ef6862c8"
+  },
+  "folder": "b0b1b2b3b4b5f021",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

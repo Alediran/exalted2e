@@ -1,0 +1,73 @@
+{
+  "_id": "9983205f36bd35b8",
+  "_key": "!items!9983205f36bd35b8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dragon-Claw Elemental Strike",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Elemental",
+      "Leader",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood's intimate connection with the Elemental Dragons permits her to inflict an elemental effect in conjunction with her hand-to-hand attacks. On a successful barehanded attack, the Dragon-Blood may also inflict an elemental effect appropriate to her aspect on the target. Air directs a mighty burst of wind at the target, forcing his player to roll (Dexterity + Athletics), difficulty 4, to keep the character from falling. Earth roots the target to the spot, preventing him from moving and inflicting a -2 penalty on his DDV and any actions he takes until the Dragon-Blood's next action. Fire sets the target ablaze for a single action, inflicting four levels of lethal damage in addition to the Dragon-Blood's normal damage dice pool. Water fills the target's lungs with seawater, adding three ticks before his next action due to violent coughing. Wood poisons the target's blood, causing him to suffer a -1 penalty on all actions for the scene if he fails a reflexive (Stamina + Resistance) roll. This Charm is actually a cluster of Charms, one for each of the five elements. A Dragon-Blood can learn multiple versions of this Charm (and even combine two or more into a Combo), but he must learn the one associated with his aspect element first. Regardless of which version is used, the Charm is always considered a Water Aspect Charm for purposes of determining whether the one-mote surcharge for out-of-aspect Charms applies. Therefore, a Fire Aspect who puts the Fire, Water and Wood versions of the</p><p>Charm into a single Combo must pay a total Essence cost of six motes (one mote per individual Charm plus one surcharge mote per Charm), while a Water Aspect with the same Combo need pay only three motes.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0db7c9d51069fb41",
+            "charmName": "Become the Hammer",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "9983205f36bd35b8"
+  },
+  "folder": "a1b2c3d4e5f60104",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

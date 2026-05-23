@@ -1,0 +1,55 @@
+{
+  "_id": "1bad187f24a5b48b",
+  "_key": "!items!1bad187f24a5b48b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Strength of Faith Meditation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "(1m per die), 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>By channeling the power of her faith through meditation and quick exercises, the character rises above discomforts and pains that would otherwise slow her down. Each mote a Falling Blossom spends on this Charm negates one point of penalty caused by pain or disability of her body, such as wound penalties or Crippling effects, for the scene. This Charm does not negate penalties brought on by outside factors, such as environmental penalties to mobility or visibility.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Falling Blossom Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "1bad187f24a5b48b"
+  },
+  "folder": "dd497199f5d1964b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

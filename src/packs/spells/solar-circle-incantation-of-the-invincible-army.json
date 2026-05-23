@@ -1,0 +1,37 @@
+{
+  "_id": "b49a8742a518d219",
+  "_key": "!items!b49a8742a518d219",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Incantation of the Invincible Army",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "solar-circle-incantation-of-the-invincible-army",
+    "tradition": "sorcery",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 50,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "One army",
+    "description": "<p>The sorcerer stands at a high place overlooking her army, lifts her arms and turns her face to the sun. Her anima rises to the sky and meets an answering bolt from above, forming a clear pillar of golden light, threaded with scarlet for the Maiden of Battles. A matching banner of light briefly rises above every soldier who follows the sorcerer. The soldiers' blades spark golden, and their faces glow white with the glory of the Unconquered Sun. As long as the sun remains above the horizon and the sorcerer's arms remain raised toward it, units she can see receive bonuses to their Might scores equal to her Essence or their own Magnitude, whichever is lower. Furthermore, the units are considered to have Perfect Morale and to be composed of supernatural beings for the purposes of enemy rout checks. The blessing extends to (Essence x 5,000) soldiers, grouped in units no larger than legions. Clouds will not naturally block the sun's light upon the battlefield. A long time standing with arms raised, however, can tax even a Lawgiver. For every hour the sorcerer holds her vigil, her player rolls (Stamina + Resistance) against a difficulty equal to the number of hours the spell has lasted already. If her arms do fall against her will, the light begins to fade, but the sorcerer has one action to reclaim it. Success on another (Stamina + Resistance) roll, at the previous difficulty + 1, allows her to lift her exhausted limbs again and call back the Unconquered Sun's favor. Otherwise, the spell ends only if she wills it, if Adamant Countermagic is cast, if the sun sets, or if the battle ends.</p>"
+  },
+  "folder": "66776f28169b53d7",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

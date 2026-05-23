@@ -1,0 +1,64 @@
+{
+  "_id": "e633a234b56c78bd",
+  "_key": "!items!e633a234b56c78bd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sai",
+  "type": "weapon",
+  "img": "icons/weapons/daggers/dagger-straight-blue.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "Normal",
+        "speed": 5,
+        "accuracy": 0,
+        "damage": 2,
+        "damageType": "lethal",
+        "overwhelming": 1,
+        "defense": 2,
+        "rate": 3,
+        "range": 0,
+        "minStrength": 1,
+        "minDexterity": 3,
+        "minMartialArts": 3,
+        "tags": []
+      },
+      {
+        "name": "Clinch",
+        "speed": 6,
+        "accuracy": 2,
+        "damage": 1,
+        "damageType": "bashing",
+        "overwhelming": 1,
+        "defense": 0,
+        "rate": 1,
+        "range": 0,
+        "minStrength": 1,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": []
+      }
+    ],
+    "artifact": false,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 0,
+    "hearthstoneSlots": 0,
+    "description": "<p>Three-pronged, fork-shaped weapons as long as large daggers, specially designed to twist weapons out of an opponent's grasp.</p>",
+    "equipped": false
+  },
+  "folder": "f001a234b56c789d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

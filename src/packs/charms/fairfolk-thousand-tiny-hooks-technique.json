@@ -1,0 +1,59 @@
+{
+  "_id": "68f2e933d661d183",
+  "_key": "!items!68f2e933d661d183",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Thousand Tiny Hooks Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "cup",
+    "essence": 1,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Echo",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The raksha's words cast a net of ideas and rhetoric around his enemy that digs into her flesh. This Charm aids the raksha in Cup-shaping or Staff-shaping entanglement attacks. After spending three motes, the raksha's player can add his character's Essence to all rolls to inflict, maintain, control or otherwise use an entanglement shaping attack. He also adds his Essence to all damage rolls based on the entanglement. Finally, a raksha who knows this Charm automatically gains the following innate power in Creation: Innate Power (Cost: 3m): The raksha can entangle a Creation-born in a web of confusion, distracting him from the danger the raksha's honeyed words represent. The raksha's player must roll (Manipulation + Performance) against the target's Dodge MDV. If the social attack is successful, the target will be unable to use his Dodge MDV to defend against the raksha's attacks for the rest of the scene. All social attacks by the raksha will become undodgeable with regard to that character. Glamour Resistance: The innate power associated with this Charm is a work of glamour that cannot entangle a Creation-born whose (Investigation + Essence) exceeds the raksha's Performance.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "68f2e933d661d183"
+  },
+  "folder": "d5d33b95962cd83e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

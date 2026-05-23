@@ -1,0 +1,57 @@
+{
+  "_id": "9324112c88a5d4d6",
+  "_key": "!items!9324112c88a5d4d6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Infection-Banishing Prana",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "medicine",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Touch"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Even a person who survives brutal injuries can still suffer and die from the deadly infections that accompany such injuries unless he is protected by the blessings of the Elemental Dragons. The Dragon-Blood can instantly cure any existing infection with a touch and the expenditure of a single mote of Essence. Furthermore, wounded persons treated with this Charm will not become infected in the future as a result of any wounds they had when the Charm was used. This Charm does not heal the wounds that initially led to the infection, nor does it protect the patient from infections springing from future wounds.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "9324112c88a5d4d6"
+  },
+  "folder": "b0b1b2b3b4b5f026",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "1887aebc5d300c98",
+  "_key": "!items!1887aebc5d300c98",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Home's Hearth",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDSIDRL00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "sidereal",
+    "rating": 5,
+    "description": "<p>Each side of this irregular, six-sided gemstone is a different color. Once per day, it allows the bearer to teleport himself and up to five other people to or from the stone's manse. The stone can transport the bearer and his companions from anyplace in Creation to the manse in the blink of an eye. However, teleportation from the manse is limited to 100 miles' range. Also, while the stone can transport characters both to and from the Wyld, this carries some danger. To do so, the bearer's player must roll (Wits + Occult). Failure results in the characters all landing somewhere random in the Wyld. A botch additionally renders the stone useless for 48 hours, neither permitting another teleportation attempt nor granting Essence.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

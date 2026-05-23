@@ -1,0 +1,70 @@
+{
+  "_id": "1ae6d83679220495",
+  "_key": "!items!1ae6d83679220495",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Walking Outside Fate",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "stealth",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Fate"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A Sidereal who uses this Charm can part the strands of the weave of fate, stepping between them and outside fate altogether. The character still physically exists in Creation, but her new condition makes her almost impossible to perceive. While the character remains outside fate, creatures whose Essence ratings do not exceed hers cannot detect her. If such creatures succeed on a reflexive (Perception + Awareness) roll, they might realize that some sort of presence has come among them, but affecting that presence or attacking it incurs a -2 external penalty on any related roll. Only characters with supernatural tracking abilities can attempt to track the hidden character. The character remains outside fate for as long as she commits the Essence to the Charm, but causing her anima banner to flare such that it causes Stealth Charms to fail also ends this effect. If two characters walk outside fate in the same location, they cannot automatically sense one another. Whether or not one sees or becomes aware of the other depends on the characters' relative Essence ratings. Walking Outside Fate carries the Fate keyword because other Charms with that keyword have diminished or nullified effects against characters using this Charm.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6df30ee45027fc6c",
+            "charmName": "Soft Presence Practice",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "1ae6d83679220495"
+  },
+  "folder": "b0b1b2b3b4b5f016",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

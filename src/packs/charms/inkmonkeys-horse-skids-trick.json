@@ -1,0 +1,71 @@
+{
+  "_id": "5f39d25367180fca",
+  "_key": "!items!5f39d25367180fca",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Horse Skids Trick",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "ride",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Mount (Mundane)"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>If a mount is only as good as its rider, a Lawgiver's mount defies all convention. By activating this Charm and paying three motes, for the next action the character's mount's capacity for movement-based stunts is increased a hundredfold. It may skid along the ground without losing speed, maintaining velocity without moving its legs, allowing it to drift, draft, and grind. It may spin, turn, twist, whirl, and even skate backwards at full speed. While taking these skid actions, the Solar's mount may not be directly targeted by any attack.</p><p>Hero Rides Away</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "832a4492cc4094d4",
+            "charmName": "Master Horseman's Techniques",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "5f39d25367180fca"
+  },
+  "folder": "b0b1b2b3b4b5f069",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

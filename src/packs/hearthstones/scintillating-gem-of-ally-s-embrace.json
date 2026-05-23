@@ -1,0 +1,27 @@
+{
+  "_id": "7513dfe3d0ec45ef",
+  "_key": "!items!7513dfe3d0ec45ef",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Scintillating Gem of Ally's Embrace",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDWOOD000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "wood",
+    "rating": 2,
+    "description": "<p>This pentagonal gem is banded with the five colors of magical jade. The gem's bearer can perform Charms that require him to touch the target at a range equal to his Essence in yards, but only for Charms that empower his allies, such as the Solar Charm Essence-Lending Method or the Dragon-Blooded Charm Strength of Stones Technique.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

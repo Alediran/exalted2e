@@ -1,0 +1,70 @@
+{
+  "_id": "ce2bc343697c95e3",
+  "_key": "!items!ce2bc343697c95e3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Kalmanka's Grace",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "—(0m to 2m)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Infernal waltzes and pirouettes through skydarkening tempests of arrows, untouched and seemingly oblivious to their passage. This Charm reduces the cost to use Who Strikes the Wind? against a ranged attack by one mote, provided the Exalt is moving toward the attacker. The Charm applies a second discount of one mote against the attacks of extras. With Essence 4+, a third one-mote discount applies against attacks by mortals or natural animals. These discounts stack, but even a free perfect defense still requires a Charm activation. IMPERFECTION OF THE SILENT WIND Like a shark, Adorjan must keep moving or die. Charms noted as vulnerable to this flaw may only be used while dashing, though the character may move at any speed greater than his base move rate up to maximum dashing speed. If moving slower or actually still, the Charm can't be activated.</p><p>As a final effect of this Charm, the Infernal understands that speed is relative. His speed is considered no less than that of an attacker who is moving toward him for the purposes of applying the Imperfection of the Silent Wind to any Charms.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "adorjan",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "24dedf0bdbd7a088",
+            "charmName": "Who Strikes The Wind?",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "ce2bc343697c95e3"
+  },
+  "folder": "e1c045f50a834f12",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

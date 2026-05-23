@@ -1,0 +1,59 @@
+{
+  "_id": "c23fd1efe587366a",
+  "_key": "!items!c23fd1efe587366a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Writhing Ego Invasion",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "heart",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Echo",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "1m per soak",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Prerequisite Charms: None At the edge of the raksha's consciousness, the distant echoes of her enemy's furious assault tickle at her selfawareness. She cocks her ear, as if to listen for the source of the faint buzzing, and then shakes her head as if to clear a momentary fancy from it. This Charm allows the raksha to improve her soak against a single shaping attack. For every mote spent on the Charm (up to a maximum number of motes equal to her Temperance), the raksha adds one dot to her soak.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "c23fd1efe587366a"
+  },
+  "folder": "de1b86005c09a461",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

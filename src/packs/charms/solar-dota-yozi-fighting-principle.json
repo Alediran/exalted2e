@@ -1,0 +1,58 @@
+{
+  "_id": "83f72c516da63f44",
+  "_key": "!items!83f72c516da63f44",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Yozi-fighting Principle",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "war",
+    "essence": 8,
+    "minAbility": 8,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Native"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Yozis are one of the greatest challenges a Solar will ever face in combat, for they are not one being, but hundreds. Yet none may stand in superiority to the Solar Exalted. Using Yozi-Fighting Principle, the Lawgiver's killing instinct expands to encompass foes which are armies unto themselves. By conceptualizing all such combatants as intrinsically linked, the character may extend the actions he takes against one opponent to all of them, enabling him to face impossible odds and engage in legendary battles which form the heart of mythology. While Yozi-Fighting Principle is in effect, any Charm activated against or in response to a networked being is considered to have had its cost pre-paid for use against all other elements of that networked being. This cost discount applies until the Exalt's next action tick. For example: A Solar is attacked by Ligier and activates a Combo of Heavenly Guardian Defense and Solar Counterattack, paying normally for this defense and counterattack. One tick later, he is subjected to a two-attack flurry by Ligier's soul, Gervesin. The character may activate Heavenly Guardian Defense and Solar Counterattack for no cost in response to Gervesin's first attack, but would need to pay for it against his second. Then, one tick after that, Malfeas himself strikes the Solar with a three attack flurry. The Solar may use Solar Counterattack and Heavenly Guardian Defense twice in response to the titan's onslaught for no cost, but would have to pay a third set of activations. \"Networked beings\" are considered to be creatures whose sum totality of being is encompassed by multiple bodies--Yozis and Primordials are the premiere example, but the Emanations of an unshaped raksha also count. This Charm is effective moving both `up' and `down' a Yozi's chain of souls--an attack against Gervesin could roll over into a discount against Malfeas as easily as an attack against Malfeas could roll over into a discount against Gervesin. Attacks against Exalted are never discounted, though in the bizarre event that an Exalt somehow began growing subsidiary souls, attacks directed at the Exalt would provide a discount to then target her souls. Exalted akuma form an exception to this rule--they are considered a part of the Yozi they have sold themselves to, and may be fully treated as such by this Charm.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "83f72c516da63f44"
+  },
+  "folder": "d517bd826bc73b9e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

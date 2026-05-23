@@ -1,0 +1,93 @@
+{
+  "_id": "a84f4b6bb390211e",
+  "_key": "!items!a84f4b6bb390211e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sky Breaker Throw",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      9
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Counterattack"
+    ],
+    "cost": {
+      "motes": 7,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "7m, 1wp"
+    },
+    "description": "<p>For the most part, the Solar Hero is a picture of gentility. However, the ill-timed flailing of an assassin or a Yozi with poor table manners may catch a Lawgiver in the worst of moods. The Solar may activate this Charm to make an unarmed Martial Arts counterattack in response to a successful close range attack. On a successful counterattack, rather than inflicting damage, the Solar automatically throws his opponent 100 yards for every die of pre-soak damage on the attack that triggered Sky Breaker Throw, inflicting appropriate falling damage on impact. If the attack exceeds 20 pre-soak dice, Sky Breaker Throw hurls the opponent ten miles. If the Solar uses Sky Breaker Throw to respond to an attack inflicting 30+ pre-soak damage, the Solar may fling his opponent from his position half the distance across Creation. Against an attack of 50+ raw damage, the range of the throw becomes infinite, allowing the character to designate a fitting location for his foe to touch down. For example, the Solar may choose to bounce his victim off the tip of the Imperial Mountain, in which case the target is catapulted to one of the far ends of Creation. Alternately, the character may express his displeasure by hurling his victim into the heart of the sun. If the Solar is particularly wroth however, he may fling his foe out into the stars, where his victim smashes through an unseen layer of Creation and comes screaming down over the brass skyline of Malfeas to leave a crater in the street. Any impact triggered by a throw of 20 or more pre-soak dice carries a penalty of arbitrarily high damage, sufficient to kill on impact. Due to a peculiarity in the distance between Creation and the Demon City, if the Lawgiver's victim survives being slammed into Malfeas, he will be unable to move from his crater of impact for five days, until time has caught up with him. Being targeted with a social or physical attack causes time to catch up with the character, allowing him to rise and act as normal. The player and Storyteller may work together to come up with additional interesting results for a throw of this magnitude. Note that Sky Breaker Throw requires that the victim be hurled into a specific location; the player may not choose to throw his victim into a limitless vacuum of empty space or send them infinitely sailing across the Wyld. When used in realms other than Creation, Sky Breaker Throw may not be used to throw opponents into Creation save through stable passage points (such as a shadowland during the day, or an open portal between Creation and Autochthonia; under no circumstances may a Yozi be hurled out of Malfeas). Players should work with their Storyteller to define new and interesting parameters for a victim's landing inside of their current realm. Possibilities include, while fighting in the Underworld, banking the First and Forsaken Lion off the well of Stygia and into the maw of Oblivion; or while in Malfeas, throwing Ligier down Isidoros's throat. This Charm's magic will not function without the Solar channeling his retributive fury into it; as such, it may never be used for the purpose of intentionally facilitating rapid transportation, rather than acting as a weapon.</p><p>Melee Perfected Battle Array</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Solar Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e2f3a4b5c6d70891",
+            "charmName": "Horizon-Hurling Tactic",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "74f5d3620f0152d5",
+            "charmName": "One With the Wave",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a84f4b6bb390211e",
+    "grantsMastery": false
+  },
+  "folder": "05bd4dac47a869bd",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

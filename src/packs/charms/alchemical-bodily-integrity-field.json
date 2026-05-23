@@ -1,0 +1,88 @@
+{
+  "_id": "d4f8700d0a907358",
+  "_key": "!items!d4f8700d0a907358",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Bodily Integrity Field",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "strength",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "permanent",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Internal",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "3m or 5m [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Psychoreactive crystalline structures are laced throughout the Alchemical's skeleton. Upon suffering a Crippling effect that inflicts an amputation, the Alchemical may pay one Willpower to charge this telekinetic array, forcing it to hold his body together. Visible flickers and bolts of crackling violet Essence will hold a limb or organ in place, even if it has been completely severed from the body, until the Exalt's superior healing reattaches it in a more lasting manner. The Exalt also does not bleed. Submodules: Hardened Integrity Patterns (Essence 4, 4xp): This submodule permits the Alchemical to reflexively pay five motes and one Willpower to negate any Crippling effect at the moment it would otherwise be inflicted.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4de965c48308bb40",
+            "charmName": "Strain-Resistant Chassis Modification",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          },
+          {
+            "type": "charm",
+            "charmUid": "fbe0c8b68ad8a288",
+            "charmName": "Subcutaneous Armor Plating",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          },
+          {
+            "type": "charm",
+            "charmUid": "179f94d842ffbc87",
+            "charmName": "Alloyed Reinforcement of Flesh",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "d4f8700d0a907358"
+  },
+  "folder": "b0b1b2b3b4b5f054",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

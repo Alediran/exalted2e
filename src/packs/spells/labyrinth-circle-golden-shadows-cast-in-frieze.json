@@ -1,0 +1,37 @@
+{
+  "_id": "2f0fdb8907cbf11c",
+  "_key": "!items!2f0fdb8907cbf11c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Golden Shadows Cast in Frieze",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "labyrinth-circle-golden-shadows-cast-in-frieze",
+    "tradition": "necromancy",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "permanent",
+    "target": "One spectre",
+    "description": "<p>First Age Solars invented this spell to wrest further knowledge from the slumbering minds of the Neverborn. They used it on captive spectres in the laboratory. The spell works just as well in the field, however. The necromancer gathers shadows in his palms and squeezes them into a loose ball of golden mist. When the casting is complete, he blows upon it and splays his fingers wide to shine a bright golden light at his target spectre. Scenes from the spectre's existence before and after becoming tainted play out in the shadow of the golden light. Meanwhile, the target's player rolls (Willpower + Essence) at difficulty 7. The caster may purchase additional successes for this roll at three motes per success, up to his permanent Essence. A successful roll means separates the spectre from Oblivion's whispers (see p. 33), cleansing her mind of her obsession with the Void. If she wanted, she could return to her previous existence as a ghostly citizen of the Underworld. If the spell is cast on a ghost tainted by the whispers of Oblivion but not \"converted\" to a spectre, the spell works perfectly without the need for a roll. Former spectres retain all memories and skills from their time as servants of the Neverborn. They retain a frightening insight into the minds and actions of the old, dead gods. Their corpus remains twisted and malformed, and they usually need serious reconstructive moliation before any other ghosts accept them. Golden Shadows Cast in Frieze still serves its old purposes of inquiry and, occasionally, mercy. Deathlords send ghostly agents into the Labyrinth to become infected and changed, knowing that they can change them back to learn what their agents learned while mad. They also use it to \"cure\" nephwracks who lead dangerously pervasive or effective Oblivion cults. Deathlords use this tactic sparingly, however, because some theories suggest their Neverborn masters know when magic wrenches a spectre from their grasp.</p>"
+  },
+  "folder": "562235f47f16c453",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,70 @@
+{
+  "_id": "38b29c9e3a06da67",
+  "_key": "!items!38b29c9e3a06da67",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Accursed Overlord Authority",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "bureaucracy",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>As the heralds of Oblivion and the chosen weapons of the Neverborn, Abyssal Exalted may command lesser horrors and expect obedience. Accursed Overlord Authority enables the Exalt to make social attacks upon unintelligent creatures of Death such as walking dead and hungry ghosts. The creatures respond as if they had Intelligence 1 and shared a common language with the Abyssal. This capacity to follow directives of greater complexity does not actually increase their Intelligence outside of the exact wording of ordered behavior or give them greater facility to understand language in other contexts. Even without</p><p>commands, such monsters will not attack the deathknight unless another magical being directly commands them to do so.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "075316cb7a45dca1",
+            "charmName": "Eloquent Example Inspiration",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "38b29c9e3a06da67"
+  },
+  "folder": "b0b1b2b3b4b5f036",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

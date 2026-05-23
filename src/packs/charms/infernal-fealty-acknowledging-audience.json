@@ -1,0 +1,84 @@
+{
+  "_id": "3c3ae18bf9a67391",
+  "_key": "!items!3c3ae18bf9a67391",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fealty-Acknowledging Audience",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Sorcerous"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Malfeas honors his inferiors most when he accepts their adoration personally and feasts upon their awe. Infernals may activate this Charm whenever they directly observe anyone else make a declaration of loyalty or love toward them. If multiple characters synchronize their pledge (such as in a recited pledge of allegiance), the Infernal can acknowledge a group with Magnitude up to his Essence rating per activation. The character pledging loyalty need not do so happily, but must do so willingly. Insincere promises still provide a chance to use this Charm, incidentally converting deep-cover spies and moles to loyal followers as they repeat the binding lies of their oaths. Activating this Charm causes all targets to grow a brand exactly like one placed with Magnanimous Warning Glyph (but cannot override that Charm, and vice versa), save that the Infernal may decide whether the mark is visible or invisible, as well as where it is placed. This must be the same for all targets per activation. The act of burning the mark in place also gives its bearer an Intimacy of terrified awe toward the Infernal that does not count against a character's maximum number of sustainable Intimacies. The brand endures regardless of this Intimacy.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "malfeas",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "fb4a1cca499399aa",
+            "charmName": "Crowned With Fury",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4f3f182b82a3efd4",
+            "charmName": "Magnanimous Warning Glyph",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "3c3ae18bf9a67391"
+  },
+  "folder": "1945ba1655ca5f6f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

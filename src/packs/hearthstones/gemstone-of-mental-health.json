@@ -1,0 +1,27 @@
+{
+  "_id": "c3736e8400c30d36",
+  "_key": "!items!c3736e8400c30d36",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gemstone of Mental Health",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDWOOD000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "wood",
+    "rating": 3,
+    "description": "<p>This cloudy orange ovoid instantly and permanently cures its bearer of any derangements or other forms of madness. Any new types of insanity inflicted on the bearer are cured as quickly as they are gained. What's more, the wearer automatically overcomes unnatural mental influences, such as the obsession induced by a gem of desire, within one scene.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

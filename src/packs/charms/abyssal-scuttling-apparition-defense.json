@@ -1,0 +1,59 @@
+{
+  "_id": "8bb37c1d0d014e75",
+  "_key": "!items!8bb37c1d0d014e75",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Scuttling Apparition Defense",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "socialize",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Illusion",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "8m or 10m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Spending four motes, the martial artist fades out of the path of an attack with a gruesome contortionist kata, ceasing to exist except as motes scattered on the breeze. She reappears within a heartbeat in a new position within (Essence) yards as a kind of short-range teleportation. This effect reduces the roll for the attacking character to zero dice. Scuttling Apparition Defense cannot defend against any attack that is unblockable, undodgeable or capable of hitting dematerialized beings, nor can it let a grappled character escape. Attacks supplemented by Charms that add automatic successes also might still strike. Since the Scuttling Apparition Defense is not truly a perfect defense, it does not carry a Flaw of Invulnerability. As a further benefit, the Abyssal can appear directly behind an enemy within range, giving an opportunity to attempt an unexpected attack (see Exalted, p. 155). Against flurries, Exalted may spend six motes when using this Charm to add an unnatural Illusion effect that confuses attackers as to the martial artist's location. Disoriented aggressors must pay a Willpower point or face debilitating waves of d�j� vu and uncertainty that reduce all attack rolls in the flurry to zero dice.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "8bb37c1d0d014e75"
+  },
+  "folder": "b0b1b2b3b4b5f047",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

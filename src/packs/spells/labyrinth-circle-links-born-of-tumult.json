@@ -1,0 +1,37 @@
+{
+  "_id": "cbc884630e4bcd1e",
+  "_key": "!items!cbc884630e4bcd1e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Links Born of Tumult",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "labyrinth-circle-links-born-of-tumult",
+    "tradition": "necromancy",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 22,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 1,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "permanent",
+    "target": "Caster",
+    "description": "<p>The necromancer must temper a silver wire hook in a funeral pyre and quench it first in mortal blood and then in ghostly plasm. The result looks more like blood-smeared black iron than silver. When she casts the spell, the necromancer lowers the hook into her mouth. She catches her po on the end of the wire and, though the act is excruciating, pulls it out through her mouth. Her lower soul flows into her Essence-suffused shadow. The caster has effectively created a hungry ghost from her own soul. Her shadow has traits equal to the hungry ghost found in Exalted on p. 318, with the following adjustments (dependent on the caster's Essence): � It has any Abilities the character has. � Add (Essence x 3) to its base claw damage. � Add (Essence) to its Strength and Stamina, its number of -2 health levels and its lethal and bashing soak. � Add (Essence/2, round down) to its Dexterity and Wits and to its number of -1 health levels. � Add (Essence/3, round down) to its Intelligence and Essence and to its number of -0 health levels. The shadow obeys the character's commands but does not have much ability to improvise. Its Motivation is \"Obey my higher soul\" and it has an Intimacy to \"Murder,\" which it commits when convenient and is not constrained against doing so. The necromancer may send her consciousness to inhabit and control her shadow at any time. While doing this, she may use Charms and Combos through it without any complication, but her body is helpless until she returns to it. The caster can keep her lower soul separate from her body as long as she wishes. Links Born of Tumult ends when the character decides to devour her shadow and lower soul to put both back in their rightful places, or until her shadow is destroyed. In the latter case, the necromancer's lower soul returns to her ripped and torn, and it burns her mind. She loses a dot of permanent Willpower, and the event stuns her for an hour before she can act again.</p>"
+  },
+  "folder": "562235f47f16c453",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

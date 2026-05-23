@@ -1,0 +1,27 @@
+{
+  "_id": "b0b3ded600bfa45d",
+  "_key": "!items!b0b3ded600bfa45d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Eye of the First Goat",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDEARTH00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "earth",
+    "rating": 2,
+    "description": "<p>This stone looks like a pale orange eye with a slitted, dark red pupil. Its bearer's player gains a bonus to all Athletics rolls equal to one-half of his character's Temperance, rounded up. In addition, the bearer gains a +1 bonus to any Melee attacks made with a blunt weapon set with this hearthstone.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

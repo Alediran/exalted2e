@@ -1,0 +1,80 @@
+{
+  "_id": "1c301bf79917da22",
+  "_key": "!items!1c301bf79917da22",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Agenda Recalibration Protocols",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "manipulation",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Compulsion",
+      "Internal"
+    ],
+    "cost": {
+      "formula": "5m, 1wp [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Policy can easily be modified by slight changes in definition, resulting in the cascade realignment of a society. An adamant-and-crystal helix woven through the logic centers of the Exalt's brain contains a vast syntactic database, allowing her to easily link together disparate concepts to present any necessary justification for social reorganization. This Charm functions identically to Taboo Inflicting Diatribe (see Exalted, p. 238) with the following exceptions: It may be used only to change the definition of one of the targeted social group's Intimacies to a similar but differ-</p><p>ent Intimacy of the Champion's choice. This change cannot be a direct inversion of the targeted Intimacy (Lookshy cannot be made to switch from having a friendly Intimacy toward Marukan to harboring a hostile one), but it may otherwise constitute any change as long as at least one element remains in common with the original Intimacy. For example, House Mnemon's subsidiary agenda of \"promoting and supporting the Immaculate Order\" might become an agenda to \"modernize the dogma of the Immaculate Order to favorably incorporate Autochthonia into its mythology.\" The recalibrated agenda remains part of the group's Policy until its leader spends a total of six Loyalty promoting a return to fundamentalist values in order to restore it. Only one Loyalty can be spent in this manner per day.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1342fb3af8c9a0f6",
+            "charmName": "Pattern Facilitation Module",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          },
+          {
+            "type": "charm",
+            "charmUid": "0f99e3bf77af0c6f",
+            "charmName": "Conceptual Entropy Module",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "1c301bf79917da22"
+  },
+  "folder": "b0b1b2b3b4b5f050",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

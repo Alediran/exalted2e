@@ -1,0 +1,81 @@
+{
+  "_id": "5020ee4d8153bba8",
+  "_key": "!items!5020ee4d8153bba8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unbearable Taunt Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "presence",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Action-Only",
+      "Combo-OK",
+      "Dynasty",
+      "Emotion",
+      "Social",
+      "War"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Most Dragon-Blooded consider their personal honor to be sacrosanct, and to such social and self-important creatures, a Charm such as this one is a terrible weapon. The Dragon-Blood need only gain her target's attention and insult or embarrass him in some way to cause the target to become irrationally fixated on her. The</p><p>Dragon-Blood's player must roll (Manipulation + Presence), adding her Essence in automatic successes. The results are compared to the target's MDV. In combat, only the target's Dodge MDV is applicable, and an affected target suffers a -1 penalty to both DDV and PDV when fighting anyone other than the Exalt who used this Charm against him. Outside of combat, the Charm can also be used simply to undermine a rival's social position. The Exalt's player must roll (Manipulation + Presence) against the target as a social attack roll, and only the target's Parry MDV is applicable. If the Exalt is successful, the target suffers grave embarrassment from whatever cutting remark she made, and he suffers a -2 penalty to all social rolls for the remainder of the Charm's duration. The Charm lasts for a number of actions equal to the Exalt's Essence during combat or for a number of long ticks equal to the Exalt's Essence in social combat.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "60ebc4c4e86eb160",
+            "charmName": "Glowing Coal Radiance",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "targetPenalty": {
+      "enabled": true,
+      "amount": -1,
+      "scope": "dv",
+      "duration": "oneScene"
+    },
+    "charmUid": "5020ee4d8153bba8"
+  },
+  "folder": "b0b1b2b3b4b5f02a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

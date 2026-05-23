@@ -1,0 +1,49 @@
+{
+  "_id": "e62ca234b56c78b6",
+  "_key": "!items!e62ca234b56c78b6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Cestus",
+  "type": "weapon",
+  "img": "icons/weapons/fists/fist-wraps-leather-brown.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "",
+        "speed": 5,
+        "accuracy": 0,
+        "damage": 3,
+        "damageType": "bashing",
+        "overwhelming": 1,
+        "defense": 2,
+        "rate": 3,
+        "range": 0,
+        "minStrength": 1,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": []
+      }
+    ],
+    "artifact": false,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 0,
+    "hearthstoneSlots": 0,
+    "description": "<p>Leather straps fitted around the hand like a fingerless glove, covered in brass or iron studs to enhance the wearer's punches.</p>",
+    "equipped": false
+  },
+  "folder": "f001a234b56c789d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

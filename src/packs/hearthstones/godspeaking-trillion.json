@@ -1,0 +1,27 @@
+{
+  "_id": "58c5f1a16e0b32c9",
+  "_key": "!items!58c5f1a16e0b32c9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Godspeaking Trillion",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDAIR0000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "air",
+    "rating": 1,
+    "description": "<p>This hearthstone resembles a square-cut piece of milky blue topaz. It gives the bearer's voice the timbre and intonation of one of members of the Council of Winds. Air elementals and gods of weather, wind and sky react more favorably to the character because he sounds like one of them. The character's player may apply either a +2 bonus to all Social rolls when dealing with such entities, or reduce their difficulties by 1 (to a minimum of 1). This includes Charms that must exceed a target's MDV to exert mental influence, but the player may not apply both advantages at once.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

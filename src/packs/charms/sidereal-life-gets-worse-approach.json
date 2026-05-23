@@ -1,0 +1,65 @@
+{
+  "_id": "bda2dae3ea4a6f82",
+  "_key": "!items!bda2dae3ea4a6f82",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Life Gets Worse Approach",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "thrown",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal makes the Inferior Sign of the Gull over his weapon before he throws it. If it hits, the attack adds the Sidereal's Essence to the raw damage. Then, if the weapon inflicts at least one level of damage, the weapon remains stuck in the wound and emits an eerie yellow light. The weapon continues to do so until the target removes the projectile. Removing it is a miscellaneous action that requires a (Strength + Athletics) roll. The light from the weapon extends yellow tendrils that snatch and pull in airborne objects. Such objects might be insects, loose debris, birds--or other foes' projectiles. Once per action, when anyone misses his target with a Thrown or Archery attack, the Sidereal may reflexively spend two motes of Essence. Doing so summons the errant projectile toward the embedded one. As a result, the person whose character missed with the attack reflexively rerolls the failed attack. Any Charms that supplemented or otherwise modified the original attack still apply to the rerolled one; the character does not need to pay to activate them. The Sidereal can spend these two motes to call for a reroll of a failed attack roll against the target. A botched attack against any target, from a character in range of the victim affected by this Charm, can be redirected to the Charm's victim.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "attackBonus": {
+      "enabled": true,
+      "accuracyDice": "",
+      "damageDice": "@ess",
+      "accuracySuccesses": "",
+      "ignoreAccuracyPenalties": false
+    },
+    "charmUid": "bda2dae3ea4a6f82"
+  },
+  "folder": "b0b1b2b3b4b5f018",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

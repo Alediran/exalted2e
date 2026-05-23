@@ -1,0 +1,71 @@
+{
+  "_id": "31a8efd5abc1a21c",
+  "_key": "!items!31a8efd5abc1a21c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Predestined Triumph Practice",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "war",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Virtue (Valor)",
+      "War"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Whether a Sidereal leads from the front or coaches from the rear, he can use this Charm to help lead an army to victory. When the Sidereal commands the unit, the Charm automatically succeeds. If the character acts through the army's commander, the Charm requires a successful (Charisma + War) roll with difficulty 1 if the leader cooperates, 3 if the leader doubts the Sidereal's advice and 5 if the leader flatly refuses to take the Sidereal's advice and must be browbeaten or tricked into the proper tactics. When the effect is successful, the affected unit adds the Sidereal's Essence to the unit's Morale, while opposing forces suffer a one-die penalty to their attacks and Defense Values.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f2210491076715e1",
+            "charmName": "Auspicious Recruitment Drive",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "31a8efd5abc1a21c"
+  },
+  "folder": "b0b1b2b3b4b5f019",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

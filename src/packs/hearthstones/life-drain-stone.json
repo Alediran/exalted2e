@@ -1,0 +1,27 @@
+{
+  "_id": "182de61792b1854f",
+  "_key": "!items!182de61792b1854f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Life-Drain Stone",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDABSSL00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "abyssal",
+    "rating": 1,
+    "description": "<p>This polished, deep-purple teardrop becomes blood red in direct sunlight. If his player wins a resisted (Willpower + Essence) roll, the bearer can inflict weariness on others. Any target whose player fails this resisted roll feels listless and tired until she next sleeps, temporarily losing one from her Wits score. Characters whose players botch this roll also temporarily reduce their Permanent Willpower by one until they next sleep. The stone's effects do not stack, so repeated attacks on a target serve little purpose.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

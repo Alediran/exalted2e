@@ -1,0 +1,37 @@
+{
+  "_id": "89e5563d4842d400",
+  "_key": "!items!89e5563d4842d400",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Internal Flame",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-internal-flame",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 15,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "permanent",
+    "target": "Creature",
+    "description": "<p>Molten rock flows within the bones of the earth. Volcanic gods use a certain gesture to call that magma to their mountains. As the sorcerer makes the Mudra of Burning Earth at any creature he can see within 300 yards, streamers of red and gray Essence-flame wash over the target's body. They seep past armor and clothing to enter his body. The sorcerer's player rolls (Wits + Occult) and adds a number of successes equal to the caster's Essence to the attack. This attack cannot be dodged, though it may be parried using stunts, magic weapons or Charms. If this attack is not parried, the spell gives the target's bone marrow the qualities of molten iron. This Shaping effect inflicts environmental damage (Damage 2L/action, Trauma [sorcerer's permanent Essence]). The damage continues for a number of actions equal to the sorcerer's Occult or until the victim receives medical attention. Internal Flame inflicts agony beyond belief. The target suffers a -2 internal penalty to all actions for the rest of the scene. This wound penalty stacks with all other active wound or pain-based penalties. Without supernatural healing, mortals remain wounded after the scene and slowly die over the next few weeks (generally holding on for one week per dot in Stamina ALLEVIATING THE INTERNAL FLAME Internal Flame infuses a human body with a fiery Essence that does not belong there, which wounds its victim as it tries to find its way out. A skilled healer can alleviate the damage through pressure point and Essence-gate manipulation, if he acts quickly. Doing so requires an (Intelligence + Medicine) roll, difficulty equal to the sorcerer's Essence, as a miscellaneous action. Lack of medical tools (such as acupuncture needles) inflicts a -2 internal penalty to this roll. Success means the target ceases to take damage, reducing the penalty from pain to -1 for the rest of the scene. before expiring). Exalts, spirits and other supernatural creatures heal normally from this attack.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,57 @@
+{
+  "_id": "affdacc8f51740a5",
+  "_key": "!items!affdacc8f51740a5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sacred Guardian Renewal",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "stamina",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "permanent",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Lunar draws upon her role as guardian of the sacred wilderness to renew the divine architecture of her body. Invoking the regenerative principles that allow the natural world to recover from wounds — the forest regrowing after fire, the river running clean after flood — the Exalted heals a number of health levels equal to her permanent Essence, with bashing damage clearing first, then lethal. The sacred nature of this renewal means the healing is genuine recovery, not merely cosmetic.</p><p>When used on wounds that were inflicted in defense of an Intimacy or the Lunar's territory, the healing converts lethal damage to bashing in addition to the normal recovery, reflecting the extra reserves available to a guardian acting within her purpose. This charm is a prerequisite for Silver and Gold Span the Heavens, grounding that transcendent regenerative technique in the more fundamental body-renewal that Sacred Guardian Renewal represents.</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "affdacc8f51740a5"
+  },
+  "folder": "b0b1b2b3b4b5f06c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

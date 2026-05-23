@@ -1,0 +1,57 @@
+{
+  "_id": "df395b8cdc90d358",
+  "_key": "!items!df395b8cdc90d358",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "World-Shaping Artistic Vision",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "craft",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Native"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The character develops an enviable knack for manipulating fate in a particular circumstance, environment or condition personal to her. This condition could be \"In Cities,\" \"On the Water\" or defined by other similar parameters. It should have the same breadth as a specialty. When that specialty condition applies, the target number for Craft (Fate) rolls and all rolls for Sidereal astrology automatically decrease by one. The Sidereal doesn't pay for this reduction; it exists as a permanent enhancement of her capabilities. A character can buy this Charm up to three times, either for the same condition or a selection of two or three conditions.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "df395b8cdc90d358"
+  },
+  "folder": "b0b1b2b3b4b5f005",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

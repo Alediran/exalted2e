@@ -1,0 +1,57 @@
+{
+  "_id": "f0bd07b461491cea",
+  "_key": "!items!f0bd07b461491cea",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Stunning Deathblow Evasion",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "martial-arts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>As the Yozis well know, the Lawgivers have a way of turning certain death into a crushing victory. When in a clinch, the Solar may use this Charm in response to an attack being made against her from outside the grapple. Doing so forces the clinching opponent to suffer all incoming attacks for the rest of the action as though those attacks had been directed at him. This Charm may manifest in a number of ways: the Lawgiver is seen to twist out of the path of a daiklave at the last instant, causing it to shear through her captor; the Exalt exerts superior leverage to drag her opponent into a volley of arrows, using him as a shield. In any case, the Solar clearly demonstrates to her foes why they should not touch what they cannot hold. If used in response to an area-of-effect attack encompassing the Solar and the one grappling her, such as Death of Obsidian Butterflies or a supernatural ice storm, the Solar reduces the effect's raw damage by half (round up) and adds this amount to the raw damage inflicted on the character clinching her. This Charm offers no benefits if the Solar is not in a clinch. Shadow Foot Trap</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f0bd07b461491cea"
+  },
+  "folder": "a1b2c3d4e5f60008",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

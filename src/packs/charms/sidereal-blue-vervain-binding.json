@@ -1,0 +1,58 @@
+{
+  "_id": "8f7decda9a476e53",
+  "_key": "!items!8f7decda9a476e53",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Blue Vervain Binding",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "linguistics",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": -2,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Training"
+    ],
+    "cost": {
+      "formula": "1m per character",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal recites a minute-long blessing in the Old Realm's tongue. (The Charm absolutely requires knowledge of that language.) If his player succeeds at an (Intelligence + Linguistics) roll at difficulty 5, the blessing binds together the fates of two creatures (one of whom may be the Seer himself) such that those two creatures can understand each other's speech forever after. This understanding goes only so far as each creature's respective intellect allows, of course. A Sidereal could no more explain the nuances of motonic physics to a Haltan san-monkey than that Sidereal could understand the san-monkey's description of the pheromones that attracted him to his san-monkey mate.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "8f7decda9a476e53"
+  },
+  "folder": "b0b1b2b3b4b5f00a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,57 @@
+{
+  "_id": "2ab3c9cb26c3fdbf",
+  "_key": "!items!2ab3c9cb26c3fdbf",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Blazing Courageous Swordsmen Inspiration",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "war",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "Varies",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood ignites the fighting spirit of those under her command with the passion of the Fire Dragon. The character delivers a rousing battle cry or pre-combat speech that fills her troops with elemental valor. All friendly units within (Essence x 10) yards gain a bonus of (War) dice on Valor checks made this scene, and the difficulty of any Morale check to make them rout is increased by the character's Essence. Fire Aspects using this Charm may choose to have the bonus dice apply to attack rolls instead of Valor checks.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "2ab3c9cb26c3fdbf"
+  },
+  "folder": "b0b1b2b3b4b5f032",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

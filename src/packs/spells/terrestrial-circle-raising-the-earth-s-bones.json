@@ -1,0 +1,37 @@
+{
+  "_id": "f471ce58effaf1a7",
+  "_key": "!items!f471ce58effaf1a7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Raising the Earth's Bones",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-raising-the-earth-s-bones",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 25,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Area",
+    "description": "<p>The military forces of both Lookshy and the Realm make frequent use of this spell, which enables military sorcerers to raise earthworks and stone walls for defensive positions or otherwise to reshape a battlefield to their advantage. The sorcerer first marks out the area he wants to affect by driving cut sapling branches into the ground and infusing them with his anima. He can do so up to ([Intelligence + War + Essence] x 10) yards in any direction. The sorcerer also paces along the line of any berms, mottes, buildings or trenches he wishes to construct. The area must also be cleared of any creature larger than a rabbit. When the sorcerer casts the spell, he visualizes the structure he wants to create. The paced lines and sapling poles glow ocher-yellow as earth and stone flow like wax to shape themselves into the proper forms. Casting the sorcery is a five-minute dramatic action. No structure raised by this spell can exceed three stories in height or depth, and available materials limit the sorcerer. He cannot raise stone walls in the bottomless sand-seas of the South, for instance. Once the structures exist, countermagic has no effect: They were shaped by sorcery but are not themselves magical.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

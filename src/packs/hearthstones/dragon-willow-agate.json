@@ -1,0 +1,27 @@
+{
+  "_id": "a38e8e4ad8f836e2",
+  "_key": "!items!a38e8e4ad8f836e2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dragon Willow Agate",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDWOOD000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "wood",
+    "rating": 1,
+    "description": "<p>The bearer of this hemisphere of green and dark umber agate adds +2 to his DV pool against all Archery attacks and all attacks made with wooden weapons. The bonuses from this stone add to the bonuses gained when Wood-aspected Dragon-Blooded activate their anima power.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

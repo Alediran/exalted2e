@@ -1,0 +1,37 @@
+{
+  "_id": "0507e6f8e2ef06c7",
+  "_key": "!items!0507e6f8e2ef06c7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Purifying Flames",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-purifying-flames",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 20,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Food and drink",
+    "description": "<p>The sorcerer closes her eyes and flares her anima, forcing it through the strength of her will to assume the form of a blazing white, heatless flame. The flame surges from her body and seeks out any poison, corruption and toxicity that dare offend the sorcerer's presence. Purifying Flames halts all decay and destroys all non-magical poisons within enough food and drink to feed 12 people in one meal or else cleanses a single fouled well or self-contained water source. It neutralizes any non-magical poison already within a creature's body, preventing any further damage or negative effects, but it does not heal damage already taken. Purified characters expel the neutralized poison by vomiting it or by sweating it out through their pores.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

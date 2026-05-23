@@ -1,0 +1,51 @@
+{
+  "_id": "e610a234b56c7899",
+  "_key": "!items!e610a234b56c7899",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Staff",
+  "type": "weapon",
+  "img": "icons/weapons/staves/staff-simple.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "",
+        "speed": 6,
+        "accuracy": 2,
+        "damage": 7,
+        "damageType": "bashing",
+        "overwhelming": 1,
+        "defense": 2,
+        "rate": 2,
+        "range": 0,
+        "minStrength": 2,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": [
+          "Reaching"
+        ]
+      }
+    ],
+    "artifact": false,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 0,
+    "hearthstoneSlots": 0,
+    "description": "<p>A length of sturdy wood, sometimes wrapped in metal bands or leather; more than one ruffian has been thrashed by a traveler's walking stick.</p>",
+    "equipped": false
+  },
+  "folder": "f001a234b56c789d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

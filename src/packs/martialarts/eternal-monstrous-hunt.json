@@ -1,0 +1,76 @@
+{
+  "_id": "1a36f542563db610",
+  "_key": "!items!1a36f542563db610",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Eternal Monstrous Hunt",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": "None",
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "--"
+    },
+    "description": "<p>The Infernal Monster does not understand forgiveness. This Charm improves its prerequisite, allowing tags it places to last until the Exalt dies, the target dies or the tag is removed via countermagic (i.e. duration becomes indefinite rather than one month). With Essence 6+, the Infernal's enmity is the stuff of terrible legend. If the target dies, the tag is inherited by the oldest surviving blood offspring of that person. If there is no child to inherit the tag, it passes to the victim's oldest surviving sibling. If there is not a sibling to carry on the family curse, the vendetta dies there. The Infernal intuitively knows when a transfer occurs and the relationship between the tag's last bearer and its new heir. Armageddon Nightmare Duel</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Infernal Monster Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "742364bb9e782450",
+            "charmName": "Blood Heralds Death",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "1a36f542563db610",
+    "grantsMastery": false
+  },
+  "folder": "ae5a8ed470f7303b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,59 @@
+{
+  "_id": "636462008a4b622b",
+  "_key": "!items!636462008a4b622b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Second Larceny Excellency-- Essence Triumphant",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "larceny",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      1
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m per success",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood can invoke this Charm when making a roll based on the relevant Ability. The Exalt can spend up to (Ability + applicable specialties) in motes. The Charm adds one automatic success to the roll for every two motes spent. If the Dragon-Blood uses Essence Triumphant in combination with Charms that add dice, each success purchased with Essence Triumphant reduces by two the maximum number of dice that she can add. The Exalt can also use this Charm to enhance unrolled uses of the relevant Ability. For every two motes spent, the Dragon-Blood can increase the applicable DV by one, up to a maximum improvement equal to her Ability trait plus any applicable specialties. This is a reflexive Charm that can be used freely without the need for a Combo. The Dragon-Blood, however, is limited in using the Charm as follows: The Charm can be used to purchases automatic success on any action made on the tick in which the Dragon-Blood takes a normal action. On the ticks between actions, this Charm can be used only to enhance an unrolled use of the relevant Ability to improve a DV or to add dice to an Ability used in a Counterattack Charm. This Charm can not, for example, be used to purchase automatic successes between actions to be used for extra attacks. THIRD Larceny EXCELLENCY--</p>",
+    "source": "MoP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "second",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "636462008a4b622b"
+  },
+  "folder": "b0b1b2b3b4b5f022",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

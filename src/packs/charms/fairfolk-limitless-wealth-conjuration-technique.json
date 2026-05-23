@@ -1,0 +1,59 @@
+{
+  "_id": "2063bf6e4baa3fc4",
+  "_key": "!items!2063bf6e4baa3fc4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Limitless Wealth Conjuration Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "ring",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Glamour (1 or 3)",
+      "Illusion",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "2g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Instead of merely creating expensive items as its prerequisite allows, this Charm simply lets the raksha become wealthy. The raksha sends her glamour out in a coruscating wave of reality-alteration and weaves her into the narrative of local Creation in the role of a person of means. The raksha's player rolls (Intelligence + Bureaucracy). For each success, the raksha gains a temporary point of the Resources Background, up to a maximum equal to her Essence. The Charm doesn't just create great heaping pots of coins, it also instantly upgrades the raksha's lifestyle to one appropriate to her new Resources rating. Her clothing becomes regal apparel, her beaten-down nag becomes a mighty steed, her tiny hovel becomes a mansion fit for a queen. The Resources acquired through this Charm can be used in any way that normal Resources could be used. If the raksha wishes, she can maintain two separate Resources ratings: one created by this Charm for her more expensive purchases and one mundane Resources rating that is actually \"real.\" The effects of this Charm last for one season in Creation but end early if the raksha terminates her Assumption Charm prematurely. Glamour Resistance: The Resources benefits acquired through this Charm are a work of glamour. Any Creationborn can perceive the raksha's true wealth if his (Wits + Essence) or his (Bureaucracy + Essence) exceeds the raksha's Bureaucracy. Resisting Creation-born see that the raksha's golden raiment is naught but tarnished brass and her coins nothing but worthless pebbles. At the end of the season, the Resources boost fades, and any items acquired by the raksha fade away, whether created through this Charm or purchased from affected mortals with the money obtained by it.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "2063bf6e4baa3fc4"
+  },
+  "folder": "e3ab9ab145f6a424",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

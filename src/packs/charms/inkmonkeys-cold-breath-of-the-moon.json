@@ -1,0 +1,63 @@
+{
+  "_id": "c5f527938f5b2b08",
+  "_key": "!items!c5f527938f5b2b08",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Cold Breath Of The Moon",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "wits",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Sickness"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Luna protects Creation from the terrors beyond its borders, but she also uses her light to lure those horrors into the world, that they might be her prey. The Lunar is able to share a portion of those horrors which walk by the light of the moon with a target, afflicting them with night terrors. To use this Charm, the Lunar must crouch above a sleeping individual and spend a moment studying the rising Essence of their dreams. Seizing upon a momentary instability, the Lunar breathes a nightmare into the target's lungs. The Lunar must roll (Wits + Occult) against a difficulty of the target's ([Perception + Awareness] / 2); success infects her with night terrors for a number of nights equal to the Lunar's Essence, while failure causes the target to prematurely awaken. The nightmares created by this Charm are harrowing, nonsensical, and often feature the world inexplicably and relentlessly changing around the target, melting into ever more distressing forms, filled with terrible monsters. Upon awakening from such a nightmare, the character rolls Conviction as normal. Success indicates that the character simply gains no Willpower. Failure leaves the character disoriented throughout the remainder of the day, suffering a -1 internal penalty to all actions as vague recollections of awful sights and the cold, merciless light of the moon prey on her thoughts. A botch causes the character to suffer a -1 internal penalty, as described above, and to lose a point of Willpower. This Charm may not be used on a target again until the original night terrors have run their course.</p><p>Moth-to-Flames Defense</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "willpowerRecovery": {
+      "enabled": true,
+      "event": "onDamageDealt",
+      "formula": "1"
+    },
+    "charmUid": "c5f527938f5b2b08"
+  },
+  "folder": "b0b1b2b3b4b5f072",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

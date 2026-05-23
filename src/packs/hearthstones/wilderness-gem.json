@@ -1,0 +1,23 @@
+{
+  "_id": "HS15000000000000",
+  "_key": "!items!HS15000000000000",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wilderness Gem",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-green.webp",
+  "folder": "FLDLUNAR00000000",
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "hearthstoneType": "lunar",
+    "rating": 4,
+    "description": "<p>This rough, pale-purple triangle gives its bearer an unparalleled understanding of the wilderness. The bearer can easily find food and shelter, instinctively understands the habits of animals, can easily track prey and can accurately predict the weather. This stone adds two successes to all Survival rolls and enables its bearer to perform supernatural tracking.</p>"
+  }
+}

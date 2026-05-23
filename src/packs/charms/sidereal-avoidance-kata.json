@@ -1,0 +1,72 @@
+{
+  "_id": "a671f4f8746be311",
+  "_key": "!items!a671f4f8746be311",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Avoidance Kata",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "dodge",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Illusion",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The character wasn't actually there when the trouble began. That's his story, and the Loom of Fate backs it up. If--within his first two actions after Join Battle or Join Debate--the Sidereal decides he would rather have been somewhere else, he can activate this Charm. Having done so, he vanishes from his current location and reappears in</p><p>another location. The Sidereal cannot control his new location, but it's someplace plausible for him to be if he'd decided to take a different course a few minutes before. Simultaneously, an Illusion effect blurs the memories of other people so they don't remember the Sidereal's presence. Wounds still bleed, traps remain sprung, Essence remains spent. However, other people in the aborted encounter receive vague notions of an alternate series of events to explain any evidence of the Sidereal's presence, which they soon confabulate into a detailed scenario that they believe completely. Spending two Willpower overcomes this Illusion.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b7fc85c754e61c93",
+            "charmName": "Duck Fate",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a671f4f8746be311"
+  },
+  "folder": "b0b1b2b3b4b5f006",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

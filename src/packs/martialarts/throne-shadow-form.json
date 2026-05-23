@@ -1,0 +1,63 @@
+{
+  "_id": "01165ee757be9897",
+  "_key": "!items!01165ee757be9897",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Throne Shadow Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": "Form-type",
+    "cost": {
+      "motes": 8,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "5m"
+    },
+    "description": "<p>The Abyssal assumes the posture of a sovereign of death, her shadow spreading to swallow the light around her as she becomes the still center of a domain of absolute dominance. In this form the Exalted's presence becomes overwhelming — she gains bonus dice equal to her Essence on all Martial Arts attack and damage rolls, and her Parry and Dodge DVs each increase by her Essence as she moves with the inevitability of entropy itself.</p><p>While the form is active the Abyssal's footsteps leave frost-burned marks, her shadow moves independently, and all within close range must succeed on a Valor check at difficulty 3 each action or freeze in place for one tick from the oppressive weight of her dominion over death. Social attacks made while in this form against those who have witnessed her martial prowess this scene add her Martial Arts Ability in bonus dice. This is the Form-type charm prerequisite for Secret Lesson Revelation.</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Throne Shadow Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "01165ee757be9897",
+    "grantsMastery": false
+  },
+  "folder": "0489c660869ce271",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

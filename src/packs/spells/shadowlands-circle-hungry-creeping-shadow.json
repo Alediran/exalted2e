@@ -1,0 +1,37 @@
+{
+  "_id": "f872a273730f594e",
+  "_key": "!items!f872a273730f594e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hungry Creeping Shadow",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "shadowlands-circle-hungry-creeping-shadow",
+    "tradition": "necromancy",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 15,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "One creature",
+    "description": "<p>Dragging from herself the worst of her inner darkness, the necromancer vomits a sticky, black ooze, which flows from her to attack an indicated visible enemy within 100 yards. The shadow has Physical Attribute and Martial Arts scores equal to the caster's Essence, health levels equal to her (Stamina + Essence) and can move at a dash. The viscous thing can be hurt only by magical attacks (against which it has no soak) or fire. The merest brush with an open flame will burn it up in seconds, leaving a tacky, noisome residue on everything it touched. A character clinched by the shadow while it burns takes six levels of lethal damage. The ooze always seeks to immobilize a foe and creep down his throat. It only makes grapple attacks, electing to do damage when in control of the clinch. If its target flees, the shadow pursues unerringly, no matter where he goes. Once it kills its target, the shadow falls quiescent within him, leaving no trace but the residue on his body and utter, unreflecting blackness in his eyes. If a victim can evade it for an hour, however, the shadow evaporates.</p>"
+  },
+  "folder": "9a7bd83d0a359e00",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

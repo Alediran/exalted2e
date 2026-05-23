@@ -1,0 +1,27 @@
+{
+  "_id": "3702969aa91404c8",
+  "_key": "!items!3702969aa91404c8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Pearl of Shadow Form",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDAIR0000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "air",
+    "rating": 5,
+    "description": "<p>This jet-black orb transforms its bearer's body and possessions into living shadow. She becomes an intangible silhouette that moves along surfaces as a shadow does and can flow through the narrowest of openings. In shadow form, she is a creature of darkness and may not affect the material world in any way. Likewise, others can only touch or affect her with powers that affect the immaterial or cause Holy damage. Entering or leaving shadow form is a miscellaneous Desecration and Shaping action costing 5m. The pearl's effects last indefinitely until the bearer chooses to end them or until she is touched by sunlight, moonlight or the light of the Green Sun.</p>",
+    "source": "Ink Monkeys"
+  }
+}

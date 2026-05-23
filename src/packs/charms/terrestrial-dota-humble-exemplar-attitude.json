@@ -1,0 +1,59 @@
+{
+  "_id": "044ed08e05e0954f",
+  "_key": "!items!044ed08e05e0954f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Humble Exemplar Attitude",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "bureaucracy",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Emotion",
+      "Martyr",
+      "Social"
+    ],
+    "cost": {
+      "formula": "3m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Although it is not the place of the Terrestrial Exalted to rule Creation, their honorable example can have a profound positive effect on others, inspiring shame in those who fail to live up to the standard. The Exalt may target an individual or social unit with Essence or Magnitude (respectively) no greater than his Bureaucracy, provided he addresses the individual or belongs to the unit and is not its leader. While this Charm remains active, every social attack against the target that is intended to make it follow its Motivation or official Policy (rather than its current course of action) is considered unnatural mental influence, halving the target's MDV. The Martyr effect of this Charm requires public suicide in the target's presence, but increases the maximum target Essence/Magnitude to the Terrestrial's (Bureaucracy + Essence) and the effect lasts until the target changes its Motivation/Policy.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "044ed08e05e0954f"
+  },
+  "folder": "b0b1b2b3b4b5f01d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

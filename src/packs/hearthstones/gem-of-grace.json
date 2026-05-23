@@ -1,0 +1,23 @@
+{
+  "_id": "HS12000000000000",
+  "_key": "!items!HS12000000000000",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gem of Grace",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDSOLAR00000000",
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "hearthstoneType": "solar",
+    "rating": 3,
+    "description": ""
+  }
+}

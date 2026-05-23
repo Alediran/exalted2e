@@ -1,0 +1,57 @@
+{
+  "_id": "7f33d54d9071ff29",
+  "_key": "!items!7f33d54d9071ff29",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Legend Lives on",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "bureaucracy",
+    "essence": 7,
+    "minAbility": 7,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Training"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solar pours her very soul into the works she has brought forth in Creation. Upon learning this Charm, the character selects a bureaucratic organization she presently leads. Should the Solar come to no longer lead that organization (whether due to resignation, coup, or the organization's dissolution), she may spend one Willpower to target a different organization she leads; or she may spend five Willpower at any time to transfer this Charm's focus to a different organization. This Charm takes effect when the Solar meets his final day. Upon death, rather than guarding the Lawgiver's corpse, his po soul becomes the quiet guardian of the targeted organization, bending its strength toward guiding the new leadership of the organization. In essence, the po does everything in its power to ensure the organization continues to run as though the Solar were still alive, sometimes prompting rumors that a Lawgiver has not truly died at all, but is simply guiding the organization in secret. A po spirit empowered by this Charm possesses the Solar's Attributes, Abilities, Essence rating, and, in addition to an array of dangerous arcanoi, the following unique powers: · All General Charms the Solar knew in life, though they may only be used to support, lead, or defend the organization the spirit is attached to. · The ability to manifest itself in a form indistinguishable from the living Solar. · The po cannot be permanently destroyed short of Ghost-Eating Technique or equivalent magic, reforming at sunset each evening so long as the idea remains in the heart's of the organization's members that the Solar or his vision lives on, and so long as the organization it was set to guide endures. Furthermore, when the Solar's Exaltation next incarnates, this spirit will seek out the new hero and seek to teach her everything it knows about the organization and how to carry on the last incarnation's work, effectively and smoothly returning the fallen Solar to his rightful place at the head of the order. In addition to imparting detailed knowledge about the organization in question, this consists of a Training effect allowing the po to impart dots of Bureaucracy at a rate of one per week, up to a limit of the former incarnation's Bureaucracy rating. This may explicitly break the newly incarnated Solar's normal age cap--for example, a Solar who had only been Exalted for a year could be trained up to Bureaucracy 7 (the rating of her former incarnation), as a Training effect. A similar Charm exists for the War Ability called The Unending March (Prerequisites: Heroism-Encouraging Presence), which targets a military organization and permits training in the War Ability.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "7f33d54d9071ff29"
+  },
+  "folder": "d5862da5783b00ab",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

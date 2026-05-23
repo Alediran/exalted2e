@@ -1,0 +1,72 @@
+{
+  "_id": "bd6e12b249c2ccbf",
+  "_key": "!items!bd6e12b249c2ccbf",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Mist-Walking Prana",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "dexterity",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Wyld"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>There are holes in the Wyld, tunnels that connect two far places but that rarely exist for long. This Charm gives the character the preternatural speed to slip through these gaps in space before they disappear or move on. The Lunar's player rolls (Dexterity + Occult) at a difficulty of 1 for Pure Chaos, 2 for the Deep Wyld, 3 for Middlemarches and 4 for the Bordermarches. Basic success allows the character</p><p>to exploit these distortions of the Wyld to travel one mile. Each threshold success allows him to add one zero to the distance or increase the Magnitude of people he leads on the path by one (from a base of zero, himself). Maximum distance is 1,000 miles; maximum Magnitude is (Essence - 1). Traveling this way is a dramatic action that requires five minutes. Though the Lunar rarely stays in one place long enough for creatures of the Wyld to accost, taking any nonreflexive actions (to attack something, for example) breaks the character's concentration and disrupts the Charm. A Lunar who does not complete the trip as planned (i.e., the player fails a roll) usually ends up lost, sometimes far from his intended destination (by 1,000 miles or more distant, in the case of a botch). Assuming nothing goes wrong, the Lunar progresses the appropriate distance toward his destination with the Charm's conclusion.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f0f6699294cf8071",
+            "charmName": "Pack and Flock Guidance",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "bd6e12b249c2ccbf"
+  },
+  "folder": "6d3aed86fa48b120",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

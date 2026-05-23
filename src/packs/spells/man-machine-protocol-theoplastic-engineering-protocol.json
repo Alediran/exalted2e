@@ -1,0 +1,37 @@
+{
+  "_id": "2f9a439c95c1e19b",
+  "_key": "!items!2f9a439c95c1e19b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Theoplastic Engineering Protocol",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "man-machine-protocol-theoplastic-engineering-protocol",
+    "tradition": "weaving",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 15,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Terrain",
+    "description": "<p>By pointing his hand and invoking this protocol, the weaver can reshape any terrain within (Essence x 100) yards for the remainder of the scene, directing the technoorganic metal landscape of Autochthonia to flow according to his will. He can use this protocol to seal off tunnels in the Reaches, to make room for expanding metropoli, to pull inaccessible veins and conduits closer to the surface (a service routinely performed for the Conductors' miners) and to accomplish similar tasks. Given time, a number of weavers working together could open up whole new veins within Autochthonia. A single weaver can shift an area equal to (Essence x 100) cubic yards of material per miscellaneous action. If used in Creation, this protocol can create any sort of terrain, with the weaver sculpting (Essence x 50) cubic yards of stone or earth to create tunnels, bridges of stone or even small islands. It may even be employed to pull veins of ore to the surface, as long as they are within range and the weaver knows of their existence. The protocol can be used to confine enemies, but doing so takes 10 ticks, and the target can struggle to free himself, his player rolling (Strength + Athletics), difficulty 2, +1 difficulty for every action in which the weaver shapes the ground around the target. In theory, it should be possible to use this protocol to reshape the Underworld's Labyrinth or the landscape of Malfeas (as both are also forms of Primordial flesh), but neither possibility has been tested yet.</p>"
+  },
+  "folder": "3b28eb3d74c31f00",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

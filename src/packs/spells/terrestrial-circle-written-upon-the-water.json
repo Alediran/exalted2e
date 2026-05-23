@@ -1,0 +1,37 @@
+{
+  "_id": "1c4c8e069f162b4d",
+  "_key": "!items!1c4c8e069f162b4d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Written Upon the Water",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-written-upon-the-water",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 10,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Body of liquid",
+    "description": "<p>The sorcerer inscribes upon the surface of any body of liquid a message intended for one other person and then strikes the liquid surface with the open palm of his hand. The same message appears on the next liquid surface at which the recipient looks. The message appears at the same speed it was written. If the liquid is clear, the writing manifests in letters of dark ink. Otherwise, the message appears in ink of fiery gold. Once the target looks away, the message vanishes and never reappears. The sorcerer can scribe as many words as the total mote capacity of his combined Essence pools. He can send the message to an individual any distance away in Creation, but only to people he has met in person at least once. No one sees the message but its intended recipient. THE CELESTIAL CIRCLE OF SAPPHIRE Celestial Circle spells do much to justify the fear common people feel for the Anathema. These spells can turn the course of battles, destroy towns and enslave mere mortals from across Creation. Among the Dragon-Blooded, only the Empress (and to a much more limited extent, her daughter Mnemon) ever cast Celestial Circle spells. Nevertheless, the libraries of the Heptagram, the Academy of Sorcery and many smaller, private occult collections include ancient manuscripts of Sapphire Circle sorcery. Sorcerers among the Lunar and Sidereal Exalted also frequently learn Celestial spells, so finding a teacher is difficult but not impossible.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

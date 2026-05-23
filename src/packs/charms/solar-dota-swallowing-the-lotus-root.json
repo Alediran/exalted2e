@@ -1,0 +1,57 @@
+{
+  "_id": "3f9c76f43076f9e0",
+  "_key": "!items!3f9c76f43076f9e0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Swallowing the Lotus Root",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "None"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>bonus points) allocated to such a style provides two Charms instead. As a final benefit, the character no longer needs to pay a surcharge when using elementally aspected Terrestrial Martial Arts styles. Should a character who already knows Terrestrial Martial Arts learn this Charm, the experience cost of those Charms is retroactively lowered and the character is refunded the difference. This is a stand-alone Celestial Martial Arts Charm, which may only be learned by Celestial Exalted and akuma. NonSolar Exalted know the Charm by different names; Abyssals call it Blood-Soaked Lotus Roots, while the Green Sun Princes know it as Roots of the Brass Lotus and Sidereals have dubbed it Perfected Lotus Mastery. Lunar Exalted know the Charm as Terrestrial Bloodline Integration. Alchemical Exalted achieve an identical effect through the use of a Perfected Lotus Matrix submodule called Lotus Filament Conduction (Essence 2; 6xp). Elder Essence Minimums Charms running from Essence 1 to 5 are detailed on page 184 of Exalted. Charms having Essence minimums from 1 to 5 encompass the complete array of effects for which the Solars were given purpose. Having conquered chaos and ascended to rulership of Creation, Solars expand to represent a purpose for which there was no design. Charms beyond the Essence minimum of 5 suggest a force for which there is no peer, and a measure for which there is no call. In short, these effects equip the Solars with a new array of effects of such magnitude and scope that there could be no known reason. Beyond this point, Solars transcend humanity, expand their notice beyond the core of existence, bargain with incomprehensible forces, and build new worlds--if only to have more to conquer. Charms with an Essence minimum of 6 leave behind worldly miracles--the Exalt now engages in the work of gods. Her power redefines her standing among the Exalted, and it is on the back of these wonders that an Age may be built. Charms with an Essence minimum of 7 depict the authorial primacy of one who knows no value she cannot change and no limit she cannot reach. These miracles leave marks on the world that last for untold generations, each application a legend unto itself. The holy might contained by these Charms evoke such awe and terror that the Celestial Exalted look upon them with shocked remove. Charms with an Essence minimum of 8 touch the very foundation of the universe. The Solar lays hands upon the forces of the very cosmos, and they recognize in her Essence a peer. Charms with an Essence minimum of 9 affect all the heavenly glory of the sun unbound. Solar power expands almost beyond the capacity of the world to contain it. What is the possible purpose of such great and terrible power? Charms with an Essence minimum of 10 denote powers beyond those which forged the universe. Not even the Primordials fully understand Essence 10; at this level of effect, the intellects which defined existence find themselves in the position of discovery. What challenges even the Primordials, a Solar may come naturally to grasp and engender: power beyond all reason.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "3f9c76f43076f9e0"
+  },
+  "folder": "a1b2c3d4e5f60101",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

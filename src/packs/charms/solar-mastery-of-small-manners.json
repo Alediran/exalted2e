@@ -1,0 +1,60 @@
+{
+  "_id": "a1b2c3d4e5f60004",
+  "_key": "!items!a1b2c3d4e5f60004",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Mastery of Small Manners",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "socialize",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "untilNextAction",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Social"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Abyssals are horrid monsters full of lies and cruelty, but that is no excuse for bad manners. As Moonshadows must remind their circlemates, sometimes courtly elegance and sophistication can ruin more lives than all the swords in the world. The Solar's innate grace and courtly sophistication make her perfectly at ease in any social situation, and she extends that courtesy to those around her. Activating this Charm allows the Lawgiver to navigate any social gathering with perfect poise, lending her a bonus die on the first Socialize action she takes before the Charm expires.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "mirrorId": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "a1b2c3d4e5f60004",
+    "mergedIds": []
+  },
+  "folder": "5da24482e38ff9ae",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

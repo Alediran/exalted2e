@@ -1,0 +1,68 @@
+{
+  "_id": "61021bd63463bd39",
+  "_key": "!items!61021bd63463bd39",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Harmonious Wind-Luring Song",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "occult",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "oneDay",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Of all the spirit courts, the Air Aspects, have the greatest affinity for the courts of the sky. This Charm calls upon that elemental affinity to allow the Dragon-Blooded to invoke the power of the air spirits to summon a helpful wind. The wind summoned is not particularly strong, but it is powerful enough to interfere with Archery, adding half the Exalt's Essence to his DV against archery attacks. It is also powerful enough to affect the speed of a sailing ship, either adding or subtracting half the Dragon-Blood's Essence from the ship's Speed for the duration. The Air Aspect must spend about five minutes summoning the air spirits, usually through such activities as whistling, imitating the sounds of storms, whirling a bullroarer or simply playing a flute. The friendly spirits summoned will obey the Dragon-Blood's will (subject to their limited capabilities) for one hour. During that hour, the Exalt must spend one Miscellaneous Action (5 ticks) whistling or singing in order to change the wind's direction. Water-aspected Dragon-Bloods have access to a functionally identical Sail Charm called Seven Seas Wind-Luring Chanty. The only differences between the two Charms are that the Water aspect version requires Sail 2 instead of Occult 2, has Hurricane-Predicting Glance as a prerequisite Charm in place of Spirit-Detecting Mirror Technique and requires the Exalt to be at sea.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "832890d1c4a48d4b",
+            "charmName": "Spirit-Detecting Mirror Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "61021bd63463bd39"
+  },
+  "folder": "b0b1b2b3b4b5f028",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

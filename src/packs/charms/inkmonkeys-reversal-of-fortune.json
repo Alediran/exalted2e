@@ -1,0 +1,71 @@
+{
+  "_id": "e8e48f13e7dc5ff3",
+  "_key": "!items!e8e48f13e7dc5ff3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Reversal Of Fortune",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "larceny",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      9
+    ],
+    "keywords": "Combo-OK, Counterattack, Mirror (Death Claims All)",
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Unfortunate times require such a defense as this. A Lawgiver may use this Charm to respond to any attempt to steal from him. By paying five motes, the character not only becomes aware of all items capable of being stolen from the target, but is also able to perfectly steal one item--potentially the one being</p><p>stolen from him. At Essence 4+, the Lawgiver may use this Charm in response to attacks. This Charm has the same restrictions on objects which may be stolen as Stealing from Plain Sight Spirit, with the exception of an item being actively stolen from the Solar. New Abyssal Charm: Death Claims All (Prerequisite: Reality-Subverting Gesture). This Charm is identical to its Solar counterpart. Eclipse Caste Bureaucracy Servant-Rewarding Benevolence</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "da28d6ba23ee80b3",
+            "charmName": "Stealing from Plain Sight Spirit",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "e8e48f13e7dc5ff3",
+    "mirrorId": "c1d2e3f4a5b60015"
+  },
+  "folder": "b0b1b2b3b4b5f060",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

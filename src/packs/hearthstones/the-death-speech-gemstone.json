@@ -1,0 +1,23 @@
+{
+  "_id": "HS11000000000000",
+  "_key": "!items!HS11000000000000",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Death-Speech Gemstone",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDABSSL00000000",
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "hearthstoneType": "abyssal",
+    "rating": 3,
+    "description": ""
+  }
+}

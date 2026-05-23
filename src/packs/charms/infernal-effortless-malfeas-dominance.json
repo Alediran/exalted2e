@@ -1,0 +1,68 @@
+{
+  "_id": "a7834b07c91e44aa",
+  "_key": "!items!a7834b07c91e44aa",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Effortless Malfeas Dominance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 4,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The more a Yozi uses its power to affect an encounter, the more its Essence begins to saturate the area and harmonize it with the fallen titan's efforts. This Charm may be purchased once for each iteration of First Malfeas Excellency the character knows. Each iteration of Effortless Malfeas Dominance triggers whenever the Infernal activates its prerequisite, cumulatively reducing the subsequent cost to do so in the scene by one mote, to a minimum cost of zero motes. For example, if an Infernal uses First Kimbery Excellency to add three dice to a roll, this costs three motes. The second use of that Charm in the scene to add another three dice to an action costs only two motes, and so on. Note that the progression of cost reduction only depends on the number of times the Charm gets used rather than the number of motes spent on any activation. Even a zero mote Excellency use requires a standard Charm activation to do so. SO SPEAKS Malfeas</p>",
+    "source": "MoP: Infernals",
+    "yoziPatron": "malfeas",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Appropriate First Malfeas Excellency",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a7834b07c91e44aa"
+  },
+  "folder": "1945ba1655ca5f6f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

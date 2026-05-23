@@ -1,0 +1,58 @@
+{
+  "_id": "22742e4977aa27a8",
+  "_key": "!items!22742e4977aa27a8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Charm-smothering Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "socialize",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "1+m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When the Abyssal senses a foe (already examined and \"tagged\" using Blood-Scenting Hunger) using a Charm, she can lash out with a jabbing fist or slashing palm. A whiplash of her anima snaps out to strike at the Charm. The Abyssal can expend up to (Wits + Martial Arts) motes in this attack. If her target does not then expend an equal number of motes, added to his Charm's original cost, the Charm dissipates in a flash of sparks without taking effect. If the target pays the surcharge, his Charm takes effect as normal. Charm-Smothering Technique affects only the Charms of the Exalted, spirits and ghosts. It does not affect sorcery, necromancy, thaumaturgy, Fair Folk glamours or other supernatural effects.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "22742e4977aa27a8"
+  },
+  "folder": "b0b1b2b3b4b5f047",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

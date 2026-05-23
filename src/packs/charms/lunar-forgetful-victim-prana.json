@@ -1,0 +1,71 @@
+{
+  "_id": "3e166a9fe2c54ce5",
+  "_key": "!items!3e166a9fe2c54ce5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Forgetful Victim Prana",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "charisma",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Social"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Lunars use this Charm to work in peace, and without leaving an incriminating trail. Forgetful Victim Prana causes unnatural mental influence on up to (Essence) targets, or up to a unit of (Essence) Magnitude if the Lunar spends an additional point of Willpower. Used in social combat, the Charm's Speed is six long ticks. The Lunar's player rolls (Charisma + [Presence for individuals or Performance for social units]) against the highest Mental Defense Value of all her targets. If the roll succeeds, all targets will forget everything they experience for the next (Essence) actions, once the Charm ends. Until the Charm ends, affected targets act and react normally to whatever they experience, but they forget it all, including the activation of the Charm. Once the Charm is over, victims may spend one point of Willpower to remember what occurred for a scene or three points all at once to remember forever--if they ever have reason to try remembering. The Charm affects memories, not physical evidence, and some changes are jarring. Wounds inflicted, objects broken and great distances moved become sources of remarkable confusion. A guardswoman who suddenly finds herself holding her sword may believe she drew it out for polishing or out of boredom, but not if there's blood on it. In social events, this Charm is often more subtle. Movement at a party is easy to rationalize, as is picking up or leaving behind a drink or courtesan. Compulsions or Intimacies gained from forgotten social attacks remain, but often feel like the target's own inspiration.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "3031d3602788c9b7",
+            "charmName": "Cobra Hypnotic Method",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "3e166a9fe2c54ce5"
+  },
+  "folder": "4e63ba1bd67a09e3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

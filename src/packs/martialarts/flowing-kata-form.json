@@ -1,0 +1,76 @@
+{
+  "_id": "b6fe0c1649664612",
+  "_key": "!items!b6fe0c1649664612",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Flowing Kata Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": "None",
+    "cost": {
+      "motes": 6,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "6m+ (1wp per Form)"
+    },
+    "description": "<p>Grandmasters understand that all principles are connected and all fighting styles express different petals of the same Perfected Lotus. Flowing Kata Form expresses this principle as one of the rare Celestial Martial Arts Charms unconnected to any style. Invoking it requires a commitment of at least six motes. So long as the Charm remains active and the martial artist has no Form-type Charms active, he can pay one Willpower (and any non-mote costs) to reflexively activate any known Martial Arts Form-type Charm with a mote cost less than the number of motes committed to Flowing Kata Form. This Willpower surcharge does not apply the first time a martial artist invokes a Form Charm this way each scene.</p><p>Activating a Form-type Charm via Flowing Kata Form doesn't count as a Charm activation or cost motes, though Dragon-Blooded still have to roll to invoke a Celestial Martial Arts Form. Forms turned on this way inhibit activation of other Form-type Charms as normal for the keyword. Even magic that allows multiple Form-type Charms to coexist does not allow reflexive invocation while using another Form. Characters with “multi-Form” magic remain free to stack Forms by conventionally activating them.</p><p>There is no limit on how often a martial artist can reflexively adopt a new Form beyond the Willpower cost to do so, making it possible to use one Form to help an attack hit and then swapping to another to enhance the attack if it hits. Enabling a flexible fighting style that changes tactics without warning is the very reason Flowing Kata Form exists.</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Flowing Kata Form Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Two Complete non-Terrestrial Styles",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "b6fe0c1649664612",
+    "grantsMastery": false
+  },
+  "folder": "f69554411dcaf9b4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

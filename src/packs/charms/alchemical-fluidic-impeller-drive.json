@@ -1,0 +1,71 @@
+{
+  "_id": "9f0a24f0675e7963",
+  "_key": "!items!9f0a24f0675e7963",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fluidic Impeller Drive",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "strength",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 3,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "2m [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Retractable jet modules, fins and propeller housings slide out of hidden compartments on various parts of the Alchemical's body when this Charm is activated. While powered, the device sucks liquids through intake valves and pumps it out of thrust nozzles at high velocity to aid swimming. The Exalt retains neutral buoyancy regardless of weight and can maneuver in combat at his normal movement speed and otherwise act without penalty while under water or other liquids up to the viscosity of heavy oil. He quadruples the distance moved during Dash actions while submerged.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Physical Attribute Augmentation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "9f0a24f0675e7963"
+  },
+  "folder": "b0b1b2b3b4b5f054",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

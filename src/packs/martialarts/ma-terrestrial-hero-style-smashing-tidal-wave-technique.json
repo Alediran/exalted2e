@@ -1,0 +1,57 @@
+{
+  "_id": "f375a92d588290c9",
+  "_key": "!items!f375a92d588290c9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Smashing Tidal Wave Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "0m or 3m (+3m per target), 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With this Charm, the character can hold a number of targets equal to her permanent Essence without her player splitting her dice pool. In addition, this attack can be made at a range of (Essence x 5) yards. The opponents can be standing together or separately. As long as they are in range, the attacker's player rolls normally for her character to attempt to place each of them in a hold, rendering them inactive. The player rolls each hold attempt separately with her full dice pool, but doing so is still only one action altogether--not one action per victim. Any victim of this Charm can attempt to break free normally, though doing so does not give the victim control of the grapple. Unless any of them break free, all opponents are held for a number of actions equal to the character's Martial Arts score. Once the duration of this Charm ends, all opponents are automatically freed. The attacker must maintain the holds as if she were maintaining normal holds. Taking any other non-reflexive action automatically frees everyone affected by this Charm.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Terrestrial Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f375a92d588290c9"
+  },
+  "folder": "0317adc9f10289d9",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

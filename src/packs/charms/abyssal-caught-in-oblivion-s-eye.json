@@ -1,0 +1,58 @@
+{
+  "_id": "12280e29280a2ff1",
+  "_key": "!items!12280e29280a2ff1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Caught in Oblivion's Eye",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "archery",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "-(+9m, 1wp)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm is similar to its Solar counterpart, save that the archer and his target must both be under the open sky at night. The Essence 10 version of Caught in Oblivion's Eye permits the Abyssal to strike his target so long as both characters stand in darkness illuminated by light no brighter than that of a moonless night.</p>",
+    "source": "Scroll of Errata",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "12280e29280a2ff1",
+    "mirrorId": "8e032c6c533c6ff1"
+  },
+  "folder": "b0b1b2b3b4b5f033",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,58 @@
+{
+  "_id": "922d8f208d2e9db6",
+  "_key": "!items!922d8f208d2e9db6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hero's Fatal Resolve",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "martial-arts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Native",
+      "Overdrive"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solar Hero's lot is to stand against the forces of evil. All of them. Often a Solar cannot pick where or when these battles must be fought. This Charm creates a new Essence pool capable of storing up to ten motes of Peripheral Essence for the Solar, in accordance with the Overdrive Keyword. Whenever an opponent rolls Join Battle, the Solar experiences a surge of adrenaline which adds a number of motes equal to (half the opponent's Essence, rounded up) to this temporary pool. Daunting the False Savior</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "922d8f208d2e9db6"
+  },
+  "folder": "a1b2c3d4e5f60008",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

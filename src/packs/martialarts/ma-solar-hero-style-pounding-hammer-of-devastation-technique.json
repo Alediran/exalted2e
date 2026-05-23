@@ -1,0 +1,58 @@
+{
+  "_id": "040db08c05b65e6f",
+  "_key": "!items!040db08c05b65e6f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Pounding Hammer of Devastation Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "7m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The character concentrates vast amounts of Essence around her hands, inflicting terrible wounds with an unarmed attack. The character's blow inflicts lethal damage. When she uses it against a living target, this Charm adds a bonus to the raw damage of the attack equal to the attacking character's permanent Essence. This Charm is far more effective against inanimate targets, though. If the character attacks such a target while using this Charm, add a number of damage levels (not dice) equal to four times the attacking character's permanent Essence.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Solar Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "040db08c05b65e6f"
+  },
+  "folder": "05bd4dac47a869bd",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

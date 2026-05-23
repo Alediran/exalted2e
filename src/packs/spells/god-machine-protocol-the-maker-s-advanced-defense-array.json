@@ -1,0 +1,37 @@
+{
+  "_id": "1af384bfaeb5a54a",
+  "_key": "!items!1af384bfaeb5a54a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Maker's Advanced Defense Array",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "god-machine-protocol-the-maker-s-advanced-defense-array",
+    "tradition": "weaving",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 30,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Weaver",
+    "description": "<p>Summoning a vortex of adamant shuriken that refract ambient light in swirling, multi-colored specks of light, this protocol acts as a more powerful version of the Maker's Basic Defense Array. This array grants the weaver +20L/20B natural soak and +10L/10B non-stacking Hardness for an entire scene. It also causes 10 dice of lethal damage against those who attack her unarmed, which can be soaked normally. If an attacker takes more health levels of damage than he has dots of Stamina, the limb used to make the attack is severed. All non-magical weapons that come into contact with the adamant shuriken are destroyed. While magical weapons sustain no damage, the player of an attacking character must make a successful (Dexterity + Melee) roll (with difficulty equal to the weaver's Essence) to prevent the impact of the flying blades from knocking the weapon out of the attacker's hands.</p>"
+  },
+  "folder": "07b5963f5e930aca",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

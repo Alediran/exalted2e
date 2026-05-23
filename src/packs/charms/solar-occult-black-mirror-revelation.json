@@ -1,0 +1,79 @@
+{
+  "_id": "935ed332a85699a9",
+  "_key": "!items!935ed332a85699a9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Black Mirror Revelation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "occult",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Avatar (1)",
+      "Mirror (Unconquered Hero's Faith)"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This grim Charm was originally developed by ambitious Solars in the final years of the First Age. Frustrated by dead-ending in their study of necromancy at the Labyrinth Circle, they recklessly attempted to forge onward. Those researchers never did break through to the Void Circle. Instead, they found... something else. This Charm permits a Solar to learn and use Abyssal Charms as though she were an Eclipse Caste. Additionally, she may accept a point of Limit to activate the Abyssal Mirror of a Solar Charm she knows, with the same limitations as Unconquered Hero's Faith (see The Manual of Exalted Power--The Abyssals, pp. 140-141). As a final side effect, she is guaranteed to linger as a ghost after death, rather than passing on into Lethe. The Charm's Avatar keyword indicates that the character must possess the Whispers Background at a rating of at least one dot to learn this Charm. Black Mirror Revelation may be learned only through meditation within the depths of the Labyrinth. In the First Age, its only acceptable prerequisite was Labyrinth Circle Necromancy. In the Second Age, perhaps due to the actualization of the Abyssal Exalted, Solars find it easier to let the whispers of the Neverborn guide them to a core of dark power nestled within themselves, and may also use Occult Essence Flow as an alternate prerequisite. This Charm may never be learned by nonSolar Exalted under any circumstances. As a point of clarification, its Abyssal Mirror, Unconquered Hero's Faith, may never be learned or used by any character who possesses Immortal Malevolence Enslavement. Furthermore, Deathlords are incapable of learning Unconquered Hero's Faith or any other Charm based upon fundamental elements of Abyssal Exaltation.</p>",
+    "source": "Glories of the Most High: Unconquered Sun",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "61f2734d44ae121b",
+            "charmName": "Labyrinth Circle Necromancy",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          },
+          {
+            "type": "charm",
+            "charmUid": "55ea6e24efcb20a6",
+            "charmName": "Occult Essence Flow",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "935ed332a85699a9"
+  },
+  "folder": "9f789a9f97cf7e28",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

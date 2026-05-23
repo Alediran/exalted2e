@@ -1,0 +1,58 @@
+{
+  "_id": "08189ccdf6d180a1",
+  "_key": "!items!08189ccdf6d180a1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dance of the Howling Magma Sprites",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "extraAction",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "4m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When a martial artist who knows this Charm fires his weapon, the bolt of flame emerges from the barrel and explodes into a howling winged creature that spirals hungrily toward its target. The player rolls for the martial artist to hit his first target: If the roll succeeds, he may immediately attempt a second roll for the magma sprite to hit the same target again or leap to a new target. The Exalt may have the magma sprite make as many attacks in one action as he has dots of Essence, and each magma sprite inflicts the base damage of the martial artist's weapon.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Righteous Devil Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "08189ccdf6d180a1"
+  },
+  "folder": "c9f7d573ff8d32af",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

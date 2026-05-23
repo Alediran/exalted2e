@@ -1,0 +1,93 @@
+{
+  "_id": "764ef704adeb8b65",
+  "_key": "!items!764ef704adeb8b65",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Earth Dragon Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "scene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Form-type",
+      "Leader",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 5,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "4m"
+    },
+    "description": "<p>The Immaculate drops into a low, wide-legged stance with arms held out like jutting stone. The posture of the Earth Dragon is patient as the mountains and immovable as bedrock. While Earth Dragon Form is active, the Immaculate adds her Strength to the raw damage of all unarmed attacks. She is also immune to knockdown and knockback effects from attacks, and any attempt to move her against her will must overcome a difficulty equal to her Strength. Practitioners of Earth Dragon Style may activate this Form when entering Earth Dragon Style, which allows them to use subsequent Earth Dragon Style charms in the same action.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Earth Dragon Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f5e788985107cda2",
+            "charmName": "Unmoving Mountain Stance",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f864c00373a6c7ed",
+            "charmName": "Force Of The Mountain",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "764ef704adeb8b65",
+    "grantsMastery": false
+  },
+  "folder": "01757ed433605ac5",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

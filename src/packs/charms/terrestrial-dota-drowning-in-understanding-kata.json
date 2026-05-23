@@ -1,0 +1,61 @@
+{
+  "_id": "3d9540f02933bb2d",
+  "_key": "!items!3d9540f02933bb2d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Drowning in Understanding Kata",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "martial arts",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Enlightening",
+      "Martyr",
+      "Obvious",
+      "Touch",
+      "Training"
+    ],
+    "cost": {
+      "formula": "25m, 5wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Exalt launches a formalized flurry of blows at a willing Exalted student, compressing every movement and stance of a Celestial martial arts style into a single kata. At the conclusion of the display, the pupil falls unconscious, his body and soul forcibly battered into submission. Over the next five days, his fevered dreams extract lessons from the repeated memory of the kata. If he lacks a Motivation centered on learning martial arts, the overwhelming insights shatter his mind, and he never awakens from the coma. With sufficient dedication, he awakens knowing the Charms Tiger-and-Bear Awareness and Tiger-and-Bear Unity (see The Manual of Exalted Power--The Dragon-Blooded, p. 195) as a Training effect. If he is a Dragon-Blood, he may then practice Celestial martial arts like any Terrestrial who learns these Charms in a conventional manner. With Martyr usage, the pupil awakens (assuming he does so) knowing all Charms for one entire Celestial martial art that the teacher knew as a Training effect, on top of the basic initiation. He cannot use any Charms for which he fails to meet the trait minimums until he raises those traits to appropriate levels. Drowning in Understanding Kata is a Celestial martial arts Charm and may be learned as such. Incidentally, an Essence 7+ Sidereal with mastery of a Sidereal martial arts style may use this Charm's Martyr effect to impart that style in a single scene of training (using the aforementioned rules for style gifting). If the pupil lacks the right Motivation, has not mastered a Celestial style or is incapable of learning Sidereal martial arts, he dies at the end of the scene instead of his teacher.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "3d9540f02933bb2d"
+  },
+  "folder": "a1b2c3d4e5f60104",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

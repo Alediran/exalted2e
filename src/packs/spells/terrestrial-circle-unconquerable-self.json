@@ -1,0 +1,37 @@
+{
+  "_id": "20dd977f8061cb0a",
+  "_key": "!items!20dd977f8061cb0a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unconquerable Self",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-unconquerable-self",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 1,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Caster",
+    "description": "<p>Also called the Spell That Is Not A Spell, Unconquerable Self is actually a mangling of the processes of sorcery. The spell turns Essence inward, burning away the sorcerer until nothing remains but white ash. With a silent act of will that is considered a Shape Terrestrial Circle Sorcery action, the savant gathers his Essence. He need not speak a word, nor gesture. The sorcerer can accomplish this while bound and gagged or paralyzed, as long as his mind is clear enough to concentrate. His anima flares iconic and terrible as Essence erupts from him, incinerating himself and all his possessions, including any artifacts to which he is attuned. He dies. The caster's body and spirit are utterly consumed, leaving behind neither corpse nor ghost, though a Celestial Exaltation returns to Yu-Shan for eventual reassignment. No memories of that Exalt's incarnation remain for future hosts. The spell wipes all traces of the sorcerer's existence from the Exaltation. Objects in contact with the Exalt but not possessed by him are unharmed. Creatures who witness the event might spend a moment blinded by the eruption of Essence, but otherwise take no damage. Because this spell is absurdly simple, Unconquerable Self takes merely a day of training time and half the normal experience points to learn.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

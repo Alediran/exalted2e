@@ -1,0 +1,76 @@
+{
+  "_id": "47bd4132f45872a1",
+  "_key": "!items!47bd4132f45872a1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Perfect Blade Aegis",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": "Martial-ready, Mirror (Death Well-Remembered), Native",
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Like a diamond that knows its edges, the Solar is aware of all angles which affect the symmetry of perfect form. A Lawgiver with this Charm has honed his defensive skills to a superhuman degree; he knows the limits and reach of his weapons as if they were but extensions of his will. The character's Melee-derived Parry DV is permanently raised by 2; this bonus counts as dice added by a Charm. Martial-ready: Martial Arts New Abyssal Charm: Death Well-Remembered (Prerequisites: Elegant Flowing Deflection, Five-Shadow Feint). Having stood at death's doorway once before, the Abyssal Exalted are well acquainted with all paths which lead there, and may easily avoid them. This Charm is identical to its Solar counterpart. Blade Lair Discipline</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e8177e6c08d3eaf0",
+            "charmName": "Bulwark Stance",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "dvBonus": {
+      "enabled": true,
+      "dodgeBonus": 0,
+      "parryBonus": 2,
+      "ignoreAllPenalties": false,
+      "ignorePenaltyTypes": []
+    },
+    "charmUid": "47bd4132f45872a1",
+    "mirrorId": "c1d2e3f4a5b60007"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

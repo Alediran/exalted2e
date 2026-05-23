@@ -1,0 +1,55 @@
+{
+  "_id": "2702f11aec72f44c",
+  "_key": "!items!2702f11aec72f44c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Temple Self Apotheosis",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "-- (1wp)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Duration: Permanent Prerequisite Charms: Penitents Like Scattered Grains Cecelyne orders demonic society by religious tenets because the concept of reverence amuses her. An Infernal with this Charm doubles all mote and Willpower awards provided by her Cult background and may choose to heal in lieu of receiving any or all Willpower at the appropriate interval (two bashing health levels or one lethal health level per one Willpower). Additionally, whenever anyone of equal or lesser Essence prays to the character with a standard prayer roll, they must reflexively pay one Willpower to resist unnatural mental influence or instantly develop an Intimacy of reverence toward the Infernal. If the Infernal preys on this Intimacy with a social attack, she benefits from a full +3 Appearance modifier regardless of relative Appearance.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "cecelyne",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "2702f11aec72f44c"
+  },
+  "folder": "d852ccb3960d271d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

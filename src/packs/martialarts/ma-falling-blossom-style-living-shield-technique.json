@@ -1,0 +1,57 @@
+{
+  "_id": "d31d5cccb3180627",
+  "_key": "!items!d31d5cccb3180627",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Living Shield Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The primary technique Falling Blossom martial artists master is that of defending the body of their charge. A practitioner can take arrows and sword blows that were meant for the other person or knock him away from such attacks. The martial artist spends one mote to reflexively interpose herself between another person and his attackers as long as the character is within leaping distance. Per the normal rules, leaping distance is equal to (Strength + Athletics) yards straight up or double that horizontally, incurring a -1 DV penalty in combat. When the martial artist interposes himself thus, the attack that was intended for the other person must now contend with the martial artist's Parry or Dodge DV. The use of Parry DV is self-explanatory, but using Dodge DV represents physically maneuvering the other person out of harm's way. Attacks that overcome the martial artist's DV hit the martial artist instead of her charge. This Charm serves to defend only a single person, and the martial artist must declare who she intends to protect at the beginning of combat. Once she does so, the character can defend only that person for the remainder of the scene.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Falling Blossom Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "d31d5cccb3180627"
+  },
+  "folder": "dd497199f5d1964b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

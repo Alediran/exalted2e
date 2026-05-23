@@ -1,0 +1,80 @@
+{
+  "_id": "350698c8dbed5004",
+  "_key": "!items!350698c8dbed5004",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Stunning Deathblow Evasion",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "oneAction",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "motes": 5,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "5m"
+    },
+    "description": "<p>As the Yozis well know, the Lawgivers have a way of turning certain death into a crushing victory. When in a clinch, the Solar may use this Charm in response to an attack being made against her from outside the grapple. Doing so forces the clinching opponent to suffer all incoming attacks for the rest of the action as though those attacks had been directed at him. This Charm may manifest in a number of ways: the Lawgiver is seen to twist out of the path of a daiklave at the last instant, causing it to shear through her captor; the Exalt exerts superior leverage to drag her opponent into a volley of arrows, using him as a shield. In any case, the Solar clearly demonstrates to her foes why they should not touch what they cannot hold. If used in response to an area-of-effect attack encompassing the Solar and the one grappling her, such as Death of Obsidian Butterflies or a supernatural ice storm, the Solar reduces the effect's raw damage by half (round up) and adds this amount to the raw damage inflicted on the character clinching her. This Charm offers no benefits if the Solar is not in a clinch. Shadow Foot Trap</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Solar Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "075e00631f0af681",
+            "charmName": "Dragon Coil Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "350698c8dbed5004",
+    "grantsMastery": false
+  },
+  "folder": "05bd4dac47a869bd",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

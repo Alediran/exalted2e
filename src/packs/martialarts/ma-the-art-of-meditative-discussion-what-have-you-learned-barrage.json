@@ -1,0 +1,57 @@
+{
+  "_id": "f38176cd9a26e22e",
+  "_key": "!items!f38176cd9a26e22e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "What Have You Learned Barrage",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "extraAction",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Just as canny observation makes the character's quips more piercing, so too does patience allow his arguments to ripen before they are plucked. After a period of silence, the debater unleashes a devastating series of cutting remarks. Invoking this Charm, the character settles down in a defensive stance to wait. What Have You Learned Barrage acts as a Guard action when used. For the next several actions, the martial artist stores away his potential to attack rather than applying it, waiting for the perfect moment. Each Guard action the character takes consecutively after activating this Charm adds one (to a base of zero) attack to his eventual flurry. Taking any action other than Guard, whether it is to dash, aim or perform any miscellaneous task, ends the Charm without any effect. Choosing to attack releases a magical flurry of stored attacks, all at full dice pool and with a total DV penalty of -0. The character may not bank more than (Temperance + Valor) attacks using this Charm. What Have You Learned Barrage counts as the character's Charm use for the action in which it is activated and the action in which it is released. In the intervening time, the character may use reflexive Charms for defense. When integrated into a Combo, the Combo's display appears slightly when the character activates the Charm. It burgeons slowly over his actions, bursting forth in full only when he releases his flurry. The character need not pay for any other Charms relating to the Combo until he attacks and knows for sure how many times he will do so. Finally, the Combo consumes all his Charm use until its completion, unlike using the Charm alone. From the time the character activates a Combo including this Charm to the time when he ends it, he may use only the reflexive Charms included in the Combo for his defense.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Meditative Discussion",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f38176cd9a26e22e"
+  },
+  "folder": "1b2f6d78bc952477",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

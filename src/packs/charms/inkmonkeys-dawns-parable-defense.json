@@ -1,0 +1,82 @@
+{
+  "_id": "f2ffbec4408b4d2a",
+  "_key": "!items!f2ffbec4408b4d2a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dawn's Parable Defense",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Martial-ready"
+    ],
+    "cost": {
+      "formula": "1m per defense",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>During the Primordial War, members of the Dawn Caste became famous for throwing themselves into the hewer and refusing to bow. Never running away, never surrendering, inexorable; their unwavering valor even earned them the respect of the titans. If the Yozis learned little else from their defeat, they learned this: you cannot stop the rising sun. A character invokes this Charm in response to attack flurries or multiple reflexive attacks made against her during a single tick. This Charm may not aid a defense against single attacks, save for instant reflexive attacks (such as those created by Final Sunset Stance). However, against the first in a string of attacks, increase the character's Melee-derived Parry DV by one against that attack. If her parry succeeds, the entire string of attacks is instantly broken. If her defense fails, she may reactivate this Charm on the second attack, increasing her Parry DV by two against that attack. As before, if she successfully parries the strike, she defeats the entire attack; her opponent's attack is</p><p>broken, her Essence dispersed by the Solar's definitive rebuff. The Solar may continue to activate this Charm, boosting her DV by a number equal to the number of current iterations in the attack string, until the attack ends or she successfully disrupts her foe's onslaught. Bonuses granted by this Charm do not count as dice added by a Charm and ignore maximum DV limitations. This Charm may not be assisted by Charms with a Flaw of Invulnerability; reverting to a perfect parry defense does not break the string of attacks and prevents the character's Parry DV from increasing on the next attack. Bonuses gained from this Charm diminish immediately as the attack ends. Martial-ready: Martial Arts Perfect Blade Aegis</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ddde37717342afbe",
+            "charmName": "Final Sunset Stance",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "dvBonus": {
+      "enabled": true,
+      "dodgeBonus": 0,
+      "ignoreAllPenalties": false,
+      "ignorePenaltyTypes": [],
+      "dodgeBonusFormula": "",
+      "parryBonusFormula": "",
+      "parryBonus": 1
+    },
+    "charmUid": "f2ffbec4408b4d2a"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

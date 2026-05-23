@@ -1,0 +1,37 @@
+{
+  "_id": "ae968ed4d5c17433",
+  "_key": "!items!ae968ed4d5c17433",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Bulb of Demise and Renewal",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>The Dragon Kings who predated humanity were known for their mastery of plant-based technology. One form of Dragon King technology that gained popularity among mortals and Exalts alike in the jungle cities of the East and the South was the bulb of demise and renewal. A simple plant bulb the size of a boy's fist, it was designed to get rid of the bodies of the dead. The bulb would be placed in the mouth or into an incision made in the abdomen, and it would then send roots and tendrils throughout the body over the course of 12 hours. Within 24 hours, the body would decompose completely, and an enormous stalk of brightly colored flowers would stand above the human-shaped mass of knotted roots. The highly fragrant blossoms would last for a week, and then, the entire plant would wither, leaving only a bundle of dried roots in which could be found one to three fresh bulbs of demise and renewal. Bodies consumed by the growth of these bulbs do not rise as hungry ghosts, and their souls are sent instantly to Lethe--borne aloft on brightly colored flower-petal wings--for reincarnation. For a time in the High First Age, bulbs of demise and renewal were a popular means of disposing of the dead, although knowledge of the bulbs was largely lost during the Great Contagion. In the Second Age, bulbs of demise and renewal are found only in Sijan, where their properties are well known and respected. They also exist in a few small communities in the jungles of the South and the East. Bulbs of demise and renewal can also be placed in living bodies--and with much the same results, as long as the person is prevented from removing the bulb. When so used, the growth of the plant quickly kills its host and consumes the remains. This is the more popular use for these bulbs in the barbarian-controlled lands of the East, particularly among Raksi's apemen.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 1,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

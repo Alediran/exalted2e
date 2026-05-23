@@ -1,0 +1,57 @@
+{
+  "_id": "5b3a48961b303c39",
+  "_key": "!items!5b3a48961b303c39",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Teahouse-Shattering Symphony",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "martial-arts",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "extraAction",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>To provoke the ire of a Lawgiver is to bring down the thunder. Upon paying the activation cost of this Charm, the Solar may make up to (Dexterity x 2) attacks against a single opponent or (Dexterity ÷ 2, round up) attacks against all opponents within (Dexterity) yards, contingent on the following factors: the Solar must make each attack with a different improvised weapon; the Solar seizes and swings a different object with each attack; each improvised weapon may not be reused during the tick these attacks occur on; the Solar may only use objects within (Dexterity) yards; and only objects the Storyteller deems the Solar can lift and swing may be employed. Upon a successful hit, every character struck with this Charm must roll (Dexterity + Athletics) at difficulty 2 or suffer knockdown. In addition, suitably large objects (such as banquet hall tables, wooden beams, or temple pillars, subject to the Storyteller's discretion) may be used to strike all opponents within (Dexterity) yards, even when the character has chosen only one target for this Charm; if he has chosen multiple targets, this attack does not reduce the number of attacks he may make against each target singly. Lastly, if the Storyteller deems there are no objects for the Solar to wield, this Charm may not be used, and if the Solar runs out of appropriate props to attack with, the Charm ends prematurely. All objects wielded with this Charm are considered to have accuracy +1 in spite of their improvised status. The first unwitting victim of this Charm was a Lunar stalker who offended a Solar in an emporium of musical instruments. Solar Combination</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "5b3a48961b303c39"
+  },
+  "folder": "a1b2c3d4e5f60008",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

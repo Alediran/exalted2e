@@ -1,0 +1,70 @@
+{
+  "_id": "4ba81af225c52669",
+  "_key": "!items!4ba81af225c52669",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Peerless Paragon of (Craft)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "craft",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "None"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A Lawgiver who has focused his expertise upon a certain expression of craftsmanship soon finds that his least effort matches and exceeds the most desperate labors of mortal artisans. This Charm may be purchased multiple times, once for each basic Craft Ability the Solar possesses at a rating of 4 or higher. Purchasing this Charm adds (Essence/2) automatic successes to all rolls made with the Ability in question. An Essence 5 Solar with Peerless Paragon of Fire would add three successes to all Craft (Fire) rolls at no cost. Exotic Crafts such as Craft (Fate) or Craft (Glamour) require Essence 3+, while First Age Craft skills such as Craft (Genesis) and Craft (Magitech) require Essence 4+. INVESTIGATION</p>",
+    "source": "Glories of the Most High: Unconquered Sun",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "504a103c29f2c25a",
+            "charmName": "Craft Essence Flow",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "4ba81af225c52669"
+  },
+  "folder": "461821c707bbdbb0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "12745795952d25d8",
+  "_key": "!items!12745795952d25d8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Personal Tempest",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-personal-tempest",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 15,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "one scene",
+    "target": "Caster",
+    "description": "<p>The sorcerer performs the Five Winds Nexus Gesture, making her the center of a confluence of strong winds. Her clothing whips about in winds that only people standing very close to her can feel. These winds last one scene, until dismissed or until the caster is incapacitated. The magic winds cut the sorcerer's movement rate in half, due to resistance. Yet attacks made against the sorcerer, from archery to grapples, treat her as behind 90% hard cover. The spell can be used in war. If the sorcerer increases its casting time to long ticks, Personal Tempest can protect a unit with a Magnitude no greater than her Essence as though they were behind 50% hard cover.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

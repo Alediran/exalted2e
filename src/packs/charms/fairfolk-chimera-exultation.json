@@ -1,0 +1,57 @@
+{
+  "_id": "64996aa1e77cfad1",
+  "_key": "!items!64996aa1e77cfad1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Chimera Exultation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "ring",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "None"
+    ],
+    "cost": {
+      "formula": "1wp, 1g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A raksha who terminates his Gateway of Sundraprisha Charm returns to the status of unshaped but still continues to exist... after a fashion. A raksha who activates this Charm leaves nothing behind. This Charm permits the raksha to instantly destroy her Heart Grace wherever it is and regardless of who possesses it. In the process, it utterly destroys the raksha, unleashing the raw power of her former existence into a coruscating (and probably tremendous) explosion of Wyld energy. This Charm is a plot device, having such limited or limitless effects as the Storyteller desires. At a minimum, the resultant explosion might totally destroy an unshaped raksha of at least moderate size or vaporize an unoccupied waypoint. LAUGHING MONSTER STYLE The Laughing Monster is a demonic child ruled by impetuosity and wicked humor, a merry prankster who takes inordinate joy in the humiliation of his rivals. Associated with Staff-shaping combat, the Laughing Monster mocks the idea of society, and those Diplomats who follow this path abandon all pretense of diplomatic solutions. A raksha who plays the part of the Laughing Monster must never channel her Conviction during a shaping combat, or else, she will be unable to use any of the Charms of this style for the duration of that combat, and all persistent Charms already activated will end immediately. Additionally, a raksha who plays the role of the Laughing Monster must adopt the persona of a childish and rude trickster. She must seize any and every opportunity to undermine established systems of authority and subvert acceptable notions of conduct. If the Laughing Monster ever declines the chance to embarrass or mock either a figure of authority or a sworn enemy, all costs associated with any of this style's Charms double for the duration of her current tale.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "64996aa1e77cfad1"
+  },
+  "folder": "e3ab9ab145f6a424",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

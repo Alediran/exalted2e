@@ -1,0 +1,58 @@
+{
+  "_id": "f5ee5613b68afd16",
+  "_key": "!items!f5ee5613b68afd16",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Celestial Martial Arts?",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "sword",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mutation",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "2mp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Placing his own body in the crucible of possibility, the raksha transcends the limits of his own perfection. This mutation permanently increases the raksha's Attributes in one of the following ways each time it is purchased: · The raksha gains one dot of Strength and one dot of Stamina. · The raksha gains one dot of Intelligence and one dot of Perception. · The raksha gains one dot of Charisma and one dot of Appearance. · The raksha gains one dot of Dexterity. · The raksha gains one dot of Wits. · The raksha gains one dot of Manipulation. Players can purchase this mutation up to once per dot of the raksha's Sword. Each time an Attribute rating increases as a result of this Charm, the character's maximum rating in that Attribute also increases by one.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f5ee5613b68afd16"
+  },
+  "folder": "12ff19c775f80093",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

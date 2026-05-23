@@ -1,0 +1,78 @@
+{
+  "_id": "0b103692e370d69d",
+  "_key": "!items!0b103692e370d69d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Labyrinth-Walking Prana",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 1,
+    "dvPenalty": -1,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 0,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "1wp"
+    },
+    "description": "<p>By attuning his anima to the twisting Labyrinth and the potential for Oblivion in all things, a deathknight becomes a shadow flickering about the battlefield. This Charm, the first secret technique of Hungry Ghost Style, supplements Hungry Ghost Form and can be used only immediately after an Abyssal uses that Charm, effectively making assuming the form a Speed 6 action. If the martial artist takes this additional tick and spends a Willpower, his movement distance when using Leaping Horror Approach or Scuttling Apparition Defense increases to (Essence x 5) yards. SOUL-FLAYING STRIKE Cost: 10m, 1wp, 1lhl; Mins: Martial Arts 5, Essence 4; Type: Supplemental</p><p>Keywords: Combo-Basic, Obvious, Shaping Duration: Instant Prerequisite Charms: Blood-Freezing Technique, CharmSmothering Technique, Scuttling Apparition Defense Arcs of deathly white Essence swirl around the Abyssal's hands, wailing like lost souls and burning the deathknight himself with the power of Oblivion. The character makes a Martial Arts attack. If the Abyssal's permanent Essence exceeds that of his target, the damage of his strike becomes unsoakable and aggravated as his body withers away into dust and his own soul shrieks in torment. Living people slain by this attack--including Exalts--rise as hungry ghosts on the next night. A slain extra leaves a hungry ghost extra; a heroic character leaves a correspondingly powerful hungry ghost. (See The Books of Sorcery, Vol. IV--The Roll of Glorious Divinity II, or just use the hungry ghost on p. 318 of Exalted.) They obey their killer for the next month as best they can comprehend his commands. Spirits, ghosts or Fair Folk slain by Soul-Flaying Strike evaporate on the spot, utterly destroyed.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Hungry Ghost Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "9b8f60f94d38e33b",
+            "charmName": "Hungry Ghost Form",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "0b103692e370d69d",
+    "grantsMastery": false
+  },
+  "folder": "a204aba47ca9154b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

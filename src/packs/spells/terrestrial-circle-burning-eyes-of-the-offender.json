@@ -1,0 +1,37 @@
+{
+  "_id": "f576500e64c38e95",
+  "_key": "!items!f576500e64c38e95",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Burning Eyes of the Offender",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-burning-eyes-of-the-offender",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 10,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Caster",
+    "description": "<p>The sorcerer's anima ignites in a colorless fire that refracts and magnifies the hues of her Exaltation. Sorcerers without animas (such as God-Bloods) radiate a blank, white brilliance. All who gaze upon the sorcerer weep uncontrollably, their eyes stung by her blazing halo. This spell imposes an internal penalty equal to the caster's Essence against all attacks against her that originate within 100 yards, whether the sorcerer's DV applies to such an attack or not. It does not affect allies standing next to her. Opponents who are blind or who avert their eyes do not suffer this penalty (but see Exalted, p. 152, for info on attacking blind). Moreover, combatants who close their eyes run the risk of incoming attacks being considered unexpected attacks (see Exalted, p. 155). The (Perception + Awareness) roll to avoid unexpected attacks receives the normal -4 penalty for being blind, of course. The sorcerer may dispel Burning Eyes of the Offender as a reflexive action.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

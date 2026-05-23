@@ -1,0 +1,71 @@
+{
+  "_id": "f40608b48f3519ed",
+  "_key": "!items!f40608b48f3519ed",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Durability-Enhancing Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "craft",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The craftsmen of the Unconquered Sun shore up the Essence of the world. This Charm increases the number of successes necessary to damage the object by one. It increases the (Strength TYPICAL TARGETS FOR CRAFT Craft Charms usually affect objects and structures. It is possible to affect automata (living artifacts) and even creatures with Craft Charms, but few of those Charms are presented here. Promises, dreams and hopes do not count as objects unless they are made tangible through some other effect. CRAFT MINIMUMS Characters can fulfill the Craft minimum for a Craft Charm with any Craft Ability. Supplemental Charms apply only to Crafts that the character masters to the level of the Craft minimum. Other Charms apply to all Crafts unless otherwise stated. A character with five dots of Craft (Fire) and no other Crafts could use Object-Strengthening Touch on any object, but could use Crack-Mending Technique to supplement repairs only suitable to Craft (Fire).</p><p>Durability-Enhancing Technique</p><p>Object-Strengthening Touch</p><p>Chaos-Resistance Preparation</p><p>(ANY CRAFT EXCELLENCY)</p><p>Crack-Mending Technique</p><p>Shattering Grasp</p><p>Craftsman Needs No Tools</p><p>+ Athletics) rating necessary to break the object by one. These effects are permanent, but no combination of Charms that includes Durability-Enhancing Technique can increase these totals by more than the character's Essence.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "9250c5c1bbd368eb",
+            "charmName": "Object-Strengthening Touch",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "f40608b48f3519ed"
+  },
+  "folder": "461821c707bbdbb0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

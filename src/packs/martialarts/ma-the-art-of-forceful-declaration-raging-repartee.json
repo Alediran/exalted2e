@@ -1,0 +1,57 @@
+{
+  "_id": "a038e6425e64d699",
+  "_key": "!items!a038e6425e64d699",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Raging Repartee",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "6m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When a master of this style finds her stride, her arguments pierce the pitiful protests of her opponents. The remainder of the debate is likely to be hers, as her proofs become extremely sound and her logic unshakable. Or at least her opponents can't get a word in. A truly skilled warrior of Valor will use this Charm on nearly every occasion she can, mostly because such masters are also notoriously intemperate. This Charm adds the character's Valor in extra successes to any attack she launches, making her blows quite deadly. It subtracts a like number of dice from any action not directly connected with defeating her opponents. Martial artists under the effect of this Charm ignore wounds that would lay out anyone less dedicated to the ideal of Valor. The character reduces the effects of wound penalties by two, and this effect stacks with the effect of Instruction in Spirit. She may also reflexively spend a point of Willpower on her action in order to continue fighting even once her Incapacitated level is filled. She can do so until she runs out of Willpower or damage fills her last Dying level. This Charm cannot add more successes to the Exalt's attacks than normally allowed when using other Charms, such as Essence Triumphant.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Forceful Declaration",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "a038e6425e64d699"
+  },
+  "folder": "676ebc2abfe88729",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,58 @@
+{
+  "_id": "0f6e8d7f028686f7",
+  "_key": "!items!0f6e8d7f028686f7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Inner Fire Unleashed",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "resistance",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Native",
+      "Reactor"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Essence permeates every fiber of the Solar's being. Lawgivers with this Charm have learned to focus that Essence upon their vital centers, imbuing their very cells with limitless energy. Whenever a Solar with this Charm heals damaged health levels, she recovers two motes per level. After twenty motes have been restored in this fashion in the course of a scene, the Solar only gains one mote per health level healed. When twenty more motes have been paid out in this manner within the same scene, the Solar only gains one mote per two health levels restored. This healing may only occur as a result of rest or of Solar Charms which heal damage. Though this Charm is permanent, it is perpetuated and substantiated by regular meditation upon inner forces turning outward. It is a sacred power which relies upon the Lawgiver's utmost care for her own well-being. This power fails the Solar if she inflicts harm upon herself or allows others to harm her: injuries from attacks thrown without killing intent will not yield motes when healed.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "0f6e8d7f028686f7"
+  },
+  "folder": "f05b544008eaceb0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

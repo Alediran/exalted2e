@@ -1,0 +1,71 @@
+{
+  "_id": "e958e80dfe5c5a04",
+  "_key": "!items!e958e80dfe5c5a04",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shroud-Crossing Miasma",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "sail",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious",
+      "Spectral"
+    ],
+    "cost": {
+      "formula": "30m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This terrifying Charm blurs the barrier between the worlds of the living and the dead, enabling powerful deathknights to sail between the two. At night, either in Creation or the Underworld, the Abyssal evokes a fogbank with all the properties of Mist-Veiled Doldrums Technique, though only (Essence x 100) yards in radius. The focused fog simultaneously appears in the analogous location in the other world. Anyone can recognize its spectral character with a difficulty 3 (Intelligence + [Occult or Sail] + Essence) roll. Anything that enters the fog from the Underworld leaves the fog in Creation, and vice versa. Those who do not make their way</p><p>out of the cloud before it evaporates remain in the world from which they entered. Although the effects of this Charm resemble a shadowland, the fog is not actually considered such. While rifts created by Shroud-Crossing Miasma set off detection alarms at the Bureau of Destiny and the central controls of the Realm Defense Grid, Heaven lacks the resources or inclination to investigate most incursions outside of a few favored locations.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d938bd0de7046f57",
+            "charmName": "Mist-Veiled Doldrums Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "e958e80dfe5c5a04"
+  },
+  "folder": "b0b1b2b3b4b5f046",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

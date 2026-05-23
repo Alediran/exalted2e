@@ -1,0 +1,80 @@
+{
+  "_id": "742364bb9e782450",
+  "_key": "!items!742364bb9e782450",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Blood Heralds Death",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneWeek",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Sorcerous",
+      "Stackable"
+    ],
+    "cost": {
+      "motes": 10,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "10m, 1wp"
+    },
+    "description": "<p>The Infernal Monster follows the scent of blood, whether that is blood he has drawn or the blood on the hands of those who wounded him. This Charm may be activated to Sorcerously tag any living victim the Infernal inflicted actual levels of damage on with an unarmed attack in the past hour. Alternately, Blood Heralds Death can tag enemies who inflicted actual levels of damage to the Exalt in the past hour as a direct result of their actions (even unintentional injury). Either way, the tag forges an arcane link duplicating that placed by Nowhere to Hide (to the point that it can be used to tag characters in order to leap after them when they are close by). Unlike its</p><p>prerequisite. Blood Heralds Death places tags that last a week rather than an hour. If the tag is removed via countermagic, the Infernal requires new injuries to re-tag that character with another activation. Whenever an Infernal makes a tracking roll to pursue a victim tagged by this Charm, that roll is enhanced as though by the Solar Charm Unshakeable Bloodhound Technique (Exalted, p. 211). However, the Infernal receives no bonus to the roll-off if another effect contests the tracking effort. With Essence 4+, the Infernal becomes immune to all fatigue accrued while actively tracking a tagged target. Sleep deprivation affects him normally, but he can give endless chase without tiring from exertion. Existing fatigue is also ignored while tracking tagged victims, but resumes as soon as he stops as though no time passed. Eternal Monstrous Hunt</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Infernal Monster Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "388c80290c1fcf32",
+            "charmName": "Nowhere to Hide",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "742364bb9e782450",
+    "grantsMastery": false
+  },
+  "folder": "ae5a8ed470f7303b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

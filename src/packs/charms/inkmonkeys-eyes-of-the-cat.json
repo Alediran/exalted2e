@@ -1,0 +1,57 @@
+{
+  "_id": "6fdb8f35c1204bbd",
+  "_key": "!items!6fdb8f35c1204bbd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Eyes of the Cat",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "awareness",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "one scene",
+    "speed": 3,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Drawing on the predator's gift shared by all cats from the humblest housecat to the greatest jade tiger, the Lunar's eyes shift to vertical slitted pupils of moonlit silver as she acquires the sensory apparatus of the perfect night hunter. For the remainder of the scene, the Exalted suffers no penalties from darkness or dim lighting, can track moving prey by heat and scent as easily as by sight, and adds two bonus dice to all Awareness rolls involving seeing, hearing, or detecting the presence of living creatures.</p><p>The cat-eye transformation is visible to observers and marks the Lunar's eyes clearly as supernatural, though it can be concealed with appropriate Tell management. Beyond the mechanical benefit, the Lunar also shares the cat's perfect spatial memory for terrain traversed under these eyes, unable to become lost in any environment she has moved through while this charm was active. It is a prerequisite for Eyes as Moonbeams Method.</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "6fdb8f35c1204bbd"
+  },
+  "folder": "b0b1b2b3b4b5f058",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

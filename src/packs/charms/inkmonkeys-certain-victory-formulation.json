@@ -1,0 +1,72 @@
+{
+  "_id": "d60e3b2186defd76",
+  "_key": "!items!d60e3b2186defd76",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Certain Victory Formulation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "war",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "twoActions",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Native",
+      "Overdrive"
+    ],
+    "cost": {
+      "formula": "0m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>In the heat of battle, giving a Solar time to consider his strategy may be a fatal error. As the Lawgiver formulates a method by which his opponent may be dispatched, he experiences a surge of Essence to compensate his battle strategy. This Charm grants the character a ten-mote Overdrive pool. An activation of this Charm allows the character to gather one offensive mote per tick, to a maximum of ten motes, with which to fill this pool. If the Solar takes any damage to his health track or uses a Charm with one of the Four Flaws of Invulnerability (see Exalted, p. 194) during this time, his concentration is interrupted; the mote gain ceases and the character must repay the activation cost of the Charm if he wishes to resume the effect. The Solar must be in combat and inside a hostile enemy's engagement range in order to use Certain Victory Formulation. Cover Shrouding Movement</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "73df9d8899064827",
+            "charmName": "Heroism-Encouraging Presence",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "d60e3b2186defd76"
+  },
+  "folder": "b0b1b2b3b4b5f071",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

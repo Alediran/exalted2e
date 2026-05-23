@@ -1,0 +1,59 @@
+{
+  "_id": "01cf9c8775a6e68d",
+  "_key": "!items!01cf9c8775a6e68d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Absence",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "dodge",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>THE SCRIPTURE OF LOVER AND MAIDEN Once there was a maiden... ...who met a thing that lived outside the world, and there was a beauty to it. It burned with an unholy wrath that could destroy Creation. It hated her as much as it loved her. Its kiss was blood and perfection, for its teeth were sharp. It offered her power, and with it, hooks to tear her soul. With care not to burn her fingers, she took it into her life. \"Love is what you make of it,\" said she. Viziers anticipate attacks upon them, and avoid them. Apart from the name and Essence cost, this Charm duplicates Shadow Over Water (see Exalted, p. 227).</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "01cf9c8775a6e68d"
+  },
+  "folder": "b0b1b2b3b4b5f006",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

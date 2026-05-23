@@ -1,0 +1,27 @@
+{
+  "_id": "dd7e72c8895bc333",
+  "_key": "!items!dd7e72c8895bc333",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ice Gem",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDABSSL00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "abyssal",
+    "rating": 4,
+    "description": "<p>This translucent, slightly bluish cube looks like a chunk of ice and stays perpetually cold. Whenever the bearer desires, she can reflexively cover herself and all of her melee weapons with a brutally frigid aura of cold. As long as the target is not immune to cold, all melee or unarmed attacks by the bearer inflict an additional +4L damage. Also, anyone who is not immune to cold suffers five dice of lethal damage if they strike the bearer with an unarmed attack.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

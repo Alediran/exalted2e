@@ -1,0 +1,27 @@
+{
+  "_id": "a68a1e8cd0b3f6c2",
+  "_key": "!items!a68a1e8cd0b3f6c2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Jewel of Youthful Suppleness",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDWOOD000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "wood",
+    "rating": 1,
+    "description": "<p>This faceted, scalloped-edged garnet makes the bearer exceptionally limber and flexible. Her player gains two dice to all Athletics rolls. In addition, she can both dislocate and relocate all of her joints at will, without discomfort or harm. This ability grants her two dice to any Larceny rolls to escape bondage.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

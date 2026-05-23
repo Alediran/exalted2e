@@ -1,0 +1,60 @@
+{
+  "_id": "374f72ad7e8f3a23",
+  "_key": "!items!374f72ad7e8f3a23",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "King of Beasts Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Glamour (3)",
+      "Merged",
+      "Shaped-Only"
+    ],
+    "cost": {
+      "formula": "1m per die",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The raksha can call upon the beasts of Creation in conjunction with the inherent properties of raksha narrative magic. The raksha invokes this Charm when he enters Creation through Assumption of Bestial Visage, thereby gaining the following innate power to call upon the traits of his animalistic nature to aid him in some minor way in his endeavors: Innate Power (Cost: 1m, Speed: 5): For the duration of the story, the raksha can reflexively spend one mote to grant a one-die Wyld bonus to any single action, whether undertaken by himself or anyone within his presence. Two conditions must be met. First, the raksha must be able to describe how the action is benefited by the characteristics of a particular animal. Second, he must have the Assumption of Bestial Visage Charm appropriate to that animal active. For example, if the raksha were using Assumption of Bestial Visage (Lion) and was preparing to engage in battle, he might roar like a mighty beast to intimidate his enemies. Later, if he wished to give encouragement to shy Creation-born, he might try to inspire him with the majestic solemnity of his leonine form. Glamour Resistance: This Charm is a work of glamour. When the raksha uses this Charm to influence actions he undertakes himself, there is no Glamour Resistance. When he uses it to assist an action undertaken by a Creation-born, the Charm fails if the targeted mortal's (Integrity + Essence) exceeds the raksha's Manipulation.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "374f72ad7e8f3a23"
+  },
+  "folder": "6dbccd37637d2988",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

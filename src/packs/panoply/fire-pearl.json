@@ -1,0 +1,37 @@
+{
+  "_id": "8544e58b99c34919",
+  "_key": "!items!8544e58b99c34919",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fire Pearl",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>These scarlet orbs of flawless red jade are roughly an inch in diameter and were originally invented as a type of reusable ammunition for heavy alchemical flame weapons such as fuel bolt launchers (see p. 75). In the Second Age, only well-educated savants know this bit of trivia. To most people who have heard of them, fire pearls are merely useful baubles that can start fires without need for tinder or flint. To use a fire pearl in this manner, a character need only hold it and concentrate his attention on a flammable inanimate object no bigger than himself within one yard. Roll the user's (Wits + Lore) at a difficulty of 1 for highly flammable targets such as dry wood, or difficulty 3 for moderately flammable objects such as fresh corpses or wet wood. If successful, the target object catches flame and burns normally thereafter. Fire pearls can be used only three times per day without Essence expenditure, but further uses cost only one mote apiece. With a stunt, it is possible to ignite a number of small and similar objects in a single action, such as lighting all the candles in a candelabrum with a flamboyant gesture.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 1,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

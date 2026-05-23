@@ -1,0 +1,59 @@
+{
+  "_id": "0b949a8e235ae68f",
+  "_key": "!items!0b949a8e235ae68f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fallen Star Fury",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "martial-arts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Fate",
+      "Native",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Sidereal akuma can expand Infernal Monster Style, but this is a dubious honor for those who already aspire to the Blossom of the Perfected Lotus. Fallen Star Fury is exclusively Native to Sidereal akuma and can't be learned by other beings. By purchasing the Charm, the akuma rejoins fate on his own hideous terms. His unholy power grabs the strands of causality and tangles them around his fingers. He is still considered outside of fate for any effect in which being removed is an asset, but can connect to the Loom to use astrology or otherwise benefit from being inside fate. In effect, he is between fate rather than fully outside it, perversely enjoying the best of both worlds. The Storyteller adjudicates which state is preferable with regard to resolving all effects that depend on whether the akuma is part of Fate. Additionally, the akuma is not obligated to attack his Yozi master or any of its component Third Circle demons while in a berserk state (such as that induced by Retribution Will Follow) unless said entities physically attacked him earlier in the scene. With Essence 5+, the Charm gains the following additional powers, the last of which only helps masters of Infernal Monster Style: · Infernal Monster Form does not interfere with the use of Sidereal Martial Arts Form-type Charms. For example, she can have Infernal Monster Form and Citrine Poxes of Contagion Form active at the same time. If another effect allows him to use a limited number of Sidereal Form-type Charms concurrently (like Prismatic Arrangement of Creation Form), Infernal Monster Form does not count toward this limit. The akuma cannot generally use this power to stack Infernal Monster Form alongside other non-Sidereal Form-type Charms. This can be enabled with Prismatic Arrangement of Creation Form (or similar effects) by including lesser Forms within that Sidereal Form Charm and then stacking this with Infernal Monster Form. · If employing the previous power to wield two Form-type Charms, then all form weapons of either style are considered form weapons for both styles. This does not apply if the styles use different range weapons. Infernal Monster cannot be practiced with a bow any more than a bow-themed style could use improvised weapons. · The corrupt Vizier can activate Infernal Monster Form at the same time as he activates a Sidereal Martial Arts Form-type Charm, paying the usual cost to activate each Charm. This combined activation uses the highest Speed and DV penalty among both Form-type Charms. · If the akuma flares his One Hand Fury with a Sidereal Martial Arts Form-type Charm, the burning runes spiral and twine from his hand and trail behind his blows like ribbons of smoldering emerald flame. This Obvious display provides the same benefits as the best sutra the akuma can use with that Sidereal Martial Art, but at no cost and without any chance of external disruption. For instance, if the akuma can only use a student sutra, then flaring his hand with a Sidereal form duplicates a student sutra. Dragon-Spawned Demon-Monster</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "0b949a8e235ae68f"
+  },
+  "folder": "a1b2c3d4e5f60006",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

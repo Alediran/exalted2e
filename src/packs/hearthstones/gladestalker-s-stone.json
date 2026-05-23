@@ -1,0 +1,27 @@
+{
+  "_id": "d8430cd037e33e9a",
+  "_key": "!items!d8430cd037e33e9a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gladestalker's Stone",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDWOOD000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "wood",
+    "rating": 3,
+    "description": "<p>If set in a powerbow, this deep-red cabochon adds three dice to its Accuracy and another three dice to its Damage.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "_id": "5ffaee19db58b9b3",
+  "_key": "!items!5ffaee19db58b9b3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Honey-coated Admonitions",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Masterful orators can kill with kindness. Gentle and benign-seeming remarks can tear a foe's argument into pieces while seeming like assistance. Some opponents in the debate will stand, smiling, while their philosophies collapse around them. This method can be slow without special preparation, however. Using this technique in battle allows the martial artist to subtract from a foe's DVs and soak values a number of successes equal to his (i.e., the martial artist's) Essence dots. The attack is rolled and carried out normally, but if it overcomes the target's parry or dodge, the attack is treated as though it had only one extra success.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Victorious Concession",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "5ffaee19db58b9b3"
+  },
+  "folder": "fd11958743cc8ca7",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

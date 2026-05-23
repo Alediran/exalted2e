@@ -1,0 +1,37 @@
+{
+  "_id": "074d16ca8d432923",
+  "_key": "!items!074d16ca8d432923",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fire Lance",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Once a common personal weapon in the First Age regularly equipped to elite mortal soldiers, these weapons resemble fairly conventional spears forged of First Age alloys. Their only distinctive features are the bulbous nodes placed just above the grip, which contain integrated power cells, and the articulated blade heads that open like the petals of a flower to reveal a narrow spigot of red jade. On their own, fire lances are simply expensive spears. Each lance holds 20 motes in its battery, however, and these motes can be spent to achieve any of three effects. Alternatively, wielders with Essence pools may attune the spears for a cost of two motes, after which they may choose to power them directly from their own reserves. Charge: For a reflexive cost of one mote, the lance's blade glows a dim red. Whenever it next strikes a target, these banked energies erupt in a surge of fire, increasing the strike's raw damage by +4L and immediately setting any flammable inanimate target alight. Type Speed Acc. Damage Defense Rate Minimums Attune Tags Charge 5 +1 +4L/7L +2 Str ·· 2, L, R (+8L/11L charged) Streamer: For a reflexive cost of two motes, the spear fires a twisting jet of flames at a target using the wielder's Archery. While firing a streamer, the lance is considered a firewand for the purpose of Archery Charms. Type Speed Acc. Damage Rate Range Minimums Attune Tags Streamer 5 +2 10L 2 150 (max. range) ­ 2, F Fire Fan: By reflexively spending five motes, the wielder may spray a continuous wash of flames across an arc. The fan can hit up to three separate targets within three yards of each other with a single attack roll. Type Speed Acc. Damage Rate Range Minimums Attune Tags Fire Fan 5 +5 7L 1 100 (max. range) ­ 2, F</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 3,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

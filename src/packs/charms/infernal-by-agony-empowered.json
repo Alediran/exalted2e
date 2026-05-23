@@ -1,0 +1,68 @@
+{
+  "_id": "63d7a5991880421f",
+  "_key": "!items!63d7a5991880421f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "By Agony Empowered",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm permanently improves By Pain Reforged, allowing that Charm to ignore deleterious effects from lethal damage. In addition, if lethal damage would reduce the Infernal below Incapacitated while he is using By Pain Reforged, the damage does not continue into his Dying levels, instead upgrading existing lethal wounds into aggravated damage. Once the Infernal has aggravated wounds in all health levels, further damage can mortally wound or kill him normally. When purchased, By Agony Empowered does not mitigate penalties imposed by aggravated damage. Infernals with Essence 5+ may ignore even these penalties, fighting to the last breath without any sign of slowing or acknowledging their wounds.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "malfeas",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "bbc3e23937efb50c",
+            "charmName": "Nightmare Fugue Vigilance",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "63d7a5991880421f"
+  },
+  "folder": "1945ba1655ca5f6f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

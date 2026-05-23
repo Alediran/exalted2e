@@ -1,0 +1,57 @@
+{
+  "_id": "740bb168c843a7ad",
+  "_key": "!items!740bb168c843a7ad",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Boulder-of-intentions Rush Attack",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>It might sound like an avalanche, but in the mountainless jungle, that sound can be nothing but the great and terrible creature. It barrels through the forest's old and new growth to overrun and crush its prey. Exalts mastering this Charm learn to strengthen their legs with Essence to hurtle toward their foes with great speed. Unfortunately, the technique sacrifices accuracy for the elements of surprise and great impact. Invoking the Rush Attack allows the martial artist to move up to his unimpeded Dash speed (ignoring any penalties to movement) before attacking the enemy in the same action. The first mighty attack at the end of the charge suffers a -1 external penalty but adds (Martial Arts + Essence) to its raw damage.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Terrible Ascent-driven Beast Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "740bb168c843a7ad"
+  },
+  "folder": "5ce01017f4c92c09",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

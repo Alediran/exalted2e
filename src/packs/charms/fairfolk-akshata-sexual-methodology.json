@@ -1,0 +1,57 @@
+{
+  "_id": "b82757fbd6498c48",
+  "_key": "!items!b82757fbd6498c48",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Akshata Sexual Methodology",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "staff",
+    "essence": 4,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "40m, 5g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Prerequisite Charms: Gaping Virtue Mouth The raksha draws upon the name of Nirvikalpa, which she uses to sanctify an oath between two other Fair Folk through the birthing of a child from their union. The Charm permits one raksha to draw the Essence of two other consenting Fair Folk into herself and manipulate it to create a child. Each of the two parents (the gender of whom is irrelevant) must make an oath to one another, while the raksha who enacts this Charm must make a third oath in the child's name. The oath-child, as he is called, is bound from birth to the oath sworn in his name, while his parents are bound to the oaths sworn to each other while that child still lives. Treaties among the Fair Folk are often sealed with the birthing of a new raksha through this Charm. Both of the parents can contribute to the activation of this Charm with Essence, gossamer and experience. The oath-child possesses his own Heart, Ring and Sword Graces, while one of his parents takes ownership of his Cup Grace and the other one his Staff Grace. If one of the parents is raksha, the child is raksha. If one is noble, the child is automatically noble.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "b82757fbd6498c48"
+  },
+  "folder": "3a42d6c2417833d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

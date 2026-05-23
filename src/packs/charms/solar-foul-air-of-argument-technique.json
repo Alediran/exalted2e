@@ -1,0 +1,70 @@
+{
+  "_id": "3c8a4f7ca219b788",
+  "_key": "!items!3c8a4f7ca219b788",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Foul Air Of Argument Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "bureaucracy",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Those who oppose the Lawgivers often break down under the burden of their own failings. This Charm supplements a deliberate attempt by the Solar to sabotage an organization's operation. Her player rolls ([Intelligence or Charisma] + Bureaucracy), adding the Solar's Essence in automatic successes. Subtract an external penalty of ([the organization's leader's Intelligence + Bureaucracy] � 2) from the successes on the Bureaucracy roll. If the character succeeds, then the organization suffers a permanent increase in corruption and inefficiency that imposes a -2 internal penalty on all of its actions. This Charm can be applied repeatedly to a single bureaucracy, but no combination of Charms including Foul Air of Argument Technique can impose a greater internal inefficiency and corruption penalty on an organization than (the Solar's Intelligence + Bureaucracy).</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f3b818cae68fa2eb",
+            "charmName": "Indolent Official Charm",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "3c8a4f7ca219b788"
+  },
+  "folder": "d5862da5783b00ab",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

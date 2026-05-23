@@ -1,0 +1,37 @@
+{
+  "_id": "3d92315ce21dec5b",
+  "_key": "!items!3d92315ce21dec5b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Enemy of Nature",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "solar-circle-enemy-of-nature",
+    "tradition": "sorcery",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 50,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "one month",
+    "target": "One entity or social group",
+    "description": "<p>At the end of a chant that invokes the rage of all things natural, the sorcerer utters a name that resounds across the nearby hills and valleys. Some say that a careful listener can hear it whispering through the trees and grasses from over 1,000 leagues away. It must be the specific name of a person or creature, a region or a group no larger than Magnitude 9 (Magnitude 3 in the Mandate of Heaven). At that moment, the owner of that name becomes anathema to all things living. Plants strain to trip or strangle the targets, and even the most docile beast of burden attempts to bite and trample her. All creatures who sense a target of this spell become ferocious and uncontrollable, and they do their very best to kill her with no regard for their own lives. In lands completely devoid of life (only the Underworld and Essence-blasted wastelands really meet this criterion), a target is potentially safe. In other regions, the she suffers the following effects: � She suffers a -1 to -3 external penalty to all actions as swarms of vermin and masses of plants impede her, based on the region's fecundity. All but the least hospitable regions of Creation host creatures or roots enough to inflict the least penalty. Lava rats live in the Southern expanses of volcanic stone, for instance, while ice hornets nest in the worst wastes of the North. In the jungles or forests of the West and East, life is so abundant it becomes difficult to accomplish anything at all. Although this penalty represents the difficulty for powerful entities (an Exalt, a city) to act under such conditions, the massed assault of vermin and insects can kill individual mortals. � Larger animals attack the target on sight. Massed creatures attack as an unordered mass combat unit with Drill 0. Plants with enough size and maneuverability may also attack. When the target is a social group, creatures only enter mass combat with units of comparable size. For instance, a pride of lions can't really attack an entire town, but they can wipe out a household every night. Very large creatures can count as mass combat units all by themselves. The larger sea monsters, for instance, can attack and destroy whole ships to get at a target. � Unless a victim travels through a lifeless region, the harassment and danger impedes travel. Halve all travel rates, or consider all terrain extreme when using complex travel. The Solar has a choice how long the curse lasts. She may curse the target for one month. (An extremely careful person might survive, and a few people from a targeted group might live to spread the tale of horror.) Alternatively, the sorcerer can decree a curse that lasts as long as the targeted name endures. An individual is almost doomed to be tormented by hateful creatures and plants wherever she goes, however long she lives. Changing her name would certainly be a legendary quest, for names are recorded in the stars. Military units, cities and societies can earn different names over time, but the curse endures until no living creature still thinks of the social group by the accursed name. Once a sorcerer casts Enemy of Nature, she cannot revoke the curse.</p>"
+  },
+  "folder": "66776f28169b53d7",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,57 @@
+{
+  "_id": "ea8be3d2b3211505",
+  "_key": "!items!ea8be3d2b3211505",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Perfect Outsider Understanding",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "intelligence",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "simple",
+    "duration": "oneDay",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "None"
+    ],
+    "cost": {
+      "formula": "15m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Luna's Chosen are the ultimate outsiders, freely walking between nations and worlds. They are at home in the outlands, recognized as kindred spirits and ideal champions by the odd inhabitants of the Threshold and beyond. Upon purchasing this Charm, the Lunar selects a particular sort of outsider from the following list: Demons, Dragon Kings, elementals, ghosts, Jadeborn, Lintha, raksha. The Storyteller may add other alien races and classes of being to this list as he feels appropriate. When this Charm is active, the Lunar's player adds a number of automatic successes equal to the character's Intelligence to all social rolls for the character to deal with that particular class of outsider. Additionally, the Steward gains three artificial specialties in all of his Abilities focused on the outsider in question. Additional outsiders may be added to this Charm for a cost of two experience points each. The Charm must focus on a single type of outsider, selected when activated, and if the Lunar wishes to deal with a different sort of being, she must deactivate the Charm and reactivate it.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "ea8be3d2b3211505"
+  },
+  "folder": "8b05ba7cc3e236b8",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

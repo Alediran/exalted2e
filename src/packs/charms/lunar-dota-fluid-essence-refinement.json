@@ -1,0 +1,57 @@
+{
+  "_id": "292bcec89520463f",
+  "_key": "!items!292bcec89520463f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fluid Essence Refinement",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "wits",
+    "essence": 6,
+    "minAbility": 7,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "None"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Stewards' magic is not overt. This Charm permanently enhances the Lunar's capabilities. The character's use of Essence is subtle, making it difficult for opponents to find and target. When a foreign effect threatens to suppress, manipulate or otherwise adversely affect a Charm, spell or supernatural effect the Lunar has invoked or created, add an amount equal to the Lunar's Wits to the difficulty to do so. When there is no roll (and thus no difficulty to increase), the foreign effect fails. Add a number of successes equal to the Lunar's Essence to any opposed rolls to determine which effect overrides the other. This Charm has no effect on Countermagic spells.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "292bcec89520463f"
+  },
+  "folder": "03a1efbef258d84f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

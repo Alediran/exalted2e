@@ -1,0 +1,77 @@
+{
+  "_id": "aea6d53ce69f7884",
+  "_key": "!items!aea6d53ce69f7884",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Defense-From-Anathema Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "integrity",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Leader 5",
+      "Native"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Perhaps the most recent Charm developed for the DragonBlooded arsenal, this Charm was created for the express purpose of facilitating the Great Uprising. While it is in effect, a DragonBlood may add her Essence to her Dodge and Parry DV against any attacks made against her by an Anathema, including sorcery</p><p>or Charm-assisted attacks. She can also add her Essence to her Mental Dodge and Parry DV if confronted with an Anathema using mind-altering effects. Neither Eclipse nor Moonshadow Exalted are capable of learning this Charm, whose nature is fundamentally inimical to their Exalted natures.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5b8a93286cc5f34f",
+            "charmName": "Chaos-Warding Prana",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "aea6d53ce69f7884",
+    "dvBonus": {
+      "enabled": true,
+      "dodgeBonusFormula": "@ess",
+      "parryBonusFormula": "@ess"
+    }
+  },
+  "folder": "b0b1b2b3b4b5f020",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

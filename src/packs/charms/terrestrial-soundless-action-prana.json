@@ -1,0 +1,70 @@
+{
+  "_id": "c7d823bba46607d6",
+  "_key": "!items!c7d823bba46607d6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Soundless Action Prana",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "stealth",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic"
+    ],
+    "cost": {
+      "formula": "1m per minute",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With this Charm, the Air Aspect moves in perfect harmony with the air around her, suppressing the sound of her movements. For one minute per mote spent, the Dragon-Blood can eliminate any noise she directly produces, but not sounds she causes that are not connected to her person. That is, she could smash in a window with a rock in complete silence, but if she threw that rock through that window, the sound would be clearly heard. The Charm does not provide any direct benefit to Stealth rolls, but it will eliminate the chance of attracting attention in many circumstances, such as areas protected by alarms. The individual under the influence of this Charm is unable to speak while Soundless Action Prana is in effect and must communicate through nonverbal means, perhaps through Charms such as Speech Without Words or With One Mind.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "794dda06a9ea3ab3",
+            "charmName": "Feeling-the-Air Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "c7d823bba46607d6"
+  },
+  "folder": "b0b1b2b3b4b5f02f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

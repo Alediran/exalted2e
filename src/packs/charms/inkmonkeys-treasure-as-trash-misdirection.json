@@ -1,0 +1,59 @@
+{
+  "_id": "4d39bf31ab9096c7",
+  "_key": "!items!4d39bf31ab9096c7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Treasure as Trash Misdirection",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "larceny",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Illusion",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solar applies her perfect understanding of value, desire, and perception to make observers see whatever she wishes them to see when they look at an object. For the duration of the scene, a single object the Exalted touches appears to all mundane observers to be either magnificently valuable (if it is actually worthless) or completely without merit (if it is actually valuable). The disguise is convincing enough to pass all mundane appraisal checks and even fool expert craftsmen who do not apply supernatural scrutiny.</p><p>The charm requires a (Manipulation + Larceny) roll to maintain against any observer who actively applies a supernatural Investigation or Larceny charm to see through it. This misdirection is perfect for smuggling precious items in plain sight, making worthless counterfeits pass as authentic goods, or ensuring that the true prize goes unnoticed amid apparent wealth. It serves as prerequisite to Any-Trinket Allure.</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "4d39bf31ab9096c7"
+  },
+  "folder": "b0b1b2b3b4b5f060",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

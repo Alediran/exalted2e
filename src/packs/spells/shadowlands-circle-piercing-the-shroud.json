@@ -1,0 +1,37 @@
+{
+  "_id": "037f84c2d31d5799",
+  "_key": "!items!037f84c2d31d5799",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Piercing the Shroud",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "shadowlands-circle-piercing-the-shroud",
+    "tradition": "necromancy",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 25,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Labyrinth",
+    "description": "<p>This spell can be cast only at night. A shimmering, faint shadow manifests in the air at waist height, like the reverse of light on water. As the necromancer chants for 10 minutes, the liquid shadow darkens, the earth trembles, and every animal nearby panics and tries to flee. At last, the necromancer slashes a blade into the inky surface, which falls and drains away. A rough-hewn onyx staircase now yawns at her feet. The staircase remains open for 30 seconds (or ticks) before closing with a horrible, sucking sound. It leads to the Labyrinth, whence there is no easy escape. Even the portal created by this spell will not allow a person to return, once she has placed her foot upon the first step.</p>"
+  },
+  "folder": "9a7bd83d0a359e00",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

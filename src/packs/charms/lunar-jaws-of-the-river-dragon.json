@@ -1,0 +1,78 @@
+{
+  "_id": "19a5c37aae35e7ee",
+  "_key": "!items!19a5c37aae35e7ee",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Jaws Of The River Dragon",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "strength",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "untilNextAction",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      10
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>None can escape a Steward's punishment. In addition to the normal crushing damage that a successful clinch or</p><p>opposed grapple roll inflicts, the character's mighty arms also weaken her opponent. The victim of this Charm suffers an external penalty on the next opposed grapple check equal to the Lunar's Essence. FLESH-TEARING ENTANGLEMENT Cost: --; Mins: Strength 5; Essence 3; Type: Permanent Keywords: Crippling, Stackable Duration: Permanent Prerequisite Charms: Jaws of the River Dragon Lunars' mastery of their own bodies provides them superior knowledge of others'. This Charm permanently enhances Jaws of the River Dragon, allowing the character to also apply one of the following effects when she activates that Charm and inflicts at least one level of damage from the clinch: � Reduce any one of the target's physical Attributes by one. � Reduce the target's Appearance by one. � Render a limb useless for the rest of the scene. Exalted recover from diminished Attributes at a rate of one per day. Mortals recover only if given supernatural medical aid. All of these effects are considered crippling. Reducing an Attribute to zero renders the target unable to make any roll that requires that Attribute. Losing Strength disables one from inflicting any damage, although Charms that work on a mere touch can still take effect.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "934e1b119918daf4",
+            "charmName": "Throat-Baring Hold",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "statusApply": {
+      "enabled": true,
+      "status": "Crippling",
+      "resistPool": "@sta + @resistance",
+      "onFail": "applyCrippling"
+    },
+    "charmUid": "19a5c37aae35e7ee"
+  },
+  "folder": "aba1efe8ad0bef8a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

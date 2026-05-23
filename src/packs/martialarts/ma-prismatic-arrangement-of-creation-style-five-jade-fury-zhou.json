@@ -1,0 +1,58 @@
+{
+  "_id": "1b68d7476f060d19",
+  "_key": "!items!1b68d7476f060d19",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Five Jade Fury (zhou)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Knockback",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "10m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Prerequisite Charms: None The character's footwork evokes jade's el- emental authority over the Essence of Creation. Each pattern of steps offers a bonus that applies only to unarmed Martial Arts attacks. The compassion and conviction of green jade allows his attacks to inflict bashing or lethal damage. The grace of black jade allows him to supplement attack rolls with one extra automatic success for every three dice her player rolls (rounded up). The reliability of white jade supplements damage rolls with one extra automatic success for every three dice rolled (rounded up). The swift, unexpected force of blue jade knocks opponents back one yard for each level of damage inflicted. The fierce hunger of red jade adds three dice to the character's Join Battle roll or reduces the Speed of her attack by one tick (to a minimum of 1). The character can apply only one benefit per attack.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Prismatic Arrangement of Creation Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "1b68d7476f060d19"
+  },
+  "folder": "33c138eb339f4538",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

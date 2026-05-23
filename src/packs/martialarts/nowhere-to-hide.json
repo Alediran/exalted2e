@@ -1,0 +1,81 @@
+{
+  "_id": "388c80290c1fcf32",
+  "_key": "!items!388c80290c1fcf32",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Nowhere To Hide",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Sorcerous",
+      "Stackable"
+    ],
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "--"
+    },
+    "description": "<p>The Infernal finds those who flee her. Whenever an Infernal with this Charm uses Leaping Smash Technique to attack an individual, he can place a Sorcerous tag on that individual for one hour. The brief arcane link of sublime aggression connects the Infernal Monster with her intended quarry. It is possible to tag any number of separate victims with separate attacks, but Infernals can't tag and have no need to tag the same victim more than once. Whenever the Infernal Monster uses Leaping Smash Technique while he has tagged one or more victims, he can choose one of those enemies as the attack's target and allow the arcane link to guide her. Her instinct-driven leap carries her in the direction of her quarry, regardless of whether she is aware of the victim's current location. If an unobstructed path to that target exists and the target is in range of the leap, the attack resolves as normal for use of Leaping Smash Technique. An invisible opponent (or a dematerialized one) still applies a -2 external penalty to the attack roll. If the opponent is out of reach or protected by total cover, the leap carries the Infernal the maximum possible distance toward her without slamming her into intervening obstacles (unless she chooses to slam through them because she has other magic enabling her to do so). With the right Charms, it is possible to use Nowhere to Hide to leap through a wall and resolve the attack against someone on the other side. Martial Arts 5+ allows the Infernal to leap toward the closest god or demon bigger than a least god or Thing That Lurks In Corners that he can reach with the attack (as though that being were tagged). He can exclude any potential targets he can perceive to avoid attacking allies (even while in a berserk state). This doesn't let him hit dematerialized beings, but in conjunction with magic that does, he can use an attack as a means of testing if there are any spirits snooping about. Blood Heralds Death</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Infernal Monster Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f6f711f9e5df4438",
+            "charmName": "Leaping Smash Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "388c80290c1fcf32",
+    "grantsMastery": false
+  },
+  "folder": "ae5a8ed470f7303b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

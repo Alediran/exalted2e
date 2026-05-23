@@ -1,0 +1,71 @@
+{
+  "_id": "514236a2871a81e2",
+  "_key": "!items!514236a2871a81e2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Spirit-Tied Pet",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "survival",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "10m, 1wp, 1xp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Since the First Age, the Lawgivers have forged magical bonds with their chosen beasts. The target of this Charm must</p><p>be an animal loyal (see p. 175) to the Exalt. Normally, the Exalt wins this loyalty through persuasion and the use of the Friendship with Animals Approach. The Exalt can only use this Charm if he has no familiar, and using it on a new animal for the first time removes his Familiar Background entirely. This Charm is a dramatic action requiring several hours of interaction with the target. It increases the Exalt's Familiar Background by one dot, to a maximum of five. When the Exalt's Familiar Background reaches a sufficient level to have the animal as a Familiar, it becomes his familiar. For example, a tiger requires three applications of this Charm to become the Exalt's familiar, and two more to give the Exalt the abilities conveyed by Familiar 5.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "390906a26657a100",
+            "charmName": "Friendship with Animals Approach",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "514236a2871a81e2"
+  },
+  "folder": "82dbbb60bb2b2c18",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,58 @@
+{
+  "_id": "08335abbd90b8fb1",
+  "_key": "!items!08335abbd90b8fb1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Birth of the Perfect Ego Juggernaut",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Illusion"
+    ],
+    "cost": {
+      "formula": "15m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Also there was all they ever wanted. Thin veils separate desire, belief and knowledge. This technique tears them away. With the slightest touch, the character dooms his foe (or sacrifices his friend) to a world without failure. A mere brush with a finger realigns the victim's spiritual centers, or chakras. In combat, a normal (Dexterity + Martial Arts) attack must penetrate the target's defense but need not inflict any damage. If the attack succeeds, the world reshapes itself around the target's needs and desires. There is no immediate sensation, but a victim of this Charm knows with utmost certainty (as she takes her next rolled action) that she is fated to succeed. Most people would revel in such a feeling and glory in destiny's aid when completing their action. The target must specifically choose to deny fate, succeeding or failing the action under only her own power, in order to evade the Charm's effects. Otherwise, she forfeits her mental defense. Should the target attempt to refuse this aid, the martial artist's player rolls his (Martial Arts + Essence) and adds a number of automatic successes equal to his Performance, comparing the result to the target's Dodge MDV. For some people, this unnatural mental influence may oppose a Virtue. When the target accepts fate or succumbs to the character's mental onslaught, her player adds 10 successes to all her rolls for the next minute, making even her attempts at routine tasks epic. This bonus does not count toward the maximum number of successes or dice a character may gain from Charms. After one minute, the target receives one fewer free success, and she loses another for each minute that follows. The target is the only person who cannot become aware of this waning perfection. To her, her every act continues to outperform the gods. It does take time before the target's perception departs from reality. For several minutes, she really does clear the battlefield with sweeping blows, draw up brilliant architectural plans or wow society with her daring repartee. Thereafter, she does only as well as she normally can--maybe worse, since she's so out of touch--but her eyes see continued brilliance, perfect blows against her enemies, infinite strength and wisdom. She succeeds at her every aspiration with luck, grace and effort to spare. The target's madness makes excuses for Creation's mistakes. If she tries to run without rest from Gethamane to Chiaroscuro, it is a great blowing storm, rife with mischievous spirits that slows her--not her rubbery legs. When guards force her from a ball where her atrocious dance and voice earned her a black mark, they are beaus escorting her to a private audience with the disguised marquis, and they refuse her entrance later with soft pleas that they cannot stand to weep so oft for beauty. The sheer cliff that she strikes thrice in order to shape it into a perfect palace appears so, but monsters or villains appear to destroy it. Even using Charms or other magic to cure the psychological malady cannot always help the victim of this Charm. Returning to a world where you are not effortlessly perfect can break a person in ways no Charm can fix. Occasionally, a Sidereal must inflict this torture on a friend or ally, when he must achieve a very difficult task.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Border of Kaleidoscopic Logic Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "08335abbd90b8fb1"
+  },
+  "folder": "74e10a76522315aa",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

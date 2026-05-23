@@ -1,0 +1,37 @@
+{
+  "_id": "70b38797640ef524",
+  "_key": "!items!70b38797640ef524",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Floating Ribbon",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>The urumi is a rare martial arts weapon--a sword with an extremely long, flexible blade, wielded like a hybrid of sword and whip. Its artifact equivalent, known as the floating ribbon, possesses a nine foot long, silk-thin blade of alloyed magical material attached to a carefully weighted handle. The blade has a heavier tip, allowing it to be deftly wielded to make sudden stabbing attacks, or to guide the path of the blade. The wielder may also reflexively pay one mote to extend the length of the blade out to a distance of 10 yards for a single attack. The urumi's weapon traits are repeated here, for convenience. More information on the spring-sword may be found on page 156 of Scroll of the Monk. +1 +3 Damage +3L Damage +5L Defense Rate -2 Defense Rate +0 ·· -- R arts styles he knows up to the Form-type Charm, which martial arts styles he has mastered, whether he has any Intimacies toward the martial artist, and the nature of those Intimacies, if they exist. For the rest of the scene, the martial artist gains a +2 bonus to her DVs and MDVs against any opponent she has evaluated in this manner. Into Infinite Depths may be activated as an innate power, which does not count as a Charm activation if Sapphire Veil of Passion Form is active.</p>",
+    "source": "Glories of the Most High: The Maidens of Destiny",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,60 @@
+{
+  "_id": "2ee20bf8be7f7d9c",
+  "_key": "!items!2ee20bf8be7f7d9c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unwanted Obsession Provocation Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Glamour (3)",
+      "Merged",
+      "Shaped-Only",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The power of the emotion or belief by which the raksha defines himself in Creation can overpower those who come into his orbit. This Charm, used in conjunction with Assumption of Dreams and Passion, grants the raksha access to the following innate power: Innate Power (Cost: 5m): By unleashing the emotion at the core of his assumed form into Creation, the raksha can reflexively impose an internal penalty equal to his Essence on a single witnessed action of which he disapproves. The raksha's player must define how the emotion the character has assumed can logically result in the penalty to be inflicted. If the raksha has used this Assumption to disguise himself as another, this power instead inflicts an internal penalty on all rolls to penetrate the raksha's disguise for the duration of a scene. Glamour Resistance: This power is a work of glamour and cannot affect Creation-born whose (Temperance + Essence) exceeds the raksha's Manipulation.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "2ee20bf8be7f7d9c"
+  },
+  "folder": "6dbccd37637d2988",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

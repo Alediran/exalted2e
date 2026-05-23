@@ -1,0 +1,37 @@
+{
+  "_id": "b45c3797e13c1f19",
+  "_key": "!items!b45c3797e13c1f19",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Tiger Shark Armor",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>During the Shogunate, this armor was specifically de- signed for use by mortal marines who might have to fight both above and below the waves. Tiger shark armor looks like a somewhat lightly made version of ashigaru armor (see p. 79). The armor's most important feature is that the helmet contains enchantments that allow it to recycle air indefinitely so that the wearer can breathe normally underwater. In addition, mobilityenhancing enchantments on the armor allow the wearer to move normally underwater. Wearers can engage in hand-to-hand combat underwater without penalty. The vast majority of missile weapons cannot be used underwater, however, except by Water-aspected Dragon-Bloods (who don't need tiger shark armor to function normally underwater). As a result, most troops wearing tiger shark armor were armed with shock pikes, which function normally underwater. To counteract the darkness of the depths, the armor sharpens the wearer's senses, negating penalties for darkness less than \"utter blackness\" and adding two dice to all Awareness dice pools. These are the only special abilities provided by this armor. Mortal wearers must spend one temporary Willpower to activate the armor. This Willpower is treated as committed and effectively reduces the character's maximum temporary Willpower. Additionally, wearer's age one extra week for every season or part of a season the armor is used. Exalts need only commit four motes to use this armor. Tiger shark armor has the following features: Sensory Augmentation Visor*: +2 bonus to Awareness; negates all penalties from darkness less than pitch black. Jade Air Scrubbers*: Provide unlimited air supply through blue jade filters that keep air from going foul. Mobility-Enhancing Armature*: The wearer may move without penalty underwater. Upkeep: Maintenance required every 50 hours of use; every 10 missed hours randomly disables one of the powers marked with an asterisk. The armor's water-breathing enchantment will always be the last ability lost. Soak Hardness Mobility Fatigue Attune +7L/6B 2L/2B -0 4m or 1W Other Notes: Tiger shark armor is built using a mixture of magical materials and First Age alloys, and Exalted wearers gain no magical material bonuses. There is a three-dot version of this armor designed specifi- cally for Exalts. This version of the armor does not require maintenance, and because it is made primarily from a single magical material, this armor gains the normal magical mate- rial bonuses. It requires six motes to attune. Soak Hardness Mobility Fatigue Attune +8L/7B 3L/3B -0</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

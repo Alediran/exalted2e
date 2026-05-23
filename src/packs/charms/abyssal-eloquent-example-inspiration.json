@@ -1,0 +1,74 @@
+{
+  "_id": "075316cb7a45dca1",
+  "_key": "!items!075316cb7a45dca1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Eloquent Example Inspiration",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "bureaucracy",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Emotion",
+      "Mirror (Speed the Wheels; Exalted, p. 231)",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "8m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Nothing stimulates productivity like pervasive mortal terror. To use this Charm, the Abyssal executes a subordinate member of a Magnitude 3+ organization she leads. Her player rolls (Manipulation + Bureaucracy + Essence) at a difficulty equal to the organization's Magnitude. Killing a high-ranking or popular subordinate or performing the execution in a particularly brutal or innovative manner can provide stunt dice.</p><p>Success increases the speed of all projects the organization undertakes by a factor equal to the Abyssal's Bureaucracy rating for a number of days equal to the threshold successes rolled (minimum one day). It also counts as a scene of building an Intimacy of fear toward the deathknight for all members. Failure decreases the Magnitude of the organization by one from demoralized desertions. Repeated use of this Charm weakens the emotional impact of the execution, imposing a cumulative -1 internal penalty to subsequent activations targeting the same organization. Each month that goes by without use of this Charm removes one die of this penalty.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "075316cb7a45dca1",
+    "mirrorId": "3471eff4ee1c4e68"
+  },
+  "folder": "b0b1b2b3b4b5f036",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,58 @@
+{
+  "_id": "0493d617c9535cb7",
+  "_key": "!items!0493d617c9535cb7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Reliant Soul Infiltration",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 8,
+    "minAbility": 7,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "12m, 1wp, 1xp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Elder Sutra of Understanding: Everything is somewhere else. Speaking her name twice and a secret name once, the martial artist creates a duplicate of her personality in the form of a glistening shard of anima that she draws from her mouth. It quickly disappears in her hands like a conjuror's trick. The next time she touches a sentient entity, which requires a (Dexterity + Martial Arts) attack in combat, she insinuates that replica of her mind into her target. Her identity surges along the flows of Essence to the target's soul, the seat of his self, where it attempts to take command. The martial artist maintains a tie between both identities, perceiving both her normal senses and an internal, purely mental sense of the struggle to dominate her target's body. Upon touching her target, the martial artist immediately attempts an unnatural mental attack based on (Manipulation + Presence + Essence). She may supplement this attack with Excellencies as usual. Should she overcome the target's highest MDV, the character exerts a total control effect. She is free to command any actions from her victim for the next 10 minutes--usually the rest of the scene, but only 10 long ticks in social combat time. The martial artist is able to use her victim's body, Charms and other abilities with complete efficiency, but with her own Mental Attributes, knowledgebased Abilities, Virtues and Willpower. If the takeover fails, the character may make a number of additional reflexive attempts equal to her Presence on her following actions. When the 10 minutes are up, the magic of the Charm fades. Essence no longer forces the body's owner into the backseat--but the Charm-created identity is self-aware. Its preservation instinct is as strong as that of the original character, and it will not go quietly. Both identities inside the victim's body make a single attack against the other's Dodge MDV. Either may utilize the body's inherent Charms. Whichever gains the most net successes wins control of the body; the losing identity is completely destroyed. The martial artist might not wish her duplicate identity to live on, whether out of kindness to her victim or jealousy toward her identity. She may design it to fail at the moment of final conflict. If she does, the replica divides its Dodge MDV in half before applying Charms or stunts. Whoever wins, this is when the martial artist's player loses control of the target body. If the body's original mind wins, the martial artist's influence is clearly over. Even if the character's replica wins, it is no longer connected to the martial artist's mind. Though the two identities have identical histories, the different experiences each has from that point on quickly turn them into individuals. They likely share goals and morals--for a while--but the character's secondary personality changes rapidly, especially based on the qualities of the body it now inhabits. Mortal bodies make the mind more cautious and less carefree, while inhabiting an alien body makes the personality alien.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Border of Kaleidoscopic Logic Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "0493d617c9535cb7"
+  },
+  "folder": "74e10a76522315aa",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

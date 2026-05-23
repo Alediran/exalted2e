@@ -1,0 +1,57 @@
+{
+  "_id": "c2ea296ee1ced3eb",
+  "_key": "!items!c2ea296ee1ced3eb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hidden Defense",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>As a great debate rages, one never knows whence an attack might come. Anyone might declare one's primary tenet worthless or seek to undermine the foundation of one's argument, so the wise debater has a deflecting argument always at the ready to defend his beliefs. Used in response to an attack, this Charm allows the Exalt to ignore all penalties to his Parry DV. It is still 0 if it is inapplicable. He may also parry lethal attacks barehanded, if he could not already do so. Finally, at Essence 4 or higher, the character can choose to spend a point of Willpower with this Charm in order to use his Parry DV against an unexpected attack.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Meditative Discussion",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "c2ea296ee1ced3eb"
+  },
+  "folder": "1b2f6d78bc952477",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,59 @@
+{
+  "_id": "56eb93448fc102a7",
+  "_key": "!items!56eb93448fc102a7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Cracked Cell Circumvention",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      1
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m (or 2m, 1wp)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>From his thrashing imprisonment to present, the Ebon Dragon has tirelessly and furiously labored to shatter the walls of his prison. This Charm may supplement any action that directly helps an Infernal escape physical restraints or physical confinement. Note that this Charm only aids in</p><p>direct personal escape efforts; it can help an Exalt seduce a guard to get out of jail, but it won't help her shatter the prison wall from the outside to set other captives free. As always, the Storyteller remains the final arbiter of when this Charm applies. Cracked Cell Circumvention doubles the successes of any valid action (or doubles the size of a static pool). If used to enhance an attack, the accuracy successes double before applying the target's DV (or MDV), but this does not also double damage successes. Infernals with Essence 4+ may spend an additional Willpower when activating this Charm in order to ensure a threshold one success on the enhanced action as a Shaping effect. The character can't use this effect to destroy magical objects, but she may augment actions that circumvent such barriers nondestructively. Using this effect to escape a clinch breaks the hold immediately.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "ebonDragon",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "56eb93448fc102a7"
+  },
+  "folder": "7c2ec8d4b84c1156",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "30d7dafb13f9010a",
+  "_key": "!items!30d7dafb13f9010a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Resplendent Satchel of Healing",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>This wondrous item is exceptionally rare, and few have been made since the end of the Shogunate. It is a rectangular green jade case a foot on a side and three inches thick that is chased with orichalcum. This artifact always contains a rod of cleansing the body (see p. 62), a set of wound mending needles (see p. 66) and a set of jade medical implements that add four dice to all Medicine rolls (including rolls to diagnose illnesses) made while using them. Committing five motes of Essence to the kit allows the owner to use all of these items. This artifact effectively served as the badge of office for the best Solar and Dragon-Blooded healers in the First Age and the Shogunate. First Age versions of this item are marked with the caste mark of the Solar Twilight Caste inlaid in orichalcum, while those made during the Shogunate are marked with a large stylized glyph of the name of Sextes Jylis, the Immaculate Dragon of Wood. Despite these differences, these two models of artifact are functionally identically. The most important portion of this artifact is the instrument of regrowth, a device that allows the character to help patents regenerate crippled or missing body parts. This artifact is an adjustable band designed to fit around a part of the patient's body. This band contains a setting for a single hearthstone. To activate it, the user must place a Wood- or Solar-aspected hearthstone of at least level 2 into this socket. This hearthstone provides no benefit beyond powering this item. In addition, the user must commit an additional five motes to the band. (This cost comes in addition to the five motes he must also commit to initially activate the resplendent satchel of healing.) The character must then place this band around the damaged body part. The band must be carefully positioned, and doing so requires five minutes of careful work and a successful (Intelligence + Medicine) roll, difficulty 3. If the roll fails, the device will not activate. As soon as the device is activated, the patient falls into a deep trance, and the damaged body part begins to mend or regrow. The time needed for this regrowth is the same regardless of the size of the body part being regrown. Exalts spend one full day in this trance, while ordinary mortals spend three full days entranced. The only way to awaken a character from this trance before regrowth is completed is to remove the band or the hearthstone in it. If either the band or the hearthstone is removed early, the regeneration will not be complete, and the body part will still be crippled or partially missing. Like other healing artifacts, this device will work on any living being that had at least one parent who was born in Creation.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 4,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

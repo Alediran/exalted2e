@@ -1,0 +1,37 @@
+{
+  "_id": "6fe4d0b31da0568e",
+  "_key": "!items!6fe4d0b31da0568e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Black Faith",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "void-circle-black-faith",
+    "tradition": "necromancy",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 30,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 1,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Caster",
+    "description": "<p>A necromancer who casts this spell places all his trust in the Neverborn. He must believe they value him and his dedicated service. The character carves his prayer to dead gods into the corpus of a ghost, hurls this sacrifice into the Mouth of the Void, then spills his own blood into the vast emptiness. And after the paired sacrifices of death and life, he leaps in himself! The necromancer hopes that the Neverborn notice his sacrifice and crystallize their dreaming power around him before the end of his descent. As he nears the Void, his clothes, his tools and artifacts, his body itself dissolves to less than dust. Only the corpus of his soul remains as it plummets past the floating tombs of the Neverborn, and it boils excruciatingly away until the necromancer becomes nothing. One moment stands between the necromancer's loss of spirit and his final dissolution, and it serves as judgment. If he has somewhat roused and greatly pleased the mighty Neverborn, one of them hurls the meager concept of the caster's death into the Void before him. Never having died, the necromancer appears at whatever location he desired to appear. Occasionally, he comes to a place that his unknowable masters consider more appropriate. Regardless, he can appear anywhere that exists, from the Labyrinth to Yu-Shan to a lost realm in Elsewhere or the best-protected spirit sanctum. His method of appearance--literally notexisting and then existing--allows him to completely ignore all wards or safeguards against such travel. Few necromancers master the Void Circle without the layered blessings of the Neverborn, but some madman might try to use Black Faith while in bad odor with the Underworld's dead gods. In such a case, the necromancer's Exaltation flees him as his consciousness is obliterated at the end of an inspired and very complete suicide. This spell is a Storyteller device, and players should discuss it with their Storyteller before actually using it.</p>"
+  },
+  "folder": "447f6cc1520ba234",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

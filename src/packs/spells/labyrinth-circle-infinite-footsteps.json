@@ -1,0 +1,37 @@
+{
+  "_id": "c6d19c64d1c9fe63",
+  "_key": "!items!c6d19c64d1c9fe63",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Infinite Footsteps",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "labyrinth-circle-infinite-footsteps",
+    "tradition": "necromancy",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 26,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "one day",
+    "target": "One journey",
+    "description": "<p>The Labyrinth is a shifting, dangerous place constructed from the Neverborns' quicksilver dreams and nightmares. Travelers can use the Labyrinth to cross the Underworld in days, but they are likely to become lost and devoured--or worse. Masters of the Onyx Circle, however, may dare the Labyrinth with this spell. Standing just within the Labyrinth, the caster throws a token of her destination into the mad realm before her. It may be a bit of dust from the ground there or the plasm from a creature or ghost who dwells in the area. Whatever it is, the Essence-charged token warps the fluid region into a long, curving hallway of the Labyrinth's black stone with supports made from the white ribcages of lost giants. It is broad enough for seven zombies to stagger abreast. This necromantic passage forces a direct connection between the necromancer's destination and the entrance to the Labyrinth where he now stands. No matter how close or far the two locations may be in the Underworld above, walking the infinite hallway takes one full day of travel. No other magic or means of transportation can speed this journey. The tunnel remains coherent for a number of days equal to the caster's Essence, after which it becomes as susceptible to change as any other portion of the Labyrinth. It might endure for a century, or it might dissolve into a spectre battlefield after mere seconds. Even though Infinite Footsteps does not pass through locations owned by nephwracks or stranger inhabitants of the Labyrinth, it may come very close to them. Entities who call the Labyrinth home occasionally take offense, invade the corridor, and try to make passage difficult. For some reason, this seems to happen most often when the caster is in haste or otherwise concerned about traveling quickly.</p>"
+  },
+  "folder": "562235f47f16c453",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

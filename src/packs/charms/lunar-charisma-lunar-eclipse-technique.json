@@ -1,0 +1,70 @@
+{
+  "_id": "43b2283941e4c06c",
+  "_key": "!items!43b2283941e4c06c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Lunar Eclipse Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "charisma",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "None"
+    ],
+    "cost": {
+      "formula": "-- (1m)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>In the First Age, it was considered noble and just for a Lunar to hone his skills to assist his Solar mate above all other things. This sentiment is less widespread in the Age of Sorrows, but some Sun King Seneschals still prepare themselves to stand by their Solars--even if they have not met them yet. When the character spends her Solar Bond dice, she may pay one mote to convert all such dice expended on that tick into automatic successes.</p>",
+    "source": "Glories of the Most High: Luna",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ee3cac4b3f998386",
+            "charmName": "Sacred Guardian Renewal",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "43b2283941e4c06c"
+  },
+  "folder": "4e63ba1bd67a09e3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

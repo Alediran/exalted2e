@@ -1,0 +1,37 @@
+{
+  "_id": "4d3a9d9420250673",
+  "_key": "!items!4d3a9d9420250673",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Essence Reallocation Protocol",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "man-machine-protocol-essence-reallocation-protocol",
+    "tradition": "weaving",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 25,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Special",
+    "description": "<p>This protocol has special timing rules. The Exalt can cast it as a reflexive Weave Man-Machine Protocol action that takes 0 ticks. The recycling of materials is of the utmost importance within Autochthonia, and the flows of Essence are no different. By absorbing all the Essence out of a protocol and channeling it into the weaver's Essence pool, this protocol duplicates the effects of Emerald Countermagic (see Exalted, p. 253), countering Man-Machine protocols and Terrestrial Circle sorcery (but not Shadowlands Circle Necromancy). Any absorbed Essence that puts the weaver over his maximum rating causes an Exalt's metal Charms to flare up and emit sparks, or other weavers to emit radiant light from their mouth and eyes as the excess Essence is shunted away.</p>"
+  },
+  "folder": "3b28eb3d74c31f00",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

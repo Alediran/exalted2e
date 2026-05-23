@@ -1,0 +1,81 @@
+{
+  "_id": "cc01cd4cfbda01a5",
+  "_key": "!items!cc01cd4cfbda01a5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Doe Eyes Defense",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Emotion"
+    ],
+    "cost": {
+      "motes": 2,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "2m"
+    },
+    "description": "<p>The Black Claw practitioner is well aware that vulnerability is his greatest defense, and exploits it ruthlessly. The martial artist falls back hurriedly in response to an attack, his every movement accentuating his inferiority in the face of the oncoming assault. Realization of her target's weakness unnerves or unduly excites the attacker, depending on her temperament, causing her to experience an internal penalty on her attack roll equal to the martial artist's (Appearance + 2). This unnatural mental influence costs two Willpower to ignore. In the First Age, this technique was also sometimes known as the Fainting Maiden Ward, or the Painted Boy Defense. Table-Turning Reversal</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Black Claw Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "bc22374701ca0547",
+            "charmName": "Black Claw Form",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "cc01cd4cfbda01a5",
+    "grantsMastery": false
+  },
+  "folder": "03b3e5be01a6c1af",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

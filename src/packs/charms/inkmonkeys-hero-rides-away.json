@@ -1,0 +1,75 @@
+{
+  "_id": "f8262623b5236345",
+  "_key": "!items!f8262623b5236345",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hero Rides Away",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "ride",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Emotion"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>In ancient times, Solars chasing sundown represented something both tragic and awe-inspiring; their efforts redoubled at the fading of the day as a nod to their patron, his symbolic death leaving them to fill the void. This Charm captures a Lawgiver's breathtaking iconicity and his otherworldly there-andgone nature, turning it into a renewed intent to bring the story to its conclusion. When this Charm takes effect, the Solar's player chooses a Virtue and rolls the Lawgiver's Conviction. The Exalt regains one spent channel for the chosen Virtue and Willpower points equal to (number of successes + 1). To gain this benefit, the Solar must leave a Magnitude 3+ social unit that he has helped in the past day, and must do so by making a dramatic exit on his mount, blazing his unforgettable image into their minds as he departs. Examples of a dramatic exit include riding off into the sunset, pausing to cut an iconic figure on the horizon, rearing one's steed so it can churn the air before galloping away, or departing at the height of a raging thunderstorm. This help must be intrinsically heroic and known to all members of the social unit, the sort of deeds that draw Solar Essences to Exalt mortals. Examples include driving off a ruthless band of brigands, killing a monster, curing a plague, feeding the hungry in a time of famine, improving the local infrastructure, healing the lame, etc. The Storyteller is the final arbiter of what constitutes acceptable help. Barring something unusually aweinspiring, such help must have taken at least one full scene to provide. If the Solar ends a story with such a departure, he loses a point of Limit, and all members of the community gain a posi-</p><p>tive Intimacy toward the Solar with an emotional context defined by the Lawgiver (generally respect, love, gratitude or reverence). Resisting this unnatural Emotion effect costs (Solar's Essence, max 5) Willpower. Similarly, the unit's leader must spend (Solar's Essence, max 5) Loyalty or the Intimacy becomes part of the unit's Policy. For example, if the Solar saves a small town from hobgoblins and chooses an Intimacy of gratitude, all citizens feel thankful to him and incorporate that appreciation into their local culture. As a result, the people as a whole won't betray the Solar when the Wyld Hunt comes looking and only the most determinedly ungrateful individuals can bring themselves to such heinous treachery. One Man Cavalry</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "832a4492cc4094d4",
+            "charmName": "Master Horseman's Techniques",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "willpowerRecovery": {
+      "enabled": true,
+      "event": "onDamageDealt",
+      "formula": "1"
+    },
+    "charmUid": "f8262623b5236345"
+  },
+  "folder": "b0b1b2b3b4b5f069",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

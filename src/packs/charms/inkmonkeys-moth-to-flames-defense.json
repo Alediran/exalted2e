@@ -1,0 +1,67 @@
+{
+  "_id": "c3be9d869bd57b32",
+  "_key": "!items!c3be9d869bd57b32",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Moth-To-Flames Defense",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "wits",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      1
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "6m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Like a moth to a flame, a Lunar may be drawn to the weaving of a spell. With this Charm, she may feed on the shaping sorcery's Essence, breaking the spell before it can be cast. By paying six motes, the Lunar enhances an unarmed physical attack against a target taking a Shape Sorcery action, her attacking limb swirling with silver streamers of raw chaos. Should the Lunar roll damage against the target, the target suffers automatic knockdown, increasing the difficulty of the (Wits + Occult) roll to maintain her Shape Sorcery action to 4. If the casting is successfully broken, the Lunar draws in five motes of Essence, streamers of energy from the broken spell flowing into her body as the magic dissipates. This Charm is equally effective against Shape Necromancy and Weave Protocol actions. Thousandfold Wasp Dance</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "statusApply": {
+      "enabled": true,
+      "status": "Knockback",
+      "resistPool": "",
+      "onFail": "knockdown"
+    },
+    "charmUid": "c3be9d869bd57b32"
+  },
+  "folder": "b0b1b2b3b4b5f072",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "7581566ffd3dc995",
+  "_key": "!items!7581566ffd3dc995",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Cloak of Deadly Automata",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>This artifact was developed during the height of the First Age by a team of Twilight Caste Solars who were attempting to both expand upon Autochthon's work with miniaturized devices and to duplicate the destructive power of the horrific scarab guardians (see Games of Divinity, pp. 46-47) that the gods use to protect their most dangerous treasures. These Exalts created vast swarms of tiny Essence-powered automata. Each swarm works together as a unit, and when it is not in use, the swarm forms itself into a small, easily transportable form. Swarms can either become a small, seemingly featureless sphere six inches in diameter, or they can link together to form a light and supple cloak that the owner can wear. In ether case, the heart of this cluster of automata is a small oval the size of a large grape that forms either the center of the sphere or the clasp of the cloak. This oval has two functions. To attune to this item, the owner must hold this item and commit eight motes of Essence to it. At this point, the automata are all under his command. In addition, if any automata are destroyed, this unit can create new ones. Doing so requires that owner to accumulate a store of raw materials made up of various scraps of metal and jade that costs Resources 2 to replace less than 20 percent of the automata, and Resources 3 to replace more automata. This unit can replace every one of the automata if they are all destroyed. To replace the automata, the user must set the oval on the raw materials and commit an additional 10 motes of Essence until the automata have been replaced. This artifact will recreate a small number of automata overnight but will take a full day to recreate half or more of the automata and two full days to recreate all of them. There are two types of these automata in common use--devourers and guardians. Both types of automata have two important limitations. Although these automata can move normally, they cannot dash and so cannot move faster than (Dexterity) yards per tick in combat. In addition, neither of these automata can harm anything made from either Essence or one of the five magical materials or other First Age alloys. They can slip though the cracks of any armor, but they cannot harm artifacts. Devourers: These automata were specifically designed as a means of attack and a tool for breaching barriers and destroying non-magical objects. At the owner's command, the cloak or sphere instantly transforms into many hundreds of automata each the size of a lima bean. These creatures then attack any single target indicated by their owner. (Because of the limited nature of their artificial hive mind, devourers can attack only one target at a time.) These automata attack mercilessly and will fight until the last one of them is destroyed. Although its components are of little consequence individually, when this deadly horde works together, it can destroy almost anything in its path. When these automata attack someone, they can swarm through cracks in the unfortunate's armor. As a result, only the target's innate lethal soak or protection Charms (if any) can protect against these attacks. Even then, their attacks can gradually chew through these protections. Every action, reduce the value of the target's remaining lethal soak by the rolled damage. When this soak is reduced to 0, the automata's attacks cannot be soaked. Lost points of innate lethal soak heal as fast as bashing damage. Attributes: Strength 1, Dexterity 5, Stamina 2; Charisma 1, Manipulation 1, Appearance 1; Perception 2, Intelligence 1, Wits 4 Virtues: None. Never fails Valor checks, never succeeds at any other Virtue checks. Abilities: Awareness 1, Dodge 3, Integrity 5, Martial Arts 4, Stealth 2, War 4 Join Battle: 5 Attacks: Bite: Speed 4, Accuracy 10, Damage 1L (penetrates armor), Defense ­, Rate 1 Soak: 2L/3B (Tough shell, 1L/1B) Health Levels: -0/-2/Incap Dodge DV: 4 Willpower: 10 (0 to owner) Essence: 1 Other Notes: Automaton physiology (see pp. 96-97). Guardians: Guardian automata function almost exactly like devourer automata but can also be ordered to protect people, places and things from harm. Because their senses are considerably keener and their minds more versatile, they are less effective in combat. Guardian automata can also be assigned to protect their owner or anyone their owner designates from harm. They then surround the person or item being guarded. When they are assigned to guard someone or something, they will not attack the owner or anyone that the owner specifies (either at the time they are ordered to begin guarding or at any later time). If anyone else approaches within four yards of the person or item or if the individual is within 10 yards of the person or item and uses any physical means to harm or disturb the person or item being guarded, the guardian automata will attack. In addition, they can be ordered to attack just like devourer automata. Like devourer automata, the swarm can attack only one target at a time. They can sense Essence, however, and unless ordered otherwise, they always attack Exalts and other Essence users first. Attributes: Strength 1, Dexterity 4, Stamina 2; Charisma 1, Manipulation 1, Appearance 1; Perception 4, Intelligence 1, Wits 4 Virtues: None. Never fails Valor checks, never succeeds at any other Virtue checks. Abilities: Awareness 4, Dodge 3, Integrity 5, Lore 2, Martial Arts 3, Stealth 4, War 3 Join Battle: 8 Attacks: Bite: Speed 5, Accuracy 8, Damage 1L (penetrates armor), Defense ­, Rate 1 Soak: 2L/3B (Tough shell, 1L/1B) Health Levels: -0/-2/Incap Dodge DV: 4 Willpower: 0 Essence: 1 Other Notes: Automaton physiology (see pp. 96-97).</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 4,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

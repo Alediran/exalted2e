@@ -1,0 +1,59 @@
+{
+  "_id": "d8b11b814950502c",
+  "_key": "!items!d8b11b814950502c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gathering The Congregation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "socialize",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "oneWeek",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Social"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The glory of the Lawgivers inspires mortals to awe. The Exalt attempts to persuade everyone who can hear him to organize in his service, his player rolling (Charisma + [Performance or Socialize]). This Charm organizes all characters whom the Exalt successfully persuades into a social group under the Exalt's direction. The group dissolves if the Exalt abandons it for more than a day. SUPERNATURAL MARTIAL ARTS The combat forms known as the \"supernatural martial arts\" require intense study, discipline and training. They do not flow naturally out of the paramount spirit of the Solar Exalted, any more than ordinary martial arts come naturally to mortals flailing in bar brawls. To learn supernatural martial arts, one must understand the Essence flows of the world and harmonize oneself with them. These Charms are not specific to any Exalt type. The Solar Exalted have incredible strength of spirit and anima, but they must still learn the proper forms, katas and spiritual insights of the martial arts through dedicated experimentation or diligent study. For the other Celestial Exalted, it is no different--and any Celestial Exalt or Immaculate Dragon-Blooded can learn these Charms. Some supernatural martial arts, called the \"Terrestrial\" Martial Arts, are even available to mortals and ordinary Dragon-Blooded. Supernatural martial arts styles are complete. It is possible to create new styles but not to augment existing styles with new Charms. SNAKE STYLE The Charm cascade beginning with Striking Cobra Technique comprises the Snake Style of Martial Arts. The \"form weapons\" for Snake Style are hook swords and the seven-section staff. Snake Style Charms treat attacks and blocks with these weapons as unarmed attacks and blocks. This includes the artifact versions of these weapons, such as serpent-sting staves. Snake Style is a Celestial Martial Arts style. Solar, Lunar, Abyssal and Sidereal Exalts, as well as Dragon-Blooded initiated into the fighting styles of the Immaculate Order, can learn it. It is a style traditionally practiced by the Solar Exalted, so only Solar Exalted can learn this style without a teacher.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "d8b11b814950502c"
+  },
+  "folder": "5da24482e38ff9ae",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

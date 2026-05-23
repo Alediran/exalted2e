@@ -1,0 +1,59 @@
+{
+  "_id": "512db165bad7d26c",
+  "_key": "!items!512db165bad7d26c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Everywhere and Nowhere Stance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "stealth",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Illusion",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The eyes of the Solar Exalted are always watching. Through the use of this Charm, the Solar becomes omnipresent in the minds of the wicked. The Solar touches a target (this may require a Dexterity + Martial arts attack if the target attempts to avoid contact) and spends four motes. The sensation of the Solar's touch lingers on and on, eventually spreading to encompass all of the target's senses. So long as these motes remain committed, the Lawgiver seems to be con- stantly shadowing his mark--the target frequently glimpses the Solar leaning in doorways, or disappearing down alleys. He sees the Exalt's silhouette watching him from rooftops or following him through crowds. The Solar seems to be watching more often than not, always vanishing if confronted directly. This is an unnatural Illusion effect which costs two Willpower to ignore for a scene; the effects of the Charm end once the target has spent a total of twenty Willpower fighting it. The Lawgiver adds his Essence in bonus successes to all attempts to establish or re-establish surprise against individuals afflicted by Everywhere and Nowhere Stance--it becomes difficult to discern the Solar's true presence from the shadows in the target's mind. A second purchase of this Charm at Stealth 6+, Essence 6+ permits the Solar to use this Charm on an area. Used in this manner, Everywhere and Nowhere Stance has a cost of 6m, 1wp. So long as the Solar commits Essence to the Charm, everyone in the affected region suffers visions of the Solar's presence, as detailed above, though with lower frequency--no more than once per scene. Individuals in the affected region may resist the Charm's Illusion for one Willpower per scene, but cannot permanently immunize themselves to it so long as they remain in the area. Everywhere and Nowhere Stance may initially be used upon an area a mile in diameter, but with Stealth 7+ the Solar may affect an area up to (Essence x 2) miles, and with Stealth 8+ may affect (Essence x 10) miles. At Stealth 9+ the Solar may spread her presence across (Essence x 100) miles, and with Stealth 10 the Lawgiver may encompass an entire Direction. At Stealth 7+, Essence 7+, the Solar may add a point of permanent Willpower to the Charm's cost when used to target a region. Doing so changes the Charm's Duration to instant, requiring no Essence commitment on the part of the Lawgiver and rendering its effects permanent. The Solar's shadows will continue to haunt the area forever, even after his own demise.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "512db165bad7d26c"
+  },
+  "folder": "07815dca7bd3d3d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

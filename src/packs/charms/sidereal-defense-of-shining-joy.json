@@ -1,0 +1,68 @@
+{
+  "_id": "04e78b4f32b631f0",
+  "_key": "!items!04e78b4f32b631f0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Defense Of Shining Joy",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "performance",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 5,
+    "dvPenalty": -1,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Moving with the tempo of her opponent's actions, as if the two of them were lifelong dance partners, the Sidereal can predict the perfect completion of any attack that opponent launches. She can also make certain that this perfect completion does not involve her. For the rest of the scene, the character adds her Performance score to her Dodge in calculating her Dodge Defense Value. Also, the character can use either her Performance or Dodge Excellencies (but not both) to increase her Dodge Defense Value static value. This new Defense Value ignores onslaught penalties and reduces the Defense Value penalty of any attack the character makes by one (to a minimum of zero).</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "edf299e8ee7885bb",
+            "charmName": "Perfection in Life",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "04e78b4f32b631f0"
+  },
+  "folder": "b0b1b2b3b4b5f010",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

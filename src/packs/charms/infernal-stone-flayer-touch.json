@@ -1,0 +1,70 @@
+{
+  "_id": "b9be9ee4ecefff5a",
+  "_key": "!items!b9be9ee4ecefff5a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Stone-Flayer Touch",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m or 1m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Endless Desert falls over the land, shredding gods and men alike under her jagged dunes. They are all the same to her. This Charm can enhance any instant duration action, allowing it to affect dematerialized or materialized LOST IN CECELYNE Characters stranded in the Endless Desert require the full five days to complete the journey in either direction but tend to loop back on themselves and stay lost until someone finds them (difficulty 5 tracking effort at bare minimum for those who have some idea where to start looking) or the player of one of them succeeds at a daily (Wits + Survival) roll at difficulty 5 to get her bearings. Retry penalties apply normally to this roll.</p><p>targets alike regardless of the Infernal's current corporeal state. A god or demon injured by an attack enhanced with Stone-Flayer Touch loses motes equal to the number of health levels suffered as flecks of Essence grind away in luminous particles from the wounds. The cost of this Charm is one mote, one Willpower if the Infernal is incorporeal and attacking a material target with a physical attack and only one mote otherwise.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "cecelyne",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f9b13ab624f48a8d",
+            "charmName": "Transcendent Desert Creature",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "b9be9ee4ecefff5a"
+  },
+  "folder": "d852ccb3960d271d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

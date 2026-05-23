@@ -1,0 +1,70 @@
+{
+  "_id": "f371da4cb896e2eb",
+  "_key": "!items!f371da4cb896e2eb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Primordial Principle Emulation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "occult",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "None"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>After warping her body into a cephalopod horror through sorcerous manipulation, she found that she could not innovate new Solar Charms that acknowledged the terrible, inhuman capabilities of her new form. Pressing at the outer boundaries of sorcerous understanding, however, she was able to discern a set of cosmological principles more amenable to the thing she had become: the acrid Essence-flows of Kimbery. Upon learning this Charm, the character names a single Yozi. She can henceforth learn and use that Yozi's Charms as though she were a member of the Eclipse Caste, save that she needs no tutor. Primordial Principle Emulation may be purchased a total number of times equal to (Essence � 5), with each purchase covering a different Yozi. The character gains a point of Limit the first time she invokes any Yozi Charm within the scope of a scene. The Yozis are aware of this Charm, having used certain of its principles to help guide the formation of their Green Sun Princes. It has historically pleased them to dispatch their Solar akuma to suppress knowledge of the Charm. The Ebon Dragon especially enjoys the bitter regret of his gilded slaves when they realize they bartered away their souls needlessly. Thanks to the taint of the Great Curse upon their Exaltation, Solars may use this Charm only to unlock the secrets of the mutilated lords of Malfeas. It is possible that a Solar who was somehow cleansed of the Great Curse could also unlock the principles of non-Yozi Primordials. Thankfully, the Abyssal Exalted and their Deathlord masters have never discovered a Charm building off Void Circle Necromancy to gain access to the magics of the slumbering Neverborn. The most well-informed gods of the Division of Secrets hope such a thing proves impossible. This Charm may never be learned by non-Solar Exalted under any circumstances. ATHLETICS</p>",
+    "source": "Glories of the Most High: Unconquered Sun",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0f3980c54a14ac7f",
+            "charmName": "Solar Circle Sorcery",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "f371da4cb896e2eb"
+  },
+  "folder": "9f789a9f97cf7e28",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

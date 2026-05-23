@@ -1,0 +1,69 @@
+{
+  "_id": "17173d9c07c99b31",
+  "_key": "!items!17173d9c07c99b31",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ox-Body Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "resistance",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Native"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>While the Terrestrial Exalted do not have the infernal resilience of the Anathema with whom they struggle, their capacity to endure punishment is still far greater than that of mortal men. This Charm grants Dragon-Blooded additional health levels. Each time this Charm is taken (up to the maximum of her Resistance Ability), the Dragon-Blood gains one -1 health level and one -2 health level. STRENGTH OF STONE TECHNIQUE Cost: 2m per person; Mins: Resistance 2, Essence 1; Type: Simple</p><p>Keywords: Combo-OK, Touch Duration: One scene Prerequisite Charms: Any Resistance Excellency Like the element they emulate, the Children of Pasiap are pillars of strength and endurance. The Dragon-Blood must meditate for a moment while holding and contemplating some piece of earth as small as a pebble. Thereafter, he can add one dot each to his Strength and Stamina for the remainder of the scene. He can also grant one dot in Strength and Stamina to a number of additional people equal to his Essence, at a cost of two additional motes per person. To do so, all persons affected must hold hands with a pebble clasped in each pair of hands. An individual can benefit from this Charm only once per scene.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "healthGrant": {
+      "enabled": true,
+      "options": [
+        {
+          "label": "Purchase",
+          "zero": 0,
+          "one": 1,
+          "two": 1,
+          "dying": 0
+        }
+      ]
+    },
+    "charmUid": "17173d9c07c99b31"
+  },
+  "folder": "b0b1b2b3b4b5f02b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

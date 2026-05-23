@@ -1,0 +1,55 @@
+{
+  "_id": "8114a354c3313cc4",
+  "_key": "!items!8114a354c3313cc4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Confluence Of Savant Thought",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "bureaucracy",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>To the Children of Daana'd, all bureaucracies are the same, differing only in surface details that result from the personalities of differing managers and staff. Once the Dragon-Blood grasps the</p><p>essential character of the bureaucratic milieu, she can insinuate herself into almost any specific bureaucratic setting with ease. By activating this Charm, the Exalt may instantly understand the inner workings of the bureaucracy with which she is confronted, knowing such details as who is in charge of specific tasks and where equipment (including secret information) is kept. She may also substitute her Bureaucracy for her Socialize Ability for bureaucracy-related purposes. The Charm does not go so far as to grant unfettered access to locked or guarded areas, but it may aid the Exalt in finding someone else capable of securing such access.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "8114a354c3313cc4"
+  },
+  "folder": "b0b1b2b3b4b5f01d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

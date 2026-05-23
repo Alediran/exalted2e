@@ -1,0 +1,58 @@
+{
+  "_id": "fa2ad65aa494ccd0",
+  "_key": "!items!fa2ad65aa494ccd0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Great Thinker's Defense Maneuver",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Counterattack"
+    ],
+    "cost": {
+      "formula": "15m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>you cannot shoot them all down A true master of strategy never places herself into a position where she can easily be struck. Only the most brilliant and ruthless tactics can hope to overwhelm her perfect defenses. Otherwise, she is invulnerable to lesser beings' assaults--she redirects or steps around a blow as easily as she masters the lesser techniques they practice. With this Charm active, the martial artist gains a perfect defense against every attack that does not fit certain conditions. The character must be rendered unable to maneuver by surrounding foes, in which case the one attacker who benefits from an unexpected attack (see Exalted, p. 155) considers the martial artist a valid target. This attack is resolved normally for an unexpected attack. Charms or other effects that allow the character to be aware of or defend against unexpected attacks do not eliminate the attack's validity. Or, the Sidereal must be targeted by a coordinated attack that successfully coordinates a number of participants greater than or equal to her Essence. In that case, all attacks on her person are resolved normally. Opponents whose Essence is greater than or equal to the character's consider her a valid target as normal. The great thinker is prepared for even the most disastrous situations and has a response. In either case, she receives automatic counterattacks at her full dice pool against all valid targets that attack her while benefiting from the above conditions.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Scarlet Patterned Battlefield Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "fa2ad65aa494ccd0"
+  },
+  "folder": "8d69b74ca0e132d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

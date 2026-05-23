@@ -1,0 +1,57 @@
+{
+  "_id": "1e9d9de6599941b8",
+  "_key": "!items!1e9d9de6599941b8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "God Ways (zuo Gu)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "6m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>and ZUO GU and YOU PAN The character steps into an object or person, displacing its natural spirit. The Sidereal's player rolls (Charisma + Martial Arts) against a difficulty equal to his target's Essence. The target's player can make a simple Willpower roll, difficulty 2, each action--each action of the usurper's, that is--to regain control of her body. In the meantime, the Exalt's body dematerializes as it interweaves itself with the Essence of his target's form. He can move and take Martial Arts actions through the stolen identity, using the body's Strength, Dexterity or Stamina if they exceed his own. This Charm even imbues a stolen body with supernatural flexibility and mobility, such that a possessed table could run around or a possessed pine tree could throw its cones at passersby. The character using this Charm cannot possess items made of soulsteel. He can possess objects of other magical materials only if he knows this style's Charm for emulating that magical material.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Prismatic Arrangement of Creation Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "1e9d9de6599941b8"
+  },
+  "folder": "33c138eb339f4538",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

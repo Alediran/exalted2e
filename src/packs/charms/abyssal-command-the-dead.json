@@ -1,0 +1,72 @@
+{
+  "_id": "0146a27b5087d69a",
+  "_key": "!items!0146a27b5087d69a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Command The Dead",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "presence",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "oneDay",
+    "speed": 6,
+    "dvPenalty": -2,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Servitude",
+      "Social"
+    ],
+    "cost": {
+      "formula": "5m + 1m per target",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The dead know their masters, the Chosen of the Neverborn. When the Abyssal wants to seize control of zombies or other mindless creatures of death, her player rolls (Manipulation + Presence). The difficulty is the Essence of the mindless undead or the Dodge MDV of a necromancer or Abyssal who</p><p>already controls the creatures. If targeting multiple entities, use the highest difficulty in the group of targets. If the roll succeeds, the targets must obey the Abyssal until the sun next rises. Being mindless, they treat all orders as acceptable--though their comprehension is sadly limited. A controlled zombie, hungry ghost or the like has an effective Intelligence of 1 for understanding an Abyssal's commands.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "0146a27b5087d69a"
+  },
+  "folder": "b0b1b2b3b4b5f043",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

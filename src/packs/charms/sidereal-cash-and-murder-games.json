@@ -1,0 +1,72 @@
+{
+  "_id": "75676a419f09a61d",
+  "_key": "!items!75676a419f09a61d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Cash And Murder Games",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "socialize",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Emotion",
+      "Virtue (Conviction)"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal chooses two people--a beneficiary and a victim--and twists their fates to grant the beneficiary an emotional dominion over the victim. The victim might fear the beneficiary, desire her sexually, revere her or otherwise define himself in terms of her. (The Sidereal can name herself the beneficiary in such a relationship.) Regardless, the victim cannot resist succumbing to the beneficiary's will. To activate this Charm, the Sidereal's player rolls (Manipulation + Socialize) against the victim's Dodge Mental Defense Value, and adds the character's Essence in automatic successes. If the roll succeeds, the victim immediately views the beneficiary in terms the Sidereal defines. To overcome this effect for a scene in the beneficiary's presence, the victim must spend one Willpower point. When he has spent a number of Willpower points equal to the activation roll's threshold, the victim no longer suffers the effect of the Charm.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "2bde1c6a7365edbb",
+            "charmName": "Shun the Smiling Lady",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "75676a419f09a61d"
+  },
+  "folder": "b0b1b2b3b4b5f015",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

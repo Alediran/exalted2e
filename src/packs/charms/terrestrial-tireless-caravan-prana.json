@@ -1,0 +1,71 @@
+{
+  "_id": "d810410f0db5fa79",
+  "_key": "!items!d810410f0db5fa79",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Tireless Caravan Prana",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "survival",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Cooperative"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>As master survivalists, Wood Aspect Dragon-Blooded are often called upon to lead their fellows through rough terrain, whether while on a trade caravan or while treasure hunting at the</p><p>edge of Creation. The Exalt using this Charm can improve the travel speed, endurance and morale of a group of personnel who travel with her. As long as the Exalt maintains the Charm, she and all who travel with her gain a number of automatic successes on fatigue checks equal to (her Essence � 2 [minimum 1]). Also, all travel times decrease by five percent per point of the Exalt's permanent Essence. The Charm can be used to affect anyone who travels with the Dragon-Blood, but a single Dragon-Blood can affect only a number of people (and their mounts) equal to her (Essence x 10). If multiple Dragon-Blooded activate this Charm together, each participant can affect a number of travelers equal to her (Essence x 10), and the total number of automatic successes gained on fatigue checks is equal to the combined Essence of all participants minus two. Travel times decrease according to the highest Essence of any participant (five percent per point) and are further reduced by an additional two percent per extra participant. The maximum number of participants who can join in a single cooperative use of this Charm is equal to the highest permanent Essence of any participant. The Essence spent is committed for the duration of the Charm, which lasts until the destination is reached or until the Dragon-Blood withdraws the commitment. (ELEMENT) SHELTER CREATION TECHNIQUE</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "87754baeb9c39096",
+            "charmName": "Hostile Environment Preparation Method",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "d810410f0db5fa79"
+  },
+  "folder": "b0b1b2b3b4b5f030",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

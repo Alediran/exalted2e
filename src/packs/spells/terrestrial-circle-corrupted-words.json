@@ -1,0 +1,37 @@
+{
+  "_id": "903a1fe225cceb39",
+  "_key": "!items!903a1fe225cceb39",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Corrupted Words",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-corrupted-words",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 10,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Speaking creature",
+    "description": "<p>This spell helps sorcerers keep their secrets. It also enforces oaths of silence or simply prevents someone from speaking about a given subject. The subject may be as specific as \"Mnemon's deal with the Mask of Winters,\" or as broad as \"Solars in Chiaroscuro.\" It affects any one person the sorcerer can see within 10 yards. The sorcerer evokes a seething, bilious green ball between his hands. He names the subject matter about which the target cannot speak and releases the ball. The vile green energy rushes toward and into the mouth of the target and down her throat, dissolving into a ward within the target's body. Only Charms or other effects that grant perfect dodges or parries can block the curse. The player of an Essence-channeling target is permitted a (Stamina + Resistance) roll, however, at a difficulty equal to the caster's Occult Ability. Success indicates that the target resists the spell, which the sorcerer knows at once. Subjects who even think of violating the binding feel nausea. So do subjects who try to devise ways to get past the limitations of the spell, such as by writing or using sign language. Victims who ignore the warning and go ahead with their communication--be it verbal, written, silent or even telepathic--feel wracking pain and vomit dozens of fat, white maggots. The target cannot take any non-reflexive actions that action. He's in too much pain to concentrate on anything but throwing up. This spell can provoke inconvenient reactions, from uncomprehending fear to immediate knowledge that someone doesn't want the victim to speak of something. The curse lasts until it is broken by countermagic, until the caster dies, or until the caster deliberately ends the spell by reaching into the victim's mouth and speaking the last word of the spell backward. The victim violently disgorges the spell, which manifests as a slimy, egg-like sac filled with tiny, squirming larvae.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

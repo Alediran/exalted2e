@@ -1,0 +1,79 @@
+{
+  "_id": "953beb5e41e2feea",
+  "_key": "!items!953beb5e41e2feea",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Armor-Penetrating Fang Strike",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 4,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "4m, 1wp"
+    },
+    "description": "<p>STRIKING COBRA TECHNIQUE</p><p>Snake Strikes the Heel</p><p>Uncoiling Serpent Prana</p><p>Serpentine Evasion</p><p>Snake Form</p><p>Striking Serpent Speed</p><p>Essence Fangs and Scales Technique</p><p>Armor-Penetrating Fang Strike</p><p>Essence Venom Strike</p><p>The nix-snakes of the East can bite through tempered steel. The students of Snake Style learn similar ferocity. This Charm enhances an unarmed Martial Arts attack. It allows the attack to ignore the target's soak from armor. The target can only soak with Stamina and Charms such as Iron Skin Concentration.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Snake Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "57ecabdf336a83f5",
+            "charmName": "Essence Fangs and Scales Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "953beb5e41e2feea",
+    "grantsMastery": false
+  },
+  "folder": "0794fc21c581d830",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

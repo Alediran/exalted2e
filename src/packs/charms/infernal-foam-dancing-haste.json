@@ -1,0 +1,68 @@
+{
+  "_id": "7a9c9f9352b308b7",
+  "_key": "!items!7a9c9f9352b308b7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Foam-Dancing Haste",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Adorjan darts over rivers of blood without sinking into them. She is above wallowing in gore, so this Charm further enhances the functional weightlessness afforded by its prerequisite to cover liquid surfaces. If the Infernal begins a dash while swimming on the surface, she may continue to swim or nimbly climb atop the liquid and run on it. If she continues to swim, she dashes at the same speed as if running. Additionally, the Exalt suffers no environmental harm associated with any dangerous conditions she traverses. This immunity does not defend against environmental hazards that aren't associated with the surface she dashes on or through. With Essence 4+, she is immune to all environmental hazards and penalties while dashing, even those unrelated to the medium of her journey.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "adorjan",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "64f20f3dbde6b4d6",
+            "charmName": "Unimpeded Perfection of Exertion",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "7a9c9f9352b308b7"
+  },
+  "folder": "e1c045f50a834f12",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

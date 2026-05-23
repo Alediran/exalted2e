@@ -1,0 +1,37 @@
+{
+  "_id": "8663d426d95e35ed",
+  "_key": "!items!8663d426d95e35ed",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Birth of Sanity's Sorrow",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "void-circle-birth-of-sanity-s-sorrow",
+    "tradition": "necromancy",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 10,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Caster",
+    "description": "<p>Only the Neverborn themselves can tutor a necromancer in this spell. All other attempts to teach it result in failure, and committing it to paper results in gibberish. The character must have the insanity, influence and raw power to approach the tombs of the Neverborn that drift within the Mouth of the Void in Stygia, constantly devoured by the Abyss but never diminishing. There, the necromancer communes with one of the chthonic entities, and together, they devise her personal expression of this spell. The result comes from the terrifying imagination of a brilliant necromancer and the unknown, potentially limitless powers of an insanely malefic dead god. Birth of Sanity's Sorrow has special timing rules. The character can cast it as three reflexive Shape Void Circle Necromancy actions that take 0 ticks, regardless of previous actions or Charms used. She may do so, however, only when she is reduced to the Incapacitated health level--not before. When she does, her body swells and becomes the monster she and her Neverborn master devised. That creature has these qualities: � Attributes as determined in the spell Links Born of Tumult (see pp. 42-43), adding (Essence) again to Strength and Stamina. � (Essence x 6) -0 health levels and a single Incapacitated level. � The cost of any Charm she knows becomes 1m; she may also substitute 1m for 1wp when invoking Charms or Combos. � Three great powers. These should cost between 5m and 10m and be vastly impressive. Imitating existing Labyrinth Circle and Void Circle spells are possibilities, as are unique powers devised between a player and Storyteller. A necromancer destroyed while wearing her Birth of Sanity's Sorrow form dies in a remarkable explosion (or series of explosions) of Essence and gore. Oblivion swallows her soul irrevocably and without exception. Should the character survive the battle, she returns to her original shape at the end of the scene, and the spell burns itself from her memory. She can never cast it again.</p>"
+  },
+  "folder": "447f6cc1520ba234",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

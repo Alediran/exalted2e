@@ -1,0 +1,78 @@
+{
+  "_id": "413eb1d22dc212a4",
+  "_key": "!items!413eb1d22dc212a4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Armor-Rending Claw Fist",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "motes": 4,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "4m"
+    },
+    "description": "<p>With either a single swipe or a flurry of blows, the Lunar's attack moves so quickly that it tears through even steel armor as though it were paper. This attack target's a foe's armor, rather than the person wearing it. Only soak from armor reduces the attack's raw damage, and (unlike normal attacks) this can reduce the attack's dice to zero. Then, roll unsoaked damage normally. Each level of damage remaining in Step 10 of attack resolution reduces the armor's soak (bashing and lethal). Mundane armor remains damaged until repaired; armor constructed from the magical materials recovers its full soak value at the end of the scene. When a target's soak from armor drops to zero, the Lunar may rend the target's natural soak. The Lunar looses blows so</p><p>rapid they weaken the victim's body through and through; each success rolled on damage reduces the target's effective Stamina by one. This only affects the target's soak values, not any other aspect of health.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Lunar Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ca1f95c7c3bba0c7",
+            "charmName": "Lunar Hero Form",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "413eb1d22dc212a4",
+    "grantsMastery": false
+  },
+  "folder": "a80aa95faaf8766a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

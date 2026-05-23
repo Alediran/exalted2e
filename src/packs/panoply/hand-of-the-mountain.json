@@ -1,0 +1,37 @@
+{
+  "_id": "7dd79ad4af217f1f",
+  "_key": "!items!7dd79ad4af217f1f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hand of the Mountain",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Representative of the most common of the labor golems, Hand of the Mountain is a seven-foot-tall monolith of black basalt with legs and arms. Created for working in particularly hostile environments, Hand of the Mountain can work underwater, in the midst of a raging inferno or on a battlefield and suffer few or no difficulties. It need not eat or sleep. It is a perfect, tireless beast of burden, although not very dexterous. Traditional assignments given to Hand of the Mountain include lugging blocks of stone for manse construction or clearing an area of growth (or pre-existing structures) before building. Hand of the Mountain weighs nearly two tons, which limits the kinds of transport it can use. Bridges, for example, cannot bear its weight, forcing the golem to cross large bodies of water by walking along the bottom. Attributes: Strength 12, Dexterity 2, Stamina 7; Charisma 1, Manipulation 1, Appearance 1; Perception 3, Intelligence 2, Wits 3 Virtues: Automaton: Never fails Valor checks, never makes others Abilities: Athletics 5, Awareness 2, Dodge 3, Integrity 5, Martial Arts 2, Melee 2, Presence 1, Resistance 5, Stealth 1 Join Battle: 5 Attacks: Punch: Speed 6, Accuracy 5, Damage 12B, De- fense 6, Rate 3 Kick: Speed 6, Accuracy 4, Damage 15B, Defense 2, Rate 2 Clinch: Speed 6, Ac- curacy 4, Damage 12B, Defense ­, Rate 1 Soak: 12L/15B (Stone construction, 8L/8B, Hardness: 7L/3B) Health Levels: -0/-1/-1/-1/-1/-2/-2/- 2/-2/-2/-4/Incap Dodge DV: 3 Willpower: 10 (0 against its maker) Essence: 1 Other Notes: Any active opponent of Hand of the Mountain is prone to being trampled under the right circumstances (say, a botch on a key combat move). Suffering this ignominious fate inflicts heinous amounts of damage that automatically flattens all extras (literally) and could do the same to Exalts who don't have a perfect defense or other similar strategy for getting out from under Hand of the Mountain's pile- driver foot.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

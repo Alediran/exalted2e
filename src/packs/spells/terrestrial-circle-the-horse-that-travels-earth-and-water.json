@@ -1,0 +1,37 @@
+{
+  "_id": "b41fc40cac335dab",
+  "_key": "!items!b41fc40cac335dab",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Horse That Travels Earth and Water",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-the-horse-that-travels-earth-and-water",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 10,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Conjured automaton",
+    "description": "<p>As the sorcerer makes the Sign of the Horseman, the winds in his area converge in the bubble of Essence before him. The Essence takes a hue that indicates the nearest Elemental Pole--red in the South, blue in the North, green in the East, black in the West and white nearest the Imperial Mountain--and then forms itself into a horse-shaped automaton. The horse's coat matches the bubble of Essence whence it came, though its mane and tail are either black or white. The horse lands next to the caster, tossing and stamping, eager to be ridden. It serves as a perfectly trained war-horse (control rating 0). The stallion never tires and gallops over water as easily as land. It can travel at its full speed until the sun next crosses the horizon (whether rising or setting), at which point it dissipates into colored wind and is gone. When using the \"Average Travel Times\" table on p. 264 of Exalted, the horse that travels earth and water is considered \"horseback, tireless\" and treats all water as land of the same terrain type. In combat, the stallion is fearless. It can carry another rider, but the sorcerer must command it to do so and give it a destination. The horse then moves at full speed toward that destination, regardless of what its passenger wishes. It ignores attempts to redirect it. If the passenger falls or jumps from the stallion's saddle, the horse dissipates, its purpose fulfilled. The automaton does not like being used as a pack mount. Should someone try to use it as such, the creature's control rating increases to 3. THE HORSE THAT TRAVELS EARTH AND WATER Motivation: To carry the sorcerer to his destination. Attributes: Strength 6, Dexterity 5, Stamina 5; Charisma 2, Manipulation 1, Appearance 4; Perception 3, Intelligence 2, Wits 2 Virtues: Automaton: Never fails Valor checks, never makes others. Abilities: Athletics 4, Awareness 3, Dodge 2, Martial Arts 3, Presence 2 (Intimidation +1), Resistance 5, War 2 Join Battle: 5 Attacks: Bite: Speed 6, Accuracy 10, Damage 6L, Parry DV --, Rate 1 Kick: Speed 4, Accuracy 8, Damage 8L, Parry DV 4, Rate 2 Soak: 5L/5B (Elemental hide, 3L/0B) Health Levels: -0/-0/-0/-1/-1/-2/-2/-4/Incapacitated Dodge DV: 4 Willpower: 10 (0 against sorcerer) Essence: 2 Essence Pool: 10 Other Notes: The horse that travels earth and water can make a magical flurry of a number of attacks equal to the caster's Essence by spending five motes. It also heals at a rate of 1B/10 ticks and 1L/20 ticks, as long as it can run while doing so. It cannot regain motes on its own. The steed has a finite pool, though it can receive Essence given through Charms such as Essence-Lending Method or artifacts that accomplish that task.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

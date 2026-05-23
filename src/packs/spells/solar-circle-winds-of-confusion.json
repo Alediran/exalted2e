@@ -1,0 +1,37 @@
+{
+  "_id": "0726949e04b04d45",
+  "_key": "!items!0726949e04b04d45",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Winds of Confusion",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "solar-circle-winds-of-confusion",
+    "tradition": "sorcery",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 45,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "permanent",
+    "target": "Area",
+    "description": "<p>As the sorcerer shapes this spell and invokes the Maiden of Endings, her anima darkens until she looks like a deep purple silhouette backed by waning light. As she releases the spell, onyx winds sweep from behind her to howl across the landscape. They fill a corridor one mile across, five miles long and 20 yards high. Natural cover does nothing to stop the dark wind. Only sheltering entirely behind one of the magical materials prevents a creature from suffering its effects. The dark wind drains one dot of Intelligence and one dot of permanent Willpower every action (or five ticks) unless a victim's player succeeds at an (Intelligence + Integrity) roll at a difficulty equal to the caster's Essence. Naturally, the sorcerer is unaffected. People with Intelligence 0 stand or sit like zombies unless otherwise motivated. Each trait returns at a rate of one dot per hour. The curse fogs memories of whatever happens while a victim is affected, and anyone drained to Intelligence or Willpower 0 remembers only a vague blur.</p>"
+  },
+  "folder": "66776f28169b53d7",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

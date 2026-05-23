@@ -1,0 +1,37 @@
+{
+  "_id": "8a19c4b470a3f7a2",
+  "_key": "!items!8a19c4b470a3f7a2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Atlas of the Unconquered General",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Created during the Primordial War, these remarkable artifacts provide extremely accurate and thorough tactical data on the units and terrain of a battlefield. Each atlas of the unconquered general is a thin disk of mirror-polished moonsilver roughly four inches in diameter rimmed in starmetal wire, with a crescent handle around one side of the disk made of orichalcum inset with delicate jade buttons. To those who do not know better, the maps look like nothing so much as very exotic and expensive hand mirrors (and may be used as such). When laid flat and charged for a day with five committed motes, however, the disk expands as desired to a maximum diameter of three feet for easier viewing. Regardless of its set dimensions, the moonsilver surface liquefies, forming itself into an exact topographic replica of the landscape in a two-mile radius from the map. Grains of adamant sand flow out of a compartment in the orichalcum handle and settle across the map's surface, denoting the location of all sentient beings not concealed by magic. The clinging sand grains move in real time to keep the map up-to-date (hovering to mark aerial units), and the advanced Essence sensors in the map automatically color-code the grains according to arcane links of shared loyalties, so that all members of a military unit share the same hue. Particles representing beings capable of channeling Essence glow significantly brighter than those denoting mere mortals, allowing instant identification of all possible allies and threats of real significance present in the area. The map's attuned owner can use the jade buttons to manually alter the colors assigned to units so as to group known enemies or allies with the same color for easier identification. The controls can also zoom in on any part of the maximum-sized map, displaying the selected section in greater detail. Besides offering a wealth of information on terrain and unit placement that may guide a character's tactical decisions, an atlas of the unconquered general provides a number of mechanical benefits. First, characters using the device add three dice to all War rolls pertaining to the scanned area and/or units, which can aid in stratagems and actual command. Additionally, those using the device may gain all of the information pertaining to a unit's status conferred by the Solar Charm General of the All-Seeing Sun. If the character carries the map around while it is charged, it automatically adjusts itself based on the terrain and units in range, which makes it particularly useful when carried aboard vehicles. A handful of five-dot versions of this map exist, which have all of the listed powers but can also can calculate and model predictions of enemy tactical decisions. To run a predictive simulation, the owner selects a unit commander represented on the map. He then spends five motes (uncommitted) while his player rolls (Intelligence + War) as a miscellaneous action at a difficulty of the targeted commander's War rating. If successful, the owner's player may ask one speculative question regarding the target commander's future battle plans based on any number of conditions. The target's player may give any answer to the question she desires, but if the situation actually comes up within the next day, the commander must pursue the stated course of action unless she spends a Willpower point. (This is considered a form of unnatural mental influence, even though the map's magic does not actually alter the target's mind.) The Willpower loss represents the mental strain of adjusting tactics against an opponent who appears to have anticipated her every move. The command room of the Realm Defense Grid in the Imperial Manse supposedly has an Artifact N/A version of this device that can display and speculatively simulate all terrain and units on the Blessed Isle, though this may simply be an apocryphal legend spread by the Scarlet Empress to intimidate her enemies.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 4,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

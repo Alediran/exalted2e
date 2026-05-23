@@ -1,0 +1,59 @@
+{
+  "_id": "7078b649e727f905",
+  "_key": "!items!7078b649e727f905",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Seething Dragon Footprint",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "athletics",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Elemental",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When the Elemental Dragons moved over the newly shaped Creation, their passage divided the gossamer motes of lingering chaos into their own aspects, carving Cytherea's malleable sea of the mind into Gaia's image. With this Charm active, the character's personal movement rate triples, and he suffers no height restriction while using Dancing Ember Stride. In conjunction with other Charms that increase movement speed, only the greatest benefit applies. The character may also trail a \"fence\" of elemental energy at will, which stands a number of yards high and wide equal to his Essence rating and lingers as long as the Charm remains active. Anyone attempting to pass through this barrier suffers a number of dice of lethal damage equal to the Dragon-Blood's Essence, plus the various elemental effects imposed by Elemental Bolt Attack (see The Manual of Exalted Power--The Dragon-Blooded, pp. 133­134). Those who remain inside the fence suffer this harm each action. The barrier also provides 90% cover to those attacking through it and obliterates mundane projectiles up to arrowsize fired into it. Besides fencing enemies into a confined space, Terrestrials most commonly use the Charm to scribe aerial calligraphy for signaling across vast distances.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "7078b649e727f905"
+  },
+  "folder": "b0b1b2b3b4b5f01b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,55 @@
+{
+  "_id": "0b1ae25e08ad2d9e",
+  "_key": "!items!0b1ae25e08ad2d9e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Eternal Monstrous Hunt",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "martial-arts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Infernal Monster does not understand forgiveness. This Charm improves its prerequisite, allowing tags it places to last until the Exalt dies, the target dies or the tag is removed via countermagic (i.e. duration becomes indefinite rather than one month). With Essence 6+, the Infernal's enmity is the stuff of terrible legend. If the target dies, the tag is inherited by the oldest surviving blood offspring of that person. If there is no child to inherit the tag, it passes to the victim's oldest surviving sibling. If there is not a sibling to carry on the family curse, the vendetta dies there. The Infernal intuitively knows when a transfer occurs and the relationship between the tag's last bearer and its new heir. Armageddon Nightmare Duel</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "0b1ae25e08ad2d9e"
+  },
+  "folder": "a1b2c3d4e5f60006",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

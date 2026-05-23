@@ -1,0 +1,71 @@
+{
+  "_id": "f91f8b2ebe7a3ff7",
+  "_key": "!items!f91f8b2ebe7a3ff7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Trackless Passage Style",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "stealth",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Leader 4"
+    ],
+    "cost": {
+      "formula": "2m per person per mile",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood's preternatural stealth can now be extended to others. Moving with the lightness of a summer breeze,</p><p>the Exalt and any allies to whom this Charm is extended leave no footprints, scents or other signs of their passage. By spending 2 motes, the Dragon-Blood can obliterate all signs of her passage for a distance of up to one mile. The Dragon-Blood can extend this concealment to her allies at a cost of an additional two motes per person, up to a total number of beings equal to the Dragon-Blood's permanent Essence. When this Charm is activated, all non-supernatural attempts to track the protected characters fail automatically. Supernatural attempts to track the characters negate this Charm, and tracking is handled normally, as if neither party had used any supernatural effects.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "63cbf2630e89f8d3",
+            "charmName": "Distracting Breeze Meditation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "f91f8b2ebe7a3ff7"
+  },
+  "folder": "b0b1b2b3b4b5f02f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

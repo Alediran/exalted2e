@@ -1,0 +1,79 @@
+{
+  "_id": "f71832c2b37ff4dd",
+  "_key": "!items!f71832c2b37ff4dd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Pathetic Distraction Rebuke",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Having been humbled once, Malfeas is not keen to repeat the experience. This Charm enhances any attempt to parry an incoming attack, allowing the Infernal to ignore all penalties that apply to her Parry DV (regardless of which Ability or weapon she uses to block). If the Exalt has By Pain Reforged active, she also adds the greatest wound penalty she should suffer as a bonus to her Parry DV and can block lethal or ranged attacks with an unarmed parry. Infernals may purchase this Charm a second time, in which case, each use of Pathetic Distraction Rebuke cumulatively reduces the cost to do so again by one mote until the Exalt's next action. For example, the cost to defend against a flurry with four attacks would be six motes (3m + 2m + 1m + 0m).</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "malfeas",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "2052ce893e5b1740",
+            "charmName": "By Pain Reforged",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "dvBonus": {
+      "enabled": true,
+      "dodgeBonus": 0,
+      "parryBonus": 0,
+      "ignoreAllPenalties": true,
+      "ignorePenaltyTypes": []
+    },
+    "charmUid": "f71832c2b37ff4dd"
+  },
+  "folder": "1945ba1655ca5f6f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

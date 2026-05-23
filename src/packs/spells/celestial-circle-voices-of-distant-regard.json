@@ -1,0 +1,37 @@
+{
+  "_id": "80b8415ef2993505",
+  "_key": "!items!80b8415ef2993505",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Voices of Distant Regard",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "celestial-circle-voices-of-distant-regard",
+    "tradition": "sorcery",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 25,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Caster",
+    "description": "<p>The word that describes a god's ability to hear petitioners' prayers doesn't have a translation. It is an onomatopoeia of the buzzing mumble that gods hear when they attend to their worshipers' prayers. A sorcerer who knows this spell can speak this word, infuse it with his own Essence and emulate the divine ability until the next time she sleeps. While the spell is active, the character hears any people who talk about her, as clearly as if she stood beside them. A conversation does not need to include the sorcerer's name. The caster knows the approximate distance and direction of each conversation and can recognize voices she has heard before. If multiple conversations occur at once, the sorcerer's player rolls (Perception + Awareness), with a difficulty equal to the number of simultaneous conversations she hears. Alternatively, she may ignore all but one, negating the need for a roll. The sorcerer can also listen and talk to a person in her company while she's listening to these remote conversations by increasing the above roll's difficulty by 1, though she will seem somewhat distracted.</p>"
+  },
+  "folder": "dcf06d83a3d0a4be",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

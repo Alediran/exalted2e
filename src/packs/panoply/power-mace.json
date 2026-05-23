@@ -1,0 +1,37 @@
+{
+  "_id": "2b9cff5f647d91ae",
+  "_key": "!items!2b9cff5f647d91ae",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Power Mace",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>This versatile weapon consists of a two-foot-long cylinder that gradually tapers from a handle one and a half inches in diameter, to a head that is three inches in diameter. Although this item is smaller than many artifact weapons, it is no less deadly. After committing eight motes to attune this weapon, the wielder can activate it for melee use for one scene by spending two motes of Essence. Spending these motes immediately surrounds the head of this weapon with a large and deadly sheath of solidified Essence. Designed to enhance all forms of combat, this weapon can be used to make both lethal and non-lethal attacks. When used in lethal combat, the weapon's head is surrounded by a burning corona of Essence. Alternatively, the wielder can surround the head with a sheath of Essence that spreads the impact of the blow over a large area. Once the weapon is activated for melee use, the owner can reflexively switch between lethal and bashing damage without spending additional Essence. Like many of the creations originally developed by the Mountain Folk, this weapon is exceedingly versatile. It can even be used to make ranged attacks. The weapon's shaft incorporates an improved version of an Essence cannon (see p. 131) that can project either needle-fine Essence bolts that inflict lethal damage or wider diffuse Essence bolts that inflict bashing damage. Although this weapon requires moderate expenditures of Essence, its versatility means that users often choose it as their sole artifact weapon. It contains a socket for a single hearthstone on the bottom of the handle. The item is made from a mixture of magical materials and First Age alloys. As a result, Exalted users gain no magical material bonuses from this weapon. Type Speed Acc. Damage Defense Rate Minimums Attune Tags Hand-to-Hand (lethal) 5 +2 +10L/4 +1 2 Str ·· O, P Hand-to-Hand (bashing) 5 +2 +15B/4 +1 2 Str ·· O, P Type Speed Acc. Damage Rate Range Cost Minimums Ranged (lethal) +2 10L 60 2 motes/attack Str ·· Ranged (bashing) 5 +2 15B 100 2 motes/attack Str ··</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 3,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

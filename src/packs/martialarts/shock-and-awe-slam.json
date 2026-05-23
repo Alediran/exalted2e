@@ -1,0 +1,79 @@
+{
+  "_id": "3d9fcc1cb3304973",
+  "_key": "!items!3d9fcc1cb3304973",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shock And Awe Slam",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 4,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "--(+4m)"
+    },
+    "description": "<p>The Infernal Monster shouldn't be fast enough to strike as it does. Nothing that strong should be so fast. It's just not fair. This Charm permanently improves its prerequisite. The Infernal can pay an additional four motes when using Leaping Smash Technique to impose a DV penalty against the attack. If the target attempts to parry, the penalty is equal to the Exalt's Martial Arts rating. Dodges (and any combination of dodge and parry) only suffer a penalty of half the Infernal's Martial Arts. Although adding this penalty does not make the attack unexpected, defenses that convert an an unexpected attack into an expected attack also negate the penalty. If the Infernal has Essence 4+, the DV penalty to dodge increases to the Exalt's full Martial Arts. Nowhere to Run</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Infernal Monster Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f6f711f9e5df4438",
+            "charmName": "Leaping Smash Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "3d9fcc1cb3304973",
+    "grantsMastery": false
+  },
+  "folder": "ae5a8ed470f7303b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

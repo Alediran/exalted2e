@@ -1,0 +1,37 @@
+{
+  "_id": "e266bd14ba2a6332",
+  "_key": "!items!e266bd14ba2a6332",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Foe-clearing Halberd",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>This halberd is made in the classic form developed during the early days of the First Age. The design remains popular in both the Realm and Lookshy and consists of a haft as tall as the wielder, surmounted by a long dagger blade affixed perpendicularly to the haft that is topped by a small sphere made from a mixture of the five magical material. When the owner spends 10 motes to attune herself to this halberd, it immediately changes length to be exactly her own height. Even neglecting the powerful enchantments placed upon this item, it is an extremely deadly weapon that can be used to strike mounted and walking foes with equal ease. This weapon becomes even more useful when the character reflexively spends two or four motes of Essence when she swings this weapon. This Essence is focused and directed by the sphere that surmounts this weapon into a shockwave that radiates outward from the weapon. The user can choose to have this shockwave radiate out in all directions, or to affect only those targets in front of and on either side of her. If the wielder spends two motes, this shockwave affects everyone within (the character's Essence + Melee) yards. The players of all characters within range must make a successful (Dexterity or Stamina + Athletics or Resistance) roll, difficulty 2, or their characters suffer knockdown. If the wielder spends four motes, then the players of everyone within the same range must make a successful (Dexterity or Stamina + Athletics or Resistance) roll, difficulty 4, to stay in place. Characters who fail this roll all suffer a number of yards of knockback equal to the number of successes the wielder's player rolled on her attack roll. Then, players of characters who failed the first roll must all make a (Dexterity or Stamina + Athletics or Resistance) roll, difficulty 3, to avoid their characters suffering knockdown. The target the character initially attacks suffers these effects, but the knockback or knockdown occurs immediately after the attack. (First the target takes damage from the halberd, if any, then his player rolls for him to resist knockdown or knockback.) When used against crowds of extras or even against large numbers of non-Exalted elite troops, this weapon can clear away a dozen opponents every action, allowing the wielder to swiftly fight her way across a battlefield to get to a worthy opponent. This weapon can be made from any of the five magical materials and gains the normal bonuses from its construction. It also contains a socket for a single hearthstone. Speed 5 Accuracy Damage Defense Rate Minimums Attune Tags +2 +15L/4 +2 Str ··· 2, O, P, R</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 4,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

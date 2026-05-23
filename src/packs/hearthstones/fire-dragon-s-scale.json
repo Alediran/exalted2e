@@ -1,0 +1,27 @@
+{
+  "_id": "857aa5423c810a08",
+  "_key": "!items!857aa5423c810a08",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fire Dragon's Scale",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDFIRE000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "fire",
+    "rating": 3,
+    "description": "<p>This wedge-shaped piece of cat's eye protects its bearer with heat drawn from the Elemental Pole of Fire. The stone channels this heat into any melee weapon that strikes the bearer. Metal weapons instantly become red hot and wooden weapons catch fire. The player of the weapon's wielder must succeed at a Willpower roll, difficulty 3, or the wielder drops the weapon. Even if this roll succeeds, however, the attacker suffers environmental damage from holding onto the burning or heated weapon (1L/action damage, trauma 1). Fire-aspected Terrestrial Exalted who have ignited their animas are immune to the effects of this hearthstone.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

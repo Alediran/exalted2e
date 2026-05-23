@@ -1,0 +1,37 @@
+{
+  "_id": "088574462afa408d",
+  "_key": "!items!088574462afa408d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Mast-shattering Spell",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-mast-shattering-spell",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 20,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Ship",
+    "description": "<p>The sorcerer's anima flares dark blue and solidifies into a hovering, spiked ball of blue-tempered steel. With a tap of the sorcerer's finger, the spiked ball shoots toward the targeted ship in the literal blink of an eye--right into the target ship's mast. It can target any visible ship within one mile. The resultant explosion of the mast not only cripples a sailing ship, but wooden shards explode in a 10-yard radius around the mast. This explosion inflicts environmental damage (Damage 10L, Trauma 3) to everyone in the area. A (Dexterity + Dodge) roll may substitute for the normal (Stamina + Resistance) as people dive for cover to avoid the splinters. Masts reinforced through spells or Charms may survive the spell. In such cases, the caster's player attempts a reflexive (Wits + Occult) roll (treat this as part of the spell-casting process), with a difficulty equal to the Essence of the entity that reinforced the mast. Many First Age vessels bear reinforcements that draw on the little god of the vessel itself. For this purpose alone, treat the ship's god as having an Essence of 4. Masts made of the magical materials are immune to this spell. Attempts to target other parts of the ship fail. The spell attacks only the mast. Sorcerers in the West or working for the Realm navy have devised variations that target oars (to cripple galleys) or the hull--but both pirates and naval officers alike often prefer to capture a ship than to send it to the bottom.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

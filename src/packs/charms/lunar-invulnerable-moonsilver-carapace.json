@@ -1,0 +1,80 @@
+{
+  "_id": "177c8b7624229c9e",
+  "_key": "!items!177c8b7624229c9e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Invulnerable Moonsilver Carapace",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "stamina",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      7
+    ],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "--(+3m, 1wp)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Moonsilver flows from the pores of the character's skin to cover his body. This armor is so complete that observers can find no gaps or weaknesses. Even the head</p><p>is completely covered, but the Lunar's perceptions are not in the least impeded. The character gains +15 aggravated/+15 lethal/+15 bashing soak and, until the Charm ends, considers all attacks against him to have a minimum damage of zero. This stacks with armor, if necessary, and does not count as armor. When this Charm would end, the Lunar may reflexively spend another six motes to maintain it for yet another action. This does not count as Charm use.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "263389361eeb0546",
+            "charmName": "Stone Rhino's Skin",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "soakBonus": {
+      "enabled": true,
+      "bashing": 15,
+      "lethal": 0,
+      "aggravated": 0,
+      "hardnessAdd": 0,
+      "hardnessSetTo": 0
+    },
+    "charmUid": "177c8b7624229c9e"
+  },
+  "folder": "956290ccde1dea72",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,79 @@
+{
+  "_id": "71ccc8719d3190de",
+  "_key": "!items!71ccc8719d3190de",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Rogue Cell Isolation Protocols",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "manipulation",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Emotion",
+      "Exemplar 1",
+      "Social",
+      "Variable"
+    ],
+    "cost": {
+      "formula": "4m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Inappropriate sentiment is disruptive to the routines of the Realm of Brass and Shadow. Lumpen should not be unduly pitied, heretics should not be coddled, and personal sentiments must never be placed above the well-being of god and state. This Charm takes the form of a chrome and soulsteel plating surrounding each eye and extending just beyond the edges of their sockets. When charged with Essence, these hard and pitiless surfaces create a hall of mirrors effect in which the victim's reflection joins the flickers of tortured souls that seem to extend to infinity. This Charm may be used to supplement any social attack to erode an Intimacy, provided the Alchemical has a corresponding Augmentation installed for the Attribute used in the attack. If successful, the Intimacy is instantly erased and may not be reestablished for one day by any effect. No roll is necessary to target oneself: The unwanted Intimacy is simply excised, and the Alchemical gains a point of temporary Clarity. Submodules: Instructive Fear Resonator (Manipulation 4, Essence 3, 4xp): Whenever the Charm rips away an Intimacy, it also leaves behind or renews an Intimacy of fear toward the Alchemical. As an unnatural Compulsion, the victim cannot remove this Intimacy by spending scenes attempting to overcome his fear and must apply MDV and spend Willpower to resist all external influence that would cause him to lose it. Removing the Intimacy ends the Compulsion. Emotional Irrelevance Systems (Manipulation 5, Essence 4, 4xp): Characters who have lost an Intimacy from the Charm remain affected by a Compulsion requiring one Willpower to have their own actions in a given scene count toward rebuilding the Intimacy. The Compulsion ends once the Intimacy is rebuilt and does not affect others' attempts to rebuild it through persuasion or other means. TRANSCENDENT BRUTALITY PROGRAMMING Cost: 3m [1m]; Mins: Manipulation 4, Essence 3; Type: Supplemental Keywords: Combo-OK, Internal, Obvious</p><p>Duration: Instant Prerequisite Charms: Rogue Cell Isolation Protocols This dreadful Charm consists of a set of retractable soulsteel hooks set into the fingertips, subdermally wired to its prerequisite. The hooks may be extended for use or retracted by \"drawing\" them as weapons without activating the Charm. When drawn, the hooks cease to be internal and have the traits of tiger claws with the Piercing tag. When Transcendent Brutality Programming is activated to enhance attacks made with its physical components, however, the hooks become terrible instruments of torture and will breaking. If the attack hits, the target loses one Willpower regardless of damage and suffers a cumulative -1 external penalty to her player's next roll for the character to regain Willpower from sleep. Once this penalty exceeds her dice pool, the player gets no roll for the character to recover Willpower at all. If the victim has no Willpower point for the Charm to drain, she temporarily loses a dot of Willpower instead (to a minimum of Willpower 1). Lost dots return at the rate of one per day of restful (i.e., non-penalized) sleep. Submodules: Confessional Scream Extractor (3xp): Whenever this Charm takes a dot of Willpower, the victim reveals an Intimacy of her choice to her torturer by screaming it in her native language. This is an unnatural Compulsion costing only one Willpower to resist, but this cost is generally moot given that she has no Willpower to spend. The victim may not choose to reveal an Intimacy she has previously revealed to the Alchemical this way unless she has no secret Intimacies left. Lingering Horror Scars (4xp): Targets who lose any dots of Willpower from this Charm automatically gain or reassert an Intimacy of fear and associated Compulsion as described in the Instructive Fear Resonator for Rogue Cell Isolation Protocols. Torturer Satisfaction Engrams (Essence 4): Whenever this Charm takes a dot of Willpower from a victim, the Alchemical regains one Willpower point or one spent Conviction channel, as desired. In addition, all time the Exalt spends actively and deliberately inflicting suffering to those who have broken the laws of the Great Maker is considered meditation for the purposes of Essence recovery. Apostates respire the screams and sublimated tears of those faithful to the Great Maker instead.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Social Attribute Augmentation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "willpowerRecovery": {
+      "enabled": true,
+      "event": "onDamageDealt",
+      "formula": "1"
+    },
+    "charmUid": "71ccc8719d3190de"
+  },
+  "folder": "b0b1b2b3b4b5f050",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

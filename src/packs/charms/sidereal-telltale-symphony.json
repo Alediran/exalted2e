@@ -1,0 +1,70 @@
+{
+  "_id": "f99336716aee959a",
+  "_key": "!items!f99336716aee959a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Telltale Symphony",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "occult",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Charms, sorcery, supernatural effects and the presence of spirits (materialized or not) all affect the strands of fate all around them. These effects exert miniscule pulls against the strands, causing them to vibrate at specific frequencies and ring musically in the Sidereal's ears, surrounding him with a symphony of information. Once he can hear this music, the Sidereal needs to decipher it. Doing so requires a reflexive (Intelligence + Occult) roll at difficulty 3. If the roll succeeds, the character can identify the details of a Charm, spell or other supernatural effect--such as the power level, range, activation cost and what sort of being it's typically associated with. He can recognize Charms and spells he's seen before. The Sidereal can also use this Charm to determine the approximate rank and occupation of a present spirit.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b1918bf3adfdcfe7",
+            "charmName": "Mark of Exaltation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "f99336716aee959a"
+  },
+  "folder": "b0b1b2b3b4b5f00f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

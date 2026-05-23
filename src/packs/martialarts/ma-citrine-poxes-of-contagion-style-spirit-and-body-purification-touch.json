@@ -1,0 +1,57 @@
+{
+  "_id": "14d763e88e499e70",
+  "_key": "!items!14d763e88e499e70",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Spirit and Body Purification Touch",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Touch"
+    ],
+    "cost": {
+      "formula": "8m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>his head with sacrificial garlands crowned, A few gentle taps of the Sidereal's hands or feet upon a target's Essence (or his own) cleanses diseases or toxins. The Sidereal's player rolls (Dexterity + Martial Arts) against a difficulty of the target's Essence. Add the Sidereal's Medicine score in automatic successes. The target can dodge or parry normally, applying her DVs to the attack. If the Sidereal hits, though, his attack inflicts no damage. Instead, he achieves any or all of the following effects: · Spiritual and physical diseases instantly flush from the target's system, causing her to fully recover from any Sickness effects they caused. The martial artist's player must roll (Intelligence + Medicine) against the Magical Treatment Difficulty to cure a Third Circle illness or against difficulty 5 to cure the Great Contagion with this Charm. · All poisons and drugs (and Poison effects) leave the target's system, and all physical addictions are broken. (The Sidereal can't do anything about emotional cravings.) · Any Possession Charm affecting the target is broken, and all lingering effects disappear. · The Sidereal can transfer as many motes of his Essence to the target as he chooses. · The Sidereal can transfer as many points of his temporary Willpower to the target as he chooses (though he cannot grant more points than the target's maximum). · Curses upon the target are broken, although lost Attributes resulting from such curses are not recovered. This includes most Crippling or otherwise debilitating effects imposed by non-physical means. · The character can erase any of the target's painful memories of which he is aware, though he leaves in contextual clues to those memories. Thereafter, the target may spend a Willpower point to hazily recall these memories for a scene.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Citrine Poxes of Contagion Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "14d763e88e499e70"
+  },
+  "folder": "9eef66b2ef45a641",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

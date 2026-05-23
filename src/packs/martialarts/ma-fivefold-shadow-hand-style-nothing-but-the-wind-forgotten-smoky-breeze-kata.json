@@ -1,0 +1,60 @@
+{
+  "_id": "32fd8fb8d21cb1b8",
+  "_key": "!items!32fd8fb8d21cb1b8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Nothing but the Wind (forgotten Smoky Breeze Kata)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Illusion",
+      "Share-Forgotten",
+      "ShareSmoke"
+    ],
+    "cost": {
+      "formula": "6m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>So stealthy he's nearly invisible, the martial artist gently touches his littlest fingers to each other and touches the thumb and index finger of one hand to index and thumb (respectively) of the other hand, encouraging his foes' eyes and ears to sense only a passing breeze. As long as he keeps his fingers in that position, anyone with a (Perception + Essence) score that is not higher than the character's Martial Arts score fails to realize that he's not just a breath of air. Observers may also spend two Willpower to realize that there is not, in fact, a wind, but a martial artist in their midst, but they need some reason to suspect an intruder. If the character is pointed out, or if he takes any nonmovement actions while he is the wind, the illusion falls.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Fivefold Shadow Hand Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "32fd8fb8d21cb1b8"
+  },
+  "folder": "30abfdbff9e8ecc7",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

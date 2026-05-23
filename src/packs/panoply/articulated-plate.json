@@ -1,0 +1,41 @@
+{
+  "_id": "a008b234c56d7897",
+  "_key": "!items!a008b234c56d7897",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Articulated Plate",
+  "type": "armor",
+  "img": "icons/equipment/chest/breastplate-metal-rimmed-blue.webp",
+  "system": {
+    "soak": {
+      "bashing": 9,
+      "lethal": 9,
+      "aggravated": 0
+    },
+    "hardness": 0,
+    "mobilityPenalty": -3,
+    "fatiguePenalty": -2,
+    "artifact": false,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 0,
+    "hearthstoneSlots": 0,
+    "tags": [],
+    "description": "<p>Interlocking metal plates held together by hinges and pins; chain only covers armpits, groin and backs of knees. Commonly available only in the Realm, Nexus and Lookshy.</p>",
+    "equipped": false
+  },
+  "folder": "f002a234b56c789e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

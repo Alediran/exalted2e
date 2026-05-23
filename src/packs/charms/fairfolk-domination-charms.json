@@ -1,0 +1,59 @@
+{
+  "_id": "35d774d3d4cd2b28",
+  "_key": "!items!35d774d3d4cd2b28",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Domination Charms",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "staff",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Glamour",
+      "Mutation",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "5m, 3g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The raksha's panache is so perfect, so effortless, so gallant, that it is impossible to refuse him. The raksha spends five motes and three gossamer, and his player rolls (Charisma + Socialize) as a Staff-shaping attack. If the attack is successful, the raksha can then add his Charisma to its raw damage. Additionally, a raksha who spends three gossamer in conjunction with an Assumption Charm gains the following innate power in Creation: Innate Power (Cost: 10m, 1wp): In Creation, a raksha can use Beguilement to instill obedience in Creation-born through nothing more than his natural élan. This power, once activated, lasts for a scene, and during that time, any Creation-born the raksha encounters will accede to the raksha's most outrageous demands. She will not kill herself at his command or engage in any clearly suicidal course, but she can be persuaded to give him all her warm clothing in the middle of a blizzard; she will consent to being ravished or allowing her loved ones to be so violated; she will hurl herself into battle against the raksha's enemies, no matter how terrifying. Once activated, Beguilement affects every Creation-born the raksha encounters during the scene who is not protected by Glamour Resistance. Upon activating this power, the raksha's player must roll (Charisma + Socialize), and the effects of the Charm on ensorcelled characters will continue for one additional scene per success. Glamour Resistance: Beguilement is a work of glamour. It automatically fails if the target's (Wits + Essence) or Willpower exceeds the raksha's Charisma. Also, Beguilement is a power carried through the raksha's voice and the power cannot be used in battle or on characters who cannot or will not listen, such as an angry mob.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "35d774d3d4cd2b28"
+  },
+  "folder": "3a42d6c2417833d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

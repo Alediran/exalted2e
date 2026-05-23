@@ -1,0 +1,91 @@
+{
+  "_id": "9e1637335d280f50",
+  "_key": "!items!9e1637335d280f50",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Essence Venom Strike",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 4,
+    "dvPenalty": -1,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 7,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "7m, 1wp"
+    },
+    "description": "<p>The master of Snake Style is as quick as lightning and as deadly as a dozen serpents. The Exalt makes an unarmed Martial Arts attack. This Charm makes the attack's damage aggravated. It also adds the character's permanent Essence score to the damage of the attack. SOLAR HERO STYLE The Charm tree beginning with Fists of Iron Technique comprises the \"natural\" Solar style of unarmed fighting. The form weapons for this style are the cestus, fighting gauntlet, khatar, tiger claws, pankrator's cestus and improvised weapons. Solar Hero Style Charms treat attacks and blocks with these weapons as unarmed attacks and blocks. This includes the artifact versions of these weapons. A weapon is an \"improvised\" weapon if it has a maximum Accuracy of -3 and a maximum Rate of 2, such as a barstool, keg of brandy, omen hound or unattuned daiklave. For the other Exalted, this Charm tree is a Celestial Martial Arts style that emulates and imitates the power of the heroes of the dawn. Celestial Exalted and Immaculate-trained DragonBlooded can learn these Charms, but they cannot develop or learn additional Charms for this tree. For the Solar Exalted, these Charms are ordinary combat Charms--they bring the grace, speed and power of the Sun's Chosen to bear. Solars can invent new Charms for this tree--such as Thunderclap Rush Attack and Knockout Blow, on page 190. These new Charms are treated as Solar Charms, not supernatural martial arts: Only Solar Exalted (and Moonshadow Caste Abyssal Exalted) are capable of learning them.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Snake Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "953beb5e41e2feea",
+            "charmName": "Armor-Penetrating Fang Strike",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ecafc3979eecb09f",
+            "charmName": "Striking Serpent Speed",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "9e1637335d280f50",
+    "grantsMastery": false
+  },
+  "folder": "0794fc21c581d830",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

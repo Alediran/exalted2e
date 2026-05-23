@@ -1,0 +1,64 @@
+{
+  "_id": "82ce511ce4f6421e",
+  "_key": "!items!82ce511ce4f6421e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Aim-Calibrating Sensors",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "perception",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "3m [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm fits into the side of the Exalt's forehead as a slight metal bulge, with a taut wire running flush across the skin and reentering just before reaching the eye itself. A second, internal wire connects to the inner ear. When activated, the device systematically measures and compensates for all external penalties to the enhanced attack. Submodules: Inward Focus Refractor (Essence 3, 4xp): With this submodule, the Charm can alternatively cancel all internal penalties (other than multiple action penalties), or both internal and external penalties for a cost of six motes.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "attackBonus": {
+      "enabled": true,
+      "accuracyDice": "",
+      "damageDice": "",
+      "accuracySuccesses": "",
+      "ignoreAccuracyPenalties": true
+    },
+    "charmUid": "82ce511ce4f6421e"
+  },
+  "folder": "b0b1b2b3b4b5f052",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

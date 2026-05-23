@@ -1,0 +1,58 @@
+{
+  "_id": "330f6ede6849103c",
+  "_key": "!items!330f6ede6849103c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ephemeral Passage",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "5m, 1g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Suffusing her body with plasmic glamour, the raksha momentarily takes on the consistency of gauzy mist. This allows her to step through a non-airtight barrier no more than (Essence) yards thick, though she may pass through the barrier no faster than half her Move rate, rounded up. The raksha must navigate herself carefully through a stationary obstacle to avoid tearing her body in a harmful fashion, and so this Charm is not useful to evade attacks or Blockade Movement actions. Charms of the Heart Name Charms</p>",
+    "source": "Scroll of Errata",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "330f6ede6849103c"
+  },
+  "folder": "719cd5296b990a6b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

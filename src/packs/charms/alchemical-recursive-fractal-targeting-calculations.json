@@ -1,0 +1,75 @@
+{
+  "_id": "fbd55638c334d382",
+  "_key": "!items!fbd55638c334d382",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Recursive Fractal Targeting Calculations",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "dexterity",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "extraaction",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "7m, 1wp [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A web of hair-thin wires stretches across the Alchemical's cheek from the corner of her eye, disappearing beneath her skin at the jaw line. The wires re-emerge at her wrists, running to the tips of her fingers. When this Charm is triggered, the Alchemical unleashes a rapid series of attacks that each enjoys greater accuracy than the last, progressively zeroing in on her target. Recursive Fractal Targeting Calculations creates a magical flurry of attacks at the character's full dice pool, with a Speed rating and DV penalty equal to the highest values within the flurry. The number of attacks is equal to the lower of the Alchemical's Dexterity or Wits, ignoring Rate. All attacks must be targeted at a single opponent. If an attack fails to strike the target, the Alchemical cumulatively adds one die to his next attack within the flurry. Successfully hitting the target resets this bonus to zero. ALL-INCLUSIVE TARGETING CALCULATIONS Cost: 5m [2m]; Mins: Dexterity 5, Essence 4; Type: Supplemental</p><p>Keywords: Combo-OK, Obvious Duration: Instant Prerequisite Charms: Recursive Fractal Targeting Calculations A tiny hologlyphic projector stud protrudes from the Alchemical's eyebrow, capable of displaying anticipatory simulation data for a selected target. After a moment of furious processing, this system feeds target data into a set of resonant neural pathways built into the Champion's body, allowing the Exalt to perfectly synchronize with her opponent's movements. Exactingly calibrated to move slightly faster than the target, she aims and strikes without the possibility for error. An attack enhanced by this Charm cannot be dodged.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "82ce511ce4f6421e",
+            "charmName": "Aim-Calibrating Sensors",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "extraActions": {
+      "enabled": true,
+      "maxFormula": "@ess",
+      "costPerAction": 3
+    },
+    "charmUid": "fbd55638c334d382"
+  },
+  "folder": "b0b1b2b3b4b5f04e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

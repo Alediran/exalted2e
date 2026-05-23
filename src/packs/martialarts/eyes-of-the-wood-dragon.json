@@ -1,0 +1,65 @@
+{
+  "_id": "66a5b46e79cd20eb",
+  "_key": "!items!66a5b46e79cd20eb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Eyes Of The Wood Dragon",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 4,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "motes": 2,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "2m"
+    },
+    "description": "<p>The Wood Immaculate is master of the patterns that govern life and survival. By using this Charm to examine a single foe, the Dragon-Blood finds that foe's weakest points. After invoking this Charm, the Immaculate must successfully attack his target within his five next actions or the Charm ends with no effect. On a successful attack, the Immaculate adds her Essence as separate damage dice.</p><p>This extra damage bypasses armor but may be soaked by Stamina and other sources of Hardness normally. This attack affects immaterial spirits as if they had materialized. Also, this Charm is only effective against living beings--automata and the dead do not bear the life paths that this Charm uses.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Wood Dragon Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "66a5b46e79cd20eb",
+    "grantsMastery": false
+  },
+  "folder": "9aed05734440bb9c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,59 @@
+{
+  "_id": "9f88a22c9c3b1ea1",
+  "_key": "!items!9f88a22c9c3b1ea1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hastening Night's End",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "presence",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Emotion",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "10m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A touch, a kind word, a moment of intimacy--through such gestures the Solar Exalted may straighten that which is bent and mend that which is broken. This Charm's activation requires at least one hour of personal interaction, which may take a wide variety of forms. Patiently listening to a subject while they explain what ails them, sitting together to watch the sun rise or set, or an evening of lovemaking would all qualify. This Charm has two effects. First, the Solar may target and remove one derangement from the target's mind, regardless of whether it was inflicted by Charms, sorcery, the Wyld, or the simple stresses of life (if any effect contests this, the Solar adds his Presence in automatic successes to the roll-off). Second, the Solar forges in the target an Intimacy to a specific memory in the target's life of which she is aware. So long as this Intimacy endures, the target may not reacquire the derangement the Solar cured, nor may that memory be in any way tampered with, altered, poisoned, removed, or corrupted. Hastening Night's End may be resisted for a cost of 0 Willpower--the Charm will only help those who wish to be helped. It is impossible for the patient to gain Limit or Resonance, or suffer a Dark Fate manifestation, Limit Break, or Torment during the course of the treatment. There exists a similar Charm utilizing Medicine as a prerequisite called Mind-Soothing Anodyne (Prerequisites: Flawless Diagnosis Technique, Touch of Blissful Release). Its activation requires an hour of careful psychoanalysis or hypnotherapy, but is otherwise identical to Hastening Night's End.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "9f88a22c9c3b1ea1"
+  },
+  "folder": "e6b3f42bab7e5717",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "d6dffc49a8cf002d",
+  "_key": "!items!d6dffc49a8cf002d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gloves of Martial Readiness",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>This weapon consists of a pair of attractive gloves made from the finest leather and chased with one of the magical materials. The left glove contains a single hearthstone socket on the middle of the back of the hand. To use this artifact, a wearer must put on both gloves and spend eight motes of Essence to attune them. Once attuned, the wearer can cause a foot-long triangular khatar blade of Essence to extend from one or both gloves. The wearer can extend or retract these blades as a reflexive action. In addition, the wearer can cause the gloves' leather to change color, allowing them to be fashionably worn with almost any garb. Because the gloves appear to be decorative items, anyone unaware of their function will see nothing unusual about them being worn to a formal function--though Charms such as All-Encompassing Sorcerer's Sight instantly allow the viewer to see that this artifact is a weapon. In addition, if the wearer spends two motes of Essence, one of the gloves extends a shield of invisible Essence that lasts for one scene (costing the wearer one of his khatars). Because it automatically moves to deflect attacks, the shield provides a +2 bonus to the wearer's DV against both ranged and melee attacks (in addition to the weapon's normal parry bonus). This weapon also gains the normal bonuses from being made from one of the five magical materials. Speed 5 Accuracy Damage Defense Rate Minimums Attune Tags +2 +6L +3 ­ M</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 3,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

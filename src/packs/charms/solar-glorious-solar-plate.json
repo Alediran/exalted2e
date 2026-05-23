@@ -1,0 +1,72 @@
+{
+  "_id": "05ed053d4c8111ec",
+  "_key": "!items!05ed053d4c8111ec",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Glorious Solar Plate",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "resistance",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Holy",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "1m/3m/5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solar armors herself in the blazing glory of the Unconquered Sun. This Charm creates a suit of golden body armor from the Solar's anima. The character can design the armor to suit his personal aesthetic and mood--it can be sleek, imposing, ornate or simple. Regardless of aesthetic, it is always unmistakably medium or heavy armor, and it always glows with a golden light resembling an 8-10 mote Solar anima display. This light is bright enough to read by in a three-yard radius. Characters can only use this Charm if they are not already wearing body armor or a warstrider. It creates armor with 10L/10B soak, 5 Hardness, a -1 mobility penalty and no fatigue penalty. The character is instantly fully armored. For an additional three motes, if the character is not carrying a shield, he can create a glowing shield that gives a +1 cover DV bonus against hand-to-hand attacks and a +3 cover DV bonus against ranged attacks. This shield is always unmistakably a shield and bears the sunburst emblem of the Unconquered Sun.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "55eb9297e2abde9e",
+            "charmName": "Hauberk-Lightening Gesture",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "05ed053d4c8111ec"
+  },
+  "folder": "f05b544008eaceb0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

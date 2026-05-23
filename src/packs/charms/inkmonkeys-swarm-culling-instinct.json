@@ -1,0 +1,70 @@
+{
+  "_id": "87e3462fdade3173",
+  "_key": "!items!87e3462fdade3173",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Swarm-Culling Instinct",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "thrown",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Martial-ready"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Sometimes outgunned, rarely outdrawn, a Lawgiver answers the call of battle with a swarm of deadly steel. This Charm permanently enhances the Lawgiver's ability to manage greater numbers of opponents. Upon rolling Join Battle for the first time in a scene, the character may make a reflexive Thrown attack against any opponent whose Join Battle result is less than her own. Additionally, where others would grow desperate at the sight of enemy reinforcements, the Lawgiver is invigorated. For the duration of combat, the character may make a Thrown attack against all opponents who roll Join Battle after the initial Join Battle roll that began the fight, unless that character is doing so because they have cast a spell (generally representing new characters appearing and entering the fray). This Charm will only allow the Solar to make attacks against opponents whose engagement range she is within. Martial-ready: Archery, Martial Arts, Melee Shrike Saving Discretion</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "3cf2e5b4dc74af55",
+            "charmName": "Flashing Draw Mastery",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "87e3462fdade3173"
+  },
+  "folder": "b0b1b2b3b4b5f070",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

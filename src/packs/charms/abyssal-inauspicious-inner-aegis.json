@@ -1,0 +1,72 @@
+{
+  "_id": "7230c0d2792c6e52",
+  "_key": "!items!7230c0d2792c6e52",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Inauspicious Inner Aegis",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "resistance",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror (Glorious Solar Plate; Exalted, p. 205)",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "10m, 1wp or 13m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Abyssal shapes Essence into powerful armor. Depending on preference, he might grow an exoskeleton of articulated bone that tears out through his skin, he might extrude and freeze blood from every orifice into a scarlet carapace, or he might summon \"normal\" armor out of darkness itself. Unlike its Solar Mirror, this Charm can also create a long flowing cape of blood or shadows in place of a shield, which moves of its own volition to entangle and deflect attacks. Although this effect allows the Abyssal to use two-handed weapons, the cape offers only +1 DV (close)/+1 DV (ranged) protection and is not cumulative with other cover, including conventional shields. Abyssal sometimes call the bone armor the Ivory Blossom Carapace, while the blood-wrought panoply is Crimson Petal Armor.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0851fe5400a3b087",
+            "charmName": "Void-Banished Mail",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "7230c0d2792c6e52",
+    "mirrorId": "05ed053d4c8111ec"
+  },
+  "folder": "b0b1b2b3b4b5f044",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

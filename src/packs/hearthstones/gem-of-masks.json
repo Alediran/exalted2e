@@ -1,0 +1,27 @@
+{
+  "_id": "efc8b6164c02de02",
+  "_key": "!items!efc8b6164c02de02",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gem of Masks",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDWATER00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "water",
+    "rating": 4,
+    "description": "<p>This rainbow-colored crystal sphere has cloudy, rough spots on its surface. While possessing it, the bearer may change the details of her head and face. She cannot use it to change anything about the rest of her body beyond changing the color of her skin and body hair to match that of her head. However, any feature on her head (eye or skin color, nose, lips, the shape of her face, hair color, texture and length) may all change to resemble any human, beastman or other roughly human-like creature. The gem of masks cannot alter or hide caste marks, though. The bearer can use this stone to duplicate the appearance of someone she knows well, but cannot duplicate the subject's height or build. The ability to change one's appearance this way gives a +4 bonus to Larceny rolls involving disguise.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

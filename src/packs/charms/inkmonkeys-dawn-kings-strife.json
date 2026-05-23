@@ -1,0 +1,72 @@
+{
+  "_id": "facda2446a755853",
+  "_key": "!items!facda2446a755853",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "King's Strife",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "war",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror",
+      "Native"
+    ],
+    "cost": {
+      "formula": "",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Locked away in the insane prison of their King's body, the Yozis dream, and their sleep is troubled with nightmares of the Bronze Tigers. All too well, they remember the futility of opposing the blades of the Unconquered Sun, and they know that there is nothing--in Creation or beyond--that is not a weapon in the hands of the Dawn Caste. The character may cross-apply his Archery, Martial Arts, Melee, Thrown and War Excellencies. For example, the Solar might use his First War Excellency to organize a coordinated attack upon an Abyssal Exalt, and</p><p>then in the very next tick use that Excellency to boost his Melee Parry DV against the deathknight's attack. This benefit also applies to the character's Infinite (Ability) Mastery, (Ability) Essence Flow, and Supreme Perfection of (Ability) Charms for the aforementioned Abilities. It is specifically incompatible with Divine Transcendence of (Ability). New Abyssal Charm: Ash Child's Requiem (Prerequisite: Ever-Ready Killer's Tools). This Charm is identical to its Solar counterpart, save that it is incompatible with Apocalyptic Evolution of (Ability). Supreme Martial Instinct</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "193e2b599e7729cf",
+            "charmName": "Elegant Dance of Bow and Blade",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "facda2446a755853",
+    "mirrorId": "c1d2e3f4a5b60003"
+  },
+  "folder": "b0b1b2b3b4b5f071",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

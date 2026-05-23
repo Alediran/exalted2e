@@ -1,0 +1,37 @@
+{
+  "_id": "64ddf3b8a83215c7",
+  "_key": "!items!64ddf3b8a83215c7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wings of the Raptor",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>While transcendent phoenix pinions are well suited to tactical flight, they require a constant influx of Essence to keep active, and their ostentatious design makes stealth nigh-impossible. Wings of the raptor represent an improvement in personal flight technology, taking the form of exquisite floor-length capes fastened at the throat with ornate clasps that hold a single hearthstone socket. During the High First Age, the capes were often embroidered as iconic tapestries aesthetically appropriate to their intended wearer. Those made for Solars were usually pure white with elaborate golden sunburst mandalas centered on the back, quite different from the subdued midnight-blue Sidereal capes sparkling with their inset constellations of diamond beads. Characters must commit one mote to these wings in order to attune them, but doing so does nothing except allow the clasp to function as a hearthstone amulet. Activating the wings requires a reflexive commitment of 10 additional motes. This causes the cape to flare back and unravel as though in a sudden gale, reshaping itself into a pair of great wings like those of a bird (or bat) that stretch six yards from wingtip to wingtip. With the wings active, the wearer can fly at five times his usual running speed or hover with slow and graceful beats. Outside of combat, he can accelerate faster, soaring at speeds up to 80 miles per hour. Because the wings are considered a natural extension of the body, wearers do not need to divert actions to aerial maneuvers as with piloting a skyship. Moreover, all maneuvering rolls required by negative environmental conditions (such as flying through a hurricane or weaving through a narrow canyon) are made reflexively using a full pool of the character's (Dexterity + Athletics + 6). Finally, the characters Dodge DV increases by three in flight owing to the artifact's extreme maneuverability. Wings of the raptor have additional powers depending on the magical material used in their clasp: Orichalcum: At will, the wearer may command the wings to glow with a brilliant golden light that surrounds him in a halo of glory, adding three to his Appearance rating. Moonsilver: The wings resize themselves to accommodate any form the Lunar assumes. In addition, the character gains sensory acuity appropriate to a raptor, adding six dice to vision-based Awareness rolls while in flight. Starmetal: These wings are particularly subtle and silent like an owl, adding a six-die bonus to Stealth rolls. Jade: Resonating with the elemental energy of the air itself, these wings naturally buoy themselves without any conscious effort from their wearer. As such, the Terrestrial can literally fly in his sleep with as much competence as if he were awake (aiding in long-distance travel), though he cannot do anything else but move and maneuver. Soulsteel: These bat-like wings house a razor-edged skeleton. The Abyssal may use the bladed wings to attack with the same statistics as a soulsteel reaper daiklave (see Exalted, p. 385). Furthermore, he can slash while flying past an opponent without disrupting his flight.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 4,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

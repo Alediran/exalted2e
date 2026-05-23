@@ -1,0 +1,58 @@
+{
+  "_id": "5ae88d300635524b",
+  "_key": "!items!5ae88d300635524b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Preservation Of Resolve",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "integrity",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Social"
+    ],
+    "cost": {
+      "formula": "2m per +1 MDV",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Viziers defend gods and mortals alike from temptation and distraction. The character gives a social group the benefit of her own disciplined will through a scene spent interacting with its members. For every two motes the character spends, she adds +1 to the leader's Dodge Mental Defense Value against social attacks directed at the group; the bonus cannot exceed the character's permanent Essence rating.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "5ae88d300635524b"
+  },
+  "folder": "b0b1b2b3b4b5f007",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

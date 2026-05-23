@@ -1,0 +1,70 @@
+{
+  "_id": "b7a584d03cfa16a1",
+  "_key": "!items!b7a584d03cfa16a1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Malfeas Inevitability Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Yozis exist beyond fate, warping the flow of causality merely through the lightest touch of their cosmic infinitude. Whenever an Infernal activates the appropriate First Malfeas Excellency to improve a rolled action, she may pay an additional Willpower to lower the enhanced action's target number to 6. This benefit is not cumulative with other effects that reduce target number. The Shaping effect of this Charm warps reality as a whole rather than any individual target; the improved Excellency use does not itself become a Shaping effect. Infernals with Essence 7+ no longer need to spend Willpower to benefit from this Charm; such characters automatically drop the target number of rolled actions to 6 whenever they use the appropriate First Malfeas Excellency. EFFORTLESS Malfeas DOMINANCE</p>",
+    "source": "MoP: Infernals",
+    "yoziPatron": "malfeas",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Appropriate First Malfeas Excellency",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "b7a584d03cfa16a1"
+  },
+  "folder": "1945ba1655ca5f6f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

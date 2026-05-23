@@ -1,0 +1,27 @@
+{
+  "_id": "fa88988aef0ebd4a",
+  "_key": "!items!fa88988aef0ebd4a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Bright Eye of the Fire Dragon",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDFIRE000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "fire",
+    "rating": 4,
+    "description": "<p>This octahedral ruby holds a fleck of iridescent black in its heart. Its bearer can see through any fire within (Essence) miles as if he were standing at the fire's location. The bearer also automatically knows the approximate distance and location of any fire within range. The bearer's player rolls (Perception + Awareness) to find how clearly the character can see through the fire through which he wishes to look. The bearer can watch his enemies through their campfire or look down upon a battlefield by firing a burning arrow into the sky. The hearthstone's owner can look through both magical and supernatural fires or even the bodies of fire elementals.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

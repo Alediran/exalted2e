@@ -1,0 +1,84 @@
+{
+  "_id": "6ecfdfad8baea7c9",
+  "_key": "!items!6ecfdfad8baea7c9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Nature-Reinforcing Allocation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "charisma",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneWeek",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious",
+      "Touch",
+      "Training"
+    ],
+    "cost": {
+      "formula": "10m, 2wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Lunar Exalted infuse their animal companions with greater capabilities. The character spends a week training the target animal, in which time she must spend at least five hours per day on this effort. Each use of this Charm allows the character to endow the target animal with one of the following: � One additional dot of Strength, Dexterity, Stamina, Wits or Perception; none may be increased more than once. � One additional dot of Athletics, Awareness, Dodge, Integrity, Martial Arts, Presence, Resistance or Survival; none may be increased past the character's rating in the trait. � One additional -1 health level; no more additional levels than the creature's Stamina. � Intelligence equal to that of a six-year-old human; familiars become as intelligent as a full-grown human, acquiring Intelligence 2. � One point of mutation; giving the creature mutations larger than poxes requires additional weeks of training before it has any effect. Mutations natural or reasonable to the animal have no overt effect on appearance--giving poison to a snake might increase the strength of the poison. Other mutations can make the animal or familiar look quite strange.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "94a7f8753edf2bdd",
+            "charmName": "Dog-Tongue Method",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "healthGrant": {
+      "enabled": true,
+      "options": [
+        {
+          "label": "Purchase",
+          "zero": 0,
+          "one": 1,
+          "two": 0,
+          "dying": 0
+        }
+      ]
+    },
+    "charmUid": "6ecfdfad8baea7c9"
+  },
+  "folder": "4e63ba1bd67a09e3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

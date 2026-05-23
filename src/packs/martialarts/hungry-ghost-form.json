@@ -1,0 +1,104 @@
+{
+  "_id": "9b8f60f94d38e33b",
+  "_key": "!items!9b8f60f94d38e33b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hungry Ghost Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 5,
+    "dvPenalty": -1,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Form-type",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 6,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "6m"
+    },
+    "description": "<p>The martial artist roars or howls in a scream of incalculable malice, allowing his worst impulses to possess him with their terrible power. Faintly glowing eyes betray those consumed by this martial arts form, illuminating features twisted into a rictus of taut tendons and clenched muscles. While this Charm is active, the character is considered a creature of darkness (assuming he wasn't already) and suffers from the effects of partially controlled Berserk Anger (see Exalted, p. 105), instantly reclassifying allies as enemies if they attempt to impede his rampage. Deactivating this Charm before its normal duration elapses costs one Willpower to shrug off the unnatural mental influence the martial artist exerts on himself. In exchange for these disadvantages, the martial artist inflicts lethal damage with all unarmed attacks and can parry lethal attacks barehanded, without a stunt. Each action, he may activate his choice of Lunging Phantom Method or Shrouded Claw Attack as an innate power without it counting as a Charm use. He can also make unarmed strikes or clinches against dematerialized beings, though clinched spirits can grapple back until either party breaks contact. As a final benefit, the martial artist adds his Essence to his Stamina for purposes of innate soak. As a side effect of learning this Charm, non-Abyssal martial artists gain the ability to purchase dots of Whispers without spending time in the Labyrinth. To walk in the steps of the hungry dead is to open one's mind to ultimate malevolence.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Hungry Ghost Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a98ff02f94cac17e",
+            "charmName": "Leaping Horror Approach",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4307b0f5ed019ee9",
+            "charmName": "Lunging Phantom Method",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6b279e6a7194d2dd",
+            "charmName": "Shrouded Claw Attack",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "9b8f60f94d38e33b",
+    "grantsMastery": false
+  },
+  "folder": "a204aba47ca9154b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

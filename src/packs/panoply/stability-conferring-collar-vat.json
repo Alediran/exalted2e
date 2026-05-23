@@ -1,0 +1,37 @@
+{
+  "_id": "31681263a6af0309",
+  "_key": "!items!31681263a6af0309",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Stability-conferring Collar/vat",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>These devices function by rapidly fluctuating the aspect of a motonic field so that the energies resonate at a signature between the definitive reality of Creation and the randomized flux of the Wyld. The smaller versions take the form of a collar with a one-dot rating and require that the wearer attune them for a commitment of one Willpower point or two motes. While worn, the collar prevents the attuned bearer from suffering any ill effects of being in Creation with too many mutation points. The player also receives a +2 bonus to all rolls to resist mutation from further exposure to the Wyld. The larger models are rated at three dots and take the form of oversized aquarium cells large enough to hold five people in monastic conditions, though really as a glorified jail. These facilities need Repair 3 maintenance each week to keep their filters cleaned and keep them filled with the mostly clear alchemical liquid in which patients gently float and breathe as if it were clean air. Those inside the tank receive the benefits associated with wearing the collar variant and may have existing mutations gradually removed by having a doctor modify the alchemical formula in a careful regimen. Treatment is a dramatic action taking a number of weeks of regular care equal to the mutation point cost of the traits to be removed (10 hours per day minimum). This number also serves as the difficulty of the (Intelligence + Medicine) roll to determine success. These cells can remove mutations conferred by sources other than the Wyld, but this treatment increases the difficulty of the roll by two.</p>",
+    "source": "Dreams of the First Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 1,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

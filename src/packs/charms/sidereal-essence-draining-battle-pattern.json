@@ -1,0 +1,72 @@
+{
+  "_id": "3fc3b66c63841644",
+  "_key": "!items!3fc3b66c63841644",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Essence-Draining Battle Pattern",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "war",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Overdrive",
+      "War"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal must first activate Predestined Triumph Practice in order to use this Charm. He then urges his forces into a combat pattern that blocks and reroutes the flows of Essence that empower their enemies. Designing the pattern and properly arranging his troops into it requires a successful (Intelligence + War) roll. The maximum number of successes the Sidereal can achieve is equal to his permanent Essence--extra successes are lost. During the battle, every hero or sorcerer special character (see Exalted, p. 162) who enacts his part of the pattern receives an extra mote of Essence per action from the flows that the pattern disrupts. Each such character also adds a number of motes equal to the Sidereal's player's successes on the aforementioned roll to the costs of any Charms or sorcery used by the opposing army. This increase, however, cannot more than double the cost for a Charm or spell. For instance, an Essence 5 Sidereal leading an army with six special characters could add up to 30 motes to the cost of enemy Charms or spells; for instance, Rain of Doom could have its cost raised from 60 motes to 90. A minor Charm such as Fists of Iron Technique, however, would have its cost raised from just one mote to two. An army can benefit from only one Battle Pattern Charm in a given battle.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "31a8efd5abc1a21c",
+            "charmName": "Predestined Triumph Practice",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "3fc3b66c63841644"
+  },
+  "folder": "b0b1b2b3b4b5f019",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

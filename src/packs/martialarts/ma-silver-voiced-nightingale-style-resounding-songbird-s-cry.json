@@ -1,0 +1,58 @@
+{
+  "_id": "cb3b28c1c8867118",
+  "_key": "!items!cb3b28c1c8867118",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Resounding Songbird's Cry",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Throwing his head back and closing his eyes, the SilverVoiced Nightingale shrieks an awful cry. Glass and crystal shatters spectacularly, as metal warps and blood pours from people's ears. The martial artist makes one attack using his (Perception + Martial Arts), with a base bashing damage of his Charisma. The attack strikes everyone within (Martial Arts x 10) yards, except the martial artist himself, and it cannot be dodged or parried without a stunt or a Charm. The attack cannot be aimed. The Nightingale cannot choose to spare anyone but himself. Bonuses from a Nightingale's harmonic weapon may apply to this attack (though the damage remains bashing unless it is augmented by a relevant Charm), as can any damage bonuses from Weeping Nightingale Form, should the character be using it. If a character with this Charm has not learned the Charm Aria of Tranquility, she suffers a -1 penalty to the number of bonus dice she receives for channeling Willpower through her Compassion and Temperance. This penalty stacks with other Virtue penalties imposed by Charms of this style and is in effect regardless of whether the character is actually using the Charm.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Silver-voiced Nightingale Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "cb3b28c1c8867118"
+  },
+  "folder": "f8d2ffb92c6967bb",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

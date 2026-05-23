@@ -1,0 +1,37 @@
+{
+  "_id": "0e3a7e1ee99feac5",
+  "_key": "!items!0e3a7e1ee99feac5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fugue of Truth",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-fugue-of-truth",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 10,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "one hour",
+    "target": "Caster",
+    "description": "<p>The sorcerer casts this spell after meditating in a lightless, soundless place for one hour. He attunes himself to truth and the flows of Essence, rather than the tricks that sound and light play on the senses. The meditation enables the sorcerer to see through illusions, to resist glamours, to avoid enchantments and to perceive what is concealed, whether they are things or purposes. This trance-like state grants four extra successes to all Perception-based rolls to perceive illusions, see through disguises, read motivations (see Exalted, p. 131), and when rolling to find or notice hidden things. Moreover, the sorcerer gains a perfect defense against normal, Manipulation-based social attack rolls, for he sees through the cleverest persuasions. Supernatural attempts to control the caster's mind can be resisted with a reflexive (Perception + Integrity) roll, difficulty of the would-be controller's Essence. Success indicates the sorcerer ignores this effect as well. While the trance lasts, however, treat the sorcerer as stunned (see Exalted, p. 153) for taking physical actions. His stupefied and distracted demeanor also inflicts a -1 external penalty to all social rolls. Fugue of Truth ends if the sorcerer botches a roll, is wounded, loses consciousness (including going to sleep) or voluntarily chooses to release it. This spell can be countered only during its casting. Once the trance begins, the effect is entirely within the mind of the sorcerer.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

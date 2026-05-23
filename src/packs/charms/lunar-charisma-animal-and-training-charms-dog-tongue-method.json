@@ -1,0 +1,70 @@
+{
+  "_id": "94a7f8753edf2bdd",
+  "_key": "!items!94a7f8753edf2bdd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dog-Tongue Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "charisma",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Stewards may communicate with all things in their domain. Dog-Tongue Method gives a character the ability to speak the many tongues of animals. This Charm makes natural animals (or other creatures that potentially understand the same sounds and gestures) valid targets for all social attacks, because the Lunar can now communicate even the most complex ideas to them. A character may choose to activate this Charm without the Willpower cost. This variation allows her to speak only to animals whose shape she currently takes. When in animal form, a character using Dog-Tongue Method can also speak any human tongue she knows. With Perception 2, the character also understands the speech of animals while this Charm is active. Lunars may purchase this Charm with Perception 2 instead of Charisma</p><p>2; the Charm is often then called \"Dog-Ear Method\" and functions only to understand animals until the character also has Charisma 2. Purchasing the Charm in this way requires a Perception Excellency instead of a Charisma Excellency.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "94a7f8753edf2bdd"
+  },
+  "folder": "4e63ba1bd67a09e3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

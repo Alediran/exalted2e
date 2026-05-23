@@ -1,0 +1,78 @@
+{
+  "_id": "c67fd4f2e51a420b",
+  "_key": "!items!c67fd4f2e51a420b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unwavering Well-Being Meditation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "integrity",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Social"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The character's steadfast resolve and confidence in his destiny shield him from an attempt to change his mind or do him harm. Any player whose character has an Essence less than the Sidereal's Temperance must first succeed on a reflexive Willpower roll before the character attempts a social or physical attack against the Sidereal. If the Willpower roll fails, the attack fails automatically. The Sidereal's apparent</p><p>steely dedication in the face of opposition cows the attacker so her aim or intention falters. If the Willpower roll succeeds, the attack may proceed, but the Sidereal combines his Parry Defense Value and Dodge Mental Defense Value against the attack.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5ae88d300635524b",
+            "charmName": "Preservation of Resolve",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "willpowerRecovery": {
+      "enabled": true,
+      "event": "onDamageDealt",
+      "formula": "1"
+    },
+    "charmUid": "c67fd4f2e51a420b"
+  },
+  "folder": "b0b1b2b3b4b5f007",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

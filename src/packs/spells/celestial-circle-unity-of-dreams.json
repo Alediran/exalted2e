@@ -1,0 +1,37 @@
+{
+  "_id": "85d0d81def2b3360",
+  "_key": "!items!85d0d81def2b3360",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unity of Dreams",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "celestial-circle-unity-of-dreams",
+    "tradition": "sorcery",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 10,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Caster and allies",
+    "description": "<p>The sorcerer binds the dreams of the ritual's participants (including herself) to one another using the Sign of Venus. Unity of Dreams must be cast once a night per participant for the magic to take hold, with everyone in the same room. The spell's Essence settles on participants as saffron motes of light. After the required number of castings over consecutive nights, the spell lasts for a number of months equal to the sorcerer's Essence. The participants' dreams intermingle and allow them to communicate while sleeping, as long as they are all in Creation. Not only does the fluid nature of dream consciousness not hamper this dream communication, but participants have trouble hiding important facts and events from each other. A closeness develops on a subconscious level. People linked in this spell have their Intimacies for one another augmented. Eroding Intimacies to other dreamers now takes a number of successful social attacks equal to the character's (Willpower + Conviction). Unity of Dreams extends to understanding what will best aid another participant while awake, too. All participants gain a one-die bonus to all actions when working or fighting beside each other. At any time when all the participants are asleep and dreaming, one of the dreamers may ask the others to join her. The bond of the spell then transports the other sleepers to the character who requested their presence. All participants must agree or none will arrive. Several seconds later, they all awaken to find themselves together. Invoking this transportation has a cost, though. It consumes the energies of the spell, ending it prematurely. Moreover, this spell does not help the dreamers return home.</p>"
+  },
+  "folder": "dcf06d83a3d0a4be",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

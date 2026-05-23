@@ -1,0 +1,74 @@
+{
+  "_id": "41b3847b181019c2",
+  "_key": "!items!41b3847b181019c2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wretched Ridden Nightmare",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "ride",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneDay",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Avatar (1)",
+      "Combo-OK",
+      "Obvious",
+      "Shaping",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Abyssal re-envisions a natural or undead animal mount he rides through the marred lens of Neverborn madness, temporarily warping the animal into a monster. Wretched Ridden Nightmare grants one blight, one affliction and two poxes selected by the Abyssal when he activates the Charm, as well making the steed a creature of darkness. All of these mutations must directly improve the animal's utility as a mount or increase its physical combat power. The Storyteller may veto any mutations that do not conform to the strictures and intent of this Charm. Reduce the cost of</p><p>this Charm to five motes when targeting a mount created with Spectral Steed or a similar Charm.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "234d46aa4a1151c5",
+            "charmName": "Unholy Mount Warding",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "41b3847b181019c2"
+  },
+  "folder": "b0b1b2b3b4b5f045",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,60 @@
+{
+  "_id": "069737c57c3d20a4",
+  "_key": "!items!069737c57c3d20a4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dream-sacrificing Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "sword",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Echo",
+      "Obvious",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "1wp, 1+g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Sometimes, even the sharpest blade must yield to the power of a well-timed bribe. The raksha can negate all the damage inflicted by a single Sword-shaping attack by sacrificing gossamer. For each point of gossamer expended, two damage successes are negated, with fractional gossamer lost. The sacrificed gossamer instantly becomes a possession of the attacker.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "069737c57c3d20a4"
+  },
+  "folder": "12ff19c775f80093",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

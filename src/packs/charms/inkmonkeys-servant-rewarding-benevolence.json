@@ -1,0 +1,68 @@
+{
+  "_id": "a6ef4f2b340613b1",
+  "_key": "!items!a6ef4f2b340613b1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Servant-Rewarding Benevolence",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "bureaucracy",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneMonth",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": "None",
+    "cost": {
+      "formula": "2m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Essence flows through bureaucracies and hierarchies just as it does through the geomancy of Creation or the anatomy of a living body. As a geomancer might change the landscape to create a demesne, or an acupuncturist use needles to correct a patient's essence meridians, so too can the Solar shape the essence of a business with holidays and rewards. Servant-Rewarding Benevolence is a dramatic action to provide benefit to the members of a social and/or mass combat unit. If the Solar is not the unit's leader, the unit's rank-andfile must officially recognize the Lawgiver's authority to provide the benefits in question. The action can be anything that would logically make unit members happier. Examples include offering one-time bonus pay, offering a state holiday off work or taking a legion out for a wild night on the town. For a month following the enchanted special occasion, the Charm provides the following benefits: � All members add +1 bonus success on any non-combat action they take to advance the group's Policy. Heroic members add +2 successes instead. � Mass social units add +2 to their MDVs against any effect that targets the group through one of its members instead of its leader. � The unit adds +1 Morale in mass combat. � Whenever the unit's leader channels Valor to enhance a unit action during mass combat, he adds +2 bonus successes in addition to the usual dice. Ride Immortal Rider's Advantages</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "3471eff4ee1c4e68",
+            "charmName": "Speed the Wheels",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a6ef4f2b340613b1"
+  },
+  "folder": "b0b1b2b3b4b5f059",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

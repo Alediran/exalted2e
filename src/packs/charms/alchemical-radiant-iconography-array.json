@@ -1,0 +1,70 @@
+{
+  "_id": "9c706a738074a482",
+  "_key": "!items!9c706a738074a482",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Radiant Iconography Array",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "appearance",
+    "essence": 3,
+    "minAbility": 2,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Orichalcum field emitter studs curve across the Alchemical's ribs and back, wired directly to her Essence reservoir. This Charm is identical to Phantom-Conjuring Performance (see Exalted, p. 202), save that it may enhance uses of any Social Attribute Augmentation. Submodules: Chromatic Lies (Manipulation 3, 3xp): No stunt is necessary to use phantasms for deception purposes, but the Illusion effect has no physical substance and cannot exert any force (as normal). Witnesses presented with definitive proof that the illusions are false or who either spend one Willpower for a day or have a Dodge MDV higher than the Alchemical's (Manipulation + Performance) recognize the phantasms as such, though they still perceive them. Those fooled act accordingly. Intrinsic Evocation System (Essence 4, 1xp): The radius of effect extends to 100 yards, and phantasms may be invoked at will without accompanying use of an Augmentation.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Social Attribute Augmentation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "9c706a738074a482"
+  },
+  "folder": "b0b1b2b3b4b5f04c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

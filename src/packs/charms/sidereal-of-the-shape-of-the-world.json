@@ -1,0 +1,71 @@
+{
+  "_id": "ef2a8693776887a2",
+  "_key": "!items!ef2a8693776887a2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Of The Shape Of The World",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "lore",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Fate"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Seers of Heaven research the future as well as the past. By studying the patterns of fate weaving through a</p><p>person, place or object, a Sidereal gains information about the target's future. The Sidereal's player rolls (Intelligence + Lore); each success gives one fact about the target, such as \"This artifact will pass to a Lunar,\" \"Your future holds a green-haired man\" or \"Army coming through!\" Unfortunately, the Charm does not always say when an event takes place: asking for possible events within any given one-year time span raises the difficulty to 3, and a one-month time span forces a difficulty of 5. A full month must pass before another use of the Charm can reveal new information about the target. The Sidereal's own actions may change the foreseen events.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "3093c06801587472",
+            "charmName": "Methodology of Secrets",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "ef2a8693776887a2"
+  },
+  "folder": "b0b1b2b3b4b5f00b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

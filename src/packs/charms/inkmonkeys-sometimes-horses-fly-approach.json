@@ -1,0 +1,58 @@
+{
+  "_id": "348d80af5d66f504",
+  "_key": "!items!348d80af5d66f504",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sometimes Horses Fly Approach",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "ride",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "formula",
+    "speed": 3,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solar's bond with her mount transcends training — under her guidance, a horse can leap over walls, run up steep inclines, and clear obstacles that no mundane animal would attempt. Supplementing any Athletics or movement roll made by her mount, this charm allows the animal to perform feats appropriate to supernatural creatures: leaping twice its normal distance, running across water for a single tick, or climbing structures as though the slope were gentle. The Solar adds her Ride Ability in bonus dice to the mount's roll.</p><p>The mount itself shows no supernatural alteration — it simply performs the feat with the confidence of an animal that somehow knows it can. Observers looking for the source of the impossible feat see only a rider in perfect communion with her horse. This charm is a prerequisite for Thunder Hoof Method, which builds upon these impossible feats to grant the mount true supernatural speed rather than merely excellent technique.</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "348d80af5d66f504"
+  },
+  "folder": "b0b1b2b3b4b5f069",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

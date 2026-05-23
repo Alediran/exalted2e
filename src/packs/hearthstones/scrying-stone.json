@@ -1,0 +1,27 @@
+{
+  "_id": "917da9f0dd68f5bf",
+  "_key": "!items!917da9f0dd68f5bf",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Scrying Stone",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDSIDRL00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "sidereal",
+    "rating": 5,
+    "description": "<p>The bearer of this black stone can see visions of other times and places in its flat, highly polished surface—visions of the past, the present or the potential future. They either illuminate some aspect of what will happen or lend some understanding of the situation that the Exalt does not yet have. While every vision is a literal view of some real or potential event, the visions come without context or explanation: The bearer's player must roll (Intelligence + Investigation) to decipher the visions; Excellencies can apply. As with the gem of omens, more successes indicate more extensive and precise knowledge—but the scrying stone can also provide information such as a view of an enemy's face or a chance to watch a long-dead sorcerer cast a spell. (Such potent and precise information would require at least five successes, though.)</p>",
+    "source": "Oadenol's Codex"
+  }
+}

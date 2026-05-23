@@ -1,0 +1,69 @@
+{
+  "_id": "3c47bbb5e42fb88a",
+  "_key": "!items!3c47bbb5e42fb88a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Guardian Sunfire Catechism",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": "Mirror (Death's Knight Stance)",
+    "cost": {
+      "formula": "--(+3m or +3m, 1wp)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A Lawgiver's skill in combat evolves into an unshakeable truth with all the conviction of a religion. When her resolve is challenged, her holy blade becomes the answer to all her enemy's questions. This Charm enhances its prerequisite. The Solar may opt to pay a three mote surcharge when activating Heavenly Guardian Defense, extending its duration to One tick. Solars with Essence 5+ may extend the duration of Heavenly Guardian Defense to One action by paying a three mote, one Willpower surcharge. The Exalt's weapon is seen to leave burning golden-orange streaks in the air as it flashes out to meet all attacks. When using this Charm in conjunction with Defend Other, the Solar must activate this Charm multiple times to cover multiple allies, paying the Charm's activation cost and surcharge separately for each target she wishes to defend for One tick or One action. This Charm may not enhance activations of Heavenly Guardian Defense pre-loaded through Protection of Celestial Bliss. New Abyssal Charm: Death's Knight Stance (Prerequisite: Death-Deflecting Technique). Save for the shadowy afterimages that trail the Abyssal's weapon, this Charm is identical to Guardian Sunfire Catechism. Blind Impulse Strike</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0f988a84eeae7674",
+            "charmName": "Heavenly Guardian Defense",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "3c47bbb5e42fb88a",
+    "mirrorId": "c1d2e3f4a5b60010"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

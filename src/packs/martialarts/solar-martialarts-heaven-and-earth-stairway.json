@@ -1,0 +1,114 @@
+{
+  "_id": "1e747b8ecf4d3815",
+  "_key": "!items!1e747b8ecf4d3815",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Heaven-And-Earth Stairway",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 1,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "-- (1m)"
+    },
+    "description": "<p>As the Unconquered Sun moves naturally from station to station and shifts effortlessly between the faces he shows the world, so too does the martial artist. Utilizing a brief transitional kata called the Steps of Unity, he may reflexively shift between any of the known Form-type Charms of the Arms of the Unconquered Sun Style for one mote. This benefit may be used only once per action, and only if the character already has one of the style's Form-type Charms active. The character continues committing the motes for whichever Form-type Charm he had originally invoked and does not have to add to this cost, even if the new Form-type Charm is more expensive. Dropping this commitment will drop whatever Form-type Charm he has active.</p>",
+    "source": "Glories of the Most High: Unconquered Sun",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Arms of the Unconquered Sun Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "fea91a14fd2da4f3",
+            "charmName": "Meditation upon the Spear",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "cf9468e4e705ace3",
+            "charmName": "Meditation upon the Horn",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "13a63954bea2bb33",
+            "charmName": "Meditation upon the Shield",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e4fc55b08c671f7f",
+            "charmName": "Meditation upon the Laurel",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "1e747b8ecf4d3815",
+    "grantsMastery": false
+  },
+  "folder": "60c07b8667afdccd",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,61 @@
+{
+  "_id": "43f3787b5f48fc2a",
+  "_key": "!items!43f3787b5f48fc2a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Accelerated Response System (Dodge configuration)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "dexterity",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 3,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Alchemical's chassis is fitted with a network of predictive threat-analysis processors and pre-tensioned actuator systems that can trigger evasive maneuvers faster than conscious thought. When an attack is declared, the Accelerated Response System calculates optimal evasion vectors and pre-positions the Alchemical's body, adding the Exalted's Essence to her Dodge DV for the remainder of the tick and granting two bonus dice to any active dodge roll made this action.</p><p>The system engages with a brief mechanical whir and the slight shimmer of predictive essence flowing through the Alchemical's limbs. This dodge-configuration variant of the Accelerated Response System serves as a prerequisite for the Precalculated Evasion System, which represents a more sophisticated evolution of the same predictive-avoidance architecture.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "43f3787b5f48fc2a",
+    "dvBonus": {
+      "enabled": true,
+      "dodgeBonusFormula": "@ess"
+    }
+  },
+  "folder": "b0b1b2b3b4b5f04e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

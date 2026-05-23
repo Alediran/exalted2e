@@ -1,0 +1,52 @@
+{
+  "_id": "03036b3b3783d322",
+  "_key": "!items!03036b3b3783d322",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Lasso",
+  "type": "weapon",
+  "img": "icons/weapons/swords/sword-ornate-yellow.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "Thrown",
+        "speed": 6,
+        "accuracy": 2,
+        "damage": 0,
+        "damageType": "bashing",
+        "overwhelming": 1,
+        "defense": 0,
+        "rate": 1,
+        "range": 5,
+        "minStrength": 1,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": [
+          "Clinch Enhancer"
+        ]
+      }
+    ],
+    "artifact": false,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 0,
+    "hearthstoneSlots": 0,
+    "description": "<p>A rope with a slip-knotted loop at the end makes a difficult weapon to use against people, but ranchers and pastoral nomads find it an indispensable tool. Constant practice on their herds leads such people to great skill with a lasso. Unlike other thrown restraining weapons, a lasso gives its wielder a way to maintain an active hold on a target, if the attacker can maintain tension on the rope. The most effective strategy is to use a lasso from a steed and then to ride away, dragging the target along behind. In that case, the captured target faces a resisted roll of his ([Strength or Dexterity] + Athletics) against the (steed's Strength + attacker's Ride) to free himself... and still takes the external penalty for the attacker's successes. If an attacker can tighten a lasso around a target's neck, the lasso can strangle a target like a cloth garrote. Dragging a target held by the neck deals lethal damage like a wire garrote, from crushing this delicate part of the anatomy--but including the weapon's bonus Strength. Targeting a victim thus requires a called shot, for a -4 penalty.</p>",
+    "source": "Scroll of the Monk",
+    "equipped": false
+  },
+  "folder": "f001a234b56c789d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

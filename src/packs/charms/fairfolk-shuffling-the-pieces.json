@@ -1,0 +1,59 @@
+{
+  "_id": "cdc741f77d5e45c5",
+  "_key": "!items!cdc741f77d5e45c5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shuffling the Pieces",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "staff",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Echo",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "2m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Never predictable, let alone boring, the Laughing Monster always strikes in a manner that defies expectation. The raksha's player rolls (Charisma + Occult) as a Staff-shaping attack. A successful attack inflicts no new damage. Instead, the raksha can heal up to (her Essence + the extra successes on the attack roll) levels of damage already inflicted on the target's Cup, Ring and/or Sword damage, dividing up the healing as she wishes. Then, she immediately and automatically inflicts as much damage as she healed on the target's Staff Grace. The raksha can use this power to \"heal\" an ally (assuming his Staff Grace can survive the damage the Charm inflicts) or to cripple the Staff Grace of her enemy.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "cdc741f77d5e45c5"
+  },
+  "folder": "3a42d6c2417833d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

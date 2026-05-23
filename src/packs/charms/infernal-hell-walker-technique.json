@@ -1,0 +1,71 @@
+{
+  "_id": "66d9a136a68c44d3",
+  "_key": "!items!66d9a136a68c44d3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hell-Walker Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Sorcerous"
+    ],
+    "cost": {
+      "formula": "20m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>All places of desolation are adjacent to Cecelyne. This Charm can be used whenever the Infernal is journeying through such a locale and desires to reach Cecelyne. Indeed, even places that are not scarred with desolation may bridge to Cecelyne, though this is a Blasphemy effect. Regardless, no great portal of flames opens. No demon heralds appear</p><p>to roar welcome to the Infernal. Instead, the ground shifts toward the landscape of the Endless Desert so subtly that the character cannot be sure exactly when he made the transition, save that it occurred sometime in the same scene. From there, five days of travel await to the walls of Malfeas. Infernals may also use Hell-Walker Technique as described above to travel from the walls of Malfeas to any blight created by Dune-Drowned Oasis Ritual (see p. 126). She need not have created the blight herself, but the destination requires that a unit of worshipers from the character's cult with a Magnitude at least equal to his Essence rating be present at the destination. The Infernal arrives bursting from the surface of the sand, gasping as if close to drowning. If a character uses this Charm while others are tracking him, they may find themselves drawn into Cecelyne without intending to unless the hunting party has Magnitude greater than the Infernal's Survival rating. Each individual pursuer or the leader of a pursuing unit makes a (Perception + [Survival or Occult]) roll at difficulty 5, with success allowing that character to turn back in time to avoid making the journey. She may also call out a warning to other pursuers traveling with her, letting them benefit from her success. If she fails or chooses to proceed anyway, she finds herself in the Endless Desert and must make a choice. She may attempt to continue tracking the Infernal and pursue him for the five days it takes to reach Malfeas, or she may attempt to find her way back to her original location with a five-day journey. In the latter case, she starts out lost (see sidebar). It is also possible to lead a willing unit up to the maximum permitted Magnitude into the Endless Desert this way, provided the Infernal is a special character in the unit.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "cecelyne",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a537f55416f54a17",
+            "charmName": "Sand-Slip Trick",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "66d9a136a68c44d3"
+  },
+  "folder": "d852ccb3960d271d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

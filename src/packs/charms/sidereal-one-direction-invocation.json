@@ -1,0 +1,97 @@
+{
+  "_id": "d1059da4bf63d4de",
+  "_key": "!items!d1059da4bf63d4de",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "One Direction Invocation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "integrity",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Obvious",
+      "Prayer Strip",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "1m, 1wp, 1hl",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal activates this Charm with a prayer strip bearing the Scripture of the Maiden's Promise. The prayer strip rises into the air and hovers near him, dragging trails of violet light in its wake. By that light, and in the name of the Violet Bier of Sorrows, the Sidereal then makes a binding vow to accomplish some important goal. That goal can be as great or small as the character pleases. Nonetheless, the character had better be sure she can accomplish it, for her name and very identity are on the line. When the character makes her vow, she forswears these aspects of herself for the duration of the effect. Any roll made to remember her suffers a -3 internal penalty on top of any other penalties the character's Sidereal nature might impose. The character cannot regain her name or identity until she achieves her goal. If the prayer strip is destroyed or if the character ends the Charm prematurely, she cannot become who she used to be. Even worse, she must now complete her goal without the Charm's benefits. (She can't reactivate the Charm because she has no name or identity to pledge as collateral.) If circumstances render her goal impossible--if a Demon Prince devours the person the Sidereal vowed to promote to the Scarlet Throne, for instance--the Sidereal's name and identity are lost forever. She might persuade a higher-up in her division to issue her a new identity, but presenting the proper credentials to file the request could prove tricky for a character who officially no longer exists. While the character is under this Charm's effects, she cannot perform any action that has no connection to her sworn goal. Rolls for any action that proves beneficial to her sworn goal but serves some other primary purpose suffer a three-dice penalty. On the other hand, any non-aggravated injury inflicted on the character during the Charm's duration heals by one lethal health level or all bashing health levels per action. Aggravated damage heals at one health level per hour. (This benefit applies only to damage incurred after the character activates the Charm. Pre-existing damage heals as normal.)</p><p>THE SCRIPTURE OF THE MAIDEN'S PROMISE Once, there was a maiden... ...who was the living embodiment of everything right in the world. While she lived, no real harm could come to anyone. Oh, wounds, disease, even death, sure. But she stood between the world and anything worse. \"Except,\" she said, \"I'm going to die.\" And no one listened. \"I'm going to die tomorrow,\" she said. And no one heard. Into the silence, she said, \"There's always an ending, after all.\" MARTIAL ARTS: THE SWORD Just as the other kinds of Exalted, the Sidereals possess their own distinctive style of supernatural martial arts. However, the Viziers do not speak of a \"Sidereal Hero Style\" of supernatural martial arts. Instead, they call the Martial Arts Charms they received from the Maidens the Violet Bier of Sorrows Style. The Sidereals believe it is the first of all supernatural martial arts. The Violet Bier of Sorrows Style is a Celestial martial art. A Sidereal sifu could teach it to anyone who could learn such martial arts--most notably, other Celestial Exalted or Dragon-Blooded trained as Immaculate martial artists--but the elders of the Five-Score Fellowship all forbid this, regardless of their faction. Teaching the style to anyone except other Sidereals or authorized gods in the Bureau of Destiny is a Severity 4 offense. Weapons and Armor: Charms of this style treat attacks with knives, swords, staves and seven-section staves (and all their artifact versions) as unarmed attacks. These Charms do not function if the character wears armor.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any (Virtue) Essence Replenishment",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "74884d4f744a3994",
+            "charmName": "Death-of-Self Meditation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c67fd4f2e51a420b",
+            "charmName": "Unwavering Well-Being Meditation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "d1059da4bf63d4de"
+  },
+  "folder": "b0b1b2b3b4b5f007",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

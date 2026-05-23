@@ -1,0 +1,37 @@
+{
+  "_id": "9c87005dc52c52a0",
+  "_key": "!items!9c87005dc52c52a0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ritual of Elemental Empowerment",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-ritual-of-elemental-empowerment",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "permanent",
+    "target": "Inanimate object",
+    "description": "<p>This spell imbues an object with the puissant Essence of one of the elements. This extensive ritual begins at dawn and continues until noon. The sorcerer requires a large quantity of the element being invested: for instance, a grove of trees, a large bonfire or a brisk wind. The sorcerer purifies the object with incense smoke and salt water, then chants sutras of the appropriate Elemental Dragon over it. Modern sorcerers often draw from the Immaculate Texts but many Sidereals, surviving First Age Lunars and gods prefer epic poetry about the Elemental Dragons' contributions to the overthrow of the Primordials. At the height of the ritual, the caster strikes the item five times--once for each of the Elemental Dragons--while speaking the Words of Elemental Binding over the object. This lengthy and exhaustive process permanently imbues an object with certain elemental powers. The spell cannot be used on an item already imbued with any other magics. Additional enchantments can replace ELEMENTAL BENEDICTIONS Most of the following abilities are permanent. Some functions of these abilities require the commitment of a mote of Essence or a point of Willpower. Benedictions endure for as long as the mote of Essence or point of Willpower remains committed. Air: The benedictions of air are Lightness or Coldness. Items of Lightness have their weight reduced to one-fifth normal. Heavy clothing is like silk against the skin, weapons have their Speed rating reduced by one, armor reduces its mobility and fatigue penalties by one each. Items of Coldness shed cold with the commitment of a mote of Essence or a point of Willpower. Clothing and armor keep the wearer cool (granting +3 dice to Resistance rolls against hot environments), while weapons frost over and inflict +2 lethal damage from the cold. Earth: The benediction of earth is Solidity. Items so blessed become stronger and do not wear out. Cloth is not easily cut or torn, glass becomes nearly unbreakable, weapons never rust or need sharpening, while armor gains +2L/+2B to its soaks. Fire: The benedictions of fire are Insulation or Radiance. Items of Insulation become immune to fire. This provides no benefit to the wearer, but natural fire cannot damage the item itself. Items of Radiance shed heat with the commitment of a mote of Essence or a point of Willpower. Clothing and armor keep the wearer warm (granting +3 dice to Resistance rolls against cold weather), while weapons heat to incandescence and inflict +2 damage from the heat. Water: The benediction of water is Fluidity. Items of Fluidity can change shape into an item of the same substance and mass in a form the bearer knows well. Clothing re-tailors itself, weapons can become unobtrusive items of similar size, armor can fold itself into a compact bundle. Changing shape does not repair damage to an object, however. Activating this ability requires investing the object with a mote of Essence or point of Willpower, and the object remains in its new form for as long as that investment remains committed. Wood: The benediction of wood is Rejuvenation. Items of Rejuvenation heal themselves. Dents and cuts in armor seal up, clothing mends itself, weapons become like new after battle, a charcoal stylus used to write never wears away. As long as the item has not taken enough damage to destroy it outright, it heals one level per hour, and superficial damage disappears in minutes. current benedictions but cannot add to them. The spell can empower objects that weigh up to (Essence x 5) pounds, plus an additional five pounds per five additional motes spent. Clothing, jewelry and weapons are the most common items. See the \"Elemental Benedictions\" sidebar for descriptions of these enchantments. Elementals can help a sorcerer perform this rite. A number of elementals of the appropriate element--up to that equaling the sorcerer's Essence--can assist the caster, though he must spend one point of Willpower during the ritual for every elemental past the first. The sorcerer and elementals add their Essence scores together to determine the maximum weight of the item to be enchanted. The spirits themselves fulfill the need for a large quantity of the desired element, as long as at least one elemental has an Essence of 3 or greater. word and shapes the Essence of this spell into a mask of dusky gold that covers his ears and the lower half of his face. When the caster speaks, the lips of the mask move to convert his words to the strange, echoing cadences of a mystic language. Everyone who hears the caster understands his words, though no one could mistake them for mundane speech. Likewise, the mask translates words spoken by others into the Sacred Tongue so the sorcerer can understand them. The power of this spell gives the sorcerer's words some minor magical power in and of themselves. When he makes a social attack using The Sacred Tongue, the MDVs of his listeners decrease by one. Other people treat the sorcerer with respect, awe and fear. This spell lasts until the sun next crosses the horizon or until the caster dispels it.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

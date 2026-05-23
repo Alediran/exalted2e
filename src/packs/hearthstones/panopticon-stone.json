@@ -1,0 +1,27 @@
+{
+  "_id": "32528bbad6133ea0",
+  "_key": "!items!32528bbad6133ea0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Panopticon Stone",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDAIR0000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "air",
+    "rating": 5,
+    "description": "<p>Demon-Bound (Orabilis) The bearer of this transparent pale green gem may spend one Willpower to manifest a small hovering sphere of glass. This magical orb is identical to an eye of Orabilis (The Books of Sorcery, Vol. V--Roll of Glorious Divinity II, p.55), except that instead of informing and serving Orabilis, it informs and serves the hearthstone bearer, and its Intimacies are toward the instructions given to it by the bearer instead of the laws of Cecelyne.</p>",
+    "source": "Ink Monkeys"
+  }
+}

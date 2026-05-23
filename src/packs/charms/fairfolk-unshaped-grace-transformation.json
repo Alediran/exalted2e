@@ -1,0 +1,57 @@
+{
+  "_id": "2fc41bc67c37da41",
+  "_key": "!items!2fc41bc67c37da41",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unshaped (grace) Transformation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "staff",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "20m, 3g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Instead of forging new artifacts from Graces, this Charm permits the raksha to redefine the parameters of the shaping effect that defines a preexisting artifact. In other words, the raksha can reshape an existing artifact according to her wishes. This is actually a cluster of four Charms, one for each Grace, each of which must be learned separately. The Grace this Charm represents must match the Grace represented by its prerequisite. Unshaped Cup Transformation: The raksha reshapes an existing oneiromantic spell. Unshaped Ring Transformation: The raksha reshapes an existing treasure. Unshaped Staff Transformation: The raksha reshapes an existing adjuration. Unshaped Sword Transformation: The raksha reshapes an existing behemoth. In order to reshape the artifact, the raksha's player must roll (Intelligence + Occult) as a Staff-shaping action. This Charm cannot manipulate a Wyld-forged artifact with a rating above 5. The roll is an extended one, with each roll representing one story's worth of shaping. Once re-forged, the new artifact is a permanent artifact subject to the same Glamour Resistance strictures as in Great Works of the (Grace). The artifact's rating will remain the same--only through questing can an artifact's rating actually be improved. The difficulty for each roll is equal to the artifact's rating, and the total number of threshold successes needed for a successful shaping is as follows: Artifact Rating Total Threshold Successes Needed · ·· ··· ···· ····· As always, the Storyteller has final approval on what artifacts the raksha can forge with this Charm. This Charm can also be used to repair damaged artifacts or even resurrect slain behemoths. When used in that capacity, the difficulty of each roll is reduced by one, to a minimum of 1.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "2fc41bc67c37da41"
+  },
+  "folder": "3a42d6c2417833d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

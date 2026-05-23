@@ -1,0 +1,58 @@
+{
+  "_id": "17f156bc5ae17404",
+  "_key": "!items!17f156bc5ae17404",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Bloodied King Rebuke",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "martial-arts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Martial-ready"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The idea that he might actually die invigorates the Solar Hero, turning his fading life into renewed strength with which to strike down his enemies. This Charm supplements a Martial Arts attack, adding twice the Solar's current wound penalty to the attack's raw damage. If Solar Hero Form is active, Bloodied King Rebuke does not count as a Charm activation. A deathknight who remembers the pain of life is most suited to inflict it on others. Abyssals known a similar Charm called Ragged Shade's Revenge, which does not count as a Charm activation while Dark Messiah Form is active, but is otherwise identical to Bloodied King Rebuke. Its prerequisite is Agony's Crucible Strike. Martial-ready: Archery, Melee, Thrown. Hellraiser's Instinct</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "17f156bc5ae17404"
+  },
+  "folder": "a1b2c3d4e5f60008",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

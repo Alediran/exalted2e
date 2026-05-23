@@ -1,0 +1,70 @@
+{
+  "_id": "5d44b446004744fb",
+  "_key": "!items!5d44b446004744fb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Drowning In Negotiation Style",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "bureaucracy",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm is not remotely as powerful as the oath-swearing powers of the Eclipse and Moonshadow Castes. Nevertheless, it is a potent aid in enforcing even the most odious of contract terms, even when the other party is determined to breach the contract outright rather than comply. The Dragon-Blood must draft a written contract and then charge it with Essence. When the contract is signed, all parties are bound to comply with its terms on their face. Deliberate breach of any of the contract's terms inflicts one point of unsoakable lethal damage on the breaching party for each point of Essence possessed by the Dragon-Blood using this Charm. An accidental breach will not inflict any damage unless the breaching party refuses to cure the breach within a reasonable period of time. The damage is inflicted on any breaching party only one time, even if the contract creates a continuing duty to perform. Also, all parties are subject to this penalty, including the Dragon-Blood who drafted the contract. A contract can be subject to both this Charm and Distraction of the Babbling Brook, either employed by the same Dragon-Blood or two different ones. Each Charm can be incorporated into a particular contract only once, however. Not even the Dragon-Blooded can negate a contract unilaterally once it is signed, but any contract can be voided if all parties verbally agree to it.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "10472c23b7ba182a",
+            "charmName": "Distraction of the Babbling Brook",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "5d44b446004744fb"
+  },
+  "folder": "b0b1b2b3b4b5f01d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

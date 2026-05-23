@@ -1,0 +1,27 @@
+{
+  "_id": "47ad92b8c925845d",
+  "_key": "!items!47ad92b8c925845d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gemstone of the Brother's Bond",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDEARTH00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "earth",
+    "rating": 3,
+    "description": "<p>These stones seem like smooth, water-worn pebbles made from a mixture of the five colors of jade. The bearer can attune herself to all other individuals attuned to the manse simply by spending a point of Willpower. This link precisely duplicates the effects of the spell Sworn Brothers' Oath (see The Manual of Exalted Power—The Dragon-Blooded, pp. 122-123), except that the Oathbond has a fixed rating of 5.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "_id": "8078c6392fde24a1",
+  "_key": "!items!8078c6392fde24a1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Third Larceny Excellency-- Essence Resurgent",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "larceny",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      4
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Dragon-Blooded with this Charm recovery smoothly from error. The Exalt can invoke this Charm after making a roll based on the relevant Ability. This Charm allows the player to make a second roll, using the new result if the Exalted prefers it to the first. The Exalted can also use this Charm to enhance unrolled uses of the relevant Ability. By spending three motes, the Dragon-Blooded can increase an applicable DV by half the relevant Ability. This is a reflexive Charm that can be used freely without the need for a Combo, but the Charm can be used only on the tick in which the Dragon-Blooded uses the Ability for which a reroll is being purchased. TERRESTRIAL Larceny REINFORCEMENT</p>",
+    "source": "MoP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "third",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "8078c6392fde24a1"
+  },
+  "folder": "b0b1b2b3b4b5f022",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

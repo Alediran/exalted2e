@@ -1,0 +1,58 @@
+{
+  "_id": "3133a47b49d4c37a",
+  "_key": "!items!3133a47b49d4c37a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Impeccable Patterned Deployment",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>She loved her mirror, No amount of interference can keep a dedicated dragonlord from her goal. With an enemy ahead, she marches her troops left or right. When surrounded, she forms up to pierce her enemies' ranks. While this Charm is active, the character demonstrates that flexibility and ingenuity to move as she likes. As soon as the martial artist takes her first step in a Move or Dash action, she dematerializes. She retakes her material and visible form the moment she stops. This technique allows her to walk though obstacles as long as she does not stop inside them, including people, walls and war machines. Immaterial obstacles impede her. She is not automatically safe from attack, though. Since she becomes material and visible once she stops moving, most opponents can still move and target her with their attacks on the tick when she stops moving (as long as they can guess which way the character is going). The martial artist can avoid reflexive attacks or damaging area effects, like that of Unassailable Rebuff Position. If she is never material while inside the affected area or the range for attacks, she is not a valid target for such efforts unless they can affect immaterial beings. Taking a Dash action, the character does not become material again until the Dash ends. Note that, without special Charms, material creatures and objects become invalid targets for an immaterial character. While the character is immaterial, other immaterial objects and entities become valid targets for her attacks. Conversely, immaterial entities can attack the character. When two martial artists use this Charm at once, they may trade blows while both are immaterial or material, as desired.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Scarlet Patterned Battlefield Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "3133a47b49d4c37a"
+  },
+  "folder": "8d69b74ca0e132d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

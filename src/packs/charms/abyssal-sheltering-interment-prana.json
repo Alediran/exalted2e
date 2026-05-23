@@ -1,0 +1,70 @@
+{
+  "_id": "050a652b0bf9560c",
+  "_key": "!items!050a652b0bf9560c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sheltering Interment Prana",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "survival",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Spectral"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Abyssal lies down in some traditional posture of burial, and sinks into the ground without disturbing the surface. She sleeps either for as long as she chooses or until the sun next rises. While buried, she does not need to breathe. When the time she chose is up, she rises from the ground as tracelessly as she interred herself. If the Abyssal is somehow injured or disturbed in her self-imposed burial, she erupts from the surface in a shower of earth, instantly awake.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "38f5e0ea6b9297ba",
+            "charmName": "Maelstrom-Weathering Indifference",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "050a652b0bf9560c"
+  },
+  "folder": "b0b1b2b3b4b5f049",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

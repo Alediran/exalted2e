@@ -1,0 +1,58 @@
+{
+  "_id": "156f0f1fe463eb9b",
+  "_key": "!items!156f0f1fe463eb9b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Spell-shattering Palm (li)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "12m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The character launches a precise strike of Essence to knock apart the careful construction of a sorcery effect. Upon contact with such a construction, the martial artist activates this Charm and her player attempts a reflexive, unarmed (Dexterity + Martial Arts) attack. The difficulty equals the sorcerer's Essence plus the spell's circle. If the Sidereal succeeds, the spell shatters as if dispelled by an equal circle of countermagic (with the concomitant effects). The Exalt can deal even more damage if someone actually casts a spell within her reach and her player succeeds on an unarmed Martial Arts attack roll. She can choose to shatter the spell as normal or cause the entire structure to unravel as if the sorcerer had botched a distraction roll. (See Exalted, p. 251 for more information.) This Charm functions against necromancy as well as sorcery, but only if the Sidereal Exalted has had opportunity to study this black art of the Abyssal Exalted.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Prismatic Arrangement of Creation Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "156f0f1fe463eb9b"
+  },
+  "folder": "33c138eb339f4538",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

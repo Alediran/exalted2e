@@ -1,0 +1,75 @@
+{
+  "_id": "1371384020492a62",
+  "_key": "!items!1371384020492a62",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Biofunction Inhibitor",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "stamina",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Internal"
+    ],
+    "cost": {
+      "formula": "5m [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Control valves affixed to the Alchemical's Essence reactor allow him to power down and enter a highly restorative torpor. The Exalt's biological processes slow down and then cease to function. Those familiar with Alchemical physiology will, of course, realize the Exalt is not dead when he fails to melt down, unless he has assumed a human disguise, whereupon he looks like a dead human being. The character remains in a state of torpor for a period specified when he activates this Charm. He may be awakened in the interim only if he is violently struck or damaged. Time spent comatose is highly restful, and the Exalt divides the amount of time required for a full night's sleep by his Essence. (Thus, an Essence 4 Exalt will be fully rested and refreshed</p><p>in two hours.) Torpor does not accelerate Essence respiration beyond the normal rate for sleep, and the character may benefit from only one Conviction roll to regain Willpower in a 25-hour period. Submodules: Regenerative Torpor Catalyst (Stamina 4, Essence 3): Essence agitators and regenerative nutrient reserves similar to the broth used at the vats are stored in tanks adjacent to the Exalt's Essence reservoir. While in torpor, the Exalt regenerates health and Essence as though resting at the vats.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Stamina Augmentation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "willpowerRecovery": {
+      "enabled": true,
+      "event": "onDamageDealt",
+      "formula": "1"
+    },
+    "charmUid": "1371384020492a62"
+  },
+  "folder": "b0b1b2b3b4b5f053",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

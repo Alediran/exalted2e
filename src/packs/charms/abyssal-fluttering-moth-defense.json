@@ -1,0 +1,71 @@
+{
+  "_id": "97ecb37bca3719aa",
+  "_key": "!items!97ecb37bca3719aa",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fluttering Moth Defense",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "melee",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror (Protection of Celestial Bliss; Exalted, p. 193)"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The deathknight's weapon traces the air like a flameentranced moth, unerringly darting into the path of incoming attacks as if the weapon's destruction might offer a release from its master's evil. Abyssals with this Charm commonly prepare Death-Deflecting Technique in the realms of the</p><p>dead before a mission, rather than paying the Willpower surcharge to ready that defense in Creation. Abyssals with Essence 6+ who know Fluttering Moth Defense reduce the cost to activate Death-Deflecting Technique to two motes (+1wp outside the realms of the dead), and may prepare up to their Melee score in invocations of that Charm.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "df15aa54dee692ea",
+            "charmName": "Death-Deflecting Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "97ecb37bca3719aa",
+    "mirrorId": "de66f7219741b177"
+  },
+  "folder": "b0b1b2b3b4b5f040",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

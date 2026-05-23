@@ -1,0 +1,58 @@
+{
+  "_id": "22dd38d19f3c4688",
+  "_key": "!items!22dd38d19f3c4688",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Destiny-Knitting Entanglement",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "craft",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>By handling an object for an hour, a Seer can bind its destiny to his own. Thereafter, the character may reflexively spend two motes of Essence to learn the object's general circumstances--where it is, what sort of person has it, what that person is doing with it. The Sidereal can instead spend the two motes to engender a series of events that brings the object back to her. Perhaps a thief steals it and passes it off to a fence in the Sidereal's employ. Perhaps the acquaintance (per the Background) who left with the object chooses that moment to visit the Sidereal and brings it with him. If the circumstances aren't ideal for the Sidereal to draw the object to him, the object might not make it all the way to his hands, but it makes some progress each time. He may continue to monitor the object's location until the object returns to him.</p><p>If the Sidereal loses in combat an object affected by this Charm, he can spend the motes (and use a stunt) to call it back to his hand. Doing so must involve the scenery or circumstances: he can't simply make the object float back to him. But if an enemy knocks the Sidereal's daiklave from his grasp, for instance, an arrow meant for the Sidereal's heart might knock the tumbling blade back into his hand. A character can bind to herself a maximum number of objects equal to her Craft (Fate) score.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "22dd38d19f3c4688"
+  },
+  "folder": "b0b1b2b3b4b5f005",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

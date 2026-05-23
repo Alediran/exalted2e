@@ -1,0 +1,27 @@
+{
+  "_id": "97970e0d3ed27530",
+  "_key": "!items!97970e0d3ed27530",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gem of Madness",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDLUNAR00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "lunar",
+    "rating": 5,
+    "description": "<p>This hearthstone looks like a jagged, irregular fragment of jet-black rock. Anyone who physically attacks the bearer goes insane. This insanity takes the form of an extreme expression of the character's dominant Virtue (or one of her highest Virtues, if her two highest Virtues have the same value). The Virtue Flaws of Solar Exalted are typical examples of this type of madness. Mortals cannot control or mitigate their reactions to this insanity and always suffer the full manifestation. However, the madness may differ from an Exalt's actual Virtue Flaw; the episode of madness also has no affect on an Exalt's current accumulation of Limit. Exalts and other Essence users can attempt to gain partial control of the insanity. Such a victim must spend two points of Willpower, and her player must succeed at a (Willpower + Essence) roll with a difficulty equal to the hearthstone bearer's Essence. If this roll fails, the victim cannot control the insanity unless she repeats the Willpower expenditure and her player rolls again. This roll may be repeated as often as desired, but at least one long tick (one minute) must pass between attempts at partial control. This insanity lasts between one scene and one day.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

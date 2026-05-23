@@ -1,0 +1,37 @@
+{
+  "_id": "feae447dc44d1540",
+  "_key": "!items!feae447dc44d1540",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Striking Spectre Lash",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "labyrinth-circle-striking-spectre-lash",
+    "tradition": "necromancy",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 15,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Caster",
+    "description": "<p>The necromancer slashes open her skin and the black skeleton of a serpent lunges from the wound to strike enemies within (Essence x 4) yards. The lash acts on the same tick as the necromancer, but independently of her, using a dice pool equal to her (Wits + Occult + Essence) to attack. It cannot parry, but it can lash like a whip or attempt to twine its body around a foe, grappling him. The lash inflicts raw bashing damage equal to the caster's (Strength + Essence). More importantly, the player of anyone struck by the spectre lash must roll her character's Essence. Failure means the spectral serpent lodges its fangs in the target and drains away his life. Such a victim falls with his skin tight as a drum against his bones and a look of horror frozen on his face. Extras die outright. Other characters are merely knocked straight to their last Incapacitated health level with bashing damage. At the end of the scene, the skeletal snake struggles from the necromancer's flesh to land on the ground, where the fallen bones calcify into unmoving onyx.</p>"
+  },
+  "folder": "562235f47f16c453",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

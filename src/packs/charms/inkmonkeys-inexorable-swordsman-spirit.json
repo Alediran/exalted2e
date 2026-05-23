@@ -1,0 +1,69 @@
+{
+  "_id": "71b1aa315048bc0c",
+  "_key": "!items!71b1aa315048bc0c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Inexorable Swordsman Spirit",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": "Martial-ready, Mirror (Entropic Blade Nature), Native",
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The terrifying battle prowess of the Solar Exalted leads their foes to contemplate extinction. A Solar with this Charm bleeds her unmitigated talent for killing into the air, making her kill-</p><p>er's nature known. The Lawgiver's attacks render her targets hopeless to defend against them, reducing targeted DVs by two on all attacks the Solar makes with her Melee dice pool. Martial-ready: Archery, Martial Arts, Thrown New Abyssal Charm: Entropic Blade Nature (Prerequisites: Coiled Shadow Attitude). The hands of the Abyssal are steeped in the Essence of destruction; against them, even the mightiest defense may only delay the inevitable. This Charm is identical to its Solar counterpart. Guardian Sunfire Catechism</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "b778e6d75ac6179e",
+            "charmName": "Blade Lair Discipline",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "71b1aa315048bc0c",
+    "mirrorId": "c1d2e3f4a5b60009"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

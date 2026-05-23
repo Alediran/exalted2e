@@ -1,0 +1,86 @@
+{
+  "_id": "bfc267ba8a02ec0c",
+  "_key": "!items!bfc267ba8a02ec0c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ox-Stunning Blow",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Crippling",
+      "Enhanced"
+    ],
+    "cost": {
+      "motes": 1,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "1m per die"
+    },
+    "description": "<p>The Essence-driven fists of the Solar Exalted can stun even legends, giants, armored cataphractoi and monsters. The Lawgiver spends up to twice his Strength in motes and makes an unarmed Martial Arts attack. If he hits, this Charm replaces his normal damage with stunning damage. He inflicts one die of stunning damage for every mote spent on this Charm. Extra successes add to his damage as usual. Stunning damage ignores natural and armor soak, but it can be soaked with Charms. Each success on the damage roll imposes a -1 penalty to the target's dice pools and DV for the next three actions. This is a Crippling effect (see p. 152).</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Solar Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "8e96863f868ad9a4",
+            "charmName": "Solar Hero Form",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "targetPenalty": {
+      "enabled": true,
+      "amount": -1,
+      "scope": "all",
+      "duration": "untilNextAction"
+    },
+    "charmUid": "bfc267ba8a02ec0c",
+    "grantsMastery": false
+  },
+  "folder": "05bd4dac47a869bd",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

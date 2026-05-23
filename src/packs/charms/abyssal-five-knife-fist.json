@@ -1,0 +1,59 @@
+{
+  "_id": "5552e418902af86a",
+  "_key": "!items!5552e418902af86a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Five Knife Fist",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "martial-arts",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Taint"
+    ],
+    "cost": {
+      "formula": "6m, 1wp (4xp)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Abyssal grows jagged bone spurs on his knuckles or fingertips. The character is still considered unarmed, but he can parry ranged and lethal attacks without a stunt. The bone blades add an amount equal to the Abyssal's Essence to the Accuracy and Damage of her punches and clinches, which inflict lethal damage. The bonuses become part of the traits of the character's unarmed \"weapon\" and do not count as dice added by Charms. Unfortunately, the protrusions impose a -3 internal penalty to Dexterity-based actions that require fine motor skills--including the use of weapons. This penalty is the Charm's primary Taint drawback for Abyssals who grow permanent weapons, not counting the obvious social implications for one's hands being covered in monstrous blades. Permanently acquiring such bone weapons costs the character four experience points or two bonus points at character creation. If the Abyssal has Essence 4+, he may grow spikes and jagged skeletal protrusions from any part of his body to apply these same bonuses to any natural unarmed attacks. Doing so could include growing massive shark-like fangs when biting to regain Essence, extruding joint spurs for tackling and so on. Non-natural unarmed attacks do not receive this bonus, even for the form weapons of a martial art. As a Taint, such extreme body modification costs four bonus points or eight experience points.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "5552e418902af86a"
+  },
+  "folder": "a1b2c3d4e5f60005",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

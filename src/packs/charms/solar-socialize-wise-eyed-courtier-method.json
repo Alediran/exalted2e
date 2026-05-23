@@ -1,0 +1,58 @@
+{
+  "_id": "c2f5784a5fb8afa8",
+  "_key": "!items!c2f5784a5fb8afa8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wise-Eyed Courtier Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "socialize",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Illusion"
+    ],
+    "cost": {
+      "formula": "3m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solar reshapes the beliefs of a society. This Charm is a Socialize-based social attack to make a social group with Magnitude 1+ (such as a court, kingdom or secret society) believe something. The character must have spent several hours within the last year encouraging the desired belief within this group before using this Charm, and this Charm must be invoked in the presence of at least one member of that group. The Exalt's player rolls ([Charisma or Manipulation] + Socialize). Subtract an external penalty equal to the group leader's MDV plus half of the group's Magnitude from the rolled successes. If the character succeeds, the social group accepts the belief. This Charm exerts unnatural mental influence. The targeted group--and any social groups of Magnitude 1+ that splinter off from the target--must spend six Loyalty to break free of the influence forever or one Loyalty to break free for a single scene. This Charm has no effect on individuals--only on groups. The character can redefine a church's dogma or change the prevailing beliefs of a nation, but any given individual reacts of his own accord. The primary function of Wise-Eyed Courtier Method outside of narrative time is to limit the actions that social groups can take.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "c2f5784a5fb8afa8"
+  },
+  "folder": "5da24482e38ff9ae",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

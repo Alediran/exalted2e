@@ -1,0 +1,37 @@
+{
+  "_id": "2e4567b9a6a87dfd",
+  "_key": "!items!2e4567b9a6a87dfd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Switchklave",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>These large dagger-like weapons are miniature daiklaves designed for use by knife fighters. In addition to being perfectly balanced for melee use, these knives are extremely easy to conceal. When the character presses a hidden catch, the blade folds into the hilt leaving an unusually carved curio pierced to be worn as a large pendant or a charm to hang from a belt. With another touch, this curio can be instantly converted back into a knife. Because of the narrow blade, this weapon can find openings in almost any armor, allowing it to inflict piercing damage. This character must commit six motes of Essence to this weapon to wield it. Because it is both compact and variable in form, this weapon has no hearthstone setting. This weapon can be made out of any of the five magical materials, gaining the standard bonuses from its material type. Speed 4 Accuracy Damage Defense Rate Minimums Attune Tags +3 +4L +1 Str ·, Dex ··· 6 P</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

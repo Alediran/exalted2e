@@ -1,0 +1,58 @@
+{
+  "_id": "19898098d233f78c",
+  "_key": "!items!19898098d233f78c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Glance and Stride",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "2+m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>and her mirror loved her back. The character moves with the greatest speed, mimicking the nature for a general's influence to be everywhere. Aiding beleaguered soldiers one minute, leading troops to victory in the next, his feet cross dozens of yards at a step, as many or as little as he likes. As long as the character moves in a straight line (following the contours of the terrain), he can move as far as he can see. He does not naturally avoid obstacles or people. Spending an additional mote allows him to walk on air for a single tick, moving even to locations that are not accessible from the ground, though he must still have a straight-line path to that place.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Scarlet Patterned Battlefield Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "19898098d233f78c"
+  },
+  "folder": "8d69b74ca0e132d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

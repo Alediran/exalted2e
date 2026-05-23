@@ -1,0 +1,79 @@
+{
+  "_id": "27845ab0887bec93",
+  "_key": "!items!27845ab0887bec93",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Toroidal Shockwave Catalyst",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "strength",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "oneAction",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Crippling",
+      "Knockback",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "4m [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm takes the form of a pair of spherical crystal capacitors mounted in the Alchemical's shoulders. When charged with Essence, the crystals flash brightly in a color characteristic of the Exalt's anima before emitting a thunderclap and a torus of expanding force. All objects and individuals of approximately the same or smaller size than the Alchemical within a radius of (Strength + Essence) yards blasts back to the edge of the effect. Characters blasted back suffer a three-die internal penalty to all non-reflexive actions from the stunning force of the wave until the Alchemical's next action and drop all held weapons and items if they are extras. On top of this Crippling effect, victims without superhuman balance also fall prone automatically. The Champion is unaffected by the blast he emits. Submodules: Gravitational Resonator (2xp): The Champion may dispense with the Charm's usual knockback to drop targets prone regardless of any supernatural balance. Those touched by the pulse are pulled to a prone position by exponentially increasing the force of gravity upon them for a brief moment.</p><p>Order-Asserting Pulse (Strength 4, Essence 3, 5xp): The Axiomatic energy released by the Charm is especially disruptive to creatures of the Void, increasing the duration of the Crippling penalty to two actions instead of one. Beings penalized this way also cannot rise from prone as part of a flurry and must devote their full effort to struggle to their feet. This submodule may be installed a second time at (Strength 6, Essence 4), removing the Axiomatic keyword by extending its benefits to all adversaries. Holocaustic Fury Device (Strength 4, Essence 4): If the Alchemical pays an extra Willpower, the Charm's energy burst is also superheated. The entire radius of effect can be spotted from 10 miles away barring obstruction and blazes as a white-hot bonfire of smoldering plasma (see Exalted, p. 131), burning victims caught in its energy once before they are hurled to the smoking edges. These flames last a minute before going out, though objects taken outside the radius immediately cease burning. Once ignited, the fire will not burn the Champion or his personal possessions until his next action, giving him a chance to escape unscathed. Hardier Alchemicals may use the burning zone as a sniper nest. Mind-Battering Force Emitter (Charisma 4, Essence 3): The stunning shockwave does not merely assault the body, but overwhelms thought through sensory and spiritual overstimulation. All beings caught in the blast radius lose one Willpower unless they pay four motes. Although this drain is a mental effect, its cause is physical and can be fully defended against as either type of attack.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Physical Attribute Augmentation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "statusApply": {
+      "enabled": true,
+      "status": "Crippling",
+      "resistPool": "@sta + @resistance",
+      "onFail": "applyCrippling"
+    },
+    "charmUid": "27845ab0887bec93"
+  },
+  "folder": "b0b1b2b3b4b5f054",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "50a24690c4f4bf9b",
+  "_key": "!items!50a24690c4f4bf9b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Stone of Humble Glory",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDEARTH00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "earth",
+    "rating": 1,
+    "description": "<p>This faceted pentagonal jewel shines like a silvery mirror. The bearer's player gains a bonus equal to the average of her character's Conviction and Temperance (round up) to any Social roll where the character tells the truth without exaggeration or deliberate deception.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

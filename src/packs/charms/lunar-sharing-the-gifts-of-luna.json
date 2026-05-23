@@ -1,0 +1,71 @@
+{
+  "_id": "a507cd2f6e29a574",
+  "_key": "!items!a507cd2f6e29a574",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sharing The Gifts Of Luna",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "charisma",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "10m, 1wp, 1lhl",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Lunar Exalted may temporarily empower their followers, servants and friends with their power. A character focuses some measure of her Essence into a bit of her flesh, which she tears away and rolls into a small, bloody ball. By eating this, the Lunar's companion gains a small measure of the Lunar's power. Subjects of this Charm immediately suffer the Enlightened Essence Wyld mutation (see The Compass of Celestial Directions: The Wyld, p. 148; grants motes equal to [Essence x 10]) and</p><p>gain an effective Essence of 2. The target's initial Essence pool is empty. Until the character releases the committed Essence, the target can learn Lunar Charms at normal training time for 12 experience points each. The target only has access to this increased Essence, pool and Charms when this Charm is active (i.e., until the Lunar releases the commitment of motes). Lunar Exalted can use this Charm on their familiars.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a507cd2f6e29a574"
+  },
+  "folder": "4e63ba1bd67a09e3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

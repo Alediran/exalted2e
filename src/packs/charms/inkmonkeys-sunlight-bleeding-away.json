@@ -1,0 +1,78 @@
+{
+  "_id": "f4c6226a35244ad8",
+  "_key": "!items!f4c6226a35244ad8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sunlight Bleeding Away",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "integrity",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Dusk",
+      "Native",
+      "Overdrive"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With each sunset the Abyssal is renewed, catalyzed by the symbolic dying of the Unconquered Sun. This Charm grants an Overdrive pool with a capacity of ten motes. Initially empty,</p><p>it gains five motes whenever the sun sets while the Abyssal is in the engagement range of one or more enemy, regardless of whether he is rolled into battle. This power is conferred by more than just the actual dying of the light; each time a nonextra opponent incurs a larger wound penalty as a direct result of the deathknight's actions, the Abyssal gains a number of offensive motes equal to twice the wound penalty's value. For example, a character being driven down to a -4 wound penalty would grant eight offensive motes. Presence Barrow King's Authority</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d145344bf4b7bd19",
+            "charmName": "Eternal Enmity Approach",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "moteRecovery": {
+      "enabled": true,
+      "event": "onDamageReceived",
+      "action": "recoverPeripheral",
+      "formula": "5"
+    },
+    "charmUid": "f4c6226a35244ad8"
+  },
+  "folder": "b0b1b2b3b4b5f05d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

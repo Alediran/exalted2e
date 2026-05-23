@@ -1,0 +1,84 @@
+{
+  "_id": "f01fdb44734e599a",
+  "_key": "!items!f01fdb44734e599a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Many Missiles Bow Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "archery",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 5,
+    "dvPenalty": -1,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Prayer Strip"
+    ],
+    "cost": {
+      "formula": "10m, 1wp, 1lhl",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal activates this Charm using a prayer strip inscribed with the Scripture of the Clay Maiden. Infused with Essence, the strip rises into the air above the Sidereal's bow (holding steady at 10 yards) and glows a garish pink. The strip's influence triples the effective range for the character's Archery attacks. What's more, the character can perform the Generalized Ammunition Technique in reverse: he can transform arrows in flight into other materials or phenomena found in Creation... not all of them physical. The character learns one transformation when he first learns the Charm. He can learn as many other transformations as he pleases, either when he first learns the Charm or later, but each additional one costs one experience point (or two for one bonus point). During a scene in which this Charm is active, the Sidereal can use only one transformation per attack. Each arrow so transformed costs one mote. A character cannot transform projectiles he improvises with the Generalized Ammunition Technique or on arrows made of the magical materials. Some sample transformations include the following: � Boulder: In mid-flight, the arrow transforms from a simple wooden shaft to a large boulder. The projectile becomes unblockable. It also doubles its raw damage against inanimate objects. � Fire: The arrow dissolves in the air, to be replaced by a rain of fire. Everything within five yards of the target suffers one action's worth of environmental damage, as if from a bonfire (see Exalted, p. 131). Paper, dry grass, grease and other easily combustible substances catch fire. � Glass: The projectile becomes an arrow of perfectly transparent glass. Unless the target's player succeeds on a</p><p>reflexive (Perception + Awareness) roll at difficulty 2, the target loses sight of the projectile. As a result, his Defense Value become zero against that attack before adding bonuses from Charms or other supernatural effects. � Grain: Where the arrow lands, a patch of ripe wheat grows, sufficient to feed one person for one day. The arrow must land in open ground for this effect to work. If the arrow hits a creature on open ground, the effect does not work unless that arrow also kills the creature. � Health: Rather than suffering damage, the target of the attack is healed of one level of lethal or bashing damage for every dot the Sidereal has in Archery. � Love: The arrow disintegrates in midair, and the attacker compares successes on his roll to the target's Dodge Mental Defense Value instead of Dodge Defense Value. If the attack \"hits,\" the target falls madly in love with the first person the target sees. The effect is an Intimacy that the target cannot voluntarily erode for a number of days equal to the attacker's Essence. Ensuing events dictate whether the feelings linger or wither. � Precipitation: For one minute after the arrow lands, rain or snow falls in the area (whichever is the least unlikely for the location and time of year). The affected area is 100 yards in diameter per dot of the Sidereal's Essence. THE SCRIPTURE OF THE CLAY MAIDEN Once, there was a maiden... ...who made herself from the substance of the world. She knew how to eat an owl's heart and gain its insight. She knew how to bake herself in the sun and melt herself in the rain. She knew how to mess up wisdom. She knew how to love, and how to hate. \"Survival is flexibility,\" she said. ATHLETICS: THE BANNER</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "599d7bd2d72f08f6",
+            "charmName": "Five Seasons Response",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "9a3887ac49d0c2bd",
+            "charmName": "Generalized Ammunition Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "f01fdb44734e599a"
+  },
+  "folder": "b0b1b2b3b4b5f001",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

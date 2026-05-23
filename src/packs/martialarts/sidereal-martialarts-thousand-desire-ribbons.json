@@ -1,0 +1,90 @@
+{
+  "_id": "3e13e73ceaa54fbb",
+  "_key": "!items!3e13e73ceaa54fbb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Thousand Desire Ribbons",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "None"
+    ],
+    "cost": {
+      "motes": 10,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "-- (+10m, 1wp)"
+    },
+    "description": "<p>and found that it resided in her hand. Coming to understand the pinnacle of desire, the martial artist steeps himself in the inconsequential motives that shift the world. This Charm allows the martial artist to pay a (+10m, 1wp) surcharge when activating Sapphire Veil of Passion Form, upgrading it with the following capabilities: � The martial artist gains the ability to solidify and control the sapphire ribbons of her anima, treating them as starmetal floating ribbons. Each time her DV refreshes, she gains a pool (equal to half her Essence) of reflexive martial arts attacks with these ribbons, which she may unleash at any time using her full dice pool. This pool refreshes along with her DV, and may not exceed (Essence/2) actions. � The range on all urumi or floating ribbons the martial artist employs extends to (Essence x 10) yards. No motes need be paid for this benefit. � Any character wounded by an urumi or floating ribbon wielded by the martial artist feels the pain transformed and transported into a kind of transcendent ecstasy. The distraction from this overwhelming sensation changes all wound penalties from internal to external until the end of the scene, as a Crippling effect.</p>",
+    "source": "Glories of the Most High: Maidens of Destiny",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Sapphire Veil of Passion Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "232e6d65ea1aaec8",
+            "charmName": "Memories of Intimacy",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "fd553162bbc750b9",
+            "charmName": "Sapphire Binding Pattern",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "3e13e73ceaa54fbb",
+    "grantsMastery": false
+  },
+  "folder": "05f82ed74914c6c2",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

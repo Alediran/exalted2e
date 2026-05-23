@@ -1,0 +1,58 @@
+{
+  "_id": "1a52e6dff9bfdecc",
+  "_key": "!items!1a52e6dff9bfdecc",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Disarming Rebuke",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Counterattack"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Debaters with true Conviction try anything to win discussions. When a debater recognizes a particular argument that his opponent uses to great efficacy, a timely turn of phrase can render that argument useless. With the perfect timing that only a Charm can provide, the martial artist counterattacks, performing a disarm on his attacker's weapon. Unlike usual attempts to disarm, this suffers no external penalty and adds two automatic successes to the attack roll. If the counterattack succeeds, the Exalt ends up holding the weapon. He may reflexively throw it (Strength + Athletics) yards in any direction, if he chooses.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Relentless Persuasion",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "1a52e6dff9bfdecc"
+  },
+  "folder": "9f5e4d584840c173",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

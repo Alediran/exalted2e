@@ -1,0 +1,70 @@
+{
+  "_id": "81d501c1a0fc90ff",
+  "_key": "!items!81d501c1a0fc90ff",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Oath Of The Ten-Thousand Dragons",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "integrity",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Dynasty"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The devotion of the Princes of the Earth to their charges is unshakable. The Dragon-Blood holds a heightened sense of loyalty to a particular group of people (just as Righteous Lion Defense grants a Solar a heightened sense of loyalty to an ideal). The group may be the Dragon-Blood's House, his unit or ministry, his sworn brotherhood or even the Dragon-Blooded as a whole, although there is obvious danger in becoming preternaturally loyal to very large populations. Likewise, this Charm can be purchased multiple times representing occasions when the Dragon-Blooded swears a new oath of loyalty. The group to which the Exalt swears loyalty cannot be</p><p>changed after it is chosen. When the Dragon-Blood is confronted by social attacks that go against his loyalty to his chosen group, he automatically adds his Integrity to his Mental Defense Value. The Integrity bonus can be added only once, even if the group he is being asked to betray falls under multiple groupings. That is, if a Dragon-Blood who has sworn loyalty to House Tepet and loyalty to the Third Legion is being manipulated into betraying a fellow soldier who is also a Tepet, the Dragon-Blooded still applies his Integrity bonus only once.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "81d501c1a0fc90ff"
+  },
+  "folder": "b0b1b2b3b4b5f020",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

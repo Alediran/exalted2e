@@ -1,0 +1,60 @@
+{
+  "_id": "e11d7aec61cd20f4",
+  "_key": "!items!e11d7aec61cd20f4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Unexpected Death (smoky Forgotten Breeze Kata)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Illusion",
+      "Share-Breeze",
+      "ShareForgotten"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>After holding his index fingers together and touching the littlest finger and thumb of one hand to the thumb and littlest finger (respectively) of the other, the martial artist leaps forward to deliver a deadly looking punch, kick or strike of his weapon... that misses! The inept assassin then flees. Yet, things are not what they seem. The character's first successful attack within five actions after this Charm's invocation will not knock the target back or stun him. Any onlooker whose (Perception + Essence) score is lower than the attacker's Martial Arts sees the attacker miss. Only at the end of the scene will everyone (including the target himself) realize that he was hit. Even if the target should take wound penalties, the target will not suffer any of the required effects until then. Effectively, the damage is delayed until the end of the scene... or someone points out what really happened. Observers who spend two Willpower, and the martial artist himself, realize the character struck a blow that should have inflicted damage. Once someone explicitly points this out, everyone else realizes this too and the damage manifests--which means that a victim can be dead yet keep walking and talking until someone points out that he was hit. Since The Unexpected Death has a continuing effect, a martial artist can employ some other Charm as part of his actual attack on his target.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Fivefold Shadow Hand Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "e11d7aec61cd20f4"
+  },
+  "folder": "30abfdbff9e8ecc7",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

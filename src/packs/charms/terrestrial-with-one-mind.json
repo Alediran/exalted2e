@@ -1,0 +1,82 @@
+{
+  "_id": "45b596c1428715b8",
+  "_key": "!items!45b596c1428715b8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "With One Mind",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "linguistics",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic"
+    ],
+    "cost": {
+      "formula": "2 motes per dot of increase",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm allows a unified group of Dragon-Blooded to \"speak without words,\" moving as a single unit of such purpose that verbal orders are superfluous and a waste of the commander's time. Effectively, the individuals linked with this Charm share their surface thoughts, which conveys several effects. First, all observations made by any participant are shared by all--what one sees, all see. Second, in a combat situation, all commands, warnings or observations are nonverbal. Members of the group can trade opponents, execute flanking maneuvers or warn each other of impending sneak attacks instantly and silently. If one fighter is close enough, he can even parry or abort to parry any blow aimed at another, substituting his own PDV for that of his ally, provided he is close enough to the ally to plausibly do so. Third, for every two motes spent, each ally affected gains one dot each in Wits, Perception and Melee, although no one can gain more dots in a single category than the Exalt's Linguistics rating, nor can any participant raise an Attribute or Ability above five dots. Also, the Dragon-Blood must spend two motes per dot of increase for every participant. Therefore, if the Exalt wishes to affect three allies, raising each of the affected ratings by three dots, she must spend a total of 18 motes (six motes per point of increase, multiplied by three for the number of participants). The Exalt cannot raise different allies' Abilities by varying degrees at the same time, and he can't increase his own ratings through the use of this Charm.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "fd7cf241b37819c2",
+            "charmName": "Voice of Mastery",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0bfeec9b0ab80fb7",
+            "charmName": "Voices on the Wind",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "45b596c1428715b8"
+  },
+  "folder": "b0b1b2b3b4b5f023",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

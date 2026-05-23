@@ -1,0 +1,59 @@
+{
+  "_id": "952a54e35c0f9edb",
+  "_key": "!items!952a54e35c0f9edb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Adaptation to Adversity",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "heart",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Echo",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "1m per two soak",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Adaptation to Adversity (Waking) Cost: 5m, 3g; Type: Reflexive Keywords: Combo-OK, Echo, Glamour (3), Mutation (2), Obvious Duration: One scene In their native environment the raksha routinely lounge about in lakes of bright fire, tame world-sized sandstorms to impress friends and lovers, and crush themselves beneath mountains to prove obscure philosophical points. It always faintly surprises them that Creation is so unforgiving of such minor indulgences, but no matter--they have learned to adapt. This Charm permits the raksha to reach out and snatch at an environmental hazard, deftly weaving it into a protective shawl of glamour that he may drape about his body. Doing so provides immunity to that one particular environmental hazard for the Charm's duration. This Charm terminates itself if the raksha comes into physical contact with cold iron while it is active. Oneiromantic benefit: Incorporated into an oneiromantic spell, this Charm provides immunity to one pre-selected form of environmental hazard. Inward-facing dreams protect their possessor, while outward-facing glamours protect everyone within an area. Mutation benefit: One adjuration or behemoth gains immunity to a specific form of environmental hazard.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "952a54e35c0f9edb"
+  },
+  "folder": "de1b86005c09a461",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

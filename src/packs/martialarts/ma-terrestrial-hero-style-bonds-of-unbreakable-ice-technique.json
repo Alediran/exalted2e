@@ -1,0 +1,59 @@
+{
+  "_id": "ad0576160a9bd402",
+  "_key": "!items!ad0576160a9bd402",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Bonds of Unbreakable Ice Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "3m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The character uses frigid bonds of Essence to maintain a grappling hold on her opponent. The character attempts a hold attack on her opponent in a clinch normally and uses this Charm. If the attack succeeds, the character can then let go and act normally at the beginning of her next action. Her opponent, however, remains held and inactive as if by the attacker for an additional number of actions equal to the attacker's Essence score. The attacker cannot crush or throw her victim using this Charm. The victim can attempt to break free normally, as if the attacker were maintaining the hold. The victim's player reflexively rolls ([Strength or Dexterity] + Martial Arts) on each action and compares his successes to the attacker's initial grapple roll. If the victim's player scores more successes on a single roll (not cumulatively), the victim breaks free but does not assert control of the grapple, obviously. Even if the opponent cannot break free, the Charm's grip automatically expires and releases him in a few actions. The Terrestrial hero can use this Charm to immobilize multiple opponents one after the other, and she can enhance the clinch by placing this Charm in a Combo.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Terrestrial Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "ad0576160a9bd402"
+  },
+  "folder": "0317adc9f10289d9",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

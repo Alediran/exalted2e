@@ -1,0 +1,72 @@
+{
+  "_id": "6ab9c0d6ebf0f712",
+  "_key": "!items!6ab9c0d6ebf0f712",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Red Dawn Ascending",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "resistance",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Dawn",
+      "Native",
+      "Overdrive"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Until the day he dies, the Solar will not stop fighting. He will sell his final light dearly. This Charm grants an Overdrive pool with a capacity of ten motes. Initially empty, the pool gains motes each time the Solar's wound penalty increases. Add a number of offensive motes equal to twice the wound penalty's value to the Solar's Overdrive pool. In addition, if the Solar has a wound penalty of -2, reduce the cost of all offensive Charms paid through Overdrive by one mote. This may reduce the activation cost of a Charm to zero motes, but the Solar may only enhance a single attack per tick with Charms costing zero motes. He may continue to benefit from the price reduction across additional attacks on a single tick, but consecutive attacks may not drop the cost of Charms below one mote. If the Solar's wound penalty is -4 or higher, reduce the cost of offensive Charms paid through Overdrive by three motes. At -4 or higher, the Solar may enhance two attacks per tick with Charms costing zero motes to activate. Unabating Fury Focus</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d8d91ebf4bca1ac7",
+            "charmName": "Iron Skin Concentration",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "6ab9c0d6ebf0f712"
+  },
+  "folder": "b0b1b2b3b4b5f068",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

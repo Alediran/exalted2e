@@ -1,0 +1,70 @@
+{
+  "_id": "616fba4c208140cf",
+  "_key": "!items!616fba4c208140cf",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Understanding The Court",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "socialize",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "20m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Lawgivers understand how people interact. This Charm is an attempt to survey the power relationships in a given social environment. The character builds an accurate profile of the people and relationships involved, which the Storyteller can detail as desired. The Exalt's player rolls ([Perception or Intelligence] + Socialize), adding a dice bonus equal to the Exalt's Essence. The difficulty of this roll is 1. If a major social group in the court is deliberately attempting to send out misleading cues, subtract an external penalty equal to the largest ([Manipulation + Socialize + Magnitude] � 2) for such a group from the successes rolled. Unusual circumstances, such as a major player not being present at all during the character's survey, can also impose an external penalty. If the character succeeds, then each success reduces external penalties on dramatic and social actions to manipulate social groups within that environment. This Charm cannot reduce external penalties by an amount greater than the Solar's Essence. The Exalt can have only one profile of a given social environment. The crispness of the profile--that quality that reduces external penalties--lasts only as long as the committed Essence. The Lawgiver's player cannot roll again to build a new profile unless the story ends or a new piece of evidence allows a dramatic reconceptualization of the court's structure. MASTERY OF SMALL MANNERS Cost: 1m; Mins: Socialize 2, Essence 1; Type: Reflexive (Step 1 for attacker, Step 2 for defender)</p><p>Keywords: Combo-OK, Social Duration: Until next action Prerequisite Charms: None The Solar attunes herself to the patterns of human interaction. This Charm makes her responses to social situations so natural and appropriate that in social combat she treats all enemy groups as one point of Magnitude smaller than they are (to a minimum of 0.) It also increases her effective Appearance by one dot. When in doubt, other characters will be more apt to do small favors and provide hospitality than not. Finally, this Charm ensures that the character understands the basic motivations of everyone present in the scene, as if her player had rolled three successes on a mundane Investigation roll to estimate each person's motives.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "616fba4c208140cf"
+  },
+  "folder": "5da24482e38ff9ae",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

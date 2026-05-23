@@ -1,0 +1,57 @@
+{
+  "_id": "60c9ef91a80519c0",
+  "_key": "!items!60c9ef91a80519c0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Boulder-crushing Grasp",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With a strength born of the mountain, the Exalt takes hold of a single opponent and inexorably crushes the life from him. When this Charm supplements a successful clinch attack or opposed clinch roll, all crushing damage inflicted by the martial artist becomes lethal. The damage she inflicts continues to be lethal until the clinch is broken. Out of combat, a Jade Mountain Style practitioner can use this Charm to afflict his social foes with bone-grinding handshakes, adding one success to a relevant roll, if appropriate.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Jade Mountain Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "60c9ef91a80519c0"
+  },
+  "folder": "0b2af474919bf89d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

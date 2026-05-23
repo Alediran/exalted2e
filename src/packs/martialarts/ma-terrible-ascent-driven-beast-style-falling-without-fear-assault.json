@@ -1,0 +1,57 @@
+{
+  "_id": "54e8fda4d79ca0e7",
+  "_key": "!items!54e8fda4d79ca0e7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Falling-without-fear Assault",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Over countless centuries, the creature turned its position of safety in the trees into an advantage over its predators and prey. Launching itself from the heights, it could crush its victims into the earth. Students of this style likewise enjoy flattening their enemies by surprising them from above. By dropping from above, accelerating and orienting herself with Essence and skill, the martial artist plummets through the air toward her target. The Exalt takes no damage from the fall, even from prodigious heights. She adds her Essence to the attack's raw damage and to the attack's minimum damage. The character must fall at least five yards in order to invoke this Charm. Users of the Falling-Without-Fear Assault may also activate it reflexively for only two motes. This latter usage is not an attack; it just allows the warrior to land safely after falling from a height as high as ([Strength + Athletics] x 5) yards.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Terrible Ascent-driven Beast Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "54e8fda4d79ca0e7"
+  },
+  "folder": "5ce01017f4c92c09",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,71 @@
+{
+  "_id": "ab46565f8ef531b2",
+  "_key": "!items!ab46565f8ef531b2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Spirit-Maintaining Maneuver",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "integrity",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Social"
+    ],
+    "cost": {
+      "formula": "5m per 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solar Exalted draw on their unwavering desire and intention to survive sustained mental assault. This Charm allows the Exalt to refuse unnatural mind control effects (see p. 180)</p><p>and Virtue compulsions (see p. 115) at a reduced Willpower cost. This Charm reduces the Willpower cost by one point for each five motes spent. If the Exalt pays the entire cost in Essence, she does not accumulate Limit. For example, if rejecting a supernaturally persuasive offer would normally require two Willpower, the Exalt can spend two Willpower; five motes, one Willpower; or 10 motes. If the character would normally break free of the mental influence after spending a certain amount of Willpower, treat the character as having paid the full Willpower price even if it is paid in motes.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "ab46565f8ef531b2"
+  },
+  "folder": "b0a1d89a8f7c4cdb",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

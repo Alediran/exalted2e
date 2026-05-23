@@ -1,0 +1,58 @@
+{
+  "_id": "c183c331c73cfce9",
+  "_key": "!items!c183c331c73cfce9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Withering Paw Strike",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "4m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With this Charm, the martial artist attacks his opponent's weapon arm in an attempt to disarm him. The Exalt's player rolls a (Dexterity + Martial Arts) attack at a difficulty of 1, disregarding the standard -2 penalty for attempts to disarm. The target's DV applies as if the attack were a normal one, but the DV suffers a penalty equal to the attacker's permanent Essence. If the attacker succeeds, the target's player must attempt a reflexive roll of (Wits + the weapon's pertinent Ability) per the normal rules. If she fails this roll, her weapon is flung a number of yards equal to the martial artist's extra successes. The weapon flies off in a direction of the martial artist's choosing, or the Exalt may take it for himself and pass it to someone else if she pleases.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Celestial Monkey Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "c183c331c73cfce9"
+  },
+  "folder": "67fad142ae9122e6",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

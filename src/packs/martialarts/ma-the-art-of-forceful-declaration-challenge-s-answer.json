@@ -1,0 +1,58 @@
+{
+  "_id": "652b5c3d77f06c5f",
+  "_key": "!items!652b5c3d77f06c5f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Challenge's Answer",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "untilNextAction",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Counterattack"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A valorous debater distracts his opponents by responding to their arguments with many different points, rather than actually defending his own position. Such foolhardy responses often worsen the debate for him in the long run but surprise his opponents and leave them scrambling to refute each point. Any attack the Exalt does not successfully parry or dodge triggers a quick strike in response. While this Charm is active, the martial artist may launch a counterattack against any foe who hits him. His counterattack dice pool equals the raw damage of the attack that triggered it, to a maximum of twice his (Dexterity + Martial Arts). The character may counterattack a given opponent only once for the duration of the Charm, and the character need not counter any attack if he does not want to. As normal, each counterattack reduces the character's DVs by one, and it is not possible to counterattack someone else's counterattack.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Forceful Declaration",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "652b5c3d77f06c5f"
+  },
+  "folder": "676ebc2abfe88729",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

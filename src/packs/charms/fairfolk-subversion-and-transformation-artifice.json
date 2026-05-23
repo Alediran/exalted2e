@@ -1,0 +1,59 @@
+{
+  "_id": "ec6e1e944c297610",
+  "_key": "!items!ec6e1e944c297610",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Subversion and Transformation Artifice",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "cup",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Echo",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "3m, 1g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With this Charm, a raksha in the Wyld can fashion a shaping weapon for himself suitable for aiding in Cup- or Staff-shaping. The weapons that can be created through this Charm might include a figment, a heart thorn, a harness of razored dreams or a harness of twisting words, all of which are described more fully on pages 127-128 and 129-130. The raksha fashions these instruments out of Essence and gossamer. In addition to the weapon's normal base qualities, the raksha can divide a number of points equal to her Cup into improving its Accuracy, Damage, Defense or Rate, or into reducing its Speed (to an absolute minimum of 3). The creation is a work of permanent glamour that lasts for one shaping battle. This Charm has no utility in Creation.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "ec6e1e944c297610"
+  },
+  "folder": "d5d33b95962cd83e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "0913c323398dccde",
+  "_key": "!items!0913c323398dccde",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Pattern Realignment Initiative",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "god-machine-protocol-pattern-realignment-initiative",
+    "tradition": "weaving",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 30,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Special",
+    "description": "<p>This protocol has special timing rules. The Exalt can cast it as two reflexive Weave God-Machine Protocol actions that take zero ticks. Taking control of the Essence used around him, the weaver is able to commandeer sorcerous and necromantic spells. This protocol functions like Essence Reallocation Protocol, countering God-Machine Protocols, Celestial Circle Sorcery and up to Labyrinth Circle Necromancy. The protocol does so by absorbing all the Essence out of the cancelled spell and channeling it into the Alchemical's Essence reservoir. If the absorbed Essence puts the weaver over his maximum rating, the Alchemical's metal Charms flare up and emit brilliant sparks for a moment as they shunt away the excess Essence.</p>"
+  },
+  "folder": "07b5963f5e930aca",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,72 @@
+{
+  "_id": "aed7f23c9b4e580e",
+  "_key": "!items!aed7f23c9b4e580e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Divine Transcendence of Melee",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Native",
+      "Mirror (Apocalyptic Evolution of Melee)"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>All limitations in existence shrink in the face of Solar determination. That which is impossible becomes merely difficult; that which is indestructible crumbles; that which cannot be slain lies dead upon the earth. When a Solar crashes against the boundaries of her own power, that limit also falters. All Charms within the Melee Ability reduce their minimum Ability and Essence ratings by one when the character attempts to learn them. All subsidiary powers contained within such Charms also lower their requisite Ability and Essence ratings by one. Divine Transcendence of Melee cannot reduce the requirements of any Charm with minimums of Melee 10 or Essence 10. Charms retain their original ratings for all other purposes, such as building Combos. Upon achieving Melee 10, Essence 10, this Charm vanishes and the Solar is refunded its cost.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "mirrorId": "ced7f23c9b4e582d",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "melee",
+            "minCount": 1,
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "aed7f23c9b4e580e"
+  },
+  "folder": "fd05b302be1cc260",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,78 @@
+{
+  "_id": "657bcc04bf792111",
+  "_key": "!items!657bcc04bf792111",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Multifunction Hypodermic Apparatus",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "intelligence",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Internal",
+      "Obvious",
+      "Poison",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "6m [2m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A slender tentacle slides out of a compartment in the Alchemical's torso, tipped with a long, hollow needle. The transparent tendril can reach and touch targets up to two yards away, nimbly targeting a patient's veins or vital clusters. After the needle slides in, quivers of peristaltic motion pump drugs into the patient's body from storage nodes inside the Alchemical. These nodes convert raw Essence into known alchemical formulae as a predominantly benevolent Poison effect. If this Charm is used to inject an unwilling patient, resolve as a touch attack using either Martial Arts or Medicine, and with a piercing \"damage\" of +0L. If the needle would inflict any health levels of damage, this injury is replaced with the effects of injection. The Alchemical may also inject himself internally. At the time of purchase, the Exalt gains two of the templates listed as submodules. Additional formulas from the thaumaturgical Art of Alchemy may be downloaded as submodules at the vats for two experience points each. Any alchemy formula with a medicinal application may be adapted and loaded into this Charm, unless expressly vetoed by the Storyteller for balance considerations. For example, eagle's eye potion and valiant warrior formula are valid submodules, but the heavenly transmutation processes are not. More on the Art of Alchemy may be found in The Books of Sorcery, Vol. III--Oadenol's Codex, pages 129�132. Storytellers should encourage players to design submodules of their own. Submodules: Anagathic: When injected into a patient, this glittering white gel duplicates a dose of age-staving cordial (see Exalted, p. 378). Antiseptic: This clear fluid sizzles and burns but prevents wounds from becoming infected. Established infections remain. Coagulant: This luminous blue injection automatically stanches bleeding from a wound. Wounds reopen if the patient botches a strenuous physical action. Essence Infusion: Rather than distill Essence into alchemical formulae, the Alchemical can inject it in a pure state, giving the patient five motes.</p><p>Great Maker's Mercy: This injection replicates a dose of sweet cordial (see Exalted, p. 378). Like that drug, the infusion cannot heal aggravated damage, and its narcotic haze imposes a one-die internal penalty to non-reflexive actions as a Poison effect. Metabolic Accelerator: This golden injection allows a mortal patient to recover from injuries as Exalted do, with its effects lasting for a number of days equal to half the target's Stamina. Technoetic Infusion: This crimson fluid is a powerful painkiller and euphoric, allowing patients to ignore wound penalties and apply Virtues as basic automata do for one scene: automatically succeeding on Valor rolls and automatically failing others. Patients with a Clarity or Dissonance track gain one temporary point. Patients cannot channel Virtues while under the influence, and they suffer an internal penalty of -4 to Stamina when it wears off. Each day of complete rest removes one die of this penalty.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Intelligence Augmentation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "woundReduction": {
+      "enabled": true,
+      "formula": ""
+    },
+    "charmUid": "657bcc04bf792111"
+  },
+  "folder": "b0b1b2b3b4b5f04f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

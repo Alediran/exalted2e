@@ -1,0 +1,74 @@
+{
+  "_id": "62742345fca85d9e",
+  "_key": "!items!62742345fca85d9e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "One Man Cavalry",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "ride",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      1
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Emotion",
+      "War"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When a hero rides away, he may be headed toward battle. Formation lines break and the wicked scatter at the Solar's terrifying battle charge. A Solar may use this Charm when emerging from a position of cover, such as smashing in through a window or leaping down from an overland pass; the Charm may also always enhance a mounted Join Battle roll. The Solar's player makes a (Charisma + Ride) roll, opposed by his opponents' MDVs. Each opponent whose MDV fails to protect her is awestruck by the Lawgiver's emergence onto the battlefield, and suffers a -3 internal penalty to all attacks directed at the Solar or her mount, and a -1 internal penalty to all attacks against the Solar's allies. This unnatural mental influence costs (6 � target's Valor) points of Willpower to resist, producing immunity to any further uses by the same Solar for the rest of the scene. Used in mass combat, this Charm may enhance a charge by the Lawgiver, causing it to count as a rout condition. Only the Solar need be mounted for this Charm to be activated, but if she is leading a cavalry charge by a mounted complementary unit, then the rout check is made at +1 difficulty. One Man Cavalry may not be activated more than once per action in this fashion. Thunder-Hoof Method</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f8262623b5236345",
+            "charmName": "Hero Rides Away",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "62742345fca85d9e"
+  },
+  "folder": "b0b1b2b3b4b5f069",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

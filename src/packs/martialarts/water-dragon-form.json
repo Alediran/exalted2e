@@ -1,0 +1,90 @@
+{
+  "_id": "876c2bb0dfd5b1ff",
+  "_key": "!items!876c2bb0dfd5b1ff",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Water Dragon Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Leader"
+    ],
+    "cost": {
+      "motes": 5,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "5m"
+    },
+    "description": "<p>With a few graceful body movements, the Immaculate becomes more like the liquid element he seeks to emulate. As that element, he can absorb and dissipate vast amounts of damage while suffering very little harm. While this Charm is active, the Exalt adds his Martial Arts to his bashing and lethal soak and soaks lethal damage with his full</p><p>Stamina. Also, when successfully attacked, he may further augment his soak by reflexively spending one mote per two points of soak. This soak applies to only a single attack, and he must spend the Essence in Step Seven of attack resolution. Finally, the Immaculate's flowing motions make his attacks hard to evade and his defenses even harder to predict. He adds his an amount equal to his Essence to his Martial Arts Ability for the scene. This Charm is incompatible with any armor that has a mobility penalty of -2 or greater, because such armor constrains the martial artist and prohibits the natural flow necessary for this Charm.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Water Dragon Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "fde7aeb1c13dcb52",
+            "charmName": "Drowning-in-Blood Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c249e80a1056242a",
+            "charmName": "Shrugging Water Dragon Escape",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "876c2bb0dfd5b1ff",
+    "grantsMastery": false
+  },
+  "folder": "fc9347d4223ef93b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

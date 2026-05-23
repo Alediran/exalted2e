@@ -1,0 +1,58 @@
+{
+  "_id": "08d17c9aac031003",
+  "_key": "!items!08d17c9aac031003",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Feeling the Dragon's Bones",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "awareness",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "one scene",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Elemental"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood extends her earth-sense through the ground beneath her feet, feeling the pulse of elemental earth essence running through Creation's bedrock. This Charm allows the character to sense seismic activity, underground voids and tunnels, buried structures, and the presence of other beings in contact with the ground within a radius of (Perception + Awareness) x 5 yards. Earth Aspects who use this Charm can also detect ley lines and demesnes within this range. The information comes as an intuitive sense rather than precise vision.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "08d17c9aac031003"
+  },
+  "folder": "b0b1b2b3b4b5f01c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

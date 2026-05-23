@@ -1,0 +1,70 @@
+{
+  "_id": "419d8be19c209b99",
+  "_key": "!items!419d8be19c209b99",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Secondary Sensory Upgrades",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "perception",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m per sense type [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When this Charm is installed, the Alchemical chooses one of the two submodules here to install for free. The other requires the usual cost. Activating this Charm costs four motes per sense type invoked among available options. Submodules: Chemical Analysis System: The Exalt has a coiled apparatus screwed out of sight into his nostrils and a small</p><p>device that looks like a ball bearing in the center of his tongue. When active, the submodule functions identically to the smell and taste version of Keen (Sense) Technique (see Exalted, p. 225�226). Tympanal Receptor Nodes: The Alchemical's ears have been fitted with invasive cochlear implants covered in hundreds of flexible needles, along with a lacy structure of pressure-sensitive wires beneath the skin. While active, the submodule functions identically to the hearing and touch version of Keen (Sense) Technique (see Exalted, pp. 225�226). Echolocation Navigation Systems (Tympanal Receptor Nodes, Perception 5, Essence 3): The Champion's brain models spatial contours through precision mapping of echoes, allowing vectored analysis sufficient to cancel blindness penalties and bypass visual-only concealment such as smoke or fog. True silence is as \"blinding\" as true darkness, but such conditions occur only when they are magically imposed. In all other situations, the faint rumble of the Alchemical's Essence-charged physiology generates enough sound, though purely visual data remains undetectable in darkness as per the limitations of the Thermal Vision submodule for Optical Enhancement (see p. 159). Unlike that submodule, Echolocation Navigation Systems functions in addition to other senses rather than replacing them, so the lack of visual data only really matters when the character's sight is obscured in some way. Storytellers should assess Perception bonuses and penalties to this exotic sense at their discretion, taking care to reward creativity on the part of both the Alchemical and his opponents. Expanded Input Processor (Perception 6, Essence 3): Whenever a basic sensory submodule is active, this submodule also boosts the enhanced senses further with effects identical to the appropriate Unsurpassed (Sense) Discipline (see Exalted, p. 226).</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Perception Augmentation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "419d8be19c209b99"
+  },
+  "folder": "b0b1b2b3b4b5f052",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

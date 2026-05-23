@@ -1,0 +1,74 @@
+{
+  "_id": "7c976cc00cdc67b6",
+  "_key": "!items!7c976cc00cdc67b6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Industrial Survival Frame",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "stamina",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "6m [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Exalt's body is optimized to endure one of the six elements native to the Machine God, affording immunity to environmental damage. At the time of purchase, the Alchemical gains one of the following elemental submodules for free. Each elemental submodule requires a separate Charm activation to bring online, but the cost of each concurrent activation past the first is only two motes. The Charm may be activated while unconscious or otherwise inactive. In aggregate, this Charm is comprehensive. All environmental threats fall under the header of some submodule, with specific assignment of categorically vague hazards falling to the discretion of the Storyteller. When another character deliberately causes or uses environmental effects with intent to harm the Alchemical, this Charm does not protect her. Submodules: Crystal: The character is immune to environmental damage from \"natural\" or mineral sources, most of which</p><p>may only be found in Creation. Examples include landslides or cave-ins, bone-storms in the Underworld, thorny plants or being stepped on by Mount Mostath. Additionally, the Champion gains the effects of Integrity-Protecting Prana (see Exalted, p. 199) as long as the Charm is active. Lightning: This variant prevents injury from fire, lightning and other raw discharges of energy. Metal: The Chosen is immunized to environmental damage deriving from metal, which in Creation is largely restricted to First Age traps. In Autochthonia it includes huge man-chewing gears, magnetically charged chambers full of flying shrapnel, slamming hydraulic presses, and countless other hazards. Oil: Acid and other chemicals cannot harm the Champion. Smoke: The Exalt enjoys immunity to Poison effects. Steam: Extremes of temperature or pressure do not harm the Alchemical. Sixfold Transcendence Synergy (All six elemental submodules, 1xp): The Champion can activate all six permutations with a single Charm activation for a flat cost of 10 motes. Environmental Dominance (Essence 4, 4xp): This submodule eliminates the exception made for other characters' deliberation and intent, fully immunizing the Alchemical from active categories of environmental damage. Direct, non-environmental damage (such as a sword to the face) continues to injure the Exalt normally.</p><p>Attack Assimilation Mode (Environmental Dominance, Stamina 6, Essence 4): As long as the Champion has exactly one elemental permutation active, the Charm provides immunity to damage from non-magical attacks that fit within its scope of protection. An attack is magical if enhanced by a Charm or other Essence power, if it uses an inherently magical weapon or if the attacker has Essence 4+. If the Exalt changes which permutation is active through reactivation, this submodule temporarily overloads and provides no benefit for the rest of the scene.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Stamina Augmentation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "7c976cc00cdc67b6"
+  },
+  "folder": "b0b1b2b3b4b5f053",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

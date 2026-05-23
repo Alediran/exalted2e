@@ -1,0 +1,37 @@
+{
+  "_id": "142e4f095529809c",
+  "_key": "!items!142e4f095529809c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Rolling Earth Carpet",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "celestial-circle-rolling-earth-carpet",
+    "tradition": "sorcery",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Area",
+    "description": "<p>The Mudra of the Auspicious Journey releases deepblue Essence that flows outward, reshaping the land so that it becomes easy to travel through. The land becomes smooth, while puddles of water and mud dry up. This field moves with the sorcerer as he travels, remaking the land before him into perfect traveling territory. Terrain left in his wake returns to normal. This Shaping effect is large enough to encompass 100 marching humans (mounted riders count as two men). For every additional 10 motes spent when casting the spell, the radius increases, allowing the spell to support 50 additional man-sized travelers. The Rolling Earth Carpet leaves no traces of its passage. Mortal trackers have no chance of following the group's trail, while supernatural trackers do so at a +3 difficulty--even scents and mystical traces are suppressed. The area inside the field is like a warm spring day, with no precipitation or wind above a light breeze (though weather outside the field can still limit vision). Large or artificial terrain features such as hills or buildings are not affected by this spell. Most plants are pushed aside, but not full-grown trees. Rolling Earth Carpet remains active for as long as the sorcerer commits the Essence and remains alive. This spell cannot be combined with the Mystic Travel (see p. 93) or similar spells. If you use the Complex Travel rules (see Exalted, p. 266), treat the area within the Rolling Earth Carpet as open terrain. Long distance, political upheaval and war-zone terrain modifiers do not apply. Neither does the hunted travel quality.</p>"
+  },
+  "folder": "dcf06d83a3d0a4be",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

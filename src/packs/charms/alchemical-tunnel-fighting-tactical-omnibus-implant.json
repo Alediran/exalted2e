@@ -1,0 +1,70 @@
+{
+  "_id": "86acd363233ea0ae",
+  "_key": "!items!86acd363233ea0ae",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Tunnel-Fighting Tactical Omnibus Implant",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "charisma",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "War"
+    ],
+    "cost": {
+      "formula": "-- [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Memory crystal nodules are inserted into ports on the back of the Alchemical's head, containing thousands of years' worth of collected tactical insights on how to maximize the potential of close-formation troops fighting in cramped environments. This Charm has two effects. First, it permits units with Drill 0 or 1 in which the Exalt is a special character</p><p>to assume close formation in mass combat. Second, if a unit actually has Drill 2+, it ignores all penalties for fighting in close formation, while simultaneously enjoying the benefits of relaxed formation. Submodules: Close-Quarters Vector Compensator (Wits 4, 3xp): While fighting in close formation, a unit in which the Champion is a special character treats all terrain obstacles from narrow space and limited access as open terrain for the purposes of movement rate, while retaining cover bonuses for the terrain's actual state. The submodule does not adjust for other types of obstacles. A second installation at (Wits 5, Essence 4) also negates terrain-based cover advantages when attacking enemy units in cramped terrain. Tactical Sub-Noetic Transmitter (Intelligence 5, Essence 4): Units arranged in close formation in which the Exalt is a special character gain the best advantages of close, relaxed and skirmish formation with none of the drawbacks. Such units also get +1 Might. CLOCKWORK SOLDIER PATTERN PROJECTOR Cost: 7m, 1wp [1m]; Mins: Charisma 5, Essence 3; Type: Simple</p><p>TACTICAL BIAS? Autochthonian armies have conducted 5,000 years of warfare primarily in tight, cramped tunnels, in cluttered ducts and in house-to-house combat within crowded cities. Their martial magic focuses primarily on enhancing the strengths of such tactics or eliminating their weaknesses. Open-field fighting and large-scale siegecraft are concepts largely alien to Alchemical tacticians. Exposure to Creation and especially war in Creation will necessarily result in the development of Charms suitable to other stratagems. Keywords: Combo-OK, War Duration: One scene Prerequisite Charms: Tunnel-Fighting Tactical Omnibus Implant Gridwork patterns of Essence-conducting wire stretch across the surface of the Champion's face, linking his TunnelFighting Tactical Omnibus Implant to his soulgem. When activated, this Charm radiates a pulse of Essence throughout</p><p>a complementary unit in which the Alchemical is a special character, up to a Magnitude equal to his Essence rating. The pulse instills each soldier with an instinctive awareness of his commander's tactical prowess and unit's role in his plans. As long as the unit remains in close formation, it gets +3 Drill (even if this bonus temporarily raises Drill above 5). Submodules: Veteran Faith Inculcator (3xp): At the end of each scene in which a unit enhanced by this Charm participated in actual mass combat against enemy forces, all unit members who survive the battle instantly develop or reassert an Intimacy of loyalty to whatever cause for which they were fighting. This includes the Alchemical. Deserters who broke from the unit are unaffected. Populat Militia Drive (Essence 4, 4xp): If the unit is fighting within a city and the bulk of the unit members have lived in that city for at least one year, the unit gets +5 Drill instead and the unit commander adds the Champion's (Essence � 2, rounded up) in bonus dice to all rally attempts. Precision-Tuned Coordinator (Charisma 7, 4xp): While a unit enhanced by this Charm is engaged with an enemy unit, the enemy commander must pay one Willpower to issue an order to change formation, as the Champion's unit moves to counter such tactical adjustments. A second installation also requires this surcharge from enemy commanders when attempting to disengage their forces from the Alchemical's soldiers.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Charisma Augmentation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "86acd363233ea0ae"
+  },
+  "folder": "b0b1b2b3b4b5f04d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

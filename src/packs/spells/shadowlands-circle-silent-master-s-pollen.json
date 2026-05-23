@@ -1,0 +1,37 @@
+{
+  "_id": "67000768b4f1a517",
+  "_key": "!items!67000768b4f1a517",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Silent Master's Pollen",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "shadowlands-circle-silent-master-s-pollen",
+    "tradition": "necromancy",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 18,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "One ghost or two ghosts",
+    "description": "<p>The necromancer creates a pinprick-small hole in the world, leading directly into Lethe and the cycle of reincarnation. As the shining point of gray-white light hovers before her eyes, she may either take it in her hands or cast it toward a target within (Essence x 10) yards. Touching it, the necromancer's hands begin to glow. The next two times she touches a ghost, the ghost's player must roll (Willpower) at difficulty 3. Failure or a botch indicates that the call was too strong, and the ghost has moved on to Lethe. Touching a ghost might require a (Dexterity + Martial Arts) attack. Alternatively, the necromancer may launch the passage to Lethe at a single ghost within range. This (Wits + Occult) attack may not be parried except by a perfect defense (if a ghost can have such a thing). Whether or not a target of this spell succumbs to Lethe, the spell breaks certain necromantic bindings on a ghost. It counters ghost-binding spells of the Iron Circle as well as Charms of Essence 3 or less.</p>"
+  },
+  "folder": "9a7bd83d0a359e00",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

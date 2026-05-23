@@ -1,0 +1,84 @@
+{
+  "_id": "57140ef45b9d2a5e",
+  "_key": "!items!57140ef45b9d2a5e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Omnipresent Guardian Directive",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "wits",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "War"
+    ],
+    "cost": {
+      "formula": "5m, 1hl [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A gimbaled assembly is installed around the Alchemical's Tunnel-Fighting Tactical Omnibus Implant, allowing for limited prescient situational modeling, assisted by a supplementary connection to the Design of Autochthon. When activated, this Charm allows the Alchemical to more efficiently defend a complementary unit in close formation in which he is a special character. The Champion is a blur, sweeping arrows from the air with his blade or allowing blows intended for terrified soldiers to bounce off his mighty armor. This Charm makes sure that the overwhelming majority of soldiers shed by a unit due to damage or Magnitude loss survive the experience. Their fate is diverted from death to disorganization or flight, allowing them to be collected or rallied for numbers later. If this Charm faces a conflicting effect that guarantees that defeated soldiers within the Exalt's unit die, it adds the Alchemical's Compassion in automatic successes to the contested roll. Submodules: Riot-Dispersion Attack (Charisma 5, 3xp): Whenever a unit enhanced by this Charm attacks another unit, the benefits of the Charm may be extended to the enemy. No one is killed by the attack, but the unit is scattered and members may suffer injuries as a result of casualties as normal. Yet, this damage is capped as necessary to whatever number of levels will not prove fatal. Use of this bonus is optional and must be declared in Step One of the attack. UNIFYING RESURGENCE ASSEMBLY Cost: 10m [1m]; Mins: Charisma 6, Essence 4; Type: Supplemental Keywords: Combo-OK, Obvious, War</p><p>Duration: Instant Prerequisite Charms: Omnipresent Guardian Directive A circlet of pure orichalcum crosses the Alchemical's brow, running from his Omnibus to his soulgem. It shines forth an enormously bright beacon upon activation, stirring feelings of loyalty and uplifted morale in all soldiers who witness it. This Charm may be used to supplement a unit leader's roll to rally for numbers, provided the Alchemical is a special character in that unit. If the roll succeeds and the Storyteller deems that such numbers are available on the battlefield (mortal enemy deserters should be considered viable targets for this Charm), the Champion's unit raises its Magnitude by two rather than one. Submodules: Homeguard Reinforcement Clarion (4xp): If the unit is fighting within the bounds of its home city and sufficient numbers of non-combatant civilians are present for emergency conscription, a successful rally adds three to Magnitude and simultaneously signals the entire populace of the city to the fact that they are under siege, including the patropolis itself (if the city is such). SURVIVAL STRAIN-RESISTANT CHASSIS MODIFICATION Cost: -- [1m or 0m]; Mins: Stamina 2, Essence 2; Type: Permanent Keywords: Obvious, Stackable</p><p>Duration: Permanent Prerequisite Charms: None The Champion fortifies his body through the installation of armored plates, redundant organs, metal bones and reinforcing struts. This Charm adds either two -1 health levels or three -2 health levels, configured at the time of installation, and may be installed up to (Essence) times. Installations past the first two require no installation cost. Essence 6+ Alchemicals gain access to more extensive modes of reinforcement and can reconfigure all installations of this Charm to provide three -1 or four -2 health levels per installation. Like all Ox-Body Technique equivalents, this Charm cannot be learned through the Eclipse, Moonshadow or Fiend anima abilities.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Wits Augmentation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "86acd363233ea0ae",
+            "charmName": "Tunnel-Fighting Tactical Omnibus Implant",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "57140ef45b9d2a5e"
+  },
+  "folder": "b0b1b2b3b4b5f055",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,77 @@
+{
+  "_id": "bf9a1492f4502dc3",
+  "_key": "!items!bf9a1492f4502dc3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sun-Salted Fields",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Sickness",
+      "Sorcerous"
+    ],
+    "cost": {
+      "formula": "15m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Though the Green Sun of the primeval epoch once nourished the land and life, the heart of Malfeas is mad and terrible, poisoned against all he once ruled. Upon activating this Charm, the Infernal's anima radiates a burst of Malfean Essence that fills a radius of 50 yards. Normal senses can't detect this burst, though Essence users feel a characteristic, nauseating tingle as long as they remain among the lingering energies. Essence-based perception instantly recognizes the burst as if the Charm were Obvious. In its passage, the burst poisons the air, the land and even space itself. The healthy green of foliage sickens unnaturally over the span of a week with a fine patina of tarnish on every leaf. Any being that isn't native to Malfeas must check for exposure to Green Sun Wasting (see p. 110) every full hour that they spend within the blight at a Virulence of the Exalt's Essence rating. Each day that passes reduces the disease's Virulence by 1 until it fades completely and the area becomes healthy again. Whenever an Infernal who knows this Charm dies, she may reflexively bathe her surroundings in blight as per Sun-Salted Fields with no cost as a final act of spite. REBUKING IMPUDENT ARMS Cost: 5m; Mins: Essence 3; Type: Supplemental Keywords: Combo-OK, Obvious, Sorcerous Duration: Instant/one minute</p><p>Prerequisite Charms: Cold Fire Desolation Brand In the time before time, weapons knew their place, and even the sharpest blades dulled lest they scratch the King of the Primordials where he tread. The passing of Ages has diminished the world, but arsenals may yet be reminded of their place. This Charm can enhance any disarm attempt within the range limit of Green Sun Nimbus Flare. If the attack hits, the weapon superheats and glows brilliant green as if Ligier held it. Mortal weapons melt into slag or crumble to ash on the spot. Artifact weapons and those formed entirely of Essence are unharmed but remain superheated for a minute afterward, increasing the difficulty of the wielder's roll to resist the disarm attempt by 2. Anyone holding a superheated weapon suffers one level of unsoakable lethal damage per action of contact (or fraction thereof). If the wielder forgoes the roll to maintain control and drops the superheated weapon immediately or that weapon is vaporized, he suffers no damage. Because the fire ignited by Rebuking Impudent Arms burns through Yozi power rather than heat alone, flame-resistant adversaries have as much to fear from this Charm as anyone else. Appropriate countermagic can cool a heated artifact back to normal temperature.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "malfeas",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "9a53895124b1e04f",
+            "charmName": "Gifts of Invisible Flame",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "statusApply": {
+      "enabled": true,
+      "status": "Poisoned",
+      "resistPool": "@sta + @resistance",
+      "onFail": "applyPoison"
+    },
+    "charmUid": "bf9a1492f4502dc3"
+  },
+  "folder": "1945ba1655ca5f6f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "2daee218053cfa67",
+  "_key": "!items!2daee218053cfa67",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Faces of the Dead",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "shadowlands-circle-faces-of-the-dead",
+    "tradition": "necromancy",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 16,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "permanent",
+    "target": "Caster",
+    "description": "<p>Pulling his fingers as if drawing thread, the necromancer spins a shimmering silver line of Essence. It thickens into wire, then rotates into the third dimension to become a silver mace with a perfect, 12-faced head. The weapon is treated as an exceptional mace. Against ghosts and other spirits of the dead, the weapon adds a value equal to the necromancer's Essence to its base damage. Also, when a single blow with the mace inflicts levels of damage equal to or greater than a target's permanent Essence, the mace captures the ghost in one of its faces with a steely blue flash. The ghost then looks out from the face that captured it. Either after one hour or when the necromancer commands it (whichever comes first), the mace's shaft dissolves into dust and disappears. The silver mace head transmutes into rock crystal, holding all the ghosts absorbed by the mace. It has 12L/12B soak and requires 20 levels of damage to break. Countermagic shatters the crystal. Otherwise, only the caster can release the ghosts without violent means. Ghosts freed from the crystal have empty Essence pools. Faces of the Dead was once a tool of the Celestial Exalted in the First Age, as they first sought to explore and exploit the Underworld. Abyssal Exalted and nephwracks use it today to collect ghosts for various purposes, including raw material for soulsteel.</p>"
+  },
+  "folder": "9a7bd83d0a359e00",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

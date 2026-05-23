@@ -1,0 +1,57 @@
+{
+  "_id": "bad6b47e315fbaf6",
+  "_key": "!items!bad6b47e315fbaf6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Crimson Pentacle Blade Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Form-type"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>To master this Form-type Charm, the martial artist has trained his muscles to supple perfection, and he can easily perform graceful leaps and impressive acrobatic feats on any sort of terrain--from a muddy battlefield to a rocking ship's deck to the desert's scorching sand. The martial artist can also deliver great, sweeping attacks with unerring precision while doing so. When this Charm is activated, the martial artist's player may add the Exalt's Essence score to all Martial Arts rolls for the rest of the scene. Also, add the martial artist's Essence score to her Athletics Ability for purposes of determining how easily she keeps her balance in a situation of unstable footing. That is, add (Athletics + Essence) and compare that value to the situation's instability rating. Should the instability rating of the situation exceed that value, the player must still make a (Dexterity + Athletics) roll for the character to maintain her balance. (See \"Unstable Footing\" on p. 155 of Exalted.) The player does not add the character's Essence to that pool as extra dice: She adds the character's Essence to the result of the roll as extra successes. Finally, when a character using this Charm acts as a group's commander in order to coordinate the group's attack against an opponent, the character gains a number of extra successes equal to her Essence on the required (Charisma + War) roll. (See \"Coordinating Attacks\" on p. 144 of Exalted.)</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Crimson Pentacle Blade Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "bad6b47e315fbaf6"
+  },
+  "folder": "dd43fd817c3c8fc1",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

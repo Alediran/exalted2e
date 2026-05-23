@@ -1,0 +1,83 @@
+{
+  "_id": "caac2b1b55c36f94",
+  "_key": "!items!caac2b1b55c36f94",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Training Mandate Of War-God Puissance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "war",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "untilCalibration",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Training"
+    ],
+    "cost": {
+      "formula": "8m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With this Charm, a Sidereal trains a group of gods or elementals in the battle tactics of the regional war gods. In so doing, he grants each a temporary promotion that increases the spirit's power on the field of battle. Unlike the preceding Training Mandate Charms, this one was not</p><p>developed during the Primordial War. The Five Maidens allowed this Charm to come into being when their Sidereal generals planned the Usurpation... though the Maidens offered no comment on the Charm's potential uses. The Sidereal can affect (his Essence x 5) spirits at one time, and they retain its effects only for as long as they remain under his direct command. Each spirit so affected gains one temporary dot of Essence, 10 motes of Essence and any two spirit Charms the spirit does not already have that the Sidereal feels the spirit needs. These benefits last for one week. Also, for the rest of the week, the cost of using the Materialize Charm drops by an amount equal to (Sidereal's Essence x 5), to a minimum of one mote. This Charm works equally well on any god or elemental who accepts the command of the Sidereal using it.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4fd9f14a874320d2",
+            "charmName": "Training Mandate of Celestial Empowerment",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "caac2b1b55c36f94"
+  },
+  "folder": "b0b1b2b3b4b5f019",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

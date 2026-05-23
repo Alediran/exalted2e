@@ -1,0 +1,57 @@
+{
+  "_id": "4c32883558484d96",
+  "_key": "!items!4c32883558484d96",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Finding the Water's Depths",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "bureaucracy",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>As water finds the lowest point in any landscape, the Dragon-Blood's instinct guides her to the source of power in any organization. With this Charm, the character instantly perceives the true lines of authority and influence in a bureaucratic structure she observes. She understands who holds real power (as opposed to nominal authority), where the flow of resources moves, and what the most effective points of leverage are. The player rolls (Intelligence + Bureaucracy) and may ask the Storyteller one question about the organization's structure per success.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "4c32883558484d96"
+  },
+  "folder": "b0b1b2b3b4b5f01d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

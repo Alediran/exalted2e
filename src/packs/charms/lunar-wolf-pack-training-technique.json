@@ -1,0 +1,85 @@
+{
+  "_id": "df07238ffd177cad",
+  "_key": "!items!df07238ffd177cad",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wolf Pack Training Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "charisma",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneWeek",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mandate",
+      "Obvious",
+      "Touch",
+      "Training"
+    ],
+    "cost": {
+      "formula": "10m, 2wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Stewards inspire and teach the herd to defend itself--human as well as animal. This Charm trains a military unit and requires five or more hours of effort in any given work to be effective. This Charm increases the Drill of the unit by one for each week of training, to a maximum of four. The character also picks one Trait to improve: Strength, Stamina, Martial Arts, Melee, Stealth or Survival. The Charm increases that Trait for each member of the unit by one, to a maximum of four or the Lunar's rating in that Trait, whichever is lower. The Lunar can train herself (increasing her own Traits) and the unit at the same time. This Charm can be used with the Mandate of Heaven system. The Charm adds the Lunar's Charisma to any roll to increase a target dominion's Military rating. Using it on the Lunar's dominion increases the dominion's Limit by one.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6ecfdfad8baea7c9",
+            "charmName": "Nature-Reinforcing Allocation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a507cd2f6e29a574",
+            "charmName": "Sharing the Gifts of Luna",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "df07238ffd177cad"
+  },
+  "folder": "4e63ba1bd67a09e3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

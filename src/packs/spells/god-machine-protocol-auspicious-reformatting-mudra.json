@@ -1,0 +1,37 @@
+{
+  "_id": "2cae843d405bfa00",
+  "_key": "!items!2cae843d405bfa00",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Auspicious Reformatting Mudra",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "god-machine-protocol-auspicious-reformatting-mudra",
+    "tradition": "weaving",
+    "circle": 2,
+    "minimumClarity": 6,
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Automaton",
+    "description": "<p>The Exalt forms the Mudra of Transformation with her right arm bent so that her hand is at shoulder height with splayed fingers and her left is extended out before her, palm downward and fingers together. Lightning lances out from her left hand to strike an automaton or any type of machine, reweaving its pattern permanently. Automata and machine spirits of higher Essence than the Alchemical make a contested Essence roll to resist the effects of this protocol. Alchemicals might use this protocol to mend or reactivate broken machine spirits or to transform them into something else entirely. Gremlins could be reformatted again as custodians or broken down into inert components, or a warstrider could be transformed into an airship of equivalent Artifact rating. Exalts using this protocol can reconfigure a machine spirit with up to half the weaver's Essence into a device with an equivalent Artifact rating or into an Autochthonian familiar with a rating equal to (Essence + 2). If the weaver is transforming one artifact into another of equal power, his player rolls (Intelligence + Lore) and must get a number of successes equal to the Artifact's rating for the Exalt to accomplish his task. N/A-rated artifacts cannot be created or affected by this protocol. At Essence 7, the weaver may instead simultaneously reconfigure multiple machine spirits she can see for an additional five motes per added target. Used in this manner, the protocol only alters their programming. It does not rebuild their physical forms, and no target can have Essence greater than 3.</p>"
+  },
+  "folder": "07b5963f5e930aca",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

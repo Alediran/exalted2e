@@ -1,0 +1,67 @@
+{
+  "_id": "2e7ebc109265447f",
+  "_key": "!items!2e7ebc109265447f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Knockout Blow",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Crippling",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 2,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "4m"
+    },
+    "description": "<p>The Solar's perfect understanding of the mortal body allows him to strike with surgical precision at the pressure points, nerve clusters, and structural vulnerabilities that can render a person instantly unconscious. Supplementing a bashing unarmed or martial arts attack, this charm converts all damage from the blow to bashing, but any damage that reaches the target's incapacitated health levels instead renders them unconscious for (Essence) hours rather than killing them. The target takes no additional damage from this unconscious state.</p><p>The charm also adds the Solar's Essence in bonus dice to the attack roll, as the precision required demands exceptional accuracy. Targets with supernatural resistance to pain or unconsciousness (such as undead or certain spirits) are immune to the rendering-unconscious effect, though the attack still deals its bashing damage normally. This charm is the prerequisite for Break the Storm.</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Solar Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "2e7ebc109265447f",
+    "grantsMastery": false
+  },
+  "folder": "05bd4dac47a869bd",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "5071a409ab0f0233",
+  "_key": "!items!5071a409ab0f0233",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Aegis-inset Amulets",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Rarely used by the Exalted and far more commonly implanted in elite mortal warriors, a full set of these dark crystal amulets qualifies as a single artifact. The devices are designed to be inserted into every major pulse point (wrists, shoulders, hips, knees and the back of their neck), collectively appearing as nothing more than extensive and exotic body jewelry. Upon closer inspection, each amulet reveals a fine tracing of arcane sigils and Old Realm glyphs etched into its surface. Implanted in a mortal incapable of channeling Essence, the amulets allow her to don and instantly attune any magical armor that normally requires an attunement cost up to five motes. This benefit does nothing to offset other costs, such as for armor that requires an inset hearthstone to operate. Armor constructed of the five magical materials does not provide its material bonus when worn by a mortal. Most commonly, the talismans are paired with gunzosha commando armor (see p. 81), though they integrate just as readily with other models. Unfortunately, the talismans drain their bearer's life force as long as they are worn, doubling her aging rate. Because of this extreme drawback, mortal characters do not have to pay any Background points to obtain aegis-inset amulets, especially since they must still pay the cost to get any magical armor they plan to wear. For Exalted and other beings capable of channeling Essence, aegis-inset amulets provide less dramatic benefits (but no drawbacks), reducing the attunement cost of any worn magical armor by two motes (to a minimum of one mote). If a mortal implanted with these devices receives Exaltation, the talismans immediately stop draining her life and provide the standard Exalted benefit instead. Surgery: 30/5 hours/4/3</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 1,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

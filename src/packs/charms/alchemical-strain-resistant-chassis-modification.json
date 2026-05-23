@@ -1,0 +1,62 @@
+{
+  "_id": "4de965c48308bb40",
+  "_key": "!items!4de965c48308bb40",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Strain-Resistant Chassis Modification",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "stamina",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "instant",
+    "speed": 3,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Internal"
+    ],
+    "cost": {
+      "formula": "-- [1m or 0m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Alchemical's Essence-smiths reinforce her chassis with specialized shock-absorbing materials and energy-dispersing substructures, hardening her divine body against physical punishment and the cumulative toll of demanding exertion. Once installed, this internal modification permanently adds two to the Alchemical's Bashing and Lethal soak derived from Stamina, and reduces fatigue penalties by one.</p><p>The modification is invisible to casual inspection, revealing itself only as an unusual resilience when the Alchemical is struck or pushed to physical extremes. Higher-Essence versions of this modification may be installed to provide further protection, stacking with the base installation up to a maximum bonus equal to the Alchemical's permanent Essence.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "4de965c48308bb40",
+    "soakBonus": {
+      "enabled": true,
+      "bashing": 2,
+      "lethal": 2
+    }
+  },
+  "folder": "b0b1b2b3b4b5f053",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

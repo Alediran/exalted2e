@@ -1,0 +1,84 @@
+{
+  "_id": "6b14f271a3ba19af",
+  "_key": "!items!6b14f271a3ba19af",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dreaming The Wild Lands",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "survival",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal learns to bend the wilderness to her will. He can make minor changes in the scenery, such as moving a tree, changing a bend in a river or re-sculpting the jumbled aftermath of a rockslide. The Sidereal cannot</p><p>shift around permanent, defining characteristics of the landscape, such as glaciers, canyons, volcanoes or island. He can shift only discrete features upon the landscape that teams of mortal laborers could physically move given a few weeks and proper equipment. Mortals could also cause an avalanche if they knew what part of an undercut ice-sheet to tamper with--and so can the Sidereal. A character can use this Charm to attack using elements of the landscape, such as dropping boulders from a cliff or a wasp's nest from a tree, or making a river-bank crumble to pitch an enemy into the water. These follow the normal attack sequence, but use (Wits + Survival) as the attacker's dice pool. The Storyteller defines the other effect of an attack, but damage should not exceed (Sidereal's Essence x 2) dice, whether lethal or bashing damage.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "89fe197e69c22339",
+            "charmName": "Adopting the Untamed Face",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1f9a37fcea8c5f95",
+            "charmName": "Becoming the Wilderness",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "6b14f271a3ba19af"
+  },
+  "folder": "b0b1b2b3b4b5f017",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

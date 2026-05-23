@@ -1,0 +1,80 @@
+{
+  "_id": "aa1e7b60092f3186",
+  "_key": "!items!aa1e7b60092f3186",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Soul-Marking Strike",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "supplemental",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Stackable",
+      "Touch"
+    ],
+    "cost": {
+      "motes": 3,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "3m"
+    },
+    "description": "<p>To enact this Charm, the Immaculate need only touch her opponent, nothing heavier than a caress, and spend the Essence. The target feels a sharp pain in his head, but nothing more. In combat, touching a target thus requires a successful attack. For the remainder of the scene, the Immaculate gains an automatic success on any attack she makes against a target who has been branded. Multiple soul mark effects are cumulative. Soul marking is especially painful to spirits--as painful as a real brand is to mortals. In addition to the other effects, this Charm endows spirits with a (cumulative) -1 internal penalty due to the searing pain that refuses to go away. For 24 hours after branding a target, the Immaculate can sense the direction to any being she has branded. The Immaculate adds a number of dice equal to her Essence to attempts to track such a subject, or she gains the ability to take part in a supernatural tracking contest. When such a being is within a number of yards equal to the martial artist's Essence, the martial artist can tell approximately where, and which being, it is.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Wood Dragon Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d80f71a0f84e67b4",
+            "charmName": "Wood Dragon Vitality",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "aa1e7b60092f3186",
+    "grantsMastery": false
+  },
+  "folder": "9aed05734440bb9c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

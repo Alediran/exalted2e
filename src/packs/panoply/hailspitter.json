@@ -1,0 +1,52 @@
+{
+  "_id": "b51e5afbad480a7f",
+  "_key": "!items!b51e5afbad480a7f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hailspitter",
+  "type": "weapon",
+  "img": "icons/weapons/swords/sword-ornate-yellow.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "Archery",
+        "speed": 4,
+        "accuracy": 4,
+        "damage": 6,
+        "damageType": "lethal",
+        "overwhelming": 1,
+        "defense": 0,
+        "rate": 2,
+        "range": 150,
+        "minStrength": 1,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": [
+          "Bow"
+        ]
+      }
+    ],
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "description": "<p>A miniaturized artifact crossbow; light enough to fire one-handed.</p>",
+    "source": "Armorium",
+    "equipped": false
+  },
+  "folder": "f004a234b56c78a0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

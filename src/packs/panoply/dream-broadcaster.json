@@ -1,0 +1,37 @@
+{
+  "_id": "c5087332a5d54dd1",
+  "_key": "!items!c5087332a5d54dd1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dream Broadcaster",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>This item is a one-inch-thick, two-inch-wide circlet made of orichalcum, clear crystal and starmetal, designed to be worn on the user's head. It has a setting for a single hearthstone. With it, the wearer can broadcast dreams and daydreams to everyone in her vicinity. The subtle starmetal circuits respond to the dream, their Essence fluctuations are amplified by the orichalcum and the Essence flows of the hearthstone, and then the crystal broadcasts this dream to everyone within range. This device has a range of a number of miles equal to the user's permanent Essence. To activate this device, the user must first commit seven motes of Essence to it and spend five motes to activate it for a scene. Once she does so, the user can broadcast whatever images, messages and/or dreams she desires. This device can also be used with an amplifier that increases its range by a factor of 25. This amplifier is a large, heavy throne made from the same materials. The throne also contains a single hearthstone socket, and to activate the throne, a hearthstone of at least level 3 must be placed in this socket. This hearthstone provides no other benefits. Owning both the dream broadcaster and the amplifier raises the cost of this artifact to five dots. The amplifier throne weighs approximately 300 pounds, and without sorcery, it can be moved only in a cart or other sturdy means of transport. Regardless of whether it is used with or without the amplifier, a dream broadcaster can be used to send messages to everyone within range. Anyone who is concentrating intensely automatically blocks out the message, and anyone who is willing to spend a point of Willpower can deliberately block it out. Everyone else within range will receive it clearly, however, and anyone can understand the message, even if they do not share a common language with the user. If a subject is awake and not busy when the broadcast occurs, then he has a brief vision of the message. Sleeping people within range have unusually vivid dreams about the message, which they always remember when they awaken. Used on its own, this device allows the wearer to send messages exceptionally widely. The user can send speech, images or even complete memories. The Wyld Hunt has often used dream broadcasters to transmit both an image of a particular Anathema they are looking for, along with the information that they are willing to pay a rich reward for information about this individual. Such broadcasts have proven to be an excellent way to obtaining information from everyone in the vicinity. Similarly, properly used messages can also be used to cause or occasionally to help stop a mass panic. While people do not necessarily believe the information they receive through one of these broadcasts, they remember it and are aware that it came from some external source. Broadcasters need not identify themselves and can keep their own identity and everything about themselves completely secret. This device can also be used with any Social Charms that the wearer possesses that are specifically designed for use when communicating with crowds. These Charms can be used normally and will affect everyone who receives the message. Ordinary social Excellencies or other Charms that are not specifically designed to be used for mass communication cannot be used with this item, even if they could normally be used when the wearer was making a speech or telling a story. Charms such as Respect Commanding Attitude or Heart-Compelling Method, however, can be used to great effect in combination with this artifact. Yet, because of the difficulty of combining any Charm with this powerful item, the wearer must spend one Willpower point for every Charm used in this fashion, in addition to any other Willpower or mote costs required by the Charm.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 4,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

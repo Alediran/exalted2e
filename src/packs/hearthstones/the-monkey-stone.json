@@ -1,0 +1,23 @@
+{
+  "_id": "HS10000000000000",
+  "_key": "!items!HS10000000000000",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Monkey Stone",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-green.webp",
+  "folder": "FLDWOOD000000000",
+  "sort": 0,
+  "flags": {},
+  "system": {
+    "hearthstoneType": "wood",
+    "rating": 2,
+    "description": ""
+  }
+}

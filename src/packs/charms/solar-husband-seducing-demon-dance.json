@@ -1,0 +1,73 @@
+{
+  "_id": "04163b63b0fda83e",
+  "_key": "!items!04163b63b0fda83e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Husband-Seducing Demon Dance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "performance",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Emotion",
+      "Obvious",
+      "Social"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>In answer to the call of the Solar Exalted, in ancient times, people gave up their homes and families and marched to war. Some Lawgivers gave speeches and shone with the sun's radiance, but others called their servants with beauty--piping, dancing or playing at the harp, wordlessly and terribly calling their soldiers to their deaths. The Solar gives a performance, her player rolling ([Charisma or Manipulation] + Performance) and adding her Appearance in bonus dice. This Charm exerts unnatural mental influence on all who witness it. Characters with Mental DV less than the Solar's successes must spend two Willpower or fall instantly in love either with the Solar or something the Solar represents. This effect does not depend on gender or sexual preference. Targets incapable of sexual attraction to the Solar suffer starry-eyed infatuation or</p><p>dedication to the Solar's cause rather than romantic desire. This love is a form of commitment (see p. 201). Targets can break the commitment naturally but they must spend one Willpower in each scene where they deliberately attempt to shake it off.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "541e0ff91d4b2f16",
+            "charmName": "Heart-Compelling Method",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "04163b63b0fda83e"
+  },
+  "folder": "e38c83836f199624",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

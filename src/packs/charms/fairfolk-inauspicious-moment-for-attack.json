@@ -1,0 +1,59 @@
+{
+  "_id": "8ef629fd3a7284a1",
+  "_key": "!items!8ef629fd3a7284a1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Inauspicious Moment for Attack",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "staff",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Echo",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "1m per target",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Even armies slow their advance when baffled, distracted or humiliated by the Laughing Monster. At the beginning of shaping combat, the raksha can invoke this Charm against one opponent per mote spent, up to a maximum number of targets equal to her Essence. The raksha's player must roll (Intelligence + Occult) as a Staff-shaping attack, with the result compared to the Staff DV of each targeted enemy. If the attack succeeds against a character, that character suffers an internal penalty to his Join Shaping Battle roll equal to the raksha's Essence. If this penalty reduces a character's Join Shaping Battle roll to 0 or below (before the application of any dice-adding effects or other Charms), that character will be unable to make any shaping attacks for (the Laughing Monster's Essence + 6) ticks. An affected character can still take reflexive actions and defend with reflexive Charms and effects.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "8ef629fd3a7284a1"
+  },
+  "folder": "3a42d6c2417833d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

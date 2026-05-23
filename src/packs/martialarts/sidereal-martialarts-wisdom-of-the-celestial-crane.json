@@ -1,0 +1,102 @@
+{
+  "_id": "ac1e94e3d1c9cf9e",
+  "_key": "!items!ac1e94e3d1c9cf9e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wisdom of the Celestial Crane",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Holy"
+    ],
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "--"
+    },
+    "description": "<p>The crane is a sacred animal. How much more so are the masters who understand its ways? Upon learning this Charm, the martial artist converts all Combos solely containing Crane Style Charms into the experience points needed to acquire them. Combos containing Charms outside the style remain. Through the Wisdom of the Celestial Crane, the character can activate any Combo solely containing Crane Style Charms as though she knew that Combo and she considers Crane Form ComboOK for this purpose. She does not need to spend Willpower to activate a Combo intuited through this Charm. Finally, if she is using Crane Form, whenever an unarmed attack she makes inflicts any levels of damage to a creature of darkness, that being also loses a Willpower point. Victims who lose their last Willpower point this way instantly form an Intimacy of love for Creation. CRYSTAL CHAMELEON STYLE This ancient Celestial martial art dates back to the Primordial War, when it was innovated and used by the Chosen of Mercury to help deliver vital mes- sages despite overwhelming Primordial opposition. Demons and Lintha alike were left blinking and confused as practitioners quickly blurred through their blockades, leaving only footprints and corpses to mark their passing. It is still strongly favored today for its mixture of surprise and speed. Those who have fought a Blinding Prism (as practitioners of this style are known) rarely know precisely what hit them, and that suits the needs of the Viziers of the Second Age perfectly. Unbeknownst to its Sidereal inventors, the style is also widely popular in Autochthonia. Weapons and Armor: Crystal Chameleon style treats attacks made with the spear, rope dart, weighted rope and their artifact equivalents as unarmed for the purpose of its Charms. It is incompatible with armor. Complementary Abilities: To properly execute the lightning-fast movements and sudden ambushes of the style, practitioners must have at least three dots spread between Stealth and Athletics.</p>",
+    "source": "Glories of the Most High: Maidens of Destiny",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Crane Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5b26798520335968",
+            "charmName": "Kindly Sifu's Quill",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0f2fb9fcbe71357b",
+            "charmName": "FeatherStirred Arrow Deflection",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "77182e29fb4f683c",
+            "charmName": "Wings Spread to Sky",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "ac1e94e3d1c9cf9e",
+    "grantsMastery": false
+  },
+  "folder": "c67a8c5f18d732b0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

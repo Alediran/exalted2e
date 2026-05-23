@@ -1,0 +1,37 @@
+{
+  "_id": "abe98c735a672b4e",
+  "_key": "!items!abe98c735a672b4e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Cleansing Solar Flames",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "solar-circle-cleansing-solar-flames",
+    "tradition": "sorcery",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 50,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Touched shadowland",
+    "description": "<p>This spell must be cast during the day at the geomantic center of a shadowland--that place through which all its Essence flows are poisoned. As the sorcerer casts Cleansing Solar Flames from that point, sunlight pierces the shadowland's miasma, shining warmly upon the caster and collecting in growing clouds until a thunderhead of light rises above her, visible for miles. And then, the sorcerer lifts her head in a piercing cry as the sun-cloud impales her with a bolt of golden lightning that passes through her into the ground and explodes outward in a glittering wave. The solar lightning holds the sorcerer for 10 minutes per 50 miles of shadowland she converts. When she is done, the sun-cloud dissipates, and normal sunlight shines over land that is now severed from the Underworld and fully part of Creation once more. If the sorcerer is moved or her attention wavers at any time during the cleansing, then this entire spell fails. Black storm winds of deathly Essence rip across the sky and scatter the sun-cloud in a terrifying (though harmless) backlash.</p>"
+  },
+  "folder": "66776f28169b53d7",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

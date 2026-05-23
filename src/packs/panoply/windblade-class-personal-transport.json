@@ -1,0 +1,37 @@
+{
+  "_id": "2fba466ef0b68dd6",
+  "_key": "!items!2fba466ef0b68dd6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Windblade-class Personal Transport",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>The smallest skyship model produced in the First Age, the Windblade-class personal transport normally appears as a heavy metal chevron the size of a large belt buckle. Attuning this device costs only one committed mote. When thrown or dropped by an attuned bearer who spends an additional 10 motes (uncommitted), the device slows and hovers in midair, unfurling cunningly articulated plates to form a narrow, angular platform roughly a yard long. The device's master can step up onto this platform with one foot ahead of the other on marked control pads at any time in this configuration, triggering enchantments that make the personal transport adhere to her feet and prevent falling. The device is piloted with the feet, leaving the user's hands free to hold weapons or perform other tasks. During the First Age, archers equipped with these transports used them as mobile sniping platforms above a battlefield. While flying or hovering, these craft emit an oscillating hum. They must be fed 10 motes by their user every hour, or they slowly fall to the ground and retract back into their portable state. A few particularly exotic daiklaves can unfurl into Windblade craft. Such daiklaves are rated Artifact 4, and have the statistics of normal daiklaves while not in flight mode. Attuning such a device requires the usual five motes instead of one. Additional properties of a Windblade-class transport depend on the magical material used in its construction: Orichalcum: These models are faster, with a Speed of 50/100mph. Moonsilver: These models are more nimble and responsive, with Maneuverability 7. Starmetal: These models weave and dip across the skeins of fate as well as air, adding two to the Dodge DV of craft and pilot beyond normal. Jade: Built exclusively of blue jade, these models have small integrated cannons that fire lightning pulses from a forward-facing spur mounted on the underside. Each blast costs the pilot five motes and has the following statistics: Speed 6, Accuracy (pilot's Dexterity + Archery), Damage (8L or 12B) piercing, Range 100, Rate 1. Variant models have an integrated elemental lens instead. Soulsteel: At will, the pilot can extend jagged blades like bat wings from each side of the craft. The pilot attacks by \"ramming\" opponents with these blades as a Speed 5, Rate 2 attack. The craft takes no damage from this ramming, but the target suffers 10L + attack successes. Opponents killed by these blades are typically beheaded or cut in half. Speed: 34/70mph Maneuverability: +4R (Lore 1, Ride 3) Endurance: Consumes 10 motes per hour; suffers one level of unsoakable bashing damage for every 50 cumulative hours of operation since last maintenance. Crew: 1/1 Cargo: Pilot's personal possessions only. Particularly heavy loads, such as a pilot carrying a second person in her arms, halve Speed and apply a -3 Maneuverability penalty. Armor: 10L/15B Health Levels: Ux7/Mx4/Cx3/I/D Weapons: Usually none; jade and soulsteel models have weapons as noted. Other Notes: Characters flying on a Windblade-class personal transport are treated as holding a tower shield (see Exalted, p. 377), but this protection is not compatible with other shields or cover (only the best value applies). A piloted transport and its pilot both have a Dodge DV equal to ([the pilot's Dexterity + Ride + Essence + craft's Maneuverability] ÷ 2), and the pilot may use her Parry DV to defend against attacks launched at her vehicle or herself.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 3,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

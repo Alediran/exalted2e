@@ -1,0 +1,78 @@
+{
+  "_id": "c37362bb5574a9e2",
+  "_key": "!items!c37362bb5574a9e2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Meditation On War",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "melee",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Native",
+      "Overdrive"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>In the stress of battle, the Vizier draws calm and control from his connection to fate. Each mote spent on this Charm cancels -1 penalty on an attack, such as from wound penalties, multiple action penalties or sensory deprivation penalties, as long as those penalties have not reduced the attack dice pool to zero. This Charm may apply to any attack, not just Melee, and can be part of a Combo with other combat Abilities.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4c3917971480040f",
+            "charmName": "Harmony of Blows",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "attackBonus": {
+      "enabled": true,
+      "accuracyDice": "",
+      "damageDice": "",
+      "accuracySuccesses": "",
+      "ignoreAccuracyPenalties": true
+    },
+    "charmUid": "c37362bb5574a9e2"
+  },
+  "folder": "b0b1b2b3b4b5f00e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

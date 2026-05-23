@@ -1,0 +1,59 @@
+{
+  "_id": "ac3221b4cb9f6df4",
+  "_key": "!items!ac3221b4cb9f6df4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Universal Desire Trinket",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "cup",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Compulsion",
+      "Illusion"
+    ],
+    "cost": {
+      "formula": "6m, 2g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Raksha covet hoards of gossamer, while mortals want for precious jade. If they desire riches in their hearts, how can any merciful faerie deny them? Upon using this Charm, the raksha enchants a single object he can perceive, rolling (Manipulation + Performance). The object's appearance does not actually change; instead, those who see it believe it to be valuable beyond all price. All characters who see the enchanted treasure and who have a Dodge MDV lower than the raksha's rolled successes covet it greatly. They suffer a -3 penalty to the MDVs against any mental influence that exploits their desire for it. In addition, they are compelled to attempt to acquire it so long as they can see it, though this Compulsion cannot change the nature of men. An honest man cannot be turned to a thief by this influence­unless he chooses to steal it of his own free will, this influence will only compel him to attempt to buy or otherwise legitimately obtain the treasure. A character may pay two points of Willpower to resist this influence, rendering them immune to all such enchantments laid by the raksha for one day. If the raksha ends this Charm, all characters are freed from its unnatural mental influence. Furthermore, should the enchanted item be touched with cold iron, this Charm is terminated. The Fair Folk Revisited Bells chime in the darkness beyond the edge of the village. Icicles hanging from the eaves shiver with anticipation. Women gather their children close and cover their ears, while men tighten their grip on ice-axes. The Winter Folk are abroad in the night. Two princes of chaos vie for a maiden's affections. Their contest is reality itself; mountains rise and crumble, armies march,</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "ac3221b4cb9f6df4"
+  },
+  "folder": "a1b2c3d4e5f60008",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

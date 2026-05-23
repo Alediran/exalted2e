@@ -1,0 +1,79 @@
+{
+  "_id": "2dcfb68e3ec9a6d5",
+  "_key": "!items!2dcfb68e3ec9a6d5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Labor And Utility Synergy-Promoting Upgrade",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "charisma",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Internal"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Exalt has a cluster of orichalcum threads tangled around a jade nodule in his chest, the entire mass of which adjoins his Essence reservoir. Used to supplement an action in which the Alchemical benefits from or contributes to a limited teamwork bonus (see Exalted, p. 125), the bonus applies as additional successes rather than dice as the participants move with perfect clockwork synchronicity. Moreover, the number of assistants that may contribute aid is based on the Attribute or Ability used by the primary character (whichever is higher). Submodules: Communal Supremacy (Essence 3): Each bonus success contributed by teamwork via use of the Charm reduces the primary character's dice pool by one die and converts it into one additional automatic success. Any bonus dice from stunts related to teamwork automatically convert to successes as well.</p><p>Lifestyle Cooperation Paradigm (Intelligence 5, Essence 3): The duration of the Charm can increase to Indefinite for an increased activation cost of five motes, enhancing all valid actions undertaken while it remains active.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Social Attribute Augmentation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          },
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Mental Attribute Augmentation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "2dcfb68e3ec9a6d5"
+  },
+  "folder": "b0b1b2b3b4b5f04d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

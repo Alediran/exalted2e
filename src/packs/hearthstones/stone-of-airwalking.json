@@ -1,0 +1,27 @@
+{
+  "_id": "955482faf0b1da40",
+  "_key": "!items!955482faf0b1da40",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Stone of Airwalking",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDAIR0000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "air",
+    "rating": 4,
+    "description": "<p>This spherical white stone looks like a tiny, solidified cloud. Whenever the bearer of this stone desires, she can walk upon the air instead of the ground. Although she still moves at her normal movement rate, the character can walk safely across water or quicksand by walking on a layer of air lying above the surface. In addition, the character can walk up or down the air as easily as others walk up or down a staircase. With sufficient climbing, the character can walk along miles above the ground. If the character trips or is knocked down, however, she can still fall to her death unless she can get her feet under her; her player must successfully roll (Dexterity + Athletics) at difficulty 3. Also, the stone only allows the character herself to move in this fashion. Any steed she rides must still travel along the ground.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "_id": "19137c2b27aca71f",
+  "_key": "!items!19137c2b27aca71f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Righteous Avenger's Aspect",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "integrity",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Dawn",
+      "Native",
+      "Overdrive"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>For a Solar, defeat is only a marker in the chapters of existence, rather than the end of the book. Upon learning this Charm, the Exalt gains an Overdrive pool with a capacity of ten motes. Initially empty, he may fill it when confronting an opponent who has defeated the Solar in his present incarnation or any of his past lives. Defeat in this context means physical combat; defeating the Solar in social combat does not qualify, nor does beating him at Gateway or other contests. This Charm does not grant the Exalt special knowledge of defeats that occurred in past lives--the Solar must come by this information by any valid means of doing so. The Lawgiver gains (Essence + 2) offensive motes upon activation, and one additional mote each time his DV refreshes for the rest of the scene. The Solar may only activate this Charm once per scene, and only in battle against one who has defeated him. If the fight concludes with the Exalt's victory, he has avenged himself, and can no longer activate this Charm against his vanquished opponent. Otherwise, the Solar may continue to assume Righteous Avenger's Aspect until he has avenged himself. An inconclusive battle is not sufficient to release a character from the Solar's vengeance. If an earthquake splits the street between the Solar and his enemy, razing the city and carrying the two halves so far apart continued battle becomes impossible, the Solar does not lose his ability to activate this Charm against that opponent. Nor does fleeing the Solar release the target from his vengeance. At Essence 3+, the Solar may activate this Charm on behalf of a person or group of people he has a positive Intimacy toward. In this case, the Solar needs only evidence of physical harm to activate this Charm. Seeing a man strike his wife would be sufficient to channel the Lawgiver's wrath into Overdrive, as would watching his personally-trained horsemen scathed by a hail of arrows from a deathknight's bow. This Charm requires that the Solar is aware he faces an opponent who has defeated him or wronged the subject of one of his positive Intimacies. The Solar's opponent must actually have done so--the Charm will not function if the Lawgiver is mistaken, or if he is not aware of what his opponent has done. The Solar may always activate this Charm on behalf of his Lunar mate, even at Essence 2.</p><p>Presence Listener-Swaying Argument</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "55957d156f9da655",
+            "charmName": "Righteous Lion Defense",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "19137c2b27aca71f"
+  },
+  "folder": "b0b1b2b3b4b5f05d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

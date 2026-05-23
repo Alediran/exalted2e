@@ -1,0 +1,70 @@
+{
+  "_id": "a2d4ab3a30874dd5",
+  "_key": "!items!a2d4ab3a30874dd5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Cipher Missive",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "linguistics",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Diplomacy is not the only purpose to which words can be directed, and the Children of Mela often make excellent cryptographers as well. With this Charm, an Exalt can hide sensitive material from prying eyes within a supernaturally complex code. The Dragon-Blood must fashion the document herself, and it can be no longer than a number of pages equal to her Essence. The player rolls (Intelligence + Linguistics), with the successes determining the number of successes needed for someone else to decipher the document. Additionally, each deciphering roll requires an (Intelligence + Linguistics) roll with a base difficulty equal to the permanent Essence of the character who fashioned the Cipher Missive (Each deciphering roll also represents a number of days equal to the Charm-user's permanent Essence.) The character who uses this Charm may identify a number of individuals equal to twice his Essence who can read the document without difficulty. Alternatively, he can identify a single class of individuals, which must be limited and specific, who can freely read the document. For example, such classes might include \"only magistrates\" or \"only members of House Iselsi.\"</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "46936387b7f7b269",
+            "charmName": "Language-Learning Ritual",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a2d4ab3a30874dd5"
+  },
+  "folder": "b0b1b2b3b4b5f023",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

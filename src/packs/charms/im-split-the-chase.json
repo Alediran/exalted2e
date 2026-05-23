@@ -1,0 +1,58 @@
+{
+  "_id": "196d77f658617fe4",
+  "_key": "!items!196d77f658617fe4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Split the Chase",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "martial-arts",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Native",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm permanently enhances its prerequisite. Upon an activation of Lightning Strikes Twice, the Solar's Charm use for that action is reset. That is, he still makes an unexpected attack, but he may choose to activate a new Charm or Combo to enhance that unexpected attack in order to further devastate his target. Split the Chase also expressly allows the Solar to activate Lightning Strikes Twice a second time against a single target on a single tick, provided he uses the chase effect of Lightning Strikes Twice to make a second Martial Arts attack, as opposed to an attack using another combat Ability. Split the Chase may not be triggered more than one time on a single tick against a single target. Flicker-Fade Recursion</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "196d77f658617fe4"
+  },
+  "folder": "a1b2c3d4e5f60008",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

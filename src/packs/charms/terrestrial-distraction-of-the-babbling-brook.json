@@ -1,0 +1,71 @@
+{
+  "_id": "10472c23b7ba182a",
+  "_key": "!items!10472c23b7ba182a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Distraction Of The Babbling Brook",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "bureaucracy",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Illusion"
+    ],
+    "cost": {
+      "formula": "4m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Anyone who is not proficient at the arts of the deal is wise to be suspicious of any contract he does not fully understand. But even the craftiest of traders should be suspicious of contracts with the Dragon-Blooded, some of whom can draft fine print capable of ensnaring the most sophisticated Guild operative as if he were a country bumpkin. With this Charm, a Dragon-Blood can conceal penalty clauses, conditions, extra fees and almost any other sort of fine print into a contract without the other party noticing their presence until after he signs it. The added contract clauses must be reasonably subtle, which may call for Storyteller discretion. A clause stating that interest on a loan balloons to 50 percent compounded weekly if the other party is late on a single payment or that the other party's business is forfeit if he fails to complete a task within a certain deadline is permissible. A clause stating that the other party will sell himself into slavery for a nominal fee or that he agrees</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6329da87ae7471ab",
+            "charmName": "Thoughtful Gift Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "10472c23b7ba182a"
+  },
+  "folder": "b0b1b2b3b4b5f01d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

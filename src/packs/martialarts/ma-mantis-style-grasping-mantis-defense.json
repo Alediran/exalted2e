@@ -1,0 +1,58 @@
+{
+  "_id": "780398703b38811e",
+  "_key": "!items!780398703b38811e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Grasping Mantis Defense",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Counterattack"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When a foe successfully attacks the Mantis martial artist (i.e., her Dodge or Parry DV does not remove enough successes from the attack roll), the martial artist may activate this Charm and immediately attempt to parry the attack with her (Dexterity + Martial Arts) pool. That is, her player rolls this pool and compares the number of successes to the total number of successes her opponent's attack roll garnered. If this active parry's roll results in an equal or greater number of successes than the attack roll did, the attack inflicts no damage and the character's opponent is trapped in a hold. Use the character's net success as the extra successes on the hold attempt.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Mantis Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "780398703b38811e"
+  },
+  "folder": "026302498ba6c9dc",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

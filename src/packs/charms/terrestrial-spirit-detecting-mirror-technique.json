@@ -1,0 +1,55 @@
+{
+  "_id": "832890d1c4a48d4b",
+  "_key": "!items!832890d1c4a48d4b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Spirit-Detecting Mirror Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "occult",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>After the Great Uprising, it fell to the savants of the Air to attempt to repair the Terrestrial Exalted's badly fractured relationships with the spirit courts. In both diplomacy and spycraft, they used this Charm, which allows a Dragon-Blood to see the reflection of unmanifested spirits in any reflective surface, such as a mirror, a polished sword or even a still pool of liquid. Furthermore, the Dragon-Blood can hear the voices of any spirits he can see, allowing for both conversations and, perhaps, discrete eavesdropping.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "832890d1c4a48d4b"
+  },
+  "folder": "b0b1b2b3b4b5f028",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

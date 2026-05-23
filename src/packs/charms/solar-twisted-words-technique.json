@@ -1,0 +1,84 @@
+{
+  "_id": "3bc588be6c26c3ca",
+  "_key": "!items!3bc588be6c26c3ca",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Twisted Words Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "linguistics",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Compulsion",
+      "Illusion"
+    ],
+    "cost": {
+      "formula": "6m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The cadences of the Solar's language are subtly compelling. This Charm supplements a written attempt to compel or deceive others. It makes the persuasion attempt involved unnatural. The player rolls (Manipulation + an appropriate social Ability). This effects a compulsion or illusion on anyone who reads the written text and whose MDV the successes exceed. The target must spend three Willpower to resist this effect or become committed (see p. 201) to the intention or belief the Solar wishes to instill. If the target does not spend the three Willpower, the influence lasts until the target breaks the commitment and costs one Willpower per scene to resist. This Charm loses effectiveness with repeated use. Increase the target's MDV by three if an Exalt has used Twisted Words Technique or a similar Charm on the target this story.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "47a23b033a7f47f9",
+            "charmName": "Letter-Within-a-Letter Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "23f31acd8f158a53",
+            "charmName": "Sagacious Reading of Intent",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "3bc588be6c26c3ca"
+  },
+  "folder": "13c99c0e197877e7",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

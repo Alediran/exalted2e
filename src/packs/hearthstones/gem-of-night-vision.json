@@ -1,0 +1,27 @@
+{
+  "_id": "74e2347a04c30019",
+  "_key": "!items!74e2347a04c30019",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gem of Night Vision",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDFIRE000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "fire",
+    "rating": 1,
+    "description": "<p>As fire gives light in darkness, so the bearer of this clear, crystal cabochon can see in any non-magical darkness as if he had a bonfire... without the need for a light source that might give him away to an enemy. Even in complete absence of light, the bearer sees clearly out to 10 yards and murkily out to 20 yards.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

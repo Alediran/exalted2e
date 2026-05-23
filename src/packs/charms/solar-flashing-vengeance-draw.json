@@ -1,0 +1,71 @@
+{
+  "_id": "17507b92d6572f24",
+  "_key": "!items!17507b92d6572f24",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Flashing Vengeance Draw",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "archery",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Martial-ready",
+      "Mirror (Doom Drawn and Imminent)"
+    ],
+    "cost": {
+      "formula": "--(3m)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>To assault the Chosen of the Unconquered Sun is folly. Their retribution is swift and terrible. The Exalt must have an</p><p>Archery weapon available for use to invoke this Charm, but it need not be in her hands. This Charm enhances the Join Battle action, giving the Solar a number of bonus successes on the Join Battle roll equal to her Essence. This Charm immediately and reflexively draws and readies an available Archery weapon.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "17944eba50013449",
+            "charmName": "Trance of Unhesitating Speed",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "17507b92d6572f24"
+  },
+  "folder": "e842a3a532908d8d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

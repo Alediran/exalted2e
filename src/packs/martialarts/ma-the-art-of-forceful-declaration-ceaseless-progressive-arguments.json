@@ -1,0 +1,57 @@
+{
+  "_id": "4c6286f648b10f49",
+  "_key": "!items!4c6286f648b10f49",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ceaseless Progressive Arguments",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "extraAction",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The valorous feed off their own successes. When a debater delivers an argument that strikes home, he exults and can follow up instantly with a series of further scathing remarks. This Charm is a magical flurry with a total DV penalty of -2. Any Martial Arts attack that hits a target spawns another. As long as the martial artist continues to strike targets successfully, he immediately follows up with another attack against any target within range. The Exalt can make no more than (Valor + Essence) attacks, but he must continue to attack as long as he can. When he misses a target, reaches the maximum number of attacks or can no longer afford the Essence for other Charms in a Combo, the flurry ends.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Forceful Declaration",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "4c6286f648b10f49"
+  },
+  "folder": "676ebc2abfe88729",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

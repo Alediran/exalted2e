@@ -1,0 +1,57 @@
+{
+  "_id": "1a82af789338b829",
+  "_key": "!items!1a82af789338b829",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Showering Foes with Friendship",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "extraAction",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "6m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With a little careful planning, the Compassionate master can surprise his opponents with enough sympathetic arguments and friendly overtures to throw her off balance, winning a serious advantage. The martial artist's player rolls (Compassion + Essence). Each success gives the Exalt one additional action for immediate use in this magical flurry. These are considered full actions for the purpose of performing any non-attack actions, such as stanching wounds, picking a lock or attempting to reestablish surprise. Showering Foes with Friendship may be used for offensive actions only if the action is created or supplemented by a Charm from this style or a Compassion Charm normally available only to spirits. Either option requires a Combo with Showering Foes with Friendship. This Charm may also be part of a Combo with Charms from other Abilities as long as they are not used to cause harm.</p>",
+    "source": "Scroll of the Monk: The Imperfect Lotus",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "The Art of Victorious Concession",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "1a82af789338b829"
+  },
+  "folder": "fd11958743cc8ca7",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

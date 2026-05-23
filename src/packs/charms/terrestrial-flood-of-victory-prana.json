@@ -1,0 +1,68 @@
+{
+  "_id": "861764e3150da632",
+  "_key": "!items!861764e3150da632",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Flood Of Victory Prana",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "larceny",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The pinnacle of the art of illegal gambling, this Charm permits the Dragon-Blood to automatically win whatever game she is playing. The game in question must be a game of chance, be it dice, cards, roulette or anything else in which luck is a determining factor. If two characters both use this Charm in the same game, the one with the highest permanent Essence wins. If both have the same Essence, the outcome of the game is determined by opposed (Wits + Larceny) rolls. A Dynast caught using this Charm faces serious social censure. A Dragon-Blood in Lookshy is more likely to face criminal charges, while one foolish enough to use this Charm in a casino operated by a god or Exalt risks a very unpleasant death.</p><p>MARTIAL ARTS The Dragon-Blooded collectively have access to more martial arts styles than any other Exalted group due to the existence of Immaculate training and the regimented lifestyle of the Seventh Legion. Some of the martial arts styles most commonly practiced by the Dragon-Blooded are described in Chapter Six (see p. 188). The following Charms are special Dragon-Blooded Charms that are available to any Terrestrial Exalt regardless of what style she practices. Other Exalted martial artists cannot learn these Charms, regardless of the style they pursue, unless they are Eclipse Caste Solars or Moonshadow Caste Abyssals. These Charms are always considered Water Aspect Charms regardless of whatever martial arts style the Dragon-Blood using them studies.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "566edbf7555fb4f7",
+            "charmName": "Perfect Gambling Prana",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "861764e3150da632"
+  },
+  "folder": "b0b1b2b3b4b5f022",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

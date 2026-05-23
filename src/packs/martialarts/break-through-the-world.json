@@ -1,0 +1,82 @@
+{
+  "_id": "ea3d650d13d7f219",
+  "_key": "!items!ea3d650d13d7f219",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Break Through The World",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "martialarts",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      1
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Native",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 7,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "7m, 1wp"
+    },
+    "description": "<p>The loftiest works of men, gods, and Primordials alike are as dust before the fury of the Solar Exalted. This Charm supplements an unarmed Martial Arts attack directed against a nonmagical structure. The Solar ignores the structure's soak, hardness, and health levels, and automatically destroys a volume of the structure encompassing (Essence x 10) yards from the</p><p>point of the attack's impact, distributed as the player sees fit. At Martial Arts 6+, Essence 6+ this Charm may be activated for a cost of ten motes, one Willpower to encompass a volume of (Essence x 50) yards. This tends to cause palaces to collapse, city walls to crumble, and the sides of mountains to cave in. At Martial Arts 7+, Essence 7+ this Charm may also be applied to non-imperishable magical structures. Stunning Deathblow Evasion</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Solar Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "49774ab300335229",
+            "charmName": "Sledgehammer Fist Punch",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "ea3d650d13d7f219",
+    "grantsMastery": false
+  },
+  "folder": "05bd4dac47a869bd",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

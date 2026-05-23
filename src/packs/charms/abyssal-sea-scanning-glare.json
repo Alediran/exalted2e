@@ -1,0 +1,57 @@
+{
+  "_id": "c330cd333015de72",
+  "_key": "!items!c330cd333015de72",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sea-Scanning Glare",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "awareness",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 3,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Abyssal's eyes take on a steely, storm-grey cast as she pierces the concealing veils of sea mist, fog banks, driving rain, and the grey murk of overcast days at sea. For the remainder of the scene, the Exalted ignores all visibility penalties caused by weather, atmospheric conditions, or natural obscuration, and doubles the effective range at which she can make out details. This supernatural clarity extends equally to reading distant signals, identifying ships by their rigging, and spotting hazards before they become crises.</p><p>The charm's effect is subtle enough to appear as merely exceptional eyesight to observers, though the silver-grey quality of the Abyssal's gaze while active is distinctive to those who have encountered Abyssal Exalted before. It serves as prerequisite for Mist-Veiled Doldrums Technique, which leverages this same perception to project obscuring conditions outward rather than simply see through them.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "c330cd333015de72"
+  },
+  "folder": "b0b1b2b3b4b5f035",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

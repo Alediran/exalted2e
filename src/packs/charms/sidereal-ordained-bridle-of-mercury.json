@@ -1,0 +1,59 @@
+{
+  "_id": "a26592c6a9db0205",
+  "_key": "!items!a26592c6a9db0205",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ordained Bridle Of Mercury",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "ride",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": -2,
+    "steps": [],
+    "keywords": [
+      "Compulsion",
+      "Obvious",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal evokes a luminous bridle of golden stardust. Fitting the bridle to a chosen mount or animal companion</p><p>THE SCRIPTURE OF THE ETERNAL MAIDEN Once, there was a maiden . . . ...made from a lump of iron, shaped by wind, sea and fire. Fearing how wood might shape her, She ran, and did not look back. One day, she forgot what she ran from. So, she pulled out her heart to ask it. \"Why don't you look back and see?\" it said. So, she sighed and threw her heart away. \"I have no use for beginnings,\" said she. ties that animal's destiny together with the Sidereal's. The bridle automatically sizes and shapes itself to fit the animal in question, then fades away. That animal becomes a new familiar for the Vizier. If the Sidereal has no appropriate animal at hand, he can ask Mercury to lead him to a worthy specimen of a species he designates. The character gains an innate sense of the direction to an appropriate animal. The bridle remains solid and whole until he reaches his new familiar. The chosen animal allows him to approach and place the bridle upon it, already feeling the gravity of fate pulling its simple soul. If the Sidereal selects his own animal, the Charm costs an additional Willpower point. The animal remains a familiar, with appropriate benefits to the Sidereal, for the rest of the story. Whether the animal stays a familiar afterward depends on how the character treated the animal. If the player wants to spend experience points on the Background, the character can certainly keep the animal as a familiar (see \"Backgrounds Gained Through Charms,\" p. 126).</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "a26592c6a9db0205"
+  },
+  "folder": "b0b1b2b3b4b5f013",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

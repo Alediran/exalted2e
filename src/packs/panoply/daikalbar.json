@@ -1,0 +1,53 @@
+{
+  "_id": "85943614596279c0",
+  "_key": "!items!85943614596279c0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Daikalbar",
+  "type": "weapon",
+  "img": "icons/weapons/swords/sword-ornate-yellow.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "Melee",
+        "speed": 5,
+        "accuracy": 3,
+        "damage": 8,
+        "damageType": "lethal",
+        "overwhelming": 1,
+        "defense": 2,
+        "rate": 2,
+        "range": 0,
+        "minStrength": 2,
+        "minDexterity": 0,
+        "minMartialArts": 1,
+        "tags": [
+          "Two-Handed",
+          "Reaching"
+        ]
+      }
+    ],
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "description": "<p>The Exalted version of the polearm consists of a stout metal pole four to six feet long. Each end bears an assemblage of blades and points to chop, pierce and slash, and no two daikalbars look the same. A daikalbar is wielded two-handed so a character can either slash or stab as if the weapon were a spear, poleaxe or trident, and parry as if it were a staff. The weapon's comparatively high Accuracy reflects that the wielder can attack with either end, making it a hard weapon to dodge or parry. Indeed, a successful aattttaacckkmmiigghhttaaccttuuaalllyyssttrriikkeewwiitthhbbootthheennddss,,tthhoouugghhtthheeddaammaaggeeiisstthheessaammeeaassiifftthheewwiieellddeerrssttrruucckkoonnee slower but more powerful blow with only one end. A daikalbar's two blades make it ill suited for charging or setting against a charge, though. A daikalbar usually includes a setting for one hearthstone in the middle of its helve.</p>",
+    "source": "Scroll of the Monk",
+    "equipped": false
+  },
+  "folder": "f004a234b56c78a0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

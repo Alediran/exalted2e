@@ -1,0 +1,17 @@
+{
+  "_id": "e71fa234b56c78a7",
+  "_key": "!items!e71fa234b56c78a7",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Slayer Khatar",
+  "type": "weapon",
+  "img": "icons/weapons/daggers/dagger-serrated.webp",
+  "system": {
+    "modes": [
+      { "name": "", "speed": 5, "accuracy": 0, "damage": 2, "damageType": "lethal", "overwhelming": 1, "defense": 3, "rate": 3, "range": 0, "minStrength": 1, "minDexterity": 0, "minMartialArts": 0, "tags": [] }
+    ],
+    "artifact": true, "magicalMaterial": "", "attunementCost": 0, "attuned": false,
+    "artifactRating": 2, "hearthstoneSlots": 0,
+    "description": "", "equipped": false
+  },
+  "folder": "f004a234b56c78a0", "sort": 0, "ownership": { "default": 0 }, "flags": {}, "effects": []
+}

@@ -1,0 +1,71 @@
+{
+  "_id": "3c80cb771e17bdf4",
+  "_key": "!items!3c80cb771e17bdf4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Vermillion Plague Conscription",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "war",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The cause of death must be championed, whatever the cost. Where support flags amongst the living, the Abyssal general wields the power to change a mortal's perspective. Upon activating Vermillion Plague Conscription, the Abyssal may begin to rectify this situation. A haze of bright murder tinges the Abyssal's anima with the ruby specks of a blood splatter. For the</p><p>rest of the scene, whenever the deathknight slays a living mortal, that mortal immediately rises as a loyal zombie and begins to follow the deathknight's orders. The Abyssal may create up to (Essence x 5) zombies in this manner within the course of a scene. Zombies created in this fashion retain their animation and their loyalty to the deathknight even after the motes committed to Vermillion Plague Conscription have been released. At Essence 5+, the character may purchase this Charm a second time to increase the number of zombies he may create to (Essence x 10). Midnight Caste Integrity Soulsteel Reaper Spirit</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "aa03afc17d6c2284",
+            "charmName": "Arise and Slaughter",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "3c80cb771e17bdf4"
+  },
+  "folder": "b0b1b2b3b4b5f071",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

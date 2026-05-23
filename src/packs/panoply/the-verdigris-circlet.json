@@ -1,0 +1,37 @@
+{
+  "_id": "fae689d7e1e7ff13",
+  "_key": "!items!fae689d7e1e7ff13",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Verdigris Circlet",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>The Verdigris Circlet is a circular band of a shining metal patterned like fine damascened steel, but with the bands of different color being a mixture of bright copper and emerald green. The circlet is as wide as a person's thumb, it has a setting for a single hearthstone, and it is designed to be worn around the wearer's head. The circlet's wearer cannot die. He automatically regenerates one health level of either bashing or lethal damage per action, even if his body is rendered into ash. The wearer also heals aggravated damage at a rate of one health level every five minutes. This item renders the wear immune to all diseases and, most importantly of all, the wearer does not age while wearing this artifact. The wearer cannot drown, suffocate, starve or dehydrate, and he recovers from the worst poison or more deadly injury in less than an hour. The only way to kill the wearer is to remove the circlet, and even then, the wearer retains the effects of the circlet for one minute for every dot of Essence he possesses. Using this artifact requires the wearer to commit five motes of Essence and place a hearthstone of level 3 or higher in the single setting. The hearthstone provides no benefits beyond powering this artifact. The circlet's owner or others acting in his stead must also perform special rituals requiring a (Wits + Occult) roll with a difficulty of 4 once a century. These rituals require one full day to perform, after which time the circlet functions normally for another century.</p>",
+    "source": "Dreams of the First Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": false,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 0,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

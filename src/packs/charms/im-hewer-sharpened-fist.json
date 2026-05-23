@@ -1,0 +1,58 @@
+{
+  "_id": "5a3750e3d995afdb",
+  "_key": "!items!5a3750e3d995afdb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hewer-Sharpened Fist",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "martial-arts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Martial-ready"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The idea that he can be harmed exhilarates the Solar Hero, honing his attacks with renewed will to win. This Charm may enhance a Martial Arts attack, adding the Solar's current wound penalty in dice to the attack's Accuracy rating. This bonus does not count as dice added by a Charm. If Solar Hero Form is active, Hewer-Sharpened Fist does not count as a Charm activation. The Abyssal Exalted are eager to share their agony with the world, and subsequently possess an identical Charm called Agony's Crucible Strike, which does not count as a Charm activation while Dark Messiah Form is active. Its prerequisite is Ravaging Blow. Martial-ready: Archery, Melee, Thrown. Stance Breaker Instinct</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "5a3750e3d995afdb"
+  },
+  "folder": "a1b2c3d4e5f60008",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

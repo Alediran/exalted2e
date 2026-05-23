@@ -1,0 +1,71 @@
+{
+  "_id": "fb4a1cca499399aa",
+  "_key": "!items!fb4a1cca499399aa",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Crowned With Fury",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious",
+      "Social"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Malfeas is not a patient Yozi. He can certainly wait when he must, as his surrender and imprisonment attest. However, the nature of the Demon City abhors the restraint implicit to inaction in any form. Whenever an Infernal who knows this Charm makes a social attack that would be considered an unacceptable order if defended against with Impervious Primacy Mantle, the attack becomes an unnatural mental influence costing one Willpower to resist. Flickers of hateful green fires emanate from the Infernal's eyes and mouth while using this Charm, curling up to hint at the outlines of a burning crown upon his brow ornamented with the central jewel of his caste mark. This display fades as soon as the Infernal finishes speaking his attack. This enhancement is not optional.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "malfeas",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "bbc3e23937efb50c",
+            "charmName": "Nightmare Fugue Vigilance",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "fb4a1cca499399aa"
+  },
+  "folder": "1945ba1655ca5f6f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

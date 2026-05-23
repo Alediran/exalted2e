@@ -1,0 +1,58 @@
+{
+  "_id": "b96fb06ff0932352",
+  "_key": "!items!b96fb06ff0932352",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Talented Improvisation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "performance",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Social"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood's elemental essence flows into her art even when she has no time to prepare, turning a moment's spontaneity into a polished and powerful performance. When this Charm supplements a Performance roll made without any advance preparation—improvised song, unrehearsed speech, or immediate response to an unexpected request—the character adds one die to the roll for each point by which her Essence exceeds 1. Additionally, the character does not suffer any penalty for improvising the performance rather than using prepared material. This Charm cannot supplement performances the character has had more than a few minutes to plan.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "b96fb06ff0932352"
+  },
+  "folder": "b0b1b2b3b4b5f029",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

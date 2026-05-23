@@ -1,0 +1,57 @@
+{
+  "_id": "8202141275259535",
+  "_key": "!items!8202141275259535",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Tiger Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Form-type"
+    ],
+    "cost": {
+      "formula": "6m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The character adopts the power and attitude of a raging tiger--crouching, quivering with barely restrained tension, ready to pounce. While using the Tiger Form, add the character's Martial Arts score to her raw damage when making Martial Arts attacks barehanded or while wearing tiger claws. The martial artist also adds her permanent Essence to her bashing and lethal soak totals. The character's Martial Arts attacks automatically inflict lethal damage in the form of bloody lacerations even if she isn't wearing tiger claws, and the character suffers no penalties for fighting while prone.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Tiger Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "8202141275259535"
+  },
+  "folder": "086aba86b0941ecb",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

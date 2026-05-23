@@ -1,0 +1,37 @@
+{
+  "_id": "8ad280b457443fe4",
+  "_key": "!items!8ad280b457443fe4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Deadly Transformation Armor",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Although more powerful in almost all ways, the mighty Solar Exalted lack the deadly fury of the Lunar Exalted's Deadly Beastman Transformation Charm, which allows Lunar Exalted to become inhumanly strong ravening monsters. During the First Age, this armor was first created by a member of the Twilight Caste who wished to emulate the lethal power of this horrific transformation. This armor appears to be an ordinary orichalcum reinforced breastplate that contains a single hearthstone socket in the middle of the chest. To wear this armor, the wearer must attune to it by committing six motes of Essence and place a level-2+ hearthstone in its socket. This hearthstone powers the armor's various enchantments, but provides no other benefit. To activate its special transformation, the user must also spend five motes as a reflexive action. At this point, the suit transforms into full battle-readiness and remains in this state for one scene. The armor's greaves and vambraces separate, and muscle-enhancing servo-motors unfold and extend along the armor's arms and legs. The armor's protective value remains the same, but instead of an attractive reinforced breastplate suitable for wearing in military parades, it becomes deadly strength-enhancing battlesuit. In its transformed state, the user can also extend claws from the backs of the armor's gauntlets, or the blades can be retracted to allow the wearer to wield other weapons. In addition, sensors in the armor carefully monitor the character's movements, and the data from these sensors is used by stride-enhancing enchantments to allow the wearer to double both her movement rate and the distance she can jump. (The wearer's jumping distance is calculated after the enhanced Strength is added in.) These enchantments also allow the character to march at speeds of up to 10 miles per hour. During the First Age, only orichalcum versions of this armor were manufactured. During the Age of Sorrows, however, new and terrifying versions made out of soulsteel have also been created. Add the appropriate bonuses for either orichalcum or soulsteel to the armor and weapons included in this artifact. The transformation into the armor's battle form lasts for one scene. If the wearer wishes to cause the armor to remain in battle form for more than one scene, she must spend an additional five motes of Essence for every scene she uses this armor in battle form. The activated armor's features include: Exoskeletal Servomusculature: +5 bonus to Strength for feats of strength and inflicting damage with attacks. Retractable Beast Claws: As razor claws of the appropriate magical material (see Exalted, p. 388). Peripatetic Greaves: Doubled movement rate and jumping distance; 10mph marching movement rate. Upkeep: This armor must undergo maintenance after every 50 scenes it spends in its transformed battle form. Each scene spent in combat counts as two scenes of transformation. No maintenance is required if the armor remains in its normal form. Every 10 hours its maintenance is in arrears causes the armor to reduce its Strength bonus by one dot. Soak Hardness Mobility Fatigue Attune +10L/9B 8L/8B -1</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 4,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "719e22a1a439b247",
+  "_key": "!items!719e22a1a439b247",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Tattered Portrait Gemstone",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDAIR0000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "air",
+    "rating": 1,
+    "description": "<p>As a miscellaneous action, the bearer of this dark, varicolored cabochon can alter his appearance in a limited way. He may not look like someone or something else, but he may appear as a diminished version of himself: older, scarred, diseased, crippled or otherwise lessened in some fashion. Such lessening is real and imposes appropriate penalties. This is a Crippling effect. If the effects are particularly dramatic, those who know the bearer will need a successful (Perception + Awareness) roll to recognize him. The effects can be reversed as another miscellaneous action or when the bearer's attunement with the stone is broken.</p>",
+    "source": "Ink Monkeys"
+  }
+}

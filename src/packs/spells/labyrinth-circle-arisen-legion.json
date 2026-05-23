@@ -1,0 +1,37 @@
+{
+  "_id": "a773878bac0a43c6",
+  "_key": "!items!a773878bac0a43c6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Arisen Legion",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "labyrinth-circle-arisen-legion",
+    "tradition": "necromancy",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 30,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "one day",
+    "target": "Corpses",
+    "description": "<p>The necromancer's anima curdles into a pulsing black sphere that explodes to send black lightning crawling over and into the ground. The necromancer animates every corpse within 100 yards. The new zombies Join Battle along with the necromancer (if applicable). The unstoppable power of the necromancer's spell enables corpses to burst up from the earth or smash out of tombs to reach her side. In daylight, the horde is reanimated only until the scene's end; otherwise, they'll persist until dawn. (See Exalted, p. 315, for traits for zombies.)</p>"
+  },
+  "folder": "562235f47f16c453",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,60 @@
+{
+  "_id": "93ca5d9b63108876",
+  "_key": "!items!93ca5d9b63108876",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Without Temptation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious",
+      "Fate",
+      "Shaping",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "12m, 2p",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With a firm touch, the Sidereal coats his own destiny or that of a target in an ablative sheath of Essence, preserving it against efforts to pervert the natural hierarchy of master and servant established by She Who Lives in Her Name and perpetuated by Heaven. Upon invoking this Charm, the Sidereal names a master-and-servant relationship between two individuals. The target of the Charm must be the servant in the proposed relationship; the master needs not be present, and no preexisting relationship of any sort between the two is necessary. For the duration of the Charm, the target treats all mental influence that would cause him to betray his new \"master\" as an unacceptable order. He may, of his own will, still act against his \"master's\" interests.</p>",
+    "source": "Glories of the Most High: The Maidens of Destiny",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Sapphire Veil of Passion Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "93ca5d9b63108876"
+  },
+  "folder": "05f82ed74914c6c2",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

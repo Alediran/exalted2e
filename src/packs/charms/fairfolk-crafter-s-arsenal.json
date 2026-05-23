@@ -1,0 +1,59 @@
+{
+  "_id": "da472b11487d6f1a",
+  "_key": "!items!da472b11487d6f1a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Crafter's Arsenal",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "ring",
+    "essence": 1,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneSeason",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "5m, 1+g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm improves upon Gossamer-Forging Art and allows the raksha to forge shaping weapons. Mechanically, this Charm functions like Gossamer-Forging Art except as follows. First, upon shaping the weapon into existence through a Ring-shaping action, the raksha must spend an amount of gossamer equal to the weapon's Gossamer Background cost. She must also commit five motes to the item and let it spend an entire season absorbing the power of the Wyld. The base difficulty for the Ring-shaping action is equal to the gossamer cost of the shaping weapon to be created. If the shaping weapon is to be a fine one, increase the difficulty by two. If it is to be an exceptional one, increase it by four. If it is to be a perfect one, increase the difficulty by six. (Apply the advantages of a fine, exceptional or perfect weapon to the shaping weapon's normal traits. See Exalted, pp. 365­366, for details.) The shaping weapon is a work of glamour that cannot survive in Creation absent the use of an Evocation Charm. Even if a shaping weapon is summoned into Creation, it has generally no utility there, as raksha shaping actions do not affect Creation or its occupants. There are two exceptions. First, the following shaping weapons can be summoned into Creation through appropriate Evocation Charms: courtier's cauls, extras, hazards, horrors, monsters and mutant warleaders. Second, the Veil of Glamour Charm (see p. 209) permits a raksha to shape gossamer in Creation. Veil of Glamour shaping can make use of appropriate shaping weapons.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "da472b11487d6f1a"
+  },
+  "folder": "e3ab9ab145f6a424",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

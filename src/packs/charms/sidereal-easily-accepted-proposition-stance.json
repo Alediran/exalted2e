@@ -1,0 +1,85 @@
+{
+  "_id": "214f7330731e8653",
+  "_key": "!items!214f7330731e8653",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Easily Accepted Proposition Stance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "presence",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Compulsion",
+      "Prayer Strip",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "12m, 2wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Creation supports the decisions of the Viziers, and punishes those who defy the Viziers. A Vizier may use this Charm any time she (or an individual who serves as her proxy) faces another person in a conflict where choices must be made. The two may be opposing generals on a battlefield, haggling merchants, diplomats negotiating a treaty or any other circumstance in which two people confront each other but at least agree on the nature of the confrontation. The Sidereal channels Essence into a prayer strip of the Scripture of the Drowning Maiden and fixes the strip in the middle of his shadow, where the prayer strip glows a brilliant scarlet. The Vizier names a single possible--if improbable-- circumstance that could prove ruinous to her opponent and advantageous to her own side. For instance, a merchant could suffer a bandit attack on his caravan, leaving him with nothing to sell; the Sidereal general's reinforcements could ride over the hill; the opposing diplomat's nation might suffer unexpected treachery from an ally. The Sidereal cannot ask for the impossible, such as tyrant lizards raining from the sky into the enemy's capital, and she can't ask for any intervention that reaches beyond Creation. The proposed event must be proportional to the target's scale: no burning down the city because a shopkeeper won't give you a discount. Finally, the target must be within 10 miles.</p><p>The Sidereal's player rolls (Intelligence + Presence) at a difficulty of the sum of the Magnitude of whatever social unit or dominion he represents, and either his own Essence or the highest Essence of any member of the group he represents. (A shopkeeper might represent no one but a few employees; a diplomat could represent a nation, or even a coalition such as the Confederation of Rivers.) If this roll succeeds, the Tapestry of Creation itself quivers in excitement and the targeted person intuitively knows that he faces a choice. Either the Sidereal's requested event happens as she wants it to, or the pent-up tension in the Tapestry discharges through the character himself. This discharge inflicts dice of aggravated damage equal to the Sidereal's Essence, plus one die per extra success on the roll. The damage ignores armor. If the target character tries to defend himself with defensive Charms, he takes no damage but the Sidereal's condition comes to pass automatically. THE SCRIPTURE OF THE DROWNING MAIDEN Once, there was a maiden... ...falling forever in the water. She reached for purchase, but found nothing; her arms swung through the sea. The water did not slow her, nor did the chill, But she could not breathe. Each time she gasped and found no breath, a human child died; and thus, she lived. \"Survival is acceptance,\" she said. WAR: THE SHIELD</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "768d225ef17c56eb",
+            "charmName": "Force Decision",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "302f8e5abe8ee85f",
+            "charmName": "Loyalty-Sacrificing Sidestep",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "214f7330731e8653"
+  },
+  "folder": "b0b1b2b3b4b5f011",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

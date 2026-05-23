@@ -1,0 +1,68 @@
+{
+  "_id": "ed5979f88e9d20f8",
+  "_key": "!items!ed5979f88e9d20f8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Weak Minds Believe Anything",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": "None",
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Ebon Dragon isn't thoughtlessly cruel like his siblings, indifferent to the suffering he brings to lesser beings. The Ultimate Darkness has more heart than that, honoring the most fragile child with the same diligent attention he would pay to a god or titan. He fairly ensures that all suffer unfairly. Still, it cannot really be said that all victims are alike to him. Purchase of this Charm permanently removes the Willpower cost to activate Golden Years Tarnished Black whenever the target is a single mortal, natural animal or Essence 1 magical being. With Essence 4+, this Charm adds First Circle demons to the list of cost-discounted victims. Furthermore, the base mote cost to target anything on the list becomes the target's lowest Virtue or highest Virtue (respectively) depending on whether the target is an extra or not. Surcharges and discounts from other effects modify this new base cost normally, with the former applied before the latter. Want Becomes Need</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "47f8f3cd2071b64a",
+            "charmName": "Golden Years Tarnished Black",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "ed5979f88e9d20f8"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

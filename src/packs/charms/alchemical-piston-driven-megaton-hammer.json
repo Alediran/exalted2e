@@ -1,0 +1,58 @@
+{
+  "_id": "306f08b760b92e95",
+  "_key": "!items!306f08b760b92e95",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Piston-Driven Megaton Hammer",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "strength",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "3m [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>One of the Alchemical's arms houses a massive pneumatic piston mechanism that, when triggered, delivers an explosive hydraulic strike of catastrophic force. Supplementing any unarmed or melee attack, the piston fires at the moment of impact, multiplying the kinetic energy delivered far beyond what even supernatural strength alone could achieve. The attack deals bonus damage dice equal to twice the Alchemical's Essence and ignores two points of the target's Hardness as the concentrated point impact overcomes structural resistance.</p><p>The Obvious nature of this charm means the piston is clearly visible as a bulging mechanical limb, and its activation produces a thunderous report audible at long range. The charm serves as a prerequisite for the Unstoppable Impulse Engine, which represents further refinement of the piston mechanism into a continuous drive system rather than a single devastating strike.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "306f08b760b92e95"
+  },
+  "folder": "b0b1b2b3b4b5f054",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

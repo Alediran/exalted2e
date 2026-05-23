@@ -1,0 +1,59 @@
+{
+  "_id": "16ab24f25fd1a8d7",
+  "_key": "!items!16ab24f25fd1a8d7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Greedy Mosquito Bite",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "dexterity",
+    "essence": 5,
+    "minAbility": 6,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Fury-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "4m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Like the greedy mosquito, some warrior Lunars cannot resist reaching for a second strike. This Charm gives them the speed to succeed. When this Charm supplements a successful attack, the character's strike plunges into the fresh wound a second time. Revisit Steps Seven­Ten of attack resolution and inflict all damage from the attack again. Activated with Relentless Lunar Fury, the character inflicts extra damage on every successful attack. This damage is applied separately and never exceeds minimum damage for the original blow. At Essence 7, the Lunar may spend four more motes on this Charm to include the effects of all Charms (rather than just damage-increasing Charms) while revisiting Steps Seven­Ten.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "16ab24f25fd1a8d7"
+  },
+  "folder": "6d3aed86fa48b120",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

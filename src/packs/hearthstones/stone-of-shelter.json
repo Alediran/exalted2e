@@ -1,0 +1,27 @@
+{
+  "_id": "db9834abaac1d0ae",
+  "_key": "!items!db9834abaac1d0ae",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Stone of Shelter",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDWOOD000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "wood",
+    "rating": 1,
+    "description": "<p>This green-flecked, dark-blue spindle guides its bearer to locations sheltered from the elements. This shelter can range from a welcoming caravanserai to a hollow tree, but it is always dry and protected from both wind and rain. However, the shelter need not come with food or drink and may have other occupants.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

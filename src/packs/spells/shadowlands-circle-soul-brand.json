@@ -1,0 +1,37 @@
+{
+  "_id": "88e4715c6ed0ac5b",
+  "_key": "!items!88e4715c6ed0ac5b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Soul Brand",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "shadowlands-circle-soul-brand",
+    "tradition": "necromancy",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 15,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "One living creature",
+    "description": "<p>The necromancer shrouds a creature in deathaspected Essence and anchors it to him with a mystic brand on his palm or forehead. Near-mindless undead horrors such as zombies or hungry ghosts will not attack the Soul Brand's bearer unless they are specifically compelled to do so by necromancy or other magic. The Soul Brand lasts indefinitely. It may be removed by countermagic or its creator's whim, in which case it inflicts a number of dice of lethal damage equal to the caster's Essence as it burns away. If a branded mortal Exalts, the sigil vanishes painlessly.</p>"
+  },
+  "folder": "9a7bd83d0a359e00",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

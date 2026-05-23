@@ -1,0 +1,58 @@
+{
+  "_id": "c64fb7d86030a0b6",
+  "_key": "!items!c64fb7d86030a0b6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wave-riding Navy-breaker",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "untilNextAction",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Waves grow strong over time as the winds build them up. Over hundreds of leagues, they change from mere ripples to behemoths ready to tear ships to shreds. The most brilliant captains learn how to ride such waves, traveling incredibly quickly and getting the drop on their waterborne foes. The character emulates both the wave and the ship by building up her strength to unleash a massive blow on her target. When the character invokes this Charm, her player rolls (Strength + Martial Arts). Each success adds one to the raw damage of the attack the martial artist makes on her next action. Perceptive opponents might notice her marshaling her inner strength and collecting herself for a blow. Instead of attacking, a martial artist may use this Charm again and accumulate even more raw damage. Each subsequent use of this Charm subtracts two dice from the (Strength + Martial Arts) pool, and the character may not use this Charm when it provides zero dice. If her next action is not an attack or invoking this Charm, the Seafaring Hero loses its benefit.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Seafaring Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "c64fb7d86030a0b6"
+  },
+  "folder": "ffeecb9a37f5f4a9",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

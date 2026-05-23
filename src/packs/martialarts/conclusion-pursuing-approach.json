@@ -1,0 +1,102 @@
+{
+  "_id": "7c3103a92887a6ce",
+  "_key": "!items!7c3103a92887a6ce",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Conclusion-Pursuing Approach",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": -2,
+    "steps": [],
+    "keywords": [
+      "Prayer Strip"
+    ],
+    "cost": {
+      "motes": 10,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 1,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "--(+10m, 1lhl)"
+    },
+    "description": "<p>When a Sidereal uses this Charm, she gains strength of purpose whenever her successful attacks bring her opponent closer to his inevitable ending. Whenever a successful Martial Arts attack inflicts damage on an opponent, the Sidereal regains a point of spent Willpower. Using this Charm also helps speed a target to his life's conclusion by tripling his wound penalties as they relate to the Sidereal using the Charm. (That is, while the victim's wound penalties would be normal in an attack against a different person, attacks made against the Sidereal using this Charm suffer the tripled penalty.) Using a prayer strip is not necessary with this Charm, since it represents the culmination of a Celestial martial art, but a Sidereal who knows this Charm can augment it with a prayer strip (hence the use of the keyword). The character uses a strip on which is written the Scripture of the Expectant Maiden, infusing the strip with Essence when he activates the Charm and affixing the prayer strip to his weapon. The strip glows burgundy and conforms to the shape of the surface to which the strip is attached. While the prayer strip survives, successful attacks made with that weapon (or with the character's fist if he wraps the strip around it) subtract one Willpower point from the target. Also, the weapon cannot be destroyed. If the target exists outside fate or has been reduced to zero Willpower points, using a prayer strip thus with this Charm subtracts 10 motes of Essence on a successful attack instead. If the target does not have 10 motes of Essence to lose, all of the attacker's unsoaked damage dice are inflicted as levels of damage instead. Note: The prayer strip aspect of this Charm can only be used by Sidereals, or by Eclipse of Moonshadow Castes who learn Conclusion-Pursuing Approach as a Sidereal Charm rather than as a supernatural martial arts Charm. This is part of the Sidereal Exaltation, not the training in Martial Arts and Essence control that underlies the other Charms of the style.</p><p>THE SCRIPTURE OF THE EXPECTANT MAIDEN Once, there was a maiden... ...who was always looking forward to the way things would be. She said, \"Someday, I'm getting out of this place. \"Someday, I'm going to kill that boy that put me here. \"And while I wait, I don't much mind, `cause it's better to dream tomorrow than to be there.\" *** \"I'm holding at bay,\" she said, \"what I know to be true. \"That I'll never get out. \"I won't let my dreams die! \"I'll hang on to hope,\" she said, \"until Time itself ends. But --\" \"There's always an ending,\" said Time. MEDICINE: THE CORPSE</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Violet Bier of Sorrows Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "407ace0395d098e5",
+            "charmName": "Life-Severing Blow",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a9fbca9470d9d41e",
+            "charmName": "Metal Storm",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "eaa42f3106fe81b1",
+            "charmName": "Unobstructed Blow",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "7c3103a92887a6ce",
+    "grantsMastery": false
+  },
+  "folder": "02ed0088cf82499d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

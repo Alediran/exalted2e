@@ -1,0 +1,59 @@
+{
+  "_id": "eda1534a480f7aad",
+  "_key": "!items!eda1534a480f7aad",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Flow-breaking Strike",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "martial arts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Crippling",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "6m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Feeling along a tenor of fate, a Sidereal may strike at her opponent's relevance, separating the momentous from the also-ran. This Charm supplements an unarmed martial arts attack; should the attack strike its target, that all of that target's actions raise their Speed by one for (Sidereal's Essence / 2, round up) actions. Subsequent strikes reset this timer and cumulatively increase the Speed of the target's actions. This Charm may not raise a target's Speed higher than 7.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "eda1534a480f7aad"
+  },
+  "folder": "a1b2c3d4e5f60003",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

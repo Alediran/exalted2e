@@ -1,0 +1,37 @@
+{
+  "_id": "8debd3f8c9217a49",
+  "_key": "!items!8debd3f8c9217a49",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Infinite Resplendence Amulet",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Consisting of aspect-dedicated magical material lattices embedded in synthetic adamant matrices, these thumbnailsized baubles are the most ubiquitous artifact garments currently in fashion among the Chosen. Some elder Exalted object to them on principle, especially the \"wear nothing you didn't make\" purists and the \"mansions of closets\" hedonists, though the latter sometimes collect hundreds of amulets to display their collection of brand glyphs from highly regarded Exalted and Jadeborn artisans. Although the devices vary by model, each costs five motes to attune. The devices have the following common features: Modular Attire: The amulet can generate any form of outfit the wearer can imagine, however grand or humble. Changing the setting requires contact and a diceless miscellaneous action. Repairing or cleaning a worn outfit takes the same action as creating a new one. Created clothes have no reality beyond being an extension of the amulet, so they dissolve or flow back into the artifact if they are removed for any reason. Most wearers integrate the amulet itself as an accessory of each outfit, especially to show off impressive brand glyphs. Protection: Regardless of configuration, enchantments in the amulet provide +1L/+1B soak (which does not count as armor for Charm purposes), plus an extra success to all Resistance or Survival rolls to reduce or avoid the effects of deleterious environmental conditions, toxins or disease. In addition, each amulet also has one material-specific feature by default. Composite designs cost ···· for one additional feature or ····· for all four material features. Provided a copy of the artifact incorporates the material that naturally resonates with its wearer, there is no commitment surcharge to attune a composite model. Orichalcum: These amulets create clothes as constructs of solidified light, giving them a palette of colors and textures worthy of a Solar's glory. As an Obvious effect, such raiment gives its wearer +4 Appearance and inhibits stealth like an 8­10 mote anima banner does. The Solar may hide this glory to make humbler attire if his pride permits, but the bonus is all or nothing. Moonsilver: Extruding outfits as a diaphanous second skin grown from liquid metal tendrils, these amulets provide superior protection and camouflage on demand. The wearer gets two bonus dice to Stealth rolls and two bonus dice to assume a disguise with Larceny, as well as replacing the usual soak bonus with +5L/+5B (that stacks with and is still not considered armor for Charms). Starmetal: Weaving clothes from strands of the wearer's own fate, these amulets provide extremely subtle and understated elegance. Such garments conceal numerous pockets folded into Elsewhere, providing sufficient storage space to carry up to a ton of assorted items safely out of reach of the world, provided the objects could actually fit through a pocket</p>",
+    "source": "Dreams of the First Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 3,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

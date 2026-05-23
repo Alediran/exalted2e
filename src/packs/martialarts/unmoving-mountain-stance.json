@@ -1,0 +1,73 @@
+{
+  "_id": "f5e788985107cda2",
+  "_key": "!items!f5e788985107cda2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unmoving Mountain Stance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      10
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "motes": 3,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "3m"
+    },
+    "description": "<p>Like the Imperial Mountain and the Realm's impervious War Manses, those who emulate Earth are eternal. Steadfast, they study the art of stillness. Invoking this Charm allows the Immaculate to stand stock still for the duration. Beyond its meditative use, an Immaculate using this Charm adds a number of automatic successes equal to her Essence to any attempt to resist being moved or knocked down, as from knockdown or knockback. Her ability to lock her joints and make her muscles as steel also adds these successes to any opposed check to maintain a grapple, as long as she is not attempting to break the hold. Remaining perfectly still can also aid attempts at concealment. As long as the Immaculate has an appropriate hiding place, she adds a like number of automatic successes to her Stealth attempt as long as she does not move. Being able to remain perfectly still might come in handy at other times, as well--such as resisting disarms or holding on for dear life--at the Storyteller's discretion. STONE DRAGON'S SKIN Cost: 2m; Mins: Martial Arts 4, Essence 2; Type: Reflexive (Step 7) Keywords: Combo-OK</p><p>Duration: Until next action Prerequisite Charms: None Dragons of Earth spend months training their bodies to ignore pain and resist harm. After thousands of punches made into tuns of gravel and many hours spent lying between two massive sheets of rock, they learn to channel their Essence into their skin, hardening it against misfortune. The Immaculate adds his Martial Arts rating to his natural lethal and bashing soak until his next action. Furthermore, hardening his skin in this way allows him to also parry weapons with his bare hands. EARTH DRAGON FORM Cost: 4m; Mins: Martial Arts 4, Essence 2; Type: Simple (-0 DV) Keywords: Form-type, Obvious</p><p>Duration: One scene Prerequisite Charms: Force of the Mountain, Unmoving Mountain Stance, Stone Dragon's Skin Taking a wide, low and very stable stance, the Earth Immaculate finds her center and uses her Essence to ground herself in the earth. Successful activation of the Earth Dragon Form adds the Immaculate's Martial Arts to his bashing, lethal and aggravated soaks. This soak cannot be circumvented by any Charm. The monk also gains an equal amount of Hardness.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Earth Dragon Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "statusApply": {
+      "enabled": true,
+      "status": "Knockback",
+      "resistPool": "@sta + @athletics",
+      "onFail": "applyKnockback"
+    },
+    "charmUid": "f5e788985107cda2",
+    "grantsMastery": false
+  },
+  "folder": "01757ed433605ac5",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "2a4ae00a88a7decd",
+  "_key": "!items!2a4ae00a88a7decd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Motonic Disrupter Lens",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Repair: 2 Designed specifically for immobilizing and capturing Essence users, these wonders modulate the discharges from artifact energy weapons such as implosion bows and lightning ballistae. Installing (or removing) this refit requires a Repair 2 maintenance, after which the weapon no longer inflicts actual damage. Instead, any Essence user hit by an energy-diffusing blast loses motes equal to the attack's raw damage. Beings who lose all remaining motes to such an attack cannot activate Essence powers or respire motes for a number of hours equal to the weapon's Artifact rating, though existing magic remains intact. Against manses, Essence-scattering attacks inflict normal harm but double their raw damage. Artifact weapons that have a motonic disrupter setting that can be used in lieu of standard damage with any shot add +1 to their Artifact rating and Repair rating (maximum of 5 for both).</p>",
+    "source": "Dreams of the First Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

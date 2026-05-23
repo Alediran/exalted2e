@@ -1,0 +1,61 @@
+{
+  "_id": "081d47157a8579f1",
+  "_key": "!items!081d47157a8579f1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sacrosanct Soul Retribution",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "integrity",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Counterattack",
+      "Holy",
+      "Obvious",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "8m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Those who would tempt the noble Lawgivers from their righteous path pay a price in fire. This Charm is a counterattack that may be used in response to any unnatural mental influence directed at the Solar. The Solar's caste mark blazes white and red for a moment; then, wherever the attacker may be, she is engulfed in a bonfire of pure white flames. This is treated as an automatically successful Shaping counterattack which inflicts (Essence) dice of lethal damage (aggravated against creatures of darkness). Should any astrology be used to attempt to divine the target's fate during the scene in which Sacrosanct Soul Retribution is directed at him, such inquiries automatically succeed, but return only the following puzzling message: THE ANATHEMA IS HERE. This Charm may be used regardless of the range from which unnatural mental influence is deployed, but may only be used once in response to a particular static source of mental influence. For example, the Solar could only deploy this Charm in response to a book enhanced with Linguistics Charms once, no matter how many times he read the book. At Integrity 6+, Essence 6+, the Solar may also pay one point of Willpower to bestow the creature of darkness mutation on targets of this Charm, as a Shaping effect. Additionally, at this level, anyone slain by Sacrosanct Soul Retribution's white fire is twisted and castigated into a new form, reborn as a terrible monster possessing the same nonmagical traits they previously enjoyed, with (Solar's Essence x 3) points of mutations added. If the beast was not a creature of darkness before, it is now. This beast is cleansed most of its previous memories, all Intimacies, and any Essencebased powers it may have possessed. It is reborn with a new, unalterable Motivation: To loyally serve the Lawgiver who created it. Thus do those who would dare tamper with the minds of the Sun's champions pay for their temerity.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "081d47157a8579f1"
+  },
+  "folder": "b0a1d89a8f7c4cdb",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

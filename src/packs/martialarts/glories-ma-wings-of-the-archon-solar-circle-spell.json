@@ -1,0 +1,55 @@
+{
+  "_id": "473208f8b8fe3678",
+  "_key": "!items!473208f8b8fe3678",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wings of the Archon (solar Circle Spell)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "40m Target: Self",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Raising an arm to the heavens, the sorcerer's fingers flicker through the Mudra of Unimpeded Passage. Essence erupts around him, then collapses into a pair of burning wings extending from his back. Each Exalt's wings differ slightly in appearance, though they are all formed of holy fire, preventing this spell from being cast by creatures of darkness. For the rest of the scene, the sorcerer may freely fly at a base speed of 30 yards per tick, and is able to apply his Parry DV to attacks directed at his back. These are incidental advantages, however. The spell's true purpose is to provide transportation between realms of existence. By flying straight up into the open sky for twenty-five hours, maintaining a strictly vertical course, the sorcerer may pass from Creation to Yu-Shan. He emerges from the thick of one of the many clouds that float in Heaven's sky, directly above the plaza containing the ring of heavenly gateways leading to the Blessed Isle. Alternatively, the sorcerer may fly west, following the track of the falling sun. If he maintains his bearing through the night, keeping ever on toward the point where the sun passed beyond the rim of the world, then the rising of the sun will reveal the ashen landscape of the Underworld stretching out around him at a point analogous to his previous position in Creation. By ascending above a solid cloudbank and setting a course for a certain star in the constellation of the Mask, the sorcerer may fly for five days and five nights without rest. Gradually, without his notice, the clouds below will shift from white mist to silver sands, the sky will turn a bilious green, and the borders of Malfeas will loom before him. Most curiously, if the Seal of Eight Divinities has been breached, a sorcerer may even fly into the empty, starless space between the constellations of the Sorcerer and the Treasure Trove. Within twelve hours, the cold darkness of the empty sky will be replaced by the cold darkness of the Far Reaches of Autochthonia. If not used for cross-realm transportation, the wings fade at the end of the scene.</p>",
+    "source": "Glories of the Most High: The Unconquered Sun",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Arms of the Unconquered Sun Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "473208f8b8fe3678"
+  },
+  "folder": "60c07b8667afdccd",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

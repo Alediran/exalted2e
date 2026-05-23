@@ -1,0 +1,58 @@
+{
+  "_id": "a1817bb6a048df36",
+  "_key": "!items!a1817bb6a048df36",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Essence-shattering Typhoon",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 7,
+    "minAbility": 7,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious",
+      "Sickness"
+    ],
+    "cost": {
+      "formula": "6m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>and what is diseased.\" The character pounds her fists against the Essence in the very air, shattering the currents of the world and casting a hail of broken Essence shards toward her foes. On the character's first action, the effects extend three yards beyond her fists. Anything in front of her suffers either 15 dice of aggravated damage or a Third Circle illness she has learned to inflict--whichever the Sidereal chooses. (Targets can resist the disease normally.) This attack is unblockable and undodgeable. On each subsequent action in which the Exalt continuously performs this Charm (paying the 6m, 1wp cost on each new action), the effects stretch one mile further forward and a tenth of a mile further to each side. The Essence shards this Charm hurls forward do not penetrate solid obstacles (such as walls) until the action on which they either destroy such obstacles or find a route through them (such as a broken-out window or door). It does not extend behind the character or to her sides.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Citrine Poxes of Contagion Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "a1817bb6a048df36"
+  },
+  "folder": "9eef66b2ef45a641",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

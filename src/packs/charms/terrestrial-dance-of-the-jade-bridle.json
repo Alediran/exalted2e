@@ -1,0 +1,71 @@
+{
+  "_id": "3bd28e3ecb9c62a7",
+  "_key": "!items!3bd28e3ecb9c62a7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dance Of The Jade Bridle",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "ride",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Servitude"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Despite the Wood Aspect's natural skill at horsemanship, it is very difficult for even the most able Dragon-Blooded rider to master an animal much bigger than a normal horse. Indeed, while a Dragon-Blood can attempt to master larger animals for brief periods of time, the only way to truly break such a beast and casually ride it as one would a horse is through this Charm. The Dragon-Blood's player must roll (Charisma + Ride), opposed by the beast's (Stamina + Willpower). The DragonBlood must also roleplay \"breaking\" the mount, which in the case of very dangerous animals or flying creatures can be quite dangerous if the attempt fails. If the attempt succeeds, the Dragon-Blood (and only the Dragon-Blood) can command the creature and use it as a mount, suffering no penalties on attempts to ride the creature. Generally, a tyrant lizard is probably the largest animal that can be mastered with this Charm, although the Storyteller may permit even larger beasts to be tamed at his discretion and with suitable penalties applied to the taming roll. A creature tamed by this Charm can be subjected to Elemental Halo's Mercy and Five-Dragon Horseman Prana, but the cost for activating those Charms increases by five motes.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5eac2206876cf42e",
+            "charmName": "Great Heart Companion",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "3bd28e3ecb9c62a7"
+  },
+  "folder": "b0b1b2b3b4b5f02c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

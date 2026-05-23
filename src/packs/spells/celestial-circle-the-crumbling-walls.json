@@ -1,0 +1,37 @@
+{
+  "_id": "0edd53aa297f7101",
+  "_key": "!items!0edd53aa297f7101",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Crumbling Walls",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "celestial-circle-the-crumbling-walls",
+    "tradition": "sorcery",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 25,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "instant",
+    "target": "City walls",
+    "description": "<p>The sorcerer calls down the power of Saturn, who holds dominion over endings and borders, to annihilate the defensive walls separating a city from the lands beyond it. To cast this spell, the sorcerer must gather four chosen companions and make five circuits around the targeted city while singing a hymn to the end of conflict. The sorcerer and her companions must make as many circuits of the city in one day as she is capable and must manage at least one circuit per day. During the casting, the sorcerer and her companions are prohibited from defending themselves against attack, though they may have bodyguards accompany them or use armor or magic to enhance their ability to avoid harm. After each completed circuit, a shadowy image of the Maiden of Endings appears at the city's edge. Any savant who can see the image knows it bodes ill, and success on a roll of (Intelligence + Occult) reveals the spell's purpose. Once the sorcerer has completed the casting, all five images, now evenly spaced around the border, raise their arms together and make the sign of Saturn against the city's walls. At this instant, the defensive fortifications collapse into rubble and ruin over the course of a minute (60 ticks or one long tick). The spell inflicts no damage on anything within the city's borders or beyond it, but anyone standing at the walls when they fall suffers environmental damage (3B/action, Trauma 1) until they extricate themselves. This description assumes strong stone walls, such as may include guard towers. At the Storyteller's discretion, flimsier walls might crumble sooner and inflict less damage.</p>"
+  },
+  "folder": "dcf06d83a3d0a4be",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

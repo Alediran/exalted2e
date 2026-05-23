@@ -1,0 +1,59 @@
+{
+  "_id": "63f393e51efc725f",
+  "_key": "!items!63f393e51efc725f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Honored Ancestor Exhalation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "linguistics",
+    "essence": 6,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Dynasty",
+      "Martyr",
+      "Purity"
+    ],
+    "cost": {
+      "formula": "10m, 2wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The voice of a progenitor lends hope and purpose to his descendents. Upon activating this Charm, the Exalt chooses a Motivation (which may differ from his own). Whenever one of the Exalt's descendents channels a Virtue while taking an action that directly supports this Motivation, the descendant does not spend a Virtue channel to do so and substitutes her ancestor's Essence rating for the rating of the channeled Virtue. Because these dice are considered Virtue dice, such bonuses do not count against Excellency limits. Exalted may use only a single activation of this Charm at a time, and characters may tap into only one ancestor per action. With the Martyr effect, the Charm lasts as long as the family does, passing the legacy to each generation. Characters wishing to be part of a family lineage subject to a Martyr usage of this Charm may possess (subject to the Storyteller's approval) one such Motivation per dot of the Family Background (see The Manual of Exalted Power-- The Dragon-Blooded, p. 109). Buying Family in this manner negates the normal bonuses for buying that dot of the Background. Ancestors purchased with this Background are assumed to have died with Essence 6. Optionally, rather than using an additional dot of Family to add a second Motivation, such dots may be used to upgrade an existing ancestor's Essence rating by one dot, up to a maximum of Essence 8.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "63f393e51efc725f"
+  },
+  "folder": "b0b1b2b3b4b5f023",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

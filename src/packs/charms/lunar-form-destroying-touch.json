@@ -1,0 +1,91 @@
+{
+  "_id": "71a21dca687f5209",
+  "_key": "!items!71a21dca687f5209",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Form-Destroying Touch",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "strength",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Sickness",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Lunar Exalted carry within them a spark of the Wyld, and some Lunars learn how to channel it. This Charm is an action to touch a living target, which often requires a (Dexterity + Martial Arts) roll. If the Lunar successfully touches her target, she infects him with the Essence of the Wyld, which slowly tears him apart. On a successful touch, the Lunar's player rolls (Strength + extra successes) at a difficulty of the target's Stamina. A failed roll inflicts one level of unsoakable aggravated damage as Wyld Essence surges through the target's body. The alternative is much, much worse for the victim. Victims of this Charm's full extent suffer a sickness with no immediate effects. At least one full day after the attack, when the moon is high in the sky, the victim's player rolls (Willpower + [Integrity or Resistance] + Essence) at a difficulty of the Lunar's Essence. Failure inflicts the target with a pox and one level of aggravated damage. Each moonlit night thereafter, the victim suffers the same effect, and the player rolls again. Poxes occasionally increase in strength to become afflictions or even blights.</p><p>This Wyld disease cannot be cured without supernatural healing, and even such Essence-based methods suffer an external penalty equal to the Lunar's Essence. Without such efforts, the Wyld-sickness continues until a full lunar cycle passes, the victim succumbs or the victim becomes too severely mutated to exist within Creation (see The Compass of Celestial Directions: The Wyld for information about excessive Wyld mutation). Entering a Wyld zone counters the aggravated damage... but not the mutation.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ebd93522ca7798c5",
+            "charmName": "Shell-Crushing Atemi",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4e088c27162fd9b4",
+            "charmName": "Unstoppable Lunar Wound",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "statusApply": {
+      "enabled": true,
+      "status": "Sickness",
+      "resistPool": "@sta + @resistance",
+      "onFail": "applySickness"
+    },
+    "charmUid": "71a21dca687f5209"
+  },
+  "folder": "aba1efe8ad0bef8a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

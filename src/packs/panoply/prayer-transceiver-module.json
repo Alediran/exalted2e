@@ -1,0 +1,37 @@
+{
+  "_id": "6c9ab89b71cafbd1",
+  "_key": "!items!6c9ab89b71cafbd1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Prayer Transceiver Module",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Appearing as ornate coins pressed out of starmetal with delicate wires of orichalcum circuitry on one side, these communication devices were once common in the High First Age. They no longer see use outside of the Five-Score Fellowship of the Sidereals, though, as they function only for Celestial Exalted. Attuning one of these artifacts costs one mote. An attuned Exalt can cause it to mystically adhere to any surface by tapping it twice in rapid succession, though anyone can pry it loose again with a sharp tug. Using a prayer transceiver module requires that its owner touch it and spend 10 motes while uttering a quick ritual prayer in Old Realm to the Celestial goddess Taru-Kül. (Knowing the exact wording of this archaic prayer requires a successful [Intelligence + Lore] roll, difficulty 5.) The prayer itself is a (Charisma + Performance) roll, difficulty 3. If the prayer succeeds, the module's owner can dictate a message of any length to Taru-Kül and name an intended recipient, listing any passwords for security if so desired. The goddess serves as a minor functionary in the Bureau of Humanity whose only duty is to listen for such prayers. Since the Usurpation ended her prior flood of transmissions and left her to stew in boredom for the past several millennia, she delights at every chance to receive and scribe the messages conveyed to her. Exalted attuned to a prayer module can also pray to Taru-Kül to check for any messages left by others, though they must give the proper password for any message that has one. If the prayer succeeds, the character hears the goddess whisper all waiting messages in succession in her distinctively crisp diction. These artifacts function only in Creation or Yu-Shan.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

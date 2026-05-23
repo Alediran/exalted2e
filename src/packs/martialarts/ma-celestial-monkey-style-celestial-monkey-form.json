@@ -1,0 +1,57 @@
+{
+  "_id": "e45420eea7ed4c73",
+  "_key": "!items!e45420eea7ed4c73",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Celestial Monkey Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Form-type"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The state of careless confidence to which disciples of this style aspire is known as the \"Selfless Mind.\" Practitioners divorce themselves from emotions or other distractions that would undermine their confidence or make them doubt their chances of success or chosen course of action. Celestial Monkey Form is the perfect expression of that ability. The martial artist centers herself and spends the motes necessary to fuel the Charm. Her body relaxes as she releases her mind from the expectations of society and her own inner turmoil between emotion and intellect. Free for the time being, the martial artist smiles blissfully. For the rest of the scene, the Exalt does not need to make Virtue tests. Gibbering bands of demon-soldiers will not intimidate her on the battlefield, nor will the feeble pawings of elderly invalids distract her from pursuing her adversary. She also becomes immune to all forms of natural mental influence for the scene, regardless of how compatible such influence might be with her Motivation. Attempts to levy unnatural mental influence suffer a +1 external penalty (where applicable), and the martial artist does not gain Limit from using Willpower to resist.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Celestial Monkey Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "e45420eea7ed4c73"
+  },
+  "folder": "67fad142ae9122e6",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

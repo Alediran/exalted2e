@@ -1,0 +1,73 @@
+{
+  "_id": "7642e9c01490d163",
+  "_key": "!items!7642e9c01490d163",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Flesh And Steel Transference Mechanism",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "strength",
+    "essence": 4,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Crippling",
+      "Obvious",
+      "Training",
+      "Void"
+    ],
+    "cost": {
+      "formula": "10m, 1wp [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This terrible Charm is one of the most feared in Autochthonia, to the point of perhaps qualifying as the signature abomination invented by the servants of the Void. It fits into an Alchemical's torso, replacing her ribs with a larger cage that rests at the surface of the skin. On command, these artificial ribs gape wide, revealing their segmented flexibility and the terrible serrated cutting instruments that adorn them. This Charm may be used upon only a restrained Alchemical Exalt, requiring that they be unconscious, tied down or held in a clinch. The Apostate's ribs attach themselves to a selected Charm (which the Dissonant Exalt must be aware of) and attempt to saw it free from the target's body. This takes the form of a contested roll of (the Apostate's Strength</p><p>+ Martial Arts) against (the target's Stamina + Resistance). In the event of a tie or failure, the target suffers one level of lethal damage but retains her Charm. If the attacker wins, the target Charm is ripped from the Alchemical's living body, inflicting two levels of unsoakable lethal damage. A forest of miniature armatures at the base of the Transference Mechanism's artificial ribs reach out and guide the stolen Charm to an appropriate open Charm Slot on the attacker's body (without such a Slot available, this Charm may not be activated). The Apostate's flesh ripples and bubbles around the stolen implant as it forcibly re-orders the Charm to harmonize with its new owner, often causing crystal components to crack and brass elements to tarnish from negative harmonic feedback. The stolen Charm now belongs to the Apostate as a Training effect. If the victim wishes to replace the missing Charm, she must commission the creation of a new copy but does not need to spend experience since her soul is intimately familiar with the stolen template. Because Alchemical Charms break down almost immediately upon death, this gristly magic may be worked only upon a living target. Perfected Lotus Matrix and the Weaving Engine Charms are not valid targets for this Charm.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Strength Augmentation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "7642e9c01490d163"
+  },
+  "folder": "b0b1b2b3b4b5f054",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

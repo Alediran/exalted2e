@@ -1,0 +1,94 @@
+{
+  "_id": "e6026dcbe0a679de",
+  "_key": "!items!e6026dcbe0a679de",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Breath-Seizing Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Crippling",
+      "Stackable"
+    ],
+    "cost": {
+      "motes": 4,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "4m"
+    },
+    "description": "<p>Such is the martial artist's command of the wind that he can drive it from his opponent's lungs. With a series of properly placed blows, the Immaculate strikes meridians that contract and immobilize the lungs, denying his opponent breath. If the attack is successful, it inflicts no damage. Instead, roll the Immaculate's (Strength + Martial Arts + Essence) against a difficulty of the target's Stamina. Each net success inflicts a cumulative -1 internal penalty on the target, and if penalties ever double the target's Stamina, the target is rendered unconscious.</p><p>Creatures who do not need to breathe, such as automatons, the undead and spirits or targets using magic to obviate that need, are unaffected by this Charm.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Air Dragon Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "targetEffect": {
+      "enabled": true,
+      "trigger": "onHit",
+      "label": "Breath-Seized",
+      "icon": "icons/svg/regen.svg",
+      "duration": "oneScene",
+      "changes": [],
+      "internalPenalty": {
+        "enabled": true,
+        "type": "all",
+        "amount": -1
+      },
+      "perDamageLevel": false
+    },
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ca96e121052be8e9",
+            "charmName": "Air Dragon's Sight",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "e6026dcbe0a679de",
+    "grantsMastery": false
+  },
+  "folder": "037a2b61816f0f70",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

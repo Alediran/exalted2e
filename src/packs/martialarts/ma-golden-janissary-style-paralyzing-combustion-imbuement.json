@@ -1,0 +1,60 @@
+{
+  "_id": "edf56e3a6cdcfe6a",
+  "_key": "!items!edf56e3a6cdcfe6a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Paralyzing Combustion Imbuement",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Ok",
+      "Crippling",
+      "Holy",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "4m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Fire and light banish many creatures of darkness. How much greater their suffering if the fire comes from within them? By supplementing a Martial Arts attack with a powerful surge of Essence, a Golden Janissary sets the chakras in her enemy burning with spiritual fire. The attack does not need to inflict any damage past the target's soak, but it is more effective when it does. Bursts of fiery, golden light erupt from various points on the body of a creature struck by this attack, one flare each tick, with a sound like the ringing of golden bells. Characters trying to locate a victim of this Charm add two dice to all relevant attempts. Creatures of darkness under this effect also suffer a -1 internal penalty to all actions, plus an additional point of penalty for each health level of damage the attack inflicts. No Golden Janissary can impose a greater penalty than her Essence rating. Additional uses of this Charm against an affected target (by either the same martial artist or separate ones) do not increase the dice pool bonuses to locate that target or the frequency of the bursts of golden light that emanate from the target. The penalties inflicted on creatures of darkness are not cumulative either. Penalties are based on the supplemented attack that inflicted the most damage. They last until the end of the scene or until the associated wounds all heal, whichever comes first. Example: Jade-and-Silver Austrech uses this Charm to supplement an attack that inflicts one level of damage and causes a -2 penalty. A later use of the Charm on the same target that inflicts no damage has no additional effect. If that use had inflicted two levels of damage, the victim would then suffer a -3 penalty for the duration. Creatures of darkness who suffer a penalty from this Charm that is greater than their Essence suffer an equal penalty to the Speed of their Move and Dash actions.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Golden Janissary Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "edf56e3a6cdcfe6a"
+  },
+  "folder": "308a6e755f91c2ff",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

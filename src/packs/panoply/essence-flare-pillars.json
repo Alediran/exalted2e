@@ -1,0 +1,37 @@
+{
+  "_id": "50d2303deaad647c",
+  "_key": "!items!50d2303deaad647c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Essence Flare Pillars",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>This artifact consists of four white jade pillars that are each a foot high and six inches in diameter. All four pillars are identical, except for the fact that one of them contains a socket for a single hearthstone. Committing two motes of Essence and placing a hearthstone in this socket activates all four pillars, though this hearthstone provides no benefit beyond activating the artifact. As long as all four pillars are within 200 yards of each other and enclose a space (typically a square no more than 140 yards on a side) any Exalts or other Essence-users who possess an anima banner will automatically spend a sufficient number of motes to active their anima banner if they walk inside of this area. The only exceptions are characters who are already attuned to the manse used to power this artifact. These characters may enter this area without producing an anima. The artifact's hearthstone setting is in the center of a small control panel made from crystal and all five colors of jade. By adjusting the settings on this control panel, the artifact's owner can set the degree of the flare to be whatever he wishes and how many motes he wants Exalts to be forced to spend, up to a maximum of 16 motes. If the owner wishes, every Exalt walking into this area automatically spends 16 motes of Peripheral Essence and is surrounded by a vast iconic flare of Essence that lights up the entire landscape. Alternately, the owner could set the device to simply make all Exalts entering the area obvious by having them automatically spend 8 motes of Essence. While setting this artifact to cause the maximum possible anima flare can produce exceptionally vivid results that can badly frighten many mortals, it also deprives the Exalt of 16 motes of Essence, which can be well worth the disruption. In addition, as long as an unattuned Exalt remains within the area bounded by these four pillars, her anima banner does not diminish below the level caused by this artifact. Using additional Essence can make the Exalt's anima banner flare more, but it will not fade below the pre-set amount. These anima banners are maintained in part by this artifact, however, so the fact that it does not fade over time does not cost the Exalt additional Essence. Only the powerful Night Caste Solar Exalted and Day Caste Abyssal Exalted can prevent their animal banners from flaring, but to do so, they must spend twice the amount of Essence drawn off by this artifact to counteract its affects.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

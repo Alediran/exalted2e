@@ -1,0 +1,96 @@
+{
+  "_id": "80b20043d38e5891",
+  "_key": "!items!80b20043d38e5891",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Perfection Of The Visionary Warrior",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "melee",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Obvious",
+      "Prayer Strip"
+    ],
+    "cost": {
+      "formula": "10m, 1wp, 1lhl",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal channels Essence into a prayer strip that bears the Scripture of the Maiden on the Shelf, then places the strip across his eyes like a blindfold. It adheres there, and dark blood drips from beneath it, running down the character's face like tears. The strip does not hinder his vision, however. Instead, the prayer strip makes the patterns of his foes' fates--or the disruptions in the strands of fate caused by creatures outside fate--more apparent to him. (Supernatural stealth or concealment effects still work against him as normal.) While the Charm is in effect, the character doubles his Parry Defense Value against all blockable attacks and suffers no onslaught penalty to his Parry Defense Value. Also, once per action, he can make a reflexive Archery, Martial Arts, Melee or Thrown attack at his full dice pool--but not during the same action in which he performs a flurry. He could, however, reflexively attack once with his sword (and parry any incoming attack with twice his Defense Value) while concentrating on riding a wild horse through a storm of flaming arrows. PRESENCE: THE GAUNTLET</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "07943e2b69e55124",
+            "charmName": "Orchestration of Mirrored Fates",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f99ad55d9c28e0ba",
+            "charmName": "Serenity in Blood",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0cdc314a06e364b8",
+            "charmName": "Smiling at the Damned",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "80b20043d38e5891"
+  },
+  "folder": "b0b1b2b3b4b5f00e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

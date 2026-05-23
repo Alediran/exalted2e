@@ -1,0 +1,85 @@
+{
+  "_id": "db1b7bb09df7ece9",
+  "_key": "!items!db1b7bb09df7ece9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dragon-Seared Battlefield",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "war",
+    "essence": 4,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Cooperative",
+      "Elemental",
+      "Obvious",
+      "War"
+    ],
+    "cost": {
+      "formula": "8m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood can impose his elemental anima on a large area equal to his (Essence x 50) yards in radius and centered on any outdoor location within his line of sight. Anyone who comes within this area suffers an environmental penalty on all actions equal to the Dragon-Blood's War Ability rating, as earth tremors, rainstorms, snow flurries, clouds of acrid smoke or simply fastgrowing briar patches spring into existence to harry those caught within. The exact effect depends on the Dragon-Blood's aspect, but the environmental penalty is the same, regardless of aspect. Dragon-Blooded of the same aspect as the one who invoked the Charm are immune to the environmental penalty, as are any</p><p>individuals attuned to him through the Charm Enfolded in the Dragon's Wings. Dragon-Blooded of other aspects are immune if their anima banners are at the 8+ motes level. This is a cooperative Charm, and multiple Terrestrials who know the Charm can activate it cooperatively to increase its effects. When they do, the area affected is equal to the combined (Essence of all participants x 100) yards, and the environmental penalty imposed is equal to highest War Ability rating of any participant, plus one for each additional participant. The maximum number of participants is equal to the permanent Essence of the Dragon-Blood who has the highest War Ability rating. Other Dragon-Blooded are immune to the environmental effects if they share the same aspect as any participant to the activation of this Charm, as are mortal soldiers protected by the use of Enfolded in the Dragon's Wings by any participant.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "2ab3c9cb26c3fdbf",
+            "charmName": "Blazing Courageous Swordsmen Inspiration",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "94a8e661bf398f92",
+            "charmName": "Ramparts of Obedient Earth",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "db1b7bb09df7ece9"
+  },
+  "folder": "b0b1b2b3b4b5f032",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,55 @@
+{
+  "_id": "e6df12a65e1d5e87",
+  "_key": "!items!e6df12a65e1d5e87",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Reality-subverting Gesture",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "larceny",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Keywords: Avatar (1), Shaping Duration: Instant Prerequisite Charms: Any Larceny Excellency The laws of fate make sure that objects do not change locations except by physically traversing the intervening space. It gives comfort to the natives of Creation that the world works this way, and therefore greater joy to Abyssals to flout this law and shatter the illusion of security. This Charm enhances any Larceny-based action to steal objects small enough to carry with one hand or to perform feats of prestidigitation such as card tricks or shell games. The target objects can be taken or moved anywhere within (Larceny + Essence) yards away through subtle teleportation as if they were immediately at hand. Taking an object in active use is beyond the scope of this Charm, though deathknights can steal objects out of locked safes or behind walls if they have some way of accurately perceiving them.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "e6df12a65e1d5e87"
+  },
+  "folder": "b0b1b2b3b4b5f03b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

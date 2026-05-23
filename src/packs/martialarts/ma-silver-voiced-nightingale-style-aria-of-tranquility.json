@@ -1,0 +1,59 @@
+{
+  "_id": "9aad749d072e6f1f",
+  "_key": "!items!9aad749d072e6f1f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Aria of Tranquility",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Emotion",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Beginning softly in a minor key, the Nightingale's voice calms every listener whose Dodge MDV is lower than his (Charisma + Martial Arts). Soldiers drop their weapons, and vicious beasts sink to their haunches and bow their heads. Everyone can still act, but they have no desire to attack anyone, or even to speak cruelly. Most will placidly go about their business, speaking little so they can hear the music better. Characters lulled by the serene aria can spend a Willpower point to take any offensive action, but they cannot wholly shake off its effects. Such actions suffer an internal penalty of the affected character's own (Compassion + Temperance). Someone who is entirely fixed on violence can eventually break through the effect, though. If, in one scene, a character spends more Willpower points to take offensive action than the Nightingale's Martial Arts score, then she becomes immune to this Charm for the rest of the scene. If a character with this Charm has not learned the Charm Resounding Songbird's Cry, she suffers a -1 penalty to the number of bonus dice she receives for channeling Willpower through her Valor and Conviction. This penalty stacks with other Virtue penalties imposed by Charms of this style and is in effect regardless of whether the character is actually using the Charm.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Silver-voiced Nightingale Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "9aad749d072e6f1f"
+  },
+  "folder": "f8d2ffb92c6967bb",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "1312a1e1125ed582",
+  "_key": "!items!1312a1e1125ed582",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Bloodstone",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDWATER00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "water",
+    "rating": 3,
+    "description": "<p>This faceted, rectangular stone is a deep sea green flecked with blood red. It purifies and controls the blood of anyone who carries it. While carrying such a stone, the bearer becomes immune to all non-magical diseases and poisons, from arsenic to plague. The Exalt also gains no effect from alcohol or other intoxicants, other than enjoying their taste. In addition, the bearer automatically resists all magical poisons, such as Yozi venom or poisons produced through Charms or thaumaturgy, though he still suffers some effect. Finally, the bearer also never bleeds, even if a limb is severed. Although all wounds produce normal damage, the character never loses blood from her body and so never need worry about bleeding to death.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

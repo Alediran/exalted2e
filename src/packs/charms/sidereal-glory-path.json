@@ -1,0 +1,71 @@
+{
+  "_id": "d759b88560202777",
+  "_key": "!items!d759b88560202777",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Glory Path",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "ride",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": -2,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "8m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The player spends his motes and rolls (Charisma + Ride). If the roll succeeds, the character's mount radiates a nimbus of faint yellow light for the next five minutes. During that time, every success on the activation roll adds five yards to the mount's base Move distance. Also, the animal can gallop through, up or over natural obstacles such as dense forests, crowds, cliffs, open water or even gaping chasms as easily as it can move across flat, open terrain. Unnatural obstacles, such as human-made walls or sorcerous barricades, still impede progress as normal.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c83fe497230150b3",
+            "charmName": "Yellow Path",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "d759b88560202777"
+  },
+  "folder": "b0b1b2b3b4b5f013",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

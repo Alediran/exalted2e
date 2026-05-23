@@ -1,0 +1,58 @@
+{
+  "_id": "0fd3520802366d96",
+  "_key": "!items!0fd3520802366d96",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Capability-enhancing Potion Meditation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>An Exalt's anima flares and her eyes flash green when she invokes this Charm. Calling upon the Wood Essence of life to swell her strength, she focuses her might to enhance the effectiveness of her Charms. Any Charms the Exalt uses while the Capability-Enhancing Potion Meditation is active, whether in a Combo with this Charm or not, double their mote-expenditure limits, if they have one. Note that this does not allow an Exalt to exceed the normal legal limit of dice from Charms. Being able to spend double the motes on Essence Overwhelming is not equivalent to being able to use double the dice.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Ill Lily Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "0fd3520802366d96"
+  },
+  "folder": "de797a0f4e672176",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

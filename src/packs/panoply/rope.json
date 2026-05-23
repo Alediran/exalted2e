@@ -1,0 +1,15 @@
+{
+  "_id": "c001d234e56f7890",
+  "_key": "!items!c001d234e56f7890",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Rope (50 ft)",
+  "type": "equipment",
+  "img": "icons/equipment/containers/rope-coil-tan.webp",
+  "system": {
+    "resourcesCost": 1,
+    "quantity": 1,
+    "description": "",
+    "equipped": false
+  },
+  "folder": "f003a234b56c789f", "sort": 0, "ownership": { "default": 0 }, "flags": {}, "effects": []
+}

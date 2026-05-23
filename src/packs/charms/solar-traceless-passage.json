@@ -1,0 +1,70 @@
+{
+  "_id": "bcd86024ad26d8e8",
+  "_key": "!items!bcd86024ad26d8e8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Traceless Passage",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "survival",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Solar heroes with this Charm can vanish into the wilderness. This Charm affects the Solar or a group she leads with a Magnitude no greater than her Essence. It enhances a roll made to travel without leaving signs of her (or the group's) presence. This Charm guarantees that any tracker achieves, at most, zero successes on the contest to track the character or group. If another Charm contests this effect, such as Unshakeable Bloodhound Technique, add the Solar's Essence in automatic successes to her opposed roll to maintain the effects of this Charm.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "262b515e9032f9c6",
+            "charmName": "Unshakeable Bloodhound Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "bcd86024ad26d8e8"
+  },
+  "folder": "82dbbb60bb2b2c18",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

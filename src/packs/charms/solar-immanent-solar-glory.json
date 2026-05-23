@@ -1,0 +1,77 @@
+{
+  "_id": "84931bf90a7a307d",
+  "_key": "!items!84931bf90a7a307d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Immanent Solar Glory",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "lore",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror (Essence Engorgement Technique)",
+      "Native",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solar draws strength from the harmonious governance of Creation. The greater the social structure he commands, the more Essence he may wield. This Charm allows the Solar to recover motes by tending to the affairs of a kingdom, organization or social or military unit he leads. Each hour spent inspiring the people or performing administrative tasks allows the Solar to recover motes equal to the unit's Magnitude. In addition, each purchase of this Charm increases the character's Peripheral Essence pool by 10 motes. This Essence</p><p>CHARM CONCEPT: MORTALS A mortal is someone who cannot spend motes of Essence to achieve effects. This includes normal people, animals and Wyld mutants. TREATMENT AND CONVALESCENCE Medicine Charms generally supplement or replace the normal dramatic action for medical treatment (see p. 137). Solar physicians use ordinary techniques rather than \"healing magic\"--herbal remedies, dressing wounds, splinting broken legs, personal inspiration and the like. Medical supplies are necessary unless otherwise stated. Experienced Solar physicians can master Combos that approximate healing with a touch, but the core of their talents is actual medical skill. The effects of Medicine Charms on most poisons, temporary Crippling effects and wound penalties are immediate. At the Storyteller's discretion, patients might need a short convalescence to fully recover from terrible illness, rare poisons, wounds and long-term Crippling effects--one to three days for Exalted, and one to three weeks for mortals.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "84931bf90a7a307d",
+    "motePoolBonus": {
+      "enabled": true,
+      "pool": "peripheral",
+      "amount": 10
+    }
+  },
+  "folder": "5b0108cbcf2feaf4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,55 @@
+{
+  "_id": "efb4be75a9b1962f",
+  "_key": "!items!efb4be75a9b1962f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Celestial Godbody Understanding",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Blissful masters of this martial art transcend its limits through their perfected consciousness of how Essence flows through the world and themselves. After buying this Charm, the martial artist treats all attacks made using the Martial Arts Ability as unarmed attacks, even if he uses a weapon--including all the Charms of this style. Wearing armor no longer hinders the character from performing the Charms of this martial art, either. If it matters, any Strength, Dexterity or Martial Arts minimums for the character's weapons are halved (round up), so the Blissful Sage can wield weapons that seem like they should be too heavy for her. (This also helps the character if Charms, drugs or poisons reduce her Attributes below the listed minimums.)</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Celestial Monkey Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "efb4be75a9b1962f"
+  },
+  "folder": "67fad142ae9122e6",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

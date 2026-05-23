@@ -1,0 +1,71 @@
+{
+  "_id": "9bb3adc249db55e2",
+  "_key": "!items!9bb3adc249db55e2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Mountain Toppling Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "resistance",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "supplemental",
+    "duration": "oneAction",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Leader"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With this Charm, the Exalt can call upon the quiet strength of mighty mountains to augment his physical power. For one action, the Dragon-Blood's Strength increases by five, but only for the purpose of lifting or handling stone or earthen objects, such as toppling pillars, hurling boulders or stomping on the top of a hill to start a landslide. Also, for the purposes of this Charm, jade-alloyed weapons such as daiklaves are considered to be stone, and the Strength bonus does apply to attacks made with such weapons. This Charm is explicitly allowed to be put into Combos with Charms of other Abilities. IMPERVIOUS SKIN OF STONE MEDITATION Cost: 1m per 2L/2B soak; Mins: Resistance 2, Essence 2; Type: Simple Keywords: Combo-OK Duration: One scene</p><p>Prerequisite Charms: Strength of Stone Technique This Charm permits a Dragon-Blood to give her skin the toughness of unyielding stone itself while losing none of her normal flexibility. Each mote spent increases the Dragon-Blood's bashing and lethal soak by two. The bonus to soak cannot exceed the Exalt's Essence. Also, this Charm is weak against Essence, and the soak bonus granted does not apply to damage inflicted by sorcery or by attacks enhanced with Charms. This Charm is compatible with armor. (ELEMENT) PROTECTION FORM</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a393f478550058c8",
+            "charmName": "Strength of Stone Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "9bb3adc249db55e2"
+  },
+  "folder": "b0b1b2b3b4b5f02b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

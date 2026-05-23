@@ -1,0 +1,57 @@
+{
+  "_id": "a6747c6600a8e2ed",
+  "_key": "!items!a6747c6600a8e2ed",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Stuck Rudder Infliction",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The rudder is half a ship's will, and it must be kept in good repair. Should it become warped or damaged, the crew loses control over how the ship moves. With some practice, students of this style learn how to inflict this same problem on others. The character supplements a clinch attack or an opposed grappling check with this Charm. If the attack succeeds, he must immediately release his opponent. For the duration of the Charm, the target can move in one only direction dictated by the martial artist. This direction must be absolute to the environment (\"toward the aft, toward that door, that way\"), not relative to the character (\"away from me\"). Targets may choose instead not to move at all.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Seafaring Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "a6747c6600a8e2ed"
+  },
+  "folder": "ffeecb9a37f5f4a9",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

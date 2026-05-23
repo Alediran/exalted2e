@@ -1,0 +1,37 @@
+{
+  "_id": "b6e3f07877afc647",
+  "_key": "!items!b6e3f07877afc647",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Thunder Wolf's Howl",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-thunder-wolf-s-howl",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 10,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "An area 20 yards across, within 100 yards of the sorcerer",
+    "description": "<p>In the ancient days of the First Age, the great Lunar general Shu-lin hunted the behemoth Thunder Wolf, who roamed the Far North eating men and beast alike. Though Shu-lin wished to tame him, the two struggled, painting a snowy mountainside crimson, until they died. Shu-lin's widow created this spell in memory of the struggle. The sorcerer shapes his Essence with the Howling Word the great Animal Fathers of the North used to warn of Thunder Wolf's approach. A terrible howl then rips through an area 20 yards in diameter, up to 100 yards away. The shock smashes fragile objects and pulps internal organs. This attack cannot be parried or dodged at all. The caster's player rolls (Intelligence + Occult) to inflict a number of levels of bashing damage equal to the character's (Essence + successes); the sonic attack ignores worn armor. Undead and inanimate objects receive only half their normal soak against the howl. All living creatures in the area of effect are also deafened and disoriented. They suffer a -2 internal penalty on all actions for five ticks per success on the casting roll. The players of Exalted and other wielders of Essence may attempt a reflexive (Stamina + Resistance) roll. Each success on this roll reduces the period of disorientation by five ticks.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

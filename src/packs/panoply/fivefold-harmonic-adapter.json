@@ -1,0 +1,37 @@
+{
+  "_id": "a58bb0fe53ef5258",
+  "_key": "!items!a58bb0fe53ef5258",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fivefold Harmonic Adapter",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Appearing as thumbnail-sized disks of a single magical material engraved with mystical glyphs and surrounded in a ring of adamant, these devices automatically adhere to any artifact constructed of a different magical material. Any Exalt who tries to attune the \"host\" artifact can do so for the same cost as if it were made of the correct material for her Exalted type, provided the fivefold harmonic adapter attached to it is actually made of the correct material for her. Once the host artifact is attuned, the adapter cannot be pried off until its owner allows attunement to lapse. In the Realm, these artifacts are carefully regulated, as the Immaculate Order takes a very dim view of Dragon-Blooded who use the tainted weapons of the Anathema.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 1,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

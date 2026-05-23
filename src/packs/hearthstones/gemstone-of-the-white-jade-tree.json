@@ -1,0 +1,27 @@
+{
+  "_id": "38c8118308450a0b",
+  "_key": "!items!38c8118308450a0b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gemstone of the White Jade Tree",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDEARTH00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "earth",
+    "rating": 3,
+    "description": "<p>This blue-violet cabochon glows with a pale inner light. This stone hardens the bearer's skin; any damage the character suffers after soak is cut in half (rounding all fractions upward). This same hardness reduces the possessor's movement speed by half, rounding all fractions down. This penalty applies to all forms of movement, but can be cancelled by removing the stone from its setting. Doing this also instantly cancels the stone's beneficial effects.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

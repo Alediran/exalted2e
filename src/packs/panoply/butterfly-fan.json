@@ -1,0 +1,53 @@
+{
+  "_id": "403be0a94e5a406b",
+  "_key": "!items!403be0a94e5a406b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Butterfly Fan",
+  "type": "weapon",
+  "img": "icons/weapons/swords/sword-ornate-yellow.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "Melee",
+        "speed": 4,
+        "accuracy": 2,
+        "damage": 4,
+        "damageType": "lethal",
+        "overwhelming": 1,
+        "defense": 2,
+        "rate": 2,
+        "range": 0,
+        "minStrength": 1,
+        "minDexterity": 2,
+        "minMartialArts": 0,
+        "tags": [
+          "Disarming",
+          "Martial Arts"
+        ]
+      }
+    ],
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "description": "<p>Elaborately decorated fans with metal spokes; a twist extrudes spikes and blades. Unfolded it acts as a target shield. Martial Arts weapon.</p>",
+    "source": "Armorium",
+    "equipped": false
+  },
+  "folder": "f004a234b56c78a0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,61 @@
+{
+  "_id": "14e97e16a6dac186",
+  "_key": "!items!14e97e16a6dac186",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Accelerated Response System (Parry configuration)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "dexterity",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 3,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A parry-optimized configuration of the Accelerated Response System fits the Alchemical with intercept-trajectory processors and reactive limb positioning servos. When an attack is declared, the system instantly computes optimal blocking angles and drives the Alchemical's arms to the correct position with mechanical precision, adding the Exalted's Essence to her Parry DV for the remainder of the tick and granting two bonus dice to any active parry roll made this action.</p><p>The parry-configuration activates with a hydraulic hiss as servos engage, and successfully blocked blows ring with a resonant clang as the Alchemical's reinforced limbs meet the incoming strike. This variant is the prerequisite for the Impenetrable Repulsor Field, which builds upon the parry-configuration's interception architecture to generate an active energy barrier.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "14e97e16a6dac186",
+    "dvBonus": {
+      "enabled": true,
+      "parryBonusFormula": "@ess"
+    }
+  },
+  "folder": "b0b1b2b3b4b5f04e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

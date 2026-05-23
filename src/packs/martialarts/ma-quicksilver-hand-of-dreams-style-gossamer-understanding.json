@@ -1,0 +1,59 @@
+{
+  "_id": "48526e4b84e472af",
+  "_key": "!items!48526e4b84e472af",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gossamer Understanding",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "10m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dreaming Elder's Sutra: The maiden awakened into daylight, silver tear tracks on her cheeks, Even the poorest, most sordid and colorless dream can be beautiful to the dreamer, and that beauty is more real than anything in Creation. The martial artist can make things from dreamstuff using Craft (Glamour), just like the Fair Folk do. Sadly, his work is more limited. The Fair Folk can create anything, even impossible or abstract things, but the martial artist is grounded in Creation, and what he makes must always be physical. He may forge swords, palaces, lovers--indeed, almost anything he could conceivably touch--but nothing else. Learning the Craft (Glamour) Ability is his own problem. The martial artist works with gossamer, which is to dreams as glass is to sand. Dream Ravager Hand enables the character to collect raw dreams. This Charm converts the dreams to gossamer, and then to whatever object the character wants to create, using Craft (Glamour) in place of any other Craft that would normally be required. (Glamour is always considered the character's favored material.) Just as a jeweler could not make a gold bracelet from wood, however, the martial artist must use the proper kind of dreams. Common and generic things--a sword, a dress--can be made from the dreams of any common individual, but the raw materials for esoteric creations--an artifact, a person's perfect lover, a crown more beautiful than the dawn--require a long and difficult search. Brilliant artists and especially passionate individuals tend to have higher-quality dreams. The dreams of magically powerful individuals aren't always of higher quality, but they often are. Objects crafted by Gossamer Understanding follow the normal rules for creating that class of object. They are automatically excellent, but their excellence does not add to their Resources value for the purposes of creation rolls. Particularly large, complex, magical or beautiful things can have enormous difficulties--even up to 10--and require decades or centuries to complete without help or the use of other Charms. The magical materials cannot be woven from gossamer; neither can artifacts rated higher than 3, an Exalted or enlightened Essence, or a living soul. The Exalted dream crafter can make sentient beings, even people that seem human in almost every way that matters, but they cannot have an Essence score greater than 1. The exotic materials for the creation of gossamer artifacts come in the form of rare and potent dreams. The character must seek out Fair Folk, demons or other powerful entities to secure the proper materials, and they certainly faces dubious bargains for the sake of his quest. Gossamer Understanding is not compatible with Sidereal Craft Charms--they craft fate, not dreams--but it can be used with those of other Exalted. Keep in mind that gossamer things are not well suited to existence in Creation. They age and decay far more swiftly than normal objects of their sort do. They seldom last as long as a decade even in the uncivilized edges of the world. On the Blessed Isle, they vanish in less than a year. In the Underworld, gossamer dissolves in mere days. The magic of the Exalted cannot further preserve such things, but Fair Folk magic might help. A martial artist may use any gossamer weapons or armor he creates with all Charms of this style. The weapon must, however, be a Martial Arts weapon, and the armor's mobility or fatigue values cannot exceed 2.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Quicksilver Hand of Dreams Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "48526e4b84e472af"
+  },
+  "folder": "4f4566b64a919114",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

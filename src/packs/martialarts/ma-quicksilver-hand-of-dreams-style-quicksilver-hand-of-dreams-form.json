@@ -1,0 +1,59 @@
+{
+  "_id": "93d9102c07c105c5",
+  "_key": "!items!93d9102c07c105c5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Quicksilver Hand of Dreams Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Form-type",
+      "Obvious",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "15m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>As time passed, she forgot him and did not know why she wept in her sleep. The Exalt activates the Quicksilver Hand of Dreams Form through a weird, slow kata while the world around her seems to ripple like water. For the rest of the scene, the character receives the benefit of Ephemeral Presence Technique, and her surroundings are treated as poor visibility regardless of the illumination. In addition, the martial artist can reflexively negate any attempt to affect him in any way, at least on that action. Whatever an opponent or environmental effect might seek to do to him--hurt him, restrain him, trap him, persuade him--melts away, and he is as he would have been if it had never happened. The character can also make any action near-perfect: His player receives one success on any task the character attempts, no matter what internal or external penalties might naturally apply... including Defense Values. (Soak still applies, as it isn't a penalty.) The martial artist cannot do flat-out impossible things or automatically perform actions that require more than one success, but if a task is possible in principle, he can probably do it. For example, he couldn't save himself from falling off a cliff by flapping his arms--that's impossible without magic. He could, however, scamper up a collapsing cliff despite the external penalty of 5, and a (Dexterity + Athletics) pool of 3. He is as invincible as a lord of dreams. A dramatic character, however, may effectively oppose the martial artist by exerting her own narrative potential on the dream the martial artist creates around himself. If an action or defense against the character is enhanced with Essence or a stunt, then the martial artist's player rolls (Essence) with an external penalty equal to the other person's Essence score. If the roll fails, the martial artist must resist the effect or play out the offensive action with only the basic effect of this Charm to aid him. The character can live beyond reality. When he is killed, he may shift into the dreams of anyone within (his Essence x 10) yards (or further than that if he carries one of the person's dreams). Although all of his possessions are left behind, his body disappears entirely and will re-form--unharmed and alive--next to that person the next time the person dreams. Finally, once an Exalt learns Quicksilver Hand of Dreams Form, he becomes more resistant to the Wyld. All Wyld zones are treated as two steps closer to Creation, so Middlemarches cannot mutate or affect the character--unless he deliberately allows them to do so.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Quicksilver Hand of Dreams Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "93d9102c07c105c5"
+  },
+  "folder": "4f4566b64a919114",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

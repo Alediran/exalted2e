@@ -1,0 +1,58 @@
+{
+  "_id": "2c505cc513b72d0d",
+  "_key": "!items!2c505cc513b72d0d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fivefold Shadow Hand Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Form-type",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Stretching her whole body and cracking each knuckle, the martial artist feels Essence flood her chakras. It concentrates warmly at each point, then spreads to gather softly in her palms before it radiates through her fingers to form two dark, pulsing motes at the tips. Her substance is more in tune with the elemental energies of Creation. As a result, not only can she perceive and interact with dematerialized elementals, but they can perceive and interact with her. (The Charm does not let her sense other immaterial beings, such as gods, demons and ghosts.) Empowered by the magic in her hands, her strikes inflict lethal damage. The martial artist may also add her Essence in dice to all her Martial Arts attacks and Stealth rolls. NEW KEYWORD: SHARE-(ELEMENT) A character who fully understands how to call her own element can begin to explore the others. Each kata Charm that comes after the Adept Gestures invokes a combination of three elements to achieve a new and greater effect. Characters first learn the two katas that list their own (Element) Adept Gesture as prerequisites. After that and the style's Form-type Charm, they can begin to learn new katas directly from martial artists who are aspected to other elements. The Share-(Element) keyword indicates that a person aspected toward the element mentioned in the keyword can learn that Charm--but only if she learns from someone aspected to the kata's primary element. For instance, someone aspected toward Breeze can teach the Nothing but the Wind Charm to someone aspected toward Breeze, toward Forgotten or toward Smoke. This can lead either to cooperation or direct conflict between Fivefold Shadow Hand Style practitioners, as those with different patron elements either trade katas peacefully or wage small wars whose aim is to catch each other alive and force them to reveal their secrets.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Fivefold Shadow Hand Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "2c505cc513b72d0d"
+  },
+  "folder": "30abfdbff9e8ecc7",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

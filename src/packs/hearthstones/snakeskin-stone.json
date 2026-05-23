@@ -1,0 +1,27 @@
+{
+  "_id": "2a4042afd861edce",
+  "_key": "!items!2a4042afd861edce",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Snakeskin Stone",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDLUNAR00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "lunar",
+    "rating": 3,
+    "description": "<p>This smooth, irregular stone appears covered in black, red and white snake scales. The next time an injured owner sleeps, she sheds her skin. This process closes wounds and heals scrapes and burns, but does not repair the damage of deep wounds or damaged internal organs. As a result, the bearer heals all bashing damage and half of all lethal damage (round up). The hearthstone does nothing for aggravated damage. It also does not affect Lunars' moonsilver tattoos or other magical markings, but after shedding her skin, the bearer looks uninjured unless examined by a physician. A single set of wounds can benefit from this stone only once.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

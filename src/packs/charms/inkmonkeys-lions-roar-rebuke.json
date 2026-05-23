@@ -1,0 +1,76 @@
+{
+  "_id": "8a65c5b4ae9cd94d",
+  "_key": "!items!8a65c5b4ae9cd94d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Lion's Roar Rebuke",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "strength",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 4,
+    "dvPenalty": -1,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Crippling"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Filling his lungs with thunder, the Lunar throws back his head and roars with a voice to shake the stars from the firmament. All characters within (Essence x 10) yards must roll Stamina + Resistance against a difficulty of the Lunar's Strength. Should this roll fail, the target is rendered temporarily deaf. He automatically fails all auditory Perception rolls, and suffers a -3 internal penalty to all Perception rolls that might be aided by hearing, such as noticing someone attempting to sneak up on him with Stealth. This deafness persists for (Lunar's Strength + Essence) hours. The target is also generally disoriented in the wake of the roar, suffering a -1 external penalty on all actions until his DV has refreshed twice. Dexterity Essential Moonsilver Affinity</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "8a65c5b4ae9cd94d",
+    "targetPenalty": {
+      "enabled": true,
+      "amount": -1
+    }
+  },
+  "folder": "b0b1b2b3b4b5f06e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

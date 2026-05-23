@@ -1,0 +1,60 @@
+{
+  "_id": "698cd1bbb8c1c91e",
+  "_key": "!items!698cd1bbb8c1c91e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Glorious Southern Harbinger of War and Fury",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Emotion",
+      "Obvious",
+      "Social",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "6m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>As the martial artist adopts the Southern posture, she uses her vigorous, dramatic sweeps and slashes in a ritualized kata that stokes the fires of bravery in others' hearts. As the Exalt invokes this Charm, a banner of pure Essence erupts from the head of her weapon. The banner's edge glitters with precious gems and tapers away in a six-footlong pendant. High Realm kanji encouraging fearlessness and honor scintillate along its length, and tassels of fiery Essence line the banner's inner curve. Once invoked, this pendant lasts for the entire scene or until the Exalt who invoked it wishes otherwise. The display uses the character's (Charisma + Martial Arts) at difficulty 1, plus one more for every three targets she wishes to affect. Bonuses from the Crimson Pentacle Blade Form Charm and from being a student of the Southern Scythe Posture apply to this roll as normal. If the roll succeeds, the Exalt stirs the crowd into a battle fury, and all those so inspired are gifted with a temporary +1 boost to Valor for the scene. This Charm is also stackable, but only if it is invoked by separate speardancers in the same scene. The vision of an entire troupe of speardancers performing an intertwining kata, each waving their banners in unison, could tempt even the most fearful, beaten-down rabble to take up arms and go to war for a cause they now consider righteous.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Crimson Pentacle Blade Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "698cd1bbb8c1c91e"
+  },
+  "folder": "dd43fd817c3c8fc1",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

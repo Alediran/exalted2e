@@ -1,0 +1,91 @@
+{
+  "_id": "0151b1a3e8e308b0",
+  "_key": "!items!0151b1a3e8e308b0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Crypt Bolt Attack",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "thrown",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      1
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Mirror (Spirit Weapons; Exalted, p. 197)",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Unnatural entropic and corpse-element energies crackle like ball lightning around one or both hands of the Abyssal's hands. Like an iconic anima, each user of this Charm creates a unique and easily recognizable manifestation of Essence. If an Abyssal makes an unarmed punch with a hand wreathed in Crypt Bolt Attack, the punch inflicts lethal damage. It is far more effective for him to throw part of this energy as a blast or beam, using the nimbus as a source of infinite ammunition while the Charm lasts. These blasts have the following traits: Speed 5, Accuracy +0, Rate 2 (one per hand), Range (Thrown x 10 yards) and inflict a base damage of (Essence x 2)L without adding Strength. This Charm inflicts damage through accelerated decay, corrosion or some other consumptive principle. There is no mistaking these wounds for natural injuries. Using a hand holding a Crypt Bolt Attack for anything other than throwing blasts, punching or making unarmed parries dissipates the energies, requiring the Abyssal to activate the Charm again.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "attack": {
+      "enabled": true,
+      "name": "Crypt Bolt Attack",
+      "speed": "5",
+      "accuracy": "0",
+      "damage": "@ess * 2",
+      "damageType": "lethal",
+      "overwhelming": "1",
+      "defense": "0",
+      "rate": "2",
+      "range": "@thrown * 10",
+      "minStrength": "0",
+      "minDexterity": "0",
+      "minMartialArts": "0",
+      "tags": []
+    },
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "dbd6040efc5d15fe",
+            "charmName": "Improvised Assassin's Trick",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "0151b1a3e8e308b0",
+    "mirrorId": "2f693f7233f35bd5"
+  },
+  "folder": "b0b1b2b3b4b5f04a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

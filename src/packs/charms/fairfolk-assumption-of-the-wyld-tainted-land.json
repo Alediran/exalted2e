@@ -1,0 +1,60 @@
+{
+  "_id": "8213c59f4e3422f8",
+  "_key": "!items!8213c59f4e3422f8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Assumption of the Wyld-tainted Land",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Assumption",
+      "Glamour (6)",
+      "Mutation (6)",
+      "ShapedOnly"
+    ],
+    "cost": {
+      "formula": "15m, 1wp, 6g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Wyld flows through each raksha, and when one has passed through the Gateway of Sundraprisha into Creation, the Wyld passes through her into hated Creation itself. This Charm functions exactly like Assumption of the City's Heart except that the affected area must share a border with the Bordermarches on at least 20 percent of its boundary. In addition to the normal effects of Assumption of the City's Heart, this Charm also creates a powerful tainted land. Any raksha can attempt shaping magic within that area of Creation, albeit at a +5 difficulty. Oneiromancy Benefit: As per Assumption of the Land's Heart.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "8213c59f4e3422f8"
+  },
+  "folder": "6dbccd37637d2988",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

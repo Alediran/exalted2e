@@ -1,0 +1,71 @@
+{
+  "_id": "fa1941e28ed83b1d",
+  "_key": "!items!fa1941e28ed83b1d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fading Light Quickening",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Native",
+      "Overdrive"
+    ],
+    "cost": {
+      "formula": "--(1m)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>In the darkness before the dawn, the Lawgiver is armed in moments; her every breath a promise of tomorrow. This Charm creates a peripheral Essence pool with a capacity of ten motes. Initially empty, the character may fill it by paying one mote and converting stocked attacks into offensive motes. The Solar is seen to strike across her center with fist or blade, severing as many attacks as she chooses from her gamut of potential actions. Each attack converted in this manner instantly becomes two offensive motes. The Solar may not use an offensive mote to power this Charm. Dawn's Parable Defense</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ddde37717342afbe",
+            "charmName": "Final Sunset Stance",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "fa1941e28ed83b1d"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

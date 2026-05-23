@@ -1,0 +1,37 @@
+{
+  "_id": "b7b339fbfe737816",
+  "_key": "!items!b7b339fbfe737816",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Barless Gate",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "void-circle-the-barless-gate",
+    "tradition": "necromancy",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 42,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Mirror",
+    "description": "<p>The necromancer touches a mirror as his anima flashes silver. The mirror ripples, sucks him in and bursts into slivers as soon as the caster is gone from sight. Another mirror of the caster's choice immediately turns black and shatters outward, expelling the character--though the necromancer simply floats to the ground with quiet dignity. He may step out of any mirror in the same world. If he doesn't know of a particular mirror, he may aim for a location and steps from the nearest mirror. Spells that block teleportation such as Private Plaza of Downcast Eyes (see The White Treatise, p. 55) shunt the necromancer to the mirror nearest the warded location.</p>"
+  },
+  "folder": "447f6cc1520ba234",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

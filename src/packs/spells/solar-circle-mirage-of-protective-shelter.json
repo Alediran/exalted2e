@@ -1,0 +1,37 @@
+{
+  "_id": "8e22baffd9bb4a8a",
+  "_key": "!items!8e22baffd9bb4a8a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Mirage of Protective Shelter",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "solar-circle-mirage-of-protective-shelter",
+    "tradition": "sorcery",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 40,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "one scene",
+    "target": "Area",
+    "description": "<p>One of the best ways to protect a person or place is to hide it. After taking the Cast Sorcery action, the character must walk around the area she wishes to protect. As she walks, faint silvery Essence falls from her and forms a line on the ground where she has trod. She must return to her point of origin before the moon next crosses the horizon. Any creatures that intend to harm the area or its inhabitants cannot approach it. When they get close, the spell makes an unnatural mental attack on them. Unless their Dodge MDVs equal or exceed a value equal to double the caster's Essence, they follow a path around the affected region and cannot perceive it. Spending three points of Willpower lets a character ignore this Illusion effect for one scene, but at the end of that scene, the person finds himself lost again. Mirage of Protective Shelter can deflect entire armies or protect whole provinces. The mirage normally lasts a number of months equal to the caster's Essence. For long-term protection, the caster must craft (or direct a skilled crafter in building) a silver-and-crystal symbol of the region's protection, anything from a statuette of its presiding god to a stele inscribed with a map of the region. Doing so requires a successful difficulty 5 (Intelligence + [Craft or Occult]) roll to design and then a successful (Dexterity + Craft [lower of Air and Fire]) roll to create. Placing this symbol within the protected region and spending a dot of permanent Willpower prevents the spell from failing until the spell's focus is destroyed or removed from the region.</p>"
+  },
+  "folder": "66776f28169b53d7",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

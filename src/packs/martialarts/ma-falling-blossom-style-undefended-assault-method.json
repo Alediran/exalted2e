@@ -1,0 +1,57 @@
+{
+  "_id": "0ae52482d06809d3",
+  "_key": "!items!0ae52482d06809d3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Undefended Assault Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When a warrior fears to die, her fear undermines her concentration. If she hesitates, death will surely find her. When a warrior does not fear death, her recklessness leaves her overexposed and makes her sloppy. A warrior ensures victory only by refusing even to consider whether she could live or die. A Falling Blossom martial artist's devotion to her charge leads her to this assurance. When a martial artist activates this Charm, the result of her player's Join Battle roll increases by a number of automatic successes equal to the character's Martial Arts score, since fear does not make her hesitate. In addition, all attacks made during her first action gain one automatic success, as she retains her focus in defense of her charge. The martial artist may not make an active defense with any part of her action, however, so her DVs drop to 0 for the remainder of the action. The martial artist may still benefit from defenses purchased from Charms or persistent effects such as Five-Dragon Blocking Technique or Fivefold Bulwark Stance. Without them, however, the martial artist is vulnerable. This Charm must be activated before the character takes her Join Battle action.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Falling Blossom Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "0ae52482d06809d3"
+  },
+  "folder": "dd497199f5d1964b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

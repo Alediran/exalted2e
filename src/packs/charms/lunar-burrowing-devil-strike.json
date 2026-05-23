@@ -1,0 +1,71 @@
+{
+  "_id": "c85582c2a7776460",
+  "_key": "!items!c85582c2a7776460",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Burrowing Devil Strike",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "strength",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Fury-OK"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Deep within the Imperial Mountain, the small diamond beetle digs endlessly through even the hardest stone and white jade. Locals call the beetle the burrowing devil even as it leads them to rich veins for new mines. Lunar Exalted mimic this creature's capability by striking with such force that their attacks tear through armor to reach the soft flesh beneath. Treat this attack as piercing. When activated as a part of Relentless Lunar Fury, the character's hand-to-hand attacks become piercing for the duration. CONSUMPTIVE WORM HUNGERS Cost: --; Mins: Strength 5; Essence 4; Type: Permanent Keywords: None Duration: Permanent Prerequisite Charms: Burrowing Devil Strike This Charm permanently enhances Burrowing Devil Strike. The Lunar temporarily becomes able to ignore a target's armor completely. When using Burrowing Devil Strike, the character must spend an additional point of Willpower to use this function.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "742155f223f22ebb",
+            "charmName": "Impressions of Strength",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "c85582c2a7776460"
+  },
+  "folder": "aba1efe8ad0bef8a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

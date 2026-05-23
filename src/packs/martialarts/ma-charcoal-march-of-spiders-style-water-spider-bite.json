@@ -1,0 +1,59 @@
+{
+  "_id": "6cf4d8fbabb0751d",
+  "_key": "!items!6cf4d8fbabb0751d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Water Spider Bite",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Crippling",
+      "Obvious",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "20m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>And to a third, she said, \"How beautiful you are.\" Far to the West, hand-sized green spiders scuttle along the underside of the ocean's surface as if it were a web. Their pinprick bite paralyzes fish, even sharks or whales, and the spiders burrow into the flesh of their prey as it sinks into the depths. They rise to the surface again days or years later, when they have eaten every piece of their kill. One swift blow supplemented with this Charm can render an enemy similarly helpless so the Sidereal can devour him for his Essence. To do so, the martial artist attempts a normal unarmed attack. If that attack inflicts even one health level of damage, the martial artist also paralyzes her opponent's Essence such that the target cannot spend motes or regain Willpower or Essence. (This attack also physically paralyzes the target.) At the same time, the target no longer suffers from nor accumulates penalties from disease, poison, degenerative effects, hunger, thirst, fatigue, exhaustion, wounds, cold or heat. He is perfectly defended against such harm. He does not even need to breathe. The victim can overcome this effect for a single action by spending a Willpower point, but his player must also succeed at a reflexive (Stamina + Occult) roll against a difficulty equal to the martial artist's Essence. (A character may use this Willpower point expenditure to channel a Virtue and gain bonus dice on the roll, depending on the circumstances.) The victim must make a number of these expenditures and successful (Stamina + Occult) rolls equal to the attacker's Martial Arts score in order to completely free himself of the effects, but he need not do so on consecutive actions. Meanwhile, the martial artist can spend the victim's Essence motes as if they were Peripheral Essence. Doing so can invoke the target's anima banner, but only around the target. The Sidereal's anima banner is unaffected. A character can use this Charm on a consenting subject--if the subject suffers from exhaustion, disease or other degenerative effects, for instance--allowing her to draw on that subject's Essence freely.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Charcoal March of Spiders Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "6cf4d8fbabb0751d"
+  },
+  "folder": "1c3b8957c92799e4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

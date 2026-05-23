@@ -1,0 +1,15 @@
+{
+  "_id": "c005d234e56f7894",
+  "_key": "!items!c005d234e56f7894",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Rations (1 week)",
+  "type": "equipment",
+  "img": "icons/consumables/food/bread-loaf-simple-brown.webp",
+  "system": {
+    "resourcesCost": 1,
+    "quantity": 1,
+    "description": "",
+    "equipped": false
+  },
+  "folder": "f003a234b56c789f", "sort": 0, "ownership": { "default": 0 }, "flags": {}, "effects": []
+}

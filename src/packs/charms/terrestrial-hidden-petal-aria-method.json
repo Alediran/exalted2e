@@ -1,0 +1,74 @@
+{
+  "_id": "abdeae5aeaa22be4",
+  "_key": "!items!abdeae5aeaa22be4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hidden Petal Aria Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "performance",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      3
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Leader",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "2m per subject",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A truly gifted performance contains multiple layers of communication, as a single turn of an actor's head or a single note artistic flourish in a musical performance can contain nuances that only a true aficionado can appreciate. With this Charm, a Dragon-Blood can weave hidden subtexts and messages into his performance, ideas that only audience members of his choice can perceive. The Exalt must spend two motes per person with whom he wishes to communicate secretly, and the Charm can only be used in the course of a performance. Once the Charm is activated, he can deliver messages of almost any length, which the subject perceives subliminally, as if the Exalt were speaking in a slow monotone voice. The Charm</p><p>does not permit the subject to communicate anything back to the Dragon-Blood, but if multiple Dragon-Blooded with this Charm are performing together on the same stage, they can have lengthy conversations or even arguments without the audience being any the wiser. Highly specialized or technical knowledge generally cannot be communicated with this Charm. This Charm is a reflexive one that can be used freely without the need for a Combo. It can be used only on a tick upon which the Dragon-Blood acts.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "abdeae5aeaa22be4"
+  },
+  "folder": "b0b1b2b3b4b5f029",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "e72bd50725c425c3",
+  "_key": "!items!e72bd50725c425c3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fiery Solar Cannon",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>This is one of the most powerful handheld weapons created during the First Age. The body of the weapon is carved from a single five-sided tube of solid ruby inlaid with orichalcum. This weapon is three feet long and as thick as a grown man's calf, and it can be wielded only by one of the Solar Exalted. It is normally carried over the wielder's back and requires the user to stand still and use both hands to fire it. (The wearer cannot use a move action while firing this weapon, and he can dodge or parry only by using reflexive Charms or persistent Charms that are already in effect.) When fired, this weapon shoots balls of golden sun fire that fly as swiftly as an arrow and then explode into a sunburst two yards in diameter. If two targets are standing next to each other, the explosion affects both equally. Otherwise, it affects only a single target. This attack can be dodged, but it cannot be parried without Charms that allow the user to parry any attack. These sunbursts burn the target with the heat of the sun and damage stone or metal as readily as they damage flesh. The user must expend two motes of Solar Essence for every shot. Although this weapon can be fired only once in a flurry (per its Rate), the wielder can cause it to simultaneously fire a number of additional balls of sun fire equal to his permanent Essence in a single shot. Each attack must be aimed at a separate target. Each target dodges each ball of sun fire separately, but all of these attacks use the same attack roll, with no loss of dice from multiple actions. Each ball of sun fire costs an additional two motes of Essence, however. The character may spend only one mote per shot to fire less powerful balls of sun fire, which are only one yard in diameter. This weapon requires the user to commit eight motes of Essence to it. In addition, he must also insert a Fire or Solar hearthstone of at least level 2 into the base of the weapon. This hearthstone provides no benefits to the user, as all of its energy is used to help power the solar cannon. This item must be serviced after every 100 shots. If it is not maintained, the fiery solar cannon will lose levels of damage from its rating for every 10 additional shots fired until it is no longer capable of firing. This artifact can be used only by the Solar Exalted, so the material bonus for orichalcum has already been figured into this weapon's stats. Type Speed Acc. Damage Rate Range Cost Minimums Attune Full Power Shot +3 18L 1* 300 2 Str ··· Half Power Shot +3 9L 1* 300 1 Str ··· * If desired, the character can attack an additional number of separate targets equal to her permanent Essence simultaneously, with no penalties for multiple actions. POWER ARMOR At the start of the Primordial War, the Exalted relied chiefly upon mundane armor designs constructed of the magical materials. While these artifacts had the advantage of requiring no maintenance or additional training to use, they are also grossly inferior to the power armors developed later in the war and throughout the First Age. Although the ultimate extension of power armor design is undeniably the warstrider (see pp. 136-160), variations of personal-scale battle suits have repeatedly proved far more useful and versatile against adversaries smaller than behemoths. Just as importantly, lesser models of power armor can allow elite mortal soldiers to take the battlefield with the Chosen and have a chance of surviving.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 5,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

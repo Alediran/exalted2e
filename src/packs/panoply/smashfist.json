@@ -1,0 +1,64 @@
+{
+  "_id": "e720a234b56c78a8",
+  "_key": "!items!e720a234b56c78a8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Smashfist",
+  "type": "weapon",
+  "img": "icons/weapons/fist/fist-iron.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "Normal",
+        "speed": 5,
+        "accuracy": 0,
+        "damage": 7,
+        "damageType": "bashing",
+        "overwhelming": 1,
+        "defense": 2,
+        "rate": 2,
+        "range": 0,
+        "minStrength": 2,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": []
+      },
+      {
+        "name": "Clinched",
+        "speed": 6,
+        "accuracy": 0,
+        "damage": 6,
+        "damageType": "bashing",
+        "overwhelming": 1,
+        "defense": 0,
+        "rate": 1,
+        "range": 0,
+        "minStrength": 2,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": []
+      }
+    ],
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 6,
+    "attuned": false,
+    "artifactRating": 1,
+    "hearthstoneSlots": 0,
+    "description": "<p>Massive articulated gauntlets; used in pairs without offhand penalty, allows Martial Arts blocking of lethal attacks.</p>",
+    "equipped": false
+  },
+  "folder": "f004a234b56c78a0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

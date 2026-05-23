@@ -1,0 +1,66 @@
+{
+  "_id": "f38567b7502a0b1d",
+  "_key": "!items!f38567b7502a0b1d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shadow Over Water",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "dodge",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Chosen move like shadows over water--with perfect grace and speed. The maneuver named Shadow Over Water restores defensive advantage to a beleaguered or overextended fighter. This Charm is used in response to an attack. It allows the Exalt to ignore all penalties that apply to her Dodge DV when resolving that attack. Her Dodge DV is still 0 against an undodgeable attack, but she takes no further penalties.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "dvBonus": {
+      "enabled": true,
+      "dodgeBonus": 0,
+      "parryBonus": 0,
+      "ignoreAllPenalties": true,
+      "ignorePenaltyTypes": []
+    },
+    "charmUid": "f38567b7502a0b1d"
+  },
+  "folder": "b4b556393b53edae",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

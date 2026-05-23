@@ -1,0 +1,68 @@
+{
+  "_id": "e62aa234b56c78b4",
+  "_key": "!items!e62aa234b56c78b4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Lance",
+  "type": "weapon",
+  "img": "icons/weapons/polearms/spear-flared.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "Charge",
+        "speed": 6,
+        "accuracy": -1,
+        "damage": 10,
+        "damageType": "lethal",
+        "overwhelming": 1,
+        "defense": -3,
+        "rate": 1,
+        "range": 0,
+        "minStrength": 3,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": [
+          "Reaching"
+        ]
+      },
+      {
+        "name": "Stab",
+        "speed": 6,
+        "accuracy": -1,
+        "damage": 5,
+        "damageType": "lethal",
+        "overwhelming": 1,
+        "defense": -3,
+        "rate": 1,
+        "range": 0,
+        "minStrength": 3,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": [
+          "Reaching"
+        ]
+      }
+    ],
+    "artifact": false,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 0,
+    "hearthstoneSlots": 0,
+    "description": "<p>A strong-shafted spear designed to be used from horseback; damage increases significantly when charging or bracing against a charging opponent.</p>",
+    "equipped": false
+  },
+  "folder": "f001a234b56c789d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

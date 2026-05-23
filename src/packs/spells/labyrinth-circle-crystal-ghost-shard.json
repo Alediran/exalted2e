@@ -1,0 +1,37 @@
+{
+  "_id": "520d3f870284ec52",
+  "_key": "!items!520d3f870284ec52",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Crystal Ghost Shard",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "labyrinth-circle-crystal-ghost-shard",
+    "tradition": "necromancy",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 15,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "permanent",
+    "target": "Caster",
+    "description": "<p>The necromancer steps up off the ground as he ends the spell, whose final word crystallizes the air around him. His encasement becomes a smoky, opaque crystal that closes around him and supports him in midair. Once the cocoon is complete, it frees the caster's higher soul from his body. On the character's Cast Necromancy action, he appears before his crystal-wrapped body as a simple, unremarkable ghost. The necromancer's ghost has Appearance 2 and is not recognizable as the character. His other Attributes and Abilities stay the same. He cannot use his natural Charms, sorcery, necromancy or Martial Arts Charms beyond the Form-type Charm. The character may remain a ghost indefinitely, and his Essence remains committed until the necromancer-ghost returns and climbs back into his body. Until then, the caster recovers Essence as a ghost does and may practice to learn a ghost's Arcanoi at the normal experience point costs. (This includes Moonshadow or Eclipse Caste Exalted.) The character may use them at the normal mote cost as long as Crystal Ghost Shard projects him as a ghost. When he returns to his mortal body, the necromancer cannot access the Arcanoi unless he is of the Moonshadow or Eclipse Castes, and he pays the extra experience cost to learn them as an Exalt instead of a ghost. While the necromancer is outside his body, the Crystal Ghost Shard lightly sheds a dark mist and protects his body. No Shadowlands or Terrestrial Circle spell may penetrate the shell, and the caster's mind is completely unassailable. The shell has 30L/30B soak. It cracks when it has suffered 20 levels of damage and splits open when it suffers 50. Breaking the cocoon jerks the caster's consciousness back to his body and causes him two levels of aggravated damage. Killing the caster in ghost-form causes the spell to pull the soul back to the body with terrible speed, so fast that bits of his awareness and memory tear off. The cocoon shatters as he starts awake, bleeding through his thoughts, and the event is so damaging to his psyche that the character loses one dot of permanent Willpower.</p>"
+  },
+  "folder": "562235f47f16c453",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

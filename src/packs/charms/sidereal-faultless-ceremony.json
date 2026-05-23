@@ -1,0 +1,57 @@
+{
+  "_id": "ee6cf4e318840bc9",
+  "_key": "!items!ee6cf4e318840bc9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Faultless Ceremony",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "performance",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>When the Sidereal participates in a ceremony-- anything from a newborn's naming to a funeral--her involvement confers an orthodoxy that pleases Heaven. Her player rolls (Charisma + Performance + Essence) at a difficulty equal to (8 � the Resources expended on the ceremony). If the roll fails, the ceremony is still complete, but does not attract any notice from the Celestial Bureaucracy. If the roll succeeds, the authorities in Heaven look favorably on the ceremony's participants. For the next week, the people for whom the Sidereal performed the ceremony--a wedded couple, the children who commissioned their father's funeral or the like--enjoy a +1 bonus on any dice roll meant to represent their efforts. The successful prayer also grants a broader blessing of harmony and joy to the participants that goes beyond anything dice pools can represent: the dutiful children divide the estate without bickering, the newlyweds are assured of fertility and so on.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "ee6cf4e318840bc9"
+  },
+  "folder": "b0b1b2b3b4b5f010",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

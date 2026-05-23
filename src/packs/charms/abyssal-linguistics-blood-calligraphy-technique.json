@@ -1,0 +1,59 @@
+{
+  "_id": "2551ad5faab9536d",
+  "_key": "!items!2551ad5faab9536d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Blood Calligraphy Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "linguistics",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Mirror (Whirling Brush Method; Exalted, p. 232)"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Abyssal writes with superhuman speed and exquisitely elegant penmanship, using his finger like a stylus to unnaturally scribe the words in sanguine ichor. Unlike its Solar Mirror, this Charm provides a writing implement and unlimited ink in addition to superior writing ability, but no one who sees the text can miss the fact that it appears to be written in blood.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "2551ad5faab9536d",
+    "mirrorId": "dbd02aa0372f7795"
+  },
+  "folder": "b0b1b2b3b4b5f03c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

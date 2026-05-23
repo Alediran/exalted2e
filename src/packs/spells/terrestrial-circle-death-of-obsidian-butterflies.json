@@ -1,0 +1,37 @@
+{
+  "_id": "c7f4e2d8b6a93051",
+  "_key": "!items!c7f4e2d8b6a93051",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Death of Obsidian Butterflies",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-death-of-obsidian-butterflies",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 15,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "Instant",
+    "target": "Area",
+    "description": "<p>The sorcerer conjures a storm of razor-edged obsidian butterfly-shapes from the Essence of the air and sends them hurtling across the landscape. The blades appear in front of the sorcerer and speed away from him in a 100-yard wide, (Essence x 10)-yard long swath. Everything in this swath takes 20 levels of lethal damage. This damage can be soaked with armored soak only — natural soak does not apply. The butterflies can be dodged (difficulty 3), but they cannot be parried. The butterflies cannot be stopped by cover of 2 or fewer dots.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

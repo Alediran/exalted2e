@@ -1,0 +1,58 @@
+{
+  "_id": "fba2d17f4752e65c",
+  "_key": "!items!fba2d17f4752e65c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "New Martial Arts Charm: Clear Eyes Defense",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Counterattack"
+    ],
+    "cost": {
+      "formula": "4m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereals are destiny's guardians and the eyes of the Exalted. Their vision must not be clouded, and those who would attempt such stratagems must be punished. While this Charm is active, the Sidereal may launch an unarmed Martial Arts counterattack in step nine against any individual who attempts to inflict unnatural mental influence on him. If this influence is ongoing, the counterattack triggers the first time the Sidereal is exposed to it after activating Clear Eyes Defense. If the character is a Sidereal Exalt with Essence 3+, then a counterattack which successfully strikes its target also perfectly negates the unnatural mental influence which triggered it.</p>",
+    "source": "Scroll of Errata",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "fba2d17f4752e65c"
+  },
+  "folder": "a1b2c3d4e5f60003",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

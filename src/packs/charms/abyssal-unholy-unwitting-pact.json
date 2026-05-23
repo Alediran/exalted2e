@@ -1,0 +1,86 @@
+{
+  "_id": "bffcfbbade071a94",
+  "_key": "!items!bffcfbbade071a94",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unholy Unwitting Pact",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "investigation",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Avatar (1)",
+      "Combo-OK",
+      "Mirror (Know the Soul's Price; Exalted, p. 214)",
+      "Servitude"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The inevitability of entropy is predicated on the hypocrisies of the righteous. Even the Unconquered Sun, supposed shining paragon of virtue, could be bribed to forsake Creation for the bliss of eternal victory in the Games of Divinity. The Abyssal may activate this Charm during any social interaction with a</p><p>target character, requiring a (Perception + Investigation) roll. Unlike its Solar Mirror, however, the difficulty is equal to the target's Temperance or Essence (whichever is highest). On a success, the target's player reveals her character's price. If the Abyssal meets this price, the target feels a sense of incalculable dread and hears the distant mocking laughter of the Neverborn at the back of her mind as they claim ownership of her.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c6955c914bf2db1b",
+            "charmName": "Deception-Piercing Stare",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d96a993704a8d9ab",
+            "charmName": "Spider in Society's Web",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "bffcfbbade071a94",
+    "mirrorId": "7ff215c64e029ce0"
+  },
+  "folder": "b0b1b2b3b4b5f03a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

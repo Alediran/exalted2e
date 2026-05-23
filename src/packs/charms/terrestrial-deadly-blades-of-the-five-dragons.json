@@ -1,0 +1,101 @@
+{
+  "_id": "95dff732c8e11b73",
+  "_key": "!items!95dff732c8e11b73",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Deadly Blades Of The Five Dragons",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "thrown",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Elemental",
+      "Obvious",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "3m per weapon",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Dragon-Blood can summon throwing weapons out of thin air, fashioning them from the element to which she is aligned.</p><p>Most commonly, the Charm summons throwing daggers, but some Dragon-Blooded summon more personalized weapons, such as shuriken, chakrams or throwing axes. Regardless of its external appearance, each weapon has a base Damage and Accuracy equal to the Dragon-Blood's Essence and a range of (Essence x 10) yards. The Dragon-Blood can create up to (his Essence) weapons at a time. Once created, each weapon is thrown reflexively with the DragonBlood's full (Dexterity + Thrown) dice pool. If multiple weapons are created, they can all be thrown as part of a flurry. Elemental blades dissipate after the attack, but they can be put to uses other than striking a target during their brief duration, such as knocking an item out of someone's hand, slicing through ropes or even allowing the Dragon-Blood to parry lethal attacks. Additionally, the weapons summoned have special properties based on the elemental alignment of their creator: Air blades buffet the target, subtracting two dice from her next action. Earth blades knock the target back, forcing her player to roll (Dexterity + Athletics), difficulty 4, to keep the character from falling. Fire sets the target ablaze for an action for an additional 4L. Water fills the target's lungs with seawater, adding three ticks before her next action due to violent coughing. Wood poisons the target, requiring her player to successfully roll (Stamina + Resistance) at a difficulty of (the DragonBlood's Essence) to avoid suffering a -1 penalty to all actions for the rest of the scene. (Subsequent successful uses of this poison effect are cumulative.) In order to inflict any of these penalties, the DragonBlood must successfully hit his target. He cannot inflict a particular elemental effect more than once per action, however, regardless of how many blades he throws at his target as part of a flurry. Regardless of the specific elemental version learned, each Charm is always considered to be an Air-aspected Charm for purposes of determining whether the one-mote surcharge for out-of-aspect Charms applies. A Dragon-Blood can learn only the version associated with his aspect.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "attack": {
+      "enabled": true,
+      "name": "Deadly Blades Of The Five Dragons",
+      "speed": "6",
+      "accuracy": "@dex + @thrown + @ess",
+      "damage": "@ess",
+      "damageType": "lethal",
+      "overwhelming": "1",
+      "defense": "0",
+      "rate": "@ess",
+      "range": "@ess * 10",
+      "minStrength": "0",
+      "minDexterity": "0",
+      "minMartialArts": "0",
+      "tags": []
+    },
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f991ff4a53809482",
+            "charmName": "Persistent Hornet Attack",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "178c588457127692",
+            "charmName": "Vengeful Gust Counterattack",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "95dff732c8e11b73"
+  },
+  "folder": "b0b1b2b3b4b5f031",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

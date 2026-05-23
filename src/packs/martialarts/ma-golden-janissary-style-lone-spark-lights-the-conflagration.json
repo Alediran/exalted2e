@@ -1,0 +1,59 @@
+{
+  "_id": "f4734d8f9e6a2896",
+  "_key": "!items!f4734d8f9e6a2896",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Lone Spark Lights the Conflagration",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Holy",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "3m + (1m per additional target), 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Surrounded by evil and darkness, masters of the Golden Janissary Style use this pinnacle technique to blast fields clean of their enemies and let light once again shine on the ground. With a massive blow of his hand or spear, the warrior's weapon flares for a brief moment with brilliant, golden-white flame. In all eyes, including that of Heaven, the afterimage floats on the victim for a long moment before the target creature--and creatures near it--bursts into purifying flame. The white-flaming fist or spearhead strike sears any opponent, adding +3L to the attack's raw damage. When used against a creature of darkness, it inflicts +6L instead of +3L. On the next tick, the creature of darkness bursts into flame and suffers a number of dice of aggravated damage equal to the martial artist's Essence, which ignores armor. At the same moment, all creatures of darkness with the same affiliation (i.e., the Underworld, Malfeas, Fair Folk or whatever) within (Essence x 3) yards find themselves at the center of similar pyres. These flames are ghostly and transparent and inflict no damage unless the Exalt chooses, at that moment, to spend one mote for each bonfire he wishes to endow with his holy power. On that action, immolated creatures suffer the same damage as the original creature. True fires inflict damage once more on the martial artist's next action and then dim into false flames. The ghostly bonfires disappear one action after that.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Golden Janissary Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f4734d8f9e6a2896"
+  },
+  "folder": "308a6e755f91c2ff",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

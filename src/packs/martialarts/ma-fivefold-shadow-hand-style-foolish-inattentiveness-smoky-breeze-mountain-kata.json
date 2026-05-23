@@ -1,0 +1,60 @@
+{
+  "_id": "dd5c1794178b8f1d",
+  "_key": "!items!dd5c1794178b8f1d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Foolish Inattentiveness (smoky Breeze Mountain Kata)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Illusion",
+      "Share-Breeze",
+      "ShareSmoke"
+    ],
+    "cost": {
+      "formula": "6m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Adopting a posture of ease and disregard--and touching her middle fingers together while the index and smallest fingers of one hand touch the smallest and index fingers (respectively) of the other--the character directs the attention of her companions to a pretty sunset or a shocking new rumor, rather than what she doesn't want them to notice. As long as her hands remain in that position and none of those watching have a (Perception + Essence) greater than the character's Martial Arts, no one will consider the object or event she is attempting to obscure worth their attention. With this Charm, the martial artist may blithely carry a firedust bomb to a formal dinner in her satchel or show her lockpicks to the guards outside her cell. If she does, although observers can see the affected article, they won't feel threatened by it unless either they spend two Willpower, the character uses the item to do something unfortunate to them, or its dangers are clearly pointed out.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Fivefold Shadow Hand Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "dd5c1794178b8f1d"
+  },
+  "folder": "30abfdbff9e8ecc7",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

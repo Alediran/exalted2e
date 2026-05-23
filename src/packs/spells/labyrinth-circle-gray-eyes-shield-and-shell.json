@@ -1,0 +1,37 @@
+{
+  "_id": "a71a6b518571c0e4",
+  "_key": "!items!a71a6b518571c0e4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gray Eyes Shield and Shell",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "labyrinth-circle-gray-eyes-shield-and-shell",
+    "tradition": "necromancy",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 25,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "one hour",
+    "target": "Caster or one ghost",
+    "description": "<p>The necromancer's death-tainted anima turns a handful of dirt into the gray dust of the Underworld. Spitting a bit of saliva and blood into her hands and mixing them, she dabs the resulting concoction on her eyes. When the necromancer next opens her eyes, they are gray and... completely unremarkable. Her entire body follows suit, appearing almost colorless, and certainly not worth anyone's notice. This shield of gray eyes prevents any ghost from affecting the character with any Arcanoi. Ghosts cannot taste her senses, ride in her skin or steal control of her body. They cannot steal her Essence, and the petty illusions they create appear transparent, unreal and not at all frightening. Only a ghost's self-moliation can affect the necromancer, and that only by shaping more effective claws or a thicker hide. The caster's aura appears gray and featureless. The spell normally lasts for one hour. If the necromancer wishes, she may wrap a ghost in the power of her shield. The character fixes one ghost with her newly grayed gaze, and her player rolls (Wits + Occult) in an attack roll with three added successes. This attack is unblockable. If the target ghost fails to dodge, he cannot use any Arcanoi for one hour per net success in the caster's favor. Any effects the ghost currently has active cease.</p>"
+  },
+  "folder": "562235f47f16c453",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

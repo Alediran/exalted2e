@@ -1,0 +1,72 @@
+{
+  "_id": "9e01885ea4f01a8f",
+  "_key": "!items!9e01885ea4f01a8f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Trans-Chosen Emulator",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "appearance",
+    "essence": 3,
+    "minAbility": 2,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Internal",
+      "Obvious",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm enhances its prerequisite. While using the Integrated Artifact Transmogrifier, the Champion can reflexively alter her anima banner to resemble any other specific caste or aspect of Exalt she has personally witnessed and clearly remembers seeing. Even non-Alchemical animas may be copied this way. In effect, the character uses the appropriate anima banner table in lieu of her own, meaning she gains a caste mark and no longer leaks magical materials if disguised as a Celestial and radiates anima flux while copying a Terrestrial, et cetera. Caste- or aspect-specific physical features are also copied, such as Terrestrial aspect markings or the predominant magical material used in the construction of a visibly Alchemical body. The character's specific iconic anima at the 16-mote level and above remains distinctive to her soul, however, which could spoil the disguise depending on its appropriateness to her feigned</p><p>anima type. The operation of Charms does not change, so a \"Solar\" whose body whips out a pneumatic cannon will certainly raise eyebrows from those who know that that is not how Lawgiver magic works. Use of this Charm changes only anima display, not anima power. Submodules: Metatotemic Calibrator (Appearance 3, 2xp): With this submodule, the Exalt may choose how his iconic anima manifests each time it does so, as long as the display is thematically appropriate to the caste his anima is currently emulating. He may even use this power when not disguised in order to personalize the expressions of his own awesome might. This benefit also applies to Solars with PhantomConjuring Performance and Essence 4+.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f8bf87f5a0c5b160",
+            "charmName": "Integrated Artifact Transmogrifier",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "9e01885ea4f01a8f"
+  },
+  "folder": "b0b1b2b3b4b5f04c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

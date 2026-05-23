@@ -1,0 +1,72 @@
+{
+  "_id": "bb0b210faa04befa",
+  "_key": "!items!bb0b210faa04befa",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Horizon-To-Horizon Performance Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "performance",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "reflexive",
+    "duration": "oneAction",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Social"
+    ],
+    "cost": {
+      "formula": "15m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>By the authority of the Unconquered Sun, his Chosen may command the very heavens to become a vessel for their glory. This Charm may be activated only under the open sky, during the day. The clouds above shuffle themselves into the precise likeness of the Lawgiver, lit by the sun so that they glow from within. The Solar's words boom out over the countryside, inescapable. For the duration of the Charm, any Performance-based social attacks (or simple informative declarations) made by the Solar are transmitted to everyone within (Essence x 20) miles in every direction. Because the Solar cannot see or hear through his heavenly manifestation, social counterattacks that require the target to actually be present may not be invoked in response to this Charm. A second purchase of this Charm at Performance 7+, Essence 7+ expands its range to (Essence x 50) miles. A third and final purchase at Performance 9+, Essence 9+ expands the range to (Essence x 100) miles. PRESENCE</p>",
+    "source": "Glories of the Most High: Unconquered Sun",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c7efdb2e7c781f0a",
+            "charmName": "Phantom-Conjuring Performance",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "bb0b210faa04befa"
+  },
+  "folder": "e38c83836f199624",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

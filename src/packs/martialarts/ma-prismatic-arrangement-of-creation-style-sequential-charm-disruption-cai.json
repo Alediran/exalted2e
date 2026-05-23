@@ -1,0 +1,57 @@
+{
+  "_id": "055d3071f3168cd0",
+  "_key": "!items!055d3071f3168cd0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sequential Charm Disruption (cai)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "5m + cost of Charms affected, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm extends the Charm Redirection Technique, such that the Sidereal can now: · Annul the effects of pre-established Charms. · Annul or redirect a Combo. If the Exalt can legally redirect all of the simple, supplemental and extra action Charms that make up the Combo, he can legally redirect the entire Combo as a single invocation of this Charm. Likewise, if he can legally annul all of the component Charms, she can annul the Combo. He chooses whether to annul or ignore the reflexive Charms in a Combo individually, as they are used. To use this Charm, the character must be a target of the Charm or Charm-supplemented action, or he must come within three yards of the Charm's original user. The Sidereal's player then rolls (Dexterity + Martial Arts) against a difficulty equal to the Charm-user's Essence. When disrupting Combos, the Sidereal must invoke this Charm before the opponent's player rolls the Charms' effects. Like the preceding Charm, this one can't affect Formtype Charms or sorcery. Similarly, while this Charm is supplemental, the only type of action it can supplement is a Guard action. It can annul or redirect only one Combo or annul only one pre-established Charm per action.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Prismatic Arrangement of Creation Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "055d3071f3168cd0"
+  },
+  "folder": "33c138eb339f4538",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

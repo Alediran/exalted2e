@@ -1,0 +1,37 @@
+{
+  "_id": "d1cbacfddb6814f2",
+  "_key": "!items!d1cbacfddb6814f2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Kite of Mercury",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>This deceptively powerful artifact resembles a Dynast's summer kite at a glance. Closer inspection reveals its lightweight, razor-edged starmetal frame and steelsilk covering, often dyed with murals</p>",
+    "source": "Glories of the Most High: The Maidens of Destiny",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "4ab1815cdac46b5f",
+  "_key": "!items!4ab1815cdac46b5f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Elemental Lens",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Rather than serving as energy weapons in their own right, these versatile jade and crystal artifacts were created to enhance the energy-based Charm attacks innate to the Dragon-Blooded. Most elemental lenses were built as integrated weapon systems on powerful artifacts (such as dragon armor, pp. 84-87), in which case they may be obtained for free as part of purchasing the artifact in question. Other lenses improve weaker artifact weapons made of jade (Artifact 4 for an artifact normally rated 1 or 2, as well as adding two motes to the weapon's normal attunement cost). The most common examples are First Age daiklaves mounting lenses in their hilts. The rest of these wondrous devices were built as amulets, rings, bracelets or other forms of jade jewelry costing five motes to attune. Only one elemental lens can enhance the same activation of a Charm. In order for a Terrestrial Charm to qualify as a valid target for enhancement, it must fit one of two criteria. The first category includes all Charms that cause direct damage using projected elemental energy. Such Charms double their base damage under the influence of the lens. (Therefore, a blast costing one mote per 2L, for which the lens-equipped Exalt spent three motes, would inflict a base damage of 12L, plus attack successes.) The second category includes all Charms that create a non-permanent weapon directly out of elemental energies. For these Charms, the conjured weapon's Damage modifier is doubled while wielded by its creator. (Therefore, a flaming sword with a normal Damage modifier of +4L would add 8L to its lens-equipped owner's Strength to determine base damage.) In recent years, the Deathlords have built entropic lenses using soulsteel and inauspicious crystals mined from shadowlands. Entropic lenses duplicate the effects and rules of elemental lenses but enhance pertinent Abyssal Charms that project or form weapons from necrotic energy instead. Similar devices might also exist to augment energy attack Charms of other Exalted types, such as Solar and Alchemical Exalted.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 3,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

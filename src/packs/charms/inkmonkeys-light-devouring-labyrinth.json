@@ -1,0 +1,71 @@
+{
+  "_id": "6b5e1b708dc17434",
+  "_key": "!items!6b5e1b708dc17434",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Light-Devouring Labyrinth",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "presence",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Illusion",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm permanently upgrades its prerequisite. The Abyssal's black shroud confuses the senses of those within; insubstantial touches propel visitors inward. No matter what direction a character seems to be heading in, he will find himself moving toward the center of the field of darkness--the Abyssal herself. Attempting to move away from the Abyssal or leave the shroud of darkness requires a reflexive (Wits + Awareness) roll once per action, at a difficulty of the Abyssal's Essence; success permits a character to move as he wills, while failure confuses him and draws him toward the Abyssal. Alternately, the victim may spend two points of Willpower to ignore this Charm's unnatural mental influence for one day. Resistance Hope-Slaying Resilience</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "8f7f296d822e050b",
+            "charmName": "Hungry Darkness Prana",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "6b5e1b708dc17434"
+  },
+  "folder": "b0b1b2b3b4b5f067",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

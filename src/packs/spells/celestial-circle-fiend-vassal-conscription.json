@@ -1,0 +1,37 @@
+{
+  "_id": "6a535deed6d8a9f5",
+  "_key": "!items!6a535deed6d8a9f5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fiend-Vassal Conscription",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "celestial-circle-fiend-vassal-conscription",
+    "tradition": "sorcery",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 30,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "indefinite",
+    "target": "One Second Circle demon",
+    "description": "<p>Infernal sorcerers only. The Sapphire Circle equivalent of Slave-Spawn Summons. Functions identically except the demon may only be summoned (without a ritual, as a basic Sapphire Circle casting) at twilight on the new moon or during Calibration. The demon travels through Elsewhere rather than Cecelyne and arrives at midnight with one Willpower drained by the journey. The cost to lower the demon's resistance pools during an ownership contest is 10 motes. The Intimacy created by a successful binding is based on either respect or hate (sorcerer's choice).</p>"
+  },
+  "folder": "dcf06d83a3d0a4be",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

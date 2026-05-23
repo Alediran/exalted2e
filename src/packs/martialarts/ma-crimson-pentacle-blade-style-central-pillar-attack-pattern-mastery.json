@@ -1,0 +1,57 @@
+{
+  "_id": "ff0c1bd9d13e81e6",
+  "_key": "!items!ff0c1bd9d13e81e6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Central Pillar Attack Pattern Mastery",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "extraAction",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic"
+    ],
+    "cost": {
+      "formula": "7m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>With utmost mastery of her art, the speardancer becomes a living storm of death. His fluid, acrobatic style lets him position himself to maximize his weapon's usefulness against multiple foes. When he activates this Charm, the Exalt perceives a graceful, sweeping path that effortlessly connects a number of opponents equal to his permanent Essence. It is but a heartbeat's worth of effort to trace his weapon through this connection, striking every foe in one long stroke. The character's player makes a single (Dexterity + Martial Arts) roll--including appropriate bonuses from this style's Form-type Charm--for her to hit all targets at a -1 internal penalty for each target after the first (to a maximum of -3). Targets apply their DVs individually as normal. The martial artist counts the extra successes from his attack twice when adding them to his raw damage total, and he rolls damage separately against each target (based on how well their DVs defended them). This Charm provides no special defense against or protection from coordinated attacks performed by multiple opponents. The Essence for this Charm must be spent before making the attack roll.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Crimson Pentacle Blade Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "ff0c1bd9d13e81e6"
+  },
+  "folder": "dd43fd817c3c8fc1",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "c535e2d3f0892085",
+  "_key": "!items!c535e2d3f0892085",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gem of Pestilence",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDAIR0000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "air",
+    "rating": 1,
+    "description": "<p>This waxy ocher gemstone has an unwholesome sheen. Each of the bearer's attacks that inflicts at least one health level of damage acts as vector for disease (see Exalted, pp. 350-353), requiring a (Stamina + Resistance) check against the disease's Virulence to avoid infection. This is considered to be a mundane disease in all respects once the target is infected; it spreads and is cured normally. There are numerous specific variations of the Gem of Pestilence, each spreading a different disease. These include leprosy (·), hysteria (··), cholera (··), rabies (···) and plague (····).</p>",
+    "source": "Ink Monkeys"
+  }
+}

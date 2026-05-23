@@ -1,0 +1,57 @@
+{
+  "_id": "a7184a2ee421d05f",
+  "_key": "!items!a7184a2ee421d05f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unassailable Tower of Glamour",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Shaped-Only"
+    ],
+    "cost": {
+      "formula": "--(1g)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Fair Folk are endless fonts of impossibility. They defy the limitations imposed by the Primordials' dull engine of causality, overcoming the world by expressing themselves without limitation. Characters who know this Charm may spend one gossamer at any time to convert all stunt dice on a single roll into automatic successes. Charms of the Mask</p>",
+    "source": "Scroll of Errata",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "a7184a2ee421d05f"
+  },
+  "folder": "719cd5296b990a6b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

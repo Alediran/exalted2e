@@ -1,0 +1,59 @@
+{
+  "_id": "f395112918199995",
+  "_key": "!items!f395112918199995",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "By the Grace of Gaia",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "ride",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Elemental",
+      "Obvious",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "None",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Although mortal beasts make perfectly fine steeds for young Terrestrials with the right Charms, they do not properly complement the greatness of elders. To gain this Charm's benefits, the Exalt must sacrifice a mount with whom he has built a mutual Intimacy of loving affection. The Elemental Dragon answers this prayer by interceding with Gaia, who shapes the dead animal's remains into a</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f395112918199995"
+  },
+  "folder": "b0b1b2b3b4b5f02c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

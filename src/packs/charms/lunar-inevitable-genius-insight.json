@@ -1,0 +1,68 @@
+{
+  "_id": "4f37e0f72cde59a8",
+  "_key": "!items!4f37e0f72cde59a8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Inevitable Genius Insight",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "intelligence",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Lunar Exalted are brilliant, if erratic. Focusing her Essence, the character expands her mind and senses to encompass greater things. She becomes an unstoppable mental juggernaut, nearly immune to distraction and capable of reaching heights previously beyond her. Lunars used this Charm after the Usurpation to develop the moonsilver tattoos that protect them. When the character activates this Charm, the player declares a single project or research target for the Charm. While this Charm is active, the character adds one success to all rolls related to her chosen research. Increase the maximum number of dice she may add to any rolls based on mental Attributes by her Essence. She ignores all fatigue penalties. Until the project's completion, the player must make a successful (Willpower) roll in order to take actions unrelated to her declared focus for a scene. Those suffer a -2 penalty. To end the Charm before concluding the project, the player must roll (Willpower) at a difficulty of (Temperance), something she may only attempt once per scene.</p><p>LESSONS IN THE BLOOD Cost: 1m, 1wp; Mins: Intelligence 4, Essence 4; Type: Simple Keywords: None Duration: One scene Prerequisites: Any Intelligence Excellency By spending a point of Willpower and a mote of Essence while tasting another person's blood, the Lunar may temporarily use that person's Abilities and memories. The Lunar does not have to take the person's shape (though this Charm can be used with Prey's Skin Disguise and Life of the Hummingbird). He may also call on the Abilities of a sentient creature whose shape he previously took using Prey's Skin Disguise or other Knacks. For the next scene, the character can use either his own Ability or the other person's, whichever rating is greater. Once the Charm's duration ends, the memories and Abilities vanish forever. This Charm can only be used once per person, ever. Lunar Exalted usually reserve this Charm for important shortterm impersonations and emergency skill uses.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any two Intelligence Excellencies",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "4f37e0f72cde59a8"
+  },
+  "folder": "8b05ba7cc3e236b8",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

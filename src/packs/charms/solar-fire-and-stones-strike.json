@@ -1,0 +1,76 @@
+{
+  "_id": "ba897c2f69c99959",
+  "_key": "!items!ba897c2f69c99959",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fire And Stones Strike",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m per die",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solar demonstrates his strength with a powerful Essencefueled blow. The Exalt spends up to (his Strength score) motes and makes a Melee-based attack. If the attack hits, this Charm adds one die to the post-soak damage for each mote spent.</p><p>(FISTS OF IRON TECHNIQUE)</p><p>Thunderclap Rush Attack</p><p>(Solar Hero Form)</p><p>Knockout Blow</p><p>ONE WEAPON, TWO BLOWS</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7545ef0c42677e06",
+            "charmName": "Hungry Tiger Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "ba897c2f69c99959",
+    "attackBonus": {
+      "enabled": true,
+      "damageDice": "",
+      "postSoakDamageDice": "1",
+      "postSoakDicePerMote": true
+    }
+  },
+  "folder": "fd05b302be1cc260",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

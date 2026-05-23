@@ -1,0 +1,61 @@
+{
+  "_id": "bd12d89634c7f54b",
+  "_key": "!items!bd12d89634c7f54b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Soul Reins",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "ride",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "oneDay",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Mirror (Master Horseman's Techniques; Exalted, p. 234)",
+      "Obvious",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The deathknight physically and mentally tames a natural or undead animal large enough to bear her, supernaturally</p><p>breaking its will to better suit her needs. If the Exalt is already riding the animal when he activates this Charm, it requires no activation roll. If, however, the Abyssal wishes to leap astride an animal that does not wish to be ridden and the Abyssal is within a number of yards of the target equal to her Ride score, her player must roll a special physical \"attack\" first. This \"attack\" uses (Dexterity + Ride) at a difficulty equal to the animal's natural Control Rating (see Exalted, p. 154). A successful hit inflicts no damage but grants dominion over the new mount. A beast enchanted by Soul Reins becomes a creature of darkness and ceases to need Virtues as per the walking dead. It is Control 1 when ridden by its master and moves as an extension of her will, preventing her from falling off unintentionally. Within the realms of the dead, the steed always knows its master's location relative to its own (unless the master is in an area warded from scrying) and must make its way to her side at best possible speed whenever the master wishes it to do so. Each use of this Charm on a natural animal permanently increases its Control rating by one (maximum 6). This effect does not affect the Charm's difficulty. Each month of care and gentle retraining reduces the rating by one until the animal's behavior returns to normal.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "bd12d89634c7f54b",
+    "mirrorId": "832a4492cc4094d4"
+  },
+  "folder": "b0b1b2b3b4b5f045",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

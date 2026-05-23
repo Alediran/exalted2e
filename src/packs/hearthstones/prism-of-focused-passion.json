@@ -1,0 +1,27 @@
+{
+  "_id": "d2971320bdc0bbb4",
+  "_key": "!items!d2971320bdc0bbb4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Prism of Focused Passion",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDFIRE000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "fire",
+    "rating": 2,
+    "description": "<p>This prism-shaped carnelian allows the bearer to inflame passions in others. The bearer can amplify any emotion, turning vague resentment into raging jealousy, slight nervousness into unbridled terror or mild attraction into panting lust. The bearer of a prism of focused passion gains three additional dice on all Presence or Performance rolls designed to inflame emotions. Also, for purposes of resisting these inflamed passions a target's Temperance is treated as if it were two points less than it is (to a minimum of 1). The latter effect works only on a single target at a time.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

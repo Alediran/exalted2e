@@ -1,0 +1,86 @@
+{
+  "_id": "31ad40f2e5efae18",
+  "_key": "!items!31ad40f2e5efae18",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Smoldering Karma Strike",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "dodge",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      9
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Counterattack",
+      "Leader"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Fire Aspect's remarkable skill at dodging attacks approaches its pinnacle, allowing him to dodge an attack and instantly initiate a free counterattack. Whenever the DragonBlood relies on his Dodge DV and the attacker fails to hit him, the Dragon-Blood can spend the Essence and make a reflexive Martial Arts or Melee counterattack with his full dice pool. This Charm cannot be used to respond to a counterattack launched with any Charm nor can it be combined with any other Charm that allows the Dragon-Blood a free counterattack. This is a reflexive Charm that can be used freely without the need for a Combo. It can be activated on any tick on which the Exalt is subject to an attack. UNASSAILABLE BODY OF (ELEMENT) DEFENSE</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "86a08a7e1eeedcf6",
+            "charmName": "Virtuous Negation Defense",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "177dcf0493e6b2cb",
+            "charmName": "Safety Among Enemies",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "31ad40f2e5efae18"
+  },
+  "folder": "b0b1b2b3b4b5f01f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

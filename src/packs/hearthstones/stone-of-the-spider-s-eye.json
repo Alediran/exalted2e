@@ -1,0 +1,27 @@
+{
+  "_id": "565676b0cfadc6ba",
+  "_key": "!items!565676b0cfadc6ba",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Stone of the Spider's Eye",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDAIR0000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "air",
+    "rating": 1,
+    "description": "<p>Thin lines of pale blue run through this square, white stone. This hearthstone grants the bearer the ability to see through magical concealments. The stone of the spider's eye can either cancel up to -2 worth of penalties to Perception rolls due to magical stealth or concealment, or grant the bearer two bonus dice to rolls to see through such enchantments. The bearer cannot apply both bonuses to the same roll.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

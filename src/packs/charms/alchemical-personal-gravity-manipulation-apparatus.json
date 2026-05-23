@@ -1,0 +1,58 @@
+{
+  "_id": "b881cd5044d18985",
+  "_key": "!items!b881cd5044d18985",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Personal Gravity Manipulation Apparatus",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "dexterity",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 3,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "4m [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>An array of gravity-modulating coils and essence-gyroscopes installed throughout the Alchemical's chassis grants her the ability to temporarily alter her personal gravitational relationship with surfaces and objects. By activating this apparatus, the Exalted can run across walls and ceilings, arrest a fall from any height without injury, or redirect her momentum in ways that defy ordinary physics, adding her Essence in bonus dice to any Dexterity-based movement roll.</p><p>The apparatus hums with a subsonic frequency when active, and the Alchemical's footsteps leave briefly glowing Essence-marks on whatever surface she traverses. This charm serves as the base installation prerequisite for gyroscopic stability systems and parabolic leap overcharger devices, providing the fundamental gravity-control infrastructure those advanced modifications require.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "b881cd5044d18985"
+  },
+  "folder": "b0b1b2b3b4b5f04e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

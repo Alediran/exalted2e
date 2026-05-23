@@ -1,0 +1,58 @@
+{
+  "_id": "b51dc9ca38195140",
+  "_key": "!items!b51dc9ca38195140",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sun-towing Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "ride",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>In the Time of Glory the Solars used this Charm to pull down the sky and drop mountains on the heads of the Primordials. In the Era of Dreams, a Solar once saved a caravan stranded in the desert after a Fair Folk attack by using Sun-Towing Method to haul their entire wagon train to Chiaroscuro with a single horse. Essence imbues the Lawgiver's mount with incredible strength to pull massive loads, also rendering any means used to attach the load (such as a rope tied off to a mount's saddle) unbreakable. The Solar's mount may pull any object with no loss of speed, regardless of the object's weight. This does not imbue the object with any unusual durability. At Ride 6+, Essence 6+ Sun-Towing Method may be used to drag any vehicle, regardless of its size--even those normally large enough to qualify as structures, such as ships. At Ride 7+, Essence 7+ the Solar may haul structures with a spherical mass up to up to (Essence x 50) yards in diameter. Should he tie off to a larger structure or landscape feature, his horse will tear out an appropriately-sized chunk and drag it away. For example, a Solar with Ride 10, Essence 10 could tear off the peak of a mountain and ride away with it at full gallop. Manses cannot be moved in this fashion.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "b51dc9ca38195140"
+  },
+  "folder": "edcc4814a971a872",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

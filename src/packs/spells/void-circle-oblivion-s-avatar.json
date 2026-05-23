@@ -1,0 +1,37 @@
+{
+  "_id": "90eb90959a79a0d8",
+  "_key": "!items!90eb90959a79a0d8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Oblivion's Avatar",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "void-circle-oblivion-s-avatar",
+    "tradition": "necromancy",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "permanent",
+    "target": "War machine",
+    "description": "<p>Animating an undead war machine is sometimes just the first step in making it more formidable. Oblivion's Avatar endows a walking war machine with the ability to carry the pure entropy of the Void into Creation, or wherever the device goes. For every 10 motes spent (and committed), the character can endow large necromantic weapons, such as enhanced spine chains or bonestriders, with any of the listed powers. Alternatively, the character can spend 40 motes and one dot of permanent Willpower per power to make them permanent. � Chill of the Abyss: Rime forms on the weapon, which sucks warmth from the living. Victims feel their heat draining away into the Void. Treat the area within 10 yards of the war machine as a supernatural ice storm (see Exalted, p. 131) to determine its effects on all living creatures in that radius. � The Dread Black Beacon: Absence of light radiates outward from the weapon. For all living creatures within 50 yards, visibility becomes like that of a foggy night (see Exalted, p. 135). Creatures associated with the Underworld, such as the dead and Abyssal Exalted, can see clearly in the area. They also add one die to all attacks and gain all the benefits of nighttime (e.g., hungry ghosts become naturally material). � Fortune's Inauspicious Nadir: An enormous black pearl grows from the war machine. It produces a gray-green fog that spreads over a 100-yard radius on intangible winds. Living creatures that inhale the fog suffer bad luck for the rest of the day. Mechanically, anyone affected by this curse treats 8 as the target number on dice instead of 7, and 10s count as only a single success. � Infection-Carrying Redolence: Vapors waft from the device, carrying across the battlefield. All living creatures within 100 yards are exposed to a specific disease, chosen when the spell is cast. See Exalted, pages 350�353, for example diseases. Success on a (Stamina + Resistance) roll prevents infection. � The Puissance-Arresting Eye: The spell attaches a flexible, rotting tentacle or a thin bone-tower to the weapon. However it appears, it bears a pyre flame burning within a concave mirror of polished soulsteel at its apex and a lens to focus its light. In battle, the eye usually remains focused on the mightiest enemy. It shines its beam on a target as a 10-dice attack that cannot be dodged but can be parried by orichalcum weapons. When successful, the beam reduces the target's Strength to 1. One lost dot of Strength returns every two actions. Immunity to Everything Technique and other defenses against Poison or Sickness effects protect against this power. � Prescient Threnodies for the Gods: Desecrated voices sing out from the weapon, drowning out nearby prayers and preventing them from reaching the gods' ears. Add three to the difficulty of any prayer rolls within half a mile. Additionally, the music wearies the gods of activity and life. All of Creation's gods and elementals in the area suffer a -5 internal penalty to all Perception dice pools. � The Rallying Cry of the Invincible Dead: The war machine carries a cylindrical soulsteel bell. When the chime is struck (requiring a miscellaneous action), the sound-deadening tones of the Void wash outward from the war machine. All zombies, nemissary-inhabited corpses, materialized ghosts and Abyssal Exalted within 20 yards regain one lost health level. These bells are typically very well protected, often hidden behind layers of soulsteel-reinforced ribcages. � Revealing the Well-Hidden Devils: Oil blacker than night drips from the war machine. It pools in the 30 yards around the weapon and follows it around. Ghosts who materialize within this radius find the Essence cost halved and any Willpower cost waived. Leaving the area forces the ghost to pay the rest of the Essence cost, but not the ignored Willpower cost. � Severing the Bond with Home: A black-and-white aurora floats around the weapon, unsettling the local flows of Essence. Creation-based hearthstones that come within 10 yards of the weapon lose their connection to their manses. They regain their normal functions once removed from the area of effect. � The Softening Rains: The spell creates an enormous puffball, constructed of lungs and mucus and rotting mushroom flesh. Once per day, it can eject spores into the sky. The sickly gray cloud instantly rots or rusts the armor of all living targets within 100 yards. The magical materials are proof against this effect. � The Touch That Calls Them Home: The war machine emits vibrations that weaken and subdue the living's responses to infection. The player of any character who comes within 100 yards rolls (Stamina + Resistance) against difficulty 5. Failure indicates that every wound the character suffers for the rest of the scene becomes infected. Players only need to roll against this power once per scene, regardless of whether their characters leave and reenter the area of effect. � The Wailing Engine of Fear: From its depths, the weapon emanates a terrible cry. Often there are singing mouths somewhere within the war machine. The player of any character within 50 yards attempts Valor rolls at difficulty 2. Failure indicates that the character must flee until she leaves the effect's radius. Those who botch keep running for the rest of the scene. Oblivion's Avatar may invoke other effects. Storytellers and players are encouraged to create their own.</p>"
+  },
+  "folder": "447f6cc1520ba234",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,80 @@
+{
+  "_id": "89375492333fb113",
+  "_key": "!items!89375492333fb113",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "As You Wish",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Cecelyne is both malevolent and endlessly giving, as those who mistake her gifts for kindness and indebt themselves to her law can attest. Whenever an Infernal with this Charm overhears prayers with Penitents Like Scattered Grains, she may answer those prayers by activating Verdant Emptiness Endowment as if the supplicant were in range of that Charm. The prayer itself provides the arcane link to convey the miracle answer. If other Charms expand the options that Verdant Emptiness Endowment can give, these expansion effects may also be transmitted. Infernals who know the Charm Locust Mana Plague (see pp. 126-127) may answer prayers requesting food by having the demon locusts crawl into life around the supplicant.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "cecelyne",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "91ec1377c36c6a34",
+            "charmName": "Penitents Like Scattered Grains",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5fda4f7800955bae",
+            "charmName": "Verdant Emptiness Endowment",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "89375492333fb113"
+  },
+  "folder": "d852ccb3960d271d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,81 @@
+{
+  "_id": "1055e44a588c0bcf",
+  "_key": "!items!1055e44a588c0bcf",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Pinned Moth Tactic",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      1
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Crippling",
+      "Martial",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Some Abyssals are amused when their prey attempts to flee, and savor the chase. Others find such exertions tedious, and use this Charm accordingly. This Charm enhances an attack</p><p>made with a weapon that inflicts lethal or aggravated damage; if the attack successfully inflicts even a single level of damage, the Abyssal's weapon skewers the victim's body, pinning them to the ground, a wall, a headstone or some other piece of immobile scenery. The Abyssal may withdraw their weapon if they wish; their anima leaves behind an Essence-forged duplicate, holding the victim in place, which vanishes once they are freed by any means. When pinned in this fashion, the victim is trapped in place and may not take any action to move away. Pulling free requires a miscellaneous (Strength + Athletics) roll at a difficulty of the Abyssal's (Strength + 2). The successes gained on multiple attempts to pull free are added together cumulatively, but the target may only make one such attempt per action, and each attempt inflicts one automatic level of lethal damage. If the victim is subjected to a knockback attack while rooted, this tears them free of the pinning shadow, but inflicts an automatic three levels of lethal damage as the weapon rips through their flesh. All secondary damage inflicted by Pinned Moth Tactic ignores armor-based Hardness. Martial: Archery, Martial Arts, Thrown. Instant Murder Flash</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1e8fbd3b53715391",
+            "charmName": "Savage Shade Style",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "statusApply": {
+      "enabled": true,
+      "status": "Knockback",
+      "resistPool": "@sta + @athletics",
+      "onFail": "applyKnockback"
+    },
+    "charmUid": "1055e44a588c0bcf"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

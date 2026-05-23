@@ -1,0 +1,65 @@
+{
+  "_id": "f6fcba99d07c204c",
+  "_key": "!items!f6fcba99d07c204c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Just Another Branch Deceit",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-basic"
+    ],
+    "cost": {
+      "motes": 4,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "4m"
+    },
+    "description": "<p>Radiating Essence through his chakras in a precisely controlled array, the character breaks light around himself, creating intermittent highlights of illumination and shadow throughout the area which help draw attention away from himself. This Charm may supplement an attempt to reestablish surprise (see Exalted, p. 156) during combat, adding three automatic successes to the attempt. If the character enjoys more than 50% hard cover due to the environment at the time of activation, the Charm provides four automatic successes instead. The martial artist must still have the opportunity to attempt to reestablish surprise in the first place. This Charm is known in Autochthonia as One Wire Among Many.</p>",
+    "source": "Glories of the Most High: Maidens of Destiny",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Crystal Chameleon Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f6fcba99d07c204c",
+    "grantsMastery": false
+  },
+  "folder": "501985a79515f6f2",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

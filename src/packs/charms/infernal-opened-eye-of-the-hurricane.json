@@ -1,0 +1,83 @@
+{
+  "_id": "52d998704130b9b3",
+  "_key": "!items!52d998704130b9b3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Opened Eye Of The Hurricane",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "War"
+    ],
+    "cost": {
+      "formula": "8m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Many oppose Adorjan. Their opposition is prayer to her, so her miracles answer their thoughtful worship. While this Charm is active, all penalties to Dodge DV that the Infernal would suffer from coordinated attacks or onslaught become equivalent Dodge DV bonuses instead. In Mass Combat, this Charm negates all advantages conferred by higher Magnitude for units attacking the Infernal while he fights as a solo unit. If a tick goes by where the character fails to traverse the minimum distance covered by a Move action, the Charm temporarily loses all effects but remains active. Moving appropriately for a tick reasserts the protection on the following tick.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "adorjan",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "24dedf0bdbd7a088",
+            "charmName": "Who Strikes The Wind?",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "786609807604e726",
+            "charmName": "Threat-Monitoring Excitement",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "52d998704130b9b3"
+  },
+  "folder": "e1c045f50a834f12",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

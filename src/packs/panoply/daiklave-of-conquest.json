@@ -1,0 +1,49 @@
+{
+  "_id": "e725a234b56c78ad",
+  "_key": "!items!e725a234b56c78ad",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Daiklave of Conquest",
+  "type": "weapon",
+  "img": "icons/weapons/swords/sword-broad-crystal.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "",
+        "speed": 5,
+        "accuracy": 3,
+        "damage": 6,
+        "damageType": "lethal",
+        "overwhelming": 1,
+        "defense": 2,
+        "rate": 3,
+        "range": 0,
+        "minStrength": 2,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": []
+      }
+    ],
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 10,
+    "attuned": false,
+    "artifactRating": 5,
+    "hearthstoneSlots": 3,
+    "description": "<p>Forged for the greatest Dawn Caste generals; only Dawn Caste Solars may attune it. Forces Valor rolls from enemies within 10 yards, grants bonus dice to friendly troops within one mile, and penalizes all foes within one mile.</p>",
+    "equipped": false
+  },
+  "folder": "f004a234b56c78a0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

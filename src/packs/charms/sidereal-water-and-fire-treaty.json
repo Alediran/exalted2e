@@ -1,0 +1,58 @@
+{
+  "_id": "abfa87ac69540222",
+  "_key": "!items!abfa87ac69540222",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Water And Fire Treaty",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "resistance",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "5m, 1wp, 1bhl",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal buys protection from one element through a sacrifice of pain to one of that element's gods. Despite the name, a Seer can gain protection from any one element at a time, not just water or fire. To activate this Charm, the Sidereal must touch a sample of the chosen element, such as a hearth-fire, a bucket of water, a tree, the ground or a passing breeze. As long as the character keeps Essence committed to the Charm, that element cannot harm her. Water cannot drown, freeze or boil her; fire cannot burn her, nor desert heat give her sunstroke; plants do not hinder her, poison her or tear her flesh with their thorns; and so on.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "abfa87ac69540222"
+  },
+  "folder": "b0b1b2b3b4b5f012",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

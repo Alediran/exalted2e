@@ -1,0 +1,37 @@
+{
+  "_id": "e9e84fa8799d6457",
+  "_key": "!items!e9e84fa8799d6457",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Avatar of the Destroyer",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "god-machine-protocol-avatar-of-the-destroyer",
+    "tradition": "weaving",
+    "circle": 2,
+    "minimumClarity": 6,
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "indefinite (committed)",
+    "target": "Custodians",
+    "description": "<p>Forming the Mudra of the Great Maker's Divine Forge with her hands, the weaver's eyes and mouth begin to glow with a brilliant violet light, and all of her Charms emit sparks. Her anima banner flares to iconic levels, and the Divine Pattern of the Forge appears both in the air above her head and on the ground beneath her feet. As the magic builds, non-hostile custodians in a 50-yard radius begin to take notice and gather before the weaver, chattering, their machine-like voices chanting prayers to the King of All Craftsmen. At the height of their frenzy, the custodians come together, and the light of this protocol shifts from the Exalt and over the custodians. The two patterns draw together and forge the custodians into plates of thick armor, crafting a mighty automaton servant that is bound to the weaver for the remainder of the scene. As the patterns fade, the automaton remains standing before the Alchemical, awaiting its orders. The automaton bears the same traits as the Exalt, if the Exalt were wearing a Scout- or Noble-class warstrider, save that the warstrider bears no Charms of its own. If the sorcerer spends an additional five motes at casting (which are not committed), the warstrider gains the benefits of the magical material aligned with the weaver's Exaltation, as the design weavers temporarily alter the warstrider's physical material to match. When this spell's duration elapses, the custodians return to their original tasks, completely unharmed. If there are no non-hostile custodians present when this protocol is woven, the protocol fails to function and the Alchemical retains her motes.</p>"
+  },
+  "folder": "07b5963f5e930aca",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

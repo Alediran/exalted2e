@@ -1,0 +1,37 @@
+{
+  "_id": "dc19e4395ed92b9b",
+  "_key": "!items!dc19e4395ed92b9b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Celestial Phoenix Cauldron",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>A celestial phoenix cauldron is a wide-mouthed orichalcum vessel held aloft by the sinuous curves of a dragon with crimson adamant eyes. The cauldron's mouth is two feet in diameter while the widest part of the cauldron's body has a diameter of about three feet, and the whole thing stands about five feet tall and weighs just over a ton. The celestial phoenix cauldron is an all-purpose alchemical processing system that can produce anything from sweet cordials to skin like the mountains oil (see p. 75) and a range of other substances. The Exalt need only place the ingredients of the substance into the cauldron, touch the dragon to channel five motes of Essence into the device and wait for the brewing process to finish. When the potion is complete and distilled to its optimal concentration, the cauldron releases a gout of steam from the dragon's nostrils to let the operator know that its contents are ready. The celestial phoenix cauldron was programmed to create a vast range of known tonics, poisons, elixirs and the like--without assistance from a master alchemist--and requires only the proper ingredients. Any substance that First Age alchemists could brew (which includes a far longer list of substances than are known to alchemists in the Second Age) can be replicated perfectly with the aid of this artifact. The problem is that most of the manuals containing the formulae have been lost. One exists in the Heptagram library, and it can be assumed that at least one copy exists somewhere in Sperimin, but most copies have been destroyed or have gone missing. Therefore, while the cauldron remains an artifact of vast power, there are few who know how to tap that power. Sorcerous experimentation is possible, but that is probably not the ideal way to learn the capabilities of the celestial phoenix cauldron. The ingredients for skin like the mountains oil, for example, include one part perronele ichor, two parts black oil from the subterranean abyss beneath the caves of Gethamane, three parts powdered white jade and half a bushel of fresh pikaki flowers from Abalone. Should the possessor gain the manual of formulae, there are still problems. Items that were once relatively common are now rare or costly. Some ingredients that could once be found in the markets of any moderately sized city are now only available in the most enormous population centers such as Nexus and the Imperial City. Also, certain items are now known by different names than they were in the High First Age. Only a handful of lore-masters in the Second Age realize that the substance called nacreous oil in the First Age is now generally called maiden's tears. And some ingredients must be made using Wyld-Shaping Technique. Ultimately, the celestial phoenix cauldron is a potent First Age artifact, but using one properly requires research, time and a great deal of effort. With a great deal of thought, a sorcerer might be able to re-create a certain alchemical formula that creates a substance with particular properties (a potion that makes its drinker tireless or immune to the effects of all opiates, for example, or a concoction that prevents a sword's blade from ever getting dull), but reinventing the wheel in that way is slow going. Figuring out such formulae takes a number of successes equal to (the potion's Resources cost or Artifact rating x 10) on an extended (Intelligence + Lore) roll. Doing so is a dramatic action, and one roll may be made for every day the character spends poring over old alchemical tomes. Celestial phoenix cauldrons are extraordinarily durable and require little maintenance aside from occasional cleaning. They are completely immune to the effects of acid and intense heat.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 4,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "a4146d1a7d9d4851",
+  "_key": "!items!a4146d1a7d9d4851",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Master Puppeteer's Knife",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "shadowlands-circle-master-puppeteer-s-knife",
+    "tradition": "necromancy",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 14,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Area",
+    "description": "<p>Spreading her fingers wide and slashing a sharp object beneath it, the caster cuts the threads that bind a necrotic semblance of life into a lifeless corpse. This spell has special timing rules. The character can cast it as a reflexive Shape Shadowlands Circle Necromancy action that takes 0 ticks. Her next action must be a Cast Necromancy action. All animate dead within 15 yards and a 90-degree arc (in a direction of the caster's choice) collapse, fully dead once more. Zombies affected must be extras, like those created with Raise the Skeletal Horde (see below) and Arisen Legion (see p. 36), among others. Necromancers can use Master Puppeteer's Knife to destroy animated corpses of greater power or intellect, such as those created by Exquisite Undead Aide (see p. 40), by focusing the spell's power on one zombie at a time. The spell does not affect undead war machines.</p>"
+  },
+  "folder": "9a7bd83d0a359e00",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

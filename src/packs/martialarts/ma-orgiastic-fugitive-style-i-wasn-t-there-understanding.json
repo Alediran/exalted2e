@@ -1,0 +1,57 @@
+{
+  "_id": "c5cb073b6eba33e4",
+  "_key": "!items!c5cb073b6eba33e4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "I Wasn't There Understanding",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Despite the many influences slowing her thought, dulling her senses and scrambling the many, often urgent, messages her arms and legs send to her brain, the reveler knows exactly where she is and what she's doing. Or so she insists. The character's assailants, clear-headed and willing to let her walk into their blows, somehow miss her. Once they do, the weight and expectation they put behind the attack carries them forward and beyond her. On a successful dodge, the character may invoke this Charm to cause her attacker to take his full Move action past her (even if he has already moved this action). The character's simple explanation for this error in judgment is that she simply wasn't where her attacker thought she was. Clearly.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Orgiastic Fugitive Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "c5cb073b6eba33e4"
+  },
+  "folder": "f2585f18db971283",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

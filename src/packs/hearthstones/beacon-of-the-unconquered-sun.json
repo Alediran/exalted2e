@@ -1,0 +1,27 @@
+{
+  "_id": "11477a6c1e32444e",
+  "_key": "!items!11477a6c1e32444e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Beacon of the Unconquered Sun",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDSOLAR00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "solar",
+    "rating": 1,
+    "description": "<p>Despite its name, this gold-spangled crystal cabochon works for any Exalt. When its bearer places the beacon to her forehead and expends a mote of Essence, her caste mark blazes and projects a beam of light for the rest of the scene. In conditions of less than perfect lighting, this beam provides clear vision to a range of 15 yards, and (if necessary) murky vision out to 30 yards. However, the narrow beam illuminates an area only 5 yards wide at the end of clear vision, or 10 yards wide at the end of murky vision.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

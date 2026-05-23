@@ -1,0 +1,57 @@
+{
+  "_id": "268ae975a8d3b4b8",
+  "_key": "!items!268ae975a8d3b4b8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ravening Mouth of Melee",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The blade hungers. Infusing her weapon with the ravenous emptiness at the heart of Oblivion, the Abyssal makes an attack that does not merely wound the flesh — it devours the essence animating it. The supplemented attack ignores Hardness from Essence-based defenses and magical effects, as the weapon's spiritual appetite dissolves the protective essence before it can shield the target. Against spirits, gods, and other creatures of essence, the attack deals aggravated damage instead of lethal.</p><p>The weapon manifests this hunger as a visible darkness that flows along its edge, briefly swallowing ambient light on contact. Mortals struck by such a blow often find their essence pools temporarily depleted alongside their physical wounds, losing one mote for every success on the attack roll beyond what was needed to hit. This charm is prerequisite to the Soul-Cleaving Wound.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "268ae975a8d3b4b8"
+  },
+  "folder": "b0b1b2b3b4b5f040",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

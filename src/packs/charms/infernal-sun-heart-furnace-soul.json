@@ -1,0 +1,73 @@
+{
+  "_id": "a1065869455dea1c",
+  "_key": "!items!a1065869455dea1c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sun-Heart Furnace Soul",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 1,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>As Malfeas folds his power and procrustean layers around a central flame that is his beating heart, so may an Infernal with this Charm ignite a primitive and insensate new soul within her Essence. This Charm functions as an additional Peripheral Essence pool capable of holding 10 motes, but it can only be refilled by Malfeas Charms that restore motes, which always refill this pool before adding to any other. The Infernal also gains the innate power to refill her (Willpower rating) motes to this pool for a reflexive cost of one mote, but she can't \"jumpstart\" herself again this way until a full day has passed since she last did so. She may give herself these motes while unconscious or otherwise incapacitated.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "malfeas",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "3f686f1dec01f179",
+            "charmName": "Skyfire-Seizing Repast",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "motePoolBonus": {
+      "enabled": true,
+      "pool": "peripheral",
+      "amount": 10
+    },
+    "charmUid": "a1065869455dea1c"
+  },
+  "folder": "1945ba1655ca5f6f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

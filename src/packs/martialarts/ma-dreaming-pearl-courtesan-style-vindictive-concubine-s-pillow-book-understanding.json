@@ -1,0 +1,58 @@
+{
+  "_id": "de29b7c8695fa9cd",
+  "_key": "!items!de29b7c8695fa9cd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Vindictive Concubine's Pillow Book Understanding",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>An uncomfortable truth written down by a vindictive concubine can wound a person more deeply than any weapon. It slips past his defenses and cuts him where it can deal the most damage. As is true in social situations, so also in the martial arts. Even the heaviest of superheavy plate armor has thin seams where the pieces join. A skilled craftsman will minimize the width of these seams so that no blade or arrowhead can pierce them, but even such seams are chasms to the Dreaming Pearl Courtesan who employs paper and silk--thinner than even the sharpest blade. Upon activating this Charm, the Exalt negates an amount of her opponent's armor soak equal to her (Essence + Martial Arts) as her unconventional weapons capitalize on the armor's nigh-invisible chinks. This effect does not affect the armor's Hardness value or negate her target's natural soak or any bonuses gained through the use of Charms.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Dreaming Pearl Courtesan Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "de29b7c8695fa9cd"
+  },
+  "folder": "7769b16bd9ec72b1",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

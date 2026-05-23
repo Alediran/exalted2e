@@ -1,0 +1,37 @@
+{
+  "_id": "183d9a969569ce3d",
+  "_key": "!items!183d9a969569ce3d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Summon Hekatonkhire",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "void-circle-summon-hekatonkhire",
+    "tradition": "necromancy",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 0,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "one year",
+    "target": "Summoned hekatonkhire",
+    "description": "<p>Hekatonkhire is the general term for the largest and most powerful dead things that refuse to stop moving. They are behemoths, slain but too invested with meaning to fade away completely. They are the memories and nightmares that stir the Neverborn in their sleep, LORAS, THE DEATH SUN (SAMPLE HEKATONKHIRE) Loras is a man-shaped hekatonkhire that stands 30 feet tall. His too-long arms hang down to his calves, and each hand has six long fingers. He wears loose robes of cloth-of-obsidian, and the giant blade he wears on his back, called the Pit, is made of writhing gold that casts its own light and shadows. Loras wanders the Labyrinth steadily, stopping only to rest or devour as his whim dictates. Spectres keep away from his haunts, since he eats them as readily as anything else. Loras knows he was made for some purpose--he can feel it flowing through his black blood--but he has no idea what it is. His many powerful Arcanoi make him a fearsome opponent. When he spends a great deal of Essence, he radiates waves of white and black so bright and dark that people must look away. When necromancers summon him, Loras performs whatever task they request. After all, he seeks his purpose, and a necromancer might know it. Motivation: Find out what his Motivation is Attributes: Strength 9, Dexterity 7, Stamina 10; Charisma 4, Manipulation 7, Appearance 5; Perception 6, Intelligence 5, Wits 7 Virtues: Compassion 1, Conviction 5, Temperance 1, Valor 5 Abilities: Athletics 6, Awareness 6, Dodge 6, Integrity 4, Investigation 3, Lore 2, Martial Arts 6, Medicine 2, Melee 6 (The Pit +3), Occult 5, Stealth 6, Survival 2 (Labyrinth +3) Backgrounds: Allies 3 (Various hekatonkhire), Artifact 5, Contacts 3 (Labyrinth inhabitants) Arcanoi: All Arcanoi listed in the Exalted Antagonists chapter and other, more exotic Arcanoi that allow him varying degrees of control over the Labyrinth and to regain Essence and eliminate fatigue by devouring ghosts. Charms: Various Charms of the Solar and Abyssal Exalted, including all sorcery and necromancy Charms and several spells. Eye of the Nightmare: Loras may reflexively spend 10m and 1wp when he observes any Arcanos, Solar Charm or Abyssal Charm activated. His player rolls (Perception + Awareness) at a difficulty of the power's minimum Essence requirement. On a success, Loras learns the Arcanos or Charm and may use it at its normal cost. He may not use any Arcanos or Charm for which he does not meet all the prerequisites. Join Battle: 13 Attacks: Punch: Speed 5, Accuracy 14, Damage 9B, Parry DV 8, Rate 3 Kick: Speed 5, Accuracy 13, Damage 12B, Parry DV 6, Rate 2 Clinch: Speed 6, Accuracy 13, Damage 9B, Parry DV --, Rate 1 The Pit: Speed 5, Accuracy 18, Damage 21L/4, Parry DV 8, Rate (infinite) Soak: 20L/22B (Cloth-of-obsidian, 15L/12B; Hardness: 9L/9B) Health Levels: -0x3/-1x6/-2x6/-4/Incap Dodge DV: 10 Willpower: 10 Essence: 6 Essence Pool: 102 (110) Other Notes: The Pit is Loras's golden grand daiklave. It can make any number of attacks in a flurry (though with normal penalties). The Pit probably has unique powers that are not noted here, ones that Loras himself might not even know. If uncovered, they may reveal something about his purpose. shaking the Labyrinth enough to spawn a monster from their imaginations or, perhaps worse, their fears. And they are the residual remains of the Primordials' subsidiary souls as they were slain and fell through Creation into the new sunless realms--necromantic analogues of Second or Third Circle demons. Casting this spell requires a six-hour ritual, in which the character sacrifices both a mortal and a ghost (or a single Ghost-Blood). The ritual involves a great deal of ritual paraphernalia, none necessary but all advantageous: Casting this spell without at least Resources 3 worth of prepared ingredients and reusable tools worth at least Resources 4 levies a -1 external penalty on the caster's first roll to dominate the creature's will. When the named hekatonkhire appears, it and the necromancer begin a contest of wills. Their players begin an extended, resisted roll of (Essence + Willpower) as a Speed 5, -1 DV action. The roll is reflexive, but neither party may engage in any non-reflexive action, or they forfeit the contest. The hekatonkhire takes a -1 internal penalty on the roll for every seven additional motes the caster spent with the initial shaping action. The contest continues until one side accumulates three net successes over the other. If the necromancer wins, the hekatonkhire serves him for a year and a day. Hekatonkhire who win usually consume their summoners then return to slumber or brood in their dark homes. Although hekatonkhire resent bondage like any entity does, they enjoy spreading death and horror through Creation. Some feel animosity toward their captors after the year and a day, but others quickly forgive or forget. Hekatonkhire vary widely in raw power and particular abilities. Some can be easily defeated by a single experienced Solar or a DragonBlooded sworn brotherhood, but the most powerful could potentially stand against the Incarnae or the mightiest Demon Princes. Regardless, hekatonkhire never really die. When defeated, they re-form in the Underworld. Some become weaker for a time, but most of them lose none of their power.</p>"
+  },
+  "folder": "447f6cc1520ba234",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

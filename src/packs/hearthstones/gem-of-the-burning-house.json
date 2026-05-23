@@ -1,0 +1,27 @@
+{
+  "_id": "3a2664912211a99b",
+  "_key": "!items!3a2664912211a99b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gem of the Burning House",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDFIRE000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "fire",
+    "rating": 3,
+    "description": "<p>This two-inch cube of polished crimson stone makes the bearer and everything he wears or carries immune to all harm from normal heat and fires, including any damage caused by smoke inhalation. The bearer could enter a burning building or wade in lava without harm, but would still take damage from an attack with magical fire or Charms such as Fiery Arrow Attack. However, even if the bearer is attacked by magical fire, neither her nor anything she wears or carries will ever catch fire.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

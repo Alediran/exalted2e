@@ -1,0 +1,37 @@
+{
+  "_id": "cdebcc8df9abf3b0",
+  "_key": "!items!cdebcc8df9abf3b0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Titan's Icy Breath",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-the-titan-s-icy-breath",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 10,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Area",
+    "description": "<p>The sorcerer calls up the head and shoulders of an icy giant, which rises from the ground before her and exhales a stream of freezing air that solidifies into an icy shell around anyone caught within an area 10 yards wide and high, extending 100 yards from the caster. The titan bellows a second after the exhalation, shattering the ice, and then vanishes. Roll the sorcerer's (Wits + Occult) and add a number of automatic successes equal to her Essence, as an attack against everyone in the spell's area. Characters cannot block this attack, though they may dodge it. The spell has a raw (lethal) damage of six dice plus attack successes. Anyone who suffers even a single level of damage from this spell has his movement rates halved and the Speed of all his actions increased by one for the remainder of the scene. Multiple applications of this spell cannot add more than one, total, to the Speed of a character's actions or reduce his movement rate to less than half its normal value.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

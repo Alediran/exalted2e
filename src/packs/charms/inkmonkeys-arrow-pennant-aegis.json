@@ -1,0 +1,64 @@
+{
+  "_id": "37561cc482c6edde",
+  "_key": "!items!37561cc482c6edde",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Arrow Pennant Aegis",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": "None",
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Lawgiver's skill with a shield may even guard her against a bolt from the blue. When the character uses a shield to respond to ranged attacks from outside her engagement range she gains the following benefits: � Her Melee-derived Parry DV is increased by one; this bonus does not count as dice added by a Charm and ignores maximum DV limitations. � Melee Charms used to block such attacks cost one mote less, to a minimum of 0 motes.</p><p>Final Sunset Stance</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "dvBonus": {
+      "enabled": true,
+      "dodgeBonus": 0,
+      "ignoreAllPenalties": false,
+      "ignorePenaltyTypes": [],
+      "dodgeBonusFormula": "",
+      "parryBonusFormula": "",
+      "parryBonus": 1
+    },
+    "charmUid": "37561cc482c6edde"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

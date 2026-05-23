@@ -1,0 +1,37 @@
+{
+  "_id": "b6eb1370e7133a3f",
+  "_key": "!items!b6eb1370e7133a3f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Black Investiture",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "labyrinth-circle-black-investiture",
+    "tradition": "necromancy",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 20,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "indefinite (committed)",
+    "target": "One creature or one talisman",
+    "description": "<p>The necromancer doubles over and coughs her control over all currently-commanded undead into her windpipe, then expels it with a great roar into a single target within 10 yards. She commits one mote to the target; as long as that mote remains committed, the target gains control of the specified undead for the same duration the necromancer would have retained them. For 40 additional motes (60 total), the necromancer may instead coalesce this control into a solid talisman the size of an acorn — anyone who holds the talisman receives the necromancer's command authority. The necromancer may withdraw her committed mote at any time to reclaim full control.</p>"
+  },
+  "folder": "562235f47f16c453",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,72 @@
+{
+  "_id": "74884d4f744a3994",
+  "_key": "!items!74884d4f744a3994",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Death-Of-Self Meditation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "integrity",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "oneDay",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Whenever a Sidereal who possesses this Charm comes under unnatural mental influence, instead of spending Willpower to resist the influence she may abandon her identity to become someone else--someone who would find the influence an unacceptable order (see Exalted, p. 180). The character keeps her memories and Abilities, but she has a different personality for the next 24 hours, with a different Motivation. Since the new personality might need to be extreme, eccentric or outright psychotic to</p><p>resist some commands--comparable to a Solar in Limit Break--the Death-of-Self Meditation has its disadvantages. The player may select the character's temporary Motivation, but the Storyteller defines the sort of personality that would have it.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "67f5566210e11f8c",
+            "charmName": "Unhearing Dedication",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "74884d4f744a3994"
+  },
+  "folder": "b0b1b2b3b4b5f007",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,70 @@
+{
+  "_id": "62fb37503326039f",
+  "_key": "!items!62fb37503326039f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Steadfast Elemental Emperor Stance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "survival",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror (Surviving the Sunlit Lands)"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm upgrades its prerequisite, removing the clause for other characters' deliberate actions. Hardship-Surviving Mendicant Spirit now renders the Solar immune to all environmental damage, regardless of its origin. New Abyssal Charm: Surviving the Sunlit Lands (Prerequisite: Maelstrom-Weathering Indifference). This Charm grants the same benefits as Steadfast Elemental Emperor Stance in the lands of the dead, while fully extending the benefits of Element-Resisting Prana to Creation. CRAFT</p>",
+    "source": "Glories of the Most High: Unconquered Sun",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c5f65dd6ccbcf4bf",
+            "charmName": "Element-Resisting Prana",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "62fb37503326039f"
+  },
+  "folder": "82dbbb60bb2b2c18",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

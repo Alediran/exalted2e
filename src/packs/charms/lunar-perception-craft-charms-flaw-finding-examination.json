@@ -1,0 +1,79 @@
+{
+  "_id": "36ae85d4629f594a",
+  "_key": "!items!36ae85d4629f594a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Flaw-Finding Examination",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "perception",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Leader",
+      "War"
+    ],
+    "cost": {
+      "formula": "1m for touch or 3m for sight, plus 1wp to repair",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>So-named out of respect for Pasiap's Children's skill with a similar Charm, this Charm allows Stewards to see the flaws in their constructions and correct them--or destroy them. Flaw-Finding Examination supplements</p><p>either a Craft roll to repair the item or an attempt to destroy it. The player reflexively rolls (Perception + relevant Craft skill). Each success on that roll reduces the time necessary to repair the object by one hour, to a minimum of one hour. If the character attempts to destroy the target, each success adds two dice to damage after the character hits it or one to the character's rating on the feats of strength chart.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "attackBonus": {
+      "enabled": true,
+      "accuracyDice": "",
+      "accuracySuccesses": "",
+      "ignoreAccuracyPenalties": false,
+      "damageDice": "2"
+    },
+    "charmUid": "36ae85d4629f594a"
+  },
+  "folder": "fa2edda343cdd2b0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

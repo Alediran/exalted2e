@@ -1,0 +1,37 @@
+{
+  "_id": "0c4089f8f907e635",
+  "_key": "!items!0c4089f8f907e635",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Wondrous Globe of Precious Stability",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>This rare artifact was relatively uncommon during the High First Age and has proved impossible to duplicate in later eras. Only 34 of these priceless artifacts survive, and the Realm controls 18 of them. All of these artifacts are identical--jade spheres the size of small human heads covered in dozens of complex occult symbols inlaid with orichalcum, moonsilver, starmetal and soulsteel. All five magical materials were used in the construction of these artifacts, which is the primary reason they cannot be duplicated by the Realm. The globe is pierced by a short shaft of jade inlaid with orichalcum and can rotate freely around this axis. The top of this shaft ends in a setting for a hearthstone, while the bottom ends in a triangular base that can be affixed to a vehicle or structure. When a hearthstone of level 3 or higher is placed in the setting and an Exalt commits five motes of Essence to it, the globe begins to glow and spin . As long as it does both, the globe, as well as the building or vehicle to which it is attached, and everyone who is onboard or inside this vehicle or structure, are all completely protected from the effects of the Wyld. In addition, both the vehicle or structure and the crew or inhabitants gain five dice to resist any Charms used by one of the Fair Folk. This artifact can be used to protect any vehicle, including a huge First Age skyship. In addition, it can be attached to any single building that is no larger than one of the vermilion glass towers of Chiaroscuro, a huge mansion the size of the Imperial Palace or one of the sealed towers of the city of Rathess. While it can armor a large palace against the Wyld, it cannot protect an entire city or even a single district of a metropolis. Because of the nature of this device, no Charm wielded by one of the Fair Folk can directly affect this artifact in any way, including moving it. Raksha also cannot touch or enter the vehicle or location protected by this item, and raksha also cannot use an Assumption Charm such as Assumption of the Land's Heart to affect or inhabit the protected location. This artifact effectively transforms the vehicle or structure it is protecting into a tiny pocket of crystallized Creation, even if the vessel is sailing the seas of the Deep Wyld. Lunars exploring the mysteries of the Wyld have uncovered almost a dozen of these items protecting vehicles or buildings that were engulfed by the Wyld during the Fair Folk breakthroughs that occurred in the aftermath of the Contagion. The Lunars retrieved some of these items, but left several to serve as beachheads of Creation in the most dangerous portions of the Wyld. BIOMAGITECH Unlike most fields of artifact research pursued in Creation, the surgical integration of artifacts as tissue replacements or even enhancements did not reach its technological apex in the High First Age. During the golden era of the Deliberative, the healing Charms of the Solar Exalted allowed for the total regeneration of mangled or even amputated limbs. Any Exalt who suffered such grievous wounds could petition a Solar to restore her health, and while the cost in favors or service was always high, it was not unreasonable compared with life \"wasted\" as a cripple. Following the Usurpation, the Dragon-Blooded no longer had access to Celestial healing Charms, so the Shogunate set up a research facility to develop alternative treatment methods. Headquartered in a remote Eastern manse, the task force of healers, artisans and savants tried everything from tissue grafts to elemental infusion chambers, but quickly determined that regenerative artifacts were both extremely difficult and prohibitively expensive to build and maintain. Undeterred from its mission, the institute turned to the relatively young field of biomagitech, testing various implants and prosthetics on elite Gunzosha Corp volunteers. As a result of its labors and the research of those who followed in its footsteps, the Shogunate benefited from a wide range of biomagitech artifacts. The gradual decline of technological infrastructure during the Shogunate eventually drove the price and rarity of biomagitech artifacts up, until only the wealthiest or highest-ranking officers among the legions could obtain them. This remains true in the Second Age. Although the Realm and Lookshy can still build these devices, they certainly do not mass-produce them. Installing biomagitech artifacts always requires a lengthy surgery performed as an extended action. Each device has a Surgery trait with a quadruple value separated by slashes. The first value is the cumulative difficulty, the second is the roll interval, the third is the difficulty of each individual roll and the fourth is the minimum ratings a surgeon must have in Lore, Medicine and Occult to even attempt the surgery with any chance of success. Moreover, surgeons must have access to a well-stocked surgical facility (Resources 4) to attempt the process. The dice pool for an implantation surgery roll is always (Intelligence + the lowest of the three required Abilities). Each failed roll inflicts one level of unsoakable lethal damage suffered by the patient, who must generally be kept unconscious or at least restrained throughout the procedure to avoid sudden movements that result in an automatic botch. (The player of the patient must succeed on a Temperance roll at difficulty 3 for each surgery roll, in order for his character to stay still if he's conscious.) A botch inflicts five levels of lethal damage instead and requires that the process be started over from scratch. Removing biomagitech artifacts requires the same rolls as installing them in the first place. It is also possible to salvage these wonders by killing their bearer and brutally hacking them out of the dead flesh. Characters with such artifacts may be attacked normally, but Storytellers should assume that any attacks that inflict damage don't necessarily strike the implants. If such attacks do hit the implants, the damage should come from trauma to the surrounding tissue rather than to the implants. Owing to their construction, these devices are nearly invulnerable, but this property should not provide a combat benefit without a stunt. Even then, Storytellers should allow only a Martial Arts-based Parry DV to deflect a lethal attack. If a character is thrown in an acid bath, she takes no less damage simply because her metal hand is impervious. Of course, if a character reaches said indestructible hand gingerly into the acid, she will take no damage.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 5,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

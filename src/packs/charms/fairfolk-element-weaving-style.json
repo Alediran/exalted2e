@@ -1,0 +1,59 @@
+{
+  "_id": "10de43a9fc64d6e6",
+  "_key": "!items!10de43a9fc64d6e6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Element-weaving Style",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Merged",
+      "Obvious",
+      "Shaped-Only"
+    ],
+    "cost": {
+      "formula": "--(2m)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>also allows a raksha to modify the appearance of an elemental of the appropriate element, sculpting its features with her bare hands. Objects owned by Creation-born with higher Essence than the raksha cannot be sculpted without the owner's consent, nor may cold iron. With Essence 4+, sculpted air, fire and water may retain their new shape indefinitely. Merged: Emotion-Weaving Style</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "10de43a9fc64d6e6"
+  },
+  "folder": "6dbccd37637d2988",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

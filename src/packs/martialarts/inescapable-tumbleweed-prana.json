@@ -1,0 +1,90 @@
+{
+  "_id": "1f64cdd3f5129ee8",
+  "_key": "!items!1f64cdd3f5129ee8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Inescapable Tumbleweed Prana",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "untilNextAction",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic"
+    ],
+    "cost": {
+      "motes": 1,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "1m, 1wp"
+    },
+    "description": "<p>Those who would oppose a practitioner of the Swaying Grass Dance Style reap the whirlwind. Shuffling along with a dizzying series of quick-steps and cartwheels, the character pursues an adversary. This Charm must be targeted against another character when activated; this target must be within unarmed striking range, and must have already attacked the martial artist within the current scene. For the duration of the Charm, the martial artist gains whatever mobility is necessary to follow her target. Her Move speed matches that of her target, even if Charms such as Leaping Dodge Method or Rolling With the Wind Method are employed. This pursuit explicitly includes whatever acrobatic prowess is necessary to pursue a flying opponent, so long as there are trees or other structures to climb through in order to reach them. Inescapable Tumbleweed Prana will not allow the character to follow a target who moves away by teleporting. Whirling Rhythm Revolution</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Swaying Grass Dance Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f149975016850c54",
+            "charmName": "Teeth in the Grass Strike",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "eca0427662838433",
+            "charmName": "Rolling with the Wind Method",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "1f64cdd3f5129ee8",
+    "grantsMastery": false
+  },
+  "folder": "073695664523b177",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

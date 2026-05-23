@@ -1,0 +1,59 @@
+{
+  "_id": "7f2b5d8f15ab5f7b",
+  "_key": "!items!7f2b5d8f15ab5f7b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Storm Burst Explosion",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "martial-arts",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Martial-ready",
+      "Native",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "--(6m, 1wp)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm upgrades its prerequisites, allowing the Solar to pay six motes, one Willpower to activate Lightning Strikes Twice against multiple opponents simultaneously. The Solar may make a single unexpected attack against (Dexterity + 3) targets, with the same rules and limitations as Lightning Strikes Twice. During this time he is seen to blur across the sky in every</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "7f2b5d8f15ab5f7b"
+  },
+  "folder": "a1b2c3d4e5f60008",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,68 @@
+{
+  "_id": "0ec049f39cd26d6e",
+  "_key": "!items!0ec049f39cd26d6e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Seeing The Maker's Hand",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "occult",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm is especially favored by the savants and engineers of Lookshy, who must often contend with relics of the First Age</p><p>discovered in the barrens of the Scavenger Lands. When confronted by an unidentified artifact, the character must handle the item in question as if he were attempting to attune it before spending the required Essence. The Exalt's player then rolls (Perception + Occult) for the character, with a difficulty rating equal to the item's Artifact rating. (Some artifacts are specially designed to conceal their functions, and analyzing such items carry a higher difficulty.) Success on this roll immediately gives the character a rough idea of the item's power level, as indicated by its Artifact rating, with additional successes giving greater insights into the item's capabilities. Large, powerful or exceptionally complex artifacts might require multiple uses of this Charm in order to fully understand their workings. This Charm is ineffective on artifacts that are already attuned to other people.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f16b2f12f0518016",
+            "charmName": "Fivefold Resonance Sense",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "0ec049f39cd26d6e"
+  },
+  "folder": "b0b1b2b3b4b5f028",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

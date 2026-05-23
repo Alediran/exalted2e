@@ -1,0 +1,81 @@
+{
+  "_id": "39c22c0dc8a901b8",
+  "_key": "!items!39c22c0dc8a901b8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Writhing Blood Chain Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Obvious",
+      "Stackable",
+      "Taint"
+    ],
+    "cost": {
+      "motes": 8,
+      "willpower": 1,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "--(+5m, 1wp)"
+    },
+    "description": "<p>Blood gushes from the Abyssal's back and arms and hardens into rust-colored chains tipped with barbed claws. The Abyssal may grow as many as 13 chains, but there is no mechanical benefit to having more or less. While this Charm is active, the blood chains give the character an extra action on each tick when she acts. A character can buy this Charm more than once, up to (Essence � 2) purchases, gaining another extra action with each purchase. The chains use the Abyssal's full traits and go limp while the character is inactive for any reason. Actions taken by the chains may be enhanced with Charms as if any normal limb performed them, but they occur independently of any singular actions or flurries their creator takes and do not suffer normal multiple-action penalties. Use of Writhing Blood Chain Technique prevents the use of any other extra-action Charms, though.</p><p>The chains cannot wield other weapons, but they can lash opponents up to (Essence) yards away. As weapons, the chains have the tags D, N, R. They have Accuracy, Damage and Defense bonuses equal to their creator's Essence, inflicting lethal damage. The chains cannot make clinch attacks on their own, but each of their actions may be used to impose a -1 external penalty to an opponent's roll to control a grapple if used to entangle rather than strike. The weapons are not considered unarmed attacks for the purposes of Martial Arts Charms unless that style wields fighting chains or whips as form weapons. When the scene ends, the chains dissolve in a splash of gore. Blood chains are vaguely self-aware and restlessly malevolent. If the Abyssal has no Willpower points remaining, the chains lash out at whatever targets the Storyteller chooses, tearing up the environment from boredom if they have no animate targets to maim or kill. It is not possible to voluntarily terminate the Charm before its duration while the chains act freely, though regaining a single Willpower point reasserts control. The Taint drawback of this Charm is that permanent chains present far more opportunities to lose control and cause unwanted collateral damage. Making the Charm permanent costs six bonus points or 12 experience points.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Hungry Ghost Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ef5b0ac871cd1348",
+            "charmName": "Five Knife Fist",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "39c22c0dc8a901b8",
+    "grantsMastery": false
+  },
+  "folder": "a204aba47ca9154b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

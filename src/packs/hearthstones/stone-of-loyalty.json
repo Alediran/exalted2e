@@ -1,0 +1,27 @@
+{
+  "_id": "69a2bd0b533920cf",
+  "_key": "!items!69a2bd0b533920cf",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Stone of Loyalty",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDWOOD000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "wood",
+    "rating": 5,
+    "description": "<p>This brown, opaque lens inspires fanatical loyalty in everyone the bearer knows. For anyone under the bearer's command or who has sworn an oath of loyalty to her, even thinking of betrayal requires a difficulty 5 Conviction roll. For friends and allies of the bearer, the difficulty of this roll drops to 3. Players of even casual acquaintances must succeed at a simple Conviction roll to betray or consider betraying or opposing the character. If the individual honestly considers the betrayal to be trivial, or done in the bearer's best interests the difficulty of this roll drops by 1 (to a minimum of 1).</p>",
+    "source": "Oadenol's Codex"
+  }
+}

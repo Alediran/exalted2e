@@ -1,0 +1,37 @@
+{
+  "_id": "8d50ed0c20eb08ab",
+  "_key": "!items!8d50ed0c20eb08ab",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Spiteful Passing",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "labyrinth-circle-spiteful-passing",
+    "tradition": "necromancy",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 1,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Area",
+    "description": "<p>This spell has special timing rules. The charac- ter can cast it as a reflexive Shape Labyrinth Circle Necromancy action that takes 0 ticks. After that, the Cast Necromancy action takes just a single tick. It is the last action the character ever takes. When a necromancer with this spell knows he's about to die anyway, he can invoke the Void and turn his Essence against itself. His body implodes into a vortex of darkness that swiftly expands again into a sucking whirlpool. Everyone and everything caught within a number of yards equal to the suicidal necromancer's Essence is swept into the black vortex and disappears. One can escape this fate with a perfect dodge. The whirlpool cannot be parried or soaked, however, even by other perfect effects. After three ticks, the vortex drains away, leaving nothing behind. The caster's body and spirit are utterly consumed, leaving behind neither corpse nor ghost, though if he is Exalted, his Exaltation endures for eventual reassignment. No memories of that Exalt's incarnation remain for future hosts. The spell wipes all traces of the necromancer's existence from the Exaltation. Onlookers might think that people caught by the whirlpool are dead, but technically, that is not so. They are actually transported to the heart of the Labyrinth, near the Well of the Void. Survival after that is their own problem.</p>"
+  },
+  "folder": "562235f47f16c453",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

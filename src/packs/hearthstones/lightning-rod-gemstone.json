@@ -1,0 +1,27 @@
+{
+  "_id": "64f35ef0bec283ca",
+  "_key": "!items!64f35ef0bec283ca",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Lightning Rod Gemstone",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDAIR0000000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "air",
+    "rating": 4,
+    "description": "<p>This short, faceted rod of deep purple renders the bearer completely immune to electricity. Any electrical discharge, whether natural or magical, that would strike within 10 yards of the bearer is instead drawn into the stone and harmlessly absorbed.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

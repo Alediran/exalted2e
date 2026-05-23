@@ -1,0 +1,58 @@
+{
+  "_id": "e19ee3612e6eed18",
+  "_key": "!items!e19ee3612e6eed18",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Two Score Mirror Glance",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 7,
+    "minAbility": 6,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Illusion",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "20m, 2wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>tools for beauty, The end is in the beginning. To use this Charm, a martial artist perfectly mirrors his own previous actions--but in reverse. His opponent realizes that time has now begun to flow backward, and she is doomed to live out into her past until life ends in the womb. As long as the victim can see the martial artist, she can suffer the Charm's mental attack. The martial artist's player rolls (Martial Arts + Essence), adding a number of automatic successes equal to his Compassion. The Charm takes hold if the roll exceeds his target's Dodge MDV. The target stops moving. For the next six ticks, she no longer perceives reality. Within her mind, she experiences her entire life backward, conscious of events but unable to change anything she did in the past. It happens in an instant, but to her, the experience lasts her entire lifetime. Her player may roll (Integrity + Willpower) against a difficulty of the character's (Martial Arts + Essence). Success breaks her out of the trance. Failure costs her one point of temporary Willpower as she experiences complete helplessness, but it reduces the difficulty of the (Integrity + Willpower) roll by one and allows her to roll again. This cycle continues until the victim breaks free of the entrapment or runs out of temporary Willpower, at which point she believes her existence ends with her first moment of sentience. The target suffers a number of levels of unsoakable bashing damage equal to her attacker's Essence and returns to reality, gasping for life and bereft of will. Further, the trance displays the victim's past not only how she perceived it, but also as it truly was. When the two are different, they are thrown into stark relief. Whenever the victim re-experiences a portion of her life in which what she perceived was not real, she recognizes the illusion for what it was. If the illusion still afflicts her, it is cured when the trance ends. Because this aspect of Two Score Mirror Glance costs nothing to invoke once it is active, using it to break illusions from Birth of the Perfect Ego Juggernaut or Kaleidoscopic Disrecognition Atemi does not suffer increased mote cost. Because subjects of this Charm experience every moment of their previous life as if it happened at normal speed (although backward), masters sometimes use this Charm to enlighten their pupils. Some Sidereals use it to recover lost memories of their past or as explorative meditation. Since breaking out of the trance sooner means the subject experiences less of her life, a master may forbid his disciples from exercising their wills during this sort of lesson.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Border of Kaleidoscopic Logic Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "e19ee3612e6eed18"
+  },
+  "folder": "74e10a76522315aa",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "b753c5f8e5c303c7",
+  "_key": "!items!b753c5f8e5c303c7",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Resource Reallocation Initiative",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "man-machine-protocol-resource-reallocation-initiative",
+    "tradition": "weaving",
+    "circle": 1,
+    "minimumClarity": 4,
+    "cost": {
+      "motes": 15,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Area of effect",
+    "description": "<p>Upon activating this protocol, the weaver calls out to all custodians within (Essence x 100) yards, entreating them to locate appropriate resources and reassign them. Those resources could be anything from clean water or nutrient slurries to Essence conduits or even deposits of metals or magical materials. The weaver names the specific resource desired, and any nearby non-hostile custodians make the relevant reassignment, allocating those resources to the weaver's location if they are available within 10 minutes. This protocol also functions in Creation, but its effects are significantly different. This protocol affects elementals of Essence lower than the weaver's, causing them to bring the weaver the specific resource he desires, ravaging the countryside to obtain it. Areas of land despoiled by this protocol are left completely devoid of the resources requested. Such lands that are stripped of all resources by repeated castings of this protocol (the number of which are determined by the Storyteller, depending on available resources in a given area of land) are defiled to the point that they become inhospitable to life for centuries. Alchemicals are wise enough to use this protocol both sparingly and appropriately within Autochthonia, not wishing to harm the Great Maker. In Creation, they might be tempted to overdo it and find out the hard way that this protocol can cause serious damage.</p>"
+  },
+  "folder": "3b28eb3d74c31f00",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

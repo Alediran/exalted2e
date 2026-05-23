@@ -1,0 +1,58 @@
+{
+  "_id": "a5c3dfc503f079a0",
+  "_key": "!items!a5c3dfc503f079a0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ivory Pestle Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "martial-arts",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-basic",
+      "Form-type"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>As the martial artist swings her weapon and treads the steps of the Ivory Pestle Form, she links the Essence of her bones to the Essence of her club or staff, making it truly an extension of her body. This has four effects: · The deathly force channeled through the martial artist's bones and weapon enable her to strike or clinch dematerialized ghosts. (The Form does not enable the martial artist to perceive such entities, however.) · While the Form remains active, staff-type weapons gain +1 Rate. This stacks with the benefits of Whirling Pestle Kata or other Charms that increase a weapon's Rate, but not with Charms such as Iron Whirlwind Attack that ignore a weapon's Rate. · The martial artist also takes no penalties to his Parry DV-- not even wound penalties--as long as he fights using a stafftype weapon. · The martial artist may wield a stick or club in each hand and employ either weapon for attack or defense. This offers no intrinsic advantage to the martial artist, but she will not suffer any sort of penalty for wielding a weapon in her off hand. The first time a Charm with a Flaw of Invulnerability is used during the same action Ivory Pestle Form is activated, it adds a two Willpower surcharge to its activation cost. Crushing Pestle Atemi</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "a5c3dfc503f079a0"
+  },
+  "folder": "719cd5296b990a6b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

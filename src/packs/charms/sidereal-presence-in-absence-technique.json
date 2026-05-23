@@ -1,0 +1,59 @@
+{
+  "_id": "413f9e5209174034",
+  "_key": "!items!413f9e5209174034",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Presence In Absence Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "presence",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Shaping",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>After one scene of social interaction, the Sidereal can make the strands of a victim's fate resonate with the Sidereal's own. The Sidereal picks a time or circumstance when the target makes a social attack. At that time, the Sidereal's personality overwhelms the victim and works itself out through his actions. The victim's will is his own, but the psychic resonance lends his actions the emotional weight that the Sidereal wants. When the circumstance in question arises, the Sidereal's player specifies his character's intent and makes a single Bureaucracy, Performance, Presence or Socialize roll--the same as the victim's--with a difficulty of the target's Essence. Success means that the victim's actions convey the effect of the Sidereal's intent as if the Sidereal were present and taking the actions himself. If a critical vote comes up in the Greater House of the Deliberative, for instance, the Sidereal can use this Charm to lend his oratorical skills to a senator who intends to make a speech in line with the Sidereal's opinion. Alternatively, the Sidereal could find a loud, pompous senator with whom the Sidereal disagrees and use this same Charm on him. When the senator makes a speech in contrast to the Sidereal's opinion and the Sidereal's player succeeds on a Presence roll, the senator's abusive rhetoric and caustic sense of humor put his colleagues in a mood to oppose him... if only out of spite. A victim can be under the effect of only one application of this Charm at a time.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "413f9e5209174034"
+  },
+  "folder": "b0b1b2b3b4b5f011",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

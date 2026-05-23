@@ -1,0 +1,58 @@
+{
+  "_id": "e334cf5cfc22cd94",
+  "_key": "!items!e334cf5cfc22cd94",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "In Doubt of Legions Spirit",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "war",
+    "essence": 6,
+    "minAbility": 6,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "War"
+    ],
+    "cost": {
+      "formula": "8m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>In the Era of Dreams, Solars of the Dawn Caste are as legends outside of time, relics of a Primordial War long ended, known for their ability to stand alone against armies. The Lawgiver's insuperable tactics wreak havoc upon enemy formations, turning their numbers into a liability and lessening the effectiveness of their attacks. This Charm may be activated when the Solar fights as a solo unit. All attacks against her by complementary units suffer an external penalty equal to (the total aggregate Magnitude of opponents facing her on the battlefield) ­ (unit's Might). For example, if the Solar faced a force of 10,000 erymanthoi, split into 10 Magnitude 6 units, this would count as Magnitude 9 opposition, not magnitude 60. Since a unit of erymanthoi enjoys Might 3, each unit's attacks upon the Solar would suffer a -6 external penalty. Were the units composed of mortal soldiers with mundane weapons, the penalty would instead be -9 (reflecting their Might 0). The Solar also ignores any formation benefits the unit may enjoy.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "e334cf5cfc22cd94"
+  },
+  "folder": "d517bd826bc73b9e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

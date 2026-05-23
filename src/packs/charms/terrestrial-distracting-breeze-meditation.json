@@ -1,0 +1,58 @@
+{
+  "_id": "63cbf2630e89f8d3",
+  "_key": "!items!63cbf2630e89f8d3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Distracting Breeze Meditation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "stealth",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Leader 4"
+    ],
+    "cost": {
+      "formula": "1m per 2 successes",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm allows the Air Aspect to cause the wind itself to aid in his attempts at infiltration by disturbing and distracting those who might notice his passage. The wind might tickle the ear of a listener, cause a torch to gutter or go out, or blow papers off a desk. Regardless, the result is a minor environmental effect, incapable of damaging anyone or anything, which nevertheless is potentially distracting to those nearby. The Dragon-Blood can continue to trigger distracting effects for the duration of a scene. For one mote of Essence, the Charm adds two automatic successes to any Stealth roll made against a single target. Each additional mote spent allows the Dragon-Blood to distract one additional target at the same time, up to a maximum number of targets equal to the Exalt's permanent Essence. Therefore, if the Dragon-Blood spends three motes of Essence, he can add two automatic successes to any rolls made against up to three people, but if he encounters five people in a search party, he would not get the automatic successes against two of the five. The Charm cannot add more than two automatic successes to a single roll, no matter how much Essence is spent.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "63cbf2630e89f8d3"
+  },
+  "folder": "b0b1b2b3b4b5f02f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

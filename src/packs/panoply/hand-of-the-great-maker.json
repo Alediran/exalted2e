@@ -1,0 +1,37 @@
+{
+  "_id": "a82183a0e77732a9",
+  "_key": "!items!a82183a0e77732a9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hand of the Great Maker",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Among his many wonders, Autochthon designed the Exalted, the Jadeborn, the behemoth progenitor of humanity, the first gods, the artifact paradigm founded on the magical materials and the pattern spiders that weave the Loom of Fate under the direction of the Maidens and their Chosen. In spite of the Deliberative's political decisions that indirectly resulted in Autochthon recusing himself from Creation, many Solars maintain reverence for the Primordial and ritually invoke his name while creating wonders. Such invocation goes a step further in the Hand of the Great Maker, a shaping artifact that filters a Solar's motes through the vestigial Autochthonian energy extant beneath the aspect-coding of a Solar Exaltation. By amplifying Lawgiver Charms with this Primordial Essence, the wielder unlocks vastly greater power to reshape the cosmos. This artifact takes the form of an intricate orichalcum and adamant gauntlet with clockwork components and bubbling motonic condenser rods that fill with lightning-white Autoch-</p>",
+    "source": "Dreams of the First Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 3,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

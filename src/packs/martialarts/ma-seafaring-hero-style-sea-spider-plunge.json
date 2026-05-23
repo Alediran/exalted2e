@@ -1,0 +1,57 @@
+{
+  "_id": "899b9ecce67979e2",
+  "_key": "!items!899b9ecce67979e2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sea Spider Plunge",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Skipping above the black depths, nothing can drown the sea spiders of the Coral Archipelago. They dance on the waves and pierce that blue veil only to kill their prey. After a shipwreck, clever islanders watch the spiders, waiting for their strong mandibles to catch and drag up the dead. Having learned the first mysteries of the style, a student can drag foes from the ship that carries him with the same mastery. Activating this Charm, the character \"dips\" into a battle on decks from above. As a single action, the character sweeps downward on a rope and makes a clinch attack against one target. He completes the motion by swinging back up into the rigging, generally with his victim. This action has a -2 DV penalty and allows the character to exceed the normal movement limits of the Move action.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Seafaring Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "899b9ecce67979e2"
+  },
+  "folder": "ffeecb9a37f5f4a9",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

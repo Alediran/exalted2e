@@ -1,0 +1,73 @@
+{
+  "_id": "14bb1c743d38efb9",
+  "_key": "!items!14bb1c743d38efb9",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Electrification Onslaught Dynamo",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "strength",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 3,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Counterattack",
+      "Obvious",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "1m+ [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>CUSTOMIZING CHARMS Most Alchemical Charms are installed as described, with aesthetics that have undergone careful analysis. Charms with variant names and identical game effects also exist, though, incorporating cosmetic displays and functional rationale often quite different from the original. Each such change must be approved by the Storyteller and cannot meaningfully alter the Charm, including its controlling Attribute. A Piston-Driven Megaton Hammer might become a destructive sonic pulse emitter as an alternative expression of Strength, but it couldn't be refashioned as a finely tuned targeting computer, which would likely involve Perception or Wits. However they change, modified Charms must still clearly embody the steampunk or futurist industrial magitech aesthetics of the Alchemical Exalted. The exception is Voidtech (see pp. 177-181), which expresses a nightmarish fusion of broken or terrible machines with cancerous organic defilement. The only mechanical impact of customizing a Charm is the types of stunts that may be used when activating it. Modifications are chiefly a matter of flavor, a way for creative players to add distinction and style to a Champion's panoply. A blue jade and orichalcum dynamo is installed in the Alchemical's back, with conductor nodes riveted into various chakra points across his body. Upon activation, the Exalt may choose to charge his body with electricity quickly or slowly. A fast activation (Speed 3) is Obvious, as the Champion's body hums and crackles with arcs and blasts of lightning in hues characteristic of his anima. A slower activation (Speed 6) is normally imperceptible without Essence sight, but temporarily reveals itself by flash boiling any small quantities of water that contact the Alchemical, such as rain drops.</p><p>Actual immersion or other significant water contact involuntarily deactivates the Charm and prevents reactivation. In either event, the charge remains until the Alchemical next touches an animate being or the scene ends, whichever comes first. Upon discharge, the electrical surge inflicts 1L or 2B per mote spent activating it, up to a maximum of (Strength) motes. If the Alchemical initiates contact, this damage is applied and soaked independently of any other damage he might inflict with an unarmed attack, following the damage of the attack. Non-magical metallic armor offers no protection. If the target touches the Alchemical, resolve the discharge as an unblockable, undodgeable counterattack that automatically hits in Step Nine without a roll and inflicts only the paid-for surge damage. This counterattack can respond to other physical counterattacks, but not other instances of this Charm's effect. Submodules: Conductive (Essence 3, 4xp): This submodule allows the Alchemical's electrical charge to surge through hits inflicted with close combat weapons, both offensively and defensively. Godhead Bolt Emulator (Essence 3, 4xp): This Axiomatic submodule imbues the Charm's energy with sacred order against creatures of the Void. Such victims suffer aggravated damage from lethal charges and double the usual bashing damage from that mode (though bashing damage cannot spill over into inflicting lethal wounds).</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Strength Augmentation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "14bb1c743d38efb9"
+  },
+  "folder": "b0b1b2b3b4b5f054",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

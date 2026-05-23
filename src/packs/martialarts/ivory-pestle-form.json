@@ -1,0 +1,91 @@
+{
+  "_id": "c5028f99a61a8ad1",
+  "_key": "!items!c5028f99a61a8ad1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ivory Pestle Form",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 5,
+    "dvPenalty": -1,
+    "steps": [],
+    "keywords": [
+      "Combo-basic",
+      "Form-type"
+    ],
+    "cost": {
+      "motes": 4,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "4m"
+    },
+    "description": "<p>As the martial artist swings her weapon and treads the steps of the Ivory Pestle Form, she links the Essence of her bones to the Essence of her club or staff, making it truly an extension of her body. This has four effects: � The deathly force channeled through the martial artist's bones and weapon enable her to strike or clinch dematerialized ghosts. (The Form does not enable the martial artist to perceive such entities, however.) � While the Form remains active, staff-type weapons gain +1 Rate. This stacks with the benefits of Whirling Pestle Kata or other Charms that increase a weapon's Rate, but not with Charms such as Iron Whirlwind Attack that ignore a weapon's Rate. � The martial artist also takes no penalties to his Parry DV-- not even wound penalties--as long as he fights using a stafftype weapon. � The martial artist may wield a stick or club in each hand and employ either weapon for attack or defense. This offers no intrinsic advantage to the martial artist, but she will not suffer any sort of penalty for wielding a weapon in her off hand. The first time a Charm with a Flaw of Invulnerability is used during the same action Ivory Pestle Form is activated, it adds a two Willpower surcharge to its activation cost. Crushing Pestle Atemi</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Ivory Pestle Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "cb58c0f4cdc66127",
+            "charmName": "Ivory Obstruction Kata",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7de7252116395484",
+            "charmName": "Whirling Pestle Kata",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "c5028f99a61a8ad1",
+    "grantsMastery": false
+  },
+  "folder": "037c613d4169452c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

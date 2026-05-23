@@ -1,0 +1,70 @@
+{
+  "_id": "5eac2206876cf42e",
+  "_key": "!items!5eac2206876cf42e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Great Heart Companion",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "ride",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Typically, when a Dragon-Blood rides out to battle, she has quite enough to worry about without fearing that her steed will get spooked by whatever horror demands the Exalt's attention and throw the rider at an inopportune moment. This Charm can prevent such an ignoble possibility by bolstering the creature's natural bravery with Essence so that the mount truly becomes one with its rider. For the duration of the scene, the mount will not bolt or flee no matter what danger manifests, unless it is told to do so by its rider. Also, the mount will always act as if it is perfectly trained, regardless of the situation, and the Dragon-Blood will never suffer any penalty for trying to perform some action while maintaining control of the mount. Finally, while the Charm remains in effect, nothing can force the rider from her saddle short of the steed itself being killed out from under her. While a failed or botched Ride check might result in the rider losing an action or some other penalty, she will never be thrown, knocked or pulled from her saddle. The effect lasts for one scene or until the rider voluntarily dismounts. This Charm is a reflexive one that can be used freely without the need for a Combo. It can be used on any tick.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "5eac2206876cf42e"
+  },
+  "folder": "b0b1b2b3b4b5f02c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

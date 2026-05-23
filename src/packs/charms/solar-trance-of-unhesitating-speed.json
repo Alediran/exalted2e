@@ -1,0 +1,76 @@
+{
+  "_id": "17944eba50013449",
+  "_key": "!items!17944eba50013449",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Trance Of Unhesitating Speed",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "archery",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "extraaction",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "2m or 3m per attack",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The ideal archer flows with soft and unhesitating grace through the motions of firing her weapon. This Charm is a magical flurry of two or more Archery-based attacks. Each attack costs two motes, including the first, and the Exalt can buy up to (her permanent Essence + 1) attacks. This Charm lets the Solar make these attacks regardless of the weapon's Rate, without multiple action penalties, and with a DV penalty equal to the highest penalty for any one attack. Some Archery weapons, such as firewands and siege crossbows, are difficult to fire rapidly. Characters using Trance of Unhesitating Speed with a weapon that has a Rate less than 1 must spend four motes rather than two motes on each attack. This Charm need not be Obvious if the character does not exceed the normal Rate of the bow, but it can be Obvious at any time if the activating character desires. ARROW STORM TECHNIQUE Cost: 8m, 1wp; Mins: Archery 5, Essence 2; Type: Supplemental Keywords: Combo-Basic, Obvious</p><p>Accuracy Without Distance</p><p>Arrow Storm Technique</p><p>There Is No Wind</p><p>(ANY ARCHERY EXCELLENCY)</p><p>Trance of Unhesitating Speed</p><p>Forceful Arrow</p><p>Flashing Vengeance Draw</p><p>Duration: Instant Prerequisite Charms: Trance of Unhesitating Speed Against a single Solar, the armies of the unrighteous fall. This Charm enhances an Archery-based attack. The Solar can apply this attack (for which he rolls only once) against (his permanent Essence x 3) valid targets. He cannot apply this attack to a single person or human-sized object more than once, but he can apply it repeatedly against the same military unit or larger object. This Charm requires that the character have separate ammunition for each target. The character can use this Charm even with weapons such as firewands that would normally require a reloading action between shots.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "extraActions": {
+      "enabled": true,
+      "maxFormula": "@ess + 1",
+      "costPerAction": 2
+    },
+    "charmUid": "17944eba50013449"
+  },
+  "folder": "e842a3a532908d8d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

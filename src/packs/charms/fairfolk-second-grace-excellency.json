@@ -1,0 +1,58 @@
+{
+  "_id": "1d401bbd4a2300d3",
+  "_key": "!items!1d401bbd4a2300d3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Second (grace) Excellency",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "2m per success or 2m per dot of soak",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Excellency permits a raksha to perfect the traits by which he defines himself for purposes of facilitating a shaping attack or defending against one. There are five of these Excellencies--one for each of the four Graces associated with shaping actions and one associated with the Heart Grace, which is used for defensive purposes. When a raksha's player makes a shaping combat roll, he can have his character spend two motes to gain an automatic success on the shaping roll. The raksha must have the appropriate Charm for the type of shaping attack he is making (Cup-, Ring-, Staff- or Sword-shaping), and he cannot spend more motes on this Charm than (the relevant Grace + Essence). Fractional motes spent on this Charm are lost. The raksha can also gain automatic successes on a Join Shaping Battle roll if he has the Second Grace Excellency appropriate to his feeding Grace (or Graces). If the raksha wishes to improve his defense to a shaping attack, he can use the Second Grace Excellency. For every two motes spent (up to the maximum of the Grace), the raksha increases the raksha's Parry Shaping DV against an incoming shaping attack by one. The Second Heart Excellency works differently. For every two motes spent (up to the maximum of the Grace), the raksha increases his Dodge Shaping DV against an incoming shaping attack by one. A raksha with the Second Heart Excellency can also use it to increase his shaping soak. For every two motes spent (up to the maximum of the Grace), the raksha increases her shaping soak by one.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "1d401bbd4a2300d3"
+  },
+  "folder": "6dbccd37637d2988",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

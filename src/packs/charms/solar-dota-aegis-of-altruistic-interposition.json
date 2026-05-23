@@ -1,0 +1,58 @@
+{
+  "_id": "582a48af568fd176",
+  "_key": "!items!582a48af568fd176",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Aegis of Altruistic Interposition",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "dodge",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneAction",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Lawgiver dissolves into a swarm of flitting shadows, obfuscating the precise location of his allies and drawing attacks toward himself. He may apply a Dodge DV-based Defend Other action to all willing individuals within (Essence x 3) yards. At Essence 5+, this Charm's zone of protection may be extended to (Essence x 10) yards. A second purchase of this Charm, at Dodge 6+, Essence 6+, adds an additional feature to Aegis of Altruistic Imposition: if the Lawgiver is struck by an attack intended for another while using this Charm, he may pay four motes and one point of Willpower in Step 9 to perfectly redirect that attack to a different character within the radius of the Charm. The attack does no harm to the Lawgiver, and instead applies its original roll and effects to its new target as a Counterattack.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "582a48af568fd176"
+  },
+  "folder": "b4b556393b53edae",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

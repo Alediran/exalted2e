@@ -1,0 +1,37 @@
+{
+  "_id": "850139877b61795e",
+  "_key": "!items!850139877b61795e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Skin Mount Amulet",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>Appearing as a large rivet-style body piercing made of one of the magical materials with an indented disk-shaped socket, skin mount amulets are nothing more than implanted hearthstone amulets (see Exalted, p. 380) that require no attunement. The design of these amulets also confers an additional number of motes of Peripheral Essence to the wearer's maximum Essence pool equal to twice the rating of any hearthstone placed in the socket. Mountain Folk, God-Blooded and other non-Exalted Essence channelers instead add these motes to their singular Essence pools. Mortals normally incapable of channeling Essence may attune to manses if they have one of these devices installed, gaining the usual benefits of any hearthstone from an attuned manse installed in the stone. Mortals also gain the aforementioned bonus motes as a meager Essence pool that they can recharge only through the inset stone but may otherwise use as if they were Exalted. Any commitments using Essence from the amulet (such as to other artifacts) immediately end if the hearthstone leaves its socket. At the height of the First Age, skin mount amulets were a popular form of jewelry among the Chosen. Hearthstones can be removed or replaced in a skin mount amulet as readily as any other type of hearthstone amulet. Only the socket itself is actually riveted to the body. Surgery: 10/5 hours/3/3</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

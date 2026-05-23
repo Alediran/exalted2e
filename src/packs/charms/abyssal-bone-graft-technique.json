@@ -1,0 +1,81 @@
+{
+  "_id": "6b192688b3e6ecdb",
+  "_key": "!items!6b192688b3e6ecdb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Bone Graft Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "medicine",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Mirror (Wholeness-Restoring Meditation; Exalted, p. 220)",
+      "Obvious",
+      "Spectral",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Although Abyssal surgeons lack the power or inclination to actually heal Crippling injuries, this Charm enables them to surgically implant undead prosthetics that exactly match the functionality of the organs they replace. This operation is an hour-long dramatic action for which the Abyssal's player rolls (Intelligence + Medicine) at difficulty 5. If successful, the surgery \"cures\" any one Crippling effect by fusing an implant with the adjoining tissue, though the replacement remains non-functional for the first day until the patient's body acclimates to it. Abyssals may use this Charm to repair themselves, but doing so increases the difficulty to 7. Depending on the surgeon's style and preference, implants created with this Charm may follow any permutation of undead physiology, be they half-rotted zombie organs, elegant clockwork assemblages of articulated bone or even beautifully pallid simulacra barely distinguishable from life. Note that mortals become creatures of Death and creatures of darkness if they ever have more undead tissue than living tissue.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "81c9753f18de405c",
+            "charmName": "Charnel Chirurgeon Deftness",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "statusApply": {
+      "enabled": true,
+      "status": "Crippling",
+      "resistPool": "@sta + @resistance",
+      "onFail": "applyCrippling"
+    },
+    "charmUid": "6b192688b3e6ecdb",
+    "mirrorId": "8f5172f9b73abc63"
+  },
+  "folder": "b0b1b2b3b4b5f03f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

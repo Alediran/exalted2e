@@ -1,0 +1,17 @@
+{
+  "_id": "e716a234b56c789e",
+  "_key": "!items!e716a234b56c789e",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Short Daiklave",
+  "type": "weapon",
+  "img": "icons/weapons/swords/sword-short-crystal.webp",
+  "system": {
+    "modes": [
+      { "name": "", "speed": 4, "accuracy": 4, "damage": 4, "damageType": "lethal", "overwhelming": 1, "defense": 1, "rate": 2, "range": 0, "minStrength": 1, "minDexterity": 0, "minMartialArts": 0, "tags": [] }
+    ],
+    "artifact": true, "magicalMaterial": "", "attunementCost": 6, "attuned": false,
+    "artifactRating": 2, "hearthstoneSlots": 0,
+    "description": "", "equipped": false
+  },
+  "folder": "f004a234b56c78a0", "sort": 0, "ownership": { "default": 0 }, "flags": {}, "effects": []
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "15255bdbd4d57776",
+  "_key": "!items!15255bdbd4d57776",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Becoming the Wood Friend",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-becoming-the-wood-friend",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 14,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Caster",
+    "description": "<p>With a swirl of green mist, the sorcerer draws Wood-aspected Essence from her environment. Her skin becomes greenish, her hair like leaves. Until the next time she sleeps, the caster moves unhindered through dense foliage. Her actions take no environmental penalties due to plant life and are not limited by her Athletics when dealing with unstable footing caused by vegetation (see Exalted, p. 155). Indeed, her player adds the character's Essence to her dice pools for moving through any plant-based terrain, from forest canopies to peat bogs. For movement and fatigue, treat heavy vegetation as open terrain. Mundane tracking cannot follow the sorcerer through vegetation, and she may oppose supernatural tracking. Supernatural trackers have a +2 difficulty penalty to follow the sorcerer in such conditions. This penalty applies even to scent-based tracking, for her scent changes to match the surrounding plants. Becoming the Wood Friend renders useless any other Charm or effect that makes the caster harder to track, however. Intelligent plants regard the character more favorably, though they know she is not a plant. This empathic bond works both ways, however. While this spell is active, plants are considered the same as human beings for purposes of the Compassion Virtue. If the sorcerer sees people harming plants, she feels a powerful urge to stop them. Attempting to harm a plant herself requires a successful Willpower roll. If this roll succeeds, the act severs the empathic bond, and the sorcerer cannot cast the spell on herself again for three full days. Gathering fruits, nuts or pruning dead branches for campfires is not considered harmful.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

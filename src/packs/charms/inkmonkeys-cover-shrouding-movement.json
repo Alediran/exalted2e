@@ -1,0 +1,58 @@
+{
+  "_id": "2b2a2e80ae811f1c",
+  "_key": "!items!2b2a2e80ae811f1c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Cover Shrouding Movement",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "war",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneAction",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "War"
+    ],
+    "cost": {
+      "formula": "3m or 3m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>During the Primordial War, Solar generals often found themselves marching armies against foes whose very shoulders buffeted the skies. From such a vantage, all manner of horrors might be hurled on the heads of the Lawgivers' forces. Only the peerless tactics of the Solar Exalted saved the Celestial Host from such a fate. By paying three motes and activating this Charm, the Solar becomes impossible to target for all opponents outside of his engagement range. Alternately, the Solar may pay an additional one Willpower when activating this Charm to protect a complementary unit he leads. This Charm is accomplished by use of terrain; the character uses brilliant combat maneuvers to position himself in a locus of absolute tactical advantage. For one action, the Solar may continue to move himself and his army toward or away from his foe without reprisal. However, any opponent in combat who moves into the Solar's engagement range may target and attack the Exalt. Cover-Shrouding Movement may not be used if the Storyteller determines that there is no possible cover for the Solar to employ. Note, however, that possible does not necessarily mean reasonable--a famous Solar general hid his army in the shadow of Mardukth as he moved his forces in for the kill. Vanishing March Maneuver</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "2b2a2e80ae811f1c"
+  },
+  "folder": "b0b1b2b3b4b5f071",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

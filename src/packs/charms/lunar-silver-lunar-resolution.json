@@ -1,0 +1,58 @@
+{
+  "_id": "c3d5ac61b7d4edcd",
+  "_key": "!items!c3d5ac61b7d4edcd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Silver Lunar Resolution",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "stamina",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Native",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Lunars empower themselves through the successful strengthening and defense of others. The more effort a character puts into protecting a society or culture, the greater her power. With the purchase of this Charm, the Lunar may recover motes by working to protect any social or military unit from danger or dissolution. Each hour spent on such tasks recovers motes equal to the unit's Magnitude. In addition, each purchase of this Charm adds 10 motes to the character's Peripheral Essence pool. This Essence cannot be committed to any artifact and can only be recovered through the method above or through Essence-recovery Charms. A character may not take this Charm more times than her permanent Essence.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "c3d5ac61b7d4edcd"
+  },
+  "folder": "956290ccde1dea72",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

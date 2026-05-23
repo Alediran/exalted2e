@@ -1,0 +1,57 @@
+{
+  "_id": "7f271e71822cced6",
+  "_key": "!items!7f271e71822cced6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Thousand-hailstone Morning",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "4m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Taking up as many weapons as he can hold, the Exalt hurls all of them with a single motion. The storm of objects hurtles toward a single victim, who has an all-or-nothing chance to evade the attack. These objects may be anything, but most Night Breeze Stylists prefer to use their signature throwing needles, which are more accurate than random objects and easier to conceal in great numbers. (Yet, for this Charm only, the character can throw any small object, even if it isn't a proper weapon, as long is it weighs no more than a knife.) The character can throw a number of objects equal to his Martial Arts, and his player applies a single attack roll to the entire collection. The victim may dodge them all as a single attack, but the hail of attacks is harder to parry. Apply onslaught penalties if the target elects to parry, subtracting one from her Parry DV for the second object, two for the third, and so on. Each weapon that hits inflicts its base damage only.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Night Breeze Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "7f271e71822cced6"
+  },
+  "folder": "bbff7d7551f5694f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

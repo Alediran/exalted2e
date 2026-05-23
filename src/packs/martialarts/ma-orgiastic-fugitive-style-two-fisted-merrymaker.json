@@ -1,0 +1,57 @@
+{
+  "_id": "d34e0567f4ee812d",
+  "_key": "!items!d34e0567f4ee812d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Two-fisted Merrymaker",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "extraAction",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic"
+    ],
+    "cost": {
+      "formula": "4m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Some partygoers are so very enthusiastic. Each and every vice seems attractive and pleasing, and it is all they can do to focus on enjoying one at a time. Others train themselves to surpass that necessity, chewing hashish while sipping a single malt and inhaling the ambient smoke that leaks from the hookahs. The reveling community values the skill to savor each delight separately when taken together. Activating this Charm gives the martial artist the ability to enjoy his combat the same way he enjoys his other vices--all at once. He may attempt a flurry of as many actions as he has points of internal penalty. The first suffers only a -1 penalty, the next -2, and so on. He does not suffer any penalties from overindulgence on these actions, which must either be attacks or attempts to indulge further in available vices.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Orgiastic Fugitive Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "d34e0567f4ee812d"
+  },
+  "folder": "f2585f18db971283",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

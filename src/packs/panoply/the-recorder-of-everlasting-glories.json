@@ -1,0 +1,37 @@
+{
+  "_id": "a02158afef44a66a",
+  "_key": "!items!a02158afef44a66a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Recorder of Everlasting Glories",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>This artifact was extremely popular during the First Age. It is a disk of transparent crystal two inches in diameter and one inch thick, inlaid with small amounts of all five magical materials. Today, it is either found as a pendant designed to be worn around the wearer's neck or bonded to a resplendent personal assistant (see p. 58). If the character is attuned to both of these artifacts, he can touch the two artifacts together and spend one mote of Essence, and they will form an unbreakable bond that can be severed only if the character spends another mote of Essence. This item automatically records all sight and sounds occurring around the character. Every sight or sound within five yards of the character is recorded, even sights directly behind the wearer. The artifact stores all sights and sounds that occurred during the last two full days. It erases all recorded information older than this, unless it is specifically asked to save a particular scene. To replay this information, the character need only ask this artifact to replay events from a particular time. The device can project an image of these events in an area that can be anywhere from the original size to a miniature version projected on a table. Characters can then walk around and examine these events in detail. The item can replay events as often as desired, as well as freezing scenes or only displaying sights or sounds occurring in a particular direction. All such projections are both slightly transparent and obviously artificial, however, so they cannot be used as illusions intended to deceive others. The artifact's least spirit has been enhanced with powerful enchantments to be unusually intelligent and responsive. Therefore, requesting it to replay a recording in a specific manner is exceedingly easy. The artifact can even replay scenes up to 10 times faster or slower than normal, stopping and rewinding as the character desires. The user can even store still images of short scenes no more than 15 minutes long so that they will not be erased as time passes. The user can store a dozen such images or short scenes and can store only images or sounds or both, as desired. Clever characters have used this device to capture images of sensitive documents or rare books by paging rapidly through them. Attuning to this artifact requires the user to commit two motes of Essence, but this cost is reduced to one mote if this artifact is joined to a resplendent personal assistant.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 2,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

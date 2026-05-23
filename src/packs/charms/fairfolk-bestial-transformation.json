@@ -1,0 +1,61 @@
+{
+  "_id": "d67092c7ceab80e3",
+  "_key": "!items!d67092c7ceab80e3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Bestial Transformation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Glamour (2 or 3)",
+      "Merged",
+      "Obvious",
+      "Shaped-Only"
+    ],
+    "cost": {
+      "formula": "6m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Some raksha are accomplished shapeshifters, though their skills are inferior to the Lunar Exalted (at least in Creation). Activating this Charm in conjunction with Assumption of Bestial Visage grants the raksha the innate ability to transform into a perfect copy of the animal with which the raksha has associated her Assumption of Bestial Visage Charm. The raksha can purchase this Charm multiple times to allow transmutation into additional forms. While wearing an animal form, the raksha can communicate freely with animals of that type, as well as with humans and other intelligent creatures. This Charm confers the following innate ability for the duration of the raksha's time in Creation: Innate Power (Cost: 10m, 1wp; Speed: 5): The raksha can change his shape into that of a particular animal. The specific animal is chosen when this Charm is purchased and must be appropriate to the raksha's Assumption of Bestial Visage Charm. The raksha's player has (Essence + 3) mutation points to spend on this secondary form. Typically, a raksha exposed to cold iron while in his altered shape is instantly forced back to his true form. Some advanced oneiromancy spells permit such effects to survive contact with cold iron. Although technically a work of glamour, this Charm affects only the raksha's own body and does not provoke Glamour Resistance. The mutation points acquired through this power do not count toward the raksha's (Essence + mutation point) total.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "d67092c7ceab80e3"
+  },
+  "folder": "6dbccd37637d2988",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

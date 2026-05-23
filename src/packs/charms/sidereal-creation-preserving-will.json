@@ -1,0 +1,82 @@
+{
+  "_id": "befcac19d228fdf2",
+  "_key": "!items!befcac19d228fdf2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Creation-Preserving Will",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "integrity",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>By sheer force of will, the Sidereal forces the area around her to conform to the dictates of fate. When the character enters the Wyld, the Underworld or Malfeas, she carries a measure of Creation with her. Neither the character nor anything within 10 yards of her suffers the effects of exposure to these alien realms. Creation-Preserving Will does not protect against physical or magical dangers such as Wyldbeasts, the acidic waves of the demon-ocean Kimbery or attacks by ghosts, but characters avoid Wyld mutation or recover Essence in the Underworld as they would in Creation. This protection lasts only as long as the character remains conscious and keeps the Essence committed.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c67fd4f2e51a420b",
+            "charmName": "Unwavering Well-Being Meditation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "befcac19d228fdf2"
+  },
+  "folder": "b0b1b2b3b4b5f007",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

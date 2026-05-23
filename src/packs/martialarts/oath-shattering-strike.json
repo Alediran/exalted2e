@@ -1,0 +1,81 @@
+{
+  "_id": "f6d4dbcd5634e2a0",
+  "_key": "!items!f6d4dbcd5634e2a0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Oath-Shattering Strike",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Blasphemy",
+      "Obvious",
+      "Sorcerous",
+      "Touch"
+    ],
+    "cost": {
+      "motes": 60,
+      "willpower": 6,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "60m, 6wp"
+    },
+    "description": "<p>The Green Sun Prince may liberate others from their ill-considered promises, though doing so is not without price. Akuma cannot learn this Charm, for its nature is metaphysically antithetical to the vows that enslave them. Oath-Shattering Strike may only be activated after flaring the runes of One Hand Fury through an activation of Infernal Monster Style. The Exalt must also know the terms of the magical oath he intends to shatter, and that oath must have been sanctified by a being with an Essence no greater than the Infernal's own unmodified permanent rating. The Infernal strikes the target who swore the oath with an unarmed blow. Runes of power explode around the target, depicting the terms and authority of the oath in the moments before they dissolve into emerald fire and sand. The target is freed from the oath, but the burden for breaking it falls upon the Infernal in full as if he had sworn and deliberately broken the vow. Whether this Charm is powerful enough to fulfill its ultimate purpose remains to be seen, as no Green Sun Princes with Essence 10 exist to test it against the promises the Unconquered Sun exacted from his defeated masters. INFERNAL SORCERY High First Age occult texts occasionally speak of infernal sorcery as if it were a completely separate school of magic as far removed from \"normal\" sorcery as necromancy. Some records portray the unholy art as superior to the spells wielded</p><p>by the Chosen, likely in an attempt to spread fear or drum up support for new sorcery regulations in the Deliberative. Other texts dismiss infernal sorcery as a quaint curiosity associated with demons and sorcerers tricked into selling their souls for a weak mockery of a nobler art. The truth is that sorcery is sorcery, regardless of who casts it. This is not to say that infernal sorcery doesn't exist, just that the art is not what most occultists realize. Each Yozi has its own cascade of sorcerous initiation Charms as part of its Charm tree, making spells readily available to all castes of Green Sun Princes and akuma. Unlike the initiations of Creation's Exalted, these Charms do not require supernatural genius or in-depth study of the occult to master. Instead, would-be sorcerers must learn to filter their perception and Essence through the conceptual purview of a Yozi, building on the basic foundation of that Yozi's Excellency. This intuitive approach is just as hard as the formalized instruction methods taught in Creation and still incorporates the five quests. Each Yozi's initiation offers a distinct perspective and a unique power that differentiates it from the initiations of the others. Additionally, Infernals tend to know a slightly different repertoire of spells than most Exalted. The libraries of the Demon Realm are vast beyond imagining, and some of their texts long predate the earliest accounts of Exalted sorcerers. Most of these conclude their endless chapters of mindnumbing and soul-maiming occult formulae with a single stanza from The Broken-Winged Crane, in which deer-footed Mara narrates the legend of the Mother of Spells. That this myth should appear in epilogue rather than prologue has always disturbed the Exalted who pondered it. INFERNAL SORCERERS As part of their transformation, akuma gain the potential to access all three circles of sorcery. However, they can only do so via the Infernal initiation Charm associated with their patron Yozi (see pp. 164-165) and can't use the native initiation method of their former Exalted type to cast spells. Exalted may be artificially initiated into sorcery as part of their transformation into akuma, bypassing the five quests entirely. The majority of akuma practice sorcery beyond the circle they could natively access, primarily because power lust for sorcery brings so many akuma to their damnation in the first place. Green Sun Princes can unlock the circles of sorcery with any Yozi's initiation Charms and must undergo the usual quests to do so. Once initiated into a circle, the Green Sun Prince may study the initiations of that circle that belong to other Yozis as easily as learning any other Charms and need not complete more quests. Advancing to a higher circle requires normal effort. In practice, most Green Sun Princes learn the basics of sorcery, and many go on to more rigorous studies, largely because the art is readily available and equally accessible to all castes. Demons of the First and Second Circle may learn sorcery, but only through conventional initiations like gods and Creation's Exalted. Those of Essence 5+ may learn up</p><p>to the Sapphire Circle, while those with Essence 3-4 cannot advance past Emerald. First Circle demons may not learn sorcery according to the law of Cecelyne, as fatally enforced by her Second Circle soul Lucien. Accordingly, maybe a dozen secret First Circle demon sorcerers exist at any given time. Second Circle demons widely practice Emerald magic, but only the mightiest explore Sapphire. Neither circle may cast spells that summon or bind other demons, as this privilege does not belong to the defeated. Third Circle demons initiate themselves into sorcery through their own unique Charms without need to build on Yozi Excellencies most can't access, but their initiations duplicate the initiation of the Yozi to whom they belong. Unlike lesser demons, the unquestionable may learn the demon summoning and binding spells appropriate to infernal sorcery, though they are incapable of binding Second Circle demons subsidiary to other Demon Princes. Third Circle sorcerers may teach conventional sorcery to those incapable of learning Yozi initiations. Exalted who do not belong to the Yozis may not initiate according to Yozi methods. INFERNAL NECROMANCY The magic of the Underworld evokes the chill of Oblivion and the agonized murmurs of the Neverborn, which their living cousins instinctively abhor. Akuma lose the ability to use their native necromancy Charms just like their native sorcery Charms, retaining memory of spells enough to teach them. Most Yozis excise all knowledge of the dark art as a deliberate aesthetic decision, as they do not wish to add such obscene concepts to themselves through the artificial component souls of their akuma. Green Sun Princes are incapable of using standard necromancy. Demons of the Second and Third Circle occasionally learn necromancy down to the Iron or Onyx Circle (respectively) but only when their nature strongly resonates with death. Demon necromancers are considered horrible monsters among their kind even by the Yozis who own them. The Ebon Dragon cheats the Primordial restriction against necromancy, as it is his nature to cheat all limitations (see Ultimate Darkness Internalization on p. 150). Of the rest of the Yozis, only Oramus has joined him in long communion with the Neverborn. If the Dragon Beyond the World added their nightmares to his own, who would know the difference? Storyteller-defined Yozis may offer necromancy if it is especially appropriate to their nature, but this is the dramatic exception rather than the rule, and their initiations should demand the same degree of agony and difficulty as the Ebon Dragon's method. In no case may Yozi initiations descend below the Onyx Circle. SORCEROUS ENLIGHTENMENT OF (YOZI)</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "ebonDragon",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Infernal Monster Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "cbc688b8df411955",
+            "charmName": "One Hand Fury",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "f6d4dbcd5634e2a0",
+    "grantsMastery": false
+  },
+  "folder": "ae5a8ed470f7303b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

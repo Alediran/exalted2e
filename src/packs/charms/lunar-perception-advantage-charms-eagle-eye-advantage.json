@@ -1,0 +1,70 @@
+{
+  "_id": "11aa5b179fbe3c99",
+  "_key": "!items!11aa5b179fbe3c99",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Eagle Eye Advantage",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "perception",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "untilNextAction",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>By increasing her ability to process what she sees and hears, the Lunar benefits more from the aim action than others do. This Charm is identical to the aim action (see Exalted, p. 142) with these exceptions: It is Speed 6, and it may add no more than six bonus dice. These dice accrue at the normal rate of one per tick of aiming, and the character can still abort the action at any time to attack her chosen target. If the Lunar chooses, she may continue to take normal aim actions after the Charm ends without losing any extra dice. Dice from this special aiming action do not count as dice from Charms. Example: Magnificent Jaguar activates Eagle Eye Advantage and begins aiming at a target. For each tick he aims, his player adds one die to the attack he eventually makes on that target. After six ticks (the full action), Magnificent Jaguar's player has six dice to add to that attack. The Lunar chooses to wait, taking normal aim actions until the time is right. Even after several normal aim actions, Magnificent Jaguar still has six dice \"banked\" for the attack.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "11aa5b179fbe3c99"
+  },
+  "folder": "fa2edda343cdd2b0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,84 @@
+{
+  "_id": "d877c96082959a12",
+  "_key": "!items!d877c96082959a12",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sidereal Shell Games",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "larceny",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": -2,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Crippling",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "6m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The character sweeps a hand through the weave of events, wrapping her fate around that of a target so that certain portions of one strand temporarily become indistinguishable from the other. The player then rolls (Wits + Larceny). If the roll succeeds, the Sidereal can steal a number equal to his Essence from his target's innate bashing and lethal soak, his target's damage dice from all attacks or dice from one of</p><p>his target's specific dice pools. The target loses the dice or levels of soak for the scene, and the Sidereal gains them in addition to his own. This Charm cannot take more dice or levels from the target than the target has and cannot add more bonus dice to the Sidereal's pool in conjunction with other Charms than the Sidereal has dots of Essence. The Sidereal can steal dice from several different targets or steal dice from several of one target's dice pools, but the Sidereal cannot add to his own soak or to any one of his dice pools more than once. Also, he cannot steal dice or soak just to make it disappear from the target: the character must be able to receive and use the stolen dice or levels in order to be able to steal them.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "08734bcd3e453821",
+            "charmName": "Avoiding the Truth Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "54a9300bd1d65e77",
+            "charmName": "Thought-Swiping Distraction",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "d877c96082959a12"
+  },
+  "folder": "b0b1b2b3b4b5f009",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,72 @@
+{
+  "_id": "c383f890bdb66177",
+  "_key": "!items!c383f890bdb66177",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Mirror Sight Dismay",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "manipulation",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Illusion",
+      "Social"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Lunar Exalted can be manipulative bastards. With just a word or a well-timed phrase, the character convinces a person or people that one thing they believe is factually incorrect. The Charm won't affect general, emotional attitudes (such as an Intimacy for Lookshy) but can counter specific beliefs (such as thinking Lookshy's alliance with Marukan is a good thing). The Lunar's player rolls (Manipulation + [Presence or Performance]). Any targets of this Charm whose Mental Defense Values are less than the number of successes on the roll maintain this belief for the rest of the scene. Shaking off this unnatural mental influence costs two points of Willpower. The Lunar's player selects the belief to invert. When using this Charm on many targets at once, it does not affect anyone who does not hold the targeted belief in the first place. The Lunar cannot affect a group whose Magnitude exceeds (his Essence - 1).</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "c383f890bdb66177"
+  },
+  "folder": "7e56afbcd2643f32",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,83 @@
+{
+  "_id": "289a67a61f20f42e",
+  "_key": "!items!289a67a61f20f42e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Instant Treatment Methodology",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "medicine",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 7,
+    "dvPenalty": -1,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "7m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Rarely is a Solar forced to leave a task unfinished. This Charm is a Medicine-based action in which the character treats a patient. The Charm functions exactly as any Medicine-based dramatic action that takes up to one hour, save that the character performs it in a handful of seconds. As with Contagion-Curing Touch, the medical shortcuts involved depend on the Exalt in question. This Charm does not remove the need for appropriate medicine, surgical tools and suchlike, but the Solar can use a stunt or Combo to work around these limitations. This Charm speeds only that portion of treatment that actively involves the physician. It does not accelerate any rest, recovery and convalescence the patient normally performs on his own. It can act as the dramatic action required by Charms such as WholenessRestoring Meditation and Wound-Mending Care Technique.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ef89e1e74e5bed0e",
+            "charmName": "Flawless Diagnosis Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "289a67a61f20f42e"
+  },
+  "folder": "05ee3760b1dfb04f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

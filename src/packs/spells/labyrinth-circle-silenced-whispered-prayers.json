@@ -1,0 +1,37 @@
+{
+  "_id": "fc3c9fc41c397543",
+  "_key": "!items!fc3c9fc41c397543",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Silenced Whispered Prayers",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "labyrinth-circle-silenced-whispered-prayers",
+    "tradition": "necromancy",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 25,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "One creature or area",
+    "description": "<p>As he shapes this spell, the necromancer hears the whispered prayers snaking through the air around him-- prayers for clemency, for honor, for luck, love, money or vengeance. He whispers too, and more voices flow from his mouth than possible for a single person. Once the spell is cast, his whispers become the perfect opposites of those he heard, canceling out the prayers' power. Targeting an individual ghost severs that spirit from prayers given to her. She gains no benefit from any Cult rating or other prayers until the Underworld's sun has risen seven times. If a living creature is the spell's target, she treats her Cult rating as half normal (round down) for the duration. Laying this curse on an area dampens the prayers received by all ghosts within 45 yards of the caster by one dot and does not affect living creatures at all. This version of the spell has the same duration. In either case, the people who do the praying notice no change.</p>"
+  },
+  "folder": "562235f47f16c453",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

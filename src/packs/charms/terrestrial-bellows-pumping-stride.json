@@ -1,0 +1,59 @@
+{
+  "_id": "f8f5215dc0c57623",
+  "_key": "!items!f8f5215dc0c57623",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Bellows-Pumping Stride",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "athletics",
+    "essence": 1,
+    "minAbility": 2,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Action-Only",
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "1m or 2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Fire Aspects breathe in essence like a bellows feeds flame, propelling themselves forward with explosive bursts of speed. This Charm may be activated reflexively when the character moves. She adds (Essence) yards to her movement for the action and may move through difficult terrain without penalty for this single movement. Fire Aspects and other elemental-aspected characters who activate this Charm while sprinting may add their Essence in yards to any jump distance they achieve this action.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "f8f5215dc0c57623"
+  },
+  "folder": "b0b1b2b3b4b5f01b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

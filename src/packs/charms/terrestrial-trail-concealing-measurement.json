@@ -1,0 +1,68 @@
+{
+  "_id": "dfffc75060f6ed72",
+  "_key": "!items!dfffc75060f6ed72",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Trail-Concealing Measurement",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "survival",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "oneDay",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Any Dragon-Blood who knows this Charm can blend effortlessly into the woods, instinctively hiding all evidence of her passage. While this Charm is active, persons attempting to track the Dragon-Blood without supernatural aid are completely unable to do so. If the tracker is using supernatural aid such as Quarry Revelation Technique, the two effects cancel each other out, and normal tracking rules apply. It is rumored that Lunar Exalted are not fooled by this Charm at all when they wear their animal forms.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a0791c8427f05ea0",
+            "charmName": "Quarry Revelation Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "dfffc75060f6ed72"
+  },
+  "folder": "b0b1b2b3b4b5f030",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

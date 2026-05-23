@@ -1,0 +1,57 @@
+{
+  "_id": "b3537375b5d6f2dd",
+  "_key": "!items!b3537375b5d6f2dd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Power from Darkness",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "occult",
+    "essence": 7,
+    "minAbility": 7,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "3m per Charm, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Veiling her nature in the essence of the eclipse, the Solar reaches through the cracks in the universe the Primordials forged to rip forth power hidden from lesser minds. This Charm allows the character to instantly learn one Charm per three motes committed to Power From Darkness. The only limit on this number is the amount of Essence the Lawgiver is willing to commit. These do not have to be Solar Charms, but they must be Charms a character of the Eclipse Caste could potentially learn through the Eclipse anima power. Power From Darkness is subject to the following limitations: The character must satisfy the trait minimums and prerequisites of all Charms bestowed by Power From Darkness. The character must have not only personally witnessed all bestowed Charms in use, but must have analyzed them with All-Encompassing Sorcerer's Sight. Power From Darkness may not bestow spells or Combos, nor may Charms acquired through Power From Darkness be placed into Combos. The Solar activates bestowed Charms as though they had been learned with the Eclipse anima power. Finally, Power From Darkness may only be activated during Calibration, though it may be sustained normally with committed Essence throughout the year. Whenever the character gains Limit while using Power From Darkness, she gains one extra point of Limit on top of whatever amount she would have normally accumulated. The Solar Exalted remain unaware of this flaw in the Charm. A second purchase of this Charm, at Occult 10, Essence 10, reduces its cost to 2m per Charm, 1wp and upgrades the character's Limit gain from +1 to +2.</p>",
+    "source": "Dreams of the First Age",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "b3537375b5d6f2dd"
+  },
+  "folder": "9f789a9f97cf7e28",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

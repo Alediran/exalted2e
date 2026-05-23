@@ -1,0 +1,72 @@
+{
+  "_id": "a1b2c3d4e5f6000e",
+  "_key": "!items!a1b2c3d4e5f6000e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Legendary Warrior Curriculum",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "war",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "oneWeek",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The most devoted servants of the Unconquered Sun pass their heroic virtues on to those they train. This Charm expands Tiger Warrior Training Technique, enabling the Solar to impart her heroic values to her soldiers. Unlike its Abyssal Mirror, this Charm can confer bonus dice to those she trains. Mortals and spirits may be taught to embody heroic virtues as an unnatural Compulsion effect (costing trainees no bonus or experience points). These champions become immune to wound penalties until Incapacitated and automatically succeed on all Valor rolls, giving units of these troops perfect morale. The effects of this heroic conditioning last until the warrior's will is broken (Exalted, p. 174).</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "mirrorId": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ab1fcc826118f36e",
+            "charmName": "Tiger Warrior Training Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a1b2c3d4e5f6000e",
+    "mergedIds": []
+  },
+  "folder": "d517bd826bc73b9e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

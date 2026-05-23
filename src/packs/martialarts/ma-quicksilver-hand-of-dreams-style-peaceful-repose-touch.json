@@ -1,0 +1,59 @@
+{
+  "_id": "2a158fc91879363d",
+  "_key": "!items!2a158fc91879363d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Peaceful Repose Touch",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Compulsion",
+      "Touch"
+    ],
+    "cost": {
+      "formula": "2m, 4m or 6m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>and none could awaken her. The character knows how a person's Essence changes between waking and sleeping. He can use that knowledge to strike a person's Essence and force it into the waking or sleeping pattern. The character attempts a normal Martial Arts attack while spending Essence. If the martial artist wants, the attack doesn't have to inflict real damage, but the attack roll must succeed. The attack's magical effect takes place if the martial artist's (Martial Arts + Essence) surpasses the target's Dodge MDV. It doesn't matter if any physical damage penetrates the target's soak. How long the target's changed state lasts (as well as its Essence cost) depends on the character's mastery of this Charm: Waking Level (2 motes): The target can be stunned through her next action. An unresisting subject can also be sent instantly to a normal sleep. This level also infallibly forces a sleeper to wake up, including someone put to sleep by this Charm, other Charms that induce sleep or spells. Dreaming Level (4 motes): The attack forces the target to sleep deeply for 24 hours. The target can resist the compulsion by spending one Willpower per action, but doing so only delays the target's slumber. The target can still be awakened by shocks such as slapping or dunking her in cold water. Alternatively, the target becomes unable to sleep naturally for as many days as the attacker's successes. Gossamer Level (6 motes): The target sleeps as long as the martial artist wants. Spending Willpower delays slumber but does not counter the effect. Someone who has a strong Intimacy to her can awaken the target. The martial artist can also set a condition for the target to wake up, such as physical harm or calling her name. The sleeper does not age or need to eat, excrete or breathe (though she does seem to breathe very slowly and shallowly). Alternatively, the target becomes unable to sleep again (until some set trigger removes the curse). Not only does this remove the target's ability to recover Willpower by sleeping, she will go mad after a number of days equal to her Willpower.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Quicksilver Hand of Dreams Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "2a158fc91879363d"
+  },
+  "folder": "4f4566b64a919114",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

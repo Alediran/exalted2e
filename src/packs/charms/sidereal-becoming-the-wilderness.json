@@ -1,0 +1,58 @@
+{
+  "_id": "1f9a37fcea8c5f95",
+  "_key": "!items!1f9a37fcea8c5f95",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Becoming The Wilderness",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "survival",
+    "essence": 2,
+    "minAbility": 2,
+    "charmType": "simple",
+    "duration": "oneDay",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Virtue (Valor)"
+    ],
+    "cost": {
+      "formula": "4m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal interweaves her own fate with the networks of fate that bind a wilderness region to its gods, and thereby gain a measure of the gods' authority over local creatures. While this Charm is in effect, any wild beast with a Willpower less than or equal to the Sidereal's Compassion ignores the Exalt as either a potential predator or prey. He can lie down with the lions of the Southeastern savannas or march with the penguins of the frigid Northwestern islands. As long as he doesn't attack them or try to take food away from them, they leave him be. The Sidereal can even influence the behavior of a beast if he's aware of its presence. He can't give the beast complex commands, but he can cause it to take an action that the animal considers natural. He couldn't, for instance, command an alpha-male wolf to go back and attack the Sidereal's pursuers. He could, however, cause a lioness to choose a particular spot to lie in wait for prey to ambush, then later cause a gazelle to run past the hidden lioness on a path that leads back through the Sidereal's pursuer's camp. Suggesting an action in this manner requires a successful (Manipulation + Survival) roll and is normal mental influence. The resonant authority that this Charm provides can also aid in social dealing with local spirits or Lunars who consider the surroundings their home. While the Charm is active, the Sidereal may always channel Willpower through his Valor to aid in social dealings with them.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "1f9a37fcea8c5f95"
+  },
+  "folder": "b0b1b2b3b4b5f017",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

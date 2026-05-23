@@ -1,0 +1,71 @@
+{
+  "_id": "ce82cc514567be83",
+  "_key": "!items!ce82cc514567be83",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sea Ambush Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "sail",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "War"
+    ],
+    "cost": {
+      "formula": "10m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The navies of the Lawgivers appear from nowhere even on the clearest day. This Charm allows the character to double successes on a Stealth action taken by a naval unit he commands, before external penalties are applied. Naval units influenced by this Charm can conceal themselves at +4 difficulty even if there are no obstacles to hide behind. CHARM CONCEPT: OWNERSHIP Charms occasionally refer to objects that the character \"owns.\" This is not a legal but a physical statement--the Essence of an object knows its owner. The Exalt owns the object if its spirit is loyal to him (see p. 175) and is not loyal to any of his enemies. One wins an object's loyalty in the same way one wins a person or animal's loyalty--with suitable roleplaying, Ability rolls or Charms. Most objects are, like stray dogs, easily won. The character need only take possession of the object and treat it with a bit of care to establish ownership. If the object has established its loyalties to another person, or if possession is otherwise under dispute, then persuasion is necessary. Characters without applicable Charms can \"communicate\" with objects by treating them well, using them during important or emotional events and demonstrating the appropriate mastery--as by performing sword katas to win the loyalty of a daiklave. Typical objects have Willpower 3, Mental DV 3 and Conviction 2. STRATEGY Usually you don't need to worry about these rules--if an object is yours, it's yours. Even if you need to invest some narrative time to win an object's heart, it's rare that the details matter. If there's a specific rules reason that you need to own an object quickly, consider using persuasion Charms--a Servi- tude or Illusion effect can win it over fast.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "ce82cc514567be83"
+  },
+  "folder": "dca02b4134c59583",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

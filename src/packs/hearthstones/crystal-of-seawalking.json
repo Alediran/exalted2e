@@ -1,0 +1,27 @@
+{
+  "_id": "4efbdedd28526712",
+  "_key": "!items!4efbdedd28526712",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Crystal of Seawalking",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDWATER00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "water",
+    "rating": 1,
+    "description": "<p>This faceted oval stone is a shimmering opalescent blue. The bearer can walk on water, quicksand, wine, or other liquids as if they were dry land. The bearer cannot ride a horse or other creature, but he can walk or run normally and can carry any load he can normally carry. Also, by merely willing it to be so, he can temporarily cancel the stone's affects and can dive safely into water. When using the stone, the bearer will not sink into lava or boiling oil, but this will not prevent his feet from being burned.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "_id": "050cc5d75be15bc2",
+  "_key": "!items!050cc5d75be15bc2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Entropy Manipulation Protocol",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "man-machine-protocol-entropy-manipulation-protocol",
+    "tradition": "weaving",
+    "circle": 1,
+    "minimumClarity": 4,
+    "cost": {
+      "motes": 25,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "All automata within (Essence x 10) yards",
+    "description": "<p>Eyes burning with the authority of the Great Maker himself, the weaver claps her hands together, with a resounding shockwave bursting out around her that temporarily knocks all nearby automata offline for the remainder of the scene. This protocol affects all gremlins, golems and walking dead within range, causing them to fall inert, taking unsoakable bashing damage equal to the Exalt's Essence. At the beginning of the next scene, affected automata resume functioning, but they may be confused about where they are or what they're doing and may or may not return to their previous activities. This protocol does not automatically shut down warstriders or other forms of powered armor, but it does deaden their limbs. The basic mobility penalty imposed by this protocol for Artifact �� armor is -3. Each additional dot of Artifact lessens the mobility penalty by one. Artifact ����� armor, therefore, is not affected by this weaving.</p>"
+  },
+  "folder": "3b28eb3d74c31f00",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

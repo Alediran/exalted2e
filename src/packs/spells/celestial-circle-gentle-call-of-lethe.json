@@ -1,0 +1,37 @@
+{
+  "_id": "1b7de09e75854945",
+  "_key": "!items!1b7de09e75854945",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gentle Call of Lethe",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "celestial-circle-gentle-call-of-lethe",
+    "tradition": "sorcery",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 20,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Ghost",
+    "description": "<p>This spell has the same effects as the Shadowlands Circle spell of the same name (see The Black Treatise, p. 29).</p>"
+  },
+  "folder": "dcf06d83a3d0a4be",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

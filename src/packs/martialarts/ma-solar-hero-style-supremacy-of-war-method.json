@@ -1,0 +1,57 @@
+{
+  "_id": "e7575df3657b8899",
+  "_key": "!items!e7575df3657b8899",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Supremacy of War Method",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "1m per die",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>In war, in skirmish or in single combat, no single side of a conflict entirely determines its outcome. Ultimate victory depends not just on the victor's skill and power, but on his ability to read his opponent, to react to him and to manipulate him into a position of weakness. This Charm enhances that ability in a Solar warrior. Anytime an enemy takes a physical action against the Solar in combat, the Solar may reflexively activate this Charm in response. The Solar's player commits one mote per success that the character's opponent's player made on his attack roll. At any time during the scene, the Solar may \"cash in\" those committed motes to add one die per mote to any Martial Arts roll. Each die added reduces the Essence committed by one mote. A Solar must choose to add dice to his roll before the player makes his roll. Activating this Charm counts as a Charm use for that action, but cashing in the committed motes later to gain the bonus dice doesn't. A Solar may activate Supremacy of War Method multiple times in a scene to increase his total committed motes, but he may never have more motes committed to Supremacy of War Method than his (Wits + Martial Arts).</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Solar Hero Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "e7575df3657b8899"
+  },
+  "folder": "05bd4dac47a869bd",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

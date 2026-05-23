@@ -1,0 +1,99 @@
+{
+  "_id": "236b9479b064e1b5",
+  "_key": "!items!236b9479b064e1b5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wounds Mean Nothing",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "resistance",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      7
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Mirror (Adamant Skin Technique; Exalted, p. 207)",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "8m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Death has no power over those who have cheated its clutches. The Abyssal activates this Charm immediately before damage is rolled against her. All damage appears to apply normally, seemingly wounding or even slaying the Abyssal--which is appropriately spectacular when he falls from a great height or stands in the path of Solar Circle sorcery. His injuries are a lie, however, as the Abyssal heals back all of this \"damage\" in less than a second. The net result is that the Abyssal perfectly defends against all damage from the attack.</p><p>FOUR FLAWS OF ABYSSAL INVULNERABILITY Deathknights have their own Four Flaws of Invulnerability based on the failures of their broken Virtues. Abyssal characters cannot ever have more than two of these flaws among all their Charms, though they can learn a Charm twice to give them a choice of flaws when they activate perfect defenses. Compassion: A dead heart feels no pain. Abyssals who forget this doom themselves. Charms with this flaw cannot be activated while the Exalt can perceive a person toward whom she feels a positive Intimacy, or whom she believes holds a positive Intimacy toward her. Conviction: With broken faith, only nihilistic fervor sustains the Abyssal's flawed perfection. Charms with this flaw cannot be activated if the deathknight's actions run contrary to his Motivation (which, remember, must involve causing harm or otherwise further Oblivion) or any negative Intimacies. Temperance: Without rational restraint, only savage fury remains. Upon activating a Charm with this flaw, the Abyssal's next action must be to attack whoever last attacked her, using the most deadly attack she can manage, until her DV refreshes twice. If she cannot attack that opponent right away, she must move at best possible speed to do so. Valor: Abyssals marred by craven hearts cannot stand against enemies mighty enough to require perfect Charms. After activating a Charm carrying this flaw, a deathknight must move away from the opponent he considers the most dangerous, until his DV refreshes twice. This flaw does not force the character to leave the battle outright (he can still fight lesser opponents). It does not prevent him from attacking as he retreats, if he has the means to do so.</p><p>This Charm carries one of the Four Flaws of Abyssal Invulnerability.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0cd7b0b9ca72290d",
+            "charmName": "Injury-Absorbing Discipline",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "88a14734d2e7af52",
+            "charmName": "Spirit-Hardened Frame",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "236b9479b064e1b5",
+    "mirrorId": "577647878d906316"
+  },
+  "folder": "b0b1b2b3b4b5f044",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

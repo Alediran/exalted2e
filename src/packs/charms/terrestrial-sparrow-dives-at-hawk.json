@@ -1,0 +1,73 @@
+{
+  "_id": "a22a9310d5ed6dcb",
+  "_key": "!items!a22a9310d5ed6dcb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sparrow Dives At Hawk",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "archery",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      5
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Counterattack"
+    ],
+    "cost": {
+      "formula": "--(4m, 1wp)",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Charm Dragonfly Finds Mate permits the Dragon-Blood to knock the projectiles of his enemies from the sky with well-placed arrows. This Charm goes one better, as the Dragon-Blood's arrow goes on to strike the foolish one who dared to strike at a Prince of the Earth. As with Dragonfly Finds Mate, the Exalt's player must roll (Dexterity + Archery). If the successes rolled by the player equal or exceed those of the attacker, the ranged attack is deflected. Furthermore, any successes in excess of those rolled for the attacker represent a reflexive archery attack made against that enemy. Also, the enemy's DV is not subtracted from this reflexive attack, unless the enemy has access to reflexive Charms that can be used to raise DV from zero or the enemy is already subject to a Charm with a persistent defense. This Charm is a reflexive one that can be used freely without the need for a Combo. It can be used on any tick. It is, however, an exception to the normal rules for Dragon-Blooded reflexive Charms. Specifically, on any tick upon which the Dragon-Blood uses Sparrow Dives at Hawk, he cannot use any other Charms, including reflexive Charms, except for additional uses of Sparrow Dives at Hawk. Naturally, this limitation does not apply if the Charm is part of a Combo.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "73f88c0610f118d7",
+            "charmName": "Seven-Year Swarm Volley",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a22a9310d5ed6dcb"
+  },
+  "folder": "b0b1b2b3b4b5f01a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

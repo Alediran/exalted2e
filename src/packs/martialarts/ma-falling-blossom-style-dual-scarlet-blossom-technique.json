@@ -1,0 +1,57 @@
+{
+  "_id": "28c6e740d7826d47",
+  "_key": "!items!28c6e740d7826d47",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dual Scarlet Blossom Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "(1m and 1lhl) per die",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This technique exemplifies the principle of the Falling Blossom Style: The martial artist is ready to give his life to defend his charge. When he activates this Charm, the martial artist pays one mote and suffers one lethal health level of damage for every die of raw damage he wishes to convert into an automatic health level of damage inflicted upon his target. This damage is an effect of the Charm and cannot be bypassed or neutralized by Charms or other effects that reduce damage without negating the effect. This Charm must be activated after the martial artist's player has rolled for his attack but before he has rolled damage. This Charm also presumes combat against an opponent who actively fights back: It's useless for surprise attacks or other attacks on unarmed or unresisting targets. In effect, the martial artist grants his opponent a counterattack that automatically succeeds. Dual Scarlet Blossom Technique cannot be used in circumstances where such a counterattack is not possible.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "terrestrial",
+    "martialArtsStyleName": "Falling Blossom Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "28c6e740d7826d47"
+  },
+  "folder": "dd497199f5d1964b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

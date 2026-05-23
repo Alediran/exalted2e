@@ -1,0 +1,73 @@
+{
+  "_id": "ad493422f54e2679",
+  "_key": "!items!ad493422f54e2679",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Rising Sun Slash",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious",
+      "Holy",
+      "Mirror (Life-Severing Blade)"
+    ],
+    "cost": {
+      "formula": "4m or 6m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Crackling with golden lightning, the Solar's blade becomes impossible to turn from its course. For four motes, an attack enhanced with this Charm becomes unblockable. If activated for a cost of six motes, the attack also gains the Holy keyword and becomes undodgeable by creatures of darkness in addition to its basic effect. New Abyssal Charm: Life-Severing Blade (Prerequisite: Artful Maiming Onslaught). The Abyssal Mirror to Rising Sun Slash has no Holy keyword. Instead, its six-mote option makes attacks undodgeable by mortals, ghosts and the Fair Folk.</p>",
+    "source": "Glories of the Most High: Unconquered Sun",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ba897c2f69c99959",
+            "charmName": "Fire and Stones Strike",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "ad493422f54e2679"
+  },
+  "folder": "fd05b302be1cc260",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

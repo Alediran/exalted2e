@@ -1,0 +1,85 @@
+{
+  "_id": "3837f18eb919df60",
+  "_key": "!items!3837f18eb919df60",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ice And Fire Binding",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "performance",
+    "essence": 3,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "oneSeason",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Maiden",
+      "Mandate",
+      "Servitude"
+    ],
+    "cost": {
+      "formula": "10m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm involves a complicated song in Old Realm. The song takes a full hour to perform, and mastering its complexities and subtleties requires a successful (Intelligence + Performance) roll at difficulty 9. Additional Sidereals can add their voices in support, even if they do not have the Charm themselves. Eclipse and Moonshadow Caste Exalted may support the Sidereal as well, but they must know the Charm and the Old Realm language to assist. Each supporter reduces the difficulty by one, to a minimum of 5. A successful binding summons an elemental with an Essence no higher than that of the character using the Charm. For one season, that spirit is bound by the words to seek the joy, health and pleasure of a particular dominion (as defined by the Mandate of Heaven system from Exalted Storyteller's Companion) assigned by the Sidereal. The dominion's Magnitude may not exceed the Sidereal's Essence. When that time is up, memories of who summoned and bound the spirit slip from the spirit's mind, and the spirit is free to go.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "ee6cf4e318840bc9",
+            "charmName": "Faultless Ceremony",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "79ee1bcd6dd9b9f8",
+            "charmName": "Song of Spirit Persuasion",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "3837f18eb919df60"
+  },
+  "folder": "b0b1b2b3b4b5f010",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

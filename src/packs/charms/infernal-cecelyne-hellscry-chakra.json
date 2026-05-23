@@ -1,0 +1,57 @@
+{
+  "_id": "8c0982cf53570201",
+  "_key": "!items!8c0982cf53570201",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Cecelyne Hellscry Chakra",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "5m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Infernal opens his caste mark as an imperceptible third eye upon his brow. This spiritual organ perceives the flow of demonic Essence as a garish synesthetic overlay of colors and tastes. While this Charm is active, the Exalt gains the following benefits: � He perceives dematerialized demons with all senses, recognizing that they are incorporeal. � He perceives all possessing demons as smoky anima banners enveloping their hosts. � He adds (Essence) bonus successes on all rolls to notice natives of Malfeas, track them or pierce any disguise attempts. If the target isn't using magic to contest the action, the Infernal may spend one Willpower to automatically succeed. � Upon recognizing a perceived character as a demon or a Yozi, its nature becomes Obvious to him. The Storyteller provides a basic synopsis of the target's capabilities and Motivations (if any). This power imparts the same information about Infernal relics the Infernal can perceive. � He automatically recognizes non-demon natives of Malfeas as such upon perceiving them, although he learns nothing else. WAYWARD DIVINITY OVERSIGHT Cost: -- (+1m to +3m); Mins: Essence 3; Type: Permanent</p><p>Keywords: None Duration: Permanent Prerequisite Charms: Hellscry Chakra Infernal Exalted understand demons better than other spirits because they are the most closely related in nature and power. However, the Primordials created the gods in the image of their aspects, so they remain understandable. Whenever a character with this Charm activates its prerequisite, she may pay an additional mote. Doing so expands the capabilities of the Charm to notice and identify gods as though they were demons and to track them like natives of Malfeas. Characters may purchase this Charm a second time at Essence 4+ to expand Hellscry Chakra to cover elementals this way for another one mote surcharge. A third purchase requires Essence 4+ but allows another one mote surcharge to cover Exalted.</p>",
+    "source": "MoEP: Infernals",
+    "yoziPatron": "cecelyne",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "8c0982cf53570201"
+  },
+  "folder": "d852ccb3960d271d",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

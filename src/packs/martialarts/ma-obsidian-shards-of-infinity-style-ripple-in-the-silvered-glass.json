@@ -1,0 +1,57 @@
+{
+  "_id": "07dc1df54e04dc06",
+  "_key": "!items!07dc1df54e04dc06",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ripple in the Silvered Glass",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "6m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>She thought to repair it, but was arrested by the sight of the scattered shards, When a foe attacks, the Sidereal brings his hands together, then parts them as if he were opening a pair of curtains. On a successful attack by a foe, this Charm posits an alternative, which then becomes true. The Sidereal may say that his attacker, instead, stumbled and fell at his feet or broke her weapon with her clumsiness. The martial artist must limit himself to a substitute that is possible, but almost anything can happen: For scope, consider the enemy to have botched her attack roll. The target of this Charm may reflexively spend a Willpower point to feel unease as the new reality falls into place around her. Her player rolls (Wits + Awareness) with an internal penalty equal to the martial artist's (Essence + Martial Arts). With one success, the attacker didn't botch, but she still didn't hit. With three successes, she tears through the shifting fates and completes the attack at which she originally succeeded. If a mentally unstable or insane person is affected by Ripple in the Silvered Glass and spends the Willpower point, the internal penalty is equal to only the Sidereal's Martial Arts. This Charm is a perfect defense that can apply against non-sentient things. In such cases, it works automatically. Furthermore, any action launched through a reflective surface at the martial artist--for example, someone scrying him in a forest pool--can be deflected with this Charm as well. The Sidereal automatically senses the attempt and can choose whether to use Ripple in the Silvered Glass against it.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "sidereal",
+    "martialArtsStyleName": "Obsidian Shards of Infinity Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "07dc1df54e04dc06"
+  },
+  "folder": "87a660847a455039",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,58 @@
+{
+  "_id": "56465d141d36eb43",
+  "_key": "!items!56465d141d36eb43",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Endless Yawning Void",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "ring",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Echo",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "1m per 2 dice",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm is an obscenity to some raksha, yet that does not deter them from using it against their enemies. When a raksha invokes Endless Yawning Void against his enemy as part of a shaping attack, that enemy finds herself trapped within an embolism of shaped reality that springs into being around her like a cancerous cyst of crushed possibility. This Charm adds two dice to the raksha's shaping dice pool for a Ring- or Staff-shaping action per mote spent. If the action is an attack, the Charm also adds two dice to the damage pool per each mote spent. The raksha can spend up to his Essence in motes but must spend at least one mote. The raksha cannot increase the dice pool for a shaping action by more than the sum of the corresponding Grace and the raksha's Essence through any combination of Charms or effects. Other raksha within a radius of 20 waypoints automatically sense the use of this Charm, and its use is an unambiguous threat made to every other raksha who perceives it. Unshaped raksha often fly into rages in response to this Charm.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "56465d141d36eb43"
+  },
+  "folder": "e3ab9ab145f6a424",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,52 @@
+{
+  "_id": "2bcf37b6fe9cb2ae",
+  "_key": "!items!2bcf37b6fe9cb2ae",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Long Powerbow",
+  "type": "weapon",
+  "img": "icons/weapons/bows/bow-recurve-yellow.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "Archery",
+        "speed": 5,
+        "accuracy": 2,
+        "damage": 6,
+        "damageType": "lethal",
+        "overwhelming": 1,
+        "defense": 0,
+        "rate": 2,
+        "range": 350,
+        "minStrength": 2,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": [
+          "Two-Handed",
+          "Bow"
+        ]
+      }
+    ],
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 6,
+    "attuned": false,
+    "artifactRating": 3,
+    "hearthstoneSlots": 2,
+    "description": "<p>A powerful bow strung with a cord of magical material that launches arrows at extreme ranges. Features two hearthstone sockets.</p>",
+    "equipped": false
+  },
+  "folder": "f004a234b56c78a0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

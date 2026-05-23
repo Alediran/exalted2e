@@ -1,0 +1,37 @@
+{
+  "_id": "96b7ec06f318c14d",
+  "_key": "!items!96b7ec06f318c14d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unbreakable Bones of Stone",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-unbreakable-bones-of-stone",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 20,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "permanent",
+    "target": "Caster",
+    "description": "<p>The sorcerer begins the Irresistible Song of Stone, the song that earth elementals sing to themselves while they sit deep in the soil (also used in the Sleep of Stony Safety; see p. 60). She sings it wrong, however, and the local earth elementals--perfectionists unable to resist correcting such a thing--croon the song to her correctly. The sorcerer's silver-burning Essence absorbs the corrected song, turning the sorcerer's bones to stone until the sun crosses the horizon twice. The spell adds an amount equal to the sorcerer's permanent Essence rating to her Strength and Stamina Attributes. Moreover, any wound penalties are halved, rounded down, for the duration of the spell. Any damage taken from falling is also cut in half, rounding up. The sorcerer's eyes turn the color of granite, her skin becomes cold, tough and ashen, and her weight increases by 50%.</p>"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

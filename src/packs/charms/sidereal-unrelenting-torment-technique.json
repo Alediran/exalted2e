@@ -1,0 +1,99 @@
+{
+  "_id": "e9241140da5717ce",
+  "_key": "!items!e9241140da5717ce",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unrelenting Torment Technique",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "thrown",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 5,
+    "dvPenalty": -2,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Compulsion",
+      "Counterattack",
+      "Obvious",
+      "Prayer Strip",
+      "Virtue (Conviction)"
+    ],
+    "cost": {
+      "formula": "10m, 1wp, 1hl",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal activates this Charm with a prayer strip on which is written the Scripture of the Maiden and Shadow. He infuses the strip with Essence and hurls the prayer strip at a target within 100 yards. This attack can only be dodged, not parried: if the target tries to parry, the strip sticks to the parrying limb or weapon. If the strip hits the target, the strip sticks to him for the duration of the effect, wreathing him in a sickly yellow glow. With the prayer strip stuck to him, the target feels an insane compulsion (an unnatural mental influence) to hurt the Sidereal who put the strip there. Resisting this urge costs one Willpower point per scene. The compulsion remains for as long as the target can see or hear the Sidereal. Whenever the Sidereal takes damage during the effect's duration, a hatchet made of yellow Essence appears in one of his free hands. As a reflexive action, he may cast this hatchet at the target wrapped in the prayer strip at any distance up to a quarter of a mile away. The hatchet shrieks through the air, ignoring obstacles, and requiring no roll on the Sidereal's behalf. Only a perfect parry or dodge can prevent the hatchet from hitting the affected character. When it hits, it inflicts dice of lethal damage equal to the Sidereal's Essence. For each health level the target loses, the Sidereal heals one health level. The effect lasts until the target dies, the Sidereal ceases to commit the Essence or the prayer strip is destroyed. The Sidereal can have only one such prayer strip active at a time.</p><p>THE SCRIPTURE OF THE MAIDEN AND SHADOW Once, there was a maiden... ...whose shadow fled from her. She chased it over fire and stone. She chased her shadow to a monster's mouth. Her shadow went right in. It didn't know how to stop. The maiden caught her shadow in a deep cave full of ghosts. Her shadow turned into a ball of thorns that wrapped around her. When the ghosts pricked their fingers on the thorns, they came to life. This didn't make anyone very happy. The maiden made a ladder from the ghosts' bones, but it only pointed downward. \"Why go on?\" her shadow asked. \"I can't quit now,\" said she. SERENITY: THE CERULEAN LUTE OF HARMONY CRAFT: THE PEACOCK</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1dc23f1b6f8fe7cc",
+            "charmName": "Essence Thorn Practice",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "93a3fa4f1b9a79d4",
+            "charmName": "Pain-Amplification Stratagem",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "dc048aa17d0f6a18",
+            "charmName": "Willful Weapon Method",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "e9241140da5717ce"
+  },
+  "folder": "b0b1b2b3b4b5f018",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

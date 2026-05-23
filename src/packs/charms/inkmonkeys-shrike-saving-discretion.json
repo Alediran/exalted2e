@@ -1,0 +1,71 @@
+{
+  "_id": "443017da750f3bf8",
+  "_key": "!items!443017da750f3bf8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shrike Saving Discretion",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "thrown",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Martial-ready",
+      "Native"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A Lawgiver may grow to become an old hand at killing. When greatly outnumbered, it may not do to break his cover at the first opportunity. This Charm permanently enhances its prerequisite. The Solar may opt to withhold free reflexive attacks accrued against opponents as outlined by the rules of Swarm-Culling Instinct, choosing instead to stock these attacks until a tactical opportunity presents itself. Free reflexive attacks stocked in this fashion vanish at the end of the scene. Until then, the Solar may unleash as many attacks as he has stocked on targets of his choice. For example, a character with five stocked attacks may choose to unleash five attacks on one target, or he may launch a single attack against five different targets, or he may attack one target three times and withdraw, retaining two free reflexive attacks until the scene ends. A Solar may stock up to (Dexterity + 3) attacks in this fashion. Martial-ready: Archery, Martial Arts, Melee Steel Fang Rebuke</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "87e3462fdade3173",
+            "charmName": "Swarm-Culling Instinct",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "443017da750f3bf8"
+  },
+  "folder": "b0b1b2b3b4b5f070",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

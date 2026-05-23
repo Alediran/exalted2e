@@ -1,0 +1,37 @@
+{
+  "_id": "fbfd0469648c8e9c",
+  "_key": "!items!fbfd0469648c8e9c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Siege Strider",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>This powerful weapon is essentially a six-legged, two person warstrider that is 30 feet long, 20 feet wide and 18 feet tall. It looks roughly like a giant beetle made from one of the five magical materials and has four sturdy, multijointed legs and features a pair of large claws designed for digging and rending. Activating this weapon requires the driver to place a single level-3+ hearthstone in the artifact's hearthstone socket and to commit 12 motes to this device. The driver controls the weapon's four sturdy legs and also operates its two arms. The artifact's four legs are capable of moving it quite rapidly. In addition, because the driver can sit down and must only move a pair of foot pedals and a lever to operate the four legs, operating this vehicle is far less exhausting than controlling an ordinary warstrider. This vehicle can march at speeds of up to 20 miles per hour and can cover up to 300 miles in a day. Unlike twolegged warstriders, this vehicle can jump only a quarter of the distance its Strength would indicate. Also, because the driver operates it by pedals and levers and does not actually wear it, he cannot use any Athletics Charms to augment the vehicle's mobility. Also unlike ordinary warstriders, this artifact's arms are not designed to hold weapons. Instead, the strider is protected by its gunner. This artifact carries a powerful blast cannon that extends out of a rotating turret on the artifact's back, slightly in front of the vehicle's middle. This weapon is operated by a gunner who also sits inside the vehicle in a separate compartment from the driver. This weapon cannot be operated by the driver unless the driver shuts off the vehicle, climbs out of his hatch, opens the hatch to the gunner's seat, climbs in and fires the weapon. The blast cannon functions as both an ordinary light implosion bow (see p. 130) and a lightning ballista (see p. 132), and is powered by the gunner's Essence. If the gunner spends one mote of Essence, the weapon fires a half-power light implosion bow shot. If the gunner spends two motes, it fires a full-power light implosion bow shot. If the gunner spends three motes, the weapon fires a lightning ballista shot. This artifact's arms are specifically designed to be able to rip down the toughest walls, tear open hulls made of First Age materials and, if necessary, move earth and rapidly construct large-scale earthworks. Because they are designed specifically for this purpose, all attacks made by these arms against inanimate objects such as walls, gates, ship hulls or statues first halves the object's soak (round down), making these arms exceptionally powerful tools for breaking sieges and destroying walls. Also, one of these artifacts can build up to 5,000 cubic feet of earthworks--such as a wall 10 feet tall, 10 feet thick and 50 feet long--in one hour. Alternatively, the artifact could create a trench or moat of equal size in the same time. Speed: 10 (dash 30)/20mph Maneuverability: -6R (Lore 1, Ride 2) Endurance: Requires a level-3+ hearthstone plugged into the control panel to operate, as well as a 12-mote commitment by the driver. Because of the inherent stability and simplicity of four-legged locomotion, this artifact requires maintenance only every 100 hours of operation. Every hour of combat counts as two hours of operation, however. Every 10 hours that maintenance is in arrears, the ordinary penalties caused by lack of warstrider maintenance begin to accrue. Also, the blast cannon must be serviced after every 100 firings. Crew: 1/1 Cargo: None. Armor: 24L/24B (Hardness: 26L/16B) Health Levels: Ux10/Mx5/Cx5/Ix5/D Weapons: Blast cannon. Other Notes: The siege strider possesses a Strength of 20 and hand-to-hand combat stats as follows: Name Speed Accuracy Damage Defense Rate Siege Strider Claw 6 +0 +12L* +0 2 *This damage is treated as piercing damage against all inanimate objects. SWIFT MIDDAY BRILLIANCE-CLASS LIGHT</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 4,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

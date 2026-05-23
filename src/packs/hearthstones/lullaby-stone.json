@@ -1,0 +1,27 @@
+{
+  "_id": "c23fc97f97e33352",
+  "_key": "!items!c23fc97f97e33352",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Lullaby Stone",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDWATER00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "water",
+    "rating": 1,
+    "description": "<p>This pale-blue, translucent oval enables its bearer to enjoy a peaceful, restful sleep free of nightmares or insomnia. It trumps any external circumstances, including climate, deprivation or noise. In addition, any attempts to invade the bearer's dreams (such as using the stone of dream entrance) suffer a -2 external penalty. Any Charm, magic or drug that induces nightmares or turns the bearer's dreams against her automatically fails.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

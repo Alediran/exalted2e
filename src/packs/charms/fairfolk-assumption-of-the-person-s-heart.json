@@ -1,0 +1,61 @@
+{
+  "_id": "608ebe36b3ea2aba",
+  "_key": "!items!608ebe36b3ea2aba",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Assumption of the Person's Heart",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Assumption",
+      "Glamour (1)",
+      "Mutation (1)",
+      "ShapedOnly",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "10m, 1g",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>This Charm allows the raksha instill a minor Wyld taint on a Creation-born. If used as an Assumption Charm, Assumption of the Person's Heart costs 10 motes and one gossamer and must be activated while in sight of the Creation-born to be tainted. Thereafter, the raksha can travel into Creation along with the affected Creation-born. Her assumed form is designed to appeal to the Creation-born's emotions in some way, whether to entice him or to terrify him. Regardless, the raksha gains two automatic successes on all social rolls against the Creation-born she taints. If the raksha has also activated Assumption of Dreams and Passion, the automatic successes from both Charms stack. If the raksha has activated no other Assumptions, she has no manifested existence in Creation apart from the one she taints. If the Creation-born is rendered unconscious or if she leaves his sight, she instantly dematerializes as if she were a spirit (but at no Essence cost), and she has no power to affect Creation or be perceived by others who are unable to sense dematerialized spirits. In this state, the raksha can be harmed only by attacks capable of harming dematerialized spirits. If the tainted Creation-born is slain and the raksha has no other active Assumptions, she suffers the effects of normal calcification effects for a raksha caught in Creation without an Assumption Charm. If the raksha does have another active Assumption, she can freely materialize into that form and dematerialize at will at a cost of one mote. While the link between the two endures, the raksha can share the benefits of any active mutations or innate powers she currently possesses with her pet Creation-born. For example, if the raksha has Assumption of Water Shape active, she can grant the Creation-born the power to breathe and move freely underwater. If her Assumption carries the innate power associated with the Undetectable Lie Charm, she can grant that innate power to him, but he would be able to use that power only if he were capable of spending Essence, since each use of that innate power costs five motes. Conferring such a benefit costs the raksha one point of gossamer per mutation point in the case of conferred mutation benefits or a number of gossamer points equal to the gossamer cost of the Charm for any Charm benefits shared. In the case of the raksha with Assumption of Water Shape active, the raksha must spend one point of gossamer to confer the benefits of Assumption of Water Shape on the Creation-born (the gossamer cost of Assumption of Water Shape). In the case of the Undetectable Lie innate power, the raksha must spend three gossamer (the gossamer cost of that Charm). The raksha can withdraw any conferred gifts at any time as a reflexive action. If the raksha leaves the creature's presence, the effects of any benefits conferred still continue until withdrawn. In addition to its use as an Assumption Charm, this Charm can also be taken as a transitory mutation. The raksha must spend one gossamer in conjunction with some other Assumption Charm to gain the following innate power: Innate Power (Cost: 10m, 1wp, 1+g): The raksha can taint a Creation-born she encounters while in Creation, granting him the benefits of a mutation or innate power she currently has active. The gossamer cost of tainting a Creationborn is calculated in the same manner as the Assumption aspect of this Charm. The Creation-born retains the granted power for one day. At the end of the day, the Creation-born's player must roll his character's Willpower against a difficulty equal to the number of gossamer spent on the power to resist Wyld addiction. This power does not allow the raksha to dematerialize, nor does it grant any automatic successes on social rolls against the affected Creation-born. Glamour Resistance: The raksha cannot use this Charm to taint any creature whose (Stamina + Essence) exceeds her Charisma. Oneiromancy Benefit: This Charm is seldom used as the physical component for an oneiromancy spell, but it can be incorporated into a spell designed to affect specific individuals.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "608ebe36b3ea2aba"
+  },
+  "folder": "6dbccd37637d2988",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

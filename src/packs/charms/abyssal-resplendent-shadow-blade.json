@@ -1,0 +1,74 @@
+{
+  "_id": "fccabddc690de95e",
+  "_key": "!items!fccabddc690de95e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Resplendent Shadow Blade",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "melee",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Emotion",
+      "Mirror (Glorious Solar Saber; Exalted, p. 192)",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "3m, 1wp or 5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Abyssal conjures a weapon formed of Essence-hardened shadows adorned or intertwined with corpse-elements.</p><p>Unlike its Solar mirror, Resplendent Shadow Blade is not Holy but imposes an Emotion effect of despair or horror whenever it inflicts any damage, draining one Willpower unless the target spends motes equal to the Abyssal's Essence rating. Mortal extras who somehow survive being hit with this weapon drop prone and curl up in a fetal position for the rest of the scene, too spiritually broken even to defend themselves.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "daedf00ab40b9838",
+            "charmName": "Blade-Summoning Gesture",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "fccabddc690de95e",
+    "mirrorId": "45d7c78fc64a2391"
+  },
+  "folder": "b0b1b2b3b4b5f040",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

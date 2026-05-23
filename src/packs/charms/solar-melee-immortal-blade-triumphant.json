@@ -1,0 +1,71 @@
+{
+  "_id": "4349b966b5a7e62d",
+  "_key": "!items!4349b966b5a7e62d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Immortal Blade Triumphant",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 7,
+    "minAbility": 7,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 7,
+    "dvPenalty": -4,
+    "steps": [],
+    "keywords": [
+      "Obvious",
+      "Mirror (Charnel Emperor Stance)"
+    ],
+    "cost": {
+      "formula": "15m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Lawgiver's anima fractures into a thousand reflections of his weapon as he raises it in a silent salute. Afterwards, he moves with grace beyond words and skill beyond awareness to brush aside the clumsy attacks of any who should be so impudent as to strike at him. While this Charm is active, the character may invoke Heavenly Guardian Defense at its normal cost as an innate ability rather than a Charm activation. When used this way, the Charm's duration is always instant regardless of other modifiers. This benefit may not be be employed until the character's UPGRADES The following upgrades to existing Charms are available: Solars who know the Charm Heavenly Guardian Defense may pay two experience points to permanently upgrade its capabilities so that it and Dipping Swallow Defense are considered to be the same Charm for the purpose of Charm activations and Combos. The same upgrade is available for the Abyssal mirrors of these Charms. Example: Dace pays two motes to reflexively invoke Dipping Swallow Defense to fend off the paltry attack of a zombie. During the same action, an Abyssal suddenly arrives on the battlefield and launches a powerful Combo at him. He then pays four motes to reflexively invoke Heavenly Guardian Defense without needing a Combo. The same upgrade is available for the same price for Seven Shadow Evasion (linking it to Shadow Over Water) and their Abyssal mirrors, Adamant Skin Technique (linking it to Iron Skin Concentration), and, for the Lunar Exalted, Flowing Body Evasion (linking it to Golden Tiger Stance). DV has refreshed once, and may be used a number of times equal to (Essence x 2); upon making the last permitted invocation, Immortal Blade Triumphant automatically deactivates itself. This Charm may not be reactivated to re-stock its supply of defenses while it is already active. New Abyssal Charm: Charnel Emperor Stance (Prerequisites: Death-Deflecting Technique). This Charm functions identically to its Solar Mirror, save that it permits invocations of Death-Deflecting Technique rather than Heavenly Guardian Defense. The Deathlords are currently Charnel Emperor Stance's only users, and it is worth noting that, like all sets of Mirror Charms, they are only capable of wielding the Abyssal version of this Charm. For all their unholy might or long centuries of practice, the Deathlords have never devised a more efficient or effective form of perfect defense. INTEGRITY</p>",
+    "source": "Glories of the Most High: Unconquered Sun",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "0f988a84eeae7674",
+            "charmName": "Heavenly Guardian Defense",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "4349b966b5a7e62d"
+  },
+  "folder": "fd05b302be1cc260",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

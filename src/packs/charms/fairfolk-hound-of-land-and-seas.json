@@ -1,0 +1,58 @@
+{
+  "_id": "b9f1ffcfd5eacbab",
+  "_key": "!items!b9f1ffcfd5eacbab",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hound of Land and Seas",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "way",
+    "essence": 1,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Echo"
+    ],
+    "cost": {
+      "formula": "8m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>For Nirupadhika, location is merely a subset of identity, and \"where one is\" is a factor that helps define \"who one is.\" By spending eight motes and one Willpower, the raksha can trail someone through the trackless wastes of the Wyld. The raksha must have met the quarry at least once or else hold one of her possessions, and he must begin tracking from some place he knows she has been. Then the raksha's player must roll (Wits + Survival) as a Way-shaping action. If the quarry to be sought is shielded by Charms or other magic designed to obscure her location, the raksha's player must make an appropriate roll with a difficulty equal to the Essence of the being who concealed the location or the number of successes obtained on any roll for concealment, whichever is higher. Any raksha who knows this Charm and spends one gossamer in conjunction with an Assumption also gains the following innate power in Creation. Innate Power (Cost: 8m, 1wp): When active, this power duplicates the effects of the Unshakeable Bloodhound Technique Charm (see Exalted, p. 211). This power affects only the raksha and does not provoke Glamour Resistance.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "b9f1ffcfd5eacbab"
+  },
+  "folder": "1d6bc1793aa49b96",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

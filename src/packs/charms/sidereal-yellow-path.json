@@ -1,0 +1,57 @@
+{
+  "_id": "c83fe497230150b3",
+  "_key": "!items!c83fe497230150b3",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Yellow Path",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "ride",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": -2,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>A character with a destination in mind asks the Maiden of Journeys for her best advice on arriving there. The player then rolls his character's Essence. For one success, the Maiden shows the Seer a path that enables him to reach his destination in three-quarters of the time it would normally take him based on travel type and distance. (See the chart on p. 264 of Exalted.) If the character points out that he has a deadline to keep (and the player rolls three successes), Mercury illuminates any means that might exist to get the character there under normal travel conditions. (The character might have to run for three hours straight, bribe a courier in an elaborate horse relay system to give up his mount, gallop all the way to the coast and finally board a hard-rowing ocean vessel, but he'll make his appointment.) If the player rolls five successes and the character has a deadline to beat, the Maiden of Journeys reveals to him a miraculous path that will get the Seer to his destination ahead of his deadline no matter how far away it is and how little time remains.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "c83fe497230150b3"
+  },
+  "folder": "b0b1b2b3b4b5f013",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,71 @@
+{
+  "_id": "2b23a9285302f802",
+  "_key": "!items!2b23a9285302f802",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Impatient Tempest Labor",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "5+m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Demons evacuating ahead of the Silent Wind often congregate in places she recently ravaged, counting on her to seek a new venue of massacre rather than endure the tedium of a familiar arena. They are wise to do so. Adorjan has little patience for tasks that bore her or require her to stay in one place for any length of time and counts on her speed to rush through chores. The base cost to activate this charm is five motes, plus an additional five mote surcharge for each time the Exalt has activated the Charm in the past 25 hours. While enchanted by this Charm, the warlock completes all Ability-based actions in half the usual time, provided that those actions normally would take ten minutes or longer to complete. The Charm is not cumulative with other quickening effects; only the best applies. Impatient Tempest Labor also can't quicken the casting of spells. Each dot of Essence above 2 cumulatively halves this time, so an Essence 5 Infernal works at sixteen times normal speed. It is not possible to work at less than maximum speed, given Adorjan's impatience. Not all tasks that can be quickened benefit from doing so; just because a warlock can recite the entire Broken-Winged Crane in the span of a second doesn't mean that a listener can absorb spoken information at that rate. The Charm also doesn't quicken fixed time limits that have nothing to do with how quick the Infernal is, such as cooking time on an alchemical reagent or the maturation of a sired offspring within a pregnant mother (unless the warlock is the pregnant one, since surviving childbirth is a Stamina + Resistance roll for mortals). The Storyteller should use common sense when adjudicating such cases. Adorjan struggles to build things that last because of her cultivated aversion to forming attachments. Consequently, the acceleration granted by this Charm may not allow a character to complete more than a day's worth of effort building or repairing items using any Craft Ability in a day. In the aforementioned Essence 5 example capable of completing 16 hours of work per hour, this limitation would allow her to spend a full hour of activation crafting, but slightly into the second hour, she would run against this limit and could not bring herself to \"waste\" any more time on crafts. She may use the remaining duration of accelerated speed for other tasks in the meantime, but she must wait a day before using the Charm for anything to do with construction or repairs. Wind Shearing Hearts</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c170d8d3f72bf298",
+            "charmName": "Wind-Born Stride",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "2b23a9285302f802"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

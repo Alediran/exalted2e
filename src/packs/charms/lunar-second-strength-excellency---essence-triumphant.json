@@ -1,0 +1,59 @@
+{
+  "_id": "7e26b0256791329e",
+  "_key": "!items!7e26b0256791329e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Second Strength Excellency-- Essence Triumphant",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "strength",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      1
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Lunars with this Charm consistently apply their base potential to solve problems. The character's player may invoke this Charm when making a roll based on the relevant Attribute. The character spends up to Strength in motes, adding one success to the roll for every two motes. Each success purchased with this Charm is the equivalent of two dice purchased with the First Excellency or another dice-adding Charm. See Exalted, page 185, for examples on how this works. This Charm can enhance unrolled uses of the relevant Attribute, just as the First Excellency. Each two motes spent increases the Attribute by two for an instant action or task, functioning just as a single rolled success with the First Excellency. Essence Triumphant may be Comboed with the First Excellency, but it can never be used on the same roll as the Third Excellency. THIRD Strength EXCELLENCY--</p>",
+    "source": "MoP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "second",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "7e26b0256791329e"
+  },
+  "folder": "aba1efe8ad0bef8a",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

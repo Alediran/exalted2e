@@ -1,0 +1,58 @@
+{
+  "_id": "c12e47de5436e9b2",
+  "_key": "!items!c12e47de5436e9b2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Taboo Inflicting Diatribe",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "socialize",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Compulsion"
+    ],
+    "cost": {
+      "formula": "3m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Solar furiously condemns or supports some behavior, encouraging an entire society to accept or reject it. This Charm is a Socialize-based social attack to compel a social group with Magnitude 1+. The character must have spent several hours within the last month encouraging the desired attitude within this group before using this Charm, and this Charm must be invoked in the presence of at least one member of that group. The Exalt's player rolls ([Charisma or Manipulation] + Socialize). Subtract an external penalty equal to the leader's MDV plus</p><p>WISE-EYED COURTIER METHOD</p><p>(ANY SOCIALIZE EXCELLENCY)</p><p>Understanding the Court</p><p>TABOO INFLICTING DIATRIBE</p><p>Venomous Whispers Technique</p><p>WILD REVELRY APPROACH</p><p>MASTERY OF SMALL MANNERS</p><p>GATHERING THE CONGREGATION</p><p>half of the group's Magnitude from the rolled successes. If the character succeeds, the social group adopts a taboo or fad of the character's choice. The society instantly integrates the taboo or fad into its Policy. The taboo or fad remains part of the group's Policy until the group's leader spends a total of 10 Loyalty, at most one per week, to remove it. It is also a part of the Policy of any social groups of Magnitude 1+ that splinter off from the target group, and the leader of those groups must spend a total of 10 Loyalty, at most one per week, to remove it. This Charm has no effect on individuals, save that breaking the new rules of their society can make them outcasts. Its primary function outside of narrative time is to limit the actions that social groups can take.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "c12e47de5436e9b2"
+  },
+  "folder": "5da24482e38ff9ae",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

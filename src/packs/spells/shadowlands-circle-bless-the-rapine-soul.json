@@ -1,0 +1,37 @@
+{
+  "_id": "fe2f6642a6b9cf19",
+  "_key": "!items!fe2f6642a6b9cf19",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Bless the Rapine Soul",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "shadowlands-circle-bless-the-rapine-soul",
+    "tradition": "necromancy",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 16,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "permanent",
+    "target": "One living creature",
+    "description": "<p>Ghosts who enjoy possessing the bodies of the living love necromancers with this spell. Some even offer favors or long-term service in exchange for a single casting. Bless the Rapine Soul scourges a living target's soul, making the victim more likely to submit to another will's driving his body. When a ghost targets the spell's victim for possession, the player's roll--generally (Dexterity + Compassion) at a difficulty of (target's Essence x 2)--gains a number of extra successes equal to the necromancer's Essence. Also, double the possession's duration. Gods and other spirits gain the same benefits. After a full month without being possessed by any creature, the victim's spiritual resistance returns to normal. By casting this spell as a one-hour ritual on a living creature that is already possessed by a ghost, the necromancer can instead create a link between the living and dead individuals. The spell costs only 10 motes, and the possessing ghost must commit three motes to the effect. Thereafter, without duration, that ghost alone gains the benefit of Bless the Rapine Soul. Breaking the bond, either through countermagic or the living target's death, shocks the ghost, who loses a dot of permanent Willpower. Using the spell in this way is often called Consorting with Devils, but it's the same spell.</p>"
+  },
+  "folder": "9a7bd83d0a359e00",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

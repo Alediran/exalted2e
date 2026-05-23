@@ -1,0 +1,72 @@
+{
+  "_id": "1a60fdfd13d3b817",
+  "_key": "!items!1a60fdfd13d3b817",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Exquisite Relic Bow",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "archery",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror (Immaculate Golden Bow; Exalted, p. 189)",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "5m, 1wp",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Abyssal summons a killing urge from the dreams of the Neverborn and shapes it into a bow perfectly suited to his fighting style. As with Solars, this bow is Speed 5. Deathknights who have seen a crossbow may create one of these weapons instead, in which case it has: Damage ([Archery x 2] + Essence + attack successes + arrows), Rate (Essence � 2, rounded down).</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "8d12dfc589b5a2cc",
+            "charmName": "Relic Arrow Method",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "1a60fdfd13d3b817",
+    "mirrorId": "d0947ec151a087a3"
+  },
+  "folder": "b0b1b2b3b4b5f033",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

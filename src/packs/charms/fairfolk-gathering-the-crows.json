@@ -1,0 +1,59 @@
+{
+  "_id": "299e200b8a808e98",
+  "_key": "!items!299e200b8a808e98",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gathering the Crows",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "fairfolk",
+    "ability": "sword",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "formula",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Echo",
+      "Shaping",
+      "Stackable"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The armies of the Warlord are without number. Nations tremble at their every footstep. The raksha summons servants and minions from the Wyld to bolster his ranks. These summoned troops are gossamer extras that never interact with enemies directly but swell the raksha's forces ominously. In the Wyld, this Charm increases the Defense bonus of the raksha's Swordshaping weapon by one. This Charm can be activated up to a number of times equal to the raksha's Sword, and subsequent invocations are cumulative. Additionally, a raksha who knows this Charm gains the following innate power in Creation: Innate Power (Cost: 3m; Speed: One long tick): The raksha can fashion illusions of additional troops to make his forces look bigger, more impressive and, as a result, more confident. In the context of mass combat, this Charm adds one to the Morale of the raksha's forces for purposes of resisting rout or hesitation. It also inflicts a -1 penalty on Morale rolls for opposing forces to resist rout or hesitation. Glamour Resistance: The innate power associated with this Charm is a work of glamour. The bonus to the Morale of the raksha's forces always applies, but the penalty applied to the Morale rolls of opposing Creation-born forces does not apply if the (Drill + Might) of that unit exceeds the raksha's War.</p>",
+    "source": "Graceful Wicked Masques",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "299e200b8a808e98"
+  },
+  "folder": "12ff19c775f80093",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

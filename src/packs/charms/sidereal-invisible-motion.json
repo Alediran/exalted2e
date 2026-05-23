@@ -1,0 +1,84 @@
+{
+  "_id": "7ccf357e52e5ae79",
+  "_key": "!items!7ccf357e52e5ae79",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Invisible Motion",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "athletics",
+    "essence": 4,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "oneDay",
+    "speed": 6,
+    "dvPenalty": -2,
+    "steps": [],
+    "keywords": [
+      "Combo-Basic",
+      "Prayer Strip",
+      "Shaping"
+    ],
+    "cost": {
+      "formula": "10m, 1wp, 1lhl",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Sidereal activates this Charm with a prayer strip of the Scripture of the One-Handed Maiden. Infusing the strip with Essence, the Sidereal wraps the strip around her forehead or neck like a headband or scarf. For the rest of the day, the character acts under the effects of Inexorable Advance, and doubles her base Move and Dash distances. What's more, she has a pool of bonus successes equal to her Athletics that she can apply to any physical action. If the character engages in multiple actions, she divides the bonus successes among them. The player can reserve some successes for reflexive actions the character takes before her Defense Values refresh, but unused successes do not carry over from action to action. THE SCRIPTURE OF THE ONE-HANDED MAIDEN Once, there was a maiden... ...who struck an iron wall Until it shattered her hand. She did not stop, though cracks spread throughout her bones. She did not stop, though blood sprayed her eyes. She did not stop until she shattered the wall. \"Survival is fury,\" she said. MELEE: THE SPEAR</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "36b3ec1764c85784",
+            "charmName": "Forward-Thinking Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1ef9a123cae2f0c7",
+            "charmName": "Inexorable Advance",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "7ccf357e52e5ae79"
+  },
+  "folder": "b0b1b2b3b4b5f002",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

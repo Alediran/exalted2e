@@ -1,0 +1,68 @@
+{
+  "_id": "8a43e2cdf11a8b75",
+  "_key": "!items!8a43e2cdf11a8b75",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wyld Cauldron Technology",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "lore",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Lawgiver may craft reality from the Wyld. This Charm enhances the Exalt's Wyld-Shaping Technique, allowing the character to make permanent and real things. Land/Wealth: The character can make real land or wealth with Wyld-Shaping Technique. This follows the normal rules, but the character must make a sacrifice--normally, a quantity of orichalcum or jade with Resources value equal to the Resources value of the creation. The character cannot sacrifice functional artifacts. The character can instead spend (Resources value x 2) in experience points, carving the necessary land or wealth out of his soul. Magical Things: If the character builds a manse or artifact out of materials imported from Creation, the result is real--it does not lose its reality as described above. People: The character can change a person or a social group with Wyld-Shaping Technique. Doing so subtracts an external penalty equal to the target's MDV from the successes on the character's Wyld-Shaping roll. If the character succeeds, she may change the target's Motivation and impose a number of points of Wyld mutations equal to the Solar's Essence. The target can resist this change by spending four Willpower. The target can alternatively spend two Willpower and state a short condition, such as \"do not make me hideous\" or \"do not make me a traitor,\" which limits the Solar's options but does not prevent the effect. Storytellers can veto conditions such as \"do not change me at all.\" Targets of this Charm must be present in the Wyld and within (Essence x 10) yards of the Solar.</p>",
+    "source": "Core",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "786435aaeb53865d",
+            "charmName": "Wyld-Shaping Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "8a43e2cdf11a8b75"
+  },
+  "folder": "5b0108cbcf2feaf4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

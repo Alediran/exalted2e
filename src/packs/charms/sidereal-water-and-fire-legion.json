@@ -1,0 +1,71 @@
+{
+  "_id": "8d4dfd107dcb1265",
+  "_key": "!items!8d4dfd107dcb1265",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Water And Fire Legion",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "resistance",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "simple",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Maiden",
+      "Servitude"
+    ],
+    "cost": {
+      "formula": "--",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>By sacrificing a bit of her flesh and Essence, a Vizier can bind an elemental to protect a location and its people, potentially for almost a year. The Sidereal needs a powerful manifestation of the chosen element, such as a burning house, a rushing stream, a gale, the depths of a cave or an old-growth forest. The Sidereal's player rolls (Charisma + Resistance) with a difficulty equal to the sum of the Essence of the elemental he wants to bind and the Magnitude of the dominion he wants protected (as defined in the Mandate of Heaven system; see the Exalted Storyteller's Companion). Sidereals have a +2 bonus when dealing with spirits of the element associated with their Maiden, and this does not count toward dice gained from Charms.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "abfa87ac69540222",
+            "charmName": "Water and Fire Treaty",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "8d4dfd107dcb1265"
+  },
+  "folder": "b0b1b2b3b4b5f012",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

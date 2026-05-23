@@ -1,0 +1,82 @@
+{
+  "_id": "ac6d98674e847cca",
+  "_key": "!items!ac6d98674e847cca",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Consuming Entropy Strike",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 3,
+    "minAbility": 4,
+    "charmType": "reflexive",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      10
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Crippling",
+      "Obvious"
+    ],
+    "cost": {
+      "motes": 3,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0,
+      "motesLabel": "",
+      "resonance": 0,
+      "limitTrigger": 0,
+      "formula": "3m"
+    },
+    "description": "<p>An Exalt with this Charm may conduct a withering torrent of entropic Essence through an exchange of blows, cursing an enemy with physical decrepitude and ill luck that worsens subsequent injuries. In order to use this Charm, the martial artist must touch the target with an unarmed strike or grapple attack that dealt at least one die of damage.</p><p>The martial artist could also use a Martial Arts-based parry against a close range attack from the target and successfully block the attack. If the martial artist meets either requirement, all forms of the target's soak decrease by an amount equal to the Exalt's Martial Arts rating for the duration of the Charm, starting with natural soak. Non-magical armor acquires a thin layer of rust or rot when struck, though this rust does not cause permanent damage. Repeated exposure to this Charm uses the highest penalty rather than stacking. The martial artist may, however, activate this Charm repeatedly in an action to curse multiple targets. Note that piercing attacks halve the reduced soak rating. The reduction is not applied after the halving.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Hungry Ghost Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "9b8f60f94d38e33b",
+            "charmName": "Hungry Ghost Form",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "ac6d98674e847cca",
+    "grantsMastery": false
+  },
+  "folder": "a204aba47ca9154b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

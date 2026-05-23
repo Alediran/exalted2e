@@ -1,0 +1,73 @@
+{
+  "_id": "9c882d26b46bb280",
+  "_key": "!items!9c882d26b46bb280",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Accelerated Response System",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "alchemical",
+    "ability": "dexterity",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      2
+    ],
+    "keywords": [
+      "Combo-OK",
+      "Internal"
+    ],
+    "cost": {
+      "formula": "2m [1m]",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Alchemical possesses literally wired reflexes. Starmetal nerve clusters and tiny orichalcum acceleration nodes are fitted into either the Alchemical's arms and torso, or her legs and hips. These options constitute two separate Charms, which must be purchased and installed independently. Both versions of the Charm eliminate penalty values against the character's DV equal to the character's (Dexterity). The upper body option permits this enhancement to apply to the character's Parry</p><p>DV, while the lower body enhances Dodge DV. Installing both variants at once allows them to trigger simultaneously for two motes, without the need of an Array. The Alchemical need not commit a mote for the second installation.</p>",
+    "source": "MoEP: Alchemicals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "",
+            "charmName": "Any Dexterity Augmentation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "9c882d26b46bb280"
+  },
+  "folder": "b0b1b2b3b4b5f04e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

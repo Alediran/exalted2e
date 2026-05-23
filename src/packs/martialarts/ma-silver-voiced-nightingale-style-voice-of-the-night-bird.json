@@ -1,0 +1,58 @@
+{
+  "_id": "c7faa89918f8fd5e",
+  "_key": "!items!c7faa89918f8fd5e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Voice of the Night Bird",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The martial artist draws a deep breath as he takes the stance for an attack, then shouts a violent kiai. The force of his call strikes the enemy like a punch. By spending three motes, the Nightingale can make any Martial Arts attack sonic. He can launch it against anyone within (Martial Arts x 10) yards, and his player uses (Perception + Martial Arts) for its attack roll. Charisma replaces Strength for its base damage. The battle cry's damage is normally bashing, but it can be increased or made lethal with a weapon or appropriate Charm (such as Weeping Nightingale Form). The Nightingale could even attempt to shout a weapon from an enemy's hand or knock her off her feet. Doing the former acts as a ranged attempt to disarm a target (per the rules on p. 158 of Exalted), incurring the standard -4 penalty. Doing the latter follows the knockdown rules on p. 153 of Exalted. (If the Charm-supplemented attack attempts to deliberately cause knockdown, its Accuracy suffers the standard -2 penalty, as well as a -4 penalty since the attack is ranged.) Voice of the Night Bird cannot be parried without a stunt or a Charm, though it can be dodged. If a character with this Charm has not learned the Charm Haunting Heart-Rending Melody, then he suffers a -1 penalty to the number of bonus dice he receives for channeling Willpower through his Compassion and Temperance. This penalty stacks with other Virtue penalties imposed by Charms of this style and is in effect regardless of whether the character is actually using the Charm.</p>",
+    "source": "Scroll of the Monk",
+    "yoziPatron": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Silver-voiced Nightingale Style",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 0,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "c7faa89918f8fd5e"
+  },
+  "folder": "f8d2ffb92c6967bb",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

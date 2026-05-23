@@ -1,0 +1,27 @@
+{
+  "_id": "b888a2966f56b7ba",
+  "_key": "!items!b888a2966f56b7ba",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Labyrinthine Eye",
+  "type": "hearthstone",
+  "img": "icons/commodities/gems/gem-rough-blue.webp",
+  "folder": "FLDWATER00000000",
+  "sort": 0,
+  "flags": {},
+  "ownership": {
+    "default": 0
+  },
+  "system": {
+    "hearthstoneType": "water",
+    "rating": 1,
+    "description": "<p>Alternating bands of gold and brown cover this spherical stone. Its owner can always find a path to the exit or the center (her choice) when navigating any building, maze or similar structure. The paths that lead to either destination become immediately obvious to the bearer. The labyrinthine eye conveys no knowledge of whether or not a particular route is safe—only which routes lead to the exit or the center and, if there are several options, the relative lengths of the available paths.</p>",
+    "source": "Oadenol's Codex"
+  }
+}

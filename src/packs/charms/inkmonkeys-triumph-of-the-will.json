@@ -1,0 +1,72 @@
+{
+  "_id": "a41469ac9c316175",
+  "_key": "!items!a41469ac9c316175",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Triumph Of The Will",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "melee",
+    "essence": 2,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      1
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Malfeas will tolerate nothing which stands between him and the execution of his will. Those who attempt to do so rarely survive to make the effort again. This Charm may enhance any attack directed at a character being protected by a Defend Other action. If the Infernal successfully strikes his original target, all of the attack roll's remaining successes are counted twice for the purpose of determining damage. If the warlock aborts to strike his target's defender instead, then he counts his Strength and remaining successes twice for the purpose of determining damage. At Essence 5+, attacks redirected against a defender count Strength and remaining successes three times rather than twice. At Essence 7+ this becomes a fourfold increase. A second purchase of this Charm grants the Infernal the option to pay a two mote surcharge in step 7 to knock the character he hits back on a successful strike. In addition to the Charm's usual effects, the unfortunate is hurled ([Charisma + Presence] x 5) yards, and if he strikes any unyielding surface, he takes dice of bashing damage equal to the number of remaining yards he did not travel (or lethal damage at the Storyteller's discretion, depending on the surface in question).</p><p>The King Still Stands</p>",
+    "source": "Ink Monkeys",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "bbc3e23937efb50c",
+            "charmName": "Nightmare Fugue Vigilance",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a41469ac9c316175"
+  },
+  "folder": "b0b1b2b3b4b5f064",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

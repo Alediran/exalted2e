@@ -1,0 +1,76 @@
+{
+  "_id": "e3b6eaeae9c35c0b",
+  "_key": "!items!e3b6eaeae9c35c0b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Many-Armed Monkey Style",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "lunar",
+    "ability": "wits",
+    "essence": 2,
+    "minAbility": 4,
+    "charmType": "extraaction",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "3m per action",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>Lunars act with furious, unrelenting speed. This Charm is a magical flurry of two or more actions of any sort. Each action costs three motes, including the first, and the character can buy up to (her Wits) actions. These actions can be used for any purpose.</p>",
+    "source": "MoEP: Lunars",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1314998f9ee7f379",
+            "charmName": "Wasp Sting Blur",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "extraActions": {
+      "enabled": true,
+      "maxFormula": "@wit",
+      "costPerAction": 3
+    },
+    "charmUid": "e3b6eaeae9c35c0b"
+  },
+  "folder": "03a1efbef258d84f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

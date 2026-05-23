@@ -1,0 +1,37 @@
+{
+  "_id": "4ca9886eb484f550",
+  "_key": "!items!4ca9886eb484f550",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Amulet of Shadow Walking",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>These onyx and magical material talismans can take many forms, but the most common designs built in the First Age were fashioned as belt buckles, pendants, bracelets or rings. Regardless of their form, the devices all require a commitment of five motes and possess the same two powers. Although the amulets do not receive magical material bonuses, they still cost double to attune if they are constructed of the wrong material for the wearer's Exalt type. Concealment: Shadows gracefully bend and flow to conceal the character from sight. This power is always active as long as the Exalt wears the amulet (though it may be voluntarily suppressed). It grants a two-die bonus to all Stealth rolls or a four-die bonus while the character is actually hiding in a patch of darkness or using the Shadow Form power. Shadow Form: For an additional reflexive expenditure of 10 motes (committed) and one Willpower, the wearer's body and personal possessions dematerialize for a scene, though he can terminate the power and rematerialize at will. Upon doing so, the character cannot use the power again for at least five minutes. This power may be activated in response to an attack in order to avoid it, but the wearer must perceive the attack in order to evade it in this manner. While in shadow form, the character can physically interact with other incorporeal entities and objects as if they were solid, but he passes through corporeal matter just like spirits do in their natural state. The Exalt remains visible to observant material beings as a darkened translucent apparition of himself, however. More importantly, he can still be attacked and damaged by corporeal beings, provided the attacker wields a magical weapon or activates a Charm to aid/create the attack. Finally, the character is not actually a spirit, so he remains subject to mortal needs for sustenance and air (and must hold his breath while passing through solid or liquid matter). Four-dot versions of these artifacts add a third power: Shadowstep: The wearer can spend five motes as a diceless miscellaneous action to transport herself and her non-living personal possessions via shadow to anywhere in her line of sight up to a maximum distance of (Essence x 10) yards away. Such transit is silent and does not draw attention. The character simply steps into a shadow and vanishes, instantly reappearing at her destination in a similar shadow. Five-dot versions extend the maximum range of teleportation to one mile and allow her to carry one other touched character along by increasing the cost of the trip to 15 motes and one Willpower.</p>",
+    "source": "Wonders of the Lost Age",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 3,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

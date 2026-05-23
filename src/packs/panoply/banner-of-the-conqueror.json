@@ -1,0 +1,37 @@
+{
+  "_id": "325226f34a29240a",
+  "_key": "!items!325226f34a29240a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Banner of the Conqueror",
+  "type": "equipment",
+  "img": "icons/sundries/misc/tool-scissors-round.webp",
+  "system": {
+    "resourcesCost": 0,
+    "quantity": 1,
+    "description": "<p>The Realm and Lookshy covet these prized relics of the First Age, which take the form of a signal flag, its silk a flat crimson by default. When attuned for 10 motes, the flag instead displays the house mon, personal insignia or iconic anima of its wielder, as desired. Swung in battle, the flag's edge cleaves foes in twain (treat as a grimcleaver). If carried by the leader of a complementary unit in mass combat, the unit enjoys perfect morale. With a successful prayer to Mars, a mortal may carry and wield a banner of the conqueror as though it were attuned at no cost. The Maiden of Battles pays the cost of the attunement herself. This secret is carefully guarded by the Great Houses and the Lookshy Gentes alike.</p>",
+    "source": "Glories of the Most High: The Maidens of Destiny",
+    "equipped": false,
+    "slot": "none",
+    "artifact": true,
+    "magicalMaterial": "",
+    "attunementCost": 0,
+    "attuned": false,
+    "artifactRating": 4,
+    "hearthstoneSlots": 0,
+    "hearthstones": []
+  },
+  "folder": "f003a234b56c789f",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}
