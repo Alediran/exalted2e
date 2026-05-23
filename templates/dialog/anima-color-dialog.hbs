@@ -1,5 +1,6 @@
 <div class="anima-color-dialog">
 
+  {{#unless tmfxActive}}
   {{!-- Slot targets --}}
   <div class="acd-slots-label">{{localize "EX2E.AnimaColorSlotInner"}} → {{localize "EX2E.AnimaColorSlotMiddle"}} → {{localize "EX2E.AnimaColorSlotOuter"}}</div>
   <div class="acd-slot-row">
@@ -42,35 +43,64 @@
       </div>
     {{/each}}
   </div>
+  {{/unless}}
 
   {{!-- Per-tier animation effects --}}
-  <div class="acd-effects-label">{{localize "EX2E.AnimaEffectSectionLabel"}}</div>
-  <div class="acd-effects-header">
-    <span></span>
-    <span>{{localize "EX2E.AnimaEffectColGlow"}}</span>
-    <span>{{localize "EX2E.AnimaEffectColLight"}}</span>
-  </div>
-  <div class="acd-effects">
-    {{#each effectTiers as |row|}}
-      <div class="acd-effect-row">
-        <span class="acd-effect-tier-name">{{localize row.label}}</span>
-        <select class="acd-effect-select" data-tier="{{row.tier}}">
-          {{#each ../glowOptions as |opt|}}
-            <option value="{{opt.value}}"{{#if (eq opt.value row.currentGlow)}} selected{{/if}}>
-              {{localize opt.label}}
-            </option>
-          {{/each}}
-        </select>
-        <select class="acd-light-select" data-tier="{{row.tier}}">
-          {{#each ../lightOptions as |opt|}}
-            <option value="{{opt.value}}"{{#if (eq opt.value row.currentLight)}} selected{{/if}}>
-              {{localize opt.label}}
-            </option>
-          {{/each}}
-        </select>
-      </div>
-    {{/each}}
-  </div>
+  {{#if tmfxActive}}
+    <div class="acd-effects-label">{{localize "EX2E.AnimaTmfxSectionLabel"}}</div>
+    <div class="acd-effects-header acd-effects--tmfx">
+      <span></span>
+      <span>{{localize "EX2E.AnimaTmfxPresetCol"}}</span>
+    </div>
+    <div class="acd-effects acd-effects--tmfx">
+      {{#each effectTiers as |row|}}
+        <div class="acd-effect-row">
+          <span class="acd-effect-tier-name">{{localize row.label}}</span>
+          <select class="acd-tmfx-select" data-tier="{{row.tier}}">
+            {{#each ../tmfxOptions as |opt|}}
+              <option value="{{opt.value}}"{{#if (eq opt.value row.currentTmfx)}} selected{{/if}}>{{opt.label}}</option>
+            {{/each}}
+          </select>
+          <button type="button"
+                  class="acd-tmfx-edit{{#if row.hasCustomParams}} acd-tmfx-edit--custom{{/if}}"
+                  data-action="editTmfxPreset"
+                  data-tier="{{row.tier}}"
+                  {{#unless ../hasToken}}disabled{{/unless}}
+                  title="{{localize 'EX2E.AnimaTmfxEditButton'}}">
+            {{localize "EX2E.AnimaTmfxEditButton"}}{{#if row.hasCustomParams}}*{{/if}}
+          </button>
+        </div>
+      {{/each}}
+    </div>
+  {{else}}
+    <div class="acd-effects-label">{{localize "EX2E.AnimaEffectSectionLabel"}}</div>
+    <div class="acd-effects-header">
+      <span></span>
+      <span>{{localize "EX2E.AnimaEffectColGlow"}}</span>
+      <span>{{localize "EX2E.AnimaEffectColLight"}}</span>
+    </div>
+    <div class="acd-effects">
+      {{#each effectTiers as |row|}}
+        <div class="acd-effect-row">
+          <span class="acd-effect-tier-name">{{localize row.label}}</span>
+          <select class="acd-effect-select" data-tier="{{row.tier}}">
+            {{#each ../glowOptions as |opt|}}
+              <option value="{{opt.value}}"{{#if (eq opt.value row.currentGlow)}} selected{{/if}}>
+                {{localize opt.label}}
+              </option>
+            {{/each}}
+          </select>
+          <select class="acd-light-select" data-tier="{{row.tier}}">
+            {{#each ../lightOptions as |opt|}}
+              <option value="{{opt.value}}"{{#if (eq opt.value row.currentLight)}} selected{{/if}}>
+                {{localize opt.label}}
+              </option>
+            {{/each}}
+          </select>
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
 
   {{!-- Actions --}}
   <div class="acd-footer">

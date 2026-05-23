@@ -765,7 +765,11 @@ Hooks.once("ready", async function () {
   // refreshToken fires on every pan/zoom frame, so skip when nothing changed.
   Hooks.on("updateActor", (actor) => {
     for (const token of actor.getActiveTokens()) {
-      token._ex2eGlowCacheKey = null; // invalidate so next refreshToken rebuilds
+      const tier   = actor.system?.anima ?? "none";
+      const colors = actor.getFlag?.("exalted2e", "animaColors") ?? [null, null, null];
+      const newKey = `${tier}|${colors.join(",")}`;
+      if (token._ex2eGlowCacheKey === newKey) continue;
+      token._ex2eGlowCacheKey = null;
       refreshTokenAnimaGlow(token);
     }
   });

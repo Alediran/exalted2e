@@ -922,6 +922,15 @@
   width: 100%;
 }
 
+.acd-effects-header.acd-effects--tmfx,
+.acd-effects--tmfx .acd-effect-row {
+  grid-template-columns: 60px 1fr auto;
+}
+
+.acd-tmfx-edit--custom {
+  font-weight: bold;
+}
+
 .acd-footer {
   display: flex;
   justify-content: flex-end;

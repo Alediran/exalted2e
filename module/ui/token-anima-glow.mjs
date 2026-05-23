@@ -21,17 +21,73 @@ const TIER_LIGHT = {
   totemic: { bright: 0.3, dim: 0.3, alpha: 0.6, speed: 4 }
 };
 
+const TIER_STRENGTH = { burning: 0.8, bonfire: 1.0, totemic: 1.3 };
+
 export function refreshTokenAnimaGlow(token) {
   const actor = token.actor;
   if (!actor || actor.type !== "character") return;
 
-  const tier         = actor.system.anima ?? "none";
-  const colors       = actor.getFlag("exalted2e", "animaColors")       ?? [null, null, null];
-  const glowEffects  = actor.getFlag("exalted2e", "animaEffects")      ?? {};
-  const lightEffects = actor.getFlag("exalted2e", "animaLightEffects") ?? {};
+  const tier   = actor.system.anima ?? "none";
+  const colors = actor.getFlag("exalted2e", "animaColors") ?? [null, null, null];
 
-  _updatePIXIGlow(token, tier, colors, glowEffects);
-  _updateTokenLight(token, tier, colors, lightEffects);
+  if (game.modules.get("tokenmagic")?.active) {
+    const tmfxPresets      = actor.getFlag("exalted2e", "animaTmfxPresets")      ?? {};
+    const tmfxCustomParams = actor.getFlag("exalted2e", "animaTmfxCustomParams") ?? {};
+    _updateTMFXGlow(token, tier, tmfxPresets, tmfxCustomParams).catch(err =>
+      console.error("exalted2e | TMFX glow update failed:", err)
+    );
+  } else {
+    const glowEffects  = actor.getFlag("exalted2e", "animaEffects")      ?? {};
+    const lightEffects = actor.getFlag("exalted2e", "animaLightEffects") ?? {};
+    _updatePIXIGlow(token, tier, colors, glowEffects);
+    _updateTokenLight(token, tier, colors, lightEffects);
+  }
+}
+
+async function _deleteAnimaFilters(token) {
+  const stored = token.document.getFlag("tokenmagic", "filters") ?? [];
+  const ids = [...new Set(
+    stored.map(f => f.tmFilters?.tmFilterId).filter(id => id?.startsWith("exalted2e-anima"))
+  )];
+  for (const id of ids) {
+    await TokenMagic.deleteFilters(token, id);
+  }
+}
+
+async function _addAnimaFilters(token, params) {
+  for (let i = 0; i < params.length; i++) {
+    await TokenMagic.addFilters(token, [{ ...params[i], filterId: `exalted2e-anima-${i}` }]);
+  }
+}
+
+async function _updateTMFXGlow(token, tier, tmfxPresets, tmfxCustomParams) {
+  await _deleteAnimaFilters(token);
+
+  if (tier === "none" || tier === "dim") return;
+
+  const customParams = tmfxCustomParams?.[tier];
+  if (customParams?.length) {
+    await _addAnimaFilters(token, customParams);
+    return;
+  }
+
+  const presetName = tmfxPresets[tier] ?? "none";
+  if (presetName === "none") return;
+
+  const params = TokenMagic.getPreset(presetName);
+  if (!params) return;
+
+  const scalar = TIER_STRENGTH[tier] ?? 1.0;
+  const scaledParams = params.map(p => {
+    const out = { ...p };
+    if (p.outerStrength    !== undefined) out.outerStrength    = p.outerStrength    * scalar;
+    if (p.innerStrength    !== undefined) out.innerStrength    = p.innerStrength    * scalar;
+    if (p.auraIntensity    !== undefined) out.auraIntensity    = p.auraIntensity    * scalar;
+    if (p.subAuraIntensity !== undefined) out.subAuraIntensity = p.subAuraIntensity * scalar;
+    if (p.padding          !== undefined) out.padding          = Math.round(p.padding * scalar);
+    return out;
+  });
+  await _addAnimaFilters(token, scaledParams);
 }
 
 function _updatePIXIGlow(token, tier, colors, glowEffects) {
