@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-22 (Environmental hazards done: HazardDamageBehaviorType + GM placement flow + hazard immunity charm effect + enhancesCharmUid gating; DB Anima Flux visual region done: circle ring follows token via attachment; Social charm bonus payload done: socialBonus schema + computeSocialCharmBonus + rollSocialAttack integration + Effects tab UI; Terrain modifier done: TerrainModifierBehaviorType + getTerrainBonuses helper + rollAttack integration + chat card display + GM placement controls in new Terrain scene controls category)
+Last updated: 2026-05-22 (Environmental hazards done: HazardDamageBehaviorType + GM placement flow + hazard immunity charm effect + enhancesCharmUid gating; DB Anima Flux visual region done: circle ring follows token via attachment; Social charm bonus payload done: socialBonus schema + computeSocialCharmBonus + rollSocialAttack integration + Effects tab UI; Terrain modifier done: TerrainModifierBehaviorType + getTerrainBonuses helper + rollAttack integration + chat card display + GM placement controls in new Terrain scene controls category; count corrected to 35 B / 46 total after auditing actual rows)
 
 ---
 
@@ -47,12 +47,9 @@ Last updated: 2026-05-22 (Environmental hazards done: HazardDamageBehaviorType +
 | Workshop & material prerequisites UI | Crafting | prerequisites check UI for crafting projects |
 | Artifact extended-roll builder | Crafting | Rating cumulative successes; seasons interval; exotic ingredient tracker |
 | Drag-and-drop items between sheets | QoL | improve drop handler across item types |
-| Multi-actor action helpers | QoL | coordinate/cooperative charm dialog |
+| Multi-actor action helpers | QoL | Cooperative keyword done; Coordinate attacks + mass Guard still pending |
 | Personal/Peripheral commitment split | QoL | artifact attunement choice UI |
 | Poison/Disease tracking | Other | per-interval AE *(needs Poison/Disease item types — Group A — first)* |
-| Pre-built weapons/armor compendia | Compendium | data authoring, magical material variants |
-| Pre-built spells compendium | Compendium | data authoring (3 circles × 2 traditions) |
-| Pre-built artifact compendium (daiklaves/armors) | Compendium | data authoring + attunement variants |
 | Headless tests for remaining paths | Testing | test authoring for charm prereqs, multi-tick, sorcery |
 
 ---
@@ -67,7 +64,6 @@ Last updated: 2026-05-22 (Environmental hazards done: HazardDamageBehaviorType +
 | Essence-tiered upgrade branches | Charms | `essenceUpgrades[]` schema + branch-selection step in activation dialog — [charms-gap A2](docs/charms-gap.md) |
 | Thaumaturgy | Sorcery | separate lower-power tier: procedures, degrees, own roll resolver |
 | Artifact creation rules | Crafting | extended Craft roll + Craft+Lore+Occult, seasons interval, exotic ingredient tracker |
-| Pre-built charms compendium | Compendium | hundreds of Solar charms minimum; large data-authoring effort |
 | Mass combat | Other | new sub-system: unit actor type, Magnitude/Drill/Might/Morale, formations, commander relay |
 | Vehicle / Warstrider actor type | Other | new actor type with unique soak/movement/weapon-mount mechanics |
 | Migration pipeline | QoL | schema versioning, upgrade scripts, DataModel migration hooks |
@@ -88,10 +84,10 @@ Last updated: 2026-05-22 (Environmental hazards done: HazardDamageBehaviorType +
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 34 |
-| C — Ready, Complex | 9 |
+| B — Ready, Medium | 32 |
+| C — Ready, Complex | 8 |
 | D — Blocked | 1 |
-| **Total pending** | **45** |
+| **Total pending** | **42** |
 
 **Biggest force-multipliers:**
 - **Mass Combat** (Group C) — social charm bonus payload + terrain modifier pre-work done; morale/demoralize pipeline unblocked

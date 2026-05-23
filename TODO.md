@@ -265,10 +265,10 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Effects compendium (`exalted2e.effects`) seeded at ready with Creature of Darkness
 - [x] Effect-wrapper pattern for drag-to-actor drops
 - [x] Anima powers compendium (`exalted2e.animapowers`) seeded at ready; 34 entries covering all castes across all exalt types
-- [ ] Pre-built charms compendium (at least Solar Ability charms)
-- [ ] Pre-built weapons / armor compendia (with magical material variants)
-- [ ] Pre-built spells compendium (Terrestrial through Solar circles + Shadowlands/Labyrinth/Void)
-- [~] Pre-built artifact compendium — hearthstones pack complete (16 entries, 10 type folders); daiklaves and armors pending
+- [x] Pre-built charms compendium (Solar Ability charms + multi-splat coverage; upgrade and fix as needed)
+- [x] Pre-built weapons / armor compendia (with magical material variants; upgrade and fix as needed)
+- [x] Pre-built spells compendium (Terrestrial through Solar circles + Shadowlands/Labyrinth/Void; upgrade and fix as needed)
+- [x] Pre-built artifact compendium — hearthstones pack complete; daiklaves and armors covered; upgrade and fix as needed
 - [x] Status effects compendium — Blind, Deaf, Stunned, Grappled/Clinched, Crippled, Height Advantage seeded; Poisoned/Diseased enriched via Foundry built-ins; Knockdown handled by Prone
 
 ## Other Mechanics
