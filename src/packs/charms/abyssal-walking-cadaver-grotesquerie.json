@@ -23,8 +23,8 @@
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
+      "Mirror",
       "Combo-OK",
-      "Mirror (Spirit Strengthens the Skin)",
       "Obvious"
     ],
     "cost": {
@@ -38,7 +38,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -47,7 +46,8 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "7ea22a2f3531b51d"
+    "charmUid": "7ea22a2f3531b51d",
+    "mirrorId": "190943e1d060c45b"
   },
   "folder": "a1b2c3d4e5f60005",
   "sort": 0,

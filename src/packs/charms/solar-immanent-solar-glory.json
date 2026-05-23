@@ -23,7 +23,7 @@
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Mirror (Essence Engorgement Technique)",
+      "Mirror",
       "Native",
       "Obvious"
     ],
@@ -38,7 +38,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -65,7 +64,8 @@
       "enabled": true,
       "pool": "peripheral",
       "amount": 10
-    }
+    },
+    "mirrorId": "5747abb90340dd5a"
   },
   "folder": "5b0108cbcf2feaf4",
   "sort": 0,

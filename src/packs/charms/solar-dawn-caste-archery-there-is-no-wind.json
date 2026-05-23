@@ -23,9 +23,9 @@
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
+      "Mirror",
       "Combo-OK",
-      "Martial",
-      "Mirror (Pulse of the Prey)"
+      "Martial"
     ],
     "cost": {
       "formula": "3m or 5m",
@@ -38,7 +38,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -67,7 +66,8 @@
       "damageDice": "",
       "ignoreAccuracyPenalties": true
     },
-    "charmUid": "c750b46c5645aee8"
+    "charmUid": "c750b46c5645aee8",
+    "mirrorId": "9b3e8ee1fc37aeb6"
   },
   "folder": "e842a3a532908d8d",
   "sort": 0,

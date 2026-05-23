@@ -25,7 +25,7 @@
     "keywords": [
       "Combo-OK",
       "Crippling",
-      "Mirror (Fire and Stones Strike; Exalted, p. 190)"
+      "Mirror"
     ],
     "cost": {
       "formula": "3m (+1wp)",
@@ -38,7 +38,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -67,7 +66,7 @@
       "onFail": "applyCrippling"
     },
     "charmUid": "64175be5ce190ac9",
-    "mirrorId": "7545ef0c42677e06"
+    "mirrorId": "ba897c2f69c99959"
   },
   "folder": "b0b1b2b3b4b5f040",
   "sort": 0,

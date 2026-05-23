@@ -22,7 +22,12 @@
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": "Avatar (1), Combo-OK, Compulsion, Mirror (Taboo-Inflicting Diatribe)",
+    "keywords": [
+      "Mirror",
+      "Avatar (1)",
+      "Combo-OK",
+      "Compulsion"
+    ],
     "cost": {
       "formula": "3m, 1wp",
       "resonance": 0,
@@ -34,7 +39,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,

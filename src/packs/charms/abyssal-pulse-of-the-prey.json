@@ -23,8 +23,8 @@
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Combo-OK",
-      "Mirror (There is No Wind; Exalted, p. 187)"
+      "Mirror",
+      "Combo-OK"
     ],
     "cost": {
       "formula": "3m or 5m",
@@ -37,7 +37,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -46,7 +45,8 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "9b3e8ee1fc37aeb6"
+    "charmUid": "9b3e8ee1fc37aeb6",
+    "mirrorId": "c750b46c5645aee8"
   },
   "folder": "b0b1b2b3b4b5f035",
   "sort": 0,

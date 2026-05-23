@@ -22,7 +22,9 @@
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": "Mirror (All Blades Cry for Blood)",
+    "keywords": [
+      "Mirror"
+    ],
     "cost": {
       "formula": "--",
       "resonance": 0,
@@ -34,7 +36,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,

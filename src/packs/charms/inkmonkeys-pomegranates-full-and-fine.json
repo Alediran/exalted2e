@@ -22,7 +22,11 @@
     "speed": 5,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": "Combo-OK, Emotion, Mirror (Food-Gathering Exercise)",
+    "keywords": [
+      "Mirror",
+      "Combo-OK",
+      "Emotion"
+    ],
     "cost": {
       "formula": "3m",
       "resonance": 0,
@@ -34,7 +38,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,

@@ -24,7 +24,11 @@
     "steps": [
       9
     ],
-    "keywords": "Combo-OK, Counterattack, Mirror (Death Claims All)",
+    "keywords": [
+      "Mirror",
+      "Combo-OK",
+      "Counterattack"
+    ],
     "cost": {
       "formula": "5m",
       "resonance": 0,
@@ -36,7 +40,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,

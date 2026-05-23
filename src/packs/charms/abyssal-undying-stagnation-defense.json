@@ -23,8 +23,8 @@
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Combo-OK",
-      "Mirror (Integrity-Protecting Prana; Exalted, p. 199)"
+      "Mirror",
+      "Combo-OK"
     ],
     "cost": {
       "formula": "5m, 1wp",
@@ -37,7 +37,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -46,7 +45,8 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "3c1cb1339490a384"
+    "charmUid": "3c1cb1339490a384",
+    "mirrorId": "fcd8d48cb2535f60"
   },
   "folder": "b0b1b2b3b4b5f039",
   "sort": 0,

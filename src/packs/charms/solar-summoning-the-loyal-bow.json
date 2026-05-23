@@ -23,9 +23,9 @@
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
+      "Mirror",
       "Combo-OK",
-      "Merged",
-      "Mirror (Banished Bow Arsenal)"
+      "Merged"
     ],
     "cost": {
       "formula": "1m",
@@ -38,7 +38,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -60,7 +59,8 @@
         ]
       }
     ],
-    "charmUid": "b8f29331d3607ec1"
+    "charmUid": "b8f29331d3607ec1",
+    "mirrorId": "a57d1d1087890f3e"
   },
   "folder": "e842a3a532908d8d",
   "sort": 0,

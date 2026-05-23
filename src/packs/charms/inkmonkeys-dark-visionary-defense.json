@@ -24,7 +24,11 @@
     "steps": [
       2
     ],
-    "keywords": "Combo-OK, Mirror (Staring at the Sun), Social",
+    "keywords": [
+      "Mirror",
+      "Combo-OK",
+      "Social"
+    ],
     "cost": {
       "formula": "1m",
       "resonance": 0,
@@ -36,7 +40,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,

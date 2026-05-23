@@ -23,9 +23,9 @@
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
+      "Mirror",
       "Combo-OK",
-      "Martial",
-      "Mirror (Eye of the Tempest)"
+      "Martial"
     ],
     "cost": {
       "formula": "5m, 1wp",
@@ -38,7 +38,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -60,7 +59,8 @@
         ]
       }
     ],
-    "charmUid": "505c1c4a5ee70f3e"
+    "charmUid": "505c1c4a5ee70f3e",
+    "mirrorId": "5808554a9ce8623a"
   },
   "folder": "fd05b302be1cc260",
   "sort": 0,

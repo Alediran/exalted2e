@@ -23,10 +23,10 @@
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
+      "Mirror",
       "Combo-Basic",
       "Emotion",
-      "Martial-ready",
-      "Mirror (Flashing Vengeance Draw)"
+      "Martial-ready"
     ],
     "cost": {
       "formula": "3m Mins: Archery 3, Essence 2",
@@ -39,7 +39,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -48,7 +47,8 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "2df689c7f91c7e8f"
+    "charmUid": "2df689c7f91c7e8f",
+    "mirrorId": "17507b92d6572f24"
   },
   "folder": "b0b1b2b3b4b5f033",
   "sort": 0,

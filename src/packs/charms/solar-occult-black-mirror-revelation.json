@@ -23,8 +23,8 @@
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Avatar (1)",
-      "Mirror (Unconquered Hero's Faith)"
+      "Mirror",
+      "Avatar (1)"
     ],
     "cost": {
       "formula": "--",
@@ -37,7 +37,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -67,7 +66,8 @@
         ]
       }
     ],
-    "charmUid": "935ed332a85699a9"
+    "charmUid": "935ed332a85699a9",
+    "mirrorId": "6360757203ba418e"
   },
   "folder": "9f789a9f97cf7e28",
   "sort": 0,

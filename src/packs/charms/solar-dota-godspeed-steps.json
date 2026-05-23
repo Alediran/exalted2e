@@ -23,8 +23,8 @@
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
+      "Mirror",
       "Combo-OK",
-      "Mirror (Death Draws Near)",
       "Obvious"
     ],
     "cost": {
@@ -38,7 +38,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -47,7 +46,8 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "61034296beb1a894"
+    "charmUid": "61034296beb1a894",
+    "mirrorId": "7125a1addfc58cc3"
   },
   "folder": "481b58529581316b",
   "sort": 0,

@@ -22,7 +22,12 @@
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": "Combo-OK, Illusion, Mirror (Treacherous Flag Display) Obvious",
+    "keywords": [
+      "Mirror",
+      "Combo-OK",
+      "Illusion",
+      "Obvious"
+    ],
     "cost": {
       "formula": "7m",
       "resonance": 0,
@@ -34,7 +39,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,

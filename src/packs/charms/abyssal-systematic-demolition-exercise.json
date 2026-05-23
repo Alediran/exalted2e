@@ -23,8 +23,8 @@
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Combo-OK",
-      "Mirror (Shattering Grasp; Exalted, p. 212)"
+      "Mirror",
+      "Combo-OK"
     ],
     "cost": {
       "formula": "5m",
@@ -37,7 +37,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -46,7 +45,8 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "6d4ee8890f0c3ffc"
+    "charmUid": "6d4ee8890f0c3ffc",
+    "mirrorId": "8c9b54ea5544e4d6"
   },
   "folder": "b0b1b2b3b4b5f037",
   "sort": 0,

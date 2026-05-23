@@ -25,9 +25,9 @@
       2
     ],
     "keywords": [
+      "Mirror",
       "Combo-OK",
-      "Martial",
-      "Mirror (Elegant Flowing Deflection)"
+      "Martial"
     ],
     "cost": {
       "formula": "2m",
@@ -40,7 +40,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -69,7 +68,8 @@
       "ignoreAllPenalties": true,
       "ignorePenaltyTypes": []
     },
-    "charmUid": "814b43ac1daef5f5"
+    "charmUid": "814b43ac1daef5f5",
+    "mirrorId": "b8859d9c457e679b"
   },
   "folder": "fd05b302be1cc260",
   "sort": 0,

@@ -25,10 +25,10 @@
       9
     ],
     "keywords": [
+      "Mirror",
       "Combo-OK",
       "Counterattack",
-      "Martial-ready",
-      "Mirror (Vengeful Riposte)"
+      "Martial-ready"
     ],
     "cost": {
       "formula": "3m",
@@ -41,7 +41,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -63,7 +62,8 @@
         ]
       }
     ],
-    "charmUid": "7d8ac977a388a09f"
+    "charmUid": "7d8ac977a388a09f",
+    "mirrorId": "abc2cbf472d6949e"
   },
   "folder": "fd05b302be1cc260",
   "sort": 0,

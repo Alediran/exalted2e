@@ -22,7 +22,11 @@
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": "Martial-ready, Mirror (Entropic Blade Nature), Native",
+    "keywords": [
+      "Mirror",
+      "Martial-ready",
+      "Native"
+    ],
     "cost": {
       "formula": "--",
       "resonance": 0,
@@ -34,7 +38,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
