@@ -198,3 +198,129 @@ export function registerMassCombatHesitation(context) {
     });
   });
 }
+
+// ---------------------------------------------------------------------------
+// Phase 3 suites
+// ---------------------------------------------------------------------------
+
+export function registerMassCombatHeroPhase3(context) {
+  const { describe, it, assert, before, after } = context;
+
+  let heroActor, unitActor, weapon;
+
+  before(assertTestWorld);
+
+  before(async () => {
+    heroActor = await Actor.create({
+      name: "QP3Hero",
+      type: "character",
+      system: {}
+    });
+    const weapons = await heroActor.createEmbeddedDocuments("Item", [{
+      name: "QP3 Sword",
+      type: "weapon",
+      system: { ability: "melee", accuracy: 3, damage: 4, ranged: false }
+    }]);
+    weapon = weapons[0];
+
+    unitActor = await Actor.create({
+      name: "QP3TargetUnit",
+      type: "unit",
+      system: {
+        magnitude:         { value: 5, max: 5 },
+        health:            { value: 7, max: 7 },
+        drill:             1,
+        armor:             0,
+        closeCombatRating: 2,
+        endurance:         2,
+        morale:            3
+      }
+    });
+  });
+
+  after(async () => {
+    await heroActor?.delete();
+    await unitActor?.delete();
+  });
+
+  describe("rollHeroAttacksUnit", () => {
+    it("[282] posts a chat message with heroAttacker flag", async () => {
+      const { rollHeroAttacksUnit } = await import(
+        "/systems/exalted2e/module/rolls/mass-combat-roll.mjs"
+      );
+      const msgsBefore = game.messages.size;
+      await rollHeroAttacksUnit(heroActor, unitActor, weapon, { ranged: false });
+      assert.ok(game.messages.size > msgsBefore, "a chat message was posted");
+
+      const lastMsg = game.messages.contents.at(-1);
+      assert.strictEqual(
+        lastMsg?.flags?.exalted2e?.massCombatAttack?.heroAttacker,
+        true,
+        "massCombatAttack flag has heroAttacker: true"
+      );
+    });
+  });
+}
+
+export function registerMassCombatUnitVsHero(context) {
+  const { describe, it, assert, before, after } = context;
+
+  let heroActor, unitActor;
+
+  before(assertTestWorld);
+
+  before(async () => {
+    unitActor = await Actor.create({
+      name: "QP3AttackingUnit",
+      type: "unit",
+      system: {
+        magnitude:          { value: 3, max: 3 },
+        drill:              2,
+        closeDamageRating:  2,
+        closeCombatRating:  2,
+        might:              1,
+        endurance:          2,
+        morale:             3
+      }
+    });
+
+    heroActor = await Actor.create({
+      name: "QP3TargetHero",
+      type: "character",
+      system: {}
+    });
+  });
+
+  after(async () => {
+    await unitActor?.delete();
+    await heroActor?.delete();
+  });
+
+  describe("rollMassCombatAttack vs character", () => {
+    it("[283] posts a chat message with heroDefender flag", async () => {
+      const { rollMassCombatAttack } = await import(
+        "/systems/exalted2e/module/rolls/mass-combat-roll.mjs"
+      );
+      const msgsBefore = game.messages.size;
+      await rollMassCombatAttack(unitActor, { explicitTargetActor: heroActor });
+      assert.ok(game.messages.size > msgsBefore, "a chat message was posted");
+
+      const lastMsg = game.messages.contents.at(-1);
+      assert.strictEqual(
+        lastMsg?.flags?.exalted2e?.massCombatAttack?.heroDefender,
+        true,
+        "massCombatAttack flag has heroDefender: true"
+      );
+    });
+
+    it("[284] minimum damage floor uses attacking unit's Magnitude", async () => {
+      const { computeHeroNetDamage } = await import(
+        "/systems/exalted2e/module/rolls/mass-combat-math.mjs"
+      );
+      assert.strictEqual(computeHeroNetDamage(1, 5, 3), 3,
+        "floor at magnitude when successes - soak < magnitude");
+      assert.strictEqual(computeHeroNetDamage(8, 2, 3), 6,
+        "normal soak when successes - soak > magnitude");
+    });
+  });
+}

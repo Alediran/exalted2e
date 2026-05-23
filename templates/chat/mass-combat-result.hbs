@@ -1,6 +1,10 @@
-<div class="mass-combat-result chat-card">
+<div class="mass-combat-result chat-card {{#if heroAttacker}}hero-attacker{{/if}}{{#if heroDefender}}hero-defender{{/if}}">
   <div class="card-header">
+    {{#if heroAttacker}}
+    <i class="fas fa-person-rifle"></i>
+    {{else}}
     <i class="fas fa-shield-halved"></i>
+    {{/if}}
     <span class="attacker-name">{{attackerName}}</span>
     <i class="fas fa-arrow-right"></i>
     <span class="defender-name">{{defenderName}}</span>
@@ -9,15 +13,22 @@
   {{!-- Step 1: Attack Roll --}}
   <div class="combat-step">
     <div class="step-label">
-      {{localize "EX2E.MassCombatAttack"}} — {{attackPool}}d10
-      {{#if aimBonus}}(+{{aimBonus}} {{localize "EX2E.ActionAim"}}) {{/if}}
-      vs {{localize "EX2E.Drill"}} {{defenderDrill}}
+      {{#if heroAttacker}}
+        {{localize "EX2E.HeroAttacksUnit"}} — {{attackPool}}d10
+        {{#if aimBonus}}(+{{aimBonus}} {{localize "EX2E.ActionAim"}}) {{/if}}
+        vs {{#if ranged}}{{localize "EX2E.UnitDodgeDV"}}{{else}}{{localize "EX2E.UnitParryDV"}}{{/if}} {{defenderDV}}
+      {{else}}
+        {{#if heroDefender}}{{localize "EX2E.UnitAttacksHero"}}{{else}}{{localize "EX2E.MassCombatAttack"}}{{/if}} — {{attackPool}}d10
+        {{#if aimBonus}}(+{{aimBonus}} {{localize "EX2E.ActionAim"}}) {{/if}}
+        vs {{#if heroDefender}}{{localize "EX2E.DV"}} {{defenderDV}}{{else}}{{localize "EX2E.Drill"}} {{defenderDrill}}{{/if}}
+      {{/if}}
     </div>
     <div class="dice-results">
       {{#each atkDiceDetails as |d|}}
       <div class="die-result {{d.cls}}">{{d.face}}</div>
       {{/each}}
     </div>
+    {{#unless heroAttacker}}
     <div class="step-detail">
       {{attackSuccesses}} {{localize "EX2E.Successes"}}
       {{#if ccrBonus}}+ {{ccrBonus}} {{#if ranged}}{{localize "EX2E.RCR"}}{{else}}{{localize "EX2E.CCR"}}{{/if}}{{/if}}
@@ -25,6 +36,7 @@
       {{#if magDiff}}{{#if (gt magDiff 0)}}+{{/if}}{{magDiff}} {{localize "EX2E.Magnitude"}}{{/if}}
       = {{effectiveSuccesses}} {{localize "EX2E.Effective"}}
     </div>
+    {{/unless}}
     <div class="step-result {{#if hit}}success{{else}}failure{{/if}}">
       {{#if hit}}{{localize "EX2E.MassCombatHit"}}{{else}}{{localize "EX2E.MassCombatMiss"}}{{/if}}
     </div>
@@ -33,8 +45,19 @@
   {{!-- Step 2: Damage Roll --}}
   {{#if hit}}
   <div class="combat-step">
+    {{#if heroAttacker}}
     <div class="step-label">
-      {{localize "EX2E.MassCombatDamage"}} — {{dmgRating}}d10 vs {{endurance}}d10 + {{armor}} {{localize "EX2E.Armor"}}
+      {{localize "EX2E.MassCombatDamage"}} — {{heroDmgPool}}d10 vs {{armor}} {{localize "EX2E.Armor"}}
+    </div>
+    <div class="dice-results">
+      {{#each dmgDiceDetails as |d|}}
+      <div class="die-result {{d.cls}}">{{d.face}}</div>
+      {{/each}}
+    </div>
+    {{else}}
+    <div class="step-label">
+      {{localize "EX2E.MassCombatDamage"}} — {{dmgRating}}d10
+      {{#if heroDefender}}vs {{localize "EX2E.Soak"}} {{soak}}{{else}}vs {{endurance}}d10 + {{armor}} {{localize "EX2E.Armor"}}{{/if}}
     </div>
     <div class="damage-pool-row">
       <span class="pool-label">{{#if ranged}}{{localize "EX2E.RangedDamageRating"}}{{else}}{{localize "EX2E.CloseDamageRating"}}{{/if}}:</span>
@@ -45,6 +68,7 @@
       </div>
       <span class="pool-successes">{{dmgSuccesses}}</span>
     </div>
+    {{#unless heroDefender}}
     <div class="damage-pool-row">
       <span class="pool-label">{{localize "EX2E.Endurance"}}:</span>
       <div class="dice-results">
@@ -54,14 +78,27 @@
       </div>
       <span class="pool-successes">{{endSuccesses}}</span>
     </div>
+    {{/unless}}
+    {{#if heroDefender}}
+    <div class="soak-row">
+      <span>{{localize "EX2E.Soak"}}: {{soak}}</span>
+    </div>
+    {{#if minDamage}}
+    <div class="min-damage-note">{{localize "EX2E.MinDamageFloor"}}: {{minDamage}}</div>
+    {{/if}}
+    {{/if}}
+    {{/if}}
     <div class="step-result {{#if netDamage}}success{{else}}neutral{{/if}}">
       {{localize "EX2E.NetDamage"}}: {{netDamage}}
+      {{#unless heroDefender}}
       ({{localize "EX2E.UnitHealth"}}: {{healthBefore}} → {{healthAfter}})
       ({{localize "EX2E.Magnitude"}}: {{magBefore}} → {{magAfterDamage}})
+      {{/unless}}
     </div>
   </div>
 
-  {{!-- Step 3: Rout Check --}}
+  {{!-- Step 3: Rout Check (hidden for unit→hero) --}}
+  {{#unless heroDefender}}
   {{#if magLostToDamage}}
   <div class="combat-step">
     <div class="step-label">
@@ -85,5 +122,6 @@
     </div>
   </div>
   {{/if}}
+  {{/unless}}
   {{/if}}
 </div>

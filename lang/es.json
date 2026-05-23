@@ -914,6 +914,11 @@
     "TargetDV": "VD del Objetivo",
     "Hit": "Impacto",
     "Miss": "Fallo",
+    "HeroAttacksUnit": "Héroe Ataca a la Unidad",
+    "HeroMassCombatActionError": "La acción de combate masivo del héroe falló.",
+    "HeroMassCombatActions": "Acciones del Héroe",
+    "HeroNoTarget": "Sin objetivo seleccionado — selecciona un token primero",
+    "HeroNoWeapon": "Sin arma seleccionada",
     "Threshold": "Umbral",
     "DamagePool": "Reserva de Daño",
     "RollDamage": "Tirar Daño",
@@ -924,6 +929,7 @@
     "MinEssence": "Esencia Mín",
     "MinAbility": "Habilidad Mín",
     "MinAttribute": "Atributo Mín",
+    "MinDamageFloor": "Daño mín. (suelo de Magnitud)",
     "CostFormula": "Costo de Activación",
     "CostFormulaError": "Fórmula de costo inválida",
     "CostResonance": "Resonancia",
@@ -1976,7 +1982,10 @@
     "FormationChanged":      "Formación Cambiada",
     "FormationChangeFailed": "Cambio de Formación Fallido",
     "ActionSucceeded":       "tuvo éxito",
-    "ActionFailed":          "fracasó"
+    "ActionFailed":          "fracasó",
+    "UnitAttacksHero":       "Unidad Ataca al Héroe",
+    "UnitDodgeDV":           "DV de Esquiva",
+    "UnitParryDV":           "DV de Parada"
   },
   "TYPES": {
     "Actor": {

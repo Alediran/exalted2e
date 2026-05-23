@@ -13,7 +13,9 @@ import {
   computeHealthTrackMagLoss,
   computeRoutPool,
   computeFormationRoutMod,
-  computeRoutMagLoss
+  computeRoutMagLoss,
+  computeUnitParryDV,
+  computeHeroNetDamage
 } from "../../module/rolls/mass-combat-math.mjs";
 
 describe("computeAttackPool", () => {
@@ -210,5 +212,32 @@ describe("computeRoutMagLoss", () => {
   });
   it("successes exceed diff → 0 loss", () => {
     expect(computeRoutMagLoss(1, 4)).toBe(0);
+  });
+});
+
+describe("computeUnitParryDV", () => {
+  it("commander parryDV 4 + ccr 3 → floor(5.5) = 5", () => {
+    expect(computeUnitParryDV(4, 3)).toBe(5);
+  });
+  it("commander parryDV 3 + ccr 0 → 3", () => {
+    expect(computeUnitParryDV(3, 0)).toBe(3);
+  });
+  it("odd ccr floors correctly: parryDV 2 + ccr 1 → floor(2.5) = 2", () => {
+    expect(computeUnitParryDV(2, 1)).toBe(2);
+  });
+});
+
+describe("computeHeroNetDamage", () => {
+  it("magnitude floor when soak exceeds successes: 2 successes, 5 soak, magnitude 3 → 3", () => {
+    expect(computeHeroNetDamage(2, 5, 3)).toBe(3);
+  });
+  it("normal soak when successes win: 8 successes, 2 soak, magnitude 3 → 6", () => {
+    expect(computeHeroNetDamage(8, 2, 3)).toBe(6);
+  });
+  it("exactly equal successes and soak → magnitude floor", () => {
+    expect(computeHeroNetDamage(3, 3, 2)).toBe(2);
+  });
+  it("zero magnitude → floor at 0, not negative", () => {
+    expect(computeHeroNetDamage(1, 5, 0)).toBe(0);
   });
 });

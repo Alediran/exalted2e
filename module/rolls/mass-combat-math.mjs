@@ -71,3 +71,12 @@ export function computeFormationRoutMod(formation) {
 export function computeRoutMagLoss(routDiff, routSuccesses) {
   return Math.max(0, routDiff - routSuccesses);
 }
+
+export function computeUnitParryDV(commanderParryDV, closeCombatRating) {
+  return Math.floor(commanderParryDV + closeCombatRating / 2);
+}
+
+// Minimum damage equals the attacking unit's Magnitude (Exalted 2e rules).
+export function computeHeroNetDamage(dmgSuccesses, soak, unitMagnitude) {
+  return Math.max(unitMagnitude, dmgSuccesses - soak);
+}

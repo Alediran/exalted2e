@@ -1,3 +1,5 @@
+import { computeUnitParryDV } from "../../rolls/mass-combat-math.mjs";
+
 const fields = foundry.data.fields;
 
 export class UnitData extends foundry.abstract.TypeDataModel {
@@ -41,5 +43,16 @@ export class UnitData extends foundry.abstract.TypeDataModel {
       ? Math.min(this.closeCombatRating * 2, warRating * 2)
       : Math.min(this.closeCombatRating, warRating);
     this.effectiveRCR = Math.min(this.rangedCombatRating, warRating);
+
+    if (commanderActor) {
+      this.unitParryDV = computeUnitParryDV(
+        commanderActor.currentParryDV,
+        this.closeCombatRating
+      );
+      this.unitDodgeDV = commanderActor.currentDodgeDV;
+    } else {
+      this.unitParryDV = this.drill;
+      this.unitDodgeDV = this.drill;
+    }
   }
 }

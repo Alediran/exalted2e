@@ -1,0 +1,65 @@
+<div>
+  {{!-- Target banner --}}
+  <div class="hmc-target-banner {{#unless hasTarget}}no-target{{/unless}}">
+    {{#if hasTarget}}
+      <i class="fas fa-crosshairs"></i> {{targetName}}
+    {{else}}
+      <i class="fas fa-exclamation-triangle"></i> {{localize "EX2E.HeroNoTarget"}}
+    {{/if}}
+  </div>
+
+  {{!-- Action list --}}
+  <div class="hmc-action-list">
+    {{#each actions as |action|}}
+    {{#unless action.blocked}}
+    <button type="button"
+            class="hmc-action-row {{#if action.selected}}selected{{/if}}"
+            data-action="selectAction"
+            data-action-key="{{action.key}}">
+      <span class="hmc-action-name">{{action.label}}</span>
+      <span class="hmc-weapon-meta">{{localize "EX2E.Speed"}} {{action.speed}}
+        {{#if (lt action.dvMod 0)}}/ {{localize "EX2E.DV"}} {{action.dvMod}}{{/if}}
+        {{#if (gt action.dvMod 0)}}/ {{localize "EX2E.DV"}} +{{action.dvMod}}{{/if}}
+      </span>
+    </button>
+    {{/unless}}
+    {{/each}}
+  </div>
+
+  {{!-- Weapon picker (attack actions only) --}}
+  {{#if isAttack}}
+  <div class="hmc-weapon-section">
+    {{#each weaponRows as |w|}}
+    <button type="button"
+            class="hmc-weapon-row {{#if w.selected}}selected{{/if}}"
+            data-action="selectWeapon"
+            data-weapon-id="{{w.id}}">
+      <span class="hmc-weapon-name">{{w.name}}</span>
+      <span class="hmc-weapon-meta">{{w.ability}} · +{{w.damage}}</span>
+    </button>
+    {{/each}}
+  </div>
+  {{/if}}
+
+  <div class="dialog-buttons">
+    {{#if isAttack}}
+    <button type="button" data-action="roll"
+            {{#unless canRoll}}disabled{{/unless}}
+            {{#if rollResult}}disabled{{/if}}>
+      {{#if rollResult}}
+      <i class="fas fa-check"></i>
+      {{else}}
+      <i class="fas fa-dice"></i>
+      {{/if}}
+      {{localize "EX2E.Roll"}}
+    </button>
+    {{/if}}
+    <button type="button" data-action="confirm"
+            {{#unless canConfirm}}disabled{{/unless}}>
+      <i class="fas fa-check"></i> {{localize "Confirm"}}
+    </button>
+    <button type="button" data-action="cancel">
+      <i class="fas fa-times"></i> {{localize "Cancel"}}
+    </button>
+  </div>
+</div>

@@ -914,6 +914,11 @@
     "TargetDV": "Target DV",
     "Hit": "Hit",
     "Miss": "Miss",
+    "HeroAttacksUnit": "Hero Attacks Unit",
+    "HeroMassCombatActionError": "Hero mass combat action failed.",
+    "HeroMassCombatActions": "Hero Actions",
+    "HeroNoTarget": "No target selected — target a token first",
+    "HeroNoWeapon": "No weapon selected",
     "Threshold": "Threshold",
     "DamagePool": "Damage Pool",
     "RollDamage": "Roll Damage",
@@ -924,6 +929,7 @@
     "MinEssence": "Min Essence",
     "MinAbility": "Min Ability",
     "MinAttribute": "Min Attribute",
+    "MinDamageFloor": "Min. damage (Magnitude floor)",
     "CostFormula": "Activation Cost",
     "CostFormulaError": "Invalid cost formula",
     "CostResonance": "Resonance",
@@ -1976,7 +1982,10 @@
     "FormationChanged":      "Formation Changed",
     "FormationChangeFailed": "Formation Change Failed",
     "ActionSucceeded":       "succeeded",
-    "ActionFailed":          "failed"
+    "ActionFailed":          "failed",
+    "UnitAttacksHero":       "Unit Attacks Hero",
+    "UnitDodgeDV":           "Dodge DV",
+    "UnitParryDV":           "Parry DV"
   },
   "TYPES": {
     "Actor": {

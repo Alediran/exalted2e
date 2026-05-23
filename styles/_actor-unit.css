@@ -552,6 +552,21 @@ body.ex2e-light-mode .mass-combat-result {
   font-size: 0.8em;
 }
 
+.ex2e-hero-actions-btn {
+  background:    var(--color-bg-btn, #32445b);
+  color:         #e0c060;
+  border:        1px solid rgba(180, 140, 40, 0.5);
+  border-radius: 3px;
+  padding:       1px 5px;
+  cursor:        pointer;
+  font-size:     0.8em;
+}
+
+.ex2e-hero-actions-btn:hover {
+  background:   rgba(180, 140, 40, 0.15);
+  border-color: var(--ex2e-gold-main);
+}
+
 /* Mass Combat Action dialog */
 .mass-combat-action-dialog .mc-hesitating-banner {
   background: rgba(192, 64, 64, 0.15);
@@ -732,4 +747,165 @@ body.ex2e-light-mode .mass-combat-result {
   background:   rgba(180, 140, 40, 0.12);
   border-color: var(--ex2e-gold-main);
   color:        #e0c060;
+}
+
+/* ── Unit DV display rows ─────────────────────────────────────────────────── */
+.sheet.unit .unit-dv-row {
+  display:     flex;
+  align-items: center;
+  gap:         var(--ex2e-gap-sm);
+  padding-top: var(--ex2e-gap-xs);
+  border-top:  1px dashed rgba(140, 40, 40, 0.25);
+}
+
+.sheet.unit .unit-dv-label {
+  min-width:      72px;
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color:          var(--ex2e-text-secondary);
+}
+
+.sheet.unit .unit-dv-value {
+  font-family: var(--ex2e-font-ui);
+  font-weight: bold;
+  font-size:   var(--ex2e-font-size-sm);
+  color:       var(--ex2e-text-primary);
+}
+
+/* ── Hero Mass Combat Dialog ─────────────────────────────────────────────── */
+.hero-mass-combat-dialog .hmc-target-banner {
+  background:    var(--ex2e-bg-panel);
+  border:        1px solid rgba(180, 140, 40, 0.4);
+  border-radius: var(--ex2e-border-radius);
+  padding:       var(--ex2e-gap-sm) var(--ex2e-gap-md);
+  margin-bottom: var(--ex2e-gap-md);
+  font-size:     var(--ex2e-font-size-sm);
+  color:         var(--ex2e-text-secondary);
+}
+
+.hero-mass-combat-dialog .hmc-target-banner.no-target {
+  border-color: var(--color-level-warning, #c08030);
+  color:        var(--color-level-warning, #c08030);
+  font-style:   italic;
+}
+
+.hero-mass-combat-dialog .hmc-action-list {
+  display:        flex;
+  flex-direction: column;
+  gap:            3px;
+  margin-bottom:  10px;
+}
+
+.hero-mass-combat-dialog .hmc-action-row {
+  display:         flex;
+  justify-content: space-between;
+  align-items:     center;
+  padding:         5px 10px;
+  background:      var(--color-bg-option, rgba(255,255,255,0.04));
+  border:          1px solid var(--color-border-light-2);
+  border-radius:   4px;
+  cursor:          pointer;
+  text-align:      left;
+  width:           100%;
+}
+
+.hero-mass-combat-dialog .hmc-action-row.selected {
+  border-color: rgba(180, 140, 40, 0.7);
+  background:   rgba(180, 140, 40, 0.10);
+}
+
+.hero-mass-combat-dialog .hmc-weapon-section {
+  margin-bottom: var(--ex2e-gap-md);
+}
+
+.hero-mass-combat-dialog .hmc-weapon-row {
+  display:         flex;
+  justify-content: space-between;
+  align-items:     center;
+  padding:         4px 10px;
+  background:      var(--color-bg-option, rgba(255,255,255,0.04));
+  border:          1px solid var(--color-border-light-2);
+  border-radius:   4px;
+  cursor:          pointer;
+  width:           100%;
+  margin-bottom:   2px;
+}
+
+.hero-mass-combat-dialog .hmc-weapon-row.selected {
+  border-color: rgba(180, 140, 40, 0.7);
+  background:   rgba(180, 140, 40, 0.10);
+}
+
+.hero-mass-combat-dialog .hmc-weapon-name {
+  font-family: var(--ex2e-font-body);
+  font-size:   var(--ex2e-font-size-sm);
+  color:       var(--ex2e-text-primary);
+}
+
+.hero-mass-combat-dialog .hmc-weapon-meta {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  color:          var(--ex2e-text-muted);
+  letter-spacing: 0.04em;
+}
+
+.hero-mass-combat-dialog .hmc-action-name {
+  font-family: var(--ex2e-font-body);
+  font-size:   var(--ex2e-font-size-sm);
+  color:       var(--ex2e-text-primary);
+}
+
+.hero-mass-combat-dialog .dialog-buttons {
+  display:         flex;
+  gap:             var(--ex2e-gap-sm);
+  justify-content: flex-end;
+  padding-top:     var(--ex2e-gap-sm);
+  border-top:      1px solid var(--ex2e-border-color);
+}
+
+.hero-mass-combat-dialog .dialog-buttons button {
+  display:        flex;
+  align-items:    center;
+  gap:            var(--ex2e-gap-xs);
+  padding:        5px var(--ex2e-gap-md);
+  background:     var(--ex2e-bg-darkest);
+  color:          var(--ex2e-text-secondary);
+  border:         1px solid rgba(140, 40, 40, 0.4);
+  border-radius:  var(--ex2e-border-radius-sm);
+  cursor:         pointer;
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  letter-spacing: 0.06em;
+  transition:     background var(--ex2e-transition-fast),
+                  border-color var(--ex2e-transition-fast),
+                  color var(--ex2e-transition-fast);
+}
+
+.hero-mass-combat-dialog .dialog-buttons button:hover {
+  background:   rgba(180, 140, 40, 0.15);
+  border-color: var(--ex2e-gold-main);
+  color:        #e0c060;
+}
+
+/* ── Hero/Unit cross-type chat tints ───────────────────────────────────────── */
+.mass-combat-result.hero-attacker,
+.mass-combat-result.hero-defender {
+  border-left-color: rgba(180, 140, 40, 0.5);
+}
+
+.mass-combat-result .soak-row {
+  display:       flex;
+  align-items:   center;
+  gap:           var(--ex2e-gap-sm);
+  margin-bottom: 2px;
+}
+
+.mass-combat-result .min-damage-note {
+  font-family: var(--ex2e-font-ui);
+  font-size:   var(--ex2e-font-size-xs);
+  color:       var(--color-level-warning, #c08030);
+  font-style:  italic;
+  margin-top:  var(--ex2e-gap-xs);
 }
