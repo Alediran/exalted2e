@@ -50,10 +50,11 @@
       {
         "alternatives": [
           {
-            "type": "charm",
+            "type": "anyExcellency",
             "charmUid": "",
-            "charmName": "Any Two Lore Excellencies",
-            "abilityKey": "",
+            "charmName": "",
+            "abilityKey": "lore",
+            "minCount": 2,
             "virtueKey": "valor",
             "virtueMin": 1
           }

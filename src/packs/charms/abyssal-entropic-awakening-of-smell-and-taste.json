@@ -1,0 +1,59 @@
+{
+  "_id": "5c1d7f23c9b4e505",
+  "_key": "!items!5c1d7f23c9b4e505",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Entropic Awakening of Smell and Taste",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "awareness",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "one scene",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror",
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Abyssal's sense of smell becomes as precise and unerring as death itself, and her taste carries the cold analytical certainty of entropy. She can identify every individual within a wide radius by scent, detect any poison or disease instantaneously, and follow tracks by scent even across water or through crowds. The Obvious quality manifests as a faint sweet-rot smell that clings to the Abyssal while this Charm is active. She adds her Essence in bonus dice to all Awareness rolls involving smell or taste.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "mirrorId": "bb84c66b7a14a855",
+    "prereqGroups": [{"alternatives": [{"type": "charm", "charmUid": "5c1d7f23c9b4e503", "charmName": "Superior Smell and Taste Focus", "abilityKey": "", "virtueKey": "", "virtueMin": 0}]}],
+    "charmUid": "5c1d7f23c9b4e505"
+  },
+  "folder": "b0b1b2b3b4b5f035",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

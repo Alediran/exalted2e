@@ -1,0 +1,59 @@
+{
+  "_id": "5c1d7f23c9b4e504",
+  "_key": "!items!5c1d7f23c9b4e504",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Entropic Awakening of Hearing and Touch",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "abyssal",
+    "ability": "awareness",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "simple",
+    "duration": "one scene",
+    "speed": 5,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Mirror",
+      "Combo-OK",
+      "Obvious"
+    ],
+    "cost": {
+      "formula": "3m",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Abyssal's hearing and touch flood with the cold resonance of the grave, her ears detecting frequencies beyond mortal range and her skin feeling the subtle pressure-waves of nearby motion as clearly as sight. The dead weight of Oblivion's attention strips away the noise of the living world, leaving only signal. She adds her Essence in bonus dice to all Awareness rolls involving hearing or touch, and may attempt to locate hidden or invisible targets by sound alone at no penalty.</p>",
+    "source": "MoEP: Abyssals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "mirrorId": "9e976c441a2d5277",
+    "prereqGroups": [{"alternatives": [{"type": "charm", "charmUid": "5c1d7f23c9b4e502", "charmName": "Superior Hearing and Touch Focus", "abilityKey": "", "virtueKey": "", "virtueMin": 0}]}],
+    "charmUid": "5c1d7f23c9b4e504"
+  },
+  "folder": "b0b1b2b3b4b5f035",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

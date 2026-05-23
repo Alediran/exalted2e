@@ -1,6 +1,6 @@
 {
-  "_id": "dbd4df09e15e797f",
-  "_key": "!items!dbd4df09e15e797f",
+  "_id": "5c1d7f23c9b4e502",
+  "_key": "!items!5c1d7f23c9b4e502",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Superior (Sense) Focus",
+  "name": "Superior Hearing and Touch Focus",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -31,7 +31,7 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Abyssals do not perceive their surroundings more clearly out of any excellence or effort, but rather because it is their ordained place to know the beauty of the world before they grind it underfoot. ENTROPIC AWAKENING OF (SENSE)</p>",
+    "description": "<p>The Abyssal's hearing and touch are sharpened by Oblivion's hunger, attuned to the faint vibrations of life preparing to cease. She hears the rhythms of heartbeats and the whisper of breath at great distances, and feels the subtle tremors of movement through ground and air. This heightened perception adds the Abyssal's Essence in bonus dice to all Awareness rolls involving hearing or touch.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -44,6 +44,7 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
+    "mirrorId": "56a9767cbd645a80",
     "prereqGroups": [
       {
         "alternatives": [
@@ -51,15 +52,14 @@
             "type": "anyExcellency",
             "charmUid": "",
             "charmName": "",
-            "abilityKey": "",
+            "abilityKey": "awareness",
             "virtueKey": "valor",
             "virtueMin": 1
           }
         ]
       }
     ],
-    "charmUid": "dbd4df09e15e797f",
-    "mirrorId": "7077d60e30f29767"
+    "charmUid": "5c1d7f23c9b4e502"
   },
   "folder": "b0b1b2b3b4b5f035",
   "sort": 0,

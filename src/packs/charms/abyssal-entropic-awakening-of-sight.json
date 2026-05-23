@@ -23,6 +23,7 @@
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
+      "Mirror",
       "Combo-OK",
       "Obvious"
     ],
@@ -45,7 +46,8 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "mirrorId": "8d6dfa5e4eebb2db",
+    "prereqGroups": [{"alternatives": [{"type": "charm", "charmUid": "5c1d7f23c9b4e501", "charmName": "Superior Sight Focus", "abilityKey": "", "virtueKey": "", "virtueMin": 0}]}],
     "charmUid": "4b1ffdcecef76593"
   },
   "folder": "b0b1b2b3b4b5f035",

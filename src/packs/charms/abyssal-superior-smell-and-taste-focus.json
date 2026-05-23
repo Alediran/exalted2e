@@ -1,6 +1,6 @@
 {
-  "_id": "c2638ae49a6a211f",
-  "_key": "!items!c2638ae49a6a211f",
+  "_id": "5c1d7f23c9b4e503",
+  "_key": "!items!5c1d7f23c9b4e503",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,14 +9,14 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Entropic Awakening Of (Sense)",
+  "name": "Superior Smell and Taste Focus",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "abyssal",
     "ability": "awareness",
     "essence": 2,
-    "minAbility": 5,
+    "minAbility": 3,
     "charmType": "reflexive",
     "duration": "oneScene",
     "speed": 6,
@@ -27,11 +27,11 @@
       "Combo-OK"
     ],
     "cost": {
-      "formula": "2m",
+      "formula": "3m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>There is little beauty left for those enlightened to the myriad ways in which the world decays moment by moment. The Abyssal can smell the hint of rot in a freshly cut flower and feel the wrinkles waiting to emerge on a nubile courtesan's skin.</p>",
+    "description": "<p>The Abyssal's senses of smell and taste are sharpened by Oblivion's hunger, able to taste death on the wind and smell the slow rot beneath living skin. She can identify individuals by scent, detect poison or disease in food and drink, and track quarry by scent across distances that would confound a hunting hound. This heightened perception adds the Abyssal's Essence in bonus dice to all Awareness rolls involving smell or taste.</p>",
     "source": "MoEP: Abyssals",
     "yoziPatron": "",
     "martialArtsTier": "",
@@ -44,22 +44,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
+    "mirrorId": "61a0a6107c1aa883",
     "prereqGroups": [
       {
         "alternatives": [
           {
-            "type": "charm",
+            "type": "anyExcellency",
             "charmUid": "",
-            "charmName": "Appropriate Superior (Sense) Focus",
-            "abilityKey": "",
+            "charmName": "",
+            "abilityKey": "awareness",
             "virtueKey": "valor",
             "virtueMin": 1
           }
         ]
       }
     ],
-    "charmUid": "c2638ae49a6a211f",
-    "mirrorId": "e645960e3feee277"
+    "charmUid": "5c1d7f23c9b4e503"
   },
   "folder": "b0b1b2b3b4b5f035",
   "sort": 0,
