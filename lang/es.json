@@ -1666,6 +1666,7 @@
     "PrereqVirtueKey": "Virtud",
     "PrereqVirtueMin": "Mín.",
     "PrereqAnyExcellency": "Cualquier Excelencia",
+    "PrereqAnyNExcellencies": "Cualquier {count} Excelencias de {ability}",
     "PrereqAnyExcellencyHint": "Cualquier Excelencia (primera/segunda/tercera) ligada a la habilidad de este Encanto",
     "PrereqCharmNamePlaceholder": "Nombre del Encanto (ej. Técnica del Tigre Hambriento)",
     "PrereqGroupMustHave": "Debe tener:",
@@ -1906,12 +1907,38 @@
     "ImportTypeCharm": "Habilidad",
     "ImportTypeWeapon": "Arma",
     "ImportTypeArmor": "Armadura",
-    "ImportTypeNpc": "PNJ (Actor)"
+    "ImportTypeNpc": "PNJ (Actor)",
+    "UnitType":           "Tipo de Unidad",
+    "UnitTypeExtras":     "Extras",
+    "UnitTypeElite":      "Élite",
+    "UnitTypeHeroic":     "Heroico",
+    "Magnitude":          "Magnitud",
+    "MagnitudeSize1":     "1–5",
+    "MagnitudeSize2":     "6–25",
+    "MagnitudeSize3":     "26–100",
+    "MagnitudeSize4":     "101–500",
+    "MagnitudeSize5":     "501+",
+    "Drill":              "Instrucción",
+    "Might":              "Poderío",
+    "Endurance":          "Resistencia",
+    "Morale":             "Moral",
+    "Commander":          "Comandante",
+    "MassCombatAttack":   "Ataque de Combate Masivo",
+    "MassCombatHit":      "Impacto",
+    "MassCombatMiss":     "Fallo",
+    "MassCombatDamage":   "Daño",
+    "MassCombatRout":     "Prueba de Desbandada",
+    "MassCombatHolds":    "Aguanta",
+    "UnitRouted":         "En Desbandada",
+    "NoTargetUnit":       "No hay unidad objetivo seleccionada.",
+    "SheetUnit":          "Ficha de Unidad",
+    "Difficulty":         "Dificultad"
   },
   "TYPES": {
     "Actor": {
       "character": "Personaje",
-      "npc": "PNJ"
+      "npc": "PNJ",
+      "unit": "Unidad"
     },
     "Item": {
       "charm": "Encanto",

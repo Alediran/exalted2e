@@ -1666,6 +1666,7 @@
     "PrereqVirtueKey": "Virtue",
     "PrereqVirtueMin": "Min",
     "PrereqAnyExcellency": "Any Excellency",
+    "PrereqAnyNExcellencies": "Any {count} {ability} Excellencies",
     "PrereqAnyExcellencyHint": "Any first/second/third Excellency keyed to this Charm's ability",
     "PrereqCharmNamePlaceholder": "Charm name (e.g. Hungry Tiger Technique)",
     "PrereqGroupMustHave": "Must have:",
@@ -1906,12 +1907,38 @@
     "ImportTypeCharm": "Charm",
     "ImportTypeWeapon": "Weapon",
     "ImportTypeArmor": "Armor",
-    "ImportTypeNpc": "NPC (Actor)"
+    "ImportTypeNpc": "NPC (Actor)",
+    "UnitType":           "Unit Type",
+    "UnitTypeExtras":     "Extras",
+    "UnitTypeElite":      "Elite",
+    "UnitTypeHeroic":     "Heroic",
+    "Magnitude":          "Magnitude",
+    "MagnitudeSize1":     "1–5",
+    "MagnitudeSize2":     "6–25",
+    "MagnitudeSize3":     "26–100",
+    "MagnitudeSize4":     "101–500",
+    "MagnitudeSize5":     "501+",
+    "Drill":              "Drill",
+    "Might":              "Might",
+    "Endurance":          "Endurance",
+    "Morale":             "Morale",
+    "Commander":          "Commander",
+    "MassCombatAttack":   "Mass Combat Attack",
+    "MassCombatHit":      "Hit",
+    "MassCombatMiss":     "Miss",
+    "MassCombatDamage":   "Damage",
+    "MassCombatRout":     "Rout Check",
+    "MassCombatHolds":    "Holds",
+    "UnitRouted":         "Routed",
+    "NoTargetUnit":       "No unit token targeted.",
+    "SheetUnit":          "Unit Sheet",
+    "Difficulty":         "Difficulty"
   },
   "TYPES": {
     "Actor": {
       "character": "Character",
-      "npc": "NPC"
+      "npc": "NPC",
+      "unit": "Unit"
     },
     "Item": {
       "charm": "Charm",

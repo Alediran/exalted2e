@@ -91,7 +91,8 @@ export class CharmData extends foundry.abstract.TypeDataModel {
           // (e.g. "Any Perception Excellency" on a Lore charm).
           abilityKey: new fields.StringField({ initial: "", blank: true }),
           virtueKey: new fields.StringField({ initial: "valor", blank: true }),
-          virtueMin: new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true })
+          virtueMin: new fields.NumberField({ initial: 1, min: 1, max: 5, integer: true }),
+          minCount:  new fields.NumberField({ initial: 1, min: 1, max: 3, integer: true })
         }))
       })),
 

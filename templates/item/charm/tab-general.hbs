@@ -228,6 +228,10 @@
           {{else}}
           <input type="hidden" name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.abilityKey" value="{{alt.abilityKey}}">
           <span class="prereq-any-exc-label">{{localize "EX2E.PrereqAnyExcellencyHint"}}</span>
+          <input type="number"
+                 name="system.prereqGroups.{{gIdx}}.alternatives.{{aIdx}}.minCount"
+                 value="{{alt.minCount}}" min="1" max="3" style="width:3em"
+                 {{#unless @root.isEditable}}readonly{{/unless}}>
           {{/if}}
           {{/if}}
           <button type="button" data-action="removePrereqAlt"

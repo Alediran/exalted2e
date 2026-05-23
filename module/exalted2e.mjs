@@ -37,6 +37,8 @@ import { CommandData }   from "./data/item/command-data.mjs";
 import { FollowersData } from "./data/item/followers-data.mjs";
 import { CharacterSheet }           from "./sheets/actor/character-sheet.mjs";
 import { NpcSheet }         from "./sheets/actor/npc-sheet.mjs";
+import { UnitData }  from "./data/actor/unit-data.mjs";
+import { UnitSheet } from "./sheets/actor/unit-sheet.mjs"; // created in Task 4
 import { CharmSheet }       from "./sheets/item/charm-sheet.mjs";
 import { SpellSheet }       from "./sheets/item/spell-sheet.mjs";
 import { WeaponSheet }      from "./sheets/item/weapon-sheet.mjs";
@@ -169,7 +171,8 @@ Hooks.once("init", function () {
   // ── Data Models ─────────────────────────────────────────────────────────
   CONFIG.Actor.dataModels = {
     character: CharacterData,
-    npc:       NpcData
+    npc:       NpcData,
+    unit:      UnitData
   };
   CONFIG.Item.dataModels = {
     charm:      CharmData,
@@ -215,6 +218,11 @@ Hooks.once("init", function () {
     types:     ["npc"],
     makeDefault: true,
     label:     "EX2E.SheetNpc"
+  });
+  foundry.documents.collections.Actors.registerSheet("exalted2e", UnitSheet, {
+    types:     ["unit"],
+    makeDefault: true,
+    label:     "EX2E.SheetUnit"
   });
 
   foundry.documents.collections.Items.unregisterSheet("core", foundry.appv1.sheets.ItemSheet);
@@ -481,6 +489,9 @@ async function _preloadTemplates() {
     // Actor – NPC
     "systems/exalted2e/templates/actor/npc/header.hbs",
     "systems/exalted2e/templates/actor/npc/body.hbs",
+    // Actor – Unit (mass combat)
+    "systems/exalted2e/templates/actor/unit/unit-sheet.hbs",
+    "systems/exalted2e/templates/actor/unit/_magnitude-track.hbs",
     // Items
     "systems/exalted2e/templates/item/charm/header.hbs",
     "systems/exalted2e/templates/item/spell/header.hbs",
@@ -519,7 +530,8 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/chat/shapeshift-card.hbs",
     "systems/exalted2e/templates/chat/limit-break-card.hbs",
     "systems/exalted2e/templates/chat/hazard-resistance.hbs",
-    "systems/exalted2e/templates/dialog/social-attack-dialog.hbs"
+    "systems/exalted2e/templates/dialog/social-attack-dialog.hbs",
+    "systems/exalted2e/templates/chat/mass-combat-result.hbs"
   ];
   return foundry.applications.handlebars.loadTemplates(templatePaths);
 }

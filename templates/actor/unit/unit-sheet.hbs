@@ -1,0 +1,90 @@
+<div class="unit-sheet sheet-body">
+  {{!-- Header: portrait + name + type --}}
+  <div class="unit-header">
+    <img class="unit-portrait profile-img"
+         src="{{actor.img}}"
+         alt="{{actor.name}}"
+         data-action="onEditImage" />
+    <div class="unit-identity">
+      <input type="text" name="name" value="{{actor.name}}"
+             class="unit-name" placeholder="Unit Name" />
+      <select name="system.unitType" class="unit-type-select">
+        <option value="extras"  {{#if (eq system.unitType "extras")}}selected{{/if}}>{{localize "EX2E.UnitTypeExtras"}}</option>
+        <option value="elite"   {{#if (eq system.unitType "elite")}}selected{{/if}}>{{localize "EX2E.UnitTypeElite"}}</option>
+        <option value="heroic"  {{#if (eq system.unitType "heroic")}}selected{{/if}}>{{localize "EX2E.UnitTypeHeroic"}}</option>
+      </select>
+    </div>
+  </div>
+
+  {{!-- Magnitude Track --}}
+  <div class="unit-section magnitude-section">
+    <div class="section-label">{{localize "EX2E.Magnitude"}}</div>
+    {{> "systems/exalted2e/templates/actor/unit/_magnitude-track.hbs"}}
+  </div>
+
+  {{!-- Core Stats --}}
+  <div class="unit-stats-grid">
+    <div class="stat-row">
+      <label class="stat-label">{{localize "EX2E.Drill"}}</label>
+      {{dotRating name="system.drill" value=system.drill max=5 min=1}}
+    </div>
+    <div class="stat-row">
+      <label class="stat-label">{{localize "EX2E.Might"}}</label>
+      {{dotRating name="system.might" value=system.might max=5 min=0}}
+    </div>
+    <div class="stat-row">
+      <label class="stat-label">{{localize "EX2E.Endurance"}}</label>
+      {{dotRating name="system.endurance" value=system.endurance max=5 min=1}}
+    </div>
+    <div class="stat-row">
+      <label class="stat-label">{{localize "EX2E.Morale"}}</label>
+      {{dotRating name="system.morale" value=system.morale max=5 min=1}}
+    </div>
+  </div>
+
+  {{!-- Commander --}}
+  <div class="unit-section commander-section">
+    <div class="section-label">{{localize "EX2E.Commander"}}</div>
+    <div class="commander-drop-zone" data-drop>
+      {{#if commanderName}}
+      <img class="commander-portrait" src="{{commanderImg}}" alt="{{commanderName}}" />
+      <span class="commander-name">{{commanderName}}</span>
+      <button type="button" class="commander-clear" data-action="clearCommander"
+              title="Clear commander">✕</button>
+      {{else}}
+      <span class="commander-none">—</span>
+      {{/if}}
+    </div>
+  </div>
+
+  {{!-- Description --}}
+  <div class="unit-section unit-description-section">
+    <div class="section-label">{{localize "EX2E.Notes"}}</div>
+    <div class="editor-container">
+      {{#if isEditable}}
+      <prose-mirror name="system.description" data-document-uuid="{{actor.uuid}}" value="{{system.description}}" collaborate="true" toggled="true">
+        {{{enrichedDescription}}}
+      </prose-mirror>
+      {{else}}
+      <div class="editor-content">{{{enrichedDescription}}}</div>
+      {{/if}}
+    </div>
+  </div>
+
+  {{!-- Attack Footer --}}
+  <div class="unit-footer">
+    <span class="attack-pool-label">
+      {{localize "EX2E.AttackPool"}}: {{system.attackPool}} {{localize "EX2E.Dice"}}
+    </span>
+    <button type="button"
+            class="btn-attack {{#if system.isRouted}}routed{{/if}}"
+            data-action="rollMassCombatAttack"
+            {{#if system.isRouted}}disabled{{/if}}>
+      {{#if system.isRouted}}
+        <i class="fas fa-flag"></i> {{localize "EX2E.UnitRouted"}}
+      {{else}}
+        <i class="fas fa-khanda"></i> {{localize "EX2E.MassCombatAttack"}}
+      {{/if}}
+    </button>
+  </div>
+</div>

@@ -320,3 +320,60 @@ describe("background prerequisite", () => {
     expect(evaluateCharmPrereqs(charm, actor)[0].satisfied).toBe(true);
   });
 });
+
+describe("anyExcellency minCount", () => {
+  function makeExcPrereq(abilityKey, minCount) {
+    return { type: "anyExcellency", charmUid: "", charmName: "", abilityKey, virtueKey: "valor", virtueMin: 1, minCount };
+  }
+
+  it("minCount 1, one matching Excellency — satisfied (backward-compat baseline)", () => {
+    const charm = makeCharm({ ability: "lore", prereqGroups: [{ alternatives: [makeExcPrereq("lore", 1)] }] });
+    const actor = makeActor([makeOwnedCharm({ id: "e1", name: "First Lore Exc", ability: "lore", excellency: "first" })]);
+    const report = evaluateCharmPrereqs(charm, actor);
+    expect(report[0].satisfied).toBe(true);
+  });
+
+  it("minCount 2, one matching Excellency — not satisfied", () => {
+    const charm = makeCharm({ ability: "lore", prereqGroups: [{ alternatives: [makeExcPrereq("lore", 2)] }] });
+    const actor = makeActor([makeOwnedCharm({ id: "e1", name: "First Lore Exc", ability: "lore", excellency: "first" })]);
+    const report = evaluateCharmPrereqs(charm, actor);
+    expect(report[0].satisfied).toBe(false);
+  });
+
+  it("minCount 2, two matching Excellencies — satisfied", () => {
+    const charm = makeCharm({ ability: "lore", prereqGroups: [{ alternatives: [makeExcPrereq("lore", 2)] }] });
+    const actor = makeActor([
+      makeOwnedCharm({ id: "e1", name: "First Lore Exc",  ability: "lore", excellency: "first" }),
+      makeOwnedCharm({ id: "e2", name: "Second Lore Exc", ability: "lore", excellency: "second" })
+    ]);
+    const report = evaluateCharmPrereqs(charm, actor);
+    expect(report[0].satisfied).toBe(true);
+  });
+
+  it("minCount 2, two Excellencies of wrong ability — not satisfied", () => {
+    const charm = makeCharm({ ability: "lore", prereqGroups: [{ alternatives: [makeExcPrereq("lore", 2)] }] });
+    const actor = makeActor([
+      makeOwnedCharm({ id: "e1", name: "First Occult Exc",  ability: "occult", excellency: "first" }),
+      makeOwnedCharm({ id: "e2", name: "Second Occult Exc", ability: "occult", excellency: "second" })
+    ]);
+    const report = evaluateCharmPrereqs(charm, actor);
+    expect(report[0].satisfied).toBe(false);
+  });
+
+  it("minCount 2, no abilityKey — falls back to charm's own ability", () => {
+    const charm = makeCharm({ ability: "lore", prereqGroups: [{ alternatives: [makeExcPrereq("", 2)] }] });
+    const actor = makeActor([
+      makeOwnedCharm({ id: "e1", name: "First Lore Exc",  ability: "lore", excellency: "first" }),
+      makeOwnedCharm({ id: "e2", name: "Second Lore Exc", ability: "lore", excellency: "second" })
+    ]);
+    const report = evaluateCharmPrereqs(charm, actor);
+    expect(report[0].satisfied).toBe(true);
+  });
+
+  it("minCount undefined — treated as 1, satisfied with one match", () => {
+    const charm = makeCharm({ ability: "lore", prereqGroups: [{ alternatives: [{ type: "anyExcellency", charmUid: "", charmName: "", abilityKey: "lore", virtueKey: "valor", virtueMin: 1 }] }] });
+    const actor = makeActor([makeOwnedCharm({ id: "e1", name: "First Lore Exc", ability: "lore", excellency: "first" })]);
+    const report = evaluateCharmPrereqs(charm, actor);
+    expect(report[0].satisfied).toBe(true);
+  });
+});

@@ -1,0 +1,14 @@
+<div class="magnitude-track">
+  {{#each magnitudeDots as |dot|}}
+  <div class="magnitude-dot-row">
+    <button type="button"
+            class="magnitude-dot {{#if dot.filled}}filled{{else}}empty{{/if}}"
+            data-action="setMagnitude"
+            data-value="{{dot.n}}"
+            title="{{dot.sizeLabel}}">
+      {{#if dot.filled}}●{{else}}○{{/if}}
+    </button>
+    <span class="magnitude-size-label">{{dot.sizeLabel}}</span>
+  </div>
+  {{/each}}
+</div>

@@ -28,7 +28,8 @@
     "styles/_chat.css",
     "styles/_dialog.css",
     "styles/_hud.css",
-    "styles/_actor.css"
+    "styles/_actor.css",
+    "styles/_actor-unit.css"
   ],
   "languages": [
     {
@@ -110,7 +111,8 @@
   "documentTypes": {
     "Actor": {
       "character": {},
-      "npc":       {}
+      "npc":       {},
+      "unit":      {}
     },
     "Item": {
       "charm":      {},

@@ -1,0 +1,445 @@
+/* ── Unit Sheet ───────────────────────────────────────────────────────────── */
+
+/* Crimson accent for war/military units — distinct from character (gold) and NPC (purple) */
+:root {
+  --ex2e-unit-accent:  #c04040;
+  --ex2e-unit-mid:     #8b1e1e;
+  --ex2e-unit-dark:    rgba(140, 40, 40, 0.6);
+  --ex2e-unit-glow:    0 0 8px rgba(192, 64, 64, 0.45);
+}
+
+/* ── Window chrome ──────────────────────────────────────────────────────────── */
+
+.exalted2e.sheet.unit {
+  border-color: var(--ex2e-unit-dark);
+}
+
+.exalted2e.sheet.unit .window-title {
+  color: #c87070;
+}
+
+/* Unit sheet form scrolls its stacked parts */
+.exalted2e.sheet.unit .application-form,
+.exalted2e.sheet.unit > form {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ── Description section ─────────────────────────────────────────────────── */
+
+.sheet.unit .editor-container {
+  min-height: 180px;
+}
+
+.sheet.unit prose-mirror {
+  min-height: 160px;
+}
+
+.sheet.unit .editor-content {
+  font-family: var(--ex2e-font-body);
+  font-size:   var(--ex2e-font-size-md);
+  color:       var(--ex2e-text-primary);
+  line-height: 1.6;
+  padding:     var(--ex2e-gap-sm) 0;
+}
+
+/* ── Unit Header ──────────────────────────────────────────────────────────── */
+
+.sheet.unit .unit-header {
+  display:        flex;
+  gap:            var(--ex2e-gap-md);
+  align-items:    flex-start;
+  padding:        var(--ex2e-gap-md) var(--ex2e-gap-lg);
+  background:     linear-gradient(135deg, var(--ex2e-bg-darkest) 0%, var(--ex2e-bg-medium) 100%);
+  border-bottom:  2px solid var(--ex2e-unit-dark);
+  flex-shrink:    0;
+}
+
+.sheet.unit .unit-portrait {
+  width:         64px;
+  height:        64px;
+  object-fit:    cover;
+  border-radius: var(--ex2e-border-radius);
+  border:        2px solid var(--ex2e-unit-dark);
+  box-shadow:    var(--ex2e-shadow-md);
+  cursor:        pointer;
+  flex-shrink:   0;
+  transition:    border-color var(--ex2e-transition-fast), box-shadow var(--ex2e-transition-fast);
+}
+
+.sheet.unit .unit-portrait:hover {
+  border-color: var(--ex2e-unit-accent);
+  box-shadow:   var(--ex2e-shadow-md), var(--ex2e-unit-glow);
+}
+
+.sheet.unit .unit-identity {
+  flex:           1;
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--ex2e-gap-sm);
+  min-width:      0;
+}
+
+.sheet.unit .unit-name {
+  font-family:    var(--ex2e-font-title);
+  font-size:      var(--ex2e-font-size-lg);
+  color:          #c87070;
+  background:     transparent;
+  border:         none;
+  border-bottom:  1px solid rgba(140, 40, 40, 0.5);
+  width:          100%;
+  padding:        0 0 2px 0;
+  letter-spacing: 0.06em;
+  transition:     border-color var(--ex2e-transition-fast);
+}
+
+.sheet.unit .unit-name:focus {
+  outline:            none;
+  border-bottom-color: var(--ex2e-unit-accent);
+}
+
+.sheet.unit .unit-type-select {
+  background:     var(--ex2e-bg-panel);
+  border:         1px solid rgba(140, 40, 40, 0.45);
+  border-radius:  var(--ex2e-border-radius-sm);
+  color:          var(--ex2e-text-secondary);
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding:        2px 6px;
+  cursor:         pointer;
+  transition:     border-color var(--ex2e-transition-fast);
+}
+
+.sheet.unit .unit-type-select:focus {
+  outline:      none;
+  border-color: var(--ex2e-unit-accent);
+}
+
+/* ── Section wrapper + label ──────────────────────────────────────────────── */
+
+.sheet.unit .unit-section {
+  padding:       var(--ex2e-gap-sm) var(--ex2e-gap-lg);
+  border-bottom: 1px solid var(--ex2e-border-color);
+}
+
+.sheet.unit .section-label {
+  font-family:    var(--ex2e-font-title);
+  font-size:      var(--ex2e-font-size-xs);
+  font-weight:    bold;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  color:          rgba(200, 112, 112, 0.8);
+  margin-bottom:  var(--ex2e-gap-sm);
+}
+
+/* ── Magnitude Track ──────────────────────────────────────────────────────── */
+
+.sheet.unit .magnitude-track {
+  display:     flex;
+  flex-wrap:   wrap;
+  gap:         var(--ex2e-gap-sm);
+}
+
+.sheet.unit .magnitude-dot-row {
+  display:     flex;
+  align-items: center;
+  gap:         var(--ex2e-gap-xs);
+}
+
+.sheet.unit .magnitude-dot {
+  width:         22px;
+  height:        22px;
+  border-radius: 50%;
+  border:        1.5px solid rgba(140, 40, 40, 0.4);
+  background:    var(--ex2e-bg-darkest);
+  cursor:        pointer;
+  font-size:     10px;
+  color:         var(--ex2e-text-muted);
+  display:       flex;
+  align-items:   center;
+  justify-content: center;
+  padding:       0;
+  line-height:   1;
+  transition:    border-color var(--ex2e-transition-fast),
+                 background   var(--ex2e-transition-fast),
+                 box-shadow   var(--ex2e-transition-fast),
+                 color        var(--ex2e-transition-fast);
+}
+
+.sheet.unit .magnitude-dot:hover {
+  border-color: var(--ex2e-unit-accent);
+  box-shadow:   var(--ex2e-unit-glow);
+}
+
+.sheet.unit .magnitude-dot.filled {
+  background:   var(--ex2e-unit-mid);
+  border-color: var(--ex2e-unit-accent);
+  color:        #f0b0b0;
+  box-shadow:   0 0 5px rgba(192, 64, 64, 0.35);
+}
+
+.sheet.unit .magnitude-dot.filled:hover {
+  background: #a82424;
+}
+
+.sheet.unit .magnitude-size-label {
+  font-family: var(--ex2e-font-body);
+  font-size:   var(--ex2e-font-size-xs);
+  color:       var(--ex2e-text-muted);
+  white-space: nowrap;
+}
+
+/* ── Stats Grid ───────────────────────────────────────────────────────────── */
+
+.sheet.unit .unit-stats-grid {
+  display:               grid;
+  grid-template-columns: 1fr 1fr;
+  gap:                   var(--ex2e-gap-sm) var(--ex2e-gap-lg);
+  padding:               var(--ex2e-gap-md) var(--ex2e-gap-lg);
+  border-bottom:         1px solid var(--ex2e-border-color);
+}
+
+.sheet.unit .stat-row {
+  display:     flex;
+  align-items: center;
+  gap:         var(--ex2e-gap-sm);
+}
+
+.sheet.unit .stat-label {
+  min-width:      72px;
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color:          var(--ex2e-text-secondary);
+}
+
+/* ── Commander Section ────────────────────────────────────────────────────── */
+
+.sheet.unit .commander-section .commander-drop-zone {
+  display:     flex;
+  align-items: center;
+  gap:         var(--ex2e-gap-sm);
+  min-height:  32px;
+  border:      1px dashed rgba(140, 40, 40, 0.4);
+  border-radius: var(--ex2e-border-radius);
+  padding:     var(--ex2e-gap-xs) var(--ex2e-gap-sm);
+  background:  var(--ex2e-bg-panel);
+  transition:  border-color var(--ex2e-transition-fast),
+               background   var(--ex2e-transition-fast);
+}
+
+.sheet.unit .commander-section .commander-drop-zone:hover {
+  border-color: rgba(200, 112, 112, 0.6);
+  background:   rgba(140, 40, 40, 0.06);
+}
+
+.sheet.unit .commander-portrait {
+  width:         24px;
+  height:        24px;
+  border-radius: 50%;
+  object-fit:    cover;
+  border:        1px solid rgba(140, 40, 40, 0.5);
+}
+
+.sheet.unit .commander-name {
+  flex:        1;
+  font-family: var(--ex2e-font-body);
+  font-size:   var(--ex2e-font-size-sm);
+  color:       var(--ex2e-text-primary);
+}
+
+.sheet.unit .commander-none {
+  font-family: var(--ex2e-font-body);
+  font-size:   var(--ex2e-font-size-sm);
+  color:       var(--ex2e-text-muted);
+  font-style:  italic;
+}
+
+.sheet.unit .commander-clear {
+  background: transparent;
+  border:     none;
+  cursor:     pointer;
+  padding:    0 var(--ex2e-gap-xs);
+  color:      var(--ex2e-text-muted);
+  font-size:  var(--ex2e-font-size-sm);
+  transition: color var(--ex2e-transition-fast);
+}
+
+.sheet.unit .commander-clear:hover {
+  color: var(--ex2e-dmg-lethal);
+}
+
+/* ── Attack Footer ────────────────────────────────────────────────────────── */
+
+.sheet.unit .unit-footer {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  padding:         var(--ex2e-gap-sm) var(--ex2e-gap-lg);
+  gap:             var(--ex2e-gap-md);
+  background:      linear-gradient(180deg, var(--ex2e-bg-medium) 0%, var(--ex2e-bg-darkest) 100%);
+  border-top:      1px solid var(--ex2e-border-color);
+}
+
+.sheet.unit .attack-pool-label {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-sm);
+  color:          var(--ex2e-text-secondary);
+  letter-spacing: 0.04em;
+}
+
+.sheet.unit .btn-attack {
+  display:        flex;
+  align-items:    center;
+  gap:            var(--ex2e-gap-xs);
+  padding:        5px var(--ex2e-gap-lg);
+  background:     var(--ex2e-bg-darkest);
+  color:          #e07070;
+  border:         1px solid rgba(140, 40, 40, 0.7);
+  border-radius:  var(--ex2e-border-radius);
+  cursor:         pointer;
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-sm);
+  letter-spacing: 0.06em;
+  transition:     background   var(--ex2e-transition-fast),
+                  box-shadow   var(--ex2e-transition-fast),
+                  border-color var(--ex2e-transition-fast);
+}
+
+.sheet.unit .btn-attack:hover:not(:disabled) {
+  background:   rgba(140, 40, 40, 0.15);
+  box-shadow:   var(--ex2e-unit-glow);
+  border-color: var(--ex2e-unit-accent);
+}
+
+.sheet.unit .btn-attack:disabled,
+.sheet.unit .btn-attack.routed {
+  opacity:        0.4;
+  cursor:         not-allowed;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   Mass Combat Chat Card
+   ════════════════════════════════════════════════════════════════════════════ */
+
+.mass-combat-result {
+  background:  linear-gradient(135deg, var(--ex2e-bg-darkest) 0%, var(--ex2e-bg-medium) 100%);
+  padding:     var(--ex2e-gap-md);
+  font-family: var(--ex2e-font-body);
+  color:       var(--ex2e-text-primary);
+}
+
+.mass-combat-result .card-header {
+  display:        flex;
+  align-items:    center;
+  gap:            var(--ex2e-gap-sm);
+  font-family:    var(--ex2e-font-title);
+  font-size:      var(--ex2e-font-size-sm);
+  letter-spacing: 0.08em;
+  color:          var(--ex2e-gold-main);
+  border-bottom:  1px solid rgba(140, 40, 40, 0.5);
+  padding-bottom: var(--ex2e-gap-sm);
+  margin-bottom:  var(--ex2e-gap-md);
+}
+
+.mass-combat-result .card-header i {
+  color: var(--ex2e-unit-accent);
+}
+
+.mass-combat-result .combat-step {
+  margin-bottom:  var(--ex2e-gap-md);
+  padding:        var(--ex2e-gap-sm);
+  border-left:    3px solid rgba(140, 40, 40, 0.5);
+  background:     var(--ex2e-bg-panel);
+  border-radius:  0 var(--ex2e-border-radius-sm) var(--ex2e-border-radius-sm) 0;
+}
+
+.mass-combat-result .step-label {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  color:          var(--ex2e-text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom:  var(--ex2e-gap-xs);
+}
+
+.mass-combat-result .step-result {
+  font-family:    var(--ex2e-font-title);
+  font-size:      var(--ex2e-font-size-sm);
+  letter-spacing: 0.06em;
+  margin-top:     var(--ex2e-gap-xs);
+}
+
+.mass-combat-result .step-result.success {
+  color:       var(--ex2e-success);
+  text-shadow: 0 0 6px rgba(39, 174, 96, 0.4);
+}
+
+.mass-combat-result .step-result.failure {
+  color:       var(--ex2e-dmg-lethal);
+  text-shadow: 0 0 6px rgba(192, 57, 43, 0.3);
+}
+
+.mass-combat-result .damage-pool-row {
+  display:     flex;
+  align-items: center;
+  gap:         var(--ex2e-gap-sm);
+  margin-bottom: 2px;
+}
+
+.mass-combat-result .pool-label {
+  min-width:      72px;
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  color:          var(--ex2e-text-secondary);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.mass-combat-result .pool-successes {
+  font-family: var(--ex2e-font-ui);
+  font-weight: bold;
+  font-size:   var(--ex2e-font-size-sm);
+  color:       var(--ex2e-text-primary);
+  margin-left: auto;
+}
+
+/* ── Light mode overrides ─────────────────────────────────────────────────── */
+
+body.ex2e-light-mode .exalted2e.sheet.unit {
+  border-color: rgba(110, 30, 30, 0.5) !important;
+}
+
+body.ex2e-light-mode .exalted2e.sheet.unit .window-title {
+  color: #7b2020 !important;
+}
+
+body.ex2e-light-mode .sheet.unit .unit-header {
+  background:    linear-gradient(135deg, #f5e8e8 0%, #ecdcdc 100%) !important;
+  border-bottom-color: rgba(110, 30, 30, 0.4) !important;
+}
+
+body.ex2e-light-mode .sheet.unit .unit-name {
+  color: #7b2020 !important;
+  border-bottom-color: rgba(110, 30, 30, 0.4) !important;
+}
+
+body.ex2e-light-mode .sheet.unit .section-label {
+  color: #8b3030 !important;
+}
+
+body.ex2e-light-mode .sheet.unit .unit-type-select,
+body.ex2e-light-mode .sheet.unit .commander-section .commander-drop-zone {
+  background: rgba(245, 232, 232, 0.8) !important;
+}
+
+body.ex2e-light-mode .sheet.unit .unit-footer {
+  background: linear-gradient(180deg, #ecdcdc 0%, #f5e8e8 100%) !important;
+}
+
+body.ex2e-light-mode .mass-combat-result {
+  background: linear-gradient(135deg, #f5e8e8 0%, #ecdcdc 100%) !important;
+}
