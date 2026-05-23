@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "infernal",
     "ability": "cult",
     "essence": 3,
     "minAbility": 2,
@@ -34,7 +34,7 @@
     },
     "description": "<p>The Endless Desert especially loathes opponents with pretensions toward their own divinity. Her scorn transforms the Essence of their unworthy prayers into a vessel for her outrage. This Charm permanently enhances its prerequisite, so that the Infernal erupts into a massive, shrieking dust cloud when it is activated in a place of desolation. In addition to its usual effects, the sandblast knocks her attacker back (5 + [attacker's Cult x 3]) yards if he fails a reflexive (Stamina + Resistance) roll at a difficulty of the Infernal's Cult rating. This is effective even against bowmen and other long-range attackers, hurling them with extruded wisps of grinding particulate force. Swallowed in Eternity</p>",
     "source": "Ink Monkeys",
-    "yoziPatron": "",
+    "yoziPatron": "Cecelyne",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
@@ -62,7 +62,7 @@
     ],
     "charmUid": "f091bbcef8252ead"
   },
-  "folder": "a6dd7c880c7f1f66",
+  "folder": "d852ccb3960d271d",
   "sort": 0,
   "ownership": {
     "default": 0
