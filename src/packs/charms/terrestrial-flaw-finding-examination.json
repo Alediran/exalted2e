@@ -1,0 +1,70 @@
+{
+  "_id": "9f2e4b7c1a8d5e03",
+  "_key": "!items!9f2e4b7c1a8d5e03",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Flaw-Finding Examination",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "terrestrial",
+    "ability": "craft",
+    "essence": 2,
+    "minAbility": 3,
+    "charmType": "supplemental",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m (touch) or 3m (sight), +1wp if repairing",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Exalt scrutinizes an object to reveal its hidden structural weaknesses. When supplementing a Craft roll to repair an item, the player reflexively rolls (Perception + relevant Craft skill); each success reduces the time needed to complete the repair by one hour, to a minimum of one hour. When supplementing an attempt to destroy a target, each success instead adds two dice to the attack's damage after the blow lands, or adds one to the character's effective Strength rating when using feats of strength to break the object. The Charm may be activated by touch for 1m or by sight for 3m; if the character intends to repair rather than destroy, an additional 1wp must be spent at the time of activation.</p>",
+    "source": "MoEP: Dragon-Blooded",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "craft",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "9f2e4b7c1a8d5e03"
+  },
+  "folder": "b0b1b2b3b4b5f01e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

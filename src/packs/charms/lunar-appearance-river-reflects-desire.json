@@ -50,9 +50,9 @@
       {
         "alternatives": [
           {
-            "type": "charm",
-            "charmUid": "8d1d7598ba1f2de7",
-            "charmName": "Any Appearance Excellency",
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
             "abilityKey": "",
             "virtueKey": "valor",
             "virtueMin": 1
@@ -63,7 +63,7 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "7de381949ff77a73",
+            "charmUid": "54471c410155a459",
             "charmName": "New Friend Aroma",
             "abilityKey": "",
             "virtueKey": "valor",

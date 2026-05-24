@@ -50,7 +50,7 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "738ab832b8cf70a9",
+            "charmUid": "28c917e9d05631b7",
             "charmName": "Secure Den Prana",
             "abilityKey": "",
             "virtueKey": "valor",
@@ -58,30 +58,6 @@
           }
         ]
       },
-      {
-        "alternatives": [
-          {
-            "type": "charm",
-            "charmUid": "367a3c6f9c19adda",
-            "charmName": "Blinking Eye of Chaos This Charm is identical to Secure Den Prana",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      },
-      {
-        "alternatives": [
-          {
-            "type": "charm",
-            "charmUid": "54ca51622b78f0b9",
-            "charmName": "but the Lunar declares a time differential for her den in Elsewhere",
-            "abilityKey": "",
-            "virtueKey": "valor",
-            "virtueMin": 1
-          }
-        ]
-      }
     ],
     "charmUid": "e244d89756968182"
   },
