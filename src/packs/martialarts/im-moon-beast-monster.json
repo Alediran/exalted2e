@@ -13,8 +13,8 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "infernal",
-    "ability": "martial-arts",
+    "exaltType": "martialarts",
+    "ability": "martialarts",
     "essence": 3,
     "minAbility": 5,
     "charmType": "permanent",
@@ -33,13 +33,12 @@
     "description": "<p>Lunar akuma are among the most savage weapons the Yozis command. It is not much of a leap from fury to rage or anger to madness. Moon-Beast Monster is only Native to Lunar akuma and may not be learned by other types of Infernals. The Charm provides the following effects: · The akuma is not obligated to attack his Yozi master or any of its component Third Circle demons while in a berserk state (such as that induced by Retribution Will Follow) unless said entities physically attacked him earlier in the scene.</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
-    "martialArtsTier": "",
-    "martialArtsStyleName": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Infernal Monster Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -47,7 +46,7 @@
     "prereqGroups": [],
     "charmUid": "73ffd5f1e5490a45"
   },
-  "folder": "a1b2c3d4e5f60006",
+  "folder": "ae5a8ed470f7303b",
   "sort": 0,
   "ownership": {
     "default": 0

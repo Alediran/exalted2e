@@ -13,8 +13,8 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "infernal",
-    "ability": "martial-arts",
+    "exaltType": "martialarts",
+    "ability": "martialarts",
     "essence": 4,
     "minAbility": 5,
     "charmType": "permanent",
@@ -33,13 +33,12 @@
     "description": "<p>This Charm upgrades its prerequisite. If the Exalt has an Overdrive pool, offensive motes in this pool are not lost upon scene change to enter the arena of nightmare: the Infernal Monster enters the dreamscape with his full offensive might</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
-    "martialArtsTier": "",
-    "martialArtsStyleName": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Infernal Monster Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -47,7 +46,7 @@
     "prereqGroups": [],
     "charmUid": "0db0f5ba549daaae"
   },
-  "folder": "a1b2c3d4e5f60006",
+  "folder": "ae5a8ed470f7303b",
   "sort": 0,
   "ownership": {
     "default": 0

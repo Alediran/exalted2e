@@ -13,8 +13,8 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "infernal",
-    "ability": "martial-arts",
+    "exaltType": "martialarts",
+    "ability": "martialarts",
     "essence": 2,
     "minAbility": 3,
     "charmType": "permanent",
@@ -33,13 +33,12 @@
     "description": "<p>The Infernal Monster leaps great distances to pounce on prey. While an Exalt with this Charm has Raging Behemoth Charge active, she adds her Martial Arts rating to her Athletics to calculate how far she can jump toward a valid opponent. With Essence 3+, she adds a bonus of +(Martial Arts + Essence) instead. Leaping Smash Technique</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
-    "martialArtsTier": "",
-    "martialArtsStyleName": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Infernal Monster Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -47,7 +46,7 @@
     "prereqGroups": [],
     "charmUid": "0d2ae0e3858116eb"
   },
-  "folder": "a1b2c3d4e5f60006",
+  "folder": "ae5a8ed470f7303b",
   "sort": 0,
   "ownership": {
     "default": 0

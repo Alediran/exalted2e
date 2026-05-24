@@ -13,8 +13,8 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "infernal",
-    "ability": "martial-arts",
+    "exaltType": "martialarts",
+    "ability": "martialarts",
     "essence": 2,
     "minAbility": 3,
     "charmType": "reflexive",
@@ -34,13 +34,12 @@
     "description": "<p>Fleeing the Infernal Monster is an exercise in futility. This Charm enhances an unarmed attack (which can be an unarmed attempt to initiate a grapple), allowing the Infernal to reflexively jump toward the target before determining whether the target is in range for the purposes of resolving the attack. If he reaches his target, the attack resolves normally with a +2 bonus to its raw damage from added momentum. Otherwise, the jump moves the Infernal the appropriate distance but the attack automatically misses. Leaping Smash Technique can be activated as an innate power rather than a Charm activation if the Exalt has Raging Behemoth Charge or Infernal Monster Form active. Essence 2-3 Exalted can only use this Charm to enhance the first attack in a flurry; those with greater Essence surpass the limitation and can flurry to bound across the battlefield. If Leaping Smash Technique is used in conjunction with God-Smashing Blow to enhance an attack, the final jump distance is doubled after applying any modifiers from Bounding Beast Advance. Shock and Awe Slam</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
-    "martialArtsTier": "",
-    "martialArtsStyleName": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Infernal Monster Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -48,7 +47,7 @@
     "prereqGroups": [],
     "charmUid": "ab0e2fa0139c9902"
   },
-  "folder": "a1b2c3d4e5f60006",
+  "folder": "ae5a8ed470f7303b",
   "sort": 0,
   "ownership": {
     "default": 0

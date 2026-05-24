@@ -13,8 +13,8 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "infernal",
-    "ability": "martial-arts",
+    "exaltType": "martialarts",
+    "ability": "martialarts",
     "essence": 2,
     "minAbility": 4,
     "charmType": "permanent",
@@ -33,13 +33,12 @@
     "description": "<p>The Infernal Monster charges toward enemies. They are prey, not threats. Exalted with this Charm can activate Raging Behemoth Charge as an innate power rather than a Charm activation while using Retribution Will Follow or Infernal Monster Form. While using Raging Behemoth Charge, the Infernal also gains the following additional benefits: · He cannot become fatigued from exertion. Any fatigue penalties suffered at the time of activation are suspended until the Charm ends, resuming as though no time had passed. · He can run through muck, climb and swim toward valid opponents at the same speed as ground movement (rather than half). · When moving toward a valid opponent, the Infernal's actions aren't capped by Athletics over unstable footing or swimming in rough conditions. He effectively has whatever Athletics he needs to ignore such complications. Bounding Beast Advance</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
-    "martialArtsTier": "",
-    "martialArtsStyleName": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Infernal Monster Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -47,7 +46,7 @@
     "prereqGroups": [],
     "charmUid": "38e069c4aa30d84f"
   },
-  "folder": "a1b2c3d4e5f60006",
+  "folder": "ae5a8ed470f7303b",
   "sort": 0,
   "ownership": {
     "default": 0

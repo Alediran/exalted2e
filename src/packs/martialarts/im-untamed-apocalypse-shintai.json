@@ -13,8 +13,8 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "infernal",
-    "ability": "martial-arts",
+    "exaltType": "martialarts",
+    "ability": "martialarts",
     "essence": 3,
     "minAbility": 5,
     "charmType": "permanent",
@@ -33,13 +33,12 @@
     "description": "<p>The Infernal Monster has no worries or guilt. Absolute violence yields absolute freedom. This Charm is a permanent modification to the Infernal Exalt's psyche and soul, scarring her with empowering madness. Green Sun Princes can't be compelled to learn Untamed Apocalypse Shintai with any mental influence; they must truly wish to embrace its transcendent damnation. Akuma have no say in the matter; their patrons decide whether to devolve their slaves into beasts of war. Untamed Apocalypse Shintai makes characters largely unplayable, so Storytellers should probably restrict it to antagonists. Learning the Charm changes the Infernal in the following ways: · He lives in a constant state of fury like an uncontrolled Berserk Anger Limit Break (Exalted, p. 105). However, he is not compelled to wreck the environment in this resting state, just slaughter everything that moves. Furthermore, when he becomes fatigued or sleepy, he can end his rampage to seek a good place to rest. He will still attack anything that tries to prevent him from finding a lair, but will not pursue such opponents if they withdraw and let him resume his search. Living a berserk existence does not reduce the character's mental attributes or force him to fight incompetently. However, he won't take preparatory actions longer than a single miscellaneous action, so he can draw a weapon, but won't have the patience to strap into a warstrider. · Activating Retribution Will Follow brings on a scene of unrestrained rage with a number of benefits (wound penalty reduction, mental influence resistance, etc.). His resting rage does not provide these benefits. The frenzy brought on by Retribution Will Follow, Limit Break and behavior-altering Torment all take precedence over the Infernal's mind and displace his constant fury for as long as they last. · Infernal Monster Style and its expansions only cost the Infernal four experience points per Charm. This discount applies retroactively, awarding the difference in experience the Infernal is owed. Should the character somehow lose this Charm, he must pay that difference back. In the unlikely event a Storyteller lets a player take Untamed Apocalypse Shintai at character creation, the Infernal gains two Infernal Monster Style Charms for every starting Charm allocated to them and can buy more for two bonus points each. Untamed Apocalypse Shintai is not a precedent for Charms that provide dramatic cost reductions to acquire Solar-level Charms unless those Charms wreck the character permanently and absolutely. Not all paths of transcendence are desirable. · The Exalt can raise his traits up as high as 10 without regard for the usual age-cap. His constant bestial fury sharply limits the kinds of Charms he can use, but he shatters through the limits that govern most Essence users. If he somehow loses this Charm, he converts all dots in excess of his permitted age cap back into experience. Learning this Charm precludes metamorphosis into a Primordial. The Infernal cannot learn the Charms that initiate this apotheosis. Inescapable Fiend Charms These expansions of Infernal Monster Style explore the concept of the monster you cannot avoid. You cannot run. You cannot hide. The Infernal Monster will find you and destroy you. It is eager to feel your bones break under its touch, to tear screams and viscera from your flesh. Impatient Slaughter Speed</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
-    "martialArtsTier": "",
-    "martialArtsStyleName": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Infernal Monster Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -47,7 +46,7 @@
     "prereqGroups": [],
     "charmUid": "4e4e1882a4c5365d"
   },
-  "folder": "a1b2c3d4e5f60006",
+  "folder": "ae5a8ed470f7303b",
   "sort": 0,
   "ownership": {
     "default": 0

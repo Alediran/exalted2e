@@ -13,8 +13,8 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "infernal",
-    "ability": "martial-arts",
+    "exaltType": "martialarts",
+    "ability": "martialarts",
     "essence": 2,
     "minAbility": 3,
     "charmType": "permanent",
@@ -35,13 +35,12 @@
     "description": "<p>Provoking the Infernal Monster is unwise. This Charm permanently improves its prerequisite in two ways. First, the Infernal can activate that Charm in response to any threat, bad news, insult, unwanted touch or physical attack directed at her as though these stimuli had inflicted levels of damage. Second, the Infernal can invoke Retribution Will Follow as an innate power rather than a Charm activation. Smoldering Rage Beast carries a steep price. The Exalt must activate Retribution Will Follow whenever confronted with an opportunity to do so unless he pays one Willpower to resist (immunizing him against other Rage effects for a day as normal). All-Consuming Rampage Release</p>",
     "source": "Ink Monkeys",
     "yoziPatron": "",
-    "martialArtsTier": "",
-    "martialArtsStyleName": "",
+    "martialArtsTier": "celestial",
+    "martialArtsStyleName": "Infernal Monster Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
-    "umiCost": 0,
+    "umiCost": 1,
     "cooperationBonusDice": 0,
     "excellency": "",
     "perfectDefenseType": "",
@@ -49,7 +48,7 @@
     "prereqGroups": [],
     "charmUid": "1bcf8965f5b05778"
   },
-  "folder": "a1b2c3d4e5f60006",
+  "folder": "ae5a8ed470f7303b",
   "sort": 0,
   "ownership": {
     "default": 0
