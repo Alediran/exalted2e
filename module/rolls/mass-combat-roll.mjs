@@ -1,4 +1,5 @@
 import { ExaltedRoll } from "./exalted-roll.mjs";
+import { checkAndDisband } from "./unit-action-roll.mjs";
 import {
   computeEffectiveCCR,
   computeEffectiveRCR,
@@ -190,14 +191,22 @@ export async function rollMassCombatAttack(unitActor, { ranged = false, explicit
   });
 
   if (targetIsUnit) {
-    const updates = {};
-    if (state.healthAfter !== state.healthBefore) updates["system.health.value"]    = state.healthAfter;
-    if (state.magAfterRout !== state.magBefore)   updates["system.magnitude.value"] = state.magAfterRout;
-    if (Object.keys(updates).length) await defenderActor.update(updates);
+    if (state.healthAfter !== state.healthBefore) {
+      await defenderActor.update({ "system.health.value": state.healthAfter });
+    }
+    if (state.magAfterRout !== state.magBefore) {
+      await checkAndDisband(defenderActor, state.magAfterRout);
+    }
 
-    if (state.hesitating) {
+    if (state.hesitating && game.actors.get(defenderActor.id)) {
       const combatant = game.combat?.combatants.find(c => c.actor?.id === defenderActor.id);
       if (combatant) await combatant.setFlag("exalted2e", "hesitating", true);
+      const hesEff = CONFIG.statusEffects["unitHesitating"];
+      if (hesEff) {
+        for (const token of defenderActor.getActiveTokens()) {
+          await token.toggleEffect(hesEff, { active: true });
+        }
+      }
     }
   } else {
     if (state.hit && state.netDamage > 0) {
@@ -338,13 +347,21 @@ export async function rollHeroAttacksUnit(heroActor, unitActor, weapon, { ranged
     }
   });
 
-  const updates = {};
-  if (state.healthAfter !== state.healthBefore) updates["system.health.value"]    = state.healthAfter;
-  if (state.magAfterRout !== state.magBefore)   updates["system.magnitude.value"] = state.magAfterRout;
-  if (Object.keys(updates).length) await unitActor.update(updates);
+  if (state.healthAfter !== state.healthBefore) {
+    await unitActor.update({ "system.health.value": state.healthAfter });
+  }
+  if (state.magAfterRout !== state.magBefore) {
+    await checkAndDisband(unitActor, state.magAfterRout);
+  }
 
-  if (state.hesitating) {
+  if (state.hesitating && game.actors.get(unitActor.id)) {
     const combatant = game.combat?.combatants.find(c => c.actor?.id === unitActor.id);
     if (combatant) await combatant.setFlag("exalted2e", "hesitating", true);
+    const hesEff = CONFIG.statusEffects["unitHesitating"];
+    if (hesEff) {
+      for (const token of unitActor.getActiveTokens()) {
+        await token.toggleEffect(hesEff, { active: true });
+      }
+    }
   }
 }

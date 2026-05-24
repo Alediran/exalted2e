@@ -5,17 +5,22 @@
     {{else if (eq actionKey "disengage")}}{{localize "EX2E.ActionDisengage"}}
     {{else if (eq actionKey "split")}}{{localize "EX2E.ActionSplitUnit"}}
     {{else if (eq actionKey "merge")}}{{localize "EX2E.ActionMergeUnits"}}
+    {{else if (eq actionKey "rally")}}{{localize "EX2E.ActionRally"}}
+    {{else if (eq actionKey "disband")}}{{localize "EX2E.UnitDisbanded"}}
     {{/if}}
   </h3>
 
   {{!-- Roll summary row --}}
+  {{#unless (eq actionKey "disband")}}
   <div class="mc-roll-row">
     <span class="mc-label">{{localize "EX2E.Pool"}}: {{pool}}</span>
     <span class="mc-label">{{localize "EX2E.Successes"}}: {{successes}}</span>
     <span class="mc-label">{{localize "EX2E.Difficulty"}}: {{difficulty}}</span>
   </div>
+  {{/unless}}
 
   {{!-- Dice details --}}
+  {{#unless (eq actionKey "disband")}}
   {{#if diceDetails}}
   <div class="mc-dice-row dice-results">
     {{#each diceDetails as |d|}}
@@ -23,6 +28,7 @@
     {{/each}}
   </div>
   {{/if}}
+  {{/unless}}
 
   {{!-- Charge result --}}
   {{#if (eq actionKey "charge")}}
@@ -96,6 +102,45 @@
       <strong>{{localize "EX2E.MergeFail"}}</strong>
       <p class="hesitation-warning">{{localize "EX2E.UnitHesitates"}}</p>
     {{/if}}
+  </div>
+  {{/if}}
+
+  {{!-- Rally result --}}
+  {{#if (eq actionKey "rally")}}
+  <div class="mc-roll-row">
+    <span class="mc-label">{{localize "EX2E.Pool"}}: {{pool}}</span>
+    <span class="mc-label">{{localize "EX2E.Successes"}}: {{successes}}</span>
+    <span class="mc-label">{{localize "EX2E.Difficulty"}}: {{difficulty}}</span>
+  </div>
+  {{#if diceDetails}}
+  <div class="mc-dice-row dice-results">
+    {{#each diceDetails as |d|}}
+      <div class="mc-die die-result {{d.cls}}">{{d.face}}</div>
+    {{/each}}
+  </div>
+  {{/if}}
+  <div class="mc-result-box {{#if success}}rally-success{{else}}rally-fail{{/if}}">
+    {{#if success}}
+      <strong>{{localize "EX2E.RallySuccess"}}</strong>
+      {{#if (eq subEffect "organisation")}}
+        <p>{{localize "EX2E.Relays"}}: {{relaysBefore}} → {{relaysAfter}}</p>
+      {{else if (eq subEffect "numbers")}}
+        <p>{{localize "EX2E.Magnitude"}}: {{magnitudeBefore}} → {{magnitudeAfter}}</p>
+      {{else}}
+        <p>{{localize "EX2E.Endurance"}}: {{enduranceBefore}} → {{enduranceAfter}}</p>
+      {{/if}}
+      {{#if hesitationCleared}}<p class="hesitation-note">{{localize "EX2E.RallyHesitationCleared"}}</p>{{/if}}
+    {{else}}
+      <strong>{{localize "EX2E.RallyFailed"}}</strong>
+    {{/if}}
+  </div>
+  {{/if}}
+
+  {{!-- Disband result --}}
+  {{#if (eq actionKey "disband")}}
+  <div class="mc-result-box disband-result">
+    <strong>{{attackerName}} {{localize "EX2E.UnitDisbanded"}}</strong>
+    <p>{{localize "EX2E.Magnitude"}}: 0</p>
   </div>
   {{/if}}
 </div>

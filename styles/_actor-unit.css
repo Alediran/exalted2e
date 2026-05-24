@@ -1012,3 +1012,83 @@ body.ex2e-light-mode .mass-combat-result {
   color: #c05050;
   font-style: italic;
 }
+
+/* ── Phase 5 Rally, Routing & Token Status ───────────────────── */
+
+.unit-disbanded-banner {
+  background: #8b0000;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  padding: 6px 12px;
+  letter-spacing: 2px;
+  font-size: 1.1em;
+}
+
+.unit-relays-row {
+  margin-top: 8px;
+}
+
+.unit-relays-input {
+  width: 56px;
+  text-align: center;
+}
+
+/* Rally sub-effect radio group in the action dialog */
+.mc-rally-sub-effects {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px 12px;
+  margin-top: 8px;
+}
+
+.mc-rally-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.mc-rally-option.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.mc-ineligible {
+  font-style: italic;
+  font-size: 0.85em;
+  color: #888;
+}
+
+/* Rally chat result boxes */
+.mc-result-box.rally-success {
+  border: 1px solid #2d7a2d;
+  background: #f0fff0;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+.mc-result-box.rally-fail {
+  border: 1px solid #a03030;
+  background: #fff5f5;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+.mc-result-box.disband-result {
+  border: 2px solid #8b0000;
+  background: #fdf0f0;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+.mc-result-box.disband-result strong {
+  color: #8b0000;
+}
+
+.hesitation-note {
+  font-style: italic;
+  color: #2d7a2d;
+  margin-top: 4px;
+}

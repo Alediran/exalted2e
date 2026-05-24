@@ -89,6 +89,21 @@
       <p>{{localize "EX2E.NoTargetUnit"}}</p>
     </div>
     {{/if}}
+
+    {{!-- Rally sub-effect selector --}}
+    {{#if showRallySubEffects}}
+    <div class="mc-rally-sub-effects">
+      {{#each rallySubEffects}}
+      <label class="mc-rally-option {{#if disabled}}disabled{{/if}}">
+        <input type="radio" name="rallySubEffect" value="{{key}}"
+          {{#unless disabled}}{{#if (eq key @root.selectedRallySubEffect)}}checked{{/if}}{{/unless}}
+          {{#if disabled}}disabled{{/if}}>
+        {{localize labelKey}}
+        {{#if disabled}}<span class="mc-ineligible">({{localize disabledReason}})</span>{{/if}}
+      </label>
+      {{/each}}
+    </div>
+    {{/if}}
   </div>
   {{/if}}
 

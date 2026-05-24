@@ -6,6 +6,7 @@ import {
   rollDisengage,
   rollSplitUnit,
   rollMergeUnits,
+  rollRally,
 } from "../rolls/unit-action-roll.mjs";
 import {
   computeChangeFormationDifficulty,
@@ -32,6 +33,19 @@ const ACTIONS = [
 ];
 
 const FORMATION_MIN_DRILL = { none: 99, unordered: 1, skirmish: 2, relaxed: 2, close: 3 };
+
+function isNumbersEligible(rallyingUnit) {
+  if (!game.combat) return false;
+  const myMag = rallyingUnit.system.magnitude.value;
+  for (const combatant of game.combat.combatants) {
+    const actor = combatant.actor;
+    if (!actor || actor.id === rallyingUnit.id || actor.type !== "unit") continue;
+    const joinMag = combatant.flags?.exalted2e?.magnitudeAtJoinWar ?? null;
+    const curMag  = actor.system.magnitude.value;
+    if (joinMag !== null && joinMag > curMag && curMag > myMag) return true;
+  }
+  return false;
+}
 
 export class MassCombatActionDialog extends HandlebarsApplicationMixin(ApplicationV2) {
 
@@ -61,6 +75,7 @@ export class MassCombatActionDialog extends HandlebarsApplicationMixin(Applicati
     this._combatant       = this._combat?.combatants.find(c => c.actor?.id === options.unitActor.id) ?? null;
     this._selectedAction  = null;
     this._rollResult      = null;
+    this._selectedRallySubEffect = "second-wind";
   }
 
   async _prepareContext(options) {
@@ -143,6 +158,15 @@ export class MassCombatActionDialog extends HandlebarsApplicationMixin(Applicati
       ? computeMergeMagnitude(sys.magnitude.value, targetActor.system.magnitude.value)
       : 0;
 
+    const showRallySubEffects = this._selectedAction === "rally";
+    const numbersEligible = showRallySubEffects && isNumbersEligible(this._unitActor);
+    const rallySubEffects = showRallySubEffects ? [
+      { key: "second-wind",  labelKey: "EX2E.RallySecondWind",  disabled: false, disabledReason: null },
+      { key: "organisation", labelKey: "EX2E.RallyOrganisation", disabled: false, disabledReason: null },
+      { key: "numbers",      labelKey: "EX2E.RallyNumbers",      disabled: !numbersEligible, disabledReason: numbersEligible ? null : "EX2E.RallyNumbersIneligible" },
+    ] : [];
+    const selectedRallySubEffect = this._selectedRallySubEffect ?? "second-wind";
+
     return {
       ...context,
       unitName:             this._unitActor.name,
@@ -166,7 +190,10 @@ export class MassCombatActionDialog extends HandlebarsApplicationMixin(Applicati
       showMergeNoTarget:    selectedDef?.key === "merge" && !hasTarget,
       mergeTargetName:      hasTarget ? targetActor.name : "",
       mergeResultMagnitude,
-      hasTarget
+      hasTarget,
+      showRallySubEffects,
+      rallySubEffects,
+      selectedRallySubEffect,
     };
   }
 
@@ -300,6 +327,19 @@ export class MassCombatActionDialog extends HandlebarsApplicationMixin(Applicati
         break;
       }
 
+      case "rally": {
+        const subEffect = this.element?.querySelector('[name="rallySubEffect"]:checked')?.value ?? "second-wind";
+        await rollRally(unit, {
+          subEffect,
+          pool:        this._rollResult?.pool ?? 0,
+          successes:   this._rollResult?.successes ?? 0,
+          diceDetails: this._rollResult?.diceDetails ?? [],
+          success:     this._rollResult?.success ?? false,
+          diff:        this._rollResult?.diff ?? 1,
+        });
+        break;
+      }
+
       default:
         if (action.needsRoll) {
           await this._postActionChatCard(action, null);
@@ -325,8 +365,8 @@ export class MassCombatActionDialog extends HandlebarsApplicationMixin(Applicati
       await unit.applyDVPenalty("dodge", Math.abs(action.dvMod), { label });
     }
 
-    // 4. Clear hesitating
-    if (this._combatant?.flags?.exalted2e?.hesitating) {
+    // 4. Clear hesitating (rally handles this internally; skip to avoid clearing on failure)
+    if (this._selectedAction !== "rally" && this._combatant?.flags?.exalted2e?.hesitating) {
       await this._combatant.unsetFlag("exalted2e", "hesitating");
     }
 
@@ -341,7 +381,7 @@ export class MassCombatActionDialog extends HandlebarsApplicationMixin(Applicati
     if (this._rollResult) {
       const outcome = this._rollResult.success
         ? game.i18n.localize(action.key === "rally" ? "EX2E.RallySuccess" : action.key === "change-formation" ? "EX2E.FormationChanged" : "EX2E.ActionSucceeded")
-        : game.i18n.localize(action.key === "rally" ? "EX2E.RallyFailure" : action.key === "change-formation" ? "EX2E.FormationChangeFailed" : "EX2E.ActionFailed");
+        : game.i18n.localize(action.key === "rally" ? "EX2E.RallyFailed" : action.key === "change-formation" ? "EX2E.FormationChangeFailed" : "EX2E.ActionFailed");
       resultLine = `<br>${game.i18n.format("EX2E.RollResultSummary", { successes: this._rollResult.successes, diff: this._rollResult.diff })} — <strong>${outcome}</strong>`;
       if (action.key === "change-formation" && this._rollResult.success && targetFormation) {
         const fKey  = targetFormation.charAt(0).toUpperCase() + targetFormation.slice(1);

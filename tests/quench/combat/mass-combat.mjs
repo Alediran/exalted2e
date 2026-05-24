@@ -1,6 +1,8 @@
 import { assertTestWorld } from "../_helpers/world.mjs";
 import { rollMassCombatAttack } from "../../../module/rolls/mass-combat-roll.mjs";
 import { ExaltedRoll } from "../../../module/rolls/exalted-roll.mjs";
+import { rollRally, checkAndDisband } from "../../../module/rolls/unit-action-roll.mjs";
+import { computeSecondWindEndurance } from "../../../module/rolls/mass-combat-math.mjs";
 
 export function registerMassCombat(context) {
   const { describe, it, assert, before, after } = context;
@@ -515,6 +517,152 @@ export function registerMassCombatPhase4SplitMerge(context) {
 
       // Cleanup the created split actor
       await newUnit?.delete();
+    });
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Phase 5 suites
+// ---------------------------------------------------------------------------
+
+export function registerMassCombatPhase5(context) {
+  const { describe, it, assert, before, after } = context;
+
+  let unitActor, commanderActor;
+
+  before(assertTestWorld);
+
+  before(async () => {
+    commanderActor = await Actor.create({
+      name: "P5Commander",
+      type: "character",
+      system: {
+        attributes: { charisma: { value: 3 } },
+        abilities:  { war: { value: 2 }, performance: { value: 4 } }
+      }
+    });
+
+    unitActor = await Actor.create({
+      name: "P5RallyUnit",
+      type: "unit",
+      system: {
+        magnitude:       { value: 3, max: 5 },
+        drill:           2,
+        endurance:       2,
+        morale:          3,
+        relays:          0,
+        disbanded:       false,
+        commanderActorId: commanderActor.id,
+      }
+    });
+  });
+
+  after(async () => {
+    await unitActor?.delete();
+    await commanderActor?.delete();
+  });
+
+  describe("[P5-289] rollRally Organisation success", () => {
+    it("increments system.relays by 1", async () => {
+      const relaysBefore = unitActor.system.relays ?? 0;
+      await rollRally(unitActor, {
+        subEffect: "organisation",
+        pool: 7, successes: 3, diceDetails: [], success: true, diff: 1,
+      });
+      const reloaded = game.actors.get(unitActor.id);
+      assert.equal(reloaded.system.relays, relaysBefore + 1, "relays incremented by 1");
+    });
+
+    it("caps relays at magnitude × 2", async () => {
+      const cap = unitActor.system.magnitude.value * 2;
+      await unitActor.update({ "system.relays": cap });
+      await rollRally(unitActor, {
+        subEffect: "organisation",
+        pool: 7, successes: 3, diceDetails: [], success: true, diff: 1,
+      });
+      const reloaded = game.actors.get(unitActor.id);
+      assert.equal(reloaded.system.relays, cap, "relays capped at magnitude × 2");
+      await unitActor.update({ "system.relays": 0 });
+    });
+  });
+
+  describe("[P5-290] rollRally Second Wind success", () => {
+    it("restores endurance by drill", async () => {
+      await unitActor.update({ "system.endurance": 1 });
+      await rollRally(unitActor, {
+        subEffect: "second-wind",
+        pool: 7, successes: 3, diceDetails: [], success: true, diff: 1,
+      });
+      const reloaded = game.actors.get(unitActor.id);
+      const drill = reloaded.system.drill;
+      const expectedEnd = computeSecondWindEndurance(1, drill, reloaded.system.magnitude.value);
+      assert.equal(reloaded.system.endurance, expectedEnd, "endurance restored by drill");
+      await unitActor.update({ "system.endurance": 2 });
+    });
+  });
+
+  describe("[P5-291] rollRally Numbers success", () => {
+    it("increments magnitude and resets health to 0", async () => {
+      const magBefore = unitActor.system.magnitude.value;
+      await rollRally(unitActor, {
+        subEffect: "numbers",
+        pool: 7, successes: 3, diceDetails: [], success: true, diff: 1,
+      });
+      const reloaded = game.actors.get(unitActor.id);
+      assert.equal(reloaded.system.magnitude.value, magBefore + 1, "magnitude incremented");
+      assert.equal(reloaded.system.health.value, 0, "health reset to 0");
+      await unitActor.update({ "system.magnitude.value": magBefore });
+    });
+  });
+
+  describe("[P5-292] rollRally failure", () => {
+    it("makes no state changes to the actor", async () => {
+      const endBefore = unitActor.system.endurance;
+      const magBefore = unitActor.system.magnitude.value;
+      const relBefore = unitActor.system.relays;
+      await rollRally(unitActor, {
+        subEffect: "second-wind",
+        pool: 3, successes: 0, diceDetails: [], success: false, diff: 2,
+      });
+      const reloaded = game.actors.get(unitActor.id);
+      assert.equal(reloaded.system.endurance, endBefore, "endurance unchanged on failure");
+      assert.equal(reloaded.system.magnitude.value, magBefore, "magnitude unchanged on failure");
+      assert.equal(reloaded.system.relays, relBefore, "relays unchanged on failure");
+    });
+  });
+
+  describe("[P5-293] checkAndDisband at magnitude 0", () => {
+    it("sets disbanded=true and magnitude=0", async () => {
+      const disbandActor = await Actor.create({
+        name: "P5DisbandTest",
+        type: "unit",
+        system: { magnitude: { value: 1, max: 5 }, drill: 2, endurance: 2, morale: 3 }
+      });
+      const msgsBefore = game.messages.size;
+      await checkAndDisband(disbandActor, 0);
+      const reloaded = game.actors.get(disbandActor.id);
+      assert.ok(reloaded, "actor still exists after disband");
+      assert.equal(reloaded.system.magnitude.value, 0, "magnitude is 0");
+      assert.equal(reloaded.system.disbanded, true, "disbanded flag is true");
+      assert.ok(game.messages.size > msgsBefore, "disband chat card was posted");
+      await disbandActor.delete();
+    });
+
+    it("updates magnitude normally when above 0", async () => {
+      await checkAndDisband(unitActor, 2);
+      const reloaded = game.actors.get(unitActor.id);
+      assert.equal(reloaded.system.magnitude.value, 2, "magnitude updated to 2");
+      assert.equal(reloaded.system.disbanded, false, "not disbanded");
+      await unitActor.update({ "system.magnitude.value": 3 });
+    });
+  });
+
+  describe("[P5-294] updateActor hook fires without error for unit", () => {
+    it("toggling engaged on and off does not throw", async () => {
+      await unitActor.update({ "system.engaged": true });
+      await unitActor.update({ "system.engaged": false });
+      const reloaded = game.actors.get(unitActor.id);
+      assert.equal(reloaded.system.engaged, false, "engaged is false");
     });
   });
 }

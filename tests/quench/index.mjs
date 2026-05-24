@@ -62,7 +62,7 @@ import { registerCoordinationTests }       from "./combat/coordination.mjs";
 import { registerCountermagic }            from "./combat/countermagic.mjs";
 import { registerCrafting }               from "./crafting/crafting-roll.mjs";
 import { registerManse }                from "./manse/manse-item.mjs";
-import { registerMassCombat, registerMassCombatCCR, registerMassCombatHealth, registerMassCombatJoinWar, registerMassCombatHesitation, registerMassCombatHeroPhase3, registerMassCombatUnitVsHero, registerMassCombatPhase4Actions, registerMassCombatPhase4SplitMerge } from "./combat/mass-combat.mjs";
+import { registerMassCombat, registerMassCombatCCR, registerMassCombatHealth, registerMassCombatJoinWar, registerMassCombatHesitation, registerMassCombatHeroPhase3, registerMassCombatUnitVsHero, registerMassCombatPhase4Actions, registerMassCombatPhase4SplitMerge, registerMassCombatPhase5 } from "./combat/mass-combat.mjs";
 // NOTE: Anima Powers feature (_swapAnimaPower) relies on the animapowers compendium
 // and cannot be exercised via Quench. No batch registered for ex2e.anima-powers.
 
@@ -143,5 +143,6 @@ Hooks.once("quenchReady", async quench => {
   quench.registerBatch("exalted2e.masscombat.phase3.unit-attacks", registerMassCombatUnitVsHero,   { displayName: "EX2E: Mass Combat Phase 3 — Unit attacks hero" });
   quench.registerBatch("exalted2e.masscombat.phase4.actions",      registerMassCombatPhase4Actions,    { displayName: "EX2E: Mass Combat Phase 4 — Unit Actions" });
   quench.registerBatch("exalted2e.masscombat.phase4.splitmerg",    registerMassCombatPhase4SplitMerge, { displayName: "EX2E: Mass Combat Phase 4 — Split & Merge" });
+  quench.registerBatch("exalted2e.masscombat.phase5", registerMassCombatPhase5, { displayName: "EX2E: Mass Combat Phase 5 — Rally, Routing & Token Status" });
 
 });

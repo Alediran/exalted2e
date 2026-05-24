@@ -1,4 +1,10 @@
 <div class="unit-sheet sheet-body">
+  {{#if system.disbanded}}
+  <div class="unit-disbanded-banner">
+    <i class="fas fa-skull"></i> {{localize "EX2E.UnitDisbandedBanner"}}
+  </div>
+  {{/if}}
+
   {{!-- Header: portrait + name + type --}}
   <div class="unit-header">
     <img class="unit-portrait profile-img"
@@ -69,6 +75,10 @@
       <label class="stat-label">{{localize "EX2E.Morale"}}</label>
       {{dotRating name="system.morale" value=system.morale max=5 min=1}}
     </div>
+    <div class="stat-row">
+      <label class="stat-label">{{localize "EX2E.ArmorFatigue"}}</label>
+      {{dotRating name="system.armorFatigue" value=system.armorFatigue max=4 min=0}}
+    </div>
   </div>
 
   {{!-- Combat Ratings --}}
@@ -118,6 +128,11 @@
       {{else}}
       <span class="commander-none">—</span>
       {{/if}}
+    </div>
+    <div class="unit-relays-row stat-row">
+      <label class="stat-label">{{localize "EX2E.Relays"}}</label>
+      <input type="number" name="system.relays"
+             value="{{system.relays}}" min="0" class="unit-relays-input" />
     </div>
   </div>
 

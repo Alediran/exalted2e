@@ -6,15 +6,131 @@ import {
   computeDisengagePool,
   computeDisengageDifficulty,
   computeSplitParentMagnitude,
+  computeRallyPool,
+  computeSecondWindEndurance,
 } from "./mass-combat-math.mjs";
 
 function getCommanderStats(unitActor) {
   const cmd = unitActor.system.commanderActor;
   return {
-    charisma: cmd?.system?.attributes?.charisma?.value ?? 0,
-    wits:     cmd?.system?.attributes?.wits?.value     ?? 0, // used by rollDisengage
-    war:      cmd?.system?.abilities?.war?.value       ?? 0,
+    charisma:    cmd?.system?.attributes?.charisma?.value    ?? 0,
+    wits:        cmd?.system?.attributes?.wits?.value        ?? 0, // used by rollDisengage
+    war:         cmd?.system?.abilities?.war?.value          ?? 0,
+    performance: cmd?.system?.abilities?.performance?.value  ?? 0,
   };
+}
+
+async function disbandUnit(unitActor) {
+  await unitActor.update({ "system.magnitude.value": 0, "system.disbanded": true });
+
+  const disbandEff = CONFIG.statusEffects["unitDisbanded"];
+  if (disbandEff) {
+    for (const token of unitActor.getActiveTokens()) {
+      await token.toggleEffect(disbandEff, { active: true });
+    }
+  }
+
+  if (game.combat) {
+    const combatant = game.combat.combatants.find(c => c.actor?.id === unitActor.id);
+    if (combatant) await game.combat.deleteEmbeddedDocuments("Combatant", [combatant.id]);
+  }
+
+  await ChatMessage.create({
+    speaker: ChatMessage.getSpeaker({ actor: unitActor }),
+    content: await foundry.applications.handlebars.renderTemplate(
+      "systems/exalted2e/templates/chat/unit-action-result.hbs",
+      { actionKey: "disband", attackerName: unitActor.name }
+    ),
+  });
+}
+
+export async function checkAndDisband(unitActor, newMagnitude) {
+  if (newMagnitude <= 0) {
+    await disbandUnit(unitActor);
+  } else {
+    await unitActor.update({ "system.magnitude.value": newMagnitude });
+  }
+}
+
+export async function rollRally(unitActor, {
+  subEffect,
+  pool,
+  successes,
+  diceDetails,
+  success,
+  diff,
+} = {}) {
+  const sys = unitActor.system;
+
+  let relaysBefore     = null;
+  let relaysAfter      = null;
+  let enduranceBefore  = null;
+  let enduranceAfter   = null;
+  let magnitudeBefore  = null;
+  let magnitudeAfter   = null;
+  let hesitationCleared = false;
+
+  if (success) {
+    if (subEffect === "organisation") {
+      relaysBefore = sys.relays ?? 0;
+      relaysAfter  = Math.min(sys.magnitude.value * 2, relaysBefore + 1);
+      await unitActor.update({ "system.relays": relaysAfter });
+
+    } else if (subEffect === "numbers") {
+      magnitudeBefore = sys.magnitude.value;
+      magnitudeAfter  = magnitudeBefore + 1;
+      await unitActor.update({
+        "system.magnitude.value": magnitudeAfter,
+        "system.health.value":    0,
+      });
+
+    } else { // second-wind
+      enduranceBefore = sys.endurance;
+      enduranceAfter  = computeSecondWindEndurance(enduranceBefore, sys.drill, sys.magnitude.value);
+      await unitActor.update({ "system.endurance": enduranceAfter });
+    }
+
+    const combatant = game.combat?.combatants.find(c => c.actor?.id === unitActor.id);
+    if (combatant?.flags?.exalted2e?.hesitating) {
+      await combatant.unsetFlag("exalted2e", "hesitating");
+      hesitationCleared = true;
+    }
+
+    const hesEff = CONFIG.statusEffects["unitHesitating"];
+    if (hesEff) {
+      for (const token of unitActor.getActiveTokens()) {
+        await token.toggleEffect(hesEff, { active: false });
+      }
+    }
+  }
+
+  const state = {
+    actionKey:        "rally",
+    attackerName:     unitActor.name,
+    subEffect,
+    pool,
+    successes,
+    difficulty:       diff,
+    diceDetails,
+    success,
+    relaysBefore,
+    relaysAfter,
+    enduranceBefore,
+    enduranceAfter,
+    magnitudeBefore,
+    magnitudeAfter,
+    hesitationCleared,
+  };
+
+  await ChatMessage.create({
+    speaker: ChatMessage.getSpeaker({ actor: unitActor }),
+    content: await foundry.applications.handlebars.renderTemplate(
+      "systems/exalted2e/templates/chat/unit-action-result.hbs",
+      state
+    ),
+  });
+
+  return state;
 }
 
 export async function rollCharge(unitActor) {
@@ -203,10 +319,16 @@ export async function rollSplitUnit(unitActor, { newUnitMagnitude }) {
   });
 
   if (success) {
-    await unitActor.update({ "system.magnitude.value": parentMagAfter });
+    await checkAndDisband(unitActor, parentMagAfter);
   } else {
     const combatant = game.combat?.combatants.find(c => c.actor?.id === unitActor.id);
     if (combatant) await combatant.setFlag("exalted2e", "hesitating", true);
+    const hesEff = CONFIG.statusEffects["unitHesitating"];
+    if (hesEff) {
+      for (const token of unitActor.getActiveTokens()) {
+        await token.toggleEffect(hesEff, { active: true });
+      }
+    }
   }
 
   return state;
@@ -258,7 +380,7 @@ export async function rollMergeUnits(unitActor, targetActor, { resultMagnitude }
   });
 
   if (success) {
-    await survivingActor.update({ "system.magnitude.value": resultMagnitude });
+    await checkAndDisband(survivingActor, resultMagnitude);
     if (game.combat) {
       const absorbedCombatant = game.combat.combatants.find(c => c.actor?.id === absorbedActor.id);
       if (absorbedCombatant) await game.combat.deleteEmbeddedDocuments("Combatant", [absorbedCombatant.id]);
@@ -269,6 +391,14 @@ export async function rollMergeUnits(unitActor, targetActor, { resultMagnitude }
       c => c.actor?.id === unitActor.id || c.actor?.id === targetActor.id
     ) ?? [];
     await Promise.all(combatants.map(c => c.setFlag("exalted2e", "hesitating", true)));
+    const hesEff = CONFIG.statusEffects["unitHesitating"];
+    if (hesEff) {
+      for (const actor of [unitActor, targetActor]) {
+        for (const token of actor.getActiveTokens()) {
+          await token.toggleEffect(hesEff, { active: true });
+        }
+      }
+    }
   }
 
   return state;

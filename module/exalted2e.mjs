@@ -466,6 +466,10 @@ Hooks.once("init", function () {
     heightAdvantage: { id: "heightAdvantage", name: "EX2E.StatusHeightAdvantage", img: "icons/svg/up.svg",      flags: { exalted2e: { dvBonus: { dodge: 1, parry: 1 } } } },
     // Crippling injury: −1 internal penalty to all physical actions until surgically healed.
     crippled:        { id: "crippled",        name: "EX2E.StatusCrippled",        img: "icons/svg/blood.svg",   flags: { exalted2e: { internalPenalty: { value: 1, type: "physical" }, crippled: true } } },
+    // Unit mass-combat states
+    unitHesitating: { id: "unit-hesitating", name: "EX2E.StatusHesitating", img: "systems/exalted2e/icons/status/hesitating.svg" },
+    unitEngaged:    { id: "unit-engaged",    name: "EX2E.StatusEngaged",    img: "systems/exalted2e/icons/status/engaged.svg"    },
+    unitDisbanded:  { id: "unit-disbanded",  name: "EX2E.StatusDisbanded",  img: "systems/exalted2e/icons/status/disbanded.svg"  },
   });
 
   console.log("Exalted 2e | System initialised.");
@@ -1797,6 +1801,29 @@ Hooks.on("updateActor", async (actor, changes, options, userId) => {
 
   if (!_FLUX_TIERS.has(tierAfter)) return;
   await _postDBFluxCard(actor, tierAfter);
+});
+
+// ── Unit: sync engaged/disbanded token status effects on actor update ─────────
+Hooks.on("updateActor", async (actor, changes) => {
+  if (actor.type !== "unit") return;
+  const tokens = actor.getActiveTokens();
+  if (!tokens.length) return;
+
+  if ("engaged" in (changes.system ?? {})) {
+    const active = changes.system.engaged;
+    const eff = CONFIG.statusEffects["unitEngaged"];
+    for (const token of tokens) {
+      await token.toggleEffect(eff, { active });
+    }
+  }
+
+  if ("disbanded" in (changes.system ?? {})) {
+    const active = changes.system.disbanded;
+    const eff = CONFIG.statusEffects["unitDisbanded"];
+    for (const token of tokens) {
+      await token.toggleEffect(eff, { active });
+    }
+  }
 });
 
 // Reset per-scene anima state for all character actors in a scene when it
@@ -3623,6 +3650,13 @@ Hooks.on("createCombatant", (combatant) => {
   JoinWarDialog.prompt(combatant, combat).catch(err =>
     console.error("EX2E | JoinWarDialog failed:", err)
   );
+});
+
+// ── Unit: record starting Magnitude when a unit joins combat ─────────────────
+Hooks.on("createCombatant", async (combatant) => {
+  const actor = combatant.actor;
+  if (actor?.type !== "unit") return;
+  await combatant.setFlag("exalted2e", "magnitudeAtJoinWar", actor.system.magnitude.value);
 });
 
 // ── Social attack: defender Step-2 orchestrator ──────────────────────────

@@ -112,3 +112,12 @@ export function computeMergeMagnitude(mag1, mag2) {
   const smaller = Math.min(mag1, mag2);
   return Math.min(5, larger + Math.ceil(smaller / 2));
 }
+
+export function computeRallyPool(charisma, war, performance) {
+  return Math.max(1, (charisma ?? 0) + Math.max((war ?? 0), (performance ?? 0)));
+}
+
+export function computeSecondWindEndurance(currentEndurance, drill, magnitude) {
+  const restored = Math.max(1, drill ?? 0);
+  return Math.min(magnitude ?? 1, currentEndurance + restored);
+}

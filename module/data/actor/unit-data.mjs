@@ -29,7 +29,9 @@ export class UnitData extends foundry.abstract.TypeDataModel {
         max:   new fields.NumberField({ integer: true, min: 1, initial: 7 })
       }),
       engaged:  new fields.BooleanField({ initial: false }),
-      aimBonus: new fields.NumberField({ integer: true, min: 0, initial: 0 })
+      aimBonus: new fields.NumberField({ integer: true, min: 0, initial: 0 }),
+      relays:   new fields.NumberField({ integer: true, min: 0, initial: 0 }),
+      disbanded: new fields.BooleanField({ initial: false })
     };
   }
 

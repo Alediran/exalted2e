@@ -22,7 +22,9 @@ import {
   computeDisengagePool,
   computeDisengageDifficulty,
   computeSplitParentMagnitude,
-  computeMergeMagnitude
+  computeMergeMagnitude,
+  computeRallyPool,
+  computeSecondWindEndurance
 } from "../../module/rolls/mass-combat-math.mjs";
 
 describe("computeAttackPool", () => {
@@ -316,5 +318,45 @@ describe("computeMergeMagnitude", () => {
   });
   it("works symmetrically", () => {
     expect(computeMergeMagnitude(2, 4)).toBe(computeMergeMagnitude(4, 2));
+  });
+});
+
+describe("computeRallyPool", () => {
+  it("uses war when war > performance", () => {
+    expect(computeRallyPool(3, 4, 2)).toBe(7);
+  });
+  it("uses performance when performance > war", () => {
+    expect(computeRallyPool(3, 1, 5)).toBe(8);
+  });
+  it("uses war when equal", () => {
+    expect(computeRallyPool(2, 3, 3)).toBe(5);
+  });
+  it("floors at 1 when all zero", () => {
+    expect(computeRallyPool(0, 0, 0)).toBe(1);
+  });
+  it("treats null inputs as 0", () => {
+    expect(computeRallyPool(null, null, null)).toBe(1);
+    expect(computeRallyPool(3, null, 2)).toBe(5);
+  });
+});
+
+describe("computeSecondWindEndurance", () => {
+  it("adds drill to current endurance", () => {
+    expect(computeSecondWindEndurance(2, 3, 5)).toBe(5);
+  });
+  it("caps at magnitude when result would exceed it", () => {
+    expect(computeSecondWindEndurance(3, 4, 5)).toBe(5);
+  });
+  it("enforces minimum restore of 1 when drill is 0", () => {
+    expect(computeSecondWindEndurance(2, 0, 5)).toBe(3);
+  });
+  it("enforces minimum restore of 1 when drill is null", () => {
+    expect(computeSecondWindEndurance(2, null, 5)).toBe(3);
+  });
+  it("caps restore at magnitude when magnitude is smaller", () => {
+    expect(computeSecondWindEndurance(2, 3, 3)).toBe(3);
+  });
+  it("treats null magnitude as 1", () => {
+    expect(computeSecondWindEndurance(0, 3, null)).toBe(1);
   });
 });
