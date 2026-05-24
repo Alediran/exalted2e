@@ -1,6 +1,6 @@
 {
-  "_id": "0519ed3741348364",
-  "_key": "!items!0519ed3741348364",
+  "_id": "d0e1f2a3b4c50005",
+  "_key": "!items!d0e1f2a3b4c50005",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,12 +9,12 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Impossible (attribute) Improvement",
+  "name": "Impossible Manipulation Improvement",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "lunar",
-    "ability": "",
+    "ability": "manipulation",
     "essence": 5,
     "minAbility": 5,
     "charmType": "permanent",
@@ -36,7 +36,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -45,9 +44,9 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "0519ed3741348364"
+    "charmUid": "d0e1f2a3b4c50005"
   },
-  "folder": "a1b2c3d4e5f60002",
+  "folder": "7e56afbcd2643f32",
   "sort": 0,
   "ownership": {
     "default": 0

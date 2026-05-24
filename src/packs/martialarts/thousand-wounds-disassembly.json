@@ -1,6 +1,6 @@
 {
-  "_id": "c75a32231dbcddd1",
-  "_key": "!items!c75a32231dbcddd1",
+  "_id": "e4f506172839405b",
+  "_key": "!items!e4f506172839405b",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,28 +9,26 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Conductive Principle Of Authority",
+  "name": "Thousand Wounds Disassembly",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "martialarts",
     "ability": "martialarts",
-    "essence": 2,
+    "essence": 4,
     "minAbility": 5,
-    "charmType": "reflexive",
+    "charmType": "simple",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [
-      1
-    ],
+    "steps": [],
     "keywords": [
       "Combo-OK",
       "Obvious"
     ],
     "cost": {
-      "motes": 3,
-      "willpower": 0,
+      "motes": 7,
+      "willpower": 1,
       "bashingHealth": 0,
       "lethalHealth": 0,
       "aggravatedHealth": 0,
@@ -38,15 +36,14 @@
       "motesLabel": "",
       "resonance": 0,
       "limitTrigger": 0,
-      "formula": "3m"
+      "formula": "7m, 1wp"
     },
-    "description": "<p>Sometimes, offenders refuse to recognize the primacy of law, even once found out and ensnared. The Flashing Wires shrug; those that will not kneel will be knelt. The martial artist concentrates his Essence around his heart, then releases it down his arm and through his whip in one vast, brutal surge. This Charm can boost crushing damage with a clinch using a whip, adding the attacker's Martial Arts rating to his raw damage. Alternatively, the Charm can enhance a whip strike, making the attack's damage piercing.</p>",
+    "description": "<p>The martial artist's anima momentarily darkens, then compresses into a series of swirling arcs that trace the forthcoming path and intent of her attacks. A heartbeat later, her weapon follows. Targets rarely have time to scream. The martial artist makes one unarmed attack with her full dice pool as the first attack of a flurry. If the attack hits, two attacks follow. Those attacks automatically hit for the same number of successes as unblockable and undodgeable attacks.</p>",
     "source": "MoEP: Alchemicals",
     "yoziPatron": "",
     "martialArtsTier": "celestial",
-    "martialArtsStyleName": "Live Wire Style",
+    "martialArtsStyleName": "Thousand Wounds Gear Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -59,8 +56,8 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "3b11070fcc2ccf1a",
-            "charmName": "Live Wire Form",
+            "charmUid": "75413e8b347e9c18",
+            "charmName": "Thousand Wounds Persistence",
             "abilityKey": "",
             "virtueKey": "valor",
             "virtueMin": 1
@@ -68,10 +65,10 @@
         ]
       }
     ],
-    "charmUid": "c75a32231dbcddd1",
+    "charmUid": "e4f506172839405b",
     "grantsMastery": false
   },
-  "folder": "0237080ec222c1fd",
+  "folder": "0435a43a4620802b",
   "sort": 0,
   "ownership": {
     "default": 0

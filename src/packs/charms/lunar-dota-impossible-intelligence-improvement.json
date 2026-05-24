@@ -1,6 +1,6 @@
 {
-  "_id": "8c4f5d22f57515dc",
-  "_key": "!items!8c4f5d22f57515dc",
+  "_id": "d0e1f2a3b4c50008",
+  "_key": "!items!d0e1f2a3b4c50008",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,35 +9,33 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Auxiliary Essence Storage Unit",
+  "name": "Impossible Intelligence Improvement",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "alchemical",
-    "ability": "stamina",
-    "essence": 1,
-    "minAbility": 1,
-    "charmType": "supplemental",
+    "exaltType": "lunar",
+    "ability": "intelligence",
+    "essence": 5,
+    "minAbility": 5,
+    "charmType": "permanent",
     "duration": "permanent",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Internal",
-      "Stackable"
+      "None"
     ],
     "cost": {
-      "formula": "-- [1m]",
+      "formula": "--",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This Charm increases the storage capacity of the Alchemical's Essence reservoir, adding 10 motes of Peripheral Essence per installation (to a maximum number of times equal to the Alchemical's Essence rating). Like all Charms that expand a character's mote pool, Auxiliary Essence Storage Unit can't be acquired with the Eclipse anima or equivalent powers.</p>",
-    "source": "MoEP: Alchemicals",
+    "description": "<p>Stewards hone their strengths. This Charm permanently increases the maximum rating of the chosen Attribute by one. Raising the Attribute to that level requires the normal expenditure of experience.</p>",
+    "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -46,9 +44,9 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "8c4f5d22f57515dc"
+    "charmUid": "d0e1f2a3b4c50008"
   },
-  "folder": "b0b1b2b3b4b5f053",
+  "folder": "8b05ba7cc3e236b8",
   "sort": 0,
   "ownership": {
     "default": 0
