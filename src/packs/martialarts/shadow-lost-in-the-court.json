@@ -1,6 +1,6 @@
 {
-  "_id": "29209e41c3932d01",
-  "_key": "!items!29209e41c3932d01",
+  "_id": "33e8321a85f9396a",
+  "_key": "!items!33e8321a85f9396a",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,35 +9,33 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "New Martial Arts Charm: Deadliest of All Weapons",
+  "name": "Shadow Lost in the Court",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "sidereal",
-    "ability": "",
-    "essence": 1,
-    "minAbility": 1,
+    "exaltType": "martialarts",
+    "ability": "martialarts",
+    "essence": 2,
+    "minAbility": 4,
     "charmType": "supplemental",
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
     "keywords": [
-      "Combo-OK",
-      "Poison"
+      "Combo-OK"
     ],
     "cost": {
-      "formula": "3m",
+      "formula": "3m, 1wp",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>There is no deadlier weapon than truth, which Sidereals may unleash on destiny's behalf. Should an unarmed attack supplemented by this Charm strike its target, they are poisoned with a toxin with the following traits: (Special/one hour, 5, --/--, -1). Rather than doing damage, this toxin infects the victim's chakras and her mind, rendering her incapable of lying or dissembling. Should she speak, she may only speak the truth as best she knows it.</p>",
-    "source": "Scroll of Errata",
+    "description": "<p>The world of the Exalted is a world of vast, eye-catching luminaries; nobody notices a shadow lost in the tangle of the crowd. This Charm enhances an attempt to re-establish surprise in a crowd (defined as a scene in which at least 20 characters are present), producing a -2 external penalty on attempts to spot the Sidereal. If the Sidereal has at least two shadow fingers present, this also qualifies as a crowd, permitting her to attempt to re-establish surprise.</p>",
+    "source": "Dreams of the First Age",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -46,9 +44,9 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "29209e41c3932d01"
+    "charmUid": "33e8321a85f9396a"
   },
-  "folder": "a1b2c3d4e5f60003",
+  "folder": "0489c660869ce271",
   "sort": 0,
   "ownership": {
     "default": 0

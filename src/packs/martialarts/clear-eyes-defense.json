@@ -13,8 +13,8 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "sidereal",
-    "ability": "martial arts",
+    "exaltType": "martialarts",
+    "ability": "martialarts",
     "essence": 2,
     "minAbility": 5,
     "charmType": "reflexive",
@@ -37,7 +37,6 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -48,7 +47,7 @@
     "prereqGroups": [],
     "charmUid": "ae3e085e94228890"
   },
-  "folder": "a1b2c3d4e5f60003",
+  "folder": "0489c660869ce271",
   "sort": 0,
   "ownership": {
     "default": 0
