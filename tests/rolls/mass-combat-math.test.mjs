@@ -24,7 +24,8 @@ import {
   computeSplitParentMagnitude,
   computeMergeMagnitude,
   computeRallyPool,
-  computeSecondWindEndurance
+  computeSecondWindEndurance,
+  computeExhaustionDifficulty
 } from "../../module/rolls/mass-combat-math.mjs";
 
 describe("computeAttackPool", () => {
@@ -358,5 +359,32 @@ describe("computeSecondWindEndurance", () => {
   });
   it("treats null magnitude as 1", () => {
     expect(computeSecondWindEndurance(0, 3, null)).toBe(1);
+  });
+});
+
+describe("computeExhaustionDifficulty", () => {
+  it("base difficulty is armorFatigue (min 1)", () => {
+    expect(computeExhaustionDifficulty(3, 2, false, false)).toBe(3);
+    expect(computeExhaustionDifficulty(0, 2, false, false)).toBe(1); // min 1
+  });
+  it("morale 3+ reduces difficulty by 1", () => {
+    expect(computeExhaustionDifficulty(3, 3, false, false)).toBe(2);
+  });
+  it("perfect morale (5) reduces difficulty by 2", () => {
+    expect(computeExhaustionDifficulty(3, 5, false, false)).toBe(1);
+  });
+  it("engaged adds 2", () => {
+    expect(computeExhaustionDifficulty(3, 2, true, false)).toBe(5);
+  });
+  it("charged adds 1", () => {
+    expect(computeExhaustionDifficulty(3, 2, false, true)).toBe(4);
+  });
+  it("combined modifiers are additive", () => {
+    // armorFatigue=3, morale=3 (-1), engaged (+2), charged (+1) → 3-1+2+1=5
+    expect(computeExhaustionDifficulty(3, 3, true, true)).toBe(5);
+  });
+  it("result is always at least 1", () => {
+    // armorFatigue=0, perfect morale → max(1, 0-2) = 1
+    expect(computeExhaustionDifficulty(0, 5, false, false)).toBe(1);
   });
 });

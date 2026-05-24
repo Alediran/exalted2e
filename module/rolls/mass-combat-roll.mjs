@@ -27,10 +27,13 @@ export async function rollMassCombatAttack(unitActor, { ranged = false, explicit
   const def         = defenderActor.system;
   const targetIsUnit = defenderActor.type === "unit";
 
-  const aimBonus = atk.aimBonus ?? 0;
+  const aimBonus         = atk.aimBonus ?? 0;
   if (aimBonus > 0) await unitActor.update({ "system.aimBonus": 0 });
 
-  const pool      = Math.max(1, atk.attackPool + aimBonus);
+  const fatiguePenalty      = (atk.endurance <= 0) ? -2 : 0;
+  const pool                = Math.max(1, atk.attackPool + aimBonus + fatiguePenalty);
+  const attackerCombatant   = game.combat?.combatants.find(c => c.actor?.id === unitActor.id);
+  const attackerCharged     = attackerCombatant?.flags?.exalted2e?.chargedLastAction ?? false;
   const atkRoll   = new ExaltedRoll({ pool });
   const atkResult = await atkRoll.evaluate();
 
@@ -89,7 +92,14 @@ export async function rollMassCombatAttack(unitActor, { ranged = false, explicit
     routDiceDetails:    [],
     routMagLoss:        0,
     magAfterRout:       targetIsUnit ? def.magnitude.value : 0,
-    hesitating:         false
+    hesitating:         false,
+    fatiguePenalty,
+    showExhaustionButtons: true,
+    attackerIsUnit:        true,
+    attackerActorId:       unitActor.id,
+    attackerCharged,
+    defenderIsUnit:        targetIsUnit,
+    defenderActorId:       defenderActor.id,
   };
 
   if (hit && !ranged && targetIsUnit) {
@@ -171,6 +181,8 @@ export async function rollMassCombatAttack(unitActor, { ranged = false, explicit
     flags: {
       exalted2e: {
         massCombatAttack: {
+          attackPool:      pool,
+          fatiguePenalty,
           heroDefender:    !targetIsUnit,
           attackerActorId: unitActor.id,
           defenderActorId: defenderActor.id,
@@ -272,7 +284,12 @@ export async function rollHeroAttacksUnit(heroActor, unitActor, weapon, { ranged
     routDiceDetails:    [],
     routMagLoss:        0,
     magAfterRout:       def.magnitude.value,
-    hesitating:         false
+    hesitating:         false,
+    showExhaustionButtons: true,
+    attackerIsUnit:        false,
+    attackerCharged:       false,
+    defenderIsUnit:        true,
+    defenderActorId:       unitActor.id,
   };
 
   if (hit) {

@@ -7,20 +7,22 @@
     {{else if (eq actionKey "merge")}}{{localize "EX2E.ActionMergeUnits"}}
     {{else if (eq actionKey "rally")}}{{localize "EX2E.ActionRally"}}
     {{else if (eq actionKey "disband")}}{{localize "EX2E.UnitDisbanded"}}
+    {{else if (eq actionKey "exhaustion")}}{{localize "EX2E.RollExhaustion"}}
+    {{else if (eq actionKey "signal")}}{{localize "EX2E.ActionSignal"}}
     {{/if}}
   </h3>
 
   {{!-- Roll summary row --}}
-  {{#unless (eq actionKey "disband")}}
+  {{#unless (eq actionKey "disband")}}{{#unless (eq actionKey "signal")}}
   <div class="mc-roll-row">
     <span class="mc-label">{{localize "EX2E.Pool"}}: {{pool}}</span>
     <span class="mc-label">{{localize "EX2E.Successes"}}: {{successes}}</span>
     <span class="mc-label">{{localize "EX2E.Difficulty"}}: {{difficulty}}</span>
   </div>
-  {{/unless}}
+  {{/unless}}{{/unless}}
 
   {{!-- Dice details --}}
-  {{#unless (eq actionKey "disband")}}
+  {{#unless (eq actionKey "disband")}}{{#unless (eq actionKey "signal")}}
   {{#if diceDetails}}
   <div class="mc-dice-row dice-results">
     {{#each diceDetails as |d|}}
@@ -28,7 +30,7 @@
     {{/each}}
   </div>
   {{/if}}
-  {{/unless}}
+  {{/unless}}{{/unless}}
 
   {{!-- Charge result --}}
   {{#if (eq actionKey "charge")}}
@@ -141,6 +143,29 @@
   <div class="mc-result-box disband-result">
     <strong>{{attackerName}} {{localize "EX2E.UnitDisbanded"}}</strong>
     <p>{{localize "EX2E.Magnitude"}}: 0</p>
+  </div>
+  {{/if}}
+
+  {{!-- Exhaustion result --}}
+  {{#if (eq actionKey "exhaustion")}}
+  <div class="mc-result-box {{#if success}}exhaustion-success{{else}}exhaustion-fail{{/if}}">
+    {{#if success}}
+      <strong>{{localize "EX2E.ExhaustionSuccess"}}</strong>
+      <p>{{localize "EX2E.Endurance"}}: {{enduranceBefore}}</p>
+    {{else}}
+      <strong>{{localize "EX2E.ExhaustionFailed"}}</strong>
+      <p>{{localize "EX2E.Endurance"}}: {{enduranceBefore}} → {{enduranceAfter}}</p>
+      {{#if nowFatigued}}
+      <p class="mc-fatigue-warning"><strong>{{localize "EX2E.ExhaustionFatigued"}}</strong></p>
+      {{/if}}
+    {{/if}}
+  </div>
+  {{/if}}
+
+  {{!-- Signal result --}}
+  {{#if (eq actionKey "signal")}}
+  <div class="mc-result-box signal-result">
+    <p>{{signalText}}</p>
   </div>
   {{/if}}
 </div>

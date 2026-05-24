@@ -1,7 +1,7 @@
 import { assertTestWorld } from "../_helpers/world.mjs";
 import { rollMassCombatAttack } from "../../../module/rolls/mass-combat-roll.mjs";
 import { ExaltedRoll } from "../../../module/rolls/exalted-roll.mjs";
-import { rollRally, checkAndDisband } from "../../../module/rolls/unit-action-roll.mjs";
+import { rollRally, checkAndDisband, rollExhaustion, performSignalUnits, rollCharge } from "../../../module/rolls/unit-action-roll.mjs";
 import { computeSecondWindEndurance } from "../../../module/rolls/mass-combat-math.mjs";
 
 export function registerMassCombat(context) {
@@ -663,6 +663,135 @@ export function registerMassCombatPhase5(context) {
       await unitActor.update({ "system.engaged": false });
       const reloaded = game.actors.get(unitActor.id);
       assert.equal(reloaded.system.engaged, false, "engaged is false");
+    });
+  });
+}
+
+export function registerMassCombatPhase6(context) {
+  const { describe, it, assert, before, after } = context;
+
+  before(assertTestWorld);
+
+  let commanderActor, unitActor, defenderActor;
+
+  before(async () => {
+    commanderActor = await Actor.create({
+      name: "P6Commander",
+      type: "character",
+      system: {
+        attributes: { charisma: { value: 5 } },
+        abilities:  { war: { value: 5 } }
+      }
+    });
+
+    unitActor = await Actor.create({
+      name: "P6ExhaustUnit",
+      type: "unit",
+      system: {
+        magnitude:        { value: 3, max: 5 },
+        drill:            2,
+        endurance:        3,
+        morale:           2,
+        armorFatigue:     0,
+        engaged:          false,
+        commanderActorId: commanderActor.id,
+      }
+    });
+
+    defenderActor = await Actor.create({
+      name: "P6Defender",
+      type: "unit",
+      system: {
+        magnitude: { value: 3, max: 5 },
+        drill:     1,
+        endurance: 2,
+        morale:    2,
+      }
+    });
+  });
+
+  after(async () => {
+    await unitActor?.delete();
+    await defenderActor?.delete();
+    await commanderActor?.delete();
+  });
+
+  describe("[P6-300] rollExhaustion success", () => {
+    it("endurance unchanged on success (pool 10 vs diff 1)", async () => {
+      await unitActor.update({ "system.armorFatigue": 0, "system.endurance": 3, "system.engaged": false });
+      const fresh = game.actors.get(unitActor.id);
+      const result = await rollExhaustion(fresh, { charged: false });
+      assert.ok(result.success, "roll should succeed (pool=10 vs diff=1)");
+      const after = game.actors.get(unitActor.id);
+      assert.equal(after.system.endurance, 3, "endurance unchanged on success");
+    });
+  });
+
+  describe("[P6-301] rollExhaustion failure", () => {
+    it("endurance decremented on failure (impossible difficulty)", async () => {
+      await unitActor.update({ "system.armorFatigue": 99, "system.endurance": 3, "system.engaged": false });
+      const fresh = game.actors.get(unitActor.id);
+      const result = await rollExhaustion(fresh, { charged: false });
+      assert.ok(!result.success, "roll should fail (diff=99)");
+      const after = game.actors.get(unitActor.id);
+      assert.equal(after.system.endurance, 2, "endurance decremented by 1");
+      await unitActor.update({ "system.armorFatigue": 0, "system.endurance": 3 });
+    });
+  });
+
+  describe("[P6-302] rollExhaustion failure at endurance 1", () => {
+    it("nowFatigued is true when endurance reaches 0", async () => {
+      await unitActor.update({ "system.armorFatigue": 99, "system.endurance": 1, "system.engaged": false });
+      const fresh = game.actors.get(unitActor.id);
+      const result = await rollExhaustion(fresh, { charged: false });
+      assert.ok(!result.success, "roll failed");
+      assert.ok(result.nowFatigued, "nowFatigued is true");
+      assert.equal(result.enduranceAfter, 0, "endurance is 0");
+      await unitActor.update({ "system.armorFatigue": 0, "system.endurance": 3 });
+    });
+  });
+
+  describe("[P6-303] fatigue penalty in rollMassCombatAttack", () => {
+    it("fatiguePenalty=-2 in message flags when endurance=0", async () => {
+      await unitActor.update({ "system.endurance": 0 });
+      const fresh = game.actors.get(unitActor.id);
+      const msgsBefore = game.messages.size;
+      await rollMassCombatAttack(fresh, { explicitTargetActor: defenderActor });
+      assert.ok(game.messages.size > msgsBefore, "attack card posted");
+      const msg = game.messages.contents[game.messages.size - 1];
+      const flags = msg?.flags?.exalted2e?.massCombatAttack;
+      assert.equal(flags?.fatiguePenalty, -2, "fatiguePenalty is -2");
+      await unitActor.update({ "system.endurance": 3 });
+    });
+  });
+
+  describe("[P6-304] rollCharge posts a chat card", () => {
+    it("posts a chat card without error", async () => {
+      const msgsBefore = game.messages.size;
+      await rollCharge(game.actors.get(unitActor.id));
+      assert.ok(game.messages.size > msgsBefore, "charge card posted");
+      await unitActor.update({ "system.endurance": 3 });
+    });
+  });
+
+  describe("[P6-305] rollExhaustion with charged=true does not throw", () => {
+    it("completes without error when no active combat", async () => {
+      await unitActor.update({ "system.armorFatigue": 0, "system.endurance": 3 });
+      const fresh = game.actors.get(unitActor.id);
+      const result = await rollExhaustion(fresh, { charged: true });
+      assert.ok(result, "result returned");
+    });
+  });
+
+  describe("[P6-306] performSignalUnits posts chat card with relay count", () => {
+    it("posts a card and returns relays count", async () => {
+      await unitActor.update({ "system.relays": 2 });
+      const fresh = game.actors.get(unitActor.id);
+      const msgsBefore = game.messages.size;
+      const result = await performSignalUnits(fresh);
+      assert.ok(game.messages.size > msgsBefore, "signal card posted");
+      assert.equal(result.relays, 2, "relay count in result");
+      await unitActor.update({ "system.relays": 0 });
     });
   });
 }

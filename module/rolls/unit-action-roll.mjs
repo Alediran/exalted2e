@@ -8,6 +8,7 @@ import {
   computeSplitParentMagnitude,
   computeRallyPool,
   computeSecondWindEndurance,
+  computeExhaustionDifficulty,
 } from "./mass-combat-math.mjs";
 
 function getCommanderStats(unitActor) {
@@ -133,10 +134,59 @@ export async function rollRally(unitActor, {
   return state;
 }
 
+export async function rollExhaustion(unitActor, { charged = false } = {}) {
+  const sys = unitActor.system;
+  const { charisma, war } = getCommanderStats(unitActor);
+
+  const diff = computeExhaustionDifficulty(sys.armorFatigue, sys.morale, sys.engaged, charged);
+
+  const pool = Math.max(1, charisma + war);
+  const roll = new ExaltedRoll({ pool });
+  const result = await roll.evaluate();
+  const success = result.successes >= diff;
+
+  const enduranceBefore = sys.endurance;
+  let enduranceAfter = enduranceBefore;
+
+  if (!success) {
+    enduranceAfter = Math.max(0, enduranceBefore - 1);
+    await unitActor.update({ "system.endurance": enduranceAfter });
+  }
+
+  if (charged) {
+    const combatant = game.combat?.combatants.find(c => c.actor?.id === unitActor.id);
+    if (combatant) await combatant.unsetFlag("exalted2e", "chargedLastAction");
+  }
+
+  const state = {
+    actionKey:       "exhaustion",
+    attackerName:    unitActor.name,
+    pool,
+    successes:       result.successes,
+    difficulty:      diff,
+    diceDetails:     result.diceDetails,
+    success,
+    enduranceBefore,
+    enduranceAfter,
+    nowFatigued:     !success && enduranceBefore > 0 && enduranceAfter <= 0,
+  };
+
+  await ChatMessage.create({
+    speaker: ChatMessage.getSpeaker({ actor: unitActor }),
+    content: await foundry.applications.handlebars.renderTemplate(
+      "systems/exalted2e/templates/chat/unit-action-result.hbs",
+      state
+    ),
+  });
+
+  return state;
+}
+
 export async function rollCharge(unitActor) {
   const sys = unitActor.system;
   const { charisma, war } = getCommanderStats(unitActor);
-  const pool = computeChargePool(charisma, war);
+  const fatiguePenalty = (sys.endurance <= 0) ? -2 : 0;
+  const pool = Math.max(1, computeChargePool(charisma, war) + fatiguePenalty);
   const diff = computeChargeDifficulty(sys.magnitude.value, sys.drill);
 
   const roll = new ExaltedRoll({ pool });
@@ -171,6 +221,11 @@ export async function rollCharge(unitActor) {
 
   if (success && enduranceCost > 0) {
     await unitActor.update({ "system.endurance": enduranceAfter });
+  }
+
+  if (success) {
+    const combatant = game.combat?.combatants.find(c => c.actor?.id === unitActor.id);
+    if (combatant) await combatant.setFlag("exalted2e", "chargedLastAction", true);
   }
 
   return state;
@@ -400,6 +455,28 @@ export async function rollMergeUnits(unitActor, targetActor, { resultMagnitude }
       }
     }
   }
+
+  return state;
+}
+
+export async function performSignalUnits(unitActor) {
+  const relays = unitActor.system.relays ?? 0;
+  const signalText = game.i18n.format("EX2E.SignalUnitsResult", { relays });
+
+  const state = {
+    actionKey:    "signal",
+    attackerName: unitActor.name,
+    relays,
+    signalText,
+  };
+
+  await ChatMessage.create({
+    speaker: ChatMessage.getSpeaker({ actor: unitActor }),
+    content: await foundry.applications.handlebars.renderTemplate(
+      "systems/exalted2e/templates/chat/unit-action-result.hbs",
+      state
+    ),
+  });
 
   return state;
 }

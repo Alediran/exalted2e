@@ -42,6 +42,7 @@ import { UnitSheet } from "./sheets/actor/unit-sheet.mjs"; // created in Task 4
 import { JoinWarDialog } from "./apps/join-war-dialog.mjs";
 import { MassCombatActionDialog } from "./apps/mass-combat-action-dialog.mjs";
 import { HeroMassCombatDialog }   from "./apps/hero-mass-combat-dialog.mjs";
+import { rollExhaustion }         from "./rolls/unit-action-roll.mjs";
 import { CharmSheet }       from "./sheets/item/charm-sheet.mjs";
 import { SpellSheet }       from "./sheets/item/spell-sheet.mjs";
 import { WeaponSheet }      from "./sheets/item/weapon-sheet.mjs";
@@ -3657,6 +3658,25 @@ Hooks.on("createCombatant", async (combatant) => {
   const actor = combatant.actor;
   if (actor?.type !== "unit") return;
   await combatant.setFlag("exalted2e", "magnitudeAtJoinWar", actor.system.magnitude.value);
+});
+
+// ── Exhaustion button handler ─────────────────────────────────────────────────
+Hooks.on("renderChatMessageHTML", (message, html) => {
+  html.querySelectorAll("[data-action='roll-exhaustion']").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const actorId = btn.dataset.actorId;
+      const charged = btn.dataset.charged === "true";
+      const actor   = game.actors.get(actorId);
+      if (!actor || !actor.isOwner) return;
+      btn.disabled = true;
+      try {
+        await rollExhaustion(actor, { charged });
+      } catch (err) {
+        console.error("EX2E | rollExhaustion failed:", err);
+        btn.disabled = false;
+      }
+    });
+  });
 });
 
 // ── Social attack: defender Step-2 orchestrator ──────────────────────────

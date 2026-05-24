@@ -121,3 +121,12 @@ export function computeSecondWindEndurance(currentEndurance, drill, magnitude) {
   const restored = Math.max(1, drill ?? 0);
   return Math.min(magnitude ?? 1, currentEndurance + restored);
 }
+
+export function computeExhaustionDifficulty(armorFatigue, morale, engaged, charged) {
+  let diff = Math.max(1, armorFatigue ?? 0);
+  if (morale >= 5)      diff -= 2;
+  else if (morale >= 3) diff -= 1;
+  if (engaged)           diff += 2;
+  if (charged)           diff += 1;
+  return Math.max(1, diff);
+}

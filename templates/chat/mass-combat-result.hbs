@@ -124,4 +124,24 @@
   {{/if}}
   {{/unless}}
   {{/if}}
+
+  {{!-- Exhaustion roll buttons --}}
+  {{#if showExhaustionButtons}}
+  <div class="mc-exhaustion-buttons">
+    {{#if attackerIsUnit}}
+    <button class="mc-exhaustion-btn" data-action="roll-exhaustion"
+      data-actor-id="{{attackerActorId}}"
+      data-charged="{{attackerCharged}}">
+      {{localize "EX2E.RollExhaustion"}} ({{attackerName}})
+    </button>
+    {{/if}}
+    {{#if defenderIsUnit}}
+    <button class="mc-exhaustion-btn" data-action="roll-exhaustion"
+      data-actor-id="{{defenderActorId}}"
+      data-charged="false">
+      {{localize "EX2E.RollExhaustion"}} ({{defenderName}})
+    </button>
+    {{/if}}
+  </div>
+  {{/if}}
 </div>

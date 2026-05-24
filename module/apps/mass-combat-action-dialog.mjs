@@ -7,6 +7,7 @@ import {
   rollSplitUnit,
   rollMergeUnits,
   rollRally,
+  performSignalUnits,
 } from "../rolls/unit-action-roll.mjs";
 import {
   computeChangeFormationDifficulty,
@@ -29,7 +30,8 @@ const ACTIONS = [
   { key: "disengage",          labelKey: "EX2E.ActionDisengage",      speed: 0, dvMod:  0, blockedIfNotEngaged: true },
   { key: "split",              labelKey: "EX2E.ActionSplitUnit",      speed: 3, dvMod: -1 },
   { key: "merge",              labelKey: "EX2E.ActionMergeUnits",     speed: 3, dvMod: -1, requiresTarget: true },
-  { key: "inactive",           labelKey: "EX2E.ActionInactive",       speed: 1, dvMod:  0}
+  { key: "inactive",           labelKey: "EX2E.ActionInactive",       speed: 1, dvMod:  0},
+  { key: "signal",             labelKey: "EX2E.ActionSignal",         speed: 3, dvMod:  0 },
 ];
 
 const FORMATION_MIN_DRILL = { none: 99, unordered: 1, skirmish: 2, relaxed: 2, close: 3 };
@@ -339,6 +341,10 @@ export class MassCombatActionDialog extends HandlebarsApplicationMixin(Applicati
         });
         break;
       }
+
+      case "signal":
+        await performSignalUnits(unit);
+        break;
 
       default:
         if (action.needsRoll) {
