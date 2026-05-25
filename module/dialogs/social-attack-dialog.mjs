@@ -180,6 +180,8 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
           intensity: i.system?.intensity ?? "minor",
           strength:  i.system?.strength  ?? 0
         })),
+      defenderHasVirtues:    t?.type === "character",
+      defenderHasMotivation: t?.type === "character",
       useIntimacyIntensity: game.settings.get("exalted2e", "useIntimacyIntensity"),
     };
   }

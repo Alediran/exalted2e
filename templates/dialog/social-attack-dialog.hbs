@@ -90,8 +90,12 @@
             {{/each}}
           </select>
         </label>
+        {{#if defenderHasVirtues}}
         <label class="claim-check"><input type="checkbox" name="supportingVirtue"     {{#if claims.supportingVirtue}}checked{{/if}}> {{localize "EX2E.Virtues"}} ≥3 <span class="claim-modifier">−2</span></label>
+        {{/if}}
+        {{#if defenderHasMotivation}}
         <label class="claim-check"><input type="checkbox" name="supportingMotivation" {{#if claims.supportingMotivation}}checked{{/if}}> {{localize "EX2E.Motivation"}} <span class="claim-modifier">−3</span></label>
+        {{/if}}
       </div>
       <div class="claim-row">
         <span class="claim-header">{{localize "EX2E.ClaimOpposing"}}</span>
@@ -107,8 +111,12 @@
             {{/each}}
           </select>
         </label>
+        {{#if defenderHasVirtues}}
         <label class="claim-check"><input type="checkbox" name="opposingVirtue"     {{#if claims.opposingVirtue}}checked{{/if}}> {{localize "EX2E.Virtues"}} ≥3 <span class="claim-modifier">+2</span></label>
+        {{/if}}
+        {{#if defenderHasMotivation}}
         <label class="claim-check"><input type="checkbox" name="opposingMotivation" {{#if claims.opposingMotivation}}checked{{/if}}> {{localize "EX2E.Motivation"}} <span class="claim-modifier">+3</span></label>
+        {{/if}}
       </div>
       <div class="claim-row">
         <label class="claim-check"><input type="checkbox" name="immediateThreat" {{#if claims.immediateThreat}}checked{{/if}}> {{localize "EX2E.ClaimImmediateThreat"}}</label>

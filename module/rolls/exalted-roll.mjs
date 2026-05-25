@@ -487,6 +487,7 @@ export class ExaltedRoll {
    * @param {number}       [options.modeIndex=0]  Which mode of the weapon to use
    */
   static async rollAttack(actor, weaponId, options = {}) {
+    if (actor.type !== "character") return null;
     const { AttackDialog } = await import("./attack-dialog.mjs");
 
     const weapon = actor.items.get(weaponId);
@@ -1173,6 +1174,26 @@ export class ExaltedRoll {
     const dmgMatch = (attack.damage ?? "").match(/(\d+)\s*([BLAble]*)/i);
     const baseDmg  = dmgMatch ? parseInt(dmgMatch[1]) : 0;
     const dmgType  = dmgMatch ? (dmgMatch[2].trim().toUpperCase()[0] ?? "L") : "L";
+    const soakKey  = { B: "bashing", L: "lethal", A: "aggravated" }[dmgType] ?? "lethal";
+
+    // ── Read target soak / hardness (same branch logic as rollAttack) ─────
+    const tSys = target.system;
+    let targetSoak     = 0;
+    let targetHardness = 0;
+    if (target.type === "character") {
+      targetSoak     = tSys.totalSoak?.[soakKey] ?? 0;
+      targetHardness = tSys.hardness ?? 0;
+    } else if (target.type === "npc") {
+      targetSoak     = tSys.combat?.soak?.[soakKey] ?? 0;
+      targetHardness = tSys.combat?.hardness ?? 0;
+    }
+
+    // ── Apply hardness then soak ───────────────────────────────────────────
+    const rawPool      = rawExcess + baseDmg;
+    const hardnessStops = hit && rawPool <= targetHardness;
+    const finalDamage   = (hit && !hardnessStops)
+      ? Math.max(0, rawPool - targetSoak)
+      : 0;
 
     // ── Build chat content ────────────────────────────────────────────────
     const hitLabel = hit
@@ -1184,8 +1205,11 @@ export class ExaltedRoll {
       <p>vs ${target.name} DV ${targetDV} — ${hitLabel}</p>`;
 
     if (hit) {
-      const totalRaw = rawExcess + baseDmg;
-      content += `<p>Raw damage: <strong>${totalRaw}${dmgType}</strong> (${rawExcess} excess + ${baseDmg} base)</p>`;
+      if (hardnessStops) {
+        content += `<p>Raw ${rawPool}${dmgType} — stopped by hardness ${targetHardness}</p>`;
+      } else {
+        content += `<p>Raw ${rawPool}${dmgType} − soak ${targetSoak} = <strong>${finalDamage}${dmgType}</strong></p>`;
+      }
     }
     content += `</div>`;
 

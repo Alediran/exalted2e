@@ -919,6 +919,15 @@ export class ExaltedActor extends Actor {
    *     success/failure still work — null is falsy, the object is truthy.
    */
   async spendMotes(amount, pool = "peripheral") {
+    if (this.type === "npc") {
+      const m = this.system.motes;
+      if ((m.value ?? 0) < amount) {
+        ui.notifications.warn(game.i18n.localize("EX2E.NotEnoughMotes"));
+        return null;
+      }
+      await this.update({ "system.motes.value": (m.value ?? 0) - amount });
+      return { fromPrimary: amount, fromSecondary: 0, primaryPool: "motes", secondaryPool: "motes" };
+    }
     if (this.type !== "character") return null;
     const primary   = this.system.motes[pool];
     const otherKey  = pool === "peripheral" ? "personal" : "peripheral";

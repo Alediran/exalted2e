@@ -100,8 +100,6 @@
         <input type="number" name="system.pools.social"   value="{{system.pools.social}}"  min="0"></div>
       <div class="field-group"><label>{{localize "EX2E.PhysicalPool"}}</label>
         <input type="number" name="system.pools.physical" value="{{system.pools.physical}}" min="0"></div>
-      <div class="field-group"><label>{{localize "EX2E.WoundPenalty"}}</label>
-        <input type="number" name="system.combat.woundPenalty" value="{{system.combat.woundPenalty}}" min="0" max="4"></div>
     </div>
   </details>
   {{/if}}
@@ -112,8 +110,13 @@
   <div class="health-info">
     <span>Total Boxes:
       {{#if isEditable}}
-      <input type="number" name="system.health.totalBoxes" value="{{system.health.totalBoxes}}" min="1" max="50" style="width:50px">
+      <input type="number" name="system.health.totalBoxes" value="{{system.health.totalBoxes}}" min="1" max="500" style="width:50px">
       {{else}}{{system.health.totalBoxes}}{{/if}}
+    </span>
+    <span>{{localize "EX2E.WoundPenalty"}}:
+      {{#if isEditable}}
+      <input type="number" name="system.combat.woundPenalty" value="{{system.combat.woundPenalty}}" min="0" max="4" style="width:40px">
+      {{else}}-{{system.combat.woundPenalty}}{{/if}}
     </span>
   </div>
   {{#if isEditable}}

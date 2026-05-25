@@ -103,12 +103,35 @@ describe("ExaltedActor.spendMotes", () => {
     });
   });
 
-  it("returns null without updating for non-character actors", async () => {
-    const actor = makeFakeActor({ type: "npc" });
+  it("returns null silently for unknown actor types", async () => {
+    const actor = makeFakeActor({ type: "vehicle" });
     const result = await ExaltedActor.prototype.spendMotes.call(actor, 5, "peripheral");
     expect(result).toBeNull();
     expect(actor.update).not.toHaveBeenCalled();
     expect(ui.notifications.warn).not.toHaveBeenCalled();
+  });
+
+  it("debits flat motes for NPC actors", async () => {
+    const actor = {
+      type: "npc",
+      system: { motes: { value: 20, max: 40 } },
+      update: vi.fn().mockResolvedValue(true)
+    };
+    const result = await ExaltedActor.prototype.spendMotes.call(actor, 5, "peripheral");
+    expect(actor.update).toHaveBeenCalledWith({ "system.motes.value": 15 });
+    expect(result).toEqual({ fromPrimary: 5, fromSecondary: 0, primaryPool: "motes", secondaryPool: "motes" });
+  });
+
+  it("warns and returns null when NPC has insufficient motes", async () => {
+    const actor = {
+      type: "npc",
+      system: { motes: { value: 3, max: 40 } },
+      update: vi.fn().mockResolvedValue(true)
+    };
+    const result = await ExaltedActor.prototype.spendMotes.call(actor, 5, "peripheral");
+    expect(result).toBeNull();
+    expect(actor.update).not.toHaveBeenCalled();
+    expect(ui.notifications.warn).toHaveBeenCalledWith("EX2E.NotEnoughMotes");
   });
 });
 
