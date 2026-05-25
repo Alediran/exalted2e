@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Five Days Darkness",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 9,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 8,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 14,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 7,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 7,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 5,
+        "current": 5,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "valor": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 7
+      "value": 7,
+      "max": 7
     },
     "willpower": {
       "value": 9,
       "max": 9
     },
     "motes": {
-      "value": 0,
-      "max": 175
-    },
-    "pools": {
-      "combat": 14,
-      "social": 10,
-      "physical": 12
-    },
-    "combat": {
-      "joinBattle": 10,
-      "dodgeDV": 10,
-      "parryDV": 0,
-      "dodgeMDV": 4,
-      "parryMDV": 2,
-      "soak": {
-        "bashing": 30,
-        "lethal": 15,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 10
+      "peripheral": {
+        "value": 175,
+        "max": 175,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 16
+      "bonus": {
+        "zero": 1,
+        "one": 4,
+        "two": 4
+      }
     },
-    "powers": "<p>Damping the Inner Light--For 20 motes and one Willpower, Five Days Darkness may offer direct, divine power to another. He leans forward and kisses the willing target, who accepts a sliver of Five Days Darkness into her, gaining his dark nature in exchange for power. Damping the Inner Light grants a permanent increase of Essence by 1 to the target. This costs the target no experience points, and mortals gifted with this Charm become, effectively, God-Blooded. The target forever forsakes a single dot of Virtue, however. A single Virtue of the target's choice loses one dot, and the maximum possible value drops by one. Further, the target becomes \"a creature of darkness\" for the purpose of Charms and powers that affects such beings. Often, changes to the target accompany this Charm, such as a darkening of the eyes or hair. An Eclipse may learn this Charm, but to do so requires him to give up a single dot of a Virtue and lowers the maximum possible value of that Virtue by one, just as if he were under the effects of the Charm (but hadn't gained an extra dot of Essence). He may not use the Charm on himself and must have (at the Storyteller's discretion) previously learned another of Five Days Darkness's Charms or a Charm that imbues another with power for an extended period of time. Further, the Eclipse must have an Essence of at least 5. Mortals whom the Eclipse endows with this Charm become God-Blooded related to Five Days Darkness, not the Eclipse. Essence Plethora (x6)--Five Days Darkness has 60 additional motes of Essence in his Essence pool. Immaculate Martial Arts Techniques--Five Days Darkness has mastered all five Elemental Dragon Styles. A rough guide to their effects can be found in the Exalted Storytellers Companion, pages 22-31, or their full effects may be found in The Manual of Exalted Power: The Dragon-Blooded. Measure the Wind--Five Days Darkness uses this Charm to intuitively sense the power and nature of someone in his presence. Principle of Motion--Five Days Darkness has nine extra actions ready in his pool. Reserve of Will (x3)--Five Days Darkness stores three additional temporary Willpower. CHAPTER EIGHT · GODS AND MONSTERS OF THE SCAVENGER LANDS Shadow-Plumbing Gaze--For five motes, Five Days Darkness may slip behind the shadows of the world, watching the skeins of discarded fate-threads that form behind the curtains of Creation for insight into a long-hidden secret. Each activation of this Charm allows the Storyteller to make a single (Temperance + Investigation) roll in an extended test for Five Days Darkness to uncover a single secret that he wishes to know. The difficulty of the roll depends on how well-hidden the secret is: 5 might be enough for the dirty laundry of a small city's mayor, but the location of the Empress would require more than 25. If the secret has \"seen the light of day\" (e.g., enough people know it, the secret has been discussed in broad daylight, or some physical aspect of the secret, such as a murder weapon or a body, has touched sunlight), then Five Days Darkness simply cannot find the information he seeks. This Charm is best deployed when hunting for secrets hidden away indoors or beneath the ground. Five Days Darkness may use this Charm only while he is immaterial. Shapechange--Five Days Darkness can appear as any animal or any mortal, though he cannot deliberately copy individuals. His inky black eyes give away his presence, and when disguising himself, he must put effort into hiding his eyes from others. Unearthed Riches--For five motes per Resources dot, Five Days Darkness may summon up the jewels and rich metals of the earth. The riches he calls up have to have never touched the light of day, so he cannot steal them from a Guild's caravan, for example. Every five motes spent generates a single Resources dot's worth of gems and precious metals, enough to make a single purchase. (Enough gems and gold to purchase a rich palace would cost Five Days Darkness 25 motes, for example.) The touch of his shadow taints the riches, however, and anyone who accepts them suffers a -1 reduction in her Temperance trait for the space of three nights. Her Temperance remains normal during the day, though. Void-Slumber Meditation--For 20 motes, Five Days Darkness offers another the peace and bliss that only complete absence of consciousness can bring. The willing target vanishes from this world, entering Elsewhere in a quiet slumber for a full night and a full day. Once the sun slips below the horizon on the following night, the character reappears in the exact spot she left, with all of her wounds completely healed. All damage vanishes after this single day. Further, the slumber is exceptionally peaceful, and the character gains two additional dice on her Conviction roll to regain Willpower. This Charm cannot heal aggravated damage. Five Days Darkness has the First, Second and Third Excellencies for the following</p>",
-    "notes": "<p>Punch: Speed 5, Accuracy 18, Damage 9B, Defense 19, Rate 3 Kick: Speed 5, Accuracy 17, Damage 12B, Defense 15, Rate 2 Bite (animal forms only): Speed 6, Accuracy 15, Damage 12L, Defense 5, Rate 1</p>",
-    "biography": "<p>When the Primordials bid the Unconquered Sun to first flare with all his glory, his light cut away the strange half-twilight that had covered Creation's half-formed face until then. His brilliance flooded all parts of the world, but it also cast a shadow, as all light, all virtue, must. This shadow fled the light of its creator and hid in the dark places of the world. The shadow suckled at the teat of the Ebon Dragon and learned the secrets of the world. Yet, he yearned to return to his proper place in Creation, for he was a god after a fashion. Yet when he approached his creator, the Unconquered Sun, he found he could not bear the brilliance of the lord of Yu-Shan. Nor could he stand before the light of Luna or the Maidens. He turned, instead, to the calendar spirits, seeking to join their number, offering his knowledge of secrets and his Charms over peace and security in an effort to gain them as allies and friends. They rejected him. \"How can we trust a being who turns away from the bright center of Creation? One that cannot bear the light of the Unconquered Sun?\" they asked. Humiliated and resentful, he fled to Creation and took up the title of Five Days Darkness. The powers of the year would not have him, so he would seek his revenge and rule the five days they could not, enacting complicated plots to humiliate them and bring them under his influence. Five Days Darkness wears many forms as he walks the face of Creation. He appears most often as a tall, slim man, beautiful in countenance and powerful in body, a perfect replica of the images of the Unconquered Sun except for the inky darkness of his body, as though he was void made flesh. Other times, he appears as an amorphous blob of darkness or as an animal with jet-black, unreflecting eyes. His voice throbs low and powerful, echoing the voice that last spoke to him. In whatever form he wears, Five Days Darkness exists only at night. The moment the first ray of light strikes him, he vanishes, only to reappear when the last vestige of the sun-disk has slipped over the edge of the horizon, with no knowledge of events that have occurred in the interim. This weakness complicates his plots considerably. Many who learn of Five Days Darkness's existence assume he is a creature of evil or one that stands in opposition of the Unconquered Sun. Nothing could be further from the truth. Five Days Darkness is deeply attached to the being that created him, constantly yearning for, but never able to touch, the glory of the sun. He avoids the Exalted of the Unconquered Sun, but not out of distaste. He enjoys their company, particularly that of the Night Caste and willingly aids them if asked. Only, he feels uncomfortable in their presence, particularly when they shine forth with the power of the sun. Likewise, he despises the Dragon-Blooded and enjoys using their own Immaculate techniques to defeat them, and he disdains the Abyssal Exalted, whom he sees as a corruption of the Solar Exalted. His wrath, therefore, does not focus upon the Incarnae, for they did not reject him. He saves it for the calendar spirits who humiliated him and disdained him. By whispering into the ears of mortal rulers and petty godlings, his plots draw the calendar spirits into his debt or craft embarrassing scenarios. He offers subtle power and secrets gathered from the dark places of the earth to those who aid him in his machinations. Outside of his intrigues with the fractious calendar courts, those who meet him describe his as honorable and wise, with a hint of tragic loneliness in his dark, dark eyes and an edge of dry sarcasm to his tongue. Sanctum: Five Days Darkness has no spiritual abode to call home. He wanders the world, an outcast of Yu-Shan and Creation alike.</p><p><strong>Motivation:</strong> To humiliate and control the gods of the calendar.</p><p><strong>Backgrounds:</strong> Resources 3</p><p><em>Source: Compass of Terrestrial Directions, Vol. I: The Scavenger Lands</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>When the Primordials bid the Unconquered Sun to first flare with all his glory, his light cut away the strange half-twilight that had covered Creation's half-formed face until then. His brilliance flooded all parts of the world, but it also cast a shadow, as all light, all virtue, must. This shadow fled the light of its creator and hid in the dark places of the world. The shadow suckled at the teat of the Ebon Dragon and learned the secrets of the world. Yet, he yearned to return to his proper place in Creation, for he was a god after a fashion. Yet when he approached his creator, the Unconquered Sun, he found he could not bear the brilliance of the lord of Yu-Shan. Nor could he stand before the light of Luna or the Maidens. He turned, instead, to the calendar spirits, seeking to join their number, offering his knowledge of secrets and his Charms over peace and security in an effort to gain them as allies and friends. They rejected him. \"How can we trust a being who turns away from the bright center of Creation? One that cannot bear the light of the Unconquered Sun?\" they asked. Humiliated and resentful, he fled to Creation and took up the title of Five Days Darkness. The powers of the year would not have him, so he would seek his revenge and rule the five days they could not, enacting complicated plots to humiliate them and bring them under his influence. Five Days Darkness wears many forms as he walks the face of Creation. He appears most often as a tall, slim man, beautiful in countenance and powerful in body, a perfect replica of the images of the Unconquered Sun except for the inky darkness of his body, as though he was void made flesh. Other times, he appears as an amorphous blob of darkness or as an animal with jet-black, unreflecting eyes. His voice throbs low and powerful, echoing the voice that last spoke to him. In whatever form he wears, Five Days Darkness exists only at night. The moment the first ray of light strikes him, he vanishes, only to reappear when the last vestige of the sun-disk has slipped over the edge of the horizon, with no knowledge of events that have occurred in the interim. This weakness complicates his plots considerably. Many who learn of Five Days Darkness's existence assume he is a creature of evil or one that stands in opposition of the Unconquered Sun. Nothing could be further from the truth. Five Days Darkness is deeply attached to the being that created him, constantly yearning for, but never able to touch, the glory of the sun. He avoids the Exalted of the Unconquered Sun, but not out of distaste. He enjoys their company, particularly that of the Night Caste and willingly aids them if asked. Only, he feels uncomfortable in their presence, particularly when they shine forth with the power of the sun. Likewise, he despises the Dragon-Blooded and enjoys using their own Immaculate techniques to defeat them, and he disdains the Abyssal Exalted, whom he sees as a corruption of the Solar Exalted. His wrath, therefore, does not focus upon the Incarnae, for they did not reject him. He saves it for the calendar spirits who humiliated him and disdained him. By whispering into the ears of mortal rulers and petty godlings, his plots draw the calendar spirits into his debt or craft embarrassing scenarios. He offers subtle power and secrets gathered from the dark places of the earth to those who aid him in his machinations. Outside of his intrigues with the fractious calendar courts, those who meet him describe his as honorable and wise, with a hint of tragic loneliness in his dark, dark eyes and an edge of dry sarcasm to his tongue. Sanctum: Five Days Darkness has no spiritual abode to call home. He wanders the world, an outcast of Yu-Shan and Creation alike.</p><p><strong>Motivation:</strong> To humiliate and control the gods of the calendar.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Punch: Speed 5, Accuracy 18, Damage 9B, Defense 19, Rate 3 Kick: Speed 5, Accuracy 17, Damage 12B, Defense 15, Rate 2 Bite (animal forms only): Speed 6, Accuracy 15, Damage 12L, Defense 5, Rate 1</p><h3>Powers</h3><p>Damping the Inner Light--For 20 motes and one Willpower, Five Days Darkness may offer direct, divine power to another. He leans forward and kisses the willing target, who accepts a sliver of Five Days Darkness into her, gaining his dark nature in exchange for power. Damping the Inner Light grants a permanent increase of Essence by 1 to the target. This costs the target no experience points, and mortals gifted with this Charm become, effectively, God-Blooded. The target forever forsakes a single dot of Virtue, however. A single Virtue of the target's choice loses one dot, and the maximum possible value drops by one. Further, the target becomes \"a creature of darkness\" for the purpose of Charms and powers that affects such beings. Often, changes to the target accompany this Charm, such as a darkening of the eyes or hair. An Eclipse may learn this Charm, but to do so requires him to give up a single dot of a Virtue and lowers the maximum possible value of that Virtue by one, just as if he were under the effects of the Charm (but hadn't gained an extra dot of Essence). He may not use the Charm on himself and must have (at the Storyteller's discretion) previously learned another of Five Days Darkness's Charms or a Charm that imbues another with power for an extended period of time. Further, the Eclipse must have an Essence of at least 5. Mortals whom the Eclipse endows with this Charm become God-Blooded related to Five Days Darkness, not the Eclipse. Essence Plethora (x6)--Five Days Darkness has 60 additional motes of Essence in his Essence pool. Immaculate Martial Arts Techniques--Five Days Darkness has mastered all five Elemental Dragon Styles. A rough guide to their effects can be found in the Exalted Storytellers Companion, pages 22-31, or their full effects may be found in The Manual of Exalted Power: The Dragon-Blooded. Measure the Wind--Five Days Darkness uses this Charm to intuitively sense the power and nature of someone in his presence. Principle of Motion--Five Days Darkness has nine extra actions ready in his pool. Reserve of Will (x3)--Five Days Darkness stores three additional temporary Willpower. CHAPTER EIGHT · GODS AND MONSTERS OF THE SCAVENGER LANDS Shadow-Plumbing Gaze--For five motes, Five Days Darkness may slip behind the shadows of the world, watching the skeins of discarded fate-threads that form behind the curtains of Creation for insight into a long-hidden secret. Each activation of this Charm allows the Storyteller to make a single (Temperance + Investigation) roll in an extended test for Five Days Darkness to uncover a single secret that he wishes to know. The difficulty of the roll depends on how well-hidden the secret is: 5 might be enough for the dirty laundry of a small city's mayor, but the location of the Empress would require more than 25. If the secret has \"seen the light of day\" (e.g., enough people know it, the secret has been discussed in broad daylight, or some physical aspect of the secret, such as a murder weapon or a body, has touched sunlight), then Five Days Darkness simply cannot find the information he seeks. This Charm is best deployed when hunting for secrets hidden away indoors or beneath the ground. Five Days Darkness may use this Charm only while he is immaterial. Shapechange--Five Days Darkness can appear as any animal or any mortal, though he cannot deliberately copy individuals. His inky black eyes give away his presence, and when disguising himself, he must put effort into hiding his eyes from others. Unearthed Riches--For five motes per Resources dot, Five Days Darkness may summon up the jewels and rich metals of the earth. The riches he calls up have to have never touched the light of day, so he cannot steal them from a Guild's caravan, for example. Every five motes spent generates a single Resources dot's worth of gems and precious metals, enough to make a single purchase. (Enough gems and gold to purchase a rich palace would cost Five Days Darkness 25 motes, for example.) The touch of his shadow taints the riches, however, and anyone who accepts them suffers a -1 reduction in her Temperance trait for the space of three nights. Her Temperance remains normal during the day, though. Void-Slumber Meditation--For 20 motes, Five Days Darkness offers another the peace and bliss that only complete absence of consciousness can bring. The willing target vanishes from this world, entering Elsewhere in a quiet slumber for a full night and a full day. Once the sun slips below the horizon on the following night, the character reappears in the exact spot she left, with all of her wounds completely healed. All damage vanishes after this single day. Further, the slumber is exceptionally peaceful, and the character gains two additional dice on her Conviction roll to regain Willpower. This Charm cannot heal aggravated damage. Five Days Darkness has the First, Second and Third Excellencies for the following</p><p><strong>Backgrounds:</strong> Resources 3</p><p><em>Original essence pool from source: 175 motes</em></p><p><em>Source: Compass of Terrestrial Directions, Vol. I: The Scavenger Lands</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

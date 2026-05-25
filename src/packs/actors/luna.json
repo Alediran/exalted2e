@@ -1,27 +1,331 @@
 {
   "_id": "0001000000000061",
   "_key": "!actors!0001000000000061",
-  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
   "name": "Luna",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
-    "essence": { "value": 10 },
-    "willpower": { "value": 10, "max": 10 },
-    "motes": { "value": 0, "max": 250 },
-    "pools": { "combat": 25, "social": 20, "physical": 25 },
-    "combat": { "joinBattle": 20, "dodgeDV": 18, "parryDV": 12, "dodgeMDV": 5, "parryMDV": 2, "soak": { "bashing": 15, "lethal": 8, "aggravated": 0 }, "hardness": 0 },
-    "health": { "bashing": 0, "lethal": 0, "aggravated": 0, "totalBoxes": 35 },
-    "powers": "<p>Luna has All-Encompassing versions of virtually every spirit Charm not associated with a unique being. Notably, she lacks Excellencies and related Charms, as her Charm Nigh-Inchoate Supremacy transcends such magic. She has 10 purchases of Essence Plethora, Reserve of Will, and Ox-Body Technique. Nigh-Inchoate Supremacy applies any Charm effect at will, scaling to her Essence and Attributes.</p>",
-    "notes": "<p><strong>Punch</strong>: Speed 5, Accuracy 26, Damage 15B, Parry DV 14, Rate 3, Tags N</p><p><strong>Kick</strong>: Speed 5, Accuracy 25, Damage 18B, Parry DV 12, Rate 2, Tags N</p><p><strong>Clinch</strong>: Speed 6, Accuracy 25, Damage 15B, Parry DV --, Rate 1, Tags C,N,P</p><p>Luna is the most powerful warrior among the Incarnae, with superhuman speed and reflexes to match her Dexterity of 15.</p>",
-    "biography": "<p>The Argent Madonna. Second of the Incarnae and wife to the Primordial Gaia. The core of Luna's personality is fickle; some of her more common Motivations include \"Be Free,\" \"Protect those she loves,\" \"Challenge those who do not fear the Wyld,\" \"Guide the lost to safety,\" and \"Spread knowledge of sorcery among the worthy.\" Her more enduring Intimacies include: Change (Need), Gaia (Love), Creation (Fierce Protectiveness), the Lunar Exalted (Pride), the Unconquered Sun (Friendly Rivalry), the Five Maidens (Wary Respect), the Fair Folk (Joyful Provocation), and dissidents and outcasts (Kindness). Luna's constant evolution sheds dreams into the atmosphere, carried on her Wyld-tinged light to be picked up by the minds of humanity, so that there is a constant influx of new ideas and fresh imagination in Creation.</p><p>Source: Glories of the Most High: Luna.</p>",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 15,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 15,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 15,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 10,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 10,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 15,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 10,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 10,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 10,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 8,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 8,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 8,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "valor": {
+        "value": 5,
+        "current": 5,
+        "channeled": false
+      }
+    },
+    "essence": {
+      "value": 10,
+      "max": 10
+    },
+    "willpower": {
+      "value": 10,
+      "max": 10
+    },
+    "motes": {
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
+      },
+      "peripheral": {
+        "value": 250,
+        "max": 250,
+        "committed": 0,
+        "bonus": 0
+      }
+    },
+    "limit": 0,
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "bonus": {
+        "zero": 33,
+        "one": 0,
+        "two": 0
+      }
+    },
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Written by Michael Goodwin, John Mørke, Holden Shearer Additional Material by Neall Raemonn Price Developed by Eddy Webb Edited by Carl Bowen Layout and Design by Brian Glass Art by Misy Coats, DPI Studios, Imaginary Friends Studio, Saana `Kiyo' Lappalainen, Pasi Pitkanen, UDON and Long Vo Cover Art by Adam Warren © 2009 CCP hf. All rights reserved. Reproduction without the written permission of the publisher is expressly forbidden, except for the purposes of reviews, and one printed copy, which may be reproduced for personal use only. White Wolf and Exalted are registered trademarks of CCP hf. All rights reserved. Glories of the Most High the Unconquered Sun, Luna, the Maidens of Destiny, the Manual of Exalted Power the Lunars, the Manual of Exalted Power the Sidereals, the Manual of Exalted Power the Abyssals, Graceful Wicked Masques the Fair Folk, the Books of Sorcery, the White Treatise, the Compass of Terrestrial Directions, the Scavenger Lands, the West, the East, the South, the Compass of Celestial Directions, Yu-Shan, Scroll of the Monk, Scroll of Heroes and Dreams of the First Age, Lords of Creation are trademarks of CCP hf. All rights reserved. All characters, names, places and text herein are copyrighted by CCP hf. CCP North America Inc. is a wholly owned subsidiary of CCP hf. The mention of or reference to any company or product in these pages is not a challenge to the trademark or copyright concerned. This book uses the supernatural for settings, characters and themes. All mystical and supernatural elements are fiction and intended for entertainment purposes only. This book contains mature content. Reader discretion is advised. Check out White Wolf online at http://www.white-wolf.com Seductive and exotic beyond measure; a supreme intelligence, infinite in its depth; the very essence of quixotic; a will to overcome and survive even unto the death of the cosmos, with a strength to rival the Unconquered Sun--there is but a single being in existence who can lay claim to all these things and more. She is Luna, Goddess of the Moon, Second on High and patron deity of the Lunar Exalted. Countless in her guises, she has labored for an endless era under the weight of her divine task: to provide spiritual and existential diversity from the Unconquered Sun. Yet, pulled by a force of love stronger than even the abstruse Maiden of Serenity can comprehend, Luna is torn by her innate loyalty to the Once-Guarding Star and her desire to leave Creation and fly to the side of Gaia. In prehistory, it was Luna who convinced the Emerald Mother to turn against her brethren and side with the Unconquered Sun. It was by Luna's design that the Lunar Exalted were produced, giv- ing Solars the lovers, champions and seconds they needed to shoulder their terrible burden and win the war against the Primordials. And it was Luna who, during the Primordial War, masked herself as gods of multiple different purviews so that she could move undetected amidst the divine bureaucracy, uncovering Primordial sympathizers and political enemies of the Unconquered Sun. Now Luna struggles to protect Creation and Gaia while laboring under a crippling addiction to the Games of Divinity. But of all the Celestial Incarnae, it is she who shows the strongest resistance, regularly breaking free from the Games to attend the Exaltation of her Chosen, and to step in and directly manage the affairs of her domain, Silver Chair. Perhaps this is because she is a being of infinite depth, in a state of constant evolution and therefore surpassingly fickle. Or perhaps it is because so much of Luna's heart proceeds with longing into the distant Wyld with Gaia, and because so much of her effort (when not playing the Games) goes into creating signs and pathways to lead Gaia back to Creation. Yet, that quality might be the cause for even greater cataclysm, as Luna's efforts to lure Gaia home are the secret cause for much anxiety in the Celestial Order. Luna's enemies in Heaven and Creation continue to mount. Meanwhile her Exalted, splintered and flung into marginalized states at the rim of the world, can avail her little by way of a defense if that is where they remain. Even so, the Argent Madonna is anything but an underdog, and those who would conspire against her have every reason to pause, as her actions during the Primordial War have not been forgotten. While most of her ancient aliases are now well known and she remains mostly tied up with the Games, the Silver Lady could still have some alternate identities yet to be revealed. She might even break free enough from the Games of Divinity to begin her cycles of infiltration and spying among the derelict and corrupt gods of Heaven once more. PERSONAGE AND PANOPLY During the making of the world, it became apparent that Creation could not move beyond the brilliance of sustained day. The Unconquered Sun was so dominant above all other facets of existence that life itself was stunted by his constant presence, locked into the harsh patterns of his perfection and burning up in emulation of him. Therefore, night was engineered so the Unconquered Sun could rest and so Creation could have rest from him. Set above night as its face and its guardian was the moon; the spirit of the moon was Luna. Luna's chief architect was Cytherea, the trigger of divine evolution who provided Gaia's Essence with the substance it needed to produce Creation. Cytherea knew that Luna must be what the Unconquered Sun was not. Yet, inspired by the embodiment of fully realized perfection that was Ignis Divine, Cytherea wanted the moon to partake of certain qualities in order to be his peer. In Cytherea's mind, Luna began to take shape: a being of near perfection, of magnificence and grace and of appreciable definition, yet indefinite. She would be touched by traits she shared with the Unconquered Sun, but defined by her differences from him. Where he was day, she would be night. Where he ordered Creation, her existence would introduce chaos. Where the Unconquered Sun was the pinnacle of all possible perfection, Luna would be the impossible made possible. And so, while the light of the Sun expressed all things within Creation, Luna would draw upon forces outside Creation. But it was beyond Cytherea's power to realize Luna alone. To complete her design, she went to Oramus, the Dragon Beyond the World, whose mind dwelled on alien vistas beyond perception, an infinite forge of the impossible that stirred the very Wyld into forms and patterns by the movement of its thoughts. In the forge of Oramus, the moon was born from Cytherea's vision, cut apart from his nightmares to bring what was beyond and apart from Creation into Creation in a singular form. That form was Luna, who came bearing Creation's first night in the cloak on her shoulders. She was a static being, wracked with the infinitely shifting whim of Oramus's perceptions and driven toward evolution by the primordial urge of Cytherea. Luna stood at once in the sky alongside the Unconquered Sun, and Creation fell down before her in love and terror. Risking her life in her very first taste of it, she went to the Unconquered Sun and put her hands on his face, and said words that only he heard. There in the sky, she became the only being to have looked upon the true face of the Unconquered Sun, to gaze upon his full intensity without being destroyed. In that instant, Creation had its first eclipse, as Luna's billowing cloak of night spread across the sky The sun was banished from the world, and night fell on everything. Rising over the Elemental Pole of Wood, Luna began her first peregrination from East to West--her lithe legs and silver body rising over the highest treetops, her shoulders trailing a cloak of night in which swam billions of stars, her face shining with the brilliant glow of one who has gazed into the holy light of the Most High. Born from the conceptual \"without\" of Oramus's dreams and infused with the ever-evolving indomitable urge of Cytherea, Luna's is a form that changes shapes to pull at the forces outside the touch of the sun's light. Yet she is a blazing Celestial, allied and rooted firmly to Creation, fiercely loyal to the Unconquered Sun. She gathers darkness about her like a cloak, but is not of it. She draws upon the Wyld to touch the world with refreshing chaos, but she is not of the Wyld. She looks into the Beyond, where the dreams of Oramus create an existential well of alien concepts and hellish landscapes. Although she hails from that place, she herself is beyond the Beyond, having become something definite and real; the impossible made possible. Luna's design is one of elemental seduction. She is the great summoner, calling the tide, the trade winds and the clouds to veil her face. She calls ants up out of the desert by night to interrupt the endless stillness; she calls the wolves to attend her with their prayers. It is Luna who called out to the Maidens across time, awakening them from their primordial dreaming, and it is Luna whose call to \"rise and shine\" draws the Unconquered Sun from his slumber each morning. She calls the Wyld in to fuel the sun's flame so that Creation might be spared, and she draws in the enemies of Creation with her hypnotic sway so that they might not be spared it. Chief among her duties, she calls to Gaia. For Cytherea knew that Gaia wished to leave Creation behind to continue her never-ending quest beyond the shores of the world, but Cytherea wished to keep Gaia so that they might share her sister's seat at the Games of Divinity and partake of her love. Ultimately, Luna's seductive, magnetic nature was to act as a rook to keep Gaia in Creation. Yet, as a puppet to Cytherea, Luna failed miserably. Although Luna was designed to seduce Gaia, she was not created to love her. Her storied love for iconoclasts and individuals was epitomized in the Emerald Mother, who stood out and apart from the rest of the Primordials. Gaia was a trailblazer, an adventurer and a being empathetic to the plight of the myriad billions of life forms teeming on Creation's vistas. So in love with Gaia was she that Luna could not turn her over to the waiting arms of one who wanted to keep her. Instead Luna gave Gaia into the care of the Unconquered Sun, whom she trusted implicitly, and the Unconquered Sun convinced Gaia to join him in a rebellion against Gaia's brothers and sisters. Two Ages have passed since then, and Gaia and Luna remain inseparable. The nature of their peculiar relationship is a common subject of rumors among the ranks of the Celestial Bureaucracy. The self-centered, politically minded deities of Heaven have conjectured countless reasons the two might remain in collusion. They wonder if Luna wishes to gain influence over the Dragon-Blooded Host and thus usurp control of Creation by proxy. Or perhaps she dreams of using the aid of the last free Primordial to overthrow the Unconquered Sun. They theorize that the warm regard the other Incarnae display toward Gaia is a polite lie, and that the Emerald Mother prostitutes herself to Luna to stay the disdainful blades of her divine siblings. In their theories and conjectures they drag Heaven's best-known couple down to the level of their own petty, status-climbing schemes. The simple, unbelievable truth of the matter is that Luna and Gaia fell in love in the final days of the Time of Glory, and in love they remain as the Second Age staggers toward its end. The Underworld heaves itself up into Creation, poisoning the geomancy to which Gaia has so intimately tied herself. The Wyld boils at the borders of the real. The gates of Malfeas tremble. But whatever happens next in the Time of Tumult, the Fickle Lady and the Emerald Mother will face it together. And Luna is watching to see what that next event might be--more closely than any of her siblings are. Though shackled to the Games of Divinity as firmly as the Unconquered Sun is, she has always been much better at splitting her attention and being of two minds at once than Ignis Divine is, and so she keeps an eye in the sky and an ear to the ground. Her initial shame at her Chosen for fleeing to the rim of Creation has long since shifted to delight at their adaptability and survival through their darkest hour. She now watches intently to see what the Lunars will do with her gifts. She Exalted them to be the heroes Creation would need, protectors of the world her lover made, and she wonders if they will rise again to the challenge of the Age. Most of all, she watches the return of the Solars. She wonders if the Lunars will return to their side or redefine GIRDLE OF THE CHTHONIC BAARA (ARTIFACT ···) It is said that during the early days of the Primordial War the Argent Madonna personally handed down this unique wonder to the Lunar Exalt known as the Black Manticore. Although it is made of flowing, flexible moonsilver and set with cloud diamonds from the Elemental Pole of Air and fire opals from deep beneath Creation's surface, the girdle still manages to project an innocuous appearance. Most mortals fail outright to notice it. Recognizing the artifact as anything other than a mundane belt requires a reflexive (Perception + Awareness) roll at difficulty 5. Supernatural obfuscation is not the girdle's primary purpose or power, however. It was believed in the First Age that the belt had been somehow endowed with a measure of primal Wyld energy, stabilized by the touch of Luna. Those who know of it in the Second Age have their doubts. They suspect the power of the Chthonic Baara is that of Luna and Luna alone. They wonder if the shadow of the All-Beast is somehow reflected in their own Exaltations, allowing for the possibility of chimerism. Whenever a Lunar wearing the girdle of the Chthonic Baara assumes his war form through the Deadly Beastman Transformation Knack, he may reflexively re-assign that form's mutations in any legal configuration he desires without being forced to take his spirit shape into account. For example, a Lunar with the spirit shape of a great cat could easily assume a war form sporting wings and tentacles. If he ceases to wear the girdle, his war form reverts to its normal state. This artifact costs seven motes to attune. themselves once again. She wonders if she should act to shift the situation, and if so, how. Each day, she chooses instead to take her moves at the boards of the Games, but perhaps one day she will not. None can say for certain, especially Luna herself. The Silver Lady is one of the strangest and strongest deities alive, manifesting some qualities eerily reminiscent of the Fair Folk. Her fey nature comes by design. Luna was originally created to engage with the Wyld and its unshaped horrors as an envoy of the Primordials, a polite alternative to the gold-mailed fist of the Unconquered Sun. She also curbed his other excesses, providing a balancing force that kept his zeal from burning the world. Luna maintained but outgrew this function when she fell in love with Gaia, and that love, more than anything else, ensured victory in the Primordial War by swaying the Emerald Mother to betray her siblings. Without the creation of the Dragon-Blooded, the Celestials would have been generals without armies, individually awesome but ultimately insufficient to defeat the Primordials. Then, too, it was Luna whom Gaia first persuaded to spare those Primordials who surrendered rather than execute them all. It was Luna who then convinced the other Incarnae to listen to the Emerald Mother's plea. Had this not happened, the fury of the Exalted and the Unconquered Sun might have doomed Creation to destruction with its makers. Luna remains a restless spirit, consumed with ardor for her lover and a nagging sense that she must be more, but her addiction to the Games of Divinity has stymied her evolution.</p><p><strong>Motivation:</strong> The core of Luna's personality is fickle (see Silver Lady's Prerogative, p. 10). Some of her more common Motivations include \"Be Free,\" \"Protect those she loves,\" \"Challenge those who do not fear the Wyld,\" \"Guide the lost to safety,\" \"Encourage others to seek what is beautiful\" and \"Spread knowledge of sorcery among the worthy.\" Her more enduring Intimacies include: Change (Need), Gaia (Love), Creation (Fierce Protectiveness), the Lunar Exalted (Pride), the Unconquered Sun (Friendly Rivalry), the Five Maidens (Wary Respect), the Fair Folk (Joyful Provocation), Autochthon (Fear), iconoclasts (Tacit Approval) and dissidents and outcasts (Kindness).</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Punch: Speed 5, Accuracy 26, Damage 15B, Parry DV 14, Rate 3, Tags N Kick: Speed 5, Accuracy 25, Damage 18B, Parry DV 12, Rate 2, Tags N Clinch: Speed 6, Accuracy 25, Damage 15B, Parry DV --, Rate 1, Tags C,N, P</p><h3>Powers</h3><p>As one of the mightiest spirits alive, Luna has All-Encompassing versions of virtually every spirit Charm not associated with a unique being. Notably, she lacks Excellencies and related Charms, as her Charm Nigh-Inchoate Supremacy (see below) transcends such magic. She has 10 purchases each of Essence Plethora, Reserve of Will and Ox-Body Technique, and pays 100 motes to materialize. Luna may grant any Blessing or Curse and may issue permanent versions of either as many times per year as she desires, spending 30 motes in lieu of permanent Willpower to do so. Her Endowment can bestow Lunar Charms or Knacks to her Chosen as though she possessed them. The Silver Lady's version of Hurry Home can depart from anywhere in Creation, Yu-Shan or the Wyld, teleporting her to any location in Yu-Shan, a waypoint she has previously visited in the Wyld, her sanctum or a valid point in Creation. (A valid point is defined as a place illuminated by moonlight or within 100 yards of where anyone successfully prayed to her or received Lunar Exaltation in the past hour.) Luna's version of Host of Spirits creates copies with no reduction of Attributes or Essence, all of which possess Hurry Home, but she can have no more than five copies in existence at a time. It is by means of this Charm that she visits her Lunars upon their Exaltation without giving up her turn at the Games of Divinity. Luna's dominion grants her intuitive mastery of all Terrestrial and Celestial martial arts associated with a type of creature, such as animal styles or the hero styles of the various Exalted. She does not understand styles rooted in abstract concepts of any sort and is incapable of formally studying supernatural martial arts to overcome this limitation. Because she is so intuitive, however, she can freely activate her Martial Arts Charms as though they were spirit Charms without needing Combos. With regard to permanent Martial Arts Charms she knows, she may turn them off or ignore any of their effects at will, as she is beyond such rigidities. Many-Faced Panoply of the Silver Lady: The following Charms belong exclusively to Luna and may not be learned by other beings. To the degree it matters, they have a minimum Essence of 10. Nigh-Inchoate Supremacy: Luna adapts herself to all exigencies as a Shaping effect. By reflexively committing one mote per dot, she may indefinitely boost the natural rating of her Physical Attributes (25), Other Attributes (20), Abilities (10) or Virtues (5) up to the maximum ratings listed in parentheses. Although she can assume forms that may exceed these trait limits, with Shaped by Unshaped Splendor (which follows), this is the only way she can do so. Therefore, if she is in a form with Strength 20, she can use this Charm to raise that trait to 25. Yet, if she dons a Strength 30 form, she can do nothing to further enhance its Strength with Nigh-Inchoate Supremacy. Conferring Linguistics grants whatever languages Luna wishes to incorporate at the time she gains those dots. Finally, whenever Luna pays a Willpower point to enhance an action, the player does not add a bonus success. Instead, she applies a number of successes to the action equal to the dice she would have rolled (in lieu of making an actual roll). If Luna uses Willpower to improve a DV against an attack, her defense gains the power to block the unblockable and dodge the undodgeable, which also removes the benefits of a surprise attack and allows her to defend normally. Other static values gain nothing from use of this power. Shaped by Unshaped Splendor: Lunar Exalted change their shapes in homage to their patron (Manual of Exalted Power--The Lunars, pp. 126­129). Luna herself has no Tell, nor risks any deleterious effects of Wyld taint from exercising this power. All forms are true to the Silver Lady, so she pays only one mote per shift. In any form, she may choose to use the traits conferred by her shape or her own. Normally, it is her practice to weaken herself to fit her shape, but this is an aesthetic preference she quickly abandons if her ire is aroused. In battle, she prefers massive forms to small ones, the better to show off her epic might. Luna is considered to have every non-chimera Knack whose qualities are not intrinsically dependent on qualities Luna expressly lacks (such as having a Solar mate). No mutations THE SCRIPTURE OF THE CHANGING MAIDEN Once, there was a maiden... ...who danced across the heavens in a thousand shining forms. She fell in love with a shepherd in a high meadow. He loved her back, but feared her. Who could feel otherwise before her beautiful horror? But when he slept, she came to him in his cave. She lay with him and embraced him. This bound her to him, but she didn't mind. \"The world is a dream, and I am not a maiden,\" she said. conferred by shapechanging can raise her current form's Attributes above the maximums established in Nigh-Inchoate Supremacy, though the natural traits of a form are not so limited, as noted. She is considered to have the Heart's Blood of every being that has ever existed, provided that being never achieved an Essence rating of 10. Her Knacks cannot emulate the Charms of Primordials or Exalted, nor confer any form of immortality better than her basic divinity. The Storyteller may also deny her any other powers he deems game-breaking. Assumption of Unmarred Form: The Silver Lady is immune to all negative effects from environmental conditions. She can reflexively pay five motes to heal one level of any type of damage or remove any single effect with the Crippling, Poison or Sickness keywords. She may restore herself thus or anyone she is touching. Wounded But Never Down: All of Luna's health levels above Incapacitated are -0 levels. When she would suffer lethal damage that would reduce her to her Dying levels, further lethal damage converts her wounds to aggravated levels instead, in the same way bashing damage spills over to become lethal. Only when all of her health levels hold aggravated damage can she suffer mortal injury or perish. Whenever any source of injury applies actual health levels of damage to Luna, she may reflexively pay five motes. Doing so ensures that no more levels may be applied than half the minimum damage possible for that event, rounded up. For example, this power ensures that an attack by an Essence 8 being cannot inflict more than four levels of damage. Effects that would kill Luna outright are considered to inflict infinite aggravated damage and may be limited accordingly. As the Moon Sees: Luna can innately perceive the Essence flow of her surroundings as per the Charm All-Encompassing Sorcerer's Sight (Exalted, p. 222). She can reflexively displace her senses to anywhere she can travel within Creation or Yu-Shan using Hurry Home. She knows instantly whenever a Lunar receives Exaltation. Grace Beyond Dreams: Luna's protean nature allows her to ignore or reverse any Shaping effect upon her at will; no force can prevent her from doing so. She can perform Shaping actions and engage in Shaping combat like a raksha as though she possessed, at a rating of 10, all possible Graces that could ever exist. If she successfully vexes the Heart of a raksha noble, she may crush it in her hand and pay one Willpower point to calcify her victim into one of the truculee (pp. 17-19). The Silver Lady heals one level of damage to all Graces each day at sunset and can pay one Willpower point per Grace when doing so to remove any negative effects associated with having lost Shaping contests involving that Grace. This capacity to be temporarily defeated in Shaping combat is the only Shaping effect she cannot shrug off at will. Because she has no actual Graces, the power that functions as such cannot be vexed from her. When she bothers to do so, Luna may bestow any Fair Folk Charm upon herself, reflexively committing one mote per Charm she imagines she has. She retains these Charms as long as she maintains the commitment and may pay three motes per point of gossamer required to pay their costs. Chaos-Defining Hue: By reflexively committing 30 motes, she can radiate moonlight upon any radius around her up to five miles as a Shaping effect. Committing 100 motes allows her to be more selective, casting her glow solely upon any number of perceived targets within the maximum radius. Her illumination can shine as bright as the full moon or glimmer almost too faintly to see, but any sunlight hides her light completely. The visibility of her radiance has no bearing on its power. Wherever she shines in Creation or the Wyld, her will dictates whether that place or selected targets experience the properties of Creation, the Bordermarches, the Middlemarches, the Deep Wyld or Pure Chaos. Luna decides what mutations her light imposes on anything changed by it. In addition, Luna can impose or suppress any hazardous environmental conditions she imagines within her light (or falling upon specific targets), up to a maximum damage of 5L, an interval no shorter than one action and a Trauma of 5. She could make a lake of acid no more caustic than water, quell a storm or conjure an opalescent flesh-melting mist. Her power to banish or summon environmental conditions can also negate or impose external penalties up to a -5 from distracting or uncomfortable conditions. Silver Lady's Prerogative: Luna can reflexively pay five motes of Essence and one point of Willpower to instantly rid herself of any single undesired mental influence effect or \"permanently\" redefine her Motivation. She cannot use this Charm to abandon Intimacies and must actually spend 10 scenes to form or abandon an Intimacy. The Silver Lady treats her Intimacies as Motivations for the purpose of social combat. It is from her passions, not her central identity, that Luna derives her sense of self. Beauty to Break All Hearts: The minimum Willpower cost needed to resist any mental influence from Luna is her relative Appearance modifier over the target, if that modifier is in the Silver Lady's favor. This means that all but the most extraordinarily and supernaturally gorgeous beings in existence pay a minimum of three points of Willpower. Whenever Luna makes a social attack to build an Intimacy toward herself in another, the influence is unnatural and success forms the attachment instantly. Whenever a being without an Intimacy to Luna first perceives her each scene, she may make a reflexive social attack to build an Intimacy toward herself that involves no effort on her part or awareness of the onlooker. This Intimacy can have any emotional context she desires.</p><p><strong>Backgrounds:</strong> Befitting her station as an Incarna, the lover of a Primordial and a conquering force over the denizens of the Wyld, Luna commands virtually limitless access to the resources of Yu-Shan and Creation. She can be assumed to have a rating of 5, or even N/A where viable, in any Background that reflects this authority. Of particular note, her Cult N/A gives her eight motes of Essence and one point of Willpower per hour from worldwide veneration.</p><p><em>Original essence pool from source: 250 motes</em></p><p><em>Source: Glories of the Most High: Luna</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
   "sort": 0,
-  "ownership": { "default": 0 },
+  "ownership": {
+    "default": 0
+  },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "The Perfect of Paragon",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 5,
+        "current": 5,
+        "channeled": false
+      },
+      "valor": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 3
+      "value": 3,
+      "max": 3
     },
     "willpower": {
       "value": 8,
       "max": 8
     },
     "motes": {
-      "value": 0,
-      "max": "23 (30) Committed"
-    },
-    "pools": {
-      "combat": 9,
-      "social": 9,
-      "physical": 8
-    },
-    "combat": {
-      "joinBattle": 10,
-      "dodgeDV": 5,
-      "parryDV": 0,
-      "dodgeMDV": 4,
-      "parryMDV": 2,
-      "soak": {
-        "bashing": 8,
-        "lethal": 10,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": "23 (30) Committed",
+        "max": "23 (30) Committed",
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 7
+      "bonus": {
+        "zero": 0,
+        "one": 0,
+        "two": 0
+      }
     },
-    "powers": "",
-    "notes": "<p>Punch: Speed 5, Accuracy 10, Damage 3B, Parry DV 6, Rate 3 Kick: Speed 5, Accuracy 9, Damage 6B, Parry DV 4, Rate 2 Clinch: Speed 6, Accuracy 9, Damage 3B, Parry DV --, Rate 1, Tags C,N,P Scepter of Peace and Order: Speed 5, Accuracy 13, Damage 8B, Parry DV 5, Rate 2</p>",
-    "biography": "<p>The ageless god-king of Paragon came to power through his discovery of a mighty artifact, the Scepter of Peace and Order. As the Perfect of Paragon, he has been a stern but pragmatic ruler. Those who try to disrupt the safety and prosperity of Paragon--or the stability of the Perfect's rule--meet a quick, unceremonious end out of the public eye. The Perfect does not tempt fate with grand gestures or melodramatic public claims. For a man who has lived in the public eye as one of Creation's CHAPTER NINE: GODS AND MONSTERS OF THE SOUTH most potent monarchs, though, the Perfect is personally an enigma. Members of his court find him affable in private, but not inclined to talk about himself. He accepts the humor of others but never makes jokes. His concubines find him kindly enough, and when they age, they generally move into civil service positions--the Perfect likes intelligent companions. His children respect him but do not know him despite the hour a day he spends with them. No one describes him as cruel... just utterly ruthless in preserving and promoting his city. Over the centuries, the Perfect has gained the forced loyalty of many sifus, savants and sorcerers, who have imparted their expertise to him. He no longer relies exclusively on the Scepter. The Perfect recognizes, however, that he attained great power through chance, and that keeping his power requires hard work and great care. He can never let the rule of Paragon be about his own ego. He does not permit himself to care about anything save peace, order and the hard necessities of survival in the Age of Sorrows. Creation's most powerful mortal has a real chip on his shoulder concerning the Incarnae's Chosen, however. The Perfect tries to hide his satisfaction when Exalts admit they need his help (or at least his cooperation), and his anger when the shoe is on the other foot. He does not always succeed. The return of the Solars prods the Perfect to a new, galling question: Why not him? Hasn't he earned it? As a Twilight Caste, he'd be... perfect. Scarlet Whisper now realizes that she must manage the Perfect's emotions as carefully as he sometimes manages hers. Their relationship grows steadily more complicated. The Perfect appears as a man of indeterminate age with ash-blond hair, sometimes seeming middle aged, with tired eyes, other times having almost boyish looks. His features do not change, however, just others' perception of them. He dresses in cloth of gold set with jewels. A diadem set with great jewel-like lenses adorns his brow. Golden pauldrons connected by a pectoral of more jewel-disks cross his shoulders. The effect is, perhaps coincidentally, reminiscent of a yoke. He carries his golden scepter wherever he goes.</p><p><strong>Motivation:</strong> To preserve order and maintain his rule</p><p><strong>Backgrounds:</strong> Allies 5, Artifact (Scepter of Peace and Order) N/A, Artifact (Silken Armor) 2, Backing 5, Connections (Guild) 3, Cult 4, Followers 5, Influence 4, Manse 4, Manse 2, Resources 5 Martial Arts: Jade Mountain Style--All Charms (see Scroll of the Monk, pp. 53­55) Terrestrial Hero Style--All Charms (see The Manual of Exalted Power--The Dragon-Blooded, pp. 191­193) White Veil Style--All Charms (see Scroll of the Monk, pp. 61­63) Spells: Calling the Stalwart Servitor, Commanding Pres- ence of Fire, Death of Obsidian Butterflies, Demon of the First Circle, Disguise of the New Face, Droning Suggestion, Emerald Circle Banishment, Emerald Countermagic, The Eye and the Mouth, Fugue of Truth, Incantation of Spiri- tual Discretion, Infallible Messenger, Invulnerable Skin of Bronze, Peacock Shadow Eyes, Private Plaza of Downcast Eyes, Purifying Flames, Raising the Earth's Bones, Ritual of Elemental Empowerment, Stormwind Rider, Summon Elemental, Theft of Memory Thaumaturgy: The Art of Alchemy--Master degree, all Procedures The Art of Astrology--Adept degree, all Procedures The Art of Enchantment--Master degree, all Procedures The Art of Geomancy--Master degree, all Procedures The Art of Warding and Exorcism--Master degree, all Pro- cedures</p><p><em>Source: Compass of Terrestrial Directions, Vol. IV: The South</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>The ageless god-king of Paragon came to power through his discovery of a mighty artifact, the Scepter of Peace and Order. As the Perfect of Paragon, he has been a stern but pragmatic ruler. Those who try to disrupt the safety and prosperity of Paragon--or the stability of the Perfect's rule--meet a quick, unceremonious end out of the public eye. The Perfect does not tempt fate with grand gestures or melodramatic public claims. For a man who has lived in the public eye as one of Creation's CHAPTER NINE: GODS AND MONSTERS OF THE SOUTH most potent monarchs, though, the Perfect is personally an enigma. Members of his court find him affable in private, but not inclined to talk about himself. He accepts the humor of others but never makes jokes. His concubines find him kindly enough, and when they age, they generally move into civil service positions--the Perfect likes intelligent companions. His children respect him but do not know him despite the hour a day he spends with them. No one describes him as cruel... just utterly ruthless in preserving and promoting his city. Over the centuries, the Perfect has gained the forced loyalty of many sifus, savants and sorcerers, who have imparted their expertise to him. He no longer relies exclusively on the Scepter. The Perfect recognizes, however, that he attained great power through chance, and that keeping his power requires hard work and great care. He can never let the rule of Paragon be about his own ego. He does not permit himself to care about anything save peace, order and the hard necessities of survival in the Age of Sorrows. Creation's most powerful mortal has a real chip on his shoulder concerning the Incarnae's Chosen, however. The Perfect tries to hide his satisfaction when Exalts admit they need his help (or at least his cooperation), and his anger when the shoe is on the other foot. He does not always succeed. The return of the Solars prods the Perfect to a new, galling question: Why not him? Hasn't he earned it? As a Twilight Caste, he'd be... perfect. Scarlet Whisper now realizes that she must manage the Perfect's emotions as carefully as he sometimes manages hers. Their relationship grows steadily more complicated. The Perfect appears as a man of indeterminate age with ash-blond hair, sometimes seeming middle aged, with tired eyes, other times having almost boyish looks. His features do not change, however, just others' perception of them. He dresses in cloth of gold set with jewels. A diadem set with great jewel-like lenses adorns his brow. Golden pauldrons connected by a pectoral of more jewel-disks cross his shoulders. The effect is, perhaps coincidentally, reminiscent of a yoke. He carries his golden scepter wherever he goes.</p><p><strong>Motivation:</strong> To preserve order and maintain his rule</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Punch: Speed 5, Accuracy 10, Damage 3B, Parry DV 6, Rate 3 Kick: Speed 5, Accuracy 9, Damage 6B, Parry DV 4, Rate 2 Clinch: Speed 6, Accuracy 9, Damage 3B, Parry DV --, Rate 1, Tags C,N,P Scepter of Peace and Order: Speed 5, Accuracy 13, Damage 8B, Parry DV 5, Rate 2</p><p><strong>Backgrounds:</strong> Allies 5, Artifact (Scepter of Peace and Order) N/A, Artifact (Silken Armor) 2, Backing 5, Connections (Guild) 3, Cult 4, Followers 5, Influence 4, Manse 4, Manse 2, Resources 5 Martial Arts: Jade Mountain Style--All Charms (see Scroll of the Monk, pp. 53­55) Terrestrial Hero Style--All Charms (see The Manual of Exalted Power--The Dragon-Blooded, pp. 191­193) White Veil Style--All Charms (see Scroll of the Monk, pp. 61­63) Spells: Calling the Stalwart Servitor, Commanding Pres- ence of Fire, Death of Obsidian Butterflies, Demon of the First Circle, Disguise of the New Face, Droning Suggestion, Emerald Circle Banishment, Emerald Countermagic, The Eye and the Mouth, Fugue of Truth, Incantation of Spiri- tual Discretion, Infallible Messenger, Invulnerable Skin of Bronze, Peacock Shadow Eyes, Private Plaza of Downcast Eyes, Purifying Flames, Raising the Earth's Bones, Ritual of Elemental Empowerment, Stormwind Rider, Summon Elemental, Theft of Memory Thaumaturgy: The Art of Alchemy--Master degree, all Procedures The Art of Astrology--Adept degree, all Procedures The Art of Enchantment--Master degree, all Procedures The Art of Geomancy--Master degree, all Procedures The Art of Warding and Exorcism--Master degree, all Pro- cedures</p><p><em>Original essence pool from source: 23 (30) Committed motes</em></p><p><em>Source: Compass of Terrestrial Directions, Vol. IV: The South</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Shalrina, Daimyo of Faces",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 7,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "valor": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 6
+      "value": 6,
+      "max": 6
     },
     "willpower": {
       "value": 8,
       "max": 8
     },
     "motes": {
-      "value": 0,
-      "max": 140
-    },
-    "pools": {
-      "combat": 11,
-      "social": 7,
-      "physical": 7
-    },
-    "combat": {
-      "joinBattle": 8,
-      "dodgeDV": 9,
-      "parryDV": 0,
-      "dodgeMDV": 4,
-      "parryMDV": 2,
-      "soak": {
-        "bashing": 20,
-        "lethal": 20,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": 140,
+        "max": 140,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 13
+      "bonus": {
+        "zero": 0,
+        "one": 3,
+        "two": 3
+      }
     },
-    "powers": "<p>Essence Plethora (x4)--Shalrina has 40 additional motes of Essence in her Essence pool. Face-Craft Mastery Spirit--For 15 motes and one Willpower, Shalrina can craft a talismanic mask permanently imbued with minor powers. These masks often appear as exotic exaggerations of their effects. (A mask that elicits fear, for example, may be grotesque, while a mask that makes the wearer stealthy may be a simplistic half-white, half-black, featureless mask.) Crafting the mask takes an hour and a successful (Conviction + Craft) roll. Success creates a mask that grants the wearer two bonus dice to a specific task, usually as specific as a specialty. \"Fighting\" is too general, but \"Swordsmanship\" is not. These masks are generally cheaper than her other services, requiring a single favor and an amount of money equivalent to Resources 3 (though this price varies, depending on the favor asked and the customer in question). Shalrina can make more powerful masks, but such masks follow the normal rules for artifact creation, rather than the simple imbedding of power into leather and wood that Face-Craft Mastery Spirit entails. Face-Trading Grasp--For 10 motes and one Willpower, Shalrina can take the minds and hearts of two willing individuals and trade them. Each has a new body, a new face and a new life thereafter. This Charm is her most sought trick, and those with problems often come to her, pleading for a new life. She demands half of her customer's wealth and a single favor to be given at some later time. Most agree, and she carefully chooses a suitable switch among her clientele. (She might, for example, trade the form of a poor young pauper who wishes for a life of luxury with that of a wealthy old man who wishes for a chance at youth again.) This Charm cannot trade Exaltation, however. An Exalt who \"switches faces\" retains Exaltation in his new body. This Charm does fool fate, however, and the targets gain each other's fates, including Sidereal fate effects. Therefore, a prince doomed to die can escape his fate by trading faces with someone else. Hurry Home--Shalrina has a single key at her belt that, when used upon any door, opens to the back door of her shop, allowing her to return immediately home. Mask-Melting Kiss--For 10 motes and one Willpower, Shalrina's lips can drain away the features of someone's face, leaving them unrecognizably generic. The eyes of observers will slide past them, as though they are little more than a feature of the scenery: just another peasant, for example, another face in the crowd. This Charm permanently drops the target's Appearance to 1 but reduces the difficulty of all Stealth rolls by one and increases the difficulty of any Awareness rolls to recognize him by two. In most cases, not even the target's family will recognize him after this. Shalrina uses this Charm on customers who need to escape some dire consequences immediately. As usual, she demands half their wealth and a single favor to be performed at a later date. This Charm also fools fate to a degree, increasing the difficulty of fate-effects \"finding\" the target by two. Shalrina can use this effect on herself, in which case, it lasts only for a scene. Measure the Wind--Shalrina sees beyond all masks and intuitively grasps someone's nature and power when she first meets them. Mind-Draining Touch--If Shalrina strikes someone in combat, she may spend 10 motes and one Willpower to reflexively activate this Charm and tear away his personality. Roll damage for the attack normally, but each success, rather than inflicting health levels of damage, eliminates one point of temporary Willpower instead. If all of a character's Willpower is drained in this manner, he becomes a husk without mind, without personality, free to be filled with a new mind at her leisure. She often keeps these husks in the back of her shop, offering the more attractive ones to customers as new bodies. She may not target anyone with this Charm who has an Essence equal to or higher than her own. An Eclipse or God-Blood may learn this Charm, but if he does so, he uses his own \"punch\" traits to make the attack, not the traits listed here. Principle of Motion--Shalrina has eight extra actions ready in her pool. Shapechange--Shalrina can appear as anyone who has entered her shop. Her shape and features are always human, and she usually favors a feminine form. Shalrina has the First, Second and Third Excellencies for the following</p>",
-    "notes": "<p>Face-Stealing Touch: Speed 5, Accuracy 13, Damage 12B, Defense 6, Rate 3</p>",
-    "biography": "<p>Hidden away behind crooked streets and blind alleyways, a small store lies amidst the crumbling brick buildings of downtown Nexus. Most never notice it. A few step into it by mistake, and marvel at the stunning collection of varied and exotic masks, some so lifelike they seem to watch the accidental customers. An unassuming, attractive girl smiles at them, offers a few masks and then sends them on their way. But some patrons seek the store out, taking in the musty scent of discarded lives and pleading with the owner to give them a new identity, a new beginning. Shalrina, the Daimyo of Faces, can do all of that... and more. Where most see a magical mask-maker or a minor godling, Shalrina is actually a powerful goddess who abandoned her rich mansion in Yu-Shan for life in the streets of Nexus. Precisely why she did this or why she changes her face from decade to decade remains her closely guarded secret, and none of her customers pester her with questions. Her former compatriots in Heaven assume she tired of the endless games of Yu-Shan and abandoned it for an exotic tryst in Creation. In reality, Shalrina maintains tabs on Yu-Shan and continues to play a crafty game of politics using her customers as pawns. All of her services cost the buyer a single favor, often a small prayer offered to a god of her choice, the theft of a small trinket or some similar minor task. She carefully manipulates all these small favors to draw more power into her hands, and her reach extends far beyond what most people could possibly imagine from the simple, shyeyed shop owner. Shalrina can manifest in whatever form she wishes, but she generally appears as an attractive young woman with long brown hair and kind eyes, wearing the latest fashions. Sanctum: Shalrina lives in her shop. She makes her sanctum available to any mortal she feels should enter it. When present in the real world, it wedges itself between two larger buildings as though it has always been there. When it's hidden, nobody notices that the mask shop that was there yesterday has vanished.</p><p><strong>Motivation:</strong> To increase her power in Creation.</p><p><strong>Backgrounds:</strong> Allies 5 (whoever currently owes her a favor), Contacts 5, Cult 3, Influence 1, Resources 4 CHAPTER EIGHT · GODS AND MONSTERS OF THE SCAVENGER LANDS</p><p><em>Source: Compass of Terrestrial Directions, Vol. I: The Scavenger Lands</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Hidden away behind crooked streets and blind alleyways, a small store lies amidst the crumbling brick buildings of downtown Nexus. Most never notice it. A few step into it by mistake, and marvel at the stunning collection of varied and exotic masks, some so lifelike they seem to watch the accidental customers. An unassuming, attractive girl smiles at them, offers a few masks and then sends them on their way. But some patrons seek the store out, taking in the musty scent of discarded lives and pleading with the owner to give them a new identity, a new beginning. Shalrina, the Daimyo of Faces, can do all of that... and more. Where most see a magical mask-maker or a minor godling, Shalrina is actually a powerful goddess who abandoned her rich mansion in Yu-Shan for life in the streets of Nexus. Precisely why she did this or why she changes her face from decade to decade remains her closely guarded secret, and none of her customers pester her with questions. Her former compatriots in Heaven assume she tired of the endless games of Yu-Shan and abandoned it for an exotic tryst in Creation. In reality, Shalrina maintains tabs on Yu-Shan and continues to play a crafty game of politics using her customers as pawns. All of her services cost the buyer a single favor, often a small prayer offered to a god of her choice, the theft of a small trinket or some similar minor task. She carefully manipulates all these small favors to draw more power into her hands, and her reach extends far beyond what most people could possibly imagine from the simple, shyeyed shop owner. Shalrina can manifest in whatever form she wishes, but she generally appears as an attractive young woman with long brown hair and kind eyes, wearing the latest fashions. Sanctum: Shalrina lives in her shop. She makes her sanctum available to any mortal she feels should enter it. When present in the real world, it wedges itself between two larger buildings as though it has always been there. When it's hidden, nobody notices that the mask shop that was there yesterday has vanished.</p><p><strong>Motivation:</strong> To increase her power in Creation.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Face-Stealing Touch: Speed 5, Accuracy 13, Damage 12B, Defense 6, Rate 3</p><h3>Powers</h3><p>Essence Plethora (x4)--Shalrina has 40 additional motes of Essence in her Essence pool. Face-Craft Mastery Spirit--For 15 motes and one Willpower, Shalrina can craft a talismanic mask permanently imbued with minor powers. These masks often appear as exotic exaggerations of their effects. (A mask that elicits fear, for example, may be grotesque, while a mask that makes the wearer stealthy may be a simplistic half-white, half-black, featureless mask.) Crafting the mask takes an hour and a successful (Conviction + Craft) roll. Success creates a mask that grants the wearer two bonus dice to a specific task, usually as specific as a specialty. \"Fighting\" is too general, but \"Swordsmanship\" is not. These masks are generally cheaper than her other services, requiring a single favor and an amount of money equivalent to Resources 3 (though this price varies, depending on the favor asked and the customer in question). Shalrina can make more powerful masks, but such masks follow the normal rules for artifact creation, rather than the simple imbedding of power into leather and wood that Face-Craft Mastery Spirit entails. Face-Trading Grasp--For 10 motes and one Willpower, Shalrina can take the minds and hearts of two willing individuals and trade them. Each has a new body, a new face and a new life thereafter. This Charm is her most sought trick, and those with problems often come to her, pleading for a new life. She demands half of her customer's wealth and a single favor to be given at some later time. Most agree, and she carefully chooses a suitable switch among her clientele. (She might, for example, trade the form of a poor young pauper who wishes for a life of luxury with that of a wealthy old man who wishes for a chance at youth again.) This Charm cannot trade Exaltation, however. An Exalt who \"switches faces\" retains Exaltation in his new body. This Charm does fool fate, however, and the targets gain each other's fates, including Sidereal fate effects. Therefore, a prince doomed to die can escape his fate by trading faces with someone else. Hurry Home--Shalrina has a single key at her belt that, when used upon any door, opens to the back door of her shop, allowing her to return immediately home. Mask-Melting Kiss--For 10 motes and one Willpower, Shalrina's lips can drain away the features of someone's face, leaving them unrecognizably generic. The eyes of observers will slide past them, as though they are little more than a feature of the scenery: just another peasant, for example, another face in the crowd. This Charm permanently drops the target's Appearance to 1 but reduces the difficulty of all Stealth rolls by one and increases the difficulty of any Awareness rolls to recognize him by two. In most cases, not even the target's family will recognize him after this. Shalrina uses this Charm on customers who need to escape some dire consequences immediately. As usual, she demands half their wealth and a single favor to be performed at a later date. This Charm also fools fate to a degree, increasing the difficulty of fate-effects \"finding\" the target by two. Shalrina can use this effect on herself, in which case, it lasts only for a scene. Measure the Wind--Shalrina sees beyond all masks and intuitively grasps someone's nature and power when she first meets them. Mind-Draining Touch--If Shalrina strikes someone in combat, she may spend 10 motes and one Willpower to reflexively activate this Charm and tear away his personality. Roll damage for the attack normally, but each success, rather than inflicting health levels of damage, eliminates one point of temporary Willpower instead. If all of a character's Willpower is drained in this manner, he becomes a husk without mind, without personality, free to be filled with a new mind at her leisure. She often keeps these husks in the back of her shop, offering the more attractive ones to customers as new bodies. She may not target anyone with this Charm who has an Essence equal to or higher than her own. An Eclipse or God-Blood may learn this Charm, but if he does so, he uses his own \"punch\" traits to make the attack, not the traits listed here. Principle of Motion--Shalrina has eight extra actions ready in her pool. Shapechange--Shalrina can appear as anyone who has entered her shop. Her shape and features are always human, and she usually favors a feminine form. Shalrina has the First, Second and Third Excellencies for the following</p><p><strong>Backgrounds:</strong> Allies 5 (whoever currently owes her a favor), Contacts 5, Cult 3, Influence 1, Resources 4 CHAPTER EIGHT · GODS AND MONSTERS OF THE SCAVENGER LANDS</p><p><em>Original essence pool from source: 140 motes</em></p><p><em>Source: Compass of Terrestrial Directions, Vol. I: The Scavenger Lands</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

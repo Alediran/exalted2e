@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Ragoly Aglde of the Wings Conjoined in Lure",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 1,
+        "current": 1,
+        "channeled": false
+      },
+      "valor": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 3
+      "value": 3,
+      "max": 3
     },
     "willpower": {
       "value": 7,
       "max": 7
     },
     "motes": {
-      "value": 0,
-      "max": 39
-    },
-    "pools": {
-      "combat": 9,
-      "social": 9,
-      "physical": 9
-    },
-    "combat": {
-      "joinBattle": 7,
-      "dodgeDV": 7,
-      "parryDV": 0,
-      "dodgeMDV": 3,
-      "parryMDV": 1,
-      "soak": {
-        "bashing": 6,
-        "lethal": 7,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 2
+      "peripheral": {
+        "value": 39,
+        "max": 39,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 7
+      "bonus": {
+        "zero": 0,
+        "one": 0,
+        "two": 0
+      }
     },
-    "powers": "",
-    "notes": "<p>Clinch: Speed 6, Accuracy 9, Damage 4B, Parry DV --, Rate 1 Kick: Speed 5, Accuracy 9, Damage 7B, Parry DV 4, Rate 2 Punch: Speed 5, Accuracy 10, Damage 4B, Parry DV 6, Rate 3 Red Jade Daiklave (Revered Scion of Hesiesh)*: Speed 4, Accuracy 13, Damage 11L, Parry DV 6, Rate 3 * By spending a single mote when he attacks, Ragoly may use Revered Scion to strike dematerialized spirits.</p>",
-    "biography": "<p>Lord of the Unrivaled Flames No one truly knows how old Ragoly Aglde is, though he was certainly over a century in age when the Empress appointed him as the master of the Red Tables Court over a century ago. The God-Blooded son of a powerful ifrit lord known as the Wings Conjoined in Lure, Ragoly Aglde wields tremendous power that most God-Blooded never achieve. He has certainly lived longer than most God-Blooded do and shows no signs of slowing down. Ragoly Aglde is something of a megalomaniac, seeing the fire elementals of the Blessed Isle as his sole dominion. He honors his subjects, seeing in them truly numinous spiritual entities, though he does not worship them. After all, he works closely with the Immaculate Order--although it might be fairer to say that the Immaculate Order watches him closely, to make sure he does not become an object or promulgator of heresy. Ragoly Aglde despises the Court of the Orderly Flame and will not hesitate to order the destruction of fire elementals that he learns are associated with it. Ragoly Aglde's personal power and influence has swelled tremendously, as he alone can grant easy access to sorcerers wishing to summon fire elementals easily. Those who wish to summon fire elementals who will not fight their bindings from the Blessed Isle may journey to the Red Tables and apply for the Imperial Seal of the Unrivaled Flames, a red jade token that may be used during the summoning of a fire elemental. Not everyone gains such a token, however. Only those who can pay the tremendous bureaucratic fees, render the appropriate gifts and prove that their ability to summon fire elementals is of benefit to the Realm are even considered. Ragoly Aglde is usually clad in crimson, gold and black robes. He has brilliant red hair that he keeps decorated in the height of imperial fashion, with beads of jade and gold woven into it. His nails are long and lacquered crimson, brushed in black ink with the words of fire elemental summoning spells. He is armed with his father's red jade daiklave, the Revered Scion of Hesiesh, and he wears a red jade chain shirt beneath his robes.</p><p><strong>Motivation:</strong> To honor the memory of his father's power by one day wielding as much power as he did.</p><p><strong>Backgrounds:</strong> Artifact 4, Backing 4, Influence 3, Inheritance 4, Manse 3, Resources 5 Powers: Ragoly's elemental heritage grants him a variety of useful abilities, including: Elemental Powers--Ragoly can use the Dragon's Suspire, Elemental Expression and Elemental Rejuvenation powers. Ifrit's Gift--Ragoly Aglde is immune to damage from fire. Terrestrial Circle Sorcery--Ragoly Aglde can use the following Terrestrial Circle Sorcery spells: Emerald Circle Banishment, Emerald Countermagic, Summon Elemental.</p><p><em>Source: Compass of Celestial Directions, Vol. I: The Blessed Isle</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Lord of the Unrivaled Flames No one truly knows how old Ragoly Aglde is, though he was certainly over a century in age when the Empress appointed him as the master of the Red Tables Court over a century ago. The God-Blooded son of a powerful ifrit lord known as the Wings Conjoined in Lure, Ragoly Aglde wields tremendous power that most God-Blooded never achieve. He has certainly lived longer than most God-Blooded do and shows no signs of slowing down. Ragoly Aglde is something of a megalomaniac, seeing the fire elementals of the Blessed Isle as his sole dominion. He honors his subjects, seeing in them truly numinous spiritual entities, though he does not worship them. After all, he works closely with the Immaculate Order--although it might be fairer to say that the Immaculate Order watches him closely, to make sure he does not become an object or promulgator of heresy. Ragoly Aglde despises the Court of the Orderly Flame and will not hesitate to order the destruction of fire elementals that he learns are associated with it. Ragoly Aglde's personal power and influence has swelled tremendously, as he alone can grant easy access to sorcerers wishing to summon fire elementals easily. Those who wish to summon fire elementals who will not fight their bindings from the Blessed Isle may journey to the Red Tables and apply for the Imperial Seal of the Unrivaled Flames, a red jade token that may be used during the summoning of a fire elemental. Not everyone gains such a token, however. Only those who can pay the tremendous bureaucratic fees, render the appropriate gifts and prove that their ability to summon fire elementals is of benefit to the Realm are even considered. Ragoly Aglde is usually clad in crimson, gold and black robes. He has brilliant red hair that he keeps decorated in the height of imperial fashion, with beads of jade and gold woven into it. His nails are long and lacquered crimson, brushed in black ink with the words of fire elemental summoning spells. He is armed with his father's red jade daiklave, the Revered Scion of Hesiesh, and he wears a red jade chain shirt beneath his robes.</p><p><strong>Motivation:</strong> To honor the memory of his father's power by one day wielding as much power as he did.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Clinch: Speed 6, Accuracy 9, Damage 4B, Parry DV --, Rate 1 Kick: Speed 5, Accuracy 9, Damage 7B, Parry DV 4, Rate 2 Punch: Speed 5, Accuracy 10, Damage 4B, Parry DV 6, Rate 3 Red Jade Daiklave (Revered Scion of Hesiesh)*: Speed 4, Accuracy 13, Damage 11L, Parry DV 6, Rate 3 * By spending a single mote when he attacks, Ragoly may use Revered Scion to strike dematerialized spirits.</p><p><strong>Backgrounds:</strong> Artifact 4, Backing 4, Influence 3, Inheritance 4, Manse 3, Resources 5 Powers: Ragoly's elemental heritage grants him a variety of useful abilities, including: Elemental Powers--Ragoly can use the Dragon's Suspire, Elemental Expression and Elemental Rejuvenation powers. Ifrit's Gift--Ragoly Aglde is immune to damage from fire. Terrestrial Circle Sorcery--Ragoly Aglde can use the following Terrestrial Circle Sorcery spells: Emerald Circle Banishment, Emerald Countermagic, Summon Elemental.</p><p><em>Original essence pool from source: 39 motes</em></p><p><em>Source: Compass of Celestial Directions, Vol. I: The Blessed Isle</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

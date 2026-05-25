@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Unwanted Whisper, the Orphan Queen",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 1,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 1,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "valor": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 4
+      "value": 4,
+      "max": 4
     },
     "willpower": {
       "value": 8,
       "max": 8
     },
     "motes": {
-      "value": 0,
-      "max": "88 Committed"
-    },
-    "pools": {
-      "combat": 8,
-      "social": 7,
-      "physical": 6
-    },
-    "combat": {
-      "joinBattle": 8,
-      "dodgeDV": 6,
-      "parryDV": 0,
-      "dodgeMDV": 4,
-      "parryMDV": 2,
-      "soak": {
-        "bashing": 3,
-        "lethal": 2,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": "88 Committed",
+        "max": "88 Committed",
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 7
+      "bonus": {
+        "zero": 0,
+        "one": 0,
+        "two": 0
+      }
     },
-    "powers": "",
-    "notes": "<p>Punch: Speed 5, Accuracy 7, Damage 1B, Parry DV 4, Rate 3 Kick: Speed 5, Accuracy 6, Damage 4B, Parry DV 2, Rate 2 Clinch: Speed 6, Accuracy 6, Damage 1B, Parry DV --, Rate 1 Knife: Speed 5, Accuracy 6, Damage 3L, Parry DV 3, Rate 3 Knife (thrown): Speed 5, Accuracy 8, Damage 3L, Rate 3, Range 15 Sling: Speed 5, Accuracy 7, Damage 3L, Rate 1, Range 100</p>",
-    "biography": "<p>The ruler of the District of the Whispering Streets looks like a young girl with large, soulful eyes and dark hair in a pageboy cut. Her grand robes look ridiculously oversized on her small frame. Her grave goods are limited to a sling. She speaks in a soft, little-girl voice, sounding timid and uneducated. She prefers for the other Council members to ignore her, and they usually oblige. Yet Unwanted Whisper does rule a district of Stygia. In life, she was a street rat. The streets killed her, but she refused to die. The District of the Whispering Streets tried to break her mind, but she resisted. Unwanted Whisper never quits or surrenders. She might not know the great occult secrets other Councilors hold, but she knows what's fair and what's sane. The Orphan Queen also knows well what horrors the Labyrinth and Oblivion wreak upon her district. She knows that the Deathlords are mad tyrants who spread Oblivion's poison, and she says so. In public. Repeatedly. Politically minded ghosts anticipate Unwanted Whisper's assassination, but her district's ghosts revere her for having the guts to say what no one else would dare. Outside her cursed district, the Orphan Queen has no wealth or power, but her personal honor guard is fiercely loyal. She also has hidden friends on the Council, who share her view regarding the Deathlords. Unwanted Whisper cannot really fight the Deathlords or their servants, though. At most, her followers can engage in petty sabotage and obstruction of their minions. CHAPTER EIGHT · UNDERWORLD ANTAGONISTS</p><p><strong>Motivation:</strong> Survive to say what no one else would dare.</p><p><strong>Backgrounds:</strong> Allies (Two Other Councilors) 2, Artifact (Night Mother Doll) 3, Backing (Coun- cil of Thirteen) 3, Contacts 2, Followers 2, Grave Goods 1, Influence 2, Resources 1, Underworld Cult 3, Whis- pers 1 Arcanoi: Common Arcanoi: Breeze-Carried Ash Form, Pyre Smoke Form Savage Ghost Tamer Arts: Call the Ravening Hound, Diver- sion of the Savage Hunger, Tame the Wicked Appetite, Taste the Demon Wind Stringless Puppeteer Art: All Charms Tenacious Merchant's Way: Careful Debtor Stance, Earnest Creditor Technique, Jangling Coin Pouch Sense</p><p><em>Source: Compass of Celestial Directions, Vol. IV: The Underworld</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>The ruler of the District of the Whispering Streets looks like a young girl with large, soulful eyes and dark hair in a pageboy cut. Her grand robes look ridiculously oversized on her small frame. Her grave goods are limited to a sling. She speaks in a soft, little-girl voice, sounding timid and uneducated. She prefers for the other Council members to ignore her, and they usually oblige. Yet Unwanted Whisper does rule a district of Stygia. In life, she was a street rat. The streets killed her, but she refused to die. The District of the Whispering Streets tried to break her mind, but she resisted. Unwanted Whisper never quits or surrenders. She might not know the great occult secrets other Councilors hold, but she knows what's fair and what's sane. The Orphan Queen also knows well what horrors the Labyrinth and Oblivion wreak upon her district. She knows that the Deathlords are mad tyrants who spread Oblivion's poison, and she says so. In public. Repeatedly. Politically minded ghosts anticipate Unwanted Whisper's assassination, but her district's ghosts revere her for having the guts to say what no one else would dare. Outside her cursed district, the Orphan Queen has no wealth or power, but her personal honor guard is fiercely loyal. She also has hidden friends on the Council, who share her view regarding the Deathlords. Unwanted Whisper cannot really fight the Deathlords or their servants, though. At most, her followers can engage in petty sabotage and obstruction of their minions. CHAPTER EIGHT · UNDERWORLD ANTAGONISTS</p><p><strong>Motivation:</strong> Survive to say what no one else would dare.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Punch: Speed 5, Accuracy 7, Damage 1B, Parry DV 4, Rate 3 Kick: Speed 5, Accuracy 6, Damage 4B, Parry DV 2, Rate 2 Clinch: Speed 6, Accuracy 6, Damage 1B, Parry DV --, Rate 1 Knife: Speed 5, Accuracy 6, Damage 3L, Parry DV 3, Rate 3 Knife (thrown): Speed 5, Accuracy 8, Damage 3L, Rate 3, Range 15 Sling: Speed 5, Accuracy 7, Damage 3L, Rate 1, Range 100</p><p><strong>Backgrounds:</strong> Allies (Two Other Councilors) 2, Artifact (Night Mother Doll) 3, Backing (Coun- cil of Thirteen) 3, Contacts 2, Followers 2, Grave Goods 1, Influence 2, Resources 1, Underworld Cult 3, Whis- pers 1 Arcanoi: Common Arcanoi: Breeze-Carried Ash Form, Pyre Smoke Form Savage Ghost Tamer Arts: Call the Ravening Hound, Diver- sion of the Savage Hunger, Tame the Wicked Appetite, Taste the Demon Wind Stringless Puppeteer Art: All Charms Tenacious Merchant's Way: Careful Debtor Stance, Earnest Creditor Technique, Jangling Coin Pouch Sense</p><p><em>Original essence pool from source: 88 Committed motes</em></p><p><em>Source: Compass of Celestial Directions, Vol. IV: The Underworld</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

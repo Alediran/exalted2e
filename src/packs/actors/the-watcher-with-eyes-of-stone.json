@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "The Watcher with Eyes of Stone",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 57,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 1,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 37,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 1,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 1,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 2,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 1,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 5,
+        "current": 5,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "valor": {
+        "value": 5,
+        "current": 5,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 5
+      "value": 5,
+      "max": 5
     },
     "willpower": {
       "value": 10,
       "max": 10
     },
     "motes": {
-      "value": 0,
-      "max": 90
-    },
-    "pools": {
-      "combat": 7,
-      "social": 6,
-      "physical": 2
-    },
-    "combat": {
-      "joinBattle": 7,
-      "dodgeDV": "0",
-      "parryDV": 0,
-      "dodgeMDV": 5,
-      "parryMDV": 0,
-      "soak": {
-        "bashing": 49,
-        "lethal": 24,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 12
+      "peripheral": {
+        "value": 90,
+        "max": 90,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 61
+      "bonus": {
+        "zero": 9,
+        "one": 23,
+        "two": 18
+      }
     },
-    "powers": "<p>Coral Life-and-Death Encouragement--The Watcher with Eyes of Stone may instantly re-grow or repair parts of its coral structure. For four motes per health level and one point of Willpower, Iwau Tomatsu heals one level of damage it has taken or temporarily adds one -0 health level. Phantom health levels disappear when filled with lethal damage or at the end of the day. Encircling the Maiden--Iwau Tamotsu spends 10 motes and one point of Willpower to create an impenetrable shell of coral over the island on which the Weeping Maiden rests. The shell cannot be harmed as long as the Watcher spends one mote each action to keep it intact. Otherwise, it has Hardness 10 and 20/40 health levels. The shell slowly crumbles after one scene. Guardian Birth Division--If properly motivated, the Watcher with Eyes of Stone may split off a fraction of its bulk to create a new guardian. This costs 40 motes and two points of Willpower and reduces Iwau Tamotsu's Strength and Stamina permanently by one each. The new guardian has its own identity and must soon be connected to something as a guardian. It must also grow in power before it can become as powerful as its parent. This has happened three times before--one such guardian was destroyed just five years ago when it failed the Bronze Faction. Ripple-Sensing Quiver--Nothing in the sea remains hidden from the Watcher. This power costs three motes and may be activated reflexively. It makes all things within 40 miles of the Weeping Maiden and touching the ocean a valid target for the creature's Awareness-based action, regardless of magic. Tsunami Wave Eruption--The Watcher activates this power when beset by many intruders. Heaving its body from the ocean floor, Iwau sends a massive wave rolling outward from the island. This is an attack on everything on the ocean within 100 miles. The attack automatically hits, barring special defenses.</p>",
-    "notes": "<p>Coral Strike: Speed 6, Accuracy 7, Damage 26B, Defense --, Rate 5 Coral Crush: Speed 8, Accuracy 63, Damage 57B, Defense --, Rate 1 Tsunami Wave Eruption: Speed 9, Accuracy --, Damage 80B, Defense --, Rate 1</p>",
-    "biography": "<p>The Watcher with Eyes of Stone rests beneath the Weeping Maiden in the far West. The island is a thin cone of stone tapering down into the water, and Iwau Tamotsu is a vast coral reef spreading miles around that island. The island, in fact, is a gigantic spike piercing the Watcher's heart and pinning the guardian to that place in the ocean. When ships or large creatures near the Weeping Maiden's isle, Iwau Tamotsu rises from the depths to crush and devour the ship or creature. Little is known about the Watcher with Eyes of Stone. Even its name is secret and lost. For reasons unknown, anything consumed by the Watcher washes up on the shores of the Blessed Isle the next day. The Watcher once did this to deliver intruders to the gods who lived on the Blessed Isle. Today, the Watcher only confuses the locals. Living creatures it endeavors to eat whole, delivering them to the Isle alive.</p><p><strong>Motivation:</strong> Protect the Weeping Maiden from all who approach.</p><p><strong>Backgrounds:</strong> None</p><p><em>Source: Compass of Celestial Directions, Vol. II: The Wyld</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>The Watcher with Eyes of Stone rests beneath the Weeping Maiden in the far West. The island is a thin cone of stone tapering down into the water, and Iwau Tamotsu is a vast coral reef spreading miles around that island. The island, in fact, is a gigantic spike piercing the Watcher's heart and pinning the guardian to that place in the ocean. When ships or large creatures near the Weeping Maiden's isle, Iwau Tamotsu rises from the depths to crush and devour the ship or creature. Little is known about the Watcher with Eyes of Stone. Even its name is secret and lost. For reasons unknown, anything consumed by the Watcher washes up on the shores of the Blessed Isle the next day. The Watcher once did this to deliver intruders to the gods who lived on the Blessed Isle. Today, the Watcher only confuses the locals. Living creatures it endeavors to eat whole, delivering them to the Isle alive.</p><p><strong>Motivation:</strong> Protect the Weeping Maiden from all who approach.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Coral Strike: Speed 6, Accuracy 7, Damage 26B, Defense --, Rate 5 Coral Crush: Speed 8, Accuracy 63, Damage 57B, Defense --, Rate 1 Tsunami Wave Eruption: Speed 9, Accuracy --, Damage 80B, Defense --, Rate 1</p><h3>Powers</h3><p>Coral Life-and-Death Encouragement--The Watcher with Eyes of Stone may instantly re-grow or repair parts of its coral structure. For four motes per health level and one point of Willpower, Iwau Tomatsu heals one level of damage it has taken or temporarily adds one -0 health level. Phantom health levels disappear when filled with lethal damage or at the end of the day. Encircling the Maiden--Iwau Tamotsu spends 10 motes and one point of Willpower to create an impenetrable shell of coral over the island on which the Weeping Maiden rests. The shell cannot be harmed as long as the Watcher spends one mote each action to keep it intact. Otherwise, it has Hardness 10 and 20/40 health levels. The shell slowly crumbles after one scene. Guardian Birth Division--If properly motivated, the Watcher with Eyes of Stone may split off a fraction of its bulk to create a new guardian. This costs 40 motes and two points of Willpower and reduces Iwau Tamotsu's Strength and Stamina permanently by one each. The new guardian has its own identity and must soon be connected to something as a guardian. It must also grow in power before it can become as powerful as its parent. This has happened three times before--one such guardian was destroyed just five years ago when it failed the Bronze Faction. Ripple-Sensing Quiver--Nothing in the sea remains hidden from the Watcher. This power costs three motes and may be activated reflexively. It makes all things within 40 miles of the Weeping Maiden and touching the ocean a valid target for the creature's Awareness-based action, regardless of magic. Tsunami Wave Eruption--The Watcher activates this power when beset by many intruders. Heaving its body from the ocean floor, Iwau sends a massive wave rolling outward from the island. This is an attack on everything on the ocean within 100 miles. The attack automatically hits, barring special defenses.</p><p><strong>Backgrounds:</strong> None</p><p><em>Original essence pool from source: 90 motes</em></p><p><em>Source: Compass of Celestial Directions, Vol. II: The Wyld</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

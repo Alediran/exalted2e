@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Nymph",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "elemental",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 2,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 2,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 1,
+        "current": 1,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 1,
+        "current": 1,
+        "channeled": false
+      },
+      "valor": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 2
+      "value": 2,
+      "max": 2
     },
     "willpower": {
       "value": 6,
       "max": 6
     },
     "motes": {
-      "value": 0,
-      "max": 0
-    },
-    "pools": {
-      "combat": 8,
-      "social": 8,
-      "physical": 5
-    },
-    "combat": {
-      "joinBattle": 5,
-      "dodgeDV": 6,
-      "parryDV": 4,
-      "dodgeMDV": 3,
-      "parryMDV": 0,
-      "soak": {
-        "bashing": 3,
-        "lethal": 1,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 9
+      "bonus": {
+        "zero": 0,
+        "one": 1,
+        "two": 1
+      }
     },
-    "powers": "",
-    "notes": "<p><strong>Slap</strong>: Speed 5, Accuracy 9, Damage 3B, Defense 10, Rate 3</p><p><strong>Kick</strong>: Speed 5, Accuracy 8, Damage 6B, Defense 6, Rate 2</p><p>Essence Pool: 60. Dematerialize: 40m. Spirit Charms: Dematerialize, Elemental Domain (immune to damage while dissolved in water), Essence Plethora, Harrow the Mind, Landscape Hide, Measure the Wind, Natural Elemental Powers (except Dragon's Suspire), Principle of Motion. First and Second Excellencies: Dodge, Performance, Socialize. Prefers flight over combat.</p>",
-    "biography": "<p>Water elementals swimming the deepest oceans in search of peculiar currents, animals to torment or mortals to take beneath the waves. Capricious, lustful and vain. Appear as supremely beautiful women with floating hair, blue-green translucent skin, pearl eyes and whalebone teeth.</p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Water elementals swimming the deepest oceans in search of peculiar currents, animals to torment or mortals to take beneath the waves. Capricious, lustful and vain. Appear as supremely beautiful women with floating hair, blue-green translucent skin, pearl eyes and whalebone teeth.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>[object Object],[object Object]</p><p><em>Source: Core Rules</em></p>",
     "purchaseLocked": false
   },
   "folder": "a7b8c9d000000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

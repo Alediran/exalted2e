@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Shield of a Different Day",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "valor": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 5
+      "value": 5,
+      "max": 5
     },
     "willpower": {
       "value": 9,
       "max": 9
     },
     "motes": {
-      "value": 0,
-      "max": 125
-    },
-    "pools": {
-      "combat": 9,
-      "social": 8,
-      "physical": 6
-    },
-    "combat": {
-      "joinBattle": 6,
-      "dodgeDV": 7,
-      "parryDV": 0,
-      "dodgeMDV": 4,
-      "parryMDV": 2,
-      "soak": {
-        "bashing": 20,
-        "lethal": 10,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 6
+      "peripheral": {
+        "value": 125,
+        "max": 125,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 13
+      "bonus": {
+        "zero": 0,
+        "one": 3,
+        "two": 3
+      }
     },
-    "powers": "<p>Dissolution of Battle--By spending 30 motes and three Willpower, Dayshield can bring a battle to an end. Morale slips, soldiers tire, the weather changes, and by unvoiced agreement, the battle simply ends. She may not activate this Charm before the battle has begun to favor one side or another (Storyteller's discretion), and it does not change the outcome of the battle, only ends it more swiftly and with less loss of life. Dayshield can activate this Charm while immaterial. Dove Conquers Hawk Approach--Dayshield once governed peaceful warfare, where the maneuvering of soldiers and clever diplomacy garnered territory and conquered peoples. By spending 10 motes, Dayshield may (if the Storyteller uses the optional Mandate of Heaven rules) substitute her region's Government or Culture trait for Military for the purpose of rolls involving the keywords: At War. Her nation need not be at war with her opposing nation (thus ignoring the needs of the keyword), but it must have a Military trait that matches the requirements of the action (as one still needs the soldiers to properly intimidate a foe). This magic no longer works in Creation, however. The fabric of war has changed a great deal since the fall of the Lawgivers, and this Charm is but a relic in Dayshield's arsenal, a sign of what she once was. Essence Plethora (x3)--Dayshield has 30 additional motes of Essence in her Essence pool. Insurmountable Defense--When Dayshield deploys her shield (from which she gains her namesake) in the defense of another, she may spend five motes and one Willpower to make the parry a perfect one. It cannot fail to defend. She can deploy this Charm only if she is defending another, and the magic is actually tied up in her shield. She may give the shield away to another, in which case he may use the Charm (and she may not), or the shield can be stolen, offering similar results. Either way, the shield returns to her after a week's time. She may also manifest this Charm in mass combat, in which case, the shield defends an entire unit (one she is leading). Doing so will even defend against attacks that cannot be reasonably parried, such as shunting aside an artillery barrage. She may use this Charm in mass combat while immaterial, in which case it manifests as fortune and favor protecting a single unit. CHAPTER EIGHT · GODS AND MONSTERS OF THE SCAVENGER LANDS Measure the Wind--Dayshield remains constantly alert for tactical threats, gauging her opponents and guests with this Charm. Principle of Motion--Dayshield has seven extra actions ready in her pool. Reserve of Will (x3)--Dayshield stores three additional temporary Willpower. Tomorrow's Victory--Dayshield knows that defeat today can lead to victory tomorrow, and she offers up hope to her troops when morale ebbs. When Dayshield has battled a foe and, at the Storyteller's discretion, lost (or drawn) the battle, she may commit five motes. The next time she battles the same opponent, she may release the Essence she committed and gain +1 success to her attack rolls for the duration of the battle. If she chooses, she may keep her Essence committed and, if she loses again, commit another five to \"stack\" the bonuses for a future fight. She may have no more than five (equal to her Essence) instances of this Charm \"stacked\" at any one time. This Charm may also apply to mass combat, in which case, it applies to her entire unit, but only if the unit lost a previous battle against the enemy it currently fights. Dayshield has the First, Second and Third Excellencies for the following</p>",
-    "notes": "<p>Defender Fist Crush: Speed 4, Accuracy 8, Damage 6B, Defense 7*, Rate 3 Broken Dawn Lance: Speed 5, Accuracy 12, Damage 12L, Defense 9*, Rate 3 Bright Star Arrow: Speed 6, Accuracy 9, Damage 11, Range 350, Rate 2 * Dayshield's unbreakable shield grants her +2 to all of her Parry DVs. This bonus is included in the Defense Values.</p>",
-    "biography": "<p>The First Age was a more elegant time, one in which a warrior could battle peacefully and the mere presence of a soldier was enough to move nations. Dayshield once worked in Yu-Shan, serving in the Division of Battles for the Bureau of Battles as an agent covering all matters of peaceful war, battles that consisted of nothing but positioning and war-through-diplomacy. When the Solars fell, however, her portfolio of cases diminished, and her superiors shifted her to less savory duties. With the fall of the Shogunate, peaceful warfare evaporated completely, and rather than involve herself more deeply with the corruption seeping into her division, she stole some files for insurance and fled Yu-Shan to seek a new fortune for herself in the mortal realm of Creation. Her time in the cruel, harsh world of the Second Age changed her, and her gentle ways and elegant uniform gave way to cold armor and sharpened steel, though she retains her protective instincts and civil manners. Dayshield often walks the streets of Great Forks in material form, her presence comforting those around her. For a goddess of war, she is strikingly beautiful, with the soft curves of the woman each soldier dreams about returning to. Long tresses of raven hair fall around handsome features, and granite-colored eyes gaze upon her soldiers proudly, the eyes of a sergeant who has trained her soldiers well. When she speaks, her alto voice rolls across the masses with a patriotic tenor, inspiring hope in those who hear her. Her armor is clean and polished, and her shield gleams in the sunlight. Those who stand behind her feel a wellspring of confidence, knowing they will see the morning's dawn. Dayshield focuses primarily on the defense of Great Forks, and she is the most practical of the city's three gods. Her soldiers police the city and see to its defenses, but her training doesn't prepare them for battle nearly as much as it prepares them for the positioning of war and peacetime garrison duty. Both she and her soldiers prefer peacekeeping operations or taking care of civilians in emergencies. Conquest suits them poorly. When battle is required, she usually takes the field in material form, protecting her vulnerable, young soldiers behind her vast, impenetrable shield and doing all she can to make sure they will return home to their lovers and families. Sanctum: Dayshield often works in the Palace of the Three in material form. Her sanctum lies atop and within its Council Hall, appearing as an aging, out-of-date fortress filled with old and new knickknacks and trinkets side-by-side. To get there, one need only shut a door within the Council Hall offices, open it once more and step through as an immaterial being.</p><p><strong>Motivation:</strong> To defend and maintain Great Forks.</p><p><strong>Backgrounds:</strong> Allies 2, Cult 1, Followers 4, Resources 4, Sanctum 2</p><p><em>Source: Compass of Terrestrial Directions, Vol. I: The Scavenger Lands</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>The First Age was a more elegant time, one in which a warrior could battle peacefully and the mere presence of a soldier was enough to move nations. Dayshield once worked in Yu-Shan, serving in the Division of Battles for the Bureau of Battles as an agent covering all matters of peaceful war, battles that consisted of nothing but positioning and war-through-diplomacy. When the Solars fell, however, her portfolio of cases diminished, and her superiors shifted her to less savory duties. With the fall of the Shogunate, peaceful warfare evaporated completely, and rather than involve herself more deeply with the corruption seeping into her division, she stole some files for insurance and fled Yu-Shan to seek a new fortune for herself in the mortal realm of Creation. Her time in the cruel, harsh world of the Second Age changed her, and her gentle ways and elegant uniform gave way to cold armor and sharpened steel, though she retains her protective instincts and civil manners. Dayshield often walks the streets of Great Forks in material form, her presence comforting those around her. For a goddess of war, she is strikingly beautiful, with the soft curves of the woman each soldier dreams about returning to. Long tresses of raven hair fall around handsome features, and granite-colored eyes gaze upon her soldiers proudly, the eyes of a sergeant who has trained her soldiers well. When she speaks, her alto voice rolls across the masses with a patriotic tenor, inspiring hope in those who hear her. Her armor is clean and polished, and her shield gleams in the sunlight. Those who stand behind her feel a wellspring of confidence, knowing they will see the morning's dawn. Dayshield focuses primarily on the defense of Great Forks, and she is the most practical of the city's three gods. Her soldiers police the city and see to its defenses, but her training doesn't prepare them for battle nearly as much as it prepares them for the positioning of war and peacetime garrison duty. Both she and her soldiers prefer peacekeeping operations or taking care of civilians in emergencies. Conquest suits them poorly. When battle is required, she usually takes the field in material form, protecting her vulnerable, young soldiers behind her vast, impenetrable shield and doing all she can to make sure they will return home to their lovers and families. Sanctum: Dayshield often works in the Palace of the Three in material form. Her sanctum lies atop and within its Council Hall, appearing as an aging, out-of-date fortress filled with old and new knickknacks and trinkets side-by-side. To get there, one need only shut a door within the Council Hall offices, open it once more and step through as an immaterial being.</p><p><strong>Motivation:</strong> To defend and maintain Great Forks.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Defender Fist Crush: Speed 4, Accuracy 8, Damage 6B, Defense 7*, Rate 3 Broken Dawn Lance: Speed 5, Accuracy 12, Damage 12L, Defense 9*, Rate 3 Bright Star Arrow: Speed 6, Accuracy 9, Damage 11, Range 350, Rate 2 * Dayshield's unbreakable shield grants her +2 to all of her Parry DVs. This bonus is included in the Defense Values.</p><h3>Powers</h3><p>Dissolution of Battle--By spending 30 motes and three Willpower, Dayshield can bring a battle to an end. Morale slips, soldiers tire, the weather changes, and by unvoiced agreement, the battle simply ends. She may not activate this Charm before the battle has begun to favor one side or another (Storyteller's discretion), and it does not change the outcome of the battle, only ends it more swiftly and with less loss of life. Dayshield can activate this Charm while immaterial. Dove Conquers Hawk Approach--Dayshield once governed peaceful warfare, where the maneuvering of soldiers and clever diplomacy garnered territory and conquered peoples. By spending 10 motes, Dayshield may (if the Storyteller uses the optional Mandate of Heaven rules) substitute her region's Government or Culture trait for Military for the purpose of rolls involving the keywords: At War. Her nation need not be at war with her opposing nation (thus ignoring the needs of the keyword), but it must have a Military trait that matches the requirements of the action (as one still needs the soldiers to properly intimidate a foe). This magic no longer works in Creation, however. The fabric of war has changed a great deal since the fall of the Lawgivers, and this Charm is but a relic in Dayshield's arsenal, a sign of what she once was. Essence Plethora (x3)--Dayshield has 30 additional motes of Essence in her Essence pool. Insurmountable Defense--When Dayshield deploys her shield (from which she gains her namesake) in the defense of another, she may spend five motes and one Willpower to make the parry a perfect one. It cannot fail to defend. She can deploy this Charm only if she is defending another, and the magic is actually tied up in her shield. She may give the shield away to another, in which case he may use the Charm (and she may not), or the shield can be stolen, offering similar results. Either way, the shield returns to her after a week's time. She may also manifest this Charm in mass combat, in which case, the shield defends an entire unit (one she is leading). Doing so will even defend against attacks that cannot be reasonably parried, such as shunting aside an artillery barrage. She may use this Charm in mass combat while immaterial, in which case it manifests as fortune and favor protecting a single unit. CHAPTER EIGHT · GODS AND MONSTERS OF THE SCAVENGER LANDS Measure the Wind--Dayshield remains constantly alert for tactical threats, gauging her opponents and guests with this Charm. Principle of Motion--Dayshield has seven extra actions ready in her pool. Reserve of Will (x3)--Dayshield stores three additional temporary Willpower. Tomorrow's Victory--Dayshield knows that defeat today can lead to victory tomorrow, and she offers up hope to her troops when morale ebbs. When Dayshield has battled a foe and, at the Storyteller's discretion, lost (or drawn) the battle, she may commit five motes. The next time she battles the same opponent, she may release the Essence she committed and gain +1 success to her attack rolls for the duration of the battle. If she chooses, she may keep her Essence committed and, if she loses again, commit another five to \"stack\" the bonuses for a future fight. She may have no more than five (equal to her Essence) instances of this Charm \"stacked\" at any one time. This Charm may also apply to mass combat, in which case, it applies to her entire unit, but only if the unit lost a previous battle against the enemy it currently fights. Dayshield has the First, Second and Third Excellencies for the following</p><p><strong>Backgrounds:</strong> Allies 2, Cult 1, Followers 4, Resources 4, Sanctum 2</p><p><em>Original essence pool from source: 125 motes</em></p><p><em>Source: Compass of Terrestrial Directions, Vol. I: The Scavenger Lands</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

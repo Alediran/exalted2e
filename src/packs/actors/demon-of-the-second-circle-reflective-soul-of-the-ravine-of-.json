@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Demon of the Second Circle, Reflective Soul of the Ravine of Whispers",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "demon",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 7,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 8,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "valor": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 3
+      "value": 3,
+      "max": 3
     },
     "willpower": {
       "value": 8,
       "max": 8
     },
     "motes": {
-      "value": 0,
-      "max": "55 CHAPTER FIVE: THE DAMNED"
-    },
-    "pools": {
-      "combat": 11,
-      "social": 14,
-      "physical": 11
-    },
-    "combat": {
-      "joinBattle": 7,
-      "dodgeDV": 10,
-      "parryDV": 0,
-      "dodgeMDV": 4,
-      "parryMDV": 1,
-      "soak": {
-        "bashing": 17,
-        "lethal": 15,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": "55 CHAPTER FIVE: THE DAMNED",
+        "max": "55 CHAPTER FIVE: THE DAMNED",
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 12
+      "bonus": {
+        "zero": 0,
+        "one": 3,
+        "two": 2
+      }
     },
-    "powers": "<p>Landscape Travel--Gallop at double speed Materialize--Costs 40 motes Second (Ability) Excellency: Athletics, Dodge</p>",
-    "notes": "<p>Stone-Breaking Fist: Speed 5, Accuracy 13, Damage 10L, Parry DV 7, Rate 3 Boulder-Exploding Kick: Speed 6, Accuracy 12, Damage 14L, Parry DV 5, Rate 2 Gate-Shattering Touch: Speed 5, Accuracy 13, Damage 20L, Parry DV 7, Rate 1</p>",
-    "biography": "<p>Stanewald dances like wind-spun smoke, a shrill drone rising from the earth in her wake. Dark blood oozes from cracks and hollows in her presence, and corrosion spreads where her fingers brush silver or brass. When she speaks, she renders firedust impotent. She leaves no footprints, for her feet hover inches above the ground. She wears a horsehide cloak over her raiment of white silk. When she wishes foes to hear her approach, she casts it down, and it untwists into the empty shell of a horse. This is Wulfthryth, a creature neither wholly a part of her or wholly discrete. Its hollow legs bear her across land and sea, the beats of its iron-shod hooves ringing as clear and even as a drum. The lore of the Demon City states that only the Yozis and two other demons dance as well as she. Those who have watched her claim that all mortal things appear clumsy and awkward beside the perfect beauty of her movements, but they speak without certainty, for none have seen her clearly. Her body dissolves in strong light, only to flow away and re-form in shadow. No music pleases Stanewald more than the sound of shattering stone. Its song draws her away from other matters, even those commands issued by her summoner. Her greatest strength lies in those dances that harm the land. Her Essence formed around that power. When she emerged from the bleak womb of Munaxes, she bore the title \"The Answer to the Earth,\" and for centuries, she came to Creation to scourge the spirit courts of stone. But 70 years ago, she climbed the Imperial Mountain at a Yozi's behest, and whatever transpired on that journey changed her. She has lost her mission, and she desperately seeks a new purpose. Summoning: (Obscurity 2/4) Sorcerers conjure Stanewald to perform her infamous dances. She loves the sound of splintering rock, and a major earthquake or damage to a stony manse can draw her forth from Malfeas.</p><p><strong>Motivation:</strong> To find a purpose for her existence. Stanewald's Intimacies include dancing, the sound of breaking rock, spirits and elementals of stone (a negative Intimacy) and Wulfthryth.</p><p><strong>Backgrounds:</strong> Backing 3, Cult 3, Familiar 5 (Wulfthryth)</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Stanewald dances like wind-spun smoke, a shrill drone rising from the earth in her wake. Dark blood oozes from cracks and hollows in her presence, and corrosion spreads where her fingers brush silver or brass. When she speaks, she renders firedust impotent. She leaves no footprints, for her feet hover inches above the ground. She wears a horsehide cloak over her raiment of white silk. When she wishes foes to hear her approach, she casts it down, and it untwists into the empty shell of a horse. This is Wulfthryth, a creature neither wholly a part of her or wholly discrete. Its hollow legs bear her across land and sea, the beats of its iron-shod hooves ringing as clear and even as a drum. The lore of the Demon City states that only the Yozis and two other demons dance as well as she. Those who have watched her claim that all mortal things appear clumsy and awkward beside the perfect beauty of her movements, but they speak without certainty, for none have seen her clearly. Her body dissolves in strong light, only to flow away and re-form in shadow. No music pleases Stanewald more than the sound of shattering stone. Its song draws her away from other matters, even those commands issued by her summoner. Her greatest strength lies in those dances that harm the land. Her Essence formed around that power. When she emerged from the bleak womb of Munaxes, she bore the title \"The Answer to the Earth,\" and for centuries, she came to Creation to scourge the spirit courts of stone. But 70 years ago, she climbed the Imperial Mountain at a Yozi's behest, and whatever transpired on that journey changed her. She has lost her mission, and she desperately seeks a new purpose. Summoning: (Obscurity 2/4) Sorcerers conjure Stanewald to perform her infamous dances. She loves the sound of splintering rock, and a major earthquake or damage to a stony manse can draw her forth from Malfeas.</p><p><strong>Motivation:</strong> To find a purpose for her existence. Stanewald's Intimacies include dancing, the sound of breaking rock, spirits and elementals of stone (a negative Intimacy) and Wulfthryth.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Stone-Breaking Fist: Speed 5, Accuracy 13, Damage 10L, Parry DV 7, Rate 3 Boulder-Exploding Kick: Speed 6, Accuracy 12, Damage 14L, Parry DV 5, Rate 2 Gate-Shattering Touch: Speed 5, Accuracy 13, Damage 20L, Parry DV 7, Rate 1</p><h3>Powers</h3><p>Landscape Travel--Gallop at double speed Materialize--Costs 40 motes Second (Ability) Excellency: Athletics, Dodge</p><p><strong>Backgrounds:</strong> Backing 3, Cult 3, Familiar 5 (Wulfthryth)</p><p><em>Original essence pool from source: 55 CHAPTER FIVE: THE DAMNED motes</em></p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
     "purchaseLocked": false
   },
   "folder": "d4e5f6a700000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

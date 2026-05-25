@@ -100,6 +100,8 @@
         <input type="number" name="system.pools.social"   value="{{system.pools.social}}"  min="0"></div>
       <div class="field-group"><label>{{localize "EX2E.PhysicalPool"}}</label>
         <input type="number" name="system.pools.physical" value="{{system.pools.physical}}" min="0"></div>
+      <div class="field-group"><label>{{localize "EX2E.WoundPenalty"}}</label>
+        <input type="number" name="system.combat.woundPenalty" value="{{system.combat.woundPenalty}}" min="0" max="4"></div>
     </div>
   </details>
   {{/if}}
@@ -123,6 +125,34 @@
   </div>
   {{/if}}
 
+  <!-- Attacks -->
+  <h2 class="section-header">{{localize "EX2E.Attacks"}}</h2>
+  {{#if isEditable}}
+  <button class="btn-add-item" data-action="addAttack">+ {{localize "EX2E.AddAttack"}}</button>
+  {{/if}}
+  {{#each system.attacks as |atk idx|}}
+  <div class="item-row attack-row" data-attack-index="{{idx}}">
+    {{#if @root.isEditable}}
+    <input type="text"   name="system.attacks.{{idx}}.name"   value="{{atk.name}}"   style="width:110px" title="Name">
+    <input type="number" name="system.attacks.{{idx}}.pool"   value="{{atk.pool}}"   min="0" max="50" style="width:42px" title="Pool">
+    <input type="text"   name="system.attacks.{{idx}}.damage" value="{{atk.damage}}" style="width:42px" title="Damage (e.g. 8L)">
+    <span class="stat-label" style="font-size:0.75em">Spd</span>
+    <input type="number" name="system.attacks.{{idx}}.speed"  value="{{atk.speed}}"  min="1" max="10" style="width:36px" title="Speed">
+    <span class="stat-label" style="font-size:0.75em">Rate</span>
+    <input type="number" name="system.attacks.{{idx}}.rate"   value="{{atk.rate}}"   min="1" max="10" style="width:36px" title="Rate">
+    {{else}}
+    <span class="item-name">{{atk.name}}</span>
+    <span class="stat-value" style="font-size:0.85em">{{atk.pool}}⚄ {{atk.damage}} Spd{{atk.speed}} Rate{{atk.rate}}</span>
+    {{/if}}
+    <div class="item-controls">
+      <button data-action="rollNpcAttack" title="{{localize 'EX2E.RollAttack'}}">⚔</button>
+      {{#if @root.isEditable}}
+      <button data-action="deleteAttack" title="Delete">🗑</button>
+      {{/if}}
+    </div>
+  </div>
+  {{/each}}
+
   <!-- Charms -->
   <h2 class="section-header">{{localize "EX2E.CharmsPowers"}}</h2>
   {{#if isEditable}}
@@ -133,10 +163,11 @@
     <img class="item-img" src="{{c.img}}" alt="{{c.name}}">
     <span class="item-name">{{c.name}}</span>
     <div class="item-controls">
-      <button data-action="sendItemToChat">💬</button>
-      {{#if ../isEditable}}
-      <button data-action="editItem">✏️</button>
-      <button data-action="deleteItem">🗑</button>
+      <button data-action="activateCharm" title="{{localize 'EX2E.ActivateCharm'}}">⚡</button>
+      <button data-action="sendItemToChat" title="{{localize 'EX2E.SendToChat'}}">💬</button>
+      {{#if @root.isEditable}}
+      <button data-action="editItem" title="Edit">✏️</button>
+      <button data-action="deleteItem" title="Delete">🗑</button>
       {{/if}}
     </div>
   </div>
@@ -190,7 +221,7 @@
   <p class="empty-msg">{{localize "EX2E.NoCombos"}}</p>
   {{/if}}
 
-  <!-- Notes -->
+  <!-- Powers -->
   <h2 class="section-header">{{localize "EX2E.NotesPowers"}}</h2>
   <div class="editor-container">
     {{#if isEditable}}
@@ -201,5 +232,35 @@
     <div class="editor-content">{{{enrichedPowers}}}</div>
     {{/if}}
   </div>
+
+  <!-- Attack Notes -->
+  {{#if enrichedNotes}}
+  <h2 class="section-header">{{localize "EX2E.AttackNotes"}}</h2>
+  <div class="editor-container">
+    {{#if isEditable}}
+    <prose-mirror name="system.notes" data-document-uuid="{{actor.uuid}}" value="{{system.notes}}" collaborate="true" toggled="true">
+      {{{enrichedNotes}}}
+    </prose-mirror>
+    {{else}}
+    <div class="editor-content">{{{enrichedNotes}}}</div>
+    {{/if}}
+  </div>
+  {{/if}}
+
+  <!-- Biography -->
+  {{#if enrichedBiography}}
+  <details class="biography-block" style="margin-top:8px">
+    <summary style="cursor:pointer"><h2 class="section-header" style="display:inline;margin:0">{{localize "EX2E.Biography"}}</h2></summary>
+    <div class="editor-container" style="margin-top:4px">
+      {{#if isEditable}}
+      <prose-mirror name="system.biography" data-document-uuid="{{actor.uuid}}" value="{{system.biography}}" collaborate="true" toggled="true">
+        {{{enrichedBiography}}}
+      </prose-mirror>
+      {{else}}
+      <div class="editor-content">{{{enrichedBiography}}}</div>
+      {{/if}}
+    </div>
+  </details>
+  {{/if}}
 
 </div>

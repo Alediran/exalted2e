@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Halkomelem, the Enigma in Red and Gold",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "demon",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 14,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 16,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 2,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 8,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 5,
+        "current": 5,
+        "channeled": false
+      },
+      "valor": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 9
+      "value": 9,
+      "max": 9
     },
     "willpower": {
       "value": 9,
       "max": 9
     },
     "motes": {
-      "value": 0,
-      "max": 0
-    },
-    "pools": {
-      "combat": 9,
-      "social": 6,
-      "physical": 11
-    },
-    "combat": {
-      "joinBattle": 8,
-      "dodgeDV": 10,
-      "parryDV": 0,
-      "dodgeMDV": 4,
-      "parryMDV": 0,
-      "soak": {
-        "bashing": 32,
-        "lethal": 16,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 51
+      "bonus": {
+        "zero": 4,
+        "one": 18,
+        "two": 18
+      }
     },
-    "powers": "<p>Hunger for Knowledge--When the Enigma in Red and Gold consumes a sentient creature, it learns everything the creature ever knew. Its flanks immediately sprout hundreds of new pages inscribed with that knowledge in runes of gold. Scarred with Understanding--A silver scar marks Halkomelem's flank where it endured the touch of Orabilis. As such, it grasps a secret once known only to the Yozis. This could be almost anything: a rite to compel the Incarnae, a Yozi's hidden vulnerability or a plan to escape the demon prison. Written on the World--Having been inscribed by a Primordial upon the shinmaic substrate of the cosmos, Halkomelem cannot be permanently killed by ordinary means. If destroyed in battle, it reconstitutes itself from its scattered pages over a period of months or years. Only power on par with the Yozis and the Incarnae can kill it, although a Solar could conceivably do so with a Solar Circle sorcery designed solely for that purpose.</p>",
-    "notes": "<p>Bite: Speed 6, Accuracy 9, Damage 14L, Parry DV --, Rate 1 Tail Slap: Speed 5, Accuracy 10, Damage 20B, Parry DV 4, Rate 1 Clinch: Speed 6, Accuracy 10, Damage 14B, Parry DV --, Rate 1, Tags P</p>",
-    "biography": "<p>When He Who Bleeds the Unknown Word entered the Primordial War, he assumed the shape of a dragon of living calligraphy. He flew on wings of poetry; his fangs dripped with satire; he wore armor of endlessly folded layers of impenetrable legalese. In his breast, his true name pulsed like a star. Despite his ineffable splendor, the Solar Exalted tore him from the sky and shattered his name-heart. As he died, he scribed his own nature upon the fabric of the world as a dying man might write his last thoughts in his own blood. That scribble, that corrupted copy, is Halkomelem, a triple-jawed serpent of imperishable crimson paper 100 yards long, its body crawling with golden script in ten thousand tongues. When the gods bound the Yozis and their offspring into Malfeas, the behemoth followed. Now it soars, inscrutable, through the Demon City's skies, shedding pages from its flanks in a glittering scarlet rain.</p><p><strong>Motivation:</strong> Learn.</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>When He Who Bleeds the Unknown Word entered the Primordial War, he assumed the shape of a dragon of living calligraphy. He flew on wings of poetry; his fangs dripped with satire; he wore armor of endlessly folded layers of impenetrable legalese. In his breast, his true name pulsed like a star. Despite his ineffable splendor, the Solar Exalted tore him from the sky and shattered his name-heart. As he died, he scribed his own nature upon the fabric of the world as a dying man might write his last thoughts in his own blood. That scribble, that corrupted copy, is Halkomelem, a triple-jawed serpent of imperishable crimson paper 100 yards long, its body crawling with golden script in ten thousand tongues. When the gods bound the Yozis and their offspring into Malfeas, the behemoth followed. Now it soars, inscrutable, through the Demon City's skies, shedding pages from its flanks in a glittering scarlet rain.</p><p><strong>Motivation:</strong> Learn.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Bite: Speed 6, Accuracy 9, Damage 14L, Parry DV --, Rate 1 Tail Slap: Speed 5, Accuracy 10, Damage 20B, Parry DV 4, Rate 1 Clinch: Speed 6, Accuracy 10, Damage 14B, Parry DV --, Rate 1, Tags P</p><h3>Powers</h3><p>Hunger for Knowledge--When the Enigma in Red and Gold consumes a sentient creature, it learns everything the creature ever knew. Its flanks immediately sprout hundreds of new pages inscribed with that knowledge in runes of gold. Scarred with Understanding--A silver scar marks Halkomelem's flank where it endured the touch of Orabilis. As such, it grasps a secret once known only to the Yozis. This could be almost anything: a rite to compel the Incarnae, a Yozi's hidden vulnerability or a plan to escape the demon prison. Written on the World--Having been inscribed by a Primordial upon the shinmaic substrate of the cosmos, Halkomelem cannot be permanently killed by ordinary means. If destroyed in battle, it reconstitutes itself from its scattered pages over a period of months or years. Only power on par with the Yozis and the Incarnae can kill it, although a Solar could conceivably do so with a Solar Circle sorcery designed solely for that purpose.</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
     "purchaseLocked": false
   },
   "folder": "d4e5f6a700000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

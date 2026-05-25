@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Hiparkes, Stallion-lord of the Marukan Plains",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "valor": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 5
+      "value": 5,
+      "max": 5
     },
     "willpower": {
       "value": 8,
       "max": 8
     },
     "motes": {
-      "value": 0,
-      "max": 140
-    },
-    "pools": {
-      "combat": 9,
-      "social": 10,
-      "physical": 9
-    },
-    "combat": {
-      "joinBattle": 6,
-      "dodgeDV": 7,
-      "parryDV": 0,
-      "dodgeMDV": 4,
-      "parryMDV": 1,
-      "soak": {
-        "bashing": 18,
-        "lethal": 8,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 4
+      "peripheral": {
+        "value": 140,
+        "max": 140,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 16
+      "bonus": {
+        "zero": 1,
+        "one": 4,
+        "two": 4
+      }
     },
-    "powers": "<p>The Barbs of Hiparkes--A blow from Hiparkes' lance or arrows can permanently cripple a horse or temporarily cripple a mortal. Once Hiparkes has struck his target, he may spend six motes to instantly inflict a crippling wound. The wound always cripples a leg. Mortals will heal the wound naturally after a week, while horses suffer the affliction permanently (unless healed through surgery or magic--the permanence is not magical in nature). The Charm resides within Hiparkes' lance and arrows, so Hiparkes may give away his lance (and thus the Charm) or it may be stolen from him. In either case, the lance returns to him in a week. The arrows may be offered to another for a cost of 10 motes, which grants three arrows (i.e., three uses of the Charm). A thief may take them but must pay 10 motes to fully empower the arrows. Hiparkes retains the Charm after giving away (or losing) arrows. Hiparkes must be material to use his lance, but he can strike horses with his arrows while he is immaterial. This Charm does not affect Exalts or other beings that cannot be maimed easily Essence Plethora (x5)--Hiparkes has 50 additional motes of Essence in his Essence pool. Hurry Home--Hiparkes may appear anywhere in the Marukan plains once per scene. The Kiss of Hiparkes--By spending 15 motes and one Willpower, Hiparkes marks a target. The mark is invisible, but those with the ability to see the insubstantial note a primal tattooing upon the target's skin. Gods (or anyone with Measure the Wind or similar Charms) will intuitively understand that the target \"belongs with\" Hiparkes and that Hiparkes will guard him. This Charm does more than just mark a target, however. It also creates a bond between rider and steed, and instantly grants a single dot of the Familiar Background to the target. The Familiar is always a horse, and if the character has no horse, fate will make sure that he will discover his steed. This mark is permanent (unless somehow destroyed) and can be granted to only a willing target, and many in Marukan beseech Hiparkes for the Kiss. Hiparkes may grant his blessing while immaterial. Measure the Wind--Hiparkes' dark, liquid eyes and wide nostrils instantly sense the power and nature of a being he meets. Principle of Motion--Hiparkes has eight extra actions ready in his pool. Reserve of Will (x2)--Hiparkes stores two additional temporary Willpower. The Scourge of Hiparkes--For 10 motes, Hiparkes may level a curse upon those who treat their loyal animals cruelly. This curse appears as an insubstantial mark, invisible to mortal eyes, but the savage, barbed tattoo appears clearly to those with supernatural sight. Horses shy away from the target of the curse, and the target suffers a -2 penalty to all Ride rolls for the duration of the Charm. The Charm lasts for one week. Hiparkes may use this Charm while immaterial. Shapechange--Hiparkes can change form for a cost of six motes. The change lasts for a day, and he can manifest as any specific Marukan horse, deliberately imitating a specific animal, or as a rider, though this form is generic and mimics no one. When imitating an animal, the rider's player can make a (Perception + Ride) check, difficulty 3, to spot the difference, possibly gaining a bonus based on his relationship with the animal (Storyteller's discretion). Any attempt to mimic someone's familiar automatically fails, as such a close relationship cannot be fooled. Hiparkes can also manifest as a mighty-thewed man, a massive stallion or a herd of heavenly horses. A Single Day's Ride--By spending 20 motes and one Willpower, Hiparkes, and one passenger upon his back, may ride to any- where in Creation in a single day (from sun-up to sundown, or visa-versa). The ride takes the whole day, and Hiparkes can bring his rider only to someplace reasonably accessible to horses with two exceptions: He may ride across water and leap gaping canyons. He cannot bring his rider to a small chamber that he does not fit in, however, nor may he ride through walls. Hiparkes cannot use this Charm to take his rider to someplace outside of Creation, but he may bring her to the edge of Creation. For example, he can take his rider to the edge of Cecylene, but not into Malfeas itself. To do that would require normal riding, rather than Charm-enhanced travel. The Star Bridle--Leather as dark as night, studded with fine, sparkling diamonds, makes up this magnificent bridle. Should Hiparkes mount it upon a horse, whether mortal or divine, and spend 10 motes and one Willpower, the horse is instantly tamed, performing whatever tasks the bearer requires of him. Hiparkes wore the bridle when he was a heavenly steed, and he now keeps it locked away in his study. He never uses it (he has no need), but he can either give it away, or a thief could take it from him. In either case, Hiparkes loses the Charm, and the current bearer gains it. After a week has passed, the bridle returns to Hiparkes. Hiparkes prizes this object and would never willingly give it up unless truly dire circumstances compelled him. Hiparkes has the First, Second and Third Excellencies for the following</p>",
-    "notes": "<p>Kick: Speed 5, Accuracy 10, Damage 12B, Defense 4, Rate 1 Trample (herd form only): Speed 6, Accuracy 15, Damage 16L, Defense 1, Rate 1 Lance (The Heaven Spur): Speed 4, Accuracy 12, Damage 14L, Defense 6, Rate 2 Short Bow (The Bow of Hiparkes): Speed 6, Accuracy 10, Damage 10L, Range 250, Rate 3</p>",
-    "biography": "<p>When the world was young and the horizons farther than they are today, the Maiden of Journeys rode a storm-dappled steed who could cross Creation in less than a day. But as the years wore on, the steed found himself resting in his stables more and more, yearning for the freedom of the open plains, until he was forgotten in a spirit stable in Creation. When the Great Contagion struck, more than just the mortal realm was harmed, and the steed found himself maddened and wild, racing the plains of the Scavenger Lands until a young girl from the Marukan tribe rode upon his back and reminded him of who and what he was. Hiparkes takes many forms. When he manifests as a human, he appears as a towering, silver-skinned man with a thick mane of smoky black hair. In his right hand, he bears a lance, and in his left, he bears a bow. Riding leathers adorn his legs, and he leaves CHAPTER EIGHT · GODS AND MONSTERS OF THE SCAVENGER LANDS his powerful chest bare. Sometimes, he appears as a herd of wild horses led by a single stallion, and except for the stallion, one cannot tell where one horse ends and the next begins. His favored form, however, is that of a massive horse 16 hands high with a cloud-gray dappled hide and a thick mane of silvery hair. In whatever form he takes, his low voice rumbles like a thousand pounding hoof-beats, and his large liquid eyes hold wisdom, compassion and pride. Hiparkes governs horses and their riders, ruling over the unity between steed and man. Therefore, his interests go far beyond the wild herds of horses that roam the Marukan plains and delve into the very cities of his favored people. Any horse who serves his master well has a place in Hiparkes' heavenly stables, and any mortal who treats his steed well earns the horse god's respect. Pubescent children earn special kindness from Hiparkes, who will freely allow them to ride upon his back if he finds them lost in the wild, bringing them home to their parents. Sanctum: Hiparkes rests in a ranch that lies at the end of the secret paths wild horses sometimes tread. Dedicated mortals occasionally find their way to this equestrian heaven by following herds of horses into narrow gullies that seem to dead-end. Hiparkes' ranch rests upon a vast field of green hills where horses run freely. Stables that stretch for miles house the most virtuous of steeds, those horses who have proven themselves loyal to their riders and worthy of Hiparkes' hospitality. Within the ranch, Hiparkes dines with his guests, a myriad of mortals and the ghosts of worthy riders who have won Hiparkes' respect. Occasionally, if a supplicant proves himself, Hiparkes may gift him with a legendary horse or a place at his table.</p><p><strong>Motivation:</strong> To perfect the horses and riders of Marukan.</p><p><strong>Backgrounds:</strong> Cult 3, Followers 5, Resources 5, Sanctum 5</p><p><em>Source: Compass of Terrestrial Directions, Vol. I: The Scavenger Lands</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>When the world was young and the horizons farther than they are today, the Maiden of Journeys rode a storm-dappled steed who could cross Creation in less than a day. But as the years wore on, the steed found himself resting in his stables more and more, yearning for the freedom of the open plains, until he was forgotten in a spirit stable in Creation. When the Great Contagion struck, more than just the mortal realm was harmed, and the steed found himself maddened and wild, racing the plains of the Scavenger Lands until a young girl from the Marukan tribe rode upon his back and reminded him of who and what he was. Hiparkes takes many forms. When he manifests as a human, he appears as a towering, silver-skinned man with a thick mane of smoky black hair. In his right hand, he bears a lance, and in his left, he bears a bow. Riding leathers adorn his legs, and he leaves CHAPTER EIGHT · GODS AND MONSTERS OF THE SCAVENGER LANDS his powerful chest bare. Sometimes, he appears as a herd of wild horses led by a single stallion, and except for the stallion, one cannot tell where one horse ends and the next begins. His favored form, however, is that of a massive horse 16 hands high with a cloud-gray dappled hide and a thick mane of silvery hair. In whatever form he takes, his low voice rumbles like a thousand pounding hoof-beats, and his large liquid eyes hold wisdom, compassion and pride. Hiparkes governs horses and their riders, ruling over the unity between steed and man. Therefore, his interests go far beyond the wild herds of horses that roam the Marukan plains and delve into the very cities of his favored people. Any horse who serves his master well has a place in Hiparkes' heavenly stables, and any mortal who treats his steed well earns the horse god's respect. Pubescent children earn special kindness from Hiparkes, who will freely allow them to ride upon his back if he finds them lost in the wild, bringing them home to their parents. Sanctum: Hiparkes rests in a ranch that lies at the end of the secret paths wild horses sometimes tread. Dedicated mortals occasionally find their way to this equestrian heaven by following herds of horses into narrow gullies that seem to dead-end. Hiparkes' ranch rests upon a vast field of green hills where horses run freely. Stables that stretch for miles house the most virtuous of steeds, those horses who have proven themselves loyal to their riders and worthy of Hiparkes' hospitality. Within the ranch, Hiparkes dines with his guests, a myriad of mortals and the ghosts of worthy riders who have won Hiparkes' respect. Occasionally, if a supplicant proves himself, Hiparkes may gift him with a legendary horse or a place at his table.</p><p><strong>Motivation:</strong> To perfect the horses and riders of Marukan.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Kick: Speed 5, Accuracy 10, Damage 12B, Defense 4, Rate 1 Trample (herd form only): Speed 6, Accuracy 15, Damage 16L, Defense 1, Rate 1 Lance (The Heaven Spur): Speed 4, Accuracy 12, Damage 14L, Defense 6, Rate 2 Short Bow (The Bow of Hiparkes): Speed 6, Accuracy 10, Damage 10L, Range 250, Rate 3</p><h3>Powers</h3><p>The Barbs of Hiparkes--A blow from Hiparkes' lance or arrows can permanently cripple a horse or temporarily cripple a mortal. Once Hiparkes has struck his target, he may spend six motes to instantly inflict a crippling wound. The wound always cripples a leg. Mortals will heal the wound naturally after a week, while horses suffer the affliction permanently (unless healed through surgery or magic--the permanence is not magical in nature). The Charm resides within Hiparkes' lance and arrows, so Hiparkes may give away his lance (and thus the Charm) or it may be stolen from him. In either case, the lance returns to him in a week. The arrows may be offered to another for a cost of 10 motes, which grants three arrows (i.e., three uses of the Charm). A thief may take them but must pay 10 motes to fully empower the arrows. Hiparkes retains the Charm after giving away (or losing) arrows. Hiparkes must be material to use his lance, but he can strike horses with his arrows while he is immaterial. This Charm does not affect Exalts or other beings that cannot be maimed easily Essence Plethora (x5)--Hiparkes has 50 additional motes of Essence in his Essence pool. Hurry Home--Hiparkes may appear anywhere in the Marukan plains once per scene. The Kiss of Hiparkes--By spending 15 motes and one Willpower, Hiparkes marks a target. The mark is invisible, but those with the ability to see the insubstantial note a primal tattooing upon the target's skin. Gods (or anyone with Measure the Wind or similar Charms) will intuitively understand that the target \"belongs with\" Hiparkes and that Hiparkes will guard him. This Charm does more than just mark a target, however. It also creates a bond between rider and steed, and instantly grants a single dot of the Familiar Background to the target. The Familiar is always a horse, and if the character has no horse, fate will make sure that he will discover his steed. This mark is permanent (unless somehow destroyed) and can be granted to only a willing target, and many in Marukan beseech Hiparkes for the Kiss. Hiparkes may grant his blessing while immaterial. Measure the Wind--Hiparkes' dark, liquid eyes and wide nostrils instantly sense the power and nature of a being he meets. Principle of Motion--Hiparkes has eight extra actions ready in his pool. Reserve of Will (x2)--Hiparkes stores two additional temporary Willpower. The Scourge of Hiparkes--For 10 motes, Hiparkes may level a curse upon those who treat their loyal animals cruelly. This curse appears as an insubstantial mark, invisible to mortal eyes, but the savage, barbed tattoo appears clearly to those with supernatural sight. Horses shy away from the target of the curse, and the target suffers a -2 penalty to all Ride rolls for the duration of the Charm. The Charm lasts for one week. Hiparkes may use this Charm while immaterial. Shapechange--Hiparkes can change form for a cost of six motes. The change lasts for a day, and he can manifest as any specific Marukan horse, deliberately imitating a specific animal, or as a rider, though this form is generic and mimics no one. When imitating an animal, the rider's player can make a (Perception + Ride) check, difficulty 3, to spot the difference, possibly gaining a bonus based on his relationship with the animal (Storyteller's discretion). Any attempt to mimic someone's familiar automatically fails, as such a close relationship cannot be fooled. Hiparkes can also manifest as a mighty-thewed man, a massive stallion or a herd of heavenly horses. A Single Day's Ride--By spending 20 motes and one Willpower, Hiparkes, and one passenger upon his back, may ride to any- where in Creation in a single day (from sun-up to sundown, or visa-versa). The ride takes the whole day, and Hiparkes can bring his rider only to someplace reasonably accessible to horses with two exceptions: He may ride across water and leap gaping canyons. He cannot bring his rider to a small chamber that he does not fit in, however, nor may he ride through walls. Hiparkes cannot use this Charm to take his rider to someplace outside of Creation, but he may bring her to the edge of Creation. For example, he can take his rider to the edge of Cecylene, but not into Malfeas itself. To do that would require normal riding, rather than Charm-enhanced travel. The Star Bridle--Leather as dark as night, studded with fine, sparkling diamonds, makes up this magnificent bridle. Should Hiparkes mount it upon a horse, whether mortal or divine, and spend 10 motes and one Willpower, the horse is instantly tamed, performing whatever tasks the bearer requires of him. Hiparkes wore the bridle when he was a heavenly steed, and he now keeps it locked away in his study. He never uses it (he has no need), but he can either give it away, or a thief could take it from him. In either case, Hiparkes loses the Charm, and the current bearer gains it. After a week has passed, the bridle returns to Hiparkes. Hiparkes prizes this object and would never willingly give it up unless truly dire circumstances compelled him. Hiparkes has the First, Second and Third Excellencies for the following</p><p><strong>Backgrounds:</strong> Cult 3, Followers 5, Resources 5, Sanctum 5</p><p><em>Original essence pool from source: 140 motes</em></p><p><em>Source: Compass of Terrestrial Directions, Vol. I: The Scavenger Lands</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

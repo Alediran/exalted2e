@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Golden-eyed Jorst",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 12,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 7,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 8,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "valor": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 6
+      "value": 6,
+      "max": 6
     },
     "willpower": {
       "value": 7,
       "max": 7
     },
     "motes": {
-      "value": 0,
-      "max": 125
-    },
-    "pools": {
-      "combat": 9,
-      "social": 10,
-      "physical": 9
-    },
-    "combat": {
-      "joinBattle": 6,
-      "dodgeDV": 8,
-      "parryDV": 0,
-      "dodgeMDV": 3,
-      "parryMDV": 3,
-      "soak": {
-        "bashing": 13,
-        "lethal": 9,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 2
+      "peripheral": {
+        "value": 125,
+        "max": 125,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 14
+      "bonus": {
+        "zero": 0,
+        "one": 4,
+        "two": 3
+      }
     },
-    "powers": "<p>Golden-Eyed Jorst knows a multitude of Charms. These are only a few that deserve special mention for one reason or another. Affinity Wood Control--Jorst can manipulate plant life; the volume is comparable to six barrels or cubic yards. He can quickly design and create new drugs, poisons or entire plant species. Jorst can use this Charm to create environmental hazards or attack using razor-sharp wood and vines. This attack cannot be dodged, but affects only those visible to Jorst (invisibility or total concealment protects completely). Attacks using the environment have Speed 5, Accuracy 11, maximum Damage 18B/18L, Rate 6. Environmental hazards have a maximum Damage of 6L/minute and maximum Trauma of 6L. Activating this power costs six motes; it remains active for a full scene. Banish--Golden-Eyed Jorst can only use this Charm against creatures who commit or threaten violence (such as by drawing a weapon). He can send them to any location in his woodland purview. The target must go to a safe location. High in the branches of a sturdy oak tree is safe, yes? If Jorst feels pissed, he neglects to banish the offending person's clothes (but he won't leave them weaponless). This costs 12 motes and one Willpower point. Divine Prerogative--Jorst keeps one great secret, his \"pick-me-up\" (described below). His Intimacy toward that secret renders it inviolate. Domain Manipulation Scenario--For six motes, Jorst can make the forest within 60 yards do anything that is normal for deciduous forests, such as calling a nearby hatra pack to attack intruders, or setting truffles growing at the roots of every oak tree. For 12 motes and a Willpower point, Jorst can make an entire woodland behave in wildly improbable (but not impossible) ways, such as calling every tree, shrub and herb to bloom at once even through it's the wrong season. Dreamscape--Jorst often sends dreams to his devotees. He uses this to communicate with priests and shamans, or simply as pleasant and cost-free rewards to his followers. Jorst can enter the dreams he crafts so as to interact directly with the dreamer's mind in a fantasy-world. This costs him only one mote. Essence Plethora--Golden-Eyed Jorst has 30 extra motes of Essence (largely due to his extensive worship in Linowan). Fruit of Living Essence--Jorst can absorb Essence or Willpower from people in the form of worries. He touches the person and spends three motes; his player rolls (Essence + Temperance), with an internal penalty of the target's Essence (plus half the Willpower of a resisting target). If the roll succeeds, Jorst takes three motes of the target's Essence per success rolled; with three or more successes, Jorst can take a point of Willpower instead. Some targets find this experience extremely pleasant as the god wipes their cares from their mind. Targets who have no Willpower or motes to lose instead suffer from a -2 external penalty to their Mental DVs and a ­2 internal penalty to all Integrity or Temperance rolls. This is a Sickness effect, and it can stack with itself. Hurry Home--Jorst can travel instantly to any woodland in the East that's at least 50% deciduous trees. He cannot venture into the evergreen conifer woods of Caltia or the almost-seasonless jungles of Arilak. Materialize--This costs Jorst 65 motes. Measure the Wind--The Party God likes to know the Essence-wielding capacity of his guests, the better to steer them towards appropriate delights. In the unlikely event that a guest becomes so unruly that Jorst must eject him... Well, that's another reason to know someone's capacity to wield Essence. This costs one mote. Memory Mirror--Jorst's eyes can see a person's memories and fantasies of pleasure, enabling him to craft nighirresistible temptations to revelry. Mind-Knife Sacrament--All-Encompassing. In a scenelong dramatic action in which Jorst has repeated opportunities to touch his target, he can reshape a person's mind to suppress or implant memories, change Intimacies, or even raise or lower the target's Abilities or Virtues. Jorst cannot raise any Ability by more than one dot, and cannot raise any Ability to a higher rating than he has himself; this may place a target character in experience point debt, as normal for Training effects. Finally, Jorst can make a person his priest. Use of this Charm costs 10 motes, or 15 motes and one Willpower point if Jorst wants to reshape multiple aspects of a person's mind. However, sculpting a person's mind strips the target of temporary Willpower (at least one point per change) or inflicts unsoakable aggravated damage if the target runs out of Willpower points. Thus, Jorst is careful to make only small changes to his targets' identities. For instance, while Jorst could give a promising Linowan shaman a direct Intimacy to hating Halta at a cost of draining three Willpower, implanting a memory that a childhood friend who drowned was actually pulled underwater by a Haltan assassin would cost the target only one Willpower. At his parties, Jorst subtly makes many such adjustments to the minds of revelers. Orgiastic Fugitive Style--Golden-Eyed Jorst never studied any martial art, but Creation's most dedicated reveler instinctively performs all the Charms of this Wood-aspected Terrestrial style (see Scroll of the Monk, pp. 57-58). Ox-Body Technique--Jorst takes this Charm once. Principle of Motion--Jorst keeps seven extra actions stored. Touch of Eternity--Jorst can grant mortals the same resistance to poison and disease that the Exalted enjoy. This is one of his favorite ways to reward mortals. It costs him X motes. Excellencies--Golden-Eyed Jorst has Third Excellencies with Bureaucracy, Craft (Wood), Integrity, Presence, Socialize and Survival. He also has Divine Survival Subordination with the Compassion Flaw of Invulnerability: The god can infallibly perform any feat related to Survival, but only on behalf of a mortal and only in his own deciduous forests.</p>",
-    "notes": "<p>Punch: Speed 4, Accuracy 10, Damage 12B, Parry DV 6, Rate 3 Kick: Speed 5, Accuracy 9, Damage 15B, Parry DV 4, Rate 2 Clinch: Speed 6, Accuracy 9, Damage 12B piercing, Parry DV ­, Rate 1, Piercing Natural Selection Glance*: Speed 5, Accuracy 12, Damage 24L, Range 60**, Rate 6 *This attack is undodgeable. CHAPTER FIVE: GODS AND MONSTERS OF THE EAST **This is the attack's maximum range. It suffers no penalties out to that range.</p>",
-    "biography": "<p>New Leaf King, Master of Forest Revels, Patron of Linowan Golden-Eyed Jorst, Eastern God of Deciduous Forests, is one extremely popular Terrestrial deity. Pretty much everyone likes him, except Caltia the Eternal and her Haltan devotees. Jorst regularly entertains powerful gods and Exalts in his sanctum, the Temple of Joy. Jorst's sanctum doors are always open. The carefree god seems always ready to please guests with his easy charm and open buffet of exotic pleasures. Some of the most powerful gods from Yu-Shan and Creation come to the Temple of Joy. They find it a fun and relaxing place to conduct business: far from the eyes of Heaven, hundreds of miles from all but the smallest human settlements, and shielded from the divinations of rival gods. What's more, it's discreet. Golden-Eyed Jorst doesn't care what or who you do. He cares only that his guests enjoy a wild, worry-free time. What happens in Jorst's hall, stays in Jorst's hall. Jorst's only stricture on his guests is that when he leaves, everyone leaves. Jorst likes to wander his forests, sometimes for months at a time. He often takes the guise of a mortal and imposes himself upon the hospitality of those he meets. Normally, Jorst doesn't have much of a temper, so those who refuse him rarely suffer for it, but he often blesses people that he likes or just wishes to thank. Stories circulate of Jorst's vengeance, but there simply isn't any reliable evidence that he ever did any of the horrible things for which he is feared. Jorst would certainly deny ever wanting to hurt someone just because they weren't nice to him. Anyway, more stories tell of the Golden-Eyed Lord's beneficence to households that showed kindness to a stranger. On the last day of Resplendent Air, Jorst always kicks everyone out of his sanctum and bars the gate, so that he can rest. Then, Jorst goes Elsewhere until spring. On the first day of Ascending Wood, Jorst's joyous return triggers an enormous party that may not stop for months. Jorst's natural form is that of an attractive greenskinned man. He is tall and strong, wearing many layers of fine flowing robes. Fronds of oak and maple leaves form his hair, and his eyes are lidless pools of rippling molten gold. Jorst is expressive and a master raconteur. His touch is gentle and strong. It's easy to see why everyone likes him. Sanctum: Jorst's sanctum is the Temple of Joy, located in the deepest eastern forests. Visitors enter through a giant archway made of dozens of beautiful trees. On the archway is written the Scripture of the Savory Maiden. Jorst's sanctum is extremely powerful. For details see Other Notes below.</p><p><strong>Motivation:</strong> Bring epic revelry to Creation.</p><p><strong>Backgrounds:</strong> Artifact (Natural Selection) 3, Artifact 3, Artifact 1, Cult 4, Influence 4, Manse 5, Salary 3</p><p><em>Source: Compass of Terrestrial Directions, Vol. III: The East</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>New Leaf King, Master of Forest Revels, Patron of Linowan Golden-Eyed Jorst, Eastern God of Deciduous Forests, is one extremely popular Terrestrial deity. Pretty much everyone likes him, except Caltia the Eternal and her Haltan devotees. Jorst regularly entertains powerful gods and Exalts in his sanctum, the Temple of Joy. Jorst's sanctum doors are always open. The carefree god seems always ready to please guests with his easy charm and open buffet of exotic pleasures. Some of the most powerful gods from Yu-Shan and Creation come to the Temple of Joy. They find it a fun and relaxing place to conduct business: far from the eyes of Heaven, hundreds of miles from all but the smallest human settlements, and shielded from the divinations of rival gods. What's more, it's discreet. Golden-Eyed Jorst doesn't care what or who you do. He cares only that his guests enjoy a wild, worry-free time. What happens in Jorst's hall, stays in Jorst's hall. Jorst's only stricture on his guests is that when he leaves, everyone leaves. Jorst likes to wander his forests, sometimes for months at a time. He often takes the guise of a mortal and imposes himself upon the hospitality of those he meets. Normally, Jorst doesn't have much of a temper, so those who refuse him rarely suffer for it, but he often blesses people that he likes or just wishes to thank. Stories circulate of Jorst's vengeance, but there simply isn't any reliable evidence that he ever did any of the horrible things for which he is feared. Jorst would certainly deny ever wanting to hurt someone just because they weren't nice to him. Anyway, more stories tell of the Golden-Eyed Lord's beneficence to households that showed kindness to a stranger. On the last day of Resplendent Air, Jorst always kicks everyone out of his sanctum and bars the gate, so that he can rest. Then, Jorst goes Elsewhere until spring. On the first day of Ascending Wood, Jorst's joyous return triggers an enormous party that may not stop for months. Jorst's natural form is that of an attractive greenskinned man. He is tall and strong, wearing many layers of fine flowing robes. Fronds of oak and maple leaves form his hair, and his eyes are lidless pools of rippling molten gold. Jorst is expressive and a master raconteur. His touch is gentle and strong. It's easy to see why everyone likes him. Sanctum: Jorst's sanctum is the Temple of Joy, located in the deepest eastern forests. Visitors enter through a giant archway made of dozens of beautiful trees. On the archway is written the Scripture of the Savory Maiden. Jorst's sanctum is extremely powerful. For details see Other Notes below.</p><p><strong>Motivation:</strong> Bring epic revelry to Creation.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Punch: Speed 4, Accuracy 10, Damage 12B, Parry DV 6, Rate 3 Kick: Speed 5, Accuracy 9, Damage 15B, Parry DV 4, Rate 2 Clinch: Speed 6, Accuracy 9, Damage 12B piercing, Parry DV ­, Rate 1, Piercing Natural Selection Glance*: Speed 5, Accuracy 12, Damage 24L, Range 60**, Rate 6 *This attack is undodgeable. CHAPTER FIVE: GODS AND MONSTERS OF THE EAST **This is the attack's maximum range. It suffers no penalties out to that range.</p><h3>Powers</h3><p>Golden-Eyed Jorst knows a multitude of Charms. These are only a few that deserve special mention for one reason or another. Affinity Wood Control--Jorst can manipulate plant life; the volume is comparable to six barrels or cubic yards. He can quickly design and create new drugs, poisons or entire plant species. Jorst can use this Charm to create environmental hazards or attack using razor-sharp wood and vines. This attack cannot be dodged, but affects only those visible to Jorst (invisibility or total concealment protects completely). Attacks using the environment have Speed 5, Accuracy 11, maximum Damage 18B/18L, Rate 6. Environmental hazards have a maximum Damage of 6L/minute and maximum Trauma of 6L. Activating this power costs six motes; it remains active for a full scene. Banish--Golden-Eyed Jorst can only use this Charm against creatures who commit or threaten violence (such as by drawing a weapon). He can send them to any location in his woodland purview. The target must go to a safe location. High in the branches of a sturdy oak tree is safe, yes? If Jorst feels pissed, he neglects to banish the offending person's clothes (but he won't leave them weaponless). This costs 12 motes and one Willpower point. Divine Prerogative--Jorst keeps one great secret, his \"pick-me-up\" (described below). His Intimacy toward that secret renders it inviolate. Domain Manipulation Scenario--For six motes, Jorst can make the forest within 60 yards do anything that is normal for deciduous forests, such as calling a nearby hatra pack to attack intruders, or setting truffles growing at the roots of every oak tree. For 12 motes and a Willpower point, Jorst can make an entire woodland behave in wildly improbable (but not impossible) ways, such as calling every tree, shrub and herb to bloom at once even through it's the wrong season. Dreamscape--Jorst often sends dreams to his devotees. He uses this to communicate with priests and shamans, or simply as pleasant and cost-free rewards to his followers. Jorst can enter the dreams he crafts so as to interact directly with the dreamer's mind in a fantasy-world. This costs him only one mote. Essence Plethora--Golden-Eyed Jorst has 30 extra motes of Essence (largely due to his extensive worship in Linowan). Fruit of Living Essence--Jorst can absorb Essence or Willpower from people in the form of worries. He touches the person and spends three motes; his player rolls (Essence + Temperance), with an internal penalty of the target's Essence (plus half the Willpower of a resisting target). If the roll succeeds, Jorst takes three motes of the target's Essence per success rolled; with three or more successes, Jorst can take a point of Willpower instead. Some targets find this experience extremely pleasant as the god wipes their cares from their mind. Targets who have no Willpower or motes to lose instead suffer from a -2 external penalty to their Mental DVs and a ­2 internal penalty to all Integrity or Temperance rolls. This is a Sickness effect, and it can stack with itself. Hurry Home--Jorst can travel instantly to any woodland in the East that's at least 50% deciduous trees. He cannot venture into the evergreen conifer woods of Caltia or the almost-seasonless jungles of Arilak. Materialize--This costs Jorst 65 motes. Measure the Wind--The Party God likes to know the Essence-wielding capacity of his guests, the better to steer them towards appropriate delights. In the unlikely event that a guest becomes so unruly that Jorst must eject him... Well, that's another reason to know someone's capacity to wield Essence. This costs one mote. Memory Mirror--Jorst's eyes can see a person's memories and fantasies of pleasure, enabling him to craft nighirresistible temptations to revelry. Mind-Knife Sacrament--All-Encompassing. In a scenelong dramatic action in which Jorst has repeated opportunities to touch his target, he can reshape a person's mind to suppress or implant memories, change Intimacies, or even raise or lower the target's Abilities or Virtues. Jorst cannot raise any Ability by more than one dot, and cannot raise any Ability to a higher rating than he has himself; this may place a target character in experience point debt, as normal for Training effects. Finally, Jorst can make a person his priest. Use of this Charm costs 10 motes, or 15 motes and one Willpower point if Jorst wants to reshape multiple aspects of a person's mind. However, sculpting a person's mind strips the target of temporary Willpower (at least one point per change) or inflicts unsoakable aggravated damage if the target runs out of Willpower points. Thus, Jorst is careful to make only small changes to his targets' identities. For instance, while Jorst could give a promising Linowan shaman a direct Intimacy to hating Halta at a cost of draining three Willpower, implanting a memory that a childhood friend who drowned was actually pulled underwater by a Haltan assassin would cost the target only one Willpower. At his parties, Jorst subtly makes many such adjustments to the minds of revelers. Orgiastic Fugitive Style--Golden-Eyed Jorst never studied any martial art, but Creation's most dedicated reveler instinctively performs all the Charms of this Wood-aspected Terrestrial style (see Scroll of the Monk, pp. 57-58). Ox-Body Technique--Jorst takes this Charm once. Principle of Motion--Jorst keeps seven extra actions stored. Touch of Eternity--Jorst can grant mortals the same resistance to poison and disease that the Exalted enjoy. This is one of his favorite ways to reward mortals. It costs him X motes. Excellencies--Golden-Eyed Jorst has Third Excellencies with Bureaucracy, Craft (Wood), Integrity, Presence, Socialize and Survival. He also has Divine Survival Subordination with the Compassion Flaw of Invulnerability: The god can infallibly perform any feat related to Survival, but only on behalf of a mortal and only in his own deciduous forests.</p><p><strong>Backgrounds:</strong> Artifact (Natural Selection) 3, Artifact 3, Artifact 1, Cult 4, Influence 4, Manse 5, Salary 3</p><p><em>Original essence pool from source: 125 motes</em></p><p><em>Source: Compass of Terrestrial Directions, Vol. III: The East</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

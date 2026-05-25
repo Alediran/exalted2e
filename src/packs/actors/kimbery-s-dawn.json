@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Kimbery's Dawn",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 8,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 1,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 0,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 2,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 2,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 1,
+        "current": 1,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "valor": {
+        "value": 5,
+        "current": 5,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 4
+      "value": 4,
+      "max": 4
     },
     "willpower": {
       "value": 7,
       "max": 7
     },
     "motes": {
-      "value": 0,
-      "max": 85
-    },
-    "pools": {
-      "combat": 9,
-      "social": 9,
-      "physical": 4
-    },
-    "combat": {
-      "joinBattle": 9,
-      "dodgeDV": "0",
-      "parryDV": 0,
-      "dodgeMDV": 3,
-      "parryMDV": 2,
-      "soak": {
-        "bashing": 0,
-        "lethal": 0,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": 85,
+        "max": 85,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 102
+      "bonus": {
+        "zero": 0,
+        "one": 0,
+        "two": 0
+      }
     },
-    "powers": "<p>Confusion--For six motes of Essence and one Willpower, Kimbery's Dawn can cause confusion in a victim. Roll the demon's (Manipulation + Conviction) with a difficulty of the target's Essence. Success indicates that the target is mildly confused, and likely to make mistakes such as choosing the wrong direction at a fork in the path. With at least two extra successes, the target is quite confused and might believe such things as traveling after dark without a lantern is a reasonable thing to do. Four or more extra successes results in a completely addled target, who may do very dangerous things such as scaling a cliff face in the dark or sleeping on the deck of an enemy ship. Fair Folk are immune to this Charm. Kimbery's Dawn typically targets ship captains or navigators with this Charm. Cunning Thief--Kimbery's Dawn must touch a target (which may require a successful Dexterity + Martial Arts roll). If this succeeds, the demon may make a reflexive (Wits + Temperance) roll, costing one mote for every two dice, or fraction thereof. For every success the demon achieves, the target loses two motes of Essence. The demon may not steal more motes than twice its Essence. Dreambane--For 15 motes and one Willpower, Kimbery's Dawn can shape the dreams of a sleeping target. The player of the demon rolls (Manipulation + Conviction) with successes controlling the degree of power held by the dream. The target rolls Wits to prevent incidences of dream damage from becoming real damage, with each success preventing one health level. If the target suffers physical damage, she may roll (Willpower + Integrity) to wake up. Damage from this Charm cannot reduce a target below Incapacitated. Essence Bite--Kimbery's Dawn can spend three motes of Essence, and for a scene, any being that touches or is touched by the demon takes 1L damage from chilling cold, ignoring armor and soaked only by Stamina. Essence Plethora--Kimbery's Dawn has 10 extra motes of Essence in her Essence pool. Excellencies--Kimbery's Dawn has First and Second Excellencies for the following</p>",
-    "notes": "<p>Ram: Speed 6, Accuracy 11, Damage 30L, Defense 11, Rate 1 (defense inapplicable against ranged attacks or enemies smaller than ship-sized) Rigging Slash: Speed 6, Accuracy 12, Damage 15L/2, Defense 10, Rate 2 (may only attack or parry against enemies on the deck area) Infernal Cannons (x4): Speed 6, Accuracy 11, Damage 20L (piercing), Rate 1, Range 1,000 Note: Each infernal cannon may only fire 20 shots per day before the cannon must rest. Firing each cannon requires an action, though Kimbery's Dawn may use Principle of Motion to fire more than one. A cannon may only fire once per action, and cannot fire more often even as part of a magical flurry. Each shot costs three motes of Essence. Three cannons fire forward, one fires aft; all have firing arcs of 270 degrees, with 70 degrees of upward elevation and 15 degrees of down. The attack is a searing beam of green light, drawing its nature from the penetrating beams of Ligier. Speed: 10/20 mph under sail; 34/70mph under Land- scape Travel Charm's power Maneuverability: -5S (under sail); -2S (under power) Endurance: Under sail, none; under power, limited only by Essence Crew: 145/0 (or 145/1 if piloted by Dukantha) Cargo: No space beyond that taken by the listed crew size Armor: 50B/50L (Hardness: 50B/50L)</p>",
-    "biography": "<p>Demon of the Second Circle, Progenitive Soul of the Tide that Knows No Life, Dam of the Eristrufa When Dukantha was taken into Malfeas, to submit to the will of the Sea That Marched Against the Flame, a powerful demon of Kimbery sought to gain the Yozi's favor. Known as the Dam of the Eristrufa, mother of the razor-tentacled man-o'-war that writhes beneath the waves of Kimbery, this demon pledged to serve the Yozi's new agent in Creation. Kimbery saw the value in this and remade the Dam into an Infernal ship fit for her Exalted servant. The Dam's great bloated body twisted and hardened into a sturdy hull, her tentacles braided and stiffened into dragon-ribbed sails, her beak melded into a long horn with which to ram her enemies. The Dam sailed the Sea That Marched Against the Flame, now the flagship of the Lintha's unholy aristocrat, the Infernal Exalted Dukantha. Kimbery's Dawn follows every command Dukantha gives, without question, yet he typically chooses to leave her free to conduct naval combat maneuvers without detracting from his tactical attention. Kimbery's Dawn is a Second Circle demon transformed into an infernal travesty of a warship of the First Age. Membranous dragonwing-style sails spread between blade sharp black coral spines of rigging. A massive razor-tipped horn projects forward to form a mighty ram, and four emerald crystal spines jut forth to form malign weapons as powerful as lightning ballistae. The terrifying beast-ship is 220 feet long, with a beam of 132 feet and a draft of 16 feet.</p><p><strong>Motivation:</strong> To serve Dukantha and thereby gain the favor of Kimbery. CHAPTER SEVEN · GODS AND MONSTERS OF THE WEST</p><p><strong>Backgrounds:</strong> Allies 1 (Dukantha), Mentor 5 (Kimbery)</p><p><em>Source: Compass of Terrestrial Directions, Vol. II: The West</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Demon of the Second Circle, Progenitive Soul of the Tide that Knows No Life, Dam of the Eristrufa When Dukantha was taken into Malfeas, to submit to the will of the Sea That Marched Against the Flame, a powerful demon of Kimbery sought to gain the Yozi's favor. Known as the Dam of the Eristrufa, mother of the razor-tentacled man-o'-war that writhes beneath the waves of Kimbery, this demon pledged to serve the Yozi's new agent in Creation. Kimbery saw the value in this and remade the Dam into an Infernal ship fit for her Exalted servant. The Dam's great bloated body twisted and hardened into a sturdy hull, her tentacles braided and stiffened into dragon-ribbed sails, her beak melded into a long horn with which to ram her enemies. The Dam sailed the Sea That Marched Against the Flame, now the flagship of the Lintha's unholy aristocrat, the Infernal Exalted Dukantha. Kimbery's Dawn follows every command Dukantha gives, without question, yet he typically chooses to leave her free to conduct naval combat maneuvers without detracting from his tactical attention. Kimbery's Dawn is a Second Circle demon transformed into an infernal travesty of a warship of the First Age. Membranous dragonwing-style sails spread between blade sharp black coral spines of rigging. A massive razor-tipped horn projects forward to form a mighty ram, and four emerald crystal spines jut forth to form malign weapons as powerful as lightning ballistae. The terrifying beast-ship is 220 feet long, with a beam of 132 feet and a draft of 16 feet.</p><p><strong>Motivation:</strong> To serve Dukantha and thereby gain the favor of Kimbery. CHAPTER SEVEN · GODS AND MONSTERS OF THE WEST</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Ram: Speed 6, Accuracy 11, Damage 30L, Defense 11, Rate 1 (defense inapplicable against ranged attacks or enemies smaller than ship-sized) Rigging Slash: Speed 6, Accuracy 12, Damage 15L/2, Defense 10, Rate 2 (may only attack or parry against enemies on the deck area) Infernal Cannons (x4): Speed 6, Accuracy 11, Damage 20L (piercing), Rate 1, Range 1,000 Note: Each infernal cannon may only fire 20 shots per day before the cannon must rest. Firing each cannon requires an action, though Kimbery's Dawn may use Principle of Motion to fire more than one. A cannon may only fire once per action, and cannot fire more often even as part of a magical flurry. Each shot costs three motes of Essence. Three cannons fire forward, one fires aft; all have firing arcs of 270 degrees, with 70 degrees of upward elevation and 15 degrees of down. The attack is a searing beam of green light, drawing its nature from the penetrating beams of Ligier. Speed: 10/20 mph under sail; 34/70mph under Land- scape Travel Charm's power Maneuverability: -5S (under sail); -2S (under power) Endurance: Under sail, none; under power, limited only by Essence Crew: 145/0 (or 145/1 if piloted by Dukantha) Cargo: No space beyond that taken by the listed crew size Armor: 50B/50L (Hardness: 50B/50L)</p><h3>Powers</h3><p>Confusion--For six motes of Essence and one Willpower, Kimbery's Dawn can cause confusion in a victim. Roll the demon's (Manipulation + Conviction) with a difficulty of the target's Essence. Success indicates that the target is mildly confused, and likely to make mistakes such as choosing the wrong direction at a fork in the path. With at least two extra successes, the target is quite confused and might believe such things as traveling after dark without a lantern is a reasonable thing to do. Four or more extra successes results in a completely addled target, who may do very dangerous things such as scaling a cliff face in the dark or sleeping on the deck of an enemy ship. Fair Folk are immune to this Charm. Kimbery's Dawn typically targets ship captains or navigators with this Charm. Cunning Thief--Kimbery's Dawn must touch a target (which may require a successful Dexterity + Martial Arts roll). If this succeeds, the demon may make a reflexive (Wits + Temperance) roll, costing one mote for every two dice, or fraction thereof. For every success the demon achieves, the target loses two motes of Essence. The demon may not steal more motes than twice its Essence. Dreambane--For 15 motes and one Willpower, Kimbery's Dawn can shape the dreams of a sleeping target. The player of the demon rolls (Manipulation + Conviction) with successes controlling the degree of power held by the dream. The target rolls Wits to prevent incidences of dream damage from becoming real damage, with each success preventing one health level. If the target suffers physical damage, she may roll (Willpower + Integrity) to wake up. Damage from this Charm cannot reduce a target below Incapacitated. Essence Bite--Kimbery's Dawn can spend three motes of Essence, and for a scene, any being that touches or is touched by the demon takes 1L damage from chilling cold, ignoring armor and soaked only by Stamina. Essence Plethora--Kimbery's Dawn has 10 extra motes of Essence in her Essence pool. Excellencies--Kimbery's Dawn has First and Second Excellencies for the following</p><p><strong>Backgrounds:</strong> Allies 1 (Dukantha), Mentor 5 (Kimbery)</p><p><em>Original essence pool from source: 85 motes</em></p><p><em>Source: Compass of Terrestrial Directions, Vol. II: The West</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

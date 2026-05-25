@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Raksi",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "lunar",
+    "caste": "full",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 8,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 7,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 7,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 8,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 7,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 8,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 8,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 8,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 8,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 8,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 7,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 7,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 8,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 7,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 1,
+        "current": 1,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "valor": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 8
+      "value": 8,
+      "max": 8
     },
     "willpower": {
       "value": 10,
       "max": 10
     },
     "motes": {
-      "value": 0,
-      "max": 0
-    },
-    "pools": {
-      "combat": 14,
-      "social": 15,
-      "physical": 16
-    },
-    "combat": {
-      "joinBattle": 16,
-      "dodgeDV": 13,
-      "parryDV": 0,
-      "dodgeMDV": 5,
-      "parryMDV": 2,
-      "soak": {
-        "bashing": 22,
-        "lethal": 19,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 10
+      "peripheral": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 15
+      "bonus": {
+        "zero": 0,
+        "one": 2,
+        "two": 7
+      }
     },
-    "powers": "<p>All-Encompassing Sorcerer's Sight, Burgeoning Wyld Infliction, Celestial Circle Sorcery, Claws of the Silver Moon, Clay-Wetting Practice, Cobra Hypnotic Method, Counting the Elephant's Wrinkles, Devil-Restraining Grip, Eagle-Fish Transition Prophecy, East Mastery Technique, Eye of the Cat, Flawless Appearance Focus (Sexual), Flawless Dexterity Focus (Inhuman Precision), Flawless Intelligence Focus (Creative New Approaches), Flawless Manipulation Focus (Terrifying), Form-Fixing Method, God-Cutting Essence, Hard-Nosed Denial Style, Harmony with Reality Technique, Heightened Scent and Taste Method, Hide-Toughening Essence, Inevitable Genius Insight, Instinctive Appearance Unity, Instinctive Dexterity Unity, Instinctive Essence Prediction, Instinctive Intelligence Unity, Instinctive Stamina Unity, Keen Scent and Taste Technique, Lessons in the Blood, Lodestone Reckoning Manner, Lost Mirror Flight, Lunar Blade Configuration, Luna's Blessed Hands, Might-Bolstering Blow, New Friend Aroma, Ox-Body Technique (x5), Perfect Fear Scent, Perfect Symmetry, Relentless Lunar Fury, Resisting the Lure of Madness, Righteous Lion Defense, Roused Bear Throw, Second Appearance Excellency, Second Charisma Excellency, Second Dexterity Excellency, Second Intelligence Excellency, Second Manipulation Excellency, Second Perception Excellency, Second Stamina Excellency, Second Strength Excellency, Second Wits Excellency, Secure Cat Stepping, Silver Lunar Resolution, South Mastery Technique, Spirit-Maiming Essence Attack, Terrestrial Circle Sorcery, Terrifying Lust Infliction, Third Intelligence Excellency, Wasp Sting Blur, Wyld Migration Formation, Wyld-Sensing Instincts Note: For the Storyteller's convenience, these Charms are deliberately limited to those found in The Manual of Exalted Power--The Lunars. Raksi could very well know high-Essence Charms from Dreams of the First Age, miscellaneous Charms scattered through other supplements such as an Absorption Charm (see pp. 21-22 of The Books of Sorcery, Vol. II--The White Treatise) or--most likely of all--unique Charms that she invented herself. Combos: God-Murder (Second Dexterity Excellency, Second Strength Excellency, Spirit-Maiming Essence Attack) Knacks: Deadly Beastman Transformation (Armored Hide, Brachiation x2--see p. 149, Cheetah's Pace, Fangs, Enhanced Scent and Taste, Inexhaustible, Omnidexterity--see p. 149, Short Gestation, Talons), Devastating Ogre Enhancement, Green Sun Child, Hearth-and-Flame Shell, Humble Mouse Shape, Life of the Hummingbird, Luna's Hidden Face, Prey's Skin Disguise, Subtle Silver Declaration, Terrifying Beastman Alteration, Towering Beast Form Wyld Mutations: Afflictions: Impossible Joints; Debilities: Diet; Derangements: Cannibalism (Deformity), Hallucinations (Debility), Megalomania (Deficiency), Obsession (Debility), Obsession (Deficiency). Spells: Terrestrial Circle Spells: Practically every Terrestrial Circle spell listed in the Exalted main rulebook and in The Books of Sorcery, Vol. II--The White Treatise. Raksi also knows dozens of Terrestrial Circle spells that cannot be found in any book. Celestial Circle Spells: Dozens of Celestial Circle spells, certainly including Demon of the Second Circle, Insidious Tendrils of Hate, Mercury's Deliverance, Raise the Puissant Sanctum, Sapphire Banishment and Sapphire Countermagic. CHAPTER FIVE: GODS AND MONSTERS OF THE EAST</p>",
-    "notes": "<p>Punch: Speed 4, Accuracy 15, Damage 6B, Parry DV 8, Rate 3 Kick: Speed 5, Accuracy 14, Damage 9B, Parry DV 6, Rate 2 Clinch: Speed 6, Accuracy 14, Damage 6B piercing, Parry DV ­, Rate 1 War Form Silver Claw Punch*: Speed 4, Accuracy 25, Damage 16L/9, Parry DV 12, Rate 3 War Form Silver Claw Kick*: Speed 5, Accuracy 22, Damage 19L/9, Parry DV 10, Rate 2 War Form Silver Claw Clinch*: Speed 6, Accuracy 22, Damage 16L/9 piercing, Parry DV ­, Rate 1 * Using Claws of the Silver Moon at maximum power.</p>",
-    "biography": "<p>Queen of Fangs When Immaculate monks need an example of the evils of the Anathema they need look no further than Raksi, the cannibal queen of the jungle. Raksi is CHAPTER FIVE: GODS AND MONSTERS OF THE EAST invincibly powerful, insanely perverted and eternally hungry. The twisted tortures she devises for her own amusement display a wicked creativity reminiscent of the pain galleries of Malfeas. Perhaps worst of all, Raksi hoards all the wonders and wisdom of the ancient city of Sperimin, ancient capital of knowledge. Its treasures include two of the Eight Gifts of Celestial Grace: the Library of Sperimin, and the Book of Three Circles. Once, Raksi was a shining light to Creation and savior to Luna's Chosen. Now, she has a heart as dark as the deepest jungles. At the age of 13, Raksi became the youngest person ever to Exalt as a Lunar. At 16, she was initiated into Celestial Circle Sorcery. Unfortunately, the Usurpation began just a few months later. Like many other Lunars, Raksi fled into the Wyld. The young Lunar's young mind was no match for the wonders and horrors she encountered along Creation's rim. Her insight and creativity remained intact or even increased: Raksi played a key role in devising the moonsilver tattoos that protect Luna's Chosen from the Wyld. Her personality shattered in the Wyld, however, turning her moral sense inside-out. Raksi leads a life defined by mad obsessions: becoming the first Lunar to master Solar Circle Sorcery; enjoying the worship of her apeman children and making them partners in her depravity; and feasting on raw human flesh, preferably infants. Raksi appears as an unimaginably beautiful, redhaired girl of 16. Her grace and raw sexuality dominate any scene in which she is present. Whatever her form she rarely hides the moonsilver tattoos that spiral about her body. Setting her further apart from humanity are long fingers and toes tipped with sharp nails, and the sharp teeth that inspired her sobriquet. Sometimes, she becomes distant and fixated as she plays with her own joints, which bend any way that she wishes. The Queen of Fangs can hide her insanity if she chooses. She does not rave. Raksi can seem like the sweetest, smartest, most delightful girl anyone ever met-- right up until she bites into a squalling baby and asks you to join her, lest you become the second course. A visitor might survive as long as he seems useful, amusing or willing to degrade his own soul. Or he might not. The Queen of Fangs' cruelty is devious and all-encompassing: she's willing to string a person along so as to make the eventual betrayal and torture more exquisite. Raksi's war form is more predictable. Her red half-ape form stands nearly 15 feet tall. In battle (which is rare, and pretty much only for fun), Raksi wears a full suit of moonsilver super-heavy plate and dips her dagger-like claws in demonic poison of her own design. Battle is not her specialty, but that doesn't mean the ancient Raksi is not a match for almost any army in Creation.</p><p><strong>Motivation:</strong> Make Creation a mirror for her own mad whims. Caste: No Moon Anima Banner: Gibbering, grimacing baboon Spirit Shape: Red Baboon Tell: Long, sharp nails and teeth; long, prehensile toes</p><p><strong>Backgrounds:</strong> Artifacts (many) 5, Backing (Crossroads Society) 1, Cult 2, Followers (apemen and barbarians) 5, Heart's Blood 5, Manse (several) 5, Reputation 5, Resources 5</p><p><em>Source: Compass of Terrestrial Directions, Vol. III: The East</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Queen of Fangs When Immaculate monks need an example of the evils of the Anathema they need look no further than Raksi, the cannibal queen of the jungle. Raksi is CHAPTER FIVE: GODS AND MONSTERS OF THE EAST invincibly powerful, insanely perverted and eternally hungry. The twisted tortures she devises for her own amusement display a wicked creativity reminiscent of the pain galleries of Malfeas. Perhaps worst of all, Raksi hoards all the wonders and wisdom of the ancient city of Sperimin, ancient capital of knowledge. Its treasures include two of the Eight Gifts of Celestial Grace: the Library of Sperimin, and the Book of Three Circles. Once, Raksi was a shining light to Creation and savior to Luna's Chosen. Now, she has a heart as dark as the deepest jungles. At the age of 13, Raksi became the youngest person ever to Exalt as a Lunar. At 16, she was initiated into Celestial Circle Sorcery. Unfortunately, the Usurpation began just a few months later. Like many other Lunars, Raksi fled into the Wyld. The young Lunar's young mind was no match for the wonders and horrors she encountered along Creation's rim. Her insight and creativity remained intact or even increased: Raksi played a key role in devising the moonsilver tattoos that protect Luna's Chosen from the Wyld. Her personality shattered in the Wyld, however, turning her moral sense inside-out. Raksi leads a life defined by mad obsessions: becoming the first Lunar to master Solar Circle Sorcery; enjoying the worship of her apeman children and making them partners in her depravity; and feasting on raw human flesh, preferably infants. Raksi appears as an unimaginably beautiful, redhaired girl of 16. Her grace and raw sexuality dominate any scene in which she is present. Whatever her form she rarely hides the moonsilver tattoos that spiral about her body. Setting her further apart from humanity are long fingers and toes tipped with sharp nails, and the sharp teeth that inspired her sobriquet. Sometimes, she becomes distant and fixated as she plays with her own joints, which bend any way that she wishes. The Queen of Fangs can hide her insanity if she chooses. She does not rave. Raksi can seem like the sweetest, smartest, most delightful girl anyone ever met-- right up until she bites into a squalling baby and asks you to join her, lest you become the second course. A visitor might survive as long as he seems useful, amusing or willing to degrade his own soul. Or he might not. The Queen of Fangs' cruelty is devious and all-encompassing: she's willing to string a person along so as to make the eventual betrayal and torture more exquisite. Raksi's war form is more predictable. Her red half-ape form stands nearly 15 feet tall. In battle (which is rare, and pretty much only for fun), Raksi wears a full suit of moonsilver super-heavy plate and dips her dagger-like claws in demonic poison of her own design. Battle is not her specialty, but that doesn't mean the ancient Raksi is not a match for almost any army in Creation.</p><p><strong>Motivation:</strong> Make Creation a mirror for her own mad whims. Caste: No Moon Anima Banner: Gibbering, grimacing baboon Spirit Shape: Red Baboon Tell: Long, sharp nails and teeth; long, prehensile toes</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Punch: Speed 4, Accuracy 15, Damage 6B, Parry DV 8, Rate 3 Kick: Speed 5, Accuracy 14, Damage 9B, Parry DV 6, Rate 2 Clinch: Speed 6, Accuracy 14, Damage 6B piercing, Parry DV ­, Rate 1 War Form Silver Claw Punch*: Speed 4, Accuracy 25, Damage 16L/9, Parry DV 12, Rate 3 War Form Silver Claw Kick*: Speed 5, Accuracy 22, Damage 19L/9, Parry DV 10, Rate 2 War Form Silver Claw Clinch*: Speed 6, Accuracy 22, Damage 16L/9 piercing, Parry DV ­, Rate 1 * Using Claws of the Silver Moon at maximum power.</p><h3>Powers</h3><p>All-Encompassing Sorcerer's Sight, Burgeoning Wyld Infliction, Celestial Circle Sorcery, Claws of the Silver Moon, Clay-Wetting Practice, Cobra Hypnotic Method, Counting the Elephant's Wrinkles, Devil-Restraining Grip, Eagle-Fish Transition Prophecy, East Mastery Technique, Eye of the Cat, Flawless Appearance Focus (Sexual), Flawless Dexterity Focus (Inhuman Precision), Flawless Intelligence Focus (Creative New Approaches), Flawless Manipulation Focus (Terrifying), Form-Fixing Method, God-Cutting Essence, Hard-Nosed Denial Style, Harmony with Reality Technique, Heightened Scent and Taste Method, Hide-Toughening Essence, Inevitable Genius Insight, Instinctive Appearance Unity, Instinctive Dexterity Unity, Instinctive Essence Prediction, Instinctive Intelligence Unity, Instinctive Stamina Unity, Keen Scent and Taste Technique, Lessons in the Blood, Lodestone Reckoning Manner, Lost Mirror Flight, Lunar Blade Configuration, Luna's Blessed Hands, Might-Bolstering Blow, New Friend Aroma, Ox-Body Technique (x5), Perfect Fear Scent, Perfect Symmetry, Relentless Lunar Fury, Resisting the Lure of Madness, Righteous Lion Defense, Roused Bear Throw, Second Appearance Excellency, Second Charisma Excellency, Second Dexterity Excellency, Second Intelligence Excellency, Second Manipulation Excellency, Second Perception Excellency, Second Stamina Excellency, Second Strength Excellency, Second Wits Excellency, Secure Cat Stepping, Silver Lunar Resolution, South Mastery Technique, Spirit-Maiming Essence Attack, Terrestrial Circle Sorcery, Terrifying Lust Infliction, Third Intelligence Excellency, Wasp Sting Blur, Wyld Migration Formation, Wyld-Sensing Instincts Note: For the Storyteller's convenience, these Charms are deliberately limited to those found in The Manual of Exalted Power--The Lunars. Raksi could very well know high-Essence Charms from Dreams of the First Age, miscellaneous Charms scattered through other supplements such as an Absorption Charm (see pp. 21-22 of The Books of Sorcery, Vol. II--The White Treatise) or--most likely of all--unique Charms that she invented herself. Combos: God-Murder (Second Dexterity Excellency, Second Strength Excellency, Spirit-Maiming Essence Attack) Knacks: Deadly Beastman Transformation (Armored Hide, Brachiation x2--see p. 149, Cheetah's Pace, Fangs, Enhanced Scent and Taste, Inexhaustible, Omnidexterity--see p. 149, Short Gestation, Talons), Devastating Ogre Enhancement, Green Sun Child, Hearth-and-Flame Shell, Humble Mouse Shape, Life of the Hummingbird, Luna's Hidden Face, Prey's Skin Disguise, Subtle Silver Declaration, Terrifying Beastman Alteration, Towering Beast Form Wyld Mutations: Afflictions: Impossible Joints; Debilities: Diet; Derangements: Cannibalism (Deformity), Hallucinations (Debility), Megalomania (Deficiency), Obsession (Debility), Obsession (Deficiency). Spells: Terrestrial Circle Spells: Practically every Terrestrial Circle spell listed in the Exalted main rulebook and in The Books of Sorcery, Vol. II--The White Treatise. Raksi also knows dozens of Terrestrial Circle spells that cannot be found in any book. Celestial Circle Spells: Dozens of Celestial Circle spells, certainly including Demon of the Second Circle, Insidious Tendrils of Hate, Mercury's Deliverance, Raise the Puissant Sanctum, Sapphire Banishment and Sapphire Countermagic. CHAPTER FIVE: GODS AND MONSTERS OF THE EAST</p><p><strong>Backgrounds:</strong> Artifacts (many) 5, Backing (Crossroads Society) 1, Cult 2, Followers (apemen and barbarians) 5, Heart's Blood 5, Manse (several) 5, Reputation 5, Resources 5</p><p><em>Source: Compass of Terrestrial Directions, Vol. III: The East</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Baxishun",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 14,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 8,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 12,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 2,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 8,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "valor": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 6
+      "value": 6,
+      "max": 6
     },
     "willpower": {
       "value": 9,
       "max": 9
     },
     "motes": {
-      "value": 0,
-      "max": 115
-    },
-    "pools": {
-      "combat": 14,
-      "social": 8,
-      "physical": 14
-    },
-    "combat": {
-      "joinBattle": 12,
-      "dodgeDV": 9,
-      "parryDV": 0,
-      "dodgeMDV": 4,
-      "parryMDV": 2,
-      "soak": {
-        "bashing": 27,
-        "lethal": 21,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 7
+      "peripheral": {
+        "value": 115,
+        "max": 115,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 31
+      "bonus": {
+        "zero": 3,
+        "one": 6,
+        "two": 12
+      }
     },
-    "powers": "<p>Bashixun has many spirit Charms. Some important ones are specified below. Command Crustacean--For a single mote, Bashixun may issue a command to one or more crustaceans nearby, and they will treat it as a Compulsion until it is completed. This Charm affects any creature with a crustacean nature, even those of magical origin, though supernatural targets require an expenditure of five motes per target. Ignoring this Compulsion requires two Willpower points, but Bashixun might simply try again. If he merely desires to converse with such creatures, then this Charm allows reciprocal conversation, and no Essence is required. Essence Plethora--Bashixun has 10 extra motes of Es- sence in his Essence pool. Excellencies--Bashixun has First, Second and Third Excellencies for the following</p>",
-    "notes": "<p>As Crab Large Claws (Clinch): Speed 6, Accuracy 22, Damage 14L (piercing), Defense -, Rate 1 Lesser Claw: Speed 5, Accuracy 16, Damage 16L, Defense 17, Rate 2 (1 each) Special: Bashixun can attack with each of his lesser claws even if his large claws are busy maintaining a clinch, though this counts as multiple actions. As Humanoid Clinch: Speed 6, Attack 22, Damage 14B (piercing), Defense -, Rate 1 Punch: Speed 5, Attack 15, Damage 14B, Defense 16, Rate 3 Kick: Speed 5, Attack 14, Damage 17B, Defense 12, Rate 2 Great Axe (Shell-Cutter): Speed 6, Attack 18, Damage 21L/2, Defense 14, Rate 3 (Tags 2,O,R)</p>",
-    "biography": "<p>Lord of the Surf, Old Man of the Sea, the Wise Crab The god of crustaceans, the water's edge and shoreline fishermen, Bashixun is also called the Old Man of the Sea and the Wise Crab. Most often he takes the form of a coastal fisherman, a warrior dressed in thick articulated armor made of chitin and spikes or a perverted old man. His divine form is a gigantic lobster-crab with two massive fighting claws, CHAPTER SEVEN · GODS AND MONSTERS OF THE WEST a pair of smaller claws beneath and eyestalks that peer in all directions. The Wise Crab is an honored noble of the Ocean Father's court, with his own holdings in the Western Ocean. Over the centuries, he has used his position to gather an impressive body of the recorded knowledge of Creation, from ancient books of sorcerous lore to ill-written love notes. Bashixun is possessive of his collection, though he makes little use of it. He can't even read those texts not written in Old Realm or Seatongue. The only thing he loves more than his collected works is female companionship, especially that of human females. Trading such company, clever women and exploitive panderers have managed to gain bits of lost enlightenment. The Wise Crab's servants largely consist of minor spirits of education and lore, manipulative nymphs and lobster and crab spirits. Sanctum: From the outside, the Lord of the Surf's manse resembles a gigantic barnacle shell set within a coral atoll in the Western Ocean. If his crab-spirit guardians allow a visitor entrance, she soon finds the manse holds an eclectic collection of objects of lore. The crustacean god's sanctum lies beyond an inner doorway shaped as a massive blue lobster claw, and contains his favorite books and scrolls.</p><p><strong>Motivation:</strong> To become a purveyor of knowledge in all its many forms.</p><p><strong>Backgrounds:</strong> Allies 3, Artifact 3, Backing 4, Contacts 5, Cult 2, Followers 2, Influence 3, Manse 4, Resources 4, Sanctum 2</p><p><em>Source: Compass of Terrestrial Directions, Vol. II: The West</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Lord of the Surf, Old Man of the Sea, the Wise Crab The god of crustaceans, the water's edge and shoreline fishermen, Bashixun is also called the Old Man of the Sea and the Wise Crab. Most often he takes the form of a coastal fisherman, a warrior dressed in thick articulated armor made of chitin and spikes or a perverted old man. His divine form is a gigantic lobster-crab with two massive fighting claws, CHAPTER SEVEN · GODS AND MONSTERS OF THE WEST a pair of smaller claws beneath and eyestalks that peer in all directions. The Wise Crab is an honored noble of the Ocean Father's court, with his own holdings in the Western Ocean. Over the centuries, he has used his position to gather an impressive body of the recorded knowledge of Creation, from ancient books of sorcerous lore to ill-written love notes. Bashixun is possessive of his collection, though he makes little use of it. He can't even read those texts not written in Old Realm or Seatongue. The only thing he loves more than his collected works is female companionship, especially that of human females. Trading such company, clever women and exploitive panderers have managed to gain bits of lost enlightenment. The Wise Crab's servants largely consist of minor spirits of education and lore, manipulative nymphs and lobster and crab spirits. Sanctum: From the outside, the Lord of the Surf's manse resembles a gigantic barnacle shell set within a coral atoll in the Western Ocean. If his crab-spirit guardians allow a visitor entrance, she soon finds the manse holds an eclectic collection of objects of lore. The crustacean god's sanctum lies beyond an inner doorway shaped as a massive blue lobster claw, and contains his favorite books and scrolls.</p><p><strong>Motivation:</strong> To become a purveyor of knowledge in all its many forms.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>As Crab Large Claws (Clinch): Speed 6, Accuracy 22, Damage 14L (piercing), Defense -, Rate 1 Lesser Claw: Speed 5, Accuracy 16, Damage 16L, Defense 17, Rate 2 (1 each) Special: Bashixun can attack with each of his lesser claws even if his large claws are busy maintaining a clinch, though this counts as multiple actions. As Humanoid Clinch: Speed 6, Attack 22, Damage 14B (piercing), Defense -, Rate 1 Punch: Speed 5, Attack 15, Damage 14B, Defense 16, Rate 3 Kick: Speed 5, Attack 14, Damage 17B, Defense 12, Rate 2 Great Axe (Shell-Cutter): Speed 6, Attack 18, Damage 21L/2, Defense 14, Rate 3 (Tags 2,O,R)</p><h3>Powers</h3><p>Bashixun has many spirit Charms. Some important ones are specified below. Command Crustacean--For a single mote, Bashixun may issue a command to one or more crustaceans nearby, and they will treat it as a Compulsion until it is completed. This Charm affects any creature with a crustacean nature, even those of magical origin, though supernatural targets require an expenditure of five motes per target. Ignoring this Compulsion requires two Willpower points, but Bashixun might simply try again. If he merely desires to converse with such creatures, then this Charm allows reciprocal conversation, and no Essence is required. Essence Plethora--Bashixun has 10 extra motes of Es- sence in his Essence pool. Excellencies--Bashixun has First, Second and Third Excellencies for the following</p><p><strong>Backgrounds:</strong> Allies 3, Artifact 3, Backing 4, Contacts 5, Cult 2, Followers 2, Influence 3, Manse 4, Resources 4, Sanctum 2</p><p><em>Original essence pool from source: 115 motes</em></p><p><em>Source: Compass of Terrestrial Directions, Vol. II: The West</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

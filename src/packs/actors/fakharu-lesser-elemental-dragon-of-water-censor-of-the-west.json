@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Fakharu, Lesser Elemental Dragon of Water, Censor of the West",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "elemental",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 8,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 12,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "valor": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 7
+      "value": 7,
+      "max": 7
     },
     "willpower": {
       "value": 10,
       "max": 10
     },
     "motes": {
-      "value": 0,
-      "max": 0
-    },
-    "pools": {
-      "combat": 9,
-      "social": 10,
-      "physical": 7
-    },
-    "combat": {
-      "joinBattle": 8,
-      "dodgeDV": 9,
-      "parryDV": 4,
-      "dodgeMDV": 5,
-      "parryMDV": 2,
-      "soak": {
-        "bashing": 12,
-        "lethal": 6,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 14
+      "bonus": {
+        "zero": 0,
+        "one": 4,
+        "two": 3
+      }
     },
-    "powers": "",
-    "notes": "<p><strong>Claw (Dragon Form)</strong>: Speed 7, Accuracy 13, Damage 11L, Defense 6, Rate 4</p><p><strong>Bite (Dragon Form)</strong>: Speed 9, Accuracy 12, Damage 15L, Defense 2, Rate 1</p><p><strong>Dragon's Suspire (superheated steam)</strong>: Speed 10, Accuracy 8, Damage 24L, Defense 0, Rate 1</p><p><strong>Punch (Human Form)</strong>: Speed 5, Accuracy 10, Damage 8B, Defense 11, Rate 3</p><p><strong>Dragon-Tooth Dagger (Human Form)</strong>: Speed 5, Accuracy 10, Damage 10L, Defense 4, Rate 2</p><p>Essence Pool: 160. Dematerialize: 85m. Dodge DV 9 (Dragon Form: 11). Backgrounds: Allies 4, Backing 5, Followers 5, Influence 5, Manse 5, Resources 5, Sanctum 5. Spirit Charms: Celestial Circle Sorcery, Dematerialize, Essence Plethora x4, Form Reduction Technique, Geas, Hurry Home, Landscape Travel, Natural Elemental Powers, Principle of Motion, Terrestrial Circle Sorcery. First/Second/Third Excellencies: Bureaucracy, Dodge, Investigation, Martial Arts, Presence, Socialize.</p>",
-    "biography": "<p>Most powerful and respected functionary in the spirit courts of the West; top-ranked Celestial Censor in the Western region. A green-and-golden-scaled dragon 25 feet long with six legs and a mane of foam-soft fur.</p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Most powerful and respected functionary in the spirit courts of the West; top-ranked Celestial Censor in the Western region. A green-and-golden-scaled dragon 25 feet long with six legs and a mane of foam-soft fur.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>[object Object],[object Object],[object Object],[object Object],[object Object]</p><p><em>Source: Core Rules</em></p>",
     "purchaseLocked": false
   },
   "folder": "a7b8c9d000000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

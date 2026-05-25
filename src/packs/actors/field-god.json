@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Field God",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 2,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 2,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "valor": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 3
+      "value": 3,
+      "max": 3
     },
     "willpower": {
       "value": 6,
       "max": 6
     },
     "motes": {
-      "value": 0,
-      "max": 60
-    },
-    "pools": {
-      "combat": 6,
-      "social": 5,
-      "physical": 5
-    },
-    "combat": {
-      "joinBattle": 6,
-      "dodgeDV": 5,
-      "parryDV": 0,
-      "dodgeMDV": 3,
-      "parryMDV": 1,
-      "soak": {
-        "bashing": 9,
-        "lethal": 9,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": 60,
+        "max": 60,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 9
+      "bonus": {
+        "zero": 0,
+        "one": 1,
+        "two": 1
+      }
     },
-    "powers": "<p>Intrusion Sensing Method--By committing five motes of Essence and spending a point of Willpower, the Storyteller gets a reflexive (Perception + Awareness) roll for the field god, adding a number of automatic successes equal to the field god's Compassion, to detect any time an entity with an Essence of greater than 1 enters its domain. Materialize--It costs a field god 45 motes to materialize. Measure the Wind--The field god may spend a mote to under- CHAPTER SEVEN · GODS & CREATURES OF THE BLESSED ISLE stand the spiritual power of those who come to its fields. Summon Food--By spending five motes, the field god may create wholesome but simple food appropriate to its purview, in quantities sufficient to feed up to five people. By spending 10 motes, this is food of exquisite quality. Field gods have the First Excellency for the following Abili- ties: Awareness, Craft, Dodge and Melee.</p>",
-    "notes": "<p>Clinch: Speed 6, Accuracy 5, Damage 4B, Parry DV --, Rate 1 Kick: Speed 5, Accuracy 5, Damage 7B, Parry DV 2, Rate 2 Punch: Speed 5, Accuracy 6, Damage 4B, Parry DV 4, Rate 3 Crop-Sword: Speed 4, Accuracy 8, Damage 7L, Parry DV 4, Rate 2 Crop-Bow: Speed 6, Accuracy 6, Damage 6L*, Rate 2, Range 150 * Uses broadhead arrows.</p>",
-    "biography": "<p>Field gods are the gods of agricultural stretches of land, from rice paddies to wheat fields to orchards and vineyards. Generally, field gods form the majority of the population of a rustic spirit court, though each one rules many acres of a given kind of field. The appearance of a field god changes depending on what is being grown in that field. Rice paddy gods wear short robes of woven rice grains, with big straw hats, and possess perpetually wet feet. Gods of wheat fields are usually gracefully tall and fair in hue, while the goddesses of apple orchards tend to be sweetly rounded, ruddy cheeked and mirthful. On the Blessed Isle, field gods know better than to demand the sort of harvest sacrifices that they get elsewhere. They also work the hardest of all the field gods in the world, required by the Immaculate Philosophy to do their part to ensure a fine harvest. During winter, when there is no life in their fields, field gods generally wander their domain morosely, dressed as paupers. When pressed, field gods can quickly transform the crops of their field (even during winter) into weapons. Sanctum: In one place in every field, a small portion of crop is left unharvested. This fruit-heavy tree, bunch of vines or square of field is the entryway into the sanctum of that field god, whose home seems built into the tree or made out of the plant it embodies. Field god homes are comfortable, if a bit rustic.</p><p><strong>Motivation:</strong> To see that its field, vineyard, orchard or paddy produces a fine crop and is protected from harm.</p><p><strong>Backgrounds:</strong> Backing 2, Influence 1, Sanctum 2</p><p><em>Source: Compass of Celestial Directions, Vol. I: The Blessed Isle</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Field gods are the gods of agricultural stretches of land, from rice paddies to wheat fields to orchards and vineyards. Generally, field gods form the majority of the population of a rustic spirit court, though each one rules many acres of a given kind of field. The appearance of a field god changes depending on what is being grown in that field. Rice paddy gods wear short robes of woven rice grains, with big straw hats, and possess perpetually wet feet. Gods of wheat fields are usually gracefully tall and fair in hue, while the goddesses of apple orchards tend to be sweetly rounded, ruddy cheeked and mirthful. On the Blessed Isle, field gods know better than to demand the sort of harvest sacrifices that they get elsewhere. They also work the hardest of all the field gods in the world, required by the Immaculate Philosophy to do their part to ensure a fine harvest. During winter, when there is no life in their fields, field gods generally wander their domain morosely, dressed as paupers. When pressed, field gods can quickly transform the crops of their field (even during winter) into weapons. Sanctum: In one place in every field, a small portion of crop is left unharvested. This fruit-heavy tree, bunch of vines or square of field is the entryway into the sanctum of that field god, whose home seems built into the tree or made out of the plant it embodies. Field god homes are comfortable, if a bit rustic.</p><p><strong>Motivation:</strong> To see that its field, vineyard, orchard or paddy produces a fine crop and is protected from harm.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Clinch: Speed 6, Accuracy 5, Damage 4B, Parry DV --, Rate 1 Kick: Speed 5, Accuracy 5, Damage 7B, Parry DV 2, Rate 2 Punch: Speed 5, Accuracy 6, Damage 4B, Parry DV 4, Rate 3 Crop-Sword: Speed 4, Accuracy 8, Damage 7L, Parry DV 4, Rate 2 Crop-Bow: Speed 6, Accuracy 6, Damage 6L*, Rate 2, Range 150 * Uses broadhead arrows.</p><h3>Powers</h3><p>Intrusion Sensing Method--By committing five motes of Essence and spending a point of Willpower, the Storyteller gets a reflexive (Perception + Awareness) roll for the field god, adding a number of automatic successes equal to the field god's Compassion, to detect any time an entity with an Essence of greater than 1 enters its domain. Materialize--It costs a field god 45 motes to materialize. Measure the Wind--The field god may spend a mote to under- CHAPTER SEVEN · GODS & CREATURES OF THE BLESSED ISLE stand the spiritual power of those who come to its fields. Summon Food--By spending five motes, the field god may create wholesome but simple food appropriate to its purview, in quantities sufficient to feed up to five people. By spending 10 motes, this is food of exquisite quality. Field gods have the First Excellency for the following Abili- ties: Awareness, Craft, Dodge and Melee.</p><p><strong>Backgrounds:</strong> Backing 2, Influence 1, Sanctum 2</p><p><em>Original essence pool from source: 60 motes</em></p><p><em>Source: Compass of Celestial Directions, Vol. I: The Blessed Isle</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

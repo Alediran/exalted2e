@@ -1,27 +1,331 @@
 {
   "_id": "0001000000000062",
   "_key": "!actors!0001000000000062",
-  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
   "name": "Aurichim and Argentim",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
-    "essence": { "value": 4 },
-    "willpower": { "value": 7, "max": 7 },
-    "motes": { "value": 0, "max": 85 },
-    "pools": { "combat": 13, "social": 7, "physical": 11 },
-    "combat": { "joinBattle": 8, "dodgeDV": 8, "parryDV": 6, "dodgeMDV": 3, "parryMDV": 2, "soak": { "bashing": 17, "lethal": 14, "aggravated": 0 }, "hardness": 8 },
-    "health": { "bashing": 0, "lethal": 0, "aggravated": 0, "totalBoxes": 16 },
-    "powers": "<p>Spirit Charms appropriate to twin celestial guardians; exact list not specified. Focus on Archery, Melee, and Awareness.</p>",
-    "notes": "<p><strong>Archery (Bow of Light)</strong>: Accuracy 13, Damage 8L, Range 100, Rate 2</p><p><strong>Spear of Light (Melee)</strong>: Accuracy 14, Damage 13L, Parry DV 7, Rate 2</p><p>Celestial armor: 10L/9B. Hardness 8L/8B.</p>",
-    "biography": "<p>The aurichim and argentim are guardians of the starry vault, solitary beings spending most of their time patrolling the vastness of the celestial realm far above Creation. The aurichim acted as the roving eyes of the Unconquered Sun during the Time of Glory, serving to warn the Most High of incursions against the boundaries of Creation. The argentim originally served Luna, but were wagered and lost in a bet against the Maidens during a Carnival of Meeting in the early First Age, and have since been reassigned as guardians of the constellations. Aurichim appear as tall men and women with bronzed skin and armor, 10 feet in height on average, with blank golden masks for faces and expressive eyes, flying on wings made of geometric patterns forged from pure sunlight. Argentim are similar but silver, their wings formed of bent moonbeams now gathering coatings of shimmering stardust.</p><p>Source: Glories of the Most High: The Maidens of Destiny.</p>",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 8,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 8,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 8,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 2,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 5,
+        "current": 5,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "valor": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      }
+    },
+    "essence": {
+      "value": 4,
+      "max": 4
+    },
+    "willpower": {
+      "value": 7,
+      "max": 7
+    },
+    "motes": {
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
+      },
+      "peripheral": {
+        "value": 85,
+        "max": 85,
+        "committed": 0,
+        "bonus": 0
+      }
+    },
+    "limit": 0,
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "bonus": {
+        "zero": 0,
+        "one": 5,
+        "two": 3
+      }
+    },
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Even at the apex of the First Age, the upper boundaries of Creation remained sparsely explored and imperfectly understood by Exalted astronomers. Although the Incarnae had given their Chosen rulership over Creation, the mightiest gods remained possessive of their dominion over the vast, distant reaches of the sky, and left the aurichim and argentim in place as guardians of the starry vault. The aurichim acted as the roving eyes of the Unconquered Sun during the Time of Glory, serving to warn the Most High of incursions against the boundaries of Creation. Ignis Divine invariably noticed such threats before his faithful servants brought their warning, but he thanked them regardless. Luna, more easily distracted, sent her argentim to track the movements of Creation's enemies within its borders, that she might hunt them at her leisure. In the wake of the Primordial War, the Incarnae ordered their servants to continue patrolling and safeguarding the wide empty spaces of the celestial void, and they continue in that task to this day. The aurichim speak to the Unconquered Sun less and less over time, though few have dared to suggest that he has forgotten about them. They are zealous beings by nature, and even the most lax and dispirited among them have dared little more than to occasionally make the long descent down to Creation's cloud layer, to briefly take their leisure among the cloud people. The argentim are another matter. They no longer serve Luna, having been wagered and lost in a bet against the Maidens during a Carnival of Meeting in the early First Age. Rather than scouting out Creation's enemies, they have been reassigned as guardians of the constellations. (The Maidens specifically expressed a desire not to see a certain lamentable incident involving the Mask repeated elsewhere.) They also guard the secret anomalies of the darkest reaches of the starry void, of which they are forbidden to speak. Aurichim and argentim are solitary beings, spending most of their time patrolling the vastness of the celestial realm far above Creation. They inspect the ceiling of the world to make sure it is in good repair, sweep for intruders, gossip about the movement of the heavenly bodies and lament the departure of the Unconquered Sun to Yu-Shan. Occasionally, they do battle with bizarre wonders or horrors pulled into Creation in the wake of the moon's nightly return from the eastern Wyld. Few have ever visited Yu-Shan or seen one of the Exalted, and most are intensely curious about these storied beings, whom they are intended to bar from disrupting the cycles of the heavens. Argentim often land on the passing surface of the moon and attempt to entice truculee to share news or gossip from Creation's surface, which they then carry back to their brethren and the aurichim. Truculee invent at least as much news as they report, so the guardians of the celestial void are perpetually ill informed about matters on Creation's surface. Aurichim appear as tall men and women with bronzed skin and armor, 10 feet in height on average, with blank golden masks for faces and expressive eyes. They fly about on wings made of geometric patterns forged from pure sunlight. Argentim are similar, but silver to the gold of the aurichim, and their wings, formed of bent moonbeams, now gather steady coatings of shimmering stardust from their dalliances with the constellations.</p><p><strong>Motivation:</strong> Safeguard the celestial void against intruders.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Spear of Light: Speed 5, Accuracy 16, Damage 16L, Parry DV 8, Rate 2 Bow of Light: Speed 6, Accuracy 14, Damage 13L, Rate 2, Range 350</p><h3>Powers</h3><p>Amethyst Awareness Bane Weapon--Attacks against unauthorized intruders inflict aggravated damage. Banish--The powerful Charm used by celestial guardians deposits unwanted intruders on the face of Creation, far below. Divine Prerogative--Guardianship of the celestial void. Essence Bite--Functions only during the day for aurichim, and only at night for argentim. Essence Plethora Hurry Home--Returns the spirit to its sanctum. Intrusion-Sensing Method--The argentim use this Charm to detect tampering with any of the constellations. Landscape Hide--Aurichim sometimes take their rest within a passing comet when they need to get from place to place. Landscape Travel--Celestial guardians fly through the starry vault at twice normal movement speed. Materialize--Costs 55 motes Measure the Wind--The celestial guardians evaluate intruders for proper authorization from the Incarnae. Ox-Body Technique (x2) Principle of Motion--Aurichim and argentim usually keep seven actions banked. Sheathing the Material Form Touch of Eternity--Allows recipients to respire the thin, cold air of the celestial void without difficulty (-4 internal penalty to all actions otherwise). Touch of Grace--Used to perform light maintenance on the roof of Creation. Second (Ability) Excellency--Archery, Integrity, Melee Third (Ability) Excellency--Athletics, Awareness, War Infinite (Ability) Mastery--Archery</p><p><strong>Backgrounds:</strong> Backing (Incarnae) 2</p><p><em>Original essence pool from source: 85 motes</em></p><p><em>Source: Glories of the Most High: The Maidens of Destiny</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
   "sort": 0,
-  "ownership": { "default": 0 },
+  "ownership": {
+    "default": 0
+  },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

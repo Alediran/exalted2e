@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Flashing Peak (Blessed Isle)",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 1,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 1,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 1,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 1,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 1,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 1,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 1,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 1,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 1,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 5,
+        "current": 5,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "valor": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 9
+      "value": 9,
+      "max": 9
     },
     "willpower": {
       "value": 10,
       "max": 10
     },
     "motes": {
-      "value": 0,
-      "max": 190
-    },
-    "pools": {
-      "combat": 17,
-      "social": 15,
-      "physical": 13
-    },
-    "combat": {
-      "joinBattle": 17,
-      "dodgeDV": 11,
-      "parryDV": 0,
-      "dodgeMDV": 5,
-      "parryMDV": 4,
-      "soak": {
-        "bashing": 35,
-        "lethal": 25,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 5
+      "peripheral": {
+        "value": 190,
+        "max": 190,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 15
+      "bonus": {
+        "zero": 0,
+        "one": 0,
+        "two": 0
+      }
     },
-    "powers": "",
-    "notes": "",
-    "biography": "<p>Goddess of the Imperial Mountain, Shogun of the Hierarchy of Type in the Bureau of Nature Appearing as a beautiful, eight-foot-tall woman made entirely of polished basalt, Flashing Peak is the goddess of the Imperial Mountain. More than this, however, she is also one of the two leaders of the Bureau of Nature, holding the position of Shogun of the Hierarchy of Type. Flashing Peak is one of the most powerful deities in Yu-Shan--only the heads of the other bureaus and the Celestines themselves are her equals. All of this power is directed toward keeping the operation of her bureaucracy as true to the ways of the First Age as possible. She is uninterested in suggestions of divergence from this norm to account for changes in Creation or anything else. It has been good enough, and will always be good enough, if Flashing Peak has anything to say about it. She is the most strictly legalistic of the heads of Heaven's bureaus, applying the laws of Heaven as strictly now as she did during the First Age. She is not stupid, however. She is aware that many of the censors in this Age are corrupt and that those in charge of the enforcement Heaven's laws are deeply cynical. Flashing Peak has never declared her preference for either the goals of the Gold or Bronze Factions. Indeed, she refuses to acknowledge that such a division exists. Anyone who brings it to her attention is quickly dressed down, asked to kindly refrain from bringing the personal hobbies of Heavenly dignitaries to light. Sanctum: Flashing Peak has incredibly opulent estates in Heaven, but she also maintains a modest sanctum from the days when she was only the goddess of the Imperial Mountain, before the casting down of the Primordials. The Seat of Pasiap, at the top of the Imperial Mountain, was once known as the Chamber of Flashing Peak, where those who were interested in visiting her sanctum stood to address her. Fortunately, it is simple for her to visit this site, as it lies less than an hour from the Glorious Arch.</p><p><strong>Motivation:</strong> To keep the Imperial Mountain important and central to Creation, and to cause the Bureau of Nature to become just as important and central to Heaven.</p><p><em>Source: Compass of Celestial Directions, Vol. I: The Blessed Isle</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Flashing Peak is God of the Imperial Mountain and Shogun of the Hierarchy of Type in the Bureau of Nature. As the god of the most visible landmark in Creation, she is the most powerful deity in her bureau and one of the most powerful deities in YuShan. However, she is inflexible, refusing to admit that times have changed since the First Age, thus relegating her to leadership of the least powerful Bureau in Heaven. She would be capable of forcing her way into a position of power in one of the other Bureaus if her political opponents had not pushed Burnished Talon into leadership of the other hierarchy that contends for control of the Bureau of Nature, creating an opponent that is tailor-made to garner Flashing Peak's ire and keep her focused on issues in her own backyard rather than on her ambitions elsewhere. Burnished Talon's troublemaking and flagrant disregard for propriety means that Flashing Peak is kept ever occupied, but her rigid adherence to the ancient models of intra-Bureau etiquette also means she is unable to simply frame him or have him murdered out of hand. Flashing Peak appears a beautiful, eight-foot tall woman carved of polished basalt. In Heaven, she is surrounded by supporters who believe, as she does, that if they unflinchingly refuse to accept that YuShan is decayed and corrupt, by sheer dint of will and example they may bring back the glory days of the Celestial Bureaucracy. She has been distracted, however, by a recent obsession with Ragara Jazir, a Dragon-Blood who she deigned sup with one evening while he attempted to climb her mountain's steepest face. She suddenly finds herself torn between her unflinching rigidity and her desire for this Dynast and through him, a newfound interest in the future of the Realm. The factions of Yu-Shan interested in the survival of the Realm have a potential inroad into Flashing Peak's favor. When she is not in Yu-Shan, Flashing Peak keeps a massive sanctum on the Imperial Mountain. In Heaven, she resides in a mansion the size of a small city whose spires mirror her mountain's silhouette.</p><p><strong>Motivation:</strong> Flashing Peak wants to live in a YuShan unriven by politics and untainted by corruption or pettiness.</p><p><em>Original essence pool from source: 190 motes</em></p><p><em>Source: Compass of Celestial Directions, Vol. III: Yu-Shan</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

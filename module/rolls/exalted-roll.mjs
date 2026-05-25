@@ -1137,6 +1137,70 @@ export class ExaltedRoll {
   }
 
   /**
+   * Roll a pre-computed NPC attack entry against a targeted actor.
+   * Uses attack.pool directly instead of deriving from attributes.
+   */
+  static async rollNpcAttack(actor, attackIndex, options = {}) {
+    const attack = actor.system.attacks?.[attackIndex];
+    if (!attack) return null;
+
+    // ── Resolve target ────────────────────────────────────────────────────
+    let target = options.explicitTargetActor ?? game.user.targets.first()?.actor ?? null;
+    if (!target) {
+      const { pickTargetActor } = await import("../helpers/targeting.mjs");
+      target = await pickTargetActor();
+      if (!target) return null;
+    }
+
+    // ── Roll pool (minus wound penalty) ───────────────────────────────────
+    const woundPenalty = actor.system.health?.woundPenalty ?? 0;
+    const pool         = Math.max(1, attack.pool - woundPenalty);
+    const roll         = new ExaltedRoll(`${pool}d10`, actor.getRollData());
+    await roll.evaluate();
+    const successes = roll.total;
+
+    // ── Onslaught: snapshot DVs BEFORE incrementing so this attack sees
+    //    pre-bump values, then apply onslaught to target. ─────────────────
+    const dodgeDV  = target.currentDodgeDV ?? 0;
+    const parryDV  = target.currentParryDV ?? 0;
+    const targetDV = Math.min(dodgeDV, parryDV);
+    const rawExcess = successes - targetDV;
+    const hit       = rawExcess >= 0;
+
+    await target.addOnslaught?.();
+
+    // ── Parse base damage ─────────────────────────────────────────────────
+    const dmgMatch = (attack.damage ?? "").match(/(\d+)\s*([BLAble]*)/i);
+    const baseDmg  = dmgMatch ? parseInt(dmgMatch[1]) : 0;
+    const dmgType  = dmgMatch ? (dmgMatch[2].trim().toUpperCase()[0] ?? "L") : "L";
+
+    // ── Build chat content ────────────────────────────────────────────────
+    const hitLabel = hit
+      ? `<strong style="color:green">${game.i18n.localize("EX2E.Hit")}</strong>`
+      : `<strong style="color:crimson">${game.i18n.localize("EX2E.Miss")}</strong>`;
+    let content = `<div class="attack-result">
+      <h3>${actor.name} — ${attack.name}</h3>
+      <p>Pool ${pool}${woundPenalty ? ` (−${woundPenalty} wound penalty)` : ""} → <strong>${successes}</strong> successes</p>
+      <p>vs ${target.name} DV ${targetDV} — ${hitLabel}</p>`;
+
+    if (hit) {
+      const totalRaw = rawExcess + baseDmg;
+      content += `<p>Raw damage: <strong>${totalRaw}${dmgType}</strong> (${rawExcess} excess + ${baseDmg} base)</p>`;
+    }
+    content += `</div>`;
+
+    const message = await ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor }),
+      rolls:   [roll],
+      content,
+      type:    CONST.CHAT_MESSAGE_STYLES?.ROLL ?? 5,
+      flags:   { exalted2e: { npcAttack: { actorId: actor.id, attackIndex, hit, targetId: target.id } } }
+    });
+
+    return message;
+  }
+
+  /**
    * Resolve a social attack against a defender.
    *
    * Computes verified modifier claims against the defender's data

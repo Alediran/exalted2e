@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Mist-demon",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 0,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 1,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 0,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 2,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 2,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 1,
+        "current": 1,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 1,
+        "current": 1,
+        "channeled": false
+      },
+      "valor": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 3
+      "value": 3,
+      "max": 3
     },
     "willpower": {
       "value": 7,
       "max": 7
     },
     "motes": {
-      "value": 0,
-      "max": 65
-    },
-    "pools": {
-      "combat": 7,
-      "social": 7,
-      "physical": 4
-    },
-    "combat": {
-      "joinBattle": 7,
-      "dodgeDV": 6,
-      "parryDV": 0,
-      "dodgeMDV": 3,
-      "parryMDV": 1,
-      "soak": {
-        "bashing": 9,
-        "lethal": 6,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": 65,
+        "max": 65,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 12
+      "bonus": {
+        "zero": 1,
+        "one": 1,
+        "two": 2
+      }
     },
-    "powers": "<p>Confusion--For six motes of Essence and one Willpower, an eristrufa can cause confusion in a victim. Roll the demon's (Manipulation + Conviction) with a difficulty of the target's Essence. Success indicates that the target is mildly confused, and likely to make mistakes such as choosing the wrong direction at a fork in the path. With at least two extra successes, the target is quite confused and might believe such things as traveling after dark without a lantern is a reasonable thing to do. Four or more extra successes results in a completely addled target, who may do very dangerous things such as scaling a mast in the dark or sleeping in the crow's nest during a storm. Fair Folk are immune to this Charm. Eristrufa typically target ship captains or navigators with this Charm. Cunning Thief--The eristrufa must touch a target (which may require a successful Dexterity + Martial Arts roll). If this succeeds, the eristrufa may make a reflexive (Wits + Temperance) roll, costing one mote for every two dice, or fraction thereof. For every success the demon achieves, the target loses two motes of Essence. The demon may not steal more motes than twice its Essence. Dreambane--For 15 motes and one Willpower, the demon can shape the dreams of a sleeping target. The player of the demon rolls (Manipulation + Conviction) with successes controlling the degree of power held by the dream. The target rolls Wits to prevent incidences of dream damage from becoming real damage, with each success preventing one health level. If the target suffers physical damage, she may roll (Willpower + Integrity) to wake up. Damage from this Charm cannot reduce a target below Incapacitated. Essence Bite--An eristrufa can spend three motes of Essence, and for a scene, any being that touches or is touched by the demon takes 1L damage from chilling cold, ignoring armor and soaked only by Stamina. Excellencies--Eristrufa have First and Second Excellencies for the following</p>",
-    "notes": "<p>Tentacle Grab: Speed 6, Accuracy 13, Damage 8L (piercing), Defense -, Rate 1 Special: The damage from a clinch made by the ten- tacle grab increases by 1L every action the clinch is maintained. Tentacle Slash: Speed 5, Accuracy 9, Damage 10L, Defense 10, Rate 3 Mist Touch: Speed 5, Accuracy 7, Damage (Charm only), Defense -, Rate 3 Special: The mist touch cannot be parried, but can be dodged.</p>",
-    "biography": "<p>Demon of the First Circle, Progeny of the Dam of the Eristrufa The eristrufa are creatures of fog and shadow that drift across the dark oceans of Malfeas. The eristrufa's services appeal most to sorcerers who want the creatures to confuse or slay enemies at sea. Typically, an eristrufa appears as a dense fog bank several miles across, except that this ill mist can move against the wind or tide when it must. If multiple mist-demons work together, they join into a fog bank dozens of miles long. As with mundane mist, the eristrufa confuse ships within by blinding their crews. The mist-demons hide greater terrors, though, as those within are beset with disturbing sounds of mournful ship's bells, intermittent hideous laughter or moaning sobs of agony. Those who try to sleep in the dark fog face greater suffering, dreaming of damnation and waking more tired than when they laid down to rest. Ship crews and shore villages caught in the mist face exhaustion and madness, and most eventually perish, sometimes at their own hands. If the mist shape is not sufficient, or if it grows angry, the mist diminishes and an eristrufa takes the form of a mass of grasping, writhing tentacles with misshapen eyes, powerful suckers, piercing claws and cutting edges. These tentacles may stretch up to 20 feet to strike a target. Eristrufa will not set out against a victim on Venusday, although they will not cease attack if it is already ongoing. They cannot change shape when the moon is full, and they can't abide the smell of fresh garlic. Sacrifices of blood may convince an eristrufa to leave a target unharmed, provided the eristrufa is not under the command of sorcerous bindings. Perhaps offended by the beauty or nobility of the moment, an eristrufa is sometimes called to Creation without summoning when a lone dolphin swims beneath a rainbow in a sunny sky.</p><p><strong>Motivation:</strong> To destroy or drive into insanity those who travel upon the sea or live on its edges.</p><p><strong>Backgrounds:</strong> Allies 1 (other eristrufa)</p><p><em>Source: Compass of Terrestrial Directions, Vol. II: The West</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Demon of the First Circle, Progeny of the Dam of the Eristrufa The eristrufa are creatures of fog and shadow that drift across the dark oceans of Malfeas. The eristrufa's services appeal most to sorcerers who want the creatures to confuse or slay enemies at sea. Typically, an eristrufa appears as a dense fog bank several miles across, except that this ill mist can move against the wind or tide when it must. If multiple mist-demons work together, they join into a fog bank dozens of miles long. As with mundane mist, the eristrufa confuse ships within by blinding their crews. The mist-demons hide greater terrors, though, as those within are beset with disturbing sounds of mournful ship's bells, intermittent hideous laughter or moaning sobs of agony. Those who try to sleep in the dark fog face greater suffering, dreaming of damnation and waking more tired than when they laid down to rest. Ship crews and shore villages caught in the mist face exhaustion and madness, and most eventually perish, sometimes at their own hands. If the mist shape is not sufficient, or if it grows angry, the mist diminishes and an eristrufa takes the form of a mass of grasping, writhing tentacles with misshapen eyes, powerful suckers, piercing claws and cutting edges. These tentacles may stretch up to 20 feet to strike a target. Eristrufa will not set out against a victim on Venusday, although they will not cease attack if it is already ongoing. They cannot change shape when the moon is full, and they can't abide the smell of fresh garlic. Sacrifices of blood may convince an eristrufa to leave a target unharmed, provided the eristrufa is not under the command of sorcerous bindings. Perhaps offended by the beauty or nobility of the moment, an eristrufa is sometimes called to Creation without summoning when a lone dolphin swims beneath a rainbow in a sunny sky.</p><p><strong>Motivation:</strong> To destroy or drive into insanity those who travel upon the sea or live on its edges.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Tentacle Grab: Speed 6, Accuracy 13, Damage 8L (piercing), Defense -, Rate 1 Special: The damage from a clinch made by the ten- tacle grab increases by 1L every action the clinch is maintained. Tentacle Slash: Speed 5, Accuracy 9, Damage 10L, Defense 10, Rate 3 Mist Touch: Speed 5, Accuracy 7, Damage (Charm only), Defense -, Rate 3 Special: The mist touch cannot be parried, but can be dodged.</p><h3>Powers</h3><p>Confusion--For six motes of Essence and one Willpower, an eristrufa can cause confusion in a victim. Roll the demon's (Manipulation + Conviction) with a difficulty of the target's Essence. Success indicates that the target is mildly confused, and likely to make mistakes such as choosing the wrong direction at a fork in the path. With at least two extra successes, the target is quite confused and might believe such things as traveling after dark without a lantern is a reasonable thing to do. Four or more extra successes results in a completely addled target, who may do very dangerous things such as scaling a mast in the dark or sleeping in the crow's nest during a storm. Fair Folk are immune to this Charm. Eristrufa typically target ship captains or navigators with this Charm. Cunning Thief--The eristrufa must touch a target (which may require a successful Dexterity + Martial Arts roll). If this succeeds, the eristrufa may make a reflexive (Wits + Temperance) roll, costing one mote for every two dice, or fraction thereof. For every success the demon achieves, the target loses two motes of Essence. The demon may not steal more motes than twice its Essence. Dreambane--For 15 motes and one Willpower, the demon can shape the dreams of a sleeping target. The player of the demon rolls (Manipulation + Conviction) with successes controlling the degree of power held by the dream. The target rolls Wits to prevent incidences of dream damage from becoming real damage, with each success preventing one health level. If the target suffers physical damage, she may roll (Willpower + Integrity) to wake up. Damage from this Charm cannot reduce a target below Incapacitated. Essence Bite--An eristrufa can spend three motes of Essence, and for a scene, any being that touches or is touched by the demon takes 1L damage from chilling cold, ignoring armor and soaked only by Stamina. Excellencies--Eristrufa have First and Second Excellencies for the following</p><p><strong>Backgrounds:</strong> Allies 1 (other eristrufa)</p><p><em>Original essence pool from source: 65 motes</em></p><p><em>Source: Compass of Terrestrial Directions, Vol. II: The West</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

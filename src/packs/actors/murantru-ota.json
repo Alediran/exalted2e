@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Murantru Ota",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "valor": {
+        "value": 5,
+        "current": 5,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 6
+      "value": 6,
+      "max": 6
     },
     "willpower": {
       "value": 9,
       "max": 9
     },
     "motes": {
-      "value": 0,
-      "max": 105
-    },
-    "pools": {
-      "combat": 9,
-      "social": 9,
-      "physical": 10
-    },
-    "combat": {
-      "joinBattle": 8,
-      "dodgeDV": 9,
-      "parryDV": 0,
-      "dodgeMDV": 4,
-      "parryMDV": 2,
-      "soak": {
-        "bashing": 6,
-        "lethal": 3,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": 105,
+        "max": 105,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 14
+      "bonus": {
+        "zero": 0,
+        "one": 4,
+        "two": 3
+      }
     },
-    "powers": "",
-    "notes": "<p>Emperor and Empress Forms: Claw: Speed 4, Accuracy 10, Damage 7L (Empress +2 Fire), Parry DV 5, Rate 3 Clinch: Speed 6, Accuracy 9, Damage 4B, Parry DV --, Rate 1, Tags C,N,P Arc of Flame: Speed 6, Accuracy 10, Damage 4L, Range 10, Rate 1 CHAPTER NINE: GODS AND MONSTERS OF THE SOUTH Phoenix Form: Double-Edged Khanda of the Invincible Chakkar: Speed 4, Accuracy 17, Damage 13L (+2 Fire), Parry DV 7, Rate 3</p>",
-    "biography": "<p>Murantru Ota, a prominent garda bird, is Ulema of the Orderly Flame. He conceives much of its long-term vision and designs its propaganda aimed at other spirit courts. During the First Age, Ota was the Dawn Rhoodra, or leader of the Red Volkan Ledge, then the most powerful fire court in Creation. When he abandoned that post for the Orderly Flame, many loyal garda birds followed him, decimating the Ledge's membership. The current Dawn Rhoodra, Banatokh Wol, refuses to speak to Ota for abandoning the Ledge for an ifrit's pipe dream. Ota shares Lusa Seragon's desire to see a single Celestially sanctioned and respected fire court, much like the Court of the Wind Masters, though he recognizes this as a long-term goal. In pursuit of the Bureau of Heaven's support, Ota has gained many minor allies in the Bureau. Lately, however, Ota feels like a fool, as no one with real influence in Heaven seems to care about the Orderly Flame or its goals. Ota blames Wong Bongerok for these Celestial snubs. The garda despises the Censor of the South and considers him a villain long due for a comeuppance. He would spare no opportunity to shame Bongerok before the Celestial Bureaucracy. Indeed, if Ota can finally prove that Wong Bongerok caused some great harm to the Orderly Flame, he and his closest allies (mostly other garda birds) would try to murder the censor, and damn the consequences. Murantru Ota takes a black-and-white view of Creation and morality. He despises forbearance in the face of evil for the sake of mere personal safety. He brushes aside reminders that not everyone can return from death as garda birds can. Murantru Ota is an ancient garda bird with angular features and a serious countenance. Like other birds, he has a purple-and-gold \"emperor\" form resembling a peacock and a flaming silver, pheasant-like \"empress\" form. In both of these forms he wears a silver and golden half-mask. In his third, phoenix form Ota becomes a maelstrom of blue and orange fire bearing six jagged, flaming swords. Summoning: As the leader of the Court of the Orderly Flame, Murantru Ota has the right to send garda birds of lesser rank in his place if summoned.</p><p><strong>Motivation:</strong> To secure the support of the Celestial Bureaucracy for the Orderly Flame</p><p><strong>Backgrounds:</strong> Allies 4, Backing 5, Contacts 3, Influence 4 Charms and Powers: Unless otherwise described here, Murantru Ota has all the elemental powers and spirit Charms of a standard garda bird, as described on pages 117­119 of The Books of Sorcery, Vol. IV--The Roll of Glorious Divinity I. Dematerialize--Costs 75 motes Divine Prerogative--Ota punishes not only crimes against himself, but those against the Orderly Flame as well. Mind-Knife Sacrament--Considering how Ota uses this Charm, targets are usually restrained. Ota has no interest in enhancing foes of the Orderly Flame--only in peeling down their minds to leave them unwilling or unable to oppose the court. Signet of Authority--Ota grants a feather of heatless, purple flame that bears his name written in Old Realm. This token confers authority over lesser elementals in the Court of the Orderly Flame. First (Ability) Excellency--Melee, Presence Third (Ability) Excellency--Awareness, Lore, Occult, Presence</p><p><em>Source: Compass of Terrestrial Directions, Vol. IV: The South</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Murantru Ota, a prominent garda bird, is Ulema of the Orderly Flame. He conceives much of its long-term vision and designs its propaganda aimed at other spirit courts. During the First Age, Ota was the Dawn Rhoodra, or leader of the Red Volkan Ledge, then the most powerful fire court in Creation. When he abandoned that post for the Orderly Flame, many loyal garda birds followed him, decimating the Ledge's membership. The current Dawn Rhoodra, Banatokh Wol, refuses to speak to Ota for abandoning the Ledge for an ifrit's pipe dream. Ota shares Lusa Seragon's desire to see a single Celestially sanctioned and respected fire court, much like the Court of the Wind Masters, though he recognizes this as a long-term goal. In pursuit of the Bureau of Heaven's support, Ota has gained many minor allies in the Bureau. Lately, however, Ota feels like a fool, as no one with real influence in Heaven seems to care about the Orderly Flame or its goals. Ota blames Wong Bongerok for these Celestial snubs. The garda despises the Censor of the South and considers him a villain long due for a comeuppance. He would spare no opportunity to shame Bongerok before the Celestial Bureaucracy. Indeed, if Ota can finally prove that Wong Bongerok caused some great harm to the Orderly Flame, he and his closest allies (mostly other garda birds) would try to murder the censor, and damn the consequences. Murantru Ota takes a black-and-white view of Creation and morality. He despises forbearance in the face of evil for the sake of mere personal safety. He brushes aside reminders that not everyone can return from death as garda birds can. Murantru Ota is an ancient garda bird with angular features and a serious countenance. Like other birds, he has a purple-and-gold \"emperor\" form resembling a peacock and a flaming silver, pheasant-like \"empress\" form. In both of these forms he wears a silver and golden half-mask. In his third, phoenix form Ota becomes a maelstrom of blue and orange fire bearing six jagged, flaming swords. Summoning: As the leader of the Court of the Orderly Flame, Murantru Ota has the right to send garda birds of lesser rank in his place if summoned.</p><p><strong>Motivation:</strong> To secure the support of the Celestial Bureaucracy for the Orderly Flame</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Emperor and Empress Forms: Claw: Speed 4, Accuracy 10, Damage 7L (Empress +2 Fire), Parry DV 5, Rate 3 Clinch: Speed 6, Accuracy 9, Damage 4B, Parry DV --, Rate 1, Tags C,N,P Arc of Flame: Speed 6, Accuracy 10, Damage 4L, Range 10, Rate 1 CHAPTER NINE: GODS AND MONSTERS OF THE SOUTH Phoenix Form: Double-Edged Khanda of the Invincible Chakkar: Speed 4, Accuracy 17, Damage 13L (+2 Fire), Parry DV 7, Rate 3</p><p><strong>Backgrounds:</strong> Allies 4, Backing 5, Contacts 3, Influence 4 Charms and Powers: Unless otherwise described here, Murantru Ota has all the elemental powers and spirit Charms of a standard garda bird, as described on pages 117­119 of The Books of Sorcery, Vol. IV--The Roll of Glorious Divinity I. Dematerialize--Costs 75 motes Divine Prerogative--Ota punishes not only crimes against himself, but those against the Orderly Flame as well. Mind-Knife Sacrament--Considering how Ota uses this Charm, targets are usually restrained. Ota has no interest in enhancing foes of the Orderly Flame--only in peeling down their minds to leave them unwilling or unable to oppose the court. Signet of Authority--Ota grants a feather of heatless, purple flame that bears his name written in Old Realm. This token confers authority over lesser elementals in the Court of the Orderly Flame. First (Ability) Excellency--Melee, Presence Third (Ability) Excellency--Awareness, Lore, Occult, Presence</p><p><em>Original essence pool from source: 105 motes</em></p><p><em>Source: Compass of Terrestrial Directions, Vol. IV: The South</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

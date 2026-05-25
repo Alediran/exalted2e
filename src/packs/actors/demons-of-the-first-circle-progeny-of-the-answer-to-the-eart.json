@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Demons of the First Circle, Progeny of the Answer to the Earth",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "demon",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 1,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 0,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 2,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 2,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 1,
+        "current": 1,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "valor": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 2
+      "value": 2,
+      "max": 2
     },
     "willpower": {
       "value": 7,
       "max": 7
     },
     "motes": {
-      "value": 0,
-      "max": 55
-    },
-    "pools": {
-      "combat": 7,
-      "social": 4,
-      "physical": 7
-    },
-    "combat": {
-      "joinBattle": 6,
-      "dodgeDV": 5,
-      "parryDV": 0,
-      "dodgeMDV": 3,
-      "parryMDV": 1,
-      "soak": {
-        "bashing": 9,
-        "lethal": 5,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": 55,
+        "max": 55,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 11
+      "bonus": {
+        "zero": 0,
+        "one": 2,
+        "two": 2
+      }
     },
-    "powers": "<p>Call--Communicates with others of its kind Harrow the Mind--Persuades a victim that it is leading her along the route she desires Landscape Travel--Add one die to Dexterity in constricted tunnels Materialize--Costs 45 motes Measure the Wind--Tastes the Essence upon the air with its tongue Stoke the Flame--Instills fear of the dark Touch of Saturn--A gallmau's bite inflicts rabies (see Exalted, p. 353) Tracking--Marks those it strikes First (Ability) Excellency-- Resistance, Stealth Second (Ability) Excellency--Survival Third (Ability) Excellency--Investigation</p>",
-    "notes": "<p>Bite: Speed 5, Accuracy 8, Damage 4L (+ rabies if using Touch of Saturn), Parry DV --, Rate 1 Claw: Speed 5, Accuracy 8, Damage 4L, Parry DV 5, Rate 3 Clinch: Speed 6, Accuracy 8, Damage 4B, Parry DV --, Rate 1, Tags P</p>",
-    "biography": "<p>These creatures dwell in the catacombs beneath the Demon City, surfacing to sell their services as guides and living lamps. Lean and angular beneath its cowled robes, a gallmau is a seven-foot-tall humanoid that can fold itself into far tighter spaces than one might expect, given its size. Its grayish-brown pebbly skin stretches tightly over its bones, and its many-fingered hands bear sharp claws, while its elongated feet give it a jackal's gait. The gallmau's long muzzle exhibits a blank expanse of skin, save for a lamprey-like mouth that emits a pale glow. When it wishes to illuminate its surroundings, it grasps its lips and draws them back, peeling away the skin from its head like a hood. Its snout rises and unfurls into a flower of ivory fangs, with a blazing blue-white tongue lashing at its heart. Although they dislike the light of Ligier and the Unconquered Sun, the gallmau fear flame most of all. Fire melts the flesh from their bones like burning tallow. For that reason, scavenger lords trawling Creation's deep places bear torches and oil lamps--even when they possess more efficient Essence-powered sources of light--as protection from gallmau that have slipped the bonds of Malfeas. The hooded lanterns feel a compulsion to breed, though their method of reproduction appalls those not of their ilk. In a place lit only by its own tongue, beyond the glow of fire, sun, moon and stars, the gallmau impregnates itself with the gouged-out teeth and severed tongue of a dying demon or mortal. Those who currently retain a gallmau's services are off limits as victims, but all others are fair game. An hour later, it gives birth to an eyeless snake that grows into a new demon within a year. The sorcerous bindings upon a summoned gallmau do not extend to its progeny, which all too often escapes to trouble Creation's nights. Summoning: (Obscurity 1/3) Sorcerers summon gallmau to track their enemies or to guard against other hooded lanterns. On rare occasions, one appears in Creation where a mortal in a lightless place suffocates on his own tongue. A gallmau must always breed when it can. For every full day it fails to do so, its player rolls a die, with a success adding a point of Limit.</p><p><strong>Motivation:</strong> To create more of its kind.</p><p><strong>Backgrounds:</strong> Backing 1</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>These creatures dwell in the catacombs beneath the Demon City, surfacing to sell their services as guides and living lamps. Lean and angular beneath its cowled robes, a gallmau is a seven-foot-tall humanoid that can fold itself into far tighter spaces than one might expect, given its size. Its grayish-brown pebbly skin stretches tightly over its bones, and its many-fingered hands bear sharp claws, while its elongated feet give it a jackal's gait. The gallmau's long muzzle exhibits a blank expanse of skin, save for a lamprey-like mouth that emits a pale glow. When it wishes to illuminate its surroundings, it grasps its lips and draws them back, peeling away the skin from its head like a hood. Its snout rises and unfurls into a flower of ivory fangs, with a blazing blue-white tongue lashing at its heart. Although they dislike the light of Ligier and the Unconquered Sun, the gallmau fear flame most of all. Fire melts the flesh from their bones like burning tallow. For that reason, scavenger lords trawling Creation's deep places bear torches and oil lamps--even when they possess more efficient Essence-powered sources of light--as protection from gallmau that have slipped the bonds of Malfeas. The hooded lanterns feel a compulsion to breed, though their method of reproduction appalls those not of their ilk. In a place lit only by its own tongue, beyond the glow of fire, sun, moon and stars, the gallmau impregnates itself with the gouged-out teeth and severed tongue of a dying demon or mortal. Those who currently retain a gallmau's services are off limits as victims, but all others are fair game. An hour later, it gives birth to an eyeless snake that grows into a new demon within a year. The sorcerous bindings upon a summoned gallmau do not extend to its progeny, which all too often escapes to trouble Creation's nights. Summoning: (Obscurity 1/3) Sorcerers summon gallmau to track their enemies or to guard against other hooded lanterns. On rare occasions, one appears in Creation where a mortal in a lightless place suffocates on his own tongue. A gallmau must always breed when it can. For every full day it fails to do so, its player rolls a die, with a success adding a point of Limit.</p><p><strong>Motivation:</strong> To create more of its kind.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Bite: Speed 5, Accuracy 8, Damage 4L (+ rabies if using Touch of Saturn), Parry DV --, Rate 1 Claw: Speed 5, Accuracy 8, Damage 4L, Parry DV 5, Rate 3 Clinch: Speed 6, Accuracy 8, Damage 4B, Parry DV --, Rate 1, Tags P</p><h3>Powers</h3><p>Call--Communicates with others of its kind Harrow the Mind--Persuades a victim that it is leading her along the route she desires Landscape Travel--Add one die to Dexterity in constricted tunnels Materialize--Costs 45 motes Measure the Wind--Tastes the Essence upon the air with its tongue Stoke the Flame--Instills fear of the dark Touch of Saturn--A gallmau's bite inflicts rabies (see Exalted, p. 353) Tracking--Marks those it strikes First (Ability) Excellency-- Resistance, Stealth Second (Ability) Excellency--Survival Third (Ability) Excellency--Investigation</p><p><strong>Backgrounds:</strong> Backing 1</p><p><em>Original essence pool from source: 55 motes</em></p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
     "purchaseLocked": false
   },
   "folder": "d4e5f6a700000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

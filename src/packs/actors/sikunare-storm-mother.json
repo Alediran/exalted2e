@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Sikunare, Storm Mother",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 2,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 0,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 1,
+        "current": 1,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 1,
+        "current": 1,
+        "channeled": false
+      },
+      "valor": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 3
+      "value": 3,
+      "max": 3
     },
     "willpower": {
       "value": 8,
       "max": 8
     },
     "motes": {
-      "value": 0,
-      "max": 0
-    },
-    "pools": {
-      "combat": 10,
-      "social": 6,
-      "physical": 8
-    },
-    "combat": {
-      "joinBattle": 8,
-      "dodgeDV": 7,
-      "parryDV": 5,
-      "dodgeMDV": 4,
-      "parryMDV": 1,
-      "soak": {
-        "bashing": 9,
-        "lethal": 6,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 13
+      "bonus": {
+        "zero": 0,
+        "one": 3,
+        "two": 3
+      }
     },
-    "powers": "",
-    "notes": "<p><strong>Punch</strong>: Speed 5, Accuracy 9, Damage 6B, Defense 10, Rate 3</p><p><strong>Dueling Cutlass</strong>: Speed 4, Accuracy 13, Damage 9L, Defense 12, Rate 3</p><p><strong>Javelin</strong>: Speed 4, Accuracy 8, Damage 9L, Defense 0, Rate 2</p><p>Essence Pool: 70. Materialize: 55m. Backgrounds: Allies 3, Followers 4, Resources 5, Sanctum 4. Melee specialty: Dueling +2. Spirit Charms: Affinity Element Control (water), Malediction, Materialize, Principle of Motion, Weather Control (10m; storm 3 hrs), Landscape Travel (underwater). First and Second Excellencies: Bureaucracy, Martial Arts, Melee, Thrown. Cannot use Charms against red-haired women.</p>",
-    "biography": "<p>A relatively young storm mother, one of the Western gods that creates storms and rules small spirit courts. Commands storms over 900 square miles of ocean including two rich trade routes. Loves confrontation and battle, never turns down a challenge.</p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>A relatively young storm mother, one of the Western gods that creates storms and rules small spirit courts. Commands storms over 900 square miles of ocean including two rich trade routes. Loves confrontation and battle, never turns down a challenge.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>[object Object],[object Object],[object Object]</p><p><em>Source: Core Rules</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

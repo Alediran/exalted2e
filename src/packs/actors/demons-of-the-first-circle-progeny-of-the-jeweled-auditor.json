@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Demons of the First Circle, Progeny of the Jeweled Auditor",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "demon",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 2,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "valor": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 1
+      "value": 1,
+      "max": 1
     },
     "willpower": {
       "value": 5,
       "max": 5
     },
     "motes": {
-      "value": 0,
-      "max": 0
-    },
-    "pools": {
-      "combat": 6,
-      "social": 8,
-      "physical": 5
-    },
-    "combat": {
-      "joinBattle": 5,
-      "dodgeDV": 0,
-      "parryDV": 0,
-      "dodgeMDV": 2,
-      "parryMDV": 1,
-      "soak": {
-        "bashing": 0,
-        "lethal": 0,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 7
+      "bonus": {
+        "zero": 0,
+        "one": 0,
+        "two": 0
+      }
     },
-    "powers": "<p>Bread of Weak Spirit--Chalcothetes Call--Chalcothetes Endowment--Chalcothetes Eye of Inspiration--Chalcothetes Host of Spirits--Creates chalcothetes from ore Landscape Travel--Swim at double speed Materialize--Costs 55 motes Mind-Knife Sacrament--Chalcothetes Shatter--Its song fractures stone Words of Power--The lithic timbre of its voice inflicts damage on its enemies First (Ability) Excellency--Craft, Performance, War Second (Ability) Excellency--Craft, Performance Third (Ability) Excellency-- Craft, Performance</p>",
-    "notes": "<p>Punch: Speed 5, Accuracy 7, Damage 2B, Parry DV 4, Rate 3 Kick: Speed 5, Accuracy 6, Damage 5B, Parry DV 2, Rate 2 CHAPTER FIVE: THE DAMNED CHALCOTHETES A chalcothete resembles a three-foot-tall insect or crustacean cobbled together from rough scraps of metal (usually Malfean brass) encrusted with bits of rock. Older chalcothetes can be distinguished by their green patina of age, though bright metal gleams around their joints and faceted eyes. A typical chalcothete has the intellect of a two-year-old child. Eager to please, it serves its maker in all things, even performing self-destructive acts--though it complains plaintively as it dies. When a demjen perishes, its chalcothetes crumble back into the ore from which they were made.</p>",
-    "biography": "<p>The fragrance of the sea rises from the demjen. Their ichthyoid bodies wriggle sinuously through both water and air, while finlike filaments drift around their bodies like seaweed or smoke. Plates similar to seashells, ridged with grooves of a pale green hue, enclose their elegant limbs, and their persimmon-hued eyes gleam with a sly, yet sensitive, intellect. Although they prefer to dwell in humid places that remind them of Kimbery's tidal pools and coral atolls, demjen most often find employment in the bowels of Malfeas. There, in the dark places, their cool, liquid song invigorates the veins of buried brass, agglomerating and animating fragments of metal into small arthropods called chalcothetes. These simple beings serve their masters with childlike devotion. Each gladly digs and carries for its parent, only to be smelted down itself when its usefulness has ended. A demjen typically maintains one or two chalcothetes as personal companions, employing the Endowment Charm to enhance their minds and bodies over time. The demjen may view a chalcothete companion as one might a pet or a friend, and even feel remorse when the time comes to sacrifice the thing for Essence. Some demjen train their chalcothetes for other purposes, crafting them into squads of miniature brazen soldiers. Others equip their chalcothetes with musical instruments--from sitars and sanxians to drums, marimbas and cymbals--and enter the service of their betters to sing away the Silent Wind. Employing a demjen for this purpose is a sign of great wealth and decadence. Summoning: (Obscurity 2/3) A summoned demjen's chalcothetes come forth along with it, and it may enliven any of Creation's ores to make more. Sorcerers command the quickeners of ores to mine such ores or to put their chalcothetes to use as a military unit or labor force. On rare occasions, demjen appear when ancient clockworks are unearthed, making them a known danger to scavenger lords. A quickener of ores gains a point of Limit each day that it does not spend a full hour immersed in water.</p><p><strong>Motivation:</strong> To give life to unworked metal.</p><p><strong>Backgrounds:</strong> Backing 1, Followers 1­2</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>The fragrance of the sea rises from the demjen. Their ichthyoid bodies wriggle sinuously through both water and air, while finlike filaments drift around their bodies like seaweed or smoke. Plates similar to seashells, ridged with grooves of a pale green hue, enclose their elegant limbs, and their persimmon-hued eyes gleam with a sly, yet sensitive, intellect. Although they prefer to dwell in humid places that remind them of Kimbery's tidal pools and coral atolls, demjen most often find employment in the bowels of Malfeas. There, in the dark places, their cool, liquid song invigorates the veins of buried brass, agglomerating and animating fragments of metal into small arthropods called chalcothetes. These simple beings serve their masters with childlike devotion. Each gladly digs and carries for its parent, only to be smelted down itself when its usefulness has ended. A demjen typically maintains one or two chalcothetes as personal companions, employing the Endowment Charm to enhance their minds and bodies over time. The demjen may view a chalcothete companion as one might a pet or a friend, and even feel remorse when the time comes to sacrifice the thing for Essence. Some demjen train their chalcothetes for other purposes, crafting them into squads of miniature brazen soldiers. Others equip their chalcothetes with musical instruments--from sitars and sanxians to drums, marimbas and cymbals--and enter the service of their betters to sing away the Silent Wind. Employing a demjen for this purpose is a sign of great wealth and decadence. Summoning: (Obscurity 2/3) A summoned demjen's chalcothetes come forth along with it, and it may enliven any of Creation's ores to make more. Sorcerers command the quickeners of ores to mine such ores or to put their chalcothetes to use as a military unit or labor force. On rare occasions, demjen appear when ancient clockworks are unearthed, making them a known danger to scavenger lords. A quickener of ores gains a point of Limit each day that it does not spend a full hour immersed in water.</p><p><strong>Motivation:</strong> To give life to unworked metal.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Punch: Speed 5, Accuracy 7, Damage 2B, Parry DV 4, Rate 3 Kick: Speed 5, Accuracy 6, Damage 5B, Parry DV 2, Rate 2 CHAPTER FIVE: THE DAMNED CHALCOTHETES A chalcothete resembles a three-foot-tall insect or crustacean cobbled together from rough scraps of metal (usually Malfean brass) encrusted with bits of rock. Older chalcothetes can be distinguished by their green patina of age, though bright metal gleams around their joints and faceted eyes. A typical chalcothete has the intellect of a two-year-old child. Eager to please, it serves its maker in all things, even performing self-destructive acts--though it complains plaintively as it dies. When a demjen perishes, its chalcothetes crumble back into the ore from which they were made.</p><h3>Powers</h3><p>Bread of Weak Spirit--Chalcothetes Call--Chalcothetes Endowment--Chalcothetes Eye of Inspiration--Chalcothetes Host of Spirits--Creates chalcothetes from ore Landscape Travel--Swim at double speed Materialize--Costs 55 motes Mind-Knife Sacrament--Chalcothetes Shatter--Its song fractures stone Words of Power--The lithic timbre of its voice inflicts damage on its enemies First (Ability) Excellency--Craft, Performance, War Second (Ability) Excellency--Craft, Performance Third (Ability) Excellency-- Craft, Performance</p><p><strong>Backgrounds:</strong> Backing 1, Followers 1­2</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
     "purchaseLocked": false
   },
   "folder": "d4e5f6a700000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

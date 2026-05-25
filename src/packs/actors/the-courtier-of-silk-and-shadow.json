@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "The Courtier of Silk and Shadow",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 2,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "valor": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 4
+      "value": 4,
+      "max": 4
     },
     "willpower": {
       "value": 7,
       "max": 7
     },
     "motes": {
-      "value": 0,
-      "max": "75 (83) Committed"
-    },
-    "pools": {
-      "combat": 4,
-      "social": 10,
-      "physical": 3
-    },
-    "combat": {
-      "joinBattle": 7,
-      "dodgeDV": 5,
-      "parryDV": 0,
-      "dodgeMDV": 3,
-      "parryMDV": 2,
-      "soak": {
-        "bashing": 8,
-        "lethal": 8,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": "75 (83) Committed",
+        "max": "75 (83) Committed",
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 7
+      "bonus": {
+        "zero": 0,
+        "one": 0,
+        "two": 0
+      }
     },
-    "powers": "",
-    "notes": "<p>Punch (with demon-embracing robes): Speed 5, Accuracy 11, Damage 7B, Parry DV 3, Rate 3 Kick: Speed 5, Accuracy 4, Damage 5B, Parry DV 1, Rate 2 Clinch: Speed 6, Accuracy 4, Damage 2B, Parry DV --, Rate 1</p>",
-    "biography": "<p>His official title is Chief Liaison of Stygia to the Deathlords. A more honest title would be Chief Panderer. Whatever the Deathlords want when they visit Stygia--from a lavish party to a ghostly virgin to sacrifice-- the Courtier of Silk and Shadow strives to provide. He wields tremendous power in the Palace of the Dual Monarchy and the city beyond, simply by asking anyone who balks him if they want to be known as the ghost who disappointed and irritated a Deathlord. If that does not suffice, the Courtier calls upon a small army of war ghost bodyguards or assassins supplied by his ally Lord Stalwart. The Courtier also trades favors with the Emissary of Righteous Victory. Stygia's highest-placed toady seeks power by serving the powerful. He sees the forces of Oblivion as the greatest power in Stygia. The Courtier of Silk and Shadow looks like an incredibly handsome man on the young edge of middle age. His looks make him seem distinguished rather than a boy-toy. Long, dark, oiled ringlets frame his flawless face. His eyes, however, are pits of darkness and hunger. He dresses in dark silk and velvet robes tastefully adorned with inconspicuous jewelry. He carries no weapons except his enchanted robes. He has 20 war ghost bodyguards (see Exalted, p. 318) to protect him, however, as well as a constant retinue of clerks, gofers and valets to hide behind. The Courtier of Silk and Shadow would fight to defend himself only if he had no alternative.</p><p><strong>Motivation:</strong> Serve the powerful.</p><p><strong>Backgrounds:</strong> Allies 5, Artifact (Demon-Embracing Robes) 3, Artifact (Essence-Containing Gem) 5, Backing (Court of the Dual Monarchy) 4, Contacts 5, Followers 2, Influence 3, Resources 5 Arcanoi: Essence-Measuring Thief Arts: All Charms Shifting Ghost-Clay Path: Steeling the Spirit, Stolen Wax Discipline, Waxen Ghostly Flesh, Yielding Spirit Form Stringless Puppeteer Art: Skin-Riding Prana, Soul-Whispering Empathy Discipline, Spirit-Catching Eye Technique</p><p><em>Source: Compass of Celestial Directions, Vol. IV: The Underworld</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>His official title is Chief Liaison of Stygia to the Deathlords. A more honest title would be Chief Panderer. Whatever the Deathlords want when they visit Stygia--from a lavish party to a ghostly virgin to sacrifice-- the Courtier of Silk and Shadow strives to provide. He wields tremendous power in the Palace of the Dual Monarchy and the city beyond, simply by asking anyone who balks him if they want to be known as the ghost who disappointed and irritated a Deathlord. If that does not suffice, the Courtier calls upon a small army of war ghost bodyguards or assassins supplied by his ally Lord Stalwart. The Courtier also trades favors with the Emissary of Righteous Victory. Stygia's highest-placed toady seeks power by serving the powerful. He sees the forces of Oblivion as the greatest power in Stygia. The Courtier of Silk and Shadow looks like an incredibly handsome man on the young edge of middle age. His looks make him seem distinguished rather than a boy-toy. Long, dark, oiled ringlets frame his flawless face. His eyes, however, are pits of darkness and hunger. He dresses in dark silk and velvet robes tastefully adorned with inconspicuous jewelry. He carries no weapons except his enchanted robes. He has 20 war ghost bodyguards (see Exalted, p. 318) to protect him, however, as well as a constant retinue of clerks, gofers and valets to hide behind. The Courtier of Silk and Shadow would fight to defend himself only if he had no alternative.</p><p><strong>Motivation:</strong> Serve the powerful.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Punch (with demon-embracing robes): Speed 5, Accuracy 11, Damage 7B, Parry DV 3, Rate 3 Kick: Speed 5, Accuracy 4, Damage 5B, Parry DV 1, Rate 2 Clinch: Speed 6, Accuracy 4, Damage 2B, Parry DV --, Rate 1</p><p><strong>Backgrounds:</strong> Allies 5, Artifact (Demon-Embracing Robes) 3, Artifact (Essence-Containing Gem) 5, Backing (Court of the Dual Monarchy) 4, Contacts 5, Followers 2, Influence 3, Resources 5 Arcanoi: Essence-Measuring Thief Arts: All Charms Shifting Ghost-Clay Path: Steeling the Spirit, Stolen Wax Discipline, Waxen Ghostly Flesh, Yielding Spirit Form Stringless Puppeteer Art: Skin-Riding Prana, Soul-Whispering Empathy Discipline, Spirit-Catching Eye Technique</p><p><em>Original essence pool from source: 75 (83) Committed motes</em></p><p><em>Source: Compass of Celestial Directions, Vol. IV: The Underworld</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "The Bodhisattva Anointed by Dark Water",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 8,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 10,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 10,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 7,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 9,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 7,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 7,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 8,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 8,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 7,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 8,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 7,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 8,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 7,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 8,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 7,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 7,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 8,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 8,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 9,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 7,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 9,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 9,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 7,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 8,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 5,
+        "current": 5,
+        "channeled": false
+      },
+      "valor": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 10
+      "value": 10,
+      "max": 10
     },
     "willpower": {
       "value": 10,
       "max": 10
     },
     "motes": {
-      "value": 0,
-      "max": 0
-    },
-    "pools": {
-      "combat": 18,
-      "social": 18,
-      "physical": 18
-    },
-    "combat": {
-      "joinBattle": 14,
-      "dodgeDV": 14,
-      "parryDV": 0,
-      "dodgeMDV": 5,
-      "parryMDV": 3,
-      "soak": {
-        "bashing": 27,
-        "lethal": 22,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 11
+      "peripheral": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 7
+      "bonus": {
+        "zero": 0,
+        "one": 0,
+        "two": 0
+      }
     },
-    "powers": "<p>All Solar and Abyssal Charms for which he possesses the prerequisite Ability ratings. Martial Arts: All Charms of Orgiastic Fugitive Style, Seafaring Hero Style, Snake Style, Solar Hero Style and Violet Bier of Sorrows Style. Spells: Necromancy: Shadowlands Circle, Labyrinth Circle: All spells given in The Books of Sorcery, Vol. II--The Black Treatise, and more as the Storyteller desires. Void Circle: Abyssal Aegis, The Barless Gate, Birth of Sanity's Sorrow, Empty Night Future, Forsaken Life Engine, Inauspicious Citadel, Lord of the Dead, Obsidian Countermagic, Poisoning the Well, Summon Hekatonkhire, Void Cocoon Warrior; others as the Storyteller desires.</p>",
-    "notes": "<p>Punch: Speed 5, Accuracy 19, Damage 8B, Parry DV 10, Rate 3 Kick: Speed 5, Accuracy 18, Damage 11B, Parry DV 8, Rate 2 Bloodspike Harness (Glittering Shadow): Speed 6, Accuracy 23, Damage 17L*, Parry DV --, Rate 1 * Whenever this clinch strikes a target and inflicts damage, it also drains the target of a number of motes of Essence equal to the wielder's Essence. Soulsteel Grand Daiklave (Howler in Darkness): Speed 5, Accuracy 25, Damage 23L/5**, Parry DV 10, Rate 2 ** Whenever this grand daiklave strikes a target and inflicts damage, it also drains the target of a number of motes of Essence equal to the wielder's Essence. If Howler in Darkness inflicts more levels of damage than the target's Dodge MDV (and does not kill the target outright), the target is compelled to obey any commands given by the Silver Prince for the next 100 days... no matter who struck the blow.</p>",
-    "biography": "<p>This Deathlord currently takes the form of a tall man clad in robes of bladelike plates of silverwashed, razor-edged soulsteel. (These robes act like soulsteel superheavy plate armor but have no mobility or fatigue penalties.) He wears a mask of opal and has a short sword belted at his side. When he draws this weapon, it expands into a soulsteel grand daiklave. Yet despite his skill as a swordsman, the Bodhisattva prefers to get his way through political machinations and negotiation--from a position of strength, of course--until he maneuvers an enemy or victim into a position where she has no choice but to submit completely. At all times, the Deathlord tries to appear rational and honorable, an enlightened despot who seeks a common good for the living and the dead. If he must give up an artifact, a soul or a minor conquest in order to preserve his façade, he does so. He can afford small losses, because they won't matter once he finishes building the Black Fleet. The Silver Prince makes extensive use of his mutable form and acting skill. He arranges elaborate deceptions in which he plays most of the parts: as himself, the servant who reveals which minister an Exalt or ghostly diplomat can bribe, the minister bribed to reveal what the Silver Prince really wants... The Deathlord's plots all involve multiple layers of disinformation and hidden agendas, as he dupes other powerful folk into working his will.</p><p><strong>Motivation:</strong> Conquer Creation, then destroy it.</p><p><strong>Backgrounds:</strong> Allies (Deathknights) 5, Artifact 5, Cult 4, Followers 5, Manse 5, Resources 5, Spies 4, Whispers 5 Arcanoi: All known, whether he meets the Virtue minimums or not Deathlord Powers: All Deathlords have these powers. (See The Manual of Exalted Power--The Abyssals for further details.) Command of the Dead: As a reflexive action, the Bodhisattva may take control of any walking dead in his presence that is not controlled by another Deathlord of higher Essence. This power costs five motes to use in Creation and 0 motes in the Underworld or a shadowland. Eyes of Oblivion: With a glance, the Deathlord can slay any single mortal who lacks an enlightened Essence. This power costs two motes. The victim invariably becomes a ghost. Feed on the Dead: At will, the Silver Prince can drain one dot of permanent Essence from any single ghost he sees, gaining three motes from this process. Mutable Form: As a miscellaneous action, the Silver Prince can assume any form, mortal or spiritual, between the size of small dog and a large man. This power costs 10 motes and one Willpower. The Silver Prince can impersonate anyone he has seen--at least in terms of appearance. Unkillable: Any force or attack that would \"kill\" the Deathlord merely discorporates him. Over the course of the coming year, the Deathlord resumes his form in the Labyrinth.</p><p><em>Source: Compass of Celestial Directions, Vol. IV: The Underworld</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>This Deathlord currently takes the form of a tall man clad in robes of bladelike plates of silverwashed, razor-edged soulsteel. (These robes act like soulsteel superheavy plate armor but have no mobility or fatigue penalties.) He wears a mask of opal and has a short sword belted at his side. When he draws this weapon, it expands into a soulsteel grand daiklave. Yet despite his skill as a swordsman, the Bodhisattva prefers to get his way through political machinations and negotiation--from a position of strength, of course--until he maneuvers an enemy or victim into a position where she has no choice but to submit completely. At all times, the Deathlord tries to appear rational and honorable, an enlightened despot who seeks a common good for the living and the dead. If he must give up an artifact, a soul or a minor conquest in order to preserve his façade, he does so. He can afford small losses, because they won't matter once he finishes building the Black Fleet. The Silver Prince makes extensive use of his mutable form and acting skill. He arranges elaborate deceptions in which he plays most of the parts: as himself, the servant who reveals which minister an Exalt or ghostly diplomat can bribe, the minister bribed to reveal what the Silver Prince really wants... The Deathlord's plots all involve multiple layers of disinformation and hidden agendas, as he dupes other powerful folk into working his will.</p><p><strong>Motivation:</strong> Conquer Creation, then destroy it.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Punch: Speed 5, Accuracy 19, Damage 8B, Parry DV 10, Rate 3 Kick: Speed 5, Accuracy 18, Damage 11B, Parry DV 8, Rate 2 Bloodspike Harness (Glittering Shadow): Speed 6, Accuracy 23, Damage 17L*, Parry DV --, Rate 1 * Whenever this clinch strikes a target and inflicts damage, it also drains the target of a number of motes of Essence equal to the wielder's Essence. Soulsteel Grand Daiklave (Howler in Darkness): Speed 5, Accuracy 25, Damage 23L/5**, Parry DV 10, Rate 2 ** Whenever this grand daiklave strikes a target and inflicts damage, it also drains the target of a number of motes of Essence equal to the wielder's Essence. If Howler in Darkness inflicts more levels of damage than the target's Dodge MDV (and does not kill the target outright), the target is compelled to obey any commands given by the Silver Prince for the next 100 days... no matter who struck the blow.</p><h3>Powers</h3><p>All Solar and Abyssal Charms for which he possesses the prerequisite Ability ratings. Martial Arts: All Charms of Orgiastic Fugitive Style, Seafaring Hero Style, Snake Style, Solar Hero Style and Violet Bier of Sorrows Style. Spells: Necromancy: Shadowlands Circle, Labyrinth Circle: All spells given in The Books of Sorcery, Vol. II--The Black Treatise, and more as the Storyteller desires. Void Circle: Abyssal Aegis, The Barless Gate, Birth of Sanity's Sorrow, Empty Night Future, Forsaken Life Engine, Inauspicious Citadel, Lord of the Dead, Obsidian Countermagic, Poisoning the Well, Summon Hekatonkhire, Void Cocoon Warrior; others as the Storyteller desires.</p><p><strong>Backgrounds:</strong> Allies (Deathknights) 5, Artifact 5, Cult 4, Followers 5, Manse 5, Resources 5, Spies 4, Whispers 5 Arcanoi: All known, whether he meets the Virtue minimums or not Deathlord Powers: All Deathlords have these powers. (See The Manual of Exalted Power--The Abyssals for further details.) Command of the Dead: As a reflexive action, the Bodhisattva may take control of any walking dead in his presence that is not controlled by another Deathlord of higher Essence. This power costs five motes to use in Creation and 0 motes in the Underworld or a shadowland. Eyes of Oblivion: With a glance, the Deathlord can slay any single mortal who lacks an enlightened Essence. This power costs two motes. The victim invariably becomes a ghost. Feed on the Dead: At will, the Silver Prince can drain one dot of permanent Essence from any single ghost he sees, gaining three motes from this process. Mutable Form: As a miscellaneous action, the Silver Prince can assume any form, mortal or spiritual, between the size of small dog and a large man. This power costs 10 motes and one Willpower. The Silver Prince can impersonate anyone he has seen--at least in terms of appearance. Unkillable: Any force or attack that would \"kill\" the Deathlord merely discorporates him. Over the course of the coming year, the Deathlord resumes his form in the Labyrinth.</p><p><em>Source: Compass of Celestial Directions, Vol. IV: The Underworld</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

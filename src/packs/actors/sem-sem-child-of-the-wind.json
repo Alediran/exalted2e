@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Sem Sem, Child of the Wind",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 2,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 2,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "valor": {
+        "value": 1,
+        "current": 1,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 2
+      "value": 2,
+      "max": 2
     },
     "willpower": {
       "value": 5,
       "max": 5
     },
     "motes": {
-      "value": 0,
-      "max": 21
-    },
-    "pools": {
-      "combat": 7,
-      "social": 4,
-      "physical": 5
-    },
-    "combat": {
-      "joinBattle": 6,
-      "dodgeDV": 5,
-      "parryDV": 0,
-      "dodgeMDV": 2,
-      "parryMDV": 2,
-      "soak": {
-        "bashing": 6,
-        "lethal": 3,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": 21,
+        "max": 21,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 8
+      "bonus": {
+        "zero": 0,
+        "one": 0,
+        "two": 1
+      }
     },
-    "powers": "<p>Death of the Dragon--Sem Sem spends five motes, and all air within five yards of him ceases to move. This condi- tion persists as long as the motes remain committed. The sphere of dead air travels with him. It follows the normal rules of Creation, acting as a wall to create a lee downwind of Sem Sem. Drawn from Above--Sem Sem can create an unlimited number of air seeds (see p. 79) at no cost. He requires only a miscellaneous action to draw one from beneath his robe. While he can give Air Seeds as gifts, Sem Sem (and most children of the wind) give them sparingly, mostly out of concern for the breath tunnels. Healing the Earth--This power allows Sem Sem to repair damage done to objects made of stone. Sem Sem caresses the wound, which fills in as though it were never harmed. Each health level repaired costs four motes of Essence. Children of the wind use this power to keep the breath tunnels whole. Shivering Shorn--Sem Sem may spend eight motes to deaden all sound within five yards. This power only functions if Sem Sem is currently using Death of the Dragon.</p>",
-    "notes": "<p>Punch: Speed 5, Accuracy 7, Damage 2B, Defense 7 (4), Rate 3 Clinch: Speed 6, Accuracy 7, Damage 2B, Defense --, Rate 1</p>",
-    "biography": "<p>Sem Sem is one of the children of the wind. Similar to all others of his kind, he is a child-sized old man, wrinkles and all, who wears dense robes of sky-blue silk. The children of the wind maintain the breath tunnels in the Northern Middlemarches and create new ones; Sem Sem performs his task as well as any other. Still, Sem Sem has ambition. Many children of the wind do. He wants to find a way to spawn breath tunnels that connect the Wyld and Creation. His attempts have always failed thus far, and frustration may drive him to make odd alliances. Other children of the wind do not consider Sem Sem odd; such unique desires are common enough to make it a quirk rather than a real peculiarity.</p><p><strong>Motivation:</strong> Keep the breath tunnels in repair; bind the Wyld and Creation through breath tunnels.</p><p><strong>Backgrounds:</strong> Artifact 2</p><p><em>Source: Compass of Celestial Directions, Vol. II: The Wyld</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Sem Sem is one of the children of the wind. Similar to all others of his kind, he is a child-sized old man, wrinkles and all, who wears dense robes of sky-blue silk. The children of the wind maintain the breath tunnels in the Northern Middlemarches and create new ones; Sem Sem performs his task as well as any other. Still, Sem Sem has ambition. Many children of the wind do. He wants to find a way to spawn breath tunnels that connect the Wyld and Creation. His attempts have always failed thus far, and frustration may drive him to make odd alliances. Other children of the wind do not consider Sem Sem odd; such unique desires are common enough to make it a quirk rather than a real peculiarity.</p><p><strong>Motivation:</strong> Keep the breath tunnels in repair; bind the Wyld and Creation through breath tunnels.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Punch: Speed 5, Accuracy 7, Damage 2B, Defense 7 (4), Rate 3 Clinch: Speed 6, Accuracy 7, Damage 2B, Defense --, Rate 1</p><h3>Powers</h3><p>Death of the Dragon--Sem Sem spends five motes, and all air within five yards of him ceases to move. This condi- tion persists as long as the motes remain committed. The sphere of dead air travels with him. It follows the normal rules of Creation, acting as a wall to create a lee downwind of Sem Sem. Drawn from Above--Sem Sem can create an unlimited number of air seeds (see p. 79) at no cost. He requires only a miscellaneous action to draw one from beneath his robe. While he can give Air Seeds as gifts, Sem Sem (and most children of the wind) give them sparingly, mostly out of concern for the breath tunnels. Healing the Earth--This power allows Sem Sem to repair damage done to objects made of stone. Sem Sem caresses the wound, which fills in as though it were never harmed. Each health level repaired costs four motes of Essence. Children of the wind use this power to keep the breath tunnels whole. Shivering Shorn--Sem Sem may spend eight motes to deaden all sound within five yards. This power only functions if Sem Sem is currently using Death of the Dragon.</p><p><strong>Backgrounds:</strong> Artifact 2</p><p><em>Original essence pool from source: 21 motes</em></p><p><em>Source: Compass of Celestial Directions, Vol. II: The Wyld</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

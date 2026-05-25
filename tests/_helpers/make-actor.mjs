@@ -85,9 +85,11 @@ export function makeNpcSystem(overrides = {}) {
       dodgeDV: 2, parryDV: 2,
       dodgeMDV: 2, parryMDV: 2,
       soak: { bashing: 3, lethal: 1, aggravated: 0 },
-      hardness: 0
+      hardness: 0,
+      woundPenalty: 0
     },
-    health: { bashing: 0, lethal: 0, aggravated: 0, totalBoxes: 7 },
+    health:  { bashing: 0, lethal: 0, aggravated: 0, totalBoxes: 7 },
+    attacks: [],
     ...overrides
   };
 }

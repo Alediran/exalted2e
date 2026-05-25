@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Lusa Seragon",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 5,
+        "current": 5,
+        "channeled": false
+      },
+      "valor": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 5
+      "value": 5,
+      "max": 5
     },
     "willpower": {
       "value": 10,
       "max": 10
     },
     "motes": {
-      "value": 0,
-      "max": 75
-    },
-    "pools": {
-      "combat": 10,
-      "social": 9,
-      "physical": 9
-    },
-    "combat": {
-      "joinBattle": 8,
-      "dodgeDV": 7,
-      "parryDV": 0,
-      "dodgeMDV": 5,
-      "parryMDV": 2,
-      "soak": {
-        "bashing": 29,
-        "lethal": 17,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": 75,
+        "max": 75,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 17
+      "bonus": {
+        "zero": 0,
+        "one": 7,
+        "two": 3
+      }
     },
-    "powers": "",
-    "notes": "<p>Punch: Speed 5, Accuracy 11, Damage 4B, Parry DV 6, Rate 3 Kick: Speed 5, Accuracy 10, Damage 7B, Parry DV 4, Rate 2 Clinch: Speed 6, Accuracy 10, Damage 4B, Parry DV --, Rate 1, Tags C,N,P Lambent Fire Gourd: Speed 4, Accuracy 15, Damage 18L*, Range 1,000, Rate 1</p>",
-    "biography": "<p>Lusa Seragon, a legendary ifrit entrepreneur and sifu, is the Orderly Flame's First Archon. He finances the Orderly Flame's operations and presides over its main court in his private palace. As a personal friend of Swan Dragon, Seragon was one of the last to see the censor before he disappeared into the Wyld. Seragon believes that many of Creation's troubles stem from the neglect of the Terrestrial spirit courts. If the Celestial Bureaucracy would properly respect and administer these courts, he reasons, the Terrestrial gods and elementals would implement the will of Heaven. In return, mortals would properly respect the spirits and reward them with prayer. Creation is the wellspring from which all wealth and power springs, he says. To disparage its caretakers can only result in deprivation and weakness from mortals to Incarnae. This ancient and powerful ifrit stands 10 feet tall, with polished bronze skin, a firm mouth and well-coifed blueblack hair. He speaks calmly, even in times of strife. His greatest weapon, the Lambent Fire Gourd, hangs from the silver chain that ties his stately robes. Lusa Seragon is the most cool-headed of the Orderly Flame's leaders. As such, he acts as the court's chief diplomat. Seragon can negotiate with spirits and mortals who disgust him, for the sake of achieving the Orderly Flame's goals. Seragon carries no blade and needs none. He knows many spirit Charms that other ifrit cannot learn. His martial CHAPTER NINE: GODS AND MONSTERS OF THE SOUTH arts prowess is legendary throughout the South, though he teaches only the Orderly Flame's members. Seragon is also one of the wealthiest individuals in the South, with financial interests in almost every major city. His total fortune defies calculation. Summoning: As an elder of the South's preeminent fire court, Lusa Seragon has the right to respond to a summoning by sending a lesser ifrit in his place.</p><p><strong>Motivation:</strong> To unify Creation's fire courts</p><p><strong>Backgrounds:</strong> Allies 4, Artifact (Lambent Fire Gourd) 5, Backing 5, Contacts 5, Face 3, Influence 4, Manse 4, Resources 5 Charms and Powers: Unless otherwise described here, Lusa Seragon has all the elemental powers and spirit Charms of a standard ifrit, as described on pages 119­120 of The Books of Sorcery, Vol. IV--The Roll of Glorious Divinity I. Dematerialize--Costs 75 motes Essence Plethora (x2)--20 extra motes Fire Dragon's Embrace--Lusa Seragon can render a mortal immune to heat and fire for one scene, as if the person used Element-Resisting Prana (see Exalted, p. 210). By spending a Willpower point, Seragon extends the blessing to a group of people for an extended period (as described on p. 145 of The Books of Sorcery, Vol. IV--The Roll of Glorious Divinity I). He typically allocates the six points of extended effect to a Magnitude 2 group for a full season. In this manner, he can send a troop of miners into the most extreme Southern environments after gems--even into erupting volcanoes, if need be. To Seragon's distress, however, the fiery Essence infusing his employees makes them emotional and impulsive, reducing their Temperance by one. Geas--Seragon can bind targets to perform tasks of his choosing. Doing so involves a normal social attack, but if it succeeds, the target suffers potentially lethal debilitation if he does not devote his life to the task. Normally, the ifrit reserves his Geas as a security measure for brave volunteers, so that cunning enemies of the Orderly Flame cannot sway them from their missions. Now and then, though, Seragon binds enemies to very long but harmless tasks, such as copying every volume of The Tale of Sethra's Daughters by hand, to prevent their interference in the Orderly Flame's activities. Ox-Body Technique (x3) Reserve of Will (x2) Stoke the Flame--Seragon can instill a powerful drive to honesty and propriety; the ifrit must attempt a Perfor- mance-based social attack to direct this Emotion effect at a particular goal, but his player gains five bonus successes to the roll. Success results in five scenes' worth of building an Intimacy to the goal set by Seragon. Every affected person also must spend the next scene acting on this new desire for honesty and propriety, unless they spend five points of Willpower. Seragon typically reserves this potent effect for diplomatic or commercial meetings where emotions run especially high. Words of Power--Seragon can stun foes with his burning words of scorn. This requires a successful (Manipulation + Valor) roll and deals three levels of bashing damage, plus one die of bashing damage per threshold success; only natural soak applies to this damage. For the next 12 ticks after taking damage, a target suffers an internal penalty to all actions, equal to the number of levels of damage sustained. Supernatural Martial Arts: Art of Meditative Discussion: All Charms (see Scroll of the Monk--The Imperfect Lotus, pp. 18­20) Snake Style: All Charms</p><p><em>Source: Compass of Terrestrial Directions, Vol. IV: The South</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Lusa Seragon, a legendary ifrit entrepreneur and sifu, is the Orderly Flame's First Archon. He finances the Orderly Flame's operations and presides over its main court in his private palace. As a personal friend of Swan Dragon, Seragon was one of the last to see the censor before he disappeared into the Wyld. Seragon believes that many of Creation's troubles stem from the neglect of the Terrestrial spirit courts. If the Celestial Bureaucracy would properly respect and administer these courts, he reasons, the Terrestrial gods and elementals would implement the will of Heaven. In return, mortals would properly respect the spirits and reward them with prayer. Creation is the wellspring from which all wealth and power springs, he says. To disparage its caretakers can only result in deprivation and weakness from mortals to Incarnae. This ancient and powerful ifrit stands 10 feet tall, with polished bronze skin, a firm mouth and well-coifed blueblack hair. He speaks calmly, even in times of strife. His greatest weapon, the Lambent Fire Gourd, hangs from the silver chain that ties his stately robes. Lusa Seragon is the most cool-headed of the Orderly Flame's leaders. As such, he acts as the court's chief diplomat. Seragon can negotiate with spirits and mortals who disgust him, for the sake of achieving the Orderly Flame's goals. Seragon carries no blade and needs none. He knows many spirit Charms that other ifrit cannot learn. His martial CHAPTER NINE: GODS AND MONSTERS OF THE SOUTH arts prowess is legendary throughout the South, though he teaches only the Orderly Flame's members. Seragon is also one of the wealthiest individuals in the South, with financial interests in almost every major city. His total fortune defies calculation. Summoning: As an elder of the South's preeminent fire court, Lusa Seragon has the right to respond to a summoning by sending a lesser ifrit in his place.</p><p><strong>Motivation:</strong> To unify Creation's fire courts</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Punch: Speed 5, Accuracy 11, Damage 4B, Parry DV 6, Rate 3 Kick: Speed 5, Accuracy 10, Damage 7B, Parry DV 4, Rate 2 Clinch: Speed 6, Accuracy 10, Damage 4B, Parry DV --, Rate 1, Tags C,N,P Lambent Fire Gourd: Speed 4, Accuracy 15, Damage 18L*, Range 1,000, Rate 1</p><p><strong>Backgrounds:</strong> Allies 4, Artifact (Lambent Fire Gourd) 5, Backing 5, Contacts 5, Face 3, Influence 4, Manse 4, Resources 5 Charms and Powers: Unless otherwise described here, Lusa Seragon has all the elemental powers and spirit Charms of a standard ifrit, as described on pages 119­120 of The Books of Sorcery, Vol. IV--The Roll of Glorious Divinity I. Dematerialize--Costs 75 motes Essence Plethora (x2)--20 extra motes Fire Dragon's Embrace--Lusa Seragon can render a mortal immune to heat and fire for one scene, as if the person used Element-Resisting Prana (see Exalted, p. 210). By spending a Willpower point, Seragon extends the blessing to a group of people for an extended period (as described on p. 145 of The Books of Sorcery, Vol. IV--The Roll of Glorious Divinity I). He typically allocates the six points of extended effect to a Magnitude 2 group for a full season. In this manner, he can send a troop of miners into the most extreme Southern environments after gems--even into erupting volcanoes, if need be. To Seragon's distress, however, the fiery Essence infusing his employees makes them emotional and impulsive, reducing their Temperance by one. Geas--Seragon can bind targets to perform tasks of his choosing. Doing so involves a normal social attack, but if it succeeds, the target suffers potentially lethal debilitation if he does not devote his life to the task. Normally, the ifrit reserves his Geas as a security measure for brave volunteers, so that cunning enemies of the Orderly Flame cannot sway them from their missions. Now and then, though, Seragon binds enemies to very long but harmless tasks, such as copying every volume of The Tale of Sethra's Daughters by hand, to prevent their interference in the Orderly Flame's activities. Ox-Body Technique (x3) Reserve of Will (x2) Stoke the Flame--Seragon can instill a powerful drive to honesty and propriety; the ifrit must attempt a Perfor- mance-based social attack to direct this Emotion effect at a particular goal, but his player gains five bonus successes to the roll. Success results in five scenes' worth of building an Intimacy to the goal set by Seragon. Every affected person also must spend the next scene acting on this new desire for honesty and propriety, unless they spend five points of Willpower. Seragon typically reserves this potent effect for diplomatic or commercial meetings where emotions run especially high. Words of Power--Seragon can stun foes with his burning words of scorn. This requires a successful (Manipulation + Valor) roll and deals three levels of bashing damage, plus one die of bashing damage per threshold success; only natural soak applies to this damage. For the next 12 ticks after taking damage, a target suffers an internal penalty to all actions, equal to the number of levels of damage sustained. Supernatural Martial Arts: Art of Meditative Discussion: All Charms (see Scroll of the Monk--The Imperfect Lotus, pp. 18­20) Snake Style: All Charms</p><p><em>Original essence pool from source: 75 motes</em></p><p><em>Source: Compass of Terrestrial Directions, Vol. IV: The South</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "The Mistress with the White Hands",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 2,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 5,
+        "current": 5,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "valor": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 4
+      "value": 4,
+      "max": 4
     },
     "willpower": {
       "value": 7,
       "max": 7
     },
     "motes": {
-      "value": 0,
-      "max": "89 Committed"
-    },
-    "pools": {
-      "combat": 6,
-      "social": 11,
-      "physical": 4
-    },
-    "combat": {
-      "joinBattle": 9,
-      "dodgeDV": 6,
-      "parryDV": 0,
-      "dodgeMDV": 3,
-      "parryMDV": 2,
-      "soak": {
-        "bashing": 3,
-        "lethal": 2,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": "89 Committed",
+        "max": "89 Committed",
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 7
+      "bonus": {
+        "zero": 0,
+        "one": 0,
+        "two": 0
+      }
     },
-    "powers": "",
-    "notes": "<p>Punch: Speed 5, Accuracy 7, Damage 2B, Parry DV 4, Rate 3 Kick: Speed 5, Accuracy 6, Damage 5B, Parry DV 2, Rate 2 Clinch: Speed 6, Accuracy 6, Damage 2B, Parry DV --, Rate 1 Ghost-Devil Claws: Speed 5, Accuracy 7, Damage 5L, Parry DV 4, Rate 2 Stiletto: Speed 5, Accuracy 7, Damage 2L (piercing + poison), Parry DV 3, Rate 3</p>",
-    "biography": "<p>The pallid beauty of the Mistress with the White Hands has few equals in Stygia. The ruler of the District with the Bone Lanterns has a face as white and delicate as that of a porcelain doll. An unfelt wind moves her long, dark hair; a lover could drown in her dark, long-lashed eyes. Robes of sheer, translucent silk emphasize rather than conceal her small, shapely body. She removes her long, white gloves only when she intends to kill and assumes her clawed GhostDevil Form. The Mistress with the White Hands was a slave and a whore in life, and was forced to continue that trade in death... though not forever. She no longer offers her favors except when it advances her own goals. The Mistress owns much of the district she rules, and her courtesans tell her all the secrets they hear. At Stygia's Council meetings, she listens more than she speaks. When she does address her colleagues, her counsel is logical, astute and to the point. Many view her as the wisest and most compassionate member of the Council of Thirteen. The other Councilors view her warily, for they know the subtlety of her plots. The Mistress with the White Hands does not wish to cause pain or discord, but she will keep her district safe, and she will never, ever be a slave again.</p><p><strong>Motivation:</strong> Control everyone who would control her.</p><p><strong>Backgrounds:</strong> Allies 4, Backing (Council of Thirteen) 3, Contacts 4, Influence 3, Resources 4, Underworld Cult 3 Arcanoi: Common Arcanoi: Former Life Destruction Technique, Pyre Smoke Form, Two-World Vision, Whispers of the Living Essence-Measuring Thief Arts: Aura-Reading Technique Shifting Ghost-Clay Path: All Charms Tangled Web Arts: All Charms Terror-Spreading Art: Black Breath of the Abyss, Corpse-Fed Radiance, Painting the Sunset Picture Irresistible Visage: This refinement on the Vision of Loveliness effect of the Nine Terrors Visage Charm from the Shifting Ghost-Clay Path gives the Mistress with the White Hands such beauty that any creature with a mind of its own falls recklessly in love with her. The victim must follow her suggestions or do whatever he thinks will please her, unless his player succeeds at a Temperance roll at difficulty 2. The enthrallment lasts one scene and costs the Mistress eight motes.</p><p><em>Source: Compass of Celestial Directions, Vol. IV: The Underworld</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>The pallid beauty of the Mistress with the White Hands has few equals in Stygia. The ruler of the District with the Bone Lanterns has a face as white and delicate as that of a porcelain doll. An unfelt wind moves her long, dark hair; a lover could drown in her dark, long-lashed eyes. Robes of sheer, translucent silk emphasize rather than conceal her small, shapely body. She removes her long, white gloves only when she intends to kill and assumes her clawed GhostDevil Form. The Mistress with the White Hands was a slave and a whore in life, and was forced to continue that trade in death... though not forever. She no longer offers her favors except when it advances her own goals. The Mistress owns much of the district she rules, and her courtesans tell her all the secrets they hear. At Stygia's Council meetings, she listens more than she speaks. When she does address her colleagues, her counsel is logical, astute and to the point. Many view her as the wisest and most compassionate member of the Council of Thirteen. The other Councilors view her warily, for they know the subtlety of her plots. The Mistress with the White Hands does not wish to cause pain or discord, but she will keep her district safe, and she will never, ever be a slave again.</p><p><strong>Motivation:</strong> Control everyone who would control her.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Punch: Speed 5, Accuracy 7, Damage 2B, Parry DV 4, Rate 3 Kick: Speed 5, Accuracy 6, Damage 5B, Parry DV 2, Rate 2 Clinch: Speed 6, Accuracy 6, Damage 2B, Parry DV --, Rate 1 Ghost-Devil Claws: Speed 5, Accuracy 7, Damage 5L, Parry DV 4, Rate 2 Stiletto: Speed 5, Accuracy 7, Damage 2L (piercing + poison), Parry DV 3, Rate 3</p><p><strong>Backgrounds:</strong> Allies 4, Backing (Council of Thirteen) 3, Contacts 4, Influence 3, Resources 4, Underworld Cult 3 Arcanoi: Common Arcanoi: Former Life Destruction Technique, Pyre Smoke Form, Two-World Vision, Whispers of the Living Essence-Measuring Thief Arts: Aura-Reading Technique Shifting Ghost-Clay Path: All Charms Tangled Web Arts: All Charms Terror-Spreading Art: Black Breath of the Abyss, Corpse-Fed Radiance, Painting the Sunset Picture Irresistible Visage: This refinement on the Vision of Loveliness effect of the Nine Terrors Visage Charm from the Shifting Ghost-Clay Path gives the Mistress with the White Hands such beauty that any creature with a mind of its own falls recklessly in love with her. The victim must follow her suggestions or do whatever he thinks will please her, unless his player succeeds at a Temperance roll at difficulty 2. The enthrallment lasts one scene and costs the Mistress eight motes.</p><p><em>Original essence pool from source: 89 Committed motes</em></p><p><em>Source: Compass of Celestial Directions, Vol. IV: The Underworld</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

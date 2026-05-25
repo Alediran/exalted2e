@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Demon of the First Circle, Progeny of the Guardian of Sleep",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "demon",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 2,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 1,
+        "current": 1,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "valor": {
+        "value": 5,
+        "current": 5,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 3
+      "value": 3,
+      "max": 3
     },
     "willpower": {
       "value": 9,
       "max": 9
     },
     "motes": {
-      "value": 0,
-      "max": 85
-    },
-    "pools": {
-      "combat": 8,
-      "social": 7,
-      "physical": 8
-    },
-    "combat": {
-      "joinBattle": 8,
-      "dodgeDV": 5,
-      "parryDV": 0,
-      "dodgeMDV": 4,
-      "parryMDV": 1,
-      "soak": {
-        "bashing": 6,
-        "lethal": 6,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": 85,
+        "max": 85,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 15
+      "bonus": {
+        "zero": 0,
+        "one": 5,
+        "two": 3
+      }
     },
-    "powers": "<p>Essence Plethora--10 extra motes Form Reduction Technique--Abandons its demon body in the form of a small scorpion Hollow Out the Soul--When all of a mortal victim's Virtues and Willpower are reduced to 0, the tinsiana may tear free of its frame in a new body Landscape Hide--Beneath the sand or inside a human body Landscape Travel--Scuttle over sand as though it were solid ground Materialize--Costs 60 motes Ox-Body Technique Possession--Takes over a host by climbing into its body Touch of Saturn--Sting delivers paralytic venom (Poison effect); its effects on mortals persist even after the Charm's duration expires Tracking--Senses the movements of those who survive its sting Weather Control--Acting in concert, three tinsiana may raise a sandstorm First (Ability) Excellency--Athletics, Martial Arts, Presence Second (Ability) Excellency--Resistance, Survival</p>",
-    "notes": "<p>Claw: Speed 5, Accuracy 8, Damage 6L, Parry DV 3, Rate 2 Stinger: Speed 5, Accuracy 8, Damage 4L (+ poison if using Touch of Saturn*), Parry DV --, Rate 1 Clinch: Speed 6, Accuracy 8, Damage 4B, Parry DV --, Rate 1, Tags P * (Damage 3L, Toxicity 3, Tolerance --/--, Penalty -5)</p>",
-    "biography": "<p>These chitinous horrors are hated and feared throughout Creation's South. Each appears as a burly mortal from the waist up with scorpion-like chelae instead of hands; the lower half of its body is that of a giant scorpion. As a people, they are proud and vain. Accoutering themselves in opulent apparel, they demand deference from those they encounter. Defiance rouses them to violence. Except when drawn forth singly by a sorcerer's summons, tinsiana travel in threes, the better to cow and overpower those who would stand against them. Scorpion demons serve as warriors, interrogators and enforcers. They are deadly beyond measure. Rather than placing their faith in weapons of brass or black Malfean iron, tinsiana rely upon their claws and their venomous stingers, the latter delivering poison that paralyzes the body while leaving the mind free to dwell on the horrors to come. Tinsiana take pleasure in inflicting pain and can prolong a victim's life through years of exquisite torture. When hard-pressed, a tinsiana may forsake its body in the form of a palm-sized scorpion the color of ruby. As the abandoned body dies, the tinsiana's lessened form crawls into the mouth of a willing, sleeping or otherwise immobile mortal, where it works its way into the brain and slowly takes possession of its host. Once it extinguishes the host's will, the scorpion demon slowly devours the body from the inside, regaining its strength. When its new body is fully formed, it bursts from its husk of stolen mortal flesh, as powerful and deadly as ever. Summoning: (Obscurity 2/4) Sorcerers summon scorpion demons as bodyguards, hunters and killers. Some use them specifically to possess and hollow out a victim, though the tinsiana dislike being bereft of their bodies and resent those who command them to do so. When three mortals die in a sandstorm, a trio of tinsiana may break free of the demon prison in their place. For this reason, it is customary among the desert tribes of the South not to travel in groups of three. Each day that a tinsiana does not inflict great pain on another sentient being, it gains a point of Limit.</p><p><strong>Motivation:</strong> To dominate and torment the weak.</p><p><strong>Backgrounds:</strong> Allies 2, Backing 1</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>These chitinous horrors are hated and feared throughout Creation's South. Each appears as a burly mortal from the waist up with scorpion-like chelae instead of hands; the lower half of its body is that of a giant scorpion. As a people, they are proud and vain. Accoutering themselves in opulent apparel, they demand deference from those they encounter. Defiance rouses them to violence. Except when drawn forth singly by a sorcerer's summons, tinsiana travel in threes, the better to cow and overpower those who would stand against them. Scorpion demons serve as warriors, interrogators and enforcers. They are deadly beyond measure. Rather than placing their faith in weapons of brass or black Malfean iron, tinsiana rely upon their claws and their venomous stingers, the latter delivering poison that paralyzes the body while leaving the mind free to dwell on the horrors to come. Tinsiana take pleasure in inflicting pain and can prolong a victim's life through years of exquisite torture. When hard-pressed, a tinsiana may forsake its body in the form of a palm-sized scorpion the color of ruby. As the abandoned body dies, the tinsiana's lessened form crawls into the mouth of a willing, sleeping or otherwise immobile mortal, where it works its way into the brain and slowly takes possession of its host. Once it extinguishes the host's will, the scorpion demon slowly devours the body from the inside, regaining its strength. When its new body is fully formed, it bursts from its husk of stolen mortal flesh, as powerful and deadly as ever. Summoning: (Obscurity 2/4) Sorcerers summon scorpion demons as bodyguards, hunters and killers. Some use them specifically to possess and hollow out a victim, though the tinsiana dislike being bereft of their bodies and resent those who command them to do so. When three mortals die in a sandstorm, a trio of tinsiana may break free of the demon prison in their place. For this reason, it is customary among the desert tribes of the South not to travel in groups of three. Each day that a tinsiana does not inflict great pain on another sentient being, it gains a point of Limit.</p><p><strong>Motivation:</strong> To dominate and torment the weak.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Claw: Speed 5, Accuracy 8, Damage 6L, Parry DV 3, Rate 2 Stinger: Speed 5, Accuracy 8, Damage 4L (+ poison if using Touch of Saturn*), Parry DV --, Rate 1 Clinch: Speed 6, Accuracy 8, Damage 4B, Parry DV --, Rate 1, Tags P * (Damage 3L, Toxicity 3, Tolerance --/--, Penalty -5)</p><h3>Powers</h3><p>Essence Plethora--10 extra motes Form Reduction Technique--Abandons its demon body in the form of a small scorpion Hollow Out the Soul--When all of a mortal victim's Virtues and Willpower are reduced to 0, the tinsiana may tear free of its frame in a new body Landscape Hide--Beneath the sand or inside a human body Landscape Travel--Scuttle over sand as though it were solid ground Materialize--Costs 60 motes Ox-Body Technique Possession--Takes over a host by climbing into its body Touch of Saturn--Sting delivers paralytic venom (Poison effect); its effects on mortals persist even after the Charm's duration expires Tracking--Senses the movements of those who survive its sting Weather Control--Acting in concert, three tinsiana may raise a sandstorm First (Ability) Excellency--Athletics, Martial Arts, Presence Second (Ability) Excellency--Resistance, Survival</p><p><strong>Backgrounds:</strong> Allies 2, Backing 1</p><p><em>Original essence pool from source: 85 motes</em></p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
     "purchaseLocked": false
   },
   "folder": "d4e5f6a700000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

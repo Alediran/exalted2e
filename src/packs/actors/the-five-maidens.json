@@ -1,27 +1,331 @@
 {
   "_id": "0001000000000063",
   "_key": "!actors!0001000000000063",
-  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
   "name": "The Five Maidens",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
-    "essence": { "value": 10 },
-    "willpower": { "value": 10, "max": 10 },
-    "motes": { "value": 0, "max": 250 },
-    "pools": { "combat": 25, "social": 25, "physical": 25 },
-    "combat": { "joinBattle": 25, "dodgeDV": 18, "parryDV": 12, "dodgeMDV": 5, "parryMDV": 2, "soak": { "bashing": 10, "lethal": 5, "aggravated": 0 }, "hardness": 0 },
-    "health": { "bashing": 0, "lethal": 0, "aggravated": 0, "totalBoxes": 35 },
-    "powers": "<p>The Five Maidens share the full Sidereal Charm repertoire and unique powers related to fate, time, and destiny. As Essence 10 deities, they have All-Encompassing versions of virtually every divine Charm not unique to singular beings, subject to each Maiden's purview. They have no Excellencies beyond those unique to their panoplies. Complete Charm list not listed in source.</p>",
-    "notes": "<p><strong>Punch</strong>: Speed 5, Accuracy 16, Damage 10B, Parry DV 9, Rate 3, Tags N</p><p><strong>Kick</strong>: Speed 5, Accuracy 15, Damage 13B, Parry DV 7, Rate 2, Tags N</p><p><strong>Clinch</strong>: Speed 6, Accuracy 15, Damage 10B, Parry DV --, Rate 1, Tags C,N,P</p><p>Statistics represent a composite of the Five Maidens. Individual Maidens may vary. The Five Maidens collectively control the Loom of Fate and the Bureau of Destiny.</p>",
-    "biography": "<p>The Five Maidens — Mercury, Venus, Mars, Jupiter, and Saturn — are a mystery even unto the makers of the universe. The Maidens are the handiwork of the Primordials, but they are omnitemporal, created in a future the Primordials could not foresee and a past they do not remember. Long before Creation existed, as Primordials began to encounter one another in the depths of the Wyld, their close proximity created a confluence of factual existence and the earliest tenets of natural law, through which concepts like time, space, matter and gravity appeared, carried on the backs of five tiny sisters calling themselves the Fates. Their motivations: Mercury — \"Make sure all things go where they should.\" Venus — \"Make sure all things come together as they should.\" Mars — \"Make sure all things come into conflict as they should.\" Jupiter — \"Ensure the preservation of all knowledge for the time it must be known.\" Saturn — \"Make sure all things end as they should.\"</p><p>Source: Glories of the Most High: The Maidens of Destiny.</p>",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 10,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 15,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 10,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 15,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 10,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 20,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 15,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 15,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 10,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 5,
+        "current": 5,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "valor": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      }
+    },
+    "essence": {
+      "value": 10,
+      "max": 10
+    },
+    "willpower": {
+      "value": 10,
+      "max": 10
+    },
+    "motes": {
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
+      },
+      "peripheral": {
+        "value": 250,
+        "max": 250,
+        "committed": 0,
+        "bonus": 0
+      }
+    },
+    "limit": 0,
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "bonus": {
+        "zero": 0,
+        "one": 14,
+        "two": 14
+      }
+    },
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Written by Michael Goodwin, John Mørke, Holden Shearer Additional Material by Neall Raemonn Price Developed by Eddy Webb Edited by Carl Bowen Layout and Design by Brian Glass Art by Groundbreakers Studio, Imaginary Friends Studio, Saana `Kiyo' Lappalainen, UDON and Melissa Uran Cover Art by Adam Warren © 2009 CCP hf. All rights reserved. Reproduction without the written permission of the publisher is expressly forbidden, except for the purposes of reviews, and one printed copy, which may be reproduced for personal use only. White Wolf and Exalted are registered trademarks of CCP hf. All rights reserved. Glories of the Most High the Unconquered Sun, Luna, the Maidens of Destiny, the Manual of Exalted Power the Lunars, the Manual of Exalted Power the Sidereals, the Manual of Exalted Power the Abyssals, Graceful Wicked Masques the Fair Folk, the Books of Sorcery, the White Treatise, the Compass of Terrestrial Directions, the Scavenger Lands, the West, the East, the South, the Compass of Celestial Directions, Yu-Shan, Scroll of the Monk, Scroll of Heroes and Dreams of the First Age, Lords of Creation are trademarks of CCP hf. All rights reserved. All characters, names, places and text herein are copyrighted by CCP hf. CCP North America Inc. is a wholly owned subsidiary of CCP hf. The mention of or reference to any company or product in these pages is not a challenge to the trademark or copyright concerned. This book uses the supernatural for settings, characters and themes. All mystical and supernatural elements are fiction and intended for entertainment purposes only. This book contains mature content. Reader discretion is advised. Check out White Wolf online at http://www.white-wolf.com PERSONAGE AND PANOPLY A mystery even unto the makers of the universe, the Maidens were a known quantity before Creation existed. Because of this, it has been said that the Maidens are without origin. This is not entirely true. The Maidens are the handiwork of the Primordials, but they are omnitemporal, created in a future the Primordials could not foresee and a past they do not remember. Long before Creation existed, Primordials were the sole things of substance and definition within the meaninglessness of the Wyld. As the Primordials began to encounter one another in the depths of the Wyld, their close proximity created a confluence of factual existence and the earliest tenets of natural law. It was through this reality-shaping interface that concepts like time, space, matter and gravity appeared, carried on the backs of five tiny sisters calling themselves the Fates. Although the Fates came about as a result of immaculate superinduction, it was plain to the Primordials that the sisters were not a cosmic accident but the evidence of intelligent design they had yet to undertake. Most of the Primordials were merely amused by the appearance of the Fates, but otherwise ignored them as they continued with their plans for eternity. Some Primordials, however, were filled with dread at what the sisters portended, finding their sudden appearance ominous, and the Dragon's Shadow--who would become the Ebon Dragon-- hated them because their very emergence shattered his designs on the architecture of fate. Regardless of their dubious source, by the time of the building of Creation, the Primordials had fully incorporated the Fates into their plans for its construction. When Luna split day into night, she created a backdrop through which the Fates could approach Creation and called out to them, awakening them from their slumber. At that very instant, the omnitemporal sisters merged at a single point in time and reached the fullness of their evolution, shedding their cryptic identity as the Fates to become the Maidens. At this point, the Primordials believed their work to be complete. They saw the Maidens as the product of their genius, designed solely to service the Loom of Fate. But the Maidens had other ideas, for the Maidens had known the Primordials in the time before Creation and despised them for their shortsightedness. Looking back/forward across the ages, the then-Fates encountered Luna and the Unconquered Sun, and seeing their dreams and tragedies, fell in love with them from afar. The Maidens set out on the perilous journey through time to meet Luna on Creation's first night, knowing they would be bound to act (mostly) impartially for the benefit of Creation but believing they could steer the course of events in their favor anyway. In the other Incarna, they saw kindred spirits in an otherwise lonely existence comprised of dismal titans and insane unshaped. They also saw in them the potential to be rid of their noxious makers. They could not, however, be certain of the outcome. Where the Unconquered Sun was concerned, oracular vision had a way of becoming distorted as time spun itself in an orbit around his crushing gravity. More importantly, the Maidens did not foresee the Exalted, who formed an existential hole in their vision. Most alarmingly, they failed to foresee their own enslavement to the Games of Divinity, proving that not even they could account for everything that would happen. Even so, they risked everything to stand beside the Unconquered Sun in his revolution, and when the Exalted brought an end to the Primordials, the Maidens saw the last obstacle to their absolute control over Creation's destiny removed. Five millennia have passed since then, and unlike any other era in their existence, those 5,000 years have had a significant effect on the Maidens. For most of their existence, the Maidens were withdrawn, dispassionate, robotic, inhuman; a cold and decisive collective moved only by necessity. But the Exalted, and the Sidereal Exalted in particular, have had an amazing effect on them. By observing and interacting with their Sidereals and the other Incarnae, the Maidens have begun to take on human traits, feelings and motives. They have even gone against their own natures to break the laws of destiny in order to follow their hearts--hearts being something they very much didn't have previously. TWINKLE, TWINKLE... NEVER MIND. When the Maidens officially came into being, they represented the fullness of Primordial vision for Creation. No longer were they a culmination of unrealized miracles being beamed to the Primordials across time, but five full-fledged Celestial Incarnae bearing the hallmark of Primordial design. Yet none could say who engineered them! Some looked to Autochthon in suspicion that they were his, but while Autochthon agreed that he could have been their designer, he could not confirm it. Others thought Oramus might have had a hand in it, but he was unable to answer, for the Maidens were a known thing and thus beyond his sight. The Dragon's Shadow rankled at the sight of them, while secretly suspicious that they might have been his own masterworks gone awry and moving the course of things independent of his control. As for the Maidens themselves, when questioned on their parentage, they always fielded the query to Jupiter, and Jupiter wasn't telling. THE FIVE MAIDENS The Maidens of Destiny are often thought of and spoken of as a unit. This is a convenient practice. Together, they govern a common dominion, in the form of destiny; together, they endowed a singular variety of Exalted, in the form of the Sidereals. But the Maidens are not one, and to think such is to oversimplify. While they share a collective existence, each Maiden retains an individual identity, to form five distinct faces of an indivisible whole. MERCURY Rooted in the future and always moving forward, even through time, Mercury is also the Maiden who is least attached to the Games of Divinity. Although she is still stricken by a crippling addiction, Mercury is able to distance herself from the Games because she plans most of her moves far in advance and spends even less time taking her turns than the Unconquered Sun does. When playing the Games of Divinity, Mercury is given to wearing saffron-colored robes tied with deeper saffron sashes and ribbons. Her garments are generously cut, but never to such an extent as to invite scandal. In fact, of all the Maidens, Mercury seems to take the least interest in her appearance. Nevertheless, although her robes are smudged with dust from hard travel, her bare shoulders and the swell of her bosom carrying the faintest tinge of perspiration, Mercury effortlessly commands the gallery with her every smile, anecdote and tale from the road. Mercury appears as an athletic young woman with hair the color of spun straw, which she always makes some perfunctory attempt at dressing, usually pulling it into a tail or pinning it up. She has been famously known to carry with her a ladder of infinite extension, which she can throw into a gap to form a bridge or from the ground to a ledge to form a stair. Her preferred method of climbing this ladder is to hike up her skirts with both hands and run up it in defiance of the laws of gravity. Needless to say, the sight of the Maiden of Journeys using her ladder can be quite disconcerting. She has even been said to use it to leave Creation, using it to climb straight up into the stars or to board the passing moon. VENUS Arguably the most well known and personable of her sisters, the Maiden of Serenity is a legend in her own time, beloved and hallowed by her divine contemporaries as much as her countless worshipers. Composed of a peace that surpasses understanding with a gravity of magnetic calm so intense it pulls one in and invites drowning, Venus is said to be the most fascinating, intensely beautiful being in all existence, but such words fall short of her truth. Yet she is not an utterly pacific being. Her gusts of laughter can be raucous, her alleluias can set fire to the coldest hearts, and her passions can burn brighter than the stars. Hers is the peace after the rage of the storm. She is the release of tension, the end of frustration, she who conspires toward the bliss of all things. Venus is the maker and breaker of hearts, she who gives love and takes it away. When her serenity is broken, her defense of love is so fierce that it has, at one point, even given the Unconquered Sun pause. Venus appears as a woman at the height of nubility, clad in cerulean gowns that mold to her every perfect curve, swoop and line. Her hair, equally blue, cascades down her body, to blend with her gowns in a rise-and-fall onrush of blue on blue that simulates the crushing hypnotism of the Elemental Pole of Water. Her natural scent is a perfume that is both aphrodisiac and hallucinogenic, and she is given to interact with those illusions that spring up in the minds of those intoxicated by her presence. Fantasies involving her sisters are among her most common offerings. Venus is commonly attended by a number of floating, shifting azure wisps, like both ribbons and prayer strips. When she shirks her garments to wander in the nude, these bands follow her, conveniently providing the barest modicum of decency. On the occasions she's been observed to do battle, she uses these ribbons as weapons. MARS It has been said that the Maiden of Battles is the most terrifying of the Maidens--ruthlessly pragmatic, quick to take offense and caring little for those mortals questionably blessed by her presence. Nothing could be further from the truth. It is because the Maiden of Battles cares so much for the lives she is affecting that she is so terse. Any business not having to do with battles, contests or war distracts her from her careful planning and causes her savage irritation. In truth, the destinies she weaves depict the death of millions, and the gravity of this burden is not lost on her. Only Jupiter knows that Mars holds the lives of soldiers sacred and honors in her heart those fighters she commends to the tender mercies of Saturn. Mars favors several guises, each of them corresponding to an archetypal role she assumes. In all of them, she is a red-headed woman with blood-stained hands. Her most common role is that of the general, in which she wears lacquered red armor, carries a dire lance and has a number of head-dresses set with wigs of human hair spun from soldiers since time immemorial. She has been known to appear as a judge in scarlet robes with an iron mask to preside over honor duels, Gateway matches and other crucial contests. She also commonly appears as a sifu in a scarlet qipao, her hair worn in an extravagantly long braid and laced through with quipu, each knot binding some of her knowledge so that she does not inadvertently kill her pupils. In these forms of authority, Mars is at her most alien and frightening, but how could she not be? Hers is a cold, alien wisdom, and in these roles she must pass her knowledge down to lesser vessels who are not gifted with her understanding of samsara. It is in her fourth guise that Mars is at her most human (and subsequently, the guise in which Mars is least likely to be seen). It is that of the soldier, in which she wears perfunctory armor and carries a slashing sword and round shield. As a soldier, Mars is not assuming a role of authority, but rather epitomizing the Thousand Correct Actions. In this form, Mars is a comrade-in-arms, seeking to understand and reproduce the fraternity or sorority that soldiers feel when they are made kindred in battle against a common enemy. JUPITER Apocryphal legend has it that alone among the Maidens, Jupiter once had no dominion, but simply existed as the caretaker of her sisters. One day she happened upon a terrible Primordial behemoth in the frigid lands near the Elemental Pole of Air, set to guard all the secrets in Creation. She posited to the beast that she knew a secret it did not. Scoffing, the beast answered her with a challenge, proclaiming that its mastery of all things hidden was perfect and complete. She asked it what the nature of her divine domain might be. The beast opened its maw, and no answer came forth. Flustered, it retreated to its cave, and began to rummage through all the secrets in Creation and beyond, discarding them over its shoulder as it went. Jupiter calmly stood outside the cave, picking up each secret as it was cast out into the snow. Finally, when the cave was empty, the beast slumped back outside to admit defeat--but the Maiden was no longer there. When asked about the veracity of this tale, Jupiter simply smiles, as is her way. Jupiter is the oldest of the Maidens, and her looks reflect that, if only slightly. Seemingly on the cusp of middle age, Jupiter radiates maturity, experience and mystique. Her all-knowing air and her distracted demeanor work together to arouse a subtle provocation in the hearts (and bodies) of those who see her. Having no end of suitors, the Maiden of Secrets is the eternal focus of intrigue and obsession throughout Yu-Shan. Yet none can allege to have claimed her hand, for Jupiter knows how much value there is in withholding herself as an unattainable secret. Jupiter wears multi-layered robes of white, emerald and jade, through which unknown things slither and leap just beneath the surface. Affixed to her skirts are hundreds of keys that seal away some of the world's greatest secrets, even from her mind, so that she cannot be forced to reveal them. Her hair (also green) is typically adorned with dozens of tiny bells. These she once used to call the other Maidens, when they were still children. Now that they are grown, the bells serve another purpose, announcing the approach of her sisters. When Mercury approaches, the bells of Jupiter either jingle like sleigh-bells or ring like the bells of naval ships and dinghies. When Venus is close, they have the peal of wedding bells, and when Mars is imminent they ring with the sound of hammer on anvil. When Saturn draws nigh, the bells of Jupiter toll like somber iron funerary bells, striking terror into those to whom Jupiter is paying a visit. SATURN Seated close at hand to the Unconquered Sun or lingering in the shadow of Luna, Saturn hopes to be overshadowed by the majesty of her peers. In a painting, she hopes to be the object to which the eye is least drawn. In a fete, she moves through the room like living smoke, stealing breath and cutting off thoughts mid-sentence, unforgettable in an instant and forgotten in the next. The Maiden of Endings' self-imposed obfuscation is a necessary one, for the distraction of her presence makes life difficult to live. And so she rides the arm of the Unconquered Sun and follows after Luna, holding the train of her garments and making her sign against that which the Argent Madonna must hunt. When playing the Games of Divinity, Saturn appears to be a strikingly beautiful young woman with white hair, wearing a violet gown with a split that bares her leg and a pair of shears affixed to her thigh by a garter. At the table, she composes herself with a silent, knowing wisdom that is somewhere between mirth and hauteur, and very rarely does she appeal to or even deign to notice the gallery. Instead, her eyes constantly shift from player to player. It has been said that Saturn is almost as taciturn as Jupiter, but that is a fallacy because Saturn's actions and words are remembered only by those remarkable enough to contain a strong sense of the Maiden from moment to moment. Even then, a strong memory of Saturn is a stuttered one, consisting of broken images of movement and stillness and blurs of sound that sometimes contain audible words. THE MAIDENS' STELLAR FREIGHT While the Maidens each have their own wondrous treasures, it is perhaps more telling of their influence over Creation to examine the various wonders Exalted artificers have created while claiming divine inspiration from one or another of the sisters. KITE OF MERCURY (ARTIFACT ··) This deceptively powerful artifact resembles a Dynast's summer kite at a glance. Closer inspection reveals its lightweight, razor-edged starmetal frame and steelsilk covering, often dyed with murals KITE OF MERCURY Speed Accuracy Damage Rate +2 +4L Range 30 Minimums Attune Tags Dex ··· -- depicting some famous historical journey. Mercury's kites may be wielded as weapons in battle, darting out on the end of their unbreakable tether to slash at a wielder's enemies or ridden to glide great distances (tripling the distance of an attuned user's jumps). A character riding a kite of Mercury never takes damage from a fall, no matter how far she drops. HEAVENLY ECSTASY AIDES (ARTIFACT ·) \"Heavenly ecstasy aide\" is a broad catchall name used in the Realm for any artifact with no useful purpose outside the bedroom. This category of artifacts encompasses a broad variety of alchemical body oils, \"clothing\" that reveals and hides flesh in patterns geomantically calculated to increase sex appeal and erotic toys incorporating the magical materials into their construction, including such marvels of artifice as quaking white jade beads and green jade phalli which provide physical feedback when attuned. These devices serve to demonstrate the inventiveness of the gods and Exalted in pursuing greater heights of physical indulgence. Heavenly ecstasy aides are illegal to own or create in the Realm, ostensibly on the grounds of being a gross waste of valuable jade and alchemical reagents. In practice, most Dragon-Blooded households own at least one or two such items, and House Cynis is infamous for its stockpiles. Such collections are politely ignored until the Empress's magistrates need a convenient pretense to shake a household down in a particularly humiliating fashion. BANNER OF THE CONQUEROR (ARTIFACT ····) The Realm and Lookshy covet these prized relics of the First Age, which take the form of a signal flag, its silk a flat crimson by default. When attuned for 10 motes, the flag instead displays the house mon, personal insignia or iconic anima of its wielder, as desired. Swung in battle, the flag's edge cleaves foes in twain (treat as a grimcleaver). If carried by the leader of a complementary unit in mass combat, the unit enjoys perfect morale. With a successful prayer to Mars, a mortal may carry and wield a banner of the conqueror as though it were attuned at no cost. The Maiden of Battles pays the cost of the attunement herself. This secret is carefully guarded by the Great Houses and the Lookshy Gentes alike. REVELATION BLINDFOLD (ARTIFACT ··) This wonder takes the form of a green silk blindfold, woven around a secret known to only one living being and passed on by a dying breath. To properly prepare a revelation blindfold, this breath must be caught between the lips of the one dying and the ear of the listener. The difficulty of such a feat is the primary reason for the rarity of these artifacts. Revelation blindfolds cost five motes to attune, and must be worn constantly for any benefit to be granted. For the first (11 ­ Essence) days after donning the artifact, the wearer suffers all normal penalties for blindness and no benefits. At the end of this period, she aligns with the deeper secrets the world around her is trying to impart. Her blindness penalty disappears, and she constantly benefits from an effect identical to All-Encompassing Sorcerer's Sight. She may also reflexively use the spirit Charm Measure the Wind as an innate power at no cost on any individual who speaks to her. Another full adjustment period is required if the blindfold is removed for any reason. RINGS OF SATURN (ARTIFACT ····) These dread artifacts, of which only three copies are said to have ever been created, take the form of delicate starmetal loops worn around the knuckles. They show hypnotic striations in their surfaces from the methods used to forge them, and are ice cold to the touch. A punch enhanced with Saturn's rings uses the normal traits for such an attack, save that it ignores Hardness, inflicts piercing damage and drains one point of Willpower from any target with an Essence rating lower than the wielder. Against mortals or targets with a permanent Essence rating five or more dots lower than that of the wielder, a successful hit causes instant death as a Shaping effect. Rings of Saturn cost six motes to attune. Five goddesses weave the destiny of the universe. Autochthon once remarked in faint awe to a Sidereal that he wished he had made them, and no other titan takes credit for doing so. The Ebon Dragon considers the goddesses a blight upon his invention of fate, meddlesome pests who keep time from assuming the shape he would impose upon it. He suspects another Primordial forged them in secret just to spite him, since that is what he would have done. The most likely explanation is that existence itself brought them into being to keep watch over it, but the likeliest explanations seldom apply to fate's keepers. There could have been other Maidens long ago. There could be Maidens yet unborn. In one legend, the unknown Maiden of Wisdom stood in the path of the Three Spheres Cataclysm and doused its fires with her Essence, shattering herself forward and backward in time to spare some part of Creation. According to other stories, the Maidens mourn sisters fallen and entombed in the Orrery of Arainthu, adding the mystery of their Chosen to the speculation why Sidereals number only 100 to the 300 of the other Celestial Exalted. As in so much else, the Maidens are more enigma than answer, pledged to guard the future against the present and never forget the lessons of the past. The strangeness of the Sidereal Exalted pales before the strangeness of their patrons, but in each day that dawns anew, the victory of the Maidens stands over chaos and entropy and the unknown threats they alone witness.</p><p><strong>Motivation:</strong> Mercury: \"Make sure all things go where they should.\" Venus: \"Make sure all things come together as they should.\" Mars: \"Make sure all things come into conflict as they should.\" Jupiter: \"Ensure the preservation of all knowledge for the time it must be known.\" Saturn: \"Make sure all things end as they should.\" The Intimacies of the Maidens are strange and rarely appear to make sense to other beings when the goddesses deign to share them. Yet, the five share the following common attachments: the Tapestry (Awe), the future (Hope), the present (Delight), the past (Satisfaction), Oblivion (Horror), Other Maidens (Camaraderie), the Fivescore Fellowship (Exasperated Affection), Autochthon (Wary Gratitude), Gaia (Respect), the Yozis (Sorrow), Luna and the Unconquered Sun (Uneasy Friendship) and pattern spiders (Pride).</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Punch: Speed 5, Accuracy 16, Damage 10B, Parry DV 9, Rate 3, Tags N Kick: Speed 5, Accuracy 15, Damage 13B, Parry DV 7, Rate 2, Tags N Clinch: Speed 6, Accuracy 15, Damage 10B, Parry DV --, Rate 1, Tags C,N,P</p><h3>Powers</h3><p>As Essence 10 deities, the Maidens have All-Encompassing versions of virtually every divine Charm not unique to singular beings, subject to the limitations of each Maiden's purview. They have no Excellencies or other Ability-enhancing Charms beyond those unique to their panoplies. They also cannot use any of their Charms to directly contest their knowledge of samsara, so they cannot use a defensive Charm to stop an attack they know must happen or attack someone with lethal force who has a role yet to play in the saga of existence. The Maidens are versed in every conceivable Blessing and Curse and may issue permanent versions of either as many times per year as desired, spending 30 motes in lieu of permanent Willpower to do so. Notable capabilities include 10 purchases each of Essence Plethora, Reserve of Will and Ox-Body Technique and a Materialize cost of 100 motes. Their Hurry Home teleports them from anywhere governed by fate to anywhere governed by fate and may be used reflexively as a form of perfect dodge against any undesired effect rather than requiring a simple action when teleporting to the Loom of Fate, even against undodgeable effects. The Maidens have an unusual relationship with the martial arts (see Many-Flowering Lotus on p. 14). Auspicious Panoply of Destiny: These Charms belong to the Maidens alone. No one else can learn them. To the degree it matters, they have a minimum Essence of 10. Except as noted, each Maiden has all of these Charms, though each uses them differently. Samsara's Inviolate and Subtle Hand: The Maidens' Charms are virtually undetectable unless the keepers of fate wish otherwise, even to Essence-based perception. If a Charm contests this subtlety, the Maidens apply a flat 20 successes in the roll-off to hide their work. The Maidens also treat all mental influence that would make them betray their Motivation as an unacceptable order and cannot knowingly act against their Motivation of their own free will. This defense also applies retroactively to instantly shatter any ongoing externally imposed mental influence in the moment it comes into conflict with their Motivation. Finally, the Maidens can reflexively commit 10 motes to make themselves immune to all Poison and Sickness effects, all negative effects from hazardous environments and all hostile Shaping effects. Doing so also purges their bodies of all such deleterious effects already in their system. Righteous Answer of Catechism: This Charm is similar to the Unconquered Sun's Charm of the CHARM CONCEPT: SAMSARA The Maidens see a fate beyond fate, the ebb and flow of the shinmaic substrata defining existence. Termed samsara, this pattern is arbitrary but never random, sublime in its beauty and horror. The design has neither guiding intelligence nor coherent moral imperative behind it, but it empowers the Maidens with knowledge that enslaves their actions. What they see in it, they cannot help but act to bring about. If destiny and fate are the grand architecture that the Maidens and their servants construct, samsara is the ultimate blueprint which defines the \"as things should\" in each Maiden's Motivation. It is also more, because samsara can predict events not normally subject to divination, such as the actions of beings outside fate and events the Maidens cannot influence. In this, it is a numinous mystery that contains an infinitude of otherwise inaccessible truths. Not all things are contained in samsara. Some events happen that the Maidens do not foresee. In part, this is a limitation of each Maiden's purview. Mars no more knows where things must go than Mercury discerns future conflicts. The highest levels of the Perfected Lotus and the divinatory Charms of the Sidereal Exalted see even less, touching and manipulating the pattern without truly perceiving it. Jupiter theorizes that the sleeping Yozi Sacheverell truly sees the shape of things to come, and so lies trapped in hopeless inaction by the futility of predestination, but samsara itself is silent on the matter. Ultimately, the Storyteller chooses whether a given event is even eligible for divination in samsara and needs not apply any measure of consistency beyond whether it serves his story to have the Maidens aware of and working toward a particular outcome. For example, if a future plot in the series involves the death of the Unconquered Sun, that event could be excluded from samsara to catch even Saturn by surprise. If she knows, however, then she becomes part of the conspiracy. Obviously, samsara cannot directly account for the actions of protagonists whom the Storyteller does not control. While Storytellers can work around this limitation by modifying the script, such as killing the Most High tomorrow if the heroes save him today, doing so would directly attack the core principle of Exalted that protagonists always matter. Unless the Storyteller has established great trust with the players such that they can be sure a scripted event will give them more options to matter than it takes away, taking this approach will most likely bring the game to a screeching halt. A more elegant solution is to keep the Maidens' knowledge of samsara largely invisible to the players, allowing the goddesses to anticipate how the story actually plays out rather than tying them to a specific vision. Where it appears at all, samsara best serves stories as the inscrutable rationale for the Maidens' actions, no more intrusive than the weird agendas of other mighty spirits. same name (Glories of the Most High: The Unconquered Sun, p. 9), but prayers to the Maidens do not create a conduit for their ranged attacks. Also, it is not their usual practice to send messages to their Chosen at the moment of Exaltation. When a Sidereal prays to his patron Maiden and asks for enlightenment that is congruent with her vision of samsara, she may pay (30m, 1wp) to gift him with any Sidereal Charm, a dot of an astrological College or a dot of Essence as a Training effect, bypassing age limits on the last. She cannot do so if he is already in experience debt. Samsara wisely does not permit this gift except in dire circumstances, especially with regard to the Maiden's rarely used power to scribe a new Sidereal Charm into the firmament. Using this Charm, all five Maidens can ritually unlock Sidereal access to astrological Charms, after which responses to enlightenment prayers can bestow them as well. The rite by which they sealed these techniques at the end of the Primordial War is not repeatable without catastrophic and irreversible damage to the Loom of Fate. Strands Within Strands: By reflexively paying one mote, a Maiden can intuit the answer to any one question samsara permits her to know. This answer must help her uphold her Motivation, but the Charm is not otherwise limited in the information it can impart. \"What do I most need to understand right now?\" is a valid question. Ordained Saga Triumph: Whenever a Maiden succeeds on an action in which she performed a stunt and that stunt resonated with her Motivation, she doubles any motes or Willpower she chooses to recover as a reward. She may immediately pay any Willpower points received this way to reflexively regenerate two levels of bashing damage or one level of lethal damage. She may extend this same benefit whenever she witnesses a successful stunt that resonates with her own Motivation performed by another character by reflexively paying three motes, broadening the options for rewards the character who performed the stunt may receive. Maidens automatically know when a witnessed action is eligible for this blessing. Unlike other beings, the Maidens cannot perform stunts to enhance actions or other rolls that have no possibility for failure. Thus, they cannot stunt in conjunction with using Cosmological Constant or when declaring success (or an opposing action's failure) with As Fate Decrees. Fateful Puissance Integration: The Maidens can consult the infinite wisdom of samsara, reflexively committing one mote per dot to temporarily raise any Ability up to a maximum rating of 20 as a Shaping effect. Abilities with trait prerequisites (such as Craft [Magitech]) require these prerequisites to be met as normal. Temporary dots last as long as the commitment sustaining them and are considered part of the Maiden's natural rating during that time. Conferring Linguistics grants whatever languages the Maidens wish to incorporate at the time they give themselves those dots. The Maidens can also bless anyone inside fate they can perceive, committing Essence as usual for the Charm to provide temporary Ability dots up to the usual maximum for the target. Cosmological Constant: This Charm is similar to the Conviction power of the Unconquered Sun's Charm Perfection Beyond Imagining (Glories of the Most High: The Unconquered Sun, p. 11), but permanently ensures success on all actions that support the Maiden's Motivation and applies only a flat 20 successes to roll-offs against effects that contest this supremacy. Join Battle, Join War and Join Debate actions are always considered to support a Maiden's Motivation. This Charm also enhances Virtue rolls supporting the Maiden's Motivation. (For example, Mars is dauntless in necessary strife; the love of Venus is all-encompassing for those she would unite.) Using this Charm, the Maidens can successfully accomplish all Craft (Fate) actions necessary to maintain the entire Tapestry, but doing so requires the undivided attention of all five goddesses in one place within fate. As Fate Decrees: Whenever the Maidens witness or engage in an event that requires a dice roll, they may reflexively pay one mote to reset the target number of that roll to anything from 4­9 as a Shaping effect. This Charm may be activated in any attack step in which a roll occurs to affect that roll. By also paying one Willpower, the Maidens can impose automatic failure or automatic success on all dice in lieu of an actual roll. An automatic result is not eligible for reroll. Automatic failure makes sure that no modifier or effect can cause the roll to generate more than 0 successes, and may similarly reduce a static value (such as a DV) to 0 for one event in which it is applied. Automatic success can double a static value for one instance of use. Rolls for other Essence 10 beings and all beings outside fate may not be adjusted by this Charm, nor can the rolls of those whose traits are protected from Shaping attacks. Roll-offs for Charm conflicts are also ineligible for modification. Infinite Realignment of Destiny: The Maidens can mark anyone they can perceive within a mile using this instant Simple Charm, paying (10m, 1wp) that is not committed despite the ongoing effect. This is an unblockable and undodgeable attack. The target must be inside fate and not immune to Shaping-based trait alteration. If successful, the Maiden chooses a narrow subset of her own Motivation (\"Fight De- mons!\" for Mars, by way of example) and selects a target number ranging from 4­9. Whenever the target takes a rolled action using any Attribute or Ability that directly supports the selected Motivation, the target number of that action adjusts as directed. If the target is invalid at that point, the destiny falls off. Otherwise, fates imposed by this Charm last until Calibration. No being can have more than one instance of this Charm applied to it. Trying to add another makes the old one fall off. In its secondary use, Infinite Realignment of Destiny can target non-Primordial beings outside fate, tangling their Essence in destiny's weave so they become part of fate until Calibration. Whispers of What Must Be: The Maidens can pay (5m, 1wp) as a simple (Speed 3, -0 DV) action to speak a social attack to one target they can perceive. This can be done in personal combat time as well as social combat, and no one other than the target hears the suggestion. This unnatural influence is both an Illusion and Compulsion effect, implanting a suggestion to take one action that directly supports the Maiden's Motivation. Resisting this suggestion must be done at the time of implantation and costs a number of Willpower points equal to (11 ­ target's Essence; maximum 5). Otherwise, whenever any combination of designated trigger events occurs, the target must take whatever single action the Maidens commanded and believes it to be his own volition. He may, alternatively, be commanded to stop or avoid a particular course of action when triggered, in which case he may not repeat that action for the rest of the scene. The target need not be aware of the trigger events, as long as they are known to samsara. Each Maiden can implant only one suggestion per target. Trying to apply another removes the first. Otherwise, the suggestion waits indefinitely until triggered. Like Spiders Alert: The Maidens cannot ever be surprised by any danger, and attacks against them are never unexpected; samsara can override this protection to conceal a threat. They also recognize whether anything is part of fate or outside it upon perceiving it. This Charm also allows the Maidens to reflexively spend (15m, 1wp) to restart any given scene by having witnessed the \"rewound\" events as a vision in samsara that can offer insight when they \"actually\" play out the scene. A given scene can only be restarted once per Maiden and cannot be rewound if any being outside fate acted to disrupt the vision. In light of this power, the Storyteller should take note of the static traits and variable traits (like mote pools) for all participant characters at the beginning of every scene in which the Maidens take part. Finally, each Maiden can reflexively shift her senses to any location inside fate as though she were at that location, but her shifted perceptions fail to notice anything outside fate. Arsenal of Fate: By reflexively paying motes equal to the rating of a starmetal artifact weapon, a Maiden can visibly weave strands of luminous fate into that item as a Shaping effect. Repeated use and separate commitment can create any number of weapons. The conjured artifact appears in the grasp of any being the Maidens can perceive and wish to gift (including themselves) and is considered attuned by all wielders as long as committed Essence continues to sustain its existence. In addition to basic starmetal magical material bonuses, weapons created with this Charm bring any being they strike into fate for the rest of the scene. Arsenal of Fate cannot create anything more complex or powerful than a grand daiklave, but it can form a weapon in time to make an armed parry against an attack. Many-Flowering Lotus: By reflexively committing one mote per Charm, the Maidens can draw enlightenment from samsara to temporarily endow themselves with Martial Arts Charms from any style. They must give themselves all required trait minimums and Charm prerequisites to advance through a style, and they do not gain sutra benefits for Sidereal Styles since they do not truly internalize the teachings. They may, however, use these Charms as divine Charms for the purposes of not needing Combos. Mastery conferred by Many-Flowering Lotus fades upon releasing the motes sustaining it. The Maidens are incapable of learning Martial Arts Charms in any permanent fashion. Like the Primordials, they belong to other principles. Library of Inner Truth: By reflexively committing one mote, the Maidens consult the wisdom of samsara to temporarily teach themselves a single Emerald or Sapphire Circle spell. They may also learn and cast Abjuration of the Maidens, Adamant Circle Banishment, Adamant Countermagic and Winds of Confusion (see The Books of Sorcery, Vol. II--The White Treatise) despite lacking Adamant initiation. (Replace the usual display of the last with the appropriate chromatic hue as they unleash the mind-shattering mysteries of samsara.) Alternatively, they can bestow a spell on anyone inside fate they are touching who knows the appropriate initiation Charms. Knowledge of a conferred spell lasts as long as the commitment sustaining it. Repeated use of this Charm can endow beneficiaries with vast sorcerous knowledge. The Maidens can, but do not bother to, learn sorcery in a permanent fashion. They have more important matters to which to tend. Resplendencies Beyond College: The Maidens can appear as any thing or type of being that is or ever has been part of fate, cloaking all information about them at all to fit the disguise, including magical information such as Essence and destiny. Taking a form does not modify a Maiden's traits unless she chooses to apply less than her full power to a task. Piercing this perfect disguise is impossible by mundane means. Charms that would reveal the Maiden's true self face a flat 20-success barrier in the roll-off. One extremely important limitation of this Charm is that it cannot be used to copy specific entities. The Maidens can take any part they devise in the service of samsara, but they may not steal a role that has already been cast in the grand play of events. Pretending to be nothing is a valid use for this Charm, in which case the Maiden goes undetected to all perception for as long as she maintains this disguise. The attacks of an undetectable Maiden are automatically unexpected unless the target uses a Charm or stunt to augment his defense. An undetectable Maiden is likewise a valid target only for stunt or Charm-enhanced attacks and imposes a -5 external penalty to these. Beings outside fate automatically recognize that the Maiden is not what she appears, but they still perceive the Charm's disguise. This recognition is enough to void the stealth benefits of seeming to be nothing. Starfall Path Unveiling (Mercury): Whenever Mercury uses Hurry Home, she may spend any number of Willpower points. Doing so allows her to teleport any number of individuals inside fate whom she can perceive, with a Magnitude no greater than the number of Willpower points spent. This Magnitude can encompass any number of scattered individuals and complementary units. Teleporting individuals thus is a Shaping attack. Unlike a mere Banish Charm, Mercury can send individuals to immediately dangerous destinations and can send each transported individual to a separate designated location within fate, if so desired. This Charm ignores and shatters any spells warding against teleportation of lesser power than Adamant or Void Circle as a specialized form of countermagic. Beings transported by the Charm flash away and arrive in beams of yellow light resembling a shower of shooting stars. Ever-Loving Connivance (Venus): Whenever Venus hits a target with a physical or social attack, she may instill a positive Intimacy in him toward anything she desires as an unnatural Emotion effect. Blue starlight flickers in the target's eyes as the Intimacy takes hold. If the attack hits multiple beings, each Intimacy may be determined separately. Resisting the creation of this Intimacy costs five Willpower, in addition to any Willpower paid to resist the usual effects of a successful social attack enhanced by this Charm. The order in which resistance costs must be paid in the case of stacked influence is up to Venus. She can deliberately choose an Intimacy that directly opposes the target's Motivation to force Willpower drain. Blessed Legion's Bloody Halo (Mars): By paying (15m, 1wp), Mars can reflexively infuse with her Essence a complementary unit of Magnitude 3+ that she can perceive. For as long as she maintains this commitment, glittering red stardust surrounds and blows in nebulous whorls behind the cadenced tread of the perfected army. This aura adds +10 to the unit's Close Combat, Ranged Attack, Close Combat Damage, Ranged Attack Damage, Drill, Might, Armor and Morale. Mars can use separate activations to enchant multiple units with this Charm. The blessing lasts as long as the unit remains in formation together or until withdrawn by terminating the Charm. Prying Veil of Discretion (Jupiter): Jupiter keeps her own counsel. She treats all mental influence that would make her believe anything untrue or divulge information to others as unacceptable orders and contests all Charms that would reveal information about her or her actions (such as whether she is telling the truth) with a flat 20 successes in the roll-off. Green light glitters in her eyes whenever this Charm blocks an effect and she is aware of the attempted intrusion as though it were Obvious to her senses. She can always choose to comply, but she can't be made to do so. The Maiden of Secrets can extend this same protection to all beings inside fate within a 10-mile radius by reflexively committing 15 motes. For a second 15-mote reflexive cost, the shield hardens to block all unnatural mental influence regardless of its intent, stopping attempts at control as readily as mental prying. As a result, it costs 30 motes total to shield an area with the greater defense. Extant unnatural influence temporarily abates in the presence of a greater shield, but returns when the protected character moves out of range or Jupiter withdraws her protection. What the Maiden of Secrets hides from others is an open book to her. Jupiter can glean all secrets of any mind currently protected by this Charm in samsara through use of Strands Within Strands (p. 12). Final Cessation's Edge (Saturn): Whenever Saturn hits a target with a physical attack, she may replace the normal effects of the hit with a Shaping effect that offers several options. If she is feeling merciful, she may induce dreamless unconscious that lasts up to one week, during which nothing can wake the target. If she is less merciful, the target instantly dies in whatever manner Saturn decides, up to total disintegration of physical form into a burst of violet stardust. Such death is not a physical transformation, as the dispersion of Essence occurs to the victim's corpse following imposition of death. Beings slain this way pass on to Lethe if able or their Essence disperses back into the natural flow of Creation, though beings such as Deathlords and many Primordial behemoths regenerate as normal from this demise. Inanimate objects are simply destroyed outright. If Saturn uses this Charm to affect a unit she hits, she knocks every member unconscious or slays them as desired. Only individuals shielded from the Shaping remain, though the Storyteller should permit any special character with such a defense to have activated it as they watched her obliterating her way through the ranks. This Charm can also enhance a social attack calling for an end to discussion on any designated matter. Targets of the attack must pay five Willpower or the unnatural Compulsion effect forces them to halt discussion on that topic or any closely related topic (as adjudicated by the Storyteller) and not resume such conversation for one day. A final power of this Charm is similar to Titan-Unleashing Clarion (Glories of the Most High: The Unconquered Sun, p. 12), but Saturn can summon only Yozi jouten.</p><p><strong>Backgrounds:</strong> As Incarnae, the Maidens have virtually limitless access to requisition the resources of Yu-Shan and Creation, giving them ratings of 5 or even N/A in any pertinent Background. Of particular note, they have Cult N/A restoring eight motes of Essence and one mote of Willpower per hour from the prayers devoted to them and the cosmic vastness of their dominions.</p><p><em>Original essence pool from source: 250 motes</em></p><p><em>Source: Glories of the Most High: The Maidens of Destiny</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
   "sort": 0,
-  "ownership": { "default": 0 },
+  "ownership": {
+    "default": 0
+  },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

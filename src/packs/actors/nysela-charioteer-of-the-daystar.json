@@ -1,27 +1,331 @@
 {
   "_id": "0001000000000056",
   "_key": "!actors!0001000000000056",
-  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
   "name": "Nysela, Charioteer of the Daystar",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "sidereal",
+    "caste": "serenity",
     "concept": "",
-    "essence": { "value": 7 },
-    "willpower": { "value": 10, "max": 10 },
-    "motes": { "value": 0, "max": 150 },
-    "pools": { "combat": 13, "social": 13, "physical": 10 },
-    "combat": { "joinBattle": 10, "dodgeDV": 9, "parryDV": 6, "dodgeMDV": 5, "parryMDV": 3, "soak": { "bashing": 24, "lethal": 21, "aggravated": 0 }, "hardness": 0 },
-    "health": { "bashing": 0, "lethal": 0, "aggravated": 0, "totalBoxes": 25 },
-    "powers": "<p>Divine Prerogative, Essence Bite, Essence Plethora (x3), Hurry Home, Intrusion-Sensing Method, Loom Stride, Materialize (85m), Measure the Wind, Meat of Broken Flesh, Ox-Body Technique (x5), Principle of Motion, Reserve of Will (x3), Shapechange, Sheathing the Material Form, Stoke the Flame. Second Excellency: Awareness, Integrity, Martial Arts, Melee, Presence, Sail. Third Excellency: Sail. Infinite Mastery: Melee. Divine Subordination: Integrity, Melee, Sail.</p>",
-    "notes": "<p><strong>Punch</strong>: Speed 5, Accuracy 13, Damage 6B, Parry DV 7, Rate 3</p><p><strong>Kick</strong>: Speed 5, Accuracy 12, Damage 9B, Parry DV 5, Rate 2</p><p><strong>Dire Lance (Piercing Eye of Justice)</strong>: Speed 5, Accuracy 18, Damage 14L/18L, Parry DV 9, Rate 2</p>",
-    "biography": "<p>Goddess of Righteous Ideals and Heavenly Duty, primary operator of the Dirigible Engine Daystar. Madly loyal to the Unconquered Sun. Takes the form of a beautiful orichalcum-skinned woman with full hair, flame red in the dark and violet in the day, wearing armored dress and kimono. Carries a tower shield of bronze and a massive white jade dire lance.</p><p>Source: Glories of the Most High: The Unconquered Sun.</p>",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 7,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 7,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 7,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 7,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 5,
+        "current": 5,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "valor": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      }
+    },
+    "essence": {
+      "value": 7,
+      "max": 7
+    },
+    "willpower": {
+      "value": 10,
+      "max": 10
+    },
+    "motes": {
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
+      },
+      "peripheral": {
+        "value": 150,
+        "max": 150,
+        "committed": 0,
+        "bonus": 0
+      }
+    },
+    "limit": 0,
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "bonus": {
+        "zero": 0,
+        "one": 9,
+        "two": 0
+      }
+    },
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Nysela forged a close working relationship with the Unconquered Sun while he was still the Guarding Star. During that time, the Most High spent much of his time managing the upkeep of the Dirigible Engine Daystar, the mechanism that flies the sun across Creation's skies. Nysela, Charioteer of the Daystar, was its chief navigator. Together they led a crew of divinities in piloting the Daystar through Creation's hazardous, shifting skies, and protecting its flight against saboteurs from without. She was one of the first beings ever to hear the THE GOD BEHIND THE CURTAIN The Unconquered Sun is clearly the mightiest god ever to exist. It is why he is the ruler of the Celestial Bureaucracy and the acknowledged Highest of Holies, after all. But how mighty is mighty? The default assumption is that the god's most potent Charms depend upon him upholding his Virtues. By suppressing these traits in the name of free will, he weakens himself from \"unbeatable force of nature\" to \"total powerhouse.\" Storytellers looking to make the god a bit less daunting (such as for games featuring the death or overthrow of the Unconquered Sun) can simply do away with the Virtue-based epic extensions of his Charms and keep the base effects. Such a weakening might have always been so, in which case his legend is simply that. Alternatively, he was once greater, but his long addiction to the Games of Divinity and willing rejection of his duties has profoundly lessened him. Likely, the truth of the matter is known to only the Maidens and the Most High himself. On the other end of the spectrum, Storytellers might wish to represent the Unconquered Sun as a deity of such absolute perfection that the thought of him losing is laughable. For this model, simply assume that his epic Charms function at full power regardless of whether he suppresses his Virtues. The problem with this approach is that it can be severely damaging to the centrality of protagonists. If the Unconquered Sun involves himself, none may gainsay him. This hardly suits the themes of Exalted, so Storytellers should tread very carefully with a \"plot-device\" level Incarna, almost certainly keeping him tied down with irresistible addiction to the Games of Divinity so he doesn't upstage the players' characters at every turn. Unconquered Sun express insurrectionist sentiments in regard to his makers, and she believes that her wholehearted agreement helped convince him of the rightness of his own desire to be free of the Primordial yoke. When the war was over, Nysela was elevated from her station as navigator of the Daystar to Goddess of Righteous Ideals and Heavenly Duty. As a result, her first and longest engagement at the end of the War involved the Solar Exalted, and her attempts to guide and shape them in a course that matched closest to the Unconquered Sun's own values. Early into their reign, the Solars valued Nysela's objective, unequivocal assessments of the Unconquered Sun's values and the ease at which she would rise to criticize or correct any Solar who strayed too far from the vision of the Most High. But when the Solars began to raise themselves up as God-Kings, often ignoring that there were any other gods altogether, Nysela's hands were tied. At first, she harshly--physically--corrected a few straying Solars, but their mad courses were not averted, and she began to realize that there was little she could do. Creation was theirs to rule and shape in their own vision according to the Creation-Ruling Mandate issued by the Unconquered Sun. The Solars' own visions for Creation were, by definition, Righteous Ideals, conceded to them by the Most High himself. Nysela could only look on regretfully as the gulf between the Solars and the Unconquered Sun widened. On top of her constant surveillance of the Solars and the gods, Nysela was also still a primary operator of the Dirigible Engine Daystar, and thus constantly busy taking shifts flying it across the sky. She bore these shifts with little complaint, for the Unconquered Sun occasionally found the time to take the wheel, guiding the Daystar on its repeating course, and she relished the opportunity to sit in his presence. But they were not the only gods who worked the bellows and the pumps of the Dirigible Engine, and relief was available when she needed it. Times changed. The Unconquered Sun turned his back on Creation. The Solars fell. The Celestial Bureaucracies have fallen into corruption, and most of the spirits that flew the Daystar have abandoned ship, including the Once-Guarding Star himself. Nysela, if anything, works harder than ever. Determined not to fail, she holds on to her first and most basic duty--flying the sun from the Elemental Pole of Wood to the Elemental Pole of Water. Nysela is at once one of the most forceful spirits ever to set foot in Yu-Shan, and also one of the most hated. Two-faced gods show her the utmost respect when she is present and mock her when she is gone, for her majesty is all but wasted on the futility of her job, and her unrequited love for the Unconquered Sun is one of the oldest tales of Heaven. They also know most of her time and waning focus is devoted to working the bellows and pumps of the Daystar like mad, or monitoring the sleep of the greater elemental dragon Gardullis who dreams at the heart of the sun. Only at night can she pursue derelict gods and answer threats and challenges openly in Yu-Shan. Madly in love with the Unconquered Sun, her loyalty to him is perhaps the only part of her convictions that has not seen defeat. Nysela is worried about the return of the Solar Exalted, because she has promised to punish any who betray him again. As such, she has taken to employing shows of force to drive the values of the Unconquered Sun into Solars who catch her attention, employing little tact or diplomacy. Her heart has hardened to them greatly. They will either emulate the Unconquered Sun or kiss the ground. Most know better than to conflate the dereliction of Ignis Divine with the waywardness of Solars in her presence. Furthermore, Nysela is jealous of Luna's place as his second in command, but she has been beaten both times she has attempted to take her place at his side. When she is not piloting the Daystar or battered by exhaustion, she endlessly fights a hopeless battle to make the gods of Yu-Shan do their jobs properly. Nysela takes the form of a beautiful orichalcumskinned woman with full hair, flame red in the dark and violet in the day, wearing an armored dress and kimono. She carries a tower shield of bronze and a massive white jade dire lance as her most common array. Around her neck are the keys to the Chirmirajen, the monorail which travels within and over the surface of the Daystar to survey it, as well as act as an auxiliary means of pulling the sun across the sky should its own means of propulsion ever be disabled.</p><p><strong>Motivation:</strong> To uphold the Unconquered Sun's vision of righteousness.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Punch: Speed 5, Accuracy 13, Damage 6B, Parry DV 7, Rate 3, Tags N Kick: Speed 5, Accuracy 12, Damage 9B, Parry DV 5, Rate 2, Tags N Clinch: Speed 6, Accuracy 12, Damage 6B, Parry DV --, Rate 1, Tags C,N,P Dire Lance (Piercing Eye of Justice): Speed 5, Accuracy 18, Damage 14L/18L, Parry DV 9, Rate 2, Tags 2,L,R</p><h3>Powers</h3><p>Divine Prerogative--Focuses on the Unconquered Sun. Essence Bite Essence Plethora (x3) Hurry Home--Takes Nysela either to her manse in Yu-Shan or to the navigation deck of the Daystar. Intrusion-Sensing Method--Nysela uses this Charm to sense individuals or objects approaching the Daystar's path while she guides it across the sky. Loom Stride Materialize--Costs 85 motes. Measure the Wind--Nysela uses this Charm to determine her relative authority over other gods. Meat of Broken Flesh--This Charm functions only against individuals Nysela believes have violated Celestial law or the Mandate of Heaven. Ox-Body Technique (x5) Principle of Motion--Nysela typically keeps 10 actions stored. Reserve of Will (x3) Shapechange--Nysela sometimes disguises herself as a mortal or minor god to determine how truly upright and just other divinities or Exalts are. Sheathing the Material Form Stoke the Flame--This Charm is used to exhort targets to behave according to Nysela's vision of righteousness. Second (Ability) Excellency--Awareness, Integrity, Martial Arts, Melee, Presence, Sail Third (Ability) Excellency--Sail Infinite (Ability) Mastery--Melee Divine (Ability) Subordination--Integrity, Melee (Conviction Flaw), Sail</p><p><strong>Backgrounds:</strong> Backing (Celestial Bureaucracy) 3, Contacts (Divine Informers) 3, Celestial Manse 2, Salary 3</p><p><em>Original essence pool from source: 150 motes</em></p><p><em>Source: Glories of the Most High: The Unconquered Sun</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
   "sort": 0,
-  "ownership": { "default": 0 },
+  "ownership": {
+    "default": 0
+  },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Ulito Swan",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 5,
+        "current": 5,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "valor": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 4
+      "value": 4,
+      "max": 4
     },
     "willpower": {
       "value": 9,
       "max": 9
     },
     "motes": {
-      "value": 0,
-      "max": "80 (85) Committed"
-    },
-    "pools": {
-      "combat": 10,
-      "social": 8,
-      "physical": 9
-    },
-    "combat": {
-      "joinBattle": 9,
-      "dodgeDV": 7,
-      "parryDV": 0,
-      "dodgeMDV": 4,
-      "parryMDV": 1,
-      "soak": {
-        "bashing": 18,
-        "lethal": 11,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": "80 (85) Committed",
+        "max": "80 (85) Committed",
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 14
+      "bonus": {
+        "zero": 0,
+        "one": 4,
+        "two": 3
+      }
     },
-    "powers": "",
-    "notes": "<p>Punch: Speed 5, Accuracy 10, Damage 3B, Parry DV 6, Rate 3 Kick: Speed 5, Accuracy 9, Damage 6B, Parry DV 4, Rate 2 Clinch: Speed 6, Accuracy 9, Damage 3B, Parry DV --, Rate 1 Rapier (Subtle Pin of Jade and Fury): Speed 4, Accuracy 16, Damage 7L, Parry DV 8, Rate 3</p>",
-    "biography": "<p>Thirty-one years before the Great Contagion, Swan Dragon's daughter Ulito was born of a mortal woman in what is now Harborhead. Even as a child, Ulito showed her pedigree through battle instincts and mediating judgment. As a young woman, she saw a trio of Fair Folk slay her mother and sister before her eyes. Ulito killed the murderers but has hated all raksha ever since. Her hatred only grew after her father apparently fell battling the Fair Folk invasion. Soon after being named censor, Wong Bongerok claimed Swan Dragon's homes in Creation and Yu-Shan with a few strokes of his pen, eliminating any birthright that might have gone to Ulito. He could not stop the GodBlooded woman's own ascension to divinity, however, or prevent her from joining friends of her father in the Court of the Orderly Flame. Neither can he prevent Ulito from visiting Yu-Shan on official business for the Court, though she endures scorn for her half-mortal ancestry. Ulito's complaints against Wong Bongerok for the return of Swan Dragon's estate go nowhere, as functionaries claim to have no knowledge of Wong Bongerok or his expropriation of her father's property. Ulito Swan is now the Orderly Flame's Intelligencer, leading its extensive spy network. She operates from Chiaroscuro, in a subterranean complex full of First Age surveillance and communication devices. Ulito and the Orderly Flame have figured out how to use some of these artifacts but many remain mysterious. While the Orderly Flame has a public embassy in Chiaroscuro, only she, Chiaroscuro's Pyric Minister and a few other high-ranking members of the Court know about the complex. The TriKhan certainly does not, despite the Court's alliance with him to minimize the Realm's influence. The Orderly Flame's spy network watches for enemies (of the Court and of Creation as a whole), collects intelligence on anyone who seems influential, observes the Realm's movements in the region and assembles allies to sabotage their further occupation. Ulito carries out her duties to the exclusion of all leisure. When she is not training agents, planning missions or acting in the field, Ulito experiments on the First Age devices in her headquarters, reads dossiers and practices her combat skills. She thinks of Lusa Seragon as a surrogate father but has few friends. She thinks of the wise wanderer Dozima Wokish as a friend and ally, not realizing that she knows only a false identity he constructed for that purpose. Ulito Swan despises the Realm's exploitation of the South. While she has orders to eschew murder and other terrorist techniques except in extreme cases, Ulito freely manufactures scandals, bribes subordinates, steals payrolls and otherwise hinders the Realm's satraps, generals and colonial administrations. She has little greater love for the Celestial Bureaucracy, the Guild or any other organizations that she perceives as corrupt and evil. She hates Wong Bongerok, who has robbed her of her father's legacy, and the Fair Folk, who robbed her of his love. She will accept any reasonable proposal to fight them. In her natural form, Ulito Swan has a snow-white, feathered face and head, and two short, golden horns. She knows many shapechanging Charms, however, and usually takes the shape of tall, slender woman with dusky skin, large round eyes and fiery-red, ankle-length hair.</p><p><strong>Motivation:</strong> To rid the world of corruption</p><p><strong>Backgrounds:</strong> Allies 3, Artifact (Five-Fire Stone) 4, Artifact (Widow's Shawl) 4, Artifact (Subtle Pin of Jade and Fury) 3, Backing 3, Contacts 2, Influence 3, Manse 2, Mentor 3, Resources 4 Spirit Charms and Powers: Affinity Fire Control--Ulito can control ambient fire for a variety of purposes. Each application requires separate use of this Charm, but the effects last a scene and she can use the Charm as many times as she wants, for a different application each time. · Fire Immunity: Ulito wraps flames around her in an immaterial suit of armor that protects her from other fire. She gains +4L/4B soak against fire-based attacks, and +4 to Resistance rolls against fire-based environmental effects. · Ordered Flame Weapon: Ulito bids the flames to cling to her blade, fists or other weapon. This adds +4L to attacks using that weapon (and turns a weapon's bashing damage lethal). Cloak of Scales--At will, Ulito Swan can cover her body with dragon-scales that rise in a feather-like crest on her head. This increases her natural soak. It does not cost Essence. Dematerialize--Costs 65 motes Elemental Expression--Ulito can use this innate power to control existing sources of fire. By committing up to four motes, she can spread the flames into an environmental hazard (damage 4L/minute, Trauma 2L). She could also add up to +4L to the damage of a pre-existing fire-based elemental effect (as long as she didn't create it herself) and add the L tag to the Trauma. Finally, Ulito can reduce a flame effect's damage by up to 4L. The effects last as long as Ulito stays nearby and keeps the motes committed. Elemental Rejuvenation--When Ulito contacts natural flames, she can take a Speed 3, -2 DV action to heal one level of damage or recover one mote of Essence. Hoodwink--Ulito can distract the senses of other creatures so they have difficulty taking any meaningful action. Loom Stride--Ulito can vanish in a flicker of flame and ride the currents of Fire Essence woven throughout Creation. Measure the Wind--Ulito does not hesitate to spend a mere mote to evaluate anyone who shows some hint of supernatural power. Principle of Motion--Ulito can keep up to nine extra actions banked. Shapechange--For 7 motes, Ulito Swan can take any female, humanoid form for the next scene. She can remain in her two favored forms indefinitely. Tracking--Ulito can follow and locate anything or anyone to which she has committed a mote of Essence.</p><p><em>Source: Compass of Terrestrial Directions, Vol. IV: The South</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Thirty-one years before the Great Contagion, Swan Dragon's daughter Ulito was born of a mortal woman in what is now Harborhead. Even as a child, Ulito showed her pedigree through battle instincts and mediating judgment. As a young woman, she saw a trio of Fair Folk slay her mother and sister before her eyes. Ulito killed the murderers but has hated all raksha ever since. Her hatred only grew after her father apparently fell battling the Fair Folk invasion. Soon after being named censor, Wong Bongerok claimed Swan Dragon's homes in Creation and Yu-Shan with a few strokes of his pen, eliminating any birthright that might have gone to Ulito. He could not stop the GodBlooded woman's own ascension to divinity, however, or prevent her from joining friends of her father in the Court of the Orderly Flame. Neither can he prevent Ulito from visiting Yu-Shan on official business for the Court, though she endures scorn for her half-mortal ancestry. Ulito's complaints against Wong Bongerok for the return of Swan Dragon's estate go nowhere, as functionaries claim to have no knowledge of Wong Bongerok or his expropriation of her father's property. Ulito Swan is now the Orderly Flame's Intelligencer, leading its extensive spy network. She operates from Chiaroscuro, in a subterranean complex full of First Age surveillance and communication devices. Ulito and the Orderly Flame have figured out how to use some of these artifacts but many remain mysterious. While the Orderly Flame has a public embassy in Chiaroscuro, only she, Chiaroscuro's Pyric Minister and a few other high-ranking members of the Court know about the complex. The TriKhan certainly does not, despite the Court's alliance with him to minimize the Realm's influence. The Orderly Flame's spy network watches for enemies (of the Court and of Creation as a whole), collects intelligence on anyone who seems influential, observes the Realm's movements in the region and assembles allies to sabotage their further occupation. Ulito carries out her duties to the exclusion of all leisure. When she is not training agents, planning missions or acting in the field, Ulito experiments on the First Age devices in her headquarters, reads dossiers and practices her combat skills. She thinks of Lusa Seragon as a surrogate father but has few friends. She thinks of the wise wanderer Dozima Wokish as a friend and ally, not realizing that she knows only a false identity he constructed for that purpose. Ulito Swan despises the Realm's exploitation of the South. While she has orders to eschew murder and other terrorist techniques except in extreme cases, Ulito freely manufactures scandals, bribes subordinates, steals payrolls and otherwise hinders the Realm's satraps, generals and colonial administrations. She has little greater love for the Celestial Bureaucracy, the Guild or any other organizations that she perceives as corrupt and evil. She hates Wong Bongerok, who has robbed her of her father's legacy, and the Fair Folk, who robbed her of his love. She will accept any reasonable proposal to fight them. In her natural form, Ulito Swan has a snow-white, feathered face and head, and two short, golden horns. She knows many shapechanging Charms, however, and usually takes the shape of tall, slender woman with dusky skin, large round eyes and fiery-red, ankle-length hair.</p><p><strong>Motivation:</strong> To rid the world of corruption</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Punch: Speed 5, Accuracy 10, Damage 3B, Parry DV 6, Rate 3 Kick: Speed 5, Accuracy 9, Damage 6B, Parry DV 4, Rate 2 Clinch: Speed 6, Accuracy 9, Damage 3B, Parry DV --, Rate 1 Rapier (Subtle Pin of Jade and Fury): Speed 4, Accuracy 16, Damage 7L, Parry DV 8, Rate 3</p><p><strong>Backgrounds:</strong> Allies 3, Artifact (Five-Fire Stone) 4, Artifact (Widow's Shawl) 4, Artifact (Subtle Pin of Jade and Fury) 3, Backing 3, Contacts 2, Influence 3, Manse 2, Mentor 3, Resources 4 Spirit Charms and Powers: Affinity Fire Control--Ulito can control ambient fire for a variety of purposes. Each application requires separate use of this Charm, but the effects last a scene and she can use the Charm as many times as she wants, for a different application each time. · Fire Immunity: Ulito wraps flames around her in an immaterial suit of armor that protects her from other fire. She gains +4L/4B soak against fire-based attacks, and +4 to Resistance rolls against fire-based environmental effects. · Ordered Flame Weapon: Ulito bids the flames to cling to her blade, fists or other weapon. This adds +4L to attacks using that weapon (and turns a weapon's bashing damage lethal). Cloak of Scales--At will, Ulito Swan can cover her body with dragon-scales that rise in a feather-like crest on her head. This increases her natural soak. It does not cost Essence. Dematerialize--Costs 65 motes Elemental Expression--Ulito can use this innate power to control existing sources of fire. By committing up to four motes, she can spread the flames into an environmental hazard (damage 4L/minute, Trauma 2L). She could also add up to +4L to the damage of a pre-existing fire-based elemental effect (as long as she didn't create it herself) and add the L tag to the Trauma. Finally, Ulito can reduce a flame effect's damage by up to 4L. The effects last as long as Ulito stays nearby and keeps the motes committed. Elemental Rejuvenation--When Ulito contacts natural flames, she can take a Speed 3, -2 DV action to heal one level of damage or recover one mote of Essence. Hoodwink--Ulito can distract the senses of other creatures so they have difficulty taking any meaningful action. Loom Stride--Ulito can vanish in a flicker of flame and ride the currents of Fire Essence woven throughout Creation. Measure the Wind--Ulito does not hesitate to spend a mere mote to evaluate anyone who shows some hint of supernatural power. Principle of Motion--Ulito can keep up to nine extra actions banked. Shapechange--For 7 motes, Ulito Swan can take any female, humanoid form for the next scene. She can remain in her two favored forms indefinitely. Tracking--Ulito can follow and locate anything or anyone to which she has committed a mote of Essence.</p><p><em>Original essence pool from source: 80 (85) Committed motes</em></p><p><em>Source: Compass of Terrestrial Directions, Vol. IV: The South</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

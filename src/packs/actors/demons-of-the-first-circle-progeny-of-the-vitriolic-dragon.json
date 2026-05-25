@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Demons of the First Circle, Progeny of the Vitriolic Dragon",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "demon",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 1,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 1,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 1,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 2,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 1,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 1,
+        "current": 1,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 1,
+        "current": 1,
+        "channeled": false
+      },
+      "valor": {
+        "value": 5,
+        "current": 5,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 3
+      "value": 3,
+      "max": 3
     },
     "willpower": {
       "value": 8,
       "max": 8
     },
     "motes": {
-      "value": 0,
-      "max": 70
-    },
-    "pools": {
-      "combat": 7,
-      "social": 4,
-      "physical": 7
-    },
-    "combat": {
-      "joinBattle": 6,
-      "dodgeDV": 6,
-      "parryDV": 0,
-      "dodgeMDV": 4,
-      "parryMDV": 0,
-      "soak": {
-        "bashing": 14,
-        "lethal": 11,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": 70,
+        "max": 70,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 15
+      "bonus": {
+        "zero": 0,
+        "one": 4,
+        "two": 4
+      }
     },
-    "powers": "<p>Affinity (Element) Control*--Air; Absorbs up to three barrels of weather; may use only the Elemental Damage and Elemental Weapon functions of this Charm Blessed (Element) Body--Air Elemental Rejuvenation--Storms Essence Bite*--Stolen weather; typically inflicts four dice of lethal damage Material Tribulation Divestment--Only to dodge attacks Materialize--Costs 55 motes Ox-Body Technique Principle of Motion--A madling hellstorm may bank up to eight actions Materialize--Costs 55 motes Shapechange--Become a bestial-seeming cloud of dark vapor Words of Power--Thunderous roar First (Ability) Excellency--Athletics, Martial Arts, Re- sistance Second (Ability) Excellency--Dodge</p>",
-    "notes": "<p>Essence Bite*: Speed 5, Accuracy 7, Damage 4L, Parry DV 4, Rate 2 Affinity Air Control*: Speed 5, Accuracy 12, Damage 12L, Rate 4 * Damage from Essence Bite and Affinity Air Control is as appropriate to the nature of absorbed weather. Non- injurious weather, such as Hegra's psychedelic rain or the Blinding Wind, emulates that weather's effects instead of dealing damage</p>",
-    "biography": "<p>Iyutha bred the radeken out of some twisted variation on the maternal instinct. Despite her need to warp and destroy, she craves children to raise, but she rears them on a diet of cruelty rather than love. She takes pride in their hate and watches fondly over their prodigies of destruction. Should a madling hellstorm exhibit sentiment or compassion, she descends upon it in her wrath and heaps scorn and reproach upon its head until it learns better. In its natural state, a madling hellstorm resembles an unwholesome hybrid of dragon, great cat and scavenger bird, ponderous but unexpectedly swift. Radeken rarely remain in that shape, however. They prefer to travel as masses of dark clouds reeking of blood and brine. Even in their elemental forms, however, their evanescent flesh continually curls into shapes of a reptilian, feline or avian cast. In any shape, a madling hellstorm's voice is rough and harsh as rolling thunder. Unlike their mother, radeken are simple creatures wholly ruled by their appetites. They crave the smells of smoke and blood. Some obtain these things directly through murder and mayhem, while others follow armies or gather around factories and slaughterhouses. An unbound radeken in Creation often establishes itself in a small community as a petty tyrant-god, demanding burnt offerings as protection against its wrath. Radeken steal the weather that they cannot create. Hungry for meteorological power, a madling hellstorm brushes up against a wind or storm and pulls a part of that weather into itself. Some accumulate iron snow or bezoar hail from clouds of omen weather, while others fill themselves with arrowheads or blazing light from one of Adorjan's four daughter winds. Although a few dare to encompass Hegra's psychedelic rains, none swallow the scarlet breath of the Silent Wind, for even radeken perish at her touch. In Creation, they rely on more mundane phenomena: lightning and hail, or the clouds of cinders and scalding steam that rise from mortal industry. Summoning: (Obscurity 1/2) Sorcerers typically call upon radeken to aid in battle or to speed a sailing vessel on its way. When wind-driven water extinguishes some vast conflagration, such as a forest fire or a volcanic eruption, a madling hellstorm sometimes gusts into Creation to howl amidst the smoke and steam. For each day that a radeken CHAPTER FIVE: THE DAMNED is denied the smell of a gallon of spilt blood or the smoke from a burning tree, it gains a point of Limit.</p><p><strong>Motivation:</strong> To howl and rage with the stolen strength of a storm.</p><p><strong>Backgrounds:</strong> Backing 1</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Iyutha bred the radeken out of some twisted variation on the maternal instinct. Despite her need to warp and destroy, she craves children to raise, but she rears them on a diet of cruelty rather than love. She takes pride in their hate and watches fondly over their prodigies of destruction. Should a madling hellstorm exhibit sentiment or compassion, she descends upon it in her wrath and heaps scorn and reproach upon its head until it learns better. In its natural state, a madling hellstorm resembles an unwholesome hybrid of dragon, great cat and scavenger bird, ponderous but unexpectedly swift. Radeken rarely remain in that shape, however. They prefer to travel as masses of dark clouds reeking of blood and brine. Even in their elemental forms, however, their evanescent flesh continually curls into shapes of a reptilian, feline or avian cast. In any shape, a madling hellstorm's voice is rough and harsh as rolling thunder. Unlike their mother, radeken are simple creatures wholly ruled by their appetites. They crave the smells of smoke and blood. Some obtain these things directly through murder and mayhem, while others follow armies or gather around factories and slaughterhouses. An unbound radeken in Creation often establishes itself in a small community as a petty tyrant-god, demanding burnt offerings as protection against its wrath. Radeken steal the weather that they cannot create. Hungry for meteorological power, a madling hellstorm brushes up against a wind or storm and pulls a part of that weather into itself. Some accumulate iron snow or bezoar hail from clouds of omen weather, while others fill themselves with arrowheads or blazing light from one of Adorjan's four daughter winds. Although a few dare to encompass Hegra's psychedelic rains, none swallow the scarlet breath of the Silent Wind, for even radeken perish at her touch. In Creation, they rely on more mundane phenomena: lightning and hail, or the clouds of cinders and scalding steam that rise from mortal industry. Summoning: (Obscurity 1/2) Sorcerers typically call upon radeken to aid in battle or to speed a sailing vessel on its way. When wind-driven water extinguishes some vast conflagration, such as a forest fire or a volcanic eruption, a madling hellstorm sometimes gusts into Creation to howl amidst the smoke and steam. For each day that a radeken CHAPTER FIVE: THE DAMNED is denied the smell of a gallon of spilt blood or the smoke from a burning tree, it gains a point of Limit.</p><p><strong>Motivation:</strong> To howl and rage with the stolen strength of a storm.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Essence Bite*: Speed 5, Accuracy 7, Damage 4L, Parry DV 4, Rate 2 Affinity Air Control*: Speed 5, Accuracy 12, Damage 12L, Rate 4 * Damage from Essence Bite and Affinity Air Control is as appropriate to the nature of absorbed weather. Non- injurious weather, such as Hegra's psychedelic rain or the Blinding Wind, emulates that weather's effects instead of dealing damage</p><h3>Powers</h3><p>Affinity (Element) Control*--Air; Absorbs up to three barrels of weather; may use only the Elemental Damage and Elemental Weapon functions of this Charm Blessed (Element) Body--Air Elemental Rejuvenation--Storms Essence Bite*--Stolen weather; typically inflicts four dice of lethal damage Material Tribulation Divestment--Only to dodge attacks Materialize--Costs 55 motes Ox-Body Technique Principle of Motion--A madling hellstorm may bank up to eight actions Materialize--Costs 55 motes Shapechange--Become a bestial-seeming cloud of dark vapor Words of Power--Thunderous roar First (Ability) Excellency--Athletics, Martial Arts, Re- sistance Second (Ability) Excellency--Dodge</p><p><strong>Backgrounds:</strong> Backing 1</p><p><em>Original essence pool from source: 70 motes</em></p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
     "purchaseLocked": false
   },
   "folder": "d4e5f6a700000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

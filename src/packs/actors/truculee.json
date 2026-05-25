@@ -1,27 +1,331 @@
 {
   "_id": "0001000000000060",
   "_key": "!actors!0001000000000060",
-  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
   "name": "Truculee",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
-    "essence": { "value": 3 },
-    "willpower": { "value": 7, "max": 7 },
-    "motes": { "value": 0, "max": 65 },
-    "pools": { "combat": 10, "social": 13, "physical": 11 },
-    "combat": { "joinBattle": 10, "dodgeDV": 8, "parryDV": 5, "dodgeMDV": 3, "parryMDV": 1, "soak": { "bashing": 10, "lethal": 8, "aggravated": 0 }, "hardness": 0 },
-    "health": { "bashing": 0, "lethal": 0, "aggravated": 0, "totalBoxes": 13 },
-    "powers": "<p>Spirit Charms typical for a powerful god; focus on Stealth, Performance, and Martial Arts. Exact Charm list not specified in source.</p>",
-    "notes": "<p>Fight in melee and devour intruders in Silver Chair who displease Luna. Shape dreams in lunar caverns.</p>",
-    "biography": "<p>Little known and infrequently seen in Creation, the truculee act as Luna's personal servants, honor guards, concubines, pets and playthings. These strange gods strongly resemble common depictions of the Fair Folk, and are often mistaken for them, possessing long tapered ears, delicate features, inhuman grace and the hungry gaze characteristic of the raksha. Each of Luna's beautiful slaves was once a raksha noble, their Heart Grace stolen and transformed by the touch of the Argent Madonna. Truculee are primarily encountered on the surface of the moon and within the inner halls and chambers of Silver Chair. They maintain their mistress's sanctum, entertain her visitors, and rend limb from limb and devour any whose presence distresses or displeases the Silver Lady. Most of their time is spent in the labyrinthine caverns beneath the surface of Silver Chair, tending to Luna's dreams where they bubble up from the lunar core.</p><p>Source: Glories of the Most High: Luna.</p>",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 7,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 7,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 7,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 7,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 1,
+        "current": 1,
+        "channeled": false
+      },
+      "valor": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      }
+    },
+    "essence": {
+      "value": 3,
+      "max": 3
+    },
+    "willpower": {
+      "value": 7,
+      "max": 7
+    },
+    "motes": {
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
+      },
+      "peripheral": {
+        "value": 65,
+        "max": 65,
+        "committed": 0,
+        "bonus": 0
+      }
+    },
+    "limit": 0,
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "bonus": {
+        "zero": 0,
+        "one": 3,
+        "two": 2
+      }
+    },
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Little known and infrequently seen in Creation, the truculee act as Luna's personal servants, honor guards, concubines, pets and playthings. These strange gods strongly resemble common depictions of the Fair Folk, and are often mistaken for them. They possess long, tapered ears, delicate features, inhuman grace and the hungry gaze that are all characteristic of the raksha. Yet, their fantastic livery is almost always decorated in shades of crimson and silver, and the coloration of their skin and hair tends to lunar hues: blue, pink, silver, purple. Truculee strongly resemble the Fair Folk because each of Luna's beautiful slaves was once a raksha noble. When the Fickle Lady desires new servants or toys, it is her habit to venture into the courts of Rakshastan, striding among the hordes of faerie like a wondrous and terrible monster. Her dreams and fantasies rend Graces asunder, shatter freeholds and subvert the lords of chaos to her overriding tale of a mad and triumphant moon. Those who amuse the Silver Lady with their doomed attempts to fight her narratives are singled out in a flurry of fictitious military maneuvers, their Heart Grace stolen and transformed by the touch of the Argent Madonna. These are the truculee--once dream, now god. Truculee are primarily encountered on the surface of the moon and within the inner halls and chambers of Silver Chair. They maintain their mistress's sanctum, entertain her visitors with their tales and bodies, and rend limb from limb and devour any whose presence distresses or displeases the Silver Lady. Most of their time is spent in the labyrinthine caverns beneath the surface of Silver Chair, tending to Luna's dreams where they bubble up from the lunar core. They drift through the ever-present fog of the Silver Lady's fantasies, shaping them, trimming them back and feasting on dangerous or excessive dreams. These topiary feeding efforts help keep Silver Chair's cyclical passage across Creation's sky within acceptable parameters. They are occasionally seen in Yu-Shan, running small errands for Luna or accompanying her as living symbols of her power and station. Most other divinities are instinctively uneasy around the moon fae, finding them far too reminiscent of the hungry monsters outside Creation, which they once were. Luna appreciates this response, for it is rarely her inclination to set other gods at ease. Truculee can occasionally be encountered in Creation, carrying out tasks as their mistress bids. Luna has ordered them to always bring her any trinkets or oddities she might find interesting, and so when in Creation they sometimes attempt to bring those they find amusing or unique back to Silver Chair.</p><p><strong>Motivation:</strong> To adore and obey Luna.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Claw: Speed 5, Accuracy 11, Damage 5L, Parry DV 6, Rate 3, Tags N Kick: Speed 5, Accuracy 10, Damage 8B, Parry DV 4, Rate 2, Tags N Clinch: Speed 6, Accuracy 10, Damage 5B, Parry DV --, Rate 1, Tags C,N,P</p><h3>Powers</h3><p>Bread of Weak Spirit Divine Prerogative--Luna Harrow the Mind Hurry Home--Takes the truculee back to Silver Chair, or to the ladder leading to the moon, wherever that might be in Creation. Intrusion-Sensing Method--Detects unannounced visitors to Silver Chair. Landscape Travel--The truculee dream up new corridors and secret doorways to help them traverse their lunar sanctum more quickly. Ox-Body Technique Materialize--Costs 50 motes. Measure the Wind--Detects whether or not strangers carry the mark of Luna or the Wyld in their Essence. Memory Mirror--The truculee may spy on a sleeper's dreams. Paper Tiger Arrangement-- Works only in moonlight or within Silver Chair, but otherwise all-encompassing in the illusions it may craft. Principle of Motion--Truculee normally store seven actions. Sense Domain--Truculee may unerringly divine the current location of the ladder stretching from Creation's surface to the moon. Signet of Authority--Allows the truculee or a beneficiary to apply the Mandate of Subordination to raksha commoners. Thousand Wondrous Forms --Truculee may invoke mutations by committing 1m (per pox), 2m (affliction), 4m (blight) or 6m (abomination). They may reflexively don as many mutations as they care to commit Essence for. Touch of Grace --Used for maintenance of Silver Chair. Wine of Infinite Heartbreak Worldly Illusion --Truculee use this Charm to conjure fantastic dreamscapes to entertain or harry Luna's guests. First (Ability) Excellency--Dodge, Performance, Presence, Martial Arts</p><p><strong>Backgrounds:</strong> Backing (Celestial Bureaucracy) 1, Mentor 5, Salary 2</p><p><em>Original essence pool from source: 65 motes</em></p><p><em>Source: Glories of the Most High: Luna</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
   "sort": 0,
-  "ownership": { "default": 0 },
+  "ownership": {
+    "default": 0
+  },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

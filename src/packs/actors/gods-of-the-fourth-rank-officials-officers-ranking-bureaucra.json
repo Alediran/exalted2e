@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Gods of the Fourth Rank: Officials/ Officers/ranking Bureaucrats",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 7,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 8,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 5,
+        "current": 5,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "valor": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 6
+      "value": 6,
+      "max": 6
     },
     "willpower": {
       "value": 9,
       "max": 9
     },
     "motes": {
-      "value": 0,
-      "max": "95 (This will almost always be increased via the Essence Plethora Charm.)"
-    },
-    "pools": {
-      "combat": 11,
-      "social": 13,
-      "physical": 8
-    },
-    "combat": {
-      "joinBattle": 11,
-      "dodgeDV": 9,
-      "parryDV": 0,
-      "dodgeMDV": 4,
-      "parryMDV": 3,
-      "soak": {
-        "bashing": 15,
-        "lethal": 12,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": "95 (This will almost always be increased via the Essence Plethora Charm.)",
+        "max": "95 (This will almost always be increased via the Essence Plethora Charm.)",
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 14
+      "bonus": {
+        "zero": 0,
+        "one": 5,
+        "two": 3
+      }
     },
-    "powers": "<p>The following Charms are likely to be part of a god's repertoire, but Storytellers should feel free to add, reduce or change the contents of the list. All Charms should be tailored to be used in a way that complements the god's Motivation, its domain, or both. Storytellers should pick any number of Charms up to this god's Essence and make them All-Encompassing Charms, without the above limitation: Amethyst Authority, Creation of Perfection, Destiny Sponsorship, Divine (Ability) Subordination (any three abilities related to domain), Divine Decree, Domain Manipulation Scenario, Dreamscape, Emer- gency Prayer Relocation, Endowment, Geas, Hand of Destiny, Hurry Home, Materialize (70m), Measure the Wind, Melodious Diagnostic Report, Plague of Menaces, Principle of Motion, Signet of Authority, Symbol of Invincible Authority, Touch of Saturn, and any Excellencies related to the god's domain as the Storyteller sees fit.</p>",
-    "notes": "<p>Clinch: Speed 6, Accuracy 9, Damage 6B, Parry DV -, Rate 1 Kick: Speed 5, Accuracy 9, Damage 9B, Parry DV 3, Rate 2 Punch: Speed 5, Accuracy 10, Damage 6B, Parry DV 5, Rate 3</p>",
-    "biography": "<p>(Backing ····) Divinities who are officers in one of the city's armed forces, ranking officials in a department or bureau, or high-level operators within the city's social circles and conspiracies have reached the effective ceiling for promotion upward, for their superiors are both long-lived and extraordinarily savvy to the intrigues that mark intra-departmental action. Rare is a god of this rank without an impressive official title, heavy responsibilities, and enough free time to still get himself into serious trouble. Occasionally, one may encounter a deity who has garnered enough personal fame to leave their position for the life of a dilettante, or a member of one of the city's shadowy factions who wields enough power to eschew a position within the Celestial Bureaucracy, but these are the exceptions, not the rule. Gods with this much power can initiate audits and use their contacts within their bureau to speed up or slow down the execution of all but the most important prayers and work orders. They cannot initiate an investigation of a superior unless they are cunning enough to hide their involvement or sure that the superior will fall in the ensuing scandal. Regardless of the inviolability of their superiors, they can and do spend an enormous amount of time feuding with one another and punishing their underlings for every slight, real or imagined. These gods are often as physically powerful as an Exalt of middling Essence, but to reach this rank, they have learned that physical confrontation is best left to underlings. They will often rely on pawns or inferiors to resolve physical conflicts before sullying their own hands, unless they are gods of battle or aficionados of one martial art or the other. Even if they do fit into the latter categories, such gods rarely arrive at these lofty positions without a modicum of caution. These beings are the heart and soul of the Celestial Bureaucracy and possess all of the prejudices and affected manners of a being who resides in the greatest city in history as part of the most magnificent culture ever known. These gods view the Dragon-Blooded as little more than upjumped monkeys and mortals as something akin to insects, and they will only speak to Celestial Exalts if they think they'll reap some benefit or suffer some punishment if they don't. Sanctum: Gods who hold these positions have massive mansions that make the greatest palaces of Creations look inferior and which are dwarfed only by those belonging to gods of the Fifth Rank.</p><p><strong>Motivation:</strong> Gods of this rank usually exist to promote their own domain while removing obstacles to promotion.</p><p><strong>Backgrounds:</strong> Allies 5 (Allies and friends in various departments), Artifact 8-10, Backing 4, Contacts 5 (within Heaven), Contacts 5 (outside of Heaven), Salary 4. The gods of important cities often possess Celestial Manses between 4 and 5.</p><p><em>Source: Compass of Celestial Directions, Vol. III: Yu-Shan</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>(Backing ····) Divinities who are officers in one of the city's armed forces, ranking officials in a department or bureau, or high-level operators within the city's social circles and conspiracies have reached the effective ceiling for promotion upward, for their superiors are both long-lived and extraordinarily savvy to the intrigues that mark intra-departmental action. Rare is a god of this rank without an impressive official title, heavy responsibilities, and enough free time to still get himself into serious trouble. Occasionally, one may encounter a deity who has garnered enough personal fame to leave their position for the life of a dilettante, or a member of one of the city's shadowy factions who wields enough power to eschew a position within the Celestial Bureaucracy, but these are the exceptions, not the rule. Gods with this much power can initiate audits and use their contacts within their bureau to speed up or slow down the execution of all but the most important prayers and work orders. They cannot initiate an investigation of a superior unless they are cunning enough to hide their involvement or sure that the superior will fall in the ensuing scandal. Regardless of the inviolability of their superiors, they can and do spend an enormous amount of time feuding with one another and punishing their underlings for every slight, real or imagined. These gods are often as physically powerful as an Exalt of middling Essence, but to reach this rank, they have learned that physical confrontation is best left to underlings. They will often rely on pawns or inferiors to resolve physical conflicts before sullying their own hands, unless they are gods of battle or aficionados of one martial art or the other. Even if they do fit into the latter categories, such gods rarely arrive at these lofty positions without a modicum of caution. These beings are the heart and soul of the Celestial Bureaucracy and possess all of the prejudices and affected manners of a being who resides in the greatest city in history as part of the most magnificent culture ever known. These gods view the Dragon-Blooded as little more than upjumped monkeys and mortals as something akin to insects, and they will only speak to Celestial Exalts if they think they'll reap some benefit or suffer some punishment if they don't. Sanctum: Gods who hold these positions have massive mansions that make the greatest palaces of Creations look inferior and which are dwarfed only by those belonging to gods of the Fifth Rank.</p><p><strong>Motivation:</strong> Gods of this rank usually exist to promote their own domain while removing obstacles to promotion.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Clinch: Speed 6, Accuracy 9, Damage 6B, Parry DV -, Rate 1 Kick: Speed 5, Accuracy 9, Damage 9B, Parry DV 3, Rate 2 Punch: Speed 5, Accuracy 10, Damage 6B, Parry DV 5, Rate 3</p><h3>Powers</h3><p>The following Charms are likely to be part of a god's repertoire, but Storytellers should feel free to add, reduce or change the contents of the list. All Charms should be tailored to be used in a way that complements the god's Motivation, its domain, or both. Storytellers should pick any number of Charms up to this god's Essence and make them All-Encompassing Charms, without the above limitation: Amethyst Authority, Creation of Perfection, Destiny Sponsorship, Divine (Ability) Subordination (any three abilities related to domain), Divine Decree, Domain Manipulation Scenario, Dreamscape, Emer- gency Prayer Relocation, Endowment, Geas, Hand of Destiny, Hurry Home, Materialize (70m), Measure the Wind, Melodious Diagnostic Report, Plague of Menaces, Principle of Motion, Signet of Authority, Symbol of Invincible Authority, Touch of Saturn, and any Excellencies related to the god's domain as the Storyteller sees fit.</p><p><strong>Backgrounds:</strong> Allies 5 (Allies and friends in various departments), Artifact 8-10, Backing 4, Contacts 5 (within Heaven), Contacts 5 (outside of Heaven), Salary 4. The gods of important cities often possess Celestial Manses between 4 and 5.</p><p><em>Original essence pool from source: 95 (This will almost always be increased via the Essence Plethora Charm.) motes</em></p><p><em>Source: Compass of Celestial Directions, Vol. III: Yu-Shan</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

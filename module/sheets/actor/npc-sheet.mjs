@@ -26,7 +26,12 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       deleteItem:       NpcSheet.#onDeleteItem,
       rollSocialAttack: NpcSheet.#onRollSocialAttack,
       activateCombo:      NpcSheet.#onActivateCombo,
-      togglePurchaseMode: NpcSheet.#onTogglePurchaseMode
+      togglePurchaseMode: NpcSheet.#onTogglePurchaseMode,
+      sendItemToChat:     NpcSheet.#onSendItemToChat,
+      activateCharm:      NpcSheet.#onActivateCharm,
+      addAttack:          NpcSheet.#onAddAttack,
+      deleteAttack:       NpcSheet.#onDeleteAttack,
+      rollNpcAttack:      NpcSheet.#onRollNpcAttack
     }
   };
 
@@ -79,8 +84,9 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const enrichOpts = { secrets: this.document.isOwner, relativeTo: this.document };
     return {
       ...context, actor, system: sys, charms, combos: comboRows, isEditable: this.isEditable,
-      enrichedPowers: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.powers, enrichOpts),
-      enrichedNotes:  await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.notes, enrichOpts)
+      enrichedPowers:    await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.powers,    enrichOpts),
+      enrichedNotes:     await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.notes,     enrichOpts),
+      enrichedBiography: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.biography, enrichOpts)
     };
   }
 
@@ -156,6 +162,45 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static async #onActivateCombo(event, target) {
     const item = this.document.items.get(target.closest("[data-item-id]")?.dataset.itemId);
     if (item?.type === "combo") await item.activateCombo();
+  }
+
+  static async #onSendItemToChat(event, target) {
+    const item = this.document.items.get(target.closest("[data-item-id]")?.dataset.itemId);
+    if (!item) return;
+    const enrichOpts = { secrets: this.document.isOwner, relativeTo: this.document };
+    const TextEditor = foundry.applications.ux.TextEditor.implementation;
+    const powers     = item.system.powers     ? await TextEditor.enrichHTML(item.system.powers,     enrichOpts) : "";
+    const desc       = item.system.description ? await TextEditor.enrichHTML(item.system.description, enrichOpts) : "";
+    await ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor: this.document }),
+      content: `<h2>${item.name}</h2>${powers}${desc}`,
+      flags:   { exalted2e: { itemId: item.id, actorId: this.document.id } }
+    });
+  }
+
+  static async #onActivateCharm(event, target) {
+    const item = this.document.items.get(target.closest("[data-item-id]")?.dataset.itemId);
+    if (item?.type === "charm") await item.activateCharm();
+  }
+
+  static async #onAddAttack() {
+    const attacks = foundry.utils.deepClone(this.document.system.attacks ?? []);
+    attacks.push({ name: "Attack", pool: 5, damage: "5L", speed: 5, rate: 1 });
+    await this.document.update({ "system.attacks": attacks });
+  }
+
+  static async #onDeleteAttack(event, target) {
+    const idx = parseInt(target.closest("[data-attack-index]")?.dataset.attackIndex);
+    if (isNaN(idx)) return;
+    const attacks = foundry.utils.deepClone(this.document.system.attacks ?? []);
+    attacks.splice(idx, 1);
+    await this.document.update({ "system.attacks": attacks });
+  }
+
+  static async #onRollNpcAttack(event, target) {
+    const idx = parseInt(target.closest("[data-attack-index]")?.dataset.attackIndex);
+    if (isNaN(idx)) return;
+    await ExaltedRoll.rollNpcAttack(this.document, idx);
   }
 
   static async #onRollSocialAttack(event, target) {

@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Censor of the South, Lesser Elemental Dragon of Fire",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 7,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 10,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 7,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 7,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 6,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "valor": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 7
+      "value": 7,
+      "max": 7
     },
     "willpower": {
       "value": 8,
       "max": 8
     },
     "motes": {
-      "value": 0,
-      "max": 130
-    },
-    "pools": {
-      "combat": 8,
-      "social": 12,
-      "physical": 8
-    },
-    "combat": {
-      "joinBattle": 12,
-      "dodgeDV": 8,
-      "parryDV": 0,
-      "dodgeMDV": 4,
-      "parryMDV": 2,
-      "soak": {
-        "bashing": 10,
-        "lethal": 5,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": 130,
+        "max": 130,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 12
+      "bonus": {
+        "zero": 0,
+        "one": 3,
+        "two": 2
+      }
     },
-    "powers": "<p>Calculated Order of Immediate Action--Wong Bongerok can create the necessities for a formal audit anywhere, any time. Capture--The censor may consign anyone arrested or found guilty in an audit to a prison with walls of basalt and bars of crystal and flame. He is not free to imprison just anyone: He needs legal (if not righteous) warrants for arrest or imprisonment. Bongerok's prison is part of his sanctum, a spiritual extension of his manse in the Southern desert. Dematerialize--Costs 75 motes Essence Plethora (x2)--20 extra motes Hurry Home--Wong Bongerok can instantly travel to his sanctum or to any Fire Court in Creation. Impromptu Messenger--Through any flame in the South Measure the Wind Natural Elemental Powers--Wong Bongerok has all the powers that are natural to elementals (see Exalted, p. 302). The censor's Dragon's Suspire takes the form of a spray of flaming, oily liquid. It is far more powerful than usual for elementals. Principle of Motion--Wong Bongerok typically has eight banked actions. Reserve of Will (x5) Sense Domain--All-Encompassing. Wong Bongerok's domain consists of Southern spirits and the element of fire. With this Charm, he can attempt to learn the location of any Southern spirit, which requires success at a (Perception + Awareness) roll with two bonus successes, and a difficulty of the spirit's Essence. For 10 motes and 2 Willpower, Bongerok can look out of every flame in the South. Noticing a particular person or other subject of interest to the censor requires the same roll, with a difficulty set by the Storyteller based on the specificity of what Bongerok seeks. (If he looks for \"people trading jewels\" the difficulty would be only 1; if he seeks a specific person, the difficulty is 5.) Shapechange--The censor uses this Charm to assume his humanoid form. He can return to his true, dragon form as a reflexive action at no Essence cost. Tracking--The censor can find anyone or anything he has blessed, cursed or simply \"tagged\" by committing a mote to them. CHAPTER NINE: GODS AND MONSTERS OF THE SOUTH Sorcery Spells: Burning Eyes of the Offender, Death of Obsidian Butterflies, Demon of the First Circle, Emerald Countermagic, Internal Flame, The Ravenous Fire, Summon Elemental.</p>",
-    "notes": "<p>Bite: Speed 5, Accuracy 12, Damage 16L, Parry DV 6, Rate 1 Claw: Speed 4, Accuracy 11, Damage 12L, Parry DV 10, Rate 3 Clinch: Speed 6, Accuracy 10, Damage 7B, Parry DV --, Rate 1, Tags C,N,P Tail Sting: Speed 6, Accuracy 12, Damage 22L + poison*, Parry DV 8, Rate 1 Dragon's Suspire: Speed 6, Accuracy 12**, Damage 16L, Range 40, Rate 1 *Wong Bongerok's Venom: Damage 8L, Toxicity 4, Penalty -5 **This attack fills an area four yards in diameter, centered wherever Bongerok aims it. The attack cannot be blocked, only dodged.</p>",
-    "biography": "<p>Following the chaos of the Great Contagion, the Celestial Bureaucracy could not find the great Censor of the South, Swan Dragon. Wong Bongerok, a seasoned political player in Yu-Shan, lacked experience in Creation but boasted an encyclopedic knowledge of celestial law. His superiors in the Bureau of Heaven thought that Wong Bongerok would serve temporarily then move to a more suitable bureau when Swan Dragon returned. The new censor was glad to be finally recognized and looked forward to further glories. The first century of Wong Bongerok's appointment disappointed everyone. Swan Dragon had been a beloved figure in the South, both a military hero against the Fair Folk and a wise and fair officer of the court. When Wong Bongerok performed audits, Terrestrial gods complained about his failure to understand local conditions, especially in the wake of the Contagion. By the time these complaints trickled into Yu-Shan, however, years had passed and many gods had forgotten about Wong Bongerok's appointment. Thinking that the complaints must be about one of Swan Dragon's deputies, they sent the complaints back to the censor. Wong Bongerok thus suffered double anger, from the lack of recognition and the complaint itself. Bongerok eventually decided that enough was enough. Since apparently he could not live up to the legendary Swan Dragon, he would exploit the confusion in Heaven and the South to fill his coffers and build his own power. If no one would respect his authority, he would make everyone pay for what only a censor could give them: protection from the law. Since then, Wong Bongerok has established tight control over many spirit courts in the South, while paying lip service to his superiors and conspiring with powerful celestial beings. The list of his \"customers\" ranges from great gods such as Amoth City-Smiter (from whom he extracts a handsome bribe to cover up flagrant violations of Celestial law), to local fly-by-night strongman spirits looking to extort a few obols before moving on to their next racket. The Censor of the South has not been entirely circumspect in hiding his activities, counting on Heaven's own bureaucratic sloth and corruption to hide his deeds. In Creation, however, Wong Bongerok has gained a wide circle of supporters, spies and lackeys through bribery, blackmail and intimidation. Any complaints about him end up back in his hands, resulting in terrible retribution. As such, the censor can insert himself into whatever business he feels could benefit him, while sinking the prospects of anyone who gets in his way. Whenever he discovers any wrongdoing worthy of audit, he offers the offender a choice between months, perhaps years of testimony, paperwork and fines, (plus demerits in the Bureau of Heaven)--or timely, modest payments. Few spirits refuse the proposition. The censor never asks for more than the spirit can afford, and he always honors the deal. In Yu-Shan, Wong Bongerok enjoys few honors in accord with his office--certainly not as many as he feels he deserves. In 700-plus years since his appointment, many functionaries in the Bureau of Heaven still send missives addressed to Swan Dragon, Censor of the South. Some spirits greet Bongerok as \"Swan Dragon's deputy, I suppose.\" Wong Bongerok did not know Swan Dragon, but he now loathes his memory. Bongerok justifies his corruption to himself through the perpetually denied requests for greater funding from Heaven. Indeed, he's rather proud of his creativity in playing the unbelievably poor hand he was dealt. A lesser spirit, he considers, would never have lasted as long as he has. Bongerok has enjoyed such success that he no longer seeks further promotion. Indeed, he would do anything to prevent anyone, including (especially!) the great Swan Dragon, from claiming his position. He faces no danger of this, however. Despite how corrupt he has become, Bongerok has taken care to fulfill every duty that Heaven remembers to place on him. Wong Bongerok's everyday form is that of a grossly fat, hairless, red-robed man with eyes in his palms and a light corona of blue fire emanating from his skin. In battle, he resumes his dragon form: a brilliant orange lizard with a long green fin running from the crest of his head to the poisonous stinger at the tip of his tail. An entourage of sycophants, mercenaries, concubines and secretaries usually accompanies him, along with the celestial lions, lion dogs and scarab guardians entailed by his office (though in only half their proper numbers due to budget shortfalls). Sanctum: Wong Bongerok lives in his manse of Khorbat Prantil, formerly the home of Swan Dragon, located deep in the desert 2,000 miles south of Paragon. All of the libraries, dojos and conservatories have been removed for the sake of the new censor's renovations. Presently the mansion seems more like a brothel than the home of an important official.</p><p><strong>Motivation:</strong> To preserve his position and eliminate his political enemies</p><p><strong>Backgrounds:</strong> Allies 3, Backing (Celestial Bureaucracy) 4, Celestial Manse 3, Connections (Bureau of Heaven) 3, Connections (Outlaws) 3, Connections (Southern Threshold) 3, Followers 3, Influence 4, Manse 4, Salary 3</p><p><em>Source: Compass of Terrestrial Directions, Vol. IV: The South</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Following the chaos of the Great Contagion, the Celestial Bureaucracy could not find the great Censor of the South, Swan Dragon. Wong Bongerok, a seasoned political player in Yu-Shan, lacked experience in Creation but boasted an encyclopedic knowledge of celestial law. His superiors in the Bureau of Heaven thought that Wong Bongerok would serve temporarily then move to a more suitable bureau when Swan Dragon returned. The new censor was glad to be finally recognized and looked forward to further glories. The first century of Wong Bongerok's appointment disappointed everyone. Swan Dragon had been a beloved figure in the South, both a military hero against the Fair Folk and a wise and fair officer of the court. When Wong Bongerok performed audits, Terrestrial gods complained about his failure to understand local conditions, especially in the wake of the Contagion. By the time these complaints trickled into Yu-Shan, however, years had passed and many gods had forgotten about Wong Bongerok's appointment. Thinking that the complaints must be about one of Swan Dragon's deputies, they sent the complaints back to the censor. Wong Bongerok thus suffered double anger, from the lack of recognition and the complaint itself. Bongerok eventually decided that enough was enough. Since apparently he could not live up to the legendary Swan Dragon, he would exploit the confusion in Heaven and the South to fill his coffers and build his own power. If no one would respect his authority, he would make everyone pay for what only a censor could give them: protection from the law. Since then, Wong Bongerok has established tight control over many spirit courts in the South, while paying lip service to his superiors and conspiring with powerful celestial beings. The list of his \"customers\" ranges from great gods such as Amoth City-Smiter (from whom he extracts a handsome bribe to cover up flagrant violations of Celestial law), to local fly-by-night strongman spirits looking to extort a few obols before moving on to their next racket. The Censor of the South has not been entirely circumspect in hiding his activities, counting on Heaven's own bureaucratic sloth and corruption to hide his deeds. In Creation, however, Wong Bongerok has gained a wide circle of supporters, spies and lackeys through bribery, blackmail and intimidation. Any complaints about him end up back in his hands, resulting in terrible retribution. As such, the censor can insert himself into whatever business he feels could benefit him, while sinking the prospects of anyone who gets in his way. Whenever he discovers any wrongdoing worthy of audit, he offers the offender a choice between months, perhaps years of testimony, paperwork and fines, (plus demerits in the Bureau of Heaven)--or timely, modest payments. Few spirits refuse the proposition. The censor never asks for more than the spirit can afford, and he always honors the deal. In Yu-Shan, Wong Bongerok enjoys few honors in accord with his office--certainly not as many as he feels he deserves. In 700-plus years since his appointment, many functionaries in the Bureau of Heaven still send missives addressed to Swan Dragon, Censor of the South. Some spirits greet Bongerok as \"Swan Dragon's deputy, I suppose.\" Wong Bongerok did not know Swan Dragon, but he now loathes his memory. Bongerok justifies his corruption to himself through the perpetually denied requests for greater funding from Heaven. Indeed, he's rather proud of his creativity in playing the unbelievably poor hand he was dealt. A lesser spirit, he considers, would never have lasted as long as he has. Bongerok has enjoyed such success that he no longer seeks further promotion. Indeed, he would do anything to prevent anyone, including (especially!) the great Swan Dragon, from claiming his position. He faces no danger of this, however. Despite how corrupt he has become, Bongerok has taken care to fulfill every duty that Heaven remembers to place on him. Wong Bongerok's everyday form is that of a grossly fat, hairless, red-robed man with eyes in his palms and a light corona of blue fire emanating from his skin. In battle, he resumes his dragon form: a brilliant orange lizard with a long green fin running from the crest of his head to the poisonous stinger at the tip of his tail. An entourage of sycophants, mercenaries, concubines and secretaries usually accompanies him, along with the celestial lions, lion dogs and scarab guardians entailed by his office (though in only half their proper numbers due to budget shortfalls). Sanctum: Wong Bongerok lives in his manse of Khorbat Prantil, formerly the home of Swan Dragon, located deep in the desert 2,000 miles south of Paragon. All of the libraries, dojos and conservatories have been removed for the sake of the new censor's renovations. Presently the mansion seems more like a brothel than the home of an important official.</p><p><strong>Motivation:</strong> To preserve his position and eliminate his political enemies</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Bite: Speed 5, Accuracy 12, Damage 16L, Parry DV 6, Rate 1 Claw: Speed 4, Accuracy 11, Damage 12L, Parry DV 10, Rate 3 Clinch: Speed 6, Accuracy 10, Damage 7B, Parry DV --, Rate 1, Tags C,N,P Tail Sting: Speed 6, Accuracy 12, Damage 22L + poison*, Parry DV 8, Rate 1 Dragon's Suspire: Speed 6, Accuracy 12**, Damage 16L, Range 40, Rate 1 *Wong Bongerok's Venom: Damage 8L, Toxicity 4, Penalty -5 **This attack fills an area four yards in diameter, centered wherever Bongerok aims it. The attack cannot be blocked, only dodged.</p><h3>Powers</h3><p>Calculated Order of Immediate Action--Wong Bongerok can create the necessities for a formal audit anywhere, any time. Capture--The censor may consign anyone arrested or found guilty in an audit to a prison with walls of basalt and bars of crystal and flame. He is not free to imprison just anyone: He needs legal (if not righteous) warrants for arrest or imprisonment. Bongerok's prison is part of his sanctum, a spiritual extension of his manse in the Southern desert. Dematerialize--Costs 75 motes Essence Plethora (x2)--20 extra motes Hurry Home--Wong Bongerok can instantly travel to his sanctum or to any Fire Court in Creation. Impromptu Messenger--Through any flame in the South Measure the Wind Natural Elemental Powers--Wong Bongerok has all the powers that are natural to elementals (see Exalted, p. 302). The censor's Dragon's Suspire takes the form of a spray of flaming, oily liquid. It is far more powerful than usual for elementals. Principle of Motion--Wong Bongerok typically has eight banked actions. Reserve of Will (x5) Sense Domain--All-Encompassing. Wong Bongerok's domain consists of Southern spirits and the element of fire. With this Charm, he can attempt to learn the location of any Southern spirit, which requires success at a (Perception + Awareness) roll with two bonus successes, and a difficulty of the spirit's Essence. For 10 motes and 2 Willpower, Bongerok can look out of every flame in the South. Noticing a particular person or other subject of interest to the censor requires the same roll, with a difficulty set by the Storyteller based on the specificity of what Bongerok seeks. (If he looks for \"people trading jewels\" the difficulty would be only 1; if he seeks a specific person, the difficulty is 5.) Shapechange--The censor uses this Charm to assume his humanoid form. He can return to his true, dragon form as a reflexive action at no Essence cost. Tracking--The censor can find anyone or anything he has blessed, cursed or simply \"tagged\" by committing a mote to them. CHAPTER NINE: GODS AND MONSTERS OF THE SOUTH Sorcery Spells: Burning Eyes of the Offender, Death of Obsidian Butterflies, Demon of the First Circle, Emerald Countermagic, Internal Flame, The Ravenous Fire, Summon Elemental.</p><p><strong>Backgrounds:</strong> Allies 3, Backing (Celestial Bureaucracy) 4, Celestial Manse 3, Connections (Bureau of Heaven) 3, Connections (Outlaws) 3, Connections (Southern Threshold) 3, Followers 3, Influence 4, Manse 4, Salary 3</p><p><em>Original essence pool from source: 130 motes</em></p><p><em>Source: Compass of Terrestrial Directions, Vol. IV: The South</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

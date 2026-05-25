@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Sunipa",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 8,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 10,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 8,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 8,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 6,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 7,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 7,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 0,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 5,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      },
+      "valor": {
+        "value": 4,
+        "current": 4,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 7
+      "value": 7,
+      "max": 7
     },
     "willpower": {
       "value": 8,
       "max": 8
     },
     "motes": {
-      "value": 0,
-      "max": 110
-    },
-    "pools": {
-      "combat": 15,
-      "social": 8,
-      "physical": 13
-    },
-    "combat": {
-      "joinBattle": 12,
-      "dodgeDV": 11,
-      "parryDV": 0,
-      "dodgeMDV": 4,
-      "parryMDV": 2,
-      "soak": {
-        "bashing": 22,
-        "lethal": 20,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 8
+      "peripheral": {
+        "value": 110,
+        "max": 110,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 13
+      "bonus": {
+        "zero": 0,
+        "one": 3,
+        "two": 3
+      }
     },
-    "powers": "<p>Sunipa knows an immense variety of Charms. Some of the more important include: General of the All-Seeing Sun--Sunipa's ability to monitor a battlefield has the same effects as this Solar Charm (Exalted, p. 197). She can select any side of a conflict as \"loyal\" to her, as long as she believes they sincerely attempt to follow rules of warfare that minimize harm to civilians. Materialize--This costs Sunipa 75 motes. Measure the Wind--Naturally, Sunipa always spends a mote to assess the prowess of any creature that might become her foe. Principle of Motion--Sunipa carries 8 extra actions in reserve. Reserve of Will--Sunipa has three extra points of temporary Willpower. Sanctify Oath--When military commanders agree to a truce, conditions for an exchange of prisoners or other rules to conflict, intermissions in battle, its resolution or aftermath, Sunipa can sanctify their agreement in the same manner as an Eclipse Caste, and with the same consequences for breaking the rules. She must manifest visibly (if not materially) to do this; it costs her 10 motes. Excellencies--First, Second and Third Excellencies with Archery, Dodge, Integrity, Martial Arts, Melee, Stealth and War. She has Divine (Ability) Subordination with Melee and War, both with the Compassion Flaw of Invulnerability. Terrestrial Circle Sorcery--Sunipa knows several spells with military applications, chiefly those that facilitate communication or construction defenses.</p>",
-    "notes": "<p>Punch: Speed 5, Accuracy 15, Damage 14B*, Parry DV 8, Rate 3 Kick: Speed 5, Accuracy 14, Damage 15B*, Parry DV 6, Rate 2 Clinch: Speed 6, Accuracy 14, Damage 9B piercing*, Parry DV ­, Rate 1 Slashing Sword (Neverfrost): Speed 4, Accuracy 19, Damage 13L*, Parry DV 8, Rate 3 Fire Lance, Melee (Delicate Scarlet Blossom): Speed 5, Accuracy 17, Damage 17L/23L*, Parry DV 9, Rate 2 Fire Lance, Charged: Speed 5, Accuracy 17, Damage 25L/31L, Parry DV 9, Rate 2 Fire Lance, Streamer: Speed 4, Accuracy 17, Damage 18L, Range 750**, Rate 2 Fire Lance, Fire Fan: Speed 5, Accuracy 19, Damage 12L, Range 525**, Rate 1*** * Bonus damage from wood dragon armor included. ** Weapon has no extended range. *** Attacks an area up to 20 feet in diameter; cannot be parried except by perfect parries. Roll the attack once and compare the successes rolled to the Dodge DV of any character who can attempt evasion.</p>",
-    "biography": "<p>Eastern God of War Constrained By Law Sunipa, the East's supreme god of war, governs all aspects of war in which soldiers follow rules. She is the patron of soldiers who follow orders, from grunts in the field to generals who start and end their battles as their heads of state direct. Her purview also covers truces and surrenders, exchanges of prisoners, battlefield challenges, military training, supply contracts, military police and indeed every military activity in which warriors act according to agreed-upon rules. Sunipa works closely with her colleague (and reputed relative) Shield of a Different Day (see The Compass of Terrestrial Directions, Vol. I--The Scavenger Lands, pp. 142-144). She also directs a staff of gods who oversee other aspects of professionalized warfare, such as military intelligence, logistics and chains of command. The goddess herself looks like a fit middle-aged woman, handsome rather than beautiful, with short, gray hair and jet-black eyes. She wears a suit of green and silver magitech armor; a minor illusion makes it look like lightweight, ornamental half-plate with a mottled green and brown camouflage cloak worn over it. Sunipa carries a fire lance called Delicate Scarlet Blossom and a slashing sword called Neverfrost whose blade is carved from steel-hard, unmelting ice. Thus does Sunipa balance pomp and practicality, heat and cold, the magitech of the Exalted and the blades of common mortal soldiers. As Eastern God of War, Sunipa answers to ENaluna, Queen of Warfare in the Bureau of Heaven, and Hu Dai Liang, Shogun of the Crimson of Battles in the Bureau of Destiny's Division of Battles. Sunipa enjoys extensive worship throughout the East. Her cult is particularly strong among mercenaries, who fight according to the terms of contracts. Somewhat ironically, the East's large contingent of guerillas, partisans and insurgents also pray to Sunipa... to keep the regular armies they fight slow and hidebound. In the planning sessions at the Division of Battles, though, Sunipa only backs rebels who feel they have just cause and follow rules about legitimate and illegitimate targets for attack. Sunipa despises rebels who try to tear down a society without building something new in its place, and sees them as no more than bandits with slogans. For all the power and prestige of her office, Sunipa does not consider herself safe. In the First Age, Sunipa held a lower position in the Division of Warfare as patron of the concept of soldiers under orders. As such, the soldiers of the Dragon-Blooded Host fell in her purview. The wolf-goddess Darunla held the office of Eastern War God. When the Usurpation came, Darunla sided CHAPTER FIVE: GODS AND MONSTERS OF THE EAST with the Celestial Exalted. Sunipa felt immensely conflicted: she could not countenance mutiny, but wanted to help her Dragon-Blooded soldiers. Eventually, she sided with the Dragon-Blooded, reasoning that most of the Dragon-Blooded who actually attacked and slew the Solar and Lunar Exalted were just following orders from their own commanders. After the Usurpation, Darunla disappeared and Sunipa took her place. Sunipa believes the Bronze Faction destroyed Darunla, and could destroy her too if they ever suspect her of working against them. Sunipa does not work directly against Solars in the East (for she fears what the resurgent Gold Faction could do to her, too) but tries to prevent any of the gods under her command from assisting the new Lawgivers. Sanctum: Sunipa lives in Yu-Shan, where her mansion doubles as an immense command-and-control complex for monitoring wars throughout the East. She staffs her sanctum with automatons called the Sun Guard, equal to brass legionnaires (see The Books of Sorcery, Vol. I--Wonders of the Lost Age, p. 103), whom she respects as near-perfect examples of dutiful soldiers. She usually keeps a dozen of them nearby.</p><p><strong>Motivation:</strong> To see that warriors fight according to rules.</p><p><strong>Backgrounds:</strong> Allies (staff of subordinate gods) 5, Allies (Sun Guard) 4, Artifact (Verdant Sanctuary) 5, Artifact (Dreadful Necessity) 5, Celestial Manse 3, Cult 5, Followers (Mercenaries and Soldiers) 5, Influence 3, Salary 4, Sanctum 4</p><p><em>Source: Compass of Terrestrial Directions, Vol. III: The East</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Eastern God of War Constrained By Law Sunipa, the East's supreme god of war, governs all aspects of war in which soldiers follow rules. She is the patron of soldiers who follow orders, from grunts in the field to generals who start and end their battles as their heads of state direct. Her purview also covers truces and surrenders, exchanges of prisoners, battlefield challenges, military training, supply contracts, military police and indeed every military activity in which warriors act according to agreed-upon rules. Sunipa works closely with her colleague (and reputed relative) Shield of a Different Day (see The Compass of Terrestrial Directions, Vol. I--The Scavenger Lands, pp. 142-144). She also directs a staff of gods who oversee other aspects of professionalized warfare, such as military intelligence, logistics and chains of command. The goddess herself looks like a fit middle-aged woman, handsome rather than beautiful, with short, gray hair and jet-black eyes. She wears a suit of green and silver magitech armor; a minor illusion makes it look like lightweight, ornamental half-plate with a mottled green and brown camouflage cloak worn over it. Sunipa carries a fire lance called Delicate Scarlet Blossom and a slashing sword called Neverfrost whose blade is carved from steel-hard, unmelting ice. Thus does Sunipa balance pomp and practicality, heat and cold, the magitech of the Exalted and the blades of common mortal soldiers. As Eastern God of War, Sunipa answers to ENaluna, Queen of Warfare in the Bureau of Heaven, and Hu Dai Liang, Shogun of the Crimson of Battles in the Bureau of Destiny's Division of Battles. Sunipa enjoys extensive worship throughout the East. Her cult is particularly strong among mercenaries, who fight according to the terms of contracts. Somewhat ironically, the East's large contingent of guerillas, partisans and insurgents also pray to Sunipa... to keep the regular armies they fight slow and hidebound. In the planning sessions at the Division of Battles, though, Sunipa only backs rebels who feel they have just cause and follow rules about legitimate and illegitimate targets for attack. Sunipa despises rebels who try to tear down a society without building something new in its place, and sees them as no more than bandits with slogans. For all the power and prestige of her office, Sunipa does not consider herself safe. In the First Age, Sunipa held a lower position in the Division of Warfare as patron of the concept of soldiers under orders. As such, the soldiers of the Dragon-Blooded Host fell in her purview. The wolf-goddess Darunla held the office of Eastern War God. When the Usurpation came, Darunla sided CHAPTER FIVE: GODS AND MONSTERS OF THE EAST with the Celestial Exalted. Sunipa felt immensely conflicted: she could not countenance mutiny, but wanted to help her Dragon-Blooded soldiers. Eventually, she sided with the Dragon-Blooded, reasoning that most of the Dragon-Blooded who actually attacked and slew the Solar and Lunar Exalted were just following orders from their own commanders. After the Usurpation, Darunla disappeared and Sunipa took her place. Sunipa believes the Bronze Faction destroyed Darunla, and could destroy her too if they ever suspect her of working against them. Sunipa does not work directly against Solars in the East (for she fears what the resurgent Gold Faction could do to her, too) but tries to prevent any of the gods under her command from assisting the new Lawgivers. Sanctum: Sunipa lives in Yu-Shan, where her mansion doubles as an immense command-and-control complex for monitoring wars throughout the East. She staffs her sanctum with automatons called the Sun Guard, equal to brass legionnaires (see The Books of Sorcery, Vol. I--Wonders of the Lost Age, p. 103), whom she respects as near-perfect examples of dutiful soldiers. She usually keeps a dozen of them nearby.</p><p><strong>Motivation:</strong> To see that warriors fight according to rules.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Punch: Speed 5, Accuracy 15, Damage 14B*, Parry DV 8, Rate 3 Kick: Speed 5, Accuracy 14, Damage 15B*, Parry DV 6, Rate 2 Clinch: Speed 6, Accuracy 14, Damage 9B piercing*, Parry DV ­, Rate 1 Slashing Sword (Neverfrost): Speed 4, Accuracy 19, Damage 13L*, Parry DV 8, Rate 3 Fire Lance, Melee (Delicate Scarlet Blossom): Speed 5, Accuracy 17, Damage 17L/23L*, Parry DV 9, Rate 2 Fire Lance, Charged: Speed 5, Accuracy 17, Damage 25L/31L, Parry DV 9, Rate 2 Fire Lance, Streamer: Speed 4, Accuracy 17, Damage 18L, Range 750**, Rate 2 Fire Lance, Fire Fan: Speed 5, Accuracy 19, Damage 12L, Range 525**, Rate 1*** * Bonus damage from wood dragon armor included. ** Weapon has no extended range. *** Attacks an area up to 20 feet in diameter; cannot be parried except by perfect parries. Roll the attack once and compare the successes rolled to the Dodge DV of any character who can attempt evasion.</p><h3>Powers</h3><p>Sunipa knows an immense variety of Charms. Some of the more important include: General of the All-Seeing Sun--Sunipa's ability to monitor a battlefield has the same effects as this Solar Charm (Exalted, p. 197). She can select any side of a conflict as \"loyal\" to her, as long as she believes they sincerely attempt to follow rules of warfare that minimize harm to civilians. Materialize--This costs Sunipa 75 motes. Measure the Wind--Naturally, Sunipa always spends a mote to assess the prowess of any creature that might become her foe. Principle of Motion--Sunipa carries 8 extra actions in reserve. Reserve of Will--Sunipa has three extra points of temporary Willpower. Sanctify Oath--When military commanders agree to a truce, conditions for an exchange of prisoners or other rules to conflict, intermissions in battle, its resolution or aftermath, Sunipa can sanctify their agreement in the same manner as an Eclipse Caste, and with the same consequences for breaking the rules. She must manifest visibly (if not materially) to do this; it costs her 10 motes. Excellencies--First, Second and Third Excellencies with Archery, Dodge, Integrity, Martial Arts, Melee, Stealth and War. She has Divine (Ability) Subordination with Melee and War, both with the Compassion Flaw of Invulnerability. Terrestrial Circle Sorcery--Sunipa knows several spells with military applications, chiefly those that facilitate communication or construction defenses.</p><p><strong>Backgrounds:</strong> Allies (staff of subordinate gods) 5, Allies (Sun Guard) 4, Artifact (Verdant Sanctuary) 5, Artifact (Dreadful Necessity) 5, Celestial Manse 3, Cult 5, Followers (Mercenaries and Soldiers) 5, Influence 3, Salary 4, Sanctum 4</p><p><em>Original essence pool from source: 110 motes</em></p><p><em>Source: Compass of Terrestrial Directions, Vol. III: The East</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }

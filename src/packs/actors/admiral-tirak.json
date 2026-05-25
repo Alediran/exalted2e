@@ -10,49 +10,314 @@
     "lastModifiedBy": null
   },
   "name": "Admiral Tirak",
-  "type": "npc",
+  "type": "character",
   "img": "icons/svg/mystery-man.svg",
   "system": {
-    "npcType": "spirit",
+    "exaltType": "spirit",
+    "caste": "",
     "concept": "",
+    "anima": "none",
+    "scenePeripheral": 0,
+    "attributes": {
+      "strength": {
+        "value": 2,
+        "caste": false,
+        "favored": false
+      },
+      "dexterity": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "stamina": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "charisma": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "manipulation": {
+        "value": 5,
+        "caste": false,
+        "favored": false
+      },
+      "appearance": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      },
+      "perception": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "intelligence": {
+        "value": 4,
+        "caste": false,
+        "favored": false
+      },
+      "wits": {
+        "value": 3,
+        "caste": false,
+        "favored": false
+      }
+    },
+    "abilities": {
+      "archery": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "athletics": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "awareness": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "bureaucracy": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "craft": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "dodge": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "integrity": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "investigation": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "larceny": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "linguistics": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "lore": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "martialArts": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "medicine": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "melee": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "occult": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "performance": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "presence": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "resistance": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "ride": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "sail": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "socialize": {
+        "value": 4,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "stealth": {
+        "value": 2,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "survival": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "thrown": {
+        "value": 1,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      },
+      "war": {
+        "value": 3,
+        "defaultAttribute": "",
+        "caste": false,
+        "favored": false,
+        "specialties": []
+      }
+    },
+    "virtues": {
+      "compassion": {
+        "value": 1,
+        "current": 1,
+        "channeled": false
+      },
+      "conviction": {
+        "value": 5,
+        "current": 5,
+        "channeled": false
+      },
+      "temperance": {
+        "value": 3,
+        "current": 3,
+        "channeled": false
+      },
+      "valor": {
+        "value": 2,
+        "current": 2,
+        "channeled": false
+      }
+    },
     "essence": {
-      "value": 1
+      "value": 1,
+      "max": 1
     },
     "willpower": {
       "value": 8,
       "max": 8
     },
     "motes": {
-      "value": 0,
-      "max": 0
-    },
-    "pools": {
-      "combat": 4,
-      "social": 9,
-      "physical": 4
-    },
-    "combat": {
-      "joinBattle": 6,
-      "dodgeDV": 3,
-      "parryDV": 0,
-      "dodgeMDV": 4,
-      "parryMDV": 1,
-      "soak": {
-        "bashing": 5,
-        "lethal": 4,
-        "aggravated": 0
+      "personal": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
       },
-      "hardness": 0
+      "peripheral": {
+        "value": 0,
+        "max": 0,
+        "committed": 0,
+        "bonus": 0
+      }
     },
+    "limit": 0,
     "health": {
       "bashing": 0,
       "lethal": 0,
       "aggravated": 0,
-      "totalBoxes": 7
+      "bonus": {
+        "zero": 0,
+        "one": 0,
+        "two": 0
+      }
     },
-    "powers": "<p>None</p>",
-    "notes": "<p>Punch: Speed 5, Accuracy 5, Damage 2B, Defense 6, Rate 3 Kick: Speed 5, Accuracy 4, Damage 5B, Defense 2, Rate 2 Clinch: Speed 6, Accuracy 4, Damage 2B, Defense -, Rate 1 Exceptional Slashing Sword: Speed 4, Accuracy 6, Damage 6L, Defense 5, Rate 3 Exceptional Thrown Knife: Speed 5, Accuracy 5, Damage 5L*, Range 25, Rate 3 * Stonefish venom: Damage 7L/hour, Toxicity 4, Tolerance ­/­, Penalty -4, Resources 3</p>",
-    "biography": "<p>Commander of the Navy of the Coral Archipelago, Heroic Mortal Only five foot ten and 145 pounds, Tirak is nonetheless feared by his enemies and applauded by his allies. One withering glance from this sinister-looking, dark-haired and dark-eyed Westerner is enough to silence all but the bravest or most foolish souls. Admiral Tirak possesses fairly basic skills in personal combat, but these are never tested. He surrounds himself with loyal bodyguards and diligent advisors. Those who threaten him without political backing are summarily beaten, often to death. If someone truly angers Tirak, he will hire assassins to kill their family. Admiral Tirak is a patriot, and wants nothing less than the ascension of his country to empire. Fellow officers may disapprove of his harsh tactics, but they respect his devotion to Coral. He fights naval battles the same way he fights his personal ones, carefully maneuvering Coral vessels manned with foreign recruits CHAPTER SEVEN · GODS AND MONSTERS OF THE WEST into battle while husbanding the strength of his own countrymen. His policy of ignoring the dark pasts of naval applicants was initially controversial, but he has quietly demonstrated its pragmatic value. Rewarding the hard work and valor of heroic sailors inspires others to follow suit. Tirak promotes talented naval officers who demonstrate exceptional loyalty and patriotism to his own cadre of captains and staff. Tirak considers himself an intellectual powerhouse who was wrongfully denied the blessings of DragonBlood, even going so far as to become proficient in High Realm and Gateway. He disdains gambling and the use of drugs as the activities of the weak-minded. His studies of thaumaturgy have borne fruit, and he is an adept weather-worker. The private activities of the Admiral are disturbing, and could potentially ruin him if they became public knowledge. Tirak likes women, but he is a sadist who gets his sexual thrills from tormenting them. He is also a homophobe, and has discreetly kidnapped and tortured to death a number of homosexuals. In the past few years, his studies have delved into the Art of the Dead. Initially, the admiral chose to study the dead in order to ward against the threat of the Skullstone Archipelago. Spies from Onyx hope to turn Tirak to the service of the Bodhisattva Anointed by Dark Water, and have delivered Tirak necromantic texts while trying to gather evidence or control of his vices. Thus far, the admiral has been successful in ruthlessly suppressing any trace of his secrets.</p><p><strong>Motivation:</strong> To turn the Coral Archipelago into a powerful and prosperous empire under his command.</p><p><strong>Backgrounds:</strong> Allies 5, Artifact 2 (cord of winds, freshwater pearl), Backing 5 (Coral Archipelago), Contacts 4 (Coral Archipelago and Onyx), Followers 4, Influence 3, Resources 5</p><p><em>Source: Compass of Terrestrial Directions, Vol. II: The West</em></p>",
+    "slots": {
+      "hands": 2,
+      "feet": 1,
+      "armor": 1,
+      "head": 1
+    },
+    "experience": {
+      "value": 0,
+      "total": 0
+    },
+    "sorcery": {
+      "initiation": 0
+    },
+    "necromancy": {
+      "initiation": 0
+    },
+    "weaving": {
+      "initiation": 0
+    },
+    "splat": {},
+    "biography": "<p>Commander of the Navy of the Coral Archipelago, Heroic Mortal Only five foot ten and 145 pounds, Tirak is nonetheless feared by his enemies and applauded by his allies. One withering glance from this sinister-looking, dark-haired and dark-eyed Westerner is enough to silence all but the bravest or most foolish souls. Admiral Tirak possesses fairly basic skills in personal combat, but these are never tested. He surrounds himself with loyal bodyguards and diligent advisors. Those who threaten him without political backing are summarily beaten, often to death. If someone truly angers Tirak, he will hire assassins to kill their family. Admiral Tirak is a patriot, and wants nothing less than the ascension of his country to empire. Fellow officers may disapprove of his harsh tactics, but they respect his devotion to Coral. He fights naval battles the same way he fights his personal ones, carefully maneuvering Coral vessels manned with foreign recruits CHAPTER SEVEN · GODS AND MONSTERS OF THE WEST into battle while husbanding the strength of his own countrymen. His policy of ignoring the dark pasts of naval applicants was initially controversial, but he has quietly demonstrated its pragmatic value. Rewarding the hard work and valor of heroic sailors inspires others to follow suit. Tirak promotes talented naval officers who demonstrate exceptional loyalty and patriotism to his own cadre of captains and staff. Tirak considers himself an intellectual powerhouse who was wrongfully denied the blessings of DragonBlood, even going so far as to become proficient in High Realm and Gateway. He disdains gambling and the use of drugs as the activities of the weak-minded. His studies of thaumaturgy have borne fruit, and he is an adept weather-worker. The private activities of the Admiral are disturbing, and could potentially ruin him if they became public knowledge. Tirak likes women, but he is a sadist who gets his sexual thrills from tormenting them. He is also a homophobe, and has discreetly kidnapped and tortured to death a number of homosexuals. In the past few years, his studies have delved into the Art of the Dead. Initially, the admiral chose to study the dead in order to ward against the threat of the Skullstone Archipelago. Spies from Onyx hope to turn Tirak to the service of the Bodhisattva Anointed by Dark Water, and have delivered Tirak necromantic texts while trying to gather evidence or control of his vices. Thus far, the admiral has been successful in ruthlessly suppressing any trace of his secrets.</p><p><strong>Motivation:</strong> To turn the Coral Archipelago into a powerful and prosperous empire under his command.</p><h3>Attacks (reference — add weapon items for roll pipeline)</h3><p>Punch: Speed 5, Accuracy 5, Damage 2B, Defense 6, Rate 3 Kick: Speed 5, Accuracy 4, Damage 5B, Defense 2, Rate 2 Clinch: Speed 6, Accuracy 4, Damage 2B, Defense -, Rate 1 Exceptional Slashing Sword: Speed 4, Accuracy 6, Damage 6L, Defense 5, Rate 3 Exceptional Thrown Knife: Speed 5, Accuracy 5, Damage 5L*, Range 25, Rate 3 * Stonefish venom: Damage 7L/hour, Toxicity 4, Tolerance ­/­, Penalty -4, Resources 3</p><h3>Powers</h3><p>None</p><p><strong>Backgrounds:</strong> Allies 5, Artifact 2 (cord of winds, freshwater pearl), Backing 5 (Coral Archipelago), Contacts 4 (Coral Archipelago and Onyx), Followers 4, Influence 3, Resources 5</p><p><em>Source: Compass of Terrestrial Directions, Vol. II: The West</em></p>",
     "purchaseLocked": false
   },
   "folder": "b2c3d4e500000000",
@@ -61,5 +326,6 @@
     "default": 0
   },
   "flags": {},
-  "effects": []
+  "effects": [],
+  "items": []
 }
