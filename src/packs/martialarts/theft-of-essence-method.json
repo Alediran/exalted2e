@@ -67,7 +67,14 @@
       }
     ],
     "charmUid": "6a3e188e4263dd29",
-    "grantsMastery": false
+    "grantsMastery": false,
+    "moteRecovery": {
+      "enabled": true,
+      "source": "fromTarget",
+      "event": "onAttackSuccess",
+      "action": "recoverPeripheral",
+      "formula": "3"
+    }
   },
   "folder": "fc9347d4223ef93b",
   "sort": 0,

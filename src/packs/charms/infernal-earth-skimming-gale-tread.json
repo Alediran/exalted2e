@@ -71,6 +71,14 @@
         ]
       }
     ],
+    "maxPurchases": "3",
+    "essenceGates": [4, 5],
+    "moveBonus": {
+      "enabled": true,
+      "dashAdd": "",
+      "flight": true,
+      "waterWalking": false
+    },
     "charmUid": "05c5a451c24b29b8"
   },
   "folder": "e1c045f50a834f12",

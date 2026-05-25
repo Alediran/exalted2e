@@ -66,6 +66,10 @@
         ]
       }
     ],
+    "attackBonus": {
+      "enabled": true,
+      "ignoresArmor": true
+    },
     "charmUid": "953beb5e41e2feea",
     "grantsMastery": false
   },

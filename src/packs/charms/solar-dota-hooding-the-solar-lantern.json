@@ -45,6 +45,7 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
+    "maxPurchases": "max(1, @stealth - 4)",
     "charmUid": "771425e899e8cd12"
   },
   "folder": "07815dca7bd3d3d3",

@@ -67,6 +67,10 @@
         ]
       }
     ],
+    "attackBonus": {
+      "enabled": true,
+      "soakPiercing": 3
+    },
     "mirrorId": "f1bb29c1ce4124b6",
     "charmUid": "c1d2e3f4a5b60020",
     "grantsMastery": false

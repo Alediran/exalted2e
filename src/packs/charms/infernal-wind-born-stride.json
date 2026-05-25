@@ -45,7 +45,13 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "323c4fdbe94b4f30"
+    "charmUid": "323c4fdbe94b4f30",
+    "moveBonus": {
+      "enabled": true,
+      "dashAdd": "@essence",
+      "flight": false,
+      "waterWalking": false
+    }
   },
   "folder": "e1c045f50a834f12",
   "sort": 0,

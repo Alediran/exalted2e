@@ -67,7 +67,13 @@
       }
     ],
     "charmUid": "f1ce3eb5b4879e4d",
-    "grantsMastery": false
+    "grantsMastery": false,
+    "moveBonus": {
+      "enabled": true,
+      "dashAdd": "",
+      "flight": false,
+      "waterWalking": true
+    }
   },
   "folder": "037a2b61816f0f70",
   "sort": 0,

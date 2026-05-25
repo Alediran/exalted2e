@@ -68,7 +68,13 @@
       "dodgeBonusFormula": "",
       "parryBonusFormula": ""
     },
-    "charmUid": "d9b078b3616e87f3"
+    "charmUid": "d9b078b3616e87f3",
+    "moveBonus": {
+      "enabled": true,
+      "dashAdd": "",
+      "flight": true,
+      "waterWalking": false
+    }
   },
   "folder": "b0b1b2b3b4b5f054",
   "sort": 0,

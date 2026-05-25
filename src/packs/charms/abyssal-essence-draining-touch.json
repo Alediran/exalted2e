@@ -48,7 +48,14 @@
     "active": false,
     "prereqGroups": [],
     "charmUid": "4a97beb3bc27ac1d",
-    "mirrorId": "0b7df63b20866a07"
+    "mirrorId": "0b7df63b20866a07",
+    "moteRecovery": {
+      "enabled": true,
+      "source": "fromTarget",
+      "event": "onAttackSuccess",
+      "action": "recoverPeripheral",
+      "formula": "3"
+    }
   },
   "folder": "b0b1b2b3b4b5f03d",
   "sort": 0,
