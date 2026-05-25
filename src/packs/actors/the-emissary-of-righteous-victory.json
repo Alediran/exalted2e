@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000125",
+  "_key": "!actors!0001000000000125",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Emissary of Righteous Victory",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 6
+    },
+    "willpower": {
+      "value": 10,
+      "max": 10
+    },
+    "motes": {
+      "value": 0,
+      "max": "111 (122) Committed"
+    },
+    "pools": {
+      "combat": 10,
+      "social": 10,
+      "physical": 11
+    },
+    "combat": {
+      "joinBattle": 10,
+      "dodgeDV": 7,
+      "parryDV": 0,
+      "dodgeMDV": 5,
+      "parryMDV": 3,
+      "soak": {
+        "bashing": 20,
+        "lethal": 15,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "<p>Blade-Summoning Gesture, Crouching Gargoyle Stance, Dread Lord's Demeanor, Essence-Draining Touch, Exquisite Etiquette Style, Falling Scythe Attack, First Athletics Excellency, First Melee Excellency, First Performance Excellency, First Presence Excellency, Five Shadow Feint, Mist Over Ice, Morbid Fascination Style, On Wings of Night, Ox-Body Technique (x3), Raiton's Nimble Perch, Second Dodge Excellency, Shadowlands Circle Necromancy, Soul-Flaying Gaze, Spider Pounce Technique, Void Sheath Technique Spells: Banish Ghost; Death Inversion Loop; Five Gifts; Iron Countermagic; Silent Master's Pollen; Soul Brand; Stones Worn Smooth; Summon Ghost; Without Pity, Without Scorn</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 10, Damage 4B, Parry DV 6, Rate 3 Kick: Speed 5, Accuracy 9, Damage 7B, Parry DV 4, Rate 2 Clinch: Speed 6, Accuracy 9, Damage 4B, Parry DV --, Rate 1 Soulsteel Dire Lance (Void Apostle): Speed 5, Accuracy 14, Damage* 12L/16L, Parry DV 7, Rate 2 * Anyone struck by Void Apostle hears the Whispers of Oblivion (see The Books of Sorcery, Vol. II--The Black Treatise, p. 33 or, for more extensive explanation, The Manual of Exalted Power--The Abyssals or The Books of Sorcery, Vol. V--The Roll of Glorious Divinity II). The target, ghost or mortal, hears Oblivion's voice until his player succeeds at an (Integrity + Willpower) roll at difficulty 5, checked daily. Failure means the target spends the day engaged in abhorrent crimes against existence and all he holds dear. Exalted can resist this Total Control effect for a day by spending four Willpower.</p>",
+    "biography": "<p>No one has seen the face or body of this potent spectre. Beneath his dark, artfully tattered robes, he wears silvery, close-fitting armor that suggests he has the body of a slim, athletic man. Likewise, he wears a silver mask chased with swirling arabesques but devoid of human features. It shows only darkness behind the eye slits. The Emissary shows expression entirely through his voice, posture and the tilt of his head, and that is enough. Two great wings, fledged in the iridescent black of the Void, spring from his shoulders. When the Emissary wants, he can summon a soulsteel spear. The Emissary of Righteous Victory has evinced Arcanoi, Charms and necromancy sufficient to overpower Maru, the ruler of the District Where Shadows Walk. So far, however, the Emissary shows no interest in usurping the nephwrack. He preaches the doctrine of Oblivion (with far greater CHAPTER EIGHT · UNDERWORLD ANTAGONISTS coherence and logic than any nephwrack) and assists the Deathlords as a neutral agent and interlocutor, working for all and beholden to none. At times the Emissary seems amused by the Deathlords' pretensions, though he respects their power.</p><p><strong>Motivation:</strong> Draw other creatures willingly to the Abyss.</p><p><strong>Backgrounds:</strong> Allies (Deathlords) 5, Artifact (Soulsteel Articulated Plate) 4, Artifact (Soulsteel Dire Lance) 4, Contacts 3, Followers 3, Influence 3, Underworld Cult 2, Underworld Manse 5 Arcanoi: Chains of the Ancient Monarchs: All Charms Essence-Measuring Thief Arts: All Charms Noble Craftsman Ways: All Charms Savage Ghost Tamer Arts: All Charms Scholarly Ways: Discerning Student Technique, Imperious Instructor's Dictate, Masterly Pedagogical Inquiry, Unseemly Librarian Nature Shadow Constraint Craft: All Charms Terror-Spreading Art: All Charms Abyssal</p><p><em>Source: Compass of Celestial Directions, Vol. IV: The Underworld</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

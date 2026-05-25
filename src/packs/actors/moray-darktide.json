@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000117",
+  "_key": "!actors!0001000000000117",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Moray Darktide",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 4
+    },
+    "willpower": {
+      "value": 7,
+      "max": 7
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 9,
+      "social": 7,
+      "physical": 9
+    },
+    "combat": {
+      "joinBattle": 6,
+      "dodgeDV": 6,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 16,
+        "lethal": 11,
+        "aggravated": 0
+      },
+      "hardness": 6
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "<p>Call the Blade; Durability of Oak Meditation; Feather-Foot Style; First Melee Excellency; First Resistance Excellency; Graceful Crane Stance; Hungry Tiger Technique; Iron Skin Concentration; Melee Essence Flow; Monkey Leap Technique; Mountain-Crossing Leap Technique; One Weapon, Two Blows; Peony Blossom Attack; Reflex Sidestep Technique; Salty Dog Method; Sea Ambush Technique; Second Sail Excellency; Soaring Crane Leap; Spirit-Detecting Glance</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 8, Damage 4B, Parry DV 5, Rate 3 Kick: Speed 5, Accuracy 7, Damage 7B, Parry DV 3, Rate 2 Clinch: Speed 6, Accuracy 7, Damage 4B, Parry DV --, Rate 1 Orichalcum Wavecleaver Daiklave (Sun Kisses the Waves): Speed 5, Accuracy 13, Damage 11L/3, Parry DV 6, Rate 3</p>",
+    "biography": "<p>Your blade shall bring my light into dark places. Hold fast to faith and courage, Moray Darktide, for soon you sail on strange seas. Thus spoke a voice unknown to Captain Moray Darktide, pirate of Skullstone, and a battle against Lintha pirates ended with their deaths instead of his own. On his return to Onyx, Darktide told the Silver Prince about his strange empowerment and asked what it meant. Captain Darktide still serves the Deathlord of Skullstone. The patriotic captain sees no contradiction between being a Dawn Caste Solar and serving a Deathlord. He believes the Silver Prince's propaganda about a New Order of cooperation between the living and the dead. Any foe of Skullstone, whether mortal, demon or Exalt, is a foe of Moray Darktide. He takes a special pleasure in slaying the Lintha and their demons, though. The Silver Prince keeps a close watch on Darktide. The Solar pirate seems utterly loyal and utterly ruthless in battle, but... the stories spreading about him have an edge of admiration, as well as fear. Darktide keeps his promises and respects parleys. People throughout the West welcome new stories about Darktide's victories. Skullstone is creepy, but they hate the Lintha. Pictures of the square-jawed, strongbodied captain with long, windblown hair, eyepatch and skull epaulettes on his naval greatcoat appear throughout the West--and now, they are not always \"wanted\" posters. In the Underworld, the inhabitants of Skullstone's tributaries through the West (many of whom died under Lintha blades) welcome visits from the bold captain who brings the light of Creation's sun. The Deathlord knows that his devoted servant must not learn certain things or rise too high in the public's estimation. Moray Darktide does not realize how great a threat he could be to the Bodhisattva's reign.</p><p><strong>Motivation:</strong> Bring about the Silver Prince's New Order Caste: Dawn Anima Banner: A host of skeletal warriors amid crashing waves of light</p><p><strong>Backgrounds:</strong> Abyssal Command 2, Artifact (Orichalcum Hearthstone Amulet) 1, Artifact (Orichalcum Hearthstone Bracers) 2, Artifact (Orichalcum Reinforced Buff Jacket) 2, Artifact (Orichalcum Wavecleaver Daiklave) 2, Contacts 3, Influence 3, Liege 2, Manse 3, Resources 4, Underworld Manse 3</p><p><em>Source: Compass of Celestial Directions, Vol. IV: The Underworld</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

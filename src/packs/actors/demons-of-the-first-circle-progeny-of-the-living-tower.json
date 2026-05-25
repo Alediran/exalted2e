@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000151",
+  "_key": "!actors!0001000000000151",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Demons of the First Circle, Progeny of the Living Tower",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "demon",
+    "concept": "",
+    "essence": {
+      "value": 3
+    },
+    "willpower": {
+      "value": 8,
+      "max": 8
+    },
+    "motes": {
+      "value": 0,
+      "max": 80
+    },
+    "pools": {
+      "combat": 5,
+      "social": 8,
+      "physical": 6
+    },
+    "combat": {
+      "joinBattle": 9,
+      "dodgeDV": 5,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 7,
+        "lethal": 3,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 12
+    },
+    "powers": "<p>Essence Plethora--10 extra motes Hoodwink--The gethin entrances others with its shining eyes Landscape Travel--Gethin swim with inhuman swiftness, leaving a trail of black oil upon the water Materialize--Costs 55 motes Memory Mirror--Recalls memories from the being whose identity it has stolen Mirror of the Infinite Wardrobe--Copies the appearance of the being whose identity it has stolen Scourge--Steal identity: Arcane Fate, -1 Intelligence Tracking--Knows the location of the being whose identity it has stolen First (Ability) Excellency--Investigation, Larceny, Socialize Second (Ability) Excellency--Investigation, Larceny Third (Ability) Excellency--Socialize</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 6, Damage 3B, Parry DV 4, Rate 3 Kick: Speed 5, Accuracy 5, Damage 6B, Parry DV 2, Rate 2 Clinch: Speed 6, Accuracy 5, Damage 3B, Parry DV --, Rate 1, Tags P</p>",
+    "biography": "<p>Octavian devised the gethin to seek out rare and precious things to fill his treasury and fuel the forges of his artificers. Now they serve many masters, for they have bred beyond his ability to control. Their talents, though narrow, allow them to fulfill a range of functions. Some are explorers and gatherers, others assassins and thieves, while still others perform as exotic demon courtesans. In its natural state, a gethin appears as an upright, man-sized salamander swathed in oily black plumage, but it can borrow the shape of anyone who meets its enormous vermilion eyes. It borrows a measure of its victim's memory and personality as well. A gethin in another's guise can scarcely be distinguished from the original, except by the telltale traces of black oil that it leaves behind. The gethin uses its stolen visage to infiltrate and obtain whatever treasures it seeks. Meanwhile, the victim of its face-theft wanders dazed and empty. With only fragments of identity and memory, she only half-exists. Even her loved ones scarcely notice her presence. For each gethin, there exists a single soul treasure, a thing that forms its heart's desire. It doesn't know where the treasure is located or even what it looks like, but it will recognize it unerringly when it finds it, so it seeks the treasure in the course of its duties. If a gethin finds its soul treasure, it embraces the thing and weeps tears of joy that turn to stone, enclosing both within a chrysalis CHAPTER FIVE: THE DAMNED of malachite. The two meld and divide, and two newborn gethin crawl from the chrysalis five days later, unbound by any master or summoner. Summoning: (Obscurity 2/3) Summoners generally deploy gethin as spies and thieves. A harvester of rarities occasionally crawls forth from Malfeas when a twin impersonates her sibling for malicious purposes. Each day that a gethin is prevented from exploring unfamiliar places to seek its soul treasure, it gains a point of Limit.</p><p><strong>Motivation:</strong> To seek out its soul treasure.</p><p><strong>Backgrounds:</strong> Backing 1</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "d4e5f6a700000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

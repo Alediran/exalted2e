@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000223",
+  "_key": "!actors!0001000000000223",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Samea of the Blackwater Mammoth Tribe",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 4
+    },
+    "willpower": {
+      "value": 9,
+      "max": 9
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 6,
+      "social": 10,
+      "physical": 4
+    },
+    "combat": {
+      "joinBattle": 5,
+      "dodgeDV": 5,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 2,
+      "soak": {
+        "bashing": 4,
+        "lethal": 2,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 10
+    },
+    "powers": "<p>Ailment-Rectifying Method, Celestial Circle Sorcery, Durability of Oak Meditation, First Martial Arts Excellency, First Presence Excellency, Flawless Diagnosis Technique, Infinite Presence Mastery, Iron Kettle Body, Iron Skin Concentration, Majestic Radiant Presence, Ox-Body Technique, Second Integrity Excellency, Spirit-Detecting Glance, Terrestrial Circle Sorcery, Terrifying Apparition of Glory, Underling Promoting Touch Spells: Commanding the Beasts, Demon of the Second Circle, Flight of the Brilliant Raptor, Incantation of Spiritual Discretion, Infallible Messenger, Magma Kraken, Summon Elemental, Swift Spirit of Winged Transportation</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 7, Damage 2B, Parry DV 4, Rate 3 Kick: Speed 5, Accuracy 6, Damage 5B, Parry DV 2, Rate 2 Clinch: Speed 6, Accuracy 6, Damage 2B, Parry DV --, Rate 1, Tags P</p>",
+    "biography": "<p>The entire Blackwater Mammoth tribe raised Samea after the death of her parents. She became a skilled and highly observant gatherer of wild foods, but her intellect demanded more. The Blackwater Mammoth icewalkers expected her to become a shaman when her curiosity led her to a meeting with a small god and her innocent charisma made the meeting friendly. Samea Exalted while she wandered alone, trying to follow the path of a circling raptor, and the Unconquered Sun told her to restore the land to its First Age glories. Creation revealed the power of sorcery to her as if every tree and beast, rock and cloud had waited an Age to tell her their secrets. Memories from the First Age guided her to long-forgotten libraries buried beneath the snow, further expanding her power. After a year of travel, Samea returned to her tribe as a powerful guardian. At first she was also feared as a witch, but soon she was revered as a prophet. First and foremost, Samea acts as a guide and mother to her people. She now sees all icewalkers as her family. The Blackwater Mammoth folk are her brothers and sisters, her sons and daughters. All other icewalkers are her cousins. She holds herself responsible for their wellbeing. Likewise, the Ice Plains are her home, and she guards them zealously against the polluting forces of the Wyld and the dead. Yurgen Kaneko, as a fellow icewalker, is Samea's cousin. As the first Solar she ever met and her only Exalted companion for several years, he became her friend (though not, as many have claimed, her lover). She respects his power and feels indebted to him as any friend might feel toward another, but she does not serve him. When she joins Kaneko in war against civilized nations and calls forth demons to aid his armies, she adds to the tally of debts he owes her, balancing them against the favors he has done for her and their people in the past. Should the icewalkers come under threat, Samea will call upon the Bull to repay those debts, no matter the situation elsewhere in his empire. Even as a child, Samea commanded attention. Her stubborn bearing and haunted eyes compelled even those not of her tribe to listen. As a Solar, her presence is supernatural. Those who hear her sermons find that her words haunt their dreams. When she exercises her Charms, she burns her will into the souls of her congregation. She does not use this power casually, but she has no scruples about employing it when the occasion warrants, as when she enjoins them to obey what she sees as the Unconquered Sun's will. Entire tribes of icewalkers obey her injunctions without thinking, her words echoing in their minds in lieu of their own thoughts. For all her power, Samea still looks 17 years old. She has flowing black hair, a delicate chin and a still-girlish figure. Her large, dark eyes, steady gaze and solemn expression, however, make people feel like they face someone very old and wise. When she runs, though, she hikes her felt skirt above her knees and seems like a girl again. Samea carries no weapons or armor--just a belt of gourds and pouches full of her magical supplies.</p><p><strong>Motivation:</strong> Extirpate all supernatural threats to her people. Caste: Zenith Anima Banner: A blazing white tree with golden leaves.</p><p><strong>Backgrounds:</strong> Artifact 1, Allies 5, Cult 3, Followers 3, Influence 4, Manse 3, Resources 4</p><p><em>Source: Compass of Terrestrial Directions, Vol. V: The North</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

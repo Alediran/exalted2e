@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000191",
+  "_key": "!actors!0001000000000191",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Graced Chayan Monks",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 3
+    },
+    "willpower": {
+      "value": 7,
+      "max": 7
+    },
+    "motes": {
+      "value": 0,
+      "max": 30
+    },
+    "pools": {
+      "combat": 7,
+      "social": 5,
+      "physical": 6
+    },
+    "combat": {
+      "joinBattle": 6,
+      "dodgeDV": 4,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 3,
+        "lethal": 0,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "<p>Crimson Pentacle Blade Style--Crimson Pentacle Blade Form, Eastern Root Protocol, Graceful Tortoise Technique, Northern Lotus Petal Discernment Meditation, Speardancer Concentration Essence Pool--As enlightened mortals, graced monks have Essence pools of (Essence x 10) motes. They can access a third of that pool normally (round down), but must spend one Willpower point to access the remaining points for the rest of the scene.</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 8, Damage 3B, Parry DV 5, Rate 3 Kick: Speed 5, Accuracy 7, Damage 6B, Parry DV 3, Rate 2 Clinch: Speed 6, Accuracy 7, Damage 3B piercing, Parry DV ­, Rate 1 Short Spear: Speed 5, Accuracy 7, Damage 7L, Parry DV 3, Rate 2</p>",
+    "biography": "<p>Graced Chayan monks achieve an enlightened Essence through meditation, martial training and the gift of their radiolari gods. As enlightened mortals, they can learn Terrestrial Martial Arts Charms. All such monks are serious practitioners of the martial arts and use their skills to protect Chaya from supernatural threats. Although graced monks are rarely well equipped, they are dedicated, prudent and trained in formation fighting. They favor the Crimson Pentacle Blade Style (though as enlightened mortals they cannot form Combos and therefore cannot exploit the style to its full potential). Some monks learn the Golden Janissary Style instead. (See Scroll of the Monk for these martial arts styles, starting on pp. 48 and 63.) This is an example of an uncommonly experienced monk, who has developed her Essence and Charms to a high degree.</p><p><strong>Motivation:</strong> Varies, but frequently something along the lines of, \"Guide the Chayan people in the perfect order of the radiolari gods.\"</p><p><em>Source: Compass of Terrestrial Directions, Vol. III: The East</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

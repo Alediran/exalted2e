@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000145",
+  "_key": "!actors!0001000000000145",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Demon of the First Circle, Progeny of the Minister of the Ivory Tassel",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "demon",
+    "concept": "",
+    "essence": {
+      "value": 2
+    },
+    "willpower": {
+      "value": 7,
+      "max": 7
+    },
+    "motes": {
+      "value": 0,
+      "max": 55
+    },
+    "pools": {
+      "combat": 5,
+      "social": 5,
+      "physical": 6
+    },
+    "combat": {
+      "joinBattle": 8,
+      "dodgeDV": 5,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 3,
+        "lethal": 2,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 11
+    },
+    "powers": "<p>Benefaction--Weaves a prayer strip with talismanic power Divine Prerogative--The laws of Cecelyne Domain Manipulation Scenario--Speeds or slows bureau- cratic activity Hoodwink--Babbles in baffling bureaucratic jargon Materialize--Costs 45 motes Measure the Wind--Smell the power of others Plague of Menaces--Locusts and spiders Spice of Custodial Delectation--Proper stamping and pro- cessing of forms Subtle Whisper--Confuses and disorients someone who enters its office (Element) Dragon's Embrace--Wood; Grants the power to absorb information by eating documents, but the scent of writing is so alluring that the recipient must succeed on a Temperance roll to refrain from doing so. (The aalu is permanently under the effect of this Charm at no cost.) First (Ability) Excellency--Awareness, Bureaucracy, In- vestigation, Socialize Second (Ability) Excellency--Awareness, Bureaucracy</p>",
+    "notes": "<p>Bite: Speed 6, Accuracy 4, Damage 1L, Parry DV --, Rate 3 Kick: Speed 5, Accuracy 4, Damage 4B, Parry DV 1, Rate 2 Clinch: Speed 6, Accuracy 4, Damage 1B, Parry DV --, Rate 1, Tags P</p>",
+    "biography": "<p>An aalu's child-sized body and patterned wings resemble those of a locust, though the details remind one uncomfortably of certain desert spiders. Its many pale eyes are blind. The aalu know only sound and scent, though both senses are exceedingly keen. These gregarious creatures populate many branches of the Demon City's labyrinthine bureaucracies, for nothing pleases them so much as recordkeeping. They have little use for pen or ink. Instead, they weave fully drafted documents of silk directly from their spinnerets. An aalu's offices are inevitably festooned with cobwebs, all of them hung thickly with documents in an arcane, organic filing system. Their offices thrum with strident chatter as the aalu gabble to one another in their own tongue, one well suited to the obfuscation and minutiae endemic to their trade. A dull hum underlies that chatter, coming from their constantly grinding mandibles as they eat one another's silken memoranda. Blind as they are, the aalu cannot read. Instead, they eat written material and digest its meaning. This power is not limited to their own kind's silk, and more than one sorcerer has cut the Gordian knot of seeking a single fact among many books by feeding whole libraries to a summoned aalu. The cannibal bureaucrats take their name from their most solemn ritual. When one of their own kind dies, its officemates gather to compose elaborate poems to celebrate its passage. Consuming one another's poems sends them into an ecstatic state. In the resulting orgiastic frenzy, they devour their fellow's corpse and copulate with one another upon the bier. Summoning: (Obscurity 3/4) The aalu serve primarily as bureaucrats, analysts and blind sentinels. Dynastic occultists occasionally invoke them to procure their magnificent calligraphy. When an infestation of bookworms or termites ravages a great library or archive, an aalu may find its way there from the Demon City to join the feast. For each day that a cannibal bureaucrat does not consume writings composed by someone other than itself, it gains a point of Limit.</p><p><strong>Motivation:</strong> To perform bureaucratic functions in full accordance with the appropriate regulations.</p><p><strong>Backgrounds:</strong> Backing 1, Resources 0­3</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "d4e5f6a700000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

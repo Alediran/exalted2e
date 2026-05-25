@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000067",
+  "_key": "!actors!0001000000000067",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Tachi-kun",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 7
+    },
+    "willpower": {
+      "value": 9,
+      "max": 9
+    },
+    "motes": {
+      "value": 0,
+      "max": 145
+    },
+    "pools": {
+      "combat": 19,
+      "social": 12,
+      "physical": 17
+    },
+    "combat": {
+      "joinBattle": 13,
+      "dodgeDV": 13,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 3,
+      "soak": {
+        "bashing": 23,
+        "lethal": 19,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 15
+    },
+    "powers": "<p>Tachi-Kun has all available spirit Charms. Some specifics are given here, however: Donning Spiritual Armor--Through the expenditure of five motes, Tachi-Kun may add his (Temperance + Essence) to his bashing and lethal soaks. By spending one point of Willpower, he may also add his Essence to his aggravated soak. Essence Plethora (x3)--Tachi-Kun has 30 additional motes in his Essence pool. Materialize--It costs Tachi-Kun 80 motes to materialize. Principle of Motion--Tachi-Kun regularly maintains a pool of eight additional actions. Reserve of Will (x2)--Tachi-Kun has access to two additional Willpower points. Shapechange--In the midst of a battle, Tachi-Kun can change into a great and terrible dragon, with wicked scything talons and the ability to fly. Spirit Cutting --Tachi-Kun may attack a physical opponent when he is dematerialized, or he may attack a dematerialized one when he is material. Doing so costs one mote per attack. Terrestrial Circle Sorcery--Tachi-Kun knows all Terrestrial Circle spells and can teach them to others. Uncanny Prowess--By expending two motes, Tachi-Kun may add his Valor to any Dexterity-based roll that has to do with his areas of godly influence, such as combat. Tachi-Kun has the First, Second and Third Excellencies for the following</p>",
+    "notes": "<p>Clinch: Speed 6, Accuracy 17, Damage 10B, Parry DV --, Rate 1 Kick: Speed 5, Accuracy 17, Damage 13B, Parry DV 8, Rate 2 Punch: Speed 5, Accuracy 18, Damage 10B, Parry DV 10, Rate 3 Divine Grand Grimcleaver (Terrible Mountain Cutter): Speed 6, Accuracy 24, Damage 24L/4, Parry DV 10, Rate 2</p>",
+    "biography": "<p>Central God of War The god of war for the center direction, Tachi-Kun is also the god of Exalted warfare, the patron of the tumultuous clash between those imbued with the power of the gods. In ancient days, when the Exalted marched to war, Tachi-Kun was there, overseeing the clash of battle-Essence, savoring every shake of the earth and mountain toppled by these heroes. To say that Tachi-Kun has been disappointed with the warriors of the Blessed Isle since the Usurpation is something of an understatement. He finds the Dragon-Blooded focus on unit tactics and dog-packing to lack the honor and glory of the ancient wars, when Solars took to the field against their foes, each a hero in his own right. This isn't to say that Tachi-Kun doesn't support the Bronze Faction, of course. He is too wise to see the suspicious disappearance of Darunla, the wolf-goddess of the East who supported the Solars, shortly after the Usurpation as chance--especially given that Sunipa, who favors the Dragon-Blooded, was soon after elevated to the position of war-goddess of the East. Tachi-Kun acknowledges that the Dragon-Blooded are mighty warriors; they are simply not heroes, in his mind. But then, foot soldiers rarely are. Tachi-Kun maintains a strong rivalry with Voharun, the crow-god of Northern war. Once, in the time of the Solars, Voharun and Tachi-Kun were strong allies, but they have not gotten along since the Usurpation. Neither, however, will reveal the reason. The central god of war is nearly eight feet tall and powerfully built. He wears an incredible suit of starmetal and jade superheavy plate, with an impressive dragon-face helm. He wields Terrible Mountain Cutter, an impressive divine grand grimcleaver. He is a superb martial artist and soldier, excelling at the use of Charms to their best effects in combat. Sanctum: In the Imperial City, there is a temple to Tachi-Kun that is opened only during his festival day. Nonetheless, it has become a tradition for legionnaires who visit the city for the first time to come and see the outside of the temple. Within this temple is an archway behind the altar, and those passing immaterial through the archway may enter the opulent warrior's sanctum of Tachi-Kun. The god spends most of his time in his estates in Yu-Shan, however.</p><p><strong>Motivation:</strong> To foster battle that features incredible Exalted heroics.</p><p><strong>Backgrounds:</strong> Backing 4, Celestial Manse 5, Contacts 5, Cult 2, Followers 5, Influence 5, Resources 5, Sanctum 3</p><p><em>Source: Compass of Celestial Directions, Vol. I: The Blessed Isle</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

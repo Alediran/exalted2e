@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000092",
+  "_key": "!actors!0001000000000092",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Itzcalimon",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 4
+    },
+    "willpower": {
+      "value": 5,
+      "max": 5
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 0,
+      "social": 0,
+      "physical": 0
+    },
+    "combat": {
+      "joinBattle": 0,
+      "dodgeDV": 0,
+      "parryDV": 0,
+      "dodgeMDV": 2,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 0,
+        "lethal": 0,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "",
+    "biography": "<p>Itzcalimon is the God of Blackmail and Divine Resources Supervisor for the Bureau of Secrets under Nara-O. Like many gods in Yu-Shan, it enjoys wielding power in Creation--in Itzcalimon's case, it does so by collecting secrets belonging to various factions and then pressuring vulnerable leaders to do as it wants. Itzcalimon currently supports Houses Iselsi and Cynis, the former because their secrets make them incredibly vulnerable to its specific brand of leverage, the latter because no other house is quite so good at discovering the vulnerabilities of others and exploiting them. At the same time, to cover its bases, Itzcalimon supports the Gold Faction of the Sidereals, on the off chance that the Dragon-Blooded Dynasts are riven and scattered, where their sins will make them suitable targets for blackmail and pawns in Itzcalimon's plans. Itzcalimon was once a god of the Southern plains, but he was promoted to God of Blackmail by the Maiden of Secrets after his predisposition for exploiting the weaknesses of others became apparent to the Bureaus. His drive to dominate others is rooted in his own dark secrets--Itzcalimon is one of the gods who has been compromised by the Ebon Dragon, at the end of the war against the Primordials. The Yozi spared Itzcalimon's life in exchange for binding oaths which bent his will utterly to his new master, so thoroughly that even after the Ebon Dragon's capture and imprisonment, Itzcalimon is still his pawn. It is the Ebon Dragon's nature and purpose to test the limits of his prison, and beings like Itzcalimon give him the opportunity to operate in Yu-Shan and Heaven freely even while eternally bound by an oath on his own name. When the Ebon Dragon bids Itzcalimon to perform a task, the broken divinity has no choice, and so thorough is his abasement that he can no longer even dream of resisting his master's will.</p><p><strong>Motivation:</strong> Itzcalimon wants power over others through their secrets, and through that power, to protect his own secrets from discovery or being used against him.</p><p><em>Source: Compass of Celestial Directions, Vol. III: Yu-Shan</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

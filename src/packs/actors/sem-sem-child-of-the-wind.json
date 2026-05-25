@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000074",
+  "_key": "!actors!0001000000000074",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sem Sem, Child of the Wind",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 2
+    },
+    "willpower": {
+      "value": 5,
+      "max": 5
+    },
+    "motes": {
+      "value": 0,
+      "max": 21
+    },
+    "pools": {
+      "combat": 7,
+      "social": 4,
+      "physical": 5
+    },
+    "combat": {
+      "joinBattle": 6,
+      "dodgeDV": 5,
+      "parryDV": 0,
+      "dodgeMDV": 2,
+      "parryMDV": 2,
+      "soak": {
+        "bashing": 6,
+        "lethal": 3,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 8
+    },
+    "powers": "<p>Death of the Dragon--Sem Sem spends five motes, and all air within five yards of him ceases to move. This condi- tion persists as long as the motes remain committed. The sphere of dead air travels with him. It follows the normal rules of Creation, acting as a wall to create a lee downwind of Sem Sem. Drawn from Above--Sem Sem can create an unlimited number of air seeds (see p. 79) at no cost. He requires only a miscellaneous action to draw one from beneath his robe. While he can give Air Seeds as gifts, Sem Sem (and most children of the wind) give them sparingly, mostly out of concern for the breath tunnels. Healing the Earth--This power allows Sem Sem to repair damage done to objects made of stone. Sem Sem caresses the wound, which fills in as though it were never harmed. Each health level repaired costs four motes of Essence. Children of the wind use this power to keep the breath tunnels whole. Shivering Shorn--Sem Sem may spend eight motes to deaden all sound within five yards. This power only functions if Sem Sem is currently using Death of the Dragon.</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 7, Damage 2B, Defense 7 (4), Rate 3 Clinch: Speed 6, Accuracy 7, Damage 2B, Defense --, Rate 1</p>",
+    "biography": "<p>Sem Sem is one of the children of the wind. Similar to all others of his kind, he is a child-sized old man, wrinkles and all, who wears dense robes of sky-blue silk. The children of the wind maintain the breath tunnels in the Northern Middlemarches and create new ones; Sem Sem performs his task as well as any other. Still, Sem Sem has ambition. Many children of the wind do. He wants to find a way to spawn breath tunnels that connect the Wyld and Creation. His attempts have always failed thus far, and frustration may drive him to make odd alliances. Other children of the wind do not consider Sem Sem odd; such unique desires are common enough to make it a quirk rather than a real peculiarity.</p><p><strong>Motivation:</strong> Keep the breath tunnels in repair; bind the Wyld and Creation through breath tunnels.</p><p><strong>Backgrounds:</strong> Artifact 2</p><p><em>Source: Compass of Celestial Directions, Vol. II: The Wyld</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

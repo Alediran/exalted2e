@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000123",
+  "_key": "!actors!0001000000000123",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unwanted Whisper, the Orphan Queen",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 4
+    },
+    "willpower": {
+      "value": 8,
+      "max": 8
+    },
+    "motes": {
+      "value": 0,
+      "max": "88 Committed"
+    },
+    "pools": {
+      "combat": 8,
+      "social": 7,
+      "physical": 6
+    },
+    "combat": {
+      "joinBattle": 8,
+      "dodgeDV": 6,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 2,
+      "soak": {
+        "bashing": 3,
+        "lethal": 2,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "<p>Punch: Speed 5, Accuracy 7, Damage 1B, Parry DV 4, Rate 3 Kick: Speed 5, Accuracy 6, Damage 4B, Parry DV 2, Rate 2 Clinch: Speed 6, Accuracy 6, Damage 1B, Parry DV --, Rate 1 Knife: Speed 5, Accuracy 6, Damage 3L, Parry DV 3, Rate 3 Knife (thrown): Speed 5, Accuracy 8, Damage 3L, Rate 3, Range 15 Sling: Speed 5, Accuracy 7, Damage 3L, Rate 1, Range 100</p>",
+    "biography": "<p>The ruler of the District of the Whispering Streets looks like a young girl with large, soulful eyes and dark hair in a pageboy cut. Her grand robes look ridiculously oversized on her small frame. Her grave goods are limited to a sling. She speaks in a soft, little-girl voice, sounding timid and uneducated. She prefers for the other Council members to ignore her, and they usually oblige. Yet Unwanted Whisper does rule a district of Stygia. In life, she was a street rat. The streets killed her, but she refused to die. The District of the Whispering Streets tried to break her mind, but she resisted. Unwanted Whisper never quits or surrenders. She might not know the great occult secrets other Councilors hold, but she knows what's fair and what's sane. The Orphan Queen also knows well what horrors the Labyrinth and Oblivion wreak upon her district. She knows that the Deathlords are mad tyrants who spread Oblivion's poison, and she says so. In public. Repeatedly. Politically minded ghosts anticipate Unwanted Whisper's assassination, but her district's ghosts revere her for having the guts to say what no one else would dare. Outside her cursed district, the Orphan Queen has no wealth or power, but her personal honor guard is fiercely loyal. She also has hidden friends on the Council, who share her view regarding the Deathlords. Unwanted Whisper cannot really fight the Deathlords or their servants, though. At most, her followers can engage in petty sabotage and obstruction of their minions. CHAPTER EIGHT · UNDERWORLD ANTAGONISTS</p><p><strong>Motivation:</strong> Survive to say what no one else would dare.</p><p><strong>Backgrounds:</strong> Allies (Two Other Councilors) 2, Artifact (Night Mother Doll) 3, Backing (Coun- cil of Thirteen) 3, Contacts 2, Followers 2, Grave Goods 1, Influence 2, Resources 1, Underworld Cult 3, Whis- pers 1 Arcanoi: Common Arcanoi: Breeze-Carried Ash Form, Pyre Smoke Form Savage Ghost Tamer Arts: Call the Ravening Hound, Diver- sion of the Savage Hunger, Tame the Wicked Appetite, Taste the Demon Wind Stringless Puppeteer Art: All Charms Tenacious Merchant's Way: Careful Debtor Stance, Earnest Creditor Technique, Jangling Coin Pouch Sense</p><p><em>Source: Compass of Celestial Directions, Vol. IV: The Underworld</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

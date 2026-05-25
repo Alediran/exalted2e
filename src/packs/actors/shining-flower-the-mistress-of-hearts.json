@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000183",
+  "_key": "!actors!0001000000000183",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shining Flower, the Mistress of Hearts",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 5
+    },
+    "willpower": {
+      "value": 6,
+      "max": 6
+    },
+    "motes": {
+      "value": 0,
+      "max": 90
+    },
+    "pools": {
+      "combat": 12,
+      "social": 7,
+      "physical": 12
+    },
+    "combat": {
+      "joinBattle": 9,
+      "dodgeDV": 9,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 8,
+        "lethal": 4,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 14
+    },
+    "powers": "<p>Arilak has all appropriately themed spirit Charms for which she qualifies. Some important ones are specified below. Banish--All-Encompassing: Arilak can banish anything within her sanctum or jungle purview, or banish any aspect or instance of the jungle, for 17 motes and 2 points of Willpower. Hurry Home--For 10 motes and a Willpower point, Arilak can instantly transport herself to any place in the Southeastern jungles where no mortal can see her, or to the Rainbow Palace. In Yu-Shan, she can use this Charm to return instantly to her Celestial Manse. Impromptu Messenger--Arilak can speak through any creature native to the jungle. Intrusion-Sensing Method--Senses when any creature not born in the jungle passes more than five miles into it. Martial Arts--Arilak has learned the entire Terrible Ascent-Driven Beast style, using Beyond-the-Idol Perfection as the pinnacle charm (see the PDF ebook The Imperfect Lotus pp. 10-12). Materialize--Arilak can materialize for 60 motes. Measure the Wind--Arilak assesses the power of potential enemies (namely, everyone near her); this costs one mote. Meat of Broken Flesh--Whenever Arilak inflicts damage using her claws, she can spend one mote to drain six motes from her target. Paralyze--For six motes, Arilak can cause any successful attack to inflict a -6 internal penalty on every non-reflexive action her target takes, until Arilak's own next action. This penalty is at once a Poison, Crippling and wound penalty effect. Possession--Arilak can possess any jungle animal. She never possesses people. Principle of Motion--The Unseen typically keeps seven extra actions stored. Shapechange--Arilak can assume dozens of reptilian forms, some of them beasts that Creation hasn't seen for ages. Sheathing the Material Form--Scales turn to multi-hued jade, and her eyes shine like orichalcum Signet of Authority--The recipient of this blessing wears an immaterial crown of rainbow vines and can command jungle reptiles as well as jungle spirits. Taste of Mortality--All-Encompassing. Arilak's will destroys even an Exalt's most basic defenses. Touch of Eternity--The difference between a healing draught and a deadly poison is often no more than dosage. Arilak's powerful ichors cause all of this charm's listed effects, except that the aging process is slowed to 10%. However, the target dries out rapidly, suffering from dehydration 10 times more quickly. This generally restricts most recipients to very humid regions that also abound in clean water. Excellencies--Arilak has the First, Second and Third Excellencies for the following</p>",
+    "notes": "<p>Claw: Speed 4, Accuracy 16, Damage 17L + poison, Parry DV 7, Rate 4 Kick: Speed 5, Accuracy 14, Damage 15B, Parry DV 6, Rate 2 Clinch: Speed 6, Accuracy 14, Damage 12B piercing, Parry DV ­, Rate 1</p>",
+    "biography": "<p>Shining Flower is the Dragon King goddess of sacrificial offerings. She also serves Yu-Shan's Bureau of Humanity as the Mistress of Knives. Assassins and knife-fighters across Creation pray to her before battle. During the First Age, Shining Flower personally oversaw the sacrifices made by the Dragon Kings to the Unconquered Sun. Such sacrifices ideally involved cutting out the still-beating heart of a voluntary sacrifice. In the modern era, Shining Flower relaxed her standards and accepts hearts taken from unwilling sacrifices, especially Fair Folk captured by her Dragon King worshipers. She readily rewards anyone who offers her a heart in the proper manner. On the other hand, if she notices someone carrying out a sacrifice badly, she shows how it ought to be done by possessing the inept priest and having him cut out his own heart with suitable skill. As Mistress of Knives, Shining Flower's portfolio is expansive and she could probably be a god of some influence in Yu-Shan if she wished. For reasons of her own, however, she eschews heavenly politics in favor of watching over the Dragon Kings of Rathess. She tries CHAPTER FOUR · SAVAGE LANDS to teach the stalkers to cut their victims with blades instead of their own claws and teeth. Her decision may yet see Shining Flower replaced by a subordinate who pays more attention to Celestial politics. Sanctum: In addition to a modest Celestial Manse in Yu-Shan, Shining Flower keeps a larger immaterial sanctum in Rathess. Its entrance is a false doorway in the temple atop the Pyramid of the Sun at the center of Rathess. Her palatial suite features many murals showing Yu-Shan, as well as statues of the Unconquered Sun and an immense collection of knives. Her collection includes many artifact blades crafted from all the magical materials, including two soulsteel knives obtained with great difficulty. The innermost, best-guarded chamber of her sanctum holds an ornate cabinet where the 25 finest hearts she has ever cut out are displayed still beating in orichalcum dishes.</p><p><strong>Motivation:</strong> While Shining Flower wants to see Dragon King civilization rise again, her overriding goal is to restore sacrifices to her and the Unconquered Sun. (She has not asked the Unconquered Sun if he actually wants unwilling victims murdered in his name.)</p><p><strong>Backgrounds:</strong> Artifact 4 (Rainbow Dragon sheath), Artifact 4 (Black Core), Contacts 2, Cult 4, Influence 2, Salary 3</p><p><em>Source: Compass of Terrestrial Directions, Vol. III: The East</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

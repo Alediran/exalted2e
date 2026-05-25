@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000158",
+  "_key": "!actors!0001000000000158",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Spinner of Glorious Tales",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 5
+    },
+    "willpower": {
+      "value": 7,
+      "max": 7
+    },
+    "motes": {
+      "value": 0,
+      "max": 115
+    },
+    "pools": {
+      "combat": 7,
+      "social": 10,
+      "physical": 8
+    },
+    "combat": {
+      "joinBattle": 9,
+      "dodgeDV": 9,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 12,
+        "lethal": 6,
+        "aggravated": 0
+      },
+      "hardness": 3
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 12
+    },
+    "powers": "<p>The Call of Home--Once Talespinner has stepped foot upon a road that will lead him to Great Forks, he may pay 10 motes to instantly arrive in his home city. This Charm CHAPTER EIGHT · GODS AND MONSTERS OF THE SCAVENGER LANDS manifests as Talespinner's walking staff, the Dancing Stick, and he can offer the staff to another, giving up the Charm so that the recipient may use it. Alternatively, a clever thief might steal the staff, gaining the Charm for himself. Finally, Talespinner can spend a day crafting a new staff and imbuing it with the Charm for 15 motes and 1 Willpower and offer it to someone, in which case, Talespinner loses nothing. Regardless of how the recipient gains the Charm, it lasts no longer than a week for him. The Call of the Horizon--The sparkle in Talespinner's eyes lures youths and world-weary men away from the warmth of their beds and to the hardships of the road, always seeking what lies beyond the next bend. By spending four motes, Talespinner may instill a sense of wanderlust into a target (with a successful Compassion roll). One or two successes inspire the curiosity and restlessness already within the target, but more successes can make even the most hidebound recluse feel the call of the road. Against a Solar with an appropriate Virtue Flaw (at the Storyteller's discretion), use of this Charm can add one Limit per success. Talespinner's sleeping presence sometimes evokes a similar effect, and when Talespinner rests, roll his Compassion when he wakes. Anyone within the house he slept in with less Temperance than the successes rolled feels the call of the road. Those under the effect of this Charm often make their way, at some point, to Great Forks. Dancing Pathways--For 10 motes and 1 Willpower, Talespinner may tangle the roads and pathways that lead to and from Great Forks. This Charm affects only one traveling character or party and shifts the destination of their chosen road, guiding them either toward Great Forks or away from it. A successful Perception + Awareness roll at a difficulty of 3 is required for a traveler to notice anything has gone awry. Essence Plethora (x3)--Talespinner has 30 additional motes of Essence in his Essence pool. Fortunate Misfortune--Talespinner dabbles in the powers of fate and fortune, and some call upon him to turn their luck around, though this often comes at a price. For five motes, Talespinner can convert all of the ones in a roll to successes. He can do this only if his roll suffers a botch. He still suffers the effect of the botch, but also \"luckily\" snatches success from the jaws of failure. He may break his staff or lose his footing, for example, but through sheer fortune, his weapon still strikes home. Talespinner wears small trinkets in his hair, talismans that he can offer to others. By spending 10 motes and giving such a talisman away, Talespinner applies Fortunate Misfortune to the recipient, without further cost. This charm affects a single roll during the story, after which, the talisman is useless. A clever thief can steal a talisman from Talespinner's hair (a suitably daunting task), in which case, the thief must spend five motes or two Willpower to activate it. Talespinner never has more than three talismans in his hair in a single story. Measure the Wind--Talespinner has an innate sense of the power and capabilities of those nearby, and he treats the knowledge casually. The Perfect Tale--Talespinner began life as a mortal, during which time he utterly perfected the art of storytelling. This trick allowed him to achieve divinity by impressing the gods of Yu-Shan. By spending 15 motes and one Willpower, Talespinner can extemporaneously craft the ideal story for a target audience. He requires a target from within the audience to \"inspire\" him, and the story, at least metaphorically, revolves around the target. The Storyteller then makes a (Compassion + Performance) roll for Talespinner at a difficulty based on how \"fateful\" the target is. A common peasant might be difficulty 5, while a hero whose deeds will be remembered in song and story for generations would be difficulty 1. If the roll is successful, the audience finds the story appealing, entertaining and engaging, regardless of the hostility or difficulty such an audience might normally put forth. The story touches upon the targets' fate, and those who listen carefully can get a glimpse of their future. Talespinner has no direct knowledge of their fate, and any clues gleaned come from his spontaneous story rather than his own knowledge of a character. Further, Talespinner can \"nudge\" the story, consciously changing the narrative to introduce a slightly altered fate into the target's tapestry. Talespinner can use this Charm as often as he wishes, but the tale he tells about a given target remains essentially the same for the duration of the story. This Charm is rather advanced, and an Eclipse or other character (such as a God-Blood) who wishes to learn this trick might, at the discretion of the Storyteller, need the knowledge of another Charm involving storytelling (such as a Performance Excellency) as a prerequisite. Principle of Motion--Talespinner has seven extra actions ready in his pool. Reserve of Will (x2)--Talespinner stores two additional temporary Willpower. Shapechange--For five motes, Talespinner can change into the form of any creature (mortal or animal) that travels, be it a wandering prince or a migrating bird. The change alters none of Talespinner's traits (though he gains normal abilities based on the animal, such as flight from a bird form), and the change lasts for a scene. Talespinner has the First, Second and Third Excellencies for the following</p>",
+    "notes": "<p>Clever Hand Punch: Speed 4, Accuracy 8, Damage 3B, Defense 5, Rate 3 The Dancing Stick: Speed 5, Accuracy 11, Damage 10B, Defense 6, Rate 2* * The Dancing Stick quickens the step of the wielder, adding two to his Dodge DV as long as he wields it. Talespinner pays nothing for this, but those who wish to wield it must commit motes to the staff. This value is already included below.</p>",
+    "biography": "<p>Mortals who suffer misfortune and setbacks often comfort themselves with tales of Talespinner's mortal life, for he is proof that even the lowliest mortal can advance to divinity if he's clever and wise enough. Talespinner was a lazy mortal boy who enjoyed stories and constantly sought the horizon. He often told lies to avoid work and responsibility, but as his lies grew more creative, he turned his storytelling into entertainment, and then profit. He delighted in the fantasies his words conjured as he mastered the craft, and the life of the road suited him. According to legend, as Talespinner grew old, he discovered the day of his death from a friendly astrologer and then won passage into Yu-Shan during the Carnival of Meeting. He encountered three different gods in three different parties, and to each, he told a riveting tale that metaphorically centered upon the experiences of the god. (Some extravagant stories claim these gods were the Unconquered Sun, Luna and the Maiden of Journeys, but more modest stories claim Amoth City-Smiter, Ruvia, Captain of the Golden Barque, and the brightest of the Golden Star sisters.) Right before the climax of each story, Talespinner noted the hour, bowed out, and promised to finish the tale the next day. All three came to him the following day, begging to hear the end of their tales, but Talespinner confessed that he was dying, and with but a single breath left, he could only speak the ending of a single story. Hearing this, all three agreed to impart to him a portion of their power, granting him divinity and immortality. Springing from his deathbed with full vitality, he whispered to each how the story ended and capered back into the mortal realm. All the gods were pleased except for Amoth (or the Unconquered Sun, depending on which story you believe), whose story ended badly. An aura of wanderlust and enchanting mystique hangs around the Spinner of Glorious Tales like a warm, pleasant cloak. His eyes glint with excitement, and his smile draws the interest of men and women alike. He appears in his natural state as a middle-aged mortal man with sun-leathered features, graying hair and travel-worn clothing, but a halo of yellow surrounds his features, clearly marking his divinity. Talespinner is a clever shapeshifter, though, capable of borrowing the form of any traveler, be it that of a poor mendicant, an adventuring prince or even a migratory fish or bird. Yet in whatever form he wears, he wears a set of small trinkets or talismans about his neck or in his hair and his low, pleasing voice crackles with the promise of adventure. He often travels with a rough-hewn walking staff at his side, both as his defense and as support for his weary legs. Of the three gods of Great Forks, Talespinner spends the least time actually within the city, often traveling the roads to and from his beloved home to visit those places connected to Great Forks. He carries with him the allure of his city, which settles like a spell over the communities he rests in, tempting rebellious or dreamy-eyed youths to find their fortunes in Great Forks. True to his name, he also enjoys a good story and will engage in storytelling contests with those mortals who think they are good enough to best him. Those who win often walk away with a talisman or his staff, but those who lose find the luster in their eyes gone and gray coming to their hair earlier in life. Sanctum: Talespinner has no specific home within Great Forks, but along any road between Great Forks and a destination, careful searching with spirit-eyes (or All-Encompassing Sorcerer's Sight) might reveal a secret path that leads to a small cottage with a tiled roof and cobbled walls. Copper pots hang from the eaves, and a fire crackles merrily in the hearth. The bed is warm but never slept in, and upon the fire, a pot of ambrosial stew boils that tastes of the memories of home. Talespinner is seldom found here, however. He only enters his home when he is entertaining guests.</p><p><strong>Motivation:</strong> To inspire Great Forks to greatness.</p><p><strong>Backgrounds:</strong> Allies 2, Cult 3, Followers 2, Resources 3, Sanctum 1</p><p><em>Source: Compass of Terrestrial Directions, Vol. I: The Scavenger Lands</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000121",
+  "_key": "!actors!0001000000000121",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Maru",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 5
+    },
+    "willpower": {
+      "value": 8,
+      "max": 8
+    },
+    "motes": {
+      "value": 0,
+      "max": "100 Committed"
+    },
+    "pools": {
+      "combat": 5,
+      "social": 10,
+      "physical": 2
+    },
+    "combat": {
+      "joinBattle": 10,
+      "dodgeDV": 5,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 4,
+        "lethal": 2,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "<p>Claw: Speed 5, Accuracy 6, Damage 2L, Parry DV 4, Rate 3 Clinch: Speed 6, Accuracy 5, Damage 2B, Parry DV --, Rate 1</p>",
+    "biography": "<p>Stygia's ruler of the District Where Shadows Walk appears small and frail. Maru's gray, ectoplasmic flesh has shriveled tightly around its bones. Its hands curl into rigid claws; it floats rather than walks on its withered, useless legs. Even though its eyes and mouth are sewn shut with coarse black thread, Maru remains fully aware of its surroundings. It speaks in a shifting, ethereal voice, as if many different people spoke from far away and Maru picked words from their speech and assembled them into sentences. Like all nephwracks, Maru is completely mad. It speaks with unusual coherence for a nephwrack, though, and its stranger utterances often seem quite insightful when taken in a different context. Its actions similarly often seem random, but nevertheless advance it toward its goals. (How could it have known that by launching a crude toy boat with an Akian flag on the Styx, it would bring together two old enemies who would then fight to the second death to remove one of its rival rulers' most valued agents?) Sane ghosts speculate that Maru hears more in the Whispers of the Neverborn than most spectres manage. Maru has kept peace among the spectre factions for almost a year and seems likely to set a duration record as ruler of its district. Its prowess at Arcanoi and necromancy has few equals in Stygia. The newly arrived Emissary of Righteous Victory surpasses it, though. Maru hates the Emissary and works about CHAPTER EIGHT · UNDERWORLD ANTAGONISTS as coherently as a nephwrack can to expel or destroy its rival. It also frequently interferes with anything the other districts' rulers try to achieve, whether good, bad or indifferent. The nephwrack's withered body is unskilled at physical combat. Therefore, Maru prefers to attack using terrifying illusions (crafted using Terror-Spreading Art) or necromancy (Banish Ghost against ghosts, Bone Puppet Dance or Flesh-Sloughing Wave against mortals). It also wears a collar bearing four delicate bone pendants. Each pendant is a shade prison amulet for a hungry ghost that Maru can release and command to fight on its behalf.</p><p><strong>Motivation:</strong> Disrupt every plan that does not serve the Neverborn.</p><p><strong>Backgrounds:</strong> Backing (Council of Thirteen) 3, Contacts 3, Followers 3, Influence 2, Underworld Cult 3, Whispers 5 Arcanoi: Common Arcanoi: Breeze-Carried Ash Form, Moon's Cold Glow, Pyre Smoke Form Essence-Measuring Thief Arts: All Charms Savage Ghost Tamer Arts: Call the Ravening Hound, Command the Hungry Devil, Diversion of the Savage Hunger, Dust Commands Litany, Tame the Wicked Appetite, Taste the Demon Wind Shadow Constraint Craft: Brief Exemption, Dark Sorcery Observation, Ghostly Magistrate Perception, Illuminate the Shadow Constraint Stringless Puppeteer Art: Skin-Riding Prana, Soul-Whispering Empathy Discipline, Spirit-Catching Eye Technique Terror-Spreading Art: All Charms Spells: Banish Ghost, Bone Puppet Dance, Flesh-Sloughing Wave, Gathering a Ghost's Strings, Iron Countermagic, Shade Prison Amulet</p><p><em>Source: Compass of Celestial Directions, Vol. IV: The Underworld</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

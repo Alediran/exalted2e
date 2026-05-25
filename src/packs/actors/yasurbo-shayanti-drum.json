@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000210",
+  "_key": "!actors!0001000000000210",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Yasurbo, Shayanti Drum",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 1
+    },
+    "willpower": {
+      "value": 6,
+      "max": 6
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 6,
+      "social": 8,
+      "physical": 5
+    },
+    "combat": {
+      "joinBattle": 8,
+      "dodgeDV": 3,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 4,
+        "lethal": 3,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "<p>Punch: Speed 5, Accuracy 7, Damage 2B, Parry DV 4, Rate 3 Kick: Speed 5, Accuracy 6, Damage 5B, Parry DV 2, Rate 2 Clinch: Speed 6, Accuracy 6, Damage 2B, Parry DV --, Rate 1, Tags C,N,P Axe: Speed 4, Accuracy 8, Damage 7L, Parry DV 2, Rate 2 Exceptional Long Bow: Speed 5, Accuracy 9, Damage 4L*, Range 250, Rate 3, Tags 2,B * Assumes use of broadhead arrows.</p>",
+    "biography": "<p>Yasurbo is the eldest son of a tribal chief and the most prominent Shayanti among the Drums of the Leopard Seat. Family and tribal connections placed him in Harborhead's royal council; his own skills made him Harborhead's Minister for Foreign Relations. He meets regularly with Harborhead's titular monarch, Oshom Kurgaz, and the nation's real master, Satrap Cathak Voper. Both men consider him dutiful and obedient, rational and honest, even if they often must reject Yasurbo's plans to shift the borders with Varangia or expand the nation south or across the Summer Mountains. His official position places Yasurbo in frequent contact with diplomats and traders from all over the South. He has arranged many profitable trade agreements for Harborhead... more precisely, for the Shayanti. His favoritism in this regard is far from secret. Less obvious is that many Shayanti chiefs and traders owe Yasurbo favors, and he encourages them to think of themselves as part of a wider Shayanti nation. Yasurbo does much to incite petty jealousies and instigate strife between the Shayanti and other tribes, especially the Izhalvi. He finds this message of ethnic solidarity and revenge plays very well among young, poor Shayanti of Kirighast's shantytowns. These young men left their tribal villages anyway, and Yasurbo offers them a new identity and new pride. Yasurbo now has a gang of several thousand armed supporters whom he can order to riot on command or terrorize local Izhalvi. Yasurbo intends to rule Harborhead, or at least whatever's left after the civil war he plans to start. Yasurbo is a tall, rather handsome Shayanti man in his mid-30s, with mahogany skin and closecropped, tightly curled hair. Like most Shayanti, scar-patterns of lines and dots on his cheeks and shoulders tell his tribe and family place as the chief's eldest son. He looks equally dignified and comfortable in traditional chief's costume or the robes of a Realm gentleman. When he expects trouble (or just wants to look warlike), he wears a chain shirt and carries an ox-hide shield blazoned with a traditional Shayanti symbol, with an axe and bow slung at his back. His bow is a family heirloom, and famous in Harborhead history.</p><p><strong>Motivation:</strong> To gain power through ethnic strife</p><p><strong>Backgrounds:</strong> Allies 3, Backing (The Leopard Seat) 4, Contacts 4, Followers 4, Influence 4, Resources 4</p><p><em>Source: Compass of Terrestrial Directions, Vol. IV: The South</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

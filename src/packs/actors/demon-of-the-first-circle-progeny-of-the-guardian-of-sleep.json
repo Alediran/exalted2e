@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000155",
+  "_key": "!actors!0001000000000155",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Demon of the First Circle, Progeny of the Guardian of Sleep",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "demon",
+    "concept": "",
+    "essence": {
+      "value": 3
+    },
+    "willpower": {
+      "value": 9,
+      "max": 9
+    },
+    "motes": {
+      "value": 0,
+      "max": 85
+    },
+    "pools": {
+      "combat": 8,
+      "social": 7,
+      "physical": 8
+    },
+    "combat": {
+      "joinBattle": 8,
+      "dodgeDV": 5,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 6,
+        "lethal": 6,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 15
+    },
+    "powers": "<p>Essence Plethora--10 extra motes Form Reduction Technique--Abandons its demon body in the form of a small scorpion Hollow Out the Soul--When all of a mortal victim's Virtues and Willpower are reduced to 0, the tinsiana may tear free of its frame in a new body Landscape Hide--Beneath the sand or inside a human body Landscape Travel--Scuttle over sand as though it were solid ground Materialize--Costs 60 motes Ox-Body Technique Possession--Takes over a host by climbing into its body Touch of Saturn--Sting delivers paralytic venom (Poison effect); its effects on mortals persist even after the Charm's duration expires Tracking--Senses the movements of those who survive its sting Weather Control--Acting in concert, three tinsiana may raise a sandstorm First (Ability) Excellency--Athletics, Martial Arts, Presence Second (Ability) Excellency--Resistance, Survival</p>",
+    "notes": "<p>Claw: Speed 5, Accuracy 8, Damage 6L, Parry DV 3, Rate 2 Stinger: Speed 5, Accuracy 8, Damage 4L (+ poison if using Touch of Saturn*), Parry DV --, Rate 1 Clinch: Speed 6, Accuracy 8, Damage 4B, Parry DV --, Rate 1, Tags P * (Damage 3L, Toxicity 3, Tolerance --/--, Penalty -5)</p>",
+    "biography": "<p>These chitinous horrors are hated and feared throughout Creation's South. Each appears as a burly mortal from the waist up with scorpion-like chelae instead of hands; the lower half of its body is that of a giant scorpion. As a people, they are proud and vain. Accoutering themselves in opulent apparel, they demand deference from those they encounter. Defiance rouses them to violence. Except when drawn forth singly by a sorcerer's summons, tinsiana travel in threes, the better to cow and overpower those who would stand against them. Scorpion demons serve as warriors, interrogators and enforcers. They are deadly beyond measure. Rather than placing their faith in weapons of brass or black Malfean iron, tinsiana rely upon their claws and their venomous stingers, the latter delivering poison that paralyzes the body while leaving the mind free to dwell on the horrors to come. Tinsiana take pleasure in inflicting pain and can prolong a victim's life through years of exquisite torture. When hard-pressed, a tinsiana may forsake its body in the form of a palm-sized scorpion the color of ruby. As the abandoned body dies, the tinsiana's lessened form crawls into the mouth of a willing, sleeping or otherwise immobile mortal, where it works its way into the brain and slowly takes possession of its host. Once it extinguishes the host's will, the scorpion demon slowly devours the body from the inside, regaining its strength. When its new body is fully formed, it bursts from its husk of stolen mortal flesh, as powerful and deadly as ever. Summoning: (Obscurity 2/4) Sorcerers summon scorpion demons as bodyguards, hunters and killers. Some use them specifically to possess and hollow out a victim, though the tinsiana dislike being bereft of their bodies and resent those who command them to do so. When three mortals die in a sandstorm, a trio of tinsiana may break free of the demon prison in their place. For this reason, it is customary among the desert tribes of the South not to travel in groups of three. Each day that a tinsiana does not inflict great pain on another sentient being, it gains a point of Limit.</p><p><strong>Motivation:</strong> To dominate and torment the weak.</p><p><strong>Backgrounds:</strong> Allies 2, Backing 1</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "d4e5f6a700000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

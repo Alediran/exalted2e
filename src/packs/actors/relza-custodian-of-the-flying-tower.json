@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000182",
+  "_key": "!actors!0001000000000182",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Relza, Custodian of the Flying Tower",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 4
+    },
+    "willpower": {
+      "value": 5,
+      "max": 5
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 0,
+      "social": 0,
+      "physical": 0
+    },
+    "combat": {
+      "joinBattle": 0,
+      "dodgeDV": 0,
+      "parryDV": 0,
+      "dodgeMDV": 2,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 0,
+        "lethal": 0,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "",
+    "biography": "<p>Relza is one of the satraps of Vanileth, the Shogun of Artificial Flight. In the First Age, Vanileth had satraps in every city that received significant air traffic. She claims the remaining flying vehicles in Rathess as her own and kills anyone, goblin, stalker or other, who does not treat them as sacred treasures. Relza works with Leeayta in trying to re-civilize the stalkers. Sanctum: Relza's immaterial sanctum can be reached from the domes surmounting each of Rathess' two surviving flying towers. It consists of a single large, white room with fixtures and furniture of basalt and gold. The room also contains many sculptures and paintings of old Rathess and all manner of flying vehicles.</p><p><strong>Motivation:</strong> To restore artificial flight in Rathess. Relza would parlay with anyone who seems likely to advance the study of artificial flight, but she is fiercely protective of her domain and her flying craft. It beats being the god of nothing.</p><p><em>Source: Compass of Terrestrial Directions, Vol. III: The East</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

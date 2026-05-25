@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000147",
+  "_key": "!actors!0001000000000147",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Demon of the First Circle, Progeny of the Shadowlover",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "demon",
+    "concept": "",
+    "essence": {
+      "value": 3
+    },
+    "willpower": {
+      "value": 6,
+      "max": 6
+    },
+    "motes": {
+      "value": 0,
+      "max": 60
+    },
+    "pools": {
+      "combat": 8,
+      "social": 4,
+      "physical": 6
+    },
+    "combat": {
+      "joinBattle": 4,
+      "dodgeDV": 4,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 4,
+        "lethal": 3,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 10
+    },
+    "powers": "<p>Fruit of Living Essence--Allows the demon to devour a person's shadow (a Crippling effect that leaves the victim unable to sleep and condemning him to a life of waking nightmares) Harrow the Mind--Compels its victim to perform painful and demeaning tasks Hoodwink--Playing tricks and noises in the dark Malediction--Hinders its prey's ability to flee Materialize--Costs 45 motes Paralyze--The demon grapples its prey's shadow as a Hold effect, reducing her non-reflexive dice pools by three Shapechange--At dawn or dusk, it may assume any human or animal shape ranging in size from dog to horse (though not a specific person or animal); indefinite duration Stoke the Flame--Instills fear Tracking--Shadow eaters are expert hunters First (Ability) Excellency--Larceny, Martial Arts, Stealth, Survival Third (Ability) Excellency--Larceny</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 9, Damage 4B, Parry DV 5, Rate 3 Kick: Speed 5, Accuracy 8, Damage 7B, Parry DV 3, Rate 2 Clinch: Speed 6, Accuracy 8, Damage 4B, Parry DV --, Rate 1, Tags P Animal Forms: As appropriate to the animal in question (see Exalted, pp. 346­350, for examples)</p>",
+    "biography": "<p>Mara begot the bisclavarets upon the hour of twilight, \"the hour between the dog and the wolf.\" In that hour, as dawn or dusk stains the sky with the blood of night, the shadow eaters cast off their old skins and assume new forms. Beneath these guises, their true faces are leathery muzzles webbed with darkness, pierced with iron-gray eyes like naked blades. Although they take the shapes of men and beasts, their true nature lies between. Shreds of mortal intellect inform their bestial minds. They can speak, imitating the patterns of civilized discourse, but this is mere mimicry. Folk who converse with one soon observe that something fundamental is missing from its thoughts, though most assume mental deficiency rather than recognizing its inhuman nature. Bisclavarets in animal form enjoy such sustenance as mortal flesh and blood, the liver and spleen of wolves, dove's feathers and the eggs of serpents. Those in mortal shape pursue a more restricted diet, feeding solely on honey or, by preference, mortal shadows cast by moonlight. Victims upon whose shadows they sup lose the ability to sleep. Madness ensues within a fortnight as waking nightmares ravage the victim's brain. Certain remedies exist to restore normal sleep, but a mortal victim's shadow never returns, nor is he ever truly whole. The bisclavarets are creatures of decay. Each nestles a rot within its soul that it cannot contain. Physically, this rot manifests as putrefaction. A shadow eater's nest grows damp and rank with mold, while even the freshest CHAPTER FIVE: THE DAMNED garments appear tattered and worn the moment one dons them. (They crumble to shreds and dust within days.) Mentally, although they crave human contact, they cannot curb their darker impulses. These impulses begin with simple tricks and pranks aimed at scaring a mortal companion or passerby. As the bisclavaret loses control, it escalates to outright psychological abuse and physical torment. Such relationships often end with the shadow eater climbing onto the back of a \"friend\" and forcing him to run until he collapses of exhaustion, or compelling him to destroy his home and harm his loved ones solely for its amusement. Summoning: (Obscurity 1/3) Bisclavarets are summoned as spies and assassins. Sorcerers occasionally employ them to impersonate others, but their flawed intellect inevitably reveals such a masquerade. When trained animals turn on their masters, the mix of mortal and animal blood opens a crack through which a shadow eater may wriggle into Creation. A bisclavaret gains a point of Limit every day it fails to wrack an unsuspecting mortal with terror.</p><p><strong>Motivation:</strong> To share the company of mortals it can torment.</p><p><strong>Backgrounds:</strong> Backing 1</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "d4e5f6a700000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000235",
+  "_key": "!actors!0001000000000235",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Vodak",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 8
+    },
+    "willpower": {
+      "value": 10,
+      "max": 10
+    },
+    "motes": {
+      "value": 0,
+      "max": 800
+    },
+    "pools": {
+      "combat": 8,
+      "social": 12,
+      "physical": 3
+    },
+    "combat": {
+      "joinBattle": 8,
+      "dodgeDV": 6,
+      "parryDV": 0,
+      "dodgeMDV": 5,
+      "parryMDV": 4,
+      "soak": {
+        "bashing": 60,
+        "lethal": 30,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 202
+    },
+    "powers": "",
+    "notes": "<p>Pseudopodia: Speed 5, Accuracy 8, Damage 30L + corrosion, Parry DV 4, Rate 4</p>",
+    "biography": "<p>Few beings remember Vodak's name. Those that do never speak that name out of fear that doing so will awaken the horror and cause it to rise once more. CHAPTER SEVEN: GODS AND MONSTERS OF THE NORTH Vodak is a hekatonkhire--a ghost-behemoth of bubbling, writhing quicksilver born from the spilled blood and vitriolic hatred of the first Primordial to die. As the Primordial War continued, the beast devoured every living thing it encountered, then swelled its mass further on the ghosts of the slain. Its cunning and evil grew as well until Vodak became an undulating lake of necrotic power. Long ago, Vodak exterminated the city that later became Gethamane, and the Mountain Folk sealed the hekatonkhire beneath the city. In time, mortals returned to Gethamane. Only the city's broken gods remember the hekatonkhire, but those who delve into Gethamane's deepest passages discover that Vodak is by no means dormant. The horror still seeks a way to break the ancient seals that keep it imprisoned. Vodak harbors an intense hatred for the Solar Exalted. It will use every malign power and every bit of cruel craftiness at its disposal to humiliate and torture them and anyone they treasure in an elaborate, ritualistic play of madness, pain and death. Vodak has learned patience over the millennia and can hold its rage in check--but if the binding magic breaks, its unquenchable thirst for vengeance will overtake it.</p><p><strong>Motivation:</strong> To escape from its prison and destroy all that lives.</p><p><strong>Backgrounds:</strong> Cult (Darkbroods) 5, Followers (Simulacra) 5 Powers: Control Simulacra--For one mote, Vodak can issue a telepathic order to one of its simulacra, regardless of distance. This is a reflexive action. The simulacrum must obey the command without exception. Alternatively, Vodak can spend a mote to usurp the creature's voice or senses for a scene. Corrosive Contact--Any organic matter that touches Vodak suffers damage equal to an acid bath (see Exalted, p. 131). Armor does not protect against this environmental effect, as Vodak's plasm seeps past such barriers. Apply this damage separately whenever Vodak successfully strikes with a pseudopod or when a combatant strikes the hekatonkhire with a Martial Arts attack. Create Simulacra--Vodak can excrete a duplicate of any being it has ever consumed. Such simulacra have the memories of and act in the same manner as the original beings. They might even believe they are the originals, despite all evidence to the contrary. Vodak may take control of its simulacra to alter their memories or make them do whatever it pleases. Only one copy of any being can exist at one time, however. This power costs two motes for every health level of the original being. These motes are committed until the simulacrum dies. When a simulacrum dies or Vodak withdraws the committed Essence, the simulacrum dissolves into a silvery powder. Devour Essence--When Vodak touches a being at the moment of death, it regains a number of motes equal to the being's (Stamina + Essence), after which the soul of the being becomes a part of Vodak, lingering on in semi-aware pain for eternity. Immortal--Mundane weapons cannot harm Vodak. Magical weapons and effects can harm the hekatonkhire, but \"killing\" Vodak merely forces the hekatonkhire into quiescence for a century while it re-forms in the Labyrinth. Vodak can be destroyed permanently only by being cast into the Mouth of Oblivion. Interpenetrating Realities--Vodak exists simultaneously in Creation and the Underworld. It constantly perceives both worlds and can affect objects and entities in both. Telepathy--Vodak can project its thoughts into any sentient being in line of sight. The target \"hears\" this projection as a horrific, discordant cacophony of voices--those of Vodak's previous victims--that disorients as well as enthralls, such that all Awareness rolls suffer a ­2 external penalty. Targets may respond telepathically if they choose. This power is communicative only--Vodak cannot use this power to control a target. Characters can block out Vodak's voice through a successful Willpower roll at difficulty 4.</p><p><em>Source: Compass of Terrestrial Directions, Vol. V: The North</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000137",
+  "_key": "!actors!0001000000000137",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Demon of the Second Circle, Defining Soul of He Who Deceives",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "demon",
+    "concept": "",
+    "essence": {
+      "value": 6
+    },
+    "willpower": {
+      "value": 10,
+      "max": 10
+    },
+    "motes": {
+      "value": 0,
+      "max": 110
+    },
+    "pools": {
+      "combat": 8,
+      "social": 11,
+      "physical": 6
+    },
+    "combat": {
+      "joinBattle": 7,
+      "dodgeDV": 7,
+      "parryDV": 0,
+      "dodgeMDV": 5,
+      "parryMDV": 2,
+      "soak": {
+        "bashing": 16,
+        "lethal": 14,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 15
+    },
+    "powers": "<p>Banish--Expels target from his office Calculated Order of Immediate Action--Crush hope Domain Manipulation Scenario--Speed, slow or halt bureaucratic activities Emergency Prayer Relocation--Only to ancillary offices Eye of Inspiration--Bureaucracy; only for subordinates Harrow the Mind--Illusions of horror and despair Materialize--Costs 80 motes Melodious Diagnostic Report Mind-Knife Sacrament--Empower subordinate priestbureaucrats Paper Tiger Arrangement--All-Encompassing Plague of Menaces--Albino snakes Portal Regalia of Authority Signet of Authority--A writ marked with his seal Words of Power--Recitation of Cecelyne's laws Worldly Illusion First (Ability) Excellency--Bureaucracy, Presence, Thrown Second (Ability) Excellency--Bureaucracy, Integrity, Lore Third (Ability) Excellency--Bureaucracy, Investigation Infinite (Ability) Mastery--Bureaucracy Divine (Ability) Subordination--Bureaucracy</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 9, Damage 4B, Parry DV 5, Rate 3 Kick: Speed 5, Accuracy 8, Damage 7B, Parry DV 3, Rate 2 Clinch: Speed 6, Accuracy 8, Damage 4B, Parry DV --, Rate 1, Tags P Infernal Prayer Strips: Speed 4, Accuracy 12, Damage 4L, Range 50, Rate 3</p>",
+    "biography": "<p>A great plateau in the Demon City supports the wealthy district known as the Stephaton. There, amidst the district's brazen plazas, its bubbling fountains of vitriol and walled gardens of flowering copper trees, rises a tower of shining jet. Demons of every stripe converge upon this tower, from haughty citizens in their palanquins to bedraggled serfs that could not, under other circumstances, ever receive permission to set foot upon the Stephaton's streets. This ebon spire is the office-temple of the Ministry of Despair, whose chief official is Emerenzia, the Minister of the Ivory Tassel. Emerenzia always comports himself in accordance with his station. His deep blue robes of office never crease or stain, and his scholar's cap, glistening with badges of tainted orichalcum and jade, is surmounted by a bone spike from which hangs his eponymous tassel. Beneath his cap, his ancient eyes never reveal a hint of compassion. A decanthrope accompanies him at all times as aide-decamp and honor guard. Its many hosts carry Emerenzia's CHAPTER FIVE: THE DAMNED bags, his five-tiered parasol of human skin and the small, engraved brass case that contains his personal seal. The Ministry of Despair operates under a mandate from Cecelyne to assess and distribute suffering throughout the Demon City. A few come to the Ministry in hopes of alleviating their troubles, although such petitions are rarely approved. Most supplicants requisition misery for well-to-do rivals instead, and these requests are far more likely to get results. The Minister of the Ivory Tassel delegates most of these matters to his many subordinates. Other office-temples devoted to Cecelyne's law, such as the Ministry of Failure and the Ministry of Lust, possess overlapping fields of responsibility, and Emerenzia dedicates most of his time and effort to intrigues against his counterparts there. Summoning: (Obscurity 3/5) Sorcerers summon Emerenzia to aid them in matters of government and intrigue. When thousands in Creation suffer in the grip of a heartless bureaucracy, the Minister of the Ivory Tassel may appear to give pointers to the bureaucrats responsible.</p><p><strong>Motivation:</strong> To crush the dreams of the weak and drown them in misery. Emerenzia's Intimacies include the Ebon Dragon, Akallu (his progenitor), his reputation, the trappings of his office and the Ministry of Despair. He also has negative Intimacies toward rival ministers, such as Istar, the Censor of Forbidden Loves.</p><p><strong>Backgrounds:</strong> Backing 3, Cult 1, Followers 3, Manse 5, Sanctum 4</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "d4e5f6a700000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

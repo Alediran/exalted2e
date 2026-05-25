@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000211",
+  "_key": "!actors!0001000000000211",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Voharun, the Battle Crow",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 7
+    },
+    "willpower": {
+      "value": 10,
+      "max": 10
+    },
+    "motes": {
+      "value": 0,
+      "max": 160
+    },
+    "pools": {
+      "combat": 15,
+      "social": 17,
+      "physical": 13
+    },
+    "combat": {
+      "joinBattle": 14,
+      "dodgeDV": 10,
+      "parryDV": 0,
+      "dodgeMDV": 5,
+      "parryMDV": 3,
+      "soak": {
+        "bashing": 23,
+        "lethal": 18,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 19
+    },
+    "powers": "<p>As an ancient, powerful god, Voharun knows most standard Charms. Some of his more notable ones include: Art of Meditative Discussion--Voharun knows every Charm of this unusual Celestial Martial Art. (See pp. 18­21 of Scroll of the Monk: The Imperfect Lotus.) Blessing of Heroic Retirement--Champions who impress Voharun during their career are rewarded with good health for the rest of their natural lives. The blessing instantly alleviates any wounds and other physical health problems. In addition, Stamina rolls receive a one-die bonus and all diseases affect the target at -1 Virulence for the rest of his life. Costs 10 motes. Domain Manipulation Scenario--Voharun is a raven god as well as a war god, so he may control such birds. Indeed, he can control any birds that come to a battlefield to feed on the dead. Essence Plethora (x4)--Voharun has 40 extra motes of Essence, due to far-ranging worship in the North. Host of Spirits--Though he does periodically appear in person, Voharun usually works his will in Creation through black raven avatars with 20-foot wingspans. Voharun invests his avatars with the Charms necessary for their missions. A raven avatar may also take the form of a flock of 20 normal-sized ravens, as it suits the god. Costs three motes per avatar. Hurry Home--Voharun can transport himself to any site of battle in the North. In Yu-Shan he can use this Charm to return to the Raven's Roost. Materialize--Costs 85 motes. Plague of Menaces--Voharun may curse traitors who betray their country or the North in general, especially those siding with the North's enemies outside Creation. A raven constantly follows a cursed individual. This raven calls attention to him at inopportune times, steals his weapons and food, delivers damning evidence to his enemies and otherwise disrupts his life. Mortals recognize the raven as a token of divine wrath. The only way to escape this curse is to leave the North entirely (though the raven will be waiting for the target when he returns). Voharun seldom renounces this curse, even when the recipient goes to extraordinary lengths to make up for his wrongdoing. The Battle Crow might also strengthen his curse by judicial use of the Malediction and Scourge Charms. Shapechange--Voharun can assume the form of a raven ranging in size from normal for the breed to one that dwarfs even his enormous avatars. Touch of Divinity/ Touch of Eternity-- Voharun watches the enterprise of war closely, and rewards soldiers who fight bravely and against the odds. He is especially fond of granting boons of power to otherwise normal, nonpowered mortals who display courage and cleverness in the midst of battle and defy certain death by attempting feats usually accomplished only by the Exalted. The specific boon is based on the situation but usually amounts to additional dots in Strength, Wits, Valor or Willpower. First (Ability) Excellency--Archery, Dodge, Integrity, Martial Arts, Melee, Socialize, Stealth, War Second (Ability) Excellency--Archery, Dodge, Integrity, Martial Arts, Melee, Socialize, Stealth, War Third (Ability) Excellency--Archery, Dodge, Integrity, Martial Arts, Melee, Socialize, Stealth, War Divine (Ability) Subordination--Stealth, War</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 16, Damage 10B/L, Parry DV 9, Rate 3 Kick: Speed 5, Accuracy 15, Damage 13B/L, Parry DV 7, Rate 2 Clinch: Speed 6, Accuracy 17, Damage 10B/L, Parry DV --, Rate 1, Tags P Straight Sword (Raven's Claw): Speed 4, Accuracy 20, Damage 13L, Parry DV 10, Rate 2</p>",
+    "biography": "<p>Some war gods pine for the glories of the Old Realm. Voharun, called Feaster on the Slain, does not. He recognizes the grandeur and drama of bygone battles, but he prefers the smaller, desperate personal struggles of present-day warriors. Voharun savors the small acts of heroism that lie behind great victories. He also has particular affection for conquered armies that fought valiantly, for Voharun is the god of fallen soldiers. The Feaster on the Slain makes few demands, but he insists that victors treat the enemy's dead with as much respect as their own. After all, a soldier who exults in victory today could become food for crows tomorrow. Most of all, Voharun admires mortal soldiers who pit themselves against supernatural foes in full knowledge that they have very little chance of survival. Voharun excels as a bureaucratic warrior. He uses his influence in the Celestial Bureaucracy to protect the North from a variety of troubles. Recently, he has campaigned against the Bureau of Seasons and the Wind Masters of the North for their undue influence in military matters (as the outcome of the region's wars so often depend on vagaries of weather). He also works to protect his and Nasamara's position from the occasional upstart challenger. Most of his efforts, both in Yu-Shan and in Creation, take place behind the scenes. When Voharun must appear in Creation, he usually does so through his raven manifestation. He never shows his true face to a mortal. The Solar Exalted do not have Voharun's explicit favor, as he considers their time long passed. He does not hate them, however, and might support a Solar under the right circumstances, such as those heroes who battle the Fair Folk or powerful Wyld creatures. He will never aid Abyssal Exalted. Voharun admires the Lunar Exalted, though, for their long struggle to defend Creation's borders. Voharun tries not to let his feelings color his treatment of the North's indigenous Terrestrial Exalted. After the Great Contagion, Voharun begged Tachi-Kun, the Central God of Exalted Warfare, to assist the North in its struggle against otherworldly creatures. The Blessed Isle's war god failed to send the requested aid, either personally or through the Scarlet Dynasty. Since then, Voharun has made no bones about his dislike for Tachi-Kun. Voharun would never challenge him directly, but he has at times severely inconvenienced TachiKun and his minions in Yu-Shan with blizzards of writs and suits. Voharun does not welcome armies from the Blessed Isle unless they come to (finally) answer the call for aid. The Feaster on the Slain manifests as a tall, slender man with smooth jet-black skin and unblinking yellow eyes that stare from under his beaked raven mask. No power can remove the mask; it's part of him. If Voharun wants, he grows birdlike talons on his fingers to inflict lethal damage. He also manifests in the form of an ordinary-looking raven. Sanctum: Voharun's heavenly abode is the Raven's Roost, a fortress of slick black mirrors whose 23 towers all rise to meet in one sharp spire. Only one door, which is invisible and opens only at Voharun's command, admits visitors. The rest of the exterior is slick, with no handholds. No windows show from the outside, but Voharun can pass or see through any of the walls. At Voharun's touch, any of the palace's walls can display any current or past battle in the North, with as much detail as the god requires. Outside the Roost, snow falls perpetually on a landscape of ice. Inside, Voharun's servitor-gods, masked and feathered like their master, verify and record the deeds of fallen warriors.</p><p><strong>Motivation:</strong> To see that war dead receive fitting honors and to protect the North from invaders from outside Creation.</p><p><strong>Backgrounds:</strong> Allies 5, Artifact 3, Artifact 3, Backing 5, Celestial Manse 4, Contacts (Within Heaven) 5, Contacts (Within Creation) 5, Cult 5, Followers 5, Salary 5, Sanctum 5</p><p><em>Source: Compass of Terrestrial Directions, Vol. V: The North</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

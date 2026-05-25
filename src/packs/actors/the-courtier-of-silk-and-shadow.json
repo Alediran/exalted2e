@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000124",
+  "_key": "!actors!0001000000000124",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Courtier of Silk and Shadow",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 4
+    },
+    "willpower": {
+      "value": 7,
+      "max": 7
+    },
+    "motes": {
+      "value": 0,
+      "max": "75 (83) Committed"
+    },
+    "pools": {
+      "combat": 4,
+      "social": 10,
+      "physical": 3
+    },
+    "combat": {
+      "joinBattle": 7,
+      "dodgeDV": 5,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 2,
+      "soak": {
+        "bashing": 8,
+        "lethal": 8,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "<p>Punch (with demon-embracing robes): Speed 5, Accuracy 11, Damage 7B, Parry DV 3, Rate 3 Kick: Speed 5, Accuracy 4, Damage 5B, Parry DV 1, Rate 2 Clinch: Speed 6, Accuracy 4, Damage 2B, Parry DV --, Rate 1</p>",
+    "biography": "<p>His official title is Chief Liaison of Stygia to the Deathlords. A more honest title would be Chief Panderer. Whatever the Deathlords want when they visit Stygia--from a lavish party to a ghostly virgin to sacrifice-- the Courtier of Silk and Shadow strives to provide. He wields tremendous power in the Palace of the Dual Monarchy and the city beyond, simply by asking anyone who balks him if they want to be known as the ghost who disappointed and irritated a Deathlord. If that does not suffice, the Courtier calls upon a small army of war ghost bodyguards or assassins supplied by his ally Lord Stalwart. The Courtier also trades favors with the Emissary of Righteous Victory. Stygia's highest-placed toady seeks power by serving the powerful. He sees the forces of Oblivion as the greatest power in Stygia. The Courtier of Silk and Shadow looks like an incredibly handsome man on the young edge of middle age. His looks make him seem distinguished rather than a boy-toy. Long, dark, oiled ringlets frame his flawless face. His eyes, however, are pits of darkness and hunger. He dresses in dark silk and velvet robes tastefully adorned with inconspicuous jewelry. He carries no weapons except his enchanted robes. He has 20 war ghost bodyguards (see Exalted, p. 318) to protect him, however, as well as a constant retinue of clerks, gofers and valets to hide behind. The Courtier of Silk and Shadow would fight to defend himself only if he had no alternative.</p><p><strong>Motivation:</strong> Serve the powerful.</p><p><strong>Backgrounds:</strong> Allies 5, Artifact (Demon-Embracing Robes) 3, Artifact (Essence-Containing Gem) 5, Backing (Court of the Dual Monarchy) 4, Contacts 5, Followers 2, Influence 3, Resources 5 Arcanoi: Essence-Measuring Thief Arts: All Charms Shifting Ghost-Clay Path: Steeling the Spirit, Stolen Wax Discipline, Waxen Ghostly Flesh, Yielding Spirit Form Stringless Puppeteer Art: Skin-Riding Prana, Soul-Whispering Empathy Discipline, Spirit-Catching Eye Technique</p><p><em>Source: Compass of Celestial Directions, Vol. IV: The Underworld</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

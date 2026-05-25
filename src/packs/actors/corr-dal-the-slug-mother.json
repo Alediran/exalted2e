@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000230",
+  "_key": "!actors!0001000000000230",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Corr'dal, the Slug Mother",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 3
+    },
+    "willpower": {
+      "value": 9,
+      "max": 9
+    },
+    "motes": {
+      "value": 0,
+      "max": 105
+    },
+    "pools": {
+      "combat": 0,
+      "social": 0,
+      "physical": 0
+    },
+    "combat": {
+      "joinBattle": 9,
+      "dodgeDV": "0",
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 2,
+      "soak": {
+        "bashing": 10,
+        "lethal": 7,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 14
+    },
+    "powers": "<p>Amethyst Awareness--Founders perceive structures of Essence and other intangible things. Chrysalis of Preservation--Corr'dal can materialize anything she can imagine and for which she possesses a relevant Craft Ability. These imaginings have even less reality than the fantasies of the Fair Folk, however, for they do nothing except remain solid. Communion of the Spawn--Corr'dal can communicate tele- pathically with any of the Founders, at no Essence cost. Creation of Perfection--Corr'dal can shape Fate and Essence with incredible skill. It's how she and her progeny built the Invisible Fortress for Kal Bax and moved it and the surround- ing territory outside Fate. Essence Bite--Those who strike Corr'dal are momentarily engulfed in a misty green aura emanating from the demon. This cloud burns the attacker, dealing one die of lethal dam- age per two motes spent. Essence Plethora (x3)--Corr'dal has 30 extra motes. Harrow the Mind--Corr'dal once could weave thoughts to make mortals believe almost anything. Kal Bax prudently crippled her facility with this power. If freed, Corr'dal's Manipulation and Presence would rise to the point where she could control all but the strongest minds. Host of Spirits--Corr'dal can evoke up to 15 copies of herself, costing three motes each. Materialize--Costs 60 motes. Measure the Wind--Corr'dal evaluates anyone she meets who might have magical powers... especially the Exalted. Possession--Corr'dal cannot use this Charm until she regains her power to dematerialize. Principle of Motion--Corr'dal has nine extra actions banked. Stoke the Flame--Inspires jealousy and greed. Touch of Grace--Corr'dal can heal one health level of damage by spending three motes and one Willpower. Words of Power--In addition to the base cost of five motes, Corr'dal must spend one additional Willpower to speak aloud. First (Ability) Excellency--Awareness, Craft, Lore, Occult Second (Ability) Excellency--Awareness, Craft, Lore, Oc- cult</p>",
+    "notes": "<p>None</p>",
+    "biography": "<p>This Second Circle demon led the horde of demons that the Solar architect Kal Bax summoned to build his Invisible Fortress. Bax betrayed Corr'dal and bound her into Creation. She now rules her brood, the demons called the Founders (properly, the dal'sharr--see p. XX) and the devil beasts called ice eaters, from a throne of silver and bone. Corr'dal still seethes over Bax's ancient betrayal. Since that time, she has hated all Solar Exalted. She desires above all to escape the Demonlands around the Invisible Fortress so she can carry out her vengeance. Corr'dal resembles a corpulent sluglike demon with black, hairless skin, a vaguely humanoid face and murky yellow eyes. She cannot move on her own, typically lying motionless on her throne. Even speech is laborious for Corr'dal, but she has an astute and creative mind. Rather than talk aloud, Corr'dal usually speaks through her dal'sharr vizier U'awa, who receives instructions from Corr'dal telepathically. For a description of the ice eaters and rules for creating these devil beasts, see pages XX­XX of The Manual of Exalted Power--The Infernals. Sanctum: Corr'dal lives in a huge tent in the Demonlands.</p><p><strong>Motivation:</strong> To escape the Demonlands and kill any Solar Exalted she meets... such as by sending them to their deaths in the Invisible Fortress.</p><p><strong>Backgrounds:</strong> Cult 2, Followers 1</p><p><em>Source: Compass of Terrestrial Directions, Vol. V: The North</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

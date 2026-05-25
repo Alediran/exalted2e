@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000218",
+  "_key": "!actors!0001000000000218",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Snowshoe Hare Among Brambles",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 4
+    },
+    "willpower": {
+      "value": 8,
+      "max": 8
+    },
+    "motes": {
+      "value": 0,
+      "max": 80
+    },
+    "pools": {
+      "combat": 9,
+      "social": 11,
+      "physical": 12
+    },
+    "combat": {
+      "joinBattle": 8,
+      "dodgeDV": 10,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 11,
+        "lethal": 9,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 12
+    },
+    "powers": "<p>Banish--Snowshoe Hare can banish sleepers from the dreamscape. Divine Decree--Snowshoe Hare may command lesser spirits of sleep and dreams, such as dream flies (see pp. 35­36 of The Books of Sorcery, Vol. IV--The Roll of Glorious Divinity I). Domain Manipulation Scenario--Snowshoe Hare can make wholesale decrees regarding sleep and dreams such as, \"The citizens of Tuskstad shall not sleep for seven days.\" While such a declaration seems like a punishment, sometimes such is necessary in order for people to complete necessary tasks. Hare has the power with such a declaration to negate all ill effects resulting from lack of sleep. Dreamscape--Snowshoe Hare molds the stuff of dreams to his own specifications and can create as many autonomous dream-creatures that obey his will, as suits his whim. These are usually pleasant dreams. Endowment--All-Encompassing (but this does not cost extra motes or Willpower, as it deals directly with the core of Snowshoe Hare's divine duties). Snowshoe Hare can issue endowments while the subject sleeps. A subject dreams that he possesses such a gift, and he really does for one scene after he wakes. Snowshoe Hare never spends more than 15 motes on this Charm, though, so he grants only minor endowments. Enter Dream--For five motes, Snowshoe Hare can enter any sleeping Haslanti's dream. While doing so, Snowshoe Hare is dematerialized and cannot be harmed physically. CHAPTER SEVEN: GODS AND MONSTERS OF THE NORTH Once inside a dream, the god can travel to other dreams for an additional five motes, leave the dreamscape entirely for one mote (emerging at the location of the sleeper), or use Hurry Home to return to his warren. Hurry Home--The god can instantly return to his dream- warren or to the House of the Nine Hearths. Impromptu Messenger--Mortals talk in their sleep to deliver messages from Snowshoe Hare. Infallible Escape Method--This Charm is similar to the Charm Slippery Escape Method (see Scroll of the Monk, p. 43). How do you hold a dream? Materialize--Costs 60 motes. Principle of Motion--Snowshoe Hare has eight actions banked. Sudden Sleep Prana--Costs 3 motes. A target's player must roll (Willpower ­ Snowshoe Hare's Essence of 4) or she im- mediately goes to sleep. Worldly Illusion--Snowshoe Hare can call other creatures into a shared dream. First (Ability) Excellency--Lore, Performance, Stealth Second (Ability) Excellency--Lore, Performance, Stealth</p>",
+    "notes": "<p>Kick: Speed 4, Accuracy 8, Damage 4B, Parry DV 8, Rate 2</p>",
+    "biography": "<p>With the death of the former Haslanti dream god, Snowshoe Hare was promoted to the region's principle god of dreams. He ensures good sleep and pleasant dreams, and reminds his worshipers that rest and relaxation are necessary for health and a full, meaningful life. Pregnant Haslanti women also pray to him nightly, as do laborers and hunters. The Haslanti believe that catching sight of him while dreaming means good luck, but seeing him in the waking world is a bad omen. Snowshoe Hare's worshipers keep dream journals as a religious rite. Even more than most Haslanti, they seek visions of their destinies in their dreams. Snowshoe Hare has many responsibilities. In addition to administering the realm of sleep for the nation, he also crafts and delivers dreams for many fellow Haslanti gods, who rely on his expertise to communicate their wishes and warnings. (Most of the now-neglected Haslanti gods now need Snowshoe Hare's favor if they want to send dreams. Other members of the Ennead can send whatever dreams they please.) Despite this vast workload, Snowshoe Hare sleeps often. While doing so, he can visit the dreams of anyone currently sleeping. Snowshoe Hare manifests as a large white rabbit with enormous ears and feet. Although he constantly moves from one job to another, he never seems hurried or overworked. Sanctum: Snowshoe Hare sleeps in many deep warrens throughout the Far North.</p><p><strong>Motivation:</strong> To promote the value of dreams and to provide peaceful sleep.</p><p><strong>Backgrounds:</strong> Allies 3, Backing 3, Contacts 3, Cult 3, Salary 3, Sanctum 3 (Dream Warrens), Sanctum 4 (House of the Nine Hearths)</p><p><em>Source: Compass of Terrestrial Directions, Vol. V: The North</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

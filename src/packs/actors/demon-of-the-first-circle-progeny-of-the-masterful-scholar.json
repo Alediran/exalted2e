@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000153",
+  "_key": "!actors!0001000000000153",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Demon of the First Circle, Progeny of the Masterful Scholar",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "demon",
+    "concept": "",
+    "essence": {
+      "value": 2
+    },
+    "willpower": {
+      "value": 8,
+      "max": 8
+    },
+    "motes": {
+      "value": 0,
+      "max": 60
+    },
+    "pools": {
+      "combat": 3,
+      "social": 3,
+      "physical": 2
+    },
+    "combat": {
+      "joinBattle": 3,
+      "dodgeDV": 3,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 2,
+        "lethal": 1,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 13
+    },
+    "powers": "<p>Divine Prerogative--Cannot be diverted from its quest for knowledge Hoodwink--Recites baffling koans Host of Spirits--Doppelgangers read and research en masse Landscape Travel--Climbs walls and ceilings Materialize--Costs 50 motes Spice of Custodial Delectation--Research First (Ability) Excellency--Bureaucracy, Integrity, Investigation, Linguistics, Lore, Occult Third (Ability) Excellency--Integrity Any two other Charms--Chosen by the Storyteller, these powers represent additional knacks discovered in the libraries of Malfeas. On rare occasions, these may include Terrestrial Circle spells that aid in acquiring knowledge, such as the Eye and the Mouth, Fugue of Truth, Incanta- tion of Effective Restoration or Theft of Memory</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 4, Damage 1B, Parry DV 3, Rate 3 Kick: Speed 5, Accuracy 3, Damage 4B, Parry DV 1, Rate 2 Clinch: Speed 6, Accuracy 3, Damage 1B, Parry DV --, Rate 1, Tags P</p>",
+    "biography": "<p>Of the countless demon races, there are many whose sole purpose is to deal in the lore of the demon world. These beings haunt the great glass libraries of Malfeas, seeking the truths placed there by Orabilis. Most of the demon scholars fear to read too deeply, lest they awaken Orabilis's ire, but the naneke have no such fear. Burning for the touch of Orabilis, they plumb the uttermost depths of Malfean lore. A naneke appears as a hunchbacked mortal with the head of a praying mantis. The demon's skin glows CHAPTER FIVE: THE DAMNED the pale gold of old parchment, shot through with a fine craquelure, and its long-nailed hands glitter with countless tiny barbs. Naneke dress simply, often wearing no more than a caftan of yellow or buff-colored cloth and sandals of scarlet bamboo. Rarely does one appear without at least one satchel laden with books and scrolls. Any wealth a naneke obtains goes to acquire new knowledge, such as texts forbidden to demon scholars or access to glass libraries whose masters charge undue fees for admission. This shared obsession leaves the naneke with few scruples and no shame. They don't hesitate to sell out friends and allies in exchange for a desperately needed cipher key or fragment of hidden wisdom. Few balk at trading secrets with gods, Abyssals, Fair Folk or other foreign powers. They show restraint only when their lives stand at risk. They fear death not for its own sake, but because the dead do not know Orabilis's touch. It is for this reason alone that they respect Cecelyne's laws, for Lucien's reach is long and his knives are sharp. Summoning: (Obscurity 3/3) Sorcerers consult the naneke for their lore or to direct them to sift through books and libraries for hidden knowledge. When lore that has been lost for an Age is brought into the light of day, a naneke may find his way from Malfeas to peruse its mysteries. For each day that a reader of forbidden texts fails to peruse a new source of knowledge, it gains a point of Limit.</p><p><strong>Motivation:</strong> To absorb such knowledge and achieve such wisdom as to attract the attentions of Orabilis.</p><p><strong>Backgrounds:</strong> Backing 1</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "d4e5f6a700000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

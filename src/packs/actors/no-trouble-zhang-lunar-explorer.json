@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000075",
+  "_key": "!actors!0001000000000075",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "No Trouble Zhang, Lunar Explorer",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 3
+    },
+    "willpower": {
+      "value": 7,
+      "max": 7
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 7,
+      "social": 10,
+      "physical": 7
+    },
+    "combat": {
+      "joinBattle": 6,
+      "dodgeDV": 6,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 7,
+        "lethal": 4,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "<p>Culling the Pride, East Mastery Technique, False Burrow Pursuit, First Charisma Excellency, First Dexterity Excellency, First Manipulation Excellency, Foot-Trapping Counter, Golden Tiger Stance (Dodge), Herd-Strengthen- ing Invocation, Instinctive Memory Insertion, Irresistible Silver Spirit, Lunar Hero Form, Mask of White Jade, New Friend Aroma, One of the Herd, Perfect Symmetry, Rabid Beast Attitude, Relentless Lunar Fury, Second Appearance Excellency, Thousand-Claw Infliction Combos: Force of Personality (Culling the Pride, First Charisma Excellency) Attention-Grabbing Distraction (False Burrow Pursuit, First Manipulation Excellency)</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 8, Damage 2B, Defense 9 (5), Rate 3 Kick: Speed 5, Accuracy 7, Damage 5B, Defense 5 (3), Rate 2 Clinch: Speed 6, Accuracy 7, Damage 2B, Defense --, Rate 1 Staff: Speed 6, Accuracy 9, Damage 9B, Defense 9 (5), Rate 2</p>",
+    "biography": "<p>No Trouble Zhang is young... for a Lunar. He's at least 70 now, and many older Lunars tell him he's doing something wrong. Zhang ignores them. Joyful and strong, Zhang wandered the world for a while to figure out what he wanted to do with his Exaltation. His discovery of Ilio Stara helped him figure it out. Now, even as the Child of Luna tries to remake his city-state into a self-sufficient, sustaining community, he also searches the Wyld for more societies to put on the road to their own inner strength. No Trouble Zhang is sure that these people can push back the Wyld with just a little help from him. Zhang looks like a thin man of average height with a bush of white hair on his head and a thin white beard. In his true form, the expected silver tattoos whorl from around his eyes down his body in occult patterns. His spirit shape is that of a raccoon with a silvery mask. No Trouble Zhang is friendly with all and light-hearted about everything, especially when the situation is serious.</p><p><strong>Motivation:</strong> Bring lost societies to their feet to strengthen Creation. Caste: Changing Moon Anima: Raccoon backed by subtle silvers, whites and blues Tell: Silvery mark around eyes</p><p><strong>Backgrounds:</strong> Cult 1, Influence (Illio Stara) 5, Manse 3, Resources 4 Knacks: Changing Plumage Mastery, Humble Mouse Shape, Luna's Hidden Face, Prey's Skin Disguise, Subtle Silver Declaration</p><p><em>Source: Compass of Celestial Directions, Vol. II: The Wyld</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

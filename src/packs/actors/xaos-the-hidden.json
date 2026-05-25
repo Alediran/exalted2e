@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000112",
+  "_key": "!actors!0001000000000112",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Xaos the Hidden",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 5
+    },
+    "willpower": {
+      "value": 5,
+      "max": 5
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 0,
+      "social": 0,
+      "physical": 0
+    },
+    "combat": {
+      "joinBattle": 0,
+      "dodgeDV": 0,
+      "parryDV": 0,
+      "dodgeMDV": 2,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 0,
+        "lethal": 0,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "",
+    "biography": "<p>Xaos is the God of Things Undiscovered and answers to Nara-O, for what little good it does the latter, for Xaos is utterly mad. During Balor's Crusade, as the Fair Folk battered the walls of Creation, Nara-O bade Xaos slip behind enemy lines and, using guile and Charm, ferret out the enemy's tactics. Whatever Xaos learned, he has yet to share in detail, for he was found in an area of the Middlemarches, his form broken into scintillating Wyld energy, his mind lost in a purgatorial landscape. He claims, in his rare lucid moments since his return to Heaven, to have learned the true name of the Wyld, but every time he attempts to utter it, listeners around him fall down mad and Xaos suffers from another break with reality. Still, when his madness is at its worst, Xaos is useful, and Nara-O has appointed a dozen lesser gods to write down his rantings and assigned a whole sub-division to attempt to interpret them. What truths Nara-O gleans from these volumes when it takes the time to read them is unknown, for it keeps its secrets close. Xaos resides now in offices within the Division of Secrets. Even those who gaze too long at his writhing and dynamic form report a pull on their sanity, accompanied by strange insights into the nature of reality. It is for that reason that whenever he receives important visitors, Xaos hides himself behind a bamboo screen and speaks only of topics that are unrelated to whatever revelations he had within the Wyld. Only then can he maintain his elusive hold on sanity.</p><p><strong>Motivation:</strong> At one point, Xaos's goal was to catalog the secrets of those things that were undiscovered, until they shifted out of his domain and into the domain of another god within the Division of Secrets. Now, his motivation is simply to hold onto his sanity long enough to impart the terrible knowledge he gained all those years ago in the Wyld to another being who can put it to use.</p><p><em>Source: Compass of Celestial Directions, Vol. III: Yu-Shan</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

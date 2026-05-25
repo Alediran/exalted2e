@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000156",
+  "_key": "!actors!0001000000000156",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Halkomelem, the Enigma in Red and Gold",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "demon",
+    "concept": "",
+    "essence": {
+      "value": 9
+    },
+    "willpower": {
+      "value": 9,
+      "max": 9
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 9,
+      "social": 6,
+      "physical": 11
+    },
+    "combat": {
+      "joinBattle": 8,
+      "dodgeDV": 10,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 32,
+        "lethal": 16,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 51
+    },
+    "powers": "<p>Hunger for Knowledge--When the Enigma in Red and Gold consumes a sentient creature, it learns everything the creature ever knew. Its flanks immediately sprout hundreds of new pages inscribed with that knowledge in runes of gold. Scarred with Understanding--A silver scar marks Halkomelem's flank where it endured the touch of Orabilis. As such, it grasps a secret once known only to the Yozis. This could be almost anything: a rite to compel the Incarnae, a Yozi's hidden vulnerability or a plan to escape the demon prison. Written on the World--Having been inscribed by a Primordial upon the shinmaic substrate of the cosmos, Halkomelem cannot be permanently killed by ordinary means. If destroyed in battle, it reconstitutes itself from its scattered pages over a period of months or years. Only power on par with the Yozis and the Incarnae can kill it, although a Solar could conceivably do so with a Solar Circle sorcery designed solely for that purpose.</p>",
+    "notes": "<p>Bite: Speed 6, Accuracy 9, Damage 14L, Parry DV --, Rate 1 Tail Slap: Speed 5, Accuracy 10, Damage 20B, Parry DV 4, Rate 1 Clinch: Speed 6, Accuracy 10, Damage 14B, Parry DV --, Rate 1, Tags P</p>",
+    "biography": "<p>When He Who Bleeds the Unknown Word entered the Primordial War, he assumed the shape of a dragon of living calligraphy. He flew on wings of poetry; his fangs dripped with satire; he wore armor of endlessly folded layers of impenetrable legalese. In his breast, his true name pulsed like a star. Despite his ineffable splendor, the Solar Exalted tore him from the sky and shattered his name-heart. As he died, he scribed his own nature upon the fabric of the world as a dying man might write his last thoughts in his own blood. That scribble, that corrupted copy, is Halkomelem, a triple-jawed serpent of imperishable crimson paper 100 yards long, its body crawling with golden script in ten thousand tongues. When the gods bound the Yozis and their offspring into Malfeas, the behemoth followed. Now it soars, inscrutable, through the Demon City's skies, shedding pages from its flanks in a glittering scarlet rain.</p><p><strong>Motivation:</strong> Learn.</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "d4e5f6a700000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

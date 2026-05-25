@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000224",
+  "_key": "!actors!0001000000000224",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Raneth of Diamond Hearth",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 3
+    },
+    "willpower": {
+      "value": 7,
+      "max": 7
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 8,
+      "social": 6,
+      "physical": 5
+    },
+    "combat": {
+      "joinBattle": 5,
+      "dodgeDV": 4,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 12,
+        "lethal": 12,
+        "aggravated": 0
+      },
+      "hardness": 8
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 10
+    },
+    "powers": "<p>Courtier's Eye Technique, Durability-Enhancing Technique, Essence Arrow Attack (Righteous Judgment Arrow), First Archery Excellency, First Lore Excellency, Judge's Ear Technique, Object-Strengthening Touch, Ox-Body Technique, Second Bureaucracy Excellency, Second Craft Excellency, Second Dodge Excellency, Second Investigation Excellency, There Is No Wind, Third Craft Excellency, Whirling Brush Method</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 6, Damage 2B, Parry DV 4, Rate 3 Kick: Speed 5, Accuracy 5, Damage 5B, Parry DV 2, Rate 2 Clinch: Speed 6, Accuracy 5, Damage 2B, Parry DV --, Rate 1, Tags P Perfect Knife: Speed 5, Accuracy 8, Damage 5L, Parry DV 5, Rate 3 Concussive Essence Cannon: Speed 4, Accuracy 11, Damage 10B, Rate 1, Range 50, Tags P Exceptional Composite Bow: Speed 6, Accuracy 9, Damage 6L*, Rate 4, Range 300 * Uses frog crotch arrows; double target's lethal soak from armor before applying damage.</p>",
+    "biography": "<p>Born at the edge of the world, raised amid the cold lawlessness of Diamond Hearth, Raneth craves civilization in spite of his own violent nature. His knack for machinery lifted him from the drudgery of the mines and the violence of the dockside gangs, and it saved his life in buried Tzatli, where he Exalted with an ancient Essence weapon in his hand. Now he wishes to spread civilization to the edges of Creation, at sword's point if need be. Raneth enlisted with the Bull soon after the Second Breath. Aghast at the icewalkers' primitive way of life, he designed their new educational curriculum and established civil codes for their governors and garrisons. Despite his usefulness and idealism, his patronizing attitude grated on Yurgen, Samea, Crimson Antler and Fear-Eater. Both as a reward and to get him out of their hair, the Bull sent Raneth to the empire's greatest bastion of civilization: Plenilune. Raneth is of middling stature--making him short for a Northerner--with a stocky frame and small, blunt features. His black hair and eyes stand out sharply against his ivorypale skin. The pressures of government weigh him down; his expression is generally tight and humorless, and he paces like a caged beast.</p><p><strong>Motivation:</strong> Restore the North to the glories of the First Age. Caste: Twilight Anima Banner: A dragon scaled in blue and violet, its eyes as red as the setting sun. It exhales great gouts of golden fire when Raneth is wounded or enraged. CHAPTER SEVEN: GODS AND MONSTERS OF THE NORTH</p><p><strong>Backgrounds:</strong> Artifact 5, Contacts 3, Followers 1, Influence 4, Manse 2, Resources 5</p><p><em>Source: Compass of Terrestrial Directions, Vol. V: The North</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

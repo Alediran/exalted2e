@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000205",
+  "_key": "!actors!0001000000000205",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Walkers Among the Trees",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 2
+    },
+    "willpower": {
+      "value": 6,
+      "max": 6
+    },
+    "motes": {
+      "value": 0,
+      "max": 70
+    },
+    "pools": {
+      "combat": 8,
+      "social": 5,
+      "physical": 6
+    },
+    "combat": {
+      "joinBattle": 7,
+      "dodgeDV": 3,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 24,
+        "lethal": 16,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 13
+    },
+    "powers": "<p>Dematerialize--Costs 40 motes Essence Plethora (x2)--20 extra motes Landscape Hide--A walker can merge with a bamboo grove as a way to escape detection and harm. Landscape Travel--A walker can double its running speed for a scene. One with the Wood--Costs three motes. For one scene, the walker can locate and identify the species of any living creature or materialized spirit in the forest. It can recognize individuals it has met before (including its \"mother\"). When using this ability the walker becomes a supernatural tracker, as if using the Tracking Charm. Ox-Body Technique (x2) Roots Run Deep--For 10 motes, a stationary walker can send roots burrowing though the earth up to 20 feet, attacking nearby structures but not individual creatures. The walker inflicts 10 dice of piercing, bashing damage every miscellaneous action (see Exalted, pp. 153­154, for rules about attacking inanimate objects). This Charm's effects last a full scene. Tree Fortitude--For three motes, the walker reflexively strengthens its woody body so that for the rest of its ac- tion, it soaks lethal damage with its full Stamina. Its body stiffens, however, reducing its Dexterity by two for the rest of its action as well. Woodland Stride--Costs six motes. For the rest of the scene, the walker can move silently and leave no evidence of its passing. Attempts to track the walker suffer a -3 external penalty.</p>",
+    "notes": "<p>Smash: Speed 5, Accuracy 8,Damage 12B, Parry DV 5, Rate 2 Thrown Boulder: Speed 6, Accuracy 8, Damage 16B, Range 100, Rate 1</p>",
+    "biography": "<p>The Tengese believe the Pale Mistress causes miscarriages by whispering disease into the ears of sleeping pregnant women. To protect their unborn children, pregnant women sleep with scented silk in their ears--if they can afford it--but this does not always work and sometimes the woman forgets. In the Middle Lands, women bury their stillborn amongst the bamboo trees in the Forest of Compassion, where they hope the Pale Mistress cannot find it. The Tengese further say that if a seed from the great trees takes root in the grave, a walker among the trees will sprout from the ground on the next moonless night. Walkers among the trees are 50-foot-tall manlike figures of living bamboo, with hair and beards of bamboo shoots. Possessed by the spirit of the unborn, walkers are drawn to their mortal parents' homes, to watch over them by night. Walkers take vengeance on anyone whom their child-minds perceive as attacking or insulting their mothers: a tax collector taking his tithe, a husband arguing with his wife, other children perceived as \"stealing\" the mother's affection... These creatures are unwitting tools of the Pale Mistress. She catches the lower soul of the stillborn (even the Pale Mistress dares not interfere with the reincarnation of higher souls) and shapes it into an elemental. She sends the walkers to inflict further woe on those already grieving. Most walkers never realize this. A few, unable to bear the knowledge that their existence is a vicious trick, burn themselves to ash--though they might take a forest or a village with them.</p><p><strong>Motivation:</strong> To watch over their \"mother\" and punish any who would do her harm</p><p><em>Source: Compass of Terrestrial Directions, Vol. IV: The South</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

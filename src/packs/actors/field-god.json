@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000069",
+  "_key": "!actors!0001000000000069",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Field God",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 3
+    },
+    "willpower": {
+      "value": 6,
+      "max": 6
+    },
+    "motes": {
+      "value": 0,
+      "max": 60
+    },
+    "pools": {
+      "combat": 6,
+      "social": 5,
+      "physical": 5
+    },
+    "combat": {
+      "joinBattle": 6,
+      "dodgeDV": 5,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 9,
+        "lethal": 9,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 9
+    },
+    "powers": "<p>Intrusion Sensing Method--By committing five motes of Essence and spending a point of Willpower, the Storyteller gets a reflexive (Perception + Awareness) roll for the field god, adding a number of automatic successes equal to the field god's Compassion, to detect any time an entity with an Essence of greater than 1 enters its domain. Materialize--It costs a field god 45 motes to materialize. Measure the Wind--The field god may spend a mote to under- CHAPTER SEVEN · GODS & CREATURES OF THE BLESSED ISLE stand the spiritual power of those who come to its fields. Summon Food--By spending five motes, the field god may create wholesome but simple food appropriate to its purview, in quantities sufficient to feed up to five people. By spending 10 motes, this is food of exquisite quality. Field gods have the First Excellency for the following Abili- ties: Awareness, Craft, Dodge and Melee.</p>",
+    "notes": "<p>Clinch: Speed 6, Accuracy 5, Damage 4B, Parry DV --, Rate 1 Kick: Speed 5, Accuracy 5, Damage 7B, Parry DV 2, Rate 2 Punch: Speed 5, Accuracy 6, Damage 4B, Parry DV 4, Rate 3 Crop-Sword: Speed 4, Accuracy 8, Damage 7L, Parry DV 4, Rate 2 Crop-Bow: Speed 6, Accuracy 6, Damage 6L*, Rate 2, Range 150 * Uses broadhead arrows.</p>",
+    "biography": "<p>Field gods are the gods of agricultural stretches of land, from rice paddies to wheat fields to orchards and vineyards. Generally, field gods form the majority of the population of a rustic spirit court, though each one rules many acres of a given kind of field. The appearance of a field god changes depending on what is being grown in that field. Rice paddy gods wear short robes of woven rice grains, with big straw hats, and possess perpetually wet feet. Gods of wheat fields are usually gracefully tall and fair in hue, while the goddesses of apple orchards tend to be sweetly rounded, ruddy cheeked and mirthful. On the Blessed Isle, field gods know better than to demand the sort of harvest sacrifices that they get elsewhere. They also work the hardest of all the field gods in the world, required by the Immaculate Philosophy to do their part to ensure a fine harvest. During winter, when there is no life in their fields, field gods generally wander their domain morosely, dressed as paupers. When pressed, field gods can quickly transform the crops of their field (even during winter) into weapons. Sanctum: In one place in every field, a small portion of crop is left unharvested. This fruit-heavy tree, bunch of vines or square of field is the entryway into the sanctum of that field god, whose home seems built into the tree or made out of the plant it embodies. Field god homes are comfortable, if a bit rustic.</p><p><strong>Motivation:</strong> To see that its field, vineyard, orchard or paddy produces a fine crop and is protected from harm.</p><p><strong>Backgrounds:</strong> Backing 2, Influence 1, Sanctum 2</p><p><em>Source: Compass of Celestial Directions, Vol. I: The Blessed Isle</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

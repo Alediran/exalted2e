@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000234",
+  "_key": "!actors!0001000000000234",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Unicorns",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 3
+    },
+    "willpower": {
+      "value": 8,
+      "max": 8
+    },
+    "motes": {
+      "value": 0,
+      "max": 30
+    },
+    "pools": {
+      "combat": 8,
+      "social": 8,
+      "physical": 6
+    },
+    "combat": {
+      "joinBattle": 6,
+      "dodgeDV": 6,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 16,
+        "lethal": 12,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 11
+    },
+    "powers": "",
+    "notes": "<p>Gore: Speed 3, Accuracy 12, Damage 16L, Parry DV 4, Rate 1 Kick: Speed 4, Accuracy 10, Damage 12L, Parry DV 4, Rate 2</p>",
+    "biography": "<p>These Wyld-spawned creatures resemble pure-white horses with cloven hooves, a lion's tail, featureless, glowing blue eyes and a yard-long, spiraling horn of translucent opal. Their voices sound like a sublime symphony, and their movements show a grace beyond anything possible in nature. A unicorn's otherworldly beauty stuns and entrances mortals who cross their paths in the wilderness. The creatures are very intelligent and can speak. Some unicorns live in small groups, and unicorns who usually live alone may nevertheless gather to mate or sing. Unicorns defend Bordermarch locations of great beauty or power against anyone who would destroy, damage or reshape the land. These creatures can live anywhere in Creation, though, without heed to environmental dangers such as extreme cold or heat and do not require food. Some unicorns enjoy traveling throughout Creation. No power less than Solar Circle sorcery can control a unicorn's behavior or even cause one to appear less than perfectly graceful and elegant. A unicorn held captive sickens and dies within weeks, but is soon reborn out of the Middlemarch ice. Some unicorns ally themselves with select raksha nobles, Solar Exalted or truly heroic mortals (Familiar ·····)--a mark of high status among Fair Folk.</p><p><strong>Motivation:</strong> To guard the Wyld against intruders.</p><p><em>Source: Compass of Terrestrial Directions, Vol. V: The North</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

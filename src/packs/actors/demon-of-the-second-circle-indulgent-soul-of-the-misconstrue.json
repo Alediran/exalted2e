@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000140",
+  "_key": "!actors!0001000000000140",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Demon of the Second Circle, Indulgent Soul of the Misconstrued Counselor",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "demon",
+    "concept": "",
+    "essence": {
+      "value": 7
+    },
+    "willpower": {
+      "value": 9,
+      "max": 9
+    },
+    "motes": {
+      "value": 0,
+      "max": 125
+    },
+    "pools": {
+      "combat": 12,
+      "social": 10,
+      "physical": 11
+    },
+    "combat": {
+      "joinBattle": 8,
+      "dodgeDV": 10,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 14,
+        "lethal": 12,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 13
+    },
+    "powers": "<p>Benefaction--All-Encompassing Divine Decree--Improbable events Essence Plethora--10 extra motes Harrow the Mind--Persuade the target to believe something wildly implausible Impromptu Messenger--Her visage appears on a face card in a card game Malediction--All-Encompassing Materialize--Costs 80 motes Mirror of the Infinite Wardrobe--Any mortal, feline or vulpine shape, but her eyes always remain the same Natural Prognostication Principle of Motion--Janequin possesses up to nine banked actions Spice of Custodial Delectation--Gambling Stoke the Flame--Recklessness or loss of self-control Touch of Eternity--The recipient shrugs off curses and enchantments Wyld Armor--For three motes, Janequin gains +6 to resis- tance against the Wyld for one day; she may extend this benefit to others for two additional motes per person First (Ability) Excellency--Dodge, Melee Third (Ability) Excellency--Athletics, Larceny, Melee, Socialize Infinite (Ability) Mastery--Dodge, Melee Divine (Ability) Subordination--All-Encompassing; Melee (Conviction Flaw of Invulnerability)</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 9, Damage 3B, Parry DV 5, Rate 3 Kick: Speed 5, Accuracy 8, Damage 6B, Parry DV 3, Rate 2 Clinch: Speed 6, Accuracy 8, Damage 3B, Parry DV --, Rate 1, Tags P Wyld-Steel Rapier (Martingale): Speed 4, Accuracy 17, Damage 10L, Parry DV 7, Rate 3</p>",
+    "biography": "<p>Remondin, sixth soul of the Dragon Beyond the World, knows those futures that may yet come to pass. Her joy in the most improbable and outrageous futures condensed into Janequin, who promptly turned her back on her maker and danced out into the streets of the Demon City. CHAPTER FIVE: THE DAMNED To this day, Fortune's Fool seeks her own pleasures in the saloons and grand estates of Malfeas. Wherever she goes, she leaves chaos in her wake. Janequin's inscrutable behavior stems from the simplicity of her nature. She loves randomness and gladly risks everything on one cast of the dice, either literally in the Demon City's gambling halls or figuratively in the palace intrigues of her empire-building fellows of the Second Circle. Moreover, strange coincidences and improbable circumstances crop up around her, conspiring to spare her from the consequences of her whims. Her own notinconsiderable mastery of the sword stems as much from luck as competence, for her blade penetrates even the most brilliant defense through blind chance. Although Janequin's visage shares the delicate, inhuman beauty of the Fair Folk, one might mistake her for mortal if not for her eyes, which lack both iris and pupil. The left ripples in shades of aquamarine, while the right glitters with the color of rust. She wears luxurious garments--silks, furs, satins and velvets--that match the glory of her eyes and adorns herself with gold and jewels. While she spends wealth as freely as the clouds spread rain, she always finds a way to replenish her funds. Summoning: (Obscurity 3/3) Rash sorcerers summon Janequin to employ her talents for gambling, intrigue and swordplay, while vain sorcerers call upon her as a paramour. When the wise feel compelled to bring her forth, they send her into the jaws of an enemy's machinations and watch as complex schemes fall to ruin around her. Fortune's Fool occasionally finds her way into Creation when a mortal weds one of the Fair Folk. If Janequin receives orders that so thoroughly hem her in as to make her behavior predictable, she is freed of one order (chosen at random) and gains a point of Limit.</p><p><strong>Motivation:</strong> To act whimsically and recklessly. Janequin's Intimacies include gambling, gamblers, intrigue, unanticipated events and the Fair Folk.</p><p><strong>Backgrounds:</strong> Artifact 3, Contacts 5, Cult 1, Influence 2, Resources 1­5</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "d4e5f6a700000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

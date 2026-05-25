@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000146",
+  "_key": "!actors!0001000000000146",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Demon of the First Circle, Progeny of the Player of Games",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "demon",
+    "concept": "",
+    "essence": {
+      "value": 2
+    },
+    "willpower": {
+      "value": 10,
+      "max": 10
+    },
+    "motes": {
+      "value": 0,
+      "max": 80
+    },
+    "pools": {
+      "combat": 7,
+      "social": 2,
+      "physical": 7
+    },
+    "combat": {
+      "joinBattle": 5,
+      "dodgeDV": 5,
+      "parryDV": 0,
+      "dodgeMDV": 5,
+      "parryMDV": 2,
+      "soak": {
+        "bashing": 12,
+        "lethal": 12,
+        "aggravated": 0
+      },
+      "hardness": 5
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 15
+    },
+    "powers": "<p>Call--Other baidak CHAPTER FIVE: THE DAMNED Essence Plethora--10 extra motes Materialize--Costs 60 motes Ox-Body Technique (x2) Spirit-Cutting Tracking--The baidak tracks those to whom its summoner or Sigereth has committed motes Second (Ability) Excellency--Archery, Dodge, Integrity, Martial Arts, Melee, Resistance, Thrown, War</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 8, Damage 4B, Parry DV 5, Rate 3 Kick: Speed 5, Accuracy 7, Damage 7B, Parry DV 3, Rate 2 Clinch: Speed 6, Accuracy 7, Damage 4B, Parry DV --, Rate 1, Tags P Fine Brass Naginata: Speed 6, Accuracy 8, Damage 11L/2, Parry DV 3, Rate 2, Tags 2, O, R Fine Ivory Long Bow: Speed 6, Accuracy 8, Damage 6L*, Range 250, Rate 3 * Uses broadhead arrows.</p>",
+    "biography": "<p>It is unwise for mortals to wager too brashly against Sigereth, for those who cannot pay their debts become wholly hers. She remakes them into the baidak, her honor guard, who serve her forever in the Demon City. Baidak resemble the mortals from whom they were made, but their flesh becomes yellowed ivory, stylized and inhumanly smooth, inlaid with an elaborate brazen panoply emblazoned with Sigereth's mon. All share a uniform height and build, and they move in regimented array, more akin to clockworks than living creatures. Although they are deft in battle, Sigereth's pawns are no more than automata (see The Books of Sorcery, Vol. I--Wonders of the Lost Age, pp. 96­97), incapable of acting on their own initiative. As such, they are easy to deceive but impossible to suborn, and they serve unquestioningly until death. When using Abscissic binding rules (see The Books of Sorcery, Vol. IV--The Roll of Glorious Divinity I, pp. 79­84, or The Books of Sorcery, Vol. V--The Roll of Glorious Divinity II, pp. 31­40), baidak always take the Slave template. It is within Sigereth's power to undo the baidak transformation, restoring her creatures to their mortal lives. A summoner cannot compel her to do so, however. One who would release a baidak must wager against Sigereth in one of her games. On rare occasions, a baidak's conditioning crumbles on its own, allowing it to recall its mortal life. This does not restore the demon to mortality, and those who are not reconditioned by Sigereth generally go mad. Summoning: (Obscurity 3/3) Summoned in quantity, baidak make most excellent soldiers, and sorcerers call upon them to form small but elite military units. They also serve as bodyguards. Baidak never appear in Creation without being summoned. Even if circumstances exist to allow it, they lack the initiative to take advantage. A baidak ordered to think and act independently cannot do so, but gains a point of Limit.</p><p><strong>Motivation:</strong> To serve the will of Sigereth.</p><p><strong>Backgrounds:</strong> Backing 1</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "d4e5f6a700000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

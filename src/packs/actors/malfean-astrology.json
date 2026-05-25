@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000139",
+  "_key": "!actors!0001000000000139",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Malfean Astrology",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "demon",
+    "concept": "",
+    "essence": {
+      "value": 7
+    },
+    "willpower": {
+      "value": 10,
+      "max": 10
+    },
+    "motes": {
+      "value": 0,
+      "max": 120
+    },
+    "pools": {
+      "combat": 9,
+      "social": 10,
+      "physical": 7
+    },
+    "combat": {
+      "joinBattle": 6,
+      "dodgeDV": 7,
+      "parryDV": 0,
+      "dodgeMDV": 5,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 22,
+        "lethal": 17,
+        "aggravated": 0
+      },
+      "hardness": 5
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 16
+    },
+    "powers": "<p>Affinity (Element) Control--All-Encompassing; Air, Vitriol Bane Weapon--Her most recent sworn enemy (Element) Dragon's Embrace--Vitriol; Incites corrosive bitterness Form Reduction Technique--Assumes an aged mortal form Geas--Compels betrayal Hoodwink--Vile whispers or the maddening markings on her wings Materialize--Costs 85 motes Memory Mirror--Secret failures and stifled ambitions Mind-Knife Sacrament--Wears away Virtues; perverts memories and Intimacies Natural Prognostication--Omens accompany the Vitriolic Dragon Ox-Body Technique Principle of Motion--Iyutha possesses up to 10 banked actions Signet of Authority Subtle Whisper--Silently urges disloyalty Weather Control--Summons storms First (Ability) Excellency--Investigation, Martial Arts, Socialize, War Second (Ability) Excellency--Bureaucracy, Performance, Presence, Resistance Third (Ability) Excellency--Investigation, Martial Arts, Socialize, War Infinite (Ability) Mastery--Martial Arts, Socialize</p>",
+    "notes": "<p>Claw: Speed 5, Accuracy 9, Damage 13L, Parry DV 5, Rate 3 Clinch: Speed 6, Accuracy 9, Damage 10B, Parry DV --, Rate 1, Tags P Dragon's Suspire: Speed 6, Accuracy 10, Damage 10L, Range 30, Rate 1</p>",
+    "biography": "<p>The stars in Heaven guide the fates of the children of Creation, but their power ends at the edge of Cecelyne, for there is no destiny in the Demon City. Instead, each of Hell's dying stars is the living ember of an infernal scholar, and a thaumaturge versed in Malfean astrology can divine their wisdom. Malfean astrology is a part of the thaumaturgical Art of Astrology, although its rituals do not function outside the demon prison. Celestial Tutelage (1, Wits, trait's experience cost, one day): With this ritual, the thaumaturge gleans knowledge of a subject from the dance of the dying stars. She acquires a chosen trait with normal training times as though she possessed a tutor. Doing so requires performing the ritual each day of training; a failed roll means no progress is made on that day. Traits not found among demon scholars, such as Exalted Charms, cannot be learned in this manner. Question the Dying Stars (2, Perception, 4, one hour): The thaumaturge petitions the dying stars for an answer to a single question regarding past events or the present locations of creatures or objects. Questions involving other realms of existence suffer a -5 external penalty. The number of successes rolled determines the accuracy of the answer obtained: 1+ (vague), 4+ (incomplete but enlightening), 7+ (somewhat accurate) or 10+ (accurate with details). On a botch, an incorrect answer is obtained. Questions regarding the Yozis, Primordials or Neverborn botch automatically, as do questions regarding subjects the Storyteller deems wholly beyond the ken of any infernal scholar. Astral Palimpsest (3, Charisma, 4, one hour): By dancing beneath the dying stars, the thaumaturge adds to their dance, inserting a message of his choosing into their movements. He addresses the message to one or more persons, each of whom receives that message the next time they perform a divination using infernal astrology. circle above palaces and ministries, presaging misfortune for the great. Iyutha serves as brood mother to a score of aerial demon species and countless Demon-Blooded offspring, but she is no loving parent. Meddlesome and cruel, she employs her progeny as pawns in her efforts to destroy her enemies. Hatred comes naturally to her, and her adversaries are legion, comprising all who have ever given her offense over the Ages. Summoning: (Obscurity 2/5) Some sorcerers conjure Iyutha to ravage their foes with claws and vitriol, while others call her forth to poison the hearts of their enemies' courts. She sometimes wrests herself free of the demon prison when the cruelty of a tyrannical parent or elder drives a child to parricide. For each month she does not betray someone whose trust she has won, she gains a point of Limit.</p><p><strong>Motivation:</strong> To destroy love, beauty and order. Iyutha's Intimacies include Madelrada, treachery, ruins, war and her demon offspring.</p><p><strong>Backgrounds:</strong> Backing 3, Cult 1, Followers 3, Resources 4, Sanctum 3</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "d4e5f6a700000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

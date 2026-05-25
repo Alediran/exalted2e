@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000150",
+  "_key": "!actors!0001000000000150",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Demons of the First Circle, Progeny of the Answer to the Earth",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "demon",
+    "concept": "",
+    "essence": {
+      "value": 2
+    },
+    "willpower": {
+      "value": 7,
+      "max": 7
+    },
+    "motes": {
+      "value": 0,
+      "max": 55
+    },
+    "pools": {
+      "combat": 7,
+      "social": 4,
+      "physical": 7
+    },
+    "combat": {
+      "joinBattle": 6,
+      "dodgeDV": 5,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 9,
+        "lethal": 5,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 11
+    },
+    "powers": "<p>Call--Communicates with others of its kind Harrow the Mind--Persuades a victim that it is leading her along the route she desires Landscape Travel--Add one die to Dexterity in constricted tunnels Materialize--Costs 45 motes Measure the Wind--Tastes the Essence upon the air with its tongue Stoke the Flame--Instills fear of the dark Touch of Saturn--A gallmau's bite inflicts rabies (see Exalted, p. 353) Tracking--Marks those it strikes First (Ability) Excellency-- Resistance, Stealth Second (Ability) Excellency--Survival Third (Ability) Excellency--Investigation</p>",
+    "notes": "<p>Bite: Speed 5, Accuracy 8, Damage 4L (+ rabies if using Touch of Saturn), Parry DV --, Rate 1 Claw: Speed 5, Accuracy 8, Damage 4L, Parry DV 5, Rate 3 Clinch: Speed 6, Accuracy 8, Damage 4B, Parry DV --, Rate 1, Tags P</p>",
+    "biography": "<p>These creatures dwell in the catacombs beneath the Demon City, surfacing to sell their services as guides and living lamps. Lean and angular beneath its cowled robes, a gallmau is a seven-foot-tall humanoid that can fold itself into far tighter spaces than one might expect, given its size. Its grayish-brown pebbly skin stretches tightly over its bones, and its many-fingered hands bear sharp claws, while its elongated feet give it a jackal's gait. The gallmau's long muzzle exhibits a blank expanse of skin, save for a lamprey-like mouth that emits a pale glow. When it wishes to illuminate its surroundings, it grasps its lips and draws them back, peeling away the skin from its head like a hood. Its snout rises and unfurls into a flower of ivory fangs, with a blazing blue-white tongue lashing at its heart. Although they dislike the light of Ligier and the Unconquered Sun, the gallmau fear flame most of all. Fire melts the flesh from their bones like burning tallow. For that reason, scavenger lords trawling Creation's deep places bear torches and oil lamps--even when they possess more efficient Essence-powered sources of light--as protection from gallmau that have slipped the bonds of Malfeas. The hooded lanterns feel a compulsion to breed, though their method of reproduction appalls those not of their ilk. In a place lit only by its own tongue, beyond the glow of fire, sun, moon and stars, the gallmau impregnates itself with the gouged-out teeth and severed tongue of a dying demon or mortal. Those who currently retain a gallmau's services are off limits as victims, but all others are fair game. An hour later, it gives birth to an eyeless snake that grows into a new demon within a year. The sorcerous bindings upon a summoned gallmau do not extend to its progeny, which all too often escapes to trouble Creation's nights. Summoning: (Obscurity 1/3) Sorcerers summon gallmau to track their enemies or to guard against other hooded lanterns. On rare occasions, one appears in Creation where a mortal in a lightless place suffocates on his own tongue. A gallmau must always breed when it can. For every full day it fails to do so, its player rolls a die, with a success adding a point of Limit.</p><p><strong>Motivation:</strong> To create more of its kind.</p><p><strong>Backgrounds:</strong> Backing 1</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "d4e5f6a700000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

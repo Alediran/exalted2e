@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000078",
+  "_key": "!actors!0001000000000078",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gods of the Third Rank: Heavenly Bureaucrat/soldier/ Majordomo/major City God",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 4
+    },
+    "willpower": {
+      "value": 8,
+      "max": 8
+    },
+    "motes": {
+      "value": 0,
+      "max": "80 (Many gods will increase this via the Essence Plethora Charm.)"
+    },
+    "pools": {
+      "combat": 7,
+      "social": 11,
+      "physical": 5
+    },
+    "combat": {
+      "joinBattle": 8,
+      "dodgeDV": 5,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 15,
+        "lethal": 12,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 15
+    },
+    "powers": "<p>The following Charms are likely to be part of a god's repertoire, but Storytellers should feel free to add, reduce or change the contents of the list. All Charms should be tailored to be used in a way that complements the god's Motivation, its domain, or both: Banish, Benefaction, Calculated Order of Immediate Action, Divine Decree, Divine (Ability) Subordination (any three abilities related to the god's domain), Domain Manipulation Scenario, Dreamscape, Endowment, Essence Bite, Geas, Hurry Home, Impromptu Messenger, Intrusion-Sensing Method, Materialize (65m), Melodious Diagnostic Report, Principle of Motion, Storm Shuttle Passport, Worldly Illusion and any three Excellencies related to the god's purpose, including Bureaucracy.</p>",
+    "notes": "<p>Clinch: Speed 6, Accuracy 7, Damage 3B, Parry DV -, Rate 1 Kick: Speed 5, Accuracy 7, Damage 6B, Parry DV 2, Rate 2 Punch: Speed 5, Accuracy 8, Damage 3B, Parry DV 4, Rate 3</p>",
+    "biography": "<p>(Backing ·· or ···) Gods of the middle ranks are either soldiers in one of the armies of Yu-Shan, mid-level bureaucrats within Heaven's departments, or mid-tier operators within its social circles (Sometimes all three at once). This level of power also encompasses the greatest of servants, the majordomos and personal assistants to higher-ranked gods, who arrange their masters' day-to-day activities or manage massive households. Deities of this rank are the middle-class of Yu-Shan, spared the drudgery of manual labor but forced to spend their days toiling for their superiors or as major deities in Creation. However, their duties usually leave a few hours free to take in an entertainment or two, engage in love affairs with their peers, plot against their rivals, and involve themselves with one of Yu-Shan's myriad factions. Those gods who do decide to join one of the innumerable conspiracies, fellowships, or hobby clubs in the city tend to be low-level members, as a rise in station in one of these groups usually spells promotion within one's job, as superiors in the faction arrange for promotion. While these gods may pose a threat to an Exalt in Creation, their true might lies within the temporal power they wield at the behest of their commanders and supervisors, and chances are that those Exalted visiting Yu-Shan without a Sidereal or divine guide will find themselves often encountering these gods as they get shuffled from Bureau to department to division and back in a runaround as old as the first bureaucracy. Sanctum: Gods who hold these mid-level positions tend to have either very well appointed mansions of small size or luxurious apartments. Gods in the military live in their unit's barracks, but such places often have apartments for individuals, attached to a set of common rooms. The god of this level who has managed to attain a significant rank in one of the city's multitudinous conspiracies will also have access to one of the organization's safe houses or chapter houses. CHAPTER FIVE: THE ROLL OF CELESTIAL GODS</p><p><strong>Motivation:</strong> To see their domain expanded and themselves promoted to the Fourth Rank.</p><p><strong>Backgrounds:</strong> Allies 3 (Co-conspirators and friends in various departments), Artifact 4, Backing 2 or 3, Contacts 3 (within Heaven), Salary 3. The gods of important cities often possess Celestial Manses between 2 and 3.</p><p><em>Source: Compass of Celestial Directions, Vol. III: Yu-Shan</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

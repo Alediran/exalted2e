@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000095",
+  "_key": "!actors!0001000000000095",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Luranume",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 5
+    },
+    "willpower": {
+      "value": 5,
+      "max": 5
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 0,
+      "social": 0,
+      "physical": 0
+    },
+    "combat": {
+      "joinBattle": 0,
+      "dodgeDV": 0,
+      "parryDV": 0,
+      "dodgeMDV": 2,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 0,
+        "lethal": 0,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "",
+    "biography": "<p>Luranume is the Master of Fivefold Luck, the Lord of Auspicious Surprises, and the Second Syndic of Whitewall. Officially, his office is located in the Bureau of Destiny, but Luranume is the only god in the organization who does not report to the Five Maidens. Instead, he acts as an independent manager able to call on the Bureau's resources and reallocate manpower but answers only to the Incarna Luna, who uses him as a check against the Maidens. When the Bureau of Destiny was put into place, Luna called upon Autochthon to create a being that would serve as her agent within the Celestial Bureaucracy. Luranume was the answer, a chaotic force housed in a physical form and whose power was insinuated into the whole of Creation. Opponents of Luranume claim that he is a force of chaos in the orderly weft of the Loom of Fate; his proponents claim that he introduces necessary randomness into Creation and thus keeps it from falling into stagnation. Luranume is a strange god. He never answers prayers to him in his role as Master of Fivefold Luck, although he works tirelessly for the betterment of Whitewall. He has been known to show up on battlefields and in times of trouble, shifting the balance of power discreetly through the use of his mastery of chance. Every general knows the adage concerning how the battle was loss for want of a shoe, but Luranume represents the opposite side of the coin--how the shape of history changes due to some minor fluke.</p><p><strong>Motivation:</strong> Luranume's motivation is two-fold: to use his powers of coincidence and luck to make Creation a better place with the minimal effort, especially Whitewall--using the proverbial want of a shoe to win battles for progressive elements--and when Creation is in its darkest hour, to fulfill the destiny whispered in his ear by Luna and Gaia at the moment of his creation. Complicating matters is that even Luranume does not know exactly what that purpose is and will not discover it until the moment is right.</p><p><em>Source: Compass of Celestial Directions, Vol. III: Yu-Shan</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

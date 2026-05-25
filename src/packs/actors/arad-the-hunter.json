@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000166",
+  "_key": "!actors!0001000000000166",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Arad the Hunter",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 6
+    },
+    "willpower": {
+      "value": 9,
+      "max": 9
+    },
+    "motes": {
+      "value": 0,
+      "max": 96
+    },
+    "pools": {
+      "combat": 17,
+      "social": 10,
+      "physical": 15
+    },
+    "combat": {
+      "joinBattle": 13,
+      "dodgeDV": 10,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 30,
+        "lethal": 25,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 17
+    },
+    "powers": "<p>Animal Life Eating Technique--Arad does not hunt to eat and survive as other animals do. He hunts because it is his nature to do so. Still, he gains sustenance from his kills after a manner. After consuming the heart of his prey, he gains a number of his prey's Charms (of his choosing) equal to his prey's Essence. Each Charm can be used only once, and he must pay for the costs from his own Essence pool, but he need not meet any of the Charms' requirements. Arad can store multiple \"copies\" of a given Charm. At any given time, Arad usually has a solid stock of divine Charms (at least 50 copies of various Charms), as well as a variety of more exotic Charms, such as Lunar Charms or ghostly Arcanoi. In general, Arad usually has access to Principle of Motion, Measure the Wind and various Excellencies of Archery, Athletics, Awareness, Dodge, Melee, Stealth and Survival. The precise Charms Arad the Hunter has access to at any given point varies and remains up to Storyteller discretion. Predator's Mien--Arad is the greatest of predators, and any who encounter him know, in their bones, that they are prey before him. The player of anyone who faces Arad the Hunter, whether raksha or Exalt, god or mortal, must first make a Valor check at a difficulty of 2. Those whose players fail must flee. While fearful, the retreat is not necessarily a panic-filled flight (though most mortal animals will flee thus). Rather, the character intuitively takes the role of prey, running from Arad in any manner possible, with her wits about her and heart pounding. The sole exception to this effect are the undead, automata or any other creature that simply cannot know fear. Rhythm of the Hunt--Arad's heart pounds with the thrum of battle, and he exults in it. By spending 10 motes, Arad attunes himself to the conflict around him, intuitively evading attacks. For the remainder of the scene, his Dodge DV increases by half of his Essence (rounded up). Unerring Sense of the Hunter--By spending 10 motes, Arad automatically (i.e., without requiring a roll) succeeds at tracking his prey, provided the trail is less than a month old and his prey uses no Charms or Essence powers to hide her tracks. Beyond those limitations, Arad can track a trail no matter how well disguised, muddied, washed away or faded. Against prey using Essence to hide her tracks, Unerring Sense of the Hunter and the protective Charm cancel one another out, and both characters resolve their tracking rolls normally.</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 16, Damage 12B, Defense 17, Rate 3 Kick: Speed 5, Accuracy 15, Damage 15B, Defense 13, Rate 2 Clinch: Speed 6, Accuracy 15, Damage 12B, Defense ­, Rate 1 Spear (Usilk): Speed 5, Accuracy 22, Damage 20L*, Defense 7, Rate 2 Bow (Pula's Heart): Speed 5, Accuracy 20, Damage 18L, Range **, Rate 2 * Because of the Charms placed upon Usilk by the Elemental Dragons, Usilk may strike and harm immaterial spirits. ** Because of enchantments laid upon Pula's Heart, it ef- fectively has limitless range. The only limit is how far Arad can see.</p>",
+    "biography": "<p>At the peak of every food chain, mortal and immortal, there strides an apex predator, a hunter without peer. In the dawn-time of Creation, long before the Ages of Man, one such creature roamed the young world, a monster that cowed gods and slew immortals: Arad the Hunter. Created by the Primordials as the first and greatest of hunters, this behemoth pursued anything that intrigued him. Entire species vanished from the face of early Creation simply because they gave him sport. The ground trembled with fear as he hunted the Dragon of Earth. Flame roared in defiance as he wrestled down the Dragon of Fire, and forests shuddered and fell silent when he raised his spear over the Dragon of Wood. Each surrendered power to him, imbuing his spear, Usilk, with enchantments and agreeing to forever withhold their claws from his flesh. A wood goddess named Pula loved him once, and he returned her passion with passion of his own, reverently slaying her and forging a bow from her bones and heart. Emboldened by his conquests, the master predator turned his eyes to the heavens. His spear slew many stars, sending their dying flesh plummeting to the earth below, until the Maidens uncovered his designs. He hunted the moon, but she hid her face from him and danced across the sky, hunting him in return. He struck at the Sun to test him, and the return stroke burned and darkened Arad's hide. So, the great hunter lowered his head and returned to the terrestrial sphere, content to remain its lord even if he yearned to hunt the skies. His ascendancy did not last forever. When the heavens imbued mortals, a prey he had ignored as too clumsy and too slow for good sport, with Exaltation, suddenly Arad the Hunter found himself on the run. Glorious warriors burned with the heat that had once scorched his hide and sent hounds after him that shifted as the moon did. The champions of the stars revealed his hiding places, and the armies of the earth, the woods and fire denied him his easy escape routes. Licking his wounds, he fled beyond the edge of the world and hunted the madness of the Wyld. But Arad the Hunter is immortal. When the walls of Creation fell during the Great Contagion, he crept back into the world, evading the barbarian tribes and their shapeshifting gods. He hunted quietly and slowly, for that was all he knew, and he came to understand the new shape of the world. He contented himself by pursuing small game, such as minor Lunars, Forest Kings and escaped demons. When he caught word of the return of his greatest enemies, the Solars, and their strange, new dark kin, the Abyssals, his heart beat with a passion he had not felt since he felt Pula's blood in his hands while he forged her heart into a bow. Now his feet carry him toward the center of Creation, eager to find his favored prey. Towering over a dozen feet tall and half so wide at the chest, Arad the Hunter melds the finest traits of earthly predators into a humanlike form. An ugly, flat face stares out from behind a matted mess of dark hair with glinting, cunning eyes. Long, heavy arms dangle past his bandy knees, and scars crisscross the sun-scorched, black hide that stretches over thick, sinewy muscle. Arad the Hunter carries a gray-dappled, bone-and-sinew bow named Pula's Heart and an iron and jade spear named Usilk. He wears no clothing, and when he speaks, his low voice growls with the combined hunger of every predator in Creation. Although Arad the Hunter belongs to an era long gone, his cunning remains sharp and dangerous. Far from the rampaging monster some ancient lore depicts him as, the greatest of hunters is infinitely patient. Once he chooses his prey, he watches and he waits. He learns all he can about it as he slowly stalks it. He cuts off its escape routes, isolates it from its companions, weakens it with traps and trickery and only engages in battles he is certain he can win. Arad doesn't hesitate to flee and isn't so proud that he can't stop to rest and reevaluate his strategy. Those he hunts know the terror brought on by a truly immortal, inhuman predator.</p><p><strong>Motivation:</strong> Hunt.</p><p><strong>Backgrounds:</strong> Artifact 5</p><p><em>Source: Compass of Terrestrial Directions, Vol. I: The Scavenger Lands</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000229",
+  "_key": "!actors!0001000000000229",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Apheliotropes, the Shrouded Ones",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 1
+    },
+    "willpower": {
+      "value": 6,
+      "max": 6
+    },
+    "motes": {
+      "value": 0,
+      "max": 40
+    },
+    "pools": {
+      "combat": 7,
+      "social": 6,
+      "physical": 6
+    },
+    "combat": {
+      "joinBattle": 5,
+      "dodgeDV": 1,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 11,
+        "lethal": 8,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 9
+    },
+    "powers": "",
+    "notes": "<p>Punch: Speed 5, Accuracy 7, Damage 4B, Parry DV 4, Rate 3 Kick: Speed 5, Accuracy 6, Damage 7B, Parry DV 2, Rate 2 Clinch: Speed 6, Accuracy 6, Damage 4B, Parry DV --, Rate 1, Tags P Chopping Sword: Speed 4, Accuracy 8, Damage 9L/2, Parry DV 4, Rate 2 Long Bow: Speed 6, Accuracy 6, Damage 6L*, Rate 3, Range 200 * Uses broadhead arrows.</p>",
+    "biography": "<p>Derat Khan, a First Age general of the Dawn Caste, came to hate the Unconquered Sun for abandoning the Solar Exalted to the Usurpation. On the run and at death's door, he sold his soul to a Second Circle demon and was thus infernally Exalted. From that day, Derat Khan became a creature of hate, living only for revenge on the Unconquered Sun, the Terrestrial Exalted and Creation itself. He carved the abhorrent cavern-state of Keruzat Derat beneath a Northern mountain. Here, he spawned the spawned the horrible apheliotropes, or shrouded ones, terrible creatures with the shapes of men but the temperament and will of demons, to carry out his vengeance. The demon-bought Solar apparently died during the Shogunate, but his Demon-Blooded progeny lived on. For centuries, Keruzat Derat was the vilest pit in Creation, a place of unspeakable tortures and blasphemous debauches--a bit of Hell brought to Creation, or maybe even worse! The apheliotropes made war on humanity, raiding and destroying towns and the armies sent against them, dragging their captives below to live the rest of their short existences as the shrouded ones' playthings. Even the Dragon-Blooded heroes of the Shogunate could not defeat the Demon-Blooded horde. Yet, the apheliotropes could not defeat the Great Contagion. The shrouded ones' decimation by plague and the Fair Folk weakened their grip on the Far North. Then the arch-sorcerer Bagrash Köl noticed that he had competition in the North. The fierce hordes and demon-beasts of the shrouded ones were no match for Bagrash Köl's legions, his sorcery and the omnipotent Eye of Autochthon. The mountain of Keruzat Derat became a crater lined with glittering crystal. Since then, the descendants of the few surviving apheliotropes have acted alone or in very small bands. They move stealthily through human society, taking whatever chance they find to lead mortals into demon worship. Derat Khan is but a legend to his descendants, but the shrouded ones still hope to bring about his final revenge. Just as Derat Khan fixed demonic power in their blood, so too did he fix obedience to the Yozis. The shrouded ones are a hunted people, primarily by the Haslanti and the icewalkers. Sometimes, apheliotropes attract bands of lost, angry mortals who blame Creation and the gods for some perceived wrong done to them. The shrouded ones take what they can from such confused souls and inevitably leave them much worse off than they were before. Apheliotropes appear as strong humans wreathed in a shroud of darkness. They can often pass for humans in the proper lighting, but many shrouded ones show some telltale sign of their demonic origin such as small horns, inhuman eyes or clawed fingers. For more information on the Demon-Blooded, demon pacts and infernal cults, see The Manual of Exalted Power-- The Infernals and (for a demon's-eye view of cults) The Compass of Celestial Directions, Vol. V--Malfeas.</p><p><strong>Motivation:</strong> To bring down human civilization.</p><p><strong>Backgrounds:</strong> Allies 2, Contacts 3, Followers 1­3, Resources 1­3 Charms and Powers: Demonic Mutations--A typical shrouded one has no more than a single pox to indicate his or her inhuman heritage, but apheliotropes may possess other poxes, blights and afflictions, gaining the necessary bonus points through negative mutations. These mutations owe nothing to the Wyld, but can be represented through the mutations found on CHAPTER SEVEN: GODS AND MONSTERS OF THE NORTH pages 288­290 of Exalted, pages 206­210 of The Manual of Exalted Power--The Lunars and pages 144­150 of The Compass of Celestial Directions, Vol. II--The Wyld. A selection of mutations specifically for Demon-Blooded and akuma characters are found on pages 62­64 of The Manual of Exalted Power--The Infernals. Ebon Curtain--A permanent shadow surrounds apheliotropes during the day, preventing sunlight from touching their skin. By spending 10 motes, shrouded ones can expand and intensify this shadow so that it obscures their features and actions, resulting in bonus dice to Stealth rolls equal to (Es- sence x 2). This effect lasts for one scene and has no effect against the Charms of the Solar Exalted. Enlightened Essence--All apheliotropes have Essence pools as per the rules for spirit characters: (Essence x 10) + (Will- power x 5) motes. Landscape Hide--Shrouded ones can merge with shadows of their size or greater. Costs six motes and one Willpower. Malediction--Apheliotropes hate and are jealous of the works of mortals. They may curse artisans and craftsmen by touch, imposing a one-die penalty to all Craft rolls. Measure the Wind--The shrouded ones like to know the power of their victims or foes. Ox-Body Technique--Apheliotropes have two extra -1 health levels. Thaumaturgy--Some shrouded ones know one or more Arts, especially the Arts of Alchemy, Demon Summoning and Warding and Exorcism.</p><p><em>Source: Compass of Terrestrial Directions, Vol. V: The North</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

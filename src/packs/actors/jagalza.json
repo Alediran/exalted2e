@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000066",
+  "_key": "!actors!0001000000000066",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Jagalza",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 8
+    },
+    "willpower": {
+      "value": 10,
+      "max": 10
+    },
+    "motes": {
+      "value": 0,
+      "max": 160
+    },
+    "pools": {
+      "combat": 14,
+      "social": 15,
+      "physical": 11
+    },
+    "combat": {
+      "joinBattle": 9,
+      "dodgeDV": 11,
+      "parryDV": 0,
+      "dodgeMDV": 5,
+      "parryMDV": 2,
+      "soak": {
+        "bashing": 14,
+        "lethal": 11,
+        "aggravated": 0
+      },
+      "hardness": 5
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 15
+    },
+    "powers": "<p>Jagalza has all the available spirit Charms. Some specifics are given here: Celestial Circle Sorcery--Jagalza knows the following Celestial Circle spells and can teach them to others: Blood of Boiling Oil and Sapphire Countermagic. Donning Spiritual Armor--Through the expenditure of five motes, Jagalza may add her (Temperance + Essence) to her bashing and lethal soaks. By spending one Willpower, she may also add her Essence to her aggravated soak. Essence Plethora (x3)--Jagalza has access to 30 additional motes of Essence. Geas--Jagalza may lay a geas upon a spirit, Exalt or mortal for the purpose of fulfilling her duties under Heaven or her Motivation. This is considered unnatural mental influence. Jagalza's player rolls her (Manipulation + Conviction) against the target's Mental DV. This Charm costs two Willpower points and requires the investment of a number of motes equal to the number of days she wishes the target to be bound by the geas, to a maximum of 28 days. Materialize--It costs Jagalza 90 motes to materialize. Principle of Motion--Jagalza normally maintains a reserve of 10 additional actions. Reserve of Will (x3)-- Jagalza has access to three additional points of Willpower. Satrap's Prerogative--While in Heaven, Jagalza may summon any single one of her subordinates in the Bureau of Humanity to her side immediately. She does so only in times of danger or other emergency. She must spend a point of Willpower and a number of motes equal to the (Essence + Willpower) of the subordinate she is summoning. Terrestrial Circle Sorcery--Jagalza knows all Terrestrial Circle spells and may teach them to others. Jagalza has the First, Second and Third Excellencies for the following</p>",
+    "notes": "<p>Clinch: Speed 6 Accuracy 10, Damage 6B, Parry DV --, Rate 1 Kick: Speed 5 Accuracy 10, Damage 9B, Parry DV 4, Rate 2 Punch: Speed 5, Accuracy 11, Damage 6B, Parry DV 6, Rate 3 Moonsilver Grand Daiklave (The Utmost Censor): Speed 5, Accuracy 20, Damage 18L/4*, Parry DV 9, Rate 2 * Weeping Conclusion (poison); Damage 6L/minute, Resist 5L, Tolerance --/--, Impairment -4</p>",
+    "biography": "<p>Satrap of the Realm The numinous Jagalza is the Satrap of the Realm within the Bureau of Humanity. As the Satrap of the Blessed Isle, all City Mothers and City Fathers on the Blessed Isle answer to her, and she runs a tight ship, careful to make sure that they all adhere to the dictates of the Immaculate Philosophy. She is aware of the subtle nuances of every aspect of the Immaculate Order's interaction with gods not because she has any love for the Order, but because she despises it. Jagalza has close ties to the Bronze Faction and frequently attempts to convince it to change the Immaculate Order's position on the worship of gods, to little effect. Since the disappearance of the Scarlet Empress, she has also begun speaking with Gold Faction members, seeking to do what she has always done--preserve the Realm, regardless of who rules there. Personally, she would prefer that the fractious and constantly warring Exalted did not rule at all, leaving such things to the gods, who are eternal and know their relationships to one another, but she realizes that is too much to hope for in this Age. Jagalza appears as a seven-foot-tall woman in brilliant scarlet robes, once emblazoned with the symbol of the Scarlet Empress. Now, however, her robes shift through a variety of patterns, as the symbols of the various Great Houses appear and disappear, as a thousand minor events determine which House comes the closest to ruling. She wears an impressive moonsilver and starmetal headdress, set with three hearthstones, and she is utterly bald. Her eyes are a brilliant white hue the color of pale jade, and her skin has a luminous, slightly translucent quality, as though she were made of moonstone. A servant-god always accompanies Jagalza, carrying the Utmost Censor, her moonsilver grand daiklave envenomed with strange poisons she acquires from the Division of Endings, in the Bureau of Destiny. This servant-god shapechanges itself into a suit of resplendent red jade and starmetal lamellar armor upon Jagalza as she takes a battle stance. Sanctum: Jagalza does not maintain a sanctum in Creation, instead staying at one of her several opulent estates in Heaven.</p><p><strong>Motivation:</strong> To make sure that the Realm stands for all eternity.</p><p><strong>Backgrounds:</strong> Backing 4, Celestial Manse 5, Contacts 5, Followers 4, Influence 5, Resources 5</p><p><em>Source: Compass of Celestial Directions, Vol. I: The Blessed Isle</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000114",
+  "_key": "!actors!0001000000000114",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Yo-ping",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 9
+    },
+    "willpower": {
+      "value": 5,
+      "max": 5
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 0,
+      "social": 0,
+      "physical": 0
+    },
+    "combat": {
+      "joinBattle": 0,
+      "dodgeDV": 0,
+      "parryDV": 0,
+      "dodgeMDV": 2,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 0,
+        "lethal": 0,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "",
+    "biography": "<p>Yo-Ping is the Celestial Minister of Harmony and God of Peace, and while he nominally answers to Taru-Han, her focus on her own interests means that Yo-Ping comfortably does whatever he wants with little or no oversight. Along with Uvanavu and Luranume, he is also one of the three Syndics of Whitewall and the most powerful of the trio. He oversees the five directional gods of peace and political stability that counterbalance the directional gods of war; because of this, Yo-Ping often consults with the war gods' director, E-Naluna, with whom he is on good terms. After the Primordial War, all of Creation prayed to Yo-Ping for peace and prosperity, and he reigned as one of the most powerful gods in Heaven. When the Sidereals plotted the overthrow of the Solar Exalted, Yo-Ping loudly protested and only kept his position due to the fact that the Maiden of Serenity chose to support him (While she was in favor of the Usurpation, she could not bring herself to censor a god whose only sin was promoting her domain). Although the chaos that followed the Usurpation led to a loss in power, Yo-Ping suffered less than any other god, because the people of Creation continued to pour prayers to him for peace and stability. As the Time of Tumult rolls onward, Yo-Ping receives even more prayers than usual, and his power grows correspondingly. The return of the Solar Exalted excites him beyond measure--Whitewall is associated with the Unconquered Sun, and before the Second Age, Yo-Ping served that Incarna personally. It seems inevitable that the success of the Solar Exalted will mean success for Yo-Ping and the other Syndics. To facilitate his plans, he has used his immense power to pressure the Convention of Air to place Sidereals of his choice into the convention's open seats--Sidereals who just happen to be members of the Gold Faction. Chejop Kejak has to struggle mightily just to keep these seats open, but the impasse has drawn to a close, and within the next few months, the new seat holders will be announced.</p><p><strong>Motivation:</strong> Yo-Ping desires to spread harmony and peace across Creation while keeping enough war and strife so that his subordinates and the war gods do not find themselves in conflict with one another. He will begin this task by bringing the Unconquered Sun's gaze back to Creation by turning Whitewall into a perfect shrine to the Incarna's glory.</p><p><em>Source: Compass of Celestial Directions, Vol. III: Yu-Shan</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

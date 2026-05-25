@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000203",
+  "_key": "!actors!0001000000000203",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Search for Swan Dragon",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 6
+    },
+    "willpower": {
+      "value": 7,
+      "max": 7
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 7,
+      "social": 4,
+      "physical": 6
+    },
+    "combat": {
+      "joinBattle": 9,
+      "dodgeDV": 6,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 20,
+        "lethal": 10,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 11
+    },
+    "powers": "",
+    "notes": "<p>Bite: Speed 6, Accuracy 6, Damage 11L, Parry DV 3, Rate 1 Claw: Speed 5, Accuracy 8, Damage 10L, Parry DV 4, Rate 2</p>",
+    "biography": "<p>While his friends might have given up hope of Swan Dragon's return, a few beings still covertly search for Swan Dragon. Wun Ja, Director of the Bureau of Humanity, never forgot the former censor and still hopes to find him. Swan Dragon's legendary silver tongue and influence could provide her the key to unite the South against the Realm. She quietly encourages the Sidereal Dozima Wokish in his own search, anonymously sending him any clues or rumors she uncovers. Wun Ja arranged Wokish's first contact with the Orderly Flame and hopes that they can find Swan Dragon together, wherever he is. departed Creation, he left his hounds behind. The pack once consisted of 25 hounds--five for each magical material--but less than half remain. Sometimes the whole pack appears to assist in battles against great threats from the Wyld; other times, solitary dogs or pairs appear. Hounds of Autochthon look like giant dogs, standing 10 feet at the shoulder. Beyond that, each breed has a different appearance. Despite legends, only their eyes are actually made of their associated magical material. They do not need to eat, for Creation's Essence sustains them. Unfortunately, they cannot be bred with mundane dogs. Sun Dogs resemble mastiffs with tan coats, lion-like manes and glittering golden eyes. Their resilient skin emits a golden glow, while a sun dog's howl can be heard for miles. Moon dogs have lean builds, dappled silver-gray coats and whip-like tails. They run with great speed and move with quicksilver grace in combat. Jadehounds, or stone dogs, are smaller than the other breeds (only nine feet at the shoulder) but are exceptionally agile. Their thick coats are variegated black, white, red, blue and green. Starhounds have thick, blue-gray coats but are seldom seen--they instinctively know how to be where other creatures fail to look. They likewise show an uncanny skill at biting where they can deal the most damage. Nighthounds look like sun dogs except for their ebon fur and gleaming black eyes. These silent killers never bark, howl or whine, no matter how great their pain, and their bite carries an eldritch chill. No power in Creation can domesticate Autochthon's hounds. The power used to create them guarantees their escape from any restraint. These cunning supernatural beasts escape most mundane means of capture within minutes. Even the most powerful Charms, spells or artifacts cannot hold them forever. At most, they may consent to associate with other defenders of Creation--for a time.</p><p><strong>Motivation:</strong> To serve the enigmatic goals left by Autochthon</p><p><em>Source: Compass of Terrestrial Directions, Vol. IV: The South</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

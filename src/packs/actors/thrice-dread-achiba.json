@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000129",
+  "_key": "!actors!0001000000000129",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Thrice-dread Achiba",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 5
+    },
+    "willpower": {
+      "value": 8,
+      "max": 8
+    },
+    "motes": {
+      "value": 0,
+      "max": "91 (104) Committed"
+    },
+    "pools": {
+      "combat": 10,
+      "social": 8,
+      "physical": 9
+    },
+    "combat": {
+      "joinBattle": 11,
+      "dodgeDV": 7,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 22,
+        "lethal": 20,
+        "aggravated": 0
+      },
+      "hardness": 8
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "<p>Details, Form Match, Hurry Home, Memory Mirror, Paralyze</p>",
+    "notes": "<p>Bite: Speed 6, Accuracy 11, Damage 8L + poison (4L, 2, ­/­, -3), Parry DV --, Rate 1 Claws: Speed 5, Accuracy 11, Damage 6L, Parry DV 6, Rate 3 Punch: Speed 5, Accuracy 11, Damage 6B, Parry DV 6, Rate 3 Kick: Speed 5, Accuracy 10, Damage 9B, Parry DV 4, Rate 2 Clinch: Speed 6, Accuracy 13, Damage 6B, Parry DV --, Rate 1 Ghost-Strengthening Links (smash): Speed 5, Accuracy 10, Damage 15B, Parry DV 7, Rate 3 Ghost-Strengthening Links (clinch): Speed 5, Accuracy 10, Damage 10B, Parry DV --, Rate 1 Repeating Maggot-Caster: Speed 5, Accuracy 10, Damage Special*, Range 50 (maximum), Rate 2 * Achiba's repeating maggot-caster is a pistol with a revolver mechanism similar to that of a plasma tongue repeater (see The Books of Sorcery, Vol. I--Wonders of the Lost Age, p. 75), but that's where the similarity between the two weapons ends. Rather than fire, a maggot-caster fires a chittering plasmic maggot which bores beneath the corpus of its target on a successful hit. (This happens immediately if the target is unarmored or on the following action otherwise.) It continues to devour the ghost's corpus at a rate of one unsoakable aggravated level per scene. Anyone with a minimum of Medicine 2 can attempt to remove a maggot, but doing so requires a successful (Dexterity + Medicine) roll, difficulty 3, to do so without inflicting three additional levels of unsoakable lethal damage.</p>",
+    "biography": "<p>In the height of the Old Realm's decadence, the Solars created artificial life forms just to watch them fight one another. One such, the kyzvoi, combined a human(ish) intelligence with aspects of spider, wolverine and several other predators. The Dragon-Blooded exterminated the abominations as soon as possible after the Usurpation, but hundreds of them left ghosts in Marama's Fell. The most powerful of them is Thrice-Dread Achiba. He became a warlord among ghosts soon after his execution. In the ensuing centuries, he honed his combat prowess further, warped his corpus to become more terrifying and acquired a number of artifacts from war ghosts sent by the Deathlords to occupy the Fell. A number of ghosts worship Thrice-Dread Achiba, and even some mortals around the Fell pray to him. Thrice-Dread Achiba looks humanoid, but no true human was so thickly muscular. He also stands eight feet tall, with black chitin covering his body, as well as compound eyes, arachnid mandibles, clawed fingers and a surprisingly resonant, basso profondo voice. Achiba wears an ill-fitting reinforced breastplate of soulsteel and carries ghostly weapons called ghost-strengthening links and a repeating maggot-caster.</p><p><strong>Motivation:</strong> Defeat the other ghost warlords of the Fell and anyone else who would rule him.</p><p><strong>Backgrounds:</strong> Ancestor Cult 3, Artifact (Ghost-Strengthening Links) 3, Artifact (Repeating Maggot-Caster) 3, Artifact (Soulsteel Reinforced Breastplate) 3, Followers 5, Influence 4, Underworld Cult 3 Arcanoi: Common Arcanoi: Assassin's Subtle Escape, Ox-Body Technique (x2), Scent of Sweet Blood, Two-WorldVision, Whispers of the Living Essence-Measuring Thief Arts: Aura-Reading Technique, Blood-Drinking Thirst, Delicious Essence Scent, Essence-Devouring Ghost Touch, Ravening Life Force Hunger Savage Ghost Tamer Arts: All Charms Shifting Ghost-Clay Path: All Charms except Weighted with the Anchor of Flesh and Prison of the New Form Stringless Puppeteer Art: Soul-Whispering Empathy Discipline, Spirit-Catching Eye Technique Terror-Spreading Art: All Arcanoi Mutations: Armored Hide, Claws, Gazelle's Pace, Toxin, Tusks</p><p><em>Source: Compass of Celestial Directions, Vol. IV: The Underworld</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

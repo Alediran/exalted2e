@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000076",
+  "_key": "!actors!0001000000000076",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "God of the First Rank: Minor Servant/messenger/drone",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 2
+    },
+    "willpower": {
+      "value": 6,
+      "max": 6
+    },
+    "motes": {
+      "value": 0,
+      "max": "50 CULT, RANK AND POWER IN YU-SHAN Unlike the Creation-bound gods and elementals described in The Roll of Glorious Divinity I, gods in Yu-Shan typically have Charms equal to (Essence x2) + (Backing x2) + (Sum of Virtues), since they will rarely have access to the Cult background. Gods in Yu-Shan who have access to a Cult--a rare proposition--use the higher of Backing or Cult when determining the number of Charms they have."
+    },
+    "pools": {
+      "combat": 8,
+      "social": 2,
+      "physical": 9
+    },
+    "combat": {
+      "joinBattle": 9,
+      "dodgeDV": 6,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 1,
+        "lethal": 2,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 11
+    },
+    "powers": "<p>At a minimum, Gods of the First Rank possess: Essence Bite--To stop malcontents from interfering with their appointed rounds Hurry Home--To escape from overpowering threats Materialize--35m Measure the Wind--To establish another being's place within the Celestial Hierarchy Sense Domain--In the pursuit of their appointed task Tracking--Objects related to their purpose</p>",
+    "notes": "<p>Clinch: Speed 6, Accuracy 8, Damage 3B, Parry DV -, Rate 1 Strike: Speed 5, Accuracy 9, Damage 3B, Parry DV 4, Rate 3</p>",
+    "biography": "<p>(Backing 0 or ·) These divinities are the smallest of the spirits likely to be encountered in Yu-Shan, and unlike those filling the higher ranks, are as likely to be elementals as gods. They are rarely unique beings in their own right, instead tending to be specimens of a whole race of spirit designed to do one task very well, whether it be transport messages across great distances, herd souls to the appropriate deity or storehouse, work at some repetitive task continuously and with no rest, or spy on others and report back to their superior. These deities tend to be harmless on their own, and most pose no threat even when found in great numbers. While often simple-minded, they are not unintelligent, and when presented with an obstacle that keeps them from their designated task, they tend to be fiendishly clever. While most of the individuals who make up these species of gods tend to be indistinguishable from one another, occasionally one of them develops a unique personality of its own, often seeking companionship from more powerful beings such as higher-ranked gods and the Exalted. Many of these independent gods develop personalities and means of communication similar to that of pets or small children, while others seem as intelligent as any other deity or mortal. There are millions of these beings in Yu-Shan, and they will obey the commands of any being with Essence 5 or higher unless those orders contradict the commands of their formal superiors or a prior order they already follow. Sanctum: If gods, spirits of this rank tend to share communal sanctums with others of their ilk. Often, these sanctums are inaccessible to others, with entrances too small for human-sized beings to enter and internal designs built to a wholly alien aesthetic. Summoning: There are millions of elementals of this rank in Heaven, many of them unemployed. Most summoners consider them a waste of time. Visiting Celestial Exalted with Essences higher than 4 will quickly find themselves approached on the street by several out-of-work elementals of this rank, requesting positions in the character's entourage or household staff. In Creation, these elementals are so specialized and of such minimal power that most sorcerers and thaumaturges eschew them entirely in favor of their more powerful brethren, but a few summoners of meager power who hope to impress the ignorant populate their sanctuaries and homes with these beings.</p><p><strong>Motivation:</strong> Spirits of the First Rank tend to be driven to perform one task, very well, whether it be heat a house, carry a load without spilling the contents, or herd a flock of souls to its final destination. Those spirits who develop unique personalities of their own tend to change their motivations so that they revolve around a single, superior being, and are devoted to that god or Exalt's friendship.</p><p><em>Source: Compass of Celestial Directions, Vol. III: Yu-Shan</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

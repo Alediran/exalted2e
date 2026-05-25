@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000096",
+  "_key": "!actors!0001000000000096",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Autochthon?",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 5
+    },
+    "willpower": {
+      "value": 5,
+      "max": 5
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 0,
+      "social": 0,
+      "physical": 0
+    },
+    "combat": {
+      "joinBattle": 0,
+      "dodgeDV": 0,
+      "parryDV": 0,
+      "dodgeMDV": 2,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 0,
+        "lethal": 0,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "",
+    "biography": "<p>Astute observers of Celestial politics have often asked why Autochthon, instead of Gaia, was drafted into creating Luranume for Luna. Luna has a closer relationship with Gaia, dating from before the overthrow of the Primordials, and if Luna is playing at some secret strategy, it would seem logical for her to trust her long-time lover. The truth of the matter is that Autochthon and Gaia had equal hands in Luranume's construction. Autochthon was chosen because no being knew the Loom of Fate better, and Luna depended on Luranume's powers of coincidence and surprise to interface perfectly with the work of the pattern spiders. At the same time, Luranume is connected to Creation in a way different from that of other gods, and this connection was granted to him by none other than Gaia herself. Luranume had become the topic of discussion by the Twilights of the late First Age, and several of them were very close to discovering exactly how he was constructed and in what way he connected to the fundament of reality. Theories abounded, including talk of his powers being a backdoor into the weaving of the Loom of Fate. One theory posited that hidden within his design was a key to restarting--or even reformatting--the Engine of Creation which sewed reality from raw Wyld matter. Sadly, a month before these Exalted were to release their top-secret findings to the Deliberative, they were butchered to a one in the Usurpation, and their encoded notes were burned by the Dragon-Blooded and Sidereals who knew nothing of their import. to near omnipotence, buoying her past Nara-O in the hierarchy, and allowing her to overthrow it without ever actually betraying it (Like many of the gods who serve Nara-O, she knows that a plan to betray it would be patently obvious to a god with its abilities.). To that end, Luxana lends discreet support to various forces in Creation--Scavenger Lords, Twilight caste Solar Exalted, No Moon Lunar Exalted, and scholarly Dragon-Blooded. Particularly progressive regimes (not exactly thick on the ground anywhere in Creation) also garner her whole-hearted support when they show up. Luxana fears the Time of Tumult. Every time Creation has suffered an apocalyptic event, the course of knowledge has been set back, and in some ways permanently diminished. Much knowledge common in the First Age is known only to a handful of people today, many of whom refuse to teach it to others or commit it to writing because learning is a valuable commodity. She greatly fears the coming conflicts and does not know whether to throw in her lot with the Bronze Faction and support the status quo or some other group. Recently, while in Creation, Luxana was approached by an emissary of the Walker in Darkness, who sought to persuade her that knowledge does not perish in the Underworld and that she may be better served by aiding the cause of the dead. She declined the invitation then, but her curiosity has been piqued.</p><p><strong>Motivation:</strong> Luxana hopes to circumvent another cataclysmic event in Creation that may destroy or setback the course of human knowledge.</p><p><em>Source: Compass of Celestial Directions, Vol. III: Yu-Shan</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

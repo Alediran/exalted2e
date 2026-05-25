@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000214",
+  "_key": "!actors!0001000000000214",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Lady Chimney Draft",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 4
+    },
+    "willpower": {
+      "value": 8,
+      "max": 8
+    },
+    "motes": {
+      "value": 0,
+      "max": 80
+    },
+    "pools": {
+      "combat": 6,
+      "social": 11,
+      "physical": 5
+    },
+    "combat": {
+      "joinBattle": 9,
+      "dodgeDV": 6,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 15,
+        "lethal": 13,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 13
+    },
+    "powers": "<p>Banish the Vulgar--For 12 motes, Lady Chimney Draft can deny entrance to any Haslanti house, from a single home to (for especially troublesome offenders) all Haslanti houses. Affected persons simply cannot pass through any door to any lived-in house. They find the door closed and locked, even if it was open a second before and doesn't have a lock. The same applies for windows and chimneys. Call--For one mote, Lady Chimney Draft can instantly contact any other member of the Triad of Ice. Consecrate Marriage--Lady Chimney Draft consecrates Haslanti marriages in the same manner that Eclipse Caste Solars sanctify agreements, with the same consequences for people who violate their marriage vows. Lady Chimney Draft must physically attend the wedding to use this Charm. Costs 10 motes. Endowment--People who excel at hospitality might receive a boon of one additional dot of Presence or Appearance for one of their children. Hurry Home--Lady Chimney Draft can return to Master Winter's castle or the House of the Nine Hearths, or instantly transport to any Haslanti house that has a guest. Materialize--Costs 60 motes. Principle of Motion--Lady Chimney Draft keeps eight extra actions stored. Pyre of Camaraderie Meditation--In this version of Subtle Whisper, Lady Chimney Draft lends Essence to a bonfire, hearth or campfire around which people meet, increasing the agreeableness of all. Spice of Custodial Delectation--Lady Chimney Draft often visits the homes of her priests and relishes their hospitality. Vengeful Gift Technique--Those who anger, insult or seriously displease Lady Chimney Draft through grudging, resentful hospitality receive a gift of food--perhaps a basket at their door containing all of the target's favorite dishes. The basket will not be depleted for as long as the target, who never feels full, eats of it. This food carries the god's curse, which transforms the eater while he sleeps into a twisted cripple, suffering -2 Appearance and additional disabling effects (see Exalted, p.152) at the Storyteller's discretion. This effect cannot heal naturally and cannot be reversed by any spirit of less than Essence 4. Words of Power--Individuals who persistently test Lady Chimney Draft's patience receive a personal visit from the lady, who righteously dresses them down, dealing damage as she does so. First (Ability) Excellency--Awareness, Presence, Socialize Second (Ability) Excellency--Awareness, Presence, Socialize Third (Ability) Excellency--Awareness Divine (Ability) Subordination--Awareness, Presence</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 7, Damage 3B, Parry DV 4, Rate 3 Kick: Speed 5, Accuracy 6, Damage 6B, Parry DV 2, Rate 2 Clinch: Speed 6, Accuracy 6, Damage 3B, Parry DV --, Rate 1, Tags P</p>",
+    "biography": "<p>Lady Chimney Draft is the goddess of the chill that comes when a guest enters a house and of the warmth that comes of trust and companionship. She watches over guesthost relationships and hospitality between neighbors, friends and strangers. Lady Chimney Draft also oversees marriages, divorces and adoptions, none of which can be recognized without her priests' ratification and seal. The obeisance of the Haslanti delights her, while being inhospitable toward guests or neighbors or failing to honor one's own marriage vows brings out her chill resentment. She is proper and well mannered, always following the same rules of hospitality that she demands of mortals. Shows of reverence make her politely giddy; bad manners provoke an icy, but well-spoken, disdain. In addition to demanding good manners, she is unfailingly critical to those who make illegal or unreasonable requests of their hosts or guests. She has little sympathy for those who make illogical, brazen or shameless excuses for lack of hospitality. Haslanti pray to Lady Chimney Draft at harvest time and when bringing in a catch, always making sure to save a portion of their stores for neighbors and itinerant strangers who come to their house. They also pray to her when lighting their hearths, that she might keep the chill at bay and not allow the fires to die. Traders often pay special reverence to Lady Chimney Draft, as they often find themselves subject to the hospitality of strangers. Ivrieinen of the Triad of Fate delegates to the other goddess some work regarding suitable marriages. While Lady Chimney Draft normally only ratifies marriages, she does sometimes help to bring suitable couples together, as per Ivrieinen's instructions. Lady Chimney Draft manifests as a middle-aged, hardy woman with white-blonde hair and deep, grandmotherly wrinkles around a prim smile. She wears plain clothes common to Haslanti women and often travels hand-in-hand with her consort, Master Winter. She is no great fighter, relying on Master Winter and Autumn Frost for protection. Sanctum: Lady Chimney Draft dwells with Master Winter in his castle.</p><p><strong>Motivation:</strong> To safeguard the rules of hospitality.</p><p><strong>Backgrounds:</strong> Allies 2, Backing 2, Contacts 3, Manse 2, Manse 4, Salary 3, Sanctum 3 (Winter Fastness), Sanctum 4 (House of the Nine Hearths)</p><p><em>Source: Compass of Terrestrial Directions, Vol. V: The North</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

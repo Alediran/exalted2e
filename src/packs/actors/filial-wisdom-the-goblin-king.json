@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000188",
+  "_key": "!actors!0001000000000188",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Filial Wisdom, the Goblin King",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 6
+    },
+    "willpower": {
+      "value": 7,
+      "max": 7
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 11,
+      "social": 6,
+      "physical": 11
+    },
+    "combat": {
+      "joinBattle": 10,
+      "dodgeDV": 9,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 17,
+        "lethal": 13,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 13
+    },
+    "powers": "<p>Armored Scout's Invigoration, Bulwark Stance, Call the Blade, Dipping Swallow Defense, Dodge Essence Flow, Dragon Coil Technique, Essence Arrow Attack (all), Feather-Foot Style, First Archery Excellency, First Athletics Excellency, First Awareness Excellency, First Dodge Excellency, First Awareness Excellency, First Martial Arts Excellency, First Lore Excellency, First Melee Excellency, First Occult Excellency, First Resistance Excellency, First Stealth Excellency, First Survival Excellency, Fists of Iron Technique, Flow Like Blood, Foe-Vaulting Method, Fury Inciting Presence, Graceful Crane Stance, Hauberk-Lightening Gesture, Heaven Thunder Hammer, Hungry Tiger Technique, Immunity to Everything Technique, Infinite Dodge Mastery, Infinite Melee Mastery, Infinite Stealth Mastery, Invincible Fury of the Dawn, Iron Whirlwind Attack, Keen Sight Technique, Martial Arts Essence Flow, Melee Essence Flow, Mob-Dispersing Rebuke, Monkey Leap Technique, One Weapon, Two Blows, Ox-Body Technique (x 2), Peony Blossom Attack, Reflex Sidestep Technique, Seven Shadow Evasion (Conviction Flaw of Invulnerability), Shadow Over Water, Sledgehammer Fist Punch, Solar Hero Form, Spirit-Cutting Attack, Spirit-Detecting Glance, Stealth Essence Flow, Thunderbolt Attack Prana, Trackless Region Navigation, Whirlwind Armor-Donning Prana Combos: Cyclone of Gore (Bulwark Stance, Hungry Tiger Technique, One Weapon, Two Blows, Peony Blossom Attack) Golden Flash of Destruction (Call the Blade, First Athletics Excellency, Foe-Vaulting Method, Hungry Tiger Technique, Seven Shadow Evasion, Spirit-Cutting Attack, Thunderbolt Attack Prana)</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 11, Damage 6B, Parry DV 6, Rate 3 Kick: Speed 5, Accuracy 10, Damage 9B, Parry DV 4, Rate 2 Clinch: Speed 6, Accuracy 10, Damage 6B piercing, Parry DV ­, Rate 1 Grand Daiklave (Glory to Decay): Speed 5, Accuracy 17, Damage, Parry DV 8, Rate 2 Long Powerbow (Parting Shot): Speed 6, Accuracy 11, Damage 12L, Range 400, Rate 3</p>",
+    "biography": "<p>The Darkened Dawn, Apostle of the Carrion God The Solar Exalt Filial Wisdom is one of the best kept secrets and most-dangerous people in the entire East. About 140 years ago, the man who would rule Rathess was a warrior in the service of Paragon. He trained and fought for the Perfect, aspiring to the greatness of the legendary Dragon-Blooded. That all changed during a trip to the Realm, where Filial Wisdom saw firsthand the corruption of Dynastic society. Filial Wisdom's revelation gave way to Exaltation. Despite all odds, the newly anointed Solar fought his way out of the Realm. Gradually, he wound his way into the deep wilderness of the Threshold. Driven eastward by hazy dreams and immaculate assassins, Filial Wisdom fought for glory and honor, but he also did some questionable things to defend his own life. After years of sacrifice and injustice, Filial Wisdom found what he never knew he sought: the ruins of Rathess. Alone and disillusioned, the Dawn Caste rested in the ruins and prayed in the sacred temples to a god who did not answer. Someone answered, though. Han-Tha, forbidden god of necrophagy and decay, approached Filial Wisdom with a vivid vision of a world with meaning ­ a world of reason, order and fear. The dark god's words revealed finally what Filial Wisdom's experiences had shown him all along: that the defining forces of society were fear and strength. Filial Wisdom and Han-Tha agreed that the Second Age deserved to die. With his orichalcum daiklave in hand, Filial Wisdom vowed to carve a new, utopian Creation from Gaia's corpse. For over a century, Filial Wisdom has gathered power in Rathess. Han-Tha guided him in raising his Essence. He acquired many of the city's hearthstones and other treasures. Building an army proved more difficult. Most difficult of all, he works on an epic poem that will irresistibly convey Han-Tha's truth to all who hear it. He will not advance his plans for world-wide massacre until the poem is complete. Filial Wisdom agrees with Han-Tha that salvation, both personal and cosmic, depends on eating the dead, preferably after killing them yourself. Since his life experiences are limited to the Perfect of Paragon's despotism, Dynastic decadence, fanatical, murderous pursuit by the Wyld Hunt and the lethal anarchy of Rathess, he truly cannot find any flaw in Han-Tha's proposal to kill the world and eat it. At times, Han-Tha finds himself acting as the more compassionate member of their partnership. Fortunately, part of Filial Wisdom does not truly believe the insane philosophy that he has otherwise fully embraced. This unsatisfying burden has unconsciously kept the Goblin King from writing the magnificent work that his glory deserves. What he really needs is a poet. That would be truly disastrous. Filial Wisdom has the swarthy skin and black hair often found in the South, with heavy brows, strong cheekbones and aquiline nose. He usually wears his orichalcum reinforced breastplate, with his grand daiklave on conquest sheathed at his back.</p><p><strong>Motivation:</strong> Kill the world and feed it to Han-Tha. Caste: Dawn Anima Banner: Thunderheads of white and gold, flashing with black lightning.</p><p><strong>Backgrounds:</strong> Artifact 3, Artifact 3, Artifact 3, Followers 4, Influence 1, Manse 5, Manse 3, Manse 4, Mentor 3, Resources 4</p><p><em>Source: Compass of Terrestrial Directions, Vol. III: The East</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

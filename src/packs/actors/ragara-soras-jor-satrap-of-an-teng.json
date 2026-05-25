@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000208",
+  "_key": "!actors!0001000000000208",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ragara Soras Jor, Satrap of An-teng",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 4
+    },
+    "willpower": {
+      "value": 7,
+      "max": 7
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 6,
+      "social": 7,
+      "physical": 3
+    },
+    "combat": {
+      "joinBattle": 7,
+      "dodgeDV": 5,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 5,
+        "lethal": 6,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "<p>All-Encompassing Earth Sense, Auspicious First Meeting Attitude, Benevolent Master's Blessing, Bestow the Saffron Mantle, Brother-Against-Brother Insinuation, Cipher Missive, Confluence of Savant Thought, Craft Icon, Distraction of the Babbling Brook, Dragon-Graced Weapon, Drowning in Negotiation Style, Elemental Bolt Attack, Elemental Burst Technique, Elemental Con- centration Trance, Eternal Mind Meditation, Feeling the Dragon's Bones, Finding the Water's Depth, First Awareness Excellency, First Bureaucracy Excellency, First Investigation Excellency, First Linguistics Excellency, First Lore Excellency, First Presence Excellency, First Socialize Excellency, Friend-to-All-Nations Attitude, Geese-Flying-South Administration, Language-Learning Ritual, Poisoned Tongue Technique, Second Dodge Excellency, Second Integrity Excellency, Terrestrial Bureaucracy Reinforcement, Testing the Waters, Third Socialize Excellency, Thoughtful Gift Technique, Thrashing Carp Serenade, Unsleeping Earth Meditation, Voice of Mastery, Warm-Faced Seduction Style, Wind-Carried Words Technique</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 7, Damage 2B, Parry DV 4, Rate 3 Kick: Speed 5, Accuracy 6, Damage 5B, Parry DV 2, Rate 2 Clinch: Speed 6, Accuracy 6, Damage 2B, Parry DV --, Rate 1, Tags C,N,P White Jade Daiklave (The Auditor): Speed 4, Accuracy 11, Damage 9L, Parry DV 5, Rate 3</p>",
+    "biography": "<p>The head of House Ragara handpicked Soras Jor as An-Teng's new satrap and pulled a lot of strings to arrange his appointment. Soras Jor's mission is to steer An-Teng's wealth and government to House Ragara's service alone. Soras Jor enjoys his position. He loves An-Teng's comforts and pleasures and finds satisfaction in bending the everyday challenges of his official duties toward his familial and economic ambitions. He even finds the Three Princes quaintly amusing. Still, he does face a few frustrations. Shuri the Scarlet, the ranking military commander in An-Teng, has a head start in insinuating House Ledaal into the region's mercantile community. The Three Princes each at times seem obsessed with conflicts and obligations that make no sense and profit no one. His Lintha pawns seem more unreliable by the week, as Jor learns more about their demented customs. But surely, he just needs to find the right strings of fear and greed to turn them all into puppets, dancing as House Ragara wills. Ragara Soras Jor has no time for silly native cults and superstitions and does not believe they can genuinely trump political and economic interest. Ragara Soras Jor is a tall, sallow-faced man in his early 40s, with a prominent nose, a firm set to his mouth and short, black hair. He wears white robes embroidered with gold and gems. Jor possesses a jade daiklave, though he does not carry it regularly. He has powerful connections in An-Teng and the Realm and can summon a great deal of aid if the need arises--even without the local Realm garrison.</p><p><strong>Motivation:</strong> To serve House Ragara, utilizing the benefits of his official position Aspect: Air Anima Banner: Transparent ice crystals swirling around him in precise alignments.</p><p><strong>Backgrounds:</strong> Artifact (Jade Daiklave) 2, Artifact (Silken Armor) 2, Backing (House Ragara) 4, Breeding 2, Connections (Thousand Scales) 3, Connections (The Guild) 2, Connections (The Lintha Family) 1, Family 3, Influence 2, Manse 3, Mentor 3, Reputation 3, Resources 5</p><p><em>Source: Compass of Terrestrial Directions, Vol. IV: The South</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

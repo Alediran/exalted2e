@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000142",
+  "_key": "!actors!0001000000000142",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Demon of the Second Circle, Indulgent Soul of That Which Wears Down the Mountains",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "demon",
+    "concept": "",
+    "essence": {
+      "value": 7
+    },
+    "willpower": {
+      "value": 9,
+      "max": 9
+    },
+    "motes": {
+      "value": 0,
+      "max": 115
+    },
+    "pools": {
+      "combat": 0,
+      "social": 0,
+      "physical": 0
+    },
+    "combat": {
+      "joinBattle": 12,
+      "dodgeDV": "0",
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 3,
+      "soak": {
+        "bashing": 21,
+        "lethal": 19,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 14
+    },
+    "powers": "<p>Bread of Weak Spirit--Baidak Call--Baidak Capture--One that loses a wager against Sigereth is drawn through her box into her sanctum Divine Prerogative--Compelling Sigereth to lose a game is an unacceptable order Domain Manipulation Scenario--Controls the fall of dice, cards and other random game elements Dreaded Embrace of Mundanity--War Endowment--Augments a baidak Essence Bite--Pain wracks those who strike the Player of Games Geas--Compels the loser of a wager to fulfill his forfeit Materialize--Costs 80 motes Mind-Knife Sacrament--Transfers a game's ephemeral wager from loser to winner Possession--Puppet Sense Domain Signet of Authority Spice of Custodial Delectation--Games of skill Subtle Whisper--Compels onlookers to play First (Ability) Excellency--Lore, Resistance, War Second (Ability) Excellency--Awareness, Integrity, Lore, War Third (Ability) Excellency--Lore, War Infinite (Ability) Mastery--War Divine (Ability) Subordination--War</p>",
+    "notes": "<p>None CHAPTER FIVE: THE DAMNED</p>",
+    "biography": "<p>Those who call Sigereth are greeted to the sight of a hairless young man the color of cocoa, inhumanly slim, bearing a box carved of red jade and Hrotsvitha's brass. This youth is but a puppet--his heart does not beat, he neither breathes nor dreams, and when struck by weapons, his wounds ooze a milk-white sap. The wise summoner lays his binding on the box the boy carries, for the box itself is Sigereth, who is among the most brilliant gamesters in the demon realm. Her voice, a haughty and lubricious contralto, rises from the box as if wending out of the depths of a seashell. She contains in her depths every game ever played in Creation and Malfeas. Her pieces and dice are her bones, and her boards and cards are her flesh, all of which pulse with her blood and breath. Those who play one another at the games of Sigereth may wager anything they possess: physical property, pledges of action or even friendships, skills, memories and dreams. One may also play against Sigereth herself, with her puppet moving the pieces on her behalf. She encourages those who run out of resources to stake themselves upon the next game. She draws those who wager themselves and lose into Malfeas, where she reshapes them into the First Circle demons known as baidak (see pp. 139-141). Sigereth dwells in luxury in her Palace of Ineluctable Victory, a sprawling fortress-manse from which she rules one-tenth of a Malfean layer. The manse swarms with baidak demons in her service. Most practice endless war games, while others tend to their mistress's personal needs, massaging her pieces with scented oils and retouching her painted pasteboards. Beneath the vast dome of her map room, those baidak she has imbued with sentience plan her campaigns to expand her empire. Summoning: (Obscurity 2/4) Those who summon Sigereth most often seek her tutelage in matters of strategy. Others use her to command troops, enforce wagers or provide an opponent worthy of their skills. A challenge from a master of sufficient repute, written in his own hand and cast into the sea, draws her forth from Malfeas without a summons.</p><p><strong>Motivation:</strong> To facilitate games between adversaries of great skill. Sigereth's Intimacies include games, gamesters, tacticians, maps, intriguers, pawns, intricate stratagems and her demon servants.</p><p><strong>Backgrounds:</strong> Backing 3, Cult 1, Followers 5, Influence 2, Manse 4, Resources 5, Sanctum 4</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "d4e5f6a700000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

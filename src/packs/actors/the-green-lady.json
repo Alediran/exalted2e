@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000118",
+  "_key": "!actors!0001000000000118",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Green Lady",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 7
+    },
+    "willpower": {
+      "value": 8,
+      "max": 8
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 13,
+      "social": 13,
+      "physical": 13
+    },
+    "combat": {
+      "joinBattle": 26,
+      "dodgeDV": 10,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 3,
+      "soak": {
+        "bashing": 5,
+        "lethal": 3,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 8
+    },
+    "powers": "<p>Absence, Auspicious Prospects for Secrets, Auspicious Prospects for Endings, Auspicious Prospects for Serenity, Avoidance Kata, Avoiding the Truth Technique, Blinding the Boar, Burn Life, Cash and Murder Games, Ceasing to Exist Approach, Celestial Circle Sorcery, Conning Chaos Technique, Creation-Preserving Will, Death-of-Self Meditation, Dream Confiscation Approach, Duck Fate, Efficient Secretary Technique, Embracing Life Method, Essence Thorn Practice, Expected Pain, Fateful Integrity Excellency, Fateful Lore Excellency, Fateful Resistance Excellency, Fateful Socialize Excellency, Favorable Inflection Procedure, First Dodge Excellency, First Larceny Excellency, First Melee Excellency, First Resistance Excellency, First Thrown Excellency, Forgotten Earth, Fortuitous Fellowship, Gift of a Broken Mask, Harmony of Blows, Heartless Maiden Trance, Impeding the Flow, Life Without Compunction, Mark of Exaltation, Masque of the Uncanny, Methodology of Secrets, Name-Pilfering Practice, Of Horrors Best Unknown, Of Secrets Yet Untold, Of the Shape of the World, Of Things Desired and Feared, Of Truths Best Unspoken, Optimistic Security Practice, Ordained Bridle of Mercury, Ox-Body Technique, Preservation of Resolve, Prior Warning, Propitious Martial Arts Alignment, Propitious Stealth Alignment, Research Assistant Invocation, Second Investigation Excellency, Second Lore Excellency, Second Martial Arts Excellency, Second Presence Excellency, Second Socialize Excellency, Second Stealth Excellency, Serenity in Blood, Shadow Piercing Needle, Shadowland Circle Necromancy, Shield of Destiny, Shun the Smiling Lady, Sidereal Shell Games, Soft Presence Practice, Someone Else's Destiny, Stern Essence Replenishment, Subordinate Inspiration Technique, Supernal Awareness, Telltale Symphony, Terrestrial Circle Sorcery, Third Athletics Excellency, Third Integrity Excellency, Third Larceny Excellency, Thought-Swiping Distraction, Transcendent Hatchet of Fate, Unhearing Dedication, Unwavering Well-Being Meditation, Walking Outside Fate, Wanting and Fearing Prayer, Wise Choice, Yellow Path, You and Yours Stance Martial Arts: Dreaming Pearl Courtesan Style: All Charms Violet Bier of Sorrows Style: All Charms Night Breeze Style: All Charms Obsidian Shards of Infinity Style: All Charms Prismatic Arrangement of Creation Style: All Charms; Airaspected Terrestrial Ways, Changing Moon Lunar Ways, Night Solar Ways Terrestrial Hero Style: Currents Sweep to Sea, Flow from the Rocks, Pounding Surf Style, Riptide Method, Terrestrial Hero Form Spells: Banish Ghost, Cirrus Skiff, Demon of the First Circle, Disguise of the New Face, Dolorous Reflection, Door of the Dead, Dusk Eyes, Emerald Circle Banishment, Emerald Countermagic, Flight of Separation, Infallible Messenger, Sapphire Circle Banishment, Sapphire Countermagic, Soul Brand, Summon Elemental Colleges: The Banner 1, The Captain 1, The Corpse 3, The Crow 2, The Ewer 2, The Gauntlet 1, The Guardians 4, The Gull 1, The Haywain 2, The Key 3, The Lovers 3, The Mask 5, The Mast 1, The Messenger 2, The Musician 1, The Peacock 3, The Pillar 3, The Quiver 2, The Rising Smoke 3, The Shield 1, The Ship's Wheel 2, The Sorcerer 4, The Spear 1, The Sword 2, The Treasure Trove 3</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 14, Damage 4B, Parry DV 8, Rate 3 Kick: Speed 5, Accuracy 13, Damage 7B, Parry DV 6, Rate 2 Clinch: Speed 6, Accuracy 13, Damage 4B, Parry DV --, Rate 1 Starmetal Strap Whip: Speed 4, Accuracy 15, Damage 9B, Parry DV 7, Rate 2 Needle: Speed 5, Accuracy 10, Damage 1L, Rate 3, Range 10</p>",
+    "biography": "<p>After the Deathlords and the Dual Monarchs, the Sidereal Exalt called the Green Lady is perhaps the most powerful person in the Underworld. (Few consider the Neverborn or hekatonkhires to be persons.) She knew the Mask of Winters and Walker in Darkness before the Usurpation and found them both in the Underworld, shortly after they became Deathlords. They are both now her lovers. Neither one realizes that she also attends the Bishop of the Chalcedony Thurible and the Bodhisattva Anointed by Dark Water, in various capacities. All her masters--including the Bureau of Destiny--think she betrays the others and really works for them alone. The truth is hidden so deeply in the hall of mirrors that is her soul that no one could find it... by now, not even the Green Lady herself. She has mastered so many ways of disguising and fragmenting her mind and identity that s h e is no longer sure of her own ultimate loyalty. One could encounter the Green Lady almost anywhere in the Underworld, on a mission for one of the four Deathlords against their enemies-- including others among her masters. She prefers to achieve her goals by seduction, deception, bribery or other manipulations. If she has to, however, she is more than capable of using her Charms, martial arts and sorcery to fight. Indeed, one of the Green Lady's well-kept secrets is her true prowess as a martial artist. Her assorted Deathlord associates know that she has mastered the Violet Bier of Sorrows Style, Dreaming Pearl Courtesan Style and the Night Breeze Style, as well as much of the CHAPTER EIGHT · UNDERWORLD ANTAGONISTS Terrestrial Hero Style. They also know she knows many Charms from the Obsidian Shards of Infinity and Prismatic Arrangement of Creation Styles of Sidereal martial arts. They do not know that she has mastered them completely--especially the Prismatic Arrangement of Creation Form that lets her wield multiple martial arts Form-type Charms at once. A number of Abyssal, Solar and Lunar Exalts have had memorable encounters with the Green Lady. They don't realize that they have never met her at all, only the assorted false identities she uses so that people can remember her. \"The Green Lady\" is merely a common title assumed by several of these identities. She has also posed as an elderly male Sidereal, an Abyssal, a Solar Exalt and an Air-aspected Dragon-Blood, with the correct anima banners and powers. The Green Lady has no objection to helping Creation's heroes, as long as doing so helps one of her patrons. In fact, she has already helped several Lawgivers make deals with the Deathlords. Exactly who comes out ahead in these bargains depends on one's point of view. Anyone who deals with the Green Lady finds that accepting her help aids one of Creation's deadliest enemies but blocks others. For instance, in trading an artifact to the Mask of Winters for help against a demonic invasion, a Lawgiver might find that he also gave the Deathlord the only weapon that can kill a powerful god, but in the course of obtaining the weapon, he disrupted a Fair Folk plot. Or a Lunar might find that, in stopping the Green Lady from performing a task for the Mask of Winters, he killed an enemy of the Walker in Darkness. Any encounter with the Green Lady tends to be confusing, what with all the double and triple agendas, but never dull.</p><p><strong>Motivation:</strong> To find the secret of destroying the Deathlords. Maybe. Caste: Chosen of Secrets Anima Banner: A pale green radiance</p><p><strong>Backgrounds:</strong> Acquaintances 3, Allies 5 (multiple Deathlords but only one at a time), Artifact (Skin Mount Amulet) 2, Artifact (Starmetal Straps) 3, Connections (Division of Secrets) 2, Connections (Kunlun City-States) 2, Connections (The Pyrron Ossuary) 2, Connections (The Skullstone Archipelago) 2, Connections (Stygia) 4, Connections (Thorns) 2, Manse 3, Savant 3, Underworld Manse 5, Whispers 1</p><p><em>Source: Compass of Celestial Directions, Vol. IV: The Underworld</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

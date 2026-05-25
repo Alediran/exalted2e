@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000179",
+  "_key": "!actors!0001000000000179",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Oliphem",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 9
+    },
+    "willpower": {
+      "value": 10,
+      "max": 10
+    },
+    "motes": {
+      "value": 0,
+      "max": 140
+    },
+    "pools": {
+      "combat": 12,
+      "social": 10,
+      "physical": 10
+    },
+    "combat": {
+      "joinBattle": 7,
+      "dodgeDV": 9,
+      "parryDV": 0,
+      "dodgeMDV": 5,
+      "parryMDV": 2,
+      "soak": {
+        "bashing": 30,
+        "lethal": 27,
+        "aggravated": 0
+      },
+      "hardness": 20
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 101
+    },
+    "powers": "",
+    "notes": "<p>Punch: Speed 5, Accuracy 11, Damage 20B, Defense 12, Rate 3 Kick: Speed 5, Accuracy 10, Damage 23B, Defense 8, Rate 2 Clinch: Speed 6, Accuracy 25, Damage 20B, Defense -, Rate 1 Piercing Gaze: Speed 6, Accuracy 20, Damage 25A, Rate 3, Range 10 miles** Note: Oliphem cannot currently use its Piercing Gaze attack.</p>",
+    "biography": "<p>Watcher of the Sea Before Creation became what it is now, Oliphem watched over its waters, guiding friendly ships to safety. Standing more than 150 yards tall, this giant of stone and iron walked upon the surface of the Western Sea, shining warning light from the great lens that Oliphem possessed in place of a face. From this lens, Oliphem could see everything that occurred on the surface of the ocean, and the Watcher of the Sea would signal ships from afar to steer them away from danger. Many sailors used Oliphem's signal light as an important point of navigation. Oliphem refused to choose sides in any conflict, for the race of beings Oliphem once honored above all others was devoured in the time of the Primordials and existed no more. The ships Oliphem once protected sail the seas no longer, but Oliphem nonetheless protected other vessels out of an endlessly abiding sense of duty. Unfortunately for the Watcher of the Sea, this neutrality was to prove Oliphem's tragic downfall. When the Exalted went to war against the Lintha, Oliphem helped fleets on both sides equally. The Solar prince Desus determined to put an end to this, and plied the Watcher with exquisite offerings and flattering words. Timing his plans with those of the Exalted fleets, Desus struck Oliphem by surprise, shattering its great lens with a single blow from Desus's mighty fist. Caught unawares, scores of Lintha vessels perished and Solar sorcerers struck the isle of Oroo with a catastrophic storm. Nearly blinded (at least relative to its peerless sight), and in terrible pain, Oliphem could not keep Desus from escaping, and the Solar returned to his people a great hero. The Watcher of the Sea wandered the oceans, alone and bitter. Every day, Oliphem sinks beneath the waves to slumber on the seabed, rising to the surface as night falls. Oliphem continues to steer vessels away from harm, although the Watcher's abilities to do so are severely curtailed. Nonetheless, it can still see about as well as a man standing atop a lighthouse 150 yards high. The Watcher of the Sea does not save ships out of concern for the people who sail them, but because of Oliphem's conviction in its ancient duty. Whatever Oliphem's motives, numerous stories tell of it helping desperate sailors during terrible storms, driving ships away from submerged reefs or pushing broken vessels to shore before they sink. The return of the Solars creates an interesting situation for the Watcher of the Sea. It hates Desus with an undying passion, and will surely try to destroy the newest incarnation of his Essence in a fit of uncontrollable rage should Oliphem ever encounter him. Unbeknownst to Oliphem, the Solars' return could prove to be the Watcher's salvation. A skilled Solar from the Twilight Caste could certainly fix Oliphem's lens, restoring the Watcher to its former glory. Sadly, the race that the Watcher originally served has been extinct since before the dawn of the First Age, so restoring Oliphem's lens cannot heal the Watcher's sense of aimlessness.</p><p><strong>Motivation:</strong> To protect the ships that sail upon the sea.</p><p><em>Source: Compass of Terrestrial Directions, Vol. II: The West</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

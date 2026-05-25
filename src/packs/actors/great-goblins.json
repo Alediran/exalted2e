@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000192",
+  "_key": "!actors!0001000000000192",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Great Goblins",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 2
+    },
+    "willpower": {
+      "value": 8,
+      "max": 8
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 8,
+      "social": 3,
+      "physical": 7
+    },
+    "combat": {
+      "joinBattle": 9,
+      "dodgeDV": 5,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 21,
+        "lethal": 12,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 11
+    },
+    "powers": "",
+    "notes": "<p>Claw: Speed 4, Accuracy 9, Damage 9L, Parry DV 5, Rate 2 Punch: Speed 4, Accuracy 9, Damage 8B, Parry DV 5, Rate 3 Gore: Speed 6, Accuracy 7, Damage 12L, Parry DV 3, Rate 1 Kick: Speed 5, Accuracy 8, Damage 11B, Parry DV 3, Rate 2 Clinch: Speed 6, Accuracy 8, Damage 8B piercing, Parry DV ­, Rate 1 Great Axe: Speed 6, Accuracy 9, Damage 15L/2, Parry DV 3, Rate 2</p>",
+    "biography": "<p>The Fair Folk create hobgoblins of varying power. The great goblins of Rathess are much larger, stronger and tougher than the city's everyday goblins. These creatures stand 12 feet tall, with large horns on their heads and claws on their fingers. Their sharply receding foreheads show they are no smarter than the average hobgoblin, but their Fae creators made then sharpeyed and cunning. Some great goblins still serve Fae nobles as bodyguards, officers for hobgoblin hordes and elite shock troops; great goblins who switch their allegiance to Filial Wisdom and Han-Tha fill the same roles for their new masters. Great goblins often carry heavy weapons such as great axes, poleaxes or tetsubos (typically, a section of tree trunk). They know how to wield bows, but Rathessian examples generally do not do so. Most importantly, perhaps, every Rathessian goblin has the potential to become a great goblin. The Fair Folk simply gave extra size and power to basic goblins; therefore, Han-Tha can transfer that power from a dead great goblin to the basic goblins who feed on its corpse. Other aspects of great goblinhood spontaneously appear as the cannibal goblin's Attributes rise.</p><p><strong>Motivation:</strong> Serve as the master's strong fist of destruction.</p><p><em>Source: Compass of Terrestrial Directions, Vol. III: The East</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000220",
+  "_key": "!actors!0001000000000220",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Kidilos",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 6
+    },
+    "willpower": {
+      "value": 9,
+      "max": 9
+    },
+    "motes": {
+      "value": 0,
+      "max": 105
+    },
+    "pools": {
+      "combat": 12,
+      "social": 11,
+      "physical": 10
+    },
+    "combat": {
+      "joinBattle": 11,
+      "dodgeDV": 9,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 3,
+      "soak": {
+        "bashing": 24,
+        "lethal": 21,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 14
+    },
+    "powers": "<p>Amethyst Awareness--Little is hidden from agents of Fate. Destiny Sponsorship--Kidilos gains extra defenses only when she performs her specific duties with the acquiescence (if not the blessing) of the Division of Endings. Domain Manipulation Scenario--Kidilos can create or assuage grief on any scale, from individuals to nations. Emergency Prayer Relocation--Kidilos manifests wherever mortals grieve and pray to her for comfort. Geas--Grieving mortals sometimes pledge to perform certain deeds to commemorate a dead loved one. Kidilos can hold them to even the most casual promise, or forbid them from carrying out some foolish or wicked plan. Hand of Destiny--When all other methods fail, Kidilos lets the Loom of Fate itself tell her the way to assuage grief or otherwise carry out her plans. Hurry Home--Kidilos can transport herself instantly to the nearest gate to Yu-Shan, to the House of the Nine Hearths or to the sanctum of any member of the Ennead. Landscape Travel--Kidilos can travel over snow at double speed and gains a one-die bonus to all Dexterity rolls while traveling on skis. Costs eight motes. Materialize--Costs 75 motes. Material Tribulation Divestment--Kidilos ends the power of attacks upon her. Measure the Wind--When dealing with beings of power who grieve, sometimes it's prudent to know just how powerful they are. Natural Prognostication--Kidilos hints at Destiny's plans, especially when a destiny involves grief. Principle of Motion--Kidilos has six extra actions saved. Spirit and Body Purification Touch--This Charm resembles the Martial Arts Charm described in Scroll of the Monk, page 127. After a normal touch attempt, which may be dodged or parried normally, Kidilos's player rolls (Presence + Compassion) against a difficulty of the target's Essence, adding four automatic successes. A successful roll cures the target of all Sickness effects and physical diseases, and purges all poisons and drugs. Further, it negates all possession, control Charms and curses that do not originate from a god of the Ennead or a being of Essence 7 or higher. Finally, the target feels a warm, almost euphoric feeling of acceptance and happiness. Weighing of the Heart--Kidilos attempts to ease the minds of the bereaved by spinning a tale about the deceased's life. This Charm costs two motes and may be resisted if the target desires by rolling the target's Conviction opposed by Kidilos's Compassion. First (Ability) Excellency--Awareness, Integrity, Lore, Presence Second (Ability) Excellency--Awareness, Integrity, Lore, Presence Third (Ability) Excellency--Awareness, Integrity, Lore, Presence Divine (Ability) Subordination--Lore, Performance, Presence, Survival</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 11, Damage 6B, Parry DV 6, Rate 3 Kick: Speed 5, Accuracy 10, Damage 9B, Parry DV 4, Rate 2 Clinch: Speed 6, Accuracy 10, Damage 6B, Parry DV --, Rate 1, Tags P Ice Pick (Warden of the Bereaved): Speed 5, Accuracy 15, Damage 11, Parry DV 8, Rate 2</p>",
+    "biography": "<p>The Lady Who Comforts the Living at the Bedside of the Dying Kidilos works to help the Haslanti accept the realities of death. She strives to lessen mortals' grief and encourage them to make peace with one another before they die. Particularly among the tribes, grief easily slides into an angry desire to punish someone, anyone, for a death. The Haslanti have too much work to do to waste time on extravagant mourning or blood feuds. Although she is not an employee of the Division of Endings, she often works with that Celestial office. Kidilos may appear briefly to mortals who comfort the dying, as well as to people who suffer overwhelming grief at the death of a loved one. She never stays long in Creation, but her blessings and influence remain after she departs. Most often, Kidilos comforts people through stories. She knows the tale of every battle and the name of every Haslanti who has died and under what conditions. With a little effort she can scrutinize people's minds and reconstruct a narrative of a man's life. This telling of tales is a sacred rite, never interrupted, that can help or hinder the bereaved, but always leaves some long-lasting effect. Every spring, Carrion Crow identifies the dying and helps Kidilos plan her overall route for the coming months. Snowshoe Hare assists her in sending reassuring dreams to the grieving. Kidilos appears as a youthful woman dressed in the cold-weather gear of a Great Ice worker, with layer upon layer of leather and wool, a fur parka and snow goggles. She swiftly glides along the snow on skis, stopping only as her office dictates. Her eyes, should she reveal them to anyone, are old and sad, containing the grief of centuries. Sanctum: Kidilos dwells in the House of the Nine Hearths of Emerald and Silver.</p><p><strong>Motivation:</strong> To console the bereaved and those who comfort the dying.</p><p><strong>Backgrounds:</strong> Allies 4, Artifact 4, Backing 3, Contacts 4, Salary 3, Sanctum 4 (House of the Nine Hearths)</p><p><em>Source: Compass of Terrestrial Directions, Vol. V: The North</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

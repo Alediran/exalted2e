@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000119",
+  "_key": "!actors!0001000000000119",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Hollow King",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 5
+    },
+    "willpower": {
+      "value": 8,
+      "max": 8
+    },
+    "motes": {
+      "value": 0,
+      "max": 104
+    },
+    "pools": {
+      "combat": 9,
+      "social": 11,
+      "physical": 7
+    },
+    "combat": {
+      "joinBattle": 10,
+      "dodgeDV": 7,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 2,
+      "soak": {
+        "bashing": 5,
+        "lethal": 3,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "<p>Punch: Speed 5, Accuracy 9, Damage 2B, Parry DV 5, Rate 3 Kick: Speed 5, Accuracy 8, Damage 5B, Parry DV 3, Rate 2 Clinch: Speed 6, Accuracy 8, Damage 2B, Parry DV --, Rate 1 Ghost-Devil Claws: Speed 5, Accuracy 9, Damage 5L, Parry DV 5, Rate 2 Knife: Speed 5, Accuracy 7, Damage 4L, Parry DV 3, Rate 3 Lacquered Nails: Speed 5, Accuracy 9, Damage 2L, Parry DV 5, Rate 3 Knife (thrown): Speed 5, Accuracy 12, Damage 4L, Rate 3, Range 15 Soulfire Mask Arc: Speed 4, Accuracy 11, Damage 7L, Range 20 (maximum range), Rate 1</p>",
+    "biography": "<p>The longest seated member of the Council rules the Little Shoe District. The Hollow King wears a grotesque wooden mask with upturned eyes and a smiling but fang-filled mouth. Swirling, hypnotic patterns cover his silk and linen robes. He wears his dark, coarse hair in long, thick braids, while his fingers end in long, lacquered talons. Despite his fierce appearance, the Hollow King possesses an urbane wit and graceful matters, while keeping the common touch. He can deliver thunderous, rabble-rousing oratory or a tensionrelieving, humorous anecdote with equal aplomb. The Hollow King plays a dangerous game of intrigue. On the surface, he seems like a minor power in Stygia. He is beyond challenge in his own domain but demonstrates no ambitions beyond Little Shoe. He cares little about the graft, kickbacks and assorted rackets that afflict his district--only that he gets his cut. Nevertheless, the Hollow King recognizes CHAPTER EIGHT · UNDERWORLD ANTAGONISTS that, for the good of the Underworld, the Dual Monarchy must stand and the Deathlords must fail. This elder ghost constantly prunes back the Deathlords' organizations in Stygia, whether by assassin's blades or by drawing their agents into scandals that ruin their effectiveness. The Hollow King knows he cannot interfere too much, lest a Deathlord notice the hindrance and trace it to its source, but he does what he can and renders covert aid to other foes of Oblivion. While the Hollow King avoids combat when possible, he secrets about his person a number of throwing knives and phials of poison (obtained from the Mistress with the White Hands) he can place on those blades or on his own claws. When he assumes his Ghost-Devil Form, his lacquered nails swell into monstrous talons, he gains three extra pairs of arms (enabling him to flurry up to three attacks without a multiple action penalty), and he gains +2L/2B soak. If an encounter goes badly, the Hollow King can use Assassin's Subtle Escape to leap to an object in Creation then use Motivated Shell to move somewhere else before returning to the Underworld.</p><p><strong>Motivation:</strong> Block the plans of the Deathlords.</p><p><strong>Backgrounds:</strong> Allies 5, Artifact (Soulfire Mask) 2, Backing (Council of Thirteen) 3, Contacts 5, Followers 3, Influence 3, Resources 4, Underworld Cult 3 Arcanoi: Common Arcanoi: Assassin's Subtle Escape, Motivated Shell Essence-Measuring Thief Arts: All Charms Shifting Ghost-Clay Path: All Charms Stringless Puppeteer Art: All Charms Tangled Web Arts: All Charms</p><p><em>Source: Compass of Celestial Directions, Vol. IV: The Underworld</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

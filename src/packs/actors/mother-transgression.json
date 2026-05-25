@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000127",
+  "_key": "!actors!0001000000000127",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Mother Transgression",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 6
+    },
+    "willpower": {
+      "value": 8,
+      "max": 8
+    },
+    "motes": {
+      "value": 0,
+      "max": "105 (116) Committed"
+    },
+    "pools": {
+      "combat": 10,
+      "social": 10,
+      "physical": 9
+    },
+    "combat": {
+      "joinBattle": 9,
+      "dodgeDV": 7,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 14,
+        "lethal": 11,
+        "aggravated": 0
+      },
+      "hardness": 5
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 13
+    },
+    "powers": "",
+    "notes": "<p>Punch: Speed 5, Accuracy 11, Damage 3B, Parry DV 6, Rate 3 Kick: Speed 5, Accuracy 10, Damage 6B, Parry DV 4, Rate 2 Clinch: Speed 6, Accuracy 10, Damage 3B, Parry DV --, Rate 1 Soulsteel Dire Chain (Ensnaring Lies--strike): Speed 5, Ac- curacy 10, Damage 11B, Parry DV 6, Rate 2 Soulsteel Dire Chain (Ensnaring Lies--clinch): Speed 6, Ac- curacy 11, Damage 9B, Parry DV --, Rate 1 Infinite Underworld Chakram: Speed 4, Accuracy 10, Damage 6L, Rate 4, Range 50</p>",
+    "biography": "<p>The Terrestrial Exalt who became Mother Transgression rose to the pinnacle of the Immaculate Order through her skill and ambition, but she never completely believed that the Dragons had anointed the Scarlet Empress to rule Creation. In life, she quashed those doubts for the sake of power. In death, her ambition and moral confusion prevented her from entering Lethe at once, the way Immaculate doctrine said she should. She could not accept that the fault lay in herself, so she blamed the doctrine. Mother Transgression now leads the Deaconry of Profanation and seeks to destroy the Order she once led. Although she spends most of her time at the Deaconry itself, a sustained challenge to the Profane Deacons can draw her into the field. She also personally negotiates with other ghostly and spectral leaders in hopes of assembling forces to attack Immaculate temples and monasteries in Creation. Her force of Essence is even stronger than it was in life, and she retains her mastery of the Air Dragon martial arts style. Mother Transgression died when she was very old, but her ghost looks like a woman of healthy middle age, with her hair coiled in a braid at the back of her head. Instead of the robes of the Immaculate Order, she wears a hooded cloak of multicolored tatters over lamellar armor that looks like dozens of skeletal jade-steel hands clutching her body. She also wears a soulsteel dire chain as a belt, while a jagged-edged ring of soulsteel and bruise-hued Underworld jade--equal to an infinite jade chakram--hangs from a collar of doll heads.</p><p><strong>Motivation:</strong> Force Creation's people to admit the Immaculate Order is false.</p><p><strong>Backgrounds:</strong> Artifact (Jade Lamellar Armor) 2, Artifact (Infinite Underworld Chakram) 2, Artifact (Soulsteel Dire Chain) 1, Backing (Cult Leader) 4, Contacts 3, Followers 2, Influence 2, Underworld Cult 2 Arcanoi: Common Arcanoi: Moon's Cold Glow, Two-World Vision, Whispers of the Living Essence-Measuring Thief Arts: All Charms Savage Ghost-Tamer Arts: Call the Ravening Hound, Command the Hungry Devil, Diversion of the Savage Hunger, Tame the Wicked Appetite, Taste the Demon Wind Shadow Constraint Craft: All Charms Terror-Spreading Art: All Charms Martial Arts: Air Dragon Style: All Charms Terrestrial Hero Style: Currents Sweeps to Sea, Flow from the Rocks, Pounding Surf Style, Riptide Method, Terrestrial Hero Form</p><p><em>Source: Compass of Celestial Directions, Vol. IV: The Underworld</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

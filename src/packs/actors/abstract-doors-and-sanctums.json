@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000136",
+  "_key": "!actors!0001000000000136",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Abstract Doors and Sanctums",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "demon",
+    "concept": "",
+    "essence": {
+      "value": 10
+    },
+    "willpower": {
+      "value": 10,
+      "max": 10
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 0,
+      "social": 0,
+      "physical": 0
+    },
+    "combat": {
+      "joinBattle": 0,
+      "dodgeDV": 0,
+      "parryDV": 0,
+      "dodgeMDV": 5,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 0,
+        "lethal": 0,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "",
+    "biography": "<p>While most sanctum entrances are tied to physical objects, some spirits anchor their sanctums to thoughts, sensory stimuli or other ephemeral things. Such an entrance, called an abstract door, can be anything with a distinct conceptual existence: a piece of music, a celestial conjunction, a feeling or a dream. If an abstract door has a physical manifestation, such as a certain archaic litany or the first sunset of the year, anyone who perceives that physical manifestation may access the sanctum. If the door exists only within a living being's psyche, such as inside an uncanny emotion or idea, one accesses the sanctum by touching a being who's actively feeling or thinking about that abstraction. Leaving the sanctum takes one to the last place whence someone entered. The sanctum's owner can redirect it to another appropriate location, using Charms such as Sense Domain to find a corresponding target. Few gods know how to craft abstract doors, and the Celestial Bureaucracy frowns on their use by lesser divinities. Demons, being stranger than gods and lacking the same restrictions, craft such doorways more often, but they remain rare even in the Demon City. In even rarer instances, spirits build entire sanctums out of abstractions. For example, such a habitation might be constructed from solidified mathematics or furnished with congealed emotions. As with an ordinary sanctum's contents, abstract furnishings, or ephemera, become tangible to all who enter the sanctum's confines. Mortals and Exalted alike find it difficult to navigate places made of ephemera. Any action taken by a non-spiritual entity to examine or interact with such a sanctum and its accoutrements uses the lowest of (Lore, Occult or the appropriate Ability). Kings, few equaled Madelrada in matters of strategy. When the gods made war against their makers, Madelrada directed legions of Lintha warriors against the armies of the Exalted. And now, as Kimbery drowses in her cage of blackened bone, Madelrada tests her stratagems with demon armies, always preparing for war against the lords of Creation. Demons speak of Madelrada in reverent, uneasy tones. She numbers among the Eight Masterful Demon Generals who survived the Primordial War, infernal masterminds that endured the ravages of battle and the traumatic reshaping of the Yozis into their own prison. In military matters, her principles run toward Fabian tactics and guerilla warfare. Like her progenitor, she is a creature of ebb and flow. She guides her troops upon the tides of battle, striking suddenly and then falling back, willingly sacrificing troops to achieve her objectives. She gladly loses any number of battles to win a war. This philosophy informs all of her actions and inspires apprehension in those who deal with her. Who can say whether a victory over Madelrada in battle or intrigue is but a stepping stone to ultimate defeat? Madelrada appears as a massive woman, tall and barrelchested, whose indigo skin absorbs the light. Her eyes gleam with blunt, authoritative intellect, and her hair is cut in a military crop. Both are dull gray and flecked with rust. At all times, she attires herself in nigh-impenetrable armor of ivory and tarnished bronze. Summoning: (Obscurity 2/5) Sorcerers typically call upon Madelrada for martial purposes, whether to slaughter enemies in personal combat or manage prolonged campaigns against a superior foe. On rare occasions, when great wars decimate the adult populations of whole swaths of the Threshold, she may follow the resulting rivers of blood back into Creation.</p><p><strong>Motivation:</strong> To wear away all opposition to the Yozis. Madelrada's Intimacies are toward the trappings of war, including armies, generals, soldiers, arms, armor, military histories, ambuscades and battlefields, as well as such carrion-eating beasts as jackals, rations, ravens and vultures.</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "d4e5f6a700000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

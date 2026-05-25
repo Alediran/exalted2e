@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000157",
+  "_key": "!actors!0001000000000157",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Orchid-consuming Guardian, Seneschal of the Conventicle Malfeasant, Green Sun Prince",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "demon",
+    "concept": "",
+    "essence": {
+      "value": 4
+    },
+    "willpower": {
+      "value": 6,
+      "max": 6
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 6,
+      "social": 8,
+      "physical": 3
+    },
+    "combat": {
+      "joinBattle": 5,
+      "dodgeDV": 5,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 12,
+        "lethal": 12,
+        "aggravated": 0
+      },
+      "hardness": 8
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 11
+    },
+    "powers": "<p>Analytical Modeling Intuition, Counter-Con- ceptual Interposition, Essence-Dissecting Stare, Factual Determination Analysis, First She Who Lives in Her Name Excellency, Hardened Devil Body, Hellscry Chakra, Mind-Hand Manipulation, Sorcerous Enlightenment of She Who Lives in Her Name, Will-Crushing Force Mutations: Diet (tin) Spells: Slave-Spawn Summons</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 7, Damage 2B, Parry DV 4, Rate 3 Kick: Speed 5, Accuracy 6, Damage 5B, Parry DV 2, Rate 2 Clinch: Speed 6, Accuracy 6, Damage 2B, Parry DV --, Rate 1, Tags P Telekinetic Blow: Speed 5, Accuracy 11, Damage 4B, Parry DV 6, Rate 4, Range 10 Telekinetic Clinch: Speed 6, Accuracy 11, Damage 4B, Parry DV --, Rate 1, Range 10 Telekinetic Blade: Speed 5, Accuracy 11, Damage 4L*, Defense 6, Rate 4, Range 10, Tags P * Aggravated to creatures of the Wyld.</p>",
+    "biography": "<p>Once, the Orchid-Consuming Guardian served as shaman to a village in the forests of the East. He had a name, a family, a life. But as his power grew, so too did a ruthless streak in his nature. He cursed those who crossed him; he met ghosts and little gods with threats and force when diplomacy would have served. One minor demon sought revenge for the indignities he visited upon it. Persuading resentful neighbors to breach the wards on the man's home, it entered in the night, kidnapped his daughter and absconded with her to the Demon City. Furious, humiliated and miserable, the man who would become the Guardian sought a path into Malfeas to rescue his daughter. He made black bargains and found a way. The secret diary of Lytek, God of Exaltation, states that as the man stood on Hell's threshold, a Solar Exaltation trembled in the god's cabinet, ready to empower him with the might of heroes. But the man turned back from the brink. He abandoned his daughter to the terrors of the Demon City. Having mortgaged his soul to dark powers, he balked to save his skin, and those dark powers smiled upon him. A demon carrying an Infernal Exaltation came to him in that hour, elevating him into the new-formed ranks of the Green Sun Princes. Where other Infernals serve their masters in Creation, the Orchid-Consuming Guardian rarely leaves the Demon City. As seneschal of the Conventicle Malfeasant, he chairs gatherings of the Infernal Althing, and he spends the rest of his time coordinating logistics for his more active brethren and weeding out spies of rival demon lords from the Conventicle's staff. When not occupied by his duties, he still seeks his daughter, who somehow evaded her kidnapper and escaped into the madness of Malfeas. Although the trail is cold, enough of his old self remains that he still struggles to save her, refusing to admit that she could be dead. The Guardian's face is broad and dark beneath a fall of hair as green as Ligier's light. His rare smiles flash with rainbow fire; his teeth are gemstones, strong enough to grind the metallic vegetation that comprises his peculiar diet. Though he favors austere garb in the colors of slate, straw, charcoal or clay, the crooked brass rod he bears as his staff of office blazes with brilliant gemstones, while the armor of blue Yozi-glass that he wears in battle glows with a furious inner light.</p><p><strong>Motivation:</strong> Rescue his daughter from whatever cranny of Hell now holds her. Urge (Pyrian): Punish deviation from the rules and purpose of the Conventicle Malfeasant. Caste: Defiler Anima Banner: A blazing white globe orbited by lesser emerald spheres.</p><p><strong>Backgrounds:</strong> Artifact 4, Backing (She Who Lives in Her Name) 2, Cult 1, Infernal Manse 3, Influence (Malfeas) 3, Resources 5, Savant 2, Unwoven Coadjutor 2</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "d4e5f6a700000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

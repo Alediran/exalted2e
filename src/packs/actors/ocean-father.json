@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000170",
+  "_key": "!actors!0001000000000170",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ocean Father",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 8
+    },
+    "willpower": {
+      "value": 10,
+      "max": 10
+    },
+    "motes": {
+      "value": 0,
+      "max": 170
+    },
+    "pools": {
+      "combat": 16,
+      "social": 14,
+      "physical": 13
+    },
+    "combat": {
+      "joinBattle": 14,
+      "dodgeDV": 11,
+      "parryDV": 0,
+      "dodgeMDV": 5,
+      "parryMDV": 3,
+      "soak": {
+        "bashing": 16,
+        "lethal": 12,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 19
+    },
+    "powers": "<p>The Ocean Father has all appropriately themed spirit Charms for which he qualifies. Some important ones are specified below. Black Depths Foretold--Though there is terror in knowing the cause of your death, there is also great freedom in it. Unless someone manages to convince the Maidens (or perhaps a sizeable majority of the pattern spiders) to change his fate, no being currently affected by destiny or fate can slay the Ocean Father without using the artifact weapon named Black Depths Foretold. Instead, any other attack that would kill the Ocean Father merely reduces him to Incapacitated. Unfortunately for the Ocean Father, every attack made with the fated dagger causes the wielder to instinctively realize that she can reflexively spend four motes of Essence and one Willpower point to make every die in the attack's dice pool a success. Such an attack roll operates as though the wielder possessed the relevant Essence Auspicious Excellency even if she does not. This \"Charm\" is a blessing (and curse) unique to the Ocean Father and cannot be learned by any other being. Beings outside of Fate are immune to this effect, but cannot benefit from it either. Celestial Circle Sorcery--The Ocean Father has learned many spells of the Celestial Circle. Daimyo's Prerogative--While in Heaven, the Ocean Father may summon any single one of his subordinates in the Bureau of Nature to his side immediately. He does so only in times of danger or other emergency. He must spend a point of Willpower and a number of motes equal to the (Essence + Willpower) of the subordinate he is summoning. Donning Spiritual Armor--Through the expenditure of five motes, the Ocean Father may add his (Temperance + Essence) to his bashing and lethal soaks. By spending one point of Willpower, he may also add his Essence to his aggravated soak. Elemental Expression--The Ocean Father can double or halve the effects of any natural phenomena related to the sea (such as fog, storms, waves, etc.) for one mote of Essence. Alternately, he may cause such an effect to inflict damage (or increase the damage of an already damaging effect) on material beings within it, with each mote spent (maximum of his permanent Essence) dealing one health level of lethal or bashing damage, soaked normally. Elemental Rejuvenation--For every three ticks spent doing nothing else, provided he is in contact with seawater, the Ocean Father may heal one health level of damage or regain one mote of Essence. Essence Plethora (x4)--The Ocean Father has 40 extra motes of Essence in his Essence pool. Excellencies--The Ocean Father has First, Second and Third Excellencies for the following</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 15 (Terrestrial Hero Style +2, Art of Forceful Declaration +1), Damage 8B, Defense 16 (Terrestrial Hero Style +2, Art of Forceful Declaration +1), Rate 3 Kick: Speed 5, Accuracy 14 (Terrestrial Hero Style +2, Art of Forceful Declaration +1), Damage 11B, Defense 12 (Terrestrial Hero Style +2, Art of Forceful Declaration +1), Rate 2 Clinch: Speed 6, Accuracy 14 (Terrestrial Hero Style +2, Art of Forceful Declaration +1), Damage 8B (piercing), Defense -, Rate 1 Aegis Talisman Lash: Speed 4, Accuracy 15, Damage 5L (up to 15L), Defense 15, Rate 3, Range 4 Aegis Talisman Blade: Speed 4, Accuracy 23, Damage 8L (up to 18L), Defense 20, Rate 3, Range 4 Special: The Ocean Father wields a unique black jade \"Quicksilver\" Aegis Talisman. See Books of Sorcery, Vol. 2--Wonders of the Lost Age, p. 111 for Aegis Talisman rules. The Aegis Talisman Lash's attacks are treated as a separate entity with their own dice pools. The Ocean Father can use the Aegis Talisman to add up to 5 extra Dodge Defense Value or Parry Defense Value to any weapon (natural or otherwise). Addition- ally, the Ocean Father may supplement his unarmed attacks with Terrestrial Hero Style Charms.</p>",
+    "biography": "<p>Lord of the West, Daimyo of the Seas The Ocean Father, also known as the Daimyo of the Seas and the Lord of the West, is a powerful god in the Bureau of Nature's Hierarchy of Type. Despite his celestial position, with responsibility for all the seas of Creation and the accompanying quarters in Yu-Shan, the Ocean Father spends much of his time in the Great Western Ocean. CHAPTER SEVEN · GODS AND MONSTERS OF THE WEST In ages past, he was almost always found in Heaven--even arguing on behalf of Valor in the Sonorous Discussion of Virtue at the annual Carnival of Meeting-- but now he focuses on preserving and strengthening the remnants of his once-neglected dominion. What time the turbulent Western spirit courts and the depredations of the Wyld do not consume, the Lord of the West spends forming various human relationships Celestial Censors might deem inappropriate. He is worshipped throughout the Coral Archipelago and a surprising number of God-Blooded from the Neck claim his blood. The Ocean Father is a mercurial creature, quick to anger and to forgive, given to unbridled lust and sullen brooding. If there is anything the Ocean Father fears, it is the jade dagger named Black Depths Foretold (see Books of Sorcery, Vol. 3--Oadenol's Codex, p. 36), which the stars have long declared is fated to slay the Lord of the West. Before the Usurpation, reclusive Solars carried the blade to the East, where the dagger was lost. The Daimyo of the Seas fondly remembers the days when the Solar Deliberative expanded the Western Ocean far beyond its current bounds, but he is torn in regards to their return. The Ocean Father might parley with any Solar Exalts whose purposes seem to include the restoration of the West, but he is always careful to confirm they do not bear his bane. The Ocean Father appears as a tall, handsome, middle-aged man with mid-length black hair and curls, tipped in white, that tumble about his head like 100 waves in motion. Dark skin with a blue-green sheen stretches over his taut swimmer's muscles, his teeth are burnished coral and his eyes glow like the setting sun. At home in the open sea, the Ocean Father's only ornaments are a large gleaming white shell codpiece and a bejeweled black jade cephalopod whose undulating form hangs across one shoulder and his powerful chest. He bears a pearl as large as a human head in one hand, and within the pearl's depths, he scries upon his dominions in the sea. Sanctum: For eight centuries, the Ocean Father's primary manse in Creation has been hidden beneath the waves 800 miles to the south of the Coral Archipelago's capital Azure. The gods of the ocean courts pay their respects within the manse's carven halls of basalt and precious shells, and a pearl gateway within leads to his sanctum, but there is still a sense that the Lord of the West has not permanently settled into his \"new\" quarters. The Daimyo of the Seas visits his Yu-Shan estate and offices when occasion demands it, and he often waxes nostalgic for the opulent manse he lost to the Wyld during the Great Contagion.</p><p><strong>Motivation:</strong> To preserve his precious seas from dissolution by the Wyld, shadowlands or divine politics, and to continuously enhance their size, prestige and quality.</p><p><strong>Backgrounds:</strong> Allies 3, Artifact 5, Backing 4, Celestial Manse 3, Contacts 4, Cult 5, Followers 4, Influence 5, Manse 5, Resources 5, Sanctum 4</p><p><em>Source: Compass of Terrestrial Directions, Vol. II: The West</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

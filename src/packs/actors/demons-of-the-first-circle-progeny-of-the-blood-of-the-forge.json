@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000152",
+  "_key": "!actors!0001000000000152",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Demons of the First Circle, Progeny of the Blood of the Forge",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "demon",
+    "concept": "",
+    "essence": {
+      "value": 2
+    },
+    "willpower": {
+      "value": 7,
+      "max": 7
+    },
+    "motes": {
+      "value": 0,
+      "max": 55
+    },
+    "pools": {
+      "combat": 6,
+      "social": 4,
+      "physical": 5
+    },
+    "combat": {
+      "joinBattle": 5,
+      "dodgeDV": 4,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 9,
+        "lethal": 6,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 13
+    },
+    "powers": "<p>Affinity (Element) Control--Fire; The heranhal may use only the Elemental Corruption and Elemental Resistance functions of this Charm Malediction--The heranhal utters curses against those who offend him Materialize--Costs 45 motes Ox-Body Technique Sheathing the Material Form--The demon's hide turns to enchanted brass Stoke the Flame--Inspires others with the heranhal's own gluttonous or lascivious passions First (Ability) Excellency--Craft, Dodge, Socialize Second (Ability) Excellency--Resistance Third (Ability) Excellency--Craft, Socialize</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 7, Damage 4B, Parry DV 4, Rate 3 Kick: Speed 5, Accuracy 6, Damage 7B, Parry DV 2, Rate 2 Clinch: Speed 6, Accuracy 6, Damage 4B, Parry DV --, Rate 1, Tags P Black Iron Hammer: Speed 5, Accuracy 7, Damage 12B/2, Parry DV 4, Rate 2</p>",
+    "biography": "<p>Dwarfish and deformed, the heranhal labor for days at a time in the smithies of Malfeas, working brass and black iron until their scarlet hides smolder with the heat. Then they move on to exhibit the same stamina and dedication in the towers of the neomah and the other flesh pits of the Demon City, for their nature is as passionate as their forge fires. The skills of the heranhal bring most into the service of demons of the Second Circle. Fervid smiths eagerly accept additional tasks from other clients if those tasks pique the demons' interest. One's master might object in strenuous terms to the loss of productivity, but this does not trouble the heranhal, for its only loyalty is to its craft. Many a patron has sent riches and hard-won reagents to a heranhal's forge, only to have the smith sell the finished product to another--or casually offer it as a love-gift to a demon courtesan. The lore of demonology refers to six secret crafts practiced by the heranhal. Sources differ as to the nature of these crafts. Most agree, however, that heranhal have the tricks of drawing the threads of time into harp- and bowstrings; crystallizing Ligier's light into green sun-metal; smelting the livid alloy named hepatizon from bronze, blood and bile; and blowing soulglass from ghosts dissolved in molten sand from Cecelyne. While such products do not possess inherent magical properties, they tend to be of exceptional quality, and artificers find them useful as exotic ingredients for artifacts and infernal relics. Summoning: (Obscurity 2/3) Sorcerers typically summon heranhal to forge metal goods. Fervid smiths are sometimes drawn to Creation when mortals engaged in coitus are burned by red-hot iron. For every full day that it is denied sexual pleasure, a heranhal gains a point of Limit.</p><p><strong>Motivation:</strong> To forge great works of demonic craft.</p><p><strong>Backgrounds:</strong> Backing 1</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "d4e5f6a700000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

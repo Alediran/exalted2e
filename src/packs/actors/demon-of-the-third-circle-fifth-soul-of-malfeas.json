@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000130",
+  "_key": "!actors!0001000000000130",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Demon of the Third Circle, Fifth Soul of Malfeas",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "demon",
+    "concept": "",
+    "essence": {
+      "value": 9
+    },
+    "willpower": {
+      "value": 9,
+      "max": 9
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 0,
+      "social": 0,
+      "physical": 0
+    },
+    "combat": {
+      "joinBattle": 0,
+      "dodgeDV": 0,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 0,
+        "lethal": 0,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "",
+    "biography": "<p>In each layer of the Demon City, one manse inexorably draws the eye from the surrounding architecture. Each differs in nature and purpose. Some are manors, others fortresses, still others cathedrals to the Yozis. These manses do not dominate the skyline through cyclopean size or gaudy splendor. No, what they share is a beauty that makes one's breath catch in one's throat and one's heart skip a beat. These manses are the bodies of Amalion, the gentlest of Malfeas' many souls and the finest architect of the demon realm. Amalion's knack for designing manses and other buildings is without peer. In the First Age, so much did the Exalted value her skills that she spent more time in Creation than not, and so much did they accept her presence that when the Exalted sorcerer Five Moons wed her, the Solar Deliberative celebrated their blasphemous union. Since the Usurpation, Amalion has struggled to reshape the febrile architecture of the Demon City into something beautiful. When Amalion manifests, she appears as a courteous woman of middle years. Beneath layers of fashionable apparel, her body is veined like old marble. She hides her face behind a lavender veil. Those who see her smile love her forever after, and though she gladly enchants mortals and lesser demons to adore her, she deems it discourteous to compel such worship from an unwilling citizen or Exalt. In this form, she will draft the blueprints for a manse at a petitioner's request if he can pique her curiosity and meet her price, which is always a unique thing of beauty--inanimate or living. Summoning: (Obscurity 2/5) When not employing her magnificent smile to subdue a society, sorcerers summon Amalion to design buildings and raise manses. She erupts from the earth around the summoning circle as a level-5 Infernal- or Terrestrial-aspected manse of her own design, warping the area's dragon lines to assimilate its Essence. Her summoner may demand the hearthstone of that manse, but not those of her other manse-bodies. This manse is immobile, though her human form may leave its confines. She occasionally appears in human form when an architect kills himself to escape a commission beyond his capabilities.</p><p><strong>Motivation:</strong> To create things of beauty. Amalion's Intimacies include Malfeas, architecture, the structures she has devised, manses, hearthstones, her worshipers, the memory of long-dead Five Moons and the young Exalt who holds Five Moons' Exaltation.</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "d4e5f6a700000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

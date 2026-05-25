@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000195",
+  "_key": "!actors!0001000000000195",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "God of Southern War and Cattle",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 7
+    },
+    "willpower": {
+      "value": 9,
+      "max": 9
+    },
+    "motes": {
+      "value": 0,
+      "max": 135
+    },
+    "pools": {
+      "combat": 14,
+      "social": 12,
+      "physical": 12
+    },
+    "combat": {
+      "joinBattle": 11,
+      "dodgeDV": 11,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 3,
+      "soak": {
+        "bashing": 35,
+        "lethal": 35,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 3
+    },
+    "powers": "<p>Amethyst Awareness Creation of Perfection--Effects limited to those concerning battle, martial prowess or raising cattle. CHAPTER NINE: GODS AND MONSTERS OF THE SOUTH Divine Decree--Ahlat can make decrees of Power Level 3 or less regarding his spheres of influence. Domain Manipulation Scenario--Initiating war between adjacent armies or commanders (for six motes, both must be within 70 yards of Ahlat) Endowment--By spending 18 motes of Essence and a point of Willpower, Ahlat can grant two dots of Strength, Valor, Archery, Melee or Martial Arts (pick one), in addition to an extra 5L/5B of soak. The effects last only for the duration of one battle. Ahlat reserves this for mortals who sacrifice to him and have shown courage and prowess befitting a hero. He does not so assist the Exalted, who already bear greater gifts. Essence Plethora (x2)--20 extra motes Geas--Ahlat may use this Charm on only one individual at a time. Hand of Destiny--Ahlat can determine the outcome of any battle in the South by his decree, provided all factions are of Southern origin. Doing so violates Heaven's laws and the prerogatives of the Division of Battles in the Bureau of Destiny, but Ahlat can do this if he chooses. Hurry Home--For five motes, Ahlat can immediately transport himself to any of his shrines, any battlefield or cattle-herd in the South or anywhere in Creation that people fight over cattle. In Yu-Shan, he can return instantly to the Palace of the Golden Sahel. Materialize--Costs 80 motes Measure the Wind--Ahlat always surveys the participants of battles that interest him. He can identify by name, parentage and birthplace any Southern-born warrior in the midst of battle. Melodious Diagnostic Report--Ahlat thrives on efficient collection and use of the prayers and rituals of his worshipers. He is very attentive to even slight fluctuations in the intake of power and, as such, closely monitors devotion levels on a weekly basis (or more, if major impediments arise). Ox Body Technique (x7) Principle of Motion--Ahlat typically keeps nine extra actions reserved. Regalia of Authority--Ahlat may at times appear at the end of a battle to deliver his judgment or critique. When he does so, he uses this Charm to command attention and respect from all. These appearances sometimes devolve into impromptu banquets in Ahlat's honor, with champions of both armies vying to serve him. Reserve of Will (x3) Scourge--Ahlat may remove two dots of Strength, Valor, Archery, Melee or Martial Arts in addition to 5L/5B of soak (resulting in a minimum of 1L/1B). He typically reserves this Charm to punish warriors who show uncharacteristic cowardice or treachery to their commanders. Sense Domain--Ahlat can instantly know the location of all battles of over 500 participants currently taking place in the South. Signet of Authority--Ahlat may grant a commander a tasseled cloak resembling his own, marking her as the god's deputy and leading in his name. Symbol of Invincible Authority--Ahlat may use this Charm to walk unharmed through any ongoing battle of over 100 participants. First (Ability) Excellency--Archery, Dodge, Melee, Thrown, War Second (Ability) Excellency--Archery, Dodge, Melee, Thrown, War Third (Ability) Excellency--Archery, Dodge, Melee, Thrown, War Infinite (Ability) Mastery--War Divine (Ability) Subordination--Bureaucracy, Dodge, Integ- rity, Investigation Spells: Ivory Orchid Pavilion, Rolling Earth Carpet, Sap- phire Countermagic, Travel Without Distance, Whirlwind of Fate</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 15, Damage 12B, Parry DV 8, Rate 3 Kick: Speed 5, Accuracy 14, Damage 15B, Parry DV 6, Rate 2 Clinch: Speed 6, Accuracy 14, Damage 12B, Parry DV --, Rate 1, Tags C,N,P Spear (Bloodspike): Speed 4, Accuracy 20, Damage 24L/27L, Parry DV 10, Rate 2, Tags 2,L,R,T Spear (Bloodspike), Thrown: Speed 4, Accuracy 20, Dam- age 24L, Range 150, Rate 1 Lion Bone Bow (Glad of War): Speed 5, Accuracy 20, Damage 18L*, Range 1 mile, Rate 2 *Ahlat's bow adds four dice of damage (bashing or lethal) to any arrow fired from it; Ahlat typically uses broadhead arrows, but uses other types if he sees the need.</p>",
+    "biography": "<p>Ahlat, Southern God of War and Cattle, inspires fierce devotion across the great states of the South--and bitter derision among rival gods. Many deities take issue with his surprising rise in the Celestial Hierarchy and his apparent ambition for even greater power. Ahlat began his career in the North, when the Incarnae still dwelled on the Blessed Isle and the Primordials kept Yu-Shan for themselves. At this time, Ahlat worked as the small god of mating-fights between bull walruses. His lucky break came when he fought off a minor incursion by the Fair Folk. As a reward, Ahlat was promoted and reassigned as Southern God of Cattle. Later, Ahlat devised an ingenious plan with the local hunting god, Bright Spearpoint: Ahlat secured offerings and prayers from Bright Spearpoint's human subjects in exchange for teaching them to keep permanent herds of cattle. Bright Spearpoint's tribes prospered and both gods received increased prayer... though as centuries passed, the tribes cared less about hunting and more about stock-raising, ultimately leading to Bright Spearpoint's decline. The Southern censor of the time questioned this mingling of business between the Bureau of Nature and that of the Bureau of Humanity, but Ahlat argued convincingly for the potential of intra-bureau collaboration to increase the net revenue of prayer. Ahlat's shrewdness, imagination and experience in battle attracted the attention of the Unconquered Sun. As Ahlat tells the story, the Unconquered Sun sought champions to support him in the coming rebellion. Ahlat quickly agreed and devised another cunning plan. When Ahlat next appeared before his herd-folk shamans and priestesses, he commanded them to sacrifice an entire hecatomb, 100 cattle. None of the little tribes could possibly survive such a loss from their herds. Some refused Ahlat's demand and paid dearly. Some complied and wasted away. A few understood Ahlat's intent--that he did not insist they slaughter their own herds--and attacked other tribes to steal their cattle. This new explosion of warfare inspired a variety of innovations. Herd-folk settled in permanent, defensible villages and learned to plant seeds and irrigate--to keep their herds in fenced ranches with renewable food supplies, rather than wandering the countryside. With all these advances came new gods to govern them, all owing their positions more or less to Ahlat, who tithed them all. The Unconquered Sun rewarded Ahlat's efforts by offering him the position of War God of the South. Ahlat accepted, but only if he could retain his position as Cattle God as well. With war comes heroes, and herein lay the crux of Ahlat's grand plot. He watched the battles that spread across the South and identified the greatest, shrewdest and most valorous heroes. Ahlat recorded their names and passed them to the Unconquered Sun. Many of these warriors became the first Solar Exalted recruits, trained on Ahlat's battlefields. Since then, Ahlat has enjoyed glorious victories and endured frustrating periods of peace. In the Great Contagion, he labored mightily to preserve cattle through the Great Contagion, and he personally led the South's war gods against the Fair Folk invasion. As the Empress subdued the nations of the South, however, the scale and scope of wars steadily declined. Ahlat continues to foment minor battles in regions where the Realm has little presence, but he often finds himself idle. While Ahlat does not ignore his duties, he finds abundant time for other interests. Parties and pointless celebrations constantly fill his massive palace in Yu-Shan. He has taken several thousand mortal wives, the Brides of Ahlat, and as many short-time lovers in Yu-Shan, earning a reputation as an incorrigible wanton. As patron of cattle husbandry, he has introduced dozens of new breeds throughout Creation. Social infighting against the many deities who hold grudges against him kills a bit more time. With the disappearance of the Empress, Ahlat knows that his period of boredom has ended. The South will see glorious wars again--not raids for cattle, but great battles for the wealth of Gem, the Lap's cropland and the artifice of Varangia. An-Teng and Harborhead will surely rebel against the Realm, and the Delzahn ride to war again. But Ahlat also hears whispers of stranger wars brewing: of a dead general mustering ghostly legions in the Underworld and the opening of gates long shut. Ahlat realizes, with mingled fear and delight, that the wars he plans for mortals might be nothing more than a new training-field to prepare Exalted champions for greater foes. Harborhead has become the greatest center of Ahlat's cult, but he is worshiped throughout the South. Although most Southern warriors pray to Ahlat, he favors the elite female champions who pledge themselves to him as his virgin brides. He might grant an Endowment of combat prowess to a warrior who sacrifices a cow to him before a battle, but he couples it with a Scourge set to punish a warrior who squanders Ahlat's blessing through cowardice. Ahlat always appears as a tall, muscular, ebon-skinned man with the head, horns and hooves of a black bull. He wears a short kilt and a long, black-and-red cape adorned with thousands of tassels. He carries a spear of black wood and blood-red metal, and a bow of lion bone and gold. Ahlat's boisterous (and sometimes crudely sensual) manner conceals the sharp mind of one of Heaven's most skillful bureaucratic infighters. Sanctum: Ahlat lives in the Palace of the Golden Sahel in Yu-Shan. The Palace consists of several ornate halls adorned with memorabilia from thousands of battles. It has rooms for 10,000 guests and dozens of huge feast halls, as well as thousands of acres of savanna with pockets of wild jungles, forested hills and high, arid plateaus. A heavily guarded pen near the center of the estate holds the Golden Cattle of the Unconquered Sun, bred by Ahlat to honor his patron and fed on Peaches of Immortality.</p><p><strong>Motivation:</strong> To promote war in the South and to secure the South's autonomy from Realm rule</p><p><strong>Backgrounds:</strong> Allies (War Aurochs) 5, Backing (Celestial Bureaucracy) 5, Celestial Manse 4, Contacts (in Heaven) 5, Cult 5, Followers (Various Servants and Warriors) 5, Influence 4, Salary 5</p><p><em>Source: Compass of Terrestrial Directions, Vol. IV: The South</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

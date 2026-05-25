@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000083",
+  "_key": "!actors!0001000000000083",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Amoth City-smiter",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 6
+    },
+    "willpower": {
+      "value": 5,
+      "max": 5
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 0,
+      "social": 0,
+      "physical": 0
+    },
+    "combat": {
+      "joinBattle": 0,
+      "dodgeDV": 0,
+      "parryDV": 0,
+      "dodgeMDV": 2,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 0,
+        "lethal": 0,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "",
+    "biography": "<p>Amoth City-Smiter is the God of Tumbled Ruins, although his official position is Sub-Director of Bribery and Finance in the Bureau of Humanity. He covets Wun Ja's position as head of the Bureau and has begun undermining her by discreetly lending intelligence and spiritual support to the Lunar Exalted of the more radical branches of the Silver Pact. In turn, the Lunar Exalted strengthen Amoth and weaken Wun Ja by turning towns and cities into smoking ruins and forcing the survivors to join the barbarous tribes under the Lunar's control, live as slaves, or fall to the knife. Oddly enough, this method of undermining his superior, while destabilizing the borders of reality and leaving atrocities across the landscape of Creation, allows Amoth to guarantee a peaceful transition to a new rank in Yu-Shan. If his plan succeeds, Wun Ja's power will simply be eclipsed by his, and a promotion will be inevitable. A happy side effect, of course, is that numerous Wyld tribes on the warpath across the Threshold have started small cults in Amoth's name, granting him more Essence as his plans succeed. However, hints of his plan have been uncovered by Fleeting Maelstrom, one of Implacable Shining Barrator's best investigators. Although most gods only give lip service to the Celestial laws against meddling in Creation's affairs, Amoth's efforts run the risk of destabilizing reality and leaving the Threshold open to attack by the Fair Folk. Amoth is now desperately seeking allies--or pawns--who can be used to either cover up his misdeeds or remove Fleeting Maelstrom. Amoth has a massive, ruined mansion in Heaven but spends most of his free time wandering Creation's ruins. He takes such a personal interest in the ruins of First Age cities that he has been known to assault treasure hunters and Scavenger Lords who attempt to build cities on top of the ruins of First Age metropolises and relies on his Lunar allies or dogs of the unbroken earth--who answer to him, amongst other superiors--to mete out justice to those who attempt to either rebuild the ruins or clean them from the face of the earth.</p><p><strong>Motivation:</strong> To see all of Creation rubble, and all its inhabitants living in it.</p><p><em>Source: Compass of Celestial Directions, Vol. III: Yu-Shan</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

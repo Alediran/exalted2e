@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000099",
+  "_key": "!actors!0001000000000099",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Marilaq A'lam",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 5
+    },
+    "willpower": {
+      "value": 5,
+      "max": 5
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 0,
+      "social": 0,
+      "physical": 0
+    },
+    "combat": {
+      "joinBattle": 0,
+      "dodgeDV": 0,
+      "parryDV": 0,
+      "dodgeMDV": 2,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 0,
+        "lethal": 0,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "",
+    "biography": "<p>It is said that no demon has ever laid foot in the city of Heaven, but that is only technically true. No demon's feet have ever trod the golden streets and adamant highways of Yu-Shan, but the offspring of one of that debased race resides there. She is Marilaq a'Lam, Demon-Blooded Offspring of Berengiere of the Second Circle, and Thrice-Chained Ambassador of the Gaoled, Sister of Neomah and Mistress of Ivory Bonds. Her hair is barbed silk, her eyes pitch-black pools of liquid night, and her form able to instill desire in even the most devout cenobite. Her body is simultaneously full of lush curves and hard ridges of muscle, and her hidden places offer pleasures both obvious and subtle. She possesses three sets of sex organs, according to rumor amongst the Bureaus and departments of Heaven, and more than one god has seen her carried through the streets on her litter or bound within her wagon and bit down on desire for the forbidden secrets she carries. Born to a mortal assistant to one of the greatest First Age Solar Exalted of the Twilight Caste, who was seduced by Berengiere as she danced for his master, Marilaq a'Lam was an adventuress, scholar, and courtesan amongst the Solar Exalted, always suspected of treachery but too tempting a morsel for the debased pleasure-seekers in the Twilight's circle to deny. Her master was not kind--he forced her to long years of perverse enslavement and even compelled her to read The Broken-Winged Crane to unleash her full potential. As the Usurpation began and she saw her masters slain during the feast, Marilaq ran, not trusting the Sidereals or Dragon-Blooded to choose to spare her for her beauty and skill at the arts of love. She fled to Malfeas, where she lived for many centuries, acting as her masters' agent in Creation when necessary, serving as assassin, spy, and tutor to savant and Scavenger Lord over the ensuing years until she was chosen as Ambassador to Heaven. Brought to Heaven on a wagon of jade, bound by chains of lead and adamant, wearing a collar of orichalcum noosed by moonsilver rope anchored to the floor of the wagon, no precaution was too great to guarantee that Marilaq a'Lam did not do mischief upon her arrival in Yu-Shan. Her transport was overseen by Implacable Shining Barrator himself, and she was escorted by a trio of celestial lions and a small army of lion dogs and other gods. She was deposited--unceremoniously--into a locked manse on the periphery of Yu-Shan, where she waits. When the Incarnae or one of the gods of the Fifth Rank is desirous of word with the Yozi, Marilaq a'Lam is empowered to speak on their behalf, and when needs must, any of the Princes of Malfeas may possess her lush form and speak through her full lips (bypassing the usual limits of time on such possession). She is treated with some respect. She is allowed to throw parties, although the celestial lions are always present, keeping a close eye on whomever lingers too long or seems too taken with her. She is allowed visitors, if they get permission from their superiors, a series of licenses and writs granted only to the favored. And she is allowed servants, a handful of chained and beaten rebel gods who sided with the Primordials during the great war. Shining Barrator thinks this is enough. He is wrong. For Marilaq a'Lam is the Sister of Neomah, her womb always ripe and heavy with child. Her three sets of sexual organs allow her to fertilize herself, although she rarely does so, for tainted semidemonic offspring would surely be detected by Shining Barrator's lion inquisitors or the Sidereals. Instead, she takes a hair from a partier, a scraping of skin from a visitor, a piece of saliva from a suitor. Those are all she needs to create offspring god enough to go unnoticed by the celestial lions. Her by-blows are tiny things, well suited to escaping the cordon around her manse and wandering unnoticed through the streets of Heaven. They slither and crawl and creep out of her presence, and hide amongst the homeless gods of Yu-Shan, watching, and preying, and growing.</p><p><strong>Motivation:</strong> To be the vessel for the will of the Yozis and to spy on the gods of Yu-Shan, occasionally suborning one through the use of her potent sexual presence.</p><p><em>Source: Compass of Celestial Directions, Vol. III: Yu-Shan</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

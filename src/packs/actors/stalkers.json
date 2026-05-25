@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000193",
+  "_key": "!actors!0001000000000193",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Stalkers",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 1
+    },
+    "willpower": {
+      "value": 4,
+      "max": 4
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 6,
+      "social": 2,
+      "physical": 6
+    },
+    "combat": {
+      "joinBattle": 5,
+      "dodgeDV": 3,
+      "parryDV": 0,
+      "dodgeMDV": 2,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 7,
+        "lethal": 5,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "<p>Claw: Speed 5, Accuracy 7, Damage 4L, Parry DV 4, Rate 3 Kick: Speed 5, Accuracy 6, Damage 7L, Parry DV 3, Rate 2 Clinch: Speed 6, Accuracy 6, Damage 4B piercing, Parry DV ­, Rate 1 Short Spear: Speed 5, Accuracy 7, Damage 8L, Parry DV 3, Rate 2 Javelin: Speed 4, Accuracy 6, Damage 7L, Range 30, Rate 2</p>",
+    "biography": "<p>Stalkers are Dragon Kings who devolved into a primitive state. They barely count as sentient, but show considerable skill and cunning at combat. Stalkers are sometimes led by a semi-civilized Dragon King with more advanced powers. Filial Wisdom occasionally trains by battling stalkers, and his transcendent wisdom and skill during these bouts have enlightened a few of his opponents. Unfortunately, death is usually quick to follow. The stalkers of Rathess come from the raptok race of Dragon King. These wiry reptilian creatures resemble claw striders shaped halfway into human form: clawed, birdlike legs, body leaning forward with a heavy tail for balance, and a narrow muzzle. They can craft only the simplest weapons and often prefer to use their own claws.</p><p><strong>Motivation:</strong> Hunt, feed, breed, attack anyone not of the tribe. CHAPTER FIVE: GODS AND MONSTERS OF THE EAST</p><p><em>Source: Compass of Terrestrial Directions, Vol. III: The East</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

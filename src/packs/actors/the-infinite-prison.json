@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000126",
+  "_key": "!actors!0001000000000126",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Infinite Prison",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 9
+    },
+    "willpower": {
+      "value": 10,
+      "max": 10
+    },
+    "motes": {
+      "value": 0,
+      "max": 146
+    },
+    "pools": {
+      "combat": 4,
+      "social": 3,
+      "physical": 9
+    },
+    "combat": {
+      "joinBattle": 10,
+      "dodgeDV": "N/A",
+      "parryDV": 0,
+      "dodgeMDV": 5,
+      "parryMDV": 2,
+      "soak": {
+        "bashing": 18,
+        "lethal": 12,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "<p>None. The Infinite Prison relies completely on its staff or on trapping enemies in sealed-off chambers.</p>",
+    "biography": "<p>Few people know that the Infinite Prison is a hekatonkhire, and no god, ghost or mortal knows its proper name. It was certainly a greater soul of a Primordial--perhaps the fetich soul of He Who Holds in Thrall or a slain soul of Malfeas, the Demon City. Now, it prefers to manifest as a basalt cube half a mile wide, within which it confines thousands of ghosts in an eternal dance of torturer and victim. The Infinite Prison can draw some souls to itself. If it chooses, it can manifest anywhere in the Underworld and take other shapes. It might become a basalt mountain with a single inviting cave mouth, or hide its bulk underground with just a bit of itself protruding in the form of a long-neglected manse or mausoleum. A passage leads deeper into its interior... a passage that closes behind unwary explorers. The hekatonkhire materializes guard and prisoner uniforms and whatever implements of torture and restraint it needs. When a prisoner and guard change roles, the Infinite Prison alters their uniforms, releases the prisoner from his cell, and materializes bars and chains around the former guard. Signs in Old Realm appear carved in the walls to notify inmates of regulations and the installation of new guards. If the Infinite Prison can communicate other concepts or produce other objects from its substance, it apparently chooses not to. The Infinite Prison shows no power to compel one inmate to torture another... it simply does not permit any other activity. Most inmates quickly accept their roles as victimizer and victim.</p><p><strong>Motivation:</strong> Gather more victims and make them torture each other for eternity.</p><p><strong>Backgrounds:</strong> Underworld Cult (Inmates) 3 Special</p><p><em>Source: Compass of Celestial Directions, Vol. IV: The Underworld</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

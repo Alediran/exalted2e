@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000105",
+  "_key": "!actors!0001000000000105",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Scarazan",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 4
+    },
+    "willpower": {
+      "value": 5,
+      "max": 5
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 0,
+      "social": 0,
+      "physical": 0
+    },
+    "combat": {
+      "joinBattle": 0,
+      "dodgeDV": 0,
+      "parryDV": 0,
+      "dodgeMDV": 2,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 0,
+        "lethal": 0,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "",
+    "biography": "<p>Scarazan is the goddess of Divine Reallocation, a dull-sounding title that belies the fact that she is the single most feared and despised god in all of YuShan. It is Scarazan who sits in judgment on gods whose domains have faded into obscurity and who handles their transfer to other, less important domains; their removal from employment entirely and casting out into the slums of Yu-Shan; or their trials for crimes against Heaven and subsequent smelting into starmetal. Scarazan rejoices in her power, and while she does not get to decide who gets charged or sentenced, which falls to the censors, she does get to mete out the punishments. This has put her on the most wanted list as far as most of the various factions of Heavens are concerned, for Scarazan's predecessor was somewhat more circumspect about whether or not he enjoyed the destruction or diminishment of his fellow gods. Scarazan is unaware of the various plots against her, but if she found out about them, she would be forced to turn to Creation to find allies or pawns to defend her. She doesn't have enough real power to offer anything to any other god in Heaven, nor any ability to affect the outcomes of divine reallocation itself.</p><p><strong>Motivation:</strong> Scarazan has no ambitions. She simply desires to see god after god demoted, cast out, or destroyed, regardless of whether they deserve it, and to do the deeds herself.</p><p><em>Source: Compass of Celestial Directions, Vol. III: Yu-Shan</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

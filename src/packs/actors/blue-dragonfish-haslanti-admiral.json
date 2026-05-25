@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000226",
+  "_key": "!actors!0001000000000226",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Blue Dragonfish, Haslanti Admiral",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 4
+    },
+    "willpower": {
+      "value": 6,
+      "max": 6
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 8,
+      "social": 8,
+      "physical": 6
+    },
+    "combat": {
+      "joinBattle": 6,
+      "dodgeDV": 5,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 7,
+        "lethal": 5,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 11
+    },
+    "powers": "<p>Deck-Striding Technique, Dragon-Graced Arrow, Elemental Bolt Attack, Feeling-the-Air Technique, Fine Passage Negotiating Style, First Archery Excellency, First Dodge Excellency, First Martial Arts Excellency, First Me- CHAPTER SEVEN: GODS AND MONSTERS OF THE NORTH lee Excellency, First Sail Excellency, First War Excellency, Five-Dragon Blocking Technique, Five-Dragon Claw, FiveDragon Fist, Five-Dragon-Force Blow, Five-Dragon Fortitude, Hurricane-Predicting Glance, Ox-Body Technique (x2), Safety Among Enemies, Storm-Outrunning Technique, Sturdy Bulkhead Concentration, Swallows Defend the Nest, Terrestrial Archery Reinforcement, Terrestrial Sail Reinforcement, Third Sail Excellency, Third War Excellency Combos: Fist of the Icy Seas (Five-Dragon Fist, Five-Dragon Claw) The Ice Admiral's Unstoppable Arrow (Dragon-Graced Arrow, Swallows Defend the Nest) Sure Hand at the Tiller (Deck-Striding Technique, Sturdy Bulkhead Concentration, Fine Passage Negotiating Style)</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 9, Damage 3B, Parry DV 5, Rate 3 Kick: Speed 5, Accuracy 8, Damage 6B, Parry DV 3, Rate 2 Clinch: Speed 6, Accuracy 8, Damage 3B, Parry DV --, Rate 1, Tags P Blue Jade Long Powerbow (Master Winter's Teeth): Speed 5, Accuracy 9, Damage 8L, Rate 3, Range 400 * Broadhead arrows</p>",
+    "biography": "<p>Admiral Blue Dragonfish has led the Haslanti Ice Squadron for 60 years. As a Terrestrial Exalt in the prime of life at age 92, he expects to keep his post for another century or two. This son of an emerald-holder from Shield held the tiller of an iceship while still in his teens, and that's when he took the Second Breath. He joined the Ice Squadron in his 20s and rose rapidly through the ranks to become a scourge to the League's enemies and a living legend of the North. Blue Dragonfish loves the chill wind in his hair and the thunder in the hull of an iceship racing over frozen seas, not to mention the adventure of exploring the Great Ice and battling the League's foes. He becomes visibly uncomfortable after a few hours on land or amidst ordinary folk. The great Admiral has taken no wife and calls few men his close friends, though he enjoys the unquestioned loyalty of his fleet. He could become a political player in the League but abhors politics and the minutia of formal regulations, paperwork and budgetary allocations (to the loss of the Ice Squadron's funding). The Realm itself has invited him to command one of its fleets, but his loyalty remains to his tribe and his nation. The frozen sea is vast, and while Blue Dragonfish will live long, he will not live forever, and he hopes to see it all before he dies. The Admiral is a tall, stalwart man, with craggy features, skin the color of blue icebergs and a frosty white beard trimmed into two short points.</p><p><strong>Motivation:</strong> To discover every wonder of the North. And if it threatens the League, destroy it. Aspect: Air Anima Banner: Whorls of blue wind.</p><p><strong>Backgrounds:</strong> Allies 4, Artifact 3, Command 5, Connections 2, Henchman 3, Manse 2, Reputation 3, Resources 3, Retainers 2</p><p><em>Source: Compass of Terrestrial Directions, Vol. V: The North</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

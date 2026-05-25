@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000108",
+  "_key": "!actors!0001000000000108",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Uvanavu",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 8
+    },
+    "willpower": {
+      "value": 5,
+      "max": 5
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 0,
+      "social": 0,
+      "physical": 0
+    },
+    "combat": {
+      "joinBattle": 0,
+      "dodgeDV": 0,
+      "parryDV": 0,
+      "dodgeMDV": 2,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 0,
+        "lethal": 0,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "",
+    "biography": "<p>Uvanavu is the Chrysanthemum Shogun, God of Health and Well-Being and Left Hand of Yaogin, in addition to bearing the title Third Syndic of Whitewall and possessing one of the most potentially powerful domains in Heaven. Despite these benefits, he is the very model of the harried, putupon Celestial executive. Not only was his domain substantially weakened during the Great Contagion, but his position in the Bureau of Destiny is hemmed in by a supervisor who spends his time in a drugged stupor and a rival of equal power who thinks health and well-being are obstacles to her goal of creating a world full of prostitutes. The city he oversees in Creation is threatened by a particularly precocious Solar Exalted warlord called the Bull of the North to one side and one of Creation's largest and most vicious shadowlands to the other. And, to make matters worse, Uvanavu has recently discovered that Golden Reverie, who Uvanavu once thought his only ally in Heaven, has been manipulating him in order to push forward Golden Reverie's own agenda, violating the few Celestial edicts that anyone actually cares enough to enforce in the process and putting Uvanavu and his rival Livilla's head on a plate for negligent supervision charges if an auditor finds out. It's no wonder Uvanavu prefers to spend his time in Creation rather than Yu-Shan. Uvanavu is a mess. He can't let anyone know exactly how threatened he is and puts forward an air of calm and serenity at all times, but inside he's desperate to find some solution to his problems. He needs some plan to neutralize Golden Reverie's ambitions, get Yaogin to pay attention to the management of the division--Uvanavu doesn't want Yaogin's job, he's got enough on his plate as it is, he just wants him to step up and do his work--and cut Livilla off before she eliminates his position or worse still has him assassinated. In addition, finding some way to neutralize the Bull of the North's acquisitive tendencies before they reach Whitewall's borders would be wonderful, but the Syndic's decision to support the Solar Exalted and Livilla's recent decision to--pardon the pun--prostitute herself out to the Bronze Faction means that the obvious tools to use, a Sidereal hit team, are not available. Finally, the number of gods who hate the Deathlords more than Uvanavu can be counted on one hand, and he forces himself to scrape together the time to shrink Marama's Fell and strike out at the forces of the Underworld whenever possible. Due to his powerful domain and his role as Syndic, Uvanavu has plenty of possible carrots to offer Creation's heroes or mercenary gods if they choose to act on his behalf, but they need to be as capable of operating in Heaven's corridors of power as they are fighting off barbarians from the walls of Whitewall, which is a tall order. He doesn't just need strong-arms--he's got plenty of those guarding his city--he needs cunning and clever operators capable of pushing back a shadowland, treating with the Bull, and breaking heads--quietly--in the upper-levels of the department.</p><p><strong>Motivation:</strong> Uvanavu desires the return of the Creationwide health programs of the First Age, and he endeavors to bring this about by sponsoring the reborn Solar Exalted and using Whitewall's glory as a rallying point and by destroying the shadowlands that blight Creation. Lately, he has also pondered throwing Livilla into the Mouth of Oblivion if opportunity presents itself.</p><p><em>Source: Compass of Celestial Directions, Vol. III: Yu-Shan</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

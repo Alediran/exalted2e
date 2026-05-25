@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000084",
+  "_key": "!actors!0001000000000084",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Asna Firstborn",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 6
+    },
+    "willpower": {
+      "value": 5,
+      "max": 5
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 0,
+      "social": 0,
+      "physical": 0
+    },
+    "combat": {
+      "joinBattle": 0,
+      "dodgeDV": 0,
+      "parryDV": 0,
+      "dodgeMDV": 2,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 0,
+        "lethal": 0,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "",
+    "biography": "<p>Asna Firstborn is the first pattern spider, handcrafted by the Primordial Autochthon. She is massive, three-yards long, forged from all five magical materials, and so beautifully wrought as to make anyone with the least knowledge of craft or art gasp at her wonder. Autochthon did not entrust the gods with the secret of creating new spiders, but neither did he have the time nor interest in populating the Loom of Fate by his own craft, so he created in Asna the ability to spawn the pattern spiders from her mechanical womb. Although many Sidereals and gods think the pattern spiders are a finite commodity, believing that the power that allowed her to populate the Loom was a one-time act, the truth is that Asna can create any number of spiders, any time she wants. Those few who know that she retains this power wonder what other fail safes and abilities Autochthon built into her. Asna is quiet and unassuming, like all of her progeny, but as the Sidereals and gods slide into conflict and corruption, she sometimes wonders if she should begin to insert new directives into the pattern spiders as they weave the Loom. The more paranoid Sidereals wonder if she already does this, believing that anomalies in the Loom are Asna's doing. However, these are idle thoughts on Ansa's part, and she would need some great push before she made them a reality--another cataclysm that threatened the whole of Creation, perhaps, or the return of her creator.</p><p><strong>Motivation:</strong> Asna is focused with maintaining the Loom of Fate and the pattern spiders who operate it at maximum efficiency.</p><p><em>Source: Compass of Celestial Directions, Vol. III: Yu-Shan</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

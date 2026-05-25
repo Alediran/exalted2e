@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000107",
+  "_key": "!actors!0001000000000107",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Taru-han",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 7
+    },
+    "willpower": {
+      "value": 5,
+      "max": 5
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 0,
+      "social": 0,
+      "physical": 0
+    },
+    "combat": {
+      "joinBattle": 0,
+      "dodgeDV": 0,
+      "parryDV": 0,
+      "dodgeMDV": 2,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 0,
+        "lethal": 0,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "",
+    "biography": "<p>Taru-Han is the goddess of dying and the Lady of Souls and the head of the Department of Abstract Matters within the Bureau of Heaven. She does not decide who dies--that is handled by the Maiden of Endings and the fate planning committees. Instead, she oversees the act of dying and the supervision of souls to the afterlife, which she effects through soul collectors (see p. 132-133). Taru-Han's power escalated greatly after the Usurpation and the Great Contagion, and she utilized the enhanced prestige and power to expand what had once been a minor vice of hers--the waylaying of souls for her collection. Although she does not keep the souls permanently, she delays their arrival at their final destination, sometimes for centuries at a time. The souls she chooses are always the most \"perfect\" souls--the souls of heroes, genocidal villains, mighty conquerors, and unearthly beauties. So obsessed is she with her collection that at this point, she gives very little supervision to the gods underneath her, except as it concerns possible rivals for her position. She utilizes her soul collectors to spy on her rivals, and when one seems like they may move against her, she finds information or doctors charges against them and makes sure CHAPTER FIVE: THE ROLL OF CELESTIAL GODS the censors and celestial lions move in for the kill. She is currently eyeing Lytek and plans to remove him shortly.</p><p><strong>Motivation:</strong> To spend time with her collection of souls, to cull the worst and replace them with the best and brightest.</p><p><em>Source: Compass of Celestial Directions, Vol. III: Yu-Shan</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

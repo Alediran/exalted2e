@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000102",
+  "_key": "!actors!0001000000000102",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Parad",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 4
+    },
+    "willpower": {
+      "value": 5,
+      "max": 5
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 0,
+      "social": 0,
+      "physical": 0
+    },
+    "combat": {
+      "joinBattle": 0,
+      "dodgeDV": 0,
+      "parryDV": 0,
+      "dodgeMDV": 2,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 0,
+        "lethal": 0,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "",
+    "biography": "<p>Parad is the Left-Hand of Power and God of Inherited Might. He is an adjutant to Lytek empowered to trace the bloodlines of the Terrestrial Exalts. Parad suffered a major blow to his domain when the Dragon-Blooded began to breed with mortals, and he has never quite forgiven them for that. He now traces lineages of all sorts, from mortals with the blood of gods or Exalts coursing through their veins to the children of ghosts and demons, determining in whom Exaltation--in the case of Dragon-Blooded--or the powers of their parents--in the case of the other beings--will manifest. Because his domains include Dragon-Blooded and the by-blows of more powerful entities, Parad is something of a third-tier god within the Bureau of Heaven despite his divine power, and he has simmered in resentment for dozens of centuries. As the Left-Hand of Power, he should, in his opinion, at least rival Lytek, as he did in the early days of the First Age, before the Dragon-Blooded decided they simply couldn't live without mating with mere mortals. He's spent the time since his banishment to relative obscurity attempting to reconstruct a bloodline of \"pure\" Dragon-Blood with the commensurate legendary Breeding that such a family would possess, even going so far as to maintain a Terrestrial seeming within the Thousand Mazy Path's Office of the Divine Elemental Essence, which tracked marriages, births and breeding for the Scarlet Empress herself. Under this disguise, he created the Crimson Parlor Matriarchs, a cabal of Dragon-Blooded women in their twilight years who sought to intermarry their bloodlines for power, promotion, and breeding quality over the last few hundred years, with no small amount of success. But it seems without the blessings of one of the Five Elemental Dragons themselves, the achievement of his goal--a Dragon-Blood of First Age power--is impossible. Parad now spends his time in his office plotting genealogical data and considering some method for convincing one of the Dragons to sign off on his petition.</p><p><strong>Motivation:</strong> To return the Dragon-Blooded to their former glory and thus arrange a rise in his own fortunes while tracing the divine, demonic, and Exalted bloodlines of Creation in order to create beings of such puissance that his own glory will be unmistakable.</p><p><em>Source: Compass of Celestial Directions, Vol. III: Yu-Shan</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

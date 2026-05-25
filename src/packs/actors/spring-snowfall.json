@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000221",
+  "_key": "!actors!0001000000000221",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Spring Snowfall",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 6
+    },
+    "willpower": {
+      "value": 9,
+      "max": 9
+    },
+    "motes": {
+      "value": 0,
+      "max": 105
+    },
+    "pools": {
+      "combat": 10,
+      "social": 13,
+      "physical": 6
+    },
+    "combat": {
+      "joinBattle": 11,
+      "dodgeDV": 8,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 3,
+      "soak": {
+        "bashing": 24,
+        "lethal": 21,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 14
+    },
+    "powers": "<p>Amethyst Awareness--Little is hidden from agents of Fate. Chrysalis of Preservation--Spring Snowfall captures events that people will overlook or not appreciate at the time, to release later when they can turn lives upside down. Creation of Perfection--Spring Snowfall can adjust her captured events to make them less dangerous and more humorous or instructive. Destiny Sponsorship--Spring Snowfall gains extra defenses only when she performs her specific duties with the acquiescence (if not the blessing) of the Division of Journeys. Domain Manipulation Scenario--Spring Snowfall can provide minor unexpected fortunes or difficulties. The latter are almost never dire or insurmountable, and the former are never life-changing events. All of them offer a choice, however, an opportunity to be seized and (usually) a welcome distraction from backbreaking work. Dreaded Embrace of Mundanity--Sometimes, failure is good for the soul, especially for supernatural beings who are accustomed to succeeding through their use of Essence. Emergency Prayer Relocation--Spring Snowfall projects herself wherever mortals pray for something, anything, to jolt them out of their current lives. Hurry Home--Spring Snowfall can transport herself instantly to the nearest gate to Yu-Shan, to the House of the Nine Hearths or to the sanctum of any other Ennead member. Materialize--Costs 75 motes. Measure the Wind--Spring Snowfall evaluates beings of power, the better to guide her in disrupting their lives. Melodious Diagnostic Report--Spring Snowfall can listen to the world and find places where life has become oppressively certain. Natural Prognostication--Spring Snowfall hints at Destiny's plans, especially when a destiny involves disruptions to a person's life. Principle of Motion--Spring Snowfall has eight extra actions saved. CHAPTER SEVEN: GODS AND MONSTERS OF THE NORTH Symbol of Invincible Authority--Random trouble cannot harm Spring Snowfall or interfere with her. She can only be af- fected by attacks or events specifically aimed at her. Costs 10 motes, one Willpower. First (Ability) Excellency--Awareness, Craft, Investigation, Lore, Presence, Resistance, Socialize, Survival Second (Ability) Excellency--Awareness, Craft, Investigation, Lore, Presence, Resistance, Socialize, Survival Third (Ability) Excellency--Awareness, Craft, Investigation, Lore, Presence, Resistance, Socialize, Survival Divine (Ability) Subordination--Awareness, Craft, Socialize</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 9, Damage 5B, Parry DV 6, Rate 3 Kick: Speed 5, Accuracy 7, Damage 7B, Parry DV 5, Rate 2 Clinch: Speed 6, Accuracy 9, Damage 5B, Parry DV --, Rate 1</p>",
+    "biography": "<p>The Lady Who Reminds Us We Are Alive and Should Laugh at Ourselves Spring Snowfall reminds the Haslanti to savor life--a difficult task, given lives of hard work and much danger. She teaches through chance difficulties and surprising fortunes. Spring Snowfall rivals Autumn Frost as a trickster, but she disrupts lives specifically to shock people out of routines grown dull and onto new paths. She works closely with Autumn Frost in the summer months, when people spend more time outdoors and are most lively. Spring Snowfall sends the bear who chases the washerwomen up into the trees and the storm that ruins the days' hunting prospects and forces guests to stay longer than expected. Nuisances, yes, but troubles people can confront squarely, and far better than the gray despair of unvarying toil. The Haslanti tend to appreciate novelty as long as they get a good story out of it. (Those washerwomen will get laughs from the story of the bear for decades.) The goddess also has the power to pique curiosity and wonder or to make people lose interest in what they're doing. The Haslanti pray to Spring Snowfall that they may find new challenges and meet them successfully. Spring Snowfall appears as a matronly woman dressed in furs. She possesses a wry sense of humor and appreciates well-crafted jokes and riddles. Sanctum: Spring Snowfall dwells in the House of the Nine Hearths of Emerald and Silver.</p><p><strong>Motivation:</strong> To give people occasional respite from labor and boredom.</p><p><strong>Backgrounds:</strong> Allies 4, Backing 4, Contacts 4, Salary 3, Sanctum 4 (House of the Nine Hearths)</p><p><em>Source: Compass of Terrestrial Directions, Vol. V: The North</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

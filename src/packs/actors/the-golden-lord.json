@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000196",
+  "_key": "!actors!0001000000000196",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Golden Lord",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 8
+    },
+    "willpower": {
+      "value": 9,
+      "max": 9
+    },
+    "motes": {
+      "value": 0,
+      "max": 145
+    },
+    "pools": {
+      "combat": 18,
+      "social": 16,
+      "physical": 16
+    },
+    "combat": {
+      "joinBattle": 12,
+      "dodgeDV": 12,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 4,
+      "soak": {
+        "bashing": 39,
+        "lethal": 34,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 29
+    },
+    "powers": "<p>Amethyst Awareness Chrysalis of Preservation Destiny Sponsorship--Costs 10 motes. Heaven and Fate protect Creation's wisest and most incorruptible judge. The Golden Lord receives an additional 12L/12B soak as long as he hears every sincere petitioner and renders judgment to the best of his ability. What's more, beings whose Essence is less than 8 suffer a -12 internal penalty to rolls normally opposed by the Golden Lord's Resistance, Integrity or Dodge, if they try to prevent the Golden Lord from uncovering the truth or seeing justice done. Divine Decree--The Golden Lord's pronouncements regarding justice have the force of Celestial Law and cannot be contravened. His sentences always carry the weight of this Charm, and thus never fail to be carried out. He may use this Charm to banish the unjust from An-Teng. Domain Manipulation Scenario--The Golden Lord can cause parties to act in accord with his own sense of justice. He uses this Charm to enforce his arbitration, so no one backs out of an agreement later. For 12 motes and one Willpower, he can also reinstate true justice in a community by causing all corrupt officials to confess their misdeeds and pledge, on their lives, to stay honest in the future. Endowment--The Golden Lord may grant two additional dots of Wits, Integrity and Investigation in addition to Presence 6 and a golden mantle resembling his Signet of Authority. He gives this boon to Lawgivers and favored judges who visit his abode to pray for wisdom and impress him with their devotion to justice. Essence Plethora (x2)--20 extra motes CHAPTER NINE: GODS AND MONSTERS OF THE SOUTH Hand of Destiny--When the Golden Lord is sufficiently impressed by an individual's guilt or innocence, he makes certain that judgments against them are carried out properly. Hurry Home--The Golden Lord can instantly transport himself to his palace at the Pinnacle of Mercy, to any of his temples or to any courtroom in Creation. Materialize--Costs 85 motes Measure the Wind--The Golden Lord needs to know if entities exceed him in power or jurisdiction. Ox-Body Technique (x8) Plague of Menaces--Unjust judgments that come to the Golden Lord's attention incur his wrath. This usually takes the form of the offending judge's house being infested with rats or other vermin. The truly villainous, however, he renders to the Pale Mistress. Principle of Motion--The Golden Lord can reserve up to nine actions. Signet of Authority--The Golden Lord can grace his underlings with a golden mantle and his official signet ring when on official business in Yu-Shan or Creation. Symbol of Invincible Authority--This Charm renders the Golden Lord effectively immune to all social combat attacks for the duration of the scene. Touch of Eternity--Mortal rulers and judges who sufficiently impress the Golden Lord enough for him to wish to preserve their rule might receive a special blessing. After an oath of fealty to the concept of justice, the target ages at half the normal rate and gains an additional permanent dot of Stamina. Touch of Saturn--When the Golden Lord strikes the unjust, his blow inflicts Crippling damage. First (Ability) Excellency--Archery, Awareness, Bureaucracy, Integrity, Investigation, Lore, Martial Arts, Melee, Socialize Second (Ability) Excellency--Archery, Awareness, Bureau- cracy, Integrity, Investigation, Lore, Martial Arts, Melee, Socialize Third (Ability) Excellency--Archery, Awareness, Bureau- cracy, Integrity, Investigation, Lore, Martial Arts, Melee, Socialize Divine (Ability) Subordination--Awareness, Bureaucracy, Integrity, Investigation, Lore, Resistance, Socialize</p>",
+    "notes": "<p>Punch: Speed 5, Accuracy 19, Damage 12B, Parry DV 10, Rate 3 Kick: Speed 5, Accuracy 18, Damage 15B, Parry DV 8, Rate 2 Clinch: Speed 6, Accuracy 18, Damage 12B, Parry DV --, Rate 1, Tags C,N,P Daiklave (Radiant Blade): Speed 5, Accuracy 21, Damage 18L, Parry DV 10, Rate 3 Scepter (Mother of Princes): Speed 5, Accuracy 19, Damage 28B/4, Parry DV 10, Rate 2, Tags O,P Bow of Mercy: Speed 6, Accuracy 19, Damage 15L, Rate 3, Range Special, Tags 2,B</p>",
+    "biography": "<p>The Golden Lord is the patron of An-Teng, ensur- ing order and justice through the deep-rooted customs he instilled among the people and by overseeing the Three Princes. He is famed of old as a supremely even-handed judge and benefactor of those seeking justice. Petitioners come both from An-Teng and from distant lands. Long ago, the Unconquered Sun appointed the Golden Lord as Heaven's sanctioned arbiter and judge of the Solar Exalted. While the Golden Lord saw few Lawgivers after the Usurpation, he still holds this title and honors his duty. He welcomes the return of the Solar Exalted and stands ready to serve once more to resolve their disputes. The Golden Lord dwells in a palace atop the Pinnacle of Mercy, the highest peak in An-Teng. Anyone may attempt the perilous journey to the god's palace to ask his aid in settling disputes or righting injustices beyond the reach of mortal courts. The Golden Lord always hears such requests personally and usually delivers swift and fair judgments. When cases involve beings beyond his jurisdiction (such as the highest-ranking gods), the Golden Lord offers his best advice on how to seek succor from those with sufficient authority--such as the Unconquered Sun himself. Such is the Golden Lord's reputation for fairness that many gods who exceed his power nevertheless request his judgments. Since he is still a Celestial god (despite living in Creation), the Golden Lord undergoes periodic audits--at his own insistence. These audits always report his conduct as impeccable. The Golden Lord does his best to grant honest petitioners what they seek, whether arbitration of a dispute or redress of injustice. He prefers to rely on moral authority and the power of truth; for instance, revealing the true perpetrator of a crime and how to obtain incontrovertible evidence of guilt. On rare occasions, he grants supernatural gifts that enable a petitioner to redress a grievance. Somewhat more often, petitioners learn that they are in the wrong. Wise men and gods humbly accept this judgment and ask how they can atone. When foolish petitioners attempt to defy or deceive the Golden Lord, their corpses appear in his temple by Thousand Dragons Lake. Despite the Golden Lord's interest in justice and right rule for An-Teng, his hands are somewhat tied with regard to the Pale Mistress. His priests can protect individuals from her mission to bring chaos, misery and woe, but he cannot officially interfere. The Golden Lord rarely engages in battle. Only a direct threat to An-Teng, the Unconquered Sun or Creation itself can rouse him from his throne. So roused, he pursues victory without fear. He rides into battle on the back of Mighty-inBattle, the Elephant Avatar and the Golden Lord's friend and companion. No power in Creation can ambush him, and his panoply of war has few equals. The Golden Lord appears as a Tengese man standing eight feet tall, middle aged but fit, dressed in golden robes. He bears a formidable golden scepter, the Mother of Princes, whose form the Three Princes' scepters imitate. In battle he becomes as tall as the trees, adorned in golden bamboo armor. He wields a sword of brilliant white light and bears a golden shield forged in the likeness of the sun. Sanctum: The Golden Lord's fortified palace-temple is open to anyone who can reach it and honestly seeks the god's judgment. Celestial lions guard it; hundreds of minor spirits and priests form the service staff. The palace contains several hundred prayer alcoves and enough comfortable sleeping cells for the staff and as many petitioners and visiting holy men as necessary. No one within the Pinnacle of Mercy may commit any violent act. To attempt such acts results in unendurable pangs of pain and eternal banishment from the temple.</p><p><strong>Motivation:</strong> To ensure justice and order in An-Teng; to serve the Unconquered Sun by guiding the Solar Exalted</p><p><strong>Backgrounds:</strong> Allies 5, Backing (Celestial Bureaucracy) 5, Contacts (Celestial Bureaucracy) 5, Contacts (Creation) 3, Cult 4, Followers 5, Influence 4, Manse 5, Salary 5</p><p><em>Source: Compass of Terrestrial Directions, Vol. IV: The South</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

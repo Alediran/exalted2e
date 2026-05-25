@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000128",
+  "_key": "!actors!0001000000000128",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shogun Widowmaker",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 6
+    },
+    "willpower": {
+      "value": 8,
+      "max": 8
+    },
+    "motes": {
+      "value": 0,
+      "max": "110 (120) Committed"
+    },
+    "pools": {
+      "combat": 10,
+      "social": 10,
+      "physical": 10
+    },
+    "combat": {
+      "joinBattle": 9,
+      "dodgeDV": 6,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 2,
+      "soak": {
+        "bashing": 20,
+        "lethal": 15,
+        "aggravated": 0
+      },
+      "hardness": 8
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "<p>Punch: Speed 5, Accuracy 11, Damage 4B, Parry DV 6, Rate 3 Kick: Speed 5, Accuracy 10, Damage 7B, Parry DV 4, Rate 2 Clinch: Speed 6, Accuracy 10, Damage 4B, Parry DV --, Rate 1 Jade Chain Daiklave (Whirlwind--blade only): Speed 4, Ac- curacy 14, Damage 8L, Parry DV 6, Rate 2 Jade Chain Daiklave (Whirlwind--blade and chain): Speed 5, Accuracy 10, Damage 9L, Parry DV 6, Rate 2 Jade Chain Daiklave (Whirlwind--chain strike): Speed 5, Ac- curacy 10, Damage 12B, Parry DV 6, Rate 2 Jade Chain Daiklave (Whirlwind--chain clinch): Speed 6, Ac- curacy 11, Damage 10B, Parry DV --, Rate 1</p>",
+    "biography": "<p>The ruler of Tzatli's ghosts is as cold and deadly as the icy wastes around the Far Northern necropolis. For almost a century after the fall of Tzatli, Shogun Widowmaker tried to guide the survivors' descendants. As the North grew colder, however, his people moved South and ice covered his abandoned city. Cold, time and isolation froze away every passion except that for revenge on the Dragon-Blooded for the fall of his city. Shogun Widowmaker murders anyone who dares to oppose him, and while ghosts usually return from such a second death, few in Tzatli dare defy the shogun. This ancient ghost would have made an excellent Deathlord, except he lacked the pre-existing force of Essence the Neverborn needed to empower their mightiest servants. The recent return of mortals to Tzatli in Creation stirs the city's ghosts from their centuries of stasis. Shogun Widowmaker sends envoys in CHAPTER EIGHT · UNDERWORLD ANTAGONISTS search of the Deathlords in hope of an alliance, but he would help anyone who pledged to massacre the Dragon-Blooded and ravage their cities as Tzatli was ravaged. (He would, of course, cement this pledge using his mastery of Shadow Constraint Craft, while neglecting to mention that this Arcanos has no power once a person leaves the Underworld.) The ancient ghost has not yet figured out that the Haslanti who explore Tzatli's ruins are his own descendants. If he knew, he would likely try to bend the Haslanti to his will as a tool for his revenge. Shogun Widowmaker looks like he once was a strong man, but his body is shriveled and blackened with frostbite. He wears his iron-gray hair twisted into a topknot. The Shogun of Tzatli wears a blackened jade suit of First Age articulated plate armor and carries an unusual weapon called a chain daiklave (see Scroll of the Monk, p. 159). These artifacts are both grave goods versions of the weapon and armor that were buried with the Shogun. Incidentally, the original items form his principal fetters. The ancient ghost knows a great deal about artifact construction, both conventional weapons and armor and the lesser sorts of magitech. He also knows the location of several caches of magitech fragments that the Haslanti have not yet discovered in their excavation of the ruined city--and, of course, the location of his own long-frozen body.</p><p><strong>Motivation:</strong> Make the Dragon-Blooded suffer before they die.</p><p><strong>Backgrounds:</strong> Artifact (Jade Articulated Plate) 4, Artifact (Jade Chain Daiklave) 2, Backing (Tzatli) 3, Followers 3, Influence 2, Underworld Cult 2 Arcanoi: Common Arcanoi: Angry Trickster Ghost Method, Assassin's Subtle Escape, Ox-Body Technique (x3), Two-World Vision, Whispers of the Living Chains of the Ancient Monarchs: All Charms Essence-Measuring Thief Arts: All Charms Honored Ancestor Ways: All Charms Shadow Constraint Craft: All Charms Terror-Spreading Art: Black Breath of the Abyss, Corpse-Fed Radiance, Hand of the Wind, Painting the Sunset Picture, Strike of Dead Hands</p><p><em>Source: Compass of Celestial Directions, Vol. IV: The Underworld</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

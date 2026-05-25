@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000232",
+  "_key": "!actors!0001000000000232",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Mice of the Sun",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 2
+    },
+    "willpower": {
+      "value": 8,
+      "max": 8
+    },
+    "motes": {
+      "value": 0,
+      "max": 60
+    },
+    "pools": {
+      "combat": 5,
+      "social": 2,
+      "physical": 6
+    },
+    "combat": {
+      "joinBattle": 7,
+      "dodgeDV": 5,
+      "parryDV": 0,
+      "dodgeMDV": 4,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 2,
+        "lethal": 0,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 5
+    },
+    "powers": "",
+    "notes": "<p>Bite: Speed 4, Accuracy 5, Damage 2L, Parry DV --, Rate 1</p>",
+    "biography": "<p>The Solar temple-manse at the heart of Whitewall may be Creation's last pristine example of High First Age religious architecture. The numerous mosaics and bas-reliefs depicting the glory and deeds of the Unconquered Sun include numerous small figures of... mice. Such figures now puzzle savants of the Second Age. It has been too long since the Unconquered Sun sent his subtly powerful agents into Creation--the mice of the sun. These rodents are somewhat larger than ordinary mice but look otherwise ordinary. Only when the light strikes them in the right way does the fur on their backs reflect the eight-point symbol of their master. While the mice possess a few supernatural talents, their real power is to appear when and where a tiny action could have enormous consequences. They gnaw through the warrior's shield-strap so it breaks in the middle of a battle. They guide the lost messenger who bears news of a noble's treachery... or they carry a plague into the town that has fallen into demon worship or other blasphemies. In the Old Realm, the mice of the sun occasionally assisted the Lawgivers. After the Usurpation, the supernatural rodents saw increasing use--especially after the Marama's Fell holocaust--to curb the excesses of the Dragon-Blooded Shogunate. The Unconquered Sun abruptly ceased using his tiny minions after the Great Contagion, and some in Heaven believe the Deathlords somehow co-opted the mice for their own vile ends. With the return of the Lawgivers to CHAPTER SEVEN: GODS AND MONSTERS OF THE NORTH Creation, however, the King of Heaven might once more send the mice of the sun to assist his Chosen... or convey his displeasure.</p><p><strong>Motivation:</strong> To do the Unconquered Sun's bidding.</p><p><em>Source: Compass of Terrestrial Directions, Vol. V: The North</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

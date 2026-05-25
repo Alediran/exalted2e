@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000180",
+  "_key": "!actors!0001000000000180",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Pelagial",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 1
+    },
+    "willpower": {
+      "value": 5,
+      "max": 5
+    },
+    "motes": {
+      "value": 0,
+      "max": "50 Needlefish 2/3/3 3/1/3/4 -0/-1/-2/-4/Incap Bite: 3/8/­/1 3/2L/4B"
+    },
+    "pools": {
+      "combat": 6,
+      "social": 6,
+      "physical": 2
+    },
+    "combat": {
+      "joinBattle": 6,
+      "dodgeDV": 2,
+      "parryDV": 0,
+      "dodgeMDV": 2,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 13,
+        "lethal": 2,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 11
+    },
+    "powers": "<p>Materialize--Infernal worms can materialize for 40 motes.</p>",
+    "notes": "<p>Bite: Speed 5, Accuracy 6, Damage 6L, Defense -, Rate 1 Claw: Speed 5, Accuracy 6, Damage 6L, Defense 6, Rate 3 Punch: Speed 5, Accuracy 7, Damage 6B, Defense 8, Rate 3 Clinch: Speed 6, Accuracy 6, Damage 6B, Defense -, Rate 1 Coral Spear: Speed 5, Accuracy 5, Damage 10L/13, Defense 6, Rate 2</p>",
+    "biography": "<p>Pelagials are hideously mutated creatures, too inhuman to be graced with Exaltation, yet they are still humanoid. Their upper torsos appear to be those of a man or woman, with a thick layer of blubber to protect them from the cold. Their hair is long and thick, like kelp, and their eyes are huge and black, adapted to seeing in the depths of the ocean. Their lower halves have been transformed into those of a manatee or bull seal. They are huge, and ponderous on land, but their tails and webbed hands help them swim swiftly through the watery depths where they live. Pelagial skin is faded to a pale white, rarely touched by the sun. Pelagials have scavenged the bottom of the sea, and conquered many of its demesnes. Despite having no Exalted, the pelagials' culture produces an amazing number of savants capable of recreating minor artifacts or manses. Literacy is prevalent, and the secrets of past ages await discovery in countless pelagial hoards.</p><p><strong>Motivation:</strong> Varies. A typical Motivation for a pelagial might be, \"To conquer the isles of the West in the name of their Yozi patron.\" CHAPTER SEVEN · GODS AND MONSTERS OF THE WEST</p><p><strong>Backgrounds:</strong> Allies 3, Artifact 2, Manse 1, Resources 4</p><p><em>Source: Compass of Terrestrial Directions, Vol. II: The West</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

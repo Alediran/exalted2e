@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000206",
+  "_key": "!actors!0001000000000206",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "War Aurochs of Ahlat",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 3
+    },
+    "willpower": {
+      "value": 7,
+      "max": 7
+    },
+    "motes": {
+      "value": 0,
+      "max": 65
+    },
+    "pools": {
+      "combat": 9,
+      "social": 5,
+      "physical": 6
+    },
+    "combat": {
+      "joinBattle": 7,
+      "dodgeDV": 5,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 2,
+      "soak": {
+        "bashing": 12,
+        "lethal": 11,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 11
+    },
+    "powers": "<p>Call--Contact other war aurochs and Ahlat himself. Landscape Travel--Adds one die to Dexterity rolls associated with charging in battle. Effects stack to a maximum of three extra dice. Memory Mirror--Effects limited to memories of military and strategic knowledge. Materialize--Costs 50 motes Principle of Motion--A war aurochs generally has seven actions banked. Shapechange--Humanoid to aurochs only.</p>",
+    "notes": "<p>Gore: Speed 5, Accuracy 9, Damage 15L, Parry DV 5, Rate 1 Aurochs Fine Spear: Speed 5, Accuracy 11, Damage 12L/15L, Parry DV 6, Rate 2, Tags 2,L,R Aurochs Composite Bow: Speed 4, Accuracy 13, Damage 10L*, Range 250, Rate 3, Tags 2,B * War aurochs generally use broadhead arrows.</p>",
+    "biography": "<p>These fierce and loyal servants of Ahlat appear as mas- sive, black aurochs--a kind of wild cattle--with blood-red eyes, or as muscular, dark-skinned men and women with bull heads. In either form, they have golden horns and hooves. These spirits wield fine golden spears, bull-hide shields and bows while in humanoid form, and wear artifact breastplates. Ahlat sends war aurochs to fight on his behalf. Sometimes they aid other spirits in battle or, rarely, favored mortals. These gods hate cravens, however, and cut down allies who flee from a battle. The brave receive a strange reward. Following great battles, Ahlat sends his aurochs to devour the bodies of dead heroes. In this manner, the war aurochs absorb the mortal's memories. The war aurochs, in turn, sequesters these memories in a tuft of hair that Ahlat plucks and turns into another tassel for his cloak. Mortals have long misunderstood the war aurochs' CHAPTER NINE: GODS AND MONSTERS OF THE SOUTH actions, leading to a widespread but quite false myth that war aurochs are themselves slain warriors raised to minor godhood by Ahlat. Sanctum: War aurochs dwell with Ahlat in his golden palace.</p><p><strong>Motivation:</strong> To do Ahlat's bidding</p><p><strong>Backgrounds:</strong> Allies (Fellow War Aurochs) 3, Artifact 1, Backing (Ahlat) 5, Influence 1</p><p><em>Source: Compass of Terrestrial Directions, Vol. IV: The South</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

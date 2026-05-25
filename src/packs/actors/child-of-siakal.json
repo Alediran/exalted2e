@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000168",
+  "_key": "!actors!0001000000000168",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Child of Siakal",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 3
+    },
+    "willpower": {
+      "value": 7,
+      "max": 7
+    },
+    "motes": {
+      "value": 0,
+      "max": 65
+    },
+    "pools": {
+      "combat": 9,
+      "social": 8,
+      "physical": 7
+    },
+    "combat": {
+      "joinBattle": 7,
+      "dodgeDV": 6,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 2,
+      "soak": {
+        "bashing": 20,
+        "lethal": 17,
+        "aggravated": 0
+      },
+      "hardness": 5
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 14
+    },
+    "powers": "<p>Affinity Element Control--For six motes of Essence, a child of Siakal can manipulate water around the war shark, causing the water to reshape itself, convert to mist or solidify into ice. The war shark can affect the equivalent of three barrels of water with each use of this power, and the effects last for one scene. Essence Bite--A child of Siakal can spend three motes of Essence, and for a scene, any being that touches or is touched by the god takes 1L damage, ignoring armor and soaked only by Stamina. Excellencies--Children of Siakal have First and Second Excellencies for the following</p>",
+    "notes": "<p>As Siaka Bite: Speed 5, Accuracy 12, Damage 19L, Defense 9, Rate 2 As Siaka-Man Bite: Speed 5, Accuracy 12, Damage 8L, Defense 9, Rate 1 Punch: Speed 5, Accuracy 10, Damage 5B, Defense 11, Rate 3 Kick: Speed 5, Accuracy 9, Damage 8B, Defense 7, Rate 2 Clinch: Speed 6, Accuracy 10, Damage 5B, Defense -, Rate 1</p>",
+    "biography": "<p>Maw of Siakal, War Shark The servants of the Western war god generally take the form of voracious, bloodthirsty siaka. When given suitable sacrifices, the great war sharks will help their allies by slowing or damaging the vessels of their enemies so that they are easy prey. Unless the war sharks' matron objects, the only price the Maws ask is the right to devour enemies who fall overboard. Similar to mortal sharks, the Maws have a tendency to become frenzied at the scent of blood in the water. The children of Siakal usually appear as particularly monstrous siaka. They fight with terrifying ferocity, yet display intelligence in their attacks and use of Charms. Alternately, the war sharks can take the form of huge siaka-men. Sanctum: Most of Siakal's children dwell within her bloody pool in Yu-Shan. Those that leave her sanctum roam the seas in search of prey. Rarely one of the war sharks may temporarily obtain its own small sanctum should its name become known to a reverent warband, but sooner or later Siakal calls her children to return to her side.</p><p><strong>Motivation:</strong> To devour their enemies and those of the goddess Siakal.</p><p><strong>Backgrounds:</strong> Allies 1 (other children of Siakal), Influence 1</p><p><em>Source: Compass of Terrestrial Directions, Vol. II: The West</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

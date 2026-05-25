@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000064",
+  "_key": "!actors!0001000000000064",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ameru",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 3
+    },
+    "willpower": {
+      "value": 5,
+      "max": 5
+    },
+    "motes": {
+      "value": 0,
+      "max": 55
+    },
+    "pools": {
+      "combat": 5,
+      "social": 1,
+      "physical": 3
+    },
+    "combat": {
+      "joinBattle": 7,
+      "dodgeDV": 4,
+      "parryDV": 0,
+      "dodgeMDV": 2,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 7,
+        "lethal": 6,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 9
+    },
+    "powers": "<p>Ameru was once capable of wielding tremen- dous power, including sorcery of the Celestial Circle, but he is now reduced to the following: Hurry Home--Ameru was once capable of walking the streets of Meru with but a thought, journeying anywhere in its walls. He has not returned there for many a year, however. This costs 10 motes and a temporary Willpower. Martial Power--Once a master martial artist, Ameru is still capable of spending three motes to harden his limbs, allowing his punches and kicks to inflict lethal damage. Materialize--It costs Ameru 40 motes to materialize. Measure the Wind--Though Ameru was once the canniest of bureaucrats, using this Charm to understand where those he spoke with stood, he almost never has any use for it any longer.</p>",
+    "notes": "<p>Though he is unlikely in his current state to engage in combat, should some outside intelligence manage to make Ameru fight somehow, he would use the following attacks. Clinch: Speed 6, Accuracy 5, Damage 2B, Parry DV --, Rate 1 Kick: Speed 5, Accuracy 5, Damage 5B, Parry DV 2, Rate 2 Punch: Speed 5, Accuracy 6, Damage 2B, Parry DV 4, Rate 3</p>",
+    "biography": "<p>God of Meru Once, there was only great Meru, Jewel of the Gods. The city built by the gods themselves, set upon the slopes of the Omphalos of Creation, Meru was the place from which all the world was guided by the gods, then the Solar Deliberative. The city's god, Ameru, wielded great power in the Bureau of Humanity, as the embodiment of the Foremost City. Then came the Usurpation, and in that violence, Meru was destroyed, rendered in many places to so much rubble tumbling down the slopes of Mount Meru (as the Imperial Mountain was once known). Ameru himself appeared in the city then, attempting to stop the destruction of his city, aiding in the defense of the Solars, but by the time he appeared, it was too late--the damage was done. Precisely what happened to him then no one truly knows. There are those who postulate that he was attacked by a coalition of Amoth, the god of ruined cities, and several powerful Sidereals, who agreed to see to it that Meru was never again settled, giving Amoth unprecedented power. Once, Ameru was clad in celestial vestments and armor befitting his station. He wore mighty pauldrons crafted of orichalcum, and his brilliant white and silver robes were inlaid with the pattern of a map of the interlocking streets and passageways of his city. In his hands he bore a tall stone staff, crafted of the heart-stone of the Omphalos of Creation and topped with an orichalcum replica of the Palace of the Deliberative. Now, although his appearance has not changed overmuch, the god himself has. He appears sickly, his once lustrous mane of white hair falling--or torn--out in clumps, and his robes are tattered, threadbare and dull. His pauldrons sit in a corner, for they began to weigh too heavily on his weak back, and the pieces of his shattered staff lie on his desk. Ameru sits in his well-appointed office, a babbling lunatic and cripple. He still retains the small apartments attached to his office, and the services of a single godly scribe who learned to ignore CHAPTER SEVEN · GODS & CREATURES OF THE BLESSED ISLE his rambling long ago, but Ameru's holdings and treasures have long ago been given up to other offices in the Bureau of Humanity--most notably Amoth City-Smiter. The traits that follow are for Ameru in his present form. Should some agency manage not only to rebuild Meru, but to reacquire his holdings from those who have them now, Ameru would slowly return to sanity and power, as the city's population and influence in Creation grew once more. Sanctum: In the ruins of Meru sit the tumbled stones that once were the Civic Plaza of Meru, the grand bureaucratic headquarters to the city. In the height of its day, it hosted the Chapel of Ameru. Behind the Doors of Mystery lay only a small alcove, but those with the ability to see such things could see the entry to the sanctum of Ameru. This doorway is long since covered over in rubble, and the Sidereals who occasionally visit the ruins believe that something horrible has taken up residence there.</p><p><strong>Motivation:</strong> None, due to the madness that has taken his mind. (Once, it was to see the City of Meru grow great and prosperous.)</p><p><strong>Backgrounds:</strong> Celestial Manse 2, Followers 1, Resources 3, Sanctum 2</p><p><em>Source: Compass of Celestial Directions, Vol. I: The Blessed Isle</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

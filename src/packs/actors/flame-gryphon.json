@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000072",
+  "_key": "!actors!0001000000000072",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Flame Gryphon",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 3
+    },
+    "willpower": {
+      "value": 7,
+      "max": 7
+    },
+    "motes": {
+      "value": 0,
+      "max": 30
+    },
+    "pools": {
+      "combat": 8,
+      "social": 8,
+      "physical": 7
+    },
+    "combat": {
+      "joinBattle": 6,
+      "dodgeDV": 5,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 16,
+        "lethal": 12,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 11
+    },
+    "powers": "<p>Command Beasts: Flame gryphons can reflexively command any non-intelligent animals except familiars. Controlling a mount or other animal that is currently with its owner, his player calls for a resisted roll of the flame gryphon's (Charisma + Presence) vs. the owner's (Charisma + Survival). This effect costs two motes and lasts for a full scene. A flame gryphon must use this separately to command multiple animals. Immunity to Command: These intensely supernatural creatures are immune to all effects that force them to obey someone, including shaping attacks. They do not need to expend Willpower to resist unnatural mental influence. If a flame gryphon becomes the target of a controlling effect that is defined as irresistible, the flame gryphon immediately dies rather than submit.</p>",
+    "notes": "<p>Bite: Speed 5, Accuracy 10, Damage 16L, Defense 8(4), Rate 1 Claw: Speed 4, Accuracy 12, Damage 13L, Defense 12(6), Rate 2 Wing Buffet: Speed 6, Accuracy 10, Damage 17L, Defense 8(4), Rate 2</p>",
+    "biography": "<p>Flame gryphons are one of the most beautiful and deadly threats of the Southern Wyld. They can live indefinitely in Creation, but cannot breed there; flame gryphons move freely from the Bordermarches to the Deep Wyld. They look like lions the size of aurochs, with the heads and forelegs of eagles, claws and talons of glittering gold and eagle-like wings of gold and scarlet flame. Although flame gryphons can speak in voices that combine the tones of a lion's roar and eagle's scream, their personalities remain animal: most of the time, they show no interests beyond food, a warm den and the joy of the hunt. However, flame gryphons have three personality traits that go beyond animal concerns. They hate all horses and horse-like beings and kill them whenever possible, beyond what the flame gryphons can eat. Flame gryphons cannot accept any other creature as their master; they defend their Rookery (see p. 114) so fanatically because they cannot bear the idea of their chicks raised to serve another. Any power sufficient to compel a flame gryphon's will causes it to tear and claw themselves to death. Lastly, they are vain: flame gryphons love to be seen, to inspire wonder, fear and awe. Now and then, a flame gryphon agrees to let a raksha (or other powerful being) ride it. This is not service, but a partnership of equals. The character gains a powerful, flying steed and ally in combat; the flame gryphon gains a partner to assure it of regular meals and chances to amaze the dull, boring folk of Creation.</p><p><strong>Motivation:</strong> Stay free, look glorious, kill horses.</p><p><em>Source: Compass of Celestial Directions, Vol. II: The Wyld</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

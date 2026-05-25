@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000149",
+  "_key": "!actors!0001000000000149",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Chalcothetes",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "demon",
+    "concept": "",
+    "essence": {
+      "value": 1
+    },
+    "willpower": {
+      "value": 4,
+      "max": 4
+    },
+    "motes": {
+      "value": 0,
+      "max": 75
+    },
+    "pools": {
+      "combat": 6,
+      "social": 5,
+      "physical": 6
+    },
+    "combat": {
+      "joinBattle": 4,
+      "dodgeDV": 3,
+      "parryDV": 0,
+      "dodgeMDV": 2,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 4,
+        "lethal": 5,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 5
+    },
+    "powers": "",
+    "notes": "<p>Kick: Speed 5, Accuracy 6, Damage 5B, Parry DV 2, Rate 2 Clinch: Speed 6, Accuracy 6, Damage 2B, Parry DV --, Rate 1, Tags P</p>",
+    "biography": "<p>A chalcothete resembles a three-foot-tall insect or crustacean cobbled together from rough scraps of metal (usually Malfean brass) encrusted with bits of rock. Older chalcothetes can be distinguished by their green patina of age, though bright metal gleams around their joints and faceted eyes. A typical chalcothete has the intellect of a two-year-old child. Eager to please, it serves its maker in all things, even performing self-destructive acts--though it complains plaintively as it dies. When a demjen perishes, its chalcothetes crumble back into the ore from which they were made. At any time and across any distance, a demjen may sacrifice one permanent Willpower to give one of its chalcothetes the spark of life. The recipient gains independence from its maker, and it loses the compulsion to serve--though the habit of obedience might remain. Any blessings with which it has been Endowed linger as long as it lives, and it does not die with its master. Even in death, few demjen endow their chalcothetes, but a few free chalcothetes can be found in the Demon City.</p><p><strong>Motivation:</strong> To serve the demjen that gave it life.</p><p><em>Source: Compass of Celestial Directions, Vol. V: Malfeas</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "d4e5f6a700000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

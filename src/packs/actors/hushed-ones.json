@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000231",
+  "_key": "!actors!0001000000000231",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Hushed Ones",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 1
+    },
+    "willpower": {
+      "value": 6,
+      "max": 6
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 9,
+      "social": 5,
+      "physical": 8
+    },
+    "combat": {
+      "joinBattle": 8,
+      "dodgeDV": 4,
+      "parryDV": 0,
+      "dodgeMDV": 3,
+      "parryMDV": 2,
+      "soak": {
+        "bashing": 8,
+        "lethal": 5,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 9
+    },
+    "powers": "",
+    "notes": "<p>Claw: Speed 5, Accuracy 10, Damage 7L, Parry DV 5, Rate 3 Kick: Speed 5, Accuracy 9, Damage 9B, Parry DV 3, Rate 2 Clinch: Speed 6, Accuracy 9, Damage 6B, Parry DV --, Rate 1 Slashing Sword: Speed 4, Accuracy 10, Damage 9L, Parry DV 4, Rate 3 Long Bow: Speed 6, Accuracy 9, Damage 6L*, Rate 3, Range 200 * Uses broadhead arrows</p>",
+    "biography": "<p>These Wyld-corrupted creatures superficially resemble men and woman... except they go naked in the bitterest cold and never utter a sound. Hushed ones live most of their lives hidden in Wyld pockets throughout the North, hunting their prey with single-minded efficiency. Some people mistake the hushed ones' silence for a lack of intelligence, but these creatures have crafty minds that can follow complex strategies. They also have no concept of mercy. There is no reasoning or bargaining with hushed ones. No one can understand their cold, alien behavior. Hushed ones never fight fairly. They try to hide and attack from ambush, preferably in numbers great enough to give them an overwhelming advantage. Hushed ones also cause avalanches or build traps using spears, snares, pits and dropfalls. Scroll of Kings describes many traps on pages 153­157, and hushed ones know them all. A pack tries to kill the strongest member of a group first, in hopes that they can mop up the weaker prey later. While hushed ones can survive on any food that normal humans would eat, they prefer raw human flesh. Their lives center on catching, killing and eating whatever victims they can find. When hushed ones take their prey alive, they drag their victims back to their nests for the entire tribe to share in the feast. The most successful hushed one tribes keep herds of captured humans in wide pits dug 20 feet deep, breaking their victims' arms and legs to further prevent escape. Hushed ones feed their herd sparingly on birds and worms, harvesting them one at a time as needed. During the coldest nights, the hushed ones dump heaps of dead leaves in the pits to keep the herd warm enough to survive. A herd of a few dozen human captives can preserve a hushed one pack through the coldest months and well into the spring, when hunting can begin again. Of course, it is possible to rescue a pack's captives. This is best accomplished as soon as possible, for existence in a herd pit quickly takes its toll on a victim's mind and body. People rescued after several weeks of captivity rarely speak again because of the horrors they have seen. Nor will they easily walk again due to improperly healed bones and injuries sustained fighting the rest of the herd for scraps of food. What's more, captives eventually may experience one or more Wyld mutations (see Exalted, pp. 288­290, The Compass of Celestial Directions, Vol. II--The Wyld, pp. 144­151 and pp. 206­210 of The Manual of Exalted Power--The Lunars). All hushed ones have long black hair on their heads. Their smooth, white and unblemished skin stays cold to the touch. Their wounds heal quickly and never scar. Hushed ones are incredibly strong and have long sharp claws on their fingers. They prefer to use these natural weapons but can use the weapons collected from prey if this gives them some tactical advantage. When not in use, they bury their weapons in and around their nests. They never wear armor.</p><p><strong>Motivation:</strong> Hushed ones live only for the hunt.</p><p><strong>Backgrounds:</strong> Allies 2 Wyld Mutations and Other Powers: Poxes: Claws, Elemental Adaptation (Air), Night Vision; Afflictions: Thick Skin; Deficiencies: Disturbing Voice (Mute); Derangements: Cannibalism (deformity) Hive Mind--Hushed ones do not need to speak. They share a hive mind that enables all of them to act as one. Whatever one of them knows, the rest of their pack knows as well. Packs become increasingly dangerous over time, from the knowledge and experience of everyone in the pack's history. Represent this through higher War ratings. Hushed ones routinely coordinate their attacks, surround opponents so one of them can attack from behind, and practice similar strategies. Wyld Healing--While in the Bordermarches or deeper in the Wyld, hushed ones heal one level of lethal damage every 30 minutes or one level of bashing damage every 15 minutes.</p><p><em>Source: Compass of Terrestrial Directions, Vol. V: The North</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

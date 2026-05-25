@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000098",
+  "_key": "!actors!0001000000000098",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Masque of Repose",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 5
+    },
+    "willpower": {
+      "value": 5,
+      "max": 5
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 0,
+      "social": 0,
+      "physical": 0
+    },
+    "combat": {
+      "joinBattle": 0,
+      "dodgeDV": 0,
+      "parryDV": 0,
+      "dodgeMDV": 2,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 0,
+        "lethal": 0,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "",
+    "biography": "<p>Masque of Repose is God of Funereal Arrangements and serves directly under Wayang in the Violet Bier of Sorrows while working tirelessly as the god of Sijan, where he spends much of his time. The previous city-father of Sijan was destroyed in his sanctum by some mysterious assailant, just like the god to hold the position before him, and Masque of Repose stepped into the job because no one else would take the promotion. Technically speaking, it is highly illegal for a god of Masque of Repose's stature to violate the laws of Heaven in such a way as to hold two such titles, but given the stigma attached to any who work closely with Wayang, and the risk associated with the Sijanese work, nobody wants the Masque's job enough to call in the audit. Masque of Repose is unconcerned with the current rise of the Deathlords and specifically with the appearance of Mask of Winters so close to his city. He has no idea that the ancient ghost-scholars want to feed the whole world to Oblivion, and if he did, would think their likelihood of success minimal. Masque of Repose has found that he gets prayers in equal amounts from members of the Underworld-influenced ancestor-cults as well as the reincarnation-focused religions of the Realm and the Threshold. He believes Sijan itself is positioned perfectly no matter how the conflict between the living and the dead works itself out. CHAPTER FIVE: THE ROLL OF CELESTIAL GODS If Masque of Repose seems blithely unconcerned about the lands of the dead, he's far more worried about the lands of the living. The Masque is easily enamored of mortal women of a certain temperament, and he enjoys nothing more than shedding the cold of Sijan or the Violet Bier of Sorrows for the warmth of a vivacious mortal's embrace. He cannot stand the pale beauties of the Underworld or shadowlands, and insists that his paramours be buxom, joyous, and apple-cheeked. The Masque's problems arise because his liaisons have been resulting in children with improbable frequency of late, and those children in turn tend to demonstrate a strangely precocious amount of their father's power. No less than two dozen God-Blooded of Masque of Repose's descent wander the Scavenger Lands and the northeast right now, working as heroes, bandits, conquerors, and in one case, experiencing an Exaltation, and those are just the ones Masque of Repose knows of. He's currently scrambling, trying to figure out who's behind his current fecundity and what long-term end it serves. In addition, he's deathly afraid that one of his by-blows will cause some kind of trouble sufficient to bring Celestial auditors into the picture, and his effective immunity as a god in a job nobody wants will stop being sufficient to protect him. Worse still, he suspects that if his children ever get organized and come looking for some kind of payout, he may be put into an extraordinarily awkward position.</p><p><strong>Motivation:</strong> Thousands of years of easy management has weakened Masque of Repose's dedication to his domain, and now he desires nothing more than a pleasant time of it--a city to oversee, obedient children to dote on, peace between Creation and the Underworld, and a smiling and happy woman to warm his bed.</p><p><em>Source: Compass of Celestial Directions, Vol. III: Yu-Shan</em></p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e500000000",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}
