@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000033",
+  "_key": "!actors!0001000000000033",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wyld Barbarian",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "mortal",
+    "concept": "",
+    "essence": {
+      "value": 1
+    },
+    "willpower": {
+      "value": 6,
+      "max": 6
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 4,
+      "social": 3,
+      "physical": 4
+    },
+    "combat": {
+      "joinBattle": 5,
+      "dodgeDV": 2,
+      "parryDV": 2,
+      "dodgeMDV": 3,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 7,
+        "lethal": 3,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "<p><strong>Punch</strong>: Speed 5, Accuracy 5, Damage 3B, Defense 4, Rate 3</p><p><strong>Kick</strong>: Speed 5, Accuracy 4, Damage 6B, Defense 2, Rate 2</p><p><strong>Clinch</strong>: Speed 6, Accuracy 4, Damage 3B, Defense 0, Rate 1</p><p><strong>Axe</strong>: Speed 5, Accuracy 6, Damage 8L, Defense 3, Rate 2</p><p><strong>Knife</strong>: Speed 5, Accuracy 5, Damage 5L, Defense 4, Rate 3</p><p>Dodge DV 2/1 (with shield). Melee specialty: Axe +1. Survival specialty: Native Environment +1. Possesses a minimum of two poxes (Wyld mutations).</p>",
+    "biography": "<p>Savage tribespeople who live within the embrace of the Wyld. They live in the Bordermarches, suffering from numerous mutations, fighting Fair Folk raids and battling civilized peoples.</p>",
+    "purchaseLocked": false
+  },
+  "folder": "c3d4e5f6",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

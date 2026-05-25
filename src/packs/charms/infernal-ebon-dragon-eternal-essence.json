@@ -1,0 +1,61 @@
+{
+  "_id": "a2b3c4d5e6f70011",
+  "_key": "!items!a2b3c4d5e6f70011",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ebon Dragon Eternal Essence",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 7,
+    "minAbility": 0,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": ["Blasphemy"],
+    "cost": { "formula": "--", "resonance": 0, "limitTrigger": 0 },
+    "description": "<p>The Ebon Dragon cannot be killed by mere injury. If lethal or aggravated damage would reduce him below his last Incapacitated level, it is not applied, nor may an effect slay him outright. Effects that can permanently kill spirits bypass this protection and transform his Essence into a ghost (or Neverborn, if he knows Ebon Dragon Cosmic Principle).</p>",
+    "source": "Return of the Scarlet Empress",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a2b3c4d5e6f70010",
+            "charmName": "Ebon Dragon Yozi-Body Unity",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a2b3c4d5e6f70011"
+  },
+  "folder": "7c2ec8d4b84c1156",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

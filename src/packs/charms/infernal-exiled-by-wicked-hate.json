@@ -1,0 +1,61 @@
+{
+  "_id": "a2b3c4d5e6f7001a",
+  "_key": "!items!a2b3c4d5e6f7001a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Exiled by Wicked Hate",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 4,
+    "minAbility": 0,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": ["Shaping"],
+    "cost": { "formula": "--", "resonance": 0, "limitTrigger": 0 },
+    "description": "<p>Whenever the Ebon Dragon 'kills' a target who is not immune to permanent destruction using an attack enhanced by Life-Blighting Emptiness Attack, the victim is banished beyond existence as per Life-Denying Hate and made immortal to suffer forever. Magical possessions and Celestial Exaltations remain behind.</p>",
+    "source": "Return of the Scarlet Empress",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "fcebb9bf0630be9c",
+            "charmName": "Life-Denying Hate",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a2b3c4d5e6f7001a"
+  },
+  "folder": "7c2ec8d4b84c1156",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

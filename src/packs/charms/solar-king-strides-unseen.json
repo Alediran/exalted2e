@@ -1,0 +1,61 @@
+{
+  "_id": "a2b3c4d5e6f70002",
+  "_key": "!items!a2b3c4d5e6f70002",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "King Strides Unseen",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "stealth",
+    "essence": 3,
+    "minAbility": 5,
+    "charmType": "simple",
+    "duration": "indefinite",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": ["Combo-OK"],
+    "cost": { "formula": "10m", "resonance": 0, "limitTrigger": 0 },
+    "description": "<p>A Solar using this Charm wraps himself in a cloak of perfect obfuscation as long as he adheres to the basic customs of the land in which he resides (dressing appropriately, speaking the local language, observing native rituals and so forth). Attempts to track and locate the Solar within the city or nation he moves through automatically fail. (If another Charm contests this effect, add [Essence] automatic successes to the Solar's roll.) This Charm helps hide the Solar only from efforts to locate him within a large area or populace. It will not actually assist personal attempts at stealth, so a guard can plainly see a Solar attempting to walk into a restricted area (though as long as the Charm holds, the guard will recognize him only as 'an intruder'). The Charm automatically deactivates itself and will not reactivate for the rest of the scene if the Solar joins battle or flares his anima banner above the one- to three-mote level of expenditure. In the case of beings who are also large areas containing a population, such as Autochthon or many Yozis, this Charm provides full protection from the being the Solar hides within, despite that Malfeas is technically always 'present' in every street and building of the Demon City.</p>",
+    "source": "Return of the Scarlet Empress",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "9a3299b811bae30f",
+            "charmName": "Easily Overlooked Presence Method",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a2b3c4d5e6f70002"
+  },
+  "folder": "07815dca7bd3d3d3",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

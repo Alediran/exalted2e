@@ -1,0 +1,61 @@
+{
+  "_id": "a2b3c4d5e6f70021",
+  "_key": "!items!a2b3c4d5e6f70021",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shadow Slave Extraction",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 6,
+    "minAbility": 0,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": { "formula": "-- (20m, 1wp optional)", "resonance": 0, "limitTrigger": 0 },
+    "description": "<p>Upon activating Black Mirror Shintai to target someone he can perceive within one mile, the Ebon Dragon may pay 20 motes and one Willpower instead. Doing so does not pull the victim's shadow into himself. Instead, the stolen shadow coalesces within 10 yards of the Ebon Dragon into a copy of the target, possessing the traits the Ultimate Darkness would gain using the shintai. The copy comes into existence with the same health and Willpower remaining as the original had at duplication, has no motes of its own, and spends its creator's motes. The copy is as obedient to its creator as a bound demon. This Charm can spawn only one entity at a time unless the character has Essence 9+, in which case as many different characters may be concurrently duplicated as the Ebon Dragon wishes to sustain with committed Essence. The character cannot copy himself or copy the same character with separate activations.</p>",
+    "source": "Return of the Scarlet Empress",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "95070fd8c31b0441",
+            "charmName": "Black Mirror Shintai",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a2b3c4d5e6f70021"
+  },
+  "folder": "7c2ec8d4b84c1156",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000047",
+  "_key": "!actors!0001000000000047",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Neomah (Maker of Flesh)",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "demon",
+    "concept": "",
+    "essence": {
+      "value": 3
+    },
+    "willpower": {
+      "value": 9,
+      "max": 9
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 8,
+      "social": 8,
+      "physical": 7
+    },
+    "combat": {
+      "joinBattle": 5,
+      "dodgeDV": 6,
+      "parryDV": 3,
+      "dodgeMDV": 4,
+      "parryMDV": 2,
+      "soak": {
+        "bashing": 5,
+        "lethal": 5,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 12
+    },
+    "powers": "",
+    "notes": "<p><strong>Spitting Fire</strong>: Speed 5, Accuracy 8, Damage 10L, Defense 2, Rate 2</p><p><strong>Aconite-Dusted Brass Hairpin (+ poison)</strong>: Speed 3, Accuracy 9, Damage 5L, Defense 6, Rate 3</p><p>Essence Pool: 75. Materialize: 60m. Willpower: 9 (12 temporary). Linguistics specialty: Body Language (universal communication). Poison [Aconite]: 6L/hour, speed 3M, -/-, -3. Spirit Charms: Harrow the Mind, Principle of Motion, Reserve of Will x3, Shapechange, Weaving of Flesh. First/Second/Third Excellencies: Athletics, Dodge, Melee, Presence, Stealth. Called by mingled tears of parents mixing with afterbirth of a stillborn baby.</p>",
+    "biography": "<p>Demons of the First Circle. Humanoid female demons with pale lavender flesh, full sensual lips, large dark pupilless eyes, hairless bodies. The most sexually appealing beings to most species. Court-appointed courtesans who exchange services for flesh, weaving donated flesh into unique composite creatures.</p>",
+    "purchaseLocked": false
+  },
+  "folder": "d4e5f6a7",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

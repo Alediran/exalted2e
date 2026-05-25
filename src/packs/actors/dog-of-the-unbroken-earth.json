@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000038",
+  "_key": "!actors!0001000000000038",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dog of the Unbroken Earth",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 2
+    },
+    "willpower": {
+      "value": 6,
+      "max": 6
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 9,
+      "social": 7,
+      "physical": 7
+    },
+    "combat": {
+      "joinBattle": 7,
+      "dodgeDV": 6,
+      "parryDV": 4,
+      "dodgeMDV": 3,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 15,
+        "lethal": 12,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 9
+    },
+    "powers": "",
+    "notes": "<p><strong>Bite</strong>: Speed 4, Accuracy 10, Damage 11L, Defense 2, Rate 1</p><p><strong>Claw</strong>: Speed 2, Accuracy 9, Damage 6L, Defense 1, Rate 2</p><p><strong>Charge</strong>: Speed 6, Accuracy 7, Damage 10B, Defense 0, Rate 1</p><p>Essence Pool: 70. Materialize: 40m. Languages: Old Realm, Forest-Tongue, Riverspeak. Spirit Charms: Bane Weapon, Essence Plethora x2, Hurry Home, Intrusion Sensing Method, Landscape Hide, Materialize, Measure the Wind, Paralyze, Principle of Motion. First and Second Excellencies: Awareness, Martial Arts, Presence, Stealth, Survival.</p>",
+    "biography": "<p>Low-ranking Terrestrial forest spirits that zealously protect wilderness areas never touched or altered by mortal hands. Stand 3–5 feet at the shoulder with long brown fur entwined with moss, twigs and mud, and red or green glowing eyes.</p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e5",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "0001000000000054",
+  "_key": "!actors!0001000000000054",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "The Scarlet Empress",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "mortal",
+    "concept": "",
+    "essence": { "value": 8 },
+    "willpower": { "value": 10, "max": 10 },
+    "motes": { "value": 0, "max": 92 },
+    "pools": { "combat": 10, "social": 16, "physical": 8 },
+    "combat": { "joinBattle": 12, "dodgeDV": 9, "parryDV": 5, "dodgeMDV": 5, "parryMDV": 4, "soak": { "bashing": 4, "lethal": 2, "aggravated": 0 }, "hardness": 0 },
+    "health": { "bashing": 0, "lethal": 0, "aggravated": 0, "totalBoxes": 13 },
+    "powers": "<p>Most Charms for which her Abilities qualify her. Martial arts: Five Dragon Style, Terrestrial Hero Style, White Veil Style. As the Queen of Hell, all Ebon Dragon Charms appropriate to her Essence.</p><p>Spells: Most Terrestrial Circle spells; Celestial Circle (via Mantle of Brigid). As Queen of Hell: Adamant Circle spells including Adamant Countermagic, All-Commanding Oversoul Beckoning, Benediction of Archgenesis, Soul-Twisting Defilement Radiance, Total Annihilation.</p>",
+    "notes": "<p><strong>Dire Lance (Eye of the Fire Dragon)</strong>: Speed 4, Accuracy 16/21, Damage 15L/16L, Parry DV 8/11, Rate 3 (inflicts aggravated damage to Solar Exalts).</p><p>Normal / akuma values given where different. Dexterity 7 as akuma; Charisma 8; Manipulation 10; Intelligence 10; Essence 9 as akuma.</p>",
+    "biography": "<p>Eternal Ruler of the Realm. Once a young Dragon-Blooded officer who seized the Sword of Creation to scour the Fair Folk from the world, she ruled Creation for over seven centuries before being abducted by the Ebon Dragon and bound as his bride. Stats are for freewilled ruler / akuma where they differ.</p><p>Aspect: Earth (also Fire, Water, Air, and as Queen of Hell, Wood). Source: Return of the Scarlet Empress.</p>",
+    "purchaseLocked": false
+  },
+  "folder": "c3d4e5f6",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

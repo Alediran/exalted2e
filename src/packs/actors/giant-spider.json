@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000008",
+  "_key": "!actors!0001000000000008",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Giant Spider",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "beast",
+    "concept": "",
+    "essence": {
+      "value": 1
+    },
+    "willpower": {
+      "value": 2,
+      "max": 2
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 6,
+      "social": 3,
+      "physical": 6
+    },
+    "combat": {
+      "joinBattle": 5,
+      "dodgeDV": 3,
+      "parryDV": 3,
+      "dodgeMDV": 1,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 2,
+        "lethal": 1,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 5
+    },
+    "powers": "",
+    "notes": "<p><strong>Bite</strong>: Speed 6, Accuracy 6, Damage 3L + poison, Rate 1</p>",
+    "biography": "<p>Monstrous arachnids found in forests and jungles Creation-wide. The giant wolf spider hunts like a wolf, running down prey and stabbing with venomous fangs.</p>",
+    "purchaseLocked": false
+  },
+  "folder": "a1b2c3d4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

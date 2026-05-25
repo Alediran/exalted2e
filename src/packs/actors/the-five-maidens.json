@@ -1,0 +1,27 @@
+{
+  "_id": "0001000000000063",
+  "_key": "!actors!0001000000000063",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "The Five Maidens",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": { "value": 10 },
+    "willpower": { "value": 10, "max": 10 },
+    "motes": { "value": 0, "max": 250 },
+    "pools": { "combat": 25, "social": 25, "physical": 25 },
+    "combat": { "joinBattle": 25, "dodgeDV": 18, "parryDV": 12, "dodgeMDV": 5, "parryMDV": 2, "soak": { "bashing": 10, "lethal": 5, "aggravated": 0 }, "hardness": 0 },
+    "health": { "bashing": 0, "lethal": 0, "aggravated": 0, "totalBoxes": 35 },
+    "powers": "<p>The Five Maidens share the full Sidereal Charm repertoire and unique powers related to fate, time, and destiny. As Essence 10 deities, they have All-Encompassing versions of virtually every divine Charm not unique to singular beings, subject to each Maiden's purview. They have no Excellencies beyond those unique to their panoplies. Complete Charm list not listed in source.</p>",
+    "notes": "<p><strong>Punch</strong>: Speed 5, Accuracy 16, Damage 10B, Parry DV 9, Rate 3, Tags N</p><p><strong>Kick</strong>: Speed 5, Accuracy 15, Damage 13B, Parry DV 7, Rate 2, Tags N</p><p><strong>Clinch</strong>: Speed 6, Accuracy 15, Damage 10B, Parry DV --, Rate 1, Tags C,N,P</p><p>Statistics represent a composite of the Five Maidens. Individual Maidens may vary. The Five Maidens collectively control the Loom of Fate and the Bureau of Destiny.</p>",
+    "biography": "<p>The Five Maidens — Mercury, Venus, Mars, Jupiter, and Saturn — are a mystery even unto the makers of the universe. The Maidens are the handiwork of the Primordials, but they are omnitemporal, created in a future the Primordials could not foresee and a past they do not remember. Long before Creation existed, as Primordials began to encounter one another in the depths of the Wyld, their close proximity created a confluence of factual existence and the earliest tenets of natural law, through which concepts like time, space, matter and gravity appeared, carried on the backs of five tiny sisters calling themselves the Fates. Their motivations: Mercury — \"Make sure all things go where they should.\" Venus — \"Make sure all things come together as they should.\" Mars — \"Make sure all things come into conflict as they should.\" Jupiter — \"Ensure the preservation of all knowledge for the time it must be known.\" Saturn — \"Make sure all things end as they should.\"</p><p>Source: Glories of the Most High: The Maidens of Destiny.</p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e5",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,61 @@
+{
+  "_id": "a2b3c4d5e6f70012",
+  "_key": "!items!a2b3c4d5e6f70012",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ebon Dragon Cosmic Principle",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 10,
+    "minAbility": 0,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": ["Shaping"],
+    "cost": { "formula": "--", "resonance": 0, "limitTrigger": 0 },
+    "description": "<p>This Charm shapes the Ebon Dragon's Essence into a single Personal pool with a capacity of 1,000 motes and makes him immune to aging, but imposes the Greater Imperfection of Ultimate Darkness on him. Upon learning this Charm, a character loses all non-Ebon Dragon Charms (converting them to experience points) and, if an Exalt, his Exaltation departs. He may adapt thematically appropriate Charms from other Yozis as Ebon Dragon Charms without regard for their prerequisites, but cannot teach these adapted Charms to others. Once learned, this Charm and permanent Charms building off it do not deactivate if the character loses permanent Essence for any reason. The fetich of the Ebon Dragon cannot use this Charm or any requiring it as a prerequisite.</p>",
+    "source": "Return of the Scarlet Empress",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "30b0fc5966a24d09",
+            "charmName": "First The Ebon Dragon Excellency-- Essence Overwhelming",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a2b3c4d5e6f70012"
+  },
+  "folder": "7c2ec8d4b84c1156",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000005",
+  "_key": "!actors!0001000000000005",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Claw Strider",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "beast",
+    "concept": "",
+    "essence": {
+      "value": 1
+    },
+    "willpower": {
+      "value": 7,
+      "max": 7
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 7,
+      "social": 2,
+      "physical": 7
+    },
+    "combat": {
+      "joinBattle": 7,
+      "dodgeDV": 3,
+      "parryDV": 3,
+      "dodgeMDV": 3,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 10,
+        "lethal": 5,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 9
+    },
+    "powers": "",
+    "notes": "<p><strong>Bite</strong>: Speed 7, Accuracy 6, Damage 9L, Rate 2</p><p><strong>Claw</strong>: Speed 8, Accuracy 8, Damage 7L, Rate 2</p>",
+    "biography": "<p>Pack hunters standing about 6 feet tall and up to 20 feet long. Capable of taking down yeddim and even tyrant lizards. Intelligent enough to be trained, used by some barbarians as mounts.</p>",
+    "purchaseLocked": false
+  },
+  "folder": "a1b2c3d4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

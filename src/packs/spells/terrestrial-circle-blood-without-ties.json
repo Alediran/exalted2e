@@ -1,0 +1,36 @@
+{
+  "_id": "a2b3c4d5e6f70024",
+  "_key": "!items!a2b3c4d5e6f70024",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Blood Without Ties",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "terrestrial-circle-blood-without-ties",
+    "tradition": "sorcery",
+    "circle": 1,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 10,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "One willing individual",
+    "description": "<p>In casting this spell, the sorcerer recites the maternal lineage of her target's ancestry back five generations by full name and cuts the palm of the target's hand with a knife of tarnished brass. The target then drips a circle of blood around himself and spits out of it. As the spittle strikes the ground, the Shaping alchemy of the spell turns the target's blood to glowing vitriol that illuminates and sears his entire circulatory system, inflicting one level of aggravated damage. The acid turns back to blood in a moment, breaking all Intimacies to individuals known to be blood kin and permanently severing all arcane links based on blood ties. Magically, he is a true orphan and no longer related to his former relatives. He can forge new familial bonds by bearing or siring offspring, but the spell cannot be undone once its transformation has been wrought. Only someone who truly wishes to sever connection with his family is a valid target for the spell, and this decision cannot be compelled or coerced by unnatural mental influence. The sorcerer can target herself.</p>",
+    "source": "Return of the Scarlet Empress"
+  },
+  "folder": "e770e6b810692f87",
+  "ownership": { "default": 0 },
+  "flags": {}
+}

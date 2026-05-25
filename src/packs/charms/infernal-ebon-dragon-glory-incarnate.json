@@ -1,0 +1,61 @@
+{
+  "_id": "a2b3c4d5e6f70015",
+  "_key": "!items!a2b3c4d5e6f70015",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ebon Dragon Glory Incarnate",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 10,
+    "minAbility": 0,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": { "formula": "--", "resonance": 0, "limitTrigger": 0 },
+    "description": "<p>The Ultimate Darkness has a base rating of 0 in all Attributes and Abilities, but can apply a dice pool of 20 to any action enhanceable with his First Excellency, and may use that Charm to enhance this pool normally. If the action is unopposed, he may automatically succeed with a threshold of 10. For truly passive uses of a trait over which he has no control (such as Stamina for soak), the Excellency is considered to apply. He also remembers the comprehensive memories of everyone who has ever learned this Charm. Confers immunity to undesired Shaping effects, though this protection temporarily abates while he has spent all Willpower or has no motes remaining--even Soul Mastery and Pattern Spider Touch cannot penetrate this perfect defense. Upon learning this Charm, a character converts all Attributes, Abilities and specialties into experience points and can no longer learn such traits.</p>",
+    "source": "Return of the Scarlet Empress",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a2b3c4d5e6f70012",
+            "charmName": "Ebon Dragon Cosmic Principle",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a2b3c4d5e6f70015"
+  },
+  "folder": "7c2ec8d4b84c1156",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

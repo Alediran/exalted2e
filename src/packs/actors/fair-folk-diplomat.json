@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000035",
+  "_key": "!actors!0001000000000035",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fair Folk Diplomat",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "fairfolk",
+    "concept": "",
+    "essence": {
+      "value": 3
+    },
+    "willpower": {
+      "value": 9,
+      "max": 9
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 9,
+      "social": 14,
+      "physical": 9
+    },
+    "combat": {
+      "joinBattle": 10,
+      "dodgeDV": 7,
+      "parryDV": 4,
+      "dodgeMDV": 4,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 10,
+        "lethal": 8,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 10
+    },
+    "powers": "",
+    "notes": "<p><strong>Punch</strong>: Speed 5, Accuracy 10, Damage 4B, Defense 11, Rate 3</p><p><strong>Kick</strong>: Speed 5, Accuracy 9, Damage 7B, Defense 7, Rate 2</p><p><strong>Clinch</strong>: Speed 6, Accuracy 9, Damage 4B, Defense 0, Rate 1</p><p><strong>Gossamer Blade</strong>: Speed 4, Accuracy 10, Damage 7L, Defense 9, Rate 3</p><p><strong>Gossamer Knife</strong>: Speed 5, Accuracy 10, Damage 6L, Defense 9, Rate 3</p><p>Essence Pool: 30. Resistance specialty: Wyld +1. Fair Folk Charms: Beguile (10m+1WP; scenes = successes; immune if [Wits or WP]+Ess > Charisma), Glamour (5m; illusion craft; dispelled by cold iron), Wyldward (10m+1WP; protects from Wyld mutation 1 day/success). Cannot break sworn promises. Iron = aggravated damage.</p>",
+    "biography": "<p>Powerful Fair Folk servants seen in the courts of outer kingdoms representing the will of their rulers. Always accompanied by at least one cataphract and several hobgoblins. Masterful at politics and subtle influence.</p>",
+    "purchaseLocked": false
+  },
+  "folder": "b8c9d0e1",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

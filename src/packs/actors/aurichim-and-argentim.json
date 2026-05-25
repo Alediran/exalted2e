@@ -1,0 +1,27 @@
+{
+  "_id": "0001000000000062",
+  "_key": "!actors!0001000000000062",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Aurichim and Argentim",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": { "value": 4 },
+    "willpower": { "value": 7, "max": 7 },
+    "motes": { "value": 0, "max": 85 },
+    "pools": { "combat": 13, "social": 7, "physical": 11 },
+    "combat": { "joinBattle": 8, "dodgeDV": 8, "parryDV": 6, "dodgeMDV": 3, "parryMDV": 2, "soak": { "bashing": 17, "lethal": 14, "aggravated": 0 }, "hardness": 8 },
+    "health": { "bashing": 0, "lethal": 0, "aggravated": 0, "totalBoxes": 16 },
+    "powers": "<p>Spirit Charms appropriate to twin celestial guardians; exact list not specified. Focus on Archery, Melee, and Awareness.</p>",
+    "notes": "<p><strong>Archery (Bow of Light)</strong>: Accuracy 13, Damage 8L, Range 100, Rate 2</p><p><strong>Spear of Light (Melee)</strong>: Accuracy 14, Damage 13L, Parry DV 7, Rate 2</p><p>Celestial armor: 10L/9B. Hardness 8L/8B.</p>",
+    "biography": "<p>The aurichim and argentim are guardians of the starry vault, solitary beings spending most of their time patrolling the vastness of the celestial realm far above Creation. The aurichim acted as the roving eyes of the Unconquered Sun during the Time of Glory, serving to warn the Most High of incursions against the boundaries of Creation. The argentim originally served Luna, but were wagered and lost in a bet against the Maidens during a Carnival of Meeting in the early First Age, and have since been reassigned as guardians of the constellations. Aurichim appear as tall men and women with bronzed skin and armor, 10 feet in height on average, with blank golden masks for faces and expressive eyes, flying on wings made of geometric patterns forged from pure sunlight. Argentim are similar but silver, their wings formed of bent moonbeams now gathering coatings of shimmering stardust.</p><p>Source: Glories of the Most High: The Maidens of Destiny.</p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e5",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

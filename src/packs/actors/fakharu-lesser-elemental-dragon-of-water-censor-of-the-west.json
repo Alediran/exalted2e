@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000041",
+  "_key": "!actors!0001000000000041",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fakharu, Lesser Elemental Dragon of Water, Censor of the West",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "elemental",
+    "concept": "",
+    "essence": {
+      "value": 7
+    },
+    "willpower": {
+      "value": 10,
+      "max": 10
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 9,
+      "social": 10,
+      "physical": 7
+    },
+    "combat": {
+      "joinBattle": 8,
+      "dodgeDV": 9,
+      "parryDV": 4,
+      "dodgeMDV": 5,
+      "parryMDV": 2,
+      "soak": {
+        "bashing": 12,
+        "lethal": 6,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 14
+    },
+    "powers": "",
+    "notes": "<p><strong>Claw (Dragon Form)</strong>: Speed 7, Accuracy 13, Damage 11L, Defense 6, Rate 4</p><p><strong>Bite (Dragon Form)</strong>: Speed 9, Accuracy 12, Damage 15L, Defense 2, Rate 1</p><p><strong>Dragon's Suspire (superheated steam)</strong>: Speed 10, Accuracy 8, Damage 24L, Defense 0, Rate 1</p><p><strong>Punch (Human Form)</strong>: Speed 5, Accuracy 10, Damage 8B, Defense 11, Rate 3</p><p><strong>Dragon-Tooth Dagger (Human Form)</strong>: Speed 5, Accuracy 10, Damage 10L, Defense 4, Rate 2</p><p>Essence Pool: 160. Dematerialize: 85m. Dodge DV 9 (Dragon Form: 11). Backgrounds: Allies 4, Backing 5, Followers 5, Influence 5, Manse 5, Resources 5, Sanctum 5. Spirit Charms: Celestial Circle Sorcery, Dematerialize, Essence Plethora x4, Form Reduction Technique, Geas, Hurry Home, Landscape Travel, Natural Elemental Powers, Principle of Motion, Terrestrial Circle Sorcery. First/Second/Third Excellencies: Bureaucracy, Dodge, Investigation, Martial Arts, Presence, Socialize.</p>",
+    "biography": "<p>Most powerful and respected functionary in the spirit courts of the West; top-ranked Celestial Censor in the Western region. A green-and-golden-scaled dragon 25 feet long with six legs and a mane of foam-soft fur.</p>",
+    "purchaseLocked": false
+  },
+  "folder": "a7b8c9d0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

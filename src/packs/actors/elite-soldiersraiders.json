@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000028",
+  "_key": "!actors!0001000000000028",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Elite Soldiers/Raiders",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "mortal",
+    "concept": "",
+    "essence": {
+      "value": 1
+    },
+    "willpower": {
+      "value": 7,
+      "max": 7
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 7,
+      "social": 4,
+      "physical": 6
+    },
+    "combat": {
+      "joinBattle": 6,
+      "dodgeDV": 3,
+      "parryDV": 3,
+      "dodgeMDV": 3,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 11,
+        "lethal": 6,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "<p><strong>Punch</strong>: Speed 5, Accuracy 7, Damage 3B, Defense 8, Rate 3</p><p><strong>Kick</strong>: Speed 5, Accuracy 6, Damage 6B, Defense 4, Rate 2</p><p><strong>Clinch</strong>: Speed 6, Accuracy 6, Damage 3B, Defense 0, Rate 1</p><p><strong>Chopping Sword</strong>: Speed 4, Accuracy 8, Damage 8L/2, Defense 6, Rate 2</p><p><strong>Knife</strong>: Speed 5, Accuracy 8, Damage 5L, Defense 7, Rate 3</p><p><strong>Self Bow (frog crotch arrows)</strong>: Speed 6, Accuracy 5, Damage 7L*, Defense 0, Rate 2</p><p>Dodge DV 3/2 (with mobility penalty). Raiders have Manipulation 3, Appearance 1, Bureaucracy 1, Integrity 3, Larceny 2, Stealth 3. Resistance specialty: Disease +1.</p>",
+    "biography": "<p>Bandit kings, revolutionary leaders, special forces, commanders of mortal armies or barbarian warlords of Creation.</p>",
+    "purchaseLocked": false
+  },
+  "folder": "c3d4e5f6",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -106,6 +106,13 @@
       "path":   "packs/hearthstones",
       "type":   "Item",
       "system": "exalted2e"
+    },
+    {
+      "name":   "npcs",
+      "label":  "NPCs",
+      "path":   "packs/npcs",
+      "type":   "Actor",
+      "system": "exalted2e"
     }
   ],
   "documentTypes": {

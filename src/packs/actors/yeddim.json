@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000024",
+  "_key": "!actors!0001000000000024",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Yeddim",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "beast",
+    "concept": "",
+    "essence": {
+      "value": 1
+    },
+    "willpower": {
+      "value": 3,
+      "max": 3
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 3,
+      "social": 2,
+      "physical": 7
+    },
+    "combat": {
+      "joinBattle": 3,
+      "dodgeDV": 1,
+      "parryDV": 1,
+      "dodgeMDV": 1,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 10,
+        "lethal": 5,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 10
+    },
+    "powers": "",
+    "notes": "<p><strong>Trample</strong>: Speed 3, Accuracy 4, Damage 12L, Rate 1</p>",
+    "biography": "<p>Originally from the Southeast, yeddim have long been domesticated and are now found over most of Creation as beasts of burden. Even tempered and stoic, the huge animals can go for days without food or water.</p>",
+    "purchaseLocked": false
+  },
+  "folder": "a1b2c3d4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

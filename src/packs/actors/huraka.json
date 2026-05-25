@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000042",
+  "_key": "!actors!0001000000000042",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Huraka",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "elemental",
+    "concept": "",
+    "essence": {
+      "value": 2
+    },
+    "willpower": {
+      "value": 6,
+      "max": 6
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 7,
+      "social": 4,
+      "physical": 6
+    },
+    "combat": {
+      "joinBattle": 4,
+      "dodgeDV": 4,
+      "parryDV": 3,
+      "dodgeMDV": 3,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 9,
+        "lethal": 6,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "<p><strong>Bite</strong>: Speed 9, Accuracy 11, Damage 10L, Defense 2, Rate 1</p><p><strong>Claw</strong>: Speed 7, Accuracy 10, Damage 8L, Defense 4, Rate 2</p><p><strong>Dragon's Suspire (freezing hail)</strong>: Speed 10, Accuracy 5, Damage 8L, Defense 0, Rate 1</p><p>Essence Pool: 70. Dematerialize: 40m. Languages: Airtongue (native), Old Realm. Spirit Charms: Dematerialize, Essence Plethora x2, Landscape Camouflage (+3 dice to Stealth), Landscape Travel (fly), Measure the Wind, Natural Elemental Powers, Principle of Motion, Sense Domain. First Excellency: Athletics, Awareness, Dodge, Integrity, Martial Arts, Stealth. Breath captured in jars grants +3 auto-successes on Perception rolls to pierce illusions.</p>",
+    "biography": "<p>Medium-sized air elementals taking the form of tremendous bears 12–14 feet tall with steaming breath, shining gold eyes and cloud-soft fur. Gentle wind-herders managing steady breezes. Serve the Wind Masters and function as shock troops in the Aerial Legion.</p>",
+    "purchaseLocked": false
+  },
+  "folder": "a7b8c9d0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

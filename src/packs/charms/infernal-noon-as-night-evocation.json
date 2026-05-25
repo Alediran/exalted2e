@@ -1,0 +1,61 @@
+{
+  "_id": "a2b3c4d5e6f70019",
+  "_key": "!items!a2b3c4d5e6f70019",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Noon as Night Evocation",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 3,
+    "minAbility": 0,
+    "charmType": "simple",
+    "duration": "oneScene",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": ["Combo-OK", "Sorcerous"],
+    "cost": { "formula": "5m", "resonance": 0, "limitTrigger": 0 },
+    "description": "<p>The Ebon Dragon conjures unnatural darkness centered anywhere up to (Willpower x 10) yards away, spreading in any desired shape that fits in a radius of (Essence x 10) yards. This blackness is opaque to those outside and blinds all within who lack magic to see in darkness. Sunlight created by something with an Essence, artifact or hearthstone rating higher than the shadow's creator's Essence dispels it; normal sunlight does not. A character with Essence 4+ who knows Life-Denying Hate, Ever-Hungry Shadow Affliction or Despair-Choked Spirit Maiming may add any of those Charms' costs to this Charm's cost, cursing everyone besides the creator who is not protected from Shaping to suffer as though tagged by the added Charms while remaining in the darkness. Essence 6+ extends the maximum range and radius to one mile and three miles, respectively.</p>",
+    "source": "Return of the Scarlet Empress",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d14d594e43fbe7f7",
+            "charmName": "Seeing Is Blindness",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a2b3c4d5e6f70019"
+  },
+  "folder": "7c2ec8d4b84c1156",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

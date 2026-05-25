@@ -1,0 +1,61 @@
+{
+  "_id": "a2b3c4d5e6f70014",
+  "_key": "!items!a2b3c4d5e6f70014",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ebon Dragon Pantheon Unfurling",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 10,
+    "minAbility": 0,
+    "charmType": "simple",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": ["Blasphemy", "Shaping"],
+    "cost": { "formula": "[Essence x 100]m", "resonance": 0, "limitTrigger": 0 },
+    "description": "<p>By paying 100 motes per dot of permanent Essence (capped at 9 for non-fetiches), the Ebon Dragon spawns a Third Circle soul with full motes. If he lacks a fetich, he is irresistibly compelled to spawn one as soon as he can pay the cost. If his fetich is destroyed, the Ebon Dragon ceases to exist except as an Essence pool that cannot be interacted with, imploding all component souls into himself. He recovers motes until he can create a new fetich, redefining himself as a new Yozi with similar themes. He cannot possess more than (Willpower + highest Virtue) Third Circle souls beyond his fetich. He can possess his souls as described in The Roll of Glorious Divinity II and can telepathically communicate with such beings across all distance and realms of existence. Influence is two-way: the dragon has an Intimacy of dedication to each soul's current Motivation that cannot be removed or altered by any means save altering those Motivations.</p>",
+    "source": "Return of the Scarlet Empress",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a2b3c4d5e6f70013",
+            "charmName": "Ebon Dragon Conceptual Harmony",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a2b3c4d5e6f70014"
+  },
+  "folder": "7c2ec8d4b84c1156",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

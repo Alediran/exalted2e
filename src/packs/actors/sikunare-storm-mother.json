@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000040",
+  "_key": "!actors!0001000000000040",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sikunare, Storm Mother",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 3
+    },
+    "willpower": {
+      "value": 8,
+      "max": 8
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 10,
+      "social": 6,
+      "physical": 8
+    },
+    "combat": {
+      "joinBattle": 8,
+      "dodgeDV": 7,
+      "parryDV": 5,
+      "dodgeMDV": 4,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 9,
+        "lethal": 6,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 13
+    },
+    "powers": "",
+    "notes": "<p><strong>Punch</strong>: Speed 5, Accuracy 9, Damage 6B, Defense 10, Rate 3</p><p><strong>Dueling Cutlass</strong>: Speed 4, Accuracy 13, Damage 9L, Defense 12, Rate 3</p><p><strong>Javelin</strong>: Speed 4, Accuracy 8, Damage 9L, Defense 0, Rate 2</p><p>Essence Pool: 70. Materialize: 55m. Backgrounds: Allies 3, Followers 4, Resources 5, Sanctum 4. Melee specialty: Dueling +2. Spirit Charms: Affinity Element Control (water), Malediction, Materialize, Principle of Motion, Weather Control (10m; storm 3 hrs), Landscape Travel (underwater). First and Second Excellencies: Bureaucracy, Martial Arts, Melee, Thrown. Cannot use Charms against red-haired women.</p>",
+    "biography": "<p>A relatively young storm mother, one of the Western gods that creates storms and rules small spirit courts. Commands storms over 900 square miles of ocean including two rich trade routes. Loves confrontation and battle, never turns down a challenge.</p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e5",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

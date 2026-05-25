@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000039",
+  "_key": "!actors!0001000000000039",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gri-Fel, God of the Imperial City",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": {
+      "value": 5
+    },
+    "willpower": {
+      "value": 8,
+      "max": 8
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 10,
+      "social": 11,
+      "physical": 6
+    },
+    "combat": {
+      "joinBattle": 9,
+      "dodgeDV": 7,
+      "parryDV": 5,
+      "dodgeMDV": 4,
+      "parryMDV": 2,
+      "soak": {
+        "bashing": 16,
+        "lethal": 8,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 16
+    },
+    "powers": "",
+    "notes": "<p><strong>Punch</strong>: Speed 5, Accuracy 11, Damage 3B, Defense 12, Rate 3</p><p><strong>Kick</strong>: Speed 5, Accuracy 10, Damage 6B, Defense 8, Rate 2</p><p>Essence Pool: 140. Materialize: 75m. Willpower: 8 (10 temporary). Backgrounds: Allies 4, Celestial Manse 3, Cult 1, Followers 5, Resources 5. Spirit Charms: Capture, Celestial Circle Sorcery (Blood of Boiling Oil, Outside Worlds Within, Sapphire Countermagic, Voices of Distant Regard), Essence Bite, Essence Plethora x5, Hurry Home, Materialize, Principle of Motion, Reserve of Will x2, Terrestrial Circle Sorcery. First/Second/Third Excellencies: Awareness, Bureaucracy, Martial Arts, Occult, Presence, Socialize, War.</p>",
+    "biography": "<p>God of the Imperial City, most powerful metropolis in Creation. One of the most important personages in the Bureau of Humanity. A devout adherent of the Immaculate faith and supporter of the Bronze Faction.</p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e5",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

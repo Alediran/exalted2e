@@ -1,0 +1,27 @@
+{
+  "_id": "0001000000000056",
+  "_key": "!actors!0001000000000056",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Nysela, Charioteer of the Daystar",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": { "value": 7 },
+    "willpower": { "value": 10, "max": 10 },
+    "motes": { "value": 0, "max": 150 },
+    "pools": { "combat": 13, "social": 13, "physical": 10 },
+    "combat": { "joinBattle": 10, "dodgeDV": 9, "parryDV": 6, "dodgeMDV": 5, "parryMDV": 3, "soak": { "bashing": 24, "lethal": 21, "aggravated": 0 }, "hardness": 0 },
+    "health": { "bashing": 0, "lethal": 0, "aggravated": 0, "totalBoxes": 25 },
+    "powers": "<p>Divine Prerogative, Essence Bite, Essence Plethora (x3), Hurry Home, Intrusion-Sensing Method, Loom Stride, Materialize (85m), Measure the Wind, Meat of Broken Flesh, Ox-Body Technique (x5), Principle of Motion, Reserve of Will (x3), Shapechange, Sheathing the Material Form, Stoke the Flame. Second Excellency: Awareness, Integrity, Martial Arts, Melee, Presence, Sail. Third Excellency: Sail. Infinite Mastery: Melee. Divine Subordination: Integrity, Melee, Sail.</p>",
+    "notes": "<p><strong>Punch</strong>: Speed 5, Accuracy 13, Damage 6B, Parry DV 7, Rate 3</p><p><strong>Kick</strong>: Speed 5, Accuracy 12, Damage 9B, Parry DV 5, Rate 2</p><p><strong>Dire Lance (Piercing Eye of Justice)</strong>: Speed 5, Accuracy 18, Damage 14L/18L, Parry DV 9, Rate 2</p>",
+    "biography": "<p>Goddess of Righteous Ideals and Heavenly Duty, primary operator of the Dirigible Engine Daystar. Madly loyal to the Unconquered Sun. Takes the form of a beautiful orichalcum-skinned woman with full hair, flame red in the dark and violet in the day, wearing armored dress and kimono. Carries a tower shield of bronze and a massive white jade dire lance.</p><p>Source: Glories of the Most High: The Unconquered Sun.</p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e5",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

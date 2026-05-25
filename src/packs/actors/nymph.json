@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000043",
+  "_key": "!actors!0001000000000043",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Nymph",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "elemental",
+    "concept": "",
+    "essence": {
+      "value": 2
+    },
+    "willpower": {
+      "value": 6,
+      "max": 6
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 8,
+      "social": 8,
+      "physical": 5
+    },
+    "combat": {
+      "joinBattle": 5,
+      "dodgeDV": 6,
+      "parryDV": 4,
+      "dodgeMDV": 3,
+      "parryMDV": 0,
+      "soak": {
+        "bashing": 3,
+        "lethal": 1,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 9
+    },
+    "powers": "",
+    "notes": "<p><strong>Slap</strong>: Speed 5, Accuracy 9, Damage 3B, Defense 10, Rate 3</p><p><strong>Kick</strong>: Speed 5, Accuracy 8, Damage 6B, Defense 6, Rate 2</p><p>Essence Pool: 60. Dematerialize: 40m. Spirit Charms: Dematerialize, Elemental Domain (immune to damage while dissolved in water), Essence Plethora, Harrow the Mind, Landscape Hide, Measure the Wind, Natural Elemental Powers (except Dragon's Suspire), Principle of Motion. First and Second Excellencies: Dodge, Performance, Socialize. Prefers flight over combat.</p>",
+    "biography": "<p>Water elementals swimming the deepest oceans in search of peculiar currents, animals to torment or mortals to take beneath the waves. Capricious, lustful and vain. Appear as supremely beautiful women with floating hair, blue-green translucent skin, pearl eyes and whalebone teeth.</p>",
+    "purchaseLocked": false
+  },
+  "folder": "a7b8c9d0",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

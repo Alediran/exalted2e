@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000022",
+  "_key": "!actors!0001000000000022",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Strix",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "beast",
+    "concept": "",
+    "essence": {
+      "value": 1
+    },
+    "willpower": {
+      "value": 6,
+      "max": 6
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 7,
+      "social": 3,
+      "physical": 6
+    },
+    "combat": {
+      "joinBattle": 7,
+      "dodgeDV": 3,
+      "parryDV": 3,
+      "dodgeMDV": 3,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 8,
+        "lethal": 4,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 7
+    },
+    "powers": "",
+    "notes": "<p><strong>Grab</strong>: Speed 6, Accuracy 9, Damage 8B, Rate 1</p><p><strong>Bite</strong>: Speed 6, Accuracy 7, Damage 6L, Rate 1</p>",
+    "biography": "<p>Enormous forest owls with 15-foot wingspans, mottled dark-brown feathers and wicked claws. Their large round eyes are perfectly adapted for nighttime hunting and they have been known to carry off lone travelers.</p>",
+    "purchaseLocked": false
+  },
+  "folder": "a1b2c3d4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

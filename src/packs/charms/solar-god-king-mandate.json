@@ -1,0 +1,61 @@
+{
+  "_id": "a2b3c4d5e6f70001",
+  "_key": "!items!a2b3c4d5e6f70001",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "God-King Mandate",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "solar",
+    "ability": "integrity",
+    "essence": 4,
+    "minAbility": 5,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": ["Obvious"],
+    "cost": { "formula": "--", "resonance": 0, "limitTrigger": 0 },
+    "description": "<p>This Charm enhances its prerequisite so that any spirit who would qualify for the benefit of Sun King Radiance becomes immune to the magically compelling commands of its superiors (see Exalted, p. 295), though standard forms of mental influence, Charm-backed or otherwise, still apply. Additionally, loyal demons become immune to Yozi possession. Should such spirits act to betray the Lawgiver, the penalty inflicted by Sun King Radiance upon their actions becomes external rather than internal.</p>",
+    "source": "Return of the Scarlet Empress",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "10ac1e6326d9d78e",
+            "charmName": "Sun King Radiance",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a2b3c4d5e6f70001"
+  },
+  "folder": "b0a1d89a8f7c4cdb",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

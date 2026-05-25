@@ -1,0 +1,27 @@
+{
+  "_id": "0001000000000055",
+  "_key": "!actors!0001000000000055",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "The Unconquered Sun",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "spirit",
+    "concept": "",
+    "essence": { "value": 10 },
+    "willpower": { "value": 10, "max": 10 },
+    "motes": { "value": 0, "max": 250 },
+    "pools": { "combat": 27, "social": 22, "physical": 26 },
+    "combat": { "joinBattle": 18, "dodgeDV": 13, "parryDV": 13, "dodgeMDV": 5, "parryMDV": 5, "soak": { "bashing": 30, "lethal": 30, "aggravated": 15 }, "hardness": 30 },
+    "health": { "bashing": 0, "lethal": 0, "aggravated": 0, "totalBoxes": 35 },
+    "powers": "<p>Highest of Holies, Righteous Answer of Catechism, Transcendent Tongue of the Shining One, Blessed is the Light, Grace Dawns Eternal, Perfection Beyond Imagining, Titan-Unleashing Clarion, Aegis of Unconquered Might, Godspear of All-Searing Noon, Wrath Beyond Measure, Infinite Glories Mien, Sun Turns His Face. Master of Solar Hero Style, Arms of the Unconquered Sun Style, and all four Virtue styles.</p>",
+    "notes": "<p><strong>Strike</strong>: Speed 5, Accuracy 25, Damage 20B/L, Parry DV 13, Rate 4, Tags N,P</p><p><strong>Clinch</strong>: Speed 6, Accuracy 24, Damage 20B/L, Rate 1, Tags C,N,P</p><p><strong>Godspear of All-Searing Noon (Melee)</strong>: Speed 3, Accuracy 40, Damage 40B/L, Parry DV 20, Rate 4</p><p>All attacks inflict aggravated damage on creatures of darkness.</p>",
+    "biography": "<p>The greatest of gods and ostensible ruler of the Celestial Bureaucracy. Ignis Divine rules largely in absentia through functionaries. He has 10 purchases each of Essence Plethora, Reserve of Will, and Ox-Body Technique. It costs him 100 motes to materialize.</p><p>Source: Glories of the Most High: The Unconquered Sun.</p>",
+    "purchaseLocked": false
+  },
+  "folder": "b2c3d4e5",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

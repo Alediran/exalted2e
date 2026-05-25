@@ -1,0 +1,61 @@
+{
+  "_id": "a2b3c4d5e6f7001b",
+  "_key": "!items!a2b3c4d5e6f7001b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Mere Wounds Mocked",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 4,
+    "minAbility": 0,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": [],
+    "cost": { "formula": "-- (+3m, 1wp)", "resonance": 0, "limitTrigger": 0 },
+    "description": "<p>The Ebon Dragon can pay an extra three motes and one Willpower when activating Damning Petulance Technique to boost its duration to one scene. The boosted Charm automatically contests all attack rolls against the Ebon Dragon while active and further applies its effects to all damage rolls made against him. (Damage not resulting from Virtue or stunt-enhanced actions uses target number 9.)</p>",
+    "source": "Return of the Scarlet Empress",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f96c304f4e6a6154",
+            "charmName": "Damning Petulance Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a2b3c4d5e6f7001b"
+  },
+  "folder": "7c2ec8d4b84c1156",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

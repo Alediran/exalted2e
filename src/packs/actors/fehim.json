@@ -1,0 +1,27 @@
+{
+  "_id": "0001000000000052",
+  "_key": "!actors!0001000000000052",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Fehim",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "mortal",
+    "concept": "",
+    "essence": { "value": 4 },
+    "willpower": { "value": 6, "max": 6 },
+    "motes": { "value": 0, "max": 53 },
+    "pools": { "combat": 8, "social": 5, "physical": 4 },
+    "combat": { "joinBattle": 8, "dodgeDV": 7, "parryDV": 4, "dodgeMDV": 3, "parryMDV": 0, "soak": { "bashing": 8, "lethal": 7, "aggravated": 0 }, "hardness": 2 },
+    "health": { "bashing": 0, "lethal": 0, "aggravated": 0, "totalBoxes": 10 },
+    "powers": "<p>Body-Mending Meditation, Dread Panoply of the Silent Wind, First Adorjan Excellency (x4), First Investigation Excellency, First Melee Excellency, Hungry Tiger Technique, Judge's Ear Technique, Ox-Body Technique (x2), Reflex Sidestep Technique, Sacred Kamilla's Inhalation, Second Dodge Excellency, Sorcerous Enlightenment of Adorjan (x2), Spirit-Cutting Attack, Spirit-Detecting Glance, Thousandfold Typhoon Hand, Wind-Born Stride.</p><p>Combo: Three Devils Blade (First Melee Excellency, Thousandfold Typhoon Hand, Reflex Sidestep Technique, Second Dodge Excellency).</p><p>Spells (Celestial): Fiend-Vassal Conscription, Insidious Tendrils of Hate, Sapphire Countermagic, Shadows of the Ancient Past, Summoning the Heart of Darkness.</p><p>Spells (Terrestrial): Assassin's Fatal Touch, Corrupted Words, Emerald Circle Banishment, Empathic Wind, Flight of Separation, Private Plaza of Downcast Eyes, Slave-Spawn Summons.</p>",
+    "notes": "<p><strong>Exceptional Short Sword</strong>: Speed 4, Accuracy 11, Damage 7L+Yozi Venom, Parry DV 5, Rate 3</p><p><strong>Fine Knife</strong>: Speed 5, Accuracy 10, Damage 5L+Yozi Venom, Parry DV 4, Rate 3, Tags T</p><p>Yozi Venom: Damage 10A/minute, Toxicity 5L, Tolerance --/--, Penalty -5. Weapons stored Elsewhere via Dread Panoply of the Silent Wind.</p>",
+    "biography": "<p>A slender, wiry man of middle height with brown skin and shock-white dreadlocks. Born a bastard child in the Varang City-States, adopted by the Three Devils Gang, he Exalted as a Twilight Caste Solar when he took sanctuary in a shrine of the Unconquered Sun. Seduced by demons he summoned in his quest for vengeance and knowledge, he eventually turned akuma to Cecelyne. Now serves as the operator of the Last Supplicant of Endless Power (the Penitent statue at the Lap) for the Empress's forces.</p><p>Aspect/Caste: Twilight Solar (akuma, Cecelyne). Source: Return of the Scarlet Empress.</p>",
+    "purchaseLocked": false
+  },
+  "folder": "c3d4e5f6",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

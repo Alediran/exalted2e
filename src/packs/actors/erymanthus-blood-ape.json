@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000046",
+  "_key": "!actors!0001000000000046",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Erymanthus (Blood-Ape)",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "demon",
+    "concept": "",
+    "essence": {
+      "value": 2
+    },
+    "willpower": {
+      "value": 7,
+      "max": 7
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 8,
+      "social": 4,
+      "physical": 8
+    },
+    "combat": {
+      "joinBattle": 6,
+      "dodgeDV": 5,
+      "parryDV": 4,
+      "dodgeMDV": 3,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 8,
+        "lethal": 6,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 9
+    },
+    "powers": "",
+    "notes": "<p><strong>Claw</strong>: Speed 5, Accuracy 9, Damage 8L, Defense 8, Rate 2</p><p><strong>Bone Club</strong>: Speed 7, Accuracy 8, Damage 8B, Defense 6, Rate 1</p><p>Essence Pool: 65. Materialize: 45m. Spirit Charms: Bane Weapon, Essence Plethora, Landscape Travel (double movement swinging from trees), Principle of Motion. First and Second Excellencies: Athletics, Dodge, Martial Arts, Presence, Stealth. Often puts up only token resistance to binding. Called by sound of last drop of blood of a mortal species falling to earth.</p>",
+    "biography": "<p>Demons of the First Circle. Favored demons of summoners. Hulking apes with dull red fur, horny bone protrusions along their back and head crests, long grooved black claws. Low animal intelligence but cruel cunning.</p>",
+    "purchaseLocked": false
+  },
+  "folder": "d4e5f6a7",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

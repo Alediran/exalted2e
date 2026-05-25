@@ -1,0 +1,61 @@
+{
+  "_id": "a2b3c4d5e6f70017",
+  "_key": "!items!a2b3c4d5e6f70017",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ebon Dragon Epic Panoply",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "infernal",
+    "ability": "",
+    "essence": 10,
+    "minAbility": 0,
+    "charmType": "permanent",
+    "duration": "permanent",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [],
+    "keywords": ["Shaping"],
+    "cost": { "formula": "--", "resonance": 0, "limitTrigger": 0 },
+    "description": "<p>The Ebon Dragon has (Willpower) DV/MDV against any attack, choosing how this defense manifests. His intrinsic cowardice prevents him from parrying physical attacks as other Yozis can. He gains three attack options: Strike (Speed 5, Accuracy 20, Damage 10B/L, Parry DV --, Rate 5, Tags N); Clinch (Speed 6, Accuracy 20, Damage 10B/L, Parry DV --, Rate 1, Tags C,N,P); Blast (Speed 5, Accuracy 20, Damage 10B/L, Range 1 mile, Rate 5, Tags N). Normally he cannot attack except in accordance with Ebon Dragon Glory Incarnate. If he steals traits using Puissance Mimicry Intuition, he may use those traits to attack at will, with Accuracy of (Dexterity + [Melee or Martial Arts]) for close combat and (Dexterity + [Archery or Thrown]) for ranged.</p>",
+    "source": "Return of the Scarlet Empress",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "a2b3c4d5e6f70016",
+            "charmName": "Ebon Dragon Worldshaper Assumption",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "a2b3c4d5e6f70017"
+  },
+  "folder": "7c2ec8d4b84c1156",
+  "sort": 0,
+  "ownership": { "default": 0 },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000016",
+  "_key": "!actors!0001000000000016",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "River Dragon",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "beast",
+    "concept": "",
+    "essence": {
+      "value": 1
+    },
+    "willpower": {
+      "value": 4,
+      "max": 4
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 6,
+      "social": 4,
+      "physical": 6
+    },
+    "combat": {
+      "joinBattle": 6,
+      "dodgeDV": 2,
+      "parryDV": 3,
+      "dodgeMDV": 2,
+      "parryMDV": 1,
+      "soak": {
+        "bashing": 12,
+        "lethal": 6,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 12
+    },
+    "powers": "",
+    "notes": "<p><strong>Bite</strong>: Speed 5, Accuracy 5, Damage 14L, Rate 1</p><p><strong>Claw</strong>: Speed 6, Accuracy 5, Damage 10L, Rate 2</p>",
+    "biography": "<p>A feared predator of river mouths and bays. It hunts mostly large fish, seals and small whales, but will hunt down fishing ships. Its long, serpentine neck and huge flippers make it capable of dragging itself onto beaches.</p>",
+    "purchaseLocked": false
+  },
+  "folder": "a1b2c3d4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

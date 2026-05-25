@@ -1,0 +1,36 @@
+{
+  "_id": "a2b3c4d5e6f70025",
+  "_key": "!items!a2b3c4d5e6f70025",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Undisturbed Convocation Veil",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "solar-circle-undisturbed-convocation-veil",
+    "tradition": "sorcery",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 50,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "",
+    "target": "Area",
+    "description": "<p>The sorcerer speaks three profound silences memorializing the souls She Who Lives in Her Name shattered in the Three Spheres Cataclysm. From the stillness of this loss and the stasis of the Pyrian flames, a magical Shaping calm expands to fill a space with a radius equal to the sorcerer's Essence rating in miles and lasts for a span of three hours and three heartbeats. The center of this radius can be positioned anywhere, as long as the sorcerer remains within the sphere. Although the spell emits a distinctive white bonfire of crystallized fire around the sorcerer for the duration of its casting, the resultant radiance of its power cannot be detected by mundane senses or Essence-based perception save by the ways that the laws of reality change within it. Inside the convergence, it is not possible to teleport, scry or send information/communication through any form of magic, regardless of that magic's power. In the moment such an effect would take place, it does not, and no costs are paid (though actions spent on the futile attempt still occur). The ward blocks effects entering from outside the radius as readily as effects generated within it. Casting Adamant Countermagic within the radius terminates Undisturbed Convocation Veil with no scattering of Essence. Other magic that can terminate an Adamant Circle spell must target the exact center of the radius to succeed.</p>",
+    "source": "Return of the Scarlet Empress"
+  },
+  "folder": "66776f28169b53d7",
+  "ownership": { "default": 0 },
+  "flags": {}
+}

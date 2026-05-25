@@ -1,0 +1,65 @@
+{
+  "_id": "0001000000000045",
+  "_key": "!actors!0001000000000045",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Octavian, the Living Tower (Demon of the Second Circle)",
+  "type": "npc",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "npcType": "demon",
+    "concept": "",
+    "essence": {
+      "value": 7
+    },
+    "willpower": {
+      "value": 10,
+      "max": 10
+    },
+    "motes": {
+      "value": 0,
+      "max": 0
+    },
+    "pools": {
+      "combat": 12,
+      "social": 7,
+      "physical": 12
+    },
+    "combat": {
+      "joinBattle": 10,
+      "dodgeDV": 9,
+      "parryDV": 6,
+      "dodgeMDV": 5,
+      "parryMDV": 2,
+      "soak": {
+        "bashing": 22,
+        "lethal": 19,
+        "aggravated": 0
+      },
+      "hardness": 0
+    },
+    "health": {
+      "bashing": 0,
+      "lethal": 0,
+      "aggravated": 0,
+      "totalBoxes": 15
+    },
+    "powers": "",
+    "notes": "<p><strong>Blinding/Deafening Punch</strong>: Speed 5, Accuracy 13, Damage 13B, Defense 14, Rate 3</p><p><strong>Equitable Resolution (Malfean Iron Staff)</strong>: Speed 7, Accuracy 17, Damage 23B, Defense 18, Rate 4</p><p>Essence Pool: 120. Materialize: 85m. Backgrounds: Allies 2, Artifact 4, Backing 4, Cult 5, Followers 5. Spirit Charms: Bane Weapon, Commanding the Beasts of the Earth, Measure the Wind, Principle of Motion, Words of Power. First/Second/Third Excellencies: Archery, Athletics, Dodge, Integrity, Martial Arts, Presence, Thrown, War. Equitable Resolution shatters any mortal weapon; reflexive disarm on successful parry against magical materials. Blinding punch: target rolls [Stamina+Resistance] diff 7 or blinded/deafened for one day. Called by challenge shouted from mountain peak for 7 days.</p>",
+    "biography": "<p>The Defining Soul of the Ravine of Whispers. Stands 10 feet tall and six feet broad, skin like stone, muscles like boulders, coated in thin black oil that blinds, deafens or erases memories. Undefeated in the demon realm.</p>",
+    "purchaseLocked": false
+  },
+  "folder": "d4e5f6a7",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}
