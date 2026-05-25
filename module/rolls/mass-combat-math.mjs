@@ -130,3 +130,7 @@ export function computeExhaustionDifficulty(armorFatigue, morale, engaged, charg
   if (charged)           diff += 1;
   return Math.max(1, diff);
 }
+
+export function applyRelayBonus(commanderPool, relayCommandPool) {
+  return Math.max(commanderPool ?? 0, relayCommandPool ?? 0);
+}

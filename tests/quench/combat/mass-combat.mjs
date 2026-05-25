@@ -1,7 +1,7 @@
 import { assertTestWorld } from "../_helpers/world.mjs";
 import { rollMassCombatAttack } from "../../../module/rolls/mass-combat-roll.mjs";
 import { ExaltedRoll } from "../../../module/rolls/exalted-roll.mjs";
-import { rollRally, checkAndDisband, rollExhaustion, performSignalUnits, rollCharge } from "../../../module/rolls/unit-action-roll.mjs";
+import { rollRally, checkAndDisband, rollExhaustion, performSignalUnits, rollCharge, rollTurnUnit, rollSplitUnit } from "../../../module/rolls/unit-action-roll.mjs";
 import { computeSecondWindEndurance } from "../../../module/rolls/mass-combat-math.mjs";
 
 export function registerMassCombat(context) {
@@ -794,6 +794,124 @@ export function registerMassCombatPhase6(context) {
       assert.ok(game.messages.size > msgsBefore, "signal card posted");
       assert.equal(result.relays, 2, "relay count in result");
       await unitActor.update({ "system.relays": 0 });
+    });
+  });
+}
+
+export function registerMassCombatPhase7(context) {
+  const { describe, it, assert, before, after } = context;
+
+  before(assertTestWorld);
+
+  let commanderActor, unitActor;
+
+  before(async () => {
+    commanderActor = await Actor.create({
+      name: "P7Commander",
+      type: "character",
+      system: {
+        attributes: { charisma: { value: 5 } },
+        abilities:  { war: { value: 5 } }
+      }
+    });
+
+    unitActor = await Actor.create({
+      name: "P7TurnUnit",
+      type: "unit",
+      system: {
+        magnitude:        { value: 3, max: 5 },
+        drill:            2,
+        endurance:        3,
+        morale:           2,
+        commanderActorId: commanderActor.id,
+        relayCommandPool: 0,
+      }
+    });
+  });
+
+  after(async () => {
+    await unitActor?.delete();
+    await commanderActor?.delete();
+  });
+
+  describe("[P7-402] rollTurnUnit success", () => {
+    it("success=true with pool=10 vs diff=1", async () => {
+      // commander Cha=5+War=5=10; mag=3, drill=2 → diff=max(1,3-2)=1 — guaranteed success
+      await unitActor.update({
+        "system.commanderActorId": commanderActor.id,
+        "system.relayCommandPool": 0,
+        "system.magnitude.value":  3,
+        "system.drill":            2,
+      });
+      const fresh  = game.actors.get(unitActor.id);
+      const result = await rollTurnUnit(fresh);
+      assert.ok(result.success, "pool=10 vs diff=1 should succeed");
+    });
+  });
+
+  describe("[P7-403] rollTurnUnit failure (deterministic)", () => {
+    it("success=false with pool=1 vs diff=5", async () => {
+      // No commander + relayPool=0 → pool=Math.max(1,0+0)=1
+      // mag=6, drill=1 → diff=max(1,6-1)=5; single die can't reach 5 successes (max 2)
+      await unitActor.update({
+        "system.commanderActorId": "",
+        "system.relayCommandPool": 0,
+        "system.magnitude.value":  6,
+        "system.drill":            1,
+      });
+      const fresh  = game.actors.get(unitActor.id);
+      const result = await rollTurnUnit(fresh);
+      assert.ok(!result.success, "pool=1 vs diff=5 should fail");
+      await unitActor.update({
+        "system.commanderActorId": commanderActor.id,
+        "system.relayCommandPool": 0,
+        "system.magnitude.value":  3,
+        "system.drill":            2,
+      });
+    });
+  });
+
+  describe("[P7-404] rollTurnUnit uses relay pool when higher", () => {
+    it("result.pool equals relayCommandPool", async () => {
+      // No commander (Cha+War=0 → commanderPool=1), relay=10 → effective pool=10
+      await unitActor.update({
+        "system.commanderActorId": "",
+        "system.relayCommandPool": 10,
+        "system.magnitude.value":  3,
+        "system.drill":            2,
+      });
+      const fresh  = game.actors.get(unitActor.id);
+      const result = await rollTurnUnit(fresh);
+      assert.equal(result.pool, 10, "pool should equal relayCommandPool");
+      await unitActor.update({
+        "system.commanderActorId": commanderActor.id,
+        "system.relayCommandPool": 0,
+      });
+    });
+  });
+
+  describe("[P7-405] rollSplitUnit uses relay pool when higher", () => {
+    it("result.pool equals relayCommandPool", async () => {
+      // No commander (commanderPool=1), relay=10 → effective pool=10
+      await unitActor.update({
+        "system.commanderActorId": "",
+        "system.relayCommandPool": 10,
+        "system.magnitude.value":  3,
+        "system.drill":            2,
+      });
+      const fresh  = game.actors.get(unitActor.id);
+      const result = await rollSplitUnit(fresh, { newUnitMagnitude: 1 });
+      // Clean up any actor created by the split
+      if (result.newUnitName) {
+        const splitActor = game.actors.find(a => a.name === result.newUnitName);
+        if (splitActor) await splitActor.delete();
+      }
+      assert.equal(result.pool, 10, "pool should equal relayCommandPool");
+      await unitActor.update({
+        "system.commanderActorId": commanderActor.id,
+        "system.relayCommandPool": 0,
+        "system.magnitude.value":  3,
+      });
     });
   });
 }

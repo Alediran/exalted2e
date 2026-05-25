@@ -950,7 +950,8 @@ body.ex2e-light-mode .mass-combat-result {
 .mass-combat-result.unit-action .mc-result-box.formation-success,
 .mass-combat-result.unit-action .mc-result-box.disengage-success,
 .mass-combat-result.unit-action .mc-result-box.split-result.success,
-.mass-combat-result.unit-action .mc-result-box.merge-result.success {
+.mass-combat-result.unit-action .mc-result-box.merge-result.success,
+.mass-combat-result.unit-action .mc-result-box.turn-success {
   background: #eaf4ea;
   border-color: #5a9a5a;
 }
@@ -959,7 +960,8 @@ body.ex2e-light-mode .mass-combat-result {
 .mass-combat-result.unit-action .mc-result-box.formation-fail,
 .mass-combat-result.unit-action .mc-result-box.disengage-fail,
 .mass-combat-result.unit-action .mc-result-box.split-result.fail,
-.mass-combat-result.unit-action .mc-result-box.merge-result.failure {
+.mass-combat-result.unit-action .mc-result-box.merge-result.failure,
+.mass-combat-result.unit-action .mc-result-box.turn-fail {
   background: #f9eeee;
   border-color: #c05050;
 }

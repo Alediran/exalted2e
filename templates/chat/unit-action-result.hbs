@@ -9,6 +9,7 @@
     {{else if (eq actionKey "disband")}}{{localize "EX2E.UnitDisbanded"}}
     {{else if (eq actionKey "exhaustion")}}{{localize "EX2E.RollExhaustion"}}
     {{else if (eq actionKey "signal")}}{{localize "EX2E.ActionSignal"}}
+    {{else if (eq actionKey "turn")}}{{localize "EX2E.ActionTurn"}}
     {{/if}}
   </h3>
 
@@ -166,6 +167,17 @@
   {{#if (eq actionKey "signal")}}
   <div class="mc-result-box signal-result">
     <p>{{signalText}}</p>
+  </div>
+  {{/if}}
+
+  {{!-- Turn result --}}
+  {{#if (eq actionKey "turn")}}
+  <div class="mc-result-box {{#if success}}turn-success{{else}}turn-fail{{/if}}">
+    {{#if success}}
+      <strong>{{localize "EX2E.TurnSuccess"}}</strong>
+    {{else}}
+      <strong>{{localize "EX2E.TurnFailed"}}</strong>
+    {{/if}}
   </div>
   {{/if}}
 </div>

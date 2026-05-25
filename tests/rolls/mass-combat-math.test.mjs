@@ -25,7 +25,8 @@ import {
   computeMergeMagnitude,
   computeRallyPool,
   computeSecondWindEndurance,
-  computeExhaustionDifficulty
+  computeExhaustionDifficulty,
+  applyRelayBonus,
 } from "../../module/rolls/mass-combat-math.mjs";
 
 describe("computeAttackPool", () => {
@@ -386,5 +387,26 @@ describe("computeExhaustionDifficulty", () => {
   it("result is always at least 1", () => {
     // armorFatigue=0, perfect morale → max(1, 0-2) = 1
     expect(computeExhaustionDifficulty(0, 5, false, false)).toBe(1);
+  });
+});
+
+describe("applyRelayBonus", () => {
+  it("returns commanderPool when relay is lower", () => {
+    expect(applyRelayBonus(5, 3)).toBe(5);
+  });
+  it("returns relayCommandPool when relay is higher", () => {
+    expect(applyRelayBonus(3, 8)).toBe(8);
+  });
+  it("returns commanderPool when values are equal", () => {
+    expect(applyRelayBonus(4, 4)).toBe(4);
+  });
+  it("treats null relayCommandPool as 0", () => {
+    expect(applyRelayBonus(5, null)).toBe(5);
+  });
+  it("treats undefined relayCommandPool as 0", () => {
+    expect(applyRelayBonus(5, undefined)).toBe(5);
+  });
+  it("treats null commanderPool as 0", () => {
+    expect(applyRelayBonus(null, 5)).toBe(5);
   });
 });

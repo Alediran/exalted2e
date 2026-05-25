@@ -6,9 +6,9 @@ import {
   computeDisengagePool,
   computeDisengageDifficulty,
   computeSplitParentMagnitude,
-  computeRallyPool,
   computeSecondWindEndurance,
   computeExhaustionDifficulty,
+  applyRelayBonus,
 } from "./mass-combat-math.mjs";
 
 function getCommanderStats(unitActor) {
@@ -231,6 +231,37 @@ export async function rollCharge(unitActor) {
   return state;
 }
 
+export async function rollTurnUnit(unitActor) {
+  const sys = unitActor.system;
+  const { charisma, war } = getCommanderStats(unitActor);
+  const pool = applyRelayBonus(computeChargePool(charisma, war), sys.relayCommandPool ?? 0);
+  const diff = computeChargeDifficulty(sys.magnitude.value, sys.drill);
+
+  const roll   = new ExaltedRoll({ pool });
+  const result = await roll.evaluate();
+  const success = result.successes >= diff;
+
+  const state = {
+    actionKey:    "turn",
+    attackerName: unitActor.name,
+    pool,
+    successes:    result.successes,
+    difficulty:   diff,
+    diceDetails:  result.diceDetails,
+    success,
+  };
+
+  await ChatMessage.create({
+    speaker: ChatMessage.getSpeaker({ actor: unitActor }),
+    content: await foundry.applications.handlebars.renderTemplate(
+      "systems/exalted2e/templates/chat/unit-action-result.hbs",
+      state
+    ),
+  });
+
+  return state;
+}
+
 export async function rollChangeFormation(unitActor, {
   newFormation,
   pool,
@@ -314,7 +345,7 @@ export async function rollDisengage(unitActor) {
 export async function rollSplitUnit(unitActor, { newUnitMagnitude }) {
   const sys = unitActor.system;
   const { charisma, war } = getCommanderStats(unitActor);
-  const pool = computeChargePool(charisma, war); // Split uses Charisma+War, same as Charge
+  const pool = applyRelayBonus(computeChargePool(charisma, war), sys.relayCommandPool ?? 0); // relay pool takes over when higher
   const diff = Math.max(1, sys.magnitude.value - sys.drill);
 
   const roll = new ExaltedRoll({ pool });

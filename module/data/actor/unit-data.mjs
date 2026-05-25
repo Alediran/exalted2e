@@ -30,7 +30,8 @@ export class UnitData extends foundry.abstract.TypeDataModel {
       }),
       engaged:  new fields.BooleanField({ initial: false }),
       aimBonus: new fields.NumberField({ integer: true, min: 0, initial: 0 }),
-      relays:   new fields.NumberField({ integer: true, min: 0, initial: 0 }),
+      relays:           new fields.NumberField({ integer: true, min: 0, initial: 0 }),
+      relayCommandPool: new fields.NumberField({ integer: true, min: 0, initial: 0 }),
       disbanded: new fields.BooleanField({ initial: false })
     };
   }

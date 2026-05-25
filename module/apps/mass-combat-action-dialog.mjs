@@ -8,12 +8,14 @@ import {
   rollMergeUnits,
   rollRally,
   performSignalUnits,
+  rollTurnUnit,
 } from "../rolls/unit-action-roll.mjs";
 import {
   computeChangeFormationDifficulty,
   computeChargePool,
   computeChargeDifficulty,
   computeMergeMagnitude,
+  applyRelayBonus,
 } from "../rolls/mass-combat-math.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
@@ -27,6 +29,7 @@ const ACTIONS = [
   { key: "charge",             labelKey: "EX2E.ActionCharge",         speed: 3, dvMod: -1, blockedIfHesitating: true },
   { key: "rally",              labelKey: "EX2E.ActionRally",          speed: 4, dvMod: -1, needsRoll: true },
   { key: "change-formation",   labelKey: "EX2E.ActionChangeFormation",speed: 5, dvMod: -1, needsRoll: true },
+  { key: "turn",               labelKey: "EX2E.ActionTurn",           speed: 3, dvMod: -1 },
   { key: "disengage",          labelKey: "EX2E.ActionDisengage",      speed: 0, dvMod:  0, blockedIfNotEngaged: true },
   { key: "split",              labelKey: "EX2E.ActionSplitUnit",      speed: 3, dvMod: -1 },
   { key: "merge",              labelKey: "EX2E.ActionMergeUnits",     speed: 3, dvMod: -1, requiresTarget: true },
@@ -120,16 +123,12 @@ export class MassCombatActionDialog extends HandlebarsApplicationMixin(Applicati
       if (this._selectedAction === "rally") {
         const abilScore = Math.max(war, perf);
         const abilLabel = abilScore === war ? `War ${war}` : `Performance ${perf}`;
-        selectedPool    = cha + abilScore;
+        selectedPool    = applyRelayBonus(cha + abilScore, unitSystem.relayCommandPool ?? 0);
         selectedDiff    = Math.max(1, mag - drill);
         selectedFormula = `(Cha ${cha} + ${abilLabel}) = ${selectedPool} dice, difficulty ${selectedDiff}`;
-      } else if (this._selectedAction === "charge") {
-        selectedPool    = cha + war;
-        selectedDiff    = Math.max(1, mag - drill);
-        selectedFormula = `(Cha ${cha} + War ${war}) = ${selectedPool} dice, difficulty ${selectedDiff}`;
       } else if (this._selectedAction === "change-formation") {
         const engagedMod = unitSystem.engaged ? 2 : 0;
-        selectedPool     = cha + war;
+        selectedPool     = applyRelayBonus(cha + war, unitSystem.relayCommandPool ?? 0);
         selectedDiff     = Math.max(1, mag - drill + engagedMod);
         const engNote    = engagedMod > 0 ? " (+2 engaged)" : "";
         selectedFormula  = `(Cha ${cha} + War ${war}) = ${selectedPool} dice, difficulty ${selectedDiff}${engNote}`;
@@ -140,11 +139,20 @@ export class MassCombatActionDialog extends HandlebarsApplicationMixin(Applicati
 
     // Show charge formula preview even though roll happens at confirm time
     if (this._selectedAction === "charge" && commander) {
-      selectedPool = computeChargePool(
-        commander.system.attributes?.charisma?.value ?? 0,
-        commander.system.abilities?.war?.value ?? 0
-      );
-      selectedDiff = computeChargeDifficulty(sys.magnitude.value, sys.drill);
+      const cha       = commander.system.attributes?.charisma?.value ?? 0;
+      const war       = commander.system.abilities?.war?.value       ?? 0;
+      selectedPool    = computeChargePool(cha, war);
+      selectedDiff    = computeChargeDifficulty(sys.magnitude.value, sys.drill);
+      selectedFormula = `(Cha ${cha} + War ${war}) = ${selectedPool} dice, difficulty ${selectedDiff}`;
+    }
+
+    // Show turn formula preview even though roll happens at confirm time
+    if (this._selectedAction === "turn" && commander) {
+      const cha       = commander.system.attributes?.charisma?.value ?? 0;
+      const war       = commander.system.abilities?.war?.value       ?? 0;
+      selectedPool    = applyRelayBonus(computeChargePool(cha, war), unitSystem.relayCommandPool ?? 0);
+      selectedDiff    = computeChargeDifficulty(sys.magnitude.value, sys.drill);
+      selectedFormula = `(Cha ${cha} + War ${war}) = ${selectedPool} dice, difficulty ${selectedDiff}`;
     }
 
     const formationOptions = ["none","unordered","skirmish","relaxed","close"]
@@ -217,7 +225,7 @@ export class MassCombatActionDialog extends HandlebarsApplicationMixin(Applicati
 
     let pool, diff;
     if (this._selectedAction === "rally") {
-      pool = cha + Math.max(war, perf);
+      pool = applyRelayBonus(cha + Math.max(war, perf), unitSystem.relayCommandPool ?? 0);
       diff = Math.max(1, mag - drill);
     } else if (this._selectedAction === "charge") {
       pool = cha + war;
@@ -225,7 +233,7 @@ export class MassCombatActionDialog extends HandlebarsApplicationMixin(Applicati
     } else {
       // change-formation
       const attackedSinceLastAction = this.element?.querySelector('[name="attackedSinceLastAction"]')?.checked ?? false;
-      pool = cha + war;
+      pool = applyRelayBonus(cha + war, unitSystem.relayCommandPool ?? 0);
       diff = computeChangeFormationDifficulty(mag, drill, { engaged: unitSystem.engaged, attackedSinceLastAction });
     }
 
@@ -285,6 +293,10 @@ export class MassCombatActionDialog extends HandlebarsApplicationMixin(Applicati
 
       case "charge":
         await rollCharge(unit);
+        break;
+
+      case "turn":
+        await rollTurnUnit(unit);
         break;
 
       case "change-formation": {

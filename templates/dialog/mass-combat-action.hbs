@@ -25,11 +25,11 @@
 
   {{#if selectedAction}}
   <div class="mc-action-detail">
+    {{#if selectedFormula}}
+    <div class="mc-formula">{{selectedFormula}}</div>
+    {{/if}}
     {{#if selectedNeedsRoll}}
     <div class="mc-roll-section">
-      {{#if selectedFormula}}
-      <div class="mc-formula">{{selectedFormula}}</div>
-      {{/if}}
       {{#if rollResult}}
       <div class="mc-roll-result">
         <div class="dice-results">
