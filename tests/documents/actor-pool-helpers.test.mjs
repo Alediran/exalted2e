@@ -191,3 +191,87 @@ describe("ExaltedActor.addOnslaught", () => {
     expect(actor.applyDVPenalty).not.toHaveBeenCalled();
   });
 });
+
+describe("ExaltedActor._applyArmorSoak", () => {
+  it("sets armorSoak and totalSoak when armor is equipped", () => {
+    const equippedArmor = {
+      type: "armor",
+      system: {
+        equipped: true,
+        effectiveSoak: { bashing: 3, lethal: 2, aggravated: 1 },
+        effectiveHardness: 2,
+        effectiveMobilityPenalty: -1
+      },
+      name: "Lamellar Armor"
+    };
+    const actor = {
+      items: { find: vi.fn().mockReturnValue(equippedArmor) }
+    };
+    const systemData = {
+      naturalSoak: { bashing: 1, lethal: 1, aggravated: 0 }
+    };
+
+    ExaltedActor.prototype._applyArmorSoak.call(actor, systemData);
+
+    expect(systemData.armorSoak).toEqual({
+      bashing: 3,
+      lethal: 2,
+      aggravated: 1
+    });
+    expect(systemData.totalSoak).toEqual({
+      bashing: 4,
+      lethal: 3,
+      aggravated: 1
+    });
+    expect(systemData.hardness).toBe(2);
+    expect(systemData.mobilityPenalty).toBe(-1);
+    expect(systemData.armorName).toBe("Lamellar Armor");
+  });
+
+  it("sets armorSoak to zero when no armor is equipped", () => {
+    const actor = {
+      items: { find: vi.fn().mockReturnValue(undefined) }
+    };
+    const systemData = {
+      naturalSoak: { bashing: 1, lethal: 1, aggravated: 0 }
+    };
+
+    ExaltedActor.prototype._applyArmorSoak.call(actor, systemData);
+
+    expect(systemData.armorSoak).toEqual({
+      bashing: 0,
+      lethal: 0,
+      aggravated: 0
+    });
+    expect(systemData.totalSoak).toEqual({
+      bashing: 1,
+      lethal: 1,
+      aggravated: 0
+    });
+    expect(systemData.hardness).toBe(0);
+    expect(systemData.mobilityPenalty).toBe(0);
+    expect(systemData.armorName).toBeNull();
+  });
+
+  it("defaults armorSoak to zero when armor is missing, even with no naturalSoak", () => {
+    const actor = {
+      items: { find: vi.fn().mockReturnValue(undefined) }
+    };
+    const systemData = {
+      naturalSoak: { bashing: 2, lethal: 1, aggravated: 0 }
+    };
+
+    ExaltedActor.prototype._applyArmorSoak.call(actor, systemData);
+
+    expect(systemData.armorSoak).toEqual({
+      bashing: 0,
+      lethal: 0,
+      aggravated: 0
+    });
+    expect(systemData.totalSoak).toEqual({
+      bashing: 2,
+      lethal: 1,
+      aggravated: 0
+    });
+  });
+});

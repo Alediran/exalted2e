@@ -49,6 +49,38 @@
              min="0" {{#unless isEditable}}readonly{{/unless}}>
     </div>
     {{/if}}
+    <!-- Purchase tier (only shown when maxPurchases > 1) -->
+    {{#if isEditable}}
+    <div class="field-group">
+      <label>{{localize "EX2E.MaxPurchases"}}</label>
+      <input type="text" name="system.maxPurchases" value="{{system.maxPurchases}}"
+             placeholder="1" {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    {{/if}}
+    {{#if (gt resolvedMaxPurchases 1)}}
+    <div class="field-group purchase-tier-row">
+      <label>{{localize "EX2E.PurchaseTier"}}</label>
+      <span>{{system.purchaseLevel}} / {{resolvedMaxPurchases}}</span>
+      {{#if isEditable}}
+      {{#if (lt system.purchaseLevel resolvedMaxPurchases)}}
+      <button type="button" class="btn-sm" data-action="incrementPurchaseLevel"
+              title="{{localize 'EX2E.IncrementPurchaseLevel'}}">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      {{/if}}
+      {{/if}}
+    </div>
+    {{#if system.essenceGates.length}}
+    <div class="field-group" style="grid-column:1/-1">
+      <label>{{localize "EX2E.PurchaseEssenceGates"}}</label>
+      <div class="essence-gates-display">
+        {{#each system.essenceGates}}
+        <span class="gate-pill">Tier {{add @index 2}}: Ess {{this}}+</span>
+        {{/each}}
+      </div>
+    </div>
+    {{/if}}
+    {{/if}}
     <!-- Min Requirements (hidden for Infernal; label swaps to Min Attribute for Lunar/Alchemical) -->
     {{#unless (eq system.exaltType "infernal")}}
     <div class="field-group">

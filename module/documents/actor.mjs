@@ -3,7 +3,7 @@ import { clampDamage, healInOrder } from "../rolls/health-math.mjs";
 import { aggregatePenalties, sumPenalties } from "./penalties-math.mjs";
 import { collectPermanentTraitChanges } from "./purchase-mode-math.mjs";
 import { getClarityBand } from "../combat/clarity-math.mjs";
-import { isCharmPassivelyActive } from "../rolls/charm-passive-math.mjs";
+import { isCharmPassivelyActive, aggregateMoveBonusFromCharms } from "../rolls/charm-passive-math.mjs";
 import { collectMoteRecoveryCharms, collectWillpowerRecoveryCharms } from "../rolls/charm-event-math.mjs";
 import { evaluateCharmFormula } from "./item.mjs";
 
@@ -410,6 +410,7 @@ export class ExaltedActor extends Actor {
     if (this.type === "character") {
       this._applyArmorSoak(systemData);
       this._applyCharmSoak(systemData);
+      this._applyCharmMoveBonus(systemData);
       this._applyWeaponStats(systemData);
       this._applyArtifactCommitment(systemData);
     }
@@ -785,11 +786,17 @@ export class ExaltedActor extends Actor {
 
   /**
    * Add soak from the first equipped armor to the character's natural soak.
+   * Also store the armor soak separately in systemData.armorSoak for later use.
    */
   _applyArmorSoak(systemData) {
     const equippedArmor = this.items.find(i => i.type === "armor" && i.system.equipped);
     if (equippedArmor) {
       const a = equippedArmor.system.effectiveSoak;
+      systemData.armorSoak = {
+        bashing:    a.bashing,
+        lethal:     a.lethal,
+        aggravated: a.aggravated
+      };
       systemData.totalSoak = {
         bashing:    (systemData.naturalSoak?.bashing    ?? 0) + a.bashing,
         lethal:     (systemData.naturalSoak?.lethal     ?? 0) + a.lethal,
@@ -799,6 +806,11 @@ export class ExaltedActor extends Actor {
       systemData.mobilityPenalty   = equippedArmor.system.effectiveMobilityPenalty;
       systemData.armorName         = equippedArmor.name;
     } else {
+      systemData.armorSoak = {
+        bashing:    0,
+        lethal:     0,
+        aggravated: 0
+      };
       systemData.totalSoak = { ...systemData.naturalSoak } ?? { bashing: 0, lethal: 0, aggravated: 0 };
       systemData.hardness        = 0;
       systemData.mobilityPenalty = 0;
@@ -827,6 +839,14 @@ export class ExaltedActor extends Actor {
     }
     systemData.hardness = Math.max(systemData.hardness ?? 0, maxHardnessSetTo)
                         + (b.hardnessAdd ?? 0);
+  }
+
+  _applyCharmMoveBonus(systemData) {
+    const { dashBonus, hasFlight, hasWaterWalking } = aggregateMoveBonusFromCharms(this);
+    systemData.dash             = (systemData.dash ?? 0) + dashBonus;
+    systemData.derivedDashBonus = dashBonus;
+    systemData.hasFlight        = hasFlight;
+    systemData.hasWaterWalking  = hasWaterWalking;
   }
 
   /**
@@ -875,7 +895,7 @@ export class ExaltedActor extends Actor {
     if (h.incapacitated) await this._fireRecoveryEvent("onKill");
   }
 
-  async _fireRecoveryEvent(event) {
+  async _fireRecoveryEvent(event, target = null) {
     if (this.type !== "character") return;
     const charms   = this.items.filter(i => i.type === "charm" && isCharmPassivelyActive(i));
     const rollData = this.getRollData() ?? {};
@@ -886,7 +906,11 @@ export class ExaltedActor extends Actor {
       const amount = evaluateCharmFormula(mr.formula, rollData, 0);
       if (amount <= 0) continue;
       const pool = mr.action === "recoverPersonal" ? "personal" : "peripheral";
-      await this.recoverMotes(amount, pool);
+      if (mr.source === "fromTarget" && target) {
+        await target.spendMotes(amount, pool);
+      } else {
+        await this.recoverMotes(amount, pool);
+      }
     }
 
     const wpCharms = collectWillpowerRecoveryCharms(charms, event);

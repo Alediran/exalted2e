@@ -79,3 +79,32 @@ describe("sumPenalties", () => {
     expect(sumPenalties(undefined, "externalPenalty", "physical")).toBe(0);
   });
 });
+
+// ── scope values used by roll pipeline ────────────────────────────────
+describe("sumPenalties — scope values used by roll pipeline", () => {
+  const makeEffect = (type, value) => ({
+    disabled: false,
+    flags: { exalted2e: { internalPenalty: { type, value } } }
+  });
+
+  it("scope 'physical' is summed when queried with 'physical'", () => {
+    const effects = [makeEffect("physical", -2)];
+    expect(sumPenalties(effects, "internalPenalty", "physical")).toBe(-2);
+  });
+
+  it("scope 'physical' is NOT summed when queried with 'social'", () => {
+    const effects = [makeEffect("physical", -2)];
+    expect(sumPenalties(effects, "internalPenalty", "social")).toBe(0);
+  });
+
+  it("scope 'social' is summed when queried with 'social'", () => {
+    const effects = [makeEffect("social", -3)];
+    expect(sumPenalties(effects, "internalPenalty", "social")).toBe(-3);
+  });
+
+  it("scope 'all' is summed for both 'physical' and 'social'", () => {
+    const effects = [makeEffect("all", -1)];
+    expect(sumPenalties(effects, "internalPenalty", "physical")).toBe(-1);
+    expect(sumPenalties(effects, "internalPenalty", "social")).toBe(-1);
+  });
+});

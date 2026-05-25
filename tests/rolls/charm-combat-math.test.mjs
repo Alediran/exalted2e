@@ -14,6 +14,8 @@ describe("computeAttackCharmBonus", () => {
       extraPostSoakDamageDice: 0,
       ignorePenalties: false,
       ignoreRangeBand: false,
+      soakPiercing: 0,
+      ignoresArmor: false,
     });
   });
 
@@ -221,6 +223,71 @@ describe("computeSocialCharmBonus", () => {
       // no resolvedUnits field → fallback 1 → 2 * 1 = 2
     ];
     expect(computeSocialCharmBonus(charms, {}).poolDice).toBe(2);
+  });
+});
+
+describe("computeAttackCharmBonus — soak piercing", () => {
+  it("returns soakPiercing 0 and ignoresArmor false when no charms", () => {
+    const r = computeAttackCharmBonus([], {});
+    expect(r.soakPiercing).toBe(0);
+    expect(r.ignoresArmor).toBe(false);
+  });
+
+  it("sums soakPiercing from enabled charms", () => {
+    const charms = [
+      { system: { attackBonus: { enabled: true, accuracyDice: "", accuracySuccesses: "", damageDice: "", postSoakDamageDice: "", ignoreAccuracyPenalties: false, ignoreRangeBand: false, soakPiercing: 4, ignoresArmor: false } } },
+      { system: { attackBonus: { enabled: true, accuracyDice: "", accuracySuccesses: "", damageDice: "", postSoakDamageDice: "", ignoreAccuracyPenalties: false, ignoreRangeBand: false, soakPiercing: 2, ignoresArmor: false } } },
+    ];
+    expect(computeAttackCharmBonus(charms, {}).soakPiercing).toBe(6);
+  });
+
+  it("ignores soakPiercing from disabled charms", () => {
+    const charms = [
+      { system: { attackBonus: { enabled: false, accuracyDice: "", accuracySuccesses: "", damageDice: "", postSoakDamageDice: "", ignoreAccuracyPenalties: false, ignoreRangeBand: false, soakPiercing: 5, ignoresArmor: false } } },
+    ];
+    expect(computeAttackCharmBonus(charms, {}).soakPiercing).toBe(0);
+  });
+
+  it("OR-s ignoresArmor across charms", () => {
+    const charms = [
+      { system: { attackBonus: { enabled: true, accuracyDice: "", accuracySuccesses: "", damageDice: "", postSoakDamageDice: "", ignoreAccuracyPenalties: false, ignoreRangeBand: false, soakPiercing: 0, ignoresArmor: false } } },
+      { system: { attackBonus: { enabled: true, accuracyDice: "", accuracySuccesses: "", damageDice: "", postSoakDamageDice: "", ignoreAccuracyPenalties: false, ignoreRangeBand: false, soakPiercing: 0, ignoresArmor: true  } } },
+    ];
+    expect(computeAttackCharmBonus(charms, {}).ignoresArmor).toBe(true);
+  });
+
+  it("ignores ignoresArmor from disabled charms", () => {
+    const charms = [
+      { system: { attackBonus: { enabled: false, accuracyDice: "", accuracySuccesses: "", damageDice: "", postSoakDamageDice: "", ignoreAccuracyPenalties: false, ignoreRangeBand: false, soakPiercing: 0, ignoresArmor: true } } },
+    ];
+    expect(computeAttackCharmBonus(charms, {}).ignoresArmor).toBe(false);
+  });
+});
+
+describe("computeAttackCharmBonus — @purchaseLevel in rollData", () => {
+  it("resolves @purchaseLevel for damageDice formula", () => {
+    const charms = [{ system: {
+      attackBonus: {
+        enabled: true, accuracyDice: "", accuracySuccesses: "",
+        damageDice: "@purchaseLevel", postSoakDamageDice: "",
+        ignoreAccuracyPenalties: false, ignoreRangeBand: false,
+        soakPiercing: 0, ignoresArmor: false
+      },
+      purchaseLevel: 3
+    }}];
+    expect(computeAttackCharmBonus(charms, {}).extraDamageDice).toBe(3);
+  });
+
+  it("defaults @purchaseLevel to 1 when field absent", () => {
+    const charms = [{ system: {
+      attackBonus: {
+        enabled: true, accuracyDice: "@purchaseLevel", accuracySuccesses: "",
+        damageDice: "", postSoakDamageDice: "",
+        ignoreAccuracyPenalties: false, ignoreRangeBand: false,
+        soakPiercing: 0, ignoresArmor: false
+      }
+    }}];
+    expect(computeAttackCharmBonus(charms, {}).extraAccuracyDice).toBe(1);
   });
 });
 

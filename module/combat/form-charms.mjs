@@ -63,10 +63,12 @@ export function buildCharmSynthAEs(charm, rollData = {}) {
 
   if (sys.dvBonus?.enabled) {
     const dv = sys.dvBonus;
+    const pl = sys.purchaseLevel ?? 1;
+    const dvRollData = { ...rollData, purchaseLevel: pl };
     const ev = (formula, fallback) =>
-      formula ? (evaluateCharmFormula(formula, rollData, fallback) ?? fallback) : fallback;
-    const dodge = ev(dv.dodgeBonusFormula, dv.dodgeBonus ?? 0);
-    const parry = ev(dv.parryBonusFormula, dv.parryBonus ?? 0);
+      formula ? (evaluateCharmFormula(formula, dvRollData, fallback) ?? fallback) : fallback;
+    const dodge = ev(dv.dodgeBonusFormula, (dv.dodgeBonus ?? 0) * pl);
+    const parry = ev(dv.parryBonusFormula, (dv.parryBonus ?? 0) * pl);
     if (dodge) changes.push({ key: "system.bonuses.dodgeBonus", type: "add", value: String(dodge) });
     if (parry) changes.push({ key: "system.bonuses.parryBonus", type: "add", value: String(parry) });
     // Penalty-ignore data is non-additive (union/flag) → extraFlags.

@@ -5,6 +5,7 @@ import {
   aggregateExtraActionsMaxFromAEs,
   aggregateSpeedModifierFromAEs,
   getMasteryDiscount,
+  aggregateMoveBonusFromCharms,
 } from "../../module/rolls/charm-passive-math.mjs";
 
 // ── computeWoundReduction ────────────────────────────────────────────
@@ -168,5 +169,73 @@ describe("getMasteryDiscount", () => {
     const discount = getMasteryDiscount(makeActor([makeAE("melee", 6)]), "melee");
     const rawCost = 2 + 1; // 1 success × 2m + 1 die × 1m
     expect(Math.max(0, rawCost - discount)).toBe(0);
+  });
+});
+
+describe("aggregateMoveBonusFromCharms", () => {
+  const makeActor = (charms) => ({
+    items: charms,
+    getRollData: () => ({ dex: 3, ess: 2 })
+  });
+
+  const makeCharm = (mb, duration = "permanent") => ({
+    type: "charm",
+    system: {
+      duration,
+      charmType: "supplemental",
+      active: duration !== "permanent",
+      moveBonus: mb
+    }
+  });
+
+  it("returns zero/false defaults when no charms", () => {
+    const result = aggregateMoveBonusFromCharms(makeActor([]));
+    expect(result).toEqual({ dashBonus: 0, hasFlight: false, hasWaterWalking: false });
+  });
+
+  it("sums dashAdd formula from active charms", () => {
+    const actor = makeActor([makeCharm({ enabled: true, dashAdd: "2", flight: false, waterWalking: false })]);
+    expect(aggregateMoveBonusFromCharms(actor).dashBonus).toBe(2);
+  });
+
+  it("resolves @ess token in dashAdd", () => {
+    const actor = makeActor([makeCharm({ enabled: true, dashAdd: "@ess", flight: false, waterWalking: false })]);
+    expect(aggregateMoveBonusFromCharms(actor).dashBonus).toBe(2);
+  });
+
+  it("stacks dashAdd from multiple charms", () => {
+    const actor = makeActor([
+      makeCharm({ enabled: true, dashAdd: "2", flight: false, waterWalking: false }),
+      makeCharm({ enabled: true, dashAdd: "3", flight: false, waterWalking: false }),
+    ]);
+    expect(aggregateMoveBonusFromCharms(actor).dashBonus).toBe(5);
+  });
+
+  it("skips disabled moveBonus", () => {
+    const actor = makeActor([makeCharm({ enabled: false, dashAdd: "5", flight: true, waterWalking: true })]);
+    const r = aggregateMoveBonusFromCharms(actor);
+    expect(r.dashBonus).toBe(0);
+    expect(r.hasFlight).toBe(false);
+    expect(r.hasWaterWalking).toBe(false);
+  });
+
+  it("ORs flight across charms", () => {
+    const actor = makeActor([
+      makeCharm({ enabled: true, dashAdd: "", flight: false, waterWalking: false }),
+      makeCharm({ enabled: true, dashAdd: "", flight: true,  waterWalking: false }),
+    ]);
+    expect(aggregateMoveBonusFromCharms(actor).hasFlight).toBe(true);
+  });
+
+  it("ORs waterWalking across charms", () => {
+    const actor = makeActor([makeCharm({ enabled: true, dashAdd: "", flight: false, waterWalking: true })]);
+    expect(aggregateMoveBonusFromCharms(actor).hasWaterWalking).toBe(true);
+  });
+
+  it("skips non-charm items", () => {
+    const actor = makeActor([
+      { type: "weapon", system: { moveBonus: { enabled: true, dashAdd: "10", flight: true, waterWalking: true } } }
+    ]);
+    expect(aggregateMoveBonusFromCharms(actor).dashBonus).toBe(0);
   });
 });

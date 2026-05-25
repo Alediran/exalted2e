@@ -100,6 +100,10 @@ export function computeHolyUpgrade({ isHolyAttack, targetIsCoD, baseDamageType }
  */
 export function computeAttackOutcome(attack) {
   const data = { ...attack, defenseChosen: !!attack.defense };
+  const armorComponent = attack.ignoresArmor ? (attack.targetArmorSoak ?? 0) : 0;
+  data.effectiveTargetSoak = Math.max(0,
+    (attack.targetSoak ?? 0) - armorComponent - (attack.soakPiercing ?? 0)
+  );
   if (!attack.defense) return data;
 
   const perfectSoak    = !!attack.perfectDefenseCharm && attack.perfectDefenseType === "soak";

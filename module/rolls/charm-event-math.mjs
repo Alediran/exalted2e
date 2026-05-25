@@ -48,8 +48,10 @@ export function computeTargetPenaltyAmount(items, rollData = {}) {
   for (const c of items) {
     const tp = c?.system?.targetPenalty;
     if (!tp?.enabled) continue;
+    const pl = c.system?.purchaseLevel ?? 1;
+    const charmRollData = { ...rollData, purchaseLevel: pl };
     const amount = tp.amountFormula
-      ? evaluateCharmFormula(tp.amountFormula, rollData, tp.amount ?? 0)
+      ? evaluateCharmFormula(tp.amountFormula, charmRollData, tp.amount ?? 0)
       : (tp.amount ?? 0);
     total += amount;
   }
@@ -75,10 +77,12 @@ export function getTargetPenaltyChanges(items, rollData = {}) {
   for (const c of items) {
     const tp = c?.system?.targetPenalty;
     if (!tp?.enabled) continue;
+    const pl = c.system?.purchaseLevel ?? 1;
+    const charmRollData = { ...rollData, purchaseLevel: pl };
     const rawAmount = tp.amountFormula
-      ? evaluateCharmFormula(tp.amountFormula, rollData, tp.amount ?? 0)
+      ? evaluateCharmFormula(tp.amountFormula, charmRollData, tp.amount ?? 0)
       : (tp.amount ?? 0);
-    const value = Math.abs(Math.min(0, rawAmount));
+    const value = Math.abs(Math.min(0, rawAmount)) * pl;
     if (value <= 0) continue;
     changes.push({
       type:     SCOPE_TO_TYPE[tp.scope] ?? "all",

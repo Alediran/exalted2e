@@ -150,3 +150,13 @@ describe("getTargetPenaltyChanges", () => {
     expect(result[0].label).toBe("Charm Penalty");
   });
 });
+
+describe("collectMoteRecoveryCharms — source field", () => {
+  it("includes charms regardless of source value", () => {
+    const charms = [
+      { system: { moteRecovery: { enabled: true, event: "onAttackSuccess", action: "recoverPeripheral", formula: "2", source: "fromTarget" } } },
+    ];
+    const result = collectMoteRecoveryCharms(charms, "onAttackSuccess");
+    expect(result).toHaveLength(1);
+  });
+});

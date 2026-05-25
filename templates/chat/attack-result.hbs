@@ -208,7 +208,7 @@
         <div class="damage-soak-row">
           {{#if targetHardness}}<label title="{{localize 'EX2E.Hardness'}}">{{localize "EX2E.Hardness"}} {{targetHardness}}</label>{{/if}}
           <label>{{localize "EX2E.Soak"}}</label>
-          <label class="soak-input">{{targetSoak}}{{#if terrainDefenderSoak}} <small>(+{{terrainDefenderSoak}} {{localize "EX2E.TerrainChatSoak"}})</small>{{/if}}</label>
+          <label class="soak-input">{{effectiveTargetSoak}}{{#if terrainDefenderSoak}} <small>(+{{terrainDefenderSoak}} {{localize "EX2E.TerrainChatSoak"}})</small>{{/if}}{{#if soakPiercing}} <small>(−{{soakPiercing}} {{localize "EX2E.SoakPiercing"}})</small>{{/if}}</label>
         </div>
         <button class="btn-roll btn-roll-damage">
           <i class="fa-solid fa-burst"></i> {{localize "EX2E.RollDamage"}}

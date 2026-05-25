@@ -90,6 +90,12 @@
       </button>
     </div>
     {{else}}
+    {{#if isUMI}}
+    <div class="line umi-banner">
+      <strong>{{localize "EX2E.UMIBannerTitle"}}</strong><br/>
+      {{localize "EX2E.UMIBannerBody" cost=umiCostSum}}
+    </div>
+    {{/if}}
     <div class="social-response-controls">
       {{#if wpToResist}}
       <button type="button" class="btn-roll btn-social-resist"

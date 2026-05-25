@@ -1,3 +1,5 @@
+import { evaluateCharmFormula } from "../documents/item.mjs";
+
 /**
  * Returns true if the charm should contribute passive effects.
  * Permanent charms always contribute; other durations only contribute when
@@ -69,4 +71,27 @@ export function getMasteryDiscount(actor, ability) {
       && (e.flags?.exalted2e?.masteryCommitment ?? 0) > 0
   );
   return ae ? Math.floor((ae.flags.exalted2e.masteryCommitment ?? 0) / 2) : 0;
+}
+
+/**
+ * Aggregate movement bonuses from all passively-active charms.
+ * Returns dash pool bonus (sum), flight flag (OR), and water-walking flag (OR).
+ * @param {object} actor
+ * @returns {{ dashBonus: number, hasFlight: boolean, hasWaterWalking: boolean }}
+ */
+export function aggregateMoveBonusFromCharms(actor) {
+  const charms   = (actor.items ?? []).filter(i => i.type === "charm" && isCharmPassivelyActive(i));
+  const rollData = actor.getRollData?.() ?? {};
+  let dashBonus = 0, hasFlight = false, hasWaterWalking = false;
+  for (const c of charms) {
+    const mb = c.system?.moveBonus;
+    if (!mb?.enabled) continue;
+    if (mb.dashAdd) {
+      const val = evaluateCharmFormula(mb.dashAdd, rollData, 0);
+      dashBonus += (val | 0);
+    }
+    if (mb.flight)       hasFlight       = true;
+    if (mb.waterWalking) hasWaterWalking = true;
+  }
+  return { dashBonus, hasFlight, hasWaterWalking };
 }

@@ -9,24 +9,29 @@ import { evaluateCharmFormula } from '../documents/item.mjs';
  * Pass actor.getRollData() as rollData to resolve stat tokens.
  * @param {object[]} charms
  * @param {object}   rollData — actor roll-data for formula evaluation; pass {} if unavailable
- * @returns {{ extraAccuracyDice:number, extraAccuracySuccesses:number, extraDamageDice:number, extraPostSoakDamageDice:number, ignorePenalties:boolean, ignoreRangeBand:boolean }}
+ * @returns {{ extraAccuracyDice:number, extraAccuracySuccesses:number, extraDamageDice:number, extraPostSoakDamageDice:number, ignorePenalties:boolean, ignoreRangeBand:boolean, soakPiercing:number, ignoresArmor:boolean }}
  */
 export function computeAttackCharmBonus(charms, rollData = {}) {
   let extraAccuracyDice = 0, extraAccuracySuccesses = 0, extraDamageDice = 0;
   let extraPostSoakDamageDice = 0;
   let ignorePenalties = false;
   let ignoreRangeBand = false;
+  let soakPiercing    = 0;
+  let ignoresArmor    = false;
   for (const c of charms) {
     const ab = c?.system?.attackBonus;
     if (!ab?.enabled) continue;
-    extraAccuracyDice       += evaluateCharmFormula(ab.accuracyDice,       rollData, 0) | 0;
-    extraAccuracySuccesses  += evaluateCharmFormula(ab.accuracySuccesses,   rollData, 0) | 0;
-    extraDamageDice         += evaluateCharmFormula(ab.damageDice,          rollData, 0) | 0;
-    extraPostSoakDamageDice += evaluateCharmFormula(ab.postSoakDamageDice,  rollData, 0) | 0;
+    const charmRollData = { ...rollData, purchaseLevel: c.system?.purchaseLevel ?? 1 };
+    extraAccuracyDice       += evaluateCharmFormula(ab.accuracyDice,       charmRollData, 0) | 0;
+    extraAccuracySuccesses  += evaluateCharmFormula(ab.accuracySuccesses,   charmRollData, 0) | 0;
+    extraDamageDice         += evaluateCharmFormula(ab.damageDice,          charmRollData, 0) | 0;
+    extraPostSoakDamageDice += evaluateCharmFormula(ab.postSoakDamageDice,  charmRollData, 0) | 0;
     if (ab.ignoreAccuracyPenalties) ignorePenalties = true;
     if (ab.ignoreRangeBand)         ignoreRangeBand = true;
+    soakPiercing += ab.soakPiercing ?? 0;
+    if (ab.ignoresArmor)            ignoresArmor    = true;
   }
-  return { extraAccuracyDice, extraAccuracySuccesses, extraDamageDice, extraPostSoakDamageDice, ignorePenalties, ignoreRangeBand };
+  return { extraAccuracyDice, extraAccuracySuccesses, extraDamageDice, extraPostSoakDamageDice, ignorePenalties, ignoreRangeBand, soakPiercing, ignoresArmor };
 }
 
 /**

@@ -30,8 +30,10 @@
       </div>
       <div class="stat-item">
         <span class="stat-label">{{localize "EX2E.Dash"}}</span>
-        <span class="stat-value">{{system.dash}}</span>
+        <span class="stat-value">{{system.dash}}{{#if system.derivedDashBonus}} <small class="bonus-label">(+{{system.derivedDashBonus}} {{localize "EX2E.CharmBonus"}})</small>{{/if}}</span>
       </div>
+      {{#if system.hasFlight}}<div class="trait-tag">{{localize "EX2E.MBFlight"}}</div>{{/if}}
+      {{#if system.hasWaterWalking}}<div class="trait-tag">{{localize "EX2E.MBWaterWalking"}}</div>{{/if}}
     </div>
 
     <!-- ═══════════════ SOAK ═══════════════ -->

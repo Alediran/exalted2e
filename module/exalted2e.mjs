@@ -741,9 +741,8 @@ Hooks.once("ready", async function () {
   Hooks.on("exalted2e.attackSuccess", async ({ attackerActorId, attack }) => {
     const actor = game.actors.get(attackerActorId);
     if (!actor) return;
-    await actor._fireRecoveryEvent("onAttackSuccess");
-
     const targetActor = attack.targetId ? game.actors.get(attack.targetId) : null;
+    await actor._fireRecoveryEvent("onAttackSuccess", targetActor);
     if (targetActor) {
       const activatedItems = (attack.attackCharms ?? [])
         .map(n => actor.items.find(i => i.name === n))
@@ -3874,6 +3873,8 @@ async function _rerenderSocialAttackCard(message) {
     canReverse:       game.user.isGM || (attacker && attacker.testUserPermission(game.user, "OWNER")),
     isGM:             game.user.isGM,
     hasIllusion:      (record.attackerCharmKeywords ?? []).includes("Illusion"),
+    umiCostSum:       record.umiCostSum ?? 0,
+    isUMI:            (record.umiCostSum ?? 0) > 0,
     // 3c-2: Motivation-break display flags
     canRefuse: record.isMotivationBreak
             && record.step2Resolved

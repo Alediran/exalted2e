@@ -256,3 +256,47 @@ describe("computeAttackOutcome", () => {
     expect(out.showRollDamage).toBe(false);               // counterattack blocks damage step
   });
 });
+
+describe("computeAttackOutcome — effectiveTargetSoak", () => {
+  const baseAttack = {
+    successes: 5,
+    weaponDamage: 10,
+    damageType: "lethal",
+    damageTypeLabel: "L",
+    addStrength: false,
+    strengthValue: 3,
+    overwhelming: 1,
+    targetSoak: 8,
+    targetArmorSoak: 4,
+    targetHardness: 0,
+    postSoakDamageDice: 0,
+    defense: { dv: 3, type: "dodge" },
+    soakPiercing: 0,
+    ignoresArmor: false,
+  };
+
+  it("effectiveTargetSoak equals targetSoak when no piercing", () => {
+    const data = computeAttackOutcome({ ...baseAttack });
+    expect(data.effectiveTargetSoak).toBe(8);
+  });
+
+  it("effectiveTargetSoak is reduced by soakPiercing", () => {
+    const data = computeAttackOutcome({ ...baseAttack, soakPiercing: 3 });
+    expect(data.effectiveTargetSoak).toBe(5);
+  });
+
+  it("effectiveTargetSoak floors at 0 when piercing exceeds soak", () => {
+    const data = computeAttackOutcome({ ...baseAttack, soakPiercing: 20 });
+    expect(data.effectiveTargetSoak).toBe(0);
+  });
+
+  it("ignoresArmor zeroes the armor component", () => {
+    const data = computeAttackOutcome({ ...baseAttack, ignoresArmor: true });
+    expect(data.effectiveTargetSoak).toBe(4); // 8 - 4 armor = 4 natural
+  });
+
+  it("soakPiercing and ignoresArmor stack", () => {
+    const data = computeAttackOutcome({ ...baseAttack, soakPiercing: 2, ignoresArmor: true });
+    expect(data.effectiveTargetSoak).toBe(2); // 8 - 4 armor - 2 pierce = 2
+  });
+});

@@ -2,6 +2,7 @@ import { EX2E } from "../../config.mjs";
 import { describeAllPrereqs } from "../../helpers/charm-prereqs.mjs";
 import { editImageAction } from "../_edit-image.mjs";
 import { parseCostFormula } from "../../rolls/activation-ledger.mjs";
+import { evaluateCharmFormula } from "../../documents/item.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -46,7 +47,8 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       addTargetEffectChange:    CharmSheet.#onAddTargetEffectChange,
       removeTargetEffectChange: CharmSheet.#onRemoveTargetEffectChange,
       dispelOther:              CharmSheet.#onDispelOther,
-      clearEnhancesCharm:       CharmSheet.#onClearEnhancesCharm
+      clearEnhancesCharm:       CharmSheet.#onClearEnhancesCharm,
+      incrementPurchaseLevel:   CharmSheet.#onIncrementPurchaseLevel
     }
   };
 
@@ -208,6 +210,7 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       virtueKeyOptions: Object.entries(EX2E.virtues).map(([k, v]) => ({
         value: k, label: game.i18n.localize(v)
       })),
+      resolvedMaxPurchases: Math.max(1, evaluateCharmFormula(sys.maxPurchases ?? "1", item.actor?.getRollData?.() ?? {}, 1)),
       enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description, {
         secrets: this.document.isOwner, relativeTo: this.document
       }),
@@ -219,8 +222,12 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       ],
       moteRecoveryEvents: [
         { value: "onDamageReceived", label: game.i18n.localize("EX2E.MREventOnDamage")  },
-        { value: "onAttackHit",      label: game.i18n.localize("EX2E.MREventOnHit")     },
+        { value: "onAttackSuccess",  label: game.i18n.localize("EX2E.MREventOnHit")     },
         { value: "onAllyAttacked",   label: game.i18n.localize("EX2E.MREventOnAllyHit") }
+      ],
+      moteRecoverySources: [
+        { value: "self",       label: game.i18n.localize("EX2E.MRSourceSelf")       },
+        { value: "fromTarget", label: game.i18n.localize("EX2E.MRSourceFromTarget") }
       ],
       moteRecoveryActions: [
         { value: "recoverPeripheral", label: game.i18n.localize("EX2E.MRActionRecoverPeripheral") },
@@ -239,9 +246,9 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         { value: "any",              label: game.i18n.localize("EX2E.HRDamageTypeAny")    }
       ],
       targetPenaltyScopes: [
-        { value: "all",         label: game.i18n.localize("EX2E.TPScopeAll")         },
-        { value: "dvOnly",      label: game.i18n.localize("EX2E.TPScopeDVOnly")      },
-        { value: "attacksOnly", label: game.i18n.localize("EX2E.TPScopeAttacksOnly") }
+        { value: "all",      label: game.i18n.localize("EX2E.TPScopeAll")    },
+        { value: "physical", label: game.i18n.localize("EX2E.TPScopeCombat") },
+        { value: "social",   label: game.i18n.localize("EX2E.TPScopeSocial") }
       ],
       motePoolChoices: [
         { value: "personal",   label: game.i18n.localize("EX2E.MPBPersonal")   },
@@ -490,6 +497,26 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const ae = spellEffectAes[0];
     const { CountermagicDialog } = await import("../../dialogs/countermagic-dialog.mjs");
     await CountermagicDialog.open({ type: "effect-other", targetActor, ae }, actor);
+  }
+
+  static async #onIncrementPurchaseLevel(event, _target) {
+    const charm      = this.document;
+    const sys        = charm.system;
+    const rollData   = charm.parent?.getRollData?.() ?? {};
+    const resolvedMax = Math.max(1, evaluateCharmFormula(sys.maxPurchases ?? "1", rollData, 1));
+    if (sys.purchaseLevel >= resolvedMax) {
+      ui.notifications.warn(game.i18n.localize("EX2E.PurchaseMaxReached"));
+      return;
+    }
+    const gateEss = sys.essenceGates?.[sys.purchaseLevel - 1];
+    if (gateEss !== undefined) {
+      const actorEss = charm.parent?.system?.essence?.value ?? 0;
+      if (actorEss < gateEss) {
+        ui.notifications.warn(game.i18n.format("EX2E.PurchaseEssenceGate", { required: gateEss }));
+        return;
+      }
+    }
+    await charm.update({ "system.purchaseLevel": sys.purchaseLevel + 1 });
   }
 
   _onRender(context, options) {

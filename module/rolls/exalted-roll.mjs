@@ -626,6 +626,7 @@ export class ExaltedRoll {
     // is a single stat but only applies against bashing or lethal attacks —
     // aggravated damage bypasses Hardness entirely.
     const ignoresHardness = mode.damageType === "aggravated";
+    let targetArmorSoak = 0;
 
     if (!targetActor && !options.isCounterattack && !isAreaAttack) {
       const { pickTargetActor } = await import("../helpers/targeting.mjs");
@@ -670,11 +671,13 @@ export class ExaltedRoll {
       targetDodgeDV = targetActor.currentDodgeDV ?? 0;
       targetParryDV = targetActor.currentParryDV ?? 0;
       if (targetActor.type === "character") {
-        targetSoak     = tSys.totalSoak?.[mode.damageType] ?? 0;
-        targetHardness = ignoresHardness ? 0 : (tSys.hardness ?? 0);
+        targetSoak      = tSys.totalSoak?.[mode.damageType] ?? 0;
+        targetArmorSoak = tSys.armorSoak?.[mode.damageType] ?? 0;
+        targetHardness  = ignoresHardness ? 0 : (tSys.hardness ?? 0);
       } else if (targetActor.type === "npc") {
-        targetSoak     = tSys.combat?.soak?.[mode.damageType] ?? 0;
-        targetHardness = ignoresHardness ? 0 : (tSys.combat?.hardness ?? 0);
+        targetSoak      = tSys.combat?.soak?.[mode.damageType] ?? 0;
+        targetArmorSoak = 0;
+        targetHardness  = ignoresHardness ? 0 : (tSys.combat?.hardness ?? 0);
       }
       if (!isAreaAttack) {
         // Onslaught: RAW, a defender accrues +1 DV penalty every time they
@@ -1020,9 +1023,11 @@ export class ExaltedRoll {
       // Re-read soak for the upgraded damage column; aggravated ignores Hardness.
       const tSys = targetActor.system;
       if (targetActor.type === "character") {
-        targetSoak = tSys.totalSoak?.[finalDamageType] ?? 0;
+        targetSoak      = tSys.totalSoak?.[finalDamageType] ?? 0;
+        targetArmorSoak = tSys.armorSoak?.[finalDamageType] ?? 0;
       } else if (targetActor.type === "npc") {
-        targetSoak = tSys.combat?.soak?.[finalDamageType] ?? 0;
+        targetSoak      = tSys.combat?.soak?.[finalDamageType] ?? 0;
+        targetArmorSoak = 0;
       }
       targetHardness = 0;
     }
@@ -1099,7 +1104,10 @@ export class ExaltedRoll {
       unblockable,
       undodgeable,
       targetSoak,
+      targetArmorSoak,
       targetHardness,
+      soakPiercing:    charmAttackBonus.soakPiercing   || 0,
+      ignoresArmor:    charmAttackBonus.ignoresArmor   || false,
       attackCharms:            activatedCharms.map(c => c.name),
       isCounterattack:         !!options.isCounterattack,
       originalAttackMessageId: options.originalAttackMessageId ?? null,
@@ -1191,6 +1199,9 @@ export class ExaltedRoll {
     // ── Apply hardness then soak ───────────────────────────────────────────
     const rawPool      = rawExcess + baseDmg;
     const hardnessStops = hit && rawPool <= targetHardness;
+    // TODO (follow-up): rollNpcAttack uses raw targetSoak here and does not
+    // account for soakPiercing / ignoresArmor from the charm snapshot.
+    // Needs updating once NPC attacks carry those fields.
     const finalDamage   = (hit && !hardnessStops)
       ? Math.max(0, rawPool - targetSoak)
       : 0;
@@ -1545,6 +1556,7 @@ export class ExaltedRoll {
       canReverse:       game.user.isGM || attacker.testUserPermission(game.user, "OWNER"),
       isGM:             game.user.isGM,
       hasIllusion:      (attackerCharmKeywords ?? []).includes("Illusion"),
+      isUMI:            (ledger.umiCostSum ?? 0) > 0,
       defenderIntimacies: [],
       showErodePicker:  false
     };

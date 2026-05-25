@@ -36,10 +36,6 @@ describe("CharmData schema gaps — field presence", () => {
     expect(schema).toHaveProperty("stackCount");
   });
   it("B7: virtue is a valid choice for prereq alternative type", () => {
-    // prereqGroups(ArrayField).options = element SchemaField
-    // element SchemaField.options = { alternatives: ArrayField }
-    // alternatives(ArrayField).options = alt SchemaField
-    // alt SchemaField.options = { type: StringField, ... }
     const altFields = schema.prereqGroups.options.options.alternatives.options.options;
     expect(altFields.type.options.choices).toContain("virtue");
   });
@@ -176,5 +172,51 @@ describe("CharacterData — bonus fields", () => {
     ]) {
       expect(b[key], key).toBeInstanceOf(fields.NumberField);
     }
+  });
+});
+
+describe("CharmData — multi-purchase fields exist", () => {
+  const fields = foundry.data.fields;
+  it("CharmData schema has maxPurchases, purchaseLevel, and essenceGates", () => {
+    const schema = CharmData.defineSchema();
+    expect(schema).toHaveProperty("maxPurchases");
+    expect(schema).toHaveProperty("purchaseLevel");
+    expect(schema).toHaveProperty("essenceGates");
+  });
+  it("maxPurchases is a StringField defaulting to '1' (supports formulas like @resistance)", () => {
+    const schema = CharmData.defineSchema();
+    expect(schema.maxPurchases).toBeInstanceOf(fields.StringField);
+    expect(schema.maxPurchases.initial).toBe("1");
+  });
+});
+
+describe("incrementPurchaseLevel guard logic", () => {
+  function canIncrement(purchaseLevel, maxPurchases, essenceGates, actorEssence) {
+    if (purchaseLevel >= maxPurchases) return { ok: false, reason: "maxReached" };
+    const gateEss = essenceGates[purchaseLevel - 1];
+    if (gateEss !== undefined && actorEssence < gateEss) {
+      return { ok: false, reason: "essenceGate", required: gateEss };
+    }
+    return { ok: true };
+  }
+
+  it("blocks when purchaseLevel === maxPurchases", () => {
+    expect(canIncrement(2, 2, [], 5).ok).toBe(false);
+    expect(canIncrement(2, 2, [], 5).reason).toBe("maxReached");
+  });
+
+  it("allows when purchaseLevel < maxPurchases and no gate", () => {
+    expect(canIncrement(1, 3, [], 5).ok).toBe(true);
+  });
+
+  it("blocks when Essence < gate for next level", () => {
+    const r = canIncrement(1, 3, [3], 2);
+    expect(r.ok).toBe(false);
+    expect(r.reason).toBe("essenceGate");
+    expect(r.required).toBe(3);
+  });
+
+  it("allows when Essence >= gate for next level", () => {
+    expect(canIncrement(1, 3, [3], 3).ok).toBe(true);
   });
 });

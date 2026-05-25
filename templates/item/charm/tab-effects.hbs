@@ -300,6 +300,20 @@
           {{localize "EX2E.ABIgnoreRangeBand"}}
         </label>
       </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.ABSoakPiercing"}}</label>
+        <input type="number" name="system.attackBonus.soakPiercing"
+               value="{{system.attackBonus.soakPiercing}}"
+               min="0" {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="field-group">
+        <label class="checkbox-label">
+          <input type="checkbox" name="system.attackBonus.ignoresArmor"
+                 {{#if system.attackBonus.ignoresArmor}}checked{{/if}}
+                 {{#unless isEditable}}disabled{{/unless}}>
+          {{localize "EX2E.ABIgnoresArmor"}}
+        </label>
+      </div>
     </div>
     {{/if}}
   </div>
@@ -352,6 +366,53 @@
           <option value="{{this.value}}" {{#if (eq this.value ../system.targetPenalty.duration)}}selected{{/if}}>{{this.label}}</option>
           {{/each}}
         </select>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- M19 Move Bonus ─────────────────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.moveBonus.enabled"
+             {{#if system.moveBonus.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.EffectMoveBonus"}}</span>
+    </label>
+    {{#if system.moveBonus.enabled}}
+    <div class="effect-body">
+      <div class="field-group">
+        <label>{{localize "EX2E.MBDashAdd"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.moveBonus.dashAdd"
+                 value="{{system.moveBonus.dashAdd}}"
+                 placeholder="e.g. @ess or 3"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.moveBonus.dashAdd"
+                  data-label="{{localize 'EX2E.MBDashAdd'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field-group">
+        <label class="checkbox-label">
+          <input type="checkbox" name="system.moveBonus.flight"
+                 {{#if system.moveBonus.flight}}checked{{/if}}
+                 {{#unless isEditable}}disabled{{/unless}}>
+          {{localize "EX2E.MBFlight"}}
+        </label>
+      </div>
+      <div class="field-group">
+        <label class="checkbox-label">
+          <input type="checkbox" name="system.moveBonus.waterWalking"
+                 {{#if system.moveBonus.waterWalking}}checked{{/if}}
+                 {{#unless isEditable}}disabled{{/unless}}>
+          {{localize "EX2E.MBWaterWalking"}}
+        </label>
       </div>
     </div>
     {{/if}}
@@ -930,6 +991,20 @@
             <i class="fa-solid fa-function"></i>
           </button>
           {{/if}}
+        </div>
+      </div>
+      <div class="field-group" style="grid-column:1/-1">
+        <label>{{localize "EX2E.MRSource"}}</label>
+        <div class="radio-group">
+          {{#each moteRecoverySources}}
+          <label class="radio-label">
+            <input type="radio" name="system.moteRecovery.source"
+                   value="{{this.value}}"
+                   {{#if (eq this.value ../system.moteRecovery.source)}}checked{{/if}}
+                   {{#unless @root.isEditable}}disabled{{/unless}}>
+            {{this.label}}
+          </label>
+          {{/each}}
         </div>
       </div>
     </div>

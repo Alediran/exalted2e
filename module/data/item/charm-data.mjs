@@ -229,7 +229,8 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         enabled: new fields.BooleanField({ initial: false }),
         event:   new fields.StringField({ initial: "onDamageReceived" }),
         action:  new fields.StringField({ initial: "recoverPeripheral" }),
-        formula: new fields.StringField({ initial: "", blank: true })
+        formula: new fields.StringField({ initial: "", blank: true }),
+        source:  new fields.StringField({ initial: "self", choices: ["self", "fromTarget"] })
       }),
 
       // M6 — Healing roll effect
@@ -295,6 +296,14 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         duration:      new fields.StringField({ initial: "oneScene" })
       }),
 
+      // M12a — Movement bonus (dash distance, flight, water-walking)
+      moveBonus: new fields.SchemaField({
+        enabled:      new fields.BooleanField({ initial: false }),
+        dashAdd:      new fields.StringField({ initial: "", blank: true }),
+        flight:       new fields.BooleanField({ initial: false }),
+        waterWalking: new fields.BooleanField({ initial: false })
+      }),
+
       // M12 — Attack roll bonus (supplemental charms)
       attackBonus: new fields.SchemaField({
         enabled:                 new fields.BooleanField({ initial: false }),
@@ -308,7 +317,9 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         // When true, postSoakDamageDice is multiplied by resolvedUnits at roll time.
         postSoakDicePerMote:     new fields.BooleanField({ initial: false }),
         ignoreAccuracyPenalties: new fields.BooleanField({ initial: false }),
-        ignoreRangeBand:         new fields.BooleanField({ initial: false })
+        ignoreRangeBand:         new fields.BooleanField({ initial: false }),
+        soakPiercing:            new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        ignoresArmor:            new fields.BooleanField({ initial: false })
       }),
 
       // M18 — Social attack bonus (supplemental / Social-keyword charms)
@@ -376,7 +387,21 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       hazardImmunity: new fields.SchemaField({
         enabled: new fields.BooleanField({ initial: false }),
         scope:   new fields.StringField({ initial: "natural", choices: ["natural", "supernatural"] })
-      })
+      }),
+
+      // ── Multi-Purchase Fields ───────────────────────────────────────────
+      // Maximum number of times this charm can be purchased.
+      maxPurchases:  new fields.StringField({ initial: "1", blank: false }),
+      // Current purchase level (1 to maxPurchases). Tracks progression through
+      // purchasable charm tiers.
+      purchaseLevel: new fields.NumberField({ initial: 1, min: 1, integer: true }),
+      // Essence gates for each level beyond 1. essenceGates[0] is required Essence
+      // to reach level 2; essenceGates[1] for level 3, etc. Empty levels have no
+      // gate. Values are 1–10.
+      essenceGates:  new fields.ArrayField(
+        new fields.NumberField({ min: 1, max: 10, integer: true }),
+        { initial: [] }
+      )
     };
   }
 }
