@@ -728,26 +728,28 @@ export function registerMassCombatPhase6(context) {
   });
 
   describe("[P6-301] rollExhaustion failure", () => {
-    it("endurance decremented on failure (impossible difficulty)", async () => {
-      await unitActor.update({ "system.armorFatigue": 99, "system.endurance": 3, "system.engaged": false });
+    it("endurance decremented on failure (pool=1 vs diff=6)", async () => {
+      // Clear commander → pool=Math.max(1,0)=1; armorFatigue=4+engaged=true → diff=6; 1 die can't reach 6 successes
+      await unitActor.update({ "system.commanderActorId": "", "system.armorFatigue": 4, "system.engaged": true, "system.endurance": 3 });
       const fresh = game.actors.get(unitActor.id);
       const result = await rollExhaustion(fresh, { charged: false });
-      assert.ok(!result.success, "roll should fail (diff=99)");
+      assert.ok(!result.success, "roll should fail (pool=1 vs diff=6)");
       const after = game.actors.get(unitActor.id);
       assert.equal(after.system.endurance, 2, "endurance decremented by 1");
-      await unitActor.update({ "system.armorFatigue": 0, "system.endurance": 3 });
+      await unitActor.update({ "system.commanderActorId": commanderActor.id, "system.armorFatigue": 0, "system.engaged": false, "system.endurance": 3 });
     });
   });
 
   describe("[P6-302] rollExhaustion failure at endurance 1", () => {
     it("nowFatigued is true when endurance reaches 0", async () => {
-      await unitActor.update({ "system.armorFatigue": 99, "system.endurance": 1, "system.engaged": false });
+      // Same deterministic failure setup: pool=1 vs diff=6
+      await unitActor.update({ "system.commanderActorId": "", "system.armorFatigue": 4, "system.engaged": true, "system.endurance": 1 });
       const fresh = game.actors.get(unitActor.id);
       const result = await rollExhaustion(fresh, { charged: false });
       assert.ok(!result.success, "roll failed");
       assert.ok(result.nowFatigued, "nowFatigued is true");
       assert.equal(result.enduranceAfter, 0, "endurance is 0");
-      await unitActor.update({ "system.armorFatigue": 0, "system.endurance": 3 });
+      await unitActor.update({ "system.commanderActorId": commanderActor.id, "system.armorFatigue": 0, "system.engaged": false, "system.endurance": 3 });
     });
   });
 

@@ -979,3 +979,25 @@
 .status-resist-card .btn-roll-resist {
   width: 100%;
 }
+
+/* ── Exhaustion roll buttons (mass-combat-result.hbs) ───────────────────── */
+.mass-combat-result .mc-exhaustion-buttons {
+  display:         flex;
+  gap:             var(--ex2e-gap-xs);
+  flex-wrap:       wrap;
+  margin-top:      var(--ex2e-gap-sm);
+  padding-top:     var(--ex2e-gap-sm);
+  border-top:      1px solid rgba(0,0,0,0.15);
+}
+
+.mass-combat-result .mc-exhaustion-btn {
+  flex:       1;
+  font-size:  var(--ex2e-font-size-xs);
+  padding:    4px 12px;
+  color:      var(--ex2e-gold-bright);
+}
+
+.mass-combat-result .mc-exhaustion-btn:disabled {
+  opacity: 0.45;
+  cursor:  default;
+}

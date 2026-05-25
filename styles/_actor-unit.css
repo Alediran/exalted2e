@@ -1095,29 +1095,6 @@ body.ex2e-light-mode .mass-combat-result {
 
 /* ── Phase 6: Exhaustion & Signal ─────────────────────────────────────────── */
 
-.mc-exhaustion-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin-top: 6px;
-  padding-top: 6px;
-  border-top: 1px solid rgba(0,0,0,0.15);
-}
-
-.mc-exhaustion-btn {
-  flex: 1 1 auto;
-  font-size: 0.75rem;
-  padding: 2px 6px;
-  background: rgba(255,255,255,0.6);
-  border: 1px solid #888;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.mc-exhaustion-btn:disabled {
-  opacity: 0.45;
-  cursor: default;
-}
 
 .mc-result-box.exhaustion-success {
   background: #e8f5e9;
