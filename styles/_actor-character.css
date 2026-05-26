@@ -374,7 +374,7 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
   display:        flex;
   flex-direction: row;
   flex-wrap:      wrap;
-  gap:            var(--ex2e-gap-sm);
+  gap:            var(--ex2e-gap-xl);
   align-items:    start;
   margin-bottom:  var(--ex2e-gap-lg);
 }
@@ -388,7 +388,7 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
 
 /* Individual column */
 .ability-column {
-  flex:           1 1 calc(33.333% - var(--ex2e-gap-sm));
+  flex:           1 1 calc(33.333% - var(--ex2e-gap-xl));
   min-width:      0;
   display:        flex;
   flex-direction: column;
