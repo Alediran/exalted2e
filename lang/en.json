@@ -2028,6 +2028,8 @@
     "TurnFailed":         "The unit fails to turn in time.",
     "RelayCommandPool":   "Relay Command Pool",
     "GuardEffect":        "Guard Stance",
+    "Chokepoint":         "Chokepoint",
+    "ChokepointWarning":  "Chokepoint — max {max} attackers per tick",
     "FormationChanged":      "Formation Changed",
     "FormationChangeFailed": "Formation Change Failed",
     "ActionSucceeded":       "succeeded",

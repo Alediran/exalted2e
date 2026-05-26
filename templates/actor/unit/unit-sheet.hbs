@@ -139,6 +139,15 @@
       <input type="number" name="system.relayCommandPool"
              value="{{system.relayCommandPool}}" min="0" class="unit-relays-input" />
     </div>
+    <div class="unit-relays-row stat-row">
+      <label class="stat-label">{{localize "EX2E.Chokepoint"}}</label>
+      <input type="checkbox" name="system.chokepoint"
+             {{#if system.chokepoint}}checked{{/if}}>
+      {{#if system.chokepoint}}
+      <input type="number" name="system.chokeMaxAttackers"
+             value="{{system.chokeMaxAttackers}}" min="1" class="unit-relays-input">
+      {{/if}}
+    </div>
   </div>
 
   {{!-- Description --}}

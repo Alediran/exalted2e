@@ -125,6 +125,14 @@
   {{/unless}}
   {{/if}}
 
+  {{!-- Chokepoint warning --}}
+  {{#if defChokepoint}}
+  <div class="mc-chokepoint-warning">
+    <i class="fas fa-exclamation-triangle"></i>
+    {{defChokepointLabel}}
+  </div>
+  {{/if}}
+
   {{!-- Exhaustion roll buttons --}}
   {{#if showExhaustionButtons}}
   <div class="mc-exhaustion-buttons">

@@ -100,6 +100,11 @@ export async function rollMassCombatAttack(unitActor, { ranged = false, explicit
     attackerCharged,
     defenderIsUnit:        targetIsUnit,
     defenderActorId:       defenderActor.id,
+    defChokepoint:         targetIsUnit ? (def.chokepoint        ?? false) : false,
+    defChokeMaxAttackers:  targetIsUnit ? (def.chokeMaxAttackers ?? 1)     : 1,
+    defChokepointLabel:    (targetIsUnit && def.chokepoint)
+      ? game.i18n.format("EX2E.ChokepointWarning", { max: def.chokeMaxAttackers ?? 1 })
+      : "",
   };
 
   if (hit && !ranged && targetIsUnit) {
@@ -195,8 +200,10 @@ export async function rollMassCombatAttack(unitActor, { ranged = false, explicit
           routDiff:        state.routDiff,
           routPool:        state.routPool,
           hesitating:      state.hesitating,
-          magBefore:       state.magBefore,
-          magAfterRout:    state.magAfterRout
+          magBefore:            state.magBefore,
+          magAfterRout:         state.magAfterRout,
+          defChokepoint:        state.defChokepoint,
+          defChokeMaxAttackers: state.defChokeMaxAttackers
         }
       }
     }
@@ -290,6 +297,11 @@ export async function rollHeroAttacksUnit(heroActor, unitActor, weapon, { ranged
     attackerCharged:       false,
     defenderIsUnit:        true,
     defenderActorId:       unitActor.id,
+    defChokepoint:         def.chokepoint        ?? false,
+    defChokeMaxAttackers:  def.chokeMaxAttackers ?? 1,
+    defChokepointLabel:    def.chokepoint
+      ? game.i18n.format("EX2E.ChokepointWarning", { max: def.chokeMaxAttackers ?? 1 })
+      : "",
   };
 
   if (hit) {
@@ -357,8 +369,10 @@ export async function rollHeroAttacksUnit(heroActor, unitActor, weapon, { ranged
           netDamage:       state.netDamage,
           magBefore:       state.magBefore,
           magAfterRout:    state.magAfterRout,
-          healthBefore:    state.healthBefore,
-          healthAfter:     state.healthAfter
+          healthBefore:         state.healthBefore,
+          healthAfter:          state.healthAfter,
+          defChokepoint:        state.defChokepoint,
+          defChokeMaxAttackers: state.defChokeMaxAttackers
         }
       }
     }

@@ -1040,3 +1040,76 @@ export function registerMassCombatPhase8(context) {
     });
   });
 }
+
+export function registerMassCombatPhase9(context) {
+  const { describe, it, assert, before, after } = context;
+
+  before(assertTestWorld);
+
+  describe("[P9-600] unit schema has chokepoint defaults", () => {
+    let unitActor9;
+
+    before(async () => {
+      unitActor9 = await Actor.create({
+        name: "P9Unit600",
+        type: "unit",
+        system: { drill: 2, magnitude: { value: 3, max: 5 }, endurance: 2, morale: 2 }
+      });
+    });
+
+    after(async () => {
+      await unitActor9?.delete();
+    });
+
+    it("chokepoint defaults to false and chokeMaxAttackers defaults to 1", async () => {
+      const actor = game.actors.get(unitActor9.id);
+      assert.strictEqual(actor.system.chokepoint, false, "chokepoint=false");
+      assert.strictEqual(actor.system.chokeMaxAttackers, 1, "chokeMaxAttackers=1");
+    });
+  });
+
+  describe("[P9-601] rollMassCombatAttack flags include defChokepoint when defender holds chokepoint", () => {
+    let atkUnit, defUnit;
+
+    before(async () => {
+      atkUnit = await Actor.create({
+        name: "P9Attacker",
+        type: "unit",
+        system: { drill: 2, magnitude: { value: 3, max: 5 }, endurance: 2, morale: 2 }
+      });
+      defUnit = await Actor.create({
+        name: "P9Defender",
+        type: "unit",
+        system: {
+          drill: 2, magnitude: { value: 3, max: 5 }, endurance: 2, morale: 2,
+          chokepoint: true, chokeMaxAttackers: 2
+        }
+      });
+    });
+
+    after(async () => {
+      await atkUnit?.delete();
+      await defUnit?.delete();
+    });
+
+    it("flags.exalted2e.massCombatAttack has defChokepoint:true and defChokeMaxAttackers:2", async () => {
+      const before = game.messages.size;
+      await rollMassCombatAttack(game.actors.get(atkUnit.id), { explicitTargetActor: game.actors.get(defUnit.id) });
+      let msg;
+      for (let i = 0; i < 20; i++) {
+        if (game.messages.size > before) {
+          msg = game.messages.contents[game.messages.size - 1];
+          break;
+        }
+        await new Promise(r => setTimeout(r, 100));
+      }
+      try {
+        assert.ok(msg, "chat message created");
+        assert.strictEqual(msg.flags?.exalted2e?.massCombatAttack?.defChokepoint, true, "defChokepoint=true");
+        assert.strictEqual(msg.flags?.exalted2e?.massCombatAttack?.defChokeMaxAttackers, 2, "defChokeMaxAttackers=2");
+      } finally {
+        await msg?.delete();
+      }
+    });
+  });
+}

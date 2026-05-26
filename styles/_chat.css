@@ -1001,3 +1001,12 @@
   opacity: 0.45;
   cursor:  default;
 }
+
+.mass-combat-result .mc-chokepoint-warning {
+  background:    rgba(200, 150, 0, 0.15);
+  border:        1px solid rgba(200, 150, 0, 0.4);
+  border-radius: 3px;
+  padding:       4px 8px;
+  margin:        4px 0;
+  font-size:     0.85em;
+}

@@ -2028,6 +2028,8 @@
     "TurnFailed":         "La unidad falla al girar a tiempo.",
     "RelayCommandPool":   "Pool de Mando de Enlace",
     "GuardEffect":        "Postura de Guardia",
+    "Chokepoint":         "Punto de Estrangulamiento",
+    "ChokepointWarning":  "Punto de Estrangulamiento — máx. {max} atacantes por turno",
     "FormationChanged":      "Formación Cambiada",
     "FormationChangeFailed": "Cambio de Formación Fallido",
     "ActionSucceeded":       "tuvo éxito",
