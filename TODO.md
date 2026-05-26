@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 207 / 264 complete** (10 out-of-scope / partial — last updated 2026-05-26)
+**Progress: 208 / 264 complete** (10 out-of-scope / partial — last updated 2026-05-26)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -93,7 +93,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Essence Flow innate-powers mechanic — when character owns `(Ability) Essence Flow`, allow the three Excellencies of that ability to be used outside of Combos as innate powers (skip Combo requirement only; dice-pool cap still applies)
 - [x] Keyword-as-status-effect registry (systematic Compulsion/Emotion/Illusion/Servitude → AE mapping)
 - [x] Charm deactivation resolver (scene-end / combat-end) — `clearSceneCharms` sweeps oneScene + action-count AEs at scene/combat end; `decrementActionCharmsFor` counts down per combatant act; indefinite/permanent untouched
-- [ ] Essence-tiered upgrade branches (Essence 3+/4+ conditional charm effects; description-only currently) — [charms-gap A2](docs/charms-gap.md)
+- [x] Essence-tiered upgrade branches (Essence 3+/4+ conditional charm effects; gate conditions, passive/active tiers, per-tier effect sections, activation pipeline integration) — [charms-gap A2](docs/charms-gap.md)
 - [x] Cooperative keyword (multi-caster charm dialog — DB aspect cooperation)
 
 ## Social Combat

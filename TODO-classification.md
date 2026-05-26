@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-26 (Mass combat Phases 1–9 complete: unit actor type, Guard DV bonus, unit DV pipeline, chokepoint system; mass combat and unit actor type removed from pending; count 32 B / 42 total)
+Last updated: 2026-05-26 (Essence-tiered upgrade branches complete: gate conditions, passive/active tiers, per-tier effect sections, activation pipeline; count 32 B / 39 total)
 
 ---
 
@@ -61,7 +61,6 @@ Last updated: 2026-05-26 (Mass combat Phases 1–9 complete: unit actor type, Gu
 |------|-------------|-------------|
 | Clinch / Grapple | Combat | new turn-loop: control pool, opposed rolls, sub-actions (throw/crush/hold), per-tick renewal |
 | Mounted combat | Combat | Ride-controlled mount stats, charge bonuses, Ride charm integration |
-| Essence-tiered upgrade branches | Charms | `essenceUpgrades[]` schema + branch-selection step in activation dialog — [charms-gap A2](docs/charms-gap.md) |
 | Thaumaturgy | Sorcery | separate lower-power tier: procedures, degrees, own roll resolver |
 | Artifact creation rules | Crafting | extended Craft roll + Craft+Lore+Occult, seasons interval, exotic ingredient tracker |
 | Vehicle / Warstrider actor type | Other | new actor type with unique soak/movement/weapon-mount mechanics |
@@ -77,5 +76,5 @@ Last updated: 2026-05-26 (Mass combat Phases 1–9 complete: unit actor type, Gu
 |-------|-------|
 | A — Ready, Simple | 1 |
 | B — Ready, Medium | 32 |
-| C — Ready, Complex | 7 |
-| **Total pending** | **40** |
+| C — Ready, Complex | 6 |
+| **Total pending** | **39** |
