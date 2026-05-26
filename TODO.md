@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 205 / 265 complete** (10 out-of-scope / partial — last updated 2026-05-23)
+**Progress: 207 / 264 complete** (10 out-of-scope / partial — last updated 2026-05-26)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -284,12 +284,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Poison / Disease tracking (item types + per-interval AE)
 - [ ] Crippling injuries (4+ HL single hit; surgery Int+Medicine to heal)
 - [x] Environmental hazards (Damage/interval, Trauma; generic Scene Region behavior with resistance rolls, terrain cost, and GM placement flow)
-- [ ] Mass combat (unit actor type: Magnitude, Drill, Might, Endurance, Morale, formations, commander + relays + heroes)
-  - **Implement these first to avoid hardcoding mass-combat-specific solutions:**
-  - [ ] Background mechanical hooks — unit quality and Command roll bonuses derive from War/Leadership backgrounds
-  - [x] Social charm bonus payload (`socialBonus` sub-schema) — morale/demoralize actions route through the MDV pipeline
-  - [x] Charm deactivation resolver — battle-duration formation and commander-aura effects need scene/combat-end cleanup
-  - [x] Environmental hazards — base hazard system done (Region behavior + placement flow); terrain modifier behavior (elevation, cover) with individual-combat integration done; chokepoints deferred to mass combat design
+- [x] Mass combat (unit actor type: Magnitude, Drill, Might, Endurance, Morale, formations, commander + relays + heroes; Guard DV bonus; unit DV pipeline; chokepoint informational system — Phases 1–9 complete)
 - [ ] Artifact creation rules (extended Craft roll; Craft+Lore+Occult; seasons interval)
 - [x] **Manse** item type (rating, aspect, powers budget; linked to Background for rating + Hearthstone for aspect)
 - [x] **Hearthstone** item type (rating, type, mote-regen, socketable into artifact weapons/armor/equipment)
@@ -299,7 +294,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] **Disease** item type (morbidity, trauma, duration, vector; no mechanics yet)
 - [x] **Drug** item type (effect, duration, addiction; no mechanics yet)
 - [ ] **Vehicle / Warstrider** actor type (First Age magitech)
-- [ ] **Unit** actor type for mass combat
+- [x] **Unit** actor type for mass combat
 - [~] Background mechanical hooks — Familiar (actor link, species, bond rating, linked actor creation into The Circle/Familiars) and Cult (mote regen / WP recovery from dot rating) done; 53-type registry with optgroup display; Backing / Contacts / Resources mechanical automation still pending
 - [x] Willpower recovery on virtue channel success (no recovery per rules; WP spent is the cost)
 - [x] Scene-end reset (anima step-down done; Peripheral-spend counter, per-scene WP drain counters)

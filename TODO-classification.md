@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-22 (Environmental hazards done: HazardDamageBehaviorType + GM placement flow + hazard immunity charm effect + enhancesCharmUid gating; DB Anima Flux visual region done: circle ring follows token via attachment; Social charm bonus payload done: socialBonus schema + computeSocialCharmBonus + rollSocialAttack integration + Effects tab UI; Terrain modifier done: TerrainModifierBehaviorType + getTerrainBonuses helper + rollAttack integration + chat card display + GM placement controls in new Terrain scene controls category; count corrected to 35 B / 46 total after auditing actual rows)
+Last updated: 2026-05-26 (Mass combat Phases 1–9 complete: unit actor type, Guard DV bonus, unit DV pipeline, chokepoint system; mass combat and unit actor type removed from pending; count 32 B / 42 total)
 
 ---
 
@@ -64,18 +64,10 @@ Last updated: 2026-05-22 (Environmental hazards done: HazardDamageBehaviorType +
 | Essence-tiered upgrade branches | Charms | `essenceUpgrades[]` schema + branch-selection step in activation dialog — [charms-gap A2](docs/charms-gap.md) |
 | Thaumaturgy | Sorcery | separate lower-power tier: procedures, degrees, own roll resolver |
 | Artifact creation rules | Crafting | extended Craft roll + Craft+Lore+Occult, seasons interval, exotic ingredient tracker |
-| Mass combat | Other | new sub-system: unit actor type, Magnitude/Drill/Might/Morale, formations, commander relay |
 | Vehicle / Warstrider actor type | Other | new actor type with unique soak/movement/weapon-mount mechanics |
 | Migration pipeline | QoL | schema versioning, upgrade scripts, DataModel migration hooks |
 
 ---
-
-## Group D — Blocked
-*Cannot start without completing another open item in this list.*
-
-| Item | TODO Section | Blocked by |
-|------|-------------|-----------|
-| Unit actor type | Other | Mass combat design (Group C) |
 
 ---
 
@@ -85,9 +77,5 @@ Last updated: 2026-05-22 (Environmental hazards done: HazardDamageBehaviorType +
 |-------|-------|
 | A — Ready, Simple | 1 |
 | B — Ready, Medium | 32 |
-| C — Ready, Complex | 8 |
-| D — Blocked | 1 |
-| **Total pending** | **42** |
-
-**Biggest force-multipliers:**
-- **Mass Combat** (Group C) — social charm bonus payload + terrain modifier pre-work done; morale/demoralize pipeline unblocked
+| C — Ready, Complex | 7 |
+| **Total pending** | **40** |
