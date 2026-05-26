@@ -279,6 +279,9 @@ ${capWarning}`;
     // a free action.
     let cooperation = null;
     let ledger;
+    let _selectedActiveTier = null; // set in Step A (else branch); read in Step B and tiersApplied
+    let _passiveTiers = [];         // set in else branch; read in Step B
+    let _me = null;                 // mergeEffects fn; set in else branch; read in Step B
     if (turningOff) {
       ledger = {
         moteBreakdown: null, willpower: 0, bashing: 0, lethal: 0,
@@ -291,6 +294,26 @@ ${capWarning}`;
         via
       };
     } else {
+      const { _qualifyingTiers: _qt, mergeEffects: _meImport } = await import("../rolls/charm-tier-math.mjs");
+      _me = _meImport;
+      const { passive: _pt, active: _activeTiers } = _qt(actor, this);
+      // Snapshot as plain objects immediately — DataModel re-init after this.update() can
+      // reinitialize array-item references back to schema defaults.
+      _passiveTiers = _pt.map(t => foundry.utils.deepClone(t));
+
+      // Step A — active tier selection (before costs so tier cost can be appended)
+      if (_activeTiers.length > 0) {
+        const { TierSelectionDialog } = await import("../apps/tier-selection-dialog.mjs");
+        const _dialogResult = await TierSelectionDialog.prompt({ active: _activeTiers });
+        if (_dialogResult === null) return false;
+        if (!_dialogResult.standard) _selectedActiveTier = foundry.utils.deepClone(_dialogResult.tier);
+      }
+      // If an active tier was selected, append its cost formula to the base cost
+      const _tierCostFormula = _selectedActiveTier?.cost?.formula ?? "";
+      const _effectiveCostFormula = _tierCostFormula
+        ? [sys.cost?.formula ?? "", _tierCostFormula].filter(Boolean).join(", ")
+        : (sys.cost?.formula ?? "");
+
       const surcharge    = getOutOfAspectSurcharge(actor, this) + getForeignCharmSurcharge(actor, this) + getCelestialMASurcharge(actor, this);
       const costParsed   = _costParsed;   // already computed above
 
@@ -323,7 +346,10 @@ ${capWarning}`;
         motesOverride = (costParsed?.motes ?? 0) + surcharge;
       }
 
-      ledger = await this._spendActivationCosts(cost, { motePool, skipXpConfirm, motesOverride });
+      ledger = await this._spendActivationCosts(
+        { ...cost, formula: _effectiveCostFormula },
+        { motePool, skipXpConfirm, motesOverride }
+      );
       if (!ledger) return false;
 
       // Spend non-mote costs from the selected surcharge option (motes already in motesOverride).
@@ -360,6 +386,10 @@ ${capWarning}`;
       ledger.spawnedWeapon = false;
       ledger.rolledInstant = false;
       ledger.via           = via;
+
+      ledger.tiersApplied = [];
+      for (const t of _passiveTiers) ledger.tiersApplied.push({ label: t.label, type: "passive" });
+      if (_selectedActiveTier !== null) ledger.tiersApplied.push({ label: _selectedActiveTier.label, type: "active" });
 
       if (permEss > 0 || permWp > 0) {
         await actor.createEmbeddedDocuments("ActiveEffect", [{
@@ -525,19 +555,29 @@ ${capWarning}`;
       if (total > 0) await healTarget.healDamage(total);
     }
 
+    // Step B — effect merging: build proxy charm carrying merged system
+    let _proxyCharm = this;
+    if (!turningOff) {
+      if (_passiveTiers.length > 0 || _selectedActiveTier !== null) {
+        const _baseSysData = this.system.toObject?.() ?? foundry.utils.deepClone(this.system);
+        const _mergedSystem = _me(_baseSysData, _passiveTiers, _selectedActiveTier, actor.getRollData?.() ?? {});
+        _proxyCharm = { id: this.id, name: this.name, img: this.img, effects: this.effects, system: _mergedSystem };
+      }
+    }
+
     if (!turningOff && sys.duration === "permanent") {
       const { applyCharmAEs } = await import("../combat/form-charms.mjs");
       // Enhancing charms defer their AEs to when the base charm activates.
       if (!sys.enhancesCharmUid || actor.items.some(
         i => i.type === "charm" && i.system?.charmUid === sys.enhancesCharmUid && i.system?.active
       )) {
-        await applyCharmAEs(actor, this, this.getRollData?.() ?? {});
+        await applyCharmAEs(actor, _proxyCharm, this.getRollData?.() ?? {});
       }
     }
 
     if (!turningOff && isToggleable) {
       const { applyCharmAEs } = await import("../combat/form-charms.mjs");
-      await applyCharmAEs(actor, this, this.getRollData?.() ?? {});
+      await applyCharmAEs(actor, _proxyCharm, this.getRollData?.() ?? {});
       // Also apply synth AEs for permanent charms that enhance this charm.
       const myUid = sys.charmUid;
       if (myUid) {

@@ -19,7 +19,10 @@ export function computeAttackCharmBonus(charms, rollData = {}) {
   let soakPiercing    = 0;
   let ignoresArmor    = false;
   for (const c of charms) {
-    const ab = c?.system?.attackBonus;
+    const synthAE = c.actor?.effects?.find(
+      e => !e.disabled && e.flags?.exalted2e?.charmSource === c.id && e.flags?.exalted2e?.synthAE
+    );
+    const ab = synthAE?.flags?.exalted2e?.tierAttackBonus ?? c?.system?.attackBonus;
     if (!ab?.enabled) continue;
     const charmRollData = { ...rollData, purchaseLevel: c.system?.purchaseLevel ?? 1 };
     extraAccuracyDice       += evaluateCharmFormula(ab.accuracyDice,       charmRollData, 0) | 0;

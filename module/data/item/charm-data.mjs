@@ -185,6 +185,7 @@ export class CharmData extends foundry.abstract.TypeDataModel {
 
       // M1 — Permanent health level grants (Ox-Body family)
       healthGrant: new fields.SchemaField({
+        modeExclusive:  new fields.BooleanField({ initial: false }),
         enabled:        new fields.BooleanField({ initial: false }),
         selectedOption: new fields.NumberField({ initial: 0, min: 0, integer: true }),
         options: new fields.ArrayField(new fields.SchemaField({
@@ -198,6 +199,7 @@ export class CharmData extends foundry.abstract.TypeDataModel {
 
       // M2 — Scene-long / per-attack soak and hardness bonus
       soakBonus: new fields.SchemaField({
+        modeExclusive:     new fields.BooleanField({ initial: false }),
         enabled:           new fields.BooleanField({ initial: false }),
         bashing:           new fields.NumberField({ initial: 0, min: 0, integer: true }),
         lethal:            new fields.NumberField({ initial: 0, min: 0, integer: true }),
@@ -217,6 +219,7 @@ export class CharmData extends foundry.abstract.TypeDataModel {
 
       // M4 — Scene-long attribute / ability boost
       statBoost: new fields.SchemaField({
+        modeExclusive: new fields.BooleanField({ initial: false }),
         enabled: new fields.BooleanField({ initial: false }),
         changes: new fields.ArrayField(new fields.SchemaField({
           path:  new fields.StringField({ initial: "", blank: true }),
@@ -226,6 +229,7 @@ export class CharmData extends foundry.abstract.TypeDataModel {
 
       // M5 — Mote recovery on trigger event (Essence-Gathering Temper family)
       moteRecovery: new fields.SchemaField({
+        modeExclusive: new fields.BooleanField({ initial: false }),
         enabled: new fields.BooleanField({ initial: false }),
         event:   new fields.StringField({ initial: "onDamageReceived" }),
         action:  new fields.StringField({ initial: "recoverPeripheral" }),
@@ -278,6 +282,7 @@ export class CharmData extends foundry.abstract.TypeDataModel {
 
       // M10 — DV bonus and DV penalty negation
       dvBonus: new fields.SchemaField({
+        modeExclusive:      new fields.BooleanField({ initial: false }),
         enabled:            new fields.BooleanField({ initial: false }),
         dodgeBonus:         new fields.NumberField({ initial: 0, min: 0, integer: true }),
         parryBonus:         new fields.NumberField({ initial: 0, min: 0, integer: true }),
@@ -289,6 +294,7 @@ export class CharmData extends foundry.abstract.TypeDataModel {
 
       // M11 — Internal penalty applied to target
       targetPenalty: new fields.SchemaField({
+        modeExclusive: new fields.BooleanField({ initial: false }),
         enabled:       new fields.BooleanField({ initial: false }),
         amount:        new fields.NumberField({ initial: -1, max: 0, integer: true }),
         amountFormula: new fields.StringField({ initial: '', blank: true }),
@@ -306,6 +312,7 @@ export class CharmData extends foundry.abstract.TypeDataModel {
 
       // M12 — Attack roll bonus (supplemental charms)
       attackBonus: new fields.SchemaField({
+        modeExclusive:           new fields.BooleanField({ initial: false }),
         enabled:                 new fields.BooleanField({ initial: false }),
         accuracyDice:            new fields.StringField({ initial: "", blank: true }),
         accuracySuccesses:       new fields.StringField({ initial: "", blank: true }),
@@ -333,6 +340,7 @@ export class CharmData extends foundry.abstract.TypeDataModel {
 
       // M13 — Speed modifier
       speedModifier: new fields.SchemaField({
+        modeExclusive: new fields.BooleanField({ initial: false }),
         enabled:      new fields.BooleanField({ initial: false }),
         delta:        new fields.NumberField({ initial: -1, integer: true }),
         deltaFormula: new fields.StringField({ initial: '', blank: true }),
@@ -342,6 +350,7 @@ export class CharmData extends foundry.abstract.TypeDataModel {
 
       // M14 — Rate bonus (extra attacks in a flurry)
       rateBonus: new fields.SchemaField({
+        modeExclusive: new fields.BooleanField({ initial: false }),
         enabled: new fields.BooleanField({ initial: false }),
         formula: new fields.StringField({ initial: "1", blank: true })
       }),
@@ -401,7 +410,104 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       essenceGates:  new fields.ArrayField(
         new fields.NumberField({ min: 1, max: 10, integer: true }),
         { initial: [] }
-      )
+      ),
+
+      // ── Essence-Tiered Upgrades ─────────────────────────────────────────────
+      // Each entry defines a conditional upgrade that activates when the actor
+      // meets the gate requirements (essence, ability, attribute, purchase level).
+      upgradeTiers: new fields.ArrayField(new fields.SchemaField({
+        label:               new fields.StringField({ blank: true, initial: "" }),
+        autoApply:           new fields.BooleanField({ initial: false }),
+        passive:             new fields.BooleanField({ initial: true }),
+        gateRequiresAll:     new fields.BooleanField({ initial: true }),
+        essenceRequired:     new fields.NumberField({ integer: true, min: 0, max: 10, initial: 0 }),
+        abilityGate: new fields.SchemaField({
+          min: new fields.NumberField({ integer: true, min: 0, max: 5, initial: 0 }),
+        }),
+        attributeGate: new fields.SchemaField({
+          min: new fields.NumberField({ integer: true, min: 0, max: 5, initial: 0 }),
+        }),
+        purchaseLevelRequired: new fields.NumberField({ integer: true, min: 2, initial: 2 }),
+        cost: new fields.SchemaField({
+          formula: new fields.StringField({ blank: true, initial: "" }),
+        }),
+        attackBonus: new fields.SchemaField({
+          enabled:                 new fields.BooleanField({ initial: false }),
+          accuracyDice:            new fields.StringField({ initial: "", blank: true }),
+          accuracySuccesses:       new fields.StringField({ initial: "", blank: true }),
+          damageDice:              new fields.StringField({ initial: "", blank: true }),
+          damageDicePerMote:       new fields.BooleanField({ initial: false }),
+          postSoakDamageDice:      new fields.StringField({ initial: "", blank: true }),
+          postSoakDicePerMote:     new fields.BooleanField({ initial: false }),
+          ignoreAccuracyPenalties: new fields.BooleanField({ initial: false }),
+          ignoreRangeBand:         new fields.BooleanField({ initial: false }),
+          soakPiercing:            new fields.NumberField({ initial: 0, min: 0, integer: true }),
+          ignoresArmor:            new fields.BooleanField({ initial: false }),
+        }),
+        dvBonus: new fields.SchemaField({
+          enabled:            new fields.BooleanField({ initial: false }),
+          dodgeBonus:         new fields.NumberField({ initial: 0, min: 0, integer: true }),
+          parryBonus:         new fields.NumberField({ initial: 0, min: 0, integer: true }),
+          ignoreAllPenalties: new fields.BooleanField({ initial: false }),
+          ignorePenaltyTypes: new fields.ArrayField(new fields.StringField({ blank: true })),
+          dodgeBonusFormula:  new fields.StringField({ initial: "", blank: true }),
+          parryBonusFormula:  new fields.StringField({ initial: "", blank: true }),
+        }),
+        targetPenalty: new fields.SchemaField({
+          enabled:       new fields.BooleanField({ initial: false }),
+          amount:        new fields.NumberField({ initial: -1, max: 0, integer: true }),
+          amountFormula: new fields.StringField({ initial: "", blank: true }),
+          scope:         new fields.StringField({ initial: "all" }),
+          duration:      new fields.StringField({ initial: "oneScene" }),
+        }),
+        moteRecovery: new fields.SchemaField({
+          enabled: new fields.BooleanField({ initial: false }),
+          event:   new fields.StringField({ initial: "onDamageReceived" }),
+          action:  new fields.StringField({ initial: "recoverPeripheral" }),
+          formula: new fields.StringField({ initial: "", blank: true }),
+          source:  new fields.StringField({ initial: "self", choices: ["self", "fromTarget"] }),
+        }),
+        soakBonus: new fields.SchemaField({
+          enabled:           new fields.BooleanField({ initial: false }),
+          bashing:           new fields.NumberField({ initial: 0, min: 0, integer: true }),
+          lethal:            new fields.NumberField({ initial: 0, min: 0, integer: true }),
+          aggravated:        new fields.NumberField({ initial: 0, min: 0, integer: true }),
+          hardnessAdd:       new fields.NumberField({ initial: 0, min: 0, integer: true }),
+          hardnessSetTo:     new fields.NumberField({ initial: 0, min: 0, integer: true }),
+          bashingFormula:    new fields.StringField({ initial: "", blank: true }),
+          lethalFormula:     new fields.StringField({ initial: "", blank: true }),
+          aggravatedFormula: new fields.StringField({ initial: "", blank: true }),
+        }),
+        statBoost: new fields.SchemaField({
+          enabled: new fields.BooleanField({ initial: false }),
+          changes: new fields.ArrayField(new fields.SchemaField({
+            path:  new fields.StringField({ initial: "", blank: true }),
+            value: new fields.StringField({ initial: "1" }),
+          })),
+        }),
+        healthGrant: new fields.SchemaField({
+          enabled:        new fields.BooleanField({ initial: false }),
+          selectedOption: new fields.NumberField({ initial: 0, min: 0, integer: true }),
+          options: new fields.ArrayField(new fields.SchemaField({
+            label: new fields.StringField({ initial: "", blank: true }),
+            zero:  new fields.NumberField({ initial: 0, min: 0, integer: true }),
+            one:   new fields.NumberField({ initial: 0, min: 0, integer: true }),
+            two:   new fields.NumberField({ initial: 0, min: 0, integer: true }),
+            dying: new fields.NumberField({ initial: 0, min: 0, integer: true }),
+          })),
+        }),
+        rateBonus: new fields.SchemaField({
+          enabled: new fields.BooleanField({ initial: false }),
+          formula: new fields.StringField({ initial: "1", blank: true }),
+        }),
+        speedModifier: new fields.SchemaField({
+          enabled:      new fields.BooleanField({ initial: false }),
+          delta:        new fields.NumberField({ initial: -1, integer: true }),
+          deltaFormula: new fields.StringField({ initial: "", blank: true }),
+          minimum:      new fields.NumberField({ initial: 3, min: 1, integer: true }),
+          perMotes:     new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        }),
+      }), { initial: [] })
     };
   }
 }

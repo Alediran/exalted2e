@@ -1,0 +1,17 @@
+<form>
+  <div class="tier-selection-form">
+    <label class="tier-option">
+      <input type="radio" name="tierSelection" value="standard" checked>
+      <span class="tier-option-label">{{localize "EX2E.StandardMode"}}</span>
+    </label>
+    {{#each active as |tier i|}}
+    <label class="tier-option">
+      <input type="radio" name="tierSelection" value="tier_{{i}}">
+      <span class="tier-option-label">{{tier.label}}</span>
+      {{#if tier.cost.formula}}
+      <span class="tier-option-cost">{{tier.cost.formula}}</span>
+      {{/if}}
+    </label>
+    {{/each}}
+  </div>
+</form>

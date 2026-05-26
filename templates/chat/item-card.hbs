@@ -34,6 +34,14 @@
     {{/if}}
   </div>
   {{/if}}
+  {{#if activation.tiersApplied.length}}
+  <div class="charm-tiers-applied">
+    <strong>{{localize "EX2E.UpgradesApplied"}}:</strong>
+    {{#each activation.tiersApplied}}
+    <span class="tier-applied-tag tier-type-{{this.type}}">{{this.label}}</span>
+    {{/each}}
+  </div>
+  {{/if}}
   {{#if canReverse}}
   <div class="item-card-actions">
     <button type="button" class="btn-roll btn-reverse-charm"

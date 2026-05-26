@@ -34,7 +34,10 @@ export async function createTempCharm(actor, {
   cost        = {},
   // Attack block — partial override; any provided field overrides the
   // StringField default. Non-string values are coerced via String().
-  attack      = null
+  attack      = null,
+  // Any remaining opts (e.g. attackBonus, upgradeTiers) are spread
+  // directly into system so callers don't have to enumerate every field.
+  ...rest
 } = {}) {
   // If caller passes { formula }, use it directly.
   // Otherwise synthesise a formula from the legacy individual fields.
@@ -56,7 +59,8 @@ export async function createTempCharm(actor, {
   const system = {
     cost: fullCost,
     charmType, duration, keywords, ability, excellency,
-    essence, minAbility, speed, steps
+    essence, minAbility, speed, steps,
+    ...rest
   };
 
   if (attack) {

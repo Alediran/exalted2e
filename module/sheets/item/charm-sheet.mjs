@@ -48,7 +48,17 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       removeTargetEffectChange: CharmSheet.#onRemoveTargetEffectChange,
       dispelOther:              CharmSheet.#onDispelOther,
       clearEnhancesCharm:       CharmSheet.#onClearEnhancesCharm,
-      incrementPurchaseLevel:   CharmSheet.#onIncrementPurchaseLevel
+      incrementPurchaseLevel:   CharmSheet.#onIncrementPurchaseLevel,
+      addUpgradeTier:      CharmSheet.#onAddUpgradeTier,
+      removeUpgradeTier:   CharmSheet.#onRemoveUpgradeTier,
+      moveUpgradeTierUp:   CharmSheet.#onMoveUpgradeTierUp,
+      moveUpgradeTierDown: CharmSheet.#onMoveUpgradeTierDown,
+      addTierStatBoostChange:        CharmSheet.#onAddTierStatBoostChange,
+      removeTierStatBoostChange:     CharmSheet.#onRemoveTierStatBoostChange,
+      addTierHealthGrantOption:      CharmSheet.#onAddTierHealthGrantOption,
+      removeTierHealthGrantOption:   CharmSheet.#onRemoveTierHealthGrantOption,
+      addTierDVIgnorePenaltyType:    CharmSheet.#onAddTierDVIgnorePenaltyType,
+      removeTierDVIgnorePenaltyType: CharmSheet.#onRemoveTierDVIgnorePenaltyType
     }
   };
 
@@ -497,6 +507,107 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const ae = spellEffectAes[0];
     const { CountermagicDialog } = await import("../../dialogs/countermagic-dialog.mjs");
     await CountermagicDialog.open({ type: "effect-other", targetActor, ae }, actor);
+  }
+
+  static async #onAddUpgradeTier(event, target) {
+    const tiers = foundry.utils.deepClone(this.document.system.upgradeTiers ?? []);
+    tiers.push({
+      label: "", autoApply: false, passive: true, gateRequiresAll: true,
+      essenceRequired: 0, purchaseLevelRequired: 2,
+      abilityGate: { min: 0 }, attributeGate: { min: 0 },
+      cost: { formula: "" }
+    });
+    await this.document.update({ "system.upgradeTiers": tiers });
+  }
+
+  static async #onRemoveUpgradeTier(event, target) {
+    const idx = parseInt(target.dataset.index);
+    if (!Number.isFinite(idx)) return;
+    const tiers = foundry.utils.deepClone(this.document.system.upgradeTiers ?? []);
+    tiers.splice(idx, 1);
+    await this.document.update({ "system.upgradeTiers": tiers });
+  }
+
+  static async #onMoveUpgradeTierUp(event, target) {
+    const idx = parseInt(target.dataset.index);
+    if (!Number.isFinite(idx) || idx <= 0) return;
+    const tiers = foundry.utils.deepClone(this.document.system.upgradeTiers ?? []);
+    [tiers[idx - 1], tiers[idx]] = [tiers[idx], tiers[idx - 1]];
+    await this.document.update({ "system.upgradeTiers": tiers });
+  }
+
+  static async #onMoveUpgradeTierDown(event, target) {
+    const idx = parseInt(target.dataset.index);
+    const tiers = foundry.utils.deepClone(this.document.system.upgradeTiers ?? []);
+    if (!Number.isFinite(idx) || idx >= tiers.length - 1) return;
+    [tiers[idx], tiers[idx + 1]] = [tiers[idx + 1], tiers[idx]];
+    await this.document.update({ "system.upgradeTiers": tiers });
+  }
+
+  static async #onAddTierStatBoostChange(event, target) {
+    const tierIdx = parseInt(target.dataset.tierIndex);
+    if (!Number.isFinite(tierIdx)) return;
+    const tiers = foundry.utils.deepClone(this.document.system.upgradeTiers ?? []);
+    const tier = tiers[tierIdx];
+    if (!tier) return;
+    tier.statBoost ??= {};
+    tier.statBoost.changes = [...(tier.statBoost.changes ?? []), { path: "", value: "1" }];
+    await this.document.update({ "system.upgradeTiers": tiers });
+  }
+
+  static async #onRemoveTierStatBoostChange(event, target) {
+    const tierIdx = parseInt(target.dataset.tierIndex);
+    const idx = parseInt(target.dataset.index);
+    if (!Number.isFinite(tierIdx) || !Number.isFinite(idx)) return;
+    const tiers = foundry.utils.deepClone(this.document.system.upgradeTiers ?? []);
+    const tier = tiers[tierIdx];
+    if (!tier) return;
+    tier.statBoost.changes.splice(idx, 1);
+    await this.document.update({ "system.upgradeTiers": tiers });
+  }
+
+  static async #onAddTierHealthGrantOption(event, target) {
+    const tierIdx = parseInt(target.dataset.tierIndex);
+    if (!Number.isFinite(tierIdx)) return;
+    const tiers = foundry.utils.deepClone(this.document.system.upgradeTiers ?? []);
+    const tier = tiers[tierIdx];
+    if (!tier) return;
+    tier.healthGrant ??= {};
+    tier.healthGrant.options = [...(tier.healthGrant.options ?? []), { label: "", zero: 0, one: 0, two: 0, dying: 0 }];
+    await this.document.update({ "system.upgradeTiers": tiers });
+  }
+
+  static async #onRemoveTierHealthGrantOption(event, target) {
+    const tierIdx = parseInt(target.dataset.tierIndex);
+    const idx = parseInt(target.dataset.index);
+    if (!Number.isFinite(tierIdx) || !Number.isFinite(idx)) return;
+    const tiers = foundry.utils.deepClone(this.document.system.upgradeTiers ?? []);
+    const tier = tiers[tierIdx];
+    if (!tier) return;
+    tier.healthGrant.options.splice(idx, 1);
+    await this.document.update({ "system.upgradeTiers": tiers });
+  }
+
+  static async #onAddTierDVIgnorePenaltyType(event, target) {
+    const tierIdx = parseInt(target.dataset.tierIndex);
+    if (!Number.isFinite(tierIdx)) return;
+    const tiers = foundry.utils.deepClone(this.document.system.upgradeTiers ?? []);
+    const tier = tiers[tierIdx];
+    if (!tier) return;
+    tier.dvBonus ??= {};
+    tier.dvBonus.ignorePenaltyTypes = [...(tier.dvBonus.ignorePenaltyTypes ?? []), "onslaught"];
+    await this.document.update({ "system.upgradeTiers": tiers });
+  }
+
+  static async #onRemoveTierDVIgnorePenaltyType(event, target) {
+    const tierIdx = parseInt(target.dataset.tierIndex);
+    const idx = parseInt(target.dataset.index);
+    if (!Number.isFinite(tierIdx) || !Number.isFinite(idx)) return;
+    const tiers = foundry.utils.deepClone(this.document.system.upgradeTiers ?? []);
+    const tier = tiers[tierIdx];
+    if (!tier) return;
+    tier.dvBonus.ignorePenaltyTypes.splice(idx, 1);
+    await this.document.update({ "system.upgradeTiers": tiers });
   }
 
   static async #onIncrementPurchaseLevel(event, _target) {

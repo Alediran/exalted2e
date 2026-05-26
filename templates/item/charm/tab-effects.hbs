@@ -196,12 +196,22 @@
 
   {{!-- M12 Attack Bonus (Supplemental) ───────────────────────────────────── --}}
   <div class="effect-section">
-    <label class="effect-enable-row">
-      <input type="checkbox" name="system.attackBonus.enabled"
-             {{#if system.attackBonus.enabled}}checked{{/if}}
-             {{#unless isEditable}}disabled{{/unless}}>
-      <span>{{localize "EX2E.EffectAttackBonus"}}</span>
-    </label>
+    <div class="effect-section-header-row">
+      <label class="effect-enable-row">
+        <input type="checkbox" name="system.attackBonus.enabled"
+               {{#if system.attackBonus.enabled}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        <span>{{localize "EX2E.EffectAttackBonus"}}</span>
+      </label>
+      {{#if system.upgradeTiers.length}}
+      <label class="mode-exclusive-label" data-tooltip="{{localize 'EX2E.BaseModeOnlyTooltip'}}">
+        <input type="checkbox" name="system.attackBonus.modeExclusive"
+               {{#if system.attackBonus.modeExclusive}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        {{localize "EX2E.BaseModeOnly"}}
+      </label>
+      {{/if}}
+    </div>
     {{#if system.attackBonus.enabled}}
     <div class="effect-body">
       <div class="field-group">
@@ -320,12 +330,22 @@
 
   {{!-- M11 Penalty to Target ──────────────────────────────────────────────── --}}
   <div class="effect-section">
-    <label class="effect-enable-row">
-      <input type="checkbox" name="system.targetPenalty.enabled"
-             {{#if system.targetPenalty.enabled}}checked{{/if}}
-             {{#unless isEditable}}disabled{{/unless}}>
-      <span>{{localize "EX2E.EffectTargetPenalty"}}</span>
-    </label>
+    <div class="effect-section-header-row">
+      <label class="effect-enable-row">
+        <input type="checkbox" name="system.targetPenalty.enabled"
+               {{#if system.targetPenalty.enabled}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        <span>{{localize "EX2E.EffectTargetPenalty"}}</span>
+      </label>
+      {{#if system.upgradeTiers.length}}
+      <label class="mode-exclusive-label" data-tooltip="{{localize 'EX2E.BaseModeOnlyTooltip'}}">
+        <input type="checkbox" name="system.targetPenalty.modeExclusive"
+               {{#if system.targetPenalty.modeExclusive}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        {{localize "EX2E.BaseModeOnly"}}
+      </label>
+      {{/if}}
+    </div>
     {{#if system.targetPenalty.enabled}}
     <div class="effect-body effect-grid-2">
       <div class="field-group">
@@ -420,12 +440,22 @@
 
   {{!-- M14 Rate Bonus ──────────────────────────────────────────────────────── --}}
   <div class="effect-section">
-    <label class="effect-enable-row">
-      <input type="checkbox" name="system.rateBonus.enabled"
-             {{#if system.rateBonus.enabled}}checked{{/if}}
-             {{#unless isEditable}}disabled{{/unless}}>
-      <span>{{localize "EX2E.EffectRateBonus"}}</span>
-    </label>
+    <div class="effect-section-header-row">
+      <label class="effect-enable-row">
+        <input type="checkbox" name="system.rateBonus.enabled"
+               {{#if system.rateBonus.enabled}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        <span>{{localize "EX2E.EffectRateBonus"}}</span>
+      </label>
+      {{#if system.upgradeTiers.length}}
+      <label class="mode-exclusive-label" data-tooltip="{{localize 'EX2E.BaseModeOnlyTooltip'}}">
+        <input type="checkbox" name="system.rateBonus.modeExclusive"
+               {{#if system.rateBonus.modeExclusive}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        {{localize "EX2E.BaseModeOnly"}}
+      </label>
+      {{/if}}
+    </div>
     {{#if system.rateBonus.enabled}}
     <div class="effect-body effect-grid-2">
       <div class="field-group">
@@ -644,12 +674,22 @@
 
   {{!-- M10 DV Bonus / Penalty Negation ───────────────────────────────────── --}}
   <div class="effect-section">
-    <label class="effect-enable-row">
-      <input type="checkbox" name="system.dvBonus.enabled"
-             {{#if system.dvBonus.enabled}}checked{{/if}}
-             {{#unless isEditable}}disabled{{/unless}}>
-      <span>{{localize "EX2E.EffectDVBonus"}}</span>
-    </label>
+    <div class="effect-section-header-row">
+      <label class="effect-enable-row">
+        <input type="checkbox" name="system.dvBonus.enabled"
+               {{#if system.dvBonus.enabled}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        <span>{{localize "EX2E.EffectDVBonus"}}</span>
+      </label>
+      {{#if system.upgradeTiers.length}}
+      <label class="mode-exclusive-label" data-tooltip="{{localize 'EX2E.BaseModeOnlyTooltip'}}">
+        <input type="checkbox" name="system.dvBonus.modeExclusive"
+               {{#if system.dvBonus.modeExclusive}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        {{localize "EX2E.BaseModeOnly"}}
+      </label>
+      {{/if}}
+    </div>
     {{#if system.dvBonus.enabled}}
     <div class="effect-body effect-grid-2">
       <div class="field-group">
@@ -736,12 +776,22 @@
 
   {{!-- M2 Soak / Hardness Bonus ──────────────────────────────────────────── --}}
   <div class="effect-section">
-    <label class="effect-enable-row">
-      <input type="checkbox" name="system.soakBonus.enabled"
-             {{#if system.soakBonus.enabled}}checked{{/if}}
-             {{#unless isEditable}}disabled{{/unless}}>
-      <span>{{localize "EX2E.EffectSoakBonus"}}</span>
-    </label>
+    <div class="effect-section-header-row">
+      <label class="effect-enable-row">
+        <input type="checkbox" name="system.soakBonus.enabled"
+               {{#if system.soakBonus.enabled}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        <span>{{localize "EX2E.EffectSoakBonus"}}</span>
+      </label>
+      {{#if system.upgradeTiers.length}}
+      <label class="mode-exclusive-label" data-tooltip="{{localize 'EX2E.BaseModeOnlyTooltip'}}">
+        <input type="checkbox" name="system.soakBonus.modeExclusive"
+               {{#if system.soakBonus.modeExclusive}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        {{localize "EX2E.BaseModeOnly"}}
+      </label>
+      {{/if}}
+    </div>
     {{#if system.soakBonus.enabled}}
     <div class="effect-body effect-grid-2">
       <div class="field-group">
@@ -858,12 +908,22 @@
 
   {{!-- M1 Health Level Grant ─────────────────────────────────────────────── --}}
   <div class="effect-section">
-    <label class="effect-enable-row">
-      <input type="checkbox" name="system.healthGrant.enabled"
-             {{#if system.healthGrant.enabled}}checked{{/if}}
-             {{#unless isEditable}}disabled{{/unless}}>
-      <span>{{localize "EX2E.EffectHealthGrant"}}</span>
-    </label>
+    <div class="effect-section-header-row">
+      <label class="effect-enable-row">
+        <input type="checkbox" name="system.healthGrant.enabled"
+               {{#if system.healthGrant.enabled}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        <span>{{localize "EX2E.EffectHealthGrant"}}</span>
+      </label>
+      {{#if system.upgradeTiers.length}}
+      <label class="mode-exclusive-label" data-tooltip="{{localize 'EX2E.BaseModeOnlyTooltip'}}">
+        <input type="checkbox" name="system.healthGrant.modeExclusive"
+               {{#if system.healthGrant.modeExclusive}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        {{localize "EX2E.BaseModeOnly"}}
+      </label>
+      {{/if}}
+    </div>
     {{#if system.healthGrant.enabled}}
     <div class="effect-body">
       <p class="effect-section-label">{{localize "EX2E.HGOptions"}}</p>
@@ -911,12 +971,22 @@
 
   {{!-- M4 Attribute / Ability Boost ──────────────────────────────────────── --}}
   <div class="effect-section">
-    <label class="effect-enable-row">
-      <input type="checkbox" name="system.statBoost.enabled"
-             {{#if system.statBoost.enabled}}checked{{/if}}
-             {{#unless isEditable}}disabled{{/unless}}>
-      <span>{{localize "EX2E.EffectStatBoost"}}</span>
-    </label>
+    <div class="effect-section-header-row">
+      <label class="effect-enable-row">
+        <input type="checkbox" name="system.statBoost.enabled"
+               {{#if system.statBoost.enabled}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        <span>{{localize "EX2E.EffectStatBoost"}}</span>
+      </label>
+      {{#if system.upgradeTiers.length}}
+      <label class="mode-exclusive-label" data-tooltip="{{localize 'EX2E.BaseModeOnlyTooltip'}}">
+        <input type="checkbox" name="system.statBoost.modeExclusive"
+               {{#if system.statBoost.modeExclusive}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        {{localize "EX2E.BaseModeOnly"}}
+      </label>
+      {{/if}}
+    </div>
     {{#if system.statBoost.enabled}}
     <div class="effect-body">
       {{#if system.statBoost.changes}}
@@ -953,12 +1023,22 @@
 
   {{!-- M5 Mote Recovery Trigger ───────────────────────────────────────────── --}}
   <div class="effect-section">
-    <label class="effect-enable-row">
-      <input type="checkbox" name="system.moteRecovery.enabled"
-             {{#if system.moteRecovery.enabled}}checked{{/if}}
-             {{#unless isEditable}}disabled{{/unless}}>
-      <span>{{localize "EX2E.EffectMoteRecovery"}}</span>
-    </label>
+    <div class="effect-section-header-row">
+      <label class="effect-enable-row">
+        <input type="checkbox" name="system.moteRecovery.enabled"
+               {{#if system.moteRecovery.enabled}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        <span>{{localize "EX2E.EffectMoteRecovery"}}</span>
+      </label>
+      {{#if system.upgradeTiers.length}}
+      <label class="mode-exclusive-label" data-tooltip="{{localize 'EX2E.BaseModeOnlyTooltip'}}">
+        <input type="checkbox" name="system.moteRecovery.modeExclusive"
+               {{#if system.moteRecovery.modeExclusive}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        {{localize "EX2E.BaseModeOnly"}}
+      </label>
+      {{/if}}
+    </div>
     {{#if system.moteRecovery.enabled}}
     <div class="effect-body effect-grid-2">
       <div class="field-group">
@@ -1147,12 +1227,22 @@
 
   {{!-- M13 Speed Modifier ─────────────────────────────────────────────────── --}}
   <div class="effect-section">
-    <label class="effect-enable-row">
-      <input type="checkbox" name="system.speedModifier.enabled"
-             {{#if system.speedModifier.enabled}}checked{{/if}}
-             {{#unless isEditable}}disabled{{/unless}}>
-      <span>{{localize "EX2E.EffectSpeedModifier"}}</span>
-    </label>
+    <div class="effect-section-header-row">
+      <label class="effect-enable-row">
+        <input type="checkbox" name="system.speedModifier.enabled"
+               {{#if system.speedModifier.enabled}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        <span>{{localize "EX2E.EffectSpeedModifier"}}</span>
+      </label>
+      {{#if system.upgradeTiers.length}}
+      <label class="mode-exclusive-label" data-tooltip="{{localize 'EX2E.BaseModeOnlyTooltip'}}">
+        <input type="checkbox" name="system.speedModifier.modeExclusive"
+               {{#if system.speedModifier.modeExclusive}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        {{localize "EX2E.BaseModeOnly"}}
+      </label>
+      {{/if}}
+    </div>
     {{#if system.speedModifier.enabled}}
     <div class="effect-body effect-grid-2">
       <div class="field-group">
@@ -1327,6 +1417,677 @@
              {{#unless isEditable}}disabled{{/unless}}>
       <span>{{localize "EX2E.GrantsCelestialMA"}}</span>
     </label>
+  </div>
+
+  {{!-- ── UPGRADE TIERS ────────────────────────────────────────────────────────── --}}
+  <div class="upgrade-tiers-section">
+    <div class="section-toolbar">
+      <h3>{{localize "EX2E.UpgradeTiers"}}</h3>
+      {{#if isEditable}}
+      <button type="button" class="btn-icon" data-action="addUpgradeTier"
+              data-tooltip="{{localize 'EX2E.AddUpgradeTier'}}">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      {{/if}}
+    </div>
+
+    {{#each system.upgradeTiers as |tier i|}}
+    <div class="upgrade-tier-card" data-tier-index="{{i}}">
+      <div class="tier-header">
+        <input type="text" name="system.upgradeTiers.{{i}}.label"
+               value="{{tier.label}}" placeholder="Tier label"
+               {{#unless @root.isEditable}}readonly{{/unless}}>
+        <label class="tier-flag-label">
+          <input type="checkbox" name="system.upgradeTiers.{{i}}.autoApply"
+                 {{#if tier.autoApply}}checked{{/if}}
+                 {{#unless @root.isEditable}}disabled{{/unless}}>
+          {{localize "EX2E.AutoApply"}}
+        </label>
+        <label class="tier-flag-label">
+          <input type="checkbox" name="system.upgradeTiers.{{i}}.passive"
+                 {{#if tier.passive}}checked{{/if}}
+                 {{#unless @root.isEditable}}disabled{{/unless}}>
+          {{localize "EX2E.Passive"}}
+        </label>
+        {{#if @root.isEditable}}
+        <button type="button" class="btn-icon" data-action="moveUpgradeTierUp"   data-index="{{i}}"><i class="fa-solid fa-chevron-up"></i></button>
+        <button type="button" class="btn-icon" data-action="moveUpgradeTierDown" data-index="{{i}}"><i class="fa-solid fa-chevron-down"></i></button>
+        <button type="button" class="btn-icon" data-action="removeUpgradeTier"   data-index="{{i}}"><i class="fa-solid fa-trash"></i></button>
+        {{/if}}
+      </div>
+
+      <div class="tier-gates">
+        <div class="field-group">
+          <label>{{localize "EX2E.MinEssence"}}</label>
+          <input type="number" name="system.upgradeTiers.{{i}}.essenceRequired"
+                 value="{{tier.essenceRequired}}" min="0" max="10"
+                 {{#unless @root.isEditable}}readonly{{/unless}}>
+        </div>
+        <div class="field-group">
+          <label>{{localize "EX2E.AbilityGate"}}</label>
+          <input type="number" name="system.upgradeTiers.{{i}}.abilityGate.min"
+                 value="{{tier.abilityGate.min}}" min="0" max="5"
+                 {{#unless @root.isEditable}}readonly{{/unless}}>
+        </div>
+        <div class="field-group">
+          <label>{{localize "EX2E.AttributeGate"}}</label>
+          <input type="number" name="system.upgradeTiers.{{i}}.attributeGate.min"
+                 value="{{tier.attributeGate.min}}" min="0" max="5"
+                 {{#unless @root.isEditable}}readonly{{/unless}}>
+        </div>
+        <label class="tier-flag-label">
+          <input type="checkbox" name="system.upgradeTiers.{{i}}.gateRequiresAll"
+                 {{#if tier.gateRequiresAll}}checked{{/if}}
+                 {{#unless @root.isEditable}}disabled{{/unless}}>
+          {{localize "EX2E.GateRequiresAll"}}
+        </label>
+        {{#unless tier.autoApply}}
+        <div class="field-group">
+          <label>{{localize "EX2E.PurchaseLevelRequired"}}</label>
+          <input type="number" name="system.upgradeTiers.{{i}}.purchaseLevelRequired"
+                 value="{{tier.purchaseLevelRequired}}" min="2"
+                 {{#unless @root.isEditable}}readonly{{/unless}}>
+        </div>
+        {{/unless}}
+        {{#unless tier.passive}}
+        <div class="field-group">
+          <label>{{localize "EX2E.TierCost"}}</label>
+          <input type="text" name="system.upgradeTiers.{{i}}.cost.formula"
+                 value="{{tier.cost.formula}}" placeholder="e.g. 7m 1wp"
+                 {{#unless @root.isEditable}}readonly{{/unless}}>
+        </div>
+        {{/unless}}
+      </div>
+
+      {{!-- Tier effect sections ───────────────────────────────────────────── --}}
+      <div class="tier-effects">
+
+        {{!-- Attack Bonus --}}
+        <div class="effect-section">
+          <label class="effect-enable-row">
+            <input type="checkbox" name="system.upgradeTiers.{{i}}.attackBonus.enabled"
+                   {{#if tier.attackBonus.enabled}}checked{{/if}}
+                   {{#unless @root.isEditable}}disabled{{/unless}}>
+            <span>{{localize "EX2E.EffectAttackBonus"}}</span>
+          </label>
+          {{#if tier.attackBonus.enabled}}
+          <div class="effect-body">
+            <div class="field-group">
+              <label>{{localize "EX2E.ABAccuracyDice"}}</label>
+              <div class="formula-field-row">
+                <input type="text" name="system.upgradeTiers.{{i}}.attackBonus.accuracyDice"
+                       value="{{tier.attackBonus.accuracyDice}}"
+                       {{#unless @root.isEditable}}readonly{{/unless}}>
+                {{#if @root.isEditable}}
+                <button type="button" class="btn-fx" data-action="openFormula"
+                        data-path="system.upgradeTiers.{{i}}.attackBonus.accuracyDice"
+                        data-label="{{localize 'EX2E.ABAccuracyDice'}}"
+                        data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+                  <i class="fa-solid fa-function"></i>
+                </button>
+                {{/if}}
+              </div>
+            </div>
+            <div class="field-group">
+              <label>{{localize "EX2E.ABAccuracySuccesses"}}</label>
+              <div class="formula-field-row">
+                <input type="text" name="system.upgradeTiers.{{i}}.attackBonus.accuracySuccesses"
+                       value="{{tier.attackBonus.accuracySuccesses}}"
+                       {{#unless @root.isEditable}}readonly{{/unless}}>
+                {{#if @root.isEditable}}
+                <button type="button" class="btn-fx" data-action="openFormula"
+                        data-path="system.upgradeTiers.{{i}}.attackBonus.accuracySuccesses"
+                        data-label="{{localize 'EX2E.ABAccuracySuccesses'}}"
+                        data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+                  <i class="fa-solid fa-function"></i>
+                </button>
+                {{/if}}
+              </div>
+            </div>
+            <div class="field-group">
+              <label>{{localize "EX2E.ABDamageDice"}}</label>
+              <div class="formula-field-row">
+                <input type="text" name="system.upgradeTiers.{{i}}.attackBonus.damageDice"
+                       value="{{tier.attackBonus.damageDice}}"
+                       {{#unless @root.isEditable}}readonly{{/unless}}>
+                {{#if @root.isEditable}}
+                <button type="button" class="btn-fx" data-action="openFormula"
+                        data-path="system.upgradeTiers.{{i}}.attackBonus.damageDice"
+                        data-label="{{localize 'EX2E.ABDamageDice'}}"
+                        data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+                  <i class="fa-solid fa-function"></i>
+                </button>
+                {{/if}}
+              </div>
+            </div>
+            <div class="field-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="system.upgradeTiers.{{i}}.attackBonus.damageDicePerMote"
+                       {{#if tier.attackBonus.damageDicePerMote}}checked{{/if}}
+                       {{#unless @root.isEditable}}disabled{{/unless}}>
+                {{localize "EX2E.ABDamageDicePerMote"}}
+              </label>
+            </div>
+            <div class="field-group">
+              <label>{{localize "EX2E.ABPostSoakDamageDice"}}</label>
+              <div class="formula-field-row">
+                <input type="text" name="system.upgradeTiers.{{i}}.attackBonus.postSoakDamageDice"
+                       value="{{tier.attackBonus.postSoakDamageDice}}"
+                       {{#unless @root.isEditable}}readonly{{/unless}}>
+                {{#if @root.isEditable}}
+                <button type="button" class="btn-fx" data-action="openFormula"
+                        data-path="system.upgradeTiers.{{i}}.attackBonus.postSoakDamageDice"
+                        data-label="{{localize 'EX2E.ABPostSoakDamageDice'}}"
+                        data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+                  <i class="fa-solid fa-function"></i>
+                </button>
+                {{/if}}
+              </div>
+            </div>
+            <div class="field-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="system.upgradeTiers.{{i}}.attackBonus.postSoakDicePerMote"
+                       {{#if tier.attackBonus.postSoakDicePerMote}}checked{{/if}}
+                       {{#unless @root.isEditable}}disabled{{/unless}}>
+                {{localize "EX2E.ABPostSoakDicePerMote"}}
+              </label>
+            </div>
+            <div class="field-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="system.upgradeTiers.{{i}}.attackBonus.ignoreAccuracyPenalties"
+                       {{#if tier.attackBonus.ignoreAccuracyPenalties}}checked{{/if}}
+                       {{#unless @root.isEditable}}disabled{{/unless}}>
+                {{localize "EX2E.ABIgnoreAccuracyPenalties"}}
+              </label>
+            </div>
+            <div class="field-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="system.upgradeTiers.{{i}}.attackBonus.ignoreRangeBand"
+                       {{#if tier.attackBonus.ignoreRangeBand}}checked{{/if}}
+                       {{#unless @root.isEditable}}disabled{{/unless}}>
+                {{localize "EX2E.ABIgnoreRangeBand"}}
+              </label>
+            </div>
+            <div class="field-group">
+              <label>{{localize "EX2E.ABSoakPiercing"}}</label>
+              <input type="number" name="system.upgradeTiers.{{i}}.attackBonus.soakPiercing"
+                     value="{{tier.attackBonus.soakPiercing}}"
+                     min="0" {{#unless @root.isEditable}}readonly{{/unless}}>
+            </div>
+            <div class="field-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="system.upgradeTiers.{{i}}.attackBonus.ignoresArmor"
+                       {{#if tier.attackBonus.ignoresArmor}}checked{{/if}}
+                       {{#unless @root.isEditable}}disabled{{/unless}}>
+                {{localize "EX2E.ABIgnoresArmor"}}
+              </label>
+            </div>
+          </div>
+          {{/if}}
+        </div>
+
+        {{!-- DV Bonus --}}
+        <div class="effect-section">
+          <label class="effect-enable-row">
+            <input type="checkbox" name="system.upgradeTiers.{{i}}.dvBonus.enabled"
+                   {{#if tier.dvBonus.enabled}}checked{{/if}}
+                   {{#unless @root.isEditable}}disabled{{/unless}}>
+            <span>{{localize "EX2E.EffectDVBonus"}}</span>
+          </label>
+          {{#if tier.dvBonus.enabled}}
+          <div class="effect-body effect-grid-2">
+            <div class="field-group">
+              <label>{{localize "EX2E.DVBDodgeBonus"}}</label>
+              <input type="number" name="system.upgradeTiers.{{i}}.dvBonus.dodgeBonus"
+                     value="{{tier.dvBonus.dodgeBonus}}" min="0"
+                     {{#unless @root.isEditable}}readonly{{/unless}}>
+            </div>
+            <div class="field-group">
+              <label>{{localize "EX2E.DVBParryBonus"}}</label>
+              <input type="number" name="system.upgradeTiers.{{i}}.dvBonus.parryBonus"
+                     value="{{tier.dvBonus.parryBonus}}" min="0"
+                     {{#unless @root.isEditable}}readonly{{/unless}}>
+            </div>
+            <div class="field-group">
+              <label>{{localize "EX2E.DVBDodgeBonusFormula"}}</label>
+              <div class="formula-field-row">
+                <input type="text" name="system.upgradeTiers.{{i}}.dvBonus.dodgeBonusFormula"
+                       value="{{tier.dvBonus.dodgeBonusFormula}}"
+                       placeholder="e.g. @dex"
+                       {{#unless @root.isEditable}}readonly{{/unless}}>
+                {{#if @root.isEditable}}
+                <button type="button" class="btn-fx" data-action="openFormula"
+                        data-path="system.upgradeTiers.{{i}}.dvBonus.dodgeBonusFormula"
+                        data-label="{{localize 'EX2E.DVBDodgeBonusFormula'}}"
+                        data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+                  <i class="fa-solid fa-function"></i>
+                </button>
+                {{/if}}
+              </div>
+            </div>
+            <div class="field-group">
+              <label>{{localize "EX2E.DVBParryBonusFormula"}}</label>
+              <div class="formula-field-row">
+                <input type="text" name="system.upgradeTiers.{{i}}.dvBonus.parryBonusFormula"
+                       value="{{tier.dvBonus.parryBonusFormula}}"
+                       placeholder="e.g. @dex"
+                       {{#unless @root.isEditable}}readonly{{/unless}}>
+                {{#if @root.isEditable}}
+                <button type="button" class="btn-fx" data-action="openFormula"
+                        data-path="system.upgradeTiers.{{i}}.dvBonus.parryBonusFormula"
+                        data-label="{{localize 'EX2E.DVBParryBonusFormula'}}"
+                        data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+                  <i class="fa-solid fa-function"></i>
+                </button>
+                {{/if}}
+              </div>
+            </div>
+            <div class="field-group" style="grid-column:1/-1">
+              <label class="checkbox-label">
+                <input type="checkbox" name="system.upgradeTiers.{{i}}.dvBonus.ignoreAllPenalties"
+                       {{#if tier.dvBonus.ignoreAllPenalties}}checked{{/if}}
+                       {{#unless @root.isEditable}}disabled{{/unless}}>
+                {{localize "EX2E.DVBIgnoreAll"}}
+              </label>
+            </div>
+            {{#unless tier.dvBonus.ignoreAllPenalties}}
+            <div class="field-group" style="grid-column:1/-1">
+              <label>{{localize "EX2E.DVBIgnorePenaltyTypes"}}</label>
+              {{#each tier.dvBonus.ignorePenaltyTypes as |pt j|}}
+              <div class="dvb-type-row">
+                <select name="system.upgradeTiers.{{../i}}.dvBonus.ignorePenaltyTypes.{{j}}"
+                        {{#unless @root.isEditable}}disabled{{/unless}}>
+                  {{#each @root.dvPenaltyTypeChoices as |choice|}}
+                  <option value="{{choice.value}}" {{#if (eq choice.value pt)}}selected{{/if}}>{{choice.label}}</option>
+                  {{/each}}
+                </select>
+                {{#if @root.isEditable}}
+                <button type="button" class="btn-remove" data-action="removeTierDVIgnorePenaltyType"
+                        data-tier-index="{{../i}}" data-index="{{j}}"><i class="fa-solid fa-times"></i></button>
+                {{/if}}
+              </div>
+              {{/each}}
+              {{#if @root.isEditable}}
+              <button type="button" class="btn-add-row" data-action="addTierDVIgnorePenaltyType"
+                      data-tier-index="{{i}}">
+                {{localize "EX2E.DVBAddPenaltyType"}}
+              </button>
+              {{/if}}
+            </div>
+            {{/unless}}
+          </div>
+          {{/if}}
+        </div>
+
+        {{!-- Target Penalty --}}
+        <div class="effect-section">
+          <label class="effect-enable-row">
+            <input type="checkbox" name="system.upgradeTiers.{{i}}.targetPenalty.enabled"
+                   {{#if tier.targetPenalty.enabled}}checked{{/if}}
+                   {{#unless @root.isEditable}}disabled{{/unless}}>
+            <span>{{localize "EX2E.EffectTargetPenalty"}}</span>
+          </label>
+          {{#if tier.targetPenalty.enabled}}
+          <div class="effect-body effect-grid-2">
+            <div class="field-group">
+              <label>{{localize "EX2E.TPAmount"}}</label>
+              <input type="number" name="system.upgradeTiers.{{i}}.targetPenalty.amount"
+                     value="{{tier.targetPenalty.amount}}" max="0"
+                     {{#unless @root.isEditable}}readonly{{/unless}}>
+            </div>
+            <div class="field-group">
+              <label>{{localize "EX2E.TPAmountFormula"}}</label>
+              <div class="formula-field-row">
+                <input type="text" name="system.upgradeTiers.{{i}}.targetPenalty.amountFormula"
+                       value="{{tier.targetPenalty.amountFormula}}"
+                       placeholder="e.g. -2"
+                       {{#unless @root.isEditable}}readonly{{/unless}}>
+                {{#if @root.isEditable}}
+                <button type="button" class="btn-fx" data-action="openFormula"
+                        data-path="system.upgradeTiers.{{i}}.targetPenalty.amountFormula"
+                        data-label="{{localize 'EX2E.TPAmountFormula'}}"
+                        data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+                  <i class="fa-solid fa-function"></i>
+                </button>
+                {{/if}}
+              </div>
+            </div>
+            <div class="field-group">
+              <label>{{localize "EX2E.TPScope"}}</label>
+              <select name="system.upgradeTiers.{{i}}.targetPenalty.scope" {{#unless @root.isEditable}}disabled{{/unless}}>
+                {{#each @root.targetPenaltyScopes as |scope|}}
+                <option value="{{scope.value}}" {{#if (eq scope.value tier.targetPenalty.scope)}}selected{{/if}}>{{scope.label}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <div class="field-group">
+              <label>{{localize "EX2E.TPDuration"}}</label>
+              <select name="system.upgradeTiers.{{i}}.targetPenalty.duration" {{#unless @root.isEditable}}disabled{{/unless}}>
+                {{#each @root.durations as |dur|}}
+                <option value="{{dur.value}}" {{#if (eq dur.value tier.targetPenalty.duration)}}selected{{/if}}>{{dur.label}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+          {{/if}}
+        </div>
+
+        {{!-- Mote Recovery --}}
+        <div class="effect-section">
+          <label class="effect-enable-row">
+            <input type="checkbox" name="system.upgradeTiers.{{i}}.moteRecovery.enabled"
+                   {{#if tier.moteRecovery.enabled}}checked{{/if}}
+                   {{#unless @root.isEditable}}disabled{{/unless}}>
+            <span>{{localize "EX2E.EffectMoteRecovery"}}</span>
+          </label>
+          {{#if tier.moteRecovery.enabled}}
+          <div class="effect-body effect-grid-2">
+            <div class="field-group">
+              <label>{{localize "EX2E.MREvent"}}</label>
+              <select name="system.upgradeTiers.{{i}}.moteRecovery.event" {{#unless @root.isEditable}}disabled{{/unless}}>
+                {{#each @root.moteRecoveryEvents as |evt|}}
+                <option value="{{evt.value}}" {{#if (eq evt.value tier.moteRecovery.event)}}selected{{/if}}>{{evt.label}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <div class="field-group">
+              <label>{{localize "EX2E.MRAction"}}</label>
+              <select name="system.upgradeTiers.{{i}}.moteRecovery.action" {{#unless @root.isEditable}}disabled{{/unless}}>
+                {{#each @root.moteRecoveryActions as |act|}}
+                <option value="{{act.value}}" {{#if (eq act.value tier.moteRecovery.action)}}selected{{/if}}>{{act.label}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <div class="field-group" style="grid-column:1/-1">
+              <label>{{localize "EX2E.MRFormula"}}</label>
+              <div class="formula-field-row">
+                <input type="text" name="system.upgradeTiers.{{i}}.moteRecovery.formula"
+                       value="{{tier.moteRecovery.formula}}"
+                       {{#unless @root.isEditable}}readonly{{/unless}}>
+                {{#if @root.isEditable}}
+                <button type="button" class="btn-fx" data-action="openFormula"
+                        data-path="system.upgradeTiers.{{i}}.moteRecovery.formula"
+                        data-label="{{localize 'EX2E.MRFormula'}}"
+                        data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+                  <i class="fa-solid fa-function"></i>
+                </button>
+                {{/if}}
+              </div>
+            </div>
+            <div class="field-group" style="grid-column:1/-1">
+              <label>{{localize "EX2E.MRSource"}}</label>
+              <div class="radio-group">
+                {{#each @root.moteRecoverySources as |src|}}
+                <label class="radio-label">
+                  <input type="radio" name="system.upgradeTiers.{{i}}.moteRecovery.source"
+                         value="{{src.value}}"
+                         {{#if (eq src.value tier.moteRecovery.source)}}checked{{/if}}
+                         {{#unless @root.isEditable}}disabled{{/unless}}>
+                  {{src.label}}
+                </label>
+                {{/each}}
+              </div>
+            </div>
+          </div>
+          {{/if}}
+        </div>
+
+        {{!-- Soak Bonus --}}
+        <div class="effect-section">
+          <label class="effect-enable-row">
+            <input type="checkbox" name="system.upgradeTiers.{{i}}.soakBonus.enabled"
+                   {{#if tier.soakBonus.enabled}}checked{{/if}}
+                   {{#unless @root.isEditable}}disabled{{/unless}}>
+            <span>{{localize "EX2E.EffectSoakBonus"}}</span>
+          </label>
+          {{#if tier.soakBonus.enabled}}
+          <div class="effect-body effect-grid-2">
+            <div class="field-group">
+              <label>{{localize "EX2E.SBABashing"}}</label>
+              <input type="number" name="system.upgradeTiers.{{i}}.soakBonus.bashing"
+                     value="{{tier.soakBonus.bashing}}"
+                     min="0" {{#unless @root.isEditable}}readonly{{/unless}}>
+            </div>
+            <div class="field-group">
+              <label>{{localize "EX2E.SBALethal"}}</label>
+              <input type="number" name="system.upgradeTiers.{{i}}.soakBonus.lethal"
+                     value="{{tier.soakBonus.lethal}}"
+                     min="0" {{#unless @root.isEditable}}readonly{{/unless}}>
+            </div>
+            <div class="field-group">
+              <label>{{localize "EX2E.SBAAggravated"}}</label>
+              <input type="number" name="system.upgradeTiers.{{i}}.soakBonus.aggravated"
+                     value="{{tier.soakBonus.aggravated}}"
+                     min="0" {{#unless @root.isEditable}}readonly{{/unless}}>
+            </div>
+            <div class="field-group">
+              <label>{{localize "EX2E.SBHardnessAdd"}}</label>
+              <input type="number" name="system.upgradeTiers.{{i}}.soakBonus.hardnessAdd"
+                     value="{{tier.soakBonus.hardnessAdd}}"
+                     min="0" {{#unless @root.isEditable}}readonly{{/unless}}>
+            </div>
+            <div class="field-group">
+              <label>{{localize "EX2E.SBHardnessSetTo"}}</label>
+              <input type="number" name="system.upgradeTiers.{{i}}.soakBonus.hardnessSetTo"
+                     value="{{tier.soakBonus.hardnessSetTo}}"
+                     min="0" {{#unless @root.isEditable}}readonly{{/unless}}>
+            </div>
+            <div class="field-group">
+              <label>{{localize "EX2E.SBABashingFormula"}}</label>
+              <div class="formula-field-row">
+                <input type="text" name="system.upgradeTiers.{{i}}.soakBonus.bashingFormula"
+                       value="{{tier.soakBonus.bashingFormula}}"
+                       placeholder="e.g. @sta"
+                       {{#unless @root.isEditable}}readonly{{/unless}}>
+                {{#if @root.isEditable}}
+                <button type="button" class="btn-fx" data-action="openFormula"
+                        data-path="system.upgradeTiers.{{i}}.soakBonus.bashingFormula"
+                        data-label="{{localize 'EX2E.SBABashingFormula'}}"
+                        data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+                  <i class="fa-solid fa-function"></i>
+                </button>
+                {{/if}}
+              </div>
+            </div>
+            <div class="field-group">
+              <label>{{localize "EX2E.SBALethalFormula"}}</label>
+              <div class="formula-field-row">
+                <input type="text" name="system.upgradeTiers.{{i}}.soakBonus.lethalFormula"
+                       value="{{tier.soakBonus.lethalFormula}}"
+                       placeholder="e.g. @sta"
+                       {{#unless @root.isEditable}}readonly{{/unless}}>
+                {{#if @root.isEditable}}
+                <button type="button" class="btn-fx" data-action="openFormula"
+                        data-path="system.upgradeTiers.{{i}}.soakBonus.lethalFormula"
+                        data-label="{{localize 'EX2E.SBALethalFormula'}}"
+                        data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+                  <i class="fa-solid fa-function"></i>
+                </button>
+                {{/if}}
+              </div>
+            </div>
+            <div class="field-group">
+              <label>{{localize "EX2E.SBAAggravatedFormula"}}</label>
+              <div class="formula-field-row">
+                <input type="text" name="system.upgradeTiers.{{i}}.soakBonus.aggravatedFormula"
+                       value="{{tier.soakBonus.aggravatedFormula}}"
+                       placeholder="e.g. @sta"
+                       {{#unless @root.isEditable}}readonly{{/unless}}>
+                {{#if @root.isEditable}}
+                <button type="button" class="btn-fx" data-action="openFormula"
+                        data-path="system.upgradeTiers.{{i}}.soakBonus.aggravatedFormula"
+                        data-label="{{localize 'EX2E.SBAAggravatedFormula'}}"
+                        data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+                  <i class="fa-solid fa-function"></i>
+                </button>
+                {{/if}}
+              </div>
+            </div>
+          </div>
+          {{/if}}
+        </div>
+
+        {{!-- Stat Boost --}}
+        <div class="effect-section">
+          <label class="effect-enable-row">
+            <input type="checkbox" name="system.upgradeTiers.{{i}}.statBoost.enabled"
+                   {{#if tier.statBoost.enabled}}checked{{/if}}
+                   {{#unless @root.isEditable}}disabled{{/unless}}>
+            <span>{{localize "EX2E.EffectStatBoost"}}</span>
+          </label>
+          {{#if tier.statBoost.enabled}}
+          <div class="effect-body">
+            {{#if tier.statBoost.changes}}
+            <div class="sb-change-header">
+              <span>{{localize "EX2E.StatBoostPath"}}</span>
+              <span>{{localize "EX2E.StatBoostValue"}}</span>
+            </div>
+            {{/if}}
+            {{#each tier.statBoost.changes as |ch j|}}
+            <div class="sb-change-row">
+              <select name="system.upgradeTiers.{{../i}}.statBoost.changes.{{j}}.path" {{#unless @root.isEditable}}disabled{{/unless}}>
+                <option value="">—</option>
+                {{#each @root.statBoostPaths as |sp|}}
+                <option value="{{sp.value}}" {{#if (eq sp.value ch.path)}}selected{{/if}}>{{sp.label}}</option>
+                {{/each}}
+              </select>
+              <input type="text" name="system.upgradeTiers.{{../i}}.statBoost.changes.{{j}}.value"
+                     value="{{ch.value}}" style="width:4em"
+                     {{#unless @root.isEditable}}readonly{{/unless}}>
+              {{#if @root.isEditable}}
+              <button type="button" class="btn-remove" data-action="removeTierStatBoostChange"
+                      data-tier-index="{{../i}}" data-index="{{j}}"><i class="fa-solid fa-times"></i></button>
+              {{/if}}
+            </div>
+            {{/each}}
+            {{#if @root.isEditable}}
+            <button type="button" class="btn-add-row" data-action="addTierStatBoostChange"
+                    data-tier-index="{{i}}">
+              {{localize "EX2E.StatBoostAdd"}}
+            </button>
+            {{/if}}
+          </div>
+          {{/if}}
+        </div>
+
+        {{!-- Health Grant --}}
+        <div class="effect-section">
+          <label class="effect-enable-row">
+            <input type="checkbox" name="system.upgradeTiers.{{i}}.healthGrant.enabled"
+                   {{#if tier.healthGrant.enabled}}checked{{/if}}
+                   {{#unless @root.isEditable}}disabled{{/unless}}>
+            <span>{{localize "EX2E.EffectHealthGrant"}}</span>
+          </label>
+          {{#if tier.healthGrant.enabled}}
+          <div class="effect-body">
+            <p class="effect-section-label">{{localize "EX2E.HGOptions"}}</p>
+            {{#each tier.healthGrant.options as |opt j|}}
+            <div class="hg-option-row">
+              <input type="text" name="system.upgradeTiers.{{../i}}.healthGrant.options.{{j}}.label"
+                     value="{{opt.label}}" placeholder="{{localize 'EX2E.HGOptionLabel'}}"
+                     {{#unless @root.isEditable}}readonly{{/unless}}>
+              <label>{{localize "EX2E.HGZero"}}</label>
+              <input type="number" name="system.upgradeTiers.{{../i}}.healthGrant.options.{{j}}.zero"
+                     value="{{opt.zero}}" min="0" {{#unless @root.isEditable}}readonly{{/unless}}>
+              <label>{{localize "EX2E.HGOne"}}</label>
+              <input type="number" name="system.upgradeTiers.{{../i}}.healthGrant.options.{{j}}.one"
+                     value="{{opt.one}}" min="0" {{#unless @root.isEditable}}readonly{{/unless}}>
+              <label>{{localize "EX2E.HGTwo"}}</label>
+              <input type="number" name="system.upgradeTiers.{{../i}}.healthGrant.options.{{j}}.two"
+                     value="{{opt.two}}" min="0" {{#unless @root.isEditable}}readonly{{/unless}}>
+              {{#if @root.isEditable}}
+              <button type="button" class="btn-remove" data-action="removeTierHealthGrantOption"
+                      data-tier-index="{{../i}}" data-index="{{j}}"><i class="fa-solid fa-times"></i></button>
+              {{/if}}
+            </div>
+            {{/each}}
+            {{#if @root.isEditable}}
+            <button type="button" class="btn-add-row" data-action="addTierHealthGrantOption"
+                    data-tier-index="{{i}}">
+              {{localize "EX2E.HGAddOption"}}
+            </button>
+            {{/if}}
+          </div>
+          {{/if}}
+        </div>
+
+        {{!-- Rate Bonus --}}
+        <div class="effect-section">
+          <label class="effect-enable-row">
+            <input type="checkbox" name="system.upgradeTiers.{{i}}.rateBonus.enabled"
+                   {{#if tier.rateBonus.enabled}}checked{{/if}}
+                   {{#unless @root.isEditable}}disabled{{/unless}}>
+            <span>{{localize "EX2E.EffectRateBonus"}}</span>
+          </label>
+          {{#if tier.rateBonus.enabled}}
+          <div class="effect-body effect-grid-2">
+            <div class="field-group">
+              <label>{{localize "EX2E.RateBonusFormula"}}</label>
+              <div class="formula-field-row">
+                <input type="text" name="system.upgradeTiers.{{i}}.rateBonus.formula"
+                       value="{{tier.rateBonus.formula}}"
+                       placeholder="e.g. 1"
+                       {{#unless @root.isEditable}}readonly{{/unless}}>
+                {{#if @root.isEditable}}
+                <button type="button" class="btn-fx" data-action="openFormula"
+                        data-path="system.upgradeTiers.{{i}}.rateBonus.formula"
+                        data-label="{{localize 'EX2E.RateBonusFormula'}}"
+                        data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+                  <i class="fa-solid fa-function"></i>
+                </button>
+                {{/if}}
+              </div>
+            </div>
+          </div>
+          {{/if}}
+        </div>
+
+        {{!-- Speed Modifier --}}
+        <div class="effect-section">
+          <label class="effect-enable-row">
+            <input type="checkbox" name="system.upgradeTiers.{{i}}.speedModifier.enabled"
+                   {{#if tier.speedModifier.enabled}}checked{{/if}}
+                   {{#unless @root.isEditable}}disabled{{/unless}}>
+            <span>{{localize "EX2E.EffectSpeedModifier"}}</span>
+          </label>
+          {{#if tier.speedModifier.enabled}}
+          <div class="effect-body effect-grid-2">
+            <div class="field-group">
+              <label>{{localize "EX2E.SMDelta"}}</label>
+              <input type="number" name="system.upgradeTiers.{{i}}.speedModifier.delta"
+                     value="{{tier.speedModifier.delta}}"
+                     {{#unless @root.isEditable}}readonly{{/unless}}>
+            </div>
+            <div class="field-group">
+              <label>{{localize "EX2E.SMDeltaFormula"}}</label>
+              <div class="formula-field-row">
+                <input type="text" name="system.upgradeTiers.{{i}}.speedModifier.deltaFormula"
+                       value="{{tier.speedModifier.deltaFormula}}"
+                       placeholder="e.g. -@dex"
+                       {{#unless @root.isEditable}}readonly{{/unless}}>
+                {{#if @root.isEditable}}
+                <button type="button" class="btn-fx" data-action="openFormula"
+                        data-path="system.upgradeTiers.{{i}}.speedModifier.deltaFormula"
+                        data-label="{{localize 'EX2E.SMDeltaFormula'}}"
+                        data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+                  <i class="fa-solid fa-function"></i>
+                </button>
+                {{/if}}
+              </div>
+            </div>
+            <div class="field-group">
+              <label>{{localize "EX2E.SMMinimum"}}</label>
+              <input type="number" name="system.upgradeTiers.{{i}}.speedModifier.minimum"
+                     value="{{tier.speedModifier.minimum}}" min="1"
+                     {{#unless @root.isEditable}}readonly{{/unless}}>
+            </div>
+          </div>
+          {{/if}}
+        </div>
+
+      </div>
+    </div>
+    {{/each}}
   </div>
 
 </div>

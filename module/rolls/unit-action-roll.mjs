@@ -24,12 +24,7 @@ function getCommanderStats(unitActor) {
 async function disbandUnit(unitActor) {
   await unitActor.update({ "system.magnitude.value": 0, "system.disbanded": true });
 
-  const disbandEff = CONFIG.statusEffects["unitDisbanded"];
-  if (disbandEff) {
-    for (const token of unitActor.getActiveTokens()) {
-      await token.toggleEffect(disbandEff, { active: true });
-    }
-  }
+  await unitActor.toggleStatusEffect("unit-disbanded", { active: true });
 
   if (game.combat) {
     const combatant = game.combat.combatants.find(c => c.actor?.id === unitActor.id);
@@ -97,12 +92,7 @@ export async function rollRally(unitActor, {
       hesitationCleared = true;
     }
 
-    const hesEff = CONFIG.statusEffects["unitHesitating"];
-    if (hesEff) {
-      for (const token of unitActor.getActiveTokens()) {
-        await token.toggleEffect(hesEff, { active: false });
-      }
-    }
+    await unitActor.toggleStatusEffect("unit-hesitating", { active: false });
   }
 
   const state = {
@@ -409,12 +399,7 @@ export async function rollSplitUnit(unitActor, { newUnitMagnitude }) {
   } else {
     const combatant = game.combat?.combatants.find(c => c.actor?.id === unitActor.id);
     if (combatant) await combatant.setFlag("exalted2e", "hesitating", true);
-    const hesEff = CONFIG.statusEffects["unitHesitating"];
-    if (hesEff) {
-      for (const token of unitActor.getActiveTokens()) {
-        await token.toggleEffect(hesEff, { active: true });
-      }
-    }
+    await unitActor.toggleStatusEffect("unit-hesitating", { active: true });
   }
 
   return state;
@@ -477,14 +462,8 @@ export async function rollMergeUnits(unitActor, targetActor, { resultMagnitude }
       c => c.actor?.id === unitActor.id || c.actor?.id === targetActor.id
     ) ?? [];
     await Promise.all(combatants.map(c => c.setFlag("exalted2e", "hesitating", true)));
-    const hesEff = CONFIG.statusEffects["unitHesitating"];
-    if (hesEff) {
-      for (const actor of [unitActor, targetActor]) {
-        for (const token of actor.getActiveTokens()) {
-          await token.toggleEffect(hesEff, { active: true });
-        }
-      }
-    }
+    await unitActor.toggleStatusEffect("unit-hesitating", { active: true });
+    await targetActor.toggleStatusEffect("unit-hesitating", { active: true });
   }
 
   return state;

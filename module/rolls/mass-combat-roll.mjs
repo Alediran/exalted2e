@@ -220,12 +220,7 @@ export async function rollMassCombatAttack(unitActor, { ranged = false, explicit
     if (state.hesitating && game.actors.get(defenderActor.id)) {
       const combatant = game.combat?.combatants.find(c => c.actor?.id === defenderActor.id);
       if (combatant) await combatant.setFlag("exalted2e", "hesitating", true);
-      const hesEff = CONFIG.statusEffects["unitHesitating"];
-      if (hesEff) {
-        for (const token of defenderActor.getActiveTokens()) {
-          await token.toggleEffect(hesEff, { active: true });
-        }
-      }
+      await defenderActor.toggleStatusEffect("unit-hesitating", { active: true });
     }
   } else {
     if (state.hit && state.netDamage > 0) {
@@ -388,11 +383,6 @@ export async function rollHeroAttacksUnit(heroActor, unitActor, weapon, { ranged
   if (state.hesitating && game.actors.get(unitActor.id)) {
     const combatant = game.combat?.combatants.find(c => c.actor?.id === unitActor.id);
     if (combatant) await combatant.setFlag("exalted2e", "hesitating", true);
-    const hesEff = CONFIG.statusEffects["unitHesitating"];
-    if (hesEff) {
-      for (const token of unitActor.getActiveTokens()) {
-        await token.toggleEffect(hesEff, { active: true });
-      }
-    }
+    await unitActor.toggleStatusEffect("unit-hesitating", { active: true });
   }
 }

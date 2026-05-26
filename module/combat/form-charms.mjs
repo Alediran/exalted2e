@@ -118,6 +118,10 @@ export function buildCharmSynthAEs(charm, rollData = {}) {
     extraFlags.hazardImmunity = sys.hazardImmunity.scope ?? "natural";
   }
 
+  if (sys.attackBonus?.enabled) {
+    extraFlags.tierAttackBonus = sys.toObject?.()?.attackBonus ?? foundry.utils.deepClone(sys.attackBonus);
+  }
+
   if (sys.enhancesCharmUid) {
     extraFlags.enhancesCharmUid = sys.enhancesCharmUid;
   }

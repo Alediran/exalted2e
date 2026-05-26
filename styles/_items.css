@@ -951,3 +951,96 @@ details.charm-group > summary.charm-group-header {
   background:   var(--ex2e-bg-hover);
   border-color: var(--ex2e-gold-main);
 }
+
+/* ── Upgrade Tiers ──────────────────────────────────────────────────────── */
+.upgrade-tiers-section {
+  margin-top: var(--ex2e-gap-xl);
+}
+
+.upgrade-tier-card {
+  border: 1px solid var(--ex2e-border-color);
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 8px;
+  background: rgba(0,0,0,0.05);
+}
+
+.tier-header {
+  display: flex;
+  align-items: center;
+  gap: var(--ex2e-gap-sm);
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.tier-header input[type="text"] {
+  flex: 1 1 120px;
+  min-width: 80px;
+}
+
+.tier-flag-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  font-size: 0.85em;
+}
+
+.tier-gates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ex2e-gap-sm);
+  align-items: flex-end;
+}
+
+.tier-gates .field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tier-gates .field-group label {
+  font-size: 0.8em;
+  color: var(--color-text-dark-secondary);
+}
+
+.effect-section-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ex2e-gap-sm);
+}
+
+.mode-exclusive-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8em;
+  color: var(--color-text-dark-secondary);
+  white-space: nowrap;
+}
+
+.charm-tiers-applied {
+  padding: 4px 6px;
+  font-size: 0.85em;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  margin-top: 4px;
+}
+
+.tier-applied-tag {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-left: 4px;
+  font-size: 0.9em;
+}
+
+.tier-applied-tag.tier-type-passive {
+  background: rgba(0, 100, 200, 0.15);
+  color: #0064c8;
+}
+
+.tier-applied-tag.tier-type-active {
+  background: rgba(200, 100, 0, 0.15);
+  color: #c86400;
+}

@@ -150,6 +150,27 @@
     </div>
   </div>
 
+  {{!-- GM-only Status Flags --}}
+  {{#if isGM}}
+  <div class="unit-section unit-status-section">
+    <div class="section-label">{{localize "EX2E.UnitStatus"}}</div>
+    <div class="unit-status-row">
+      <label class="unit-status-label">
+        <input type="checkbox" name="system.engaged" {{#if system.engaged}}checked{{/if}} />
+        {{localize "EX2E.StatusEngaged"}}
+      </label>
+      <label class="unit-status-label">
+        <input type="checkbox" name="system.disbanded" {{#if system.disbanded}}checked{{/if}} />
+        {{localize "EX2E.StatusDisbanded"}}
+      </label>
+      <label class="unit-status-label">
+        <input type="checkbox" data-action="toggleHesitating" {{#if isHesitating}}checked{{/if}} />
+        {{localize "EX2E.StatusHesitating"}}
+      </label>
+    </div>
+  </div>
+  {{/if}}
+
   {{!-- Description --}}
   <div class="unit-section unit-description-section">
     <div class="section-label">{{localize "EX2E.Notes"}}</div>

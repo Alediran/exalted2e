@@ -17,10 +17,11 @@ export class UnitSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     window:   { resizable: true },
     form:     { submitOnChange: true, closeOnSubmit: false },
     actions: {
-      onEditImage:    editImageAction,
-      setMagnitude:   UnitSheet.#setMagnitude,
-      clearCommander: UnitSheet.#clearCommander,
-      declareAction:  UnitSheet.#declareAction
+      onEditImage:       editImageAction,
+      setMagnitude:      UnitSheet.#setMagnitude,
+      clearCommander:    UnitSheet.#clearCommander,
+      declareAction:     UnitSheet.#declareAction,
+      toggleHesitating:  UnitSheet.#toggleHesitating
     }
   };
 
@@ -50,12 +51,15 @@ export class UnitSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       ? Math.round((sys.health.value / sys.health.max) * 100)
       : 0;
 
+    const combatant = game.combat?.combatants.find(c => c.actor?.id === this.actor.id);
     const enrichOpts = { secrets: this.document.isOwner, relativeTo: this.document };
     return {
       ...context,
-      actor:       this.actor,
-      system:      sys,
-      isEditable:  this.isEditable,
+      actor:        this.actor,
+      system:       sys,
+      isEditable:   this.isEditable,
+      isGM:         game.user.isGM,
+      isHesitating: combatant?.getFlag("exalted2e", "hesitating") ?? false,
       magnitudeDots,
       commanderName: commander?.name ?? null,
       commanderImg:  commander?.img  ?? null,
@@ -112,5 +116,14 @@ export class UnitSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     if (this.actor.system.isRouted) return;
     const { MassCombatActionDialog } = await import("../../apps/mass-combat-action-dialog.mjs");
     await MassCombatActionDialog.prompt({ unitActor: this.actor });
+  }
+
+  static async #toggleHesitating(_event, target) {
+    const active = target.checked;
+    const actor = this.actor;
+    const combatant = game.combat?.combatants.find(c => c.actor?.id === actor.id);
+    if (combatant) await combatant.setFlag("exalted2e", "hesitating", active);
+    await actor.toggleStatusEffect("unit-hesitating", { active });
+    this.render();
   }
 }

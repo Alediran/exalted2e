@@ -467,11 +467,13 @@ Hooks.once("init", function () {
     heightAdvantage: { id: "heightAdvantage", name: "EX2E.StatusHeightAdvantage", img: "icons/svg/up.svg",      flags: { exalted2e: { dvBonus: { dodge: 1, parry: 1 } } } },
     // Crippling injury: −1 internal penalty to all physical actions until surgically healed.
     crippled:        { id: "crippled",        name: "EX2E.StatusCrippled",        img: "icons/svg/blood.svg",   flags: { exalted2e: { internalPenalty: { value: 1, type: "physical" }, crippled: true } } },
-    // Unit mass-combat states
-    unitHesitating: { id: "unit-hesitating", name: "EX2E.StatusHesitating", img: "systems/exalted2e/icons/status/hesitating.svg" },
-    unitEngaged:    { id: "unit-engaged",    name: "EX2E.StatusEngaged",    img: "systems/exalted2e/icons/status/engaged.svg"    },
-    unitDisbanded:  { id: "unit-disbanded",  name: "EX2E.StatusDisbanded",  img: "systems/exalted2e/icons/status/disbanded.svg"  },
   });
+  // Unit mass-combat states — pushed as plain array entries so toggleStatusEffect / .find() can locate them by id.
+  CONFIG.statusEffects.push(
+    { id: "unit-hesitating", name: "EX2E.StatusHesitating", img: "icons/svg/stun.svg"  },
+    { id: "unit-engaged",    name: "EX2E.StatusEngaged",    img: "icons/svg/net.svg"   },
+    { id: "unit-disbanded",  name: "EX2E.StatusDisbanded",  img: "icons/svg/skull.svg" },
+  );
 
   console.log("Exalted 2e | System initialised.");
 });
@@ -1811,18 +1813,12 @@ Hooks.on("updateActor", async (actor, changes) => {
 
   if ("engaged" in (changes.system ?? {})) {
     const active = changes.system.engaged;
-    const eff = CONFIG.statusEffects["unitEngaged"];
-    for (const token of tokens) {
-      await token.toggleEffect(eff, { active });
-    }
+    await actor.toggleStatusEffect("unit-engaged", { active });
   }
 
   if ("disbanded" in (changes.system ?? {})) {
     const active = changes.system.disbanded;
-    const eff = CONFIG.statusEffects["unitDisbanded"];
-    for (const token of tokens) {
-      await token.toggleEffect(eff, { active });
-    }
+    await actor.toggleStatusEffect("unit-disbanded", { active });
   }
 });
 
