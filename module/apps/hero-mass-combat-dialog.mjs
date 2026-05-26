@@ -149,6 +149,10 @@ export class HeroMassCombatDialog extends HandlebarsApplicationMixin(Application
       await this._heroActor.applyDVPenalty("parry", Math.abs(action.dvMod), { label });
       await this._heroActor.applyDVPenalty("dodge", Math.abs(action.dvMod), { label });
     }
+    if (action.dvMod > 0) {
+      const label = game.i18n.localize("EX2E.GuardEffect");
+      await this._heroActor.applyDVBonus(action.dvMod, { label });
+    }
     if (this._combatant?.flags?.exalted2e?.hesitating) {
       await this._combatant.unsetFlag("exalted2e", "hesitating");
     }

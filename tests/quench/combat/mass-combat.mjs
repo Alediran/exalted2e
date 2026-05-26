@@ -915,3 +915,128 @@ export function registerMassCombatPhase7(context) {
     });
   });
 }
+
+export function registerMassCombatPhase8(context) {
+  const { describe, it, assert, before, after } = context;
+
+  before(assertTestWorld);
+
+  // ── P8-500 / P8-505 / P8-506 actors ──────────────────────────────
+  let npcActor;
+
+  before(async () => {
+    npcActor = await Actor.create({
+      name: "P8NPC",
+      type: "npc",
+      system: { combat: { parryDV: 3, dodgeDV: 3 } }
+    });
+  });
+
+  after(async () => {
+    await npcActor?.delete();
+  });
+
+  describe("[P8-500] applyDVBonus creates correct AE", () => {
+    it("AE has dvBonus:{parry:1,dodge:1} and dvRefreshable:true", async () => {
+      const ae = await npcActor.applyDVBonus(1, { label: "Test Guard" });
+      try {
+        assert.ok(ae, "AE was created");
+        assert.strictEqual(ae.flags?.exalted2e?.dvBonus?.parry, 1, "parry=1");
+        assert.strictEqual(ae.flags?.exalted2e?.dvBonus?.dodge, 1, "dodge=1");
+        assert.strictEqual(ae.flags?.exalted2e?.dvRefreshable, true, "dvRefreshable=true");
+      } finally {
+        await ae.delete();
+      }
+    });
+  });
+
+  describe("[P8-505] character currentParryDV reflects dvBonus AE", () => {
+    it("currentParryDV increases by 1 after applyDVBonus(1)", async () => {
+      const base = game.actors.get(npcActor.id).currentParryDV;
+      const ae   = await npcActor.applyDVBonus(1);
+      try {
+        const actor = game.actors.get(npcActor.id);
+        assert.strictEqual(actor.currentParryDV, base + 1, "parryDV+1");
+      } finally {
+        await ae.delete();
+      }
+    });
+  });
+
+  describe("[P8-506] character currentDodgeDV reflects dvBonus AE", () => {
+    it("currentDodgeDV increases by 1 after applyDVBonus(1)", async () => {
+      const base = game.actors.get(npcActor.id).currentDodgeDV;
+      const ae   = await npcActor.applyDVBonus(1);
+      try {
+        const actor = game.actors.get(npcActor.id);
+        assert.strictEqual(actor.currentDodgeDV, base + 1, "dodgeDV+1");
+      } finally {
+        await ae.delete();
+      }
+    });
+  });
+
+  // ── P8-501 / P8-502 / P8-503 / P8-504 actors ─────────────────────
+  let unitActor8;
+
+  before(async () => {
+    unitActor8 = await Actor.create({
+      name: "P8Unit",
+      type: "unit",
+      system: { drill: 2, magnitude: { value: 3, max: 5 }, endurance: 2, morale: 2 }
+    });
+  });
+
+  after(async () => {
+    await unitActor8?.delete();
+  });
+
+  describe("[P8-501] unit unitParryDV increases with dvBonus AE", () => {
+    it("unitParryDV === drill+1 after applyDVBonus(1)", async () => {
+      // No commander → base = drill = 2
+      const ae    = await unitActor8.applyDVBonus(1);
+      try {
+        const actor = game.actors.get(unitActor8.id);
+        assert.strictEqual(actor.system.unitParryDV, 3, "unitParryDV=drill(2)+1=3");
+      } finally {
+        await ae.delete();
+      }
+    });
+  });
+
+  describe("[P8-502] unit unitDodgeDV increases with dvBonus AE", () => {
+    it("unitDodgeDV === drill+1 after applyDVBonus(1)", async () => {
+      const ae    = await unitActor8.applyDVBonus(1);
+      try {
+        const actor = game.actors.get(unitActor8.id);
+        assert.strictEqual(actor.system.unitDodgeDV, 3, "unitDodgeDV=drill(2)+1=3");
+      } finally {
+        await ae.delete();
+      }
+    });
+  });
+
+  describe("[P8-503] unit unitParryDV decreases with parry dvPenalty AE", () => {
+    it("unitParryDV === drill-1 after applyDVPenalty(parry,1)", async () => {
+      const ae    = await unitActor8.applyDVPenalty("parry", 1);
+      try {
+        const actor = game.actors.get(unitActor8.id);
+        assert.strictEqual(actor.system.unitParryDV, 1, "unitParryDV=drill(2)-1=1");
+      } finally {
+        await ae.delete();
+      }
+    });
+  });
+
+  describe("[P8-504] unit unitDodgeDV decreases with dodge dvPenalty AE", () => {
+    it("unitDodgeDV === drill-1 after applyDVPenalty(dodge,1)", async () => {
+      const ae    = await unitActor8.applyDVPenalty("dodge", 1);
+      try {
+        const actor = game.actors.get(unitActor8.id);
+        assert.strictEqual(actor.system.unitDodgeDV, 1, "unitDodgeDV=drill(2)-1=1");
+      } finally {
+        await ae.delete();
+      }
+    });
+  });
+}

@@ -58,5 +58,22 @@ export class UnitData extends foundry.abstract.TypeDataModel {
       this.unitParryDV = this.drill;
       this.unitDodgeDV = this.drill;
     }
+
+    for (const ae of (this.parent?.effects ?? [])) {
+      if (ae.disabled) continue;
+      const dp = ae.flags?.exalted2e?.dvPenalty;
+      if (dp) {
+        const v = dp.value ?? 0;
+        if (dp.type === "parry" || dp.type === "all" || dp.type === "onslaught")
+          this.unitParryDV = Math.max(0, this.unitParryDV - v);
+        if (dp.type === "dodge" || dp.type === "all" || dp.type === "onslaught")
+          this.unitDodgeDV = Math.max(0, this.unitDodgeDV - v);
+      }
+      const db = ae.flags?.exalted2e?.dvBonus;
+      if (db) {
+        this.unitParryDV = Math.max(0, this.unitParryDV + (db.parry ?? 0));
+        this.unitDodgeDV = Math.max(0, this.unitDodgeDV + (db.dodge ?? 0));
+      }
+    }
   }
 }

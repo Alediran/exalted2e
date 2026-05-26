@@ -699,6 +699,23 @@ export class ExaltedActor extends Actor {
     return created?.[0] ?? null;
   }
 
+  async applyDVBonus(value, { label, icon, dvRefreshable = true } = {}) {
+    if (!Number.isFinite(value) || value <= 0) return null;
+    const created = await this.createEmbeddedDocuments("ActiveEffect", [{
+      name:     label ?? "DV Bonus",
+      img:      icon  ?? "icons/svg/shield.svg",
+      flags: {
+        exalted2e: {
+          dvBonus:      { parry: value, dodge: value },
+          dvRefreshable,
+        }
+      },
+      disabled: false,
+      transfer: false,
+    }]);
+    return created?.[0] ?? null;
+  }
+
   /**
    * Mirror of `applyDVPenalty` for MDVs. No refreshable mechanism —
    * MDV-reducing AEs stand on their own duration. No `sticky` option

@@ -376,11 +376,15 @@ export class MassCombatActionDialog extends HandlebarsApplicationMixin(Applicati
       await this._combat.advanceCurrentByTicks(action.speed);
     }
 
-    // 3. Apply DV penalty
+    // 3. Apply DV modifier
     if (action.dvMod < 0) {
       const label = game.i18n.localize(action.labelKey);
       await unit.applyDVPenalty("parry", Math.abs(action.dvMod), { label });
       await unit.applyDVPenalty("dodge", Math.abs(action.dvMod), { label });
+    }
+    if (action.dvMod > 0) {
+      const label = game.i18n.localize("EX2E.GuardEffect");
+      await unit.applyDVBonus(action.dvMod, { label });
     }
 
     // 4. Clear hesitating (rally handles this internally; skip to avoid clearing on failure)
