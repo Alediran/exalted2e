@@ -91,9 +91,19 @@
         <div class="virtues-section">
           {{#each (array "compassion" "temperance" "conviction" "valor") as |v|}}
           <div class="virtue-row">
-            <button class="virtue-label" data-action="rollPool"
-                    data-pool="{{lookup (lookup ../system.virtues v) 'value'}}"
-                    data-flavor="{{localize (concat 'EX2E.Virtue' (capitalize v))}}">{{localize (concat "EX2E.Virtue" (capitalize v))}}</button>
+            <div class="virtue-label-group">
+              <button class="virtue-label" data-action="rollPool"
+                      data-pool="{{lookup (lookup ../system.virtues v) 'value'}}"
+                      data-flavor="{{localize (concat 'EX2E.Virtue' (capitalize v))}}">{{localize (concat "EX2E.Virtue" (capitalize v))}}</button>
+              {{#if @root.isEditable}}
+              <button type="button" class="virtue-roll-btn"
+                      data-action="rollVirtue"
+                      data-virtue="{{v}}"
+                      title="{{localize (concat 'EX2E.Virtue' (capitalize v))}}">
+                <i class="fa-solid fa-dice"></i>
+              </button>
+              {{/if}}
+            </div>
             <div class="virtue-tracks">
               {{dotRating name=(concat "system.virtues." v ".value")
                           value=(lookup (lookup ../system.virtues v) "value")
@@ -111,12 +121,6 @@
                      {{#unless @root.isEditable}}disabled{{/unless}}>
             </label>
             {{#if @root.isEditable}}
-            <button type="button" class="virtue-roll-btn"
-                    data-action="rollVirtue"
-                    data-virtue="{{v}}"
-                    title="{{localize (concat 'EX2E.Virtue' (capitalize v))}}">
-              <i class="fa-solid fa-dice"></i>
-            </button>
             <label class="virtue-primary-label" title="{{localize 'EX2E.PrimaryVirtue'}}">
               <input type="radio"
                      name="system.primaryVirtue"

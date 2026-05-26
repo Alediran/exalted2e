@@ -550,7 +550,13 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
   overflow-x: hidden;
 }
 
-/* Four-column layout (Lunar/Alchemical): different height for specialties */
+/* Four-column layout (Lunar/Alchemical): 3 equal columns matching the attribute grid */
+.ability-columns--four {
+  display:               grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:                   var(--ex2e-gap-xl);
+}
+
 .ability-columns--four .specialty-ability-groups {
   min-height: 130px;
   max-height: 130px;

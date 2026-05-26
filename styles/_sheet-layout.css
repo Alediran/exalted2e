@@ -581,6 +581,14 @@
   padding:     3px 0;
 }
 
+.virtue-channel-label { display: none; }
+
+.virtue-label-group {
+  display:     flex;
+  align-items: center;
+  gap:         var(--ex2e-gap-sm);
+}
+
 .virtue-row .virtue-label {
   font-family: var(--ex2e-font-body);
   color:       var(--ex2e-text-primary);
