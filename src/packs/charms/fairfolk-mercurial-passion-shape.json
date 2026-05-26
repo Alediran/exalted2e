@@ -22,19 +22,23 @@
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": [],
+    "keywords": [
+      "Merged",
+      "Obvious",
+      "Shaped-Only",
+      "Stackable"
+    ],
     "cost": {
       "formula": "3m per die, 1wp, 1g",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Keywords: Merged, Obvious, Shaped-Only, Stackable Duration: One scene Prerequisite Charms: Elegant Muse Attitude, Essence-Disrobing Passion This Charm duplicates Mercurial Element Shape, save that the enhanced action must be consistent with the emotion or belief she has assumed. Merged: Mercurial Beast Shape, Mercurial Element Shape, Mercurial Ghost Shape Chapter Nine � The Fair Folk New Raksha Charms: Ossuary Charms The raksha must have Assumption of Cerements and Bone (see page 109 and Graceful Wicked Masques page 158) active to use Ossuary Charms, unless otherwise noted.</p>",
+    "description": "<p>This Charm duplicates Mercurial Element Shape, save that the enhanced action must be consistent with the emotion or belief she has assumed. Merged: Mercurial Beast Shape, Mercurial Element Shape, Mercurial Ghost Shape Chapter Nine � The Fair Folk New Raksha Charms: Ossuary Charms The raksha must have Assumption of Cerements and Bone (see page 109 and Graceful Wicked Masques page 158) active to use Ossuary Charms, unless otherwise noted.</p>",
     "source": "Scroll of Errata",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -42,7 +46,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "1574735f5ca5dae7",
+            "charmName": "Elegant Muse Attitude",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "d007eafdb2b6bc2a",
+            "charmName": "Essence-disrobing Passion",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
     "charmUid": "46ac16e6cf0a25dd"
   },
   "folder": "719cd5296b990a6b",

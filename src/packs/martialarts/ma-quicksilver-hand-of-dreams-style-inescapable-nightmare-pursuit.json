@@ -22,19 +22,21 @@
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": [],
+    "keywords": [
+      "Combo-OK",
+      "Obvious"
+    ],
     "cost": {
       "formula": "5m, 1wp",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Keywords: Combo-OK, Obvious Duration: One scene Prerequisite Charms: Ephemeral Presence Technique No one escaped her queries. When a martial artist activates this Charm, he must designate one person, within his sight at that time, as his target of pursuit. For the rest of the scene, the martial artist's movement rate is always one yard faster than his target's last action, as a subtle silver fire plays about him. It doesn't matter how the target moves: Move action, dashing, jumping, riding on a horse, transporting herself by spell... the martial artist always moves a little faster and can never be hid from or evaded. What's more, no material barrier can stop the pursuit if the martial artist can pass it in one of his own movements. If he can dash through the width of a wall, he passes through it as insubstantial as a dream. Even the ocean or the air does not impede his progress: He can walk on water just a little faster than his target's ship or stalk along the clouds behind his target's aerial steed. No matter where the martial artist goes, however, he has time to move to safe footing before the Charm ends. The Charm's effect also ends if he actually catches his target. Inescapable Nightmare Pursuit only works, however, if the martial artist's target is capable of dreaming. The effect will not work against, for example, an automaton or anyone who has had her dreams stolen with Dream Ravager Hand.</p>",
+    "description": "<p>No one escaped her queries. When a martial artist activates this Charm, he must designate one person, within his sight at that time, as his target of pursuit. For the rest of the scene, the martial artist's movement rate is always one yard faster than his target's last action, as a subtle silver fire plays about him. It doesn't matter how the target moves: Move action, dashing, jumping, riding on a horse, transporting herself by spell... the martial artist always moves a little faster and can never be hid from or evaded. What's more, no material barrier can stop the pursuit if the martial artist can pass it in one of his own movements. If he can dash through the width of a wall, he passes through it as insubstantial as a dream. Even the ocean or the air does not impede his progress: He can walk on water just a little faster than his target's ship or stalk along the clouds behind his target's aerial steed. No matter where the martial artist goes, however, he has time to move to safe footing before the Charm ends. The Charm's effect also ends if he actually catches his target. Inescapable Nightmare Pursuit only works, however, if the martial artist's target is capable of dreaming. The effect will not work against, for example, an automaton or anyone who has had her dreams stolen with Dream Ravager Hand.</p>",
     "source": "Scroll of the Monk",
     "yoziPatron": "",
     "martialArtsTier": "sidereal",
     "martialArtsStyleName": "Quicksilver Hand of Dreams Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -42,7 +44,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6f4ea77de4c4deaf",
+            "charmName": "Ephemeral Presence Technique",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
     "charmUid": "e1f718bfb6eadc3c"
   },
   "folder": "4f4566b64a919114",

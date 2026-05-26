@@ -22,19 +22,23 @@
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": [],
+    "keywords": [
+      "Combo-OK",
+      "Shaping",
+      "Sorcerous",
+      "Touch"
+    ],
     "cost": {
       "formula": "5m per target, plus 1wp",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Keywords: Combo-OK, Shaping, Sorcerous, Touch Duration: One day Prerequisite Charms: Fate-Rending Desperation The Ebon Dragon can bend the destiny of others as readily as he distorts his own future. By touching another character, the Infernal grants them all of the positive and negative effects of having activated Fate-Rending Desperation. Neither that Charm nor Unfair Excellence Endowment may be applied to a target who is suffering inauspicious backlash from either. If the Infernal has Essence 4+, she may extend her tainted blessing to any number of targets within a five-yard radius of herself using a single activation of Fate-Rending Desperation, not including herself. No physical contact is necessary, but the unblockable touch attack roll should be compared to the Dodge DV of every character who attempts to get out of the way. Those who fail to move quickly enough watch as wisps of black vapor ooze from the Infernal's anima and force themselves into the eyes and mouths of all affected as an Obvious effect. Once active, the ongoing effect is only Obvious to the Bureau of Destiny as noted in Fate-Rending Desperation. With Essence 4+, the Infernal gains the ability to build a \"trigger condition\" into each activation of the Charm, allowing it to wait for some set of circumstances to occur before the blessing begins. These conditions must be something the Infernal could sense with her normal senses, though she does not have to be present to bear actual witness. It is not possible to \"hang\" multiple destiny warps on one target.</p>",
+    "description": "<p>The Ebon Dragon can bend the destiny of others as readily as he distorts his own future. By touching another character, the Infernal grants them all of the positive and negative effects of having activated Fate-Rending Desperation. Neither that Charm nor Unfair Excellence Endowment may be applied to a target who is suffering inauspicious backlash from either. If the Infernal has Essence 4+, she may extend her tainted blessing to any number of targets within a five-yard radius of herself using a single activation of Fate-Rending Desperation, not including herself. No physical contact is necessary, but the unblockable touch attack roll should be compared to the Dodge DV of every character who attempts to get out of the way. Those who fail to move quickly enough watch as wisps of black vapor ooze from the Infernal's anima and force themselves into the eyes and mouths of all affected as an Obvious effect. Once active, the ongoing effect is only Obvious to the Bureau of Destiny as noted in Fate-Rending Desperation. With Essence 4+, the Infernal gains the ability to build a \"trigger condition\" into each activation of the Charm, allowing it to wait for some set of circumstances to occur before the blessing begins. These conditions must be something the Infernal could sense with her normal senses, though she does not have to be present to bear actual witness. It is not possible to \"hang\" multiple destiny warps on one target.</p>",
     "source": "MoEP: Infernals",
     "yoziPatron": "ebonDragon",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -42,7 +46,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "7023602325e0fcc2",
+            "charmName": "Fate-Rending Desperation",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
     "charmUid": "85f457e55d35e61e"
   },
   "folder": "7c2ec8d4b84c1156",

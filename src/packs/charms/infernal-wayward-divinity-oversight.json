@@ -28,13 +28,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Keywords: None Duration: Permanent Prerequisite Charms: Hellscry Chakra Infernal Exalted understand demons better than other spirits because they are the most closely related in nature and power. However, the Primordials created the gods in the image of their aspects, so they remain understandable. Whenever a character with this Charm activates its prerequisite, she may pay an additional mote. Doing so expands the capabilities of the Charm to notice and identify gods as though they were demons and to track them like natives of Malfeas. Characters may purchase this Charm a second time at Essence 4+ to expand Hellscry Chakra to cover elementals this way for another one mote surcharge. A third purchase requires Essence 4+ but allows another one mote surcharge to cover Exalted.</p>",
+    "description": "<p>Infernal Exalted understand demons better than other spirits because they are the most closely related in nature and power. However, the Primordials created the gods in the image of their aspects, so they remain understandable. Whenever a character with this Charm activates its prerequisite, she may pay an additional mote. Doing so expands the capabilities of the Charm to notice and identify gods as though they were demons and to track them like natives of Malfeas. Characters may purchase this Charm a second time at Essence 4+ to expand Hellscry Chakra to cover elementals this way for another one mote surcharge. A third purchase requires Essence 4+ but allows another one mote surcharge to cover Exalted.</p>",
     "source": "MoEP: Infernals",
     "yoziPatron": "cecelyne",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -42,7 +41,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "894e52425f8b0fb8",
+            "charmName": "Hellscry Chakra",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
     "charmUid": "7a4ace8f6b4d17d8"
   },
   "folder": "d852ccb3960d271d",
