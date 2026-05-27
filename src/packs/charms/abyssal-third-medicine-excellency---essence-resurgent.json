@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Third Medicine Excellency-- Essence Resurgent",
+  "name": "Essence Resurgent (Third Medicine Excellency)",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -21,8 +21,12 @@
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [4],
-    "keywords": ["Combo-OK"],
+    "steps": [
+      4
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
     "cost": {
       "formula": "4m",
       "resonance": 0,

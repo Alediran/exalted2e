@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Second Occult Excellency-- Essence Triumphant",
+  "name": "Essence Triumphant (Second Occult Excellency)",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -21,8 +21,12 @@
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [1],
-    "keywords": ["Combo-OK"],
+    "steps": [
+      1
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
     "cost": {
       "formula": "2m per success",
       "resonance": 0,

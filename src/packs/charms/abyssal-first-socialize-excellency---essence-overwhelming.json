@@ -9,7 +9,7 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "First Socialize Excellency-- Essence Overwhelming",
+  "name": "Essence Overwhelming (First Socialize Excellency)",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
@@ -21,8 +21,12 @@
     "duration": "instant",
     "speed": 6,
     "dvPenalty": 0,
-    "steps": [1],
-    "keywords": ["Combo-OK"],
+    "steps": [
+      1
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
     "cost": {
       "formula": "1m per die",
       "resonance": 0,
