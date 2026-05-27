@@ -1,4 +1,4 @@
-import { matchesFilter, deduplicateCharms, buildTree, getCharmState, getPipData } from '../helpers/charm-tree-builder.mjs';
+import { matchesFilter, deduplicateCharms, buildTree, getCharmState, getPipData, getVirtualNodeState } from '../helpers/charm-tree-builder.mjs';
 import { renderTree, drawConnectors } from '../helpers/charm-tree-renderer.mjs';
 import { evaluateCharmPrereqs } from '../helpers/charm-prereqs.mjs';
 
@@ -27,6 +27,8 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   #sources    = { systemPack: true, worldPacks: true, worldItems: true };
   #treeData   = null;
   #nodeEls    = null;
+  #svgEl      = null;
+  #resizeObserver = null;
   #activePanel = null; // charmUid of currently open detail panel, or null
   #renderGeneration = 0;
 
@@ -180,6 +182,11 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
 
   async #loadAndRenderTree() {
     const gen = ++this.#renderGeneration;
+
+    // Disconnect any previous resize observer before rebuilding the tree
+    this.#resizeObserver?.disconnect();
+    this.#resizeObserver = null;
+
     const charms = await this.#loadCharms();
     if (gen !== this.#renderGeneration) return;
     const body = this.element?.querySelector('#charm-tree-body');
@@ -195,7 +202,10 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     // Attach cardState + pipData to each node
     const EX2E = game.exalted2e.EX2E;
     for (const node of treeData.nodes.values()) {
-      if (node.isVirtual) continue;
+      if (node.isVirtual) {
+        node.cardState = getVirtualNodeState(node, this.#actor);
+        continue;
+      }
       const charm = node.charm;
       node.cardState = getCharmState(charm, this.#actor);
       const uid = charm.system?.charmUid;
@@ -207,15 +217,7 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
 
     this.#treeData = treeData;
 
-    body.innerHTML = '';
-    body.style.position = 'relative';
-
-    // SVG overlay — sized to scrollHeight/scrollWidth so connectors work past the fold
-    const svgEl = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svgEl.setAttribute('class', 'charm-tree-svg');
-    body.appendChild(svgEl);
-
-    // Render tier rows into the body (SVG overlay sits on top)
+    // Render tier rows — renderTree clears containerEl.innerHTML internally
     this.#nodeEls = renderTree(
       body,
       treeData,
@@ -224,13 +226,23 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       EX2E.splatLightColor
     );
 
-    // Draw connectors after layout — set SVG dimensions after drawConnectors so
-    // viewport-based sizing inside drawConnectors is overridden by full scroll dimensions.
-    requestAnimationFrame(() => {
-      drawConnectors(svgEl, body, treeData.edges, this.#nodeEls, `arr-${this.id}`);
+    // Append SVG overlay AFTER renderTree so it isn't wiped by its innerHTML clear
+    const svgEl = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svgEl.setAttribute('class', 'charm-tree-svg');
+    body.appendChild(svgEl);
+    this.#svgEl = svgEl;
+
+    const redrawConnectors = () => {
+      drawConnectors(svgEl, body, treeData.edges, this.#nodeEls);
       svgEl.setAttribute('width',  String(body.scrollWidth));
       svgEl.setAttribute('height', String(body.scrollHeight));
-    });
+    };
+
+    // Draw connectors after layout, then re-draw on every resize
+    requestAnimationFrame(redrawConnectors);
+
+    this.#resizeObserver = new ResizeObserver(() => requestAnimationFrame(redrawConnectors));
+    this.#resizeObserver.observe(body);
   }
 
   async #loadCharms() {

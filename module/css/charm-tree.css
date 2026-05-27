@@ -180,20 +180,34 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 8px 0;
-  min-height: 60px;
+  margin: 28px 0;
+  min-height: 80px;
 }
 
 /* Virtual node */
 .charm-tree-virtual-node {
   background: #2a2a1a;
-  border: 2px dashed #777;
+  border: 2px dashed #555;
   border-radius: 6px;
   padding: 6px 18px;
-  color: #ccc;
+  color: #888;
   font-size: 11px;
   font-style: italic;
   white-space: nowrap;
+}
+
+.charm-tree-virtual-node--owned {
+  /* border-color and color set inline by renderer using splat pip color */
+  opacity: 1;
+}
+
+.charm-tree-virtual-node--locked {
+  opacity: 0.45;
+}
+
+.charm-tree-virtual-node--neutral {
+  border-color: #555;
+  color: #888;
 }
 
 /* Charm cards */

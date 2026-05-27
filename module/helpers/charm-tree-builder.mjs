@@ -61,18 +61,27 @@ export function buildTree(charms) {
     nodes.set(nodeId, { id: nodeId, charm, tier: 0, isVirtual: false, virtualLabel: '' });
   }
 
-  // Synthesize virtual anyExcellency nodes
-  const virtualNodes = new Map(); // abilityKey → virtual node id
+  // Synthesize virtual anyExcellency nodes — keyed by "abilityKey:minCount"
+  const countWords = ['', '', 'Two', 'Three', 'Four', 'Five'];
+  const virtualNodes = new Map(); // `${abilityKey}:${minCount}` → virtual node id
   for (const charm of charms) {
     for (const group of (charm.system?.prereqGroups ?? [])) {
       for (const alt of (group.alternatives ?? [])) {
         if (alt.type === 'anyExcellency') {
-          const key = alt.abilityKey ?? charm.system.ability;
-          if (!virtualNodes.has(key)) {
-            const vId = `virtual:anyExcellency:${key}`;
-            const label = `(Any ${_capitalizeKey(key)} Excellency)`;
-            nodes.set(vId, { id: vId, charm: null, tier: 0, isVirtual: true, virtualLabel: label });
-            virtualNodes.set(key, vId);
+          const key      = alt.abilityKey || charm.system?.ability || '';
+          const minCount = alt.minCount ?? 1;
+          const vKey     = `${key}:${minCount}`;
+          if (!virtualNodes.has(vKey)) {
+            const vId  = `virtual:anyExcellency:${vKey}`;
+            const word = countWords[minCount] ?? String(minCount);
+            const label = minCount > 1
+              ? `(Any ${word} ${_capitalizeKey(key)} Excellencies)`
+              : `(Any ${_capitalizeKey(key)} Excellency)`;
+            nodes.set(vId, {
+              id: vId, charm: null, tier: 0, isVirtual: true,
+              virtualLabel: label, abilityKey: key, minCount,
+            });
+            virtualNodes.set(vKey, vId);
           }
         }
       }
@@ -86,18 +95,39 @@ export function buildTree(charms) {
   for (const node of nodes.values()) {
     if (node.isVirtual) continue;
     const charm = node.charm;
+
+    // Excellency charms feed INTO their virtual anyExcellency node
+    if (charm.system?.excellency && charm.system.excellency !== '') {
+      const abilityKey = charm.system?.ability || '';
+      for (const [vKey, vId] of virtualNodes) {
+        if (vKey.startsWith(`${abilityKey}:`)) {
+          if (!childrenOf.has(node.id)) childrenOf.set(node.id, []);
+          if (!childrenOf.get(node.id).includes(vId)) {
+            childrenOf.get(node.id).push(vId);
+          }
+          if (!parentsOf.has(vId)) parentsOf.set(vId, []);
+          if (!parentsOf.get(vId).includes(node.id)) {
+            parentsOf.get(vId).push(node.id);
+          }
+        }
+      }
+    }
+
     for (const group of (charm.system?.prereqGroups ?? [])) {
       for (const alt of (group.alternatives ?? [])) {
         let fromId = null;
         if (alt.type === 'charm') {
           const prereq = byUid.get(alt.charmUid);
           if (prereq) {
-            // node id is charmUid when available, else charm.id
             fromId = prereq.system?.charmUid || prereq.id;
           }
         } else if (alt.type === 'anyExcellency') {
-          const key = alt.abilityKey ?? charm.system.ability;
-          fromId = virtualNodes.get(key) ?? null;
+          // Excellency charms feed INTO the virtual node — skip the reverse edge to break cycles
+          if (charm.system?.excellency && charm.system.excellency !== '') continue;
+          const key      = alt.abilityKey || charm.system?.ability || '';
+          const minCount = alt.minCount ?? 1;
+          const vId      = `virtual:anyExcellency:${key}:${minCount}`;
+          fromId = nodes.has(vId) ? vId : null;
         }
         if (!fromId) continue;
 
@@ -211,6 +241,22 @@ export function getPipData(charm, ownedItem) {
 }
 
 // ─── private ────────────────────────────────────────────────────────────────
+
+/**
+ * Returns the card state for a virtual anyExcellency node.
+ * 'owned' = actor owns enough excellencies; 'locked' = not enough; 'neutral' = no actor.
+ */
+export function getVirtualNodeState(node, actor) {
+  if (!actor) return 'neutral';
+  const abilityKey = node.abilityKey ?? '';
+  const minCount   = node.minCount   ?? 1;
+  const owned = [...actor.items].filter(i =>
+    i.type === 'charm' &&
+    i.system?.excellency && i.system.excellency !== '' &&
+    (i.system?.ability ?? '') === abilityKey
+  ).length;
+  return owned >= minCount ? 'owned' : 'locked';
+}
 
 function _capitalizeKey(key) {
   if (!key) return '';

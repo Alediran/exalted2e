@@ -13,6 +13,8 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 export function renderTree(containerEl, { tierMap, maxTier }, exaltType, splatPipColor, splatLightColor) {
   containerEl.innerHTML = '';
   const nodeEls = new Map();
+  const pipColor   = splatPipColor?.[exaltType]   ?? '#888';
+  const lightColor = splatLightColor?.[exaltType] ?? 'transparent';
 
   for (let tier = 0; tier <= maxTier; tier++) {
     const nodes = tierMap.get(tier) ?? [];
@@ -24,7 +26,7 @@ export function renderTree(containerEl, { tierMap, maxTier }, exaltType, splatPi
 
     for (const node of nodes) {
       if (node.isVirtual) {
-        const el = _makeVirtualNode(node);
+        const el = _makeVirtualNode(node, pipColor, lightColor);
         el.dataset.nodeId = node.id;
         rowEl.appendChild(el);
         nodeEls.set(node.id, el);
@@ -52,22 +54,13 @@ export function renderTree(containerEl, { tierMap, maxTier }, exaltType, splatPi
  * @param {Map<string,HTMLElement>} nodeEls
  * @param {string} markerId — unique id prefix for arrowhead marker
  */
-export function drawConnectors(svgEl, containerEl, edges, nodeEls, markerId = 'arr') {
+export function drawConnectors(svgEl, containerEl, edges, nodeEls) {
   // Clear previous
   while (svgEl.firstChild) svgEl.removeChild(svgEl.firstChild);
 
   const wr = containerEl.getBoundingClientRect();
   svgEl.setAttribute('width',  String(wr.width));
   svgEl.setAttribute('height', String(wr.height));
-
-  // Defs: arrowhead markers for normal and skip lines
-  const defs = _svgEl('defs', {});
-
-  const normalMark = _makeArrowMarker(`${markerId}-normal`, '#777');
-  const skipMark   = _makeArrowMarker(`${markerId}-skip`,   '#c84');
-  defs.appendChild(normalMark);
-  defs.appendChild(skipMark);
-  svgEl.appendChild(defs);
 
   for (const { fromId, toId, skip } of edges) {
     const fromEl = nodeEls.get(fromId);
@@ -82,18 +75,13 @@ export function drawConnectors(svgEl, containerEl, edges, nodeEls, markerId = 'a
     const x2 = tRect.left + tRect.width  / 2 - wr.left;
     const y2 = tRect.top  - wr.top;
 
-    const color   = skip ? '#c84' : '#777';
-    const dashArr = skip ? '5,3'  : null;
-    const marker  = `url(#${skip ? `${markerId}-skip` : `${markerId}-normal`})`;
-
     const attrs = {
       x1: String(x1), y1: String(y1),
       x2: String(x2), y2: String(y2),
-      stroke: color,
+      stroke: skip ? '#c84' : '#777',
       'stroke-width': '1.5',
-      'marker-end': marker,
     };
-    if (dashArr) attrs['stroke-dasharray'] = dashArr;
+    if (skip) attrs['stroke-dasharray'] = '5,3';
 
     svgEl.appendChild(_svgEl('line', attrs));
   }
@@ -101,9 +89,15 @@ export function drawConnectors(svgEl, containerEl, edges, nodeEls, markerId = 'a
 
 // ─── private helpers ─────────────────────────────────────────────────────────
 
-function _makeVirtualNode(node) {
+function _makeVirtualNode(node, pipColor, lightColor) {
+  const state = node.cardState ?? 'neutral';
   const el = document.createElement('div');
-  el.className = 'charm-tree-virtual-node';
+  el.className = `charm-tree-virtual-node charm-tree-virtual-node--${state}`;
+  if (state === 'owned') {
+    el.style.borderColor = pipColor ?? '#777';
+    el.style.color       = pipColor ?? '#777';
+    el.style.backgroundColor = lightColor ?? 'transparent';
+  }
   el.textContent = node.virtualLabel ?? '';
   return el;
 }
@@ -188,10 +182,3 @@ function _svgEl(tag, attrs) {
   return el;
 }
 
-function _makeArrowMarker(id, color) {
-  const marker = _svgEl('marker', {
-    id, markerWidth: '8', markerHeight: '8', refX: '7', refY: '4', orient: 'auto',
-  });
-  marker.appendChild(_svgEl('polygon', { points: '0 0, 8 4, 0 8', fill: color }));
-  return marker;
-}
