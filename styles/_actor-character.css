@@ -769,6 +769,41 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
   background: var(--ex2e-gold-dark);
 }
 
+/* Charm group header: label + lookup button on one row.
+   display:flex removes the native ::marker, so we restore the
+   disclosure triangle via ::before and rotate it when open. */
+.exalted2e.actor.character .charm-group-header {
+  display:     flex;
+  align-items: center;
+  gap:         6px;
+  list-style:  none;
+}
+
+.exalted2e.actor.character .charm-group-header::before {
+  content:     '▶';
+  font-size:   9px;
+  flex-shrink: 0;
+  transition:  transform 0.15s;
+}
+
+.exalted2e.actor.character details[open] > .charm-group-header::before {
+  transform: rotate(90deg);
+}
+
+.exalted2e.actor.character .charm-tree-lookup-btn {
+  flex-shrink: 0;
+  padding:     1px 5px;
+  background:  none;
+  color:       var(--ex2e-gold-main);
+  cursor:      pointer;
+  font-size:   11px;
+  line-height: 1;
+}
+.exalted2e.actor.character .charm-tree-lookup-btn:hover {
+  background: var(--ex2e-bg-hover);
+  color:      var(--ex2e-gold-bright);
+}
+
 /* Urge item icon inline in the section header */
 .exalted2e.actor.character .urge-item-icon {
   width:          24px;
