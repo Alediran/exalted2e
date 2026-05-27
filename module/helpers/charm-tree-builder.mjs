@@ -315,6 +315,96 @@ export function getVirtualNodeState(node, actor) {
   return owned >= minCount ? 'owned' : 'locked';
 }
 
+/**
+ * Splits a built tree into self-contained branches by detecting connected
+ * components using only direct charm-to-charm edges (virtual/Excellency nodes
+ * are excluded from the connectivity graph so they don't bridge all branches).
+ * Each branch re-includes its relevant Excellency/virtual/quasi-Excellency nodes.
+ * Returns an array of treeData objects { nodes, edges, tierMap, maxTier, label }.
+ * If there is only one component, returns the original treeData as a single-element array.
+ */
+export function splitIntoBranches({ nodes, edges, tierMap, maxTier }) {
+  const _special = (node) =>
+    node.isVirtual || node.isQuasiExcellency || _isTierZeroExcellency(node?.charm);
+
+  // Undirected adjacency over non-special nodes only
+  const adj = new Map();
+  for (const [id, node] of nodes) {
+    if (!_special(node)) adj.set(id, []);
+  }
+  for (const { fromId, toId } of edges) {
+    if (adj.has(fromId) && adj.has(toId)) {
+      adj.get(fromId).push(toId);
+      adj.get(toId).push(fromId);
+    }
+  }
+
+  // BFS connected components
+  const visited = new Set();
+  const components = [];
+  for (const id of adj.keys()) {
+    if (visited.has(id)) continue;
+    const comp = new Set();
+    const queue = [id];
+    while (queue.length) {
+      const curr = queue.shift();
+      if (visited.has(curr)) continue;
+      visited.add(curr);
+      comp.add(curr);
+      for (const n of (adj.get(curr) ?? [])) {
+        if (!visited.has(n)) queue.push(n);
+      }
+    }
+    components.push(comp);
+  }
+
+  if (components.length <= 1) {
+    return [{ nodes, edges, tierMap, maxTier, label: '' }];
+  }
+
+  // Sort largest branch first
+  components.sort((a, b) => b.size - a.size);
+
+  return components.map(charmIds => {
+    // Walk backwards through edges to pull in connected special nodes
+    const allIds = new Set(charmIds);
+    let changed = true;
+    while (changed) {
+      changed = false;
+      for (const { fromId, toId } of edges) {
+        const fromNode = nodes.get(fromId);
+        if (allIds.has(toId) && !allIds.has(fromId) && fromNode && _special(fromNode)) {
+          allIds.add(fromId);
+          changed = true;
+        }
+      }
+    }
+
+    const compNodes = new Map([...nodes].filter(([id]) => allIds.has(id)));
+    const compEdges = edges.filter(e => allIds.has(e.fromId) && allIds.has(e.toId));
+
+    const compTierMap = new Map();
+    let compMaxTier = 0;
+    for (const [t, tierNodes] of tierMap) {
+      const filtered = tierNodes.filter(n => allIds.has(n.id));
+      if (filtered.length) {
+        compTierMap.set(t, filtered);
+        if (t > compMaxTier) compMaxTier = t;
+      }
+    }
+
+    // Label: name of the lowest-tier non-special charm
+    let label = '';
+    for (let t = 0; t <= compMaxTier && !label; t++) {
+      for (const n of (compTierMap.get(t) ?? [])) {
+        if (!_special(n)) { label = n.charm?.name ?? ''; break; }
+      }
+    }
+
+    return { nodes: compNodes, edges: compEdges, tierMap: compTierMap, maxTier: compMaxTier, label };
+  });
+}
+
 function _isTierZeroExcellency(charm) {
   const exc = charm?.system?.excellency;
   return exc === 'first' || exc === 'second' || exc === 'third';

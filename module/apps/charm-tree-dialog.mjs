@@ -1,4 +1,4 @@
-import { matchesFilter, deduplicateCharms, buildTree, getCharmState, getPipData, getVirtualNodeState } from '../helpers/charm-tree-builder.mjs';
+import { matchesFilter, deduplicateCharms, buildTree, splitIntoBranches, getCharmState, getPipData, getVirtualNodeState } from '../helpers/charm-tree-builder.mjs';
 import { renderTree, drawConnectors } from '../helpers/charm-tree-renderer.mjs';
 import { evaluateCharmPrereqs } from '../helpers/charm-prereqs.mjs';
 
@@ -31,6 +31,8 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   #resizeObserver = null;
   #activePanel = null; // charmUid of currently open detail panel, or null
   #renderGeneration = 0;
+  #branches = [];
+  #currentBranch = 0;
 
   constructor(options = {}, { actor, exaltType, groupKey } = {}) {
     super(options);
@@ -183,7 +185,6 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   async #loadAndRenderTree() {
     const gen = ++this.#renderGeneration;
 
-    // Disconnect any previous resize observer before rebuilding the tree
     this.#resizeObserver?.disconnect();
     this.#resizeObserver = null;
 
@@ -193,14 +194,14 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     if (!body) return;
 
     if (!charms.length) {
+      this.element?.querySelector('.charm-tree-branch-nav')?.remove();
       body.innerHTML = `<p class="charm-tree-empty">${game.i18n.localize('EX2E.CharmTree.NoCharms')}</p>`;
       return;
     }
 
     const treeData = buildTree(charms, this.#groupKey);
 
-    // Attach cardState + pipData to each node
-    const EX2E = game.exalted2e.EX2E;
+    // Attach cardState + pipData to every node before splitting into branches
     for (const node of treeData.nodes.values()) {
       if (node.isVirtual) {
         node.cardState = getVirtualNodeState(node, this.#actor);
@@ -215,32 +216,74 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       node.pipData = getPipData(charm, ownedItem ?? null);
     }
 
-    this.#treeData = treeData;
+    this.#branches = splitIntoBranches(treeData);
+    this.#currentBranch = 0;
+    this.#renderBranch(0);
+  }
 
-    // Render tier rows — renderTree clears containerEl.innerHTML internally
-    this.#nodeEls = renderTree(
-      body,
-      treeData,
-      this.#exaltType,
-      EX2E.splatPipColor,
-      EX2E.splatLightColor
-    );
+  #renderBranch(index) {
+    const branch = this.#branches[index];
+    if (!branch) return;
+    this.#currentBranch = index;
+    this.#treeData = branch;
 
-    // Append SVG overlay AFTER renderTree so it isn't wiped by its innerHTML clear
+    const body = this.element?.querySelector('#charm-tree-body');
+    if (!body) return;
+
+    this.#resizeObserver?.disconnect();
+    this.#resizeObserver = null;
+
+    const EX2E = game.exalted2e.EX2E;
+    this.#nodeEls = renderTree(body, branch, this.#exaltType, EX2E.splatPipColor, EX2E.splatLightColor);
+
     const svgEl = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svgEl.setAttribute('class', 'charm-tree-svg');
     body.appendChild(svgEl);
     this.#svgEl = svgEl;
 
-    const redrawConnectors = () => {
-      drawConnectors(svgEl, body, treeData.edges, this.#nodeEls);
-    };
-
-    // Draw connectors after layout, then re-draw on every resize
+    const redrawConnectors = () => drawConnectors(svgEl, body, branch.edges, this.#nodeEls);
     requestAnimationFrame(redrawConnectors);
-
     this.#resizeObserver = new ResizeObserver(() => requestAnimationFrame(redrawConnectors));
     this.#resizeObserver.observe(body);
+
+    this.#updateBranchNav();
+  }
+
+  #updateBranchNav() {
+    const root = this.element?.querySelector('.charm-tree-root');
+    if (!root) return;
+
+    root.querySelector('.charm-tree-branch-nav')?.remove();
+    if (this.#branches.length <= 1) return;
+
+    const i     = this.#currentBranch;
+    const total = this.#branches.length;
+
+    const nav = document.createElement('div');
+    nav.className = 'charm-tree-branch-nav';
+
+    const makeBtn = (text, disabled, onClick) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'charm-tree-branch-nav__btn';
+      btn.textContent = text;
+      btn.disabled = disabled;
+      btn.addEventListener('click', onClick);
+      return btn;
+    };
+
+    const counter = document.createElement('span');
+    counter.className = 'charm-tree-branch-nav__label';
+    counter.textContent = `${i + 1} / ${total}`;
+
+    nav.append(
+      makeBtn('«', i === 0,         () => this.#renderBranch(0)),
+      makeBtn('‹', i === 0,         () => this.#renderBranch(this.#currentBranch - 1)),
+      counter,
+      makeBtn('›', i === total - 1, () => this.#renderBranch(this.#currentBranch + 1)),
+      makeBtn('»', i === total - 1, () => this.#renderBranch(total - 1)),
+    );
+    root.insertBefore(nav, root.querySelector('#charm-tree-body'));
   }
 
   async #loadCharms() {

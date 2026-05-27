@@ -76,6 +76,42 @@
   margin: 0;
 }
 
+/* Branch navigation */
+.charm-tree-branch-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 5px 14px;
+  background: #2a2a3a;
+  border-bottom: 1px solid #444;
+  flex-shrink: 0;
+}
+
+.charm-tree-branch-nav__btn {
+  background: none;
+  border: 1px solid #555;
+  border-radius: 4px;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  width: 32px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.charm-tree-branch-nav__btn:hover:not(:disabled) { border-color: #aaa; color: #fff; }
+.charm-tree-branch-nav__btn:disabled { opacity: 0.35; cursor: default; }
+
+.charm-tree-branch-nav__label {
+  font-size: 12px;
+  color: #ccc;
+  width: 48px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
 /* Detail panel */
 .charm-tree-detail-panel {
   flex-shrink: 0;
