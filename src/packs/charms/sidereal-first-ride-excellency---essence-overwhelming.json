@@ -1,0 +1,58 @@
+{
+  "_id": "afec53a3baeba830",
+  "_key": "!items!afec53a3baeba830",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Essence Overwhelming (First Ride Excellency)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "ride",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      1
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "1m per die",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Vizier's player can invoke this Charm when making a Ride roll. This Charm adds one die to that roll for each mote spent, to a maximum of (Attribute + Ride) dice. Characters can also use this Charm to enhance static values such as a Defense Value: roll one die per mote spent, with each success increasing the effective (Attribute + Ride) by two and raising an applicable DV by one. This Charm can be part of a Combo or used together with the Second Excellency, but is incompatible with the Third Excellency.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "first",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "afec53a3baeba830"
+  },
+  "folder": "b0b1b2b3b4b5f013",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

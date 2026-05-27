@@ -1,0 +1,58 @@
+{
+  "_id": "2cbb8c59e89ac217",
+  "_key": "!items!2cbb8c59e89ac217",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Essence Triumphant (Second Survival Excellency)",
+  "type": "charm",
+  "img": "icons/magic/light/beam-rays-yellow.webp",
+  "system": {
+    "exaltType": "sidereal",
+    "ability": "survival",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "reflexive",
+    "duration": "instant",
+    "speed": 6,
+    "dvPenalty": 0,
+    "steps": [
+      1
+    ],
+    "keywords": [
+      "Combo-OK"
+    ],
+    "cost": {
+      "formula": "2m per success",
+      "resonance": 0,
+      "limitTrigger": 0
+    },
+    "description": "<p>The Vizier's player can invoke this Charm when making a Survival roll. Spend up to (Attribute + Survival) motes; each two motes adds one automatic success. When enhancing static values, each two motes increases the effective (Attribute + Survival) by two, raising an applicable DV by one. This Charm can be Comboed or used together with the First Excellency, but is incompatible with the Third Excellency.</p>",
+    "source": "MoEP: Sidereals",
+    "yoziPatron": "",
+    "martialArtsTier": "",
+    "martialArtsStyleName": "",
+    "maidenAffiliation": "",
+    "durationFormula": "",
+    "stackCount": 0,
+    "umiCost": 1,
+    "cooperationBonusDice": 0,
+    "excellency": "second",
+    "perfectDefenseType": "",
+    "active": false,
+    "prereqGroups": [],
+    "charmUid": "2cbb8c59e89ac217"
+  },
+  "folder": "b0b1b2b3b4b5f017",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}
