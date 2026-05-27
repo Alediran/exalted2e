@@ -286,7 +286,6 @@
 
 .charm-tree-card--locked {
   cursor: default;
-  opacity: 0.5;
 }
 
 .charm-tree-card--neutral { border-color: #555; }

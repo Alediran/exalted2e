@@ -87,7 +87,7 @@ export function drawConnectors(svgEl, containerEl, edges, nodeEls) {
   const scrollLeft = containerEl.scrollLeft;
   const scrollTop  = containerEl.scrollTop;
 
-  for (const { fromId, toId, skip } of edges) {
+  for (const { fromId, toId, skip, sameTier } of edges) {
     const fromEl = nodeEls.get(fromId);
     const toEl   = nodeEls.get(toId);
     if (!fromEl || !toEl) continue;
@@ -96,10 +96,26 @@ export function drawConnectors(svgEl, containerEl, edges, nodeEls) {
     const tRect = toEl.getBoundingClientRect();
 
     // getBoundingClientRect is viewport-relative; adjust to scroll-content-relative
-    const x1 = fRect.left + fRect.width  / 2 - wr.left + scrollLeft;
-    const y1 = fRect.bottom - wr.top + scrollTop;
-    const x2 = tRect.left + tRect.width  / 2 - wr.left + scrollLeft;
-    const y2 = tRect.top  - wr.top + scrollTop;
+    let x1, y1, x2, y2;
+    if (sameTier) {
+      // Same-tier edges: anchor on left/right sides at vertical centre
+      const fCx = fRect.left + fRect.width / 2;
+      const tCx = tRect.left + tRect.width / 2;
+      if (fCx <= tCx) {
+        x1 = fRect.right  - wr.left + scrollLeft;
+        x2 = tRect.left   - wr.left + scrollLeft;
+      } else {
+        x1 = fRect.left   - wr.left + scrollLeft;
+        x2 = tRect.right  - wr.left + scrollLeft;
+      }
+      y1 = fRect.top + fRect.height / 2 - wr.top + scrollTop;
+      y2 = tRect.top + tRect.height / 2 - wr.top + scrollTop;
+    } else {
+      x1 = fRect.left + fRect.width  / 2 - wr.left + scrollLeft;
+      y1 = fRect.bottom - wr.top + scrollTop;
+      x2 = tRect.left + tRect.width  / 2 - wr.left + scrollLeft;
+      y2 = tRect.top  - wr.top + scrollTop;
+    }
 
     const attrs = {
       x1: String(x1), y1: String(y1),
@@ -147,8 +163,6 @@ function _makeCharmCard(node, exaltType, splatPipColor, splatLightColor) {
     el.style.backgroundColor = lightColor;
   } else if (state === 'purchasable' || state === 'available') {
     el.style.borderColor = pipColor;
-  } else if (state === 'locked') {
-    el.style.opacity = '0.5';
   }
 
   // Essence pips row

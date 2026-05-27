@@ -192,12 +192,13 @@ export function buildTree(charms, groupKey = '') {
     if (minVirtualTier !== Infinity) node.tier = minVirtualTier;
   }
 
-  // Build edges (skip = toTier - fromTier > 1)
+  // Build edges (skip = toTier - fromTier > 1; sameTier = tiers are equal)
   for (const [fromId, children] of childrenOf) {
     const fromTier = nodes.get(fromId)?.tier ?? 0;
     for (const toId of children) {
-      const toTier = nodes.get(toId)?.tier ?? 0;
-      edges.push({ fromId, toId, skip: (toTier - fromTier) > 1 });
+      const toTier  = nodes.get(toId)?.tier ?? 0;
+      const diff    = toTier - fromTier;
+      edges.push({ fromId, toId, skip: diff > 1, sameTier: diff === 0 });
     }
   }
 
@@ -366,15 +367,23 @@ export function splitIntoBranches({ nodes, edges, tierMap, maxTier }) {
   components.sort((a, b) => b.size - a.size);
 
   return components.map(charmIds => {
-    // Walk backwards through edges to pull in connected special nodes
+    // Walk backwards through edges to pull in connected special nodes (Excellencies, virtual nodes).
+    // Also walk forwards from virtual nodes to include their quasi-Excellency children.
     const allIds = new Set(charmIds);
     let changed = true;
     while (changed) {
       changed = false;
       for (const { fromId, toId } of edges) {
         const fromNode = nodes.get(fromId);
+        const toNode   = nodes.get(toId);
+        // Special parent of a node already in the branch
         if (allIds.has(toId) && !allIds.has(fromId) && fromNode && _special(fromNode)) {
           allIds.add(fromId);
+          changed = true;
+        }
+        // Quasi-Excellency child of a virtual node already in the branch
+        if (allIds.has(fromId) && !allIds.has(toId) && fromNode?.isVirtual && toNode?.isQuasiExcellency) {
+          allIds.add(toId);
           changed = true;
         }
       }
