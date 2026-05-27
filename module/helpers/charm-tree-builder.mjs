@@ -217,6 +217,35 @@ export function buildTree(charms, groupKey = '') {
     return aO - bO;
   });
 
+  // Barycenter heuristic: reorder each tier by average parent-index to reduce edge crossings.
+  // One top-down pass; tier 0 is the anchor (already sorted above).
+  const tierIndex = new Map(); // nodeId → column index within its tier
+  (tierMap.get(0) ?? []).forEach((n, i) => tierIndex.set(n.id, i));
+
+  for (let t = 1; t <= maxTier; t++) {
+    const tierNodes = tierMap.get(t);
+    if (!tierNodes || tierNodes.length < 2) {
+      (tierNodes ?? []).forEach((n, i) => tierIndex.set(n.id, i));
+      continue;
+    }
+
+    const center = (tierIndex.size > 0 ? Math.max(...tierIndex.values()) : 0) / 2;
+    const scored = tierNodes.map(node => {
+      const parentIdxs = (parentsOf.get(node.id) ?? [])
+        .filter(pid => nodes.has(pid) && nodes.get(pid).tier < t)
+        .map(pid => tierIndex.get(pid) ?? 0);
+      const score = parentIdxs.length
+        ? parentIdxs.reduce((a, b) => a + b, 0) / parentIdxs.length
+        : center;
+      return { node, score };
+    });
+
+    scored.sort((a, b) => a.score - b.score);
+    const sorted = scored.map(s => s.node);
+    tierMap.set(t, sorted);
+    sorted.forEach((n, i) => tierIndex.set(n.id, i));
+  }
+
   return { nodes, edges, tierMap, maxTier };
 }
 

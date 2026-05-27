@@ -234,8 +234,6 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
 
     const redrawConnectors = () => {
       drawConnectors(svgEl, body, treeData.edges, this.#nodeEls);
-      svgEl.setAttribute('width',  String(body.scrollWidth));
-      svgEl.setAttribute('height', String(body.scrollHeight));
     };
 
     // Draw connectors after layout, then re-draw on every resize

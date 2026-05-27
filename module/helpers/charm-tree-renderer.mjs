@@ -79,9 +79,13 @@ export function drawConnectors(svgEl, containerEl, edges, nodeEls) {
   // Clear previous
   while (svgEl.firstChild) svgEl.removeChild(svgEl.firstChild);
 
-  const wr = containerEl.getBoundingClientRect();
-  svgEl.setAttribute('width',  String(wr.width));
-  svgEl.setAttribute('height', String(wr.height));
+  // SVG covers the full scrollable content area
+  svgEl.setAttribute('width',  String(containerEl.scrollWidth));
+  svgEl.setAttribute('height', String(containerEl.scrollHeight));
+
+  const wr         = containerEl.getBoundingClientRect();
+  const scrollLeft = containerEl.scrollLeft;
+  const scrollTop  = containerEl.scrollTop;
 
   for (const { fromId, toId, skip } of edges) {
     const fromEl = nodeEls.get(fromId);
@@ -91,10 +95,11 @@ export function drawConnectors(svgEl, containerEl, edges, nodeEls) {
     const fRect = fromEl.getBoundingClientRect();
     const tRect = toEl.getBoundingClientRect();
 
-    const x1 = fRect.left + fRect.width  / 2 - wr.left;
-    const y1 = fRect.bottom - wr.top;
-    const x2 = tRect.left + tRect.width  / 2 - wr.left;
-    const y2 = tRect.top  - wr.top;
+    // getBoundingClientRect is viewport-relative; adjust to scroll-content-relative
+    const x1 = fRect.left + fRect.width  / 2 - wr.left + scrollLeft;
+    const y1 = fRect.bottom - wr.top + scrollTop;
+    const x2 = tRect.left + tRect.width  / 2 - wr.left + scrollLeft;
+    const y2 = tRect.top  - wr.top + scrollTop;
 
     const attrs = {
       x1: String(x1), y1: String(y1),
