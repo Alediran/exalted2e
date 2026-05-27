@@ -69,6 +69,8 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     // Group options based on selected exalt type — also [label, key] pairs
     const groupOptions = await this.#buildGroupOptions(EX2E);
 
+    if (!this.#groupKey && groupOptions.length) this.#groupKey = groupOptions[0][1];
+
     return {
       exaltTypes,
       groupOptions,
