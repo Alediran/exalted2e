@@ -178,10 +178,23 @@
 /* Tier rows */
 .charm-tree-tier-row {
   display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 28px 0;
+}
+
+.charm-tree-virtual-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.charm-tree-cards-row {
+  display: flex;
   justify-content: space-around;
   align-items: center;
   gap: 16px;
-  margin: 28px 0;
   min-height: 80px;
 }
 

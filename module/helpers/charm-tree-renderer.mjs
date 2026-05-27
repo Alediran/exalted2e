@@ -24,18 +24,31 @@ export function renderTree(containerEl, { tierMap, maxTier }, exaltType, splatPi
     rowEl.className = 'charm-tree-tier-row';
     rowEl.dataset.tier = String(tier);
 
-    for (const node of nodes) {
-      if (node.isVirtual) {
+    const virtualNodes = nodes.filter(n => n.isVirtual);
+    const charmNodes   = nodes.filter(n => !n.isVirtual);
+
+    if (virtualNodes.length) {
+      const vRow = document.createElement('div');
+      vRow.className = 'charm-tree-virtual-row';
+      for (const node of virtualNodes) {
         const el = _makeVirtualNode(node, pipColor, lightColor);
         el.dataset.nodeId = node.id;
-        rowEl.appendChild(el);
-        nodeEls.set(node.id, el);
-      } else {
-        const el = _makeCharmCard(node, exaltType, splatPipColor, splatLightColor);
-        el.dataset.nodeId = node.id;
-        rowEl.appendChild(el);
+        vRow.appendChild(el);
         nodeEls.set(node.id, el);
       }
+      rowEl.appendChild(vRow);
+    }
+
+    if (charmNodes.length) {
+      const cRow = document.createElement('div');
+      cRow.className = 'charm-tree-cards-row';
+      for (const node of charmNodes) {
+        const el = _makeCharmCard(node, exaltType, splatPipColor, splatLightColor);
+        el.dataset.nodeId = node.id;
+        cRow.appendChild(el);
+        nodeEls.set(node.id, el);
+      }
+      rowEl.appendChild(cRow);
     }
 
     containerEl.appendChild(rowEl);
