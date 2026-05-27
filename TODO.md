@@ -109,7 +109,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Intimacy building/erosion via successful social attack (+/−1 or new Intimacy seed)
 - [x] Social Combos (no Obvious display unless charm is Obvious)
 - [x] Social charm bonus payload (`socialBonus` schema — charm-driven pool dice/auto-successes/penalty-ignore for social attacks; MDV debuff gap noted in spec) — [charms-gap A9](docs/charms-gap.md)
-  - [ ] Social attack chat card: surface `charmPoolDice` / `charmPoolSuccesses` in pool breakdown line (currently stored in ledger but not rendered)
+  - [x] Social attack chat card: surface `charmPoolDice` / `charmPoolSuccesses` in pool breakdown line (currently stored in ledger but not rendered)
 
 ## Sorcery & Necromancy
 - [x] Spell item type (Terrestrial/Celestial/Solar; Shadowland/Labyrinth/Void)

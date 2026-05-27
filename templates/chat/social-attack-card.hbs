@@ -30,7 +30,7 @@
     <div class="line"><strong>{{localize "EX2E.Subject"}}:</strong> {{subject}}</div>
     {{/if}}
 
-    <div class="line"><strong>{{localize "EX2E.SocialPool"}}:</strong> {{attributeLabel}} {{attributeValue}} + {{abilityLabel}} {{abilityValue}}{{#if stuntDice}} + {{stuntDice}} stunt{{/if}} = {{pool}} dice → {{rollSuccesses}} successes</div>
+    <div class="line"><strong>{{localize "EX2E.SocialPool"}}:</strong> {{attributeLabel}} {{attributeValue}} + {{abilityLabel}} {{abilityValue}}{{#if stuntDice}} + {{stuntDice}} stunt{{/if}}{{#if charmPoolDice}} + {{charmPoolDice}} {{localize "EX2E.SocialCharmDice"}}{{/if}} = {{pool}} dice → {{rollSuccesses}} successes{{#if charmPoolSuccesses}} ({{charmPoolSuccesses}} {{localize "EX2E.SocialCharmSuccesses"}}){{/if}}</div>
 
     <div class="line"><strong>{{localize "EX2E.ModifierClaims"}}:</strong>
       {{localize "EX2E.ClaimSupporting"}} {{bestSupporting}}, {{localize "EX2E.ClaimOpposing"}} {{bestOpposing}}, {{localize "EX2E.AppearanceDelta"}} {{mdvShiftFromApp}}

@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-27 (Charm Tree Dialog complete; added 4 previously unclassified pending items; count 2 A / 35 B / 6 C / 43 total)
+Last updated: 2026-05-27 (Social attack card charm bonus display done; count 1 A / 35 B / 6 C / 42 total)
 
 ---
 
@@ -11,7 +11,6 @@ Last updated: 2026-05-27 (Charm Tree Dialog complete; added 4 previously unclass
 | Item | TODO Section | Notes |
 |------|-------------|-------|
 | Monstrance of Celestial Portion | Abyssal | fields done; control/servitude mechanics (deathlord authority over deathknight) still pending |
-| Social attack chat card: surface charmPoolDice / charmPoolSuccesses | Social Combat | data already stored in the activation ledger; template-only change to render pool breakdown line |
 
 ---
 
@@ -78,7 +77,7 @@ Last updated: 2026-05-27 (Charm Tree Dialog complete; added 4 previously unclass
 
 | Group | Count |
 |-------|-------|
-| A — Ready, Simple | 2 |
+| A — Ready, Simple | 1 |
 | B — Ready, Medium | 35 |
 | C — Ready, Complex | 6 |
-| **Total pending** | **43** |
+| **Total pending** | **42** |
