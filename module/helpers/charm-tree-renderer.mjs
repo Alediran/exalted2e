@@ -152,7 +152,7 @@ function _makeCharmCard(node, exaltType, splatPipColor, splatLightColor) {
   }
 
   // Essence pips row
-  const essMax = 5;
+  const essMax = 10;
   const essVal = Math.min(s.essence ?? 1, essMax);
   el.appendChild(_makePipRow(essVal, essMax, pipColor, 'essence'));
 
@@ -167,7 +167,7 @@ function _makeCharmCard(node, exaltType, splatPipColor, splatLightColor) {
 
   // Ability pips row (not for infernal)
   if (exaltType !== 'infernal') {
-    const abilMax = 5;
+    const abilMax = 10;
     const abilVal = Math.min(s.minAbility ?? 0, abilMax);
     el.appendChild(_makePipRow(abilVal, abilMax, '#c66', 'ability'));
   }

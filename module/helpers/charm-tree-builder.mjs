@@ -144,7 +144,10 @@ export function buildTree(charms, groupKey = '') {
   // essence requirement so Excellencies are the only tier-0 nodes.
   const tierOf = new Map();
   for (const [id, node] of nodes) {
-    const floor = (node.isVirtual || _isTierZeroExcellency(node.charm) || node.isQuasiExcellency) ? 0 : (node.charm?.system?.essence ?? 1);
+    const hasPrereqs = (parentsOf.get(id) ?? []).length > 0;
+    const floor = (node.isVirtual || _isTierZeroExcellency(node.charm) || node.isQuasiExcellency || hasPrereqs)
+      ? 0
+      : (node.charm?.system?.essence ?? 1);
     tierOf.set(id, floor);
   }
 
