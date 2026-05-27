@@ -364,6 +364,33 @@ export function splitIntoBranches({ nodes, edges, tierMap, maxTier }) {
     }
   }
 
+  // Supplement adjacency via prereqGroups scanning.
+  // buildTree only creates edges when alt.charmUid matches system.charmUid (byUid lookup).
+  // If that lookup failed (broken/mismatched ref), the edge is absent and the charm becomes
+  // isolated. Here we also try matching alt.charmUid against the node's Foundry document id
+  // so that stale references still connect the two nodes for splitting purposes.
+  const docIdToNodeId = new Map();
+  for (const [nodeId, node] of nodes) {
+    if (_special(node) || !node.charm?.id) continue;
+    docIdToNodeId.set(node.charm.id, nodeId);
+  }
+  for (const [nodeId, node] of nodes) {
+    if (_special(node)) continue;
+    for (const group of (node.charm?.system?.prereqGroups ?? [])) {
+      for (const alt of (group.alternatives ?? [])) {
+        if (alt.type !== 'charm') continue;
+        // Try the document-id fallback when the charmUid lookup already produced an edge
+        const prereqNodeId = adj.has(alt.charmUid)
+          ? alt.charmUid
+          : docIdToNodeId.get(alt.charmUid);
+        if (prereqNodeId && prereqNodeId !== nodeId && adj.has(prereqNodeId)) {
+          adj.get(nodeId).push(prereqNodeId);
+          adj.get(prereqNodeId).push(nodeId);
+        }
+      }
+    }
+  }
+
   // BFS connected components
   const visited = new Set();
   const components = [];
@@ -400,9 +427,23 @@ export function splitIntoBranches({ nodes, edges, tierMap, maxTier }) {
   // Sort largest branch first
   components.sort((a, b) => b.size - a.size);
 
+  // Merge tiny isolated components (1–2 non-special nodes) into the largest one.
+  // These are typically charms whose only prerequisites are from a different ability
+  // group (cross-ability prereqs not in the current loaded set), so they have no
+  // edges and appear isolated. Merging keeps them visible in the main tree.
+  for (let i = components.length - 1; i >= 1; i--) {
+    if (components[i].size < 3) {
+      for (const id of components[i]) components[0].add(id);
+      components.splice(i, 1);
+    }
+  }
+
   return components.map(charmIds => {
-    // Walk backwards through edges to pull in connected special nodes (Excellencies, virtual nodes).
-    // Also walk forwards from virtual nodes to include their quasi-Excellency children.
+    // Walk backwards through edges to pull in:
+    //   1. Connected special nodes (Excellencies, virtual nodes) that are parents
+    //   2. Quasi-Excellency children of virtual nodes already in the branch
+    //   3. Regular charm prerequisites that were split into a different component
+    //      (e.g. when the only path between two charms passes through a virtual node)
     const allIds = new Set(charmIds);
     let changed = true;
     while (changed) {
@@ -410,12 +451,17 @@ export function splitIntoBranches({ nodes, edges, tierMap, maxTier }) {
       for (const { fromId, toId } of edges) {
         const fromNode = nodes.get(fromId);
         const toNode   = nodes.get(toId);
-        // Special parent of a node already in the branch
-        if (allIds.has(toId) && !allIds.has(fromId) && fromNode && _special(fromNode)) {
+        if (!allIds.has(toId) || allIds.has(fromId) || !fromNode) continue;
+        // Special parent, quasi-Excellency forward-link, or regular prerequisite charm
+        if (_special(fromNode) || (!_special(toNode) && !_special(fromNode))) {
           allIds.add(fromId);
           changed = true;
         }
-        // Quasi-Excellency child of a virtual node already in the branch
+      }
+      // Forward: quasi-Excellency children of virtual nodes now in the branch
+      for (const { fromId, toId } of edges) {
+        const fromNode = nodes.get(fromId);
+        const toNode   = nodes.get(toId);
         if (allIds.has(fromId) && !allIds.has(toId) && fromNode?.isVirtual && toNode?.isQuasiExcellency) {
           allIds.add(toId);
           changed = true;
