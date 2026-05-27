@@ -49,7 +49,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "e97965e2996ac055",
+            "charmName": "Eye Of The Unconquered Sun",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
     "charmUid": "4822069dcf603c99"
   },
   "folder": "97d4d497443373f8",

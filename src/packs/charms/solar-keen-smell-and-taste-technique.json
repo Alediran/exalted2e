@@ -45,7 +45,20 @@
     "perfectDefenseType": "",
     "active": false,
     "mirrorId": "5c1d7f23c9b4e503",
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
     "charmUid": "61a0a6107c1aa883"
   },
   "folder": "97d4d497443373f8",

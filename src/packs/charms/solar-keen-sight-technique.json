@@ -1,6 +1,6 @@
 {
-  "_id": "4d861aca29d82c7e",
-  "_key": "!items!4d861aca29d82c7e",
+  "_id": "6d64a80622250f23",
+  "_key": "!items!6d64a80622250f23",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,32 +9,33 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Omniscient Ears Approach",
+  "name": "Keen Sight Technique",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "solar",
     "ability": "awareness",
-    "essence": 5,
-    "minAbility": 5,
-    "charmType": "permanent",
-    "duration": "permanent",
+    "essence": 1,
+    "minAbility": 1,
+    "charmType": "supplemental",
+    "duration": "oneScene",
     "speed": 6,
     "dvPenalty": 0,
     "steps": [],
-    "keywords": [],
+    "keywords": [
+      "Combo-OK"
+    ],
     "cost": {
-      "formula": "--",
+      "formula": "3m",
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>Discerning Savant's Eye), which alerts the character if anyone writes his name. Rather than listening in on a conversation, the Lawgiver has the option of spending 10m to memorize the entirety of the missive in which he is mentioned, for later detailed perusal. The Ever-Vigilant Scribe's repurchase benefit allows the character to remain vigilant for the writing of other particular words or phrases. Abyssal Exalted, having cast their names away into Oblivion, cannot develop a Mirror to this Charm. Dodge</p>",
-    "source": "Dreams of the First Age",
+    "description": "<p>Essence enhances the Solar's sight. Gives two bonus successes on Awareness actions using sight and allows perception of details normally too faint for human eyes. The character can read text at great distances, identify individuals by appearance alone across a battlefield, and perceive extraordinary detail when combined with Unsurpassed Sight Discipline.</p>",
+    "source": "Core Rules",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -46,9 +47,9 @@
       {
         "alternatives": [
           {
-            "type": "charm",
-            "charmUid": "9e976c441a2d5277",
-            "charmName": "Unsurpassed Hearing and Touch Discipline",
+            "type": "anyExcellency",
+            "charmUid": "",
+            "charmName": "",
             "abilityKey": "",
             "virtueKey": "valor",
             "virtueMin": 1
@@ -56,7 +57,7 @@
         ]
       }
     ],
-    "charmUid": "4d861aca29d82c7e"
+    "charmUid": "6d64a80622250f23"
   },
   "folder": "97d4d497443373f8",
   "sort": 0,
