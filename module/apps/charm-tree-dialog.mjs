@@ -1,5 +1,5 @@
 import { matchesFilter, deduplicateCharms, buildTree, splitIntoBranches, getCharmState, getPipData, getVirtualNodeState } from '../helpers/charm-tree-builder.mjs';
-import { renderTree, drawConnectors } from '../helpers/charm-tree-renderer.mjs';
+import { renderTree, drawConnectors, alignRowsToParents } from '../helpers/charm-tree-renderer.mjs';
 
 const { HandlebarsApplicationMixin, ApplicationV2 } = foundry.applications.api;
 
@@ -249,7 +249,10 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
     body.appendChild(svgEl);
     this.#svgEl = svgEl;
 
-    const redrawConnectors = () => drawConnectors(svgEl, body, branch.edges, this.#nodeEls);
+    const redrawConnectors = () => {
+      alignRowsToParents(body, branch.edges, this.#nodeEls);
+      drawConnectors(svgEl, body, branch.edges, this.#nodeEls);
+    };
     requestAnimationFrame(redrawConnectors);
     this.#resizeObserver = new ResizeObserver(() => requestAnimationFrame(redrawConnectors));
     this.#resizeObserver.observe(body);

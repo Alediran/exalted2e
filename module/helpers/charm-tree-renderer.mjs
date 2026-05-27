@@ -68,6 +68,73 @@ export function renderTree(containerEl, { nodes, edges, tierMap, maxTier }, exal
 }
 
 /**
+ * After DOM layout, shift each charm cards row so it is horizontally centred
+ * on the centroid of its nodes' parent elements.
+ * Must be called inside a requestAnimationFrame (after layout is complete).
+ *
+ * @param {HTMLElement} containerEl
+ * @param {Array<{fromId,toId}>} edges
+ * @param {Map<string,HTMLElement>} nodeEls
+ */
+export function alignRowsToParents(containerEl, edges, nodeEls) {
+  const parentsOf = new Map();
+  for (const { fromId, toId } of edges) {
+    if (!parentsOf.has(toId)) parentsOf.set(toId, []);
+    parentsOf.get(toId).push(fromId);
+  }
+
+  const ctr        = containerEl.getBoundingClientRect();
+  const scrollLeft = containerEl.scrollLeft;
+
+  for (const cRow of containerEl.querySelectorAll('.charm-tree-cards-row')) {
+    // Collapse to natural content width before measuring (avoids stretched scrollWidth).
+    cRow.style.alignSelf      = 'flex-start';
+    cRow.style.marginLeft     = '';
+    cRow.style.width          = '';
+    cRow.style.justifyContent = '';
+
+    const rowWidth = cRow.scrollWidth;
+    const childIds = [...cRow.querySelectorAll('[data-node-id]')].map(el => el.dataset.nodeId);
+    if (!childIds.length) continue;
+
+    const parentXs = [];
+    for (const nodeId of childIds) {
+      for (const parentId of (parentsOf.get(nodeId) ?? [])) {
+        const parentEl = nodeEls.get(parentId);
+        if (!parentEl) continue;
+        const r = parentEl.getBoundingClientRect();
+        parentXs.push(r.left + r.width / 2 - ctr.left + scrollLeft);
+      }
+    }
+
+    if (!parentXs.length) {
+      // No parents (e.g. Excellencies at tier 0): center in the tier row.
+      cRow.style.alignSelf = 'center';
+      continue;
+    }
+
+    const minX = Math.min(...parentXs);
+    const maxX = Math.max(...parentXs);
+    // Minimum width to place the first card centred on minX and last card on maxX.
+    const parentSpanWidth = maxX - minX + 110;
+
+    if (parentSpanWidth > rowWidth) {
+      // Parents are farther apart than the cards: anchor leftmost card at minX,
+      // rightmost at maxX, space remaining cards in between.
+      // Builder's barycenter order ensures left→right card order tracks parent order.
+      cRow.style.marginLeft    = `${Math.max(0, minX - 55)}px`;
+      cRow.style.width         = `${parentSpanWidth}px`;
+      cRow.style.justifyContent = 'space-between';
+    } else {
+      // Cards are wider than the parent span: shift the whole row so its centre
+      // lands on the parent centroid without stretching card spacing.
+      const centroid = parentXs.reduce((a, b) => a + b, 0) / parentXs.length;
+      cRow.style.marginLeft = `${Math.max(0, centroid - rowWidth / 2)}px`;
+    }
+  }
+}
+
+/**
  * Draw SVG connector lines after DOM layout.
  * svgEl must be position:absolute over containerEl.
  *

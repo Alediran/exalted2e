@@ -226,57 +226,72 @@ export function buildTree(charms, groupKey = '') {
     return aO - bO;
   });
 
-  // Barycenter heuristic: reduce edge crossings with alternating top-down then bottom-up passes.
-  // Tier 0 is the anchor (already sorted above).
+  // Barycenter heuristic: 3-pass alternating (top-down → bottom-up → top-down).
+  // All index lookups are normalised to [0..1] then projected onto the target
+  // tier's range so children remain proportionally positioned under their parents
+  // even when tier widths differ (e.g. 9-node tier 2 → 16-node tier 4).
   const tierIndex = new Map(); // nodeId → column index within its tier
   (tierMap.get(0) ?? []).forEach((n, i) => tierIndex.set(n.id, i));
 
-  // Top-down pass: position each tier by average parent index
-  for (let t = 1; t <= maxTier; t++) {
-    const tierNodes = tierMap.get(t);
-    if (!tierNodes || tierNodes.length < 2) {
-      (tierNodes ?? []).forEach((n, i) => tierIndex.set(n.id, i));
-      continue;
+  for (let pass = 0; pass < 3; pass++) {
+    if (pass % 2 === 0) {
+      // Top-down: score each node by normalised average parent position
+      for (let t = 1; t <= maxTier; t++) {
+        const tierNodes = tierMap.get(t);
+        if (!tierNodes || tierNodes.length < 2) {
+          (tierNodes ?? []).forEach((n, i) => tierIndex.set(n.id, i));
+          continue;
+        }
+        const tMax   = tierNodes.length - 1;
+        const center = tMax / 2;
+        const scored = tierNodes.map(node => {
+          const parentPositions = (parentsOf.get(node.id) ?? [])
+            .filter(pid => nodes.has(pid) && nodes.get(pid).tier < t)
+            .map(pid => {
+              const pLen = (tierMap.get(nodes.get(pid).tier) ?? []).length;
+              const pIdx = tierIndex.get(pid) ?? 0;
+              return pLen > 1 ? (pIdx / (pLen - 1)) * tMax : center;
+            });
+          const score = parentPositions.length
+            ? parentPositions.reduce((a, b) => a + b, 0) / parentPositions.length
+            : center;
+          return { node, score };
+        });
+        scored.sort((a, b) => a.score - b.score);
+        const sorted = scored.map(s => s.node);
+        tierMap.set(t, sorted);
+        sorted.forEach((n, i) => tierIndex.set(n.id, i));
+      }
+    } else {
+      // Bottom-up: blend td-score with normalised average child position
+      for (let t = maxTier - 1; t >= 1; t--) {
+        const tierNodes = tierMap.get(t);
+        if (!tierNodes || tierNodes.length < 2) continue;
+        const belowNodes = tierMap.get(t + 1) ?? [];
+        if (!belowNodes.length) continue;
+        const tMax     = tierNodes.length - 1;
+        const belowMax = belowNodes.length - 1;
+        const belowIdx = new Map();
+        belowNodes.forEach((n, i) => belowIdx.set(n.id, i));
+        const scored = tierNodes.map(node => {
+          const tdScore = tierIndex.get(node.id) ?? 0;
+          const childPositions = (childrenOf.get(node.id) ?? [])
+            .filter(cid => nodes.has(cid) && nodes.get(cid)?.tier === t + 1)
+            .map(cid => {
+              const cIdx = belowIdx.get(cid);
+              return cIdx !== undefined && belowMax > 0 ? (cIdx / belowMax) * tMax : tdScore;
+            });
+          const buScore = childPositions.length
+            ? childPositions.reduce((a, b) => a + b, 0) / childPositions.length
+            : tdScore;
+          return { node, score: (tdScore + buScore) / 2 };
+        });
+        scored.sort((a, b) => a.score - b.score);
+        const sorted = scored.map(s => s.node);
+        tierMap.set(t, sorted);
+        sorted.forEach((n, i) => tierIndex.set(n.id, i));
+      }
     }
-    const center = (tierNodes.length - 1) / 2;
-    const scored = tierNodes.map(node => {
-      const parentIdxs = (parentsOf.get(node.id) ?? [])
-        .filter(pid => nodes.has(pid) && nodes.get(pid).tier < t)
-        .map(pid => tierIndex.get(pid) ?? center);
-      const score = parentIdxs.length
-        ? parentIdxs.reduce((a, b) => a + b, 0) / parentIdxs.length
-        : center;
-      return { node, score };
-    });
-    scored.sort((a, b) => a.score - b.score);
-    const sorted = scored.map(s => s.node);
-    tierMap.set(t, sorted);
-    sorted.forEach((n, i) => tierIndex.set(n.id, i));
-  }
-
-  // Bottom-up pass: blend top-down score with average child index from tier below
-  for (let t = maxTier - 1; t >= 1; t--) {
-    const tierNodes = tierMap.get(t);
-    if (!tierNodes || tierNodes.length < 2) continue;
-    const belowNodes = tierMap.get(t + 1) ?? [];
-    if (!belowNodes.length) continue;
-    const belowIndex = new Map();
-    belowNodes.forEach((n, i) => belowIndex.set(n.id, i));
-    const belowCenter = (belowNodes.length - 1) / 2;
-    const scored = tierNodes.map(node => {
-      const tdScore = tierIndex.get(node.id) ?? 0;
-      const childIdxs = (childrenOf.get(node.id) ?? [])
-        .filter(cid => nodes.has(cid) && nodes.get(cid)?.tier === t + 1)
-        .map(cid => belowIndex.get(cid) ?? belowCenter);
-      const buScore = childIdxs.length
-        ? childIdxs.reduce((a, b) => a + b, 0) / childIdxs.length
-        : tdScore;
-      return { node, score: (tdScore + buScore) / 2 };
-    });
-    scored.sort((a, b) => a.score - b.score);
-    const sorted = scored.map(s => s.node);
-    tierMap.set(t, sorted);
-    sorted.forEach((n, i) => tierIndex.set(n.id, i));
   }
 
   return { nodes, edges, tierMap, maxTier };
