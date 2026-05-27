@@ -16,10 +16,6 @@ export function renderTree(containerEl, { nodes, edges, tierMap, maxTier }, exal
   const pipColor   = splatPipColor?.[exaltType]   ?? '#888';
   const lightColor = splatLightColor?.[exaltType] ?? 'transparent';
 
-  // BFS from virtual nodes to find their transitive descendants.
-  // These are placed in the centre column; non-descendants flank on the sides.
-  const virtualDescendants = _virtualDescendants(nodes, edges);
-
   for (let tier = 0; tier <= maxTier; tier++) {
     const tierNodes = tierMap.get(tier) ?? [];
     if (!tierNodes.length) continue;
@@ -33,10 +29,10 @@ export function renderTree(containerEl, { nodes, edges, tierMap, maxTier }, exal
 
     if (vRowNodes.length) {
       // Flank virtual nodes with quasi-Excellencies: [left-quasis] [virtuals] [right-quasis]
-      const virtuals   = vRowNodes.filter(n => n.isVirtual);
-      const quasis     = vRowNodes.filter(n => n.isQuasiExcellency);
-      const leftCount  = Math.floor(quasis.length / 2);
-      const sorted     = [...quasis.slice(0, leftCount), ...virtuals, ...quasis.slice(leftCount)];
+      const virtuals  = vRowNodes.filter(n => n.isVirtual);
+      const quasis    = vRowNodes.filter(n => n.isQuasiExcellency);
+      const leftCount = Math.floor(quasis.length / 2);
+      const sorted    = [...quasis.slice(0, leftCount), ...virtuals, ...quasis.slice(leftCount)];
 
       const vRow = document.createElement('div');
       vRow.className = 'charm-tree-virtual-row';
@@ -54,18 +50,9 @@ export function renderTree(containerEl, { nodes, edges, tierMap, maxTier }, exal
     if (charmNodes.length) {
       const cRow = document.createElement('div');
       cRow.className = 'charm-tree-cards-row';
-
-      // Sort: side charms (not virtual-node descendants) flank centre charms
-      const centre = charmNodes.filter(n =>  virtualDescendants.has(n.id));
-      const sides  = charmNodes.filter(n => !virtualDescendants.has(n.id));
-      const leftCount = Math.ceil(sides.length / 2);
-      const sortedCharms = [
-        ...sides.slice(0, leftCount),
-        ...centre,
-        ...sides.slice(leftCount),
-      ];
-
-      for (const node of sortedCharms) {
+      // The builder's barycenter heuristic already minimises edge crossings —
+      // use its order directly rather than re-sorting here.
+      for (const node of charmNodes) {
         const el = _makeCharmCard(node, exaltType, splatPipColor, splatLightColor);
         el.dataset.nodeId = node.id;
         cRow.appendChild(el);
@@ -251,35 +238,3 @@ function _svgEl(tag, attrs) {
   for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
   return el;
 }
-
-/**
- * BFS forward from every virtual node (Any X Excellency placeholders) through
- * the directed edges to collect all transitive descendants.
- * Used to position virtual-descendant charms in the centre column of each row.
- */
-function _virtualDescendants(nodes, edges) {
-  const childrenOf = new Map();
-  for (const { fromId, toId } of edges) {
-    if (!childrenOf.has(fromId)) childrenOf.set(fromId, []);
-    childrenOf.get(fromId).push(toId);
-  }
-
-  const result  = new Set();
-  const queue   = [];
-  const visited = new Set();
-  for (const [id, node] of nodes) {
-    if (node.isVirtual) { queue.push(id); visited.add(id); }
-  }
-  while (queue.length) {
-    const id = queue.shift();
-    for (const childId of (childrenOf.get(id) ?? [])) {
-      if (!visited.has(childId)) {
-        visited.add(childId);
-        result.add(childId);
-        queue.push(childId);
-      }
-    }
-  }
-  return result;
-}
-
