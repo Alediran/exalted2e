@@ -1,0 +1,10 @@
+{{!-- Charm card partial — not used by renderer (DOM built in JS), kept for reference --}}
+<div class="charm-tree-card charm-tree-card--{{cardState}}"
+     data-charm-id="{{charm.id}}"
+     data-charm-uid="{{charm.system.charmUid}}">
+  <div class="charm-tree-card__pips charm-tree-card__pips--essence">{{essencePips}}</div>
+  <div class="charm-tree-card__name">{{charm.name}}</div>
+  {{#unless isInfernal}}
+    <div class="charm-tree-card__pips charm-tree-card__pips--ability">{{abilityPips}}</div>
+  {{/unless}}
+</div>

@@ -859,3 +859,23 @@ EX2E.destinyFrequency = {
   3: { labelKey: "EX2E.FrequencyPerScene",  effectPoints: 3, paradoxDice: 1, invitesCensure: true  },
   4: { labelKey: "EX2E.FrequencyAlways",    effectPoints: 4, paradoxDice: 3, invitesCensure: true  },
 };
+
+EX2E.splatPipColor = {
+  solar:       '#ffd700',
+  lunar:       '#c0c0c0',
+  terrestrial: '#6aaa6a',
+  sidereal:    '#8899ff',
+  abyssal:     '#aa3333',
+  infernal:    '#88cc44',
+  alchemical:  '#6699cc',
+};
+
+EX2E.splatLightColor = {
+  solar:       '#fff8d0',
+  lunar:       '#f0f0f0',
+  terrestrial: '#d0f0d0',
+  sidereal:    '#d0d8ff',
+  abyssal:     '#f0d0d0',
+  infernal:    '#d8f0c0',
+  alchemical:  '#d0dff0',
+};

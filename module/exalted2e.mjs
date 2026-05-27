@@ -90,6 +90,7 @@ import { canLearnCelestialMA, canLearnSiderealMA } from "./helpers/ma-validation
 import { computeAttackOutcome } from "./rolls/attack-math.mjs";
 import { getTargetPenaltyChanges, collectStatusApplyCharms } from "./rolls/charm-event-math.mjs";
 import { ImportDialog } from "./apps/import-dialog.mjs";
+import { CharmTreeDialog } from "./apps/charm-tree-dialog.mjs";
 
 // ── Attack-success hook helper ─────────────────────────────────────────────
 function _tryFireAttackSuccess(newAttack) {
@@ -152,6 +153,7 @@ Hooks.once("init", function () {
   // Expose config on the game object
   game.exalted2e = {
     EX2E,
+    CharmTreeDialog,
     gmRollPool: (options = {}) => GmRollPoolDialog.prompt(options)
   };
 
@@ -862,6 +864,24 @@ Hooks.once("ready", async function () {
   await _seedTheCircleFolder();
 
   game.exalted2e._countermagicHelpers = await import("./helpers/countermagic-helpers.mjs");
+});
+
+// ── Compendium footer button: Open Charm Tree ──────────────────────────────
+Hooks.on('renderCompendium', (_app, html) => {
+  if (_app.collection?.metadata?.type !== 'Item') return;
+  const root = Array.isArray(html) ? html[0] : html;
+  const footer = root?.querySelector?.('.directory-footer');
+  if (!footer) return;
+  if (footer.querySelector('.charm-tree-compendium-btn')) return;
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'charm-tree-compendium-btn';
+  const icon = document.createElement('i');
+  icon.className = 'fa-solid fa-sitemap';
+  btn.appendChild(icon);
+  btn.appendChild(document.createTextNode(' ' + game.i18n.localize('EX2E.CharmTree.OpenTree')));
+  btn.addEventListener('click', () => CharmTreeDialog.open());
+  footer.appendChild(btn);
 });
 
 // ── Quench (in-Foundry test harness) ──────────────────────────────────────

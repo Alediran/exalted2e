@@ -12,6 +12,12 @@
         <span class="keyword-tag ma-mastered-badge"
               title="{{localize 'EX2E.MAStyleMastered'}}">★</span>
         {{/if}}
+        <button type="button" class="charm-tree-lookup-btn"
+                data-action="openCharmTree"
+                data-group-key="{{style.item.name}}"
+                title="{{localize 'EX2E.CharmTree.Lookup'}}">
+          {{localize "EX2E.CharmTree.Lookup"}}
+        </button>
         {{#if style.item.system.weapons}}
         <span class="ma-weapons-hint">{{style.item.system.weapons}}</span>
         {{/if}}

@@ -200,6 +200,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       rollCraftingProject:   CharacterSheet.#onRollCraftingProject,
       deleteCraftingProject: CharacterSheet.#onDeleteCraftingProject,
       openFamiliarActor:     CharacterSheet.#onOpenFamiliarActor,
+      openCharmTree:         CharacterSheet.#onOpenCharmTree,
     }
   };
 
@@ -2011,5 +2012,15 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     if (!actorId) return;
     const actor = game.actors.get(actorId);
     actor?.sheet.render(true);
+  }
+
+  static #onOpenCharmTree(event, target) {
+    const groupKey  = target.dataset.groupKey;
+    const actor     = this.actor;
+    // Map actor exaltType to dialog exaltType keys
+    const rawType   = actor.system.exaltType;
+    const exaltType = rawType === 'dragonBlooded' ? 'terrestrial' : rawType;
+    const { CharmTreeDialog } = game.exalted2e;
+    CharmTreeDialog.open({ actor, exaltType, groupKey });
   }
 }

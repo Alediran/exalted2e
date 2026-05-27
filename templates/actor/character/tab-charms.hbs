@@ -46,6 +46,12 @@
     <details class="charm-group" data-group-key="charm:{{group.key}}" open>
     <summary class="charm-group-header">
       {{group.label}}
+      <button type="button" class="charm-tree-lookup-btn"
+              data-action="openCharmTree"
+              data-group-key="{{group.key}}"
+              title="{{localize 'EX2E.CharmTree.Lookup'}}">
+        {{localize "EX2E.CharmTree.Lookup"}}
+      </button>
       {{#if isEditable}}{{#if (eq @root.system.exaltType "infernal")}}
       <button type="button" class="btn-add-item charm-group-add"
               data-action="createItem" data-type="charm"

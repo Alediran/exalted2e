@@ -1,0 +1,149 @@
+<h2>Charm Tree Layout</h2>
+<p class="subtitle">How should prerequisites and charm relationships be displayed? These are rough wireframes — exact styling comes later.</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#1a1a2e;padding:12px;border-radius:6px;font-family:monospace;font-size:11px;color:#eee;min-height:200px">
+        <div style="color:#aaa;margin-bottom:8px;font-size:10px">TIER 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TIER 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TIER 3</div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="background:#2a4a2a;border:1px solid #4a8a4a;border-radius:4px;padding:6px 10px;text-align:center;width:90px">
+              <div style="color:#ffd700;font-size:9px">●●●○○</div>
+              <div style="color:#fff;font-size:10px;font-weight:bold">Solar Flare</div>
+              <div style="color:#c88;font-size:9px">●●●○○</div>
+            </div>
+            <div style="background:#2a4a2a;border:1px solid #4a8a4a;border-radius:4px;padding:6px 10px;text-align:center;width:90px">
+              <div style="color:#ffd700;font-size:9px">●●○○○</div>
+              <div style="color:#fff;font-size:10px;font-weight:bold">Bright Flash</div>
+              <div style="color:#c88;font-size:9px">●●○○○</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;justify-content:center;height:80px;color:#888;font-size:16px">→<br/>→</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="background:#4a3a1a;border:1px solid #8a6a2a;border-radius:4px;padding:6px 10px;text-align:center;width:90px">
+              <div style="color:#ffd700;font-size:9px">●●●●○</div>
+              <div style="color:#fff;font-size:10px;font-weight:bold">Nova Burst</div>
+              <div style="color:#c88;font-size:9px">●●●○○</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;justify-content:center;height:80px;color:#888;font-size:16px">→</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="background:#3a1a3a;border:1px solid #6a4a6a;border-radius:4px;padding:6px 10px;text-align:center;width:90px;opacity:0.5">
+              <div style="color:#ffd700;font-size:9px">●●●●●</div>
+              <div style="color:#aaa;font-size:10px;font-weight:bold">Star's End</div>
+              <div style="color:#c88;font-size:9px">●●●●○</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px;font-size:9px;color:#888">
+          <span style="color:#4a8a4a">■</span> owned &nbsp; <span style="color:#8a6a2a">■</span> purchasable &nbsp; <span style="color:#555">■</span> locked
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Horizontal Tier Columns</h3>
+      <p>Charms are placed in columns by prerequisite depth. Arrows connect prerequisites. Simpler layout algorithm; always readable regardless of how many charms are in the tree.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#1a1a2e;padding:12px;border-radius:6px;font-family:monospace;font-size:11px;color:#eee;min-height:200px;position:relative">
+        <svg width="100%" height="190" style="position:absolute;top:0;left:0;pointer-events:none">
+          <line x1="130" y1="50" x2="230" y2="30" stroke="#555" stroke-width="1.5" marker-end="url(#arr)"/>
+          <line x1="130" y1="100" x2="230" y2="30" stroke="#555" stroke-width="1.5"/>
+          <line x1="130" y1="100" x2="230" y2="130" stroke="#555" stroke-width="1.5"/>
+          <line x1="310" y1="30" x2="380" y2="80" stroke="#555" stroke-width="1.5"/>
+          <defs><marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#555" stroke-width="1"/></marker></defs>
+        </svg>
+        <div style="position:relative">
+          <div style="position:absolute;left:40px;top:20px;background:#2a4a2a;border:1px solid #4a8a4a;border-radius:4px;padding:5px 8px;text-align:center;width:80px">
+            <div style="color:#ffd700;font-size:9px">●●●○○</div>
+            <div style="color:#fff;font-size:10px">Solar Flare</div>
+          </div>
+          <div style="position:absolute;left:40px;top:75px;background:#2a4a2a;border:1px solid #4a8a4a;border-radius:4px;padding:5px 8px;text-align:center;width:80px">
+            <div style="color:#ffd700;font-size:9px">●●○○○</div>
+            <div style="color:#fff;font-size:10px">Bright Flash</div>
+          </div>
+          <div style="position:absolute;left:195px;top:12px;background:#4a3a1a;border:1px solid #8a6a2a;border-radius:4px;padding:5px 8px;text-align:center;width:80px">
+            <div style="color:#ffd700;font-size:9px">●●●●○</div>
+            <div style="color:#fff;font-size:10px">Nova Burst</div>
+          </div>
+          <div style="position:absolute;left:195px;top:110px;background:#2a4a2a;border:1px solid #4a8a4a;border-radius:4px;padding:5px 8px;text-align:center;width:80px">
+            <div style="color:#ffd700;font-size:9px">●●●○○</div>
+            <div style="color:#fff;font-size:10px">Wind's Edge</div>
+          </div>
+          <div style="position:absolute;left:350px;top:55px;background:#3a1a3a;border:1px solid #6a4a6a;border-radius:4px;padding:5px 8px;text-align:center;width:80px;opacity:0.5">
+            <div style="color:#ffd700;font-size:9px">●●●●●</div>
+            <div style="color:#aaa;font-size:10px">Star's End</div>
+          </div>
+          <div style="position:absolute;bottom:5px;left:5px;font-size:9px;color:#888">
+            <span style="color:#4a8a4a">■</span> owned &nbsp; <span style="color:#8a6a2a">■</span> purchasable &nbsp; <span style="color:#555">■</span> locked
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Free-form DAG (closest to reference image)</h3>
+      <p>Charms positioned freely with lines connecting prerequisites, like the reference image. Visually expressive but harder to lay out algorithmically — complex trees may need manual position hints or can overlap/crowd.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#1a1a2e;padding:12px;border-radius:6px;font-family:monospace;font-size:11px;color:#eee;min-height:200px">
+        <table style="width:100%;border-collapse:collapse">
+          <thead>
+            <tr style="color:#888;font-size:9px;border-bottom:1px solid #333">
+              <th style="text-align:left;padding:3px 6px">Charm</th>
+              <th>Ess</th>
+              <th>Abil</th>
+              <th>Prereqs</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #222">
+              <td style="padding:4px 6px;color:#fff">Bright Flash</td>
+              <td style="text-align:center;color:#ffd700">●●○</td>
+              <td style="text-align:center;color:#c88">●●○</td>
+              <td style="text-align:center;color:#888">—</td>
+              <td style="text-align:center"><span style="color:#4a8a4a">✓</span></td>
+            </tr>
+            <tr style="border-bottom:1px solid #222;background:#1e2a1e">
+              <td style="padding:4px 6px;color:#fff">Solar Flare</td>
+              <td style="text-align:center;color:#ffd700">●●●</td>
+              <td style="text-align:center;color:#c88">●●●</td>
+              <td style="text-align:center;color:#aaa">Bright Flash</td>
+              <td style="text-align:center"><span style="color:#4a8a4a">✓</span></td>
+            </tr>
+            <tr style="border-bottom:1px solid #222;background:#2a261a">
+              <td style="padding:4px 6px;color:#fff">Nova Burst</td>
+              <td style="text-align:center;color:#ffd700">●●●●</td>
+              <td style="text-align:center;color:#c88">●●●</td>
+              <td style="text-align:center;color:#aaa">Solar Flare</td>
+              <td style="text-align:center"><span style="color:#da9">+</span></td>
+            </tr>
+            <tr style="border-bottom:1px solid #222;opacity:0.5">
+              <td style="padding:4px 6px;color:#aaa">Star's End</td>
+              <td style="text-align:center;color:#ffd700">●●●●●</td>
+              <td style="text-align:center;color:#c88">●●●●</td>
+              <td style="text-align:center;color:#aaa">Nova Burst</td>
+              <td style="text-align:center"><span style="color:#555">✗</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="margin-top:8px;font-size:9px;color:#888">
+          <span style="color:#4a8a4a">✓</span> owned &nbsp; <span style="color:#da9">+</span> purchasable &nbsp; <span style="color:#555">✗</span> locked
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Sortable List (no spatial layout)</h3>
+      <p>Flat table/list sorted by prerequisite depth, with charm boxes and status icons. No lines or spatial positioning. Simplest to implement and works for arbitrarily large charm sets, but loses the visual "tree" feel.</p>
+    </div>
+  </div>
+
+</div>

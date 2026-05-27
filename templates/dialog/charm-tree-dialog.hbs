@@ -1,0 +1,58 @@
+<div class="charm-tree-root">
+
+  {{!-- Header: dropdowns + source toggles --}}
+  <div class="charm-tree-header">
+    <div class="charm-tree-header__selects">
+      <div class="charm-tree-header__field">
+        <label>{{localize "EX2E.CharmTree.ExaltType"}}</label>
+        <select name="exaltType" data-action-select="changeExaltType">
+          {{#each exaltTypes as |pair|}}
+            <option value="{{pair.[1]}}" {{#if (eq pair.[1] selectedExaltType)}}selected{{/if}}>{{pair.[0]}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="charm-tree-header__field">
+        <label>{{localize "EX2E.CharmTree.Group"}}</label>
+        <select name="groupKey" data-action-select="changeGroupKey">
+          {{#each groupOptions as |pair|}}
+            <option value="{{pair.[1]}}" {{#if (eq pair.[1] selectedGroupKey)}}selected{{/if}}>{{pair.[0]}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+
+    <div class="charm-tree-header__sources">
+      <label>{{localize "EX2E.CharmTree.Sources"}}</label>
+      <label class="charm-tree-source-toggle">
+        <input type="checkbox" name="sourceSystemPack" {{#if sources.systemPack}}checked{{/if}}>
+        {{localize "EX2E.CharmTree.SourceSystem"}}
+      </label>
+      <label class="charm-tree-source-toggle">
+        <input type="checkbox" name="sourceWorldPacks" {{#if sources.worldPacks}}checked{{/if}}>
+        {{localize "EX2E.CharmTree.SourceWorldPacks"}}
+      </label>
+      <label class="charm-tree-source-toggle">
+        <input type="checkbox" name="sourceWorldItems" {{#if sources.worldItems}}checked{{/if}}>
+        {{localize "EX2E.CharmTree.SourceWorldItems"}}
+      </label>
+    </div>
+  </div>
+
+  {{!-- Inline detail panel (hidden by default) --}}
+  <div class="charm-tree-detail-panel" id="charm-tree-detail" style="display:none">
+    <button type="button" class="charm-tree-detail__close" data-action="closePanel" aria-label="Close">×</button>
+    <div class="charm-tree-detail__body">
+      {{!-- Populated dynamically by CharmTreeDialog._showDetailPanel() --}}
+    </div>
+  </div>
+
+  {{!-- Tree body --}}
+  <div class="charm-tree-body" id="charm-tree-body">
+    {{#if showPrompt}}
+      <p class="charm-tree-empty">{{localize "EX2E.CharmTree.SelectPrompt"}}</p>
+    {{else if noCharms}}
+      <p class="charm-tree-empty">{{localize "EX2E.CharmTree.NoCharms"}}</p>
+    {{/if}}
+  </div>
+
+</div>

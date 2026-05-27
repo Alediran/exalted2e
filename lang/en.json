@@ -2066,7 +2066,24 @@
     "SplitSuccess":          "Unit splits",
     "SplitHesitates":        "Split — unit hesitates",
     "MergeSuccess":          "Units merged",
-    "MergeFail":             "Merge failed — unit hesitates"
+    "MergeFail":             "Merge failed — unit hesitates",
+    "CharmTree": {
+      "Title": "Charm Tree",
+      "ExaltType": "Exalt Type",
+      "Group": "Group",
+      "Sources": "Sources",
+      "SourceSystem": "System Pack",
+      "SourceWorldPacks": "World Packs",
+      "SourceWorldItems": "World Items",
+      "OpenTree": "Open Charm Tree",
+      "Lookup": "Lookup",
+      "Learn": "Learn",
+      "LearnAgain": "Learn Again",
+      "NoCharms": "No charms found for this selection.",
+      "PrereqMet": "Prerequisite met",
+      "PrereqUnmet": "Prerequisite not met",
+      "SelectPrompt": "Select an exalt type and group to view the charm tree."
+    }
   },
   "TYPES": {
     "Actor": {

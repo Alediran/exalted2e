@@ -2066,7 +2066,24 @@
     "SplitSuccess":          "Unit splits",
     "SplitHesitates":        "Split — unit hesitates",
     "MergeSuccess":          "Units merged",
-    "MergeFail":             "Merge failed — unit hesitates"
+    "MergeFail":             "Merge failed — unit hesitates",
+    "CharmTree": {
+      "Title": "Árbol de Encantos",
+      "ExaltType": "Tipo de Exaltado",
+      "Group": "Grupo",
+      "Sources": "Fuentes",
+      "SourceSystem": "Paquete del Sistema",
+      "SourceWorldPacks": "Paquetes del Mundo",
+      "SourceWorldItems": "Objetos del Mundo",
+      "OpenTree": "Abrir Árbol de Encantos",
+      "Lookup": "Ver Árbol",
+      "Learn": "Aprender",
+      "LearnAgain": "Aprender de Nuevo",
+      "NoCharms": "No se encontraron encantos para esta selección.",
+      "PrereqMet": "Prerrequisito cumplido",
+      "PrereqUnmet": "Prerrequisito no cumplido",
+      "SelectPrompt": "Selecciona un tipo de exaltado y un grupo para ver el árbol de encantos."
+    }
   },
   "TYPES": {
     "Actor": {

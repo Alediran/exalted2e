@@ -64,6 +64,7 @@ import { registerCrafting }               from "./crafting/crafting-roll.mjs";
 import { registerManse }                from "./manse/manse-item.mjs";
 import { registerMassCombat, registerMassCombatCCR, registerMassCombatHealth, registerMassCombatJoinWar, registerMassCombatHesitation, registerMassCombatHeroPhase3, registerMassCombatUnitVsHero, registerMassCombatPhase4Actions, registerMassCombatPhase4SplitMerge, registerMassCombatPhase5, registerMassCombatPhase6, registerMassCombatPhase7, registerMassCombatPhase8, registerMassCombatPhase9 } from "./combat/mass-combat.mjs";
 import { registerCharmUpgradeTiersSchema, registerCharmUpgradeTiersPipeline } from "./combat/charm-upgrade-tiers.mjs";
+import { registerCharmTreeBuilder, registerCharmTreeDialogIntegration } from "./charm-tree-dialog.mjs";
 // NOTE: Anima Powers feature (_swapAnimaPower) relies on the animapowers compendium
 // and cannot be exercised via Quench. No batch registered for ex2e.anima-powers.
 
@@ -151,5 +152,7 @@ Hooks.once("quenchReady", async quench => {
   quench.registerBatch("exalted2e.masscombat.phase9", registerMassCombatPhase9, { displayName: "EX2E: Mass Combat Phase 9 — Chokepoints" });
   quench.registerBatch("exalted2e.charms.upgradetiers.schema", registerCharmUpgradeTiersSchema, { displayName: "EX2E: Charm Upgrade Tiers — Schema & Gate Logic" });
   quench.registerBatch("exalted2e.charms.upgradetiers.pipeline", registerCharmUpgradeTiersPipeline, { displayName: "EX2E: Charm Upgrade Tiers — Activation Pipeline" });
+  quench.registerBatch("ex2e.charmTree.builder",               registerCharmTreeBuilder,             { displayName: "EX2E: Charm Tree Builder — unit tests" });
+  quench.registerBatch("ex2e.charmTree.dialog",                registerCharmTreeDialogIntegration,   { displayName: "EX2E: Charm Tree Dialog — integration" });
 
 });

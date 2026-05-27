@@ -58,7 +58,8 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       addTierHealthGrantOption:      CharmSheet.#onAddTierHealthGrantOption,
       removeTierHealthGrantOption:   CharmSheet.#onRemoveTierHealthGrantOption,
       addTierDVIgnorePenaltyType:    CharmSheet.#onAddTierDVIgnorePenaltyType,
-      removeTierDVIgnorePenaltyType: CharmSheet.#onRemoveTierDVIgnorePenaltyType
+      removeTierDVIgnorePenaltyType: CharmSheet.#onRemoveTierDVIgnorePenaltyType,
+      openCharmTree:    CharmSheet.#onOpenCharmTree
     }
   };
 
@@ -73,7 +74,8 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       template: "systems/exalted2e/templates/item/charm/tabs.hbs"
     },
     tabGeneral: { template: "systems/exalted2e/templates/item/charm/tab-general.hbs", scrollable: [""] },
-    tabEffects: { template: "systems/exalted2e/templates/item/charm/tab-effects.hbs", scrollable: [""] }
+    tabEffects: { template: "systems/exalted2e/templates/item/charm/tab-effects.hbs", scrollable: [""] },
+    footer:     { template: "systems/exalted2e/templates/item/charm/footer.hbs" }
   };
 
   async _prepareContext(options) {
@@ -684,5 +686,10 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         });
       });
     }
+  }
+
+  static #onOpenCharmTree() {
+    const { CharmTreeDialog } = game.exalted2e;
+    CharmTreeDialog.open();
   }
 }
