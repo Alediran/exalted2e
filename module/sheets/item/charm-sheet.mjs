@@ -59,7 +59,6 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       removeTierHealthGrantOption:   CharmSheet.#onRemoveTierHealthGrantOption,
       addTierDVIgnorePenaltyType:    CharmSheet.#onAddTierDVIgnorePenaltyType,
       removeTierDVIgnorePenaltyType: CharmSheet.#onRemoveTierDVIgnorePenaltyType,
-      openCharmTree:    CharmSheet.#onOpenCharmTree
     }
   };
 
@@ -688,8 +687,4 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     }
   }
 
-  static #onOpenCharmTree() {
-    const { CharmTreeDialog } = game.exalted2e;
-    CharmTreeDialog.open();
-  }
 }
