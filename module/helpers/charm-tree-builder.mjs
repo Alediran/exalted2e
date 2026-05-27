@@ -154,7 +154,7 @@ export function buildTree(charms, groupKey = '') {
   // Kahn's BFS by in-degree
   const inDegree = new Map();
   for (const id of nodes.keys()) inDegree.set(id, 0);
-  for (const [fromId, children] of childrenOf) {
+  for (const [, children] of childrenOf) {
     for (const toId of children) {
       inDegree.set(toId, (inDegree.get(toId) ?? 0) + 1);
     }
@@ -501,7 +501,9 @@ function _isTierZeroExcellency(charm) {
 
 function _isQuasiExcellency(charm, groupKey) {
   if (!groupKey || _isTierZeroExcellency(charm)) return false;
-  return new RegExp(`\\b${groupKey}\\b`, 'i').test(charm?.name ?? '');
+  // Reject matches where the ability name is hyphen-prefixed to the next word
+  // (e.g. "Integrity-Protecting Prana" must not match groupKey "integrity").
+  return new RegExp(`\\b${groupKey}\\b(?!-)`, 'i').test(charm?.name ?? '');
 }
 
 function _capitalizeKey(key) {
