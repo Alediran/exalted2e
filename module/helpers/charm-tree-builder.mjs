@@ -97,7 +97,7 @@ export function buildTree(charms) {
     const charm = node.charm;
 
     // Excellency charms feed INTO their virtual anyExcellency node
-    if (charm.system?.excellency && charm.system.excellency !== '') {
+    if (_isTierZeroExcellency(charm)) {
       const abilityKey = charm.system?.ability || '';
       for (const [vKey, vId] of virtualNodes) {
         if (vKey.startsWith(`${abilityKey}:`)) {
@@ -123,7 +123,7 @@ export function buildTree(charms) {
           }
         } else if (alt.type === 'anyExcellency') {
           // Excellency charms feed INTO the virtual node — skip the reverse edge to break cycles
-          if (charm.system?.excellency && charm.system.excellency !== '') continue;
+          if (_isTierZeroExcellency(charm)) continue;
           const key      = alt.abilityKey || charm.system?.ability || '';
           const minCount = alt.minCount ?? 1;
           const vId      = `virtual:anyExcellency:${key}:${minCount}`;
@@ -139,9 +139,14 @@ export function buildTree(charms) {
     }
   }
 
-  // Compute tiers via iterative longest-path (topological order)
+  // Compute tiers via iterative longest-path (topological order).
+  // Excellency charms and virtual nodes start at 0; everything else starts at its
+  // essence requirement so Excellencies are the only tier-0 nodes.
   const tierOf = new Map();
-  for (const id of nodes.keys()) tierOf.set(id, 0);
+  for (const [id, node] of nodes) {
+    const floor = (node.isVirtual || _isTierZeroExcellency(node.charm)) ? 0 : (node.charm?.system?.essence ?? 1);
+    tierOf.set(id, floor);
+  }
 
   // Kahn's BFS by in-degree
   const inDegree = new Map();
@@ -191,6 +196,15 @@ export function buildTree(charms) {
     if (!tierMap.has(t)) tierMap.set(t, []);
     tierMap.get(t).push(node);
   }
+
+  // Sort tier 0: First → Second → Third Excellency, then everything else
+  const _EXCL_ORDER = { first: 0, second: 1, third: 2 };
+  const tier0 = tierMap.get(0);
+  if (tier0) tier0.sort((a, b) => {
+    const aO = _EXCL_ORDER[a.charm?.system?.excellency] ?? 99;
+    const bO = _EXCL_ORDER[b.charm?.system?.excellency] ?? 99;
+    return aO - bO;
+  });
 
   return { nodes, edges, tierMap, maxTier };
 }
@@ -256,6 +270,11 @@ export function getVirtualNodeState(node, actor) {
     (i.system?.ability ?? '') === abilityKey
   ).length;
   return owned >= minCount ? 'owned' : 'locked';
+}
+
+function _isTierZeroExcellency(charm) {
+  const exc = charm?.system?.excellency;
+  return exc === 'first' || exc === 'second' || exc === 'third';
 }
 
 function _capitalizeKey(key) {
