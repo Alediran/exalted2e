@@ -45,7 +45,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "61034296beb1a894",
+            "charmName": "Godspeed Steps",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
     "charmUid": "81ad5e82dd2e7cb1",
     "mirrorId": "4b4d7f23c9b4e50b"
   },

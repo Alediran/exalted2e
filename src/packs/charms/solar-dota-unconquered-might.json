@@ -45,7 +45,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "c00e9d7c7ddd694d",
+            "charmName": "Increasing Strength Exercise",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
     "charmUid": "fb8ccc50d16da304",
     "mirrorId": "4b4d7f23c9b4e50c"
   },

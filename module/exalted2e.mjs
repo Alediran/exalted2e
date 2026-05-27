@@ -1258,7 +1258,8 @@ Hooks.on("preCreateItem", (item, data, options, userId) => {
   if (parentActor?.type === "character" &&
       parentActor.system?.purchaseLocked &&
       ["charm", "spell", "knack", "background"].includes(item.type) &&
-      !options.exalted2e?.mergedGrant) {
+      !options.exalted2e?.mergedGrant &&
+      !(item.system?.mergedIds?.length)) {
     item.updateSource({ "flags.exalted2e.pendingPurchaseConfirm": true });
   }
 

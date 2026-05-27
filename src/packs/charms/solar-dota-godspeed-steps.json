@@ -45,7 +45,20 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4681a7369de299b0",
+            "charmName": "Lightning Speed",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
     "charmUid": "61034296beb1a894",
     "mirrorId": "7125a1addfc58cc3"
   },
