@@ -145,9 +145,14 @@ export function buildTree(charms, groupKey = '') {
   const tierOf = new Map();
   for (const [id, node] of nodes) {
     const hasPrereqs = (parentsOf.get(id) ?? []).length > 0;
+    // Orphaned charms (no resolved prereqs) use essence as their floor, with a
+    // minimum of 2. The virtual "Any Excellency" node sits at tier 1 (child of
+    // the Excellencies at tier 0); its direct descendants land at tier 2.
+    // Clamping orphaned charms to min-tier 2 keeps them in the same row as
+    // those descendants so the center/side sorting can place them correctly.
     const floor = (node.isVirtual || _isTierZeroExcellency(node.charm) || node.isQuasiExcellency || hasPrereqs)
       ? 0
-      : (node.charm?.system?.essence ?? 1);
+      : Math.max(node.charm?.system?.essence ?? 1, 2);
     tierOf.set(id, floor);
   }
 
