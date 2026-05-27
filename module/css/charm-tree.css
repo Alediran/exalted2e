@@ -235,7 +235,7 @@
 
 .charm-tree-cards-row {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   gap: 16px;
   min-height: 80px;

@@ -221,29 +221,53 @@ export function buildTree(charms, groupKey = '') {
     return aO - bO;
   });
 
-  // Barycenter heuristic: reorder each tier by average parent-index to reduce edge crossings.
-  // One top-down pass; tier 0 is the anchor (already sorted above).
+  // Barycenter heuristic: reduce edge crossings with alternating top-down then bottom-up passes.
+  // Tier 0 is the anchor (already sorted above).
   const tierIndex = new Map(); // nodeId → column index within its tier
   (tierMap.get(0) ?? []).forEach((n, i) => tierIndex.set(n.id, i));
 
+  // Top-down pass: position each tier by average parent index
   for (let t = 1; t <= maxTier; t++) {
     const tierNodes = tierMap.get(t);
     if (!tierNodes || tierNodes.length < 2) {
       (tierNodes ?? []).forEach((n, i) => tierIndex.set(n.id, i));
       continue;
     }
-
-    const center = (tierIndex.size > 0 ? Math.max(...tierIndex.values()) : 0) / 2;
+    const center = (tierNodes.length - 1) / 2;
     const scored = tierNodes.map(node => {
       const parentIdxs = (parentsOf.get(node.id) ?? [])
         .filter(pid => nodes.has(pid) && nodes.get(pid).tier < t)
-        .map(pid => tierIndex.get(pid) ?? 0);
+        .map(pid => tierIndex.get(pid) ?? center);
       const score = parentIdxs.length
         ? parentIdxs.reduce((a, b) => a + b, 0) / parentIdxs.length
         : center;
       return { node, score };
     });
+    scored.sort((a, b) => a.score - b.score);
+    const sorted = scored.map(s => s.node);
+    tierMap.set(t, sorted);
+    sorted.forEach((n, i) => tierIndex.set(n.id, i));
+  }
 
+  // Bottom-up pass: blend top-down score with average child index from tier below
+  for (let t = maxTier - 1; t >= 1; t--) {
+    const tierNodes = tierMap.get(t);
+    if (!tierNodes || tierNodes.length < 2) continue;
+    const belowNodes = tierMap.get(t + 1) ?? [];
+    if (!belowNodes.length) continue;
+    const belowIndex = new Map();
+    belowNodes.forEach((n, i) => belowIndex.set(n.id, i));
+    const belowCenter = (belowNodes.length - 1) / 2;
+    const scored = tierNodes.map(node => {
+      const tdScore = tierIndex.get(node.id) ?? 0;
+      const childIdxs = (childrenOf.get(node.id) ?? [])
+        .filter(cid => nodes.has(cid) && nodes.get(cid)?.tier === t + 1)
+        .map(cid => belowIndex.get(cid) ?? belowCenter);
+      const buScore = childIdxs.length
+        ? childIdxs.reduce((a, b) => a + b, 0) / childIdxs.length
+        : tdScore;
+      return { node, score: (tdScore + buScore) / 2 };
+    });
     scored.sort((a, b) => a.score - b.score);
     const sorted = scored.map(s => s.node);
     tierMap.set(t, sorted);
@@ -360,6 +384,16 @@ export function splitIntoBranches({ nodes, edges, tierMap, maxTier }) {
   }
 
   if (components.length <= 1) {
+    return [{ nodes, edges, tierMap, maxTier, label: '' }];
+  }
+
+  // Precheck: if the widest charm-card tier fits comfortably on screen, don't split.
+  // Dialog is 920px; each card is 110px + 16px gap = 126px → 7 cards = 882px (fits).
+  // Count only non-special nodes since virtual/quasi-Excellency nodes live in a separate row.
+  const _maxTierWidth = Math.max(...[...tierMap.values()].map(tier =>
+    tier.filter(n => !_special(n)).length
+  ));
+  if (_maxTierWidth <= 7) {
     return [{ nodes, edges, tierMap, maxTier, label: '' }];
   }
 
