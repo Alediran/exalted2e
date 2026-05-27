@@ -427,12 +427,12 @@ export function splitIntoBranches({ nodes, edges, tierMap, maxTier }) {
   // Sort largest branch first
   components.sort((a, b) => b.size - a.size);
 
-  // Merge tiny isolated components (1–2 non-special nodes) into the largest one.
+  // Merge small isolated components (< 6 non-special nodes) into the largest one.
   // These are typically charms whose only prerequisites are from a different ability
   // group (cross-ability prereqs not in the current loaded set), so they have no
   // edges and appear isolated. Merging keeps them visible in the main tree.
   for (let i = components.length - 1; i >= 1; i--) {
-    if (components[i].size < 3) {
+    if (components[i].size < 6) {
       for (const id of components[i]) components[0].add(id);
       components.splice(i, 1);
     }
