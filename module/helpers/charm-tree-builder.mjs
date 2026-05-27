@@ -501,7 +501,7 @@ function _isTierZeroExcellency(charm) {
 
 function _isQuasiExcellency(charm, groupKey) {
   if (!groupKey || _isTierZeroExcellency(charm)) return false;
-  return charm?.name?.toLowerCase().includes(groupKey.toLowerCase()) ?? false;
+  return new RegExp(`\\b${groupKey}\\b`, 'i').test(charm?.name ?? '');
 }
 
 function _capitalizeKey(key) {

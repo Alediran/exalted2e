@@ -255,11 +255,11 @@
 
 .charm-tree-virtual-node--owned {
   /* border-color and color set inline by renderer using splat pip color */
-  opacity: 1;
 }
 
 .charm-tree-virtual-node--locked {
-  opacity: 0.45;
+  border-color: #555;
+  color: #888;
 }
 
 .charm-tree-virtual-node--neutral {
