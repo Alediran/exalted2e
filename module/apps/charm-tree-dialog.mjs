@@ -197,7 +197,7 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       return;
     }
 
-    const treeData = buildTree(charms);
+    const treeData = buildTree(charms, this.#groupKey);
 
     // Attach cardState + pipData to each node
     const EX2E = game.exalted2e.EX2E;

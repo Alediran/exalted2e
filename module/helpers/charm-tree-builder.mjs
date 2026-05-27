@@ -47,7 +47,7 @@ export function deduplicateCharms(entries) {
  * TreeNode: { id, charm, tier, isVirtual, virtualLabel }
  * Edge:     { fromId, toId, skip: boolean }
  */
-export function buildTree(charms) {
+export function buildTree(charms, groupKey = '') {
   const nodes = new Map();
   const edges = [];
 
@@ -58,7 +58,7 @@ export function buildTree(charms) {
     const uid = charm.system?.charmUid;
     const nodeId = uid || charm.id;
     if (uid) byUid.set(uid, charm);
-    nodes.set(nodeId, { id: nodeId, charm, tier: 0, isVirtual: false, virtualLabel: '' });
+    nodes.set(nodeId, { id: nodeId, charm, tier: 0, isVirtual: false, virtualLabel: '', isQuasiExcellency: _isQuasiExcellency(charm, groupKey) });
   }
 
   // Synthesize virtual anyExcellency nodes — keyed by "abilityKey:minCount"
@@ -144,7 +144,7 @@ export function buildTree(charms) {
   // essence requirement so Excellencies are the only tier-0 nodes.
   const tierOf = new Map();
   for (const [id, node] of nodes) {
-    const floor = (node.isVirtual || _isTierZeroExcellency(node.charm)) ? 0 : (node.charm?.system?.essence ?? 1);
+    const floor = (node.isVirtual || _isTierZeroExcellency(node.charm) || node.isQuasiExcellency) ? 0 : (node.charm?.system?.essence ?? 1);
     tierOf.set(id, floor);
   }
 
@@ -178,11 +178,22 @@ export function buildTree(charms) {
     if (nodes.has(id)) nodes.get(id).tier = tier;
   }
 
+  // Snap quasi-Excellency nodes to the tier of their nearest virtual anyExcellency parent
+  for (const node of nodes.values()) {
+    if (!node.isQuasiExcellency) continue;
+    let minVirtualTier = Infinity;
+    for (const pid of (parentsOf.get(node.id) ?? [])) {
+      const parent = nodes.get(pid);
+      if (parent?.isVirtual && parent.tier < minVirtualTier) minVirtualTier = parent.tier;
+    }
+    if (minVirtualTier !== Infinity) node.tier = minVirtualTier;
+  }
+
   // Build edges (skip = toTier - fromTier > 1)
   for (const [fromId, children] of childrenOf) {
-    const fromTier = tierOf.get(fromId) ?? 0;
+    const fromTier = nodes.get(fromId)?.tier ?? 0;
     for (const toId of children) {
-      const toTier = tierOf.get(toId) ?? 0;
+      const toTier = nodes.get(toId)?.tier ?? 0;
       edges.push({ fromId, toId, skip: (toTier - fromTier) > 1 });
     }
   }
@@ -275,6 +286,11 @@ export function getVirtualNodeState(node, actor) {
 function _isTierZeroExcellency(charm) {
   const exc = charm?.system?.excellency;
   return exc === 'first' || exc === 'second' || exc === 'third';
+}
+
+function _isQuasiExcellency(charm, groupKey) {
+  if (!groupKey || _isTierZeroExcellency(charm)) return false;
+  return charm?.name?.toLowerCase().includes(groupKey.toLowerCase()) ?? false;
 }
 
 function _capitalizeKey(key) {

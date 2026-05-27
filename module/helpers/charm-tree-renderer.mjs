@@ -24,14 +24,22 @@ export function renderTree(containerEl, { tierMap, maxTier }, exaltType, splatPi
     rowEl.className = 'charm-tree-tier-row';
     rowEl.dataset.tier = String(tier);
 
-    const virtualNodes = nodes.filter(n => n.isVirtual);
-    const charmNodes   = nodes.filter(n => !n.isVirtual);
+    const vRowNodes = nodes.filter(n => n.isVirtual || n.isQuasiExcellency);
+    const charmNodes = nodes.filter(n => !n.isVirtual && !n.isQuasiExcellency);
 
-    if (virtualNodes.length) {
+    if (vRowNodes.length) {
+      // Flank virtual nodes with quasi-Excellencies: [left-quasis] [virtuals] [right-quasis]
+      const virtuals   = vRowNodes.filter(n => n.isVirtual);
+      const quasis     = vRowNodes.filter(n => n.isQuasiExcellency);
+      const leftCount  = Math.floor(quasis.length / 2);
+      const sorted     = [...quasis.slice(0, leftCount), ...virtuals, ...quasis.slice(leftCount)];
+
       const vRow = document.createElement('div');
       vRow.className = 'charm-tree-virtual-row';
-      for (const node of virtualNodes) {
-        const el = _makeVirtualNode(node, pipColor, lightColor);
+      for (const node of sorted) {
+        const el = node.isVirtual
+          ? _makeVirtualNode(node, pipColor, lightColor)
+          : _makeCharmCard(node, exaltType, splatPipColor, splatLightColor);
         el.dataset.nodeId = node.id;
         vRow.appendChild(el);
         nodeEls.set(node.id, el);
