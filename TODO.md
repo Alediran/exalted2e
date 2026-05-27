@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 208 / 264 complete** (10 out-of-scope / partial — last updated 2026-05-26)
+**Progress: 210 / 265 complete** (10 out-of-scope / partial — last updated 2026-05-27)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -309,8 +309,9 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 ## Quality of Life
 - [ ] Drag-and-drop items between sheets (partial: effect-wrapper compendium works)
 - [x] Automated charm prerequisite validation
+- [x] Charm Tree Dialog — visual prerequisite tree per splat + ability/attribute; branch navigation; actor purchase state (owned / purchasable / locked / available card states)
 - [x] GM "Roll a Pool" dialog — ad-hoc dice roller that picks up the standard penalty machinery
-- [ ] Keyword-effect registry for systematic status application
+- [x] Keyword-effect registry for systematic status application (completed under Charm Keywords; duplicate entry)
 - [x] Effect-flag registry file documenting every `flags.exalted2e.*` semantic role
 - [ ] Migration pipeline for schema changes as system evolves
 - [x] Language-drift linter (en.json ↔ es.json key parity)

@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-26 (Essence-tiered upgrade branches complete: gate conditions, passive/active tiers, per-tier effect sections, activation pipeline; count 32 B / 39 total)
+Last updated: 2026-05-27 (Charm Tree Dialog complete; added 4 previously unclassified pending items; count 2 A / 35 B / 6 C / 43 total)
 
 ---
 
@@ -11,6 +11,7 @@ Last updated: 2026-05-26 (Essence-tiered upgrade branches complete: gate conditi
 | Item | TODO Section | Notes |
 |------|-------------|-------|
 | Monstrance of Celestial Portion | Abyssal | fields done; control/servitude mechanics (deathlord authority over deathknight) still pending |
+| Social attack chat card: surface charmPoolDice / charmPoolSuccesses | Social Combat | data already stored in the activation ledger; template-only change to render pool breakdown line |
 
 ---
 
@@ -51,6 +52,9 @@ Last updated: 2026-05-26 (Essence-tiered upgrade branches complete: gate conditi
 | Personal/Peripheral commitment split | QoL | artifact attunement choice UI |
 | Poison/Disease tracking | Other | per-interval AE *(needs Poison/Disease item types — Group A — first)* |
 | Headless tests for remaining paths | Testing | test authoring for charm prereqs, multi-tick, sorcery |
+| Essence Flow innate-powers mechanic | Charms | gate: does actor own `(Ability) Essence Flow` charm? If yes, skip Combo requirement for that ability's three Excellencies at activation time; dice-pool cap still applies |
+| Touch keyword mechanics | Charm Keywords | non-consenting target needs Dex+MA attack roll before touch-range charm resolves; extend attack dialog or add pre-activation roll step |
+| Ravening Mouth of (Ability) mote recovery | Abyssal | hook into `rollAttack` damage step; check for Ravening Mouth AE flagged to the attacking ability; regain 1m per HL of damage dealt to sentient beings; cap 20m per action |
 
 ---
 
@@ -74,7 +78,7 @@ Last updated: 2026-05-26 (Essence-tiered upgrade branches complete: gate conditi
 
 | Group | Count |
 |-------|-------|
-| A — Ready, Simple | 1 |
-| B — Ready, Medium | 32 |
+| A — Ready, Simple | 2 |
+| B — Ready, Medium | 35 |
 | C — Ready, Complex | 6 |
-| **Total pending** | **39** |
+| **Total pending** | **43** |
