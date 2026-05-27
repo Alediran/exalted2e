@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "infernal",
     "ability": "melee",
     "essence": 3,
     "minAbility": 1,
@@ -35,7 +35,7 @@
     },
     "description": "<p>Kimbery is a legendary force of acrimony which all the hordes of chaos could not rend asunder. Rather, she drowned their Shapeless worlds in her darkest fathoms, and excelled toward greater survival, justified by the hatred that empowers her. An Infernal who learns this Charm gains an Overdrive pool with a capacity of fifteen motes. Initially empty, it may be filled by paying five motes and activating The Tide Turns. All of the character's positive Intimacies which are not related directly to herself or something she owns immediately turn negative, as the warlock channels every slight or irritation she has ever experienced, real or imagined, in conjunction with the turned Intimacies. This empowering bitterness sustains her, granting her a number of regular and offensive motes equal to the number of positive Intimacies tainted by her spite. Positive Intimacies lost in this way do not stay so forever. The mercy of the Great Mother is such that the tide declines, giving pardon to swamped shores and flooded vistas. After a week has passed, the Infernal's positive Intimacies are automatically restored, losing their negative context and returning to positive status regardless of whether the character committed any scenes to their reconstruction. However, one of these Intimacies is always lost to the warlock's turgid enmity and subsequently forgotten. The tide always takes its toll. Should the player seek to recover it, this Intimacy will always return to the character with a negative context. The Storyteller decides which Intimacy is excised at the end of the week. The Infernal may not use this Charm more than once a week, unless she takes the time to manually reconstruct her positive Intimacies before the week's end. Any new positive Intimacies built during this time supplant the former positive Intimacies; they remain negative at the end of the week. The warlock is still limited to (Willpower + Compassion) positive Intimacies.</p><p>Unerring Grief Discipline</p>",
     "source": "Ink Monkeys",
-    "yoziPatron": "",
+    "yoziPatron": "kimbery",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
@@ -75,7 +75,7 @@
     ],
     "charmUid": "09c354846c080e0f"
   },
-  "folder": "fd05b302be1cc260",
+  "folder": "62f1b1afdfe8fbd5",
   "sort": 0,
   "ownership": {
     "default": 0

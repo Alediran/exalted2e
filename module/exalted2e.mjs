@@ -884,6 +884,23 @@ Hooks.on('renderCompendium', (_app, html) => {
   footer.appendChild(btn);
 });
 
+// ── Items Directory sidebar button: Open Charm Tree ────────────────────────
+Hooks.on('renderItemDirectory', (_app, html) => {
+  const root = Array.isArray(html) ? html[0] : html;
+  const footer = root?.querySelector?.('.directory-footer');
+  if (!footer) return;
+  if (footer.querySelector('.charm-tree-directory-btn')) return;
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'charm-tree-directory-btn';
+  const icon = document.createElement('i');
+  icon.className = 'fa-solid fa-sitemap';
+  btn.appendChild(icon);
+  btn.appendChild(document.createTextNode(' ' + game.i18n.localize('EX2E.CharmTree.OpenTree')));
+  btn.addEventListener('click', () => CharmTreeDialog.open());
+  footer.appendChild(btn);
+});
+
 // ── Quench (in-Foundry test harness) ──────────────────────────────────────
 // Tests ship with the system bundle but only register when the Quench
 // module is installed and active. Production users pay zero cost — the

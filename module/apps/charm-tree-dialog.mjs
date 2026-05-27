@@ -52,6 +52,8 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   async _prepareContext(_options) {
     const EX2E = game.exalted2e.EX2E;
 
+    if (!this.#exaltType) this.#exaltType = 'solar';
+
     // Exalt type options — [label, key] pairs (template uses pair.[0] for display, pair.[1] for value)
     const exaltTypes = [
       [game.i18n.localize('EX2E.ExaltSolar'),       'solar'],

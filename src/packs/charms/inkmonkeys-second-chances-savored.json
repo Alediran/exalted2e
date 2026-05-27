@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "infernal",
     "ability": "melee",
     "essence": 4,
     "minAbility": 1,
@@ -30,7 +30,7 @@
     },
     "description": "<p>If the character has an Overdrive pool, he may purchase this Charm to enhance its prerequisite. Whenever the Infernal uses Kill Feint Cleverness to regain motes, he may place those motes into his Overdrive pool. As the Ebon Dragon is a masterful cheater, this Charm places an additional offensive mote in the pool each time it is used. Kimbery Song of the Depths</p>",
     "source": "Ink Monkeys",
-    "yoziPatron": "",
+    "yoziPatron": "ebonDragon",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
@@ -58,7 +58,7 @@
     ],
     "charmUid": "ee24637002a10438"
   },
-  "folder": "fd05b302be1cc260",
+  "folder": "7c2ec8d4b84c1156",
   "sort": 0,
   "ownership": {
     "default": 0

@@ -45,7 +45,21 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "enhancesCharmUid": "0f988a84eeae7674",
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "de66f7219741b177",
+            "charmName": "Protection of Celestial Bliss",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
     "charmUid": "7434764a15fc0373"
   },
   "folder": "fd05b302be1cc260",

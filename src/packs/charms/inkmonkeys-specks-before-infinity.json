@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "infernal",
     "ability": "melee",
     "essence": 4,
     "minAbility": 1,
@@ -33,7 +33,7 @@
     },
     "description": "<p>Though the laws of the Endless Desert are ultimately arbitrary, there is one rule she holds sacred--the strong shall dominate the weak. This Charm grants an Overdrive pool with a capacity of ten motes. Initially empty, it gains motes under the following circumstances: On any tick during which the Infernal is attacked by an individual of lower Essence, she gains one offensive mote. Her own bound spirits do not count for this purpose, nor any other being she has commanded to attack her. The Infernal also loses one offensive mote on any tick during which she attacks a being of higher Essence; this loss cannot take her below zero offensive motes. Dust Devil Feint</p>",
     "source": "Ink Monkeys",
-    "yoziPatron": "",
+    "yoziPatron": "cecelyne",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
@@ -61,7 +61,7 @@
     ],
     "charmUid": "9f10216383766984"
   },
-  "folder": "fd05b302be1cc260",
+  "folder": "d852ccb3960d271d",
   "sort": 0,
   "ownership": {
     "default": 0

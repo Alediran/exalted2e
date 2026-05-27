@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "infernal",
     "ability": "melee",
     "essence": 3,
     "minAbility": 1,
@@ -30,7 +30,7 @@
     },
     "description": "<p>This Charm upgrades its prerequisite, broadening its power to damage all non-magical inanimate objects within range. Adorjan hopes this lesson will one day teach her daughter to think beyond her vendetta and eagerly awaits the day Pelleg-</p><p>rina surprises her by blowing away the arrogant metal towers of Malfeas. A second purchase of this Charm requires Essence 4+, but broadens its scope further to include animate beings with an Essence rating lower than the warlock. Affected Essence users may pay 1m per tick in lieu of suffering damage, shielding themselves with an ablative layer of exuded power. Mortals and natural animals aren't so lucky and die in a matter of seconds. Effects that minimize or negate environmental damage work normally to mitigate damage/Essence drain from this Charm. With Essence 6+, the second purchase allows the Charm to damage beings of equal Essence to the warlock and inflicts aggravated damage instead of lethal to objects and lower Essence beings. Hungry Wind Howling</p>",
     "source": "Ink Monkeys",
-    "yoziPatron": "",
+    "yoziPatron": "adorjan",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
@@ -58,7 +58,7 @@
     ],
     "charmUid": "a3ebaf9196fb6e51"
   },
-  "folder": "fd05b302be1cc260",
+  "folder": "e1c045f50a834f12",
   "sort": 0,
   "ownership": {
     "default": 0

@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "infernal",
     "ability": "melee",
     "essence": 3,
     "minAbility": 1,
@@ -32,7 +32,7 @@
     },
     "description": "<p>The Ebon Dragon does not permit his enemies to recover the truths his awful power rots from within. This Charm permanently upgrades Golden Years Tarnished Black. Whenever the Infernal activates that Charm to enhance a spoken attack against a single target, he can choose to pay an additional two motes to make his words Sorcerous. If the attack successfully overcomes the victim's MDV and corrupts her memory, then she can't heal this damage via Willpower expenditure--not even to reject the corruption in the moment of the attack. Spending the Willpower normally needed to fix the memory does allow the victim to become suspicious that her recollection may be wrong, though not how or why. Methods of breaking mental influence other than spending Willpower work normally on Sorcerous invocations of Golden Years Tarnished Black, such as the Solar Charm Transcendent Hero's Meditation (Exalted, p. 201). Appropriate countermagic also works to reverse the Charm's effects. Unreasoning Prejudice Infliction</p>",
     "source": "Ink Monkeys",
-    "yoziPatron": "",
+    "yoziPatron": "ebonDragon",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
@@ -60,7 +60,7 @@
     ],
     "charmUid": "30e61de34a0b67d3"
   },
-  "folder": "fd05b302be1cc260",
+  "folder": "7c2ec8d4b84c1156",
   "sort": 0,
   "ownership": {
     "default": 0

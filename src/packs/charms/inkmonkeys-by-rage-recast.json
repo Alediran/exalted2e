@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "infernal",
     "ability": "melee",
     "essence": 2,
     "minAbility": 1,
@@ -34,7 +34,7 @@
     },
     "description": "<p>Once Malfeas was the Primordial King, his power and glory unconstrained by the crude limits of a body. Now, mutilated and caged in the prison of form, his cosmic might and boundless fury can only twist him toward more harmful expressions of his majesty. An Infernal who learns this Charm selects a package of (Essence x 10) points of temporary positive mutations as a \"library\" of options. She must allocate all of these points at the time of purchase, even if that means choosing mutations she doesn't really want as filler. Once allocated, the library remains fixed. However, raising Essence allows the Infernal to re-allocate all (Essence x 10) mutation points from scratch as though she just acquired the Charm. At Essence 10, the warlock may reallocate her muta-</p><p>tions by spending one full day in either isolated meditation or a series of ancient, ecstatic dances. Whenever the warlock's anima banner reaches the 11+ mote level of expression, she reflexively gains eight points of mutations selected from her library as a temporary Desecration. Horns may curl from the warlock's forehead, leathery wings unfold from her back, or fanged maws open upon her body-- whatever demonic features best express the Chosen's fury. She may not gain mutually-exclusive mutations at the same time. This transformation is not optional. In the unlikely event the Infernal cannot express a full eight points without going over (such as by only purchasing Abominations at Essence 3), she must get as close as possible. Once her anima subsides below the 11+ level, the mutations fade back into her body. By Rage Recast explicitly ignores the normal limit on how many positive temporary mutations a Desecration effect may bestow (see The Manual of Exalted Power--The Infernals, p. 103). Mutation points gained from the Charm do count toward the usual mutation point limit other temporary Desecration effects can bestow.</p><p>If the character knows the Charm Fealty-Acknowledging Audience (The Manual of Exalted Power--The Infernals, p. 116), then she may pay a surcharge of +5m when invoking that Charm to gift those who swear fealty to her with up to eight points of mutations she is capable of manifesting with By Rage Recast. This gift is a permanent Desecration. With Essence 3+, the Infernal may choose to retain her current mutations when her anima banner recedes. She may dismiss these mutations at any time her anima is below the 11-15 mote level of display with a diceless miscellaneous action, but must flare her anima anew to restore her mutations or change them out for a new suite of grotesqueries. Devil-Tyrant Avatar Shintai</p>",
     "source": "Ink Monkeys",
-    "yoziPatron": "",
+    "yoziPatron": "malfeas",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
@@ -62,7 +62,7 @@
     ],
     "charmUid": "1eecb73acb380392"
   },
-  "folder": "fd05b302be1cc260",
+  "folder": "1945ba1655ca5f6f",
   "sort": 0,
   "ownership": {
     "default": 0

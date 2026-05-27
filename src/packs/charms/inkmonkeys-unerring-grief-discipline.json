@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "infernal",
     "ability": "melee",
     "essence": 2,
     "minAbility": 1,
@@ -30,7 +30,7 @@
     },
     "description": "<p>The Sea That Marched Against the Flame is catalyzed by animosity. Fixating on the grudge that drives her existence, Kimbery's power does not abate. While concentrating on a single reviled character, the warlock may commit one mote to prevent the offensive motes in her Overdrive pool from being lost at the end of the scene. She may retain a commitment to this effect indefinitely. However, doing so prevents her from gaining new offensive motes from any Overdrive Charm unless she has rolled Join Battle against the subject of her grudge. Kimbery is disciplined in the pursuit of her favorite feud. Offensive Charms paid through Overdrive, when used against any other character but the target of her grudge, cost an additional one mote to activate while this Charm is active. The character may terminate the effect of Unerring Grief Discipline at any time, but doing so causes her Overdrive pool to void itself of all offensive motes currently in stock. Spite Honing Curses</p>",
     "source": "Ink Monkeys",
-    "yoziPatron": "",
+    "yoziPatron": "kimbery",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
@@ -58,7 +58,7 @@
     ],
     "charmUid": "be77bc4918a7b1b7"
   },
-  "folder": "fd05b302be1cc260",
+  "folder": "62f1b1afdfe8fbd5",
   "sort": 0,
   "ownership": {
     "default": 0

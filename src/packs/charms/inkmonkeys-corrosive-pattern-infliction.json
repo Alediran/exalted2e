@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "infernal",
     "ability": "melee",
     "essence": 3,
     "minAbility": 1,
@@ -36,7 +36,7 @@
     },
     "description": "<p>The Primordials built Creation. Compared with this feat, the transubstantiation of one object into another is relatively trivial. This Charm can only target non-magical inanimate objects. The Infernal pays one Willpower plus motes equal to twice the target's Resources value, then his player rolls (Manipulation + Lore) roll at a difficulty of the object's value. If this roll fails or botches, the target transforms into something unexpected and abhorrent of the Storyteller's choosing. The misshapen prodigies of such accidents aren't valid targets for this Charm and rarely have any monetary value or practical use, save perhaps as ugly decorations or random occult ingredients. Success envelops the object in coils of caustic energy, gruesomely melting and realigning its motonic structure to become any other non-magical inanimate object of equal or lesser Resources cost. Dissolving an opponent's weapon into goo or turning a suit of armor to dust (resulting in Resources 0 items) is a valid use of this Charm. Infernals can't make Resources 1+ objects they aren't familiar with, defined as spending a minimum of one scene studying or using such an item. Although casual inspection reveals nothing unusual about transformed items, trained savants can recognize subtle hints of Yozi aesthetics in the objects with a difficulty 5 (Perception + Occult) roll. Furthermore, the objects lose stability after a number of months equal to their new Resources value, warping as per a failed activation roll. If countermagic dispels this Charm's effects prior to this dissolution, the object returns to its original state. Infernals with Essence 4+ may simultaneously warp any number of valid targets within a radius of (Essence) yards around themselves without needing actual touch, provided they own all of those items. The difficulty for this feat is the highest difficulty for any targeted object. Small groups of related items may be changed together as a single item with Storyteller permission, such as transmuting one outfit into another. Further explanation on the limits of what is considered an object may be found on page 213 of Exalted. Our Little Secret</p>",
     "source": "Ink Monkeys",
-    "yoziPatron": "",
+    "yoziPatron": "ebonDragon",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
@@ -64,7 +64,7 @@
     ],
     "charmUid": "81b423fde1fd846d"
   },
-  "folder": "fd05b302be1cc260",
+  "folder": "7c2ec8d4b84c1156",
   "sort": 0,
   "ownership": {
     "default": 0

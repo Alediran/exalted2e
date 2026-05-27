@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "infernal",
     "ability": "melee",
     "essence": 4,
     "minAbility": 1,
@@ -34,7 +34,7 @@
     },
     "description": "<p>The volatile fury at the heart of the Demon City is a flame of such intensity that it can never be contained. An Infernal who learns this Charm gains an Overdrive pool with a capacity of fifteen motes. Initially empty, the warlock may begin to fill it by activating this Charm. From that point onward, each time one of the Infernal's attacks are successfully parried or dodged, he gains a single offensive mote. As the warlock's inner fires burn hotter, his Overdrive pool becomes unstable. If the Exalt gains five or more offensive motes in a single action, make a difficulty 1 (Stamina + Resistance) roll to stabilize the Infernal's awesome power. For each mote over five, increase the difficulty of this roll by 1. If the Infernal succeeds on this roll, add an additional three motes to his Overdrive pool. If he fails, five of his Overdrive motes detonate in a torrent of emerald flames which erupt up from the vicinity of his ribcage, doing one unsoakable lethal health level of damage as it rips through his body. The Exalt may not gain offensive motes from this Overdrive if his attacks are not designed to kill his target. If he holds back one iota, Rage-Stoked Inferno Soul fails. Screams as Prayers Reminder</p>",
     "source": "Ink Monkeys",
-    "yoziPatron": "",
+    "yoziPatron": "malfeas",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
@@ -74,7 +74,7 @@
     ],
     "charmUid": "79dbff4d4b25f00c"
   },
-  "folder": "fd05b302be1cc260",
+  "folder": "1945ba1655ca5f6f",
   "sort": 0,
   "ownership": {
     "default": 0

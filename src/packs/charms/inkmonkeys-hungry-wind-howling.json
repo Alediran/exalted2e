@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "infernal",
     "ability": "melee",
     "essence": 5,
     "minAbility": 1,
@@ -33,7 +33,7 @@
     },
     "description": "<p>Adorjan knows what it is to feel loss. It is the pang of hunger that fuels her ravenous abattoir winds. This Charm grants an Overdrive pool with a capacity of ten motes. Initially empty, it gains motes under the following circumstances: Any time the Infernal witnesses an opponent slain by another's hand, she gains a single offensive mote per opponent slain. The Silent Wind is driven into ardor when she is denied her sup. If the slain victim is an Essence-user, she accrues (Essence � 2, rounded up) motes. The warlock must be rolled into battle to benefit from this Overdrive. Unbound Freedom Infiltration</p>",
     "source": "Ink Monkeys",
-    "yoziPatron": "",
+    "yoziPatron": "adorjan",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
@@ -61,7 +61,7 @@
     ],
     "charmUid": "7859f00865bbedff"
   },
-  "folder": "fd05b302be1cc260",
+  "folder": "e1c045f50a834f12",
   "sort": 0,
   "ownership": {
     "default": 0

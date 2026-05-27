@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "infernal",
     "ability": "melee",
     "essence": 2,
     "minAbility": 1,
@@ -35,7 +35,7 @@
     },
     "description": "<p>The onetime King of the Primordials will not tolerate those who would stride past without stopping to show respect for his majesty, forcing them to kiss the ground if they will not do so of their own accord. This Charm may be activated whenever another character seeks to pass by the Infernal within (Essence) yards (the target must attempt to pass the Infernal; simply walking up, attacking, and then moving back would not suffice, nor may the Charm be activated if the Infernal is passing another character that is not attempting to bypass him); complementary units are never valid targets for this Charm. The warlock lashes out with a sudden lightning-fast attack in response; a favored method among Slayers is to slam an iron-hard arm into a target's throat, while Malfeas himself buckles the surface of his streets and slams the doors of his buildings into the faces of those who offend him. This is treated as a standard counterattack at full dice pool using a combat ability of the Infernal's choice. Ranged attacks are still limited to striking those who pass within the prohibited radius. Regardless of whether the attack inflicts any damage, a successful hit automatically knocks the target prone. Only one such counterattack may be directed at a single target per action. The Infernal adds three automatic successes to all attacks directed at characters knocked prone by this Charm. At Essence 3+ this Charm gains the Knockback keyword, and the warlock gains the option of knocking opponents back up to (Essence x 2) yards rather than simply knocking them down, if desired. Opponents who strike unyielding surfaces take dice of bashing (or lethal, for sharp surfaces) damage equal to half the number of yards they would have continued to travel if not brought up short, rounded up. Triumph of the Will</p>",
     "source": "Ink Monkeys",
-    "yoziPatron": "",
+    "yoziPatron": "malfeas",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
@@ -69,7 +69,7 @@
     },
     "charmUid": "bd124e360d05071a"
   },
-  "folder": "fd05b302be1cc260",
+  "folder": "1945ba1655ca5f6f",
   "sort": 0,
   "ownership": {
     "default": 0

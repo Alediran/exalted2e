@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "infernal",
     "ability": "melee",
     "essence": 3,
     "minAbility": 1,
@@ -33,7 +33,7 @@
     },
     "description": "<p>Sometimes inferiors forget their place. Sometimes the conquered don't know when to stay down. They can be taught. To activate this Charm, the Infernal chooses an individual he has previously marked with Magnanimous Warning Glyph. The Charm costs zero motes if the target is an extra and four motes otherwise. The power of Screams as Prayers Reminder is inescapable, reaching across any distance or realm of existence through the arcane link of that mark. Wherever the victim is, her brand suddenly becomes visible to normal senses and remains so until Screams as Prayers Reminder ends, subverting her stealth as per a 4-7 mote Infernal caste mark display. The smoldering brand also hurts like a fresh vitriol burn, adding the warlock's Essence rating to the victim's current wound penalties. Whenever a victim suffering from an inflamed brand attacks the warlock, he becomes aware of the attack (precluding it from being unexpected). The Infernal may then choose to let the brand ignite as normal or persist in its inflamed state to</p><p>prolong the victim's agony. Although this Charm isn't stackable, it may be separately activated to simultaneously torture multiple victims. Brands from different warlocks do not stack their wound penalty increase; only the worst applies. With Essence 5+, the cost to target mortals and natural animals also drops to zero motes. Ember Gift Revocation</p>",
     "source": "Ink Monkeys",
-    "yoziPatron": "",
+    "yoziPatron": "malfeas",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
@@ -61,7 +61,7 @@
     ],
     "charmUid": "26906aece9bf48c1"
   },
-  "folder": "fd05b302be1cc260",
+  "folder": "1945ba1655ca5f6f",
   "sort": 0,
   "ownership": {
     "default": 0

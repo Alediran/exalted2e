@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "infernal",
     "ability": "melee",
     "essence": 3,
     "minAbility": 1,
@@ -33,7 +33,7 @@
     },
     "description": "<p>Malfeas is invincible, immortal, and incomparable. Those who would dare offer evidence to the contrary will be ground to a paste between his layers as a lesson to others. This Charm grants an Overdrive pool with a capacity of ten motes. Initially empty, it gains motes under the following circumstances: The first time in a scene that the Infernal marks off his incapacitated health box with a certain type of damage (bashing, lethal, or aggravated), he gains ten offensive motes. This gain is cumulative--if the Infernal filled his Incapacitated health box with bashing damage, and then later in the same scene with lethal damage, he would gain a total of 20 motes. However, if he healed himself and then marked off the box with lethal damage again during that scene, he would gain no motes. Driven Beyond Death</p>",
     "source": "Ink Monkeys",
-    "yoziPatron": "",
+    "yoziPatron": "malfeas",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
@@ -61,7 +61,7 @@
     ],
     "charmUid": "5392c878e1b2f87d"
   },
-  "folder": "fd05b302be1cc260",
+  "folder": "1945ba1655ca5f6f",
   "sort": 0,
   "ownership": {
     "default": 0

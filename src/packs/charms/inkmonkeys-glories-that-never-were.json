@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "infernal",
     "ability": "melee",
     "essence": 3,
     "minAbility": 1,
@@ -30,7 +30,7 @@
     },
     "description": "<p>Sometimes the Ebon Dragon is best served by whiter lies than himself, veiling inconvenient truths behind the mists of nostalgia. By paying an extra mote while using Golden Years Tarnished Black, the Infernal ruins the targeted memory in a much more unorthodox manner. The victim retains and idealizes everything she finds good about the memory. At the same time, she forgets everything bad about the topic and/or minimizes the importance of bad elements as the Infernal chooses. For example, an aging Dynast can be made to remember the reign of the Scarlet Empress as a halcyon time of justice and peace, completely overlooking the tyranny and oppression of her totalitarian regime. A molested child can be made to adore her father once more. Most usefully, the Infernal can help a mortal enemy remember how much she enjoys his charming company and flattering praise, never mind those times he slept with her daughter, murdered her husband and burned down her house. If the victim doesn't already have a positive Intimacy to a particular memory, whitewashing the recollection with Glories That Never Were instantly creates such an Intimacy with a Storyteller-approved emotional context chosen by the victim's player. An existing positive Intimacy becomes enchanted by the Charm. Healing memory damage and Intimacy gain inflicted by Glories That Never Were generally requires the same process as the basic function of Golden Years Tarnished Black (as modified by Unreasoning Prejudice Infliction). However, victims also add half their Willpower rating as an MDV bonus to resist all external attempts to weaken or remove the Intimacy associated with an idealized memory. This bonus reflects the way minds doggedly cling to delusions of better times in the bleak world that is Creation. Hope is often all people have, however false. With Essence 4+, Glories That Never Were gets worse. If the bolstered positive Intimacy is removed by any means while its associated memory remains damaged, the victim experiences a sudden wave of despair as she comprehends the inherent ugliness of truth. This overreaction drags her mind to the opposite extreme like a swinging pendulum, changing the way her memories distort to match the base ruin inflicted by Golden Years Tarnished Black. What was pure good becomes hateful. Furthermore, a new enchanted Intimacy instantly forms toward the subject as per all rules of Golden Years Tarnished Black. Dark Claws Seize Dark Hearts Cost: 6m; Mins: Essence 3; Type: Supplemental Keywords: Combo-OK Duration: Instant Prerequisite Charms: Unreasoning Prejudice Infliction The Ultimate Darkness preys upon the vile feelings that seep from wounded memories. Such emotions are but a shadow of the Dragon, and so they rightly yield before their master and betray the heart that holds them. This Charm can enhance any social attack aimed at a single target (typically with Investigation or Presence), provided the attack preys upon an Intimacy created or corrupted by Golden Years Tarnished Black.</p><p>For instance, if the warlock caused a widow to despise her late husband, he could then attempt to prey upon that hate by suggesting she should set fire to all the art he painted as his life's work. Instead of the usual -1 MDV modifier, the social attack becomes unnatural (if not already) and unexpected, costing one additional Willpower to resist at each opportunity to do so (to a maximum of five Willpower as normal). If the Infernal has Essence 7+, Dark Claws Seize Dark Hearts may also be used to augment Performance-based social attacks as an alternative to single target use. Such attacks work on all listeners, but the benefits of the Charm (unexpected, automatically unnatural, etc.) only apply against those with appropriate Intimacies. Dragon's Lair Obtenebration</p>",
     "source": "Ink Monkeys",
-    "yoziPatron": "",
+    "yoziPatron": "ebonDragon",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
@@ -58,7 +58,7 @@
     ],
     "charmUid": "b9f98444e813ceff"
   },
-  "folder": "fd05b302be1cc260",
+  "folder": "7c2ec8d4b84c1156",
   "sort": 0,
   "ownership": {
     "default": 0

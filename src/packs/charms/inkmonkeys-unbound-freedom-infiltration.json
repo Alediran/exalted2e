@@ -13,7 +13,7 @@
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
-    "exaltType": "solar",
+    "exaltType": "infernal",
     "ability": "melee",
     "essence": 3,
     "minAbility": 1,
@@ -33,7 +33,7 @@
     },
     "description": "<p>Bored with racing across the surface of walls, the Silent Wind may blow through them. Sometimes she leaves, finding freedom; at other times she enters, finding victims. To activate this Charm, the Infernal must be dashing at her maximum speed, and must have maintained this velocity throughout her entire previous action. Upon invocation, it allows her to body to shred apart into a crimson wind which blows through the cracks and gaps in a barrier, to reform on the other side. Smears and stains of blood are left behind in the Infernal's wake. This Charm cannot bypass obstacles more than (Essence) yards thick, or which are airtight (so, a door with a keyhole or a space beneath it, or a wooden wall with gaps between the boards would be valid targets, while a solid wall sheathed in marble would not). This Charm automatically allows the Infernal to bypass anyone attempting to physically impede her with a Blockade Movement action (see Glories of the Most High--Luna, p. 22) At Essence 4+, Unbound Freedom Infiltration may be invoked as an innate power rather than a Charm activation by paying an extra aggravated health level upon activation.</p><p>Voice-Drinking Kiss</p>",
     "source": "Ink Monkeys",
-    "yoziPatron": "",
+    "yoziPatron": "adorjan",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
@@ -61,7 +61,7 @@
     ],
     "charmUid": "a05d27e2b3e955cc"
   },
-  "folder": "fd05b302be1cc260",
+  "folder": "e1c045f50a834f12",
   "sort": 0,
   "ownership": {
     "default": 0

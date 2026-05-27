@@ -73,8 +73,7 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       template: "systems/exalted2e/templates/item/charm/tabs.hbs"
     },
     tabGeneral: { template: "systems/exalted2e/templates/item/charm/tab-general.hbs", scrollable: [""] },
-    tabEffects: { template: "systems/exalted2e/templates/item/charm/tab-effects.hbs", scrollable: [""] },
-    footer:     { template: "systems/exalted2e/templates/item/charm/footer.hbs" }
+    tabEffects: { template: "systems/exalted2e/templates/item/charm/tab-effects.hbs", scrollable: [""] }
   };
 
   async _prepareContext(options) {
