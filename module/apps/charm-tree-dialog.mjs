@@ -1,6 +1,5 @@
 import { matchesFilter, deduplicateCharms, buildTree, splitIntoBranches, getCharmState, getPipData, getVirtualNodeState } from '../helpers/charm-tree-builder.mjs';
 import { renderTree, drawConnectors } from '../helpers/charm-tree-renderer.mjs';
-import { evaluateCharmPrereqs } from '../helpers/charm-prereqs.mjs';
 
 const { HandlebarsApplicationMixin, ApplicationV2 } = foundry.applications.api;
 
@@ -29,7 +28,6 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   #nodeEls    = null;
   #svgEl      = null;
   #resizeObserver = null;
-  #activePanel = null; // charmUid of currently open detail panel, or null
   #renderGeneration = 0;
   #branches = [];
   #currentBranch = 0;
@@ -134,7 +132,6 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       exaltSelect.addEventListener('change', (ev) => {
         this.#exaltType = ev.target.value;
         this.#groupKey  = null;
-        this.#activePanel = null;
         this.render({ force: true });
       });
     }
@@ -145,7 +142,6 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       if (this.#groupKey) groupSelect.value = this.#groupKey;
       groupSelect.addEventListener('change', (ev) => {
         this.#groupKey = ev.target.value;
-        this.#activePanel = null;
         if (this.#exaltType && this.#groupKey) this.#loadAndRenderTree();
       });
     }
@@ -160,16 +156,24 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       });
     }
 
-    // Detail panel close button
-    html.querySelector('[data-action="closePanel"]')
-      ?.addEventListener('click', () => this.#hideDetailPanel());
 
     // Card click delegation
     html.addEventListener('click', (ev) => {
+      // Learn button inside a card — purchase logic, don't also open the sheet
+      if (ev.target.closest('[data-action="learnCharm"]')) {
+        ev.stopPropagation();
+        const card = ev.target.closest('.charm-tree-card');
+        if (!card) return;
+        const node = this.#treeData?.nodes?.get(card.dataset.nodeId);
+        if (!node) return;
+        this.#onLearnCharm(ev, node.charm, node.cardState ?? 'available');
+        return;
+      }
+
+      // Card click → always open charm sheet
       const card = ev.target.closest('.charm-tree-card');
       if (!card) return;
-      const nodeId = card.dataset.nodeId;
-      const node = this.#treeData?.nodes?.get(nodeId);
+      const node = this.#treeData?.nodes?.get(card.dataset.nodeId);
       if (!node || node.isVirtual) return;
       this.#onCardClick(node);
     });
@@ -337,118 +341,19 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
 
   #onCardClick(node) {
     const charm = node.charm;
-    const state = node.cardState ?? 'neutral';
 
-    if (state === 'locked') return;
-
-    if (!this.#actor || state === 'neutral') {
-      fromUuid(charm.uuid).then(item => item?.sheet?.render(true)).catch(() => {});
-      return;
-    }
-
-    if (state === 'owned') {
+    // For owned charms, open the actor's copy; otherwise open the source item sheet
+    if (node.cardState === 'owned' && this.#actor) {
       const uid = charm.system?.charmUid;
       const actorItem = uid
         ? this.#actor.items.find(i => i.type === 'charm' && i.system?.charmUid === uid)
         : null;
-      if (actorItem) actorItem.sheet.render(true);
-      return;
+      if (actorItem) { actorItem.sheet.render(true); return; }
     }
 
-    // purchasable or available → toggle detail panel
-    const uid = charm.system?.charmUid ?? charm.id;
-    if (this.#activePanel === uid) {
-      this.#hideDetailPanel();
-    } else {
-      this.#showDetailPanel(node);
-    }
+    fromUuid(charm.uuid).then(item => item?.sheet?.render(true)).catch(() => {});
   }
 
-  #showDetailPanel(node) {
-    const charm = node.charm;
-    const state = node.cardState;
-    const EX2E = game.exalted2e.EX2E;
-    const uid = charm.system?.charmUid ?? charm.id;
-    this.#activePanel = uid;
-
-    const panel = this.element.querySelector('#charm-tree-detail');
-    const bodyEl = panel?.querySelector('.charm-tree-detail__body');
-    if (!panel || !bodyEl) return;
-
-    const pipColor = EX2E.splatPipColor?.[this.#exaltType] ?? '#888';
-
-    // evaluateCharmPrereqs returns Array<{ group, index, satisfied, label }>
-    // Normalise to { label, met } for rendering.
-    const prereqLines = evaluateCharmPrereqs(charm, this.#actor)
-      .map(r => ({ label: r.label, met: r.satisfied }));
-
-    const xpCost = charm.system?.purchaseXp ?? 0;
-    const ownedItem = this.#actor?.items.find(i => i.type === 'charm' && i.system?.charmUid === uid) ?? null;
-    const maxPurch  = parseInt(charm.system?.maxPurchases ?? '1', 10) || 1;
-    const ownedLevel = ownedItem?.system?.purchaseLevel ?? 0;
-    const isMulti   = maxPurch > 1;
-    const learnLabel = (isMulti && ownedLevel > 0)
-      ? game.i18n.localize('EX2E.CharmTree.LearnAgain')
-      : game.i18n.localize('EX2E.CharmTree.Learn');
-
-    // Build DOM safely — no innerHTML with user data
-    bodyEl.innerHTML = '';
-
-    const img = document.createElement('img');
-    img.className = 'charm-tree-detail__icon';
-    img.setAttribute('src', charm.img ?? '');
-    img.alt = '';
-    bodyEl.appendChild(img);
-
-    const info = document.createElement('div');
-    info.className = 'charm-tree-detail__info';
-
-    const nameEl = document.createElement('div');
-    nameEl.className = 'charm-tree-detail__name';
-    nameEl.textContent = charm.name;
-    info.appendChild(nameEl);
-
-    const costsEl = document.createElement('div');
-    costsEl.className = 'charm-tree-detail__costs';
-    costsEl.textContent = xpCost > 0 ? `XP: ${xpCost}` : '';
-    info.appendChild(costsEl);
-
-    const prereqsEl = document.createElement('div');
-    prereqsEl.className = 'charm-tree-detail__prereqs';
-    for (const line of prereqLines) {
-      const lineEl = document.createElement('div');
-      lineEl.className = line.met ? 'charm-tree-detail__prereq-met' : 'charm-tree-detail__prereq-unmet';
-      lineEl.textContent = `${line.met ? '✓' : '✗'} ${line.label}`;
-      prereqsEl.appendChild(lineEl);
-    }
-    info.appendChild(prereqsEl);
-
-    const actionsEl = document.createElement('div');
-    actionsEl.className = 'charm-tree-detail__actions';
-
-    const learnBtn = document.createElement('button');
-    learnBtn.type = 'button';
-    learnBtn.className = 'charm-tree-learn-btn';
-    learnBtn.dataset.charmId = charm.id;
-    learnBtn.dataset.charmUuid = charm.uuid;
-    learnBtn.dataset.state = state;
-    learnBtn.style.borderColor = pipColor;
-    learnBtn.textContent = learnLabel;
-    learnBtn.addEventListener('click', (ev) => {
-      this.#onLearnCharm(ev, charm, state);
-    });
-    actionsEl.appendChild(learnBtn);
-    info.appendChild(actionsEl);
-
-    bodyEl.appendChild(info);
-    panel.style.display = '';
-  }
-
-  #hideDetailPanel() {
-    this.#activePanel = null;
-    const panel = this.element.querySelector('#charm-tree-detail');
-    if (panel) panel.style.display = 'none';
-  }
 
   async #onLearnCharm(_ev, charm, state) {
     if (!this.#actor) return;
@@ -485,7 +390,6 @@ export class CharmTreeDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       await this.#actor.update({ 'system.purchaseLog': log });
     }
 
-    this.#hideDetailPanel();
     this.#loadAndRenderTree();
   }
 }

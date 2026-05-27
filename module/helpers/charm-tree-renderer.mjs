@@ -177,6 +177,21 @@ function _makeCharmCard(node, exaltType, splatPipColor, splatLightColor) {
     el.appendChild(_makePurchasePipTrack(node.pipData, pipColor));
   }
 
+  // Purchase button — visible only when the charm can be learned
+  if (state === 'purchasable' || state === 'available') {
+    const isRePurchase = node.pipData && node.pipData.current > 0;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'charm-tree-card__learn-btn';
+    btn.dataset.action = 'learnCharm';
+    btn.style.borderColor = pipColor;
+    btn.style.color = pipColor;
+    btn.textContent = isRePurchase
+      ? game.i18n.localize('EX2E.CharmTree.LearnAgain')
+      : game.i18n.localize('EX2E.CharmTree.Learn');
+    el.appendChild(btn);
+  }
+
   return el;
 }
 
