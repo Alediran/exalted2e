@@ -397,6 +397,11 @@
     "ArtifactCompleteArtifact": "Completar Artefacto",
     "ArtifactSaveAndAbandon": "Abandonar Proyecto",
     "ArtifactUnnamedProject": "Artefacto Sin Nombre",
+    "ArtifactRatingBlockedTooltip": "Requiere Artesanía {craft}, Conocimiento {lore}, Ocultismo {occult}",
+
+    "EffectArtifactAbilityReduction": "Reduce los Mínimos de Habilidad para Artefactos (Artesanía / Conocimiento / Ocultismo)",
+    "EffectArtifactAbilityReductionHelp": "Reduce los mínimos de Artesanía, Conocimiento y Ocultismo necesarios para crear artefactos según el valor indicado. Se aplica a las tres habilidades por igual.",
+    "ArtifactAbilityReductionAmount": "Reducción",
 
     "ResourcesPrefix": "Recursos",
     "CharmAttackEnable": "Este encantamiento crea un ataque tipo arma",

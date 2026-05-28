@@ -2,6 +2,18 @@
 export const ARTIFACT_SUCCESS_TARGETS = { 1: 5, 2: 10, 3: 20, 4: 40, 5: 60 };
 
 /**
+ * Minimum Craft / Lore / Occult ratings required to begin an artifact project
+ * of the given rating (Oadenol's Codex, p. 47).
+ */
+export const ARTIFACT_ABILITY_REQS = {
+  1: { craft: 3, lore: 3, occult: 3 },
+  2: { craft: 3, lore: 3, occult: 3 },
+  3: { craft: 3, lore: 3, occult: 3 },
+  4: { craft: 6, lore: 6, occult: 6 },
+  5: { craft: 7, lore: 7, occult: 7 },
+};
+
+/**
  * Returns the cumulative success target for an artifact of the given rating.
  * @param {number} rating  Artifact rating (1–5)
  */
@@ -114,4 +126,56 @@ export function resolveOutcome(successes, botch, project) {
     return { tier: "fine", finalResources: project.targetResources, canRetry: false };
   }
   return { tier: "success", finalResources: project.targetResources, canRetry: false };
+}
+
+/**
+ * Sum the artifact ability reduction granted by all passively-active charms.
+ * @param {ExaltedActor} actor
+ * @returns {number}
+ */
+function _artifactAbilityReductionFrom(actor) {
+  let total = 0;
+  for (const item of (actor.items ?? [])) {
+    if (item.type !== "charm") continue;
+    const dur = item.system?.duration;
+    const type = item.system?.charmType;
+    const active = item.system?.active;
+    if (dur !== "permanent" && type !== "permanent" && !active) continue;
+    const r = item.system?.artifactAbilityReduction;
+    if (!r?.enabled) continue;
+    total += r.reduction ?? 0;
+  }
+  return total;
+}
+
+/**
+ * Returns the effective Craft / Lore / Occult minimums for an artifact of the
+ * given rating, after applying any charm-based reduction.
+ * @param {ExaltedActor} actor
+ * @param {number}       rating  1–5
+ * @returns {{ craft: number, lore: number, occult: number }}
+ */
+export function effectiveArtifactAbilityReqs(actor, rating) {
+  const base = ARTIFACT_ABILITY_REQS[Math.max(1, Math.min(5, rating))] ?? ARTIFACT_ABILITY_REQS[5];
+  const reduction = _artifactAbilityReductionFrom(actor);
+  return {
+    craft:  Math.max(0, base.craft  - reduction),
+    lore:   Math.max(0, base.lore   - reduction),
+    occult: Math.max(0, base.occult - reduction),
+  };
+}
+
+/**
+ * Returns true when the actor meets the (possibly charm-reduced) ability
+ * minimums for crafting an artifact of the given rating.
+ * @param {ExaltedActor} actor
+ * @param {number}       rating  1–5
+ * @returns {boolean}
+ */
+export function meetsArtifactAbilityReqs(actor, rating) {
+  const reqs = effectiveArtifactAbilityReqs(actor, rating);
+  const sys  = actor.system;
+  return (sys.abilities.craft.value  ?? 0) >= reqs.craft
+      && (sys.abilities.lore.value   ?? 0) >= reqs.lore
+      && (sys.abilities.occult.value ?? 0) >= reqs.occult;
 }

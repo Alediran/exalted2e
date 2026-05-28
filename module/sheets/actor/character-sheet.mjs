@@ -14,7 +14,7 @@ import { AnimaColorDialog } from "../../dialogs/anima-color-dialog.mjs";
 import { sanctifyOathBinding } from "../../helpers/oath.mjs";
 import { CraftingRollDialog }     from "../../dialogs/crafting-roll-dialog.mjs";
 import { ArtifactCraftingDialog } from "../../dialogs/artifact-crafting-dialog.mjs";
-import { exceedsCraftCap, artifactSuccessTarget } from "../../helpers/crafting-helpers.mjs";
+import { exceedsCraftCap, artifactSuccessTarget, effectiveArtifactAbilityReqs, meetsArtifactAbilityReqs } from "../../helpers/crafting-helpers.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -2039,6 +2039,30 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   static async #onAddArtifactProject(_event, _target) {
+    const actor = this.document;
+
+    // Determine the highest rating this actor can create; default the pip there.
+    let defaultRating = 1;
+    for (let i = 5; i >= 1; i--) {
+      if (meetsArtifactAbilityReqs(actor, i)) { defaultRating = i; break; }
+    }
+
+    const ratingPips = [5,4,3,2,1].map(i => {
+      const canMake = meetsArtifactAbilityReqs(actor, i);
+      const tooltip = canMake
+        ? String(i)
+        : (() => {
+            const reqs = effectiveArtifactAbilityReqs(actor, i);
+            return game.i18n.format("EX2E.ArtifactRatingBlockedTooltip", {
+              craft: reqs.craft, lore: reqs.lore, occult: reqs.occult
+            });
+          })();
+      return `<input type="radio" name="rating" id="dlg-rating-${i}" value="${i}"` +
+             (i === defaultRating ? " checked" : "") +
+             (canMake ? "" : " disabled") +
+             `><label for="dlg-rating-${i}" title="${tooltip}"><span class="pip"></span></label>`;
+    }).join("");
+
     const content = `
       <div class="form-group">
         <label>${game.i18n.localize("EX2E.ArtifactProjectName")}</label>
@@ -2046,12 +2070,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       </div>
       <div class="form-group">
         <label>${game.i18n.localize("EX2E.ArtifactRating")}</label>
-        <div class="artifact-pip-rating">${
-          [5,4,3,2,1].map(i =>
-            `<input type="radio" name="rating" id="dlg-rating-${i}" value="${i}"${i === 1 ? " checked" : ""}>` +
-            `<label for="dlg-rating-${i}" title="${i}"><span class="pip"></span></label>`
-          ).join("")
-        }</div>
+        <div class="artifact-pip-rating">${ratingPips}</div>
       </div>
       <div class="form-group">
         <label>${game.i18n.localize("EX2E.ArtifactMaterial")}</label>
@@ -2069,7 +2088,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     if (!result) return;
 
     const rating = Math.min(5, Math.max(1, parseInt(result.rating, 10) || 1));
-    const projects = foundry.utils.deepClone(this.document.system.artifactProjects ?? []);
+    const projects = foundry.utils.deepClone(actor.system.artifactProjects ?? []);
     projects.push({
       id:               foundry.utils.randomID(),
       name:             String(result.name || game.i18n.localize("EX2E.ArtifactUnnamedProject")),
@@ -2081,7 +2100,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       seasonsElapsed:   0,
       status:           "active"
     });
-    await this.document.update({ "system.artifactProjects": projects });
+    await actor.update({ "system.artifactProjects": projects });
   }
 
   static async #onRollArtifactProject(_event, target) {

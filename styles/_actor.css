@@ -29,6 +29,15 @@
 .artifact-pip-rating input:checked ~ label .pip {
   background: var(--ex2e-gold-dark, #c9a840);
 }
+/* Blocked pips: greyed out, not clickable */
+.artifact-pip-rating input:disabled + label {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+.artifact-pip-rating input:disabled + label .pip {
+  border-color: var(--color-border-light-2, #888);
+  background:   transparent !important;
+}
 
 .tab-crafting .crafting-header {
   display:         flex;

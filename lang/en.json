@@ -397,6 +397,11 @@
     "ArtifactCompleteArtifact": "Complete Artifact",
     "ArtifactSaveAndAbandon": "Abandon Project",
     "ArtifactUnnamedProject": "Unnamed Artifact",
+    "ArtifactRatingBlockedTooltip": "Requires Craft {craft}, Lore {lore}, Occult {occult}",
+
+    "EffectArtifactAbilityReduction": "Reduces Artifact Ability Minimums (Craft / Lore / Occult)",
+    "EffectArtifactAbilityReductionHelp": "Reduces the minimum Craft, Lore, and Occult required to create artifacts by the specified amount. Applies to all three abilities equally.",
+    "ArtifactAbilityReductionAmount": "Reduction",
 
     "ResourcesPrefix": "Resources",
     "CharmAttackEnable": "This charm creates a weapon-like attack",

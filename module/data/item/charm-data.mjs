@@ -407,6 +407,12 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         scope:   new fields.StringField({ initial: "natural", choices: ["natural", "supernatural"] })
       }),
 
+      // M20 — Artifact creation ability minimum reduction (Craft / Lore / Occult)
+      artifactAbilityReduction: new fields.SchemaField({
+        enabled:   new fields.BooleanField({ initial: false }),
+        reduction: new fields.NumberField({ initial: 1, min: 1, max: 4, integer: true })
+      }),
+
       // ── Multi-Purchase Fields ───────────────────────────────────────────
       // Maximum number of times this charm can be purchased.
       maxPurchases:  new fields.StringField({ initial: "1", blank: false }),
