@@ -352,6 +352,10 @@ ${capWarning}`;
       );
       if (!ledger) return false;
 
+      // Grant Overdrive motes on activation if the charm specifies them
+      const _odMotes = sys.overdriveMotes ?? 0;
+      if (_odMotes > 0) await actor.addOverdriveMotes(_odMotes);
+
       // Spend non-mote costs from the selected surcharge option (motes already in motesOverride).
       if (surchargeExtra) {
         if (surchargeExtra.willpower > 0) {

@@ -66,7 +66,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Emotion (scene-long ±1/±3 internal penalty on actions counter to emotion)
 - [x] Illusion (Perception+Investigation disbelieve mechanic)
 - [x] Servitude (loyalty binding AE)
-- [ ] Overdrive pool (temp Peripheral, cap 25, dissipates scene-end) — [charms-gap A1](docs/charms-gap.md)
+- [x] Overdrive pool (temp Peripheral, cap 25, dissipates scene-end) — schema field + buffer drain + addOverdriveMotes + combat end clear + UI badge
 - [ ] Touch keyword mechanics (requires Dex+MA attack vs non-consenting target)
 - [ ] Training keyword (trainee XP debt ledger) — [charms-gap A8](docs/charms-gap.md)
 - [x] Native keyword gating (blocks Eclipse/Moonshadow/Fiend from learning) — learn-time enforcement deferred; see [charms-gap A10](docs/charms-gap.md)

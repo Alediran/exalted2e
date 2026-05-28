@@ -1111,6 +1111,18 @@
     {{/if}}
   </div>
 
+  {{!-- M5b Overdrive Mote Grant ──────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <div class="effect-body effect-grid-2">
+      <div class="field-group">
+        <label>{{localize "EX2E.EffectOverdriveMotes"}}</label>
+        <input type="number" name="system.overdriveMotes"
+               value="{{system.overdriveMotes}}" min="0" max="25"
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+    </div>
+  </div>
+
   {{!-- M8 Mote Pool Expansion ────────────────────────────────────────────── --}}
   <div class="effect-section">
     <label class="effect-enable-row">

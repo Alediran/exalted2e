@@ -113,7 +113,8 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
           value:     new fields.NumberField({ initial: 33, min: 0, max: 100, integer: true }),
           max:       new fields.NumberField({ initial: 33, min: 0, max: 100, integer: true }),
           committed: new fields.NumberField({ initial: 0,  min: 0, max: 100, integer: true }),
-          bonus:     new fields.NumberField({ initial: 0,  min: 0, max: 100, integer: true })
+          bonus:     new fields.NumberField({ initial: 0,  min: 0, max: 100, integer: true }),
+          overdrive: new fields.NumberField({ initial: 0,  min: 0, max: 25,  integer: true })
         })
       }),
 

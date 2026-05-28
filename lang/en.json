@@ -1808,6 +1808,8 @@
     "EffectHealthGrant": "Health Level Grant",
     "EffectMotePoolBonus": "Mote Pool Expansion",
     "EffectMoteRecovery": "Mote Recovery Trigger",
+    "EffectOverdriveMotes": "Overdrive Motes (on activation, 0 = disabled)",
+    "OverdriveTooltip": "Overdrive motes — drain before Peripheral; dissipate at scene end",
     "EffectSoakBonus": "Soak / Hardness Bonus",
     "EffectSpeedModifier": "Speed Modifier",
     "EffectStatBoost": "Attribute / Ability Boost",

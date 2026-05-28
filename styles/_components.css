@@ -549,6 +549,12 @@
   color:     var(--ex2e-dmg-lethal);
   font-style: italic;
 }
+.pool-overdrive {
+  font-size:   var(--ex2e-font-size-xs);
+  color:       var(--ex2e-gold-bright);
+  font-weight: 600;
+  font-style:  italic;
+}
 
 /* Committed-motes block visually distinct from the spent-pool blocks */
 .mote-pool-committed {

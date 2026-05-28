@@ -227,6 +227,9 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         }))
       }),
 
+      // M5b — Overdrive pool addition on activation (Abyssal Overdrive keyword charms)
+      overdriveMotes: new fields.NumberField({ initial: 0, min: 0, max: 25, integer: true }),
+
       // M5 — Mote recovery on trigger event (Essence-Gathering Temper family)
       moteRecovery: new fields.SchemaField({
         modeExclusive:  new fields.BooleanField({ initial: false }),

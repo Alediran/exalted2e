@@ -90,6 +90,9 @@
                 {{#unless isEditable}}readonly{{/unless}}>
           <span class="pool-sep">/</span>
           <span class="pool-max">{{system.motes.peripheral.effectiveMax}}</span>
+          {{#if system.motes.peripheral.overdrive}}
+          <span class="pool-overdrive" title="{{localize 'EX2E.OverdriveTooltip'}}">+{{system.motes.peripheral.overdrive}}</span>
+          {{/if}}
         </div>
         <div class="mote-pool-block mote-pool-committed"
              title="{{localize 'EX2E.Committed'}}: {{system.motes.personal.totalCommitted}} {{localize 'EX2E.MotesPersonal'}} / {{system.motes.peripheral.totalCommitted}} {{localize 'EX2E.MotesPeripheral'}}">

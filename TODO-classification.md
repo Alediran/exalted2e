@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-27 (Combo-building rules already implemented in ComboSheet.#validateAdd; count 1 A / 32 B / 6 C / 39 total)
+Last updated: 2026-05-27 (Overdrive pool implemented: schema + spendMotes buffer drain + addOverdriveMotes + endCombat clear + UI badge; count 1 A / 31 B / 6 C / 38 total)
 
 ---
 
@@ -21,7 +21,6 @@ Last updated: 2026-05-27 (Combo-building rules already implemented in ComboSheet
 |------|-------------|-------------|
 | Shields as weapons | Defense | new weapon tag handling, DV bonus, mobility penalty |
 | Fatigue penalty mechanic | Defense / Penalty | hook on scene-length exertion + Sta+Res roll |
-| Overdrive pool | Keywords | temp Peripheral pool tracking + scene-end dissipation — [charms-gap A1](docs/charms-gap.md) |
 | Blasphemy / Axiomatic / Dawn damage upgrades | Keywords | mirror of Holy, splat-specific target condition |
 | Training keyword XP debt ledger | Keywords | per-actor debt AE or item field — [charms-gap A8](docs/charms-gap.md) |
 | Merged keyword (learn-once, multi-ability) | Keywords | charm activation routing extension |
@@ -75,6 +74,6 @@ Last updated: 2026-05-27 (Combo-building rules already implemented in ComboSheet
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 32 |
+| B — Ready, Medium | 31 |
 | C — Ready, Complex | 6 |
-| **Total pending** | **39** |
+| **Total pending** | **38** |

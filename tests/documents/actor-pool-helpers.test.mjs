@@ -133,6 +133,108 @@ describe("ExaltedActor.spendMotes", () => {
     expect(actor.update).not.toHaveBeenCalled();
     expect(ui.notifications.warn).toHaveBeenCalledWith("EX2E.NotEnoughMotes");
   });
+
+  it("drains overdrive before peripheral when spending Peripheral", async () => {
+    const actor = makeFakeActor({
+      personal:   { value: 5, max: 10 },
+      peripheral: { value: 8, max: 20, overdrive: 10 }
+    });
+    const result = await ExaltedActor.prototype.spendMotes.call(actor, 4, "peripheral");
+    expect(actor.update).toHaveBeenCalledWith(
+      {
+        "system.motes.peripheral.value":    8,
+        "system.motes.personal.value":      5,
+        "system.motes.peripheral.overdrive": 6,
+        "system.scenePeripheral":           4
+      },
+      { scenePeripheralBefore: 0 }
+    );
+    expect(result).toEqual({
+      fromPrimary:   4,
+      fromSecondary: 0,
+      primaryPool:   "peripheral",
+      secondaryPool: "personal"
+    });
+  });
+
+  it("uses overdrive then regular peripheral when overdrive is insufficient", async () => {
+    const actor = makeFakeActor({
+      personal:   { value: 5, max: 10 },
+      peripheral: { value: 8, max: 20, overdrive: 3 }
+    });
+    const result = await ExaltedActor.prototype.spendMotes.call(actor, 7, "peripheral");
+    expect(actor.update).toHaveBeenCalledWith(
+      {
+        "system.motes.peripheral.value":    4,
+        "system.motes.personal.value":      5,
+        "system.motes.peripheral.overdrive": 0,
+        "system.scenePeripheral":           7
+      },
+      { scenePeripheralBefore: 0 }
+    );
+    expect(result).toEqual({
+      fromPrimary:   7,
+      fromSecondary: 0,
+      primaryPool:   "peripheral",
+      secondaryPool: "personal"
+    });
+  });
+
+  it("counts overdrive in the total available motes check", async () => {
+    const actor = makeFakeActor({
+      personal:   { value: 1, max: 10 },
+      peripheral: { value: 2, max: 20, overdrive: 10 }
+    });
+    const result = await ExaltedActor.prototype.spendMotes.call(actor, 10, "peripheral");
+    expect(result).not.toBeNull();
+    expect(actor.update).toHaveBeenCalled();
+  });
+
+  it("does not drain overdrive when spending Personal motes", async () => {
+    const actor = makeFakeActor({
+      personal:   { value: 5, max: 10 },
+      peripheral: { value: 8, max: 20, overdrive: 10 }
+    });
+    await ExaltedActor.prototype.spendMotes.call(actor, 3, "personal");
+    const [updateArg] = actor.update.mock.calls[0];
+    expect(updateArg["system.motes.peripheral.overdrive"]).toBeUndefined();
+  });
+});
+
+describe("ExaltedActor.addOverdriveMotes", () => {
+  it("adds motes to the overdrive pool", async () => {
+    const actor = makeFakeActor({
+      peripheral: { value: 8, max: 20, overdrive: 5 }
+    });
+    await ExaltedActor.prototype.addOverdriveMotes.call(actor, 3);
+    expect(actor.update).toHaveBeenCalledWith({
+      "system.motes.peripheral.overdrive": 8
+    });
+  });
+
+  it("clamps overdrive at 25", async () => {
+    const actor = makeFakeActor({
+      peripheral: { value: 8, max: 20, overdrive: 22 }
+    });
+    await ExaltedActor.prototype.addOverdriveMotes.call(actor, 10);
+    expect(actor.update).toHaveBeenCalledWith({
+      "system.motes.peripheral.overdrive": 25
+    });
+  });
+
+  it("is a no-op when already at 25", async () => {
+    const actor = makeFakeActor({
+      peripheral: { value: 8, max: 20, overdrive: 25 }
+    });
+    await ExaltedActor.prototype.addOverdriveMotes.call(actor, 5);
+    expect(actor.update).not.toHaveBeenCalled();
+  });
+
+  it("is a no-op for non-character actors", async () => {
+    const actor = makeFakeActor({ type: "npc" });
+    await ExaltedActor.prototype.addOverdriveMotes.call(actor, 5);
+    expect(actor.update).not.toHaveBeenCalled();
+  });
 });
 
 describe("ExaltedActor.recoverMotes", () => {

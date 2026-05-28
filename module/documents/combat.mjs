@@ -433,6 +433,12 @@ export class ExaltedCombat extends Combat {
         );
       })
     );
+    // Dissipate Overdrive mote pool at scene end
+    await Promise.all(
+      characterCombatants
+        .filter(c => (c.actor.system.motes?.peripheral?.overdrive ?? 0) > 0)
+        .map(c => c.actor.update({ "system.motes.peripheral.overdrive": 0 }))
+    );
     return super.endCombat();
   }
 

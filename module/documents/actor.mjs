@@ -970,33 +970,42 @@ export class ExaltedActor extends Actor {
       return { fromPrimary: amount, fromSecondary: 0, primaryPool: "motes", secondaryPool: "motes" };
     }
     if (this.type !== "character") return null;
+
+    // Overdrive is a buffer in front of Peripheral — drain it first
+    const overdrive = pool === "peripheral" ? (this.system.motes.peripheral.overdrive ?? 0) : 0;
     const primary   = this.system.motes[pool];
     const otherKey  = pool === "peripheral" ? "personal" : "peripheral";
     const secondary = this.system.motes[otherKey];
 
-    if (primary.value + secondary.value < amount) {
+    if (overdrive + primary.value + secondary.value < amount) {
       ui.notifications.warn(game.i18n.localize("EX2E.NotEnoughMotes"));
       return null;
     }
 
-    const fromPrimary   = Math.min(primary.value, amount);
-    const overflow      = amount - fromPrimary;
-    const fromSecondary = Math.min(secondary.value, overflow);
+    // Drain order: overdrive → primary pool → secondary pool
+    let remaining       = amount;
+    const fromOverdrive = Math.min(overdrive, remaining);
+    remaining          -= fromOverdrive;
+    const fromPrimary   = Math.min(primary.value, remaining);
+    remaining          -= fromPrimary;
+    const fromSecondary = Math.min(secondary.value, remaining);
 
-    const peripheralSpent    = pool === "peripheral" ? fromPrimary : fromSecondary;
+    const peripheralSpent    = pool === "peripheral" ? (fromOverdrive + fromPrimary) : fromSecondary;
     const oldScenePeripheral = this.system.scenePeripheral ?? 0;
     const newScenePeripheral = oldScenePeripheral + peripheralSpent;
 
-    await this.update(
-      {
-        [`system.motes.${pool}.value`]:     primary.value   - fromPrimary,
-        [`system.motes.${otherKey}.value`]: secondary.value - fromSecondary,
-        "system.scenePeripheral":           newScenePeripheral
-      },
-      { scenePeripheralBefore: oldScenePeripheral }
-    );
+    const updateData = {
+      [`system.motes.${pool}.value`]:     primary.value   - fromPrimary,
+      [`system.motes.${otherKey}.value`]: secondary.value - fromSecondary,
+      "system.scenePeripheral":           newScenePeripheral
+    };
+    if (fromOverdrive > 0) {
+      updateData["system.motes.peripheral.overdrive"] = overdrive - fromOverdrive;
+    }
+
+    await this.update(updateData, { scenePeripheralBefore: oldScenePeripheral });
     return {
-      fromPrimary,
+      fromPrimary: fromOverdrive + fromPrimary,
       fromSecondary,
       primaryPool:   pool,
       secondaryPool: otherKey
@@ -1013,6 +1022,14 @@ export class ExaltedActor extends Actor {
     const moteData = this.system.motes[pool];
     const newVal   = Math.min(moteData.max, moteData.value + amount);
     return this.update({ [`system.motes.${pool}.value`]: newVal });
+  }
+
+  async addOverdriveMotes(amount) {
+    if (this.type !== "character") return;
+    const current = this.system.motes.peripheral.overdrive ?? 0;
+    const newVal  = Math.min(25, current + amount);
+    if (newVal === current) return;
+    return this.update({ "system.motes.peripheral.overdrive": newVal });
   }
 
   async recoverWillpower(amount) {
