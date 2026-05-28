@@ -80,8 +80,12 @@ Hooks.once("quenchReady", async quench => {
   // Delete any combats left active from a previous game session before any
   // test runs. A lingering combat causes game.combat.combatant to point at
   // the wrong actor, silently breaking Action-Only and other combat-gated checks.
-  for (const c of (game.combats?.contents ?? [])) {
-    try { await c.delete(); } catch (_) { /* ignore */ }
+  // Guard: only purge in the dedicated test world so Quench installed in a
+  // play world doesn't wipe the GM's active encounter on every reload.
+  if (game.world.id === "exalted2e-test") {
+    for (const c of (game.combats?.contents ?? [])) {
+      try { await c.delete(); } catch (_) { /* ignore */ }
+    }
   }
 
   quench.registerBatch("exalted2e.knockback.focused",        registerKnockbackFocused,       { displayName: "Knockback (focused)" });
