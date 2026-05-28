@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-28 (Countermagic circle-rank cost enforcement done; count 1 A / 30 B / 6 C / 37 total)
+Last updated: 2026-05-28 (Crippling injuries + drag-and-drop item transfer done; count 1 A / 28 B / 6 C / 35 total)
 
 ---
 
@@ -37,12 +37,10 @@ Last updated: 2026-05-28 (Countermagic circle-rank cost enforcement done; count 
 | Circle special buttons (party roll, XP award, rest) | Circle | macro-buttons on folder widget |
 | NPC → character auto-conversion on move-in | Circle | hook + actor-type change |
 | Clarity mechanical effects | Alchemical | Clarity track consequences (Virtue suppression thresholds) |
-| Crippling injuries | Other | health track extension + extended surgery roll |
 | Manse geomancy rules | Crafting | Oadenol's Codex power table, demesne pre-roll (unblocked by Manse item type) |
 | Background mechanical hooks | Other | Familiar actor link + Cult mote-regen/WP-recovery + 53-type optgroup registry done; Backing/Contacts/Resources mechanical automation still pending |
 | Workshop & material prerequisites UI | Crafting | prerequisites check UI for crafting projects |
 | Artifact extended-roll builder | Crafting | Rating cumulative successes; seasons interval; exotic ingredient tracker |
-| Drag-and-drop items between sheets | QoL | improve drop handler across item types |
 | Multi-actor action helpers | QoL | Cooperative keyword done; Coordinate attacks + mass Guard still pending |
 | Personal/Peripheral commitment split | QoL | artifact attunement choice UI |
 | Poison/Disease tracking | Other | per-interval AE *(needs Poison/Disease item types — Group A — first)* |
@@ -73,6 +71,6 @@ Last updated: 2026-05-28 (Countermagic circle-rank cost enforcement done; count 
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 30 |
+| B — Ready, Medium | 28 |
 | C — Ready, Complex | 6 |
-| **Total pending** | **37** |
+| **Total pending** | **35** |

@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 210 / 265 complete** (10 out-of-scope / partial — last updated 2026-05-27)
+**Progress: 212 / 265 complete** (10 out-of-scope / partial — last updated 2026-05-28)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -283,7 +283,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Clarity mechanical effects (Alchemical) — see Alchemical splat
 - [x] Paradox track (Sidereal) — see Sidereal splat
 - [ ] Poison / Disease tracking (item types + per-interval AE)
-- [ ] Crippling injuries (4+ HL single hit; surgery Int+Medicine to heal)
+- [x] Crippling injuries (4+ HL single hit; surgery Int+Medicine to heal)
 - [x] Environmental hazards (Damage/interval, Trauma; generic Scene Region behavior with resistance rolls, terrain cost, and GM placement flow)
 - [x] Mass combat (unit actor type: Magnitude, Drill, Might, Endurance, Morale, formations, commander + relays + heroes; Guard DV bonus; unit DV pipeline; chokepoint informational system — Phases 1–9 complete)
 - [ ] Artifact creation rules (extended Craft roll; Craft+Lore+Occult; seasons interval)
@@ -308,7 +308,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Manse geomancy rules (Oadenol's Codex) — manse power table, demesne pre-roll
 
 ## Quality of Life
-- [ ] Drag-and-drop items between sheets (partial: effect-wrapper compendium works)
+- [x] Drag-and-drop items between sheets — move semantics for weapon/armor/background/meritflaw between actor sheets; non-transferable types (charm, spell, etc.) blocked with warning
 - [x] Automated charm prerequisite validation
 - [x] Charm Tree Dialog — visual prerequisite tree per splat + ability/attribute; branch navigation; actor purchase state (owned / purchasable / locked / available card states)
 - [x] GM "Roll a Pool" dialog — ad-hoc dice roller that picks up the standard penalty machinery
