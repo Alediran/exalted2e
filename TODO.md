@@ -286,7 +286,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Crippling injuries (4+ HL single hit; surgery Int+Medicine to heal)
 - [x] Environmental hazards (Damage/interval, Trauma; generic Scene Region behavior with resistance rolls, terrain cost, and GM placement flow)
 - [x] Mass combat (unit actor type: Magnitude, Drill, Might, Endurance, Morale, formations, commander + relays + heroes; Guard DV bonus; unit DV pipeline; chokepoint informational system — Phases 1–9 complete)
-- [ ] Artifact creation rules (extended Craft roll; Craft+Lore+Occult; seasons interval)
+- [x] Artifact creation rules (extended Craft roll; Craft+Lore+Occult; seasons interval)
 - [x] **Manse** item type (rating, aspect, powers budget; linked to Background for rating + Hearthstone for aspect)
 - [x] **Hearthstone** item type (rating, type, mote-regen, socketable into artifact weapons/armor/equipment)
 - [x] **Artifact** item type (general; non-weapon/armor artifacts) — covered by `equipment` item type with `artifact: true` flag (magical material, attunement, hearthstone slots)
@@ -303,7 +303,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 ## Crafting
 - [x] Craft specializations (Fire, Water, Air, Earth, Wood, Magitech, etc.)
 - [x] Mundane crafting roll resolver (Int/Per+Craft vs Resources diff; extended for large items)
-- [ ] Artifact extended-roll builder (Rating cumulative successes; seasons interval; exotic ingredient tracker)
+- [x] Artifact extended-roll builder (Rating cumulative successes; seasons interval; exotic ingredient tracker)
 - [ ] Workshop & material prerequisites UI
 - [ ] Manse geomancy rules (Oadenol's Codex) — manse power table, demesne pre-roll
 

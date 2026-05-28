@@ -2,6 +2,7 @@
   <div class="sheet-body">
 
     <div class="crafting-header">
+      <h2 class="section-header">{{localize "EX2E.CraftingProjectsHeader"}}</h2>
       {{#if @root.isEditable}}
       <button type="button" data-action="addCraftingProject" class="btn-add-project">
         <i class="fa-solid fa-hammer"></i>
@@ -55,6 +56,77 @@
     </table>
     {{else}}
     <p class="crafting-empty">{{localize "EX2E.CraftingNoProjects"}}</p>
+    {{/if}}
+
+    <!-- Artifact Projects -->
+    <div class="crafting-header crafting-header-artifact">
+      <h2 class="section-header">{{localize "EX2E.ArtifactCrafting"}}</h2>
+      {{#if @root.isEditable}}
+      <button type="button" data-action="addArtifactProject" class="btn-add-project">
+        <i class="fa-solid fa-gem"></i>
+        {{localize "EX2E.ArtifactNewProject"}}
+      </button>
+      {{/if}}
+    </div>
+
+    {{#if artifactProjects.length}}
+    <table class="crafting-table artifact-table">
+      <thead>
+        <tr>
+          <th>{{localize "EX2E.ArtifactProjectName"}}</th>
+          <th>{{localize "EX2E.ArtifactRating"}}</th>
+          <th>{{localize "EX2E.ArtifactMaterial"}}</th>
+          <th>{{localize "EX2E.ArtifactProgressShort"}}</th>
+          <th>{{localize "EX2E.ArtifactSeasons"}}</th>
+          <th>{{localize "EX2E.CraftingProjectStatus"}}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each artifactProjects as |p|}}
+        <tr class="crafting-project-row crafting-status-{{p.status}}">
+          <td class="project-name">{{p.name}}</td>
+          <td>{{p.rating}}</td>
+          <td>
+            {{#if p.material}}
+              {{p.material}}
+              {{#if p.hasIngredients}}
+                <i class="fa-solid fa-gem" style="color:gold" title="{{localize 'EX2E.ArtifactIngredientsObtained'}}"></i>
+              {{else}}
+                <i class="fa-regular fa-gem" title="{{localize 'EX2E.ArtifactIngredientsMissing'}}"></i>
+              {{/if}}
+            {{else}}—{{/if}}
+          </td>
+          <td class="artifact-progress">{{p.currentSuccesses}} / {{p.targetSuccesses}}</td>
+          <td>{{p.seasonsElapsed}}</td>
+          <td><span class="status-text">{{p.statusLabel}}</span></td>
+          <td class="crafting-row-actions">
+            {{#if (eq p.status "active")}}
+            {{#if @root.isEditable}}
+            <button type="button" data-action="toggleArtifactIngredients" data-project-id="{{p.id}}"
+              class="btn-toggle-ingredients"
+              title="{{localize 'EX2E.ArtifactToggleIngredients'}}">
+              <i class="fa-solid fa-gem"></i>
+            </button>
+            <button type="button" data-action="rollArtifactProject" data-project-id="{{p.id}}"
+              class="btn-roll-project" title="{{localize 'EX2E.ArtifactRoll'}}">
+              <i class="fa-solid fa-dice"></i>
+            </button>
+            {{/if}}
+            {{/if}}
+            {{#if @root.isEditable}}
+            <button type="button" data-action="deleteArtifactProject" data-project-id="{{p.id}}"
+              class="btn-delete-project" title="{{localize 'EX2E.Delete'}}">
+              <i class="fa-solid fa-times"></i>
+            </button>
+            {{/if}}
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{else}}
+    <p class="crafting-empty">{{localize "EX2E.ArtifactNoProjects"}}</p>
     {{/if}}
 
   </div>

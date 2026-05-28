@@ -299,6 +299,22 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         })
       })),
 
+      artifactProjects: new fields.ArrayField(new fields.SchemaField({
+        id:               new fields.StringField({ initial: "", blank: true }),
+        name:             new fields.StringField({ initial: "", blank: true }),
+        rating:           new fields.NumberField({ integer: true, min: 1, max: 5, initial: 1 }),
+        material:         new fields.StringField({ initial: "", blank: true }),
+        hasIngredients:   new fields.BooleanField({ initial: false }),
+        targetSuccesses:  new fields.NumberField({ integer: true, min: 1, initial: 5 }),
+        currentSuccesses: new fields.NumberField({ integer: true, min: 0, initial: 0 }),
+        seasonsElapsed:   new fields.NumberField({ integer: true, min: 0, initial: 0 }),
+        status:           new fields.StringField({
+          choices: ["active", "completed", "botched"],
+          initial: "active",
+          blank:   false
+        })
+      })),
+
       // Append-only ledger of trait purchases made while `purchaseLocked`
       // was true. Entries are kept forever unless a GM explicitly deletes
       // one via the Experience-tab UI (which also refunds the XP).

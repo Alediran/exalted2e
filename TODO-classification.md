@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-28 (Per-splat tabs done; count 1 A / 26 B / 6 C / 33 total)
+Last updated: 2026-05-28 (Artifact creation rules done; count 1 A / 26 B / 5 C / 32 total)
 
 ---
 
@@ -56,7 +56,6 @@ Last updated: 2026-05-28 (Per-splat tabs done; count 1 A / 26 B / 6 C / 33 total
 | Clinch / Grapple | Combat | new turn-loop: control pool, opposed rolls, sub-actions (throw/crush/hold), per-tick renewal |
 | Mounted combat | Combat | Ride-controlled mount stats, charge bonuses, Ride charm integration |
 | Thaumaturgy | Sorcery | separate lower-power tier: procedures, degrees, own roll resolver |
-| Artifact creation rules | Crafting | extended Craft roll + Craft+Lore+Occult, seasons interval, exotic ingredient tracker |
 | Vehicle / Warstrider actor type | Other | new actor type with unique soak/movement/weapon-mount mechanics |
 | Migration pipeline | QoL | schema versioning, upgrade scripts, DataModel migration hooks |
 
@@ -70,5 +69,5 @@ Last updated: 2026-05-28 (Per-splat tabs done; count 1 A / 26 B / 6 C / 33 total
 |-------|-------|
 | A — Ready, Simple | 1 |
 | B — Ready, Medium | 26 |
-| C — Ready, Complex | 6 |
-| **Total pending** | **33** |
+| C — Ready, Complex | 5 |
+| **Total pending** | **32** |

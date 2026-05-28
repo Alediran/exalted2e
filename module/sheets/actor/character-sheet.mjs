@@ -12,8 +12,9 @@ import { editImageAction } from "../_edit-image.mjs";
 import { sceneChangeFade } from "../../combat/anima-fade.mjs";
 import { AnimaColorDialog } from "../../dialogs/anima-color-dialog.mjs";
 import { sanctifyOathBinding } from "../../helpers/oath.mjs";
-import { CraftingRollDialog } from "../../dialogs/crafting-roll-dialog.mjs";
-import { exceedsCraftCap }    from "../../helpers/crafting-helpers.mjs";
+import { CraftingRollDialog }     from "../../dialogs/crafting-roll-dialog.mjs";
+import { ArtifactCraftingDialog } from "../../dialogs/artifact-crafting-dialog.mjs";
+import { exceedsCraftCap, artifactSuccessTarget } from "../../helpers/crafting-helpers.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -199,6 +200,10 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       addCraftingProject:    CharacterSheet.#onAddCraftingProject,
       rollCraftingProject:   CharacterSheet.#onRollCraftingProject,
       deleteCraftingProject: CharacterSheet.#onDeleteCraftingProject,
+      addArtifactProject:        CharacterSheet.#onAddArtifactProject,
+      rollArtifactProject:       CharacterSheet.#onRollArtifactProject,
+      deleteArtifactProject:     CharacterSheet.#onDeleteArtifactProject,
+      toggleArtifactIngredients: CharacterSheet.#onToggleArtifactIngredients,
       openFamiliarActor:     CharacterSheet.#onOpenFamiliarActor,
       openCharmTree:            CharacterSheet.#onOpenCharmTree,
       coverArtifactAttunement:  CharacterSheet.#onCoverArtifactAttunement,
@@ -790,6 +795,11 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       statusLabel: game.i18n.localize(`EX2E.CraftingStatus${p.status.charAt(0).toUpperCase() + p.status.slice(1)}`),
     }));
 
+    const artifactProjects = (sys.artifactProjects ?? []).map(p => ({
+      ...p,
+      statusLabel: game.i18n.localize(`EX2E.ArtifactStatus${p.status.charAt(0).toUpperCase() + p.status.slice(1)}`),
+    }));
+
     return {
       ...context,
       actor,
@@ -851,6 +861,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       artifactSlotMap,
       maStyles,
       craftingProjects,
+      artifactProjects,
       hasAttunementMotes: (actor.system.attunementMotes ?? 0) > 0,
       cripplingInjuryTypes,
     };
@@ -2025,6 +2036,80 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     if (idx < 0) return;
     projects.splice(idx, 1);
     await actor.update({ "system.craftingProjects": projects });
+  }
+
+  static async #onAddArtifactProject(_event, _target) {
+    const content = `
+      <div class="form-group">
+        <label>${game.i18n.localize("EX2E.ArtifactProjectName")}</label>
+        <input type="text" name="name" required placeholder="${game.i18n.localize("EX2E.ArtifactProjectNamePlaceholder")}">
+      </div>
+      <div class="form-group">
+        <label>${game.i18n.localize("EX2E.ArtifactRating")}</label>
+        <div class="artifact-pip-rating">${
+          [5,4,3,2,1].map(i =>
+            `<input type="radio" name="rating" id="dlg-rating-${i}" value="${i}"${i === 1 ? " checked" : ""}>` +
+            `<label for="dlg-rating-${i}" title="${i}"><span class="pip"></span></label>`
+          ).join("")
+        }</div>
+      </div>
+      <div class="form-group">
+        <label>${game.i18n.localize("EX2E.ArtifactMaterial")}</label>
+        <input type="text" name="material" placeholder="${game.i18n.localize("EX2E.ArtifactMaterialPlaceholder")}">
+      </div>`;
+
+    const result = await foundry.applications.api.DialogV2.prompt({
+      window:  { title: game.i18n.localize("EX2E.ArtifactNewProject") },
+      content,
+      ok: {
+        label:    game.i18n.localize("EX2E.ArtifactAddProject"),
+        callback: (_ev, button) => new foundry.applications.ux.FormDataExtended(button.form).object
+      }
+    });
+    if (!result) return;
+
+    const rating = Math.min(5, Math.max(1, parseInt(result.rating, 10) || 1));
+    const projects = foundry.utils.deepClone(this.document.system.artifactProjects ?? []);
+    projects.push({
+      id:               foundry.utils.randomID(),
+      name:             String(result.name || game.i18n.localize("EX2E.ArtifactUnnamedProject")),
+      rating,
+      material:         String(result.material || ""),
+      hasIngredients:   false,
+      targetSuccesses:  artifactSuccessTarget(rating),
+      currentSuccesses: 0,
+      seasonsElapsed:   0,
+      status:           "active"
+    });
+    await this.document.update({ "system.artifactProjects": projects });
+  }
+
+  static async #onRollArtifactProject(_event, target) {
+    const actor     = this.document;
+    const projectId = target.dataset.projectId;
+    const project   = (actor.system.artifactProjects ?? []).find(p => p.id === projectId);
+    if (!project || project.status !== "active") return;
+    await ArtifactCraftingDialog.open(project, actor);
+  }
+
+  static async #onDeleteArtifactProject(_event, target) {
+    const actor     = this.document;
+    const projectId = target.dataset.projectId;
+    const projects  = foundry.utils.deepClone(actor.system.artifactProjects ?? []);
+    const idx       = projects.findIndex(p => p.id === projectId);
+    if (idx < 0) return;
+    projects.splice(idx, 1);
+    await actor.update({ "system.artifactProjects": projects });
+  }
+
+  static async #onToggleArtifactIngredients(_event, target) {
+    const actor     = this.document;
+    const projectId = target.dataset.projectId;
+    const projects  = foundry.utils.deepClone(actor.system.artifactProjects ?? []);
+    const idx       = projects.findIndex(p => p.id === projectId);
+    if (idx < 0) return;
+    projects[idx].hasIngredients = !projects[idx].hasIngredients;
+    await actor.update({ "system.artifactProjects": projects });
   }
 
   static #onOpenFamiliarActor(_event, target) {

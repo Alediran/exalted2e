@@ -1,0 +1,157 @@
+<div class="artifact-crafting-dialog">
+
+  {{!-- ── PRE-ROLL PANEL ─────────────────────────────────────────── --}}
+  {{#if (eq phase "preroll")}}
+
+  <div class="artifact-project-info">
+    <div class="info-row">
+      <span class="label">{{localize "EX2E.ArtifactProjectName"}}</span>
+      <span class="value">{{project.name}}</span>
+    </div>
+    <div class="info-row">
+      <span class="label">{{localize "EX2E.ArtifactRating"}}</span>
+      <span class="value">{{project.rating}}</span>
+    </div>
+    {{#if project.material}}
+    <div class="info-row">
+      <span class="label">{{localize "EX2E.ArtifactMaterial"}}</span>
+      <span class="value">
+        {{project.material}}
+        {{#if project.hasIngredients}}
+          <i class="fa-solid fa-gem" title="{{localize 'EX2E.ArtifactIngredientsObtained'}}"></i>
+        {{else}}
+          <i class="fa-regular fa-gem" title="{{localize 'EX2E.ArtifactIngredientsMissing'}}"></i>
+        {{/if}}
+      </span>
+    </div>
+    {{/if}}
+    <div class="info-row">
+      <span class="label">{{localize "EX2E.ArtifactRollAttribute"}}</span>
+      <span class="value">
+        <select name="rollAttribute" class="artifact-attr-select">
+          <option value="dexterity" {{#if (eq rollAttribute "dexterity")}}selected{{/if}}>{{localize "EX2E.AttrDexterity"}}</option>
+          <option value="intelligence" {{#if (eq rollAttribute "intelligence")}}selected{{/if}}>{{localize "EX2E.AttrIntelligence"}}</option>
+        </select>
+      </span>
+    </div>
+    <div class="info-row">
+      <span class="label">{{localize "EX2E.ArtifactBasePool"}}</span>
+      <span class="value">{{basePool}}</span>
+    </div>
+    <div class="info-row">
+      <span class="label">{{localize "EX2E.ArtifactDifficulty"}}</span>
+      <span class="value">{{difficulty}}</span>
+    </div>
+    <div class="info-row">
+      <span class="label">{{localize "EX2E.ArtifactSeasons"}}</span>
+      <span class="value">{{project.seasonsElapsed}}</span>
+    </div>
+  </div>
+
+  <div class="artifact-progress-section">
+    <div class="artifact-progress-label">
+      <span>{{localize "EX2E.ArtifactProgress"}}</span>
+      <span class="artifact-progress-count">{{current}} / {{target}}</span>
+    </div>
+    <div class="artifact-progress-bar-wrap">
+      <div class="artifact-progress-bar" style="width: {{progressPct}}%"></div>
+    </div>
+  </div>
+
+  {{#if (or excellency.first (or excellency.second excellency.third))}}
+  <div class="crafting-charms-section crafting-excellency-section">
+    {{> "systems/exalted2e/templates/dialog/parts/excellency-pips.hbs"}}
+  </div>
+  {{/if}}
+
+  {{#if craftCharms.length}}
+  <div class="crafting-charms-section">
+    <h4>{{localize "EX2E.CraftingCharms"}}</h4>
+    <ul class="crafting-charm-list">
+      {{#each craftCharms as |charm|}}
+      <li>
+        <label>
+          <input type="checkbox" name="selectedCharms" data-charm-id="{{charm.id}}">
+          {{charm.name}}
+        </label>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+  {{/if}}
+
+  {{#if craftCharms.length}}
+  <div class="charm-dice-row charm-dice-row-standalone">
+    <label for="artifactCharmDice">{{localize "EX2E.CraftingCharmDice"}}</label>
+    <input type="number" id="artifactCharmDice" name="charmDice" min="0" value="0">
+  </div>
+  {{/if}}
+
+  <div class="crafting-stunt-section">
+    <div class="charm-dice-row">
+      <label for="artifactStunt">{{localize "EX2E.StuntBonus"}}</label>
+      <select id="artifactStunt" name="stunt">
+        <option value="0">{{localize "EX2E.NoStunt"}}</option>
+        <option value="1">{{localize "EX2E.Stunt1"}}</option>
+        <option value="2">{{localize "EX2E.Stunt2"}}</option>
+        <option value="3">{{localize "EX2E.Stunt3"}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="crafting-dialog-footer">
+    <button type="button" data-action="roll" class="btn-roll">
+      <i class="fa-solid fa-dice"></i> {{localize "EX2E.ArtifactRoll"}}
+    </button>
+    <button type="button" data-action="abandon" class="btn-abandon">
+      {{localize "EX2E.CraftingAbandon"}}
+    </button>
+  </div>
+
+  {{/if}}
+
+  {{!-- ── POST-ROLL PANEL ────────────────────────────────────────── --}}
+  {{#if (eq phase "result")}}
+
+  <div class="crafting-result-panel">
+    <div class="roll-summary">
+      {{localize "EX2E.CraftingRolled"}} {{successes}} {{localize "EX2E.CraftingSuccesses"}}
+      &nbsp;·&nbsp;
+      {{localize "EX2E.ArtifactSeasons"}}: {{project.seasonsElapsed}}
+    </div>
+
+    <div class="crafting-outcome tier-{{outcome.tier}}">
+      <strong>{{tierLabel}}</strong>
+    </div>
+
+    <div class="artifact-progress-section">
+      <div class="artifact-progress-label">
+        <span>{{localize "EX2E.ArtifactProgress"}}</span>
+        <span class="artifact-progress-count">{{outcome.newSuccesses}} / {{target}}</span>
+      </div>
+      <div class="artifact-progress-bar-wrap">
+        <div class="artifact-progress-bar" style="width: {{progressPct}}%"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="crafting-dialog-footer">
+    <button type="button" data-action="save" class="btn-complete">
+      {{#if outcome.completed}}
+        <i class="fa-solid fa-star"></i> {{localize "EX2E.ArtifactCompleteArtifact"}}
+      {{else if (eq outcome.tier "botched")}}
+        <i class="fa-solid fa-skull"></i> {{localize "EX2E.ArtifactSaveAndAbandon"}}
+      {{else}}
+        <i class="fa-solid fa-check"></i> {{localize "EX2E.ArtifactSaveProgress"}}
+      {{/if}}
+    </button>
+    {{#unless outcome.completed}}
+    <button type="button" data-action="abandon" class="btn-abandon">
+      {{localize "EX2E.CraftingAbandon"}}
+    </button>
+    {{/unless}}
+  </div>
+
+  {{/if}}
+
+</div>

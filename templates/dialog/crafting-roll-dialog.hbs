@@ -54,6 +54,12 @@
     {{/if}}
   </div>
 
+  {{#if (or excellency.first (or excellency.second excellency.third))}}
+  <div class="crafting-charms-section crafting-excellency-section">
+    {{> "systems/exalted2e/templates/dialog/parts/excellency-pips.hbs"}}
+  </div>
+  {{/if}}
+
   {{#if craftCharms.length}}
   <div class="crafting-charms-section">
     <h4>{{localize "EX2E.CraftingCharms"}}</h4>

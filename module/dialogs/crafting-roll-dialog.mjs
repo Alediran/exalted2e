@@ -1,5 +1,8 @@
 import { craftingPool, craftingDifficulty, exceedsCraftCap, resolveOutcome } from "../helpers/crafting-helpers.mjs";
 import { ExaltedRoll } from "../rolls/exalted-roll.mjs";
+import { refreshPips } from "../helpers/pip-track.mjs";
+
+const EXC_ORDER = { first: 0, second: 1, third: 2 };
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -24,16 +27,53 @@ export class CraftingRollDialog extends HandlebarsApplicationMixin(ApplicationV2
 
   constructor(options = {}, resolve) {
     super(options);
-    this._project     = options.project;
-    this._actor       = options.actor;
-    this._craftCharms = options.craftCharms;
-    this._resolve     = resolve;
-    this._resolved    = false;
-    this._rollResult  = null; // null = pre-roll; ExaltedRollResult = post-roll
+    this._project           = options.project;
+    this._actor             = options.actor;
+    this._craftExcellencies = options.craftExcellencies ?? [];
+    this._craftCharms       = options.craftCharms;
+    this._resolve           = resolve;
+    this._resolved          = false;
+    this._rollResult        = null;
+    this._secondExcSucc     = 0;
+    this._firstExcMax       = 0;
+    this._secondExcMax      = 0;
   }
 
   get title() {
     return game.i18n.localize("EX2E.CraftingRollTitle");
+  }
+
+  _onRender(context, _options) {
+    if (context.phase !== "preroll") return;
+    const el = this.element;
+
+    const firstTrack   = el.querySelector(".exc-pip-track[data-exc='first']");
+    const secondTrack  = el.querySelector(".exc-pip-track[data-exc='second']");
+    const firstHidden  = firstTrack?.querySelector("[name='firstExcDice']");
+    const secondHidden = secondTrack?.querySelector("[name='secondExcSucc']");
+
+    const updatePips = () => {
+      refreshPips(firstTrack,  firstHidden,  this._firstExcMax  ?? 0);
+      refreshPips(secondTrack, secondHidden, this._secondExcMax ?? 0);
+    };
+
+    firstTrack?.addEventListener("click", (e) => {
+      const pip = e.target.closest(".exc-pip");
+      if (!pip) return;
+      const v = parseInt(pip.dataset.value);
+      firstHidden.value = (parseInt(firstHidden.value) || 0) === v ? 0 : v;
+      updatePips();
+    });
+
+    secondTrack?.addEventListener("click", (e) => {
+      const pip = e.target.closest(".exc-pip");
+      if (!pip) return;
+      const v = parseInt(pip.dataset.value);
+      secondHidden.value = (parseInt(secondHidden.value) || 0) === v ? 0 : v;
+      updatePips();
+    });
+
+    updatePips();
   }
 
   async _prepareContext(_options) {
@@ -49,7 +89,8 @@ export class CraftingRollDialog extends HandlebarsApplicationMixin(ApplicationV2
     const capExceeded = exceedsCraftCap(actor, project.targetResources);
 
     if (this._rollResult) {
-      const { successes, botch } = this._rollResult;
+      const { successes: rawSuccesses, botch } = this._rollResult;
+      const successes = rawSuccesses + (this._secondExcSucc ?? 0);
       const outcome   = resolveOutcome(successes, botch, project);
       const threshold = Math.max(0, successes - difficulty);
       return {
@@ -77,6 +118,17 @@ export class CraftingRollDialog extends HandlebarsApplicationMixin(ApplicationV2
       ];
     }
 
+    const firstExcCharm  = this._craftExcellencies.find(c => c.system.excellency === "first");
+    const secondExcCharm = this._craftExcellencies.find(c => c.system.excellency === "second");
+    const thirdExcCharm  = this._craftExcellencies.find(c => c.system.excellency === "third");
+
+    // Excellency cap: ability-based = full pool; Lunar/Alchemical = first attr option only
+    const kv = isLunarAlchemical
+      ? (sys.attributes[attrOptions?.[0]?.value]?.value ?? 0)
+      : basePool;
+    this._firstExcMax  = kv;
+    this._secondExcMax = Math.ceil(kv / 2);
+
     return {
       phase: "preroll",
       project,
@@ -87,14 +139,42 @@ export class CraftingRollDialog extends HandlebarsApplicationMixin(ApplicationV2
       isLunarAlchemical,
       attrOptions,
       craftCharms: this._craftCharms,
+      excellency: {
+        first:  !!firstExcCharm,
+        second: !!secondExcCharm,
+        third:  !!thirdExcCharm,
+      },
+      firstExcLabel:  firstExcCharm?.name  ?? game.i18n.localize("EX2E.FirstExcellency"),
+      secondExcLabel: secondExcCharm?.name ?? game.i18n.localize("EX2E.SecondExcellency"),
+      thirdExcLabel:  thirdExcCharm?.name  ?? game.i18n.localize("EX2E.ThirdExcellency"),
+      firstExcMax:    this._firstExcMax,
+      secondExcMax:   this._secondExcMax,
     };
   }
 
   static async #onRoll(_event, _btn) {
     try {
-      const el    = this.element;
-      const stunt = parseInt(el.querySelector("[name=stunt]:checked")?.value ?? "0", 10);
-      const charmDice = parseInt(el.querySelector("[name=charmDice]")?.value ?? "0", 10);
+      const el         = this.element;
+      const stunt      = parseInt(el.querySelector("[name=stunt]:checked")?.value ?? "0", 10);
+      const charmDice  = parseInt(el.querySelector("[name=charmDice]")?.value ?? "0", 10);
+      const firstExcDice  = parseInt(el.querySelector("[name='firstExcDice']")?.value  ?? "0", 10);
+      const secondExcSucc = parseInt(el.querySelector("[name='secondExcSucc']")?.value ?? "0", 10);
+      this._secondExcSucc = secondExcSucc;
+
+      // Activate excellency charms if used
+      if (firstExcDice > 0) {
+        const c = this._craftExcellencies.find(x => x.system.excellency === "first");
+        if (c) await c.activateCharm({});
+      }
+      if (secondExcSucc > 0) {
+        const c = this._craftExcellencies.find(x => x.system.excellency === "second");
+        if (c) await c.activateCharm({});
+      }
+      const thirdChecked = el.querySelector("[name=thirdExcActive]")?.checked ?? false;
+      if (thirdChecked) {
+        const c = this._craftExcellencies.find(x => x.system.excellency === "third");
+        if (c) await c.activateCharm({});
+      }
 
       // Activate selected charms (mote spend + chat cards)
       const checked = [...el.querySelectorAll("[name=selectedCharms]:checked")];
@@ -114,7 +194,7 @@ export class CraftingRollDialog extends HandlebarsApplicationMixin(ApplicationV2
         basePool = craftingPool(this._actor, this._project.size);
       }
 
-      const pool = Math.max(1, basePool + (this._project.bonusDice ?? 0) + charmDice);
+      const pool = Math.max(1, basePool + (this._project.bonusDice ?? 0) + charmDice + firstExcDice);
 
       const roll = new ExaltedRoll({
         pool,
@@ -176,15 +256,20 @@ export class CraftingRollDialog extends HandlebarsApplicationMixin(ApplicationV2
   }
 
   static async open(project, actor) {
-    const craftCharms = actor.items.filter(
-      i => i.type === "charm"
-        && i.system.ability === "craft"
-        && i.system.excellency !== "first"
-        && i.system.excellency !== "second"
-        && i.system.excellency !== "third"
+    const craftItems = actor.items.filter(
+      i => i.type === "charm" && i.system.ability === "craft"
     );
+
+    const craftExcellencies = craftItems
+      .filter(i => i.system.excellency && i.system.excellency !== "none")
+      .sort((a, b) => (EXC_ORDER[a.system.excellency] ?? 9) - (EXC_ORDER[b.system.excellency] ?? 9));
+
+    const craftCharms = craftItems.filter(
+      i => !i.system.excellency || i.system.excellency === "none"
+    );
+
     return new Promise(resolve => {
-      const dlg = new CraftingRollDialog({ project, actor, craftCharms }, resolve);
+      const dlg = new CraftingRollDialog({ project, actor, craftExcellencies, craftCharms }, resolve);
       dlg.render({ force: true });
     });
   }

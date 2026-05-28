@@ -1,3 +1,52 @@
+/** Success targets for artifact creation by rating (Oadenol's Codex). */
+export const ARTIFACT_SUCCESS_TARGETS = { 1: 5, 2: 10, 3: 20, 4: 40, 5: 60 };
+
+/**
+ * Returns the cumulative success target for an artifact of the given rating.
+ * @param {number} rating  Artifact rating (1–5)
+ */
+export function artifactSuccessTarget(rating) {
+  return ARTIFACT_SUCCESS_TARGETS[Math.max(1, Math.min(5, rating))] ?? 5;
+}
+
+/**
+ * Compute the artifact crafting dice pool: chosen attribute + Craft.
+ * @param {ExaltedActor} actor
+ * @param {string} [attribute="dexterity"]  "dexterity" or "intelligence"
+ */
+export function artifactPool(actor, attribute = "dexterity") {
+  const sys = actor.system;
+  return (sys.attributes[attribute]?.value ?? 0)
+       + (sys.abilities.craft.value        ?? 0);
+}
+
+/**
+ * Resolve the outcome of one season's artifact crafting roll.
+ *
+ * @param {number}  successes  Net successes from this roll
+ * @param {boolean} botch      Whether the roll was a botch
+ * @param {object}  project    The artifact project record
+ * @returns {{ tier: string, newSuccesses: number, completed: boolean }}
+ *
+ * tier values: "botched" | "setback" | "progress" | "completed"
+ */
+export function resolveArtifactRoll(successes, botch, project) {
+  const current = project.currentSuccesses ?? 0;
+  if (botch) {
+    const reduced = Math.max(0, current - 5);
+    if (current === 0) {
+      return { tier: "botched", newSuccesses: 0, completed: false };
+    }
+    return { tier: "setback", newSuccesses: reduced, completed: false };
+  }
+  const total  = current + successes;
+  const target = project.targetSuccesses;
+  if (total >= target) {
+    return { tier: "completed", newSuccesses: total, completed: true };
+  }
+  return { tier: "progress", newSuccesses: total, completed: false };
+}
+
 /**
  * Auto-calculate the crafting dice pool for ability-based exalts.
  * Small items:  min(Dex, Per, Int) + Craft

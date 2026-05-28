@@ -577,7 +577,8 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/chat/limit-break-card.hbs",
     "systems/exalted2e/templates/chat/hazard-resistance.hbs",
     "systems/exalted2e/templates/dialog/social-attack-dialog.hbs",
-    "systems/exalted2e/templates/chat/mass-combat-result.hbs"
+    "systems/exalted2e/templates/chat/mass-combat-result.hbs",
+    "systems/exalted2e/templates/dialog/parts/excellency-pips.hbs"
   ];
   return foundry.applications.handlebars.loadTemplates(templatePaths);
 }

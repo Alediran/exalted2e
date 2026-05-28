@@ -1,0 +1,24 @@
+{{!-- Shared excellency pip-track rows. Include inside a dialog section wrapper. --}}
+{{#if (or excellency.first (or excellency.second excellency.third))}}
+<h4 class="exc-section-heading">{{localize "EX2E.Excellencies"}}</h4>
+{{/if}}
+{{#if excellency.first}}
+<div class="field-group excellency-section exc-first-section">
+  <label>{{firstExcLabel}} <span class="exc-cost-tag">1m/{{localize "EX2E.Die"}}</span></label>
+  {{pipTrack name="firstExcDice" max=firstExcMax exc="first"}}
+</div>
+{{/if}}
+{{#if excellency.second}}
+<div class="field-group excellency-section exc-second-section">
+  <label>{{secondExcLabel}} <span class="exc-cost-tag">2m/{{localize "EX2E.Success"}}</span></label>
+  {{pipTrack name="secondExcSucc" max=secondExcMax exc="second"}}
+</div>
+{{/if}}
+{{#if excellency.third}}
+<div class="field-group excellency-section exc-third-section">
+  <label>
+    <input type="checkbox" name="thirdExcActive">
+    {{thirdExcLabel}}
+  </label>
+</div>
+{{/if}}

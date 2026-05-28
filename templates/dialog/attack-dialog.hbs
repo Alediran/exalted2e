@@ -35,19 +35,7 @@
       </div>
     </div>
 
-    {{#if excellency.first}}
-    <div class="field-group excellency-section exc-first-section">
-      <label>{{firstExcLabel}} <span class="exc-cost-tag">1m/{{localize "EX2E.Die"}}</span></label>
-      {{pipTrack name="firstExcDice" max=firstExcMax exc="first"}}
-    </div>
-    {{/if}}
-
-    {{#if excellency.second}}
-    <div class="field-group excellency-section exc-second-section">
-      <label>{{secondExcLabel}} <span class="exc-cost-tag">2m/{{localize "EX2E.Success"}}</span></label>
-      {{pipTrack name="secondExcSucc" max=secondExcMax exc="second"}}
-    </div>
-    {{/if}}
+    {{> "systems/exalted2e/templates/dialog/parts/excellency-pips.hbs"}}
 
     {{#if hasCharms}}
     <div class="field-group attack-charm-picker">
