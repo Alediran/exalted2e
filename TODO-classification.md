@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-28 (Crippling injuries + drag-and-drop item transfer done; count 1 A / 28 B / 6 C / 35 total)
+Last updated: 2026-05-28 (Shields as weapons done; count 1 A / 27 B / 6 C / 34 total)
 
 ---
 
@@ -19,7 +19,6 @@ Last updated: 2026-05-28 (Crippling injuries + drag-and-drop item transfer done;
 
 | Item | TODO Section | Key concern |
 |------|-------------|-------------|
-| Shields as weapons | Defense | new weapon tag handling, DV bonus, mobility penalty |
 | Fatigue penalty mechanic | Defense / Penalty | hook on scene-length exertion + Sta+Res roll |
 | Blasphemy / Axiomatic / Dawn damage upgrades | Keywords | mirror of Holy, splat-specific target condition |
 | Training keyword XP debt ledger | Keywords | per-actor debt AE or item field — [charms-gap A8](docs/charms-gap.md) |
@@ -71,6 +70,6 @@ Last updated: 2026-05-28 (Crippling injuries + drag-and-drop item transfer done;
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 28 |
+| B — Ready, Medium | 27 |
 | C — Ready, Complex | 6 |
-| **Total pending** | **35** |
+| **Total pending** | **34** |

@@ -1,0 +1,34 @@
+{
+  "_id": "bc01a234b56c7801",
+  "_key": "!items!bc01a234b56c7801",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Buckler",
+  "type": "weapon",
+  "img": "icons/equipment/shield/buckler-leather-brown.webp",
+  "system": {
+    "modes": [
+      {
+        "name": "Melee",
+        "speed": 4,
+        "accuracy": -1,
+        "damage": 1,
+        "damageType": "bashing",
+        "overwhelming": 1,
+        "defense": 1,
+        "shieldTag": 1,
+        "shieldMobility": 0,
+        "rate": 3,
+        "range": 0,
+        "minStrength": 1,
+        "minDexterity": 0,
+        "minMartialArts": 0,
+        "tags": []
+      }
+    ],
+    "artifact": false, "magicalMaterial": "", "attunementCost": 0, "attuned": false,
+    "artifactRating": 0, "hearthstoneSlots": 0,
+    "description": "<p>A small round shield strapped to the forearm, light enough to leave the hand free. Provides a +1 Parry DV bonus with no mobility penalty.</p>",
+    "equipped": false
+  },
+  "folder": "f001a234b56c789d", "sort": 0, "ownership": { "default": 0 }, "flags": {}, "effects": []
+}

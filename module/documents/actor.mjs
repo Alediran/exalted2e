@@ -550,6 +550,8 @@ export class ExaltedActor extends Actor {
       for (const inj of (this.system?.cripplingInjuries ?? [])) {
         total += inj.penalty ?? 0;
       }
+      const shieldMob = Number(this.system?.shieldMobilityPenalty) || 0;
+      total += shieldMob;
     }
     return total;
   }

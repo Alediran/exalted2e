@@ -12,6 +12,8 @@ function modeSchema() {
     damageType:     new fields.StringField({ initial: "lethal", choices: ["bashing","lethal","aggravated"] }),
     overwhelming:   new fields.NumberField({ initial: 1, min: 0,  max: 20,  integer: true }),
     defense:        new fields.NumberField({ initial: 0, min: -5, max: 10,  integer: true }),
+    shieldTag:      new fields.NumberField({ initial: 0, min: 0,  max: 3,   integer: true }),
+    shieldMobility: new fields.NumberField({ initial: 0, min: 0,  max: 3,   integer: true }),
     rate:           new fields.NumberField({ initial: 1, min: 0,  max: 10,  integer: true }),
     range:          new fields.NumberField({ initial: 0, min: 0,  max: 400, integer: true }),
     minStrength:    new fields.NumberField({ initial: 0, min: 0,  max: 10,  integer: true }),

@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 212 / 265 complete** (10 out-of-scope / partial — last updated 2026-05-28)
+**Progress: 213 / 265 complete** (10 out-of-scope / partial — last updated 2026-05-28)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -50,7 +50,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Armor soak aggregation (equipped armor + natural)
 - [x] Artifact commitment feedback on mote maxima
 - [x] Hardness model (per armor)
-- [ ] Shields as weapons (errata: Sh0/Sh1/Sh2 tag-driven shields with mobility penalty, no longer "mobile cover")
+- [x] Shields as weapons (errata: Sh0/Sh1/Sh2 tag-driven shields with mobility penalty, no longer "mobile cover") — `shieldTag` field on weapon modes (0–3); flat parry DV bonus post-halve; mobility penalty via `internalPenaltyFor("physical")`
 - [~] Cover modifiers (light/heavy cover AE bonus implemented; shield-type cover pending)
 - [x] Starmetal armor: target-imposed external attack penalty
 - [ ] Fatigue penalty (armor fatigue triggering Stamina+Resistance rolls over scene-length exertion)

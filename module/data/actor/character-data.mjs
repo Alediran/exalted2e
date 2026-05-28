@@ -557,6 +557,23 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
     }
     this.parryDV = Math.max(this.parryDVBase, bestWeaponParry);
 
+    // Shield bonus: best shieldTag among equipped weapons adds flat DV
+    // (post-halve); shieldMobility is tracked separately because a buckler
+    // is Sh1 Mob-0 while a heater shield is Sh1 Mob-1.
+    let bestShieldTag = 0;
+    let bestShieldMobility = 0;
+    for (const item of this.parent?.items ?? []) {
+      if (item.type !== "weapon" || !item.system.equipped) continue;
+      for (const mode of item.system.modes ?? []) {
+        const sh  = mode.shieldTag      ?? 0;
+        const mob = mode.shieldMobility ?? 0;
+        if (sh  > bestShieldTag)      bestShieldTag      = sh;
+        if (mob > bestShieldMobility) bestShieldMobility = mob;
+      }
+    }
+    this.parryDV += bestShieldTag;
+    this.shieldMobilityPenalty = bestShieldMobility;
+
     // Join Battle = Wits + Awareness
     this.joinBattle  = a.wits.value + ab.awareness.value;
     // Movement = Dex

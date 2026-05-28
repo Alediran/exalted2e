@@ -43,6 +43,10 @@
         <input type="number" name="system.modes.{{mIdx}}.overwhelming" value="{{mode.overwhelming}}" min="0" max="20" {{#unless @root.isEditable}}readonly{{/unless}}></div>
       <div class="field-group"><label>{{localize "EX2E.Defense"}}</label>
         <input type="number" name="system.modes.{{mIdx}}.defense"    value="{{mode.defense}}"    min="-5" max="10"  {{#unless @root.isEditable}}readonly{{/unless}}></div>
+      <div class="field-group"><label>{{localize "EX2E.ShieldTag"}}</label>
+        <input type="number" name="system.modes.{{mIdx}}.shieldTag"      value="{{mode.shieldTag}}"      min="0"  max="3"   {{#unless @root.isEditable}}readonly{{/unless}}></div>
+      <div class="field-group"><label>{{localize "EX2E.ShieldMobility"}}</label>
+        <input type="number" name="system.modes.{{mIdx}}.shieldMobility" value="{{mode.shieldMobility}}" min="0"  max="3"   {{#unless @root.isEditable}}readonly{{/unless}}></div>
       <div class="field-group"><label>{{localize "EX2E.Rate"}}</label>
         <input type="number" name="system.modes.{{mIdx}}.rate"       value="{{mode.rate}}"       min="0"  max="10"  {{#unless @root.isEditable}}readonly{{/unless}}></div>
       <div class="field-group"><label>{{localize "EX2E.Range"}}</label>
