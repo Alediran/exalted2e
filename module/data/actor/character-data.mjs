@@ -18,8 +18,11 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       exaltType: new fields.StringField({ initial: "solar", blank: false }),
       caste:     new fields.StringField({ initial: "dawn",  blank: true  }),
       concept:   new fields.StringField({ initial: "",      blank: true  }),
-      anima:           new fields.StringField({ initial: "none",  blank: false }),
-      scenePeripheral: new fields.NumberField({ initial: 0, min: 0, integer: true }),
+      anima:            new fields.StringField({ initial: "none",  blank: false }),
+      scenePeripheral:  new fields.NumberField({ initial: 0, min: 0, integer: true }),
+      // Attunement motes granted by Surging Essence Reactor — separate from Overdrive/Peripheral.
+      // Spent to fund artifact attunements; expire at scene end.
+      attunementMotes:  new fields.NumberField({ initial: 0, min: 0, max: 100, integer: true }),
 
       // ── Attributes ─────────────────────────────────────────────────────────
       attributes: new fields.SchemaField({

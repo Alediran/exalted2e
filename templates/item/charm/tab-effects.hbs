@@ -1114,13 +1114,33 @@
   {{!-- M5b Overdrive Mote Grant ──────────────────────────────────────────── --}}
   <div class="effect-section">
     <div class="effect-body effect-grid-2">
-      <div class="field-group">
+      <div class="field-group" style="grid-column:1/-1">
         <label>{{localize "EX2E.EffectOverdriveMotes"}}</label>
-        <input type="number" name="system.overdriveMotes"
-               value="{{system.overdriveMotes}}" min="0" max="25"
-               {{#unless isEditable}}readonly{{/unless}}>
+        <div class="formula-field-row">
+          <input type="text" name="system.overdriveMotes"
+                 value="{{system.overdriveMotes}}"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.overdriveMotes"
+                  data-label="{{localize 'EX2E.EffectOverdriveMotes'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
       </div>
     </div>
+  </div>
+
+  {{!-- M5c Converts Overdrive to Attunement (Surging Essence Reactor) ────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.convertsOverdriveToAttunement"
+             {{#if system.convertsOverdriveToAttunement}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.EffectConvertsOverdriveToAttunement"}}</span>
+    </label>
   </div>
 
   {{!-- M8 Mote Pool Expansion ────────────────────────────────────────────── --}}

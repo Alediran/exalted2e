@@ -36,11 +36,13 @@ export async function createTempWeapon(actor, {
   minDexterity     = 0,
   minMartialArts   = 0,
   // Top-level weapon fields
-  artifact         = false,
-  attuned          = false,
-  attunementCost   = 0,
-  magicalMaterial  = "",
-  equipped         = true,
+  artifact              = false,
+  attuned               = false,
+  attunementCost        = 0,
+  attunementMotesCover  = 0,
+  attunedViaAttunement  = false,
+  magicalMaterial       = "",
+  equipped              = true,
   // Charm-source plumbing (mirrors what _spawnCharmWeaponArtifacts /
   // _rollCharmInstantAttack stamp on real charm-spawned weapons).
   charmSource      = null,
@@ -65,8 +67,8 @@ export async function createTempWeapon(actor, {
     flags,
     system: {
       modes: builtModes,
-      artifact, attuned, attunementCost, magicalMaterial,
-      equipped
+      artifact, attuned, attunementCost, attunementMotesCover,
+      attunedViaAttunement, magicalMaterial, equipped
     }
   }]);
   register(item);

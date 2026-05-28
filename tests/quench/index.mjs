@@ -24,7 +24,9 @@ import { registerSocialDefense }          from "./combat/social-defense.mjs";
 import { registerSocialSmoke }            from "./combat/social-smoke.mjs";
 import { registerStuntRewards }           from "./combat/stunt-rewards.mjs";
 import { registerPurchaseMode }           from "./combat/purchase-mode.mjs";
-import { registerAttunement }             from "./combat/attunement.mjs";
+import { registerAttunement,
+         registerAttunementMotes }        from "./combat/attunement.mjs";
+import { registerOverdrive }              from "./combat/overdrive.mjs";
 import { registerResourceEconomySmoke }   from "./combat/resource-economy-smoke.mjs";
 import { registerEffectWrapper }          from "./combat/effect-wrapper.mjs";
 import { registerCombatHudSmoke }         from "./combat/combat-hud-smoke.mjs";
@@ -99,6 +101,8 @@ Hooks.once("quenchReady", async quench => {
   quench.registerBatch("ex2e.stunt.rewards",            registerStuntRewards,           { displayName: "Stunt rewards" });
   quench.registerBatch("ex2e.purchase.mode",            registerPurchaseMode,           { displayName: "Purchase mode enforcement" });
   quench.registerBatch("ex2e.attunement",               registerAttunement,             { displayName: "Attunement / artifact commitment" });
+  quench.registerBatch("ex2e.attunement-motes",         registerAttunementMotes,        { displayName: "Attunement motes (Surging Essence Reactor)" });
+  quench.registerBatch("ex2e.overdrive",                registerOverdrive,              { displayName: "Overdrive pool" });
   quench.registerBatch("ex2e.resource-economy.smoke",   registerResourceEconomySmoke,   { displayName: "Resource economy (smoke)" });
   quench.registerBatch("ex2e.effect-wrapper",           registerEffectWrapper,          { displayName: "Effect-wrapper compendium" });
   quench.registerBatch("ex2e.combat-hud.smoke",         registerCombatHudSmoke,         { displayName: "Combat HUD (smoke)" });

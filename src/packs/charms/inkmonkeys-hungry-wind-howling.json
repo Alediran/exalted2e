@@ -59,7 +59,18 @@
         ]
       }
     ],
-    "charmUid": "7859f00865bbedff"
+    "charmUid": "7859f00865bbedff",
+    "moteRecovery": {
+      "enabled": true,
+      "event": "onKill",
+      "action": "gainOverdrive",
+      "formula": "1",
+      "source": "self",
+      "perDamageLevel": false,
+      "maxRecovery": 10,
+      "sentientOnly": false,
+      "modeExclusive": false
+    }
   },
   "folder": "e1c045f50a834f12",
   "sort": 0,

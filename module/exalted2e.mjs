@@ -145,8 +145,12 @@ async function _applyDamageDealtMoteRecovery(message, targetActor, rawDamage) {
     const amount = mr.perDamageLevel ? base * rawDamage : base;
     const capped = Math.min(amount, mr.maxRecovery ?? 20);
     if (capped <= 0) continue;
-    const pool = mr.action === 'recoverPersonal' ? 'personal' : 'peripheral';
-    await attackerActor.recoverMotes(capped, pool);
+    if (mr.action === 'gainOverdrive') {
+      await attackerActor.addOverdriveMotes(capped);
+    } else {
+      const pool = mr.action === 'recoverPersonal' ? 'personal' : 'peripheral';
+      await attackerActor.recoverMotes(capped, pool);
+    }
   }
 }
 

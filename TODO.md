@@ -66,7 +66,8 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Emotion (scene-long ±1/±3 internal penalty on actions counter to emotion)
 - [x] Illusion (Perception+Investigation disbelieve mechanic)
 - [x] Servitude (loyalty binding AE)
-- [x] Overdrive pool (temp Peripheral, cap 25, dissipates scene-end) — schema field + buffer drain + addOverdriveMotes + combat end clear + UI badge
+- [x] Overdrive pool (temp Peripheral, cap 25, dissipates scene-end) — schema field + buffer drain + addOverdriveMotes + combat end clear + UI badge + gainOverdrive moteRecovery action wired + compendium charms updated (righteous-avengers-aspect, song-of-the-depths, snarling-watchdog-retribution, hungry-wind-howling) + onAllyAttacked event wired in applyDamage + overdrive spend restricted to offensive charms only (allowOverdrive / _isCharmOffensive)
+- [x] Surging Essence Reactor (Solar Integrity 3, permanent) — convertsOverdriveToAttunement flag; attunementMotes pool on CharacterData; per-artifact attunementMotesCover/attunedViaAttunement fields on weapon/armor; applyAttunementMotes() actor method; scene-end expiry + artifact un-attunement; header UI badge; inventory gem buttons; Effects tab checkbox; i18n keys; CSS; charm JSON (solar-integrity-surging-essence-reactor)
 - [ ] Touch keyword mechanics (requires Dex+MA attack vs non-consenting target)
 - [ ] Training keyword (trainee XP debt ledger) — [charms-gap A8](docs/charms-gap.md)
 - [x] Native keyword gating (blocks Eclipse/Moonshadow/Fiend from learning) — learn-time enforcement deferred; see [charms-gap A10](docs/charms-gap.md)

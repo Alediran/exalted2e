@@ -94,6 +94,18 @@
           <span class="pool-overdrive" title="{{localize 'EX2E.OverdriveTooltip'}}">+{{system.motes.peripheral.overdrive}}</span>
           {{/if}}
         </div>
+        {{#if system.attunementMotes}}
+        <div class="mote-pool-block mote-pool-attunement">
+          <span class="pool-label">{{localize "EX2E.AttunementMotes"}}</span>
+          <span class="pool-attunement" title="{{localize 'EX2E.AttunementMotesTooltip'}}">{{system.attunementMotes}}</span>
+          {{#if isEditable}}
+          <button type="button" class="btn-attunement-motes" data-action="coverArtifactAttunement"
+                  data-tooltip="{{localize 'EX2E.CoverArtifactAttunement'}}">
+            <i class="fa-solid fa-gem"></i>
+          </button>
+          {{/if}}
+        </div>
+        {{/if}}
         <div class="mote-pool-block mote-pool-committed"
              title="{{localize 'EX2E.Committed'}}: {{system.motes.personal.totalCommitted}} {{localize 'EX2E.MotesPersonal'}} / {{system.motes.peripheral.totalCommitted}} {{localize 'EX2E.MotesPeripheral'}}">
           <span class="pool-label">{{localize "EX2E.Committed"}}</span>

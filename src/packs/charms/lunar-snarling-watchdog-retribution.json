@@ -47,7 +47,18 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [],
-    "charmUid": "390b054515eb711c"
+    "charmUid": "390b054515eb711c",
+    "moteRecovery": {
+      "enabled": true,
+      "event": "onAllyAttacked",
+      "action": "gainOverdrive",
+      "formula": "1",
+      "source": "self",
+      "perDamageLevel": true,
+      "maxRecovery": 10,
+      "sentientOnly": false,
+      "modeExclusive": false
+    }
   },
   "folder": "6d3aed86fa48b120",
   "sort": 0,

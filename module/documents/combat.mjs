@@ -439,6 +439,27 @@ export class ExaltedCombat extends Combat {
         .filter(c => (c.actor.system.motes?.peripheral?.overdrive ?? 0) > 0)
         .map(c => c.actor.update({ "system.motes.peripheral.overdrive": 0 }))
     );
+
+    // Expire Attunement motes (Surging Essence Reactor) at scene end.
+    // Newly-attuned-via-attunement artifacts become unattuned; replaced-commitment
+    // artifacts revert to real-mote funding (peripheral may not cover them — Solar
+    // can un-attune manually if needed).
+    for (const c of characterCombatants) {
+      const actor = c.actor;
+      if ((actor.system.attunementMotes ?? 0) === 0 &&
+          !actor.items.some(i => (i.system.attunementMotesCover ?? 0) > 0)) continue;
+
+      const coverItems = actor.items.filter(i => (i.system.attunementMotesCover ?? 0) > 0);
+      for (const item of coverItems) {
+        if (item.system.attunedViaAttunement) {
+          await item.update({ "system.attuned": false, "system.attunementMotesCover": 0, "system.attunedViaAttunement": false });
+        } else {
+          await item.update({ "system.attunementMotesCover": 0, "system.attunedViaAttunement": false });
+        }
+      }
+      await actor.update({ "system.attunementMotes": 0 });
+    }
+
     return super.endCombat();
   }
 

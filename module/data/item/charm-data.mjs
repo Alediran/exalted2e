@@ -228,7 +228,10 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       }),
 
       // M5b — Overdrive pool addition on activation (Abyssal Overdrive keyword charms)
-      overdriveMotes: new fields.NumberField({ initial: 0, min: 0, max: 25, integer: true }),
+      overdriveMotes: new fields.StringField({ initial: "", blank: true }),
+
+      // M5c — Surging Essence Reactor: when true, Solar may convert Overdrive gains to Attunement motes
+      convertsOverdriveToAttunement: new fields.BooleanField({ initial: false }),
 
       // M5 — Mote recovery on trigger event (Essence-Gathering Temper family)
       moteRecovery: new fields.SchemaField({

@@ -782,7 +782,8 @@ export class ExaltedActor extends Actor {
     for (const item of this.items) {
       if ((item.type === "weapon" || item.type === "armor")
           && item.system.artifact && item.system.attuned) {
-        artifactPeripheral += item.system.attunementCost ?? 0;
+        const cover = item.system.attunementMotesCover ?? 0;
+        artifactPeripheral += Math.max(0, (item.system.attunementCost ?? 0) - cover);
       }
       if (item.type === "charm" && item.system.installed) {
         artifactPeripheral += item.system.essenceCommitment ?? 0;
@@ -910,22 +911,34 @@ export class ExaltedActor extends Actor {
     // Both events fire on a killing blow: onDamageReceived first, then onKill.
     await this._fireRecoveryEvent("onDamageReceived");
     if (h.incapacitated) await this._fireRecoveryEvent("onKill");
+
+    // Notify allies: any other character combatant whose charm watches onAllyAttacked.
+    if (amount > 0 && game.combat?.combatants?.size) {
+      const allies = game.combat.combatants
+        .filter(c => c.actor && c.actor !== this && c.actor.type === "character")
+        .map(c => c.actor);
+      await Promise.all(allies.map(a => a._fireRecoveryEvent("onAllyAttacked", null, amount)));
+    }
   }
 
-  async _fireRecoveryEvent(event, target = null) {
+  async _fireRecoveryEvent(event, target = null, damageLevels = 0) {
     if (this.type !== "character") return;
     const charms   = this.items.filter(i => i.type === "charm" && isCharmPassivelyActive(i));
     const rollData = this.getRollData() ?? {};
 
     const moteCharms = collectMoteRecoveryCharms(charms, event);
     for (const c of moteCharms) {
-      const mr     = c.system.moteRecovery;
-      const amount = evaluateCharmFormula(mr.formula, rollData, 0);
+      const mr   = c.system.moteRecovery;
+      const base = evaluateCharmFormula(mr.formula, rollData, 0);
+      const amount = (mr.perDamageLevel && damageLevels > 0) ? base * damageLevels : base;
       if (amount <= 0) continue;
-      const pool = mr.action === "recoverPersonal" ? "personal" : "peripheral";
-      if (mr.source === "fromTarget" && target) {
+      if (mr.action === "gainOverdrive") {
+        await this.addOverdriveMotes(amount);
+      } else if (mr.source === "fromTarget" && target) {
+        const pool = mr.action === "recoverPersonal" ? "personal" : "peripheral";
         await target.spendMotes(amount, pool);
       } else {
+        const pool = mr.action === "recoverPersonal" ? "personal" : "peripheral";
         await this.recoverMotes(amount, pool);
       }
     }
@@ -959,7 +972,7 @@ export class ExaltedActor extends Actor {
    *     (with a user warning emitted). Callers that only care about
    *     success/failure still work — null is falsy, the object is truthy.
    */
-  async spendMotes(amount, pool = "peripheral") {
+  async spendMotes(amount, pool = "peripheral", { allowOverdrive = true } = {}) {
     if (this.type === "npc") {
       const m = this.system.motes;
       if ((m.value ?? 0) < amount) {
@@ -971,8 +984,8 @@ export class ExaltedActor extends Actor {
     }
     if (this.type !== "character") return null;
 
-    // Overdrive is a buffer in front of Peripheral — drain it first
-    const overdrive = pool === "peripheral" ? (this.system.motes.peripheral.overdrive ?? 0) : 0;
+    // Overdrive is a buffer in front of Peripheral — drain it first, but only for offensive charms
+    const overdrive = (pool === "peripheral" && allowOverdrive) ? (this.system.motes.peripheral.overdrive ?? 0) : 0;
     const primary   = this.system.motes[pool];
     const otherKey  = pool === "peripheral" ? "personal" : "peripheral";
     const secondary = this.system.motes[otherKey];
@@ -1026,10 +1039,66 @@ export class ExaltedActor extends Actor {
 
   async addOverdriveMotes(amount) {
     if (this.type !== "character") return;
+
+    // Surging Essence Reactor: when active, offer to convert to Attunement motes instead
+    const hasSER = this.items.some(
+      i => i.type === "charm" && isCharmPassivelyActive(i) && i.system.convertsOverdriveToAttunement
+    );
+    if (hasSER && amount > 0) {
+      const toAttunement = await foundry.applications.api.DialogV2.confirm({
+        window:  { title: game.i18n.localize("EX2E.OverdriveOrAttunementTitle") },
+        content: `<p>${game.i18n.format("EX2E.OverdriveOrAttunementBody", { amount })}</p>`,
+        yes: { label: game.i18n.localize("EX2E.GainAttunementMotes"), icon: "fa-solid fa-gem"  },
+        no:  { label: game.i18n.localize("EX2E.GainOverdriveMotes"),  icon: "fa-solid fa-bolt" }
+      });
+      if (toAttunement) {
+        const cur = this.system.attunementMotes ?? 0;
+        return this.update({ "system.attunementMotes": Math.min(100, cur + amount) });
+      }
+      // false or null → fall through to overdrive
+    }
+
     const current = this.system.motes.peripheral.overdrive ?? 0;
     const newVal  = Math.min(25, current + amount);
     if (newVal === current) return;
     return this.update({ "system.motes.peripheral.overdrive": newVal });
+  }
+
+  /**
+   * Allocate attunement motes to cover an artifact's attunement cost.
+   * Reduces artifactPeripheral commitment for the actor, freeing real motes.
+   * @param {string} itemId — weapon or armor item ID on this actor
+   * @returns {Promise<boolean|null>} true on success, null on failure
+   */
+  async applyAttunementMotes(itemId) {
+    if (this.type !== "character") return null;
+    const item = this.items.get(itemId);
+    if (!item || (item.type !== "weapon" && item.type !== "armor")) return null;
+    if (!item.system.artifact) return null;
+
+    const cost      = item.system.attunementCost ?? 0;
+    const alreadyCovered = item.system.attunementMotesCover ?? 0;
+    const remaining = cost - alreadyCovered;
+    if (remaining <= 0) {
+      ui.notifications.info(game.i18n.localize("EX2E.AttunementAlreadyCovered"));
+      return null;
+    }
+
+    const available = this.system.attunementMotes ?? 0;
+    if (available < remaining) {
+      ui.notifications.warn(game.i18n.format("EX2E.NotEnoughAttunementMotes",
+        { needed: remaining, have: available }));
+      return null;
+    }
+
+    const isNewAttunement = !item.system.attuned;
+    await item.update({
+      "system.attuned":              true,
+      "system.attunementMotesCover": cost,
+      "system.attunedViaAttunement": isNewAttunement
+    });
+    await this.update({ "system.attunementMotes": available - remaining });
+    return true;
   }
 
   async recoverWillpower(amount) {

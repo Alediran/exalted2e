@@ -346,15 +346,19 @@ ${capWarning}`;
         motesOverride = (costParsed?.motes ?? 0) + surcharge;
       }
 
+      const isOffensive = this._isCharmOffensive();
       ledger = await this._spendActivationCosts(
         { ...cost, formula: _effectiveCostFormula },
-        { motePool, skipXpConfirm, motesOverride }
+        { motePool, skipXpConfirm, motesOverride, allowOverdrive: isOffensive }
       );
       if (!ledger) return false;
 
       // Grant Overdrive motes on activation if the charm specifies them
-      const _odMotes = sys.overdriveMotes ?? 0;
-      if (_odMotes > 0) await actor.addOverdriveMotes(_odMotes);
+      if (sys.overdriveMotes) {
+        const rollData = actor.getRollData?.() ?? {};
+        const _odMotes = evaluateCharmFormula(sys.overdriveMotes, rollData, 0);
+        if (_odMotes > 0) await actor.addOverdriveMotes(_odMotes);
+      }
 
       // Spend non-mote costs from the selected surcharge option (motes already in motesOverride).
       if (surchargeExtra) {
@@ -408,7 +412,7 @@ ${capWarning}`;
         if (result?.supporters?.length) {
           cooperation = { supporters: [], bonusDice: 0 };
           for (const supporter of result.supporters) {
-            const breakdown = await supporter.spendMotes(_costParsed?.motes ?? 0, "peripheral");
+            const breakdown = await supporter.spendMotes(_costParsed?.motes ?? 0, "peripheral", { allowOverdrive: isOffensive });
             if (breakdown) {
               cooperation.supporters.push({ actorId: supporter.id, name: supporter.name, motesPaid: _costParsed?.motes ?? 0 });
             } else {
@@ -670,7 +674,19 @@ ${capWarning}`;
    *                                                (already includes any surcharge).
    * @returns {Promise<object|null>} Ledger, or null on abort/failure.
    */
-  async _spendActivationCosts(cost, { motePool = "peripheral", skipXpConfirm = false, motesOverride } = {}) {
+
+  /**
+   * True when this charm may draw from the Overdrive pool.
+   * Overdrive motes can only fund offensive charms (attack supplements / reflexive attack steps).
+   */
+  _isCharmOffensive() {
+    const sys = this.system;
+    if (sys.attackBonus?.enabled) return true;
+    if (Array.isArray(sys.steps) && sys.steps.length > 0) return true;
+    return false;
+  }
+
+  async _spendActivationCosts(cost, { motePool = "peripheral", skipXpConfirm = false, motesOverride, allowOverdrive = true } = {}) {
     const actor = this.actor;
     if (!actor) return null;
 
@@ -741,7 +757,7 @@ ${capWarning}`;
 
     // Motes (spendMotes returns per-pool breakdown on success, null if pools can't cover).
     if (moteCost > 0) {
-      const breakdown = await actor.spendMotes(moteCost, motePool);
+      const breakdown = await actor.spendMotes(moteCost, motePool, { allowOverdrive });
       if (!breakdown) return null;
       ledger.moteBreakdown = breakdown;
     }

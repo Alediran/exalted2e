@@ -199,6 +199,28 @@ describe("ExaltedActor.spendMotes", () => {
     const [updateArg] = actor.update.mock.calls[0];
     expect(updateArg["system.motes.peripheral.overdrive"]).toBeUndefined();
   });
+
+  it("skips overdrive drain when allowOverdrive is false", async () => {
+    const actor = makeFakeActor({
+      personal:   { value: 5, max: 10 },
+      peripheral: { value: 8, max: 20, overdrive: 10 }
+    });
+    await ExaltedActor.prototype.spendMotes.call(actor, 4, "peripheral", { allowOverdrive: false });
+    const [updateArg] = actor.update.mock.calls[0];
+    expect(updateArg["system.motes.peripheral.value"]).toBe(4);
+    expect(updateArg["system.motes.peripheral.overdrive"]).toBeUndefined();
+  });
+
+  it("excludes overdrive from available total when allowOverdrive is false", async () => {
+    const actor = makeFakeActor({
+      personal:   { value: 1, max: 10 },
+      peripheral: { value: 2, max: 20, overdrive: 10 }
+    });
+    const result = await ExaltedActor.prototype.spendMotes.call(actor, 10, "peripheral", { allowOverdrive: false });
+    expect(result).toBeNull();
+    expect(actor.update).not.toHaveBeenCalled();
+    expect(ui.notifications.warn).toHaveBeenCalledTimes(1);
+  });
 });
 
 describe("ExaltedActor.addOverdriveMotes", () => {

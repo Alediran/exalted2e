@@ -200,7 +200,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       rollCraftingProject:   CharacterSheet.#onRollCraftingProject,
       deleteCraftingProject: CharacterSheet.#onDeleteCraftingProject,
       openFamiliarActor:     CharacterSheet.#onOpenFamiliarActor,
-      openCharmTree:         CharacterSheet.#onOpenCharmTree,
+      openCharmTree:            CharacterSheet.#onOpenCharmTree,
+      coverArtifactAttunement:  CharacterSheet.#onCoverArtifactAttunement,
     }
   };
 
@@ -833,6 +834,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       artifactSlotMap,
       maStyles,
       craftingProjects,
+      hasAttunementMotes: (actor.system.attunementMotes ?? 0) > 0,
     };
   }
 
@@ -2022,5 +2024,12 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const exaltType = rawType === 'dragonBlooded' ? 'terrestrial' : rawType;
     const { CharmTreeDialog } = game.exalted2e;
     CharmTreeDialog.open({ actor, exaltType, groupKey });
+  }
+
+  static async #onCoverArtifactAttunement(_event, target) {
+    const actor  = this.document;
+    const itemId = target.dataset.itemId;
+    if (!itemId) return;
+    await actor.applyAttunementMotes(itemId);
   }
 }

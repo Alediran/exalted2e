@@ -19,6 +19,13 @@
         <button data-action="toggleEquip" title="{{#if w.system.equipped}}Unequip{{else}}Equip{{/if}}">
           {{#if w.system.equipped}}🗡{{else}}○{{/if}}
         </button>
+        {{#if (and w.system.artifact ../hasAttunementMotes)}}
+        <button data-action="coverArtifactAttunement" data-item-id="{{w.id}}"
+                title="{{localize 'EX2E.CoverArtifactAttunement'}}"
+                class="btn-attune-cover{{#if (gte w.system.attunementMotesCover w.system.attunementCost)}} attune-covered{{/if}}">
+          <i class="fa-solid fa-gem"></i>
+        </button>
+        {{/if}}
         {{#if ../isEditable}}
         <button data-action="editItem">✏️</button>
         <button data-action="deleteItem">🗑</button>
@@ -58,6 +65,13 @@
       <span class="item-stat">Mob {{a.system.effectiveMobilityPenalty}}</span>
       <div class="item-controls">
         <button data-action="toggleEquip">{{#if a.system.equipped}}🛡{{else}}○{{/if}}</button>
+        {{#if (and a.system.artifact ../hasAttunementMotes)}}
+        <button data-action="coverArtifactAttunement" data-item-id="{{a.id}}"
+                title="{{localize 'EX2E.CoverArtifactAttunement'}}"
+                class="btn-attune-cover{{#if (gte a.system.attunementMotesCover a.system.attunementCost)}} attune-covered{{/if}}">
+          <i class="fa-solid fa-gem"></i>
+        </button>
+        {{/if}}
         {{#if ../isEditable}}
         <button data-action="editItem">✏️</button>
         <button data-action="deleteItem">🗑</button>
