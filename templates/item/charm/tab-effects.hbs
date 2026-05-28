@@ -1087,6 +1087,26 @@
           {{/each}}
         </div>
       </div>
+      {{#if (eq system.moteRecovery.event "onDamageDealt")}}
+      <div class="field-group checkbox-field">
+        <label>{{localize "EX2E.MRPerDamageLevel"}}</label>
+        <input type="checkbox" name="system.moteRecovery.perDamageLevel"
+               {{#if system.moteRecovery.perDamageLevel}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+      </div>
+      <div class="field-group">
+        <label>{{localize "EX2E.MRMaxRecovery"}}</label>
+        <input type="number" name="system.moteRecovery.maxRecovery"
+               value="{{system.moteRecovery.maxRecovery}}" min="1"
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="field-group checkbox-field">
+        <label>{{localize "EX2E.MRSentientOnly"}}</label>
+        <input type="checkbox" name="system.moteRecovery.sentientOnly"
+               {{#if system.moteRecovery.sentientOnly}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+      </div>
+      {{/if}}
     </div>
     {{/if}}
   </div>

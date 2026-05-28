@@ -229,12 +229,15 @@ export class CharmData extends foundry.abstract.TypeDataModel {
 
       // M5 — Mote recovery on trigger event (Essence-Gathering Temper family)
       moteRecovery: new fields.SchemaField({
-        modeExclusive: new fields.BooleanField({ initial: false }),
-        enabled: new fields.BooleanField({ initial: false }),
-        event:   new fields.StringField({ initial: "onDamageReceived" }),
-        action:  new fields.StringField({ initial: "recoverPeripheral" }),
-        formula: new fields.StringField({ initial: "", blank: true }),
-        source:  new fields.StringField({ initial: "self", choices: ["self", "fromTarget"] })
+        modeExclusive:  new fields.BooleanField({ initial: false }),
+        enabled:        new fields.BooleanField({ initial: false }),
+        event:          new fields.StringField({ initial: "onDamageReceived" }),
+        action:         new fields.StringField({ initial: "recoverPeripheral" }),
+        formula:        new fields.StringField({ initial: "", blank: true }),
+        source:         new fields.StringField({ initial: "self", choices: ["self", "fromTarget"] }),
+        perDamageLevel: new fields.BooleanField({ initial: false }),
+        maxRecovery:    new fields.NumberField({ initial: 20, integer: true, min: 1 }),
+        sentientOnly:   new fields.BooleanField({ initial: false }),
       }),
 
       // M6 — Healing roll effect

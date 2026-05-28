@@ -120,6 +120,36 @@ async function _applyPerDamageLevelEffects(message, targetActor, rawDamage) {
   }
 }
 
+// ── On-damage-dealt mote recovery helper (Ravening Mouth family) ──────────
+async function _applyDamageDealtMoteRecovery(message, targetActor, rawDamage) {
+  if (!rawDamage || rawDamage <= 0) return;
+  const attack = message.flags?.exalted2e?.attack;
+  const attackerActor = game.actors.get(attack?.actorId);
+  if (!attackerActor || attackerActor.type !== 'character') return;
+  if (!attack?.attackCharms?.length) return;
+
+  const charms = attack.attackCharms
+    .map(n => attackerActor.items.find(i => i.name === n))
+    .filter(c => c?.system?.moteRecovery?.enabled && c.system.moteRecovery.event === 'onDamageDealt');
+  if (!charms.length) return;
+
+  for (const charm of charms) {
+    const mr = charm.system.moteRecovery;
+    if (mr.sentientOnly) {
+      const isSentient = targetActor.type === 'character' ||
+        (targetActor.type === 'npc' && targetActor.system?.npcType !== 'beast');
+      if (!isSentient) continue;
+    }
+    const rollData = attackerActor.getRollData() ?? {};
+    const base = evaluateCharmFormula(mr.formula, rollData, 0);
+    const amount = mr.perDamageLevel ? base * rawDamage : base;
+    const capped = Math.min(amount, mr.maxRecovery ?? 20);
+    if (capped <= 0) continue;
+    const pool = mr.action === 'recoverPersonal' ? 'personal' : 'peripheral';
+    await attackerActor.recoverMotes(capped, pool);
+  }
+}
+
 // ── Status-resist card helper ──────────────────────────────────────────────
 async function _postStatusResistCard({ targetActorId, targetName, attackerName, charmName, status, resistPool, onFail }) {
   const content = await foundry.applications.handlebars.renderTemplate(
@@ -2988,6 +3018,7 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       if (targetActor) {
         await targetActor.applyDamage(rawDamage, damageType);
         await _applyPerDamageLevelEffects(message, targetActor, rawDamage);
+        await _applyDamageDealtMoteRecovery(message, targetActor, rawDamage);
       }
     }
 
@@ -3014,6 +3045,7 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     if (targetActor && dmg > 0) {
       await targetActor.applyDamage(dmg, type);
       await _applyPerDamageLevelEffects(message, targetActor, dmg);
+      await _applyDamageDealtMoteRecovery(message, targetActor, dmg);
 
       // Hide apply button via flags — keeps damageResult intact for re-renders.
       const attack = message.flags?.exalted2e?.attack ?? {};

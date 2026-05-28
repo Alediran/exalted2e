@@ -231,9 +231,10 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         { value: "soak",  label: game.i18n.localize("EX2E.PerfectDefenseSoak")  }
       ],
       moteRecoveryEvents: [
-        { value: "onDamageReceived", label: game.i18n.localize("EX2E.MREventOnDamage")  },
-        { value: "onAttackSuccess",  label: game.i18n.localize("EX2E.MREventOnHit")     },
-        { value: "onAllyAttacked",   label: game.i18n.localize("EX2E.MREventOnAllyHit") }
+        { value: "onDamageReceived", label: game.i18n.localize("EX2E.MREventOnDamage")       },
+        { value: "onAttackSuccess",  label: game.i18n.localize("EX2E.MREventOnHit")           },
+        { value: "onAllyAttacked",   label: game.i18n.localize("EX2E.MREventOnAllyHit")       },
+        { value: "onDamageDealt",    label: game.i18n.localize("EX2E.MREventOnDamageDealt")   },
       ],
       moteRecoverySources: [
         { value: "self",       label: game.i18n.localize("EX2E.MRSourceSelf")       },

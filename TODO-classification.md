@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-27 (Social attack card charm bonus display done; count 1 A / 35 B / 6 C / 42 total)
+Last updated: 2026-05-27 (Ravening Mouth done via moteRecovery onDamageDealt event; count 1 A / 34 B / 6 C / 41 total)
 
 ---
 
@@ -53,7 +53,6 @@ Last updated: 2026-05-27 (Social attack card charm bonus display done; count 1 A
 | Headless tests for remaining paths | Testing | test authoring for charm prereqs, multi-tick, sorcery |
 | Essence Flow innate-powers mechanic | Charms | gate: does actor own `(Ability) Essence Flow` charm? If yes, skip Combo requirement for that ability's three Excellencies at activation time; dice-pool cap still applies |
 | Touch keyword mechanics | Charm Keywords | non-consenting target needs Dex+MA attack roll before touch-range charm resolves; extend attack dialog or add pre-activation roll step |
-| Ravening Mouth of (Ability) mote recovery | Abyssal | hook into `rollAttack` damage step; check for Ravening Mouth AE flagged to the attacking ability; regain 1m per HL of damage dealt to sentient beings; cap 20m per action |
 
 ---
 
@@ -78,6 +77,6 @@ Last updated: 2026-05-27 (Social attack card charm bonus display done; count 1 A
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 35 |
+| B — Ready, Medium | 34 |
 | C — Ready, Complex | 6 |
-| **Total pending** | **42** |
+| **Total pending** | **41** |
