@@ -121,9 +121,12 @@ export class ArtifactCraftingDialog extends HandlebarsApplicationMixin(Applicati
     const firstHidden  = firstTrack?.querySelector("[name='firstExcDice']");
     const secondHidden = secondTrack?.querySelector("[name='secondExcSucc']");
 
+    const firstExcMax  = context.firstExcMax  ?? 0;
+    const secondExcMax = context.secondExcMax ?? 0;
+
     const updatePips = () => {
-      refreshPips(firstTrack,  firstHidden,  this._firstExcMax  ?? 0);
-      refreshPips(secondTrack, secondHidden, this._secondExcMax ?? 0);
+      refreshPips(firstTrack,  firstHidden,  firstExcMax);
+      refreshPips(secondTrack, secondHidden, secondExcMax);
     };
 
     firstTrack?.addEventListener("click", (e) => {

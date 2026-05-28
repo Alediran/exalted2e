@@ -240,16 +240,16 @@
 }
 /* ── Round pip inputs (stunt + excellency) ─────────────────────────────── */
 .exalted2e .ex2e-roll-dialog .exc-pip-track,
-.artifact-crafting-dialog .exc-pip-track,
-.crafting-roll-dialog .exc-pip-track {
+.exalted2e .artifact-crafting-dialog .exc-pip-track,
+.exalted2e .crafting-roll-dialog .exc-pip-track {
   display:     flex;
   align-items: center;
   gap:         5px;
   flex:        1;
 }
 .exalted2e .ex2e-roll-dialog .exc-pip,
-.artifact-crafting-dialog .exc-pip,
-.crafting-roll-dialog .exc-pip {
+.exalted2e .artifact-crafting-dialog .exc-pip,
+.exalted2e .crafting-roll-dialog .exc-pip {
   display:         inline-flex;
   align-items:     center;
   justify-content: center;
@@ -271,14 +271,14 @@
 }
 
 .exalted2e .ex2e-roll-dialog .exc-pip.is-filled,
-.artifact-crafting-dialog .exc-pip.is-filled,
-.crafting-roll-dialog .exc-pip.is-filled {
+.exalted2e .artifact-crafting-dialog .exc-pip.is-filled,
+.exalted2e .crafting-roll-dialog .exc-pip.is-filled {
   background:   var(--ex2e-gold-main);
   border-color: var(--ex2e-gold-bright);
 }
 .exalted2e .ex2e-roll-dialog .exc-pip:disabled,
-.artifact-crafting-dialog .exc-pip:disabled,
-.crafting-roll-dialog .exc-pip:disabled {
+.exalted2e .artifact-crafting-dialog .exc-pip:disabled,
+.exalted2e .crafting-roll-dialog .exc-pip:disabled {
   opacity:        0.3;
   cursor:         default;
   pointer-events: none;
@@ -582,18 +582,18 @@
   color:          var(--ex2e-gold-main);
 }
 
-.ex2e-roll-dialog .excellency-section,
-.artifact-crafting-dialog .excellency-section,
-.crafting-roll-dialog .excellency-section {
+.exalted2e .ex2e-roll-dialog .excellency-section,
+.exalted2e .artifact-crafting-dialog .excellency-section,
+.exalted2e .crafting-roll-dialog .excellency-section {
   border-left: 2px solid var(--ex2e-gold-dark);
   padding-left: var(--ex2e-gap-md);
   background: color-mix(in srgb, var(--ex2e-gold-dark) 8%, transparent);
   border-radius: 0 4px 4px 0;
 }
 
-.ex2e-roll-dialog .exc-cost-tag,
-.artifact-crafting-dialog .exc-cost-tag,
-.crafting-roll-dialog .exc-cost-tag {
+.exalted2e .ex2e-roll-dialog .exc-cost-tag,
+.exalted2e .artifact-crafting-dialog .exc-cost-tag,
+.exalted2e .crafting-roll-dialog .exc-cost-tag {
   font-size:    0.75em;
   opacity:      0.7;
   font-family:  var(--ex2e-font-body);
@@ -601,8 +601,8 @@
   margin-left:  4px;
 }
 
-.artifact-crafting-dialog .exc-label,
-.crafting-roll-dialog .exc-label {
+.exalted2e .artifact-crafting-dialog .exc-label,
+.exalted2e .crafting-roll-dialog .exc-label {
   font-family:    var(--ex2e-font-ui);
   font-size:      var(--ex2e-font-size-sm);
   color:          var(--ex2e-text-secondary);

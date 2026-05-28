@@ -35,8 +35,8 @@ export class CraftingRollDialog extends HandlebarsApplicationMixin(ApplicationV2
     this._resolved          = false;
     this._rollResult        = null;
     this._secondExcSucc     = 0;
-    this._firstExcMax       = 0;
-    this._secondExcMax      = 0;
+    this.firstExcMax        = options.firstExcMax    ?? 0;
+    this.secondExcMax       = options.secondExcMax   ?? 0;
   }
 
   get title() {
@@ -52,9 +52,12 @@ export class CraftingRollDialog extends HandlebarsApplicationMixin(ApplicationV2
     const firstHidden  = firstTrack?.querySelector("[name='firstExcDice']");
     const secondHidden = secondTrack?.querySelector("[name='secondExcSucc']");
 
+    const firstExcMax  = this.firstExcMax  ?? 0;
+    const secondExcMax = this.secondExcMax ?? 0;
+
     const updatePips = () => {
-      refreshPips(firstTrack,  firstHidden,  this._firstExcMax  ?? 0);
-      refreshPips(secondTrack, secondHidden, this._secondExcMax ?? 0);
+      refreshPips(firstTrack,  firstHidden,  firstExcMax);
+      refreshPips(secondTrack, secondHidden, secondExcMax);
     };
 
     firstTrack?.addEventListener("click", (e) => {
@@ -126,8 +129,8 @@ export class CraftingRollDialog extends HandlebarsApplicationMixin(ApplicationV2
     const kv = isLunarAlchemical
       ? (sys.attributes[attrOptions?.[0]?.value]?.value ?? 0)
       : basePool;
-    this._firstExcMax  = kv;
-    this._secondExcMax = Math.ceil(kv / 2);
+    this.firstExcMax  = kv;
+    this.secondExcMax = Math.ceil(kv / 2);
 
     return {
       phase: "preroll",
@@ -147,8 +150,8 @@ export class CraftingRollDialog extends HandlebarsApplicationMixin(ApplicationV2
       firstExcLabel:  firstExcCharm?.name  ?? game.i18n.localize("EX2E.FirstExcellency"),
       secondExcLabel: secondExcCharm?.name ?? game.i18n.localize("EX2E.SecondExcellency"),
       thirdExcLabel:  thirdExcCharm?.name  ?? game.i18n.localize("EX2E.ThirdExcellency"),
-      firstExcMax:    this._firstExcMax,
-      secondExcMax:   this._secondExcMax,
+      firstExcMax:    this.firstExcMax,
+      secondExcMax:   this.secondExcMax,
     };
   }
 
