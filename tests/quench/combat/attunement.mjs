@@ -1,4 +1,4 @@
-import { sweep, register, cleanupOnAfter } from "../_helpers/cleanup.mjs";
+import { sweep } from "../_helpers/cleanup.mjs";
 import { assertTestWorld, getTestScene } from "../_helpers/world.mjs";
 import { createTempCharacter }           from "../_helpers/actors.mjs";
 import { createTempWeapon }              from "../_helpers/weapons.mjs";
@@ -230,14 +230,16 @@ export function registerAttunementMotes(context) {
       await placeToken(actor, scene);
       const combat = await startTempCombat([actor]);
 
-      // Stub the parent Combat.endCombat so the Foundry confirmation dialog
-      // never fires — our ExaltedCombat override calls super.endCombat() which
-      // would otherwise open a UI dialog that never resolves in the test world.
-      const origParentEnd = Combat.prototype.endCombat;
-      cleanupOnAfter(() => { Combat.prototype.endCombat = origParentEnd; });
-      Combat.prototype.endCombat = async function() { return; };
-
-      await combat.endCombat();
+      // super.endCombat() shows an "End Encounter?" confirm dialog; auto-confirm it.
+      // Pattern matches anima.mjs [163-165].
+      const DV2 = foundry.applications.api.DialogV2;
+      const origConfirm = DV2.confirm.bind(DV2);
+      DV2.confirm = () => Promise.resolve(true);
+      try {
+        await combat.endCombat();
+      } finally {
+        DV2.confirm = origConfirm;
+      }
 
       assert.equal(weapon.system.attuned,              false, "un-attuned at scene end");
       assert.equal(weapon.system.attunementMotesCover, 0,     "cover reset");
@@ -258,11 +260,14 @@ export function registerAttunementMotes(context) {
       await placeToken(actor, scene);
       const combat = await startTempCombat([actor]);
 
-      const origParentEnd = Combat.prototype.endCombat;
-      cleanupOnAfter(() => { Combat.prototype.endCombat = origParentEnd; });
-      Combat.prototype.endCombat = async function() { return; };
-
-      await combat.endCombat();
+      const DV2 = foundry.applications.api.DialogV2;
+      const origConfirm = DV2.confirm.bind(DV2);
+      DV2.confirm = () => Promise.resolve(true);
+      try {
+        await combat.endCombat();
+      } finally {
+        DV2.confirm = origConfirm;
+      }
 
       // attunedViaAttunement was false → stays attuned; cover resets; own motes re-committed
       assert.equal(weapon.system.attuned,              true,  "remains attuned (real motes take over)");
