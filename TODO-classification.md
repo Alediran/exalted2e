@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-28 (Artifact creation rules done; count 1 A / 26 B / 5 C / 32 total)
+Last updated: 2026-05-28 (artifact ability prereq system + M20 charm effect; count 1 A / 25 B / 5 C / 31 total)
 
 ---
 
@@ -37,8 +37,7 @@ Last updated: 2026-05-28 (Artifact creation rules done; count 1 A / 26 B / 5 C /
 | Clarity mechanical effects | Alchemical | Clarity track consequences (Virtue suppression thresholds) |
 | Manse geomancy rules | Crafting | Oadenol's Codex power table, demesne pre-roll (unblocked by Manse item type) |
 | Background mechanical hooks | Other | Familiar actor link + Cult mote-regen/WP-recovery + 53-type optgroup registry done; Backing/Contacts/Resources mechanical automation still pending |
-| Workshop & material prerequisites UI | Crafting | prerequisites check UI for crafting projects |
-| Artifact extended-roll builder | Crafting | Rating cumulative successes; seasons interval; exotic ingredient tracker |
+| Workshop & material prerequisites UI | Crafting | ability prereqs (Craft/Lore/Occult) now enforce + charm reduction done; workshop/tool/material requirements UI still pending |
 | Multi-actor action helpers | QoL | Cooperative keyword done; Coordinate attacks + mass Guard still pending |
 | Personal/Peripheral commitment split | QoL | artifact attunement choice UI |
 | Poison/Disease tracking | Other | per-interval AE *(needs Poison/Disease item types — Group A — first)* |
@@ -68,6 +67,6 @@ Last updated: 2026-05-28 (Artifact creation rules done; count 1 A / 26 B / 5 C /
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 26 |
+| B — Ready, Medium | 25 |
 | C — Ready, Complex | 5 |
-| **Total pending** | **32** |
+| **Total pending** | **31** |

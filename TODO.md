@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 214 / 265 complete** (10 out-of-scope / partial — last updated 2026-05-28)
+**Progress: 214 / 265 complete** (10 out-of-scope / partial — last updated 2026-05-28 — added artifact ability prereq system + M20 charm effect)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -286,7 +286,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Crippling injuries (4+ HL single hit; surgery Int+Medicine to heal)
 - [x] Environmental hazards (Damage/interval, Trauma; generic Scene Region behavior with resistance rolls, terrain cost, and GM placement flow)
 - [x] Mass combat (unit actor type: Magnitude, Drill, Might, Endurance, Morale, formations, commander + relays + heroes; Guard DV bonus; unit DV pipeline; chokepoint informational system — Phases 1–9 complete)
-- [x] Artifact creation rules (extended Craft roll; Craft+Lore+Occult; seasons interval)
+- [x] Artifact creation rules (extended Craft roll; Craft+Lore+Occult; seasons interval; Craft/Lore/Occult ability minimums per rating enforced in new-project dialog with pip blocking; `artifactAbilityReduction` charm effect M20 reduces thresholds; Wonder-Forging Genius wired)
 - [x] **Manse** item type (rating, aspect, powers budget; linked to Background for rating + Hearthstone for aspect)
 - [x] **Hearthstone** item type (rating, type, mote-regen, socketable into artifact weapons/armor/equipment)
 - [x] **Artifact** item type (general; non-weapon/armor artifacts) — covered by `equipment` item type with `artifact: true` flag (magical material, attunement, hearthstone slots)
