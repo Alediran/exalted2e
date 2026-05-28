@@ -72,7 +72,7 @@ export function buildTree(charms, groupKey = '') {
           const minCount = alt.minCount ?? 1;
           const vKey     = `${key}:${minCount}`;
           if (!virtualNodes.has(vKey)) {
-            const vId  = `virtual:anyExcellency:${vKey}`;
+            const vId  = minCount > 1 ? `virtual:anyExcellency:${key}:${minCount}` : `virtual:anyExcellency:${key}`;
             const word = countWords[minCount] ?? String(minCount);
             const label = minCount > 1
               ? `(Any ${word} ${_capitalizeKey(key)} Excellencies)`
@@ -126,7 +126,7 @@ export function buildTree(charms, groupKey = '') {
           if (_isTierZeroExcellency(charm)) continue;
           const key      = alt.abilityKey || charm.system?.ability || '';
           const minCount = alt.minCount ?? 1;
-          const vId      = `virtual:anyExcellency:${key}:${minCount}`;
+          const vId      = minCount > 1 ? `virtual:anyExcellency:${key}:${minCount}` : `virtual:anyExcellency:${key}`;
           fromId = nodes.has(vId) ? vId : null;
         }
         if (!fromId) continue;
@@ -145,14 +145,17 @@ export function buildTree(charms, groupKey = '') {
   const tierOf = new Map();
   for (const [id, node] of nodes) {
     const hasPrereqs = (parentsOf.get(id) ?? []).length > 0;
-    // Orphaned charms (no resolved prereqs) use essence as their floor, with a
-    // minimum of 2. The virtual "Any Excellency" node sits at tier 1 (child of
-    // the Excellencies at tier 0); its direct descendants land at tier 2.
-    // Clamping orphaned charms to min-tier 2 keeps them in the same row as
-    // those descendants so the center/side sorting can place them correctly.
+    // Orphaned charms (declare prereqs in JSON but none resolved) use essence as their floor,
+    // min 2. Genuine roots (prereqGroups empty) land at tier 0. The virtual "Any Excellency"
+    // node sits at tier 1 (child of the Excellencies at tier 0); its direct descendants land
+    // at tier 2. Clamping orphaned charms to min-tier 2 keeps them in the same row as those
+    // descendants so the center/side sorting can place them correctly.
+    const hasCharmPrereqs = (node.charm?.system?.prereqGroups?.length ?? 0) > 0;
     const floor = (node.isVirtual || _isTierZeroExcellency(node.charm) || node.isQuasiExcellency || hasPrereqs)
       ? 0
-      : Math.max(node.charm?.system?.essence ?? 1, 2);
+      : hasCharmPrereqs
+        ? Math.max(node.charm?.system?.essence ?? 1, 2)
+        : 0;
     tierOf.set(id, floor);
   }
 
