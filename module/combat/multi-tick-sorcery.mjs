@@ -183,6 +183,12 @@ export async function interruptShaping(combatant, interrupterName = null, action
   await combatant.unsetFlag("exalted2e", "multiTickAction");
   await combatant.unsetFlag("exalted2e", "pendingAction");
 
+  // Reset initiative to the current combat tick so the interrupted sorcerer
+  // can act again immediately rather than waiting at the future tick they
+  // had committed to for the shaping sequence.
+  const currentTick = combatant.parent?.currentTick ?? 0;
+  await combatant.update({ initiative: currentTick });
+
   const msg = interrupterName
     ? game.i18n.format("EX2E.ShapingInterruptedBy", { name: interrupterName, spell: resolvedAction.state?.spellName ?? "" })
     : game.i18n.format("EX2E.ShapingInterrupted", { spell: resolvedAction.state?.spellName ?? "" });
@@ -191,6 +197,28 @@ export async function interruptShaping(combatant, interrupterName = null, action
     style:   CONST.CHAT_MESSAGE_STYLES.OTHER,
     speaker: ChatMessage.getSpeaker({ actor: combatant.actor }),
   });
+}
+
+/**
+ * Interrupt a shaping sequence, routing through the GM socket when the
+ * calling user doesn't own the target combatant (countermagic by another player).
+ */
+export async function emitInterruptShaping(combatant, interrupterName) {
+  if (game.user.isGM || combatant.actor?.testUserPermission(game.user, "OWNER")) {
+    return interruptShaping(combatant, interrupterName);
+  }
+  const gmUser = game.users.find(u => u.isGM && u.active);
+  if (!gmUser) {
+    ui.notifications.warn(game.i18n.localize("EX2E.CountermagicNoGMOnline"));
+    return false;
+  }
+  game.socket.emit("system.exalted2e", {
+    action:         "interruptShaping",
+    combatantId:    combatant.id,
+    interrupterName,
+    targetGmId:     gmUser.id,
+  });
+  return true;
 }
 
 /**

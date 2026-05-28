@@ -1,5 +1,5 @@
 import { buildEligibleCharms, moteRange, getCountermagicTier, emitDispelSpellEffect } from "../helpers/countermagic-helpers.mjs";
-import { interruptShaping } from "../combat/multi-tick-sorcery.mjs";
+import { emitInterruptShaping } from "../combat/multi-tick-sorcery.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -122,7 +122,7 @@ export class CountermagicDialog extends HandlebarsApplicationMixin(ApplicationV2
         this.close();
         return;
       }
-      await interruptShaping(target.combatant, actor.name);
+      await emitInterruptShaping(target.combatant, actor.name);
     } else if (target.type === "effect-self") {
       if (target.ae.parent?.effects?.get(target.ae.id)) {
         await target.ae.delete();

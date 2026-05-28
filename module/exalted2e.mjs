@@ -83,7 +83,7 @@ import {
   applyRefundMath
 } from "./rolls/motivation-break-math.mjs";
 import { aimHandler }     from "./combat/multi-tick-aim.mjs";
-import { sorceryHandler } from "./combat/multi-tick-sorcery.mjs";
+import { sorceryHandler, interruptShaping } from "./combat/multi-tick-sorcery.mjs";
 import { resolveKnockbackChain, onKnockdownResistClick } from "./combat/knockback.mjs";
 import { _seedAnimaPowersCompendium } from "./helpers/anima-power-seeds.mjs";
 import { canLearnCelestialMA, canLearnSiderealMA } from "./helpers/ma-validation.mjs";
@@ -843,16 +843,28 @@ Hooks.once("ready", async function () {
     refreshTokenAnimaGlow(token);
   });
 
-  // ── Socket: GM proxy for countermagic dispel on foreign actors ──────────
+  // ── Socket: GM proxy for countermagic operations on foreign documents ───
   game.socket.on("system.exalted2e", async (payload) => {
     if (!game.user.isGM) return;
-    if (payload?.action !== "dispelSpellEffect") return;
     if (payload.targetGmId && game.user.id !== payload.targetGmId) return;
-    const { actorId, effectId } = payload;
-    const actor = game.actors.get(actorId);
-    if (!actor) return;
-    const ae = actor.effects.get(effectId);
-    if (ae) await ae.delete();
+
+    if (payload?.action === "dispelSpellEffect") {
+      const { actorId, effectId } = payload;
+      const actor = game.actors.get(actorId);
+      if (!actor) return;
+      const ae = actor.effects.get(effectId);
+      if (ae) await ae.delete();
+      return;
+    }
+
+    if (payload?.action === "interruptShaping") {
+      const { combatantId, interrupterName } = payload;
+      const combatant = game.combats?.contents
+        .flatMap(c => c.combatants?.contents ?? [])
+        .find(c => c.id === combatantId);
+      if (combatant) await interruptShaping(combatant, interrupterName);
+      return;
+    }
   });
 
   // Migration: back-fill unarmed attacks onto existing characters that
