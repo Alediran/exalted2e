@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-27 (Celestial-MA 1.5× XP was already implemented; added cost assertions to tests; count 1 A / 33 B / 6 C / 40 total)
+Last updated: 2026-05-27 (Combo-building rules already implemented in ComboSheet.#validateAdd; count 1 A / 32 B / 6 C / 39 total)
 
 ---
 
@@ -19,7 +19,6 @@ Last updated: 2026-05-27 (Celestial-MA 1.5× XP was already implemented; added c
 
 | Item | TODO Section | Key concern |
 |------|-------------|-------------|
-| Combo-building rules (size limits, keyword restrictions) | Combat | charm filter at combo-add time; pre-errata size caps |
 | Shields as weapons | Defense | new weapon tag handling, DV bonus, mobility penalty |
 | Fatigue penalty mechanic | Defense / Penalty | hook on scene-length exertion + Sta+Res roll |
 | Overdrive pool | Keywords | temp Peripheral pool tracking + scene-end dissipation — [charms-gap A1](docs/charms-gap.md) |
@@ -76,6 +75,6 @@ Last updated: 2026-05-27 (Celestial-MA 1.5× XP was already implemented; added c
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 33 |
+| B — Ready, Medium | 32 |
 | C — Ready, Complex | 6 |
-| **Total pending** | **40** |
+| **Total pending** | **39** |

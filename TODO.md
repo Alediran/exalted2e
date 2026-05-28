@@ -17,7 +17,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
   - [x] DV penalty stamped as AE on the actor
   - [x] Finish Turn advances by the flurry's max Speed
 - [x] Combos (charm combo creation, activation)
-  - [ ] Combo-building rules (size limits, keyword restrictions, pre-errata constraints)
+  - [x] Combo-building rules (keyword restrictions: Combo-Basic only with Reflexive; one Form-type per combo; no size cap per errata)
   - [x] Combo-Basic keyword enforcement (Form-type MA charm + reflexive only) per errata
   - [x] Flaw-of-Invulnerability + Form-type Combo +2 WP surcharge
   - [x] Shared / compendium-sourced Combos (drag-in from packs)
