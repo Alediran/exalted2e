@@ -58,9 +58,14 @@ export class CountermagicDialog extends HandlebarsApplicationMixin(ApplicationV2
       if (target.type === "effect-other") casterName = target.targetActor?.name ?? "";
     }
 
-    const firstCharm = this._eligibleCharms[0];
-    const tier       = getCountermagicTier(firstCharm);
-    const { min: moteMin, max: moteMax } = moteRange(tier, circle);
+    // Highest-tier first so the default selection has the widest mote range.
+    this._eligibleCharms.sort((a, b) => getCountermagicTier(b) - getCountermagicTier(a));
+
+    const charmRangeList = this._eligibleCharms.map(c => {
+      const { min, max } = moteRange(getCountermagicTier(c), circle);
+      return { charm: c, moteMin: min, moteMax: max };
+    });
+    const firstRange = charmRangeList[0] ?? { moteMin: 10, moteMax: 10 };
 
     const circleKeyMap = {
       sorcery:    { 1: "EX2E.CircleTerrestrial", 2: "EX2E.CircleCelestial", 3: "EX2E.CircleSolar" },
@@ -73,10 +78,10 @@ export class CountermagicDialog extends HandlebarsApplicationMixin(ApplicationV2
       casterName,
       traditionLabel: game.i18n.localize(traditionKey),
       circleLabel:    game.i18n.localize(circleKeyMap[tradition]?.[circle] ?? "EX2E.CircleTerrestrial"),
-      eligibleCharms: this._eligibleCharms,
-      moteMin,
-      moteMax,
-      hasRange:      moteMin < moteMax,
+      charmRangeList,
+      moteMin:       firstRange.moteMin,
+      moteMax:       firstRange.moteMax,
+      hasRange:      firstRange.moteMin < firstRange.moteMax,
       peripheralVal: actor?.system?.motes?.peripheral?.value ?? 0,
       peripheralMax: actor?.system?.motes?.peripheral?.max   ?? 0,
       personalVal:   actor?.system?.motes?.personal?.value   ?? 0,
@@ -85,10 +90,40 @@ export class CountermagicDialog extends HandlebarsApplicationMixin(ApplicationV2
   }
 
   _onRender(_context, _options) {
-    const slider  = this.element.querySelector(".mote-slider");
-    const display = this.element.querySelector(".mote-display");
-    if (slider && display) {
-      slider.addEventListener("input", () => { display.textContent = slider.value + "m"; });
+    const el          = this.element;
+    const slider      = el.querySelector(".mote-slider");
+    const display     = el.querySelector(".mote-display");
+    const motesInput  = el.querySelector(".motes-value");
+    const rangeGroup  = el.querySelector(".mote-range-group");
+    const fixedGroup  = el.querySelector(".mote-fixed-group");
+    const fixedValue  = el.querySelector(".mote-fixed-value");
+    const charmSelect = el.querySelector("[name=charmIndex]");
+
+    const updateMoteRange = (min, max) => {
+      const hasRange = min < max;
+      if (rangeGroup)  rangeGroup.style.display  = hasRange ? "" : "none";
+      if (fixedGroup)  fixedGroup.style.display  = hasRange ? "none" : "";
+      if (slider) { slider.min = min; slider.max = max; slider.value = min; }
+      if (display)    display.textContent    = min + "m";
+      if (motesInput) motesInput.value       = min;
+      if (fixedValue) fixedValue.textContent = min + "m";
+    };
+
+    if (slider) {
+      slider.addEventListener("input", () => {
+        if (display)    display.textContent = slider.value + "m";
+        if (motesInput) motesInput.value    = slider.value;
+      });
+    }
+
+    if (charmSelect) {
+      charmSelect.addEventListener("change", () => {
+        const opt = charmSelect.options[charmSelect.selectedIndex];
+        updateMoteRange(
+          parseInt(opt.dataset.min ?? "10", 10),
+          parseInt(opt.dataset.max ?? "10", 10)
+        );
+      });
     }
   }
 

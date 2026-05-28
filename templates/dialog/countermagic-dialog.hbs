@@ -5,32 +5,31 @@
     {{#if casterName}}<span class="caster-name">{{localize "EX2E.CountermagicCaster"}}: {{casterName}}</span>{{/if}}
   </div>
 
-  {{#if (gt eligibleCharms.length 1)}}
+  {{#if (gt charmRangeList.length 1)}}
   <div class="field-group">
     <label>{{localize "EX2E.CountermagicCharm"}}</label>
     <select name="charmIndex">
-      {{#each eligibleCharms as |c i|}}
-      <option value="{{i}}">{{c.name}}</option>
+      {{#each charmRangeList as |cr i|}}
+      <option value="{{i}}" data-min="{{cr.moteMin}}" data-max="{{cr.moteMax}}">{{cr.charm.name}}</option>
       {{/each}}
     </select>
   </div>
   {{else}}
   <input type="hidden" name="charmIndex" value="0">
-  <div class="charm-auto">{{localize "EX2E.CountermagicUsing"}}: <strong>{{eligibleCharms.[0].name}}</strong></div>
+  <div class="charm-auto">{{localize "EX2E.CountermagicUsing"}}: <strong>{{charmRangeList.[0].charm.name}}</strong></div>
   {{/if}}
 
-  {{#if hasRange}}
-  <div class="field-group">
+  {{!-- Single authoritative motes value; updated by slider input or charm-select change --}}
+  <input type="hidden" name="motes" class="motes-value" value="{{moteMin}}">
+
+  <div class="field-group mote-range-group"{{#unless hasRange}} style="display:none"{{/unless}}>
     <label>{{localize "EX2E.CountermagicMotes"}} ({{moteMin}}–{{moteMax}})</label>
-    <input type="range" name="motes" min="{{moteMin}}" max="{{moteMax}}" value="{{moteMin}}" class="mote-slider">
+    <input type="range" class="mote-slider" min="{{moteMin}}" max="{{moteMax}}" value="{{moteMin}}">
     <span class="mote-display">{{moteMin}}m</span>
   </div>
-  {{else}}
-  <div class="field-group">
-    <label>{{localize "EX2E.CountermagicMotes"}}: <strong>{{moteMin}}m</strong></label>
-    <input type="hidden" name="motes" value="{{moteMin}}">
+  <div class="field-group mote-fixed-group"{{#if hasRange}} style="display:none"{{/if}}>
+    <label>{{localize "EX2E.CountermagicMotes"}}: <strong class="mote-fixed-value">{{moteMin}}m</strong></label>
   </div>
-  {{/if}}
 
   <div class="pool-info">
     <span>{{localize "EX2E.MotesPeripheralShort"}}: {{peripheralVal}}/{{peripheralMax}}</span>
