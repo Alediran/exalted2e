@@ -315,7 +315,7 @@ describe("computeXpCost — item pricing (charms)", () => {
     expect(result.xp).toBe(15);
   });
 
-  it("Terrestrial Celestial-MA charm flags confident: false", () => {
+  it("Terrestrial Celestial-MA charm costs 15 XP (favored) with confident: false", () => {
     const actor = makeActor({
       exaltType: "terrestrial",
       abilities: { martialArts: { value: 3, caste: true } }
@@ -324,6 +324,20 @@ describe("computeXpCost — item pricing (charms)", () => {
       kind: "item",
       item: { type: "charm", system: { ability: "martialarts", exaltType: "terrestrial", keywords: [], martialArtsTier: "celestial" } }
     });
+    expect(result.xp).toBe(15);        // ceil(10 * 1.5)
+    expect(result.confident).toBe(false);
+  });
+
+  it("Terrestrial Celestial-MA charm costs 18 XP (non-favored)", () => {
+    const actor = makeActor({
+      exaltType: "terrestrial",
+      abilities: { martialArts: { value: 3, caste: false, favored: false } }
+    });
+    const result = computeXpCost(actor, {
+      kind: "item",
+      item: { type: "charm", system: { ability: "martialarts", exaltType: "terrestrial", keywords: [], martialArtsTier: "celestial" } }
+    });
+    expect(result.xp).toBe(18);        // ceil(12 * 1.5)
     expect(result.confident).toBe(false);
   });
 

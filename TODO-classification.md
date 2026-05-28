@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-27 (Ravening Mouth done via moteRecovery onDamageDealt event; count 1 A / 34 B / 6 C / 41 total)
+Last updated: 2026-05-27 (Celestial-MA 1.5× XP was already implemented; added cost assertions to tests; count 1 A / 33 B / 6 C / 40 total)
 
 ---
 
@@ -31,7 +31,6 @@ Last updated: 2026-05-27 (Ravening Mouth done via moteRecovery onDamageDealt eve
 | Ghost summoning | Sorcery | extended opposed WP+Ess contest (Black Treatise) |
 | Binding/fetter spells | Sorcery | Piercing the Heel, Soul Brand, Rune of Sweet Passing AE payloads |
 | Demon summoning | Sorcery | bind ritual on new moon/Calibration; bonus dice per demon type |
-| Celestial-MA 1.5× XP | Martial Arts | same tier check in XP cost engine for non-resonant exalts |
 | Limit Break scripted scene effects | Solar / Virtues | per-Virtue-Flaw AE templates (4 flaws × 2 break types) |
 | Shintai / Mantle form-type charms | Infernal | charm activation mode + transformation state AE |
 | Gremlin Syndrome / Dissonance | Alchemical | Clarity track → Dissonance consequences |
@@ -77,6 +76,6 @@ Last updated: 2026-05-27 (Ravening Mouth done via moteRecovery onDamageDealt eve
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 34 |
+| B — Ready, Medium | 33 |
 | C — Ready, Complex | 6 |
-| **Total pending** | **41** |
+| **Total pending** | **40** |

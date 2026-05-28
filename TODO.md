@@ -131,7 +131,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Sidereal Martial Arts entry gate (requires ≥1 Celestial style mastered to Form + Sidereal sifu; `canLearnSiderealMA` hook in `preCreateItem`)
 - [x] Celestial-MA DB initiation charms (Pasiap's Humility+Daana'd etc.; `grantsCelestialMA` charm flag; `canLearnCelestialMA` gate in `preCreateItem`)
 - [x] Celestial-MA per-charm surcharge for Dragon-Blooded (+1m per activation)
-- [ ] Celestial-MA 1.5× XP for non-resonant Exalts
+- [x] Celestial-MA 1.5× XP for non-resonant Exalts
 
 ## Per-Splat Mechanics
 - [x] **Splat subobject schema** (`system.splat.<type>.*` discriminated union per exaltType)
