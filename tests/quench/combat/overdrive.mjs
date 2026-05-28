@@ -36,7 +36,9 @@ export function registerOverdrive(context) {
       const startPeripheral = actor.system.motes.peripheral.value;
       const startOverdrive  = actor.system.motes.peripheral.overdrive ?? 0;
 
+      // duration: "permanent" required so isCharmPassivelyActive returns true
       await createTempCharm(actor, {
+        duration: "permanent",
         moteRecovery: {
           enabled:       true,
           event:         "onDamageReceived",
@@ -68,6 +70,7 @@ export function registerOverdrive(context) {
       const startOverdrive = actor.system.motes.peripheral.overdrive ?? 0;
 
       await createTempCharm(actor, {
+        duration:     "permanent",
         moteRecovery: {
           enabled:       true,
           event:         "onDamageReceived",
@@ -93,8 +96,9 @@ export function registerOverdrive(context) {
       const ally   = await createTempCharacter({ name: "Q-OD-Ally"   });
       await ally.update({ "system.essence.value": 5 });
 
-      // Ally has a charm that triggers on onAllyAttacked: gain 1 overdrive per HL
+      // Ally has a permanent charm that triggers on onAllyAttacked: gain 1 overdrive per HL
       await createTempCharm(ally, {
+        duration:     "permanent",
         moteRecovery: {
           enabled:       true,
           event:         "onAllyAttacked",

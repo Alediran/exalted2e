@@ -1,4 +1,4 @@
-import { sweep, register }             from "../_helpers/cleanup.mjs";
+import { sweep, register, cleanupOnAfter } from "../_helpers/cleanup.mjs";
 import { assertTestWorld, getTestScene } from "../_helpers/world.mjs";
 import { createTempCharacter }           from "../_helpers/actors.mjs";
 import { createTempWeapon }              from "../_helpers/weapons.mjs";
@@ -230,6 +230,13 @@ export function registerAttunementMotes(context) {
       await placeToken(actor, scene);
       const combat = await startTempCombat([actor]);
 
+      // Stub the parent Combat.endCombat so the Foundry confirmation dialog
+      // never fires — our ExaltedCombat override calls super.endCombat() which
+      // would otherwise open a UI dialog that never resolves in the test world.
+      const origParentEnd = Combat.prototype.endCombat;
+      cleanupOnAfter(() => { Combat.prototype.endCombat = origParentEnd; });
+      Combat.prototype.endCombat = async function() { return; };
+
       await combat.endCombat();
 
       assert.equal(weapon.system.attuned,              false, "un-attuned at scene end");
@@ -250,6 +257,10 @@ export function registerAttunementMotes(context) {
       const scene = getTestScene();
       await placeToken(actor, scene);
       const combat = await startTempCombat([actor]);
+
+      const origParentEnd = Combat.prototype.endCombat;
+      cleanupOnAfter(() => { Combat.prototype.endCombat = origParentEnd; });
+      Combat.prototype.endCombat = async function() { return; };
 
       await combat.endCombat();
 
