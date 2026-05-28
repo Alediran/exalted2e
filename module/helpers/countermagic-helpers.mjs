@@ -17,11 +17,35 @@ export function moteRange(tier, targetCircle = 1) {
   return { min: 10, max: 10 };
 }
 
-export function isEligible(charm, targetCircle, targetTradition) {
-  if (!charm?.system?.isCountermagic) return false;
-  const tier = charm.system.countermagicTier ?? 1;
+/** Countermagic tier for an item — spell items use circle, charm items use countermagicTier. */
+export function getCountermagicTier(item) {
+  if (!item) return 1;
+  return item.type === "spell"
+    ? (item.system?.circle ?? 1)
+    : (item.system?.countermagicTier ?? 1);
+}
+
+/**
+ * Countermagic tradition for an item.
+ * Charm items use countermagicTradition directly.
+ * Spell items use countermagicTradition when explicitly set (cross-tradition
+ * spells like Onyx/Obsidian set it to "both"), otherwise fall back to
+ * the spell's own tradition field.
+ */
+export function getCountermagicTradition(item) {
+  if (!item) return "sorcery";
+  const explicit = item.system?.countermagicTradition;
+  if (explicit) return explicit;
+  return item.type === "spell"
+    ? (item.system?.tradition ?? "sorcery")
+    : "sorcery";
+}
+
+export function isEligible(item, targetCircle, targetTradition) {
+  if (!item?.system?.isCountermagic) return false;
+  const tier = getCountermagicTier(item);
   if (tier < targetCircle) return false;
-  const trad = charm.system.countermagicTradition ?? "sorcery";
+  const trad = getCountermagicTradition(item);
   if (trad !== "both" && trad !== targetTradition) return false;
   return true;
 }

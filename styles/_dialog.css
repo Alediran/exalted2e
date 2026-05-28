@@ -1330,3 +1330,176 @@
   color:        var(--ex2e-gold-bright);
   box-shadow:   var(--ex2e-glow-gold);
 }
+
+/* ── Shared form-footer action buttons (sorcery cast, etc.) ─────────────── */
+
+.ex2e-roll-dialog .form-footer .btn-confirm,
+.ex2e-roll-dialog .form-footer .btn-cancel {
+  display:        inline-flex;
+  align-items:    center;
+  gap:            var(--ex2e-gap-sm);
+  padding:        6px 24px;
+  border-radius:  20px;
+  font-family:    var(--ex2e-font-title);
+  font-size:      var(--ex2e-font-size-md);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor:         pointer;
+  transition:     all var(--ex2e-transition-fast);
+}
+
+.ex2e-roll-dialog .form-footer .btn-confirm {
+  border:     1px solid var(--ex2e-gold-main);
+  background: linear-gradient(135deg, var(--ex2e-bg-panel) 0%, var(--ex2e-bg-medium) 100%);
+  color:      var(--ex2e-gold-bright);
+}
+
+.ex2e-roll-dialog .form-footer .btn-confirm:hover {
+  background: var(--ex2e-gold-dark);
+  box-shadow: var(--ex2e-glow-gold);
+  transform:  translateY(-1px);
+}
+
+.ex2e-roll-dialog .form-footer .btn-cancel {
+  border:     1px solid var(--ex2e-gold-shadow);
+  background: transparent;
+  color:      var(--ex2e-text-muted);
+}
+
+.ex2e-roll-dialog .form-footer .btn-cancel:hover {
+  border-color: var(--ex2e-gold-dark);
+  color:        var(--ex2e-text-secondary);
+}
+
+/* ── Sorcery Cast Dialog content rows ───────────────────────────────────── */
+
+.ex2e-roll-dialog .dialog-meta {
+  font-size:  var(--ex2e-font-size-xs);
+  color:      var(--ex2e-text-muted);
+  font-style: italic;
+}
+
+.ex2e-roll-dialog .cost-row {
+  display:   flex;
+  flex-wrap: wrap;
+  gap:       var(--ex2e-gap-sm) var(--ex2e-gap-md);
+  font-size: var(--ex2e-font-size-sm);
+  color:     var(--ex2e-text-secondary);
+}
+
+.ex2e-roll-dialog .pool-row {
+  display:   flex;
+  flex-wrap: wrap;
+  gap:       var(--ex2e-gap-sm) var(--ex2e-gap-md);
+  font-size: var(--ex2e-font-size-sm);
+  color:     var(--ex2e-text-secondary);
+}
+
+.ex2e-roll-dialog .hint {
+  margin:     0;
+  font-size:  var(--ex2e-font-size-sm);
+  color:      var(--ex2e-text-muted);
+  font-style: italic;
+}
+
+/* ── Countermagic Dialog ─────────────────────────────────────────────────── */
+
+.countermagic-dialog {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--ex2e-gap-md);
+  padding:        var(--ex2e-gap-lg);
+}
+
+.countermagic-dialog .spell-info {
+  display:        flex;
+  flex-direction: column;
+  gap:            2px;
+  padding-bottom: var(--ex2e-gap-sm);
+  border-bottom:  1px solid var(--ex2e-gold-dark);
+}
+
+.countermagic-dialog .spell-info strong {
+  font-family: var(--ex2e-font-title);
+  color:       var(--ex2e-gold-bright);
+  font-size:   var(--ex2e-font-size-md);
+}
+
+.countermagic-dialog .tradition-circle {
+  font-size:  var(--ex2e-font-size-xs);
+  color:      var(--ex2e-text-muted);
+  font-style: italic;
+}
+
+.countermagic-dialog .caster-name {
+  font-size: var(--ex2e-font-size-xs);
+  color:     var(--ex2e-text-secondary);
+}
+
+.countermagic-dialog .charm-auto {
+  font-size: var(--ex2e-font-size-sm);
+  color:     var(--ex2e-text-secondary);
+}
+
+.countermagic-dialog .mote-display {
+  font-family: var(--ex2e-font-ui);
+  font-size:   var(--ex2e-font-size-sm);
+  color:       var(--ex2e-gold-bright);
+  font-weight: bold;
+  min-width:   32px;
+  text-align:  right;
+}
+
+.countermagic-dialog .pool-info {
+  display:   flex;
+  flex-wrap: wrap;
+  gap:       var(--ex2e-gap-sm) var(--ex2e-gap-md);
+  font-size: var(--ex2e-font-size-sm);
+  color:     var(--ex2e-text-secondary);
+}
+
+.countermagic-dialog .dialog-buttons {
+  display:         flex;
+  justify-content: center;
+  gap:             var(--ex2e-gap-md);
+  padding-top:     var(--ex2e-gap-sm);
+  border-top:      1px solid var(--ex2e-gold-dark);
+}
+
+.countermagic-dialog .btn-confirm,
+.countermagic-dialog .btn-cancel {
+  display:        inline-flex;
+  align-items:    center;
+  gap:            var(--ex2e-gap-sm);
+  padding:        6px 24px;
+  border-radius:  20px;
+  font-family:    var(--ex2e-font-title);
+  font-size:      var(--ex2e-font-size-md);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor:         pointer;
+  transition:     all var(--ex2e-transition-fast);
+}
+
+.countermagic-dialog .btn-confirm {
+  border:     1px solid var(--ex2e-gold-main);
+  background: linear-gradient(135deg, var(--ex2e-bg-panel) 0%, var(--ex2e-bg-medium) 100%);
+  color:      var(--ex2e-gold-bright);
+}
+
+.countermagic-dialog .btn-confirm:hover {
+  background: var(--ex2e-gold-dark);
+  box-shadow: var(--ex2e-glow-gold);
+  transform:  translateY(-1px);
+}
+
+.countermagic-dialog .btn-cancel {
+  border:     1px solid var(--ex2e-gold-shadow);
+  background: transparent;
+  color:      var(--ex2e-text-muted);
+}
+
+.countermagic-dialog .btn-cancel:hover {
+  border-color: var(--ex2e-gold-dark);
+  color:        var(--ex2e-text-secondary);
+}

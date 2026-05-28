@@ -1,0 +1,38 @@
+{
+  "_id": "b2d4f6a8c0e13579",
+  "_key": "!items!b2d4f6a8c0e13579",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sapphire Countermagic",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "celestial-circle-sapphire-countermagic",
+    "tradition": "sorcery",
+    "circle": 2,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 20,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "Instant",
+    "target": "Caster, or nearby Terrestrial or Celestial Circle sorcery spell",
+    "description": "<p>This spell has special timing rules. The character can cast it as a reflexive Shape Celestial Circle Sorcery action that takes 0 ticks. It follows all other rules for sorcery actions, and the character must take a Cast Sorcery action as their next normal action.</p><p>The sorcerer may protect herself, wrapping her in warding essence until her next action. Terrestrial and Celestial Circle spells targeted against her unravel on contact, but the effort imposes a -2 internal penalty on all physical actions until the countermagic fades. Alternatively, she may project the effect outward, disrupting any Terrestrial or Celestial Circle spell currently in progress within a number of yards equal to (Essence x 50). Countermagic cannot banish demons, though it can destroy other active sorcerous effects. Some spells can be countered after casting if so noted in their description.</p>",
+    "isCountermagic": true
+  },
+  "folder": "dcf06d83a3d0a4be",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

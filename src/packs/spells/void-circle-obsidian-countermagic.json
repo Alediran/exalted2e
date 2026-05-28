@@ -27,7 +27,9 @@
     },
     "duration": "",
     "target": "Caster, or nearby Terrestrial or Celestial Circle sorcery spell, or nearby Shadowlands, Labyrinth or Void Circle necromancy spell",
-    "description": "<p>This spell functions just like Iron Countermagic (see page 30), except that it can affect all necromancy. Obsidian Countermagic also dispels sorcery of the Terrestrial or Celestial Circles.</p>"
+    "description": "<p>This spell functions just like Iron Countermagic (see page 30), except that it can affect all necromancy. Obsidian Countermagic also dispels sorcery of the Terrestrial or Celestial Circles.</p>",
+    "isCountermagic": true,
+    "countermagicTradition": "both"
   },
   "folder": "447f6cc1520ba234",
   "ownership": {

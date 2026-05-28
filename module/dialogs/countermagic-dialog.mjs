@@ -1,4 +1,4 @@
-import { buildEligibleCharms, moteRange, emitDispelSpellEffect } from "../helpers/countermagic-helpers.mjs";
+import { buildEligibleCharms, moteRange, getCountermagicTier, emitDispelSpellEffect } from "../helpers/countermagic-helpers.mjs";
 import { interruptShaping } from "../combat/multi-tick-sorcery.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
@@ -59,7 +59,7 @@ export class CountermagicDialog extends HandlebarsApplicationMixin(ApplicationV2
     }
 
     const firstCharm = this._eligibleCharms[0];
-    const tier       = firstCharm?.system?.countermagicTier ?? 1;
+    const tier       = getCountermagicTier(firstCharm);
     const { min: moteMin, max: moteMax } = moteRange(tier, circle);
 
     const circleKeyMap = {
@@ -96,12 +96,18 @@ export class CountermagicDialog extends HandlebarsApplicationMixin(ApplicationV2
     const form  = this.element.querySelector(".countermagic-dialog");
     const idx   = parseInt(form.querySelector("[name=charmIndex]")?.value ?? "0", 10);
     const charm = this._eligibleCharms[idx];
-    const { min: moteMin } = moteRange(charm?.system?.countermagicTier ?? 1, this._circle);
+    const { min: moteMin } = moteRange(getCountermagicTier(charm), this._circle);
     const motes = parseInt(form.querySelector("[name=motes]")?.value ?? String(moteMin), 10);
 
     if (!charm) { this._resolved = true; this._resolve(false); this.close(); return; }
 
-    const ok = await charm.activateCharm({ explicitMotesOverride: motes });
+    let ok = false;
+    if (charm.type === "spell") {
+      const result = await this._counterActor.spendMotes(motes, "peripheral");
+      ok = !!result;
+    } else {
+      ok = await charm.activateCharm({ explicitMotesOverride: motes });
+    }
     if (!ok) { this._resolved = true; this._resolve(false); this.close(); return; }
 
     const target = this._target;

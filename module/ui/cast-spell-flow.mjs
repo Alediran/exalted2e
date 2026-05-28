@@ -1,7 +1,8 @@
 import {
   buildShapeDeclaration,
   buildContinueShapeDeclaration,
-  buildCastDeclaration
+  buildCastDeclaration,
+  parseMotesFormula
 } from "../combat/sorcery-math.mjs";
 import { SorceryCastDialog } from "../dialogs/sorcery-cast-dialog.mjs";
 import { postCastChatCard, _createSpellEffectAe } from "../combat/multi-tick-sorcery.mjs";
@@ -32,7 +33,7 @@ export async function castSpellFlow(item) {
     const result = await SorceryCastDialog.prompt({ spell: item, actor, circle: sys.circle ?? 1 });
     if (!result?.ok) return;
 
-    const motesCost  = sys.cost?.motes ?? 0;
+    const motesCost  = parseMotesFormula(sys.cost?.motes ?? 0);
     const wpCost     = sys.cost?.willpower ?? 0;
     const moteResult = motesCost > 0 ? await actor.spendMotes(motesCost, "peripheral") : null;
     if (motesCost > 0 && !moteResult) return;  // spendMotes already posted a warning
@@ -85,7 +86,7 @@ export async function castSpellFlow(item) {
   // automatically). Capture the per-pool split so refund can return
   // motes to exactly the pools they came from — recoverMotes is
   // single-pool, so we store both halves.
-  const motesCost = sys.cost?.motes ?? 0;
+  const motesCost = parseMotesFormula(sys.cost?.motes ?? 0);
   const wpCost    = sys.cost?.willpower ?? 0;
   const moteResult = motesCost > 0 ? await actor.spendMotes(motesCost, "peripheral") : null;
   if (motesCost > 0 && !moteResult) return;  // spendMotes posted a warning

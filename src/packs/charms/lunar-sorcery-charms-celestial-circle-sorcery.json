@@ -1,6 +1,6 @@
 {
-  "_id": "4987260c41fe838d",
-  "_key": "!items!4987260c41fe838d",
+  "_id": "b53e433a85be8095",
+  "_key": "!items!b53e433a85be8095",
   "_stats": {
     "coreVersion": "13",
     "systemId": "exalted2e",
@@ -9,14 +9,14 @@
     "modifiedTime": 0,
     "lastModifiedBy": null
   },
-  "name": "Terrestrial Circle Sorcery",
+  "name": "Celestial Circle Sorcery",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "lunar",
     "ability": "intelligence",
-    "essence": 3,
-    "minAbility": 3,
+    "essence": 4,
+    "minAbility": 4,
     "charmType": "permanent",
     "duration": "instant",
     "speed": 6,
@@ -28,13 +28,12 @@
       "resonance": 0,
       "limitTrigger": 0
     },
-    "description": "<p>This Charm allows the Lunar to take Terrestrial Circle Sorcery actions. See Exalted, page 220 and page 252.</p>",
+    "description": "<p>This Charm allows the Lunar to take Celestial Circle Sorcery actions. See Exalted, pages 220-221 and page 252.</p>",
     "source": "MoEP: Lunars",
     "yoziPatron": "",
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -42,12 +41,25 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "4987260c41fe838d",
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "4987260c41fe838d",
+            "charmName": "Terrestrial Circle Sorcery",
+            "abilityKey": "",
+            "virtueKey": "valor",
+            "virtueMin": 1
+          }
+        ]
+      }
+    ],
+    "charmUid": "b53e433a85be8095",
     "grantsInitiation": {
       "enabled": true,
       "tradition": "sorcery",
-      "level": 1
+      "level": 2
     }
   },
   "folder": "8b05ba7cc3e236b8",

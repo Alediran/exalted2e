@@ -3,6 +3,8 @@ import {
   isEligible,
   moteRange,
   buildEligibleCharms,
+  getCountermagicTier,
+  getCountermagicTradition,
 } from "../../module/helpers/countermagic-helpers.mjs";
 
 function makeCharm(overrides = {}) {
@@ -103,5 +105,82 @@ describe("buildEligibleCharms", () => {
   it("returns empty array for null/undefined actor", () => {
     expect(buildEligibleCharms(null, 1, "sorcery")).toHaveLength(0);
     expect(buildEligibleCharms(undefined, 1, "sorcery")).toHaveLength(0);
+  });
+});
+
+function makeSpell(overrides = {}) {
+  return {
+    type: "spell",
+    system: {
+      isCountermagic: true,
+      circle: 1,
+      tradition: "sorcery",
+      countermagicTradition: "",
+      ...overrides,
+    },
+  };
+}
+
+describe("getCountermagicTier", () => {
+  it("returns circle for spell items", () => {
+    expect(getCountermagicTier(makeSpell({ circle: 2 }))).toBe(2);
+  });
+  it("returns countermagicTier for charm items", () => {
+    expect(getCountermagicTier(makeCharm({ countermagicTier: 3 }))).toBe(3);
+  });
+  it("returns 1 for null", () => {
+    expect(getCountermagicTier(null)).toBe(1);
+  });
+});
+
+describe("getCountermagicTradition", () => {
+  it("returns spell tradition when countermagicTradition is empty", () => {
+    expect(getCountermagicTradition(makeSpell({ tradition: "necromancy", countermagicTradition: "" }))).toBe("necromancy");
+  });
+  it("returns countermagicTradition override when set", () => {
+    expect(getCountermagicTradition(makeSpell({ tradition: "necromancy", countermagicTradition: "both" }))).toBe("both");
+  });
+  it("returns countermagicTradition for charm items", () => {
+    expect(getCountermagicTradition(makeCharm({ countermagicTradition: "necromancy" }))).toBe("necromancy");
+  });
+});
+
+describe("isEligible — spell items", () => {
+  it("Emerald (circle 1, sorcery) passes circle-1 sorcery, fails circle 2", () => {
+    const spell = makeSpell({ circle: 1, tradition: "sorcery" });
+    expect(isEligible(spell, 1, "sorcery")).toBe(true);
+    expect(isEligible(spell, 2, "sorcery")).toBe(false);
+  });
+  it("Sapphire (circle 2, sorcery) passes circles 1–2, fails circle 3", () => {
+    const spell = makeSpell({ circle: 2, tradition: "sorcery" });
+    expect(isEligible(spell, 1, "sorcery")).toBe(true);
+    expect(isEligible(spell, 2, "sorcery")).toBe(true);
+    expect(isEligible(spell, 3, "sorcery")).toBe(false);
+  });
+  it("Onyx (circle 2, both) passes circles 1–2 for both traditions", () => {
+    const spell = makeSpell({ circle: 2, tradition: "necromancy", countermagicTradition: "both" });
+    expect(isEligible(spell, 1, "sorcery")).toBe(true);
+    expect(isEligible(spell, 1, "necromancy")).toBe(true);
+    expect(isEligible(spell, 2, "sorcery")).toBe(true);
+    expect(isEligible(spell, 3, "sorcery")).toBe(false);
+  });
+  it("spell with isCountermagic false is not eligible", () => {
+    const spell = makeSpell({ isCountermagic: false });
+    expect(isEligible(spell, 1, "sorcery")).toBe(false);
+  });
+});
+
+describe("buildEligibleCharms — spell items", () => {
+  it("returns spell items that pass isEligible", () => {
+    const actor = {
+      items: {
+        contents: [
+          makeSpell({ circle: 1, tradition: "sorcery" }),
+          makeSpell({ circle: 2, tradition: "sorcery" }),
+          makeSpell({ isCountermagic: false }),
+        ],
+      },
+    };
+    expect(buildEligibleCharms(actor, 2, "sorcery")).toHaveLength(1);
   });
 });

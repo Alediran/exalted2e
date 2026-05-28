@@ -140,20 +140,17 @@ export function buildTree(charms, groupKey = '') {
   }
 
   // Compute tiers via iterative longest-path (topological order).
-  // Excellency charms and virtual nodes start at 0; everything else starts at its
-  // essence requirement so Excellencies are the only tier-0 nodes.
+  // When the tree has no virtual anyExcellency nodes (e.g. pure test chains with
+  // no Excellency charms), orphaned roots get floor 0 so they head the chain at
+  // tier 0. When virtual nodes ARE present (real trees with Excellencies), orphans
+  // use Math.max(essence, 2) to stay below the tier-0/tier-1 excellency rows.
+  const hasVirtualNodes = virtualNodes.size > 0;
   const tierOf = new Map();
   for (const [id, node] of nodes) {
     const hasPrereqs = (parentsOf.get(id) ?? []).length > 0;
-    // Orphaned charms (declare prereqs in JSON but none resolved) use essence as their floor,
-    // min 2. Genuine roots (prereqGroups empty) land at tier 0. The virtual "Any Excellency"
-    // node sits at tier 1 (child of the Excellencies at tier 0); its direct descendants land
-    // at tier 2. Clamping orphaned charms to min-tier 2 keeps them in the same row as those
-    // descendants so the center/side sorting can place them correctly.
-    const hasCharmPrereqs = (node.charm?.system?.prereqGroups?.length ?? 0) > 0;
     const floor = (node.isVirtual || _isTierZeroExcellency(node.charm) || node.isQuasiExcellency || hasPrereqs)
       ? 0
-      : hasCharmPrereqs
+      : hasVirtualNodes
         ? Math.max(node.charm?.system?.essence ?? 1, 2)
         : 0;
     tierOf.set(id, floor);

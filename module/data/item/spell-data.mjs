@@ -31,8 +31,11 @@ export class SpellData extends foundry.abstract.TypeDataModel {
       // ── Cost ────────────────────────────────────────────────────────────
       // Same shape as CharmData.cost so the shared spend-and-reverse
       // ledger handles both without branching.
+      // cost.motes is a StringField so it can hold either a plain number
+      // ("15") or a display formula ("15m" / "Essence × 5"). The numeric
+      // value is extracted via parseMotesFormula() before spending.
       cost: new fields.SchemaField({
-        motes:            new fields.NumberField({ initial: 15, min: 0, max: 100, integer: true }),
+        motes:            new fields.StringField({ initial: "15m", blank: false }),
         willpower:        new fields.NumberField({ initial: 1,  min: 0, max: 5,   integer: true }),
         bashingHealth:    new fields.NumberField({ initial: 0,  min: 0, max: 5,   integer: true }),
         lethalHealth:     new fields.NumberField({ initial: 0,  min: 0, max: 5,   integer: true }),
@@ -40,13 +43,21 @@ export class SpellData extends foundry.abstract.TypeDataModel {
         xp:               new fields.NumberField({ initial: 0,  min: 0, max: 50,  integer: true })
       }),
 
-      // ── Duration / Target ─────────────────────────────────────────────
+      // ── Duration / Target / Range ────────────────────────────────────
       duration:   new fields.StringField({ initial: "instant", blank: false }),
       target:     new fields.StringField({ initial: "", blank: true }),
+      range:      new fields.StringField({ initial: "", blank: true }),
 
       // ── Description ────────────────────────────────────────────────────
       description: new fields.HTMLField({ initial: "" }),
       countermagicImmune: new fields.BooleanField({ initial: false }),
+      // Set true on the countermagic spells (Emerald/Sapphire/Adamant,
+      // Iron/Onyx/Obsidian) so buildEligibleCharms can find them.
+      // Tier is derived from system.circle; tradition from system.tradition.
+      // countermagicTradition overrides the eligibility tradition when the
+      // spell crosses traditions (e.g. Onyx/Obsidian → "both").
+      isCountermagic:        new fields.BooleanField({ initial: false }),
+      countermagicTradition: new fields.StringField({ initial: "", blank: true }),
     };
   }
 }

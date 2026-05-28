@@ -1,0 +1,38 @@
+{
+  "_id": "c3e5f7a9b1d24680",
+  "_key": "!items!c3e5f7a9b1d24680",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Adamant Countermagic",
+  "type": "spell",
+  "img": "",
+  "system": {
+    "spellUid": "solar-circle-adamant-countermagic",
+    "tradition": "sorcery",
+    "circle": 3,
+    "minimumClarity": 0,
+    "cost": {
+      "motes": 30,
+      "willpower": 0,
+      "bashingHealth": 0,
+      "lethalHealth": 0,
+      "aggravatedHealth": 0,
+      "xp": 0
+    },
+    "duration": "Instant",
+    "target": "Caster, or any sorcery spell",
+    "description": "<p>This spell has special timing rules. The character can cast it as a reflexive Shape Solar Circle Sorcery action that takes 0 ticks. It follows all other rules for sorcery actions, and the character must take a Cast Sorcery action as their next normal action.</p><p>The sorcerer may protect herself, wrapping her in warding essence until her next action. Any sorcery spell of any circle targeted against her unravels on contact, but the effort imposes a -2 internal penalty on all physical actions until the countermagic fades. Alternatively, she may project the effect outward, disrupting any sorcery spell of any circle currently in progress within a number of yards equal to (Essence x 50). Countermagic cannot banish demons, though it can destroy other active sorcerous effects. Some spells can be countered after casting if so noted in their description.</p>",
+    "isCountermagic": true
+  },
+  "folder": "66776f28169b53d7",
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -4,7 +4,8 @@
   <div class="charm-stats-grid">
     <div class="field-group">
       <label>{{localize "EX2E.Motes"}}</label>
-      <input type="number" name="system.cost.motes" value="{{system.cost.motes}}" min="0"
+      <input type="text" name="system.cost.motes" value="{{system.cost.motes}}"
+             placeholder="e.g. 15m"
              {{#unless isEditable}}readonly{{/unless}}>
     </div>
     <div class="field-group">
@@ -60,6 +61,12 @@
       <label>{{localize "EX2E.SpellTarget"}}</label>
       <input type="text" name="system.target" value="{{system.target}}"
              placeholder="{{localize 'EX2E.SpellTargetPlaceholder'}}"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    <div class="field-group" style="flex:1">
+      <label>{{localize "EX2E.SpellRange"}}</label>
+      <input type="text" name="system.range" value="{{system.range}}"
+             placeholder="{{localize 'EX2E.SpellRangePlaceholder'}}"
              {{#unless isEditable}}readonly{{/unless}}>
     </div>
   </div>

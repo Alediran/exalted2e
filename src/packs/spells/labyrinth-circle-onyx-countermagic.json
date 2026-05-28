@@ -27,7 +27,9 @@
     },
     "duration": "",
     "target": "Caster, or nearby Terrestrial Circle sorcery spell, or nearby Shadowlands or Labyrinth Circle necromancy spell",
-    "description": "<p>This spell functions just like Iron Countermagic (see p. 30), but it also affects Labyrinth Circle necromancy and Terrestrial Circle sorcery.</p>"
+    "description": "<p>This spell functions just like Iron Countermagic (see p. 30), but it also affects Labyrinth Circle necromancy and Terrestrial Circle sorcery.</p>",
+    "isCountermagic": true,
+    "countermagicTradition": "both"
   },
   "folder": "562235f47f16c453",
   "ownership": {

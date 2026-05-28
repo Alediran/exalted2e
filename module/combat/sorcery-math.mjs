@@ -10,6 +10,18 @@
 const SHAPE_DV_BY_CIRCLE = { 1: 2, 2: 3, 3: 4 };
 
 /**
+ * Extract a numeric mote cost from a spell's cost.motes value.
+ * Accepts plain numbers (15), numeric strings ("15"), or formula strings
+ * ("15m", "10m 1wp"). Returns 0 for non-numeric formulas like "@ess*2m"
+ * that require actor context to evaluate.
+ */
+export function parseMotesFormula(formula) {
+  if (typeof formula === "number") return formula;
+  const n = parseInt(formula, 10);
+  return isNaN(n) ? 0 : n;
+}
+
+/**
  * Verify the actor can begin shaping a given spell.
  *
  * Checks initiation in the spell's tradition (sorcery|necromancy|weaving).
@@ -47,7 +59,7 @@ export function validateCanCast({ actor, spell }) {
     }
   }
 
-  const motesCost  = spell?.system?.cost?.motes ?? 0;
+  const motesCost  = parseMotesFormula(spell?.system?.cost?.motes ?? 0);
   const peripheral = actor?.system?.motes?.peripheral?.value ?? 0;
   const personal   = actor?.system?.motes?.personal?.value ?? 0;
   if (peripheral + personal < motesCost) {
