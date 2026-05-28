@@ -2032,4 +2032,36 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     if (!itemId) return;
     await actor.applyAttunementMotes(itemId);
   }
+
+  async _onDrop(event) {
+    const data = TextEditor.getDragEventData(event);
+    if (data?.type !== "Item") return super._onDrop(event);
+
+    const item = await Item.fromDropData(data);
+    if (!item) return;
+
+    const sourceActor = item.parent instanceof Actor ? item.parent : null;
+
+    // No source actor (compendium / world item) or same actor: Foundry default
+    if (!sourceActor || sourceActor.uuid === this.actor.uuid) return super._onDrop(event);
+
+    const TRANSFERABLE = new Set(["weapon", "armor", "background", "meritflaw"]);
+    if (!TRANSFERABLE.has(item.type)) {
+      ui.notifications.warn(game.i18n.localize("EX2E.ItemNotTransferable"));
+      return false;
+    }
+
+    if (!sourceActor.isOwner && !game.user.isGM) {
+      ui.notifications.warn(game.i18n.localize("EX2E.ItemTransferNoPermission"));
+      return false;
+    }
+
+    const itemData = item.toObject();
+    delete itemData._id;
+    const [created] = await this.actor.createEmbeddedDocuments("Item", [itemData]);
+    if (!created) return false;
+
+    await item.delete();
+    return created;
+  }
 }

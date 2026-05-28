@@ -1076,6 +1076,8 @@
     "EffectAppliedFromWrapper": "\"{name}\" aplicado a {actor}.",
     "EffectGMOnlyRemoval": "Solo el DJ puede retirar este efecto.",
     "ItemGMOnlyRemoval": "Solo el DJ puede eliminar este objeto.",
+    "ItemNotTransferable": "Este tipo de objeto no puede transferirse entre personajes.",
+    "ItemTransferNoPermission": "No tienes permiso para tomar objetos de ese personaje.",
     "IsBreedingTrait": "Rasgo de Linaje",
     "BackgroundHouse": "Casa / Familia",
     "BackgroundHousePlaceholder": "Nombre de familia o casa...",

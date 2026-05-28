@@ -1076,6 +1076,8 @@
     "EffectAppliedFromWrapper": "Applied \"{name}\" to {actor}.",
     "EffectGMOnlyRemoval": "Only the GM can remove this effect.",
     "ItemGMOnlyRemoval": "Only the GM can remove this item.",
+    "ItemNotTransferable": "This item type cannot be transferred between characters.",
+    "ItemTransferNoPermission": "You do not have permission to take items from that character.",
     "IsBreedingTrait": "Breeding trait",
     "BackgroundHouse": "House / Family",
     "BackgroundHousePlaceholder": "Family or house name...",
