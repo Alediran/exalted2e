@@ -19,11 +19,18 @@
   <div class="charm-auto">{{localize "EX2E.CountermagicUsing"}}: <strong>{{eligibleCharms.[0].name}}</strong></div>
   {{/if}}
 
+  {{#if hasRange}}
   <div class="field-group">
     <label>{{localize "EX2E.CountermagicMotes"}} ({{moteMin}}–{{moteMax}})</label>
     <input type="range" name="motes" min="{{moteMin}}" max="{{moteMax}}" value="{{moteMin}}" class="mote-slider">
     <span class="mote-display">{{moteMin}}m</span>
   </div>
+  {{else}}
+  <div class="field-group">
+    <label>{{localize "EX2E.CountermagicMotes"}}: <strong>{{moteMin}}m</strong></label>
+    <input type="hidden" name="motes" value="{{moteMin}}">
+  </div>
+  {{/if}}
 
   <div class="pool-info">
     <span>{{localize "EX2E.MotesPeripheralShort"}}: {{peripheralVal}}/{{peripheralMax}}</span>

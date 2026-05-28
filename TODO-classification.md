@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-27 (Overdrive pool implemented: schema + spendMotes buffer drain + addOverdriveMotes + endCombat clear + UI badge; count 1 A / 31 B / 6 C / 38 total)
+Last updated: 2026-05-28 (Countermagic circle-rank cost enforcement done; count 1 A / 30 B / 6 C / 37 total)
 
 ---
 
@@ -24,7 +24,6 @@ Last updated: 2026-05-27 (Overdrive pool implemented: schema + spendMotes buffer
 | Blasphemy / Axiomatic / Dawn damage upgrades | Keywords | mirror of Holy, splat-specific target condition |
 | Training keyword XP debt ledger | Keywords | per-actor debt AE or item field — [charms-gap A8](docs/charms-gap.md) |
 | Merged keyword (learn-once, multi-ability) | Keywords | charm activation routing extension |
-| Countermagic cost variance by circle | Sorcery | tier-based mote slider already exists; extend CountermagicDialog to enforce circle-rank minimums |
 | Spell-specific duration/effect payloads | Sorcery | per-spell AE-like target effects; requires per-spell schema extension |
 | Ghost summoning | Sorcery | extended opposed WP+Ess contest (Black Treatise) |
 | Binding/fetter spells | Sorcery | Piercing the Heel, Soul Brand, Rune of Sweet Passing AE payloads |
@@ -74,6 +73,6 @@ Last updated: 2026-05-27 (Overdrive pool implemented: schema + spendMotes buffer
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 31 |
+| B — Ready, Medium | 30 |
 | C — Ready, Complex | 6 |
-| **Total pending** | **38** |
+| **Total pending** | **37** |

@@ -27,6 +27,7 @@ export class CountermagicDialog extends HandlebarsApplicationMixin(ApplicationV2
     this._target         = options.target;
     this._counterActor   = options.counterActor;
     this._eligibleCharms = options.eligibleCharms;
+    this._circle         = options.circle ?? 1;
   }
 
   get title() {
@@ -59,7 +60,7 @@ export class CountermagicDialog extends HandlebarsApplicationMixin(ApplicationV2
 
     const firstCharm = this._eligibleCharms[0];
     const tier       = firstCharm?.system?.countermagicTier ?? 1;
-    const { min: moteMin, max: moteMax } = moteRange(tier);
+    const { min: moteMin, max: moteMax } = moteRange(tier, circle);
 
     const circleKeyMap = {
       sorcery:    { 1: "EX2E.CircleTerrestrial", 2: "EX2E.CircleCelestial", 3: "EX2E.CircleSolar" },
@@ -75,6 +76,7 @@ export class CountermagicDialog extends HandlebarsApplicationMixin(ApplicationV2
       eligibleCharms: this._eligibleCharms,
       moteMin,
       moteMax,
+      hasRange:      moteMin < moteMax,
       peripheralVal: actor?.system?.motes?.peripheral?.value ?? 0,
       peripheralMax: actor?.system?.motes?.peripheral?.max   ?? 0,
       personalVal:   actor?.system?.motes?.personal?.value   ?? 0,
@@ -94,7 +96,7 @@ export class CountermagicDialog extends HandlebarsApplicationMixin(ApplicationV2
     const form  = this.element.querySelector(".countermagic-dialog");
     const idx   = parseInt(form.querySelector("[name=charmIndex]")?.value ?? "0", 10);
     const charm = this._eligibleCharms[idx];
-    const { min: moteMin } = moteRange(charm?.system?.countermagicTier ?? 1);
+    const { min: moteMin } = moteRange(charm?.system?.countermagicTier ?? 1, this._circle);
     const motes = parseInt(form.querySelector("[name=motes]")?.value ?? String(moteMin), 10);
 
     if (!charm) { this._resolved = true; this._resolve(false); this.close(); return; }
@@ -167,7 +169,7 @@ export class CountermagicDialog extends HandlebarsApplicationMixin(ApplicationV2
     }
 
     return new Promise(resolve => {
-      const dlg = new CountermagicDialog({ target, counterActor, eligibleCharms }, resolve);
+      const dlg = new CountermagicDialog({ target, counterActor, eligibleCharms, circle }, resolve);
       dlg.render({ force: true });
     });
   }

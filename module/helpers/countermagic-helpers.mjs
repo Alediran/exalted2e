@@ -1,13 +1,19 @@
 /**
- * Mote spend range for a given countermagic tier.
- * Tier 1 (Emerald/Iron): 10m fixed.
- * Tier 2 (Sapphire/Onyx): 15–20m.
- * Tier 3 (Adamant/Obsidian): 20–25m.
+ * Mote spend range for a given countermagic tier countering a spell of targetCircle.
+ * Tier 1 (Emerald/Iron):    10m fixed (can only counter circle 1).
+ * Tier 2 (Sapphire/Onyx):   15m vs circle 1, 20m vs circle 2; max 20m.
+ * Tier 3 (Adamant/Obsidian): 20m vs circles 1–2, 25m vs circle 3; max 25m.
  */
-export function moteRange(tier) {
+export function moteRange(tier, targetCircle = 1) {
   if (tier === 1) return { min: 10, max: 10 };
-  if (tier === 2) return { min: 15, max: 20 };
-  if (tier === 3) return { min: 20, max: 25 };
+  if (tier === 2) {
+    const min = targetCircle >= 2 ? 20 : 15;
+    return { min, max: 20 };
+  }
+  if (tier === 3) {
+    const min = targetCircle >= 3 ? 25 : 20;
+    return { min, max: 25 };
+  }
   return { min: 10, max: 10 };
 }
 
