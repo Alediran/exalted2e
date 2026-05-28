@@ -202,6 +202,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       openFamiliarActor:     CharacterSheet.#onOpenFamiliarActor,
       openCharmTree:            CharacterSheet.#onOpenCharmTree,
       coverArtifactAttunement:  CharacterSheet.#onCoverArtifactAttunement,
+      addCripplingInjury:       CharacterSheet.#onAddCripplingInjury,
+      deleteCripplingInjury:    CharacterSheet.#onDeleteCripplingInjury,
     }
   };
 
@@ -665,6 +667,16 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     const limitLabel = game.i18n.localize(beh.limitLabelKey);
 
+    const cripplingInjuryTypes = {
+      "arm-left":  game.i18n.localize("EX2E.CripplingTypeArmLeft"),
+      "arm-right": game.i18n.localize("EX2E.CripplingTypeArmRight"),
+      "leg-left":  game.i18n.localize("EX2E.CripplingTypeLegLeft"),
+      "leg-right": game.i18n.localize("EX2E.CripplingTypeLegRight"),
+      "eye-left":  game.i18n.localize("EX2E.CripplingTypeEyeLeft"),
+      "eye-right": game.i18n.localize("EX2E.CripplingTypeEyeRight"),
+      "other":     game.i18n.localize("EX2E.CripplingTypeOther"),
+    };
+
     // Heart's Blood forms (Lunar only)
     const forms = this.actor.itemTypes?.form ?? this.actor.items.filter(i => i.type === "form");
     const heartsBloodForms = forms
@@ -835,6 +847,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       maStyles,
       craftingProjects,
       hasAttunementMotes: (actor.system.attunementMotes ?? 0) > 0,
+      cripplingInjuryTypes,
     };
   }
 
@@ -2031,6 +2044,61 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const itemId = target.dataset.itemId;
     if (!itemId) return;
     await actor.applyAttunementMotes(itemId);
+  }
+
+  static async #onAddCripplingInjury() {
+    const { DialogV2 } = foundry.applications.api;
+    const typeOptions = [
+      ["arm-left",  "EX2E.CripplingTypeArmLeft"],
+      ["arm-right", "EX2E.CripplingTypeArmRight"],
+      ["leg-left",  "EX2E.CripplingTypeLegLeft"],
+      ["leg-right", "EX2E.CripplingTypeLegRight"],
+      ["eye-left",  "EX2E.CripplingTypeEyeLeft"],
+      ["eye-right", "EX2E.CripplingTypeEyeRight"],
+      ["other",     "EX2E.CripplingTypeOther"],
+    ].map(([v, k]) => `<option value="${v}">${game.i18n.localize(k)}</option>`).join("");
+
+    const content = `<div style="display:flex;flex-direction:column;gap:6px;padding:4px">
+      <div class="field-group">
+        <label>${game.i18n.localize("EX2E.CripplingInjuryType")}</label>
+        <select name="type">${typeOptions}</select>
+      </div>
+      <div class="field-group">
+        <label>${game.i18n.localize("EX2E.CripplingInjuryDesc")}</label>
+        <input type="text" name="description" style="width:100%" placeholder="${game.i18n.localize("EX2E.CripplingInjuryDescPlaceholder")}">
+      </div>
+      <div class="field-group">
+        <label>${game.i18n.localize("EX2E.CripplingInjuryPenalty")}</label>
+        <input type="number" name="penalty" value="2" min="0" max="10" style="width:60px">
+      </div>
+    </div>`;
+
+    const result = await DialogV2.prompt({
+      window:  { title: game.i18n.localize("EX2E.CripplingInjuryAdd") },
+      content,
+      ok: { label: game.i18n.localize("EX2E.CripplingInjuryAdd"), icon: "fa-solid fa-plus",
+        callback: (_event, btn) => {
+          const form = btn.form ?? btn.closest("form") ?? btn.closest(".application").querySelector("form");
+          return form ? {
+            type:        form.querySelector("[name=type]")?.value ?? "other",
+            description: form.querySelector("[name=description]")?.value ?? "",
+            penalty:     parseInt(form.querySelector("[name=penalty]")?.value ?? "2", 10)
+          } : null;
+        }
+      }
+    });
+    if (!result) return;
+
+    const current = this.actor.system.cripplingInjuries ?? [];
+    await this.actor.update({ "system.cripplingInjuries": [...current, result] });
+  }
+
+  static async #onDeleteCripplingInjury(_event, target) {
+    const idx = parseInt(target.dataset.index ?? "-1", 10);
+    if (isNaN(idx) || idx < 0) return;
+    const current = this.actor.system.cripplingInjuries ?? [];
+    const updated = current.filter((_, i) => i !== idx);
+    await this.actor.update({ "system.cripplingInjuries": updated });
   }
 
   async _onDrop(event) {

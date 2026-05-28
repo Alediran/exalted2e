@@ -140,6 +140,19 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         })
       }),
 
+      // ── Crippling Injuries ────────────────────────────────────────────────
+      // Each entry: { type, description, penalty }
+      // penalty = dice deducted from physical actions (stacks with other penalties).
+      // Removed when healed — no "healed" boolean; absence = healed.
+      cripplingInjuries: new fields.ArrayField(
+        new fields.SchemaField({
+          type:        new fields.StringField({ initial: "other", blank: false }),
+          description: new fields.StringField({ initial: "", blank: true }),
+          penalty:     new fields.NumberField({ initial: 2, min: 0, max: 10, integer: true })
+        }),
+        { initial: [] }
+      ),
+
       // ── Equipment Slots ────────────────────────────────────────────────────
       slots: new fields.SchemaField({
         hands: new fields.NumberField({ initial: 2, min: 0, max: 10, integer: true }),

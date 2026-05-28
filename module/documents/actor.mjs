@@ -547,6 +547,9 @@ export class ExaltedActor extends Actor {
     if (type === "physical") {
       const mob = Number(this.system?.mobilityPenalty) || 0;
       if (mob < 0) total += -mob;
+      for (const inj of (this.system?.cripplingInjuries ?? [])) {
+        total += inj.penalty ?? 0;
+      }
     }
     return total;
   }

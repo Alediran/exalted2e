@@ -376,6 +376,40 @@
       </section>
       {{/unless}}
 
+      {{!-- Crippling Injuries (full-width row below all three columns) --}}
+      {{#if (or isEditable (gt system.cripplingInjuries.length 0))}}
+      <section class="crippling-injuries-section">
+        <div class="section-toolbar">
+          <h2 class="section-header" style="margin:0;flex:1">{{localize "EX2E.CripplingInjuries"}}</h2>
+          {{#if isEditable}}
+          <button type="button" class="section-header-btn" data-action="addCripplingInjury"
+                  title="{{localize 'EX2E.CripplingInjuryAdd'}}">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+          {{/if}}
+        </div>
+        {{#if system.cripplingInjuries.length}}
+        <ul class="injury-list">
+          {{#each system.cripplingInjuries as |inj i|}}
+          <li class="injury-row">
+            <span class="injury-type">{{lookup @root.cripplingInjuryTypes inj.type}}</span>
+            {{#if inj.description}}<span class="injury-desc">{{inj.description}}</span>{{/if}}
+            <span class="injury-penalty">−{{inj.penalty}}</span>
+            {{#if @root.isEditable}}
+            <button type="button" class="injury-heal-btn" data-action="deleteCripplingInjury" data-index="{{i}}"
+                    title="{{localize 'EX2E.CripplingInjuryHeal'}}">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </button>
+            {{/if}}
+          </li>
+          {{/each}}
+        </ul>
+        {{else}}
+        <p class="injury-empty">{{localize "EX2E.CripplingInjuryNone"}}</p>
+        {{/if}}
+      </section>
+      {{/if}}
+
     </div>
 
     <!-- ═══════════════ SPLAT-SPECIFIC TRAITS ═══════════════ -->
