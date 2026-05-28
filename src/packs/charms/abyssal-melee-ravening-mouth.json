@@ -32,7 +32,18 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [{"alternatives": [{"type": "anyExcellency", "charmUid": "", "charmName": "", "abilityKey": "", "virtueKey": "valor", "virtueMin": 1}]}],
-    "charmUid": "4b3d7f23c9b4e503"
+    "charmUid": "4b3d7f23c9b4e503",
+    "moteRecovery": {
+      "enabled": true,
+      "event": "onDamageDealt",
+      "action": "recoverPeripheral",
+      "formula": "1",
+      "source": "self",
+      "perDamageLevel": true,
+      "maxRecovery": 20,
+      "sentientOnly": true,
+      "modeExclusive": false
+    }
   },
   "folder": "b0b1b2b3b4b5f040",
   "sort": 0,
