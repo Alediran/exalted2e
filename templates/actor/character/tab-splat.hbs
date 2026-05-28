@@ -1,0 +1,60 @@
+<div class="tab {{cssClass}}" data-tab="tabSplat" data-group="sheet">
+  <div class="sheet-body">
+
+    {{!-- ═══════════════ ABYSSAL ═══════════════ --}}
+    {{#if (eq system.exaltType "abyssal")}}
+    <h2 class="section-header">{{localize "EX2E.Splat"}}</h2>
+    <div class="splat-section">
+      <div class="trait-row">
+        <label>{{localize "EX2E.SplatWhispers"}}</label>
+        {{dotRating name="system.splat.abyssal.whispers" value=system.splat.abyssal.whispers max=5 min=0}}
+      </div>
+    </div>
+    {{/if}}
+
+    {{!-- ═══════════════ INFERNAL ═══════════════ --}}
+    {{#if (eq system.exaltType "infernal")}}
+    <h2 class="section-header">{{localize "EX2E.Splat"}}</h2>
+    <div class="splat-section">
+      <div class="trait-row">
+        <label>{{localize "EX2E.SplatPatron"}}</label>
+        <input type="text" name="system.splat.infernal.patron"
+               value="{{system.splat.infernal.patron}}"
+               placeholder="{{localize 'EX2E.SplatPatronPlaceholder'}}"
+               {{#unless isEditable}}readonly{{/unless}}>
+      </div>
+      <div class="trait-row">
+        <label>{{localize "EX2E.SplatFavoredYozi"}}</label>
+        <select name="system.splat.infernal.favoredYozi" {{#unless isEditable}}disabled{{/unless}}>
+          <option value="" {{#unless system.splat.infernal.favoredYozi}}selected{{/unless}}>—</option>
+          {{#each yoziPatrons}}
+          <option value="{{this.key}}" {{#if (eq this.key ../system.splat.infernal.favoredYozi)}}selected{{/if}}>{{this.label}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+    {{/if}}
+
+    {{!-- ═══════════════ LUNAR ═══════════════ --}}
+    {{#if (eq system.exaltType "lunar")}}
+    <h2 class="section-header">{{localize "EX2E.Splat"}}</h2>
+    <div class="splat-section">
+      {{> "systems/exalted2e/templates/actor/character/_lunar-heartsblood.hbs"}}
+    </div>
+    {{/if}}
+
+    {{!-- ═══════════════ ALCHEMICAL ═══════════════ --}}
+    {{#if (eq system.exaltType "alchemical")}}
+    <h2 class="section-header">{{localize "EX2E.Splat"}}</h2>
+    <div class="splat-section">
+      <div class="trait-row">
+        <label>{{localize "EX2E.SplatClarityPermanent"}}</label>
+        {{dotRating name="system.splat.alchemical.clarity.permanent"
+                    value=system.splat.alchemical.clarity.permanent
+                    max=5 min=0}}
+      </div>
+    </div>
+    {{/if}}
+
+  </div>
+</div>

@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-28 (Shields as weapons done; count 1 A / 27 B / 6 C / 34 total)
+Last updated: 2026-05-28 (Per-splat tabs done; count 1 A / 26 B / 6 C / 33 total)
 
 ---
 
@@ -31,7 +31,6 @@ Last updated: 2026-05-28 (Shields as weapons done; count 1 A / 27 B / 6 C / 34 t
 | Shintai / Mantle form-type charms | Infernal | charm activation mode + transformation state AE |
 | Gremlin Syndrome / Dissonance | Alchemical | Clarity track → Dissonance consequences |
 | Resplendent Destiny payloads | Sidereal | extend item type: Ascendant/Descending mechanical effects |
-| Per-splat tabs on character sheet | Sheet | new tab per splat with existing track widgets |
 | Per-trait lock overrides | XP | per-field lock flag, purchase mode guard |
 | Circle special buttons (party roll, XP award, rest) | Circle | macro-buttons on folder widget |
 | NPC → character auto-conversion on move-in | Circle | hook + actor-type change |
@@ -70,6 +69,6 @@ Last updated: 2026-05-28 (Shields as weapons done; count 1 A / 27 B / 6 C / 34 t
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 27 |
+| B — Ready, Medium | 26 |
 | C — Ready, Complex | 6 |
-| **Total pending** | **34** |
+| **Total pending** | **33** |

@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 213 / 265 complete** (10 out-of-scope / partial — last updated 2026-05-28)
+**Progress: 214 / 265 complete** (10 out-of-scope / partial — last updated 2026-05-28)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -231,7 +231,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Intimacies section (cap enforcement + ablation UI once Intimacy trait is scored)
 - [x] MDV derived display (Combat tab)
 - [x] Anima banner auto-calculated display (tier shown on Main tab; caste anima power widget with Activate / Deactivate / View buttons)
-- [ ] Per-splat tab(s) surfacing splat-specific mechanics (Sidereal Paradox, Abyssal Resonance, Infernal Torment/Urge, etc.)
+- [x] Per-splat tab(s) surfacing splat-specific mechanics (Sidereal Paradox, Abyssal Resonance, Infernal Torment/Urge, etc.) — `tabSplat` (diamond icon) shown for Abyssal/Infernal/Lunar/Alchemical via `beh.showSplatTab`; Abyssal Whispers as dotRating, Infernal Patron + FavoredYozi, Lunar heartsblood forms, Alchemical Clarity permanent
 - [x] Virtue Channel counter (per-story, not per-scene) — `channeled: BooleanField` on each virtue; checkbox on virtue row in tab-main.hbs
 
 ## Virtues & Willpower

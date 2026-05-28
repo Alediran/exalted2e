@@ -1,40 +1,6 @@
-{{!-- Splat-specific scalar tracks. Rendered conditionally based on
-     system.exaltType. Solar and mortal have no splat scalars in this
-     pass, so nothing renders for them. --}}
-
-{{#if (eq system.exaltType "lunar")}}
-<h2 class="section-header">{{localize "EX2E.Splat"}}</h2>
-<div class="splat-section">
-  {{> "systems/exalted2e/templates/actor/character/_lunar-heartsblood.hbs"}}
-</div>
-{{/if}}
-
-
-{{#if (eq system.exaltType "abyssal")}}
-<h2 class="section-header">{{localize "EX2E.Splat"}}</h2>
-<div class="splat-section">
-  <div class="trait-row">
-    <label>{{localize "EX2E.SplatWhispers"}}</label>
-    <input type="number" name="system.splat.abyssal.whispers" value="{{system.splat.abyssal.whispers}}"
-           min="0" max="5" step="1" {{#unless isEditable}}readonly{{/unless}}>
-  </div>
-</div>
-{{/if}}
-
-{{#if (eq system.exaltType "infernal")}}
-<h2 class="section-header">{{localize "EX2E.Splat"}}</h2>
-<div class="splat-section">
-  <div class="trait-row">
-    <label>{{localize "EX2E.SplatFavoredYozi"}}</label>
-    <select name="system.splat.infernal.favoredYozi" {{#unless isEditable}}disabled{{/unless}}>
-      <option value="" {{#unless system.splat.infernal.favoredYozi}}selected{{/unless}}>—</option>
-      {{#each yoziPatrons}}
-      <option value="{{this.key}}" {{#if (eq this.key ../system.splat.infernal.favoredYozi)}}selected{{/if}}>{{this.label}}</option>
-      {{/each}}
-    </select>
-  </div>
-</div>
-{{/if}}
+{{!-- Splat-specific scalar traits. Lunar/Abyssal/Infernal/Alchemical content
+     lives on the dedicated tabSplat tab. Only content that has no splat tab
+     (Solar Eclipse sanctification) is rendered here on tab-main. --}}
 
 {{#if (eq system.exaltType "solar")}}
 {{#if (eq system.caste "eclipse")}}

@@ -239,6 +239,10 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       template: "systems/exalted2e/templates/actor/character/_astrology.hbs",
       scrollable: [""]
     },
+    tabSplat: {
+      template: "systems/exalted2e/templates/actor/character/tab-splat.hbs",
+      scrollable: [""]
+    },
     tabInventory: {
       template: "systems/exalted2e/templates/actor/character/tab-inventory.hbs",
       scrollable: [""]
@@ -280,7 +284,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         tabCharms:      { id: "tabCharms",      group: "sheet", icon: "fa-solid fa-sun",       label: game.i18n.localize("EX2E.TabCharms"),      cssClass: this.tabGroups.sheet === "tabCharms"      ? "active" : "" },
         tabMartialArts: { id: "tabMartialArts", group: "sheet", icon: "fa-solid fa-hand-fist", label: game.i18n.localize("EX2E.TabMartialArts"), cssClass: this.tabGroups.sheet === "tabMartialArts" ? "active" : "" },
       } : {}),
-      ...(beh.showAstrology ? { tabAstrology: { id: "tabAstrology", group: "sheet", icon: "fa-solid fa-star", label: game.i18n.localize("EX2E.SiderealAstrology"), cssClass: this.tabGroups.sheet === "tabAstrology" ? "active" : "" } } : {}),
+      ...(beh.showAstrology  ? { tabAstrology: { id: "tabAstrology", group: "sheet", icon: "fa-solid fa-star",    label: game.i18n.localize("EX2E.SiderealAstrology"), cssClass: this.tabGroups.sheet === "tabAstrology" ? "active" : "" } } : {}),
+      ...(beh.showSplatTab   ? { tabSplat:     { id: "tabSplat",     group: "sheet", icon: "fa-solid fa-diamond", label: game.i18n.localize("EX2E.TabSplat"),          cssClass: this.tabGroups.sheet === "tabSplat"     ? "active" : "" } } : {}),
       tabInventory: { id: "tabInventory", group: "sheet", icon: "fa-solid fa-suitcase",       label: game.i18n.localize("EX2E.TabInventory"),       cssClass: this.tabGroups.sheet === "tabInventory"  ? "active" : "" },
       tabBiography: { id: "tabBiography", group: "sheet", icon: "fa-solid fa-book",           label: game.i18n.localize("EX2E.TabBiography"),       cssClass: this.tabGroups.sheet === "tabBiography"  ? "active" : "" },
       tabExperience:{ id: "tabExperience",group: "sheet", icon: "fa-solid fa-graduation-cap", label: game.i18n.localize("EX2E.TabExperience"),      cssClass: this.tabGroups.sheet === "tabExperience" ? "active" : "" },
