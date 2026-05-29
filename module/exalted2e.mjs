@@ -767,6 +767,36 @@ Hooks.once("ready", async function () {
   Hooks.on("createCombatant",   hudRefresh);
   Hooks.on("deleteCombatant",   hudRefresh);
   Hooks.on("updateCombatant",   hudRefresh);
+
+  // Combat token ring — suppress Foundry's built-in active-combatant ring
+  // for tokens that are not on the current tick and free to act. Uses
+  // token.ring.visible (PIXI DisplayObject property on TokenRing, Foundry
+  // v12+). No-op when token.ring is absent (rings not configured for this
+  // world or token). Applied both on combat-state changes and on per-token
+  // redraws (refreshToken fires after every Foundry ring update, so we
+  // can override visibility there without conflicting with the glow cache).
+  function _setCombatantRingVisible(token, combat) {
+    if (!token.ring) return;
+    if (!combat?.started) { token.ring.visible = true; return; }
+    const combatant = combat.combatants.find(c => c.tokenId === token.id);
+    if (!combatant)       { token.ring.visible = true; return; }
+    // Free to act = at or behind the current tick and not yet committed.
+    token.ring.visible =
+      (combatant.initiative ?? Infinity) <= combat.currentTick
+      && !combatant.flags?.exalted2e?.actedThisTick;
+  }
+  function _refreshAllCombatTokenRings() {
+    if (!canvas?.ready) return;
+    const combat = game.combat;
+    for (const token of (canvas.tokens?.placeables ?? [])) {
+      _setCombatantRingVisible(token, combat);
+    }
+  }
+  Hooks.on("updateCombat",    _refreshAllCombatTokenRings);
+  Hooks.on("updateCombatant", _refreshAllCombatTokenRings);
+  Hooks.on("createCombat",    _refreshAllCombatTokenRings);
+  Hooks.on("deleteCombat",    _refreshAllCombatTokenRings);
+  Hooks.on("combatStart",     _refreshAllCombatTokenRings);
   // Token selection — out-of-combat the quickbar resolves its actor from
   // the controlled token first, so refresh whenever selection changes.
   Hooks.on("controlToken",      hudRefresh);
@@ -837,13 +867,18 @@ Hooks.once("ready", async function () {
   });
   Hooks.on("refreshToken", (token) => {
     const actor = token.actor;
-    if (!actor) return;
-    const tier   = actor.system?.anima ?? "none";
-    const colors = actor.getFlag?.("exalted2e", "animaColors") ?? [null, null, null];
-    const cacheKey = `${tier}|${colors.join(",")}`;
-    if (token._ex2eGlowCacheKey === cacheKey) return;
-    token._ex2eGlowCacheKey = cacheKey;
-    refreshTokenAnimaGlow(token);
+    if (actor) {
+      const tier     = actor.system?.anima ?? "none";
+      const colors   = actor.getFlag?.("exalted2e", "animaColors") ?? [null, null, null];
+      const cacheKey = `${tier}|${colors.join(",")}`;
+      if (token._ex2eGlowCacheKey !== cacheKey) {
+        token._ex2eGlowCacheKey = cacheKey;
+        refreshTokenAnimaGlow(token);
+      }
+    }
+    // Re-apply ring visibility after every Foundry redraw — Foundry resets
+    // PIXI state on refresh so this must run unconditionally (no cache gate).
+    _setCombatantRingVisible(token, game.combat);
   });
 
   // ── Socket: GM proxy for countermagic operations on foreign documents ───
