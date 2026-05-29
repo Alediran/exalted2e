@@ -209,6 +209,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       coverArtifactAttunement:  CharacterSheet.#onCoverArtifactAttunement,
       addCripplingInjury:       CharacterSheet.#onAddCripplingInjury,
       deleteCripplingInjury:    CharacterSheet.#onDeleteCripplingInjury,
+      applyActivityFatigue:     CharacterSheet.#onApplyActivityFatigue,
+      rollArmorFatigue:         CharacterSheet.#onRollArmorFatigue,
     }
   };
 
@@ -800,6 +802,16 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       statusLabel: game.i18n.localize(`EX2E.ArtifactStatus${p.status.charAt(0).toUpperCase() + p.status.slice(1)}`),
     }));
 
+    // ── Fatigue display ──────────────────────────────────────────────────
+    const fatiguePenaltyTotal = [...actor.effects]
+      .filter(e => !e.disabled && e.flags?.exalted2e?.fatigueType)
+      .reduce((sum, e) => sum + (e.flags?.exalted2e?.internalPenalty?.value ?? 0), 0);
+    const fatigueKnockoutThreshold =
+      (sys.attributes?.stamina?.value ?? 0) + (sys.abilities?.resistance?.value ?? 0);
+    const canRollArmorFatigue = actor.items.some(
+      i => i.type === "armor" && i.system.equipped && Math.abs(i.system.effectiveFatiguePenalty ?? 0) > 0
+    );
+
     return {
       ...context,
       actor,
@@ -864,6 +876,9 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       artifactProjects,
       hasAttunementMotes: (actor.system.attunementMotes ?? 0) > 0,
       cripplingInjuryTypes,
+      fatiguePenaltyTotal,
+      fatigueKnockoutThreshold,
+      canRollArmorFatigue,
     };
   }
 
@@ -2153,6 +2168,83 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const itemId = target.dataset.itemId;
     if (!itemId) return;
     await actor.applyAttunementMotes(itemId);
+  }
+
+  static async #onApplyActivityFatigue(_event, _target) {
+    const actor = this.document;
+    await actor.createEmbeddedDocuments("ActiveEffect", [{
+      name:     game.i18n.localize("EX2E.ActivityFatigue"),
+      img:      "icons/svg/sleep.svg",
+      disabled: false,
+      transfer: false,
+      flags: {
+        exalted2e: {
+          internalPenalty: { type: "all", value: 1 },
+          fatigueType: "activity"
+        }
+      }
+    }]);
+  }
+
+  static async #onRollArmorFatigue(_event, _target) {
+    const actor = this.document;
+    const equippedArmor = [...actor.items]
+      .filter(i => i.type === "armor" && i.system.equipped)
+      .reduce((best, a) => {
+        const v  = Math.abs(a.system.effectiveFatiguePenalty ?? 0);
+        const bv = Math.abs(best?.system?.effectiveFatiguePenalty ?? 0);
+        return v > bv ? a : best;
+      }, null);
+    const difficulty = equippedArmor
+      ? Math.abs(equippedArmor.system.effectiveFatiguePenalty ?? 0)
+      : 0;
+    if (!difficulty) return;
+
+    const specialtyDice = await foundry.applications.api.DialogV2.prompt({
+      window: { title: game.i18n.localize("EX2E.FatigueRollTitle") },
+      content: `<form>
+        <div class="form-group">
+          <label>${game.i18n.localize("EX2E.FatigueSpecialtyDice")}</label>
+          <input type="number" name="specialty" value="0" min="0" max="5" style="width:60px">
+        </div>
+        <p><em>${game.i18n.format("EX2E.FatigueArmorDifficulty", { difficulty })}</em></p>
+      </form>`,
+      ok: {
+        label: game.i18n.localize("EX2E.Roll"),
+        callback: (_ev, button) => Number(button.form?.elements?.specialty?.value ?? 0)
+      }
+    });
+    if (specialtyDice == null) return;
+
+    const staVal = actor.system.attributes?.stamina?.value ?? 0;
+    const resVal = actor.system.abilities?.resistance?.value ?? 0;
+    const result = await ExaltedRoll.rollPool(actor, {
+      pool:     staVal + resVal + specialtyDice,
+      flavor:   game.i18n.localize("EX2E.FatigueRollTitle"),
+      category: "physical"
+    });
+
+    if (result.successes < difficulty) {
+      await actor.createEmbeddedDocuments("ActiveEffect", [{
+        name:     game.i18n.localize("EX2E.ArmorFatigue"),
+        img:      "icons/equipment/chest/breastplate-layered-steel-grey.webp",
+        disabled: false,
+        transfer: false,
+        flags: {
+          exalted2e: {
+            internalPenalty: { type: "all", value: 1 },
+            fatigueType: "armor"
+          }
+        }
+      }]);
+      ui.notifications.warn(
+        game.i18n.format("EX2E.FatigueArmorApplied", { difficulty, successes: result.successes })
+      );
+    } else {
+      ui.notifications.info(
+        game.i18n.format("EX2E.FatigueArmorResisted", { difficulty, successes: result.successes })
+      );
+    }
   }
 
   static async #onAddCripplingInjury() {

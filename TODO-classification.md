@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-28 (artifact ability prereq system + M20 charm effect; count 1 A / 25 B / 5 C / 31 total)
+Last updated: 2026-05-29 (fatigue penalty mechanic done; count 1 A / 24 B / 5 C / 30 total)
 
 ---
 
@@ -19,7 +19,6 @@ Last updated: 2026-05-28 (artifact ability prereq system + M20 charm effect; cou
 
 | Item | TODO Section | Key concern |
 |------|-------------|-------------|
-| Fatigue penalty mechanic | Defense / Penalty | hook on scene-length exertion + Sta+Res roll |
 | Blasphemy / Axiomatic / Dawn damage upgrades | Keywords | mirror of Holy, splat-specific target condition |
 | Training keyword XP debt ledger | Keywords | per-actor debt AE or item field — [charms-gap A8](docs/charms-gap.md) |
 | Merged keyword (learn-once, multi-ability) | Keywords | charm activation routing extension |
@@ -67,6 +66,6 @@ Last updated: 2026-05-28 (artifact ability prereq system + M20 charm effect; cou
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 25 |
+| B — Ready, Medium | 24 |
 | C — Ready, Complex | 5 |
-| **Total pending** | **31** |
+| **Total pending** | **30** |

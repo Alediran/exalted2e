@@ -160,5 +160,26 @@
     </section>
     {{/if}}
 
+    {{#if isGM}}
+    <!-- ═══════════════ FATIGUE ═══════════════ -->
+    <h2 class="section-header">{{localize "EX2E.FatigueSection"}}</h2>
+    <div class="soak-grid">
+      <div class="soak-row">
+        <span class="soak-label">{{localize "EX2E.FatiguePenalty"}}:</span>
+        <strong>{{#if fatiguePenaltyTotal}}−{{fatiguePenaltyTotal}}{{else}}0{{/if}}</strong>
+        <span class="soak-natural">({{localize "EX2E.FatigueKnockout"}}: {{fatigueKnockoutThreshold}})</span>
+      </div>
+    </div>
+    <div class="action-button-row">
+      <button type="button" data-action="applyActivityFatigue">
+        {{localize "EX2E.FatigueActivityApply"}}
+      </button>
+      <button type="button" data-action="rollArmorFatigue"
+              {{#unless canRollArmorFatigue}}disabled{{/unless}}>
+        {{localize "EX2E.FatigueArmorCheck"}}
+      </button>
+    </div>
+    {{/if}}
+
   </div><!-- .sheet-body -->
 </div><!-- .tab -->

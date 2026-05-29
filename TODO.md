@@ -53,7 +53,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Shields as weapons (errata: Sh0/Sh1/Sh2 tag-driven shields with mobility penalty, no longer "mobile cover") — `shieldTag` field on weapon modes (0–3); flat parry DV bonus post-halve; mobility penalty via `internalPenaltyFor("physical")`
 - [~] Cover modifiers (light/heavy cover AE bonus implemented; shield-type cover pending)
 - [x] Starmetal armor: target-imposed external attack penalty
-- [ ] Fatigue penalty (armor fatigue triggering Stamina+Resistance rolls over scene-length exertion)
+- [x] Fatigue penalty (armor fatigue triggering Stamina+Resistance rolls over scene-length exertion)
 
 ## Charm Keywords
 - [x] Unblockable / Undodgeable (target DVs → 0, buttons stay live for Perfect counters)
@@ -223,7 +223,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Armor mobility penalty → internal physical
 - [x] Wound penalty applied in `rollAttributeAbility` (previously attack-only)
 - [x] Starmetal target-imposed external attack penalty
-- [ ] Fatigue penalty mechanic (armor fatigue scene-long exertion → Sta+Res rolls)
+- [x] Fatigue penalty mechanic (armor fatigue scene-long exertion → Sta+Res rolls)
 
 ## Character Sheet
 - [x] Effects tab — split into temporal (durationed / dvRefreshable) and permanent

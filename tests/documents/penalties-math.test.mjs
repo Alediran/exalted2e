@@ -108,3 +108,47 @@ describe("sumPenalties — scope values used by roll pipeline", () => {
     expect(sumPenalties(effects, "internalPenalty", "social")).toBe(-1);
   });
 });
+
+// ── fatigue AE shape ──────────────────────────────────────────────────
+describe("sumPenalties — fatigue AE shape", () => {
+  // Fatigue AEs are created with { type: "all", value: 1 } plus a
+  // fatigueType sub-flag. The sub-flag must not break accumulation.
+  function fatigueEffect(fatigueType) {
+    return {
+      disabled: false,
+      flags: {
+        exalted2e: {
+          internalPenalty: { type: "all", value: 1 },
+          fatigueType
+        }
+      }
+    };
+  }
+
+  it("activity fatigue AE counts toward every category", () => {
+    const e = fatigueEffect("activity");
+    expect(sumPenalties([e], "internalPenalty", "physical")).toBe(1);
+    expect(sumPenalties([e], "internalPenalty", "social")).toBe(1);
+    expect(sumPenalties([e], "internalPenalty", "mental")).toBe(1);
+  });
+
+  it("armor fatigue AE counts toward every category", () => {
+    const e = fatigueEffect("armor");
+    expect(sumPenalties([e], "internalPenalty", "physical")).toBe(1);
+    expect(sumPenalties([e], "internalPenalty", "social")).toBe(1);
+    expect(sumPenalties([e], "internalPenalty", "mental")).toBe(1);
+  });
+
+  it("multiple fatigue stacks accumulate", () => {
+    const effects = [fatigueEffect("activity"), fatigueEffect("armor"), fatigueEffect("activity")];
+    expect(sumPenalties(effects, "internalPenalty", "physical")).toBe(3);
+  });
+
+  it("disabled fatigue AE is ignored", () => {
+    const effects = [
+      { disabled: true, flags: { exalted2e: { internalPenalty: { type: "all", value: 1 }, fatigueType: "activity" } } },
+      fatigueEffect("armor")
+    ];
+    expect(sumPenalties(effects, "internalPenalty", "physical")).toBe(1);
+  });
+});
