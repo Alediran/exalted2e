@@ -16,6 +16,7 @@ function makeFakeActor({
     type,
     system: { motes: { personal, peripheral }, scenePeripheral: 0 },
     effects,
+    items:           { some: () => false },
     update:          vi.fn().mockResolvedValue(true),
     applyDVPenalty:  vi.fn().mockResolvedValue({ id: "ae-onslaught-new" })
   };

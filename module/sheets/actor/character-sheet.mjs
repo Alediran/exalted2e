@@ -211,6 +211,10 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       deleteCripplingInjury:    CharacterSheet.#onDeleteCripplingInjury,
       applyActivityFatigue:     CharacterSheet.#onApplyActivityFatigue,
       rollArmorFatigue:         CharacterSheet.#onRollArmorFatigue,
+      clinchHold:    CharacterSheet.#onClinchHold,
+      clinchCrush:   CharacterSheet.#onClinchCrush,
+      clinchThrow:   CharacterSheet.#onClinchThrow,
+      clinchRelease: CharacterSheet.#onClinchRelease,
     }
   };
 
@@ -802,6 +806,17 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       statusLabel: game.i18n.localize(`EX2E.ArtifactStatus${p.status.charAt(0).toUpperCase() + p.status.slice(1)}`),
     }));
 
+    // ── Clinch state ─────────────────────────────────────────────────────
+    const _clinchCombatant = [...(game.combat?.combatants ?? [])]
+      .find(c => c.actorId === actor.id) ?? null;
+    const _clinchFlag  = _clinchCombatant?.flags?.exalted2e?.clinch ?? null;
+    const clinchRole   = _clinchFlag?.role ?? null;
+    const clinchPartnerName = (() => {
+      if (!_clinchFlag) return null;
+      const partnerId = _clinchFlag.heldCombatantId ?? _clinchFlag.controllerCombatantId;
+      return game.combat?.combatants.get(partnerId)?.actor?.name ?? null;
+    })();
+
     // ── Fatigue display ──────────────────────────────────────────────────
     const fatiguePenaltyTotal = [...actor.effects]
       .filter(e => !e.disabled && e.flags?.exalted2e?.fatigueType)
@@ -876,6 +891,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       artifactProjects,
       hasAttunementMotes: (actor.system.attunementMotes ?? 0) > 0,
       cripplingInjuryTypes,
+      clinchRole,
+      clinchPartnerName,
       fatiguePenaltyTotal,
       fatigueKnockoutThreshold,
       canRollArmorFatigue,
@@ -2168,6 +2185,42 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const itemId = target.dataset.itemId;
     if (!itemId) return;
     await actor.applyAttunementMotes(itemId);
+  }
+
+  static async #onClinchHold(_event, _target) {
+    const { applyClinchSubAction } = await import("../rolls/clinch.mjs");
+    const actor   = this.document;
+    const combat  = game.combat;
+    const current = combat?.combatants.find(c => c.actorId === actor.id);
+    if (!current) return;
+    await applyClinchSubAction(combat, current, "hold");
+  }
+
+  static async #onClinchCrush(_event, _target) {
+    const { applyClinchSubAction } = await import("../rolls/clinch.mjs");
+    const actor   = this.document;
+    const combat  = game.combat;
+    const current = combat?.combatants.find(c => c.actorId === actor.id);
+    if (!current) return;
+    await applyClinchSubAction(combat, current, "crush");
+  }
+
+  static async #onClinchThrow(_event, _target) {
+    const { applyClinchSubAction } = await import("../rolls/clinch.mjs");
+    const actor   = this.document;
+    const combat  = game.combat;
+    const current = combat?.combatants.find(c => c.actorId === actor.id);
+    if (!current) return;
+    await applyClinchSubAction(combat, current, "throw");
+  }
+
+  static async #onClinchRelease(_event, _target) {
+    const { applyClinchSubAction } = await import("../rolls/clinch.mjs");
+    const actor   = this.document;
+    const combat  = game.combat;
+    const current = combat?.combatants.find(c => c.actorId === actor.id);
+    if (!current) return;
+    await applyClinchSubAction(combat, current, "release");
   }
 
   static async #onApplyActivityFatigue(_event, _target) {

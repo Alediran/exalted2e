@@ -1142,6 +1142,31 @@ export class ExaltedRoll {
     }).catch(err =>
       console.error("exalted2e | stunt banking failed", err)
     );
+
+    // ── Clinch post-hit hook ─────────────────────────────────────────────
+    const isClinchMode = Array.isArray(mode?.tags) && mode.tags.includes("Clinch");
+    if (isClinchMode && targetDodgeDV !== null && displaySuccesses >= targetDodgeDV) {
+      try {
+        const { rollClinchControl, stampClinchState } = await import("./clinch.mjs");
+        const controlResult = await rollClinchControl(actor, targetActor);
+        if (controlResult.attackerWins) {
+          const attackerCombatant = game.combat?.combatants.find(c => c.actorId === actor.id);
+          const targetCombatant   = game.combat?.combatants.find(c => c.actorId === targetActor.id);
+          if (attackerCombatant && targetCombatant) {
+            await stampClinchState(
+              game.combat,
+              attackerCombatant,
+              targetCombatant,
+              controlResult.controlMargin
+            );
+          }
+        }
+      } catch (err) {
+        ui.notifications.error(game.i18n.localize("EX2E.ClinchControlRollError") ?? "Clinch control roll failed.");
+        console.error("Clinch control roll error:", err);
+      }
+    }
+
     return message;
   }
 

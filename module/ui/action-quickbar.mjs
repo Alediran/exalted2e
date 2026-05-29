@@ -154,14 +154,27 @@ export class ActionQuickbar {
     this._hideMoveRange();
     const actor   = current.actor;
     const pending = current.flags?.exalted2e?.pendingAction ?? null;
-    const flurry  = current.flags?.exalted2e?.flurry ?? null;
+    const flurry  = current.flags?.exalted2e?.flurry        ?? null;
+    const clinch  = current.flags?.exalted2e?.clinch        ?? null;
+
+    // Held combatant: show frozen indicator instead of normal bar.
+    if (clinch?.role === "held") {
+      this._renderHeld(combat, current, clinch);
+      return;
+    }
 
     const pieces = [];
     if (pending || flurry) pieces.push(this._pendingIndicator(pending, flurry));
 
+    // Controller: prepend clinch action section.
+    if (clinch?.role === "controller") {
+      pieces.push(this._clinchControlSection(combat, current, clinch));
+    }
+
     pieces.push(this._attackButton(actor));
 
     for (const [key, cfg] of Object.entries(EX2E.actions)) {
+      if (cfg.clinchOnly) continue;  // handled via _clinchControlSection
       pieces.push(this._actionButton(key, cfg));
       // Cast Spell slots in right after the Simple Charm action — it
       // occupies an equivalent conceptual spot (another Simple-shape
@@ -174,6 +187,48 @@ export class ActionQuickbar {
 
     this._root.replaceChildren(...pieces);
     this._wire(combat, current);
+  }
+
+  _clinchControlSection(combat, current, clinch) {
+    const frag = document.createDocumentFragment();
+
+    const header = document.createElement("span");
+    header.classList.add("qb-clinch-label");
+    header.textContent = game.i18n.localize("EX2E.QuickbarClinchSection");
+    frag.appendChild(header);
+
+    for (const key of ["hold", "crush", "throw", "release"]) {
+      const cfg = {
+        hold:    { label: "EX2E.ClinchHold",    icon: "fa-solid fa-hand",           speed: 3 },
+        crush:   { label: "EX2E.ClinchCrush",   icon: "fa-solid fa-hand-fist",      speed: 3 },
+        throw:   { label: "EX2E.ClinchThrow",   icon: "fa-solid fa-person-falling", speed: 3 },
+        release: { label: "EX2E.ClinchRelease", icon: "fa-solid fa-door-open",      speed: 0 },
+      }[key];
+
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.classList.add("qb-btn", "qb-clinch");
+      btn.dataset.clinchAction = key;
+      btn.innerHTML = `<i class="${cfg.icon}"></i> ${game.i18n.localize(cfg.label)}`;
+      if (cfg.speed > 0) btn.title = `(${cfg.speed}s)`;
+      frag.appendChild(btn);
+    }
+
+    return frag;
+  }
+
+  _renderHeld(combat, current, clinch) {
+    const controllerCombatant = combat.combatants.get(clinch.controllerCombatantId);
+    const controllerName      = controllerCombatant?.actor?.name ?? "?";
+
+    const indicator = document.createElement("div");
+    indicator.classList.add("qb-held-indicator");
+    indicator.innerHTML = `<i class="fa-solid fa-lock"></i> ${game.i18n.format("EX2E.QuickbarHeldIndicator", { name: controllerName })}`;
+
+    this._root.replaceChildren(indicator, this._finishButton());
+    this._root.querySelector(".qb-finish")?.addEventListener("click", async () => {
+      await finishTurnFor(combat, current);
+    });
   }
 
   _pendingIndicator(pending, flurry) {
@@ -276,6 +331,11 @@ export class ActionQuickbar {
         btn.addEventListener("mouseenter", () => this._showMoveRange(actor, key));
         btn.addEventListener("mouseleave", () => this._hideMoveRange());
       }
+    });
+
+    this._root.querySelectorAll(".qb-clinch").forEach(btn => {
+      const key = btn.dataset.clinchAction;
+      btn.addEventListener("click", () => this._handleClinchAction(key, combat, current));
     });
 
     this._root.querySelector(".qb-flurry")?.addEventListener("click", async () => {
@@ -440,6 +500,7 @@ export class ActionQuickbar {
     const pieces = [];
     pieces.push(this._attackButton(actor));
     for (const [key, cfg] of Object.entries(EX2E.actions)) {
+      if (cfg.clinchOnly) continue;
       pieces.push(this._actionButton(key, cfg));
       if (key === "simpleCharm") pieces.push(this._castSpellButton(actor));
     }
@@ -634,6 +695,11 @@ export class ActionQuickbar {
       if (eff) await eff.delete();
     }
     await current.unsetFlag("exalted2e", "pendingAction");
+  }
+
+  async _handleClinchAction(key, combat, current) {
+    const { applyClinchSubAction } = await import("../rolls/clinch.mjs");
+    await applyClinchSubAction(combat, current, key);
   }
 
   async _handleAction(key, actor, current) {

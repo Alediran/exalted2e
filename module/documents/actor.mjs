@@ -900,10 +900,13 @@ export class ExaltedActor extends Actor {
 
   /**
    * Apply damage to the character.
-   * @param {number} amount - Amount of damage.
+   * @param {number} amount - Post-soak damage; soak is resolved upstream by the caller.
    * @param {"bashing"|"lethal"|"aggravated"} type - Damage type.
+   * @param {object} [options={}]
+   * @param {boolean} [options.unsoakable=false] - Accepted for API consistency; not applied in
+   *   the body because `amount` is already net of soak. Soak bypass is the caller's responsibility.
    */
-  async applyDamage(amount, type) {
+  async applyDamage(amount, type, { unsoakable = false } = {}) {
     if (this.type !== "character" && this.type !== "npc") return;
 
     // totalBoxes is computed by _prepareHealthData and includes Ox-Body charm grants.

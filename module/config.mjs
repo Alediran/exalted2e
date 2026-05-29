@@ -715,7 +715,10 @@ EX2E.actions = {
   jump:        { labelKey: "EX2E.ActionJump",        icon: "fa-solid fa-up-long",            speed: 5, dvMod: 1, preset: false, isFlurry: true,  abortable: false },
   coordinate:  { labelKey: "EX2E.ActionCoordinate",  icon: "fa-solid fa-users",              speed: 5, dvMod: 0, preset: false, isFlurry: true,  abortable: false },
   inactive:    { labelKey: "EX2E.ActionInactive",    icon: "fa-solid fa-pause",              speed: 5, dvMod: 0, preset: false, isFlurry: false, abortable: false },
-  shapeshift:  { labelKey: "EX2E.ActionShapeshift",  icon: "fa-solid fa-paw",                speed: 5, dvMod: 1, preset: true,  isFlurry: false, abortable: false }
+  shapeshift:  { labelKey: "EX2E.ActionShapeshift",  icon: "fa-solid fa-paw",                speed: 5, dvMod: 1, preset: true,  isFlurry: false, abortable: false },
+  clinchHold:  { labelKey: "EX2E.ClinchHold",        icon: "fa-solid fa-hand",               speed: 3, dvMod: 0, preset: false, isFlurry: true,  abortable: false, clinchOnly: true },
+  clinchCrush: { labelKey: "EX2E.ClinchCrush",       icon: "fa-solid fa-hand-fist",          speed: 3, dvMod: 0, preset: false, isFlurry: true,  abortable: false, clinchOnly: true },
+  clinchThrow: { labelKey: "EX2E.ClinchThrow",       icon: "fa-solid fa-person-falling",     speed: 3, dvMod: 0, preset: false, isFlurry: true,  abortable: false, clinchOnly: true }
 };
 
 /** List view of EX2E.actions as [{ key, label, icon, speed, dvMod, preset, isFlurry }] (localized). */
@@ -726,8 +729,9 @@ EX2E.getActionList = function () {
     icon:     a.icon ?? "",
     speed:    a.speed,
     dvMod:    a.dvMod,
-    preset:   !!a.preset,
-    isFlurry: !!a.isFlurry
+    preset:     !!a.preset,
+    isFlurry:   !!a.isFlurry,
+    clinchOnly: !!a.clinchOnly
   }));
 };
 

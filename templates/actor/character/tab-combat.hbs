@@ -181,5 +181,30 @@
     </div>
     {{/if}}
 
+    {{#if clinchRole}}
+    <!-- ═══════════════ CLINCH ═══════════════ -->
+    <h2 class="section-header">{{localize "EX2E.ClinchSection"}}</h2>
+    {{#if (eq clinchRole "controller")}}
+    <div class="action-button-row">
+      <button type="button" data-action="clinchHold">
+        {{localize "EX2E.ClinchHold"}}
+      </button>
+      <button type="button" data-action="clinchCrush">
+        {{localize "EX2E.ClinchCrush"}}
+      </button>
+      <button type="button" data-action="clinchThrow">
+        {{localize "EX2E.ClinchThrow"}}
+      </button>
+      <button type="button" data-action="clinchRelease">
+        {{localize "EX2E.ClinchRelease"}}
+      </button>
+    </div>
+    {{else}}
+    <div class="soak-row">
+      <span class="soak-label">{{localize "EX2E.ClinchHeldBy"}}: <strong>{{clinchPartnerName}}</strong></span>
+    </div>
+    {{/if}}
+    {{/if}}
+
   </div><!-- .sheet-body -->
 </div><!-- .tab -->

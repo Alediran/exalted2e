@@ -1,0 +1,54 @@
+<div class="ex2e-roll-card ex2e-clinch-action-card clinch-action-{{subAction}}">
+  <div class="card-header">
+    {{#if (eq subAction "hold")}}
+      <i class="fa-solid fa-hand"></i>
+      <span class="roll-actor">{{controllerName}}</span>
+      <span class="roll-flavor">{{localize "EX2E.ClinchHold"}}</span>
+    {{/if}}
+    {{#if (eq subAction "crush")}}
+      <i class="fa-solid fa-hand-fist"></i>
+      <span class="roll-actor">{{controllerName}}</span>
+      <span class="roll-flavor">{{localize "EX2E.ClinchCrush"}}</span>
+    {{/if}}
+    {{#if (eq subAction "throw")}}
+      <i class="fa-solid fa-person-falling"></i>
+      <span class="roll-actor">{{controllerName}}</span>
+      <span class="roll-flavor">{{localize "EX2E.ClinchThrow"}}</span>
+    {{/if}}
+    {{#if (eq subAction "release")}}
+      <i class="fa-solid fa-door-open"></i>
+      <span class="roll-actor">{{controllerName}}</span>
+      <span class="roll-flavor">{{localize "EX2E.ClinchRelease"}}</span>
+    {{/if}}
+  </div>
+
+  <div class="card-content">
+    <p>
+      {{#if (eq subAction "hold")}}
+        {{controllerName}} {{localize "EX2E.ClinchActionHoldDesc"}} {{heldName}}.
+      {{/if}}
+      {{#if (eq subAction "crush")}}
+        {{controllerName}} {{localize "EX2E.ClinchActionCrushDesc"}} {{heldName}}
+        {{#if damage}}— <strong>{{damage}}</strong> {{localize "EX2E.Damage"}}{{/if}}.
+      {{/if}}
+      {{#if (eq subAction "throw")}}
+        {{controllerName}} {{localize "EX2E.ClinchActionThrowDesc"}} {{heldName}}
+        {{#if damage}}— <strong>{{damage}}</strong> {{localize "EX2E.Damage"}}{{/if}}.
+      {{/if}}
+      {{#if (eq subAction "release")}}
+        {{controllerName}} {{localize "EX2E.ClinchActionReleaseDesc"}} {{heldName}}.
+      {{/if}}
+    </p>
+    {{#if (eq subAction "throw")}}
+      {{#if prone}}
+        <p class="clinch-prone">
+          <i class="fa-solid fa-person-falling-burst"></i>
+          {{heldName}} {{localize "EX2E.ClinchNowProne"}}.
+        </p>
+      {{/if}}
+    {{/if}}
+    {{#if (or (eq subAction "throw") (eq subAction "release"))}}
+      <p class="clinch-ended"><em>{{localize "EX2E.ClinchEnded"}}</em></p>
+    {{/if}}
+  </div>
+</div>

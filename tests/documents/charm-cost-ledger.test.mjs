@@ -30,7 +30,7 @@ describe("ExaltedItem._spendActivationCosts", () => {
       spendMotesResult: { fromPrimary: 4, fromSecondary: 0, primaryPool: "peripheral", secondaryPool: "personal" }
     });
     const result = await ExaltedItem.prototype._spendActivationCosts.call(item, { formula: "4m" });
-    expect(item.actor.spendMotes).toHaveBeenCalledWith(4, "peripheral");
+    expect(item.actor.spendMotes).toHaveBeenCalledWith(4, "peripheral", { allowOverdrive: true });
     expect(item.actor.update).not.toHaveBeenCalled();
     expect(item.actor.applyDamage).not.toHaveBeenCalled();
     expect(result).toEqual({

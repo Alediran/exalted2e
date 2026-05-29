@@ -578,7 +578,9 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/chat/hazard-resistance.hbs",
     "systems/exalted2e/templates/dialog/social-attack-dialog.hbs",
     "systems/exalted2e/templates/chat/mass-combat-result.hbs",
-    "systems/exalted2e/templates/dialog/parts/excellency-pips.hbs"
+    "systems/exalted2e/templates/dialog/parts/excellency-pips.hbs",
+    "systems/exalted2e/templates/chat/clinch-established.hbs",
+    "systems/exalted2e/templates/chat/clinch-action.hbs"
   ];
   return foundry.applications.handlebars.loadTemplates(templatePaths);
 }
@@ -2084,6 +2086,36 @@ Hooks.on("deleteCombat", async (combat) => {
   // skipFlagUpdate: combatants are embedded in the combat being deleted,
   // so updating their flags would fail with "does not exist in combats".
   await clearAllMultiTickActions(combat, { skipFlagUpdate: true });
+});
+
+// Clear active clinch flags when combat ends to prevent held actors from
+// remaining in a held state after combat concludes.
+Hooks.on("deleteCombat", async (combat) => {
+  if (!combat?.combatants) return;
+  const { releaseClinch } = await import("./rolls/clinch.mjs");
+  const controllers = combat.combatants.filter(
+    c => c.flags?.exalted2e?.clinch?.role === "controller"
+  );
+  for (const controller of controllers) {
+    const heldId        = controller.flags.exalted2e.clinch.heldCombatantId;
+    const heldCombatant = combat.combatants.get(heldId);
+    await releaseClinch(controller, heldCombatant);
+  }
+});
+
+Hooks.on("deleteCombatant", async (combatant) => {
+  const clinchFlag = combatant.flags?.exalted2e?.clinch;
+  if (!clinchFlag) return;
+  const combat = game.combats?.get(combatant.combatId);
+  if (!combat?.combatants) return;
+  const { releaseClinch } = await import("./rolls/clinch.mjs");
+  if (clinchFlag.role === "controller") {
+    const heldCombatant = combat.combatants.get(clinchFlag.heldCombatantId);
+    await releaseClinch(combatant, heldCombatant);
+  } else if (clinchFlag.role === "held") {
+    const controllerCombatant = combat.combatants.get(clinchFlag.controllerCombatantId);
+    await releaseClinch(controllerCombatant, combatant);
+  }
 });
 
 export async function _resolveLimitBreak(message, choice) {

@@ -1,0 +1,27 @@
+<div class="ex2e-roll-card ex2e-clinch-established-card {{#if established}}clinch-success{{else}}clinch-failed{{/if}}">
+  <div class="card-header">
+    {{#if established}}
+      <i class="fa-solid fa-hands-praying"></i>
+      <span class="roll-flavor">{{localize "EX2E.ClinchEstablished"}}</span>
+    {{else}}
+      <i class="fa-solid fa-xmark"></i>
+      <span class="roll-flavor">{{localize "EX2E.ClinchFailed"}}</span>
+    {{/if}}
+  </div>
+
+  <div class="card-content">
+    <div class="clinch-row">
+      <span class="clinch-label">{{controllerName}}</span>
+      <span class="clinch-successes">{{attackerSuccesses}}</span>
+    </div>
+    <div class="clinch-row">
+      <span class="clinch-label">{{heldName}}</span>
+      <span class="clinch-successes">{{defenderSuccesses}}</span>
+    </div>
+    {{#if established}}
+    <div class="clinch-margin">
+      {{localize "EX2E.ClinchControlMargin"}}: <strong>{{controlMargin}}</strong>
+    </div>
+    {{/if}}
+  </div>
+</div>

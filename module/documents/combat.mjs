@@ -187,6 +187,20 @@ export class ExaltedCombat extends Combat {
     // `abortable` flag from EX2E.actions.
     const pending = current.getFlag("exalted2e", "pendingAction") ?? null;
     const flurry  = current.getFlag("exalted2e", "flurry")        ?? null;
+
+    // If this combatant is a clinch controller but the declared flurry
+    // contains no clinch action, release the clinch before advancing.
+    const clinchFlag = current.flags?.exalted2e?.clinch ?? null;
+    if (clinchFlag?.role === "controller" && flurry) {
+      const CLINCH_KEYS = new Set(["clinchHold", "clinchCrush", "clinchThrow"]);
+      const hasClinchAction = (flurry.actions ?? []).some(a => CLINCH_KEYS.has(a.actionKey ?? a));
+      if (!hasClinchAction) {
+        const { releaseClinch } = await import("../rolls/clinch.mjs");
+        const heldCombatant = this.combatants.get(clinchFlag.heldCombatantId);
+        await releaseClinch(current, heldCombatant);
+      }
+    }
+
     let committedAction = null;
     if (pending) {
       committedAction = {
@@ -246,6 +260,19 @@ export class ExaltedCombat extends Combat {
     // `turn = 0` rehydrates `combat.combatant` to whoever is first in the
     // freshly-sorted list (next free-and-unacted combatant).
     await this.update({ turn: 0 });
+
+    // Auto-advance held clinch participants — they never take turns while held.
+    // If the new current combatant is held, push them one tick behind the
+    // controller and re-sort so the controller (or next free combatant) acts.
+    const heldNext = this.combatant;
+    const heldNextClinch = heldNext?.flags?.exalted2e?.clinch;
+    if (heldNextClinch?.role === "held") {
+      const controller = this.combatants.get(heldNextClinch.controllerCombatantId);
+      if (controller) {
+        await heldNext.update({ initiative: controller.initiative + 1 });
+        await this.update({ turn: 0 });
+      }
+    }
 
     // Clear expired coordination AEs (tick-based, not refreshable-based).
     // Strict `<` so combatants on the SAME tick as the expiry still benefit.

@@ -79,7 +79,12 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
    * @param {Set<string>} [drawnIds]  Weapon IDs drawn by the current flurry.
    */
   _buildActionOptions(drawnIds = new Set()) {
-    const core = EX2E.getActionList().filter(a => a.isFlurry);
+    const isClinchController = game.combat?.combatants
+      .find(c => c.actorId === this._actor?.id)
+      ?.flags?.exalted2e?.clinch?.role === "controller";
+    const core = EX2E.getActionList().filter(
+      a => a.isFlurry && (!a.clinchOnly || isClinchController)
+    );
     const weaponOpts = [];
     for (const w of (this._actor?.items ?? [])) {
       if (w.type !== "weapon") continue;
@@ -158,6 +163,9 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
     const drawnIds = this._collectDrawnIds();
     this._normalizeActions(drawnIds);
     const n = this._actions.length;
+    const isClinchController = game.combat?.combatants
+      .find(c => c.actorId === this._actor?.id)
+      ?.flags?.exalted2e?.clinch?.role === "controller";
     // Cache the computed lists so the dropdown-change handler can resolve
     // speed/dvMod for weapon-mode keys (which aren't in EX2E.actions).
     this._actionOptions     = this._buildActionOptions(drawnIds);
@@ -165,12 +173,13 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
 
     return {
       ...context,
-      actorName:         this._actorName,
-      actions:           this._actions,
-      actionOptions:     this._actionOptions,
-      unequippedWeapons: this._unequippedWeapons,
-      drawActionKey:     "draw",
-      canRemove:         n > 2,
+      actorName:          this._actorName,
+      actions:            this._actions,
+      actionOptions:      this._actionOptions,
+      unequippedWeapons:  this._unequippedWeapons,
+      drawActionKey:      "draw",
+      canRemove:          n > 2,
+      isClinchController,
       // Live preview so the player sees what the flurry will cost before
       // committing to it. Recomputed in-place by `_updatePreview` as the
       // user edits rows.
