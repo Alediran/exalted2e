@@ -865,6 +865,38 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
   font-style: italic;
 }
 
+/* ── CRAFT ABILITY ROWS ──────────────────────────────────────────────────── */
+
+/* Name input fills remaining space so all rows align identically. */
+.exalted2e.actor.character .craft-ability-row .craft-variant-name {
+  flex:        1;
+  min-width:   0;
+  background:  transparent;
+  border:      1px solid transparent;
+  border-radius: var(--ex2e-border-radius-sm);
+  color:       var(--ex2e-text-primary);
+  font-family: var(--ex2e-font-body);
+  font-size:   var(--ex2e-font-size-base);
+  padding:     1px 4px;
+  transition:  border-color var(--ex2e-transition-fast), background var(--ex2e-transition-fast);
+}
+.exalted2e.actor.character .craft-ability-row .craft-variant-name:not(:disabled):hover,
+.exalted2e.actor.character .craft-ability-row .craft-variant-name:not(:disabled):focus {
+  border-color: var(--ex2e-border-color);
+  background:   var(--ex2e-bg-panel);
+  outline:      none;
+}
+.exalted2e.actor.character .craft-ability-row .craft-variant-name:disabled {
+  opacity: 1;       /* don't grey-out the text when read-only */
+  cursor:  default;
+}
+
+/* Reserve two-button width so the dot column never shifts between rows. */
+.exalted2e.actor.character .craft-ability-row .item-controls {
+  min-width:       52px;
+  justify-content: flex-end;
+}
+
 /* Urge item icon inline in the section header */
 .exalted2e.actor.character .urge-item-icon {
   width:          24px;

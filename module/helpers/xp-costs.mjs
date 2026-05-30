@@ -85,6 +85,9 @@ function _priceField(actor, change, exaltType, costs) {
   if ((m = path.match(/^system\.abilities\.(\w+)\.specialties$/)))
     return _priceSpecialtyDelta(oldVal, newVal, costs);
 
+  if ((m = path.match(/^system\.abilities\.craft\.variants\.(\d+)\.value$/)))
+    return _priceCraftVariant(actor, oldVal, newVal, exaltType, costs);
+
   if (path === "system.essence.value")    return _priceEssence(oldVal, newVal, exaltType, costs);
   if (path === "system.willpower.max")    return _priceWillpower(oldVal, newVal, costs);
   if ((m = path.match(/^system\.virtues\.(\w+)\.value$/)))
@@ -128,6 +131,26 @@ function _priceAbility(actor, key, oldVal, newVal, exaltType, costs) {
     if (n === 0) xp += newFlat;
     else if (casteFav) xp += (n * favMult) - favSub;
     else               xp += (n * otherMult);
+  }
+  return { xp, confident: true };
+}
+
+function _priceCraftVariant(actor, oldVal, newVal, exaltType, costs) {
+  if (newVal <= oldVal) return { xp: 0, confident: true };
+  // Inherit caste/favored from the base Craft ability — variants share
+  // the same discount as their parent ability.
+  const craft     = actor.system?.abilities?.craft;
+  const casteFav  = !!(craft?.caste || craft?.favored);
+  const newFlat   = _n(costs.general.abilityNewFlat, 3);
+  const s         = costs[exaltType] ?? {};
+  const favMult   = _n(s.abilityFavoredMult, 1);
+  const favSub    = _n(s.abilityFavoredSub, 0);
+  const otherMult = _n(s.abilityOtherMult, 2);
+  let xp = 0;
+  for (let n = oldVal; n < newVal; n++) {
+    if (n === 0)       xp += newFlat;
+    else if (casteFav) xp += (n * favMult) - favSub;
+    else               xp += n * otherMult;
   }
   return { xp, confident: true };
 }

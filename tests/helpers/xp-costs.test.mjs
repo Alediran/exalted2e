@@ -560,3 +560,73 @@ describe("priceAstrologicalCollege", () => {
     expect(priceAstrologicalCollege()).toEqual({ xp: 5, confident: true });
   });
 });
+
+// ── Craft variant XP pricing ──────────────────────────────────────────────
+describe("computeXpCost — craft variants", () => {
+  function makeCraftActor({ casteFav = false } = {}) {
+    return makeActor({
+      abilities: {
+        craft: { value: 3, caste: casteFav, favored: false, specialties: [], name: "", variants: [] }
+      }
+    });
+  }
+
+  it("variant 0→1 costs 3 (newFlat) for non-favored solar", () => {
+    const actor = makeCraftActor({ casteFav: false });
+    const result = computeXpCost(actor, {
+      kind: "field",
+      path: "system.abilities.craft.variants.0.value",
+      oldValue: 0,
+      newValue: 1,
+    });
+    expect(result.xp).toBe(3);
+    expect(result.confident).toBe(true);
+  });
+
+  it("variant 1→3 costs 1×2 + 2×2 = 6 for non-favored solar", () => {
+    const actor = makeCraftActor({ casteFav: false });
+    const result = computeXpCost(actor, {
+      kind: "field",
+      path: "system.abilities.craft.variants.0.value",
+      oldValue: 1,
+      newValue: 3,
+    });
+    expect(result.xp).toBe(6);
+    expect(result.confident).toBe(true);
+  });
+
+  it("variant 1→2 costs 1×1 = 1 when Craft is caste/favored (solar)", () => {
+    const actor = makeCraftActor({ casteFav: true });
+    const result = computeXpCost(actor, {
+      kind: "field",
+      path: "system.abilities.craft.variants.0.value",
+      oldValue: 1,
+      newValue: 2,
+    });
+    expect(result.xp).toBe(1);
+    expect(result.confident).toBe(true);
+  });
+
+  it("variant 2→2 (no increase) costs 0", () => {
+    const actor = makeCraftActor();
+    const result = computeXpCost(actor, {
+      kind: "field",
+      path: "system.abilities.craft.variants.0.value",
+      oldValue: 2,
+      newValue: 2,
+    });
+    expect(result.xp).toBe(0);
+  });
+
+  it("uses a different array index without affecting pricing", () => {
+    const actor = makeCraftActor({ casteFav: false });
+    const result = computeXpCost(actor, {
+      kind: "field",
+      path: "system.abilities.craft.variants.3.value",
+      oldValue: 0,
+      newValue: 1,
+    });
+    expect(result.xp).toBe(3);
+    expect(result.confident).toBe(true);
+  });
+});

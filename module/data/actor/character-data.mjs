@@ -46,7 +46,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         athletics:     this.#abilityField("stamina"),
         awareness:     this.#abilityField("perception"),
         bureaucracy:   this.#abilityField("intelligence"),
-        craft:         this.#abilityField("intelligence"),
+        craft:         this.#craftAbilityField(),
         dodge:         this.#abilityField("dexterity"),
         integrity:     this.#abilityField("manipulation"),
         investigation: this.#abilityField("wits"),
@@ -373,6 +373,25 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
       specialties:      new fields.ArrayField(new fields.SchemaField({
         name:  new fields.StringField({ initial: "", blank: true }),
         value: new fields.NumberField({ initial: 1, min: 1, max: 3, integer: true })
+      }))
+    });
+  }
+
+  /** Craft ability — same as #abilityField("intelligence") plus name + variants. */
+  static #craftAbilityField() {
+    return new fields.SchemaField({
+      value:            new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true }),
+      defaultAttribute: new fields.StringField({ initial: "intelligence", blank: true }),
+      caste:            new fields.BooleanField({ initial: false }),
+      favored:          new fields.BooleanField({ initial: false }),
+      specialties:      new fields.ArrayField(new fields.SchemaField({
+        name:  new fields.StringField({ initial: "", blank: true }),
+        value: new fields.NumberField({ initial: 1, min: 1, max: 3, integer: true })
+      })),
+      name:     new fields.StringField({ initial: "", blank: true }),
+      variants: new fields.ArrayField(new fields.SchemaField({
+        name:  new fields.StringField({ initial: "", blank: true }),
+        value: new fields.NumberField({ initial: 0, min: 0, max: 5, integer: true })
       }))
     });
   }

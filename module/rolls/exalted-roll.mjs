@@ -202,7 +202,7 @@ export class ExaltedRoll {
 
     // Resolve the starting attribute: argument → ability's defaultAttribute → "dexterity"
     const defaultAttr = attribute || sys.abilities[ability]?.defaultAttribute || "dexterity";
-    const abilVal     = sys.abilities[ability]?.value ?? 0;
+    const abilVal     = options.effectiveAbilityValue ?? sys.abilities[ability]?.value ?? 0;
     const attrVal     = sys.attributes[defaultAttr]?.value ?? 0;
     const essenceVal  = sys.essence ?? 0;
     // Base pool — raw attribute + ability, before any penalties.

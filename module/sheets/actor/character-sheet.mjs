@@ -200,6 +200,9 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       addCraftingProject:    CharacterSheet.#onAddCraftingProject,
       rollCraftingProject:   CharacterSheet.#onRollCraftingProject,
       deleteCraftingProject: CharacterSheet.#onDeleteCraftingProject,
+      addCraftVariant:       CharacterSheet.#onAddCraftVariant,
+      deleteCraftVariant:    CharacterSheet.#onDeleteCraftVariant,
+      rollCraftVariant:      CharacterSheet.#onRollCraftVariant,
       addArtifactProject:        CharacterSheet.#onAddArtifactProject,
       rollArtifactProject:       CharacterSheet.#onRollArtifactProject,
       deleteArtifactProject:     CharacterSheet.#onDeleteArtifactProject,
@@ -306,9 +309,13 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       tabBiography: { id: "tabBiography", group: "sheet", icon: "fa-solid fa-book",           label: game.i18n.localize("EX2E.TabBiography"),       cssClass: this.tabGroups.sheet === "tabBiography"  ? "active" : "" },
       tabExperience:{ id: "tabExperience",group: "sheet", icon: "fa-solid fa-graduation-cap", label: game.i18n.localize("EX2E.TabExperience"),      cssClass: this.tabGroups.sheet === "tabExperience" ? "active" : "" },
       tabEffects:   { id: "tabEffects",   group: "sheet", icon: "fa-solid fa-wand-sparkles",  label: game.i18n.localize("EX2E.TabEffects"),         cssClass: this.tabGroups.sheet === "tabEffects"    ? "active" : "" },
-      ...((sys.abilities?.craft?.value ?? 0) >= 1 ? {
-        tabCrafting: { id: "tabCrafting", group: "sheet", icon: "fa-solid fa-hammer", label: game.i18n.localize("EX2E.TabCrafting"), cssClass: this.tabGroups.sheet === "tabCrafting" ? "active" : "" }
-      } : {}),
+      ...(
+        (sys.abilities?.craft?.value ?? 0) >= 1 ||
+        (sys.abilities?.craft?.variants ?? []).some(v => v.value >= 1)
+        ? {
+          tabCrafting: { id: "tabCrafting", group: "sheet", icon: "fa-solid fa-hammer", label: game.i18n.localize("EX2E.TabCrafting"), cssClass: this.tabGroups.sheet === "tabCrafting" ? "active" : "" }
+        } : {}
+      ),
       tabThaumaturgy: { id: "tabThaumaturgy", group: "sheet", icon: "fa-solid fa-flask", label: game.i18n.localize("EX2E.TabThaumaturgy"), cssClass: this.tabGroups.sheet === "tabThaumaturgy" ? "active" : "" },
     };
 
@@ -800,6 +807,27 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const destinies = actor.items.filter(i => i.type === "destiny")
       .sort((a, b) => a.name.localeCompare(b.name));
 
+    // ── Craft ability variants ────────────────────────────────────────────
+    const _craftSys = actor.system.abilities.craft;
+    const craftAbilities = [
+      {
+        isBase:       true,
+        name:         _craftSys.name ?? "",
+        value:        _craftSys.value ?? 0,
+        namePath:     "system.abilities.craft.name",
+        valuePath:    "system.abilities.craft.value",
+        variantIndex: "base",
+      },
+      ...(_craftSys.variants ?? []).map((v, i) => ({
+        isBase:       false,
+        name:         v.name ?? "",
+        value:        v.value ?? 0,
+        namePath:     `system.abilities.craft.variants.${i}.name`,
+        valuePath:    `system.abilities.craft.variants.${i}.value`,
+        variantIndex: String(i),
+      })),
+    ];
+
     const craftingProjects = (sys.craftingProjects ?? []).map(p => ({
       ...p,
       difficulty:  p.targetResources + (p.isPerfect ? 5 : 0),
@@ -918,6 +946,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       manses, familiars, cults,
       artifactSlotMap,
       maStyles,
+      craftAbilities,
       craftingProjects,
       artifactProjects,
       hasAttunementMotes: (actor.system.attunementMotes ?? 0) > 0,
@@ -1161,6 +1190,21 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     if (itemRow) {
       const item = this.document.items.get(itemRow.dataset.itemId);
       if (item) await item.update({ [name]: val });
+      return;
+    }
+
+    // Craft variant dot ratings — ArrayField null-then-set pattern
+    const variantMatch = name.match(/^system\.abilities\.craft\.variants\.(\d+)\.value$/);
+    if (variantMatch) {
+      const idx      = parseInt(variantMatch[1]);
+      const variants = foundry.utils.deepClone(
+        this.document.system.abilities.craft.variants ?? []
+      );
+      if (variants[idx] !== undefined) {
+        variants[idx].value = val;
+        await this.document.update({ "system.abilities.craft.variants": null });
+        await this.document.update({ "system.abilities.craft.variants": variants });
+      }
       return;
     }
 
@@ -2028,6 +2072,52 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const stones = foundry.utils.deepClone(artifact.system.hearthstones ?? []);
     stones[slotIndex] = "";
     await artifact.update({ "system.hearthstones": stones });
+  }
+
+  static async #onAddCraftVariant(_event, _target) {
+    const actor    = this.document;
+    const variants = foundry.utils.deepClone(
+      actor.system.abilities.craft.variants ?? []
+    );
+    variants.push({ name: "", value: 0 });
+    await actor.update({ "system.abilities.craft.variants": null });
+    await actor.update({ "system.abilities.craft.variants": variants });
+  }
+
+  static async #onDeleteCraftVariant(_event, target) {
+    const actor = this.document;
+    const idx   = parseInt(target.dataset.variantIndex);
+    if (isNaN(idx)) return;
+    const variants = foundry.utils.deepClone(
+      actor.system.abilities.craft.variants ?? []
+    );
+    variants.splice(idx, 1);
+    await actor.update({ "system.abilities.craft.variants": null });
+    await actor.update({ "system.abilities.craft.variants": variants });
+  }
+
+  static async #onRollCraftVariant(_event, target) {
+    const actor        = this.document;
+    const variantIndex = target.dataset.variantIndex;
+    const craftSys     = actor.system.abilities.craft;
+
+    let effectiveAbilityValue;
+    let variantLabel;
+    if (variantIndex === "base") {
+      effectiveAbilityValue = craftSys.value;
+      variantLabel          = craftSys.name || game.i18n.localize("EX2E.AbilityCraft");
+    } else {
+      const idx     = parseInt(variantIndex);
+      const variant = craftSys.variants?.[idx];
+      if (!variant) return;
+      effectiveAbilityValue = variant.value;
+      variantLabel          = variant.name || game.i18n.localize("EX2E.AbilityCraft");
+    }
+
+    await ExaltedRoll.rollAttributeAbility(actor, "intelligence", "craft", {
+      effectiveAbilityValue,
+      flavor: variantLabel,
+    });
   }
 
   static async #onAddCraftingProject(_event, _target) {

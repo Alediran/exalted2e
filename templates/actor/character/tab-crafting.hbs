@@ -1,6 +1,48 @@
 <div class="tab tab-crafting {{cssClass}}" data-tab="tabCrafting" data-group="sheet">
   <div class="sheet-body">
 
+    <!-- ═══════════════ CRAFT ABILITIES ═══════════════ -->
+    <div class="craft-abilities-section">
+      <div class="crafting-header">
+        <h2 class="section-header">{{localize "EX2E.CraftAbilities"}}</h2>
+        {{#if @root.isEditable}}
+        <button type="button" data-action="addCraftVariant" class="btn-add-project">
+          <i class="fa-solid fa-plus"></i>
+          {{localize "EX2E.CraftVariantAdd"}}
+        </button>
+        {{/if}}
+      </div>
+
+      {{#each craftAbilities as |ca|}}
+      <div class="item-row craft-ability-row">
+        <input type="text"
+               name="{{ca.namePath}}"
+               value="{{ca.name}}"
+               class="craft-variant-name"
+               placeholder="{{#if ca.isBase}}{{localize 'EX2E.CraftBaseNamePlaceholder'}}{{else}}{{localize 'EX2E.CraftVariantNamePlaceholder'}}{{/if}}"
+               {{#unless @root.isEditable}}disabled{{/unless}}>
+        {{dotRating name=ca.valuePath value=ca.value max=5 min=0}}
+        <div class="item-controls">
+          <button type="button"
+                  data-action="rollCraftVariant"
+                  data-variant-index="{{ca.variantIndex}}"
+                  title="{{localize 'EX2E.CraftingRoll'}}">
+            <i class="fa-solid fa-dice"></i>
+          </button>
+          {{#unless ca.isBase}}
+          {{#if @root.isEditable}}
+          <button type="button"
+                  data-action="deleteCraftVariant"
+                  data-variant-index="{{ca.variantIndex}}">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+          {{/if}}
+          {{/unless}}
+        </div>
+      </div>
+      {{/each}}
+    </div>
+
     <div class="crafting-header">
       <h2 class="section-header">{{localize "EX2E.CraftingProjectsHeader"}}</h2>
       {{#if @root.isEditable}}

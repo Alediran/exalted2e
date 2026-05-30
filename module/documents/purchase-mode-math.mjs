@@ -131,5 +131,28 @@ export function collectPermanentTraitChanges(changed, actor) {
     });
   }
 
+  // Craft variants — each variant value increase is priced via
+  // _priceCraftVariant (inherits caste/favored from base Craft).
+  // The null-then-set pattern means we see the full replacement array;
+  // compare element-by-element to detect individual value changes.
+  const craftAbNew = abilities.craft?.variants;
+  if (craftAbNew) {
+    const craftAbOld = actor.system.abilities?.craft?.variants ?? [];
+    for (let i = 0; i < Math.max(craftAbNew.length, craftAbOld.length); i++) {
+      const oldVal     = Number(craftAbOld[i]?.value ?? 0);
+      const newVal     = Number(craftAbNew[i]?.value ?? 0);
+      if (oldVal === newVal) continue;
+      const variantName = craftAbNew[i]?.name || craftAbOld[i]?.name || String(i + 1);
+      const label = `${game.i18n.localize("EX2E.AbilityCraft")}: ${variantName}`;
+      results.push({
+        path:     `system.abilities.craft.variants.${i}.value`,
+        label,
+        oldValue: oldVal,
+        newValue: newVal,
+        kind:     newVal > oldVal ? "increase" : "reduction",
+      });
+    }
+  }
+
   return results;
 }
