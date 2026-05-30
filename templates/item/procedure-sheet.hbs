@@ -1,10 +1,24 @@
+<div class="procedure-sheet-root">
+
+<div class="item-header">
+  <img class="item-portrait" src="{{item.img}}" alt="{{item.name}}"
+       data-action="editImage" {{#unless isEditable}}disabled{{/unless}}>
+  <div class="item-header-fields">
+    <input class="item-name-input" type="text" name="name" value="{{item.name}}"
+           {{#unless isEditable}}readonly{{/unless}}>
+    <div class="charm-identity-row">{{localize "EX2E.ItemTypeProcedure"}}</div>
+  </div>
+</div>
+
 <div class="sheet-body">
-  <div class="form-group">
+
+  <div class="field-group">
     <label>{{localize "EX2E.ThaummArt"}}</label>
     <input type="text" name="system.art" value="{{system.art}}"
            {{#unless isEditable}}disabled{{/unless}}>
   </div>
-  <div class="form-group">
+
+  <div class="field-group">
     <label>{{localize "EX2E.ThaummMinDegree"}}</label>
     <select name="system.minDegree" {{#unless isEditable}}disabled{{/unless}}>
       <option value="1" {{#if (eq system.minDegree 1)}}selected{{/if}}>1</option>
@@ -12,7 +26,8 @@
       <option value="3" {{#if (eq system.minDegree 3)}}selected{{/if}}>3</option>
     </select>
   </div>
-  <div class="form-group">
+
+  <div class="field-group">
     <label>{{localize "EX2E.Attribute"}}</label>
     <select name="system.attribute" {{#unless isEditable}}disabled{{/unless}}>
       {{#each attributeOptions as |opt|}}
@@ -20,23 +35,27 @@
       {{/each}}
     </select>
   </div>
-  <div class="form-group">
+
+  <div class="field-group">
     <label>{{localize "EX2E.ThaummDifficulty"}}</label>
     <input type="number" name="system.difficulty" value="{{system.difficulty}}" min="1"
            {{#unless isEditable}}disabled{{/unless}}>
   </div>
-  <div class="form-group">
+
+  <div class="field-group">
     <label>{{localize "EX2E.ThaummCastingTime"}}</label>
     <input type="text" name="system.castingTime" value="{{system.castingTime}}"
            {{#unless isEditable}}disabled{{/unless}}>
   </div>
-  <div class="form-group">
+
+  <div class="field-group">
     <label>{{localize "EX2E.ThaummExtended"}}</label>
     <input type="checkbox" name="system.extended" {{#if system.extended}}checked{{/if}}
            {{#unless isEditable}}disabled{{/unless}}>
   </div>
-  <div class="form-group stacked">
-    <label>{{localize "ITEM.DescriptionLabel"}}</label>
+
+  <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
+  <div class="editor-container">
     {{#if isEditable}}
     <prose-mirror name="system.description" data-document-uuid="{{item.uuid}}"
                   value="{{system.description}}" collaborate="true" toggled="true">
@@ -46,4 +65,6 @@
     <div class="editor-content">{{{enrichedDescription}}}</div>
     {{/if}}
   </div>
+
+</div>
 </div>

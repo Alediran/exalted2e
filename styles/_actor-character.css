@@ -804,6 +804,67 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
   color:      var(--ex2e-gold-bright);
 }
 
+/* ── THAUMATURGY TAB ─────────────────────────────────────────────────────── */
+
+/* Top toolbar: Add Art + Add Procedure buttons */
+.exalted2e.actor.character .section-controls {
+  display:       flex;
+  gap:           var(--ex2e-gap-sm);
+  padding:       var(--ex2e-gap-sm) 0;
+  margin-bottom: var(--ex2e-gap-sm);
+}
+.exalted2e.actor.character .section-controls button {
+  background:    var(--ex2e-bg-panel);
+  border:        1px solid var(--ex2e-border-color);
+  border-radius: var(--ex2e-border-radius);
+  color:         var(--ex2e-text-secondary);
+  padding:       3px 10px;
+  font-size:     var(--ex2e-font-size-sm);
+  cursor:        pointer;
+  transition:    color var(--ex2e-transition-fast), background var(--ex2e-transition-fast);
+}
+.exalted2e.actor.character .section-controls button:hover {
+  color:         var(--ex2e-gold-main);
+  background:    var(--ex2e-bg-hover);
+}
+
+/* Art section — groups the header + its procedures */
+.exalted2e.actor.character .thaum-art-section {
+  margin-bottom: var(--ex2e-gap-md);
+}
+
+/* Art header row — slightly bolder than procedure rows */
+.exalted2e.actor.character .thaum-art-header {
+  background:    var(--ex2e-bg-panel);
+  border-bottom: 1px solid var(--ex2e-border-color);
+  font-family:   var(--ex2e-font-ui);
+}
+
+.exalted2e.actor.character .thaum-art-name {
+  flex:        1;
+  font-size:   var(--ex2e-font-size-base);
+  font-weight: 600;
+  color:       var(--ex2e-text-primary);
+}
+
+.exalted2e.actor.character .thaum-art-degree {
+  flex-shrink: 0;
+  margin-right: var(--ex2e-gap-sm);
+}
+
+/* Procedure rows indented under the art header */
+.exalted2e.actor.character .thaum-procedure {
+  padding-left: 36px;
+}
+
+/* Locked procedure — art degree too low */
+.exalted2e.actor.character .procedure-locked {
+  opacity: 0.45;
+}
+.exalted2e.actor.character .procedure-locked .item-name {
+  font-style: italic;
+}
+
 /* Urge item icon inline in the section header */
 .exalted2e.actor.character .urge-item-icon {
   width:          24px;

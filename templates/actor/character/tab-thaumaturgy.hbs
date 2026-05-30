@@ -15,8 +15,8 @@
     {{#each thaumaturgySections as |section|}}
     <div class="thaum-art-section">
 
-      <div class="item-row thaum-art-header" data-item-id="{{section.artItem.id}}">
-        <img src="{{section.artItem.img}}" class="item-image">
+      <div class="charm-row item-row thaum-art-header" data-item-id="{{section.artItem.id}}">
+        <img src="{{section.artItem.img}}" class="item-img">
         <span class="thaum-art-name">{{section.artName}}</span>
         <span class="thaum-art-degree">
           {{dotRating value=section.degree max=3 readonly=true}}
@@ -36,7 +36,7 @@
       {{#each section.procedures as |proc|}}
       <div class="charm-row item-row thaum-procedure {{#unless proc.usable}}procedure-locked{{/unless}}"
            data-item-id="{{proc.id}}">
-        <img src="{{proc.img}}" class="item-image">
+        <img src="{{proc.img}}" class="item-img">
         <span class="item-name">
           {{proc.name}}
           <span class="charm-meta">
@@ -74,7 +74,7 @@
     <h2 class="section-header">{{localize "EX2E.ThaummOrphanProcedures"}}</h2>
     {{#each orphanProcedures as |proc|}}
     <div class="charm-row item-row thaum-procedure procedure-locked" data-item-id="{{proc.id}}">
-      <img src="{{proc.img}}" class="item-image">
+      <img src="{{proc.img}}" class="item-img">
       <span class="item-name">
         {{proc.name}}
         <span class="charm-meta">
