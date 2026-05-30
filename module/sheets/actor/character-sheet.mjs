@@ -211,10 +211,11 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       deleteCripplingInjury:    CharacterSheet.#onDeleteCripplingInjury,
       applyActivityFatigue:     CharacterSheet.#onApplyActivityFatigue,
       rollArmorFatigue:         CharacterSheet.#onRollArmorFatigue,
-      clinchHold:    CharacterSheet.#onClinchHold,
-      clinchCrush:   CharacterSheet.#onClinchCrush,
-      clinchThrow:   CharacterSheet.#onClinchThrow,
-      clinchRelease: CharacterSheet.#onClinchRelease,
+      clinchHold:         CharacterSheet.#onClinchHold,
+      clinchCrush:        CharacterSheet.#onClinchCrush,
+      clinchThrow:        CharacterSheet.#onClinchThrow,
+      clinchRelease:      CharacterSheet.#onClinchRelease,
+      performProcedure:   CharacterSheet.#onPerformProcedure,
     }
   };
 
@@ -274,6 +275,10 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       template: "systems/exalted2e/templates/actor/character/tab-crafting.hbs",
       scrollable: [""]
     },
+    tabThaumaturgy: {
+      template: "systems/exalted2e/templates/actor/character/tab-thaumaturgy.hbs",
+      scrollable: [""]
+    },
   };
 
   /** Current tab group state */
@@ -303,7 +308,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       tabEffects:   { id: "tabEffects",   group: "sheet", icon: "fa-solid fa-wand-sparkles",  label: game.i18n.localize("EX2E.TabEffects"),         cssClass: this.tabGroups.sheet === "tabEffects"    ? "active" : "" },
       ...((sys.abilities?.craft?.value ?? 0) >= 1 ? {
         tabCrafting: { id: "tabCrafting", group: "sheet", icon: "fa-solid fa-hammer", label: game.i18n.localize("EX2E.TabCrafting"), cssClass: this.tabGroups.sheet === "tabCrafting" ? "active" : "" }
-      } : {})
+      } : {}),
+      tabThaumaturgy: { id: "tabThaumaturgy", group: "sheet", icon: "fa-solid fa-flask", label: game.i18n.localize("EX2E.TabThaumaturgy"), cssClass: this.tabGroups.sheet === "tabThaumaturgy" ? "active" : "" },
     };
 
     // Build available castes for the current exalt type
@@ -817,6 +823,31 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       return game.combat?.combatants.get(partnerId)?.actor?.name ?? null;
     })();
 
+    // ── Thaumaturgy tab ──────────────────────────────────────────────────
+    const _artItems = actor.items.filter(i => i.type === "thaum-art")
+      .sort((a, b) => a.system.artName.localeCompare(b.system.artName));
+    const _procedureItems = actor.items.filter(i => i.type === "procedure");
+    const _ownedArtNames  = new Set(_artItems.map(a => a.system.artName));
+    const thaumaturgySections = _artItems.map(art => ({
+      artItem:    art,
+      artName:    art.system.artName,
+      degree:     art.system.degree,
+      procedures: _procedureItems
+        .filter(p => p.system.art === art.system.artName)
+        .map(p => ({
+          id:        p.id,
+          name:      p.name,
+          img:       p.img,
+          system:    p.system,
+          usable:    p.system.minDegree <= art.system.degree,
+          isInstant: p.system.castingTime.toLowerCase() === "instant",
+        }))
+        .sort((a, b) => a.system.minDegree - b.system.minDegree || a.name.localeCompare(b.name))
+    }));
+    const orphanProcedures = _procedureItems
+      .filter(p => !_ownedArtNames.has(p.system.art))
+      .map(p => ({ id: p.id, name: p.name, img: p.img, system: p.system }));
+
     // ── Fatigue display ──────────────────────────────────────────────────
     const fatiguePenaltyTotal = [...actor.effects]
       .filter(e => !e.disabled && e.flags?.exalted2e?.fatigueType)
@@ -896,6 +927,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       fatiguePenaltyTotal,
       fatigueKnockoutThreshold,
       canRollArmorFatigue,
+      thaumaturgySections,
+      orphanProcedures,
     };
   }
 
@@ -2185,6 +2218,14 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const itemId = target.dataset.itemId;
     if (!itemId) return;
     await actor.applyAttunementMotes(itemId);
+  }
+
+  static async #onPerformProcedure(_event, target) {
+    const { rollProcedure } = await import("../../rolls/thaumaturgy.mjs");
+    const itemId = target.dataset.itemId;
+    const item   = this.document.items.get(itemId);
+    if (!item) return;
+    await rollProcedure(this.document, item);
   }
 
   static async #onClinchHold(_event, _target) {

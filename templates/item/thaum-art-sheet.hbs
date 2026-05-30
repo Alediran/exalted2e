@@ -1,0 +1,22 @@
+<div class="sheet-body">
+  <div class="form-group">
+    <label>{{localize "EX2E.ThaummArt"}}</label>
+    <input type="text" name="system.artName" value="{{system.artName}}"
+           {{#unless isEditable}}disabled{{/unless}}>
+  </div>
+  <div class="form-group">
+    <label>{{localize "EX2E.ThaummDegree"}}</label>
+    {{dotRating name="system.degree" value=system.degree max=3 min=1}}
+  </div>
+  <div class="form-group stacked">
+    <label>{{localize "ITEM.DescriptionLabel"}}</label>
+    {{#if isEditable}}
+    <prose-mirror name="system.description" data-document-uuid="{{item.uuid}}"
+                  value="{{system.description}}" collaborate="true" toggled="true">
+      {{{enrichedDescription}}}
+    </prose-mirror>
+    {{else}}
+    <div class="editor-content">{{{enrichedDescription}}}</div>
+    {{/if}}
+  </div>
+</div>

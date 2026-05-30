@@ -1,0 +1,108 @@
+<div class="tab tab-thaumaturgy {{cssClass}}" data-tab="tabThaumaturgy" data-group="sheet">
+  <div class="sheet-body">
+
+    {{#if isEditable}}
+    <div class="section-controls">
+      <button type="button" data-action="createItem" data-type="thaum-art">
+        <i class="fa-solid fa-plus"></i> {{localize "EX2E.ThaummAddArt"}}
+      </button>
+      <button type="button" data-action="createItem" data-type="procedure">
+        <i class="fa-solid fa-plus"></i> {{localize "EX2E.ThaummAddProcedure"}}
+      </button>
+    </div>
+    {{/if}}
+
+    {{#each thaumaturgySections as |section|}}
+    <div class="thaum-art-section">
+
+      <div class="item-row thaum-art-header" data-item-id="{{section.artItem.id}}">
+        <img src="{{section.artItem.img}}" class="item-image">
+        <span class="thaum-art-name">{{section.artName}}</span>
+        <span class="thaum-art-degree">
+          {{dotRating value=section.degree max=3 readonly=true}}
+        </span>
+        {{#if @root.isEditable}}
+        <div class="item-controls">
+          <button type="button" data-action="editItem" data-item-id="{{section.artItem.id}}">
+            <i class="fa-solid fa-pen"></i>
+          </button>
+          <button type="button" data-action="deleteItem" data-item-id="{{section.artItem.id}}">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+        {{/if}}
+      </div>
+
+      {{#each section.procedures as |proc|}}
+      <div class="charm-row item-row thaum-procedure {{#unless proc.usable}}procedure-locked{{/unless}}"
+           data-item-id="{{proc.id}}">
+        <img src="{{proc.img}}" class="item-image">
+        <span class="item-name">
+          {{proc.name}}
+          <span class="charm-meta">
+            {{localize (concat "EX2E.Attr" (capitalize proc.system.attribute))}}
+            · diff {{proc.system.difficulty}}
+            · {{proc.system.castingTime}}
+            {{#if proc.system.extended}}<em>({{localize "EX2E.ThaummExtended"}})</em>{{/if}}
+          </span>
+        </span>
+        <div class="item-controls">
+          <button type="button" data-action="performProcedure" data-item-id="{{proc.id}}"
+                  {{#unless proc.usable}}disabled
+                  title="{{localize 'EX2E.ThaummDegreeInsufficient'}}"{{/unless}}>
+            <i class="fa-solid fa-dice"></i>
+          </button>
+          <button type="button" data-action="sendItemToChat" data-item-id="{{proc.id}}">
+            <i class="fa-solid fa-comment"></i>
+          </button>
+          {{#if @root.isEditable}}
+          <button type="button" data-action="editItem" data-item-id="{{proc.id}}">
+            <i class="fa-solid fa-pen"></i>
+          </button>
+          <button type="button" data-action="deleteItem" data-item-id="{{proc.id}}">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+      {{/each}}
+
+    </div>
+    {{/each}}
+
+    {{#if orphanProcedures.length}}
+    <h2 class="section-header">{{localize "EX2E.ThaummOrphanProcedures"}}</h2>
+    {{#each orphanProcedures as |proc|}}
+    <div class="charm-row item-row thaum-procedure procedure-locked" data-item-id="{{proc.id}}">
+      <img src="{{proc.img}}" class="item-image">
+      <span class="item-name">
+        {{proc.name}}
+        <span class="charm-meta">
+          {{proc.system.art}} ·
+          {{localize (concat "EX2E.Attr" (capitalize proc.system.attribute))}}
+          · diff {{proc.system.difficulty}}
+        </span>
+      </span>
+      <div class="item-controls">
+        <button type="button" data-action="performProcedure" data-item-id="{{proc.id}}" disabled
+                title="{{localize 'EX2E.ThaummNoArt'}}">
+          <i class="fa-solid fa-dice"></i>
+        </button>
+        <button type="button" data-action="sendItemToChat" data-item-id="{{proc.id}}">
+          <i class="fa-solid fa-comment"></i>
+        </button>
+        {{#if @root.isEditable}}
+        <button type="button" data-action="editItem" data-item-id="{{proc.id}}">
+          <i class="fa-solid fa-pen"></i>
+        </button>
+        <button type="button" data-action="deleteItem" data-item-id="{{proc.id}}">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+        {{/if}}
+      </div>
+    </div>
+    {{/each}}
+    {{/if}}
+
+  </div>
+</div>

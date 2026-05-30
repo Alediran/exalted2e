@@ -35,6 +35,8 @@ import { FamiliarData }  from "./data/item/familiar-data.mjs";
 import { CultData }      from "./data/item/cult-data.mjs";
 import { CommandData }   from "./data/item/command-data.mjs";
 import { FollowersData } from "./data/item/followers-data.mjs";
+import { ThaummArtData }  from "./data/item/thaum-art-data.mjs";
+import { ProcedureData }  from "./data/item/procedure-data.mjs";
 import { CharacterSheet }           from "./sheets/actor/character-sheet.mjs";
 import { NpcSheet }         from "./sheets/actor/npc-sheet.mjs";
 import { UnitData }  from "./data/actor/unit-data.mjs";
@@ -56,6 +58,8 @@ import { FormSheet }        from "./sheets/item/form-sheet.mjs";
 import { AnimaPowerSheet }  from "./sheets/item/anima-power-sheet.mjs";
 import { DestinySheet }          from "./sheets/item/destiny-sheet.mjs";
 import { MartialArtsStyleSheet } from "./sheets/item/martial-arts-style-sheet.mjs";
+import { ThaummArtSheet }  from "./sheets/item/thaum-art-sheet.mjs";
+import { ProcedureSheet }  from "./sheets/item/procedure-sheet.mjs";
 import { XpCostsConfigDialog } from "./dialogs/xp-costs-config-dialog.mjs";
 import { PermissionsConfigDialog } from "./dialogs/permissions-config-dialog.mjs";
 import { GmRollPoolDialog, computeGmRollPool } from "./dialogs/gm-roll-pool-dialog.mjs";
@@ -240,7 +244,9 @@ Hooks.once("init", function () {
     familiar:  FamiliarData,
     cult:      CultData,
     command:   CommandData,
-    followers: FollowersData,
+    followers:   FollowersData,
+    "thaum-art": ThaummArtData,
+    procedure:   ProcedureData,
   };
 
   // ── Region Behavior Types ────────────────────────────────────────────────
@@ -332,6 +338,16 @@ Hooks.once("init", function () {
     types:       ["martialartsstyle"],
     makeDefault: true,
     label:       "EX2E.MartialArtsStyle"
+  });
+  foundry.documents.collections.Items.registerSheet("exalted2e", ThaummArtSheet, {
+    types:       ["thaum-art"],
+    makeDefault: true,
+    label:       "EX2E.ItemTypeThaummArt",
+  });
+  foundry.documents.collections.Items.registerSheet("exalted2e", ProcedureSheet, {
+    types:       ["procedure"],
+    makeDefault: true,
+    label:       "EX2E.ItemTypeProcedure",
   });
 
   // ── System Settings ─────────────────────────────────────────────────────
@@ -580,7 +596,11 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/chat/mass-combat-result.hbs",
     "systems/exalted2e/templates/dialog/parts/excellency-pips.hbs",
     "systems/exalted2e/templates/chat/clinch-established.hbs",
-    "systems/exalted2e/templates/chat/clinch-action.hbs"
+    "systems/exalted2e/templates/chat/clinch-action.hbs",
+    "systems/exalted2e/templates/chat/thaumaturgy-result.hbs",
+    "systems/exalted2e/templates/item/thaum-art-sheet.hbs",
+    "systems/exalted2e/templates/item/procedure-sheet.hbs",
+    "systems/exalted2e/templates/actor/character/tab-thaumaturgy.hbs",
   ];
   return foundry.applications.handlebars.loadTemplates(templatePaths);
 }

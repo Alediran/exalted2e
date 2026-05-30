@@ -1,0 +1,25 @@
+<div class="chat-card thaumaturgy-result {{#if success}}thaum-success{{else}}{{#if botch}}thaum-botch{{else}}thaum-failure{{/if}}{{/if}}">
+  <h3 class="card-header">
+    {{#if success}}<i class="fa-solid fa-check-circle"></i>{{/if}}
+    {{#if botch}}<i class="fa-solid fa-skull"></i>{{/if}}
+    {{#unless success}}{{#unless botch}}<i class="fa-solid fa-times-circle"></i>{{/unless}}{{/unless}}
+    {{procedureName}}
+  </h3>
+  <div class="card-content">
+    <div class="thaum-meta">
+      <span>{{localize "EX2E.ThaummArt"}}: <strong>{{art}}</strong>
+        ({{localize "EX2E.ThaummDegree"}} {{artDegree}})</span>
+      <span>{{localize (concat "EX2E.Attr" (capitalize attribute))}}
+        · {{localize "EX2E.ThaummDifficulty"}} {{difficulty}}</span>
+    </div>
+    <p class="thaum-outcome">
+      {{successes}} {{localize "EX2E.Successes"}} —
+      {{#if success}}{{localize "EX2E.ThaummSuccess"}}{{/if}}
+      {{#if botch}}{{localize "EX2E.ThaummBotch"}}{{/if}}
+      {{#unless success}}{{#unless botch}}{{localize "EX2E.ThaummFailure"}}{{/unless}}{{/unless}}
+    </p>
+    {{#if success}}
+    <div class="thaum-effect">{{{effectText}}}</div>
+    {{/if}}
+  </div>
+</div>

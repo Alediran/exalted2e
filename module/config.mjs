@@ -718,7 +718,8 @@ EX2E.actions = {
   shapeshift:  { labelKey: "EX2E.ActionShapeshift",  icon: "fa-solid fa-paw",                speed: 5, dvMod: 1, preset: true,  isFlurry: false, abortable: false },
   clinchHold:  { labelKey: "EX2E.ClinchHold",        icon: "fa-solid fa-hand",               speed: 3, dvMod: 0, preset: false, isFlurry: true,  abortable: false, clinchOnly: true },
   clinchCrush: { labelKey: "EX2E.ClinchCrush",       icon: "fa-solid fa-hand-fist",          speed: 3, dvMod: 0, preset: false, isFlurry: true,  abortable: false, clinchOnly: true },
-  clinchThrow: { labelKey: "EX2E.ClinchThrow",       icon: "fa-solid fa-person-falling",     speed: 3, dvMod: 0, preset: false, isFlurry: true,  abortable: false, clinchOnly: true }
+  clinchThrow: { labelKey: "EX2E.ClinchThrow",       icon: "fa-solid fa-person-falling",     speed: 3, dvMod: 0, preset: false, isFlurry: true,  abortable: false, clinchOnly: true },
+  thaumaturgy: { labelKey: "EX2E.TabThaumaturgy", icon: "fa-solid fa-flask", speed: 3, dvMod: 0, preset: false, isFlurry: false, abortable: false },
 };
 
 /** List view of EX2E.actions as [{ key, label, icon, speed, dvMod, preset, isFlurry }] (localized). */
