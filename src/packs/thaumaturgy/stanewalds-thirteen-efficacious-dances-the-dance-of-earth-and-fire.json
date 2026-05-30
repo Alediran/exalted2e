@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000120",
+  "_key": "!items!pa00000000000120",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Dance of Earth and Fire",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Stanewald's Thirteen Efficacious Dances",
+    "minDegree": 3,
+    "attribute": "conviction",
+    "difficulty": 2,
+    "castingTime": "Seven days",
+    "extended": false,
+    "description": "<p>Slowly dissolves a stone structure the size of a manse into white-hot magma as a Shaping effect. Those inside suffer bonfire environmental damage every action until they escape.</p>"
+  },
+  "folder": "fa00000000000113",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

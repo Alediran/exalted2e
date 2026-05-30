@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000098",
+  "_key": "!items!pa00000000000098",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Analyze and Cauterize",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Enchantment",
+    "minDegree": 0,
+    "attribute": "intelligence",
+    "difficulty": 3,
+    "castingTime": "Five minutes",
+    "extended": false,
+    "description": "<p>Assesses damage to tissue and determines what bioenhancement is necessary. Success prepares a subject for further bioenhancement. Science of Bioenhancement branch (requires Craft (Magitech) 3, Medicine 3).</p>"
+  },
+  "folder": "fa0000000000008c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000044",
+  "_key": "!items!pa00000000000044",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Transform Fate",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Astrology",
+    "minDegree": 3,
+    "attribute": "charisma",
+    "difficulty": 5,
+    "castingTime": "One hour",
+    "extended": false,
+    "description": "<p>Through prayers to design weavers, the probabilist averts one minor personal impending disaster occurring within the next two scenes: a botch, a fatal wound (leaves victim incapacitated but stable), or similar outcome. Cannot affect matters larger than this. Science of Probabilistics branch.</p>"
+  },
+  "folder": "fa00000000000030",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

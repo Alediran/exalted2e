@@ -1,0 +1,31 @@
+{
+  "_id": "pa0000000000010e",
+  "_key": "!items!pa0000000000010e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Foretell Weather",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Weather Working",
+    "minDegree": 0,
+    "attribute": "perception",
+    "difficulty": 2,
+    "castingTime": "One minute",
+    "extended": false,
+    "description": "<p>Whisper to the winds, offer incense, and listen for answers. Predicts the weather, with each success representing one day into the future. Subsequent events of which the Council of Winds was unaware may invalidate the results.</p>"
+  },
+  "folder": "fa0000000000010c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

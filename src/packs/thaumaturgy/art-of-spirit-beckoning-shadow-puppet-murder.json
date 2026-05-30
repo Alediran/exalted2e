@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000ef",
+  "_key": "!items!pa000000000000ef",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Shadow Puppet Murder",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Spirit Beckoning",
+    "minDegree": 3,
+    "attribute": "intelligence",
+    "difficulty": 3,
+    "castingTime": "15 minutes",
+    "extended": false,
+    "description": "<p>Requires specially crafted marionettes bearing arcane links to all involved parties and one featureless black marionette for the assassin-spirit. The shadows of the marionettes play out the assassination on a silken screen, and events occur in reality. The shadow-assassin manifests intangibly and travels to strangle the victim's shadow — and the victim feels it. An autopsy suggests natural death. Requires ongoing Stamina+Performance rolls (difficulty 2) each hour to maintain control; failure ends the ritual; botch frees the assassin for one hour.</p>"
+  },
+  "folder": "fa000000000000d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,31 @@
+{
+  "_id": "pa0000000000009c",
+  "_key": "!items!pa0000000000009c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Implantation",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Enchantment",
+    "minDegree": 2,
+    "attribute": "dexterity",
+    "difficulty": 3,
+    "castingTime": "10 hours",
+    "extended": false,
+    "description": "<p>Roll Dexterity+Medicine to install a prosthetic organ. Failure ruins the organ; botch ruins it and inflicts one unsoakable lethal health level. Science of Bioenhancement branch.</p>"
+  },
+  "folder": "fa0000000000008c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

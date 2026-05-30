@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000a5",
+  "_key": "!items!pa000000000000a5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Soulgem Revocation",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Enchantment",
+    "minDegree": 3,
+    "attribute": "intelligence",
+    "difficulty": 5,
+    "castingTime": "One hour",
+    "extended": false,
+    "description": "<p>Autochthonian procedure. Punishment reserved for the worst offenders. Requires the nerve used to implant the soulgem (or any dead nerve of the Great Maker). Target is sedated to near-death; a victim or representative places blood on the soulgem painted with the crime's symbol. The thaumaturge calls the soul into the soulgem through the blood. If successful, the gem detaches from the skull and is removed. The remaining person becomes listless and pliant with Virtues dropped to 1, Willpower 0, and MDV 0.</p>"
+  },
+  "folder": "fa0000000000008c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

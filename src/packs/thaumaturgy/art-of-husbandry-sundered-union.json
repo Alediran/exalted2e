@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000d2",
+  "_key": "!items!pa000000000000d2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sundered Union",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Husbandry",
+    "minDegree": 0,
+    "attribute": "charisma",
+    "difficulty": 1,
+    "castingTime": "Five minutes",
+    "extended": false,
+    "description": "<p>Dissolution rite. Legally dissolves any romantic union in the eyes of Heaven, as long as the individual with the highest Essence consents. (An exception exists: no divorce involving a Solar Exalt is valid without the Solar's consent.) The divorced pair suffer -1 to Compassion rolls regarding one another for one year and a day.</p>"
+  },
+  "folder": "fa000000000000c4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000102",
+  "_key": "!items!pa00000000000102",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Breaking the Ward",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Warding and Exorcism",
+    "minDegree": 3,
+    "attribute": "perception",
+    "difficulty": 3,
+    "castingTime": "One hour",
+    "extended": false,
+    "description": "<p>Weakens or destroys an existing ward. Every success removes one success from the ward, beginning with duration-granting successes from maintenance rituals. Failure while subject to the ward may inflict the ward's negative effects on the thaumaturge.</p>"
+  },
+  "folder": "fa000000000000f1",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

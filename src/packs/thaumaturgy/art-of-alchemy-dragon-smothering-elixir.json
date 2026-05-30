@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000024",
+  "_key": "!items!pa00000000000024",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dragon-Smothering Elixir",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Alchemy",
+    "minDegree": 2,
+    "attribute": "intelligence",
+    "difficulty": 3,
+    "castingTime": "One day",
+    "extended": false,
+    "description": "<p>Poison from vitriol, agata venom, crushed pearls, and Kimbery's salt. Delivered by ingestion or wounds. Against elementals and Dragon-Blooded: Damage 8L/minute, Toxicity 5, Penalty -5, plus one additional Willpower per Charm used for one day. Against all others: Damage 6L/minute, Toxicity 4, Penalty -4. Costs Resources 3 in Malfeas. Infernal Alchemy procedure.</p>"
+  },
+  "folder": "fa00000000000001",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

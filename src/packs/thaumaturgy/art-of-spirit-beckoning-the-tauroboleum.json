@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000e2",
+  "_key": "!items!pa000000000000e2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Tauroboleum",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Spirit Beckoning",
+    "minDegree": 3,
+    "attribute": "charisma",
+    "difficulty": 3,
+    "castingTime": "Dramatic action",
+    "extended": false,
+    "description": "<p>Performed by special participants after the Hecatomb. Participants ritually bathe in the blood of slain cattle. For each success, one warrior gains an extra -1 health level for three months.</p>"
+  },
+  "folder": "fa000000000000d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

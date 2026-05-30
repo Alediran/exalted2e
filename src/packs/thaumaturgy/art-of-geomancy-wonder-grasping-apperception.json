@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000c1",
+  "_key": "!items!pa000000000000c1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wonder-Grasping Apperception",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Geomancy",
+    "minDegree": 1,
+    "attribute": "intelligence",
+    "difficulty": 3,
+    "castingTime": "One minute",
+    "extended": false,
+    "description": "<p>Allows a character to use a targeted non-weapon, non-armor artifact as if attuned, as long as attunement would cost no more than 3m. This lesser attunement breaks after one hour of bodily separation and is overridden by any other attunement. A character may have only one artifact attuned this way at a time.</p>"
+  },
+  "folder": "fa000000000000a9",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000bb",
+  "_key": "!items!pa000000000000bb",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Geomantic Countermagic",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Geomancy",
+    "minDegree": 3,
+    "attribute": "intelligence",
+    "difficulty": 1,
+    "castingTime": "Miscellaneous action",
+    "extended": false,
+    "description": "<p>Disrupts existing thaumaturgical works. The caster must first use Essence senses to spot the target effect. Each success removes one success from the targeted thaumaturgical effect.</p>"
+  },
+  "folder": "fa000000000000a9",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

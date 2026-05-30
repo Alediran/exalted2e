@@ -1,0 +1,27 @@
+{
+  "_id": "aa000000000000aa",
+  "_key": "!items!aa000000000000aa",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Art of Geomancy",
+  "type": "thaum-art",
+  "img": "icons/magic/symbols/rune-sigil-white.webp",
+  "system": {
+    "artName": "Art of Geomancy",
+    "degree": 1,
+    "description": "<p>The art of detecting and manipulating Essence flows. The geomancer's most distinctive tool is the compass plate—a bronze plate engraved with concentric circles, elemental poles, and constellations. Geomancers also use pendulums, weights, and globes of various metals and minerals. Long-term rituals often involve constructing special buildings or reshaping the landscape.</p>"
+  },
+  "folder": "fa000000000000a9",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

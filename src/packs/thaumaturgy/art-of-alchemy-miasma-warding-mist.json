@@ -1,0 +1,31 @@
+{
+  "_id": "pa0000000000002b",
+  "_key": "!items!pa0000000000002b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Miasma-Warding Mist",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Alchemy",
+    "minDegree": 1,
+    "attribute": "intelligence",
+    "difficulty": 2,
+    "castingTime": "One hour",
+    "extended": false,
+    "description": "<p>Heavy silver vapor that wards against the Malfeas miasma for one day. Also causes euphoria for one hour. Poison traits: Damage 2B/hour, Toxicity 4M, Tolerance (Stamina)/1 day, Penalty -2. Can be addictive to mortals. Long-term use turns hair, teeth, and nails gray and may cause physical degeneration. Costs Resources 3 per dose, Resources 5 per month.</p>"
+  },
+  "folder": "fa00000000000001",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

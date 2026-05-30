@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000005",
+  "_key": "!items!pa00000000000005",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Blood-Staunching Compress",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Alchemy",
+    "minDegree": 1,
+    "attribute": "intelligence",
+    "difficulty": 3,
+    "castingTime": "One hour",
+    "extended": false,
+    "description": "<p>Bandages steeped in this compound automatically stop bleeding regardless of severity. Wounds wrapped in these bandages do not re-open unless the character botches a combat or Athletics roll. Potency lasts one year. Requires Medicine.</p>"
+  },
+  "folder": "fa00000000000001",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

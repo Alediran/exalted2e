@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000ce",
+  "_key": "!items!pa000000000000ce",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Aureate Dowsing",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Husbandry",
+    "minDegree": 3,
+    "attribute": "perception",
+    "difficulty": 5,
+    "castingTime": "One hour",
+    "extended": false,
+    "description": "<p>Requires a forked branch from a tree on the upper slopes of the Imperial Mountain wrapped in fine orichalcum wire. The stick forcibly dips toward any source of unworked gold within 500 yards when the thaumaturge wanders close. A similar Procedure exists for locating silver that can be worked into moonsilver.</p>"
+  },
+  "folder": "fa000000000000c4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

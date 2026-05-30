@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000100",
+  "_key": "!items!pa00000000000100",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Warding of Undue Influence",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Warding and Exorcism",
+    "minDegree": 2,
+    "attribute": "wits",
+    "difficulty": 3,
+    "castingTime": "Miscellaneous action",
+    "extended": false,
+    "description": "<p>Protects beings within (Essence × 5) feet from supernatural deceptions. All beings in range are treated as two Essence points higher for resisting Fair Folk glamours, emotion/perception-altering Charms, and similar effects. Fixed-difficulty effects have their difficulty raised by 1. Lasts 10 minutes and moves with the caster.</p>"
+  },
+  "folder": "fa000000000000f1",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

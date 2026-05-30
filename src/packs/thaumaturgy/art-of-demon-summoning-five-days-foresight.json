@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000075",
+  "_key": "!items!pa00000000000075",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Five Days Foresight",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Demon Summoning",
+    "minDegree": 3,
+    "attribute": "manipulation",
+    "difficulty": 5,
+    "castingTime": "Six hours",
+    "extended": false,
+    "description": "<p>A summoned demon leaves Malfeas five days before the summoning across Cecelyne, gaining fractured insight into Creation's future. This ritual opens a mystic connection to a demon in Malfeas to ask about the future. The thaumaturge cannot choose which demon she contacts or compel it to speak truthfully.</p>"
+  },
+  "folder": "fa00000000000068",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,27 @@
+{
+  "_id": "aa00000000000069",
+  "_key": "!items!aa00000000000069",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Art of Demon Summoning",
+  "type": "thaum-art",
+  "img": "icons/magic/symbols/rune-sigil-white.webp",
+  "system": {
+    "artName": "Art of Demon Summoning",
+    "degree": 1,
+    "description": "<p>Taps the oaths the Primordials swore at the end of the Primordial War. When called according to ancient compacts, a creature of Malfeas must attend; however, these oaths only bind demons to serve Exalts and gods powerful enough to enforce their will. Mortals may invite demons into Creation but cannot extract slavish servitude.</p>"
+  },
+  "folder": "fa00000000000068",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000be",
+  "_key": "!items!pa000000000000be",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Riptide Swimmer Rite",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Geomancy",
+    "minDegree": 2,
+    "attribute": "manipulation",
+    "difficulty": 4,
+    "castingTime": "One hour",
+    "extended": false,
+    "description": "<p>The thaumaturge destroys one unique object as part of the ritual. The next time they make a (Willpower+Essence) roll in the Wyld, add dice equal to half the destroyed object's Resources value (minimum 1). Promoted by Luna in her Waning Moon aspects.</p>"
+  },
+  "folder": "fa000000000000a9",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

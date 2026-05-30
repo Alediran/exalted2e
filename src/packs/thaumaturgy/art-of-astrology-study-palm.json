@@ -1,0 +1,31 @@
+{
+  "_id": "pa0000000000004c",
+  "_key": "!items!pa0000000000004c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Study Palm",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Astrology",
+    "minDegree": 0,
+    "attribute": "intelligence",
+    "difficulty": 5,
+    "castingTime": "One minute",
+    "extended": false,
+    "description": "<p>Study a subject's hand for one minute to gain insight into their future through further divination. Simple but unreliable. Functions as Compile Chart.</p>"
+  },
+  "folder": "fa00000000000030",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

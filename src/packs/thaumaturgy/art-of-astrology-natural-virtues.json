@@ -1,0 +1,31 @@
+{
+  "_id": "pa0000000000003b",
+  "_key": "!items!pa0000000000003b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Natural Virtues",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Astrology",
+    "minDegree": 2,
+    "attribute": "intelligence",
+    "difficulty": 3,
+    "castingTime": "One hour",
+    "extended": false,
+    "description": "<p>Requires an astrological profile. Through careful chart study, reveals the target's primary Virtue due to its persistent influence on their life.</p>"
+  },
+  "folder": "fa00000000000030",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

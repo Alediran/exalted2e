@@ -1,0 +1,31 @@
+{
+  "_id": "pa0000000000005a",
+  "_key": "!items!pa0000000000005a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Expulsion",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of the Dead",
+    "minDegree": 2,
+    "attribute": "manipulation",
+    "difficulty": 2,
+    "castingTime": "Ten minutes",
+    "extended": true,
+    "description": "<p>Drives out a possessing ghost. Extended roll accumulating successes equal to twice the spirit's highest Virtue. Failure or botch prevents another attempt for five days. Difficulty equals the ghost's lowest Virtue.</p>"
+  },
+  "folder": "fa0000000000004e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

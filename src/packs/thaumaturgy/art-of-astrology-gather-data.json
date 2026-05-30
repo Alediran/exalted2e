@@ -1,0 +1,31 @@
+{
+  "_id": "pa0000000000003e",
+  "_key": "!items!pa0000000000003e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Gather Data",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Astrology",
+    "minDegree": 0,
+    "attribute": "perception",
+    "difficulty": 1,
+    "castingTime": "Five minutes",
+    "extended": false,
+    "description": "<p>Collects data from observable events or conditions for use in complex rituals. Creates a probabilistic model necessary for greater probabilistic rituals (except Battle Timing and Risk Assessment). Science of Probabilistics branch.</p>"
+  },
+  "folder": "fa00000000000030",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

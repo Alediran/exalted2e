@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000019",
+  "_key": "!items!pa00000000000019",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Internal Alchemy",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Alchemy",
+    "minDegree": 3,
+    "attribute": "stamina",
+    "difficulty": 3,
+    "castingTime": "Miscellaneous action",
+    "extended": false,
+    "description": "<p>Alters the alchemist's own biochemistry to produce a drinkable or injectable formula internally. No material cost, but requires one additional Willpower or mote. Produces exactly one dose affecting only the caster. Failures waste time and Willpower. Botches poison the caster. Requires Medicine.</p>"
+  },
+  "folder": "fa00000000000001",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

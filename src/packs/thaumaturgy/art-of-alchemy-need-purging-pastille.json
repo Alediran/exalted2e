@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000023",
+  "_key": "!items!pa00000000000023",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Need-Purging Pastille",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Alchemy",
+    "minDegree": 1,
+    "attribute": "intelligence",
+    "difficulty": 2,
+    "castingTime": "One hour",
+    "extended": false,
+    "description": "<p>Lozenge of Szoreny root fiber macerated in vitriol. When held under the tongue, removes all mortal biological requirements (eating, drinking, breathing) for one scene. Lips turn black while active. Costs Resources 2. Infernal Alchemy procedure.</p>"
+  },
+  "folder": "fa00000000000001",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

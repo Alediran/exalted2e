@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000061",
+  "_key": "!items!pa00000000000061",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Summon Nephwrack",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of the Dead",
+    "minDegree": 3,
+    "attribute": "wits",
+    "difficulty": 4,
+    "castingTime": "One hour",
+    "extended": false,
+    "description": "<p>Requires dust from the Underworld and blood from rare creatures, dried in a jade crucible and ground in a skull-mortar. The thaumaturge eats the mixture and projects a call to the Labyrinth's depths. If successful, a nephwrack is summoned under a Compulsion not to harm the thaumaturge and a Servitude to serve for five days. After five days it may leave or take revenge.</p>"
+  },
+  "folder": "fa0000000000004e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

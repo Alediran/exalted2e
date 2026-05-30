@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000dd",
+  "_key": "!items!pa000000000000dd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Hecatomb",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Spirit Beckoning",
+    "minDegree": 2,
+    "attribute": "charisma",
+    "difficulty": 2,
+    "castingTime": "Dramatic action",
+    "extended": false,
+    "description": "<p>Southern war god Ahlat's ritual involving the slaughter of 100 cows. Ensures the fertility of the tribe's cattle and women for one month per success, up to one year maximum.</p>"
+  },
+  "folder": "fa000000000000d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

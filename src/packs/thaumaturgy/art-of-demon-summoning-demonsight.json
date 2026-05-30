@@ -1,0 +1,31 @@
+{
+  "_id": "pa0000000000006a",
+  "_key": "!items!pa0000000000006a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Demonsight",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Demon Summoning",
+    "minDegree": 1,
+    "attribute": "perception",
+    "difficulty": 3,
+    "castingTime": "Five minutes",
+    "extended": false,
+    "description": "<p>Closed eyes anointed with blood; opening them allows the thaumaturge to perceive immaterial demons with all senses for the rest of the scene.</p>"
+  },
+  "folder": "fa00000000000068",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

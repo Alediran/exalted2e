@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000a1",
+  "_key": "!items!pa000000000000a1",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ghost-Smiting Salt",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Enchantment",
+    "minDegree": 0,
+    "attribute": "intelligence",
+    "difficulty": 1,
+    "castingTime": "Five minutes",
+    "extended": false,
+    "description": "<p>Coats a weapon in salt and gum, fumigated with incense while invoking a Directional war god. That weapon strikes ghosts as if solid. For every mote spent or success beyond the first, enchant one additional weapon. Lasts through the next battle, no more than one week. Salt corrodes metal, so ghost-fighters often use wooden weapons with lead cores.</p>"
+  },
+  "folder": "fa0000000000008c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

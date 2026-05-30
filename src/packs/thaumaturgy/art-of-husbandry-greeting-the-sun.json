@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000cc",
+  "_key": "!items!pa000000000000cc",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Greeting the Sun",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Husbandry",
+    "minDegree": 0,
+    "attribute": "charisma",
+    "difficulty": 1,
+    "castingTime": "Five minutes",
+    "extended": false,
+    "description": "<p>Uses Performance in place of Occult. One of five daily prayers to the Unconquered Sun (sunrise, noon, midafternoon, sunset, midnight). Successfully completed, obviates one botch between that prayer and the next scheduled one in the cycle. Ancient rite of the First Age, recently revived by the Cult of the Illuminated.</p>"
+  },
+  "folder": "fa000000000000c4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

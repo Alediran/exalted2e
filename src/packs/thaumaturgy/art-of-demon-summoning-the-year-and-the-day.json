@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000078",
+  "_key": "!items!pa00000000000078",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Year and the Day",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Demon Summoning",
+    "minDegree": 3,
+    "attribute": "willpower",
+    "difficulty": 3,
+    "castingTime": "Miscellaneous action",
+    "extended": false,
+    "description": "<p>Like Banish the Faithless Servant, but the demon returns to Malfeas and cannot return for a year and a day except through greater magic. Works equally on Second and Third Circle demons, though attempting either without great power is foolhardy.</p>"
+  },
+  "folder": "fa00000000000068",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

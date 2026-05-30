@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000118",
+  "_key": "!items!pa00000000000118",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Irkstone Giddha",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Stanewald's Thirteen Efficacious Dances",
+    "minDegree": 1,
+    "attribute": "conviction",
+    "difficulty": 1,
+    "castingTime": "69 minutes",
+    "extended": false,
+    "description": "<p>Mortals viewing the dance whose MDVs are less than the successes scored grow irrationally irate with rocks, stone, and things made from them as an unnatural mental influence.</p>"
+  },
+  "folder": "fa00000000000113",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

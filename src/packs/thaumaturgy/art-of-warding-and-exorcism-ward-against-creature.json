@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000ff",
+  "_key": "!items!pa000000000000ff",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ward Against (Creature)",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Warding and Exorcism",
+    "minDegree": 2,
+    "attribute": "intelligence",
+    "difficulty": 1,
+    "castingTime": "One hour",
+    "extended": false,
+    "description": "<p>Creates a physical barrier. Ward strength equals successes. A creature cannot pass unless its Essence exceeds the ward strength (then it tears a hole). Creatures may spend 1 Willpower to assault the ward, rolling Essence dice — each success reduces ward strength by 1, and the creature takes (ward strength × 2) bashing damage soakable only by natural soak. Protects (Degree × 20) feet in any direction.</p>"
+  },
+  "folder": "fa000000000000f1",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

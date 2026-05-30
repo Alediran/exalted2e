@@ -1,0 +1,31 @@
+{
+  "_id": "pa0000000000009a",
+  "_key": "!items!pa0000000000009a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Engineer Organ",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Enchantment",
+    "minDegree": 2,
+    "attribute": "manipulation",
+    "difficulty": 4,
+    "castingTime": "20 hours",
+    "extended": false,
+    "description": "<p>Constructs an artificial organ. Never functions as well as the original: imposes -1 die to Stamina or Perception depending on type. Can restore senses, preserve life, and remove Crippling effects. Science of Bioenhancement branch.</p>"
+  },
+  "folder": "fa0000000000008c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

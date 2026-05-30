@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000cd",
+  "_key": "!items!pa000000000000cd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "A Canticle for Hope",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Husbandry",
+    "minDegree": 2,
+    "attribute": "charisma",
+    "difficulty": 3,
+    "castingTime": "Five hours",
+    "extended": false,
+    "description": "<p>Ritual prayers to the Unconquered Sun requesting a champion. If the petitioner's desire for assistance is sincere, all Solars within 100 miles gain a strong impression that someone needs help and a general sense of direction. Carries no compulsion. Revived but disseminated slowly by the Cult of the Illuminated.</p>"
+  },
+  "folder": "fa000000000000c4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

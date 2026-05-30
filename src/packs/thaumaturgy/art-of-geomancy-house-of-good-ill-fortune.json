@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000ba",
+  "_key": "!items!pa000000000000ba",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "House of Good/Ill Fortune",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Geomancy",
+    "minDegree": 3,
+    "attribute": "perception",
+    "difficulty": 5,
+    "castingTime": "One hour",
+    "extended": false,
+    "description": "<p>Examines local Essence flows to create a design that benefits or harms a structure's or landscape's occupants. Does not enact changes itself; they must be implemented through construction or landscaping. Once the area meets requirements, occupants benefit or suffer — a Blessing or Curse affecting one occupant per month, or similar effects. Lasts at least one month per success.</p>"
+  },
+  "folder": "fa000000000000a9",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

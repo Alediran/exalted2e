@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000094",
+  "_key": "!items!pa00000000000094",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Enchant Lucky Rock",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Enchantment",
+    "minDegree": 2,
+    "attribute": "intelligence",
+    "difficulty": 3,
+    "castingTime": "25 hours",
+    "extended": false,
+    "description": "<p>Enhances the power of a lucky rock and transfers its properties to a weapon (see Oadenol's Codex, p. 157).</p>"
+  },
+  "folder": "fa0000000000008c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

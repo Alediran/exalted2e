@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000057",
+  "_key": "!items!pa00000000000057",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Speak with Corpse",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of the Dead",
+    "minDegree": 1,
+    "attribute": "perception",
+    "difficulty": 2,
+    "castingTime": "One minute",
+    "extended": false,
+    "description": "<p>Requires the whole skull of the corpse (jawbone wired with human sinew if needed). After a period of osculation the thaumaturge may ask and receive answers to two questions plus one per threshold success. The corpse knows only what it experienced since the day before its death.</p>"
+  },
+  "folder": "fa0000000000004e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

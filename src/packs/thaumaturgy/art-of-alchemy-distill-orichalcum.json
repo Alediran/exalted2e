@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000013",
+  "_key": "!items!pa00000000000013",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Distill Orichalcum",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Alchemy",
+    "minDegree": 2,
+    "attribute": "stamina",
+    "difficulty": 3,
+    "castingTime": "One week",
+    "extended": false,
+    "description": "<p>Purifies gold into orichalcum at a source of molten lava using large precision mirrors to concentrate sunlight. The week-long process requires constant attention to prevent contamination. Requires Craft (Fire) 4.</p>"
+  },
+  "folder": "fa00000000000001",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

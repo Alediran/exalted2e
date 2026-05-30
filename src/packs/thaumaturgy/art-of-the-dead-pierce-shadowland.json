@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000050",
+  "_key": "!items!pa00000000000050",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Pierce Shadowland",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of the Dead",
+    "minDegree": 0,
+    "attribute": "wits",
+    "difficulty": 2,
+    "castingTime": "One minute",
+    "extended": false,
+    "description": "<p>Drip blood on a shadowland's border while concentrating intensely to pass through at any time of day or night. Each additional entity brought through adds one minute to the ritual.</p>"
+  },
+  "folder": "fa0000000000004e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

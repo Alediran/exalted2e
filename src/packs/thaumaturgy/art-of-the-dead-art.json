@@ -1,0 +1,27 @@
+{
+  "_id": "aa0000000000004f",
+  "_key": "!items!aa0000000000004f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Art of the Dead",
+  "type": "thaum-art",
+  "img": "icons/magic/symbols/rune-sigil-white.webp",
+  "system": {
+    "artName": "Art of the Dead",
+    "degree": 1,
+    "description": "<p>Once called the Art of Lethe, this Art facilitates dealings with the dead and the Underworld. Rituals employ parts of corpses, embalming substances such as pitch, natron and myrrh, and symbols of purity including salt and incense. Practitioners include the Morticians' Order in Sijan and the Raiton Academy on Nightfall Island.</p>"
+  },
+  "folder": "fa0000000000004e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000c2",
+  "_key": "!items!pa000000000000c2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wyld Blessing",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Geomancy",
+    "minDegree": 2,
+    "attribute": "intelligence",
+    "difficulty": 3,
+    "castingTime": "Six hours",
+    "extended": false,
+    "description": "<p>Performed monthly on the night of the full moon. Through a night of screaming, dancing, and carnal abandon, prevents Wyld mutation that night, cures Bordermarches addiction, reduces Wyld exposure stage by one for the next month, and reduces difficulty of resisting unwanted mutation by 1. Temperance of all participants drops to zero and they auto-succeed all Valor rolls during the ritual.</p>"
+  },
+  "folder": "fa000000000000a9",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

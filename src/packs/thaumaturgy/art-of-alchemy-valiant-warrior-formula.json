@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000011",
+  "_key": "!items!pa00000000000011",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Valiant Warrior Formula",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Alchemy",
+    "minDegree": 2,
+    "attribute": "intelligence",
+    "difficulty": 3,
+    "castingTime": "One hour",
+    "extended": false,
+    "description": "<p>For one day, the mortal user is no longer an extra: gains full seven health levels, can spend Willpower, counts 10s as two successes, has damage rolled, and can perform stunts. Repeated use may permanently elevate an extra to heroic mortal.</p>"
+  },
+  "folder": "fa00000000000001",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

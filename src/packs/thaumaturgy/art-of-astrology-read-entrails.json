@@ -1,0 +1,31 @@
+{
+  "_id": "pa0000000000004a",
+  "_key": "!items!pa0000000000004a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Read Entrails",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Astrology",
+    "minDegree": 0,
+    "attribute": "perception",
+    "difficulty": 2,
+    "castingTime": "One hour",
+    "extended": false,
+    "description": "<p>Ritually sacrifice an animal and study its entrails. +1 bonus die per Resources dot above 1 for the animal. Success gives insight into the weave of destiny. Functions as Compile Chart.</p>"
+  },
+  "folder": "fa00000000000030",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

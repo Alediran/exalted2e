@@ -1,0 +1,31 @@
+{
+  "_id": "pa0000000000010a",
+  "_key": "!items!pa0000000000010a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ward of Determination",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Warding and Exorcism",
+    "minDegree": 2,
+    "attribute": "wits",
+    "difficulty": 4,
+    "castingTime": "10 minutes",
+    "extended": false,
+    "description": "<p>Swallow a purified precious stone to gain an ablative shield against unnatural influence for five hours. Successes (minimum 1, maximum penalty 3) apply as an external penalty against social attacks and unnatural mental influences. Reduces if influence costs 0-1 WP to ignore (ward loses 1); costs 2-3 WP (loses 2); costs 4+ WP (ward collapses). Duration can extend to a full day by consuming adamant or a mystically potent stone. Actual eating is a non-ritual Miscellaneous action.</p>"
+  },
+  "folder": "fa000000000000f1",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

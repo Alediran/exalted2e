@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000a4",
+  "_key": "!items!pa000000000000a4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Soulgem Implantation",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Enchantment",
+    "minDegree": 0,
+    "attribute": "intelligence",
+    "difficulty": 1,
+    "castingTime": "One minute",
+    "extended": false,
+    "description": "<p>Autochthonian procedure. Grants a soulgem to an individual through a soulsteel plate driven through the skull and fused with a spark of Essence. Characters with a pool of at least six dice succeed automatically. Success inflicts one lethal health level; failure inflicts five levels. Botches tend to be catastrophic.</p>"
+  },
+  "folder": "fa0000000000008c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

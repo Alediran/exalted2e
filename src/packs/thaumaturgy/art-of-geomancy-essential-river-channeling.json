@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000bd",
+  "_key": "!items!pa000000000000bd",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Essential River Channeling",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Geomancy",
+    "minDegree": 3,
+    "attribute": "intelligence",
+    "difficulty": 5,
+    "castingTime": "One day",
+    "extended": false,
+    "description": "<p>Draws Essence from an external source and channels it into the thaumaturge or a willing recipient. Source may be deep Wyld, a demesne, a 3+ dot artifact, a spirit, a human sacrifice, or an Exalt. Success grants a mortal an Essence pool. Failure: five dice aggravated damage (plus debility if Willpower roll fails). Botch: eight dice aggravated damage plus a certain deformity. Exalted thaumaturge can be her own source, subtracting permanent Essence from difficulty.</p>"
+  },
+  "folder": "fa000000000000a9",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

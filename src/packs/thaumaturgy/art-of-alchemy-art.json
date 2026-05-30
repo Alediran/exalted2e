@@ -1,0 +1,27 @@
+{
+  "_id": "aa00000000000002",
+  "_key": "!items!aa00000000000002",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Art of Alchemy",
+  "type": "thaum-art",
+  "img": "icons/magic/symbols/rune-sigil-white.webp",
+  "system": {
+    "artName": "Art of Alchemy",
+    "degree": 1,
+    "description": "<p>Alchemy combines pharmacy, metallurgy, and other Crafts to transform ingredients into magical formulas. The practitioner needs at least Lore 2 to gain a Degree, and Lore 4 to become an Adept. Most formulas require at least one dot in Craft (Water) per Degree, or Medicine per Degree for healing procedures. Most alchemy cannot affect spirits or the dead.</p>"
+  },
+  "folder": "fa00000000000001",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

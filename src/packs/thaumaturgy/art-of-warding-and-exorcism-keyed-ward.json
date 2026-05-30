@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000104",
+  "_key": "!items!pa00000000000104",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Keyed Ward",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Warding and Exorcism",
+    "minDegree": 3,
+    "attribute": "wits",
+    "difficulty": 3,
+    "castingTime": "One hour",
+    "extended": false,
+    "description": "<p>Difficulty equals (other ritual's difficulty + 2). Cast in conjunction with another warding ritual to specify a condition under which the other ward lets creatures through. Condition must be objectively definable by mundane means. Failure means the other ward functions normally; botch creates an unexpected condition instead.</p>"
+  },
+  "folder": "fa000000000000f1",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

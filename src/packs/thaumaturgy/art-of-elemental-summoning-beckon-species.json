@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000087",
+  "_key": "!items!pa00000000000087",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Beckon (Species)",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Elemental Summoning",
+    "minDegree": 3,
+    "attribute": "intelligence",
+    "difficulty": 5,
+    "castingTime": "Four hours",
+    "extended": false,
+    "description": "<p>A master can call elementals with Essence 4 to 5 and appeal for their aid. Powerful elementals often send lesser servants to answer. A thaumaturge might reach mighty elementals such as Fakharu through elemental messengers, though that is likely years of work.</p>"
+  },
+  "folder": "fa0000000000007b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

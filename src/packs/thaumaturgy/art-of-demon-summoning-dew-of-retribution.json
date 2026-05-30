@@ -1,0 +1,31 @@
+{
+  "_id": "pa0000000000007a",
+  "_key": "!items!pa0000000000007a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dew of Retribution",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Demon Summoning",
+    "minDegree": 3,
+    "attribute": "intelligence",
+    "difficulty": 4,
+    "castingTime": "One hour",
+    "extended": false,
+    "description": "<p>Calligrapher procedure. Draws Iyutha's sigils on a willing recipient in Malfean vitriol. At a later time the recipient invokes the magic through Iyutha's name, causing a rain of acid (three yards wide, 15 ticks) targeting any visible point within (Essence × 50) yards. Each use gains the recipient one level of Obsession Derangement or one mutation point toward demonic features. Must be discharged within a month or Iyutha discharges it on the recipient.</p>"
+  },
+  "folder": "fa00000000000068",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

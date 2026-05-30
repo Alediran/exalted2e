@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000042",
+  "_key": "!items!pa00000000000042",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Risk Assessment",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Astrology",
+    "minDegree": 2,
+    "attribute": "intelligence",
+    "difficulty": 3,
+    "castingTime": "One action",
+    "extended": false,
+    "description": "<p>Assesses danger of a situation. Three or more successes allow the thaumaturge to add 1 to any DV, including MDV. Science of Probabilistics branch.</p>"
+  },
+  "folder": "fa00000000000030",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,31 @@
+{
+  "_id": "pa0000000000002c",
+  "_key": "!items!pa0000000000002c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Strange Days Tincture",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Alchemy",
+    "minDegree": 1,
+    "attribute": "intelligence",
+    "difficulty": 2,
+    "castingTime": "One hour",
+    "extended": false,
+    "description": "<p>Clear in darkness, showing yellow and purple in light. When the drinker next sleeps, they relive the previous day as though born the opposite sex. Used for sacred divinations and rites throughout the Threshold.</p>"
+  },
+  "folder": "fa00000000000001",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

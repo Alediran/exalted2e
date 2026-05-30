@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000cf",
+  "_key": "!items!pa000000000000cf",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Thanks for the Hunt",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Husbandry",
+    "minDegree": 0,
+    "attribute": "wits",
+    "difficulty": 2,
+    "castingTime": "One minute",
+    "extended": false,
+    "description": "<p>Luna's Full Moon rite. Over a fresh kill, the hunter daubes his chest with blood in a pattern sacred to the Silver Lady. Makes the meat free of disease and twice as nutritious for one day. A minor variant grants one bonus die on Craft rolls to make useful tools or artwork from the beast.</p>"
+  },
+  "folder": "fa000000000000c4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

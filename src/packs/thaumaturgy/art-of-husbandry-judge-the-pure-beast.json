@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000c6",
+  "_key": "!items!pa000000000000c6",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Judge the Pure Beast",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Husbandry",
+    "minDegree": 0,
+    "attribute": "perception",
+    "difficulty": 1,
+    "castingTime": "One minute",
+    "extended": false,
+    "description": "<p>Observe an animal carefully while whispering a prayer to the appropriate god. Success determines whether the animal is a normal specimen, Wyld-tainted, or otherwise supernatural. Does not reveal what makes it unnatural. No Resources cost.</p>"
+  },
+  "folder": "fa000000000000c4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

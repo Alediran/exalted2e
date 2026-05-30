@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000041",
+  "_key": "!items!pa00000000000041",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Battle Timing",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Astrology",
+    "minDegree": 2,
+    "attribute": "wits",
+    "difficulty": 3,
+    "castingTime": "One action",
+    "extended": false,
+    "description": "<p>Analyzes the flow of battle to assist allies. Each success subtracts one from the group's difficulty on a coordinated attack for the rest of the scene. Science of Probabilistics branch.</p>"
+  },
+  "folder": "fa00000000000030",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

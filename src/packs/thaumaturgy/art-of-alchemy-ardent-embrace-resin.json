@@ -1,0 +1,31 @@
+{
+  "_id": "pa0000000000000c",
+  "_key": "!items!pa0000000000000c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ardent Embrace Resin",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Alchemy",
+    "minDegree": 2,
+    "attribute": "intelligence",
+    "difficulty": 2,
+    "castingTime": "One hour",
+    "extended": false,
+    "description": "<p>Creates incendiary goo that bursts into flame on contact with air or water. Inflicts bonfire environmental damage for one minute; only extinguished when no longer exposed to air or water. Produces one garda egg, three small eggs, or twelve incendiary arrowheads.</p>"
+  },
+  "folder": "fa00000000000001",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

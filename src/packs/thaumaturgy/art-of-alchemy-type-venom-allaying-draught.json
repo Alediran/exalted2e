@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000009",
+  "_key": "!items!pa00000000000009",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "(Type) Venom-Allaying Draught",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Alchemy",
+    "minDegree": 1,
+    "attribute": "intelligence",
+    "difficulty": 2,
+    "castingTime": "One hour",
+    "extended": false,
+    "description": "<p>Each draught is specific to one poison or venom. Allows mortals to resist as though Exalted and adds three bonus dice to Exalted resistance. Doses of the same type stack. Potent for five years. Each type is a separate Procedure. Requires Medicine.</p>"
+  },
+  "folder": "fa00000000000001",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

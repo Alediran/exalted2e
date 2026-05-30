@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000ca",
+  "_key": "!items!pa000000000000ca",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Summon Human",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Husbandry",
+    "minDegree": 2,
+    "attribute": "manipulation",
+    "difficulty": 3,
+    "castingTime": "One hour",
+    "extended": false,
+    "description": "<p>Difficulty equals target's Mental DV. Compels a selected human to come to the thaumaturge. This is an unnatural mental influence; may be overcome by spending 1 Willpower. Requires two ways to specify the individual (name, genealogy, or arcane link).</p>"
+  },
+  "folder": "fa000000000000c4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

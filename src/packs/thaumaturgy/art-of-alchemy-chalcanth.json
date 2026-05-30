@@ -1,0 +1,31 @@
+{
+  "_id": "pa0000000000001f",
+  "_key": "!items!pa0000000000001f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Chalcanth",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Alchemy",
+    "minDegree": 1,
+    "attribute": "intelligence",
+    "difficulty": 3,
+    "castingTime": "Five days",
+    "extended": false,
+    "description": "<p>The life force of a demon preserved in vitriol. Minimum Degree equals the demon's circle; difficulty equals the demon's Essence. Immerse the demon in pure vitriol for five days, separating its life force from dissolving tissue. Success creates a palm-sized vial of living fluid. Failure kills the demon uselessly; botch frees it. If ingested, provides motes equal to (Essence × Willpower) after one hour digestion. Creates euphoria imposing -1 internal penalty per undigested dose. Roll Perception+Integrity vs. demon's Essence to glean memories. Cannot be split; largest mass survives separation.</p>"
+  },
+  "folder": "fa00000000000001",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

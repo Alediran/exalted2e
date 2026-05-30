@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000048",
+  "_key": "!items!pa00000000000048",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Finding the Heart's Bond",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Astrology",
+    "minDegree": 1,
+    "attribute": "perception",
+    "difficulty": 3,
+    "castingTime": "One night",
+    "extended": false,
+    "description": "<p>By imbibing rare herbs and spending an entire night charting the stars, a Lunar gains vague insights into her Solar mate's nature and personality. Success allows the requirement of detailed knowledge to be ignored when later attempting Compile Chart on her mate. Granted by Luna in her Waxing Moon aspect.</p>"
+  },
+  "folder": "fa00000000000030",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000e4",
+  "_key": "!items!pa000000000000e4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sublime Frenzy",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Spirit Beckoning",
+    "minDegree": 0,
+    "attribute": "charisma",
+    "difficulty": 4,
+    "castingTime": "One action",
+    "extended": false,
+    "description": "<p>Difficulty equals (7 - Resources sacrificed). Prayer to Siakal. For the rest of the scene: all Valor rolls succeed automatically, character ignores wound penalties, immune to non-magical fear. However, character drops to Compassion 1 and is compelled not to show the slightest mercy to anyone (cannot be resisted — was asked for). Each use weakens Intimacies based on love or kindness.</p>"
+  },
+  "folder": "fa000000000000d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

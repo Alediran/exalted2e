@@ -1,0 +1,31 @@
+{
+  "_id": "pa0000000000000a",
+  "_key": "!items!pa0000000000000a",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Wound-Cleansing Unguent",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Alchemy",
+    "minDegree": 1,
+    "attribute": "intelligence",
+    "difficulty": 1,
+    "castingTime": "One hour",
+    "extended": false,
+    "description": "<p>After surgery, prevents infection rolls unless the surgeon botched. Reduces difficulty of infection resistance by 2 and automatically succeeds on Treated Morbidity rolls. Potent for a decade sealed or 90 days on a bandage.</p>"
+  },
+  "folder": "fa00000000000001",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000b0",
+  "_key": "!items!pa000000000000b0",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Magical Attunement",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Geomancy",
+    "minDegree": 0,
+    "attribute": "wits",
+    "difficulty": 3,
+    "castingTime": "20 minutes",
+    "extended": false,
+    "description": "<p>Allows an enlightened mortal to attune to an artifact by committing the requisite amount of Essence. Mortals never gain the magical material bonus. Enlightened mortals do not require this ritual to use their Essence pool to activate artifacts with no commitment required.</p>"
+  },
+  "folder": "fa000000000000a9",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

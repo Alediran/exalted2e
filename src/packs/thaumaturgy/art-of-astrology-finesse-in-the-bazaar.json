@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000043",
+  "_key": "!items!pa00000000000043",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Finesse in the Bazaar",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Astrology",
+    "minDegree": 3,
+    "attribute": "manipulation",
+    "difficulty": 4,
+    "castingTime": "One hour",
+    "extended": false,
+    "description": "<p>Calculates market conditions within a city. Grants one bonus die to all Bureaucracy rolls dealing with trade for a single scene. Science of Probabilistics branch.</p>"
+  },
+  "folder": "fa00000000000030",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000fa",
+  "_key": "!items!pa000000000000fa",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Spirit Sight",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Warding and Exorcism",
+    "minDegree": 1,
+    "attribute": "perception",
+    "difficulty": 3,
+    "castingTime": "Five minutes",
+    "extended": false,
+    "description": "<p>Identical to the Art of Spirit Beckoning procedure of the same name. Prayers make gods nearby manifest to the thaumaturge's senses for the rest of the scene.</p>"
+  },
+  "folder": "fa000000000000f1",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

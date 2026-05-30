@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000f4",
+  "_key": "!items!pa000000000000f4",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Thrice-Warded Gateway",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Warding and Exorcism",
+    "minDegree": 0,
+    "attribute": "dexterity",
+    "difficulty": 2,
+    "castingTime": "One minute",
+    "extended": false,
+    "description": "<p>Repeat a short prayer seven times while wrapping a door handle with twine. The door acts as if stoutly barred for the next hour. Does not strengthen the door's structure; it might still be forced.</p>"
+  },
+  "folder": "fa000000000000f1",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000097",
+  "_key": "!items!pa00000000000097",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Warding Talisman",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Enchantment",
+    "minDegree": 3,
+    "attribute": "intelligence",
+    "difficulty": 3,
+    "castingTime": "50/100/150 hours",
+    "extended": false,
+    "description": "<p>Creates one of the talismans described on Exalted p. 379. One net success per rating point required; 50 hours per rating point. Charms against disease require 1 dot Medicine per rating; good luck charms and walkaways require 1 Degree of Art of Geomancy per rating; warding charms require 1 Degree of Art of Warding per rating. A thaumaturge may substitute appropriate Procedures for Degrees, limiting talisman type and rating.</p>"
+  },
+  "folder": "fa0000000000008c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

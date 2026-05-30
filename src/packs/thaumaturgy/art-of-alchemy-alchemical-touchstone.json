@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000003",
+  "_key": "!items!pa00000000000003",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Alchemical Touchstone",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Alchemy",
+    "minDegree": 0,
+    "attribute": "perception",
+    "difficulty": 1,
+    "castingTime": "One dramatic action",
+    "extended": false,
+    "description": "<p>Rub an unknown substance against a specially treated ceramic plate to glean clues from the streak. Each touchstone detects the presence or absence of a single substance or property. A touchstone stays usable for a season. Each type of touchstone is a separate Procedure.</p>"
+  },
+  "folder": "fa00000000000001",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

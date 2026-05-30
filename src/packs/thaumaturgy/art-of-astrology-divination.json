@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000034",
+  "_key": "!items!pa00000000000034",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Divination",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Astrology",
+    "minDegree": 2,
+    "attribute": "intelligence",
+    "difficulty": 4,
+    "castingTime": "Three hours",
+    "extended": true,
+    "description": "<p>As Lesser Divination, but additional successes may extend duration to half a year (3) or one year (4+), or improve accuracy to woefully incomplete but enlightening (3) or somewhat accurate (4+).</p>"
+  },
+  "folder": "fa00000000000030",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

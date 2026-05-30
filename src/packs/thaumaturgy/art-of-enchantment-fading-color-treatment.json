@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000092",
+  "_key": "!items!pa00000000000092",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Fading Color Treatment",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Enchantment",
+    "minDegree": 0,
+    "attribute": "intelligence",
+    "difficulty": 2,
+    "castingTime": "Five minutes",
+    "extended": false,
+    "description": "<p>Alters an object's surface to a specified color and pattern. Duration is set at casting time, up to permanent. When expired, the altered portion fades to dull gray.</p>"
+  },
+  "folder": "fa0000000000008c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

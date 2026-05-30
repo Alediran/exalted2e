@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000ea",
+  "_key": "!items!pa000000000000ea",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ravening Brood",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Spirit Beckoning",
+    "minDegree": 3,
+    "attribute": "charisma",
+    "difficulty": 9,
+    "castingTime": "One minute",
+    "extended": false,
+    "description": "<p>Difficulty equals (12 - Resources sacrificed). As Scarlet Current Summons but calls a single Child of Siakal (War Shark) instead of a school. Siakal expects those who call her children to fight with utter bloodlust; failure to do so turns the War Shark against them.</p>"
+  },
+  "folder": "fa000000000000d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

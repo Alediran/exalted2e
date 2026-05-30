@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000b5",
+  "_key": "!items!pa000000000000b5",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Open-Eyed Dive Meditation",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Geomancy",
+    "minDegree": 2,
+    "attribute": "perception",
+    "difficulty": 3,
+    "castingTime": "(rating) hours",
+    "extended": false,
+    "description": "<p>Enables a mortal to find the geomantic stress-points in a manse or demesne (see Oadenol's Codex, pp. 51-52).</p>"
+  },
+  "folder": "fa000000000000a9",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

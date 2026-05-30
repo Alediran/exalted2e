@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000c8",
+  "_key": "!items!pa000000000000c8",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Summon (Species)",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Husbandry",
+    "minDegree": 1,
+    "attribute": "charisma",
+    "difficulty": 1,
+    "castingTime": "Two hours",
+    "extended": false,
+    "description": "<p>Difficulty equals creature's (control rating - 2), minimum 1. Summons the nearest specimens of a particular non-magical animal breed. Extra successes reduce casting time (15 minutes each, minimum 15 minutes) or increase animals called. Calling a specific known animal costs +1 difficulty (owned animals: -1 difficulty). Animal must exist within one mile per Essence dot. Animal must travel there on its own.</p>"
+  },
+  "folder": "fa000000000000c4",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

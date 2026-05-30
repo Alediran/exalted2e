@@ -1,0 +1,31 @@
+{
+  "_id": "pa0000000000011c",
+  "_key": "!items!pa0000000000011c",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Ravine's Homage",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Stanewald's Thirteen Efficacious Dances",
+    "minDegree": 2,
+    "attribute": "conviction",
+    "difficulty": 3,
+    "castingTime": "29 hours",
+    "extended": false,
+    "description": "<p>Opens a chasm seven miles deep and one foot in diameter per success directly underfoot. Stanewald's ability to walk on air protects her from falling in; others who learn this dance have no such protection.</p>"
+  },
+  "folder": "fa00000000000113",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

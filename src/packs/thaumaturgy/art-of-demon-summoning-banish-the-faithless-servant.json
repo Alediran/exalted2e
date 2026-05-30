@@ -1,0 +1,31 @@
+{
+  "_id": "pa0000000000006f",
+  "_key": "!items!pa0000000000006f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Banish the Faithless Servant",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Demon Summoning",
+    "minDegree": 2,
+    "attribute": "willpower",
+    "difficulty": 2,
+    "castingTime": "Miscellaneous action",
+    "extended": false,
+    "description": "<p>Attempt to banish a First Circle demon. Enter a clash of wills against the demon (thaumaturge rolls at difficulty 2, demon rolls reflexively). Must show the demon a special sigil of banishment. If the thaumaturge wins, demon vanishes in green fire; if demon wins, no retry for five days.</p>"
+  },
+  "folder": "fa00000000000068",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

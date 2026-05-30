@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000111",
+  "_key": "!items!pa00000000000111",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Major Changes",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Weather Working",
+    "minDegree": 3,
+    "attribute": "charisma",
+    "difficulty": 5,
+    "castingTime": "One day",
+    "extended": false,
+    "description": "<p>Convinces the Court to make huge changes — summoning gales, bringing rain to a drought. Each ritual affects an area up to five miles' radius for an entire day.</p>"
+  },
+  "folder": "fa0000000000010c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

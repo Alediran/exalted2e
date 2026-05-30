@@ -1,0 +1,31 @@
+{
+  "_id": "pa0000000000011f",
+  "_key": "!items!pa0000000000011f",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Earthshaker Dance",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Stanewald's Thirteen Efficacious Dances",
+    "minDegree": 3,
+    "attribute": "conviction",
+    "difficulty": 2,
+    "castingTime": "Seven days",
+    "extended": false,
+    "description": "<p>Produces a powerful local earthquake with a radius of (Essence) miles that lasts until the dance ends.</p>"
+  },
+  "folder": "fa00000000000113",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

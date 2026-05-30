@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000107",
+  "_key": "!items!pa00000000000107",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Scarlet Passage Idol",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Warding and Exorcism",
+    "minDegree": 2,
+    "attribute": "intelligence",
+    "difficulty": 3,
+    "castingTime": "Six hours",
+    "extended": false,
+    "description": "<p>Creates a small feminine wooden idol to negate the power of Storm Mothers (same effect as a red-haired female masthead). Secreted within a ship, the idol protects for one season, then must be repainted and re-enchanted. Used as an Immaculate-friendly alternative for Dragon-Blooded sailors.</p>"
+  },
+  "folder": "fa000000000000f1",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,31 @@
+{
+  "_id": "pa0000000000007e",
+  "_key": "!items!pa0000000000007e",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Elemental Sight",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Elemental Summoning",
+    "minDegree": 1,
+    "attribute": "perception",
+    "difficulty": 3,
+    "castingTime": "Five minutes",
+    "extended": false,
+    "description": "<p>Spreading blended ash, fine sand, powdered incense, wood shavings, and colored dye throughout the area and speaking the Mantra of Gaia's Eye, the caster perceives immaterial elementals in the area for one scene.</p>"
+  },
+  "folder": "fa0000000000007b",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

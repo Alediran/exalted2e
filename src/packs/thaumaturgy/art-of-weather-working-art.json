@@ -1,0 +1,27 @@
+{
+  "_id": "aa0000000000010d",
+  "_key": "!items!aa0000000000010d",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Art of Weather Working",
+  "type": "thaum-art",
+  "img": "icons/magic/symbols/rune-sigil-white.webp",
+  "system": {
+    "artName": "Art of Weather Working",
+    "degree": 1,
+    "description": "<p>Beseeches the Council of Winds to arrange particular weather conditions. More than one request within two days doubles ritual time and adds +1 difficulty per subsequent request before leaving the Council alone for a week. Botches or egregious use may provoke dangerous retribution from the Council of Winds or the Bureau of Seasons.</p>"
+  },
+  "folder": "fa0000000000010c",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

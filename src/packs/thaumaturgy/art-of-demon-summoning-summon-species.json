@@ -1,0 +1,31 @@
+{
+  "_id": "pa0000000000006b",
+  "_key": "!items!pa0000000000006b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Summon Species",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Demon Summoning",
+    "minDegree": 2,
+    "attribute": "intelligence",
+    "difficulty": 5,
+    "castingTime": "Six hours",
+    "extended": false,
+    "description": "<p>A First Circle demon of the desired species appears in a flash of green fire. Thaumaturges cannot command summoned demons but may threaten, bribe, or cajole them toward naturally inclined tasks. Must be conducted entirely at night; involves blood sacrifice. Each demon type has its own sigil and symbolic elements.</p>"
+  },
+  "folder": "fa00000000000068",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000fc",
+  "_key": "!items!pa000000000000fc",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dishonest (Creature)'s Rebuke",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Warding and Exorcism",
+    "minDegree": 2,
+    "attribute": "intelligence",
+    "difficulty": 1,
+    "castingTime": "10 hours + miscellaneous action",
+    "extended": false,
+    "description": "<p>Spend 10 hours inscribing prayer strips, then cast them in the air while muttering a prayer. The caster may perform one attack against a dematerialized spirit using a weapon or barehanded. Additional attacks cost 1 Willpower each for the rest of the scene. Does not grant the ability to detect the spirit. Prayer strips are reusable if not destroyed.</p>"
+  },
+  "folder": "fa000000000000f1",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

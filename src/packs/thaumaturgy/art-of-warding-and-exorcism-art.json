@@ -1,0 +1,27 @@
+{
+  "_id": "aa000000000000f2",
+  "_key": "!items!aa000000000000f2",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Art of Warding and Exorcism",
+  "type": "thaum-art",
+  "img": "icons/magic/symbols/rune-sigil-white.webp",
+  "system": {
+    "artName": "Art of Warding and Exorcism",
+    "degree": 1,
+    "description": "<p>Creates mystic barriers against intrusion. Wards can be stacked; when two different wards affect the same creature, both operate; multiple identical wards only keep the strongest. Ward strength equals successes on creation roll. Over the millennia, thaumaturges have devised wards against virtually every sort of creature, but exorcism only affects spirits: ghosts, demons, elementals, and gods.</p>"
+  },
+  "folder": "fa000000000000f1",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000ae",
+  "_key": "!items!pa000000000000ae",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Dragon Line Compass",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Geomancy",
+    "minDegree": 0,
+    "attribute": "perception",
+    "difficulty": 1,
+    "castingTime": "Five minutes",
+    "extended": false,
+    "description": "<p>Compass plate or jade-and-crystal pendulum reveals when the thaumaturge stands within (successes × 10) yards of a dragon line. Once located, the thaumaturge can follow it for one hour before needing to repeat the ritual.</p>"
+  },
+  "folder": "fa000000000000a9",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

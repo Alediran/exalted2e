@@ -1,0 +1,31 @@
+{
+  "_id": "pa00000000000051",
+  "_key": "!items!pa00000000000051",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Summon Ghost",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of the Dead",
+    "minDegree": 0,
+    "attribute": "charisma",
+    "difficulty": 2,
+    "castingTime": "15 minutes",
+    "extended": false,
+    "description": "<p>At a location important to the deceased, call a ghost through offerings of grave goods and fresh blood. Difficulty -1 in a shadowland or Underworld; +1 per 100 years dead; +1 if summoning by qualities rather than name. In a shadowland, failure summons five unwelcome ghosts per success short of the roll. Summoned ghost manifests visibly but remains immaterial unless it can materialize on its own or the summoning occurs in a shadowland.</p>"
+  },
+  "folder": "fa0000000000004e",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}

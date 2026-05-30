@@ -1,0 +1,31 @@
+{
+  "_id": "pa000000000000ec",
+  "_key": "!items!pa000000000000ec",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Brief Flight of Glory",
+  "type": "procedure",
+  "img": "icons/magic/symbols/rune-circle-white.webp",
+  "system": {
+    "art": "Art of Spirit Beckoning",
+    "minDegree": 3,
+    "attribute": "charisma",
+    "difficulty": 3,
+    "castingTime": "One action",
+    "extended": false,
+    "description": "<p>The recipient swears to Nasamara that he desires victory more than life. Gains a pool of bonus successes equal to the roll successes. These can be assigned to any actions in the next battle. Mortals can stunt like Exalted. Each spent success costs one health level. At certain thresholds these phantom losses become real lethal wounds.</p>"
+  },
+  "folder": "fa000000000000d3",
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {},
+  "effects": []
+}
