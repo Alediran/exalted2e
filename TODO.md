@@ -26,7 +26,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
   - [x] NPC Combos
 - [x] **Knockback / Knockdown / Stunning** (Stamina + Resistance resist rolls, Prone + stun AE)
 - [x] **Area attacks** (cone/radius attack forms — Elemental Burst Technique, Tsunami Force Shout, etc.; targets make Essence resist rolls, no accuracy roll; requires dedicated area-attack schema field or charm flag)
-- [ ] **Clinch / Grapple** (control pool, opposed rolls, throw/crush/hold sub-actions, renew-each-tick)
+- [x] **Clinch / Grapple** (control pool, opposed rolls, throw/crush/hold sub-actions, renew-each-tick)
 - [x] Tick system (Speed-based initiative)
   - [x] `ExaltedCombat` sorts ascending; same-tick tiebreaker Dex → Wits → name → id
   - [x] Join Battle (all / NPCs-only) + canonical `tick = maxSuccesses − mySuccesses`

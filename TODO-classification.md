@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-29 (fatigue penalty mechanic done; count 1 A / 24 B / 5 C / 30 total)
+Last updated: 2026-05-29 (clinch/grapple done; count 1 A / 24 B / 4 C / 29 total)
 
 ---
 
@@ -51,7 +51,6 @@ Last updated: 2026-05-29 (fatigue penalty mechanic done; count 1 A / 24 B / 5 C 
 
 | Item | TODO Section | Why complex |
 |------|-------------|-------------|
-| Clinch / Grapple | Combat | new turn-loop: control pool, opposed rolls, sub-actions (throw/crush/hold), per-tick renewal |
 | Mounted combat | Combat | Ride-controlled mount stats, charge bonuses, Ride charm integration |
 | Thaumaturgy | Sorcery | separate lower-power tier: procedures, degrees, own roll resolver |
 | Vehicle / Warstrider actor type | Other | new actor type with unique soak/movement/weapon-mount mechanics |
@@ -67,5 +66,5 @@ Last updated: 2026-05-29 (fatigue penalty mechanic done; count 1 A / 24 B / 5 C 
 |-------|-------|
 | A — Ready, Simple | 1 |
 | B — Ready, Medium | 24 |
-| C — Ready, Complex | 5 |
-| **Total pending** | **30** |
+| C — Ready, Complex | 4 |
+| **Total pending** | **29** |
