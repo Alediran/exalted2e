@@ -119,7 +119,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Countermagic resolution (Emerald/Sapphire/Adamant reflexive counter, Iron/Onyx/Obsidian necro)
 - [x] Countermagic cost variance by defended-circle-rank
 - [x] Spell casting chat card (motes committed during shape, released at cast; reverse button)
-- [ ] Thaumaturgy (degrees and procedures — separate lower-power tier)
+- [x] Thaumaturgy (degrees and procedures — separate lower-power tier)
 - [ ] Spell-specific duration/effect payloads (many spells create AE-like effects on targets)
 - [ ] Ghost summoning (Black Treatise: extended opposed WP+Ess contest)
 - [ ] Binding/fetter spells (Piercing the Heel, Soul Brand, Rune of Sweet Passing)
@@ -301,7 +301,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Scene-end reset (anima step-down done; Peripheral-spend counter, per-scene WP drain counters)
 
 ## Crafting
-- [x] Craft specializations (Fire, Water, Air, Earth, Wood, Magitech, etc.)
+- [x] Craft specializations (Fire, Water, Air, Earth, Wood, Magitech, etc.) — multiple named Craft variants with independent dot ratings, XP costs (inherits Caste/Favored), and roll integration with per-variant charm gating
 - [x] Mundane crafting roll resolver (Int/Per+Craft vs Resources diff; extended for large items)
 - [x] Artifact extended-roll builder (Rating cumulative successes; seasons interval; exotic ingredient tracker)
 - [ ] Workshop & material prerequisites UI
