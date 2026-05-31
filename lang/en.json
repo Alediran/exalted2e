@@ -2244,7 +2244,8 @@
     "Actor": {
       "character": "Character",
       "npc": "NPC",
-      "unit": "Unit"
+      "unit": "Unit",
+      "vehicle": "Vehicle"
     },
     "Item": {
       "charm": "Charm",

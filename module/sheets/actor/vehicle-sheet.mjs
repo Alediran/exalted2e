@@ -24,8 +24,7 @@ export class VehicleSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   get title() { return this.document.name; }
 
   static PARTS = {
-    header: { template: "systems/exalted2e/templates/actor/vehicle/header.hbs" },
-    body:   { template: "systems/exalted2e/templates/actor/vehicle/body.hbs", scrollable: [".sheet-body"] }
+    body: { template: "systems/exalted2e/templates/actor/vehicle/body.hbs", scrollable: [".sheet-body"] }
   };
 
   async _prepareContext(options) {

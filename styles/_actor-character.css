@@ -865,6 +865,20 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
   font-style: italic;
 }
 
+/* ── VEHICLE SHEET LAYOUT ────────────────────────────────────────────────── */
+/* Single-PART layout: header is fixed height, .sheet-body fills + scrolls. */
+.exalted2e.actor.vehicle .vehicle-sheet-root {
+  display:        flex;
+  flex-direction: column;
+  height:         100%;
+  overflow:       hidden;
+}
+.exalted2e.actor.vehicle .vehicle-sheet-root .sheet-body {
+  flex:       1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
 /* ── CRAFT ABILITY ROWS ──────────────────────────────────────────────────── */
 
 /* Name input fills remaining space so all rows align identically. */
