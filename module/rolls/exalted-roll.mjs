@@ -202,7 +202,17 @@ export class ExaltedRoll {
 
     // Resolve the starting attribute: argument → ability's defaultAttribute → "dexterity"
     const defaultAttr = attribute || sys.abilities[ability]?.defaultAttribute || "dexterity";
-    const abilVal     = options.effectiveAbilityValue ?? sys.abilities[ability]?.value ?? 0;
+    let abilVal = options.effectiveAbilityValue ?? sys.abilities[ability]?.value ?? 0;
+
+    // Ride cap: when mounted in combat, no combat ability may exceed Ride.
+    if (ability !== "ride") {
+      const _rideCombatant = game.combat?.combatants?.find(c => c.actorId === actor.id);
+      if (_rideCombatant?.flags?.exalted2e?.mountedOn) {
+        const { computeRideCappedAbility } = await import("./mounted-combat.mjs");
+        const rideVal = sys.abilities?.ride?.value ?? 0;
+        abilVal = computeRideCappedAbility(abilVal, rideVal);
+      }
+    }
     const attrVal     = sys.attributes[defaultAttr]?.value ?? 0;
     const essenceVal  = sys.essence ?? 0;
     // Base pool — raw attribute + ability, before any penalties.
@@ -490,7 +500,11 @@ export class ExaltedRoll {
     if (actor.type !== "character") return null;
     const { AttackDialog } = await import("./attack-dialog.mjs");
 
-    const weapon = actor.items.get(weaponId);
+    // When rolling with a vehicle's weapon, fetch it from the vehicle actor.
+    const weaponOwner = options.weaponActorId
+      ? (game.actors?.get(options.weaponActorId) ?? actor)
+      : actor;
+    const weapon = weaponOwner.items.get(weaponId);
     if (!weapon || weapon.type !== "weapon") return null;
 
     const sys  = actor.system;
@@ -526,8 +540,17 @@ export class ExaltedRoll {
     const maVal         = sys.abilities.martialArts?.value ?? 0;
     const useMA         = hasNaturalTag || (hasMATag && maVal > baseAbilVal);
     const ability       = useMA ? "martialArts" : baseAbility;
-    const abilVal       = useMA ? maVal         : baseAbilVal;
+    let   abilVal       = useMA ? maVal         : baseAbilVal;
     const attrVal   = sys.attributes.dexterity.value;
+
+    // Ride cap: when mounted, ability capped at Ride.
+    if (baseAbility !== "ride") {
+      const _rideCombatant = game.combat?.combatants?.find(c => c.actorId === actor.id);
+      if (_rideCombatant?.flags?.exalted2e?.mountedOn) {
+        const { computeRideCappedAbility } = await import("./mounted-combat.mjs");
+        abilVal = computeRideCappedAbility(abilVal, sys.abilities?.ride?.value ?? 0);
+      }
+    }
     const strVal    = sys.attributes.strength.value;
 
     // Attack pool.

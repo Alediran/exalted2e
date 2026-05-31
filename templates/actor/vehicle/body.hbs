@@ -1,0 +1,126 @@
+<div class="sheet-body">
+
+  <!-- Stats -->
+  <div class="vehicle-stats-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px">
+    <div class="field-group">
+      <label>{{localize "EX2E.VehicleSpeed"}}</label>
+      <input type="number" name="system.speed" value="{{system.speed}}" min="0" max="10"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.VehicleManeuverability"}}</label>
+      <input type="number" name="system.maneuverability" value="{{system.maneuverability}}" min="0" max="5"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.VehicleHardness"}}</label>
+      <input type="number" name="system.hardness" value="{{system.hardness}}" min="0"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  <!-- Soak -->
+  <div class="soak-grid">
+    <div class="soak-row">
+      <span class="soak-label">{{localize "EX2E.BashingSoak"}}</span>
+      <input type="number" name="system.soak.bashing" value="{{system.soak.bashing}}" min="0"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+    <div class="soak-row">
+      <span class="soak-label">{{localize "EX2E.LethalSoak"}}</span>
+      <input type="number" name="system.soak.lethal" value="{{system.soak.lethal}}" min="0"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+    <div class="soak-row">
+      <span class="soak-label">{{localize "EX2E.AggravatedSoak"}}</span>
+      <input type="number" name="system.soak.aggravated" value="{{system.soak.aggravated}}" min="0"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  <!-- Health -->
+  <div class="field-group" style="margin-top:8px">
+    <label>{{localize "EX2E.VehicleHealth"}}</label>
+    <div style="display:flex;gap:6px;align-items:center">
+      <input type="number" name="system.health.value" value="{{system.health.value}}" min="0" style="width:50px"
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>/</span>
+      <input type="number" name="system.health.max"   value="{{system.health.max}}"   min="1" style="width:50px"
+             {{#unless isEditable}}disabled{{/unless}}>
+    </div>
+  </div>
+
+  <!-- Attunement -->
+  <div class="field-group" style="margin-top:8px">
+    <label>{{localize "EX2E.VehicleAttunement"}} ({{localize "EX2E.MoteCost"}})</label>
+    <input type="number" name="system.attunement.cost" value="{{system.attunement.cost}}" min="0" style="width:60px"
+           {{#unless isEditable}}disabled{{/unless}}>
+    <label style="margin-left:8px">{{localize "EX2E.VehicleAttuned"}}</label>
+    <input type="checkbox" name="system.attunement.attuned"
+           {{#if system.attunement.attuned}}checked{{/if}}
+           {{#unless isEditable}}disabled{{/unless}}>
+  </div>
+
+  <!-- Essence -->
+  <div class="field-group" style="margin-top:8px">
+    <label>{{localize "EX2E.Essence"}}</label>
+    <input type="number" name="system.essence.value" value="{{system.essence.value}}" min="0" max="10" style="width:50px"
+           {{#unless isEditable}}disabled{{/unless}}>
+  </div>
+
+  <!-- Weapon Mounts -->
+  <h2 class="section-header" style="margin-top:12px">{{localize "EX2E.VehicleWeapons"}}</h2>
+  {{#if isEditable}}
+  <button type="button" data-action="createItem" data-type="weapon" style="margin-bottom:4px">
+    <i class="fa-solid fa-plus"></i> {{localize "EX2E.AddWeapon"}}
+  </button>
+  {{/if}}
+  {{#each weapons as |w|}}
+  <div class="item-row" data-item-id="{{w.id}}">
+    <img src="{{w.img}}" class="item-img">
+    <span class="item-name">{{w.name}}</span>
+    <div class="item-controls">
+      {{#if @root.isEditable}}
+      <button type="button" data-action="editItem" data-item-id="{{w.id}}"><i class="fa-solid fa-pen"></i></button>
+      <button type="button" data-action="deleteItem" data-item-id="{{w.id}}"><i class="fa-solid fa-trash"></i></button>
+      {{/if}}
+    </div>
+  </div>
+  {{/each}}
+
+  <!-- Charms (living vehicles) -->
+  {{#if showEssenceSection}}
+  <h2 class="section-header" style="margin-top:12px">{{localize "EX2E.TabCharms"}}</h2>
+  {{#if isEditable}}
+  <button type="button" data-action="createItem" data-type="charm" style="margin-bottom:4px">
+    <i class="fa-solid fa-plus"></i> {{localize "EX2E.AddCharm"}}
+  </button>
+  {{/if}}
+  {{#each charms as |c|}}
+  <div class="item-row" data-item-id="{{c.id}}">
+    <img src="{{c.img}}" class="item-img">
+    <span class="item-name">{{c.name}}</span>
+    <div class="item-controls">
+      {{#if @root.isEditable}}
+      <button type="button" data-action="editItem" data-item-id="{{c.id}}"><i class="fa-solid fa-pen"></i></button>
+      <button type="button" data-action="deleteItem" data-item-id="{{c.id}}"><i class="fa-solid fa-trash"></i></button>
+      {{/if}}
+    </div>
+  </div>
+  {{/each}}
+  {{/if}}
+
+  <!-- Description -->
+  <h2 class="section-header" style="margin-top:12px">{{localize "EX2E.Description"}}</h2>
+  <div class="editor-container">
+    {{#if isEditable}}
+    <prose-mirror name="system.description" data-document-uuid="{{actor.uuid}}"
+                  value="{{system.description}}" collaborate="true" toggled="true">
+      {{{enrichedDescription}}}
+    </prose-mirror>
+    {{else}}
+    <div class="editor-content">{{{enrichedDescription}}}</div>
+    {{/if}}
+  </div>
+
+</div>

@@ -380,7 +380,10 @@ export class ActionQuickbar {
   // ── Attack submenu ────────────────────────────────────────────────────
   _toggleAttackSubmenu(btn, actor, current) {
     if (!this._submenu.hidden) { this._hideSubmenu(); return; }
-    const modes = this._equippedModes(actor);
+    const modes = [
+      ...this._equippedModes(actor),
+      ...this._vehicleModes(current),
+    ];
     if (modes.length === 0) return;
 
     this._submenu.replaceChildren(
@@ -674,6 +677,33 @@ export class ActionQuickbar {
           label: modes.length > 1 ? `${w.name} — ${mode.name}` : w.name,
           speed: mode.effectiveSpeed ?? mode.speed ?? 5,
           dvMod: 1
+        });
+      });
+    }
+    return out;
+  }
+
+  /** Weapon modes from the vehicle the current combatant is mounted on. */
+  _vehicleModes(current) {
+    const mountedOn = current?.flags?.exalted2e?.mountedOn;
+    if (!mountedOn?.vehicleActorId) return [];
+    const vehicle = game.actors?.get(mountedOn.vehicleActorId);
+    if (!vehicle || vehicle.type !== "vehicle") return [];
+
+    const out = [];
+    for (const w of vehicle.items) {
+      if (w.type !== "weapon" || !w.system.equipped) continue;
+      const modes = w.system.modes ?? [];
+      modes.forEach((mode, idx) => {
+        out.push({
+          weaponId:       w.id,
+          vehicleActorId: vehicle.id,
+          modeIndex:      idx,
+          label:          modes.length > 1
+            ? `[${vehicle.name}] ${w.name} — ${mode.name}`
+            : `[${vehicle.name}] ${w.name}`,
+          speed: mode.effectiveSpeed ?? mode.speed ?? 5,
+          dvMod: 1,
         });
       });
     }
@@ -1076,7 +1106,10 @@ export class ActionQuickbar {
       });
     }
     const { ExaltedRoll } = await import("../rolls/exalted-roll.mjs");
-    await ExaltedRoll.rollAttack(actor, mode.weaponId, { modeIndex: mode.modeIndex });
+    await ExaltedRoll.rollAttack(actor, mode.weaponId, {
+      modeIndex:     mode.modeIndex,
+      weaponActorId: mode.vehicleActorId,
+    });
 
     // After rollAttack resolves its target (via pickTargetActor or the
     // pre-existing user target), capture the target's id on pendingAction

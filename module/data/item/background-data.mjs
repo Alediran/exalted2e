@@ -9,7 +9,8 @@ export class BackgroundData extends foundry.abstract.TypeDataModel {
       notes:          new fields.StringField({ initial: "", blank: true }),
       house:          new fields.StringField({ initial: "", blank: true }),
       isMonstrance:   new fields.BooleanField({ initial: false }),
-      deathlord:      new fields.StringField({ initial: "", blank: true })
+      deathlord:      new fields.StringField({ initial: "", blank: true }),
+      linkedActorId:  new fields.StringField({ initial: "", blank: true })
     };
   }
 }

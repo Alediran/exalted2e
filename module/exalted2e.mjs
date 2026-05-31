@@ -39,8 +39,10 @@ import { ThaummArtData }  from "./data/item/thaum-art-data.mjs";
 import { ProcedureData }  from "./data/item/procedure-data.mjs";
 import { CharacterSheet }           from "./sheets/actor/character-sheet.mjs";
 import { NpcSheet }         from "./sheets/actor/npc-sheet.mjs";
-import { UnitData }  from "./data/actor/unit-data.mjs";
-import { UnitSheet } from "./sheets/actor/unit-sheet.mjs"; // created in Task 4
+import { UnitData }    from "./data/actor/unit-data.mjs";
+import { VehicleData } from "./data/actor/vehicle-data.mjs";
+import { UnitSheet }   from "./sheets/actor/unit-sheet.mjs";
+import { VehicleSheet } from "./sheets/actor/vehicle-sheet.mjs";
 import { JoinWarDialog } from "./apps/join-war-dialog.mjs";
 import { MassCombatActionDialog } from "./apps/mass-combat-action-dialog.mjs";
 import { HeroMassCombatDialog }   from "./apps/hero-mass-combat-dialog.mjs";
@@ -216,7 +218,8 @@ Hooks.once("init", function () {
   CONFIG.Actor.dataModels = {
     character: CharacterData,
     npc:       NpcData,
-    unit:      UnitData
+    unit:      UnitData,
+    vehicle:   VehicleData,
   };
   CONFIG.Item.dataModels = {
     charm:      CharmData,
@@ -269,6 +272,11 @@ Hooks.once("init", function () {
     types:     ["unit"],
     makeDefault: true,
     label:     "EX2E.SheetUnit"
+  });
+  foundry.documents.collections.Actors.registerSheet("exalted2e", VehicleSheet, {
+    types:       ["vehicle"],
+    makeDefault: true,
+    label:       "EX2E.SheetVehicle",
   });
 
   foundry.documents.collections.Items.unregisterSheet("core", foundry.appv1.sheets.ItemSheet);
@@ -601,6 +609,8 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/item/thaum-art-sheet.hbs",
     "systems/exalted2e/templates/item/procedure-sheet.hbs",
     "systems/exalted2e/templates/actor/character/tab-thaumaturgy.hbs",
+    "systems/exalted2e/templates/actor/vehicle/header.hbs",
+    "systems/exalted2e/templates/actor/vehicle/body.hbs",
   ];
   return foundry.applications.handlebars.loadTemplates(templatePaths);
 }
@@ -2156,6 +2166,13 @@ Hooks.on("deleteCombat", async (combat) => {
     const heldCombatant = combat.combatants.get(heldId);
     await releaseClinch(controller, heldCombatant);
   }
+
+  // Clear mountedOn flags when combat ends.
+  for (const combatant of combat.combatants) {
+    if (combatant.flags?.exalted2e?.mountedOn) {
+      await combatant.unsetFlag("exalted2e", "mountedOn").catch(() => {});
+    }
+  }
 });
 
 Hooks.on("deleteCombatant", async (combatant) => {
@@ -2170,6 +2187,12 @@ Hooks.on("deleteCombatant", async (combatant) => {
   } else if (clinchFlag.role === "held") {
     const controllerCombatant = combat.combatants.get(clinchFlag.controllerCombatantId);
     await releaseClinch(controllerCombatant, combatant);
+  }
+});
+
+Hooks.on("deleteCombatant", async (combatant) => {
+  if (combatant.flags?.exalted2e?.mountedOn) {
+    await combatant.unsetFlag("exalted2e", "mountedOn").catch(() => {});
   }
 });
 

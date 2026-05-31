@@ -634,20 +634,65 @@ export class ExaltedActor extends Actor {
   /** DV after current penalties, never below 0. */
   get currentDodgeDV() {
     const s = this.system;
-    const base = (this.type === "character" ? (s.dodgeDV ?? 0)
-                : this.type === "npc"       ? (s.combat?.dodgeDV ?? 0)
-                : 0) + (s.bonuses?.dodgeBonus ?? 0) + (s.statusDVBonus?.dodgeBonus ?? 0);
-    const ignore = s.dvBonusIgnore ?? { all: false, types: [] };
+    let base = (this.type === "character" ? (s.dodgeDV ?? 0)
+              : this.type === "npc"       ? (s.combat?.dodgeDV ?? 0)
+              : 0) + (s.bonuses?.dodgeBonus ?? 0) + (s.statusDVBonus?.dodgeBonus ?? 0);
+
+    // Ride cap when mounted: Dodge DV = (Dex + min(Dodge, Ride)) / 2 + bonuses.
+    if (this.type === "character") {
+      const combatant = game.combat?.combatants?.find(c => c.actorId === this.id);
+      if (combatant?.flags?.exalted2e?.mountedOn) {
+        const dexVal   = s.attributes?.dexterity?.value ?? 0;
+        const dodgeVal = s.abilities?.dodge?.value      ?? 0;
+        const rideVal  = s.abilities?.ride?.value       ?? 0;
+        const rideCap  = Math.floor((dexVal + Math.min(dodgeVal, rideVal)) / 2);
+        base = Math.min(
+          base,
+          rideCap + (s.bonuses?.dodgeBonus ?? 0) + (s.statusDVBonus?.dodgeBonus ?? 0)
+        );
+      }
+    }
+
+    const ignore  = s.dvBonusIgnore ?? { all: false, types: [] };
     const penalty = ignore.all ? 0 : this._dvPenaltyIgnoring(new Set(ignore.types));
     return Math.max(0, base - penalty);
   }
 
   get currentParryDV() {
     const s = this.system;
-    const base = (this.type === "character" ? (s.parryDV ?? s.parryDVBase ?? 0)
-                : this.type === "npc"       ? (s.combat?.parryDV ?? 0)
-                : 0) + (s.bonuses?.parryBonus ?? 0) + (s.statusDVBonus?.parryBonus ?? 0);
-    const ignore = s.dvBonusIgnore ?? { all: false, types: [] };
+    let base = (this.type === "character" ? (s.parryDV ?? s.parryDVBase ?? 0)
+              : this.type === "npc"       ? (s.combat?.parryDV ?? 0)
+              : 0) + (s.bonuses?.parryBonus ?? 0) + (s.statusDVBonus?.parryBonus ?? 0);
+
+    // Ride cap when mounted: Parry DV = (Dex + min(Melee+spec, Ride) + weaponDef) / 2 + bonuses.
+    if (this.type === "character") {
+      const combatant = game.combat?.combatants?.find(c => c.actorId === this.id);
+      if (combatant?.flags?.exalted2e?.mountedOn) {
+        const dexVal   = s.attributes?.dexterity?.value ?? 0;
+        const meleeVal = s.abilities?.melee?.value      ?? 0;
+        const rideVal  = s.abilities?.ride?.value       ?? 0;
+        const bestSpec = Math.max(
+          0,
+          ...(s.abilities?.melee?.specialties ?? []).map(sp => sp.value ?? 0)
+        );
+        const equippedWeapon = [...(this.items ?? [])]
+          .filter(i => i.type === "weapon" && i.system.equipped)
+          .reduce((best, w) => {
+            const def = w.system.modes?.[0]?.effectiveDefense ?? w.system.modes?.[0]?.defense ?? 0;
+            return def > (best?.def ?? -1) ? { w, def } : best;
+          }, null);
+        const weaponDef = equippedWeapon?.def ?? 0;
+        const rideCap   = Math.floor(
+          (dexVal + Math.min(meleeVal + bestSpec, rideVal) + weaponDef) / 2
+        );
+        base = Math.min(
+          base,
+          rideCap + (s.bonuses?.parryBonus ?? 0) + (s.statusDVBonus?.parryBonus ?? 0)
+        );
+      }
+    }
+
+    const ignore  = s.dvBonusIgnore ?? { all: false, types: [] };
     const penalty = ignore.all ? 0 : this._dvPenaltyIgnoring(new Set(ignore.types));
     return Math.max(0, base - penalty);
   }

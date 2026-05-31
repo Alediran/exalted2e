@@ -1,0 +1,23 @@
+<div class="vehicle-header-root">
+<div class="item-header">
+  <img class="item-portrait" src="{{actor.img}}" alt="{{actor.name}}"
+       data-action="onEditImage" {{#unless isEditable}}disabled{{/unless}}>
+  <div class="item-header-fields">
+    <input class="item-name-input" type="text" name="name" value="{{actor.name}}"
+           {{#unless isEditable}}readonly{{/unless}}>
+    <div class="charm-identity-row">
+      <select name="system.vehicleType" {{#unless isEditable}}disabled{{/unless}}>
+        {{#each vehicleTypeOptions as |opt|}}
+        <option value="{{opt.value}}" {{#if (eq ../system.vehicleType opt.value)}}selected{{/if}}>
+          {{opt.label}}
+        </option>
+        {{/each}}
+      </select>
+      {{#if system.attunement.cost}}
+        · {{system.attunement.cost}}m
+        {{#if system.attunement.attuned}}({{localize "EX2E.VehicleAttuned"}}){{/if}}
+      {{/if}}
+    </div>
+  </div>
+</div>
+</div>

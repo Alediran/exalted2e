@@ -208,6 +208,9 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       deleteArtifactProject:     CharacterSheet.#onDeleteArtifactProject,
       toggleArtifactIngredients: CharacterSheet.#onToggleArtifactIngredients,
       openFamiliarActor:     CharacterSheet.#onOpenFamiliarActor,
+      openLinkedVehicle: CharacterSheet.#onOpenLinkedVehicle,
+      mountVehicle:      CharacterSheet.#onMountVehicle,
+      dismountVehicle:   CharacterSheet.#onDismountVehicle,
       openCharmTree:            CharacterSheet.#onOpenCharmTree,
       coverArtifactAttunement:  CharacterSheet.#onCoverArtifactAttunement,
       addCripplingInjury:       CharacterSheet.#onAddCripplingInjury,
@@ -559,6 +562,30 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const equipments   = actor.items.filter(i => i.type === "equipment") .sort((a,b) => a.name.localeCompare(b.name));
     const hearthstones = actor.items.filter(i => i.type === "hearthstone").sort((a,b) => a.name.localeCompare(b.name));
     const manses       = actor.items.filter(i => i.type === "manse")      .sort((a,b) => a.name.localeCompare(b.name));
+
+    // ── Linked vehicles ──────────────────────────────────────────────────
+    const _mountedOnFlag = game.combat?.combatants
+      .find(c => c.actorId === actor.id)?.flags?.exalted2e?.mountedOn ?? null;
+    const _bgVehicles = actor.items
+      .filter(i => i.type === "background" && i.system.linkedActorId)
+      .flatMap(i => {
+        const v = game.actors?.get(i.system.linkedActorId);
+        return v?.type === "vehicle" ? [{ item: i, vehicle: v }] : [];
+      });
+    const _famVehicles = actor.items
+      .filter(i => i.type === "familiar" && i.system.linkedActorId)
+      .flatMap(i => {
+        const v = game.actors?.get(i.system.linkedActorId);
+        return v?.type === "vehicle" ? [{ item: i, vehicle: v }] : [];
+      });
+    const linkedVehicles = [..._bgVehicles, ..._famVehicles].map(({ item, vehicle }) => ({
+      itemId:        item.id,
+      vehicleId:     vehicle.id,
+      name:          vehicle.name,
+      img:           vehicle.img,
+      vehicleType:   vehicle.system.vehicleType,
+      isMounted:     _mountedOnFlag?.vehicleActorId === vehicle.id,
+    }));
 
     const familiars = actor.items
       .filter(i => i.type === "familiar")
@@ -946,6 +973,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       manses, familiars, cults,
       artifactSlotMap,
       maStyles,
+      linkedVehicles,
       craftAbilities,
       craftingProjects,
       artifactProjects,
@@ -2284,6 +2312,28 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     if (idx < 0) return;
     projects[idx].hasIngredients = !projects[idx].hasIngredients;
     await actor.update({ "system.artifactProjects": projects });
+  }
+
+  static #onOpenLinkedVehicle(_event, target) {
+    const actor = game.actors?.get(target.dataset.vehicleId);
+    actor?.sheet.render(true);
+  }
+
+  static async #onMountVehicle(_event, target) {
+    const vehicleActorId = target.dataset.vehicleId;
+    if (!vehicleActorId) return;
+    const combatant = game.combat?.combatants.find(c => c.actorId === this.document.id);
+    if (!combatant) {
+      ui.notifications.warn(game.i18n.localize("EX2E.MountNotInCombat"));
+      return;
+    }
+    await combatant.setFlag("exalted2e", "mountedOn", { vehicleActorId });
+  }
+
+  static async #onDismountVehicle(_event, _target) {
+    const combatant = game.combat?.combatants.find(c => c.actorId === this.document.id);
+    if (!combatant) return;
+    await combatant.unsetFlag("exalted2e", "mountedOn");
   }
 
   static #onOpenFamiliarActor(_event, target) {
