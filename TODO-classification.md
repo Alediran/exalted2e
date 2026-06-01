@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-06-01 (Merged keyword closed as already implemented; count 1 A / 21 B / 1 C / 23 total)
+Last updated: 2026-06-01 (four sorcery TODOs closed — spell payloads, ghost summoning, binding spells, demon summoning; count 1 A / 17 B / 1 C / 19 total)
 
 ---
 
@@ -19,10 +19,6 @@ Last updated: 2026-06-01 (Merged keyword closed as already implemented; count 1 
 
 | Item | TODO Section | Key concern |
 |------|-------------|-------------|
-| Spell-specific duration/effect payloads | Sorcery | per-spell AE-like target effects; requires per-spell schema extension |
-| Ghost summoning | Sorcery | extended opposed WP+Ess contest (Black Treatise) |
-| Binding/fetter spells | Sorcery | Piercing the Heel, Soul Brand, Rune of Sweet Passing AE payloads |
-| Demon summoning | Sorcery | bind ritual on new moon/Calibration; bonus dice per demon type |
 | Limit Break scripted scene effects | Solar / Virtues | per-Virtue-Flaw AE templates (4 flaws × 2 break types) |
 | Shintai / Mantle form-type charms | Infernal | charm activation mode + transformation state AE |
 | Gremlin Syndrome / Dissonance | Alchemical | Clarity track → Dissonance consequences |
@@ -59,6 +55,6 @@ Last updated: 2026-06-01 (Merged keyword closed as already implemented; count 1 
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 21 |
+| B — Ready, Medium | 17 |
 | C — Ready, Complex | 1 |
-| **Total pending** | **23** |
+| **Total pending** | **19** |

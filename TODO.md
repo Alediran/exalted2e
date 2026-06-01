@@ -120,10 +120,10 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Countermagic cost variance by defended-circle-rank
 - [x] Spell casting chat card (motes committed during shape, released at cast; reverse button)
 - [x] Thaumaturgy (degrees and procedures — separate lower-power tier)
-- [ ] Spell-specific duration/effect payloads (many spells create AE-like effects on targets)
-- [ ] Ghost summoning (Black Treatise: extended opposed WP+Ess contest)
-- [ ] Binding/fetter spells (Piercing the Heel, Soul Brand, Rune of Sweet Passing)
-- [ ] Demon summoning (bind ritual on new moon/Calibration; bonus dice per demon)
+- [x] Spell-specific duration/effect payloads — Effects tab (embedded AEs) on spell sheets; target AE stamping at cast time via _createSpellEffectAe
+- [x] Ghost summoning — GhostContestApp: interactive WP+Ess extended contest; bind result chat card
+- [x] Binding/fetter spells — Soul Brand / Piercing the Heel / Rune of Sweet Passing use Effects tab AEs; stamped on target at cast
+- [x] Demon summoning — DemonSummonFlow: Cha+Occult binding roll, circle-scaled difficulty (3/5/7), bind result chat card
 
 ## Martial Arts
 - [x] Style tracking — `martialArtsStyleName` + `martialArtsTier` on charms; `martialartsstyle` item type with sheet, auto-create hook, and Martial Arts tab grouping charms by style on the character sheet

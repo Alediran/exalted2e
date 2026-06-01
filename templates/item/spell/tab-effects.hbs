@@ -1,0 +1,47 @@
+<div class="tab {{cssClass}} sheet-body spell-effects-body" data-tab="tabEffects" data-group="sheet">
+
+  <h2 class="section-header">{{localize "EX2E.SpellEffects"}}</h2>
+
+  {{#if isEditable}}
+  <button type="button" class="btn-add-row" data-action="createEffect">
+    <i class="fa-solid fa-plus"></i> {{localize "EX2E.NewEffect"}}
+  </button>
+  {{/if}}
+
+  {{#if effects.length}}
+  <table class="purchase-log-table" style="margin-top:8px">
+    <thead>
+      <tr>
+        <th></th>
+        <th>{{localize "EX2E.SpellEffectName"}}</th>
+        <th>{{localize "EX2E.SpellEffectChanges"}}</th>
+        {{#if isEditable}}<th></th>{{/if}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each effects as |eff|}}
+      <tr>
+        <td><img src="{{eff.icon}}" style="width:24px;height:24px;border:none"></td>
+        <td>{{eff.name}}</td>
+        <td>{{eff.changesCount}}</td>
+        {{#if @root.isEditable}}
+        <td class="item-controls">
+          <button type="button" data-action="editEffect" data-effect-id="{{eff.id}}"
+                  title="{{localize 'EX2E.Edit'}}">
+            <i class="fa-solid fa-edit"></i>
+          </button>
+          <button type="button" data-action="deleteEffect" data-effect-id="{{eff.id}}"
+                  title="{{localize 'EX2E.Delete'}}">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </td>
+        {{/if}}
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  {{else}}
+  <p class="empty-msg">{{localize "EX2E.SpellEffectsEmpty"}}</p>
+  {{/if}}
+
+</div>

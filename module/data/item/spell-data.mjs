@@ -58,6 +58,8 @@ export class SpellData extends foundry.abstract.TypeDataModel {
       // spell crosses traditions (e.g. Onyx/Obsidian → "both").
       isCountermagic:        new fields.BooleanField({ initial: false }),
       countermagicTradition: new fields.StringField({ initial: "", blank: true }),
+      // "" = normal spell; "ghost-summoning" / "demon-summoning" = special cast flow
+      spellSubtype:          new fields.StringField({ initial: "", blank: true, choices: ["", "ghost-summoning", "demon-summoning"] }),
     };
   }
 }

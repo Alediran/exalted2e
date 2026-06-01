@@ -565,7 +565,9 @@ async function _preloadTemplates() {
     // Items
     "systems/exalted2e/templates/item/charm/header.hbs",
     "systems/exalted2e/templates/item/spell/header.hbs",
+    "systems/exalted2e/templates/item/spell/tabs.hbs",
     "systems/exalted2e/templates/item/spell/body.hbs",
+    "systems/exalted2e/templates/item/spell/tab-effects.hbs",
     "systems/exalted2e/templates/item/charm/tabs.hbs",
     "systems/exalted2e/templates/item/charm/tab-general.hbs",
     "systems/exalted2e/templates/item/weapon/header.hbs",
@@ -612,6 +614,9 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/actor/vehicle/header.hbs",
     "systems/exalted2e/templates/actor/vehicle/body.hbs",
     "systems/exalted2e/templates/chat/blasphemy-alert.hbs",
+    "systems/exalted2e/templates/ui/ghost-contest.hbs",
+    "systems/exalted2e/templates/chat/ghost-summon-result.hbs",
+    "systems/exalted2e/templates/chat/demon-summon-result.hbs",
   ];
   return foundry.applications.handlebars.loadTemplates(templatePaths);
 }

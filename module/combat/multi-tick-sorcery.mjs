@@ -299,24 +299,56 @@ export async function _createSpellEffectAe(actor, spell) {
     console.warn("_createSpellEffectAe: missing actor or spell", { actor, spell });
     return;
   }
-  const dur = spell.system?.duration;
-  if (!dur || dur === "instant") return;
-  await actor.createEmbeddedDocuments("ActiveEffect", [{
-    name:     spell.name,
-    icon:     spell.img ?? "icons/svg/aura.svg",
-    origin:   spell.uuid,
-    transfer: false,
-    disabled: false,
-    flags:    {
-      exalted2e: {
-        spellEffect: {
-          tradition:          spell.system?.tradition ?? "sorcery",
-          circle:             spell.system?.circle ?? 1,
-          spellId:            spell.id,
-          spellName:          spell.name,
-          countermagicImmune: spell.system?.countermagicImmune ?? false,
-        }
+
+  const dur          = spell.system?.duration;
+  const spellSubtype = spell.system?.spellSubtype ?? "";
+  const spellFlags   = {
+    tradition:          spell.system?.tradition ?? "sorcery",
+    circle:             spell.system?.circle ?? 1,
+    spellId:            spell.id,
+    spellName:          spell.name,
+    countermagicImmune: spell.system?.countermagicImmune ?? false,
+  };
+
+  if (dur && dur !== "instant") {
+    // ── Self-AE on caster (countermagic hook) ───────────────────────────
+    await actor.createEmbeddedDocuments("ActiveEffect", [{
+      name:     spell.name,
+      icon:     spell.img ?? "icons/svg/aura.svg",
+      origin:   spell.uuid,
+      transfer: false,
+      disabled: false,
+      flags:    { exalted2e: { spellEffect: spellFlags } }
+    }]);
+
+    // ── Copy embedded AEs to target ──────────────────────────────────────
+    if (spell.effects.size > 0) {
+      const { pickTargetActor } = await import("../helpers/targeting.mjs");
+      const target = game.user.targets.first()?.actor ?? await pickTargetActor();
+      if (target) {
+        const aeData = spell.effects.contents.map(ae => ({
+          name:     ae.name,
+          icon:     ae.icon ?? "icons/svg/aura.svg",
+          changes:  ae.changes ?? [],
+          origin:   spell.uuid,
+          transfer: false,
+          disabled: false,
+          flags:    { exalted2e: { spellEffect: spellFlags } }
+        }));
+        await target.createEmbeddedDocuments("ActiveEffect", aeData);
+        ui.notifications.info(
+          game.i18n.format("EX2E.SpellEffectApplied", { target: target.name })
+        );
       }
     }
-  }]);
+  }
+
+  // ── Subtype dispatch — runs for any duration, including instant ────────
+  if (spellSubtype === "ghost-summoning") {
+    const { ghostSummonFlow } = await import("../ui/ghost-summon-flow.mjs");
+    await ghostSummonFlow(actor, spell);
+  } else if (spellSubtype === "demon-summoning") {
+    const { demonSummonFlow } = await import("../ui/demon-summon-flow.mjs");
+    await demonSummonFlow(actor, spell);
+  }
 }

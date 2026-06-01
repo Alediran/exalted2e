@@ -25,6 +25,19 @@
       </div>
     </div>
 
+    {{#if isEditable}}
+    <div class="spell-identity-row" style="margin-top:4px">
+      <div class="field-group">
+        <label>{{localize "EX2E.SpellSubtype"}}</label>
+        <select name="system.spellSubtype" {{#unless isEditable}}disabled{{/unless}}>
+          {{#each subtypeChoices}}
+          <option value="{{value}}" {{#if (eq value ../system.spellSubtype)}}selected{{/if}}>{{label}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+    {{/if}}
+
     <!-- Cost summary (mirrors charm header) -->
     <div class="charm-cost-summary">
       <strong>{{localize "EX2E.Cost"}}:</strong>

@@ -1,0 +1,54 @@
+<div class="ghost-contest-body" style="padding:8px">
+
+  <div class="ghost-contest-status" style="display:flex;justify-content:space-around;margin-bottom:8px">
+    <div style="text-align:center">
+      <div class="combatant-name" style="font-weight:bold">{{actorName}}</div>
+      <div>WP: {{casterWp}} &nbsp; Pool: {{casterPool}}</div>
+    </div>
+    <div style="align-self:center;font-size:1.2em">⚔</div>
+    <div style="text-align:center">
+      <div class="combatant-name" style="font-weight:bold">{{ghostName}}</div>
+      <div>WP: {{ghostWp}} &nbsp; Pool: {{ghostPool}}</div>
+    </div>
+  </div>
+
+  {{#if rounds.length}}
+  <table class="purchase-log-table" style="margin-bottom:8px">
+    <thead>
+      <tr>
+        <th>{{localize "EX2E.GhostContestRound"}}</th>
+        <th>{{actorName}}</th>
+        <th>{{ghostName}}</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each rounds as |r|}}
+      <tr>
+        <td>{{r.roundNum}}</td>
+        <td {{#if (eq r.loser "caster")}}class="xp-overdraft"{{/if}}>{{r.casterSuccesses}}</td>
+        <td {{#if (eq r.loser "ghost")}}class="xp-overdraft"{{/if}}>{{r.ghostSuccesses}}</td>
+        <td>{{#if (eq r.loser "caster")}}−1 WP{{/if}}{{#if (eq r.loser "ghost")}}−1 WP{{/if}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  {{/if}}
+
+  {{#if outcome}}
+  <p style="text-align:center;font-style:italic;margin:4px 0">
+    {{#if (eq outcome "caster")}}{{localize "EX2E.GhostContestOutcomeCaster"}}{{/if}}
+    {{#if (eq outcome "ghost")}}{{localize "EX2E.GhostContestOutcomeGhost"}}{{/if}}
+  </p>
+  {{/if}}
+
+  <div style="display:flex;gap:8px;margin-top:8px">
+    <button type="button" data-action="rollRound" {{#if isOver}}disabled{{/if}}>
+      {{localize "EX2E.GhostContestRollRound"}}
+    </button>
+    <button type="button" data-action="conclude" {{#unless isOver}}disabled{{/unless}}>
+      {{localize "EX2E.GhostContestConclude"}}
+    </button>
+  </div>
+
+</div>

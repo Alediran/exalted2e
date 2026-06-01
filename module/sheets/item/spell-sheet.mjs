@@ -8,12 +8,10 @@ const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   return { ItemSheetV2: sheets.ItemSheetV2, HandlebarsApplicationMixin: api.HandlebarsApplicationMixin };
 })();
 
-/**
- * SpellSheet — header + body layout for both Sorcery and Necromancy
- * spells. Follows the knack-sheet pattern (single body, no tabs) since
- * spells don't carry an Attack block in MVP.
- */
 export class SpellSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
+
+  /** Current tab group state. Defaults to the General (body) tab. */
+  tabGroups = { sheet: "tabBody" };
 
   static DEFAULT_OPTIONS = {
     classes:  ["exalted2e", "item", "spell"],
@@ -21,16 +19,21 @@ export class SpellSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     window: { resizable: true },
     form: { submitOnChange: true, closeOnSubmit: false },
     actions: {
-      editImage: editImageAction,
-      castSpell: SpellSheet.#onCastSpell
+      editImage:    editImageAction,
+      castSpell:    SpellSheet.#onCastSpell,
+      createEffect: SpellSheet.#onCreateEffect,
+      editEffect:   SpellSheet.#onEditEffect,
+      deleteEffect: SpellSheet.#onDeleteEffect,
     }
   };
 
   get title() { return this.document.name; }
 
   static PARTS = {
-    header: { template: "systems/exalted2e/templates/item/spell/header.hbs" },
-    body:   { template: "systems/exalted2e/templates/item/spell/body.hbs", scrollable: [".sheet-body"] }
+    header:     { template: "systems/exalted2e/templates/item/spell/header.hbs" },
+    tabs:       { classes: ["tabs-right"], template: "systems/exalted2e/templates/item/spell/tabs.hbs" },
+    tabBody:    { template: "systems/exalted2e/templates/item/spell/body.hbs", scrollable: [".sheet-body"] },
+    tabEffects: { template: "systems/exalted2e/templates/item/spell/tab-effects.hbs", scrollable: [""] }
   };
 
   async _prepareContext(options) {
@@ -38,7 +41,11 @@ export class SpellSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const item    = this.document;
     const sys     = item.system;
 
-    // ── Cast button state ──────────────────────────────────────────────
+    const tabs = {
+      tabBody:    { id: "tabBody",    group: "sheet", icon: "fa-solid fa-scroll",   label: game.i18n.localize("EX2E.TabGeneral"),  cssClass: this.tabGroups.sheet === "tabBody"    ? "active" : "" },
+      tabEffects: { id: "tabEffects", group: "sheet", icon: "fa-solid fa-sparkles", label: game.i18n.localize("EX2E.TabEffects"),  cssClass: this.tabGroups.sheet === "tabEffects" ? "active" : "" }
+    };
+
     const castButton = this._computeCastButtonState();
 
     return {
@@ -46,6 +53,7 @@ export class SpellSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       item,
       system:       sys,
       config:       EX2E,
+      tabs,
       traditionChoices: [
         { value: "sorcery",    label: game.i18n.localize("EX2E.TraditionSorcery") },
         { value: "necromancy", label: game.i18n.localize("EX2E.TraditionNecromancy") },
@@ -55,6 +63,17 @@ export class SpellSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       durations: Object.entries(EX2E.durations).map(([k,v]) => ({
         value: k, label: game.i18n.localize(v)
       })),
+      subtypeChoices: [
+        { value: "",                label: game.i18n.localize("EX2E.SpellSubtypeNone") },
+        { value: "ghost-summoning", label: game.i18n.localize("EX2E.SpellSubtypeGhostSummoning") },
+        { value: "demon-summoning", label: game.i18n.localize("EX2E.SpellSubtypeDemonSummoning") },
+      ],
+      effects: item.effects.contents.map(e => ({
+        id:           e.id,
+        name:         e.name,
+        icon:         e.icon ?? "icons/svg/aura.svg",
+        changesCount: (e.changes ?? []).length,
+      })),
       isEditable:  this.isEditable,
       enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description, {
         secrets: this.document.isOwner, relativeTo: this.document
@@ -63,32 +82,41 @@ export class SpellSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     };
   }
 
-  /**
-   * Compute the Cast button's UI state. Delegates to the shared
-   * computeSpellCastButtonState helper so the spell-sheet's button and
-   * the character-sheet's Charms-tab spell-row activate button stay
-   * consistent.
-   */
   _computeCastButtonState() {
     return computeSpellCastButtonState(this.document);
   }
 
-  /**
-   * Cast button click — delegates to the shared cast-spell flow.
-   * The flow handles all branching (continue / cast / first-shape with
-   * dialog) and is also called by the Charms tab spell-row "cast" button
-   * via CharacterSheet.#onActivateCharm.
-   */
   static async #onCastSpell(_event, _target) {
     const { castSpellFlow } = await import("../../ui/cast-spell-flow.mjs");
     await castSpellFlow(this.document);
   }
 
-  /**
-   * The circle dropdown re-labels based on tradition:
-   *   sorcery    → Terrestrial / Celestial / Solar
-   *   necromancy → Shadowlands / Labyrinth / Void
-   */
+  static async #onCreateEffect(_event, _target) {
+    await this.document.createEmbeddedDocuments("ActiveEffect", [{
+      name: game.i18n.localize("EX2E.NewEffect"),
+      icon: "icons/svg/aura.svg",
+    }]);
+  }
+
+  static async #onEditEffect(_event, target) {
+    const ae = this.document.effects.get(target.dataset.effectId);
+    ae?.sheet?.render(true);
+  }
+
+  static async #onDeleteEffect(_event, target) {
+    const ae = this.document.effects.get(target.dataset.effectId);
+    await ae?.delete();
+  }
+
+  async _preparePartContext(partId, context, options) {
+    context = await super._preparePartContext(partId, context, options);
+    context.partId = partId;
+    if (partId.startsWith("tab")) {
+      context.cssClass = this.tabGroups.sheet === partId ? "active" : "";
+    }
+    return context;
+  }
+
   _circleChoicesFor(tradition) {
     const keys = tradition === "necromancy"
       ? ["CircleShadowlands", "CircleLabyrinth", "CircleVoid"]
