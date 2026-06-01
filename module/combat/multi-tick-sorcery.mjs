@@ -320,26 +320,26 @@ export async function _createSpellEffectAe(actor, spell) {
       disabled: false,
       flags:    { exalted2e: { spellEffect: spellFlags } }
     }]);
+  }
 
-    // ── Copy embedded AEs to target ──────────────────────────────────────
-    if (spell.effects.size > 0) {
-      const { pickTargetActor } = await import("../helpers/targeting.mjs");
-      const target = game.user.targets.first()?.actor ?? await pickTargetActor();
-      if (target) {
-        const aeData = spell.effects.contents.map(ae => ({
-          name:     ae.name,
-          icon:     ae.icon ?? "icons/svg/aura.svg",
-          changes:  ae.changes ?? [],
-          origin:   spell.uuid,
-          transfer: false,
-          disabled: false,
-          flags:    { exalted2e: { spellEffect: spellFlags } }
-        }));
-        await target.createEmbeddedDocuments("ActiveEffect", aeData);
-        ui.notifications.info(
-          game.i18n.format("EX2E.SpellEffectApplied", { target: target.name })
-        );
-      }
+  // ── Copy embedded AEs to target (runs for any duration) ─────────────
+  if (spell.effects.size > 0) {
+    const { pickTargetActor } = await import("../helpers/targeting.mjs");
+    const target = game.user.targets.first()?.actor ?? await pickTargetActor();
+    if (target) {
+      const aeData = spell.effects.contents.map(ae => ({
+        name:     ae.name,
+        icon:     ae.icon ?? "icons/svg/aura.svg",
+        changes:  ae.changes ?? [],
+        origin:   spell.uuid,
+        transfer: false,
+        disabled: false,
+        flags:    { exalted2e: { spellEffect: spellFlags } }
+      }));
+      await target.createEmbeddedDocuments("ActiveEffect", aeData);
+      ui.notifications.info(
+        game.i18n.format("EX2E.SpellEffectApplied", { target: target.name })
+      );
     }
   }
 

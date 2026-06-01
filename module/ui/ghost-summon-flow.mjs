@@ -124,7 +124,7 @@ class GhostContestApp extends HandlebarsApplicationMixin(ApplicationV2) {
     if      (this.#casterWp <= 0) this.#outcome = "ghost";
     else if (this.#ghostWp  <= 0) this.#outcome = "caster";
 
-    this.render();
+    this.render({ force: true });
   }
 
   static async #onConclude() {
