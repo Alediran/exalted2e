@@ -36,7 +36,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] DV refresh tracking — AE-driven, cleared when the combatant's turn starts
 - [x] Onslaught penalty (−1 DV per attack received; reuse the DV-penalty AE plumbing)
 - [x] **Coordinated attacks** (leader Cha+War, target DV reduced by successes cap unit size)
-- [ ] **Mounted combat** (Ride-controlled mount stats, charge bonuses, lance mechanics, Ride charms per splat)
+- [x] **Mounted combat** (Ride-controlled mount stats, charge bonuses, lance mechanics, Ride charms per splat) — vehicle actor type + Ride cap on all combat rolls and DVs; vehicle weapons usable from cockpit; mount/dismount from Combat tab, persists outside combat
 - [~] Cover modifiers — light/heavy cover AE-based DV bonus framework implemented; buckler/tower shield items pending
 - [x] Height advantage — custom `heightAdvantage` status effect with `dvBonus: { dodge: 1, parry: 1 }` + compendium seeder entry
 - [x] **Multi-tick action container** — for shaping sorcery, Aim banking across ticks, clinch renewal, extra-action charm flurries with their own tick scheduling
@@ -294,7 +294,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] **Poison** item type (damage, damageType, interval, duration, vector; no mechanics yet)
 - [x] **Disease** item type (morbidity, trauma, duration, vector; no mechanics yet)
 - [x] **Drug** item type (effect, duration, addiction; no mechanics yet)
-- [ ] **Vehicle / Warstrider** actor type (First Age magitech)
+- [x] **Vehicle / Warstrider** actor type (First Age magitech)
 - [x] **Unit** actor type for mass combat
 - [~] Background mechanical hooks — Familiar (actor link, species, bond rating, linked actor creation into The Circle/Familiars) and Cult (mote regen / WP recovery from dot rating) done; 53-type registry with optgroup display; Backing / Contacts / Resources mechanical automation still pending
 - [x] Willpower recovery on virtue channel success (no recovery per rules; WP spent is the cost)

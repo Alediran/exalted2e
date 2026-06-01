@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-30 (thaumaturgy done; count 1 A / 24 B / 3 C / 28 total)
+Last updated: 2026-05-31 (mounted combat + vehicle/warstrider done; count 1 A / 24 B / 1 C / 26 total)
 
 ---
 
@@ -51,8 +51,6 @@ Last updated: 2026-05-30 (thaumaturgy done; count 1 A / 24 B / 3 C / 28 total)
 
 | Item | TODO Section | Why complex |
 |------|-------------|-------------|
-| Mounted combat | Combat | Ride-controlled mount stats, charge bonuses, Ride charm integration |
-| Vehicle / Warstrider actor type | Other | new actor type with unique soak/movement/weapon-mount mechanics |
 | Migration pipeline | QoL | schema versioning, upgrade scripts, DataModel migration hooks |
 
 ---
@@ -65,5 +63,5 @@ Last updated: 2026-05-30 (thaumaturgy done; count 1 A / 24 B / 3 C / 28 total)
 |-------|-------|
 | A — Ready, Simple | 1 |
 | B — Ready, Medium | 24 |
-| C — Ready, Complex | 3 |
-| **Total pending** | **28** |
+| C — Ready, Complex | 1 |
+| **Total pending** | **26** |
