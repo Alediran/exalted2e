@@ -619,6 +619,15 @@ ${capWarning}`;
         await this.sendToChat({ activation: ledger });
       }
     }
+
+    // Blasphemy alert: notify GM when an Infernal activates a Blasphemy charm.
+    if (!turningOff
+        && (this.system.keywords ?? []).includes("Blasphemy")
+        && actor.system.exaltType === "infernal") {
+      const { postBlasphemyAlert } = await import("../rolls/blasphemy.mjs");
+      await postBlasphemyAlert(actor, this);
+    }
+
     return true;
   }
 

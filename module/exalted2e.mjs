@@ -611,6 +611,7 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/actor/character/tab-thaumaturgy.hbs",
     "systems/exalted2e/templates/actor/vehicle/header.hbs",
     "systems/exalted2e/templates/actor/vehicle/body.hbs",
+    "systems/exalted2e/templates/chat/blasphemy-alert.hbs",
   ];
   return foundry.applications.handlebars.loadTemplates(templatePaths);
 }
@@ -4591,6 +4592,25 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
     } catch (err) {
       console.error("exalted2e | hazard resistance roll failed", err);
       b.disabled = false;
+    }
+  });
+});
+
+Hooks.on("renderChatMessageHTML", (message, html) => {
+  const el  = html instanceof HTMLElement ? html : html[0] ?? html;
+  const btn = el.querySelector("[data-action='rollBlasphemySensing']");
+  if (!btn) return;
+  btn.addEventListener("click", async () => {
+    if (!game.user.isGM) return;
+    const infernalId = btn.dataset.infernalId;
+    const essence    = parseInt(btn.dataset.essence) || 1;
+    btn.disabled = true;
+    try {
+      const { rollBlasphemySensing } = await import("./rolls/blasphemy.mjs");
+      await rollBlasphemySensing(infernalId, essence);
+    } catch (err) {
+      console.error("EX2E | rollBlasphemySensing failed:", err);
+      btn.disabled = false;
     }
   });
 });

@@ -1,0 +1,33 @@
+<div class="chat-card blasphemy-alert ex2e-roll-card">
+  <h3 class="card-header">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    {{localize "EX2E.BlasphemyAlertHeader"}}
+  </h3>
+  <div class="card-content">
+    <div class="blasphemy-row" style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
+      <img src="{{charmImg}}" class="item-img" alt="{{charmName}}">
+      <div>
+        <strong>{{infernalName}}</strong>
+        ({{localize "EX2E.BlasphemyEssence"}}: {{essence}})
+        — <em>{{charmName}}</em>
+      </div>
+    </div>
+    {{#if sceneName}}
+    <p class="blasphemy-scene" style="margin:2px 0">
+      {{localize "EX2E.BlasphemyScene"}}: <strong>{{sceneName}}</strong>
+    </p>
+    {{/if}}
+    <p class="blasphemy-difficulty" style="margin:2px 0">
+      {{localize "EX2E.BlasphemySensingDifficulty"}}: <strong>{{difficulty}}</strong>
+    </p>
+  </div>
+  <div class="card-footer" style="margin-top:8px">
+    <button type="button"
+            data-action="rollBlasphemySensing"
+            data-infernal-id="{{infernalId}}"
+            data-essence="{{essence}}">
+      <i class="fa-solid fa-eye"></i>
+      {{localize "EX2E.BlasphemyRollSensing"}}
+    </button>
+  </div>
+</div>
