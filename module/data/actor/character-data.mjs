@@ -333,6 +333,17 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
         note:       new fields.StringField({ initial: "", blank: true })
       })),
 
+      // ── Training ledger ─────────────────────────────────────────────────────
+      // Records charms currently in training. XP is already spent; the charm
+      // is locked for activation until the GM clicks "Complete Training".
+      trainingLedger: new fields.ArrayField(new fields.SchemaField({
+        charmId:   new fields.StringField({ initial: "", blank: true }),
+        charmName: new fields.StringField({ initial: "", blank: true }),
+        img:       new fields.StringField({ initial: "", blank: true }),
+        xpCost:    new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        startDate: new fields.NumberField({ initial: 0, integer: true }),
+      })),
+
       // ── Charm-effect bonus receivers ────────────────────────────────────────
       // Written by AEs created during charm activation (Plan 3). All default to 0
       // so existing characters are unaffected by this schema change.

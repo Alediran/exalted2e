@@ -177,6 +177,21 @@ export class ExaltedItem extends Item {
       }
     }
 
+    // ── Training gate ──────────────────────────────────────────────────────
+    // A charm in the training ledger cannot be activated until training is
+    // marked complete by the GM.
+    if (!turningOff && this.type === "charm") {
+      const inTraining = (actor.system.trainingLedger ?? []).some(
+        e => e.charmId === this.id
+      );
+      if (inTraining) {
+        ui.notifications.warn(
+          game.i18n.format("EX2E.TrainingNotComplete", { name: this.name })
+        );
+        return false;
+      }
+    }
+
     // ── Form-type charm: one-at-a-time enforcement ────────────────────────
     // For toggle-on: enforce one-Form-at-a-time; deactivate any existing Form
     //   first, then fall through to the normal path (costs, weapon artifacts,

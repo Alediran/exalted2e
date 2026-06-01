@@ -75,5 +75,38 @@
       </tbody>
     </table>
 
+    {{#if trainingEntries.length}}
+    <h2 class="section-header" style="margin-top:16px">{{localize "EX2E.TrainingSection"}}</h2>
+    <table class="purchase-log-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>{{localize "EX2E.TrainingCharm"}}</th>
+          <th>{{localize "EX2E.TrainingXP"}}</th>
+          <th>{{localize "EX2E.TrainingStartDate"}}</th>
+          {{#if @root.isGM}}<th></th>{{/if}}
+        </tr>
+      </thead>
+      <tbody>
+        {{#each trainingEntries as |entry|}}
+        <tr>
+          <td><img src="{{entry.img}}" class="item-img"></td>
+          <td>{{entry.charmName}}</td>
+          <td>{{entry.xpCost}} XP</td>
+          <td>{{entry.dateText}}</td>
+          {{#if @root.isGM}}
+          <td>
+            <button type="button" data-action="completeTraining"
+                    data-training-index="{{entry.index}}">
+              {{localize "EX2E.TrainingComplete"}}
+            </button>
+          </td>
+          {{/if}}
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{/if}}
+
   </div>
 </div>

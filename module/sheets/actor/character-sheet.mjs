@@ -215,6 +215,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       openCharmTree:            CharacterSheet.#onOpenCharmTree,
       coverArtifactAttunement:  CharacterSheet.#onCoverArtifactAttunement,
       addCripplingInjury:       CharacterSheet.#onAddCripplingInjury,
+      startTraining:    CharacterSheet.#onStartTraining,
+      completeTraining: CharacterSheet.#onCompleteTraining,
       deleteCripplingInjury:    CharacterSheet.#onDeleteCripplingInjury,
       applyActivityFatigue:     CharacterSheet.#onApplyActivityFatigue,
       rollArmorFatigue:         CharacterSheet.#onRollArmorFatigue,
@@ -704,6 +706,23 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const rawLog = sys.purchaseLog ?? [];
     const totalEarned = Number(sys.experience?.total ?? 0);
     let runningSum = 0;
+    // ── Training ledger ─────────────────────────────────────────────────────
+    const trainingEntries = (actor.system.trainingLedger ?? []).map((e, i) => ({
+      ...e,
+      index:    i,
+      dateText: e.startDate ? new Date(e.startDate).toLocaleDateString() : "—",
+    }));
+    const trainingCharmIds = Object.fromEntries(
+      (actor.system.trainingLedger ?? []).map(e => [e.charmId, true])
+    );
+    const trainableCharmIds = Object.fromEntries(
+      actor.items
+        .filter(i => i.type === "charm"
+          && (i.system.keywords ?? []).includes("Training")
+          && !trainingCharmIds[i.id])
+        .map(i => [i.id, true])
+    );
+
     const purchaseLogRows = rawLog.map((e, i) => {
       runningSum += Number(e.xpCost) || 0;
       return {
@@ -949,6 +968,9 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       virtueFlaw,
       urgeItem,
       effects,
+      trainingEntries,
+      trainingCharmIds,
+      trainableCharmIds,
       purchaseLogRows,
       canEditXp,
       xpCostRows,
@@ -2507,6 +2529,66 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         game.i18n.format("EX2E.FatigueArmorResisted", { difficulty, successes: result.successes })
       );
     }
+  }
+
+  static async #onStartTraining(_event, target) {
+    const actor  = this.document;
+    const itemId = target.dataset.itemId;
+    const charm  = actor.items.get(itemId);
+    if (!charm) return;
+
+    const alreadyTraining = (actor.system.trainingLedger ?? []).some(e => e.charmId === charm.id);
+    if (alreadyTraining) return;
+
+    const { computeXpCost } = await import("../../helpers/xp-costs.mjs");
+    const xp = computeXpCost(actor, { kind: "item", item: charm }).xp ?? 0;
+
+    const confirmed = await foundry.applications.api.DialogV2.confirm({
+      window:  { title: game.i18n.localize("EX2E.TrainingStartTitle") },
+      content: `<p>${game.i18n.format("EX2E.TrainingStartBody", { name: charm.name, xp })}</p>`,
+      yes: { label: game.i18n.localize("EX2E.TrainingConfirm") },
+      no:  { label: game.i18n.localize("EX2E.Cancel") },
+    });
+    if (!confirmed) return;
+
+    const currentXp = Number(actor.system.experience?.value) || 0;
+    await actor.update({ "system.experience.value": currentXp - xp });
+
+    const ledger = foundry.utils.deepClone(actor.system.trainingLedger ?? []);
+    ledger.push({
+      charmId:   charm.id,
+      charmName: charm.name,
+      img:       charm.img,
+      xpCost:    xp,
+      startDate: Date.now(),
+    });
+    await actor.update({ "system.trainingLedger": null });
+    await actor.update({ "system.trainingLedger": ledger });
+
+    await ChatMessage.create({
+      content: `<p>${game.i18n.format("EX2E.TrainingStarted", { actor: actor.name, charm: charm.name })}</p>`,
+      speaker: ChatMessage.getSpeaker({ actor }),
+    });
+  }
+
+  static async #onCompleteTraining(_event, target) {
+    if (!game.user.isGM) return;
+    const actor = this.document;
+    const idx   = parseInt(target.dataset.trainingIndex);
+    if (isNaN(idx)) return;
+
+    const ledger = foundry.utils.deepClone(actor.system.trainingLedger ?? []);
+    const entry  = ledger[idx];
+    if (!entry) return;
+
+    ledger.splice(idx, 1);
+    await actor.update({ "system.trainingLedger": null });
+    await actor.update({ "system.trainingLedger": ledger });
+
+    await ChatMessage.create({
+      content: `<p>${game.i18n.format("EX2E.TrainingCompleted", { actor: actor.name, charm: entry.charmName })}</p>`,
+      speaker: ChatMessage.getSpeaker({ actor }),
+    });
   }
 
   static async #onAddCripplingInjury() {

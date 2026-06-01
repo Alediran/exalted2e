@@ -125,6 +125,19 @@
             <i class="fa-solid fa-heart-pulse"></i>
           </button>
           {{/if}}
+          {{#if (lookup @root.trainingCharmIds charm.id)}}
+          <span class="training-badge" title="{{localize 'EX2E.TrainingInProgress'}}">
+            <i class="fa-solid fa-lock"></i>
+          </span>
+          {{/if}}
+          {{#if (lookup @root.trainableCharmIds charm.id)}}
+          {{#if @root.isEditable}}
+          <button type="button" data-action="startTraining" data-item-id="{{charm.id}}"
+                  title="{{localize 'EX2E.TrainingStart'}}">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </button>
+          {{/if}}
+          {{/if}}
           <button type="button" data-action="activateCharm" title="{{localize 'EX2E.ActivateCharm'}}">⚡</button>
           <button data-action="sendItemToChat" title="{{localize 'EX2E.SendToChat'}}">💬</button>
           {{#if @root.isEditable}}
