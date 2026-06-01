@@ -75,7 +75,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Merged keyword (learn once, usable across listed Abilities)
 - [x] Martial / Martial-ready gating (weapon tag + min-ability bypass via `isWeaponValidForStyle` / `canBypassMinAbility`; enforced at attack time)
 - [x] Heretical keyword (Infernal GSP-only enforcement)
-- [ ] Blasphemy / Axiomatic / Dawn-keyword splat-specific damage upgrades (mirror of Holy)
+- [x] Blasphemy / Axiomatic / Dawn-keyword splat-specific damage upgrades — Axiomatic: Aggravated vs Creatures of the Void + activation guard; Dawn: 8 XP flat for Dawn Caste Solars; Blasphemy: GM-whisper alert card + Roll Sensing button for nearby Celestials
 
 ## Charms
 - [x] Attack tab on charm sheet (Instant rolls directly; longer durations spawn a weapon + tracking AE)

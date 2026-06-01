@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-05-31 (mounted combat + vehicle/warstrider done; count 1 A / 24 B / 1 C / 26 total)
+Last updated: 2026-06-01 (Blasphemy/Axiomatic/Dawn done; count 1 A / 23 B / 1 C / 25 total)
 
 ---
 
@@ -19,7 +19,6 @@ Last updated: 2026-05-31 (mounted combat + vehicle/warstrider done; count 1 A / 
 
 | Item | TODO Section | Key concern |
 |------|-------------|-------------|
-| Blasphemy / Axiomatic / Dawn damage upgrades | Keywords | mirror of Holy, splat-specific target condition |
 | Training keyword XP debt ledger | Keywords | per-actor debt AE or item field — [charms-gap A8](docs/charms-gap.md) |
 | Merged keyword (learn-once, multi-ability) | Keywords | charm activation routing extension |
 | Spell-specific duration/effect payloads | Sorcery | per-spell AE-like target effects; requires per-spell schema extension |
@@ -62,6 +61,6 @@ Last updated: 2026-05-31 (mounted combat + vehicle/warstrider done; count 1 A / 
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 24 |
+| B — Ready, Medium | 23 |
 | C — Ready, Complex | 1 |
-| **Total pending** | **26** |
+| **Total pending** | **25** |
