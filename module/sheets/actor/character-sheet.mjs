@@ -208,9 +208,10 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       deleteArtifactProject:     CharacterSheet.#onDeleteArtifactProject,
       toggleArtifactIngredients: CharacterSheet.#onToggleArtifactIngredients,
       openFamiliarActor:     CharacterSheet.#onOpenFamiliarActor,
-      openLinkedVehicle: CharacterSheet.#onOpenLinkedVehicle,
-      mountVehicle:      CharacterSheet.#onMountVehicle,
-      dismountVehicle:   CharacterSheet.#onDismountVehicle,
+      openLinkedVehicle:      CharacterSheet.#onOpenLinkedVehicle,
+      mountVehicle:           CharacterSheet.#onMountVehicle,
+      dismountVehicle:        CharacterSheet.#onDismountVehicle,
+      mountVehicleFromScene:  CharacterSheet.#onMountVehicleFromScene,
       openCharmTree:            CharacterSheet.#onOpenCharmTree,
       coverArtifactAttunement:  CharacterSheet.#onCoverArtifactAttunement,
       addCripplingInjury:       CharacterSheet.#onAddCripplingInjury,
@@ -564,8 +565,10 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const manses       = actor.items.filter(i => i.type === "manse")      .sort((a,b) => a.name.localeCompare(b.name));
 
     // ── Linked vehicles ──────────────────────────────────────────────────
-    const _mountedOnFlag = game.combat?.combatants
-      .find(c => c.actorId === actor.id)?.flags?.exalted2e?.mountedOn ?? null;
+    const _mountedOnFlag = actor.flags?.exalted2e?.mountedOn ?? null;
+    const mountedVehicle = _mountedOnFlag?.vehicleActorId
+      ? (game.actors?.get(_mountedOnFlag.vehicleActorId) ?? null)
+      : null;
     const _bgVehicles = actor.items
       .filter(i => i.type === "background" && i.system.linkedActorId)
       .flatMap(i => {
@@ -974,6 +977,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       artifactSlotMap,
       maStyles,
       linkedVehicles,
+      mountedVehicle,
       craftAbilities,
       craftingProjects,
       artifactProjects,
@@ -2314,6 +2318,37 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     await actor.update({ "system.artifactProjects": projects });
   }
 
+  static async #onMountVehicleFromScene(_event, _target) {
+    const actor = this.document;
+    // Collect vehicle actors that have a token on the current scene.
+    const sceneVehicles = (canvas.scene?.tokens?.contents ?? [])
+      .map(t => t.actor)
+      .filter(a => a?.type === "vehicle" && a.id !== actor.id);
+
+    if (!sceneVehicles.length) {
+      ui.notifications.warn(game.i18n.localize("EX2E.MountNoVehicles"));
+      return;
+    }
+
+    const options = sceneVehicles
+      .map(v => `<option value="${v.id}">${v.name}</option>`)
+      .join("");
+    const selected = await foundry.applications.api.DialogV2.prompt({
+      window:  { title: game.i18n.localize("EX2E.MountSection") },
+      content: `<div class="form-group">
+        <label>${game.i18n.localize("EX2E.MountSelectVehicle")}</label>
+        <select name="vehicleId">${options}</select>
+      </div>`,
+      ok: {
+        label:    game.i18n.localize("EX2E.MountVehicle"),
+        callback: (_ev, btn) => btn.form?.elements?.vehicleId?.value ?? null
+      }
+    });
+    if (!selected) return;
+
+    await actor.setFlag("exalted2e", "mountedOn", { vehicleActorId: selected });
+  }
+
   static #onOpenLinkedVehicle(_event, target) {
     const actor = game.actors?.get(target.dataset.vehicleId);
     actor?.sheet.render(true);
@@ -2322,18 +2357,11 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static async #onMountVehicle(_event, target) {
     const vehicleActorId = target.dataset.vehicleId;
     if (!vehicleActorId) return;
-    const combatant = game.combat?.combatants.find(c => c.actorId === this.document.id);
-    if (!combatant) {
-      ui.notifications.warn(game.i18n.localize("EX2E.MountNotInCombat"));
-      return;
-    }
-    await combatant.setFlag("exalted2e", "mountedOn", { vehicleActorId });
+    await this.document.setFlag("exalted2e", "mountedOn", { vehicleActorId });
   }
 
   static async #onDismountVehicle(_event, _target) {
-    const combatant = game.combat?.combatants.find(c => c.actorId === this.document.id);
-    if (!combatant) return;
-    await combatant.unsetFlag("exalted2e", "mountedOn");
+    await this.document.unsetFlag("exalted2e", "mountedOn");
   }
 
   static #onOpenFamiliarActor(_event, target) {

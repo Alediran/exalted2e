@@ -206,5 +206,27 @@
     {{/if}}
     {{/if}}
 
+    <!-- ═══════════════ MOUNT / VEHICLE ═══════════════ -->
+    <h2 class="section-header">{{localize "EX2E.MountSection"}}</h2>
+    {{#if mountedVehicle}}
+    <div class="soak-row">
+      <span class="soak-label">{{localize "EX2E.MountedOn"}}: <strong>{{mountedVehicle.name}}</strong></span>
+    </div>
+    <div class="action-button-row">
+      <button type="button" data-action="dismountVehicle">
+        {{localize "EX2E.DismountVehicle"}}
+      </button>
+      <button type="button" data-action="openLinkedVehicle" data-vehicle-id="{{mountedVehicle.id}}">
+        <i class="fa-solid fa-external-link"></i> {{mountedVehicle.name}}
+      </button>
+    </div>
+    {{else}}
+    <div class="action-button-row">
+      <button type="button" data-action="mountVehicleFromScene">
+        {{localize "EX2E.MountVehicle"}}
+      </button>
+    </div>
+    {{/if}}
+
   </div><!-- .sheet-body -->
 </div><!-- .tab -->

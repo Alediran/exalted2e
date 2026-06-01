@@ -2166,14 +2166,8 @@ Hooks.on("deleteCombat", async (combat) => {
     const heldCombatant = combat.combatants.get(heldId);
     await releaseClinch(controller, heldCombatant);
   }
-
-  // Clear mountedOn flags when combat ends.
-  for (const combatant of combat.combatants) {
-    if (combatant.flags?.exalted2e?.mountedOn) {
-      await combatant.unsetFlag("exalted2e", "mountedOn").catch(() => {});
-    }
-  }
 });
+// mountedOn is stored on the actor flag and persists until explicitly dismounted.
 
 Hooks.on("deleteCombatant", async (combatant) => {
   const clinchFlag = combatant.flags?.exalted2e?.clinch;
@@ -2190,11 +2184,6 @@ Hooks.on("deleteCombatant", async (combatant) => {
   }
 });
 
-Hooks.on("deleteCombatant", async (combatant) => {
-  if (combatant.flags?.exalted2e?.mountedOn) {
-    await combatant.unsetFlag("exalted2e", "mountedOn").catch(() => {});
-  }
-});
 
 export async function _resolveLimitBreak(message, choice) {
   const lb = message.flags?.exalted2e?.limitBreak;

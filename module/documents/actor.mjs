@@ -640,8 +640,7 @@ export class ExaltedActor extends Actor {
 
     // Ride cap when mounted: Dodge DV = (Dex + min(Dodge, Ride)) / 2 + bonuses.
     if (this.type === "character") {
-      const combatant = game.combat?.combatants?.find(c => c.actorId === this.id);
-      if (combatant?.flags?.exalted2e?.mountedOn) {
+      if (this.flags?.exalted2e?.mountedOn) {
         const dexVal   = s.attributes?.dexterity?.value ?? 0;
         const dodgeVal = s.abilities?.dodge?.value      ?? 0;
         const rideVal  = s.abilities?.ride?.value       ?? 0;
@@ -666,8 +665,7 @@ export class ExaltedActor extends Actor {
 
     // Ride cap when mounted: Parry DV = (Dex + min(Melee+spec, Ride) + weaponDef) / 2 + bonuses.
     if (this.type === "character") {
-      const combatant = game.combat?.combatants?.find(c => c.actorId === this.id);
-      if (combatant?.flags?.exalted2e?.mountedOn) {
+      if (this.flags?.exalted2e?.mountedOn) {
         const dexVal   = s.attributes?.dexterity?.value ?? 0;
         const meleeVal = s.abilities?.melee?.value      ?? 0;
         const rideVal  = s.abilities?.ride?.value       ?? 0;

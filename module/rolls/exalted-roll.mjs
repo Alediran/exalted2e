@@ -204,10 +204,9 @@ export class ExaltedRoll {
     const defaultAttr = attribute || sys.abilities[ability]?.defaultAttribute || "dexterity";
     let abilVal = options.effectiveAbilityValue ?? sys.abilities[ability]?.value ?? 0;
 
-    // Ride cap: when mounted in combat, no combat ability may exceed Ride.
+    // Ride cap: when mounted, no combat ability may exceed Ride.
     if (ability !== "ride") {
-      const _rideCombatant = game.combat?.combatants?.find(c => c.actorId === actor.id);
-      if (_rideCombatant?.flags?.exalted2e?.mountedOn) {
+      if (actor.flags?.exalted2e?.mountedOn) {
         const { computeRideCappedAbility } = await import("./mounted-combat.mjs");
         const rideVal = sys.abilities?.ride?.value ?? 0;
         abilVal = computeRideCappedAbility(abilVal, rideVal);
@@ -545,8 +544,7 @@ export class ExaltedRoll {
 
     // Ride cap: when mounted, ability capped at Ride.
     if (baseAbility !== "ride") {
-      const _rideCombatant = game.combat?.combatants?.find(c => c.actorId === actor.id);
-      if (_rideCombatant?.flags?.exalted2e?.mountedOn) {
+      if (actor.flags?.exalted2e?.mountedOn) {
         const { computeRideCappedAbility } = await import("./mounted-combat.mjs");
         abilVal = computeRideCappedAbility(abilVal, sys.abilities?.ride?.value ?? 0);
       }

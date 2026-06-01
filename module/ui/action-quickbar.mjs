@@ -685,7 +685,7 @@ export class ActionQuickbar {
 
   /** Weapon modes from the vehicle the current combatant is mounted on. */
   _vehicleModes(current) {
-    const mountedOn = current?.flags?.exalted2e?.mountedOn;
+    const mountedOn = current?.actor?.flags?.exalted2e?.mountedOn;
     if (!mountedOn?.vehicleActorId) return [];
     const vehicle = game.actors?.get(mountedOn.vehicleActorId);
     if (!vehicle || vehicle.type !== "vehicle") return [];
