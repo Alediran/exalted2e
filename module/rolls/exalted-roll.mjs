@@ -13,6 +13,7 @@ import {
   computeAttackPool,
   computeAimBonus,
   computeHolyUpgrade,
+  computeAxiomaticUpgrade,
   computeAttackOutcome
 } from "./attack-math.mjs";
 import { computeAttackExcellencyCaps } from "./excellency-math.mjs";
@@ -1038,8 +1039,8 @@ export class ExaltedRoll {
     const upgrade = computeHolyUpgrade({
       isHolyAttack, targetIsCoD, baseDamageType: mode.damageType
     });
-    const finalDamageType = upgrade.finalDamageType;
-    const holyUpgraded    = upgrade.holyUpgraded;
+    let finalDamageType = upgrade.finalDamageType;
+    const holyUpgraded  = upgrade.holyUpgraded;
     if (holyUpgraded && targetActor) {
       // Re-read soak for the upgraded damage column; aggravated ignores Hardness.
       const tSys = targetActor.system;
@@ -1051,6 +1052,30 @@ export class ExaltedRoll {
         targetArmorSoak = 0;
       }
       targetHardness = 0;
+    }
+
+    // ── Axiomatic upgrade (Creature of the Void) ─────────────────────────
+    const isAxiomaticAttack = activatedKeywords.has("Axiomatic");
+    const targetIsVoid      = !!targetActor?.effects?.some(
+      e => !e.disabled && e.flags?.exalted2e?.creatureOfVoid === true
+    );
+    const axiomaticUpgrade  = computeAxiomaticUpgrade({
+      isAxiomaticAttack, targetIsVoid, baseDamageType: finalDamageType
+    });
+    const axiomaticUpgraded = axiomaticUpgrade.axiomaticUpgraded;
+    if (axiomaticUpgraded) {
+      finalDamageType = axiomaticUpgrade.finalDamageType;
+      if (targetActor) {
+        const tSys = targetActor.system;
+        if (targetActor.type === "character") {
+          targetSoak      = tSys.totalSoak?.[finalDamageType] ?? 0;
+          targetArmorSoak = tSys.armorSoak?.[finalDamageType] ?? 0;
+        } else if (targetActor.type === "npc") {
+          targetSoak      = tSys.combat?.soak?.[finalDamageType] ?? 0;
+          targetArmorSoak = 0;
+        }
+        targetHardness = 0;
+      }
     }
 
     targetSoak += terrainBonus.defenderSoakBonus;
@@ -1107,8 +1132,9 @@ export class ExaltedRoll {
       damageTypeLabel:     `${typeSuffix}${overwhelmingSuffix}`,
       // Originating type before the Holy-vs-CoD upgrade, plus a flag the
       // card uses to surface the upgrade. Unset for normal attacks.
-      originalDamageType:  holyUpgraded ? mode.damageType : null,
+      originalDamageType:  (holyUpgraded || axiomaticUpgraded) ? mode.damageType : null,
       holyUpgraded,
+      axiomaticUpgraded,
       // Instant-duration charm attacks publish their full damage value —
       // Strength isn't auto-added, same spirit as the accuracy rule above.
       // Longer-duration charms drop a real weapon and get the default

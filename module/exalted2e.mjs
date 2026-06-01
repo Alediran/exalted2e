@@ -1152,6 +1152,22 @@ const _EFFECT_WRAPPER_SEEDS = [
       statuses: ["heightAdvantage"],
       description: "+1 Dodge DV and +1 Parry DV while on higher ground. Attacks from below are harder to land."
     }
+  },
+  {
+    name: "EX2E.CreatureOfVoid",
+    img:  "icons/svg/ice-aura.svg",
+    meritFlawType: "flaw",
+    effect: {
+      // Detection is flag-based (same as Creature of Darkness) so the token
+      // HUD does not expose the trait to observers.
+      flags: {
+        exalted2e: {
+          creatureOfVoid: true,
+          gmOnlyRemoval:  true
+        }
+      },
+      description: "Axiomatic-keyword attacks deal aggravated damage to this character instead of bashing or lethal."
+    }
   }
 ];
 

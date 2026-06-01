@@ -80,6 +80,25 @@ export function computeHolyUpgrade({ isHolyAttack, targetIsCoD, baseDamageType }
 }
 
 /**
+ * Axiomatic-vs-Creature-of-the-Void damage-type upgrade.
+ *
+ * Mirrors computeHolyUpgrade: Axiomatic charms deal aggravated damage to
+ * targets flagged as Creatures of the Void.
+ *
+ * @param {object} args
+ * @param {boolean} args.isAxiomaticAttack - Any activated charm carried the Axiomatic keyword
+ * @param {boolean} args.targetIsVoid  - Target has an enabled creatureOfVoid-flagged ActiveEffect
+ * @param {"bashing"|"lethal"|"aggravated"} args.baseDamageType
+ * @returns {{finalDamageType: string, axiomaticUpgraded: boolean}}
+ */
+export function computeAxiomaticUpgrade({ isAxiomaticAttack, targetIsVoid, baseDamageType }) {
+  if (isAxiomaticAttack && targetIsVoid) {
+    return { finalDamageType: "aggravated", axiomaticUpgraded: true };
+  }
+  return { finalDamageType: baseDamageType, axiomaticUpgraded: false };
+}
+
+/**
  * Compute the full template data object for the attack-result chat card.
  *
  * When `attack.defense` is NOT present (defense-pending state), returns

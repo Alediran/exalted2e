@@ -163,6 +163,20 @@ export class ExaltedItem extends Item {
       }
     }
 
+    // ── Axiomatic gate ─────────────────────────────────────────────────────
+    // Axiomatic charms cannot be used by creatures of the Void.
+    if (!turningOff && (this.system.keywords ?? []).includes("Axiomatic")) {
+      const isVoid = !!actor.effects?.some(
+        e => !e.disabled && e.flags?.exalted2e?.creatureOfVoid === true
+      );
+      if (isVoid) {
+        ui.notifications.warn(
+          game.i18n.format("EX2E.AxiomaticForbiddenForVoid", { name: this.name })
+        );
+        return false;
+      }
+    }
+
     // ── Form-type charm: one-at-a-time enforcement ────────────────────────
     // For toggle-on: enforce one-Form-at-a-time; deactivate any existing Form
     //   first, then fall through to the normal path (costs, weapon artifacts,

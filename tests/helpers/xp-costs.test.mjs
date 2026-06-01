@@ -630,3 +630,61 @@ describe("computeXpCost — craft variants", () => {
     expect(result.confident).toBe(true);
   });
 });
+
+// ── Dawn keyword XP discount ──────────────────────────────────────────────
+describe("computeXpCost — Dawn keyword discount", () => {
+  function makeDawnSolarWithCharm(abilityFavored, charmKeywords) {
+    const actor = makeActor({
+      exaltType: "solar",
+      caste: "dawn",
+      abilities: {
+        melee: { value: 3, caste: false, favored: abilityFavored }
+      }
+    });
+    const charm = {
+      type: "charm",
+      name: "Test Dawn Charm",
+      system: {
+        ability:     "melee",
+        exaltType:   "solar",
+        keywords:    charmKeywords,
+        isSubmodule: false,
+        purchaseXp:  0
+      }
+    };
+    return { actor, charm };
+  }
+
+  it("Dawn Caste Solar pays 8 XP for non-favored Dawn keyword charm", () => {
+    const { actor, charm } = makeDawnSolarWithCharm(false, ["Dawn"]);
+    const result = computeXpCost(actor, { kind: "item", item: charm });
+    expect(result.xp).toBe(8);
+    expect(result.confident).toBe(true);
+  });
+
+  it("Dawn Caste Solar pays 8 XP for already-Favored Dawn keyword charm", () => {
+    const { actor, charm } = makeDawnSolarWithCharm(true, ["Dawn"]);
+    const result = computeXpCost(actor, { kind: "item", item: charm });
+    expect(result.xp).toBe(8);
+    expect(result.confident).toBe(true);
+  });
+
+  it("Non-Dawn caste Solar pays 10 XP for non-favored Dawn keyword charm", () => {
+    const actor = makeActor({
+      exaltType: "solar", caste: "zenith",
+      abilities: { melee: { value: 3, caste: false, favored: false } }
+    });
+    const charm = {
+      type: "charm", name: "Test",
+      system: { ability: "melee", exaltType: "solar", keywords: ["Dawn"], isSubmodule: false, purchaseXp: 0 }
+    };
+    const result = computeXpCost(actor, { kind: "item", item: charm });
+    expect(result.xp).toBe(10);
+  });
+
+  it("Dawn Caste Solar pays 10 XP for non-favored charm WITHOUT Dawn keyword", () => {
+    const { actor, charm } = makeDawnSolarWithCharm(false, ["Holy"]);
+    const result = computeXpCost(actor, { kind: "item", item: charm });
+    expect(result.xp).toBe(10);
+  });
+});

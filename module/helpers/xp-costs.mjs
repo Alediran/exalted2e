@@ -214,6 +214,11 @@ function _priceCharm(actor, charm, exaltType, costs) {
   const caste      = actor.system?.caste ?? "";
   const s          = costs[exaltType] ?? {};
 
+  // Dawn keyword: Dawn Caste Solars pay favored rate regardless of Ability Favor.
+  if (!casteFav && keywords.includes("dawn") && exaltType === "solar" && caste === "dawn") {
+    casteFav = true;
+  }
+
   if (keywords.includes("heretical")) return { xp: _n(s.heretical, 9), confident: true };
 
   // Eclipse (Solar) / Moonshadow (Abyssal, caste-keyed "eclipse" in this

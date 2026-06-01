@@ -3,6 +3,7 @@ import {
   computeAttackPool,
   computeAimBonus,
   computeHolyUpgrade,
+  computeAxiomaticUpgrade,
   computeAttackOutcome
 } from "../../module/rolls/attack-math.mjs";
 
@@ -298,5 +299,38 @@ describe("computeAttackOutcome — effectiveTargetSoak", () => {
   it("soakPiercing and ignoresArmor stack", () => {
     const data = computeAttackOutcome({ ...baseAttack, soakPiercing: 2, ignoresArmor: true });
     expect(data.effectiveTargetSoak).toBe(2); // 8 - 4 armor - 2 pierce = 2
+  });
+});
+
+// ── Axiomatic upgrade ─────────────────────────────────────────────────────
+describe("computeAxiomaticUpgrade", () => {
+  it("upgrades to aggravated when Axiomatic attack hits Creature of the Void", () => {
+    const r = computeAxiomaticUpgrade({ isAxiomaticAttack: true, targetIsVoid: true, baseDamageType: "lethal" });
+    expect(r.finalDamageType).toBe("aggravated");
+    expect(r.axiomaticUpgraded).toBe(true);
+  });
+
+  it("no upgrade when attack is not Axiomatic", () => {
+    const r = computeAxiomaticUpgrade({ isAxiomaticAttack: false, targetIsVoid: true, baseDamageType: "bashing" });
+    expect(r.finalDamageType).toBe("bashing");
+    expect(r.axiomaticUpgraded).toBe(false);
+  });
+
+  it("no upgrade when target is not a Creature of the Void", () => {
+    const r = computeAxiomaticUpgrade({ isAxiomaticAttack: true, targetIsVoid: false, baseDamageType: "lethal" });
+    expect(r.finalDamageType).toBe("lethal");
+    expect(r.axiomaticUpgraded).toBe(false);
+  });
+
+  it("upgrades bashing to aggravated (not just lethal)", () => {
+    const r = computeAxiomaticUpgrade({ isAxiomaticAttack: true, targetIsVoid: true, baseDamageType: "bashing" });
+    expect(r.finalDamageType).toBe("aggravated");
+    expect(r.axiomaticUpgraded).toBe(true);
+  });
+
+  it("no-ops when base is already aggravated", () => {
+    const r = computeAxiomaticUpgrade({ isAxiomaticAttack: true, targetIsVoid: true, baseDamageType: "aggravated" });
+    expect(r.finalDamageType).toBe("aggravated");
+    expect(r.axiomaticUpgraded).toBe(true);
   });
 });
