@@ -7,6 +7,8 @@
    to scroll itself. */
 .exalted2e.sheet.item.charm .window-content { overflow: visible; }
 .exalted2e.sheet.item.charm             { overflow: visible; }
+.exalted2e.sheet.item.spell .window-content { overflow: visible; }
+.exalted2e.sheet.item.spell             { overflow: visible; }
 
 .exalted2e.item.charm .charm-attack-tags .tags-list {
   display: flex;
