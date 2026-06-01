@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-06-01 (Training keyword ledger done; count 1 A / 22 B / 1 C / 24 total)
+Last updated: 2026-06-01 (Merged keyword closed as already implemented; count 1 A / 21 B / 1 C / 23 total)
 
 ---
 
@@ -19,7 +19,6 @@ Last updated: 2026-06-01 (Training keyword ledger done; count 1 A / 22 B / 1 C /
 
 | Item | TODO Section | Key concern |
 |------|-------------|-------------|
-| Merged keyword (learn-once, multi-ability) | Keywords | charm activation routing extension |
 | Spell-specific duration/effect payloads | Sorcery | per-spell AE-like target effects; requires per-spell schema extension |
 | Ghost summoning | Sorcery | extended opposed WP+Ess contest (Black Treatise) |
 | Binding/fetter spells | Sorcery | Piercing the Heel, Soul Brand, Rune of Sweet Passing AE payloads |
@@ -60,6 +59,6 @@ Last updated: 2026-06-01 (Training keyword ledger done; count 1 A / 22 B / 1 C /
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 22 |
+| B — Ready, Medium | 21 |
 | C — Ready, Complex | 1 |
-| **Total pending** | **24** |
+| **Total pending** | **23** |

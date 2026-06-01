@@ -72,7 +72,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Training keyword (trainee XP debt ledger) — per-actor `trainingLedger` ArrayField; XP deducted immediately on Start Training; charm locked until GM completes; Experience tab table + Charms tab badge
 - [x] Native keyword gating (blocks Eclipse/Moonshadow/Fiend from learning) — learn-time enforcement deferred; see [charms-gap A10](docs/charms-gap.md)
 - [x] Mirror keyword navigation UI (show linked charm across splats)
-- [ ] Merged keyword (learn once, usable across listed Abilities)
+- [x] Merged keyword (learn once, usable across listed Abilities) — auto-grant via mergedIds + XP suppression + prerequisite bypass already implemented; sibling routing via separate items works correctly
 - [x] Martial / Martial-ready gating (weapon tag + min-ability bypass via `isWeaponValidForStyle` / `canBypassMinAbility`; enforced at attack time)
 - [x] Heretical keyword (Infernal GSP-only enforcement)
 - [x] Blasphemy / Axiomatic / Dawn-keyword splat-specific damage upgrades — Axiomatic: Aggravated vs Creatures of the Void + activation guard; Dawn: 8 XP flat for Dawn Caste Solars; Blasphemy: GM-whisper alert card + Roll Sensing button for nearby Celestials
