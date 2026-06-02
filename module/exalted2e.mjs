@@ -4327,6 +4327,169 @@ Hooks.on("renderActorDirectory", (_app, html) => {
   header.appendChild(btn);
 });
 
+// ── The Circle — folder action buttons ────────────────────────────────────
+// Injects Party Roll / Award XP / Rest buttons into The Circle folder header
+// in the Actor Directory sidebar. GM-only.
+Hooks.on("renderActorDirectory", (_app, html) => {
+  if (!game.user?.isGM) return;
+  const circle = _getTheCircleFolder();
+  if (!circle) return;
+
+  const folderEl = html.querySelector?.(`[data-folder-id="${circle.id}"]`);
+  if (!folderEl) return;
+  const folderHeader = folderEl.querySelector(".folder-header .fa-folder");
+  if (!folderHeader) return;
+
+  // Avoid double-injection on re-renders
+  if (folderHeader.querySelector(".circle-action-buttons")) return;
+
+  
+  const btnRoll = document.createElement("button");
+  btnRoll.className = "create-button create-entry icon fa-solid fa-dice-d10";
+  btnRoll.title = game.i18n.localize("EX2E.CirclePartyRoll");
+  btnRoll.dataset.circleAction = "partyroll";
+
+  const btnAwardXp = document.createElement("button");
+  btnAwardXp.className = "create-button create-entry icon fa-solid fa-star";
+  btnAwardXp.title = game.i18n.localize("EX2E.CircleAwardXP");
+  btnAwardXp.dataset.circleAction = "awardXp";
+
+  const btnRest = document.createElement("button");
+  btnRest.className = "create-button create-entry icon fa-solid fa-moon";
+  btnRest.title = game.i18n.localize("EX2E.CircleRest");
+  btnRest.dataset.circleAction = "rest";
+
+  folderHeader.before(btnRest);
+  btnRest.before(btnAwardXp);
+  btnAwardXp.before(btnRoll);
+
+  btnRoll.addEventListener("click", _onCirclePartyRoll);
+  btnAwardXp.addEventListener("click",   _onCircleAwardXp);
+  btnRest.addEventListener("click",      _onCircleRest);
+});
+
+async function _circleCharacters() {
+  const circle = _getTheCircleFolder();
+  if (!circle) return [];
+  return game.actors.filter(
+    a => a.type === "character" && _isInTheCircle(a.folder?.id ?? null)
+  );
+}
+
+async function _onCirclePartyRoll() {
+  const chars = await _circleCharacters();
+  if (!chars.length) return;
+
+  const result = await foundry.applications.api.DialogV2.prompt({
+    window: { title: game.i18n.localize("EX2E.CirclePartyRoll") },
+    content: `
+<div class="form-group">
+  <label>${game.i18n.localize("EX2E.CirclePartyRollPool")}</label>
+  <select name="attribute" style="flex:1">
+    ${["strength","dexterity","stamina","charisma","manipulation","appearance",
+       "perception","intelligence","wits"].map(a =>
+      `<option value="${a}">${game.i18n.localize("EX2E.Attr" + a.charAt(0).toUpperCase() + a.slice(1))}</option>`
+    ).join("")}
+  </select>
+  <select name="ability" style="flex:1">
+    ${["athletics","awareness","craft","dodge","integrity","investigation","larceny","linguistics",
+       "lore","martialarts","medicine","melee","occult","performance","presence","resistance",
+       "ride","sail","socialize","stealth","survival","thrown","war"].map(ab =>
+      `<option value="${ab}">${game.i18n.localize("EX2E.Ability" + ab.charAt(0).toUpperCase() + ab.slice(1)) ?? ab}</option>`
+    ).join("")}
+  </select>
+</div>`,
+    ok: {
+      label: game.i18n.localize("EX2E.Roll"),
+      callback: (_ev, btn) => ({
+        attribute: btn.form.elements.attribute?.value ?? "dexterity",
+        ability:   btn.form.elements.ability?.value   ?? "awareness",
+      })
+    }
+  });
+  if (!result) return;
+
+  const { ExaltedRoll } = await import("./rolls/exalted-roll.mjs");
+  for (const actor of chars) {
+    const attrVal  = actor.system.attributes?.[result.attribute]?.value ?? 0;
+    const abilVal  = actor.system.abilities?.[result.ability]?.value    ?? 0;
+    const pool     = Math.max(1, attrVal + abilVal);
+    const roll     = await new ExaltedRoll({ pool, actorName: actor.name, flavor: `${result.attribute} + ${result.ability}` }).evaluate();
+    await roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor }) });
+  }
+}
+
+async function _onCircleAwardXp() {
+  debugger;
+  const chars = await _circleCharacters();
+  if (!chars.length) return;
+
+  const result = await foundry.applications.api.DialogV2.prompt({
+    window: { title: game.i18n.localize("EX2E.CircleAwardXP") },
+    content: `
+<div class="form-group">
+  <label>${game.i18n.localize("EX2E.CircleAwardXPAmount")}</label>
+  <input type="number" name="xp" value="1" min="1" max="99" style="width:5em" autofocus>
+</div>
+<div class="form-group">
+  <label>${game.i18n.localize("EX2E.CircleAwardXPNote")}</label>
+  <input type="text" name="note" value="" style="flex:1">
+</div>`,
+    ok: {
+      label: game.i18n.localize("EX2E.Award"),
+      callback: (_ev, btn) => ({
+        xp:   parseInt(btn.form.elements.xp?.value) || 1,
+        note: btn.form.elements.note?.value?.trim() ?? "",
+      })
+    }
+  });
+  if (!result) return;
+
+  const { xp, note } = result;
+  for (const actor of chars) {
+    const current = Number(actor.system.experience?.value) || 0;
+    const total   = Number(actor.system.experience?.total) || 0;
+    await actor.update({
+      "system.experience.value": current + xp,
+      "system.experience.total": total  + xp,
+    });
+  }
+  const charNames = chars.map(a => a.name).join(", ");
+  const noteStr   = note ? ` (${note})` : "";
+  await ChatMessage.create({
+    content: `<p><strong>${game.i18n.format("EX2E.CircleXPAwarded", { xp, note: noteStr })}</strong><br>${charNames}</p>`,
+    style:   CONST.CHAT_MESSAGE_STYLES.OTHER,
+  });
+}
+
+async function _onCircleRest() {
+  const chars = await _circleCharacters();
+  if (!chars.length) return;
+
+  const confirmed = await foundry.applications.api.DialogV2.confirm({
+    window:  { title: game.i18n.localize("EX2E.CircleRest") },
+    content: `<p>${game.i18n.format("EX2E.CircleRestConfirm", { n: chars.length })}</p>`,
+    yes: { label: game.i18n.localize("EX2E.CircleRest") },
+  });
+  if (!confirmed) return;
+
+  for (const actor of chars) {
+    const wpMax  = actor.system.willpower?.max ?? 0;
+    const perMax = actor.system.motes?.peripheral?.max ?? 0;
+    const persMax = actor.system.motes?.personal?.max  ?? 0;
+    await actor.update({
+      "system.willpower.value":         wpMax,
+      "system.motes.peripheral.value":  perMax,
+      "system.motes.personal.value":    persMax,
+      "system.scenePeripheral":         0,
+    });
+  }
+  await ChatMessage.create({
+    content: `<p>${game.i18n.localize("EX2E.CircleRestComplete")}</p>`,
+    style:   CONST.CHAT_MESSAGE_STYLES.OTHER,
+  });
+}
+
 // ── GM Scene Controls: Place Hazard (one button per shape) ─────────────────
 
 const _HAZARD_SHAPES = [

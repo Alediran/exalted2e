@@ -2358,7 +2358,24 @@
     "SpellAreaShapeBurst": "Burst",
     "SpellAttackNoTargets": "No targets selected — select tokens on the canvas before rolling.",
     "Target": "Target",
-    "Result": "Result"
+    "Result": "Result",
+    "TouchKeywordFailed": "Failed to touch {target} — {charm} does not activate.",
+    "TouchKeywordSuccess": "Touch established on {target} — {charm} activates.",
+    "AttunementPoolTitle": "Attune {name} ({cost}m)",
+    "AttunementPoolBody": "Choose which mote pool to commit {cost} motes from:",
+    "AttunementPoolChoose": "Commit from",
+    "Attune": "Attune",
+    "Available": "available",
+    "CirclePartyRoll": "Party Roll",
+    "CirclePartyRollPool": "Attribute + Ability",
+    "CircleAwardXP": "Award XP",
+    "CircleAwardXPAmount": "XP per character",
+    "CircleAwardXPNote": "Note (optional)",
+    "CircleXPAwarded": "Awarded {xp} XP{note}",
+    "Award": "Award",
+    "CircleRest": "Rest",
+    "CircleRestConfirm": "Restore motes and WP to maximum for {n} Circle character(s)?",
+    "CircleRestComplete": "The Circle has rested — motes and WP restored."
   },
   "TYPES": {
     "Actor": {

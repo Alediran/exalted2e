@@ -2358,7 +2358,24 @@
     "SpellAreaShapeBurst": "Explosión",
     "SpellAttackNoTargets": "Sin objetivos seleccionados — selecciona tokens en el canvas antes de lanzar.",
     "Target": "Objetivo",
-    "Result": "Resultado"
+    "Result": "Resultado",
+    "TouchKeywordFailed": "No se pudo tocar a {target} — {charm} no se activa.",
+    "TouchKeywordSuccess": "Contacto establecido con {target} — {charm} se activa.",
+    "AttunementPoolTitle": "Sintonizar {name} ({cost}m)",
+    "AttunementPoolBody": "Elige de qué reserva de motas comprometer {cost} motas:",
+    "AttunementPoolChoose": "Comprometer desde",
+    "Attune": "Sintonizar",
+    "Available": "disponibles",
+    "CirclePartyRoll": "Tirada de Grupo",
+    "CirclePartyRollPool": "Atributo + Habilidad",
+    "CircleAwardXP": "Otorgar PE",
+    "CircleAwardXPAmount": "PE por personaje",
+    "CircleAwardXPNote": "Nota (opcional)",
+    "CircleXPAwarded": "Otorgados {xp} PE{note}",
+    "Award": "Otorgar",
+    "CircleRest": "Descansar",
+    "CircleRestConfirm": "¿Restaurar motas y Voluntad al máximo para {n} personaje(s) del Círculo?",
+    "CircleRestComplete": "El Círculo ha descansado — motas y Voluntad restauradas."
   },
   "TYPES": {
     "Actor": {

@@ -71,9 +71,53 @@ export class ExaltedItem extends Item {
     const delta      = newCommit - oldCommit;
     if (delta === 0) return;
 
-    const pool     = actor.system.motes.peripheral;
-    const newValue = Math.min(pool.max ?? 0, Math.max(0, (pool.value ?? 0) - delta));
-    await actor.update({ "system.motes.peripheral.value": newValue });
+    if (delta > 0) {
+      // Attuning — let player choose which pool to commit from
+      const peripheral = actor.system.motes.peripheral ?? { value: 0, max: 0 };
+      const personal   = actor.system.motes.personal   ?? { value: 0, max: 0 };
+      const periAvail  = peripheral.value ?? 0;
+      const persAvail  = personal.value  ?? 0;
+
+      let chosenPool = "peripheral";
+      if (periAvail > 0 && persAvail > 0) {
+        const periLabel = `${game.i18n.localize("EX2E.MotesPeripheral")} (${periAvail} ${game.i18n.localize("EX2E.Available")})`;
+        const persLabel = `${game.i18n.localize("EX2E.MotesPersonal")}   (${persAvail} ${game.i18n.localize("EX2E.Available")})`;
+        const result = await foundry.applications.api.DialogV2.prompt({
+          window: { title: game.i18n.format("EX2E.AttunementPoolTitle", { name: this.name, cost: delta }) },
+          content: `
+<p>${game.i18n.format("EX2E.AttunementPoolBody", { cost: delta })}</p>
+<div class="form-group">
+  <label>${game.i18n.localize("EX2E.AttunementPoolChoose")}</label>
+  <select name="pool" style="flex:1">
+    <option value="peripheral">${periLabel}</option>
+    <option value="personal">${persLabel}</option>
+  </select>
+</div>`,
+          ok: {
+            label: game.i18n.localize("EX2E.Attune"),
+            callback: (_ev, button) => button.form.elements.pool?.value ?? "peripheral"
+          }
+        });
+        if (!result) return false; // user cancelled
+        chosenPool = result;
+      } else if (persAvail > 0 && periAvail <= 0) {
+        chosenPool = "personal";
+      }
+
+      const pool     = actor.system.motes[chosenPool];
+      const newValue = Math.min(pool.max ?? 0, Math.max(0, (pool.value ?? 0) - delta));
+      await actor.update({ [`system.motes.${chosenPool}.value`]: newValue });
+      // Record which pool was used so un-attune can refund to the same pool
+      if (foundry.utils?.mergeObject) {
+        foundry.utils.mergeObject(changed, { flags: { exalted2e: { attunePool: chosenPool } } });
+      }
+    } else {
+      // Un-attuning — refund to whichever pool the motes came from
+      const attunePool = this.getFlag?.("exalted2e", "attunePool") ?? "peripheral";
+      const pool     = actor.system.motes[attunePool];
+      const newValue = Math.min(pool.max ?? 0, Math.max(0, (pool.value ?? 0) - delta)); // delta < 0, so subtracting a negative = adding
+      await actor.update({ [`system.motes.${attunePool}.value`]: newValue });
+    }
   }
 
   /**
@@ -112,9 +156,10 @@ export class ExaltedItem extends Item {
     const cost = this.system.attunementCost ?? 0;
     if (cost <= 0) return;
 
-    const pool     = actor.system.motes.peripheral;
-    const newValue = Math.min(pool.max ?? 0, (pool.value ?? 0) + cost);
-    await actor.update({ "system.motes.peripheral.value": newValue });
+    const attunePool = this.getFlag?.("exalted2e", "attunePool") ?? "peripheral";
+    const pool       = actor.system.motes[attunePool] ?? actor.system.motes.peripheral;
+    const newValue   = Math.min(pool.max ?? 0, (pool.value ?? 0) + cost);
+    await actor.update({ [`system.motes.${attunePool}.value`]: newValue });
   }
 
   // ── Charm Helpers ──────────────────────────────────────────────────────
@@ -373,6 +418,32 @@ ${capWarning}`;
         }
       } else if (surcharge > 0) {
         motesOverride = (costParsed?.motes ?? 0) + surcharge;
+      }
+
+      // ── Touch gate ─────────────────────────────────────────────────────
+      // Touch charms on a non-consenting target require a Dex+MA attack to
+      // establish physical contact before the costs are spent. No target =
+      // assumed willing (or already in touch range narratively).
+      if ((sys.keywords ?? []).includes("Touch")) {
+        const touchTarget = explicitTargetActor
+          ?? game.user.targets.first()?.actor
+          ?? null;
+        if (touchTarget) {
+          const dex = actor.system.attributes?.dexterity?.value ?? 0;
+          const ma  = actor.system.abilities?.martialarts?.value ?? 0;
+          const { ExaltedRoll } = await import("../rolls/exalted-roll.mjs");
+          const touchRoll = await new ExaltedRoll({ pool: Math.max(1, dex + ma), actorName: actor.name }).evaluate();
+          const touchDV   = touchTarget.currentDodgeDV ?? 0;
+          if (touchRoll.successes <= touchDV) {
+            ui.notifications.warn(
+              game.i18n.format("EX2E.TouchKeywordFailed", { charm: this.name, target: touchTarget.name })
+            );
+            return false;
+          }
+          ui.notifications.info(
+            game.i18n.format("EX2E.TouchKeywordSuccess", { charm: this.name, target: touchTarget.name })
+          );
+        }
       }
 
       const isOffensive = this._isCharmOffensive();

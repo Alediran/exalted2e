@@ -68,7 +68,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Servitude (loyalty binding AE)
 - [x] Overdrive pool (temp Peripheral, cap 25, dissipates scene-end) — schema field + buffer drain + addOverdriveMotes + combat end clear + UI badge + gainOverdrive moteRecovery action wired + compendium charms updated (righteous-avengers-aspect, song-of-the-depths, snarling-watchdog-retribution, hungry-wind-howling) + onAllyAttacked event wired in applyDamage + overdrive spend restricted to offensive charms only (allowOverdrive / _isCharmOffensive)
 - [x] Surging Essence Reactor (Solar Integrity 3, permanent) — convertsOverdriveToAttunement flag; attunementMotes pool on CharacterData; per-artifact attunementMotesCover/attunedViaAttunement fields on weapon/armor; applyAttunementMotes() actor method; scene-end expiry + artifact un-attunement; header UI badge; inventory gem buttons; Effects tab checkbox; i18n keys; CSS; charm JSON (solar-integrity-surging-essence-reactor)
-- [ ] Touch keyword mechanics (requires Dex+MA attack vs non-consenting target)
+- [x] Touch keyword mechanics — Dex+MA pool roll before costs are spent; if successes ≤ target Dodge DV the charm is cancelled (no motes spent)
 - [x] Training keyword (trainee XP debt ledger) — per-actor `trainingLedger` ArrayField; XP deducted immediately on Start Training; charm locked until GM completes; Experience tab table + Charms tab badge
 - [x] Native keyword gating (blocks Eclipse/Moonshadow/Fiend from learning) — learn-time enforcement deferred; see [charms-gap A10](docs/charms-gap.md)
 - [x] Mirror keyword navigation UI (show linked charm across splats)
@@ -259,7 +259,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 
 ## The Circle / Party Management
 - [x] The Circle folder seeder + auto-configure actors (linked token, Friendly disposition)
-  - [ ] Special buttons on the folder (party roll, XP award, rest-and-recover, etc.)
+  - [x] Special buttons on the folder (party roll, XP award, rest-and-recover) — `renderActorDirectory` hook injects Party Roll / Award XP / Rest buttons on The Circle folder header
   - [x] Macro to manually re-create the folder if deleted
   - [x] Restoring defaults when an actor leaves The Circle
   - [x] NPC → character auto-conversion on move-in — `updateActor` hook; when NPC's folder changes to The Circle (or child), creates a blank Character with same name/img
@@ -317,7 +317,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [ ] Migration pipeline for schema changes as system evolves
 - [x] Language-drift linter (en.json ↔ es.json key parity)
 - [ ] Multi-actor action helpers (Coordinate, Cooperative charms, mass Guard)
-- [ ] Personal/Peripheral commitment split (players choose the pool split for attuned artifacts)
+- [x] Personal/Peripheral commitment split — DialogV2 in `_preUpdate` lets players choose pool when both have motes; chosen pool stored in `flags.exalted2e.attunePool`; un-attune/delete refunds to same pool
 
 ## Testing
 - [x] Vitest suite (pure-logic helpers, math modules, prepareDerivedData)

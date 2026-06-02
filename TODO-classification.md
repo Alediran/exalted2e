@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-06-02 (Essence Flow + Per-trait lock bypass + NPC auto-conversion closed; count 1 A / 14 B / 1 C / 16 total)
+Last updated: 2026-06-02 (Touch keyword + Personal/Peripheral split + Circle special buttons closed; count 1 A / 11 B / 1 C / 13 total)
 
 ---
 
@@ -23,16 +23,13 @@ Last updated: 2026-06-02 (Essence Flow + Per-trait lock bypass + NPC auto-conver
 | Shintai / Mantle form-type charms | Infernal | charm activation mode + transformation state AE |
 | Gremlin Syndrome / Dissonance | Alchemical | Clarity track → Dissonance consequences |
 | Resplendent Destiny payloads | Sidereal | extend item type: Ascendant/Descending mechanical effects |
-| Circle special buttons (party roll, XP award, rest) | Circle | macro-buttons on folder widget |
 | Clarity mechanical effects | Alchemical | Clarity track consequences (Virtue suppression thresholds) |
 | Manse geomancy rules | Crafting | Oadenol's Codex power table, demesne pre-roll (unblocked by Manse item type) |
 | Background mechanical hooks | Other | Familiar actor link + Cult mote-regen/WP-recovery + 53-type optgroup registry done; Backing/Contacts/Resources mechanical automation still pending |
 | Workshop & material prerequisites UI | Crafting | ability prereqs (Craft/Lore/Occult) now enforce + charm reduction done; workshop/tool/material requirements UI still pending |
 | Multi-actor action helpers | QoL | Cooperative keyword done; Coordinate attacks + mass Guard still pending |
-| Personal/Peripheral commitment split | QoL | artifact attunement choice UI |
 | Poison/Disease tracking | Other | per-interval AE *(needs Poison/Disease item types — Group A — first)* |
 | Headless tests for remaining paths | Testing | test authoring for charm prereqs, multi-tick, sorcery |
-| Touch keyword mechanics | Charm Keywords | non-consenting target needs Dex+MA attack roll before touch-range charm resolves; extend attack dialog or add pre-activation roll step |
 
 ---
 
@@ -52,6 +49,6 @@ Last updated: 2026-06-02 (Essence Flow + Per-trait lock bypass + NPC auto-conver
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 14 |
+| B — Ready, Medium | 11 |
 | C — Ready, Complex | 1 |
-| **Total pending** | **16** |
+| **Total pending** | **13** |
