@@ -33,5 +33,24 @@
   "ownership": {
     "default": 0
   },
-  "flags": {}
+  "flags": {},
+  "effects": [
+    {
+      "_id": "Dn9Iw2Kd6Sa7xQ3Y",
+      "name": "Slavish Humility (−3 vs devotion target)",
+      "img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+      "type": "base",
+      "system": {},
+      "changes": [],
+      "disabled": false,
+      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "description": "−3 external penalty to all attacks and social actions against the target of devotion.",
+      "origin": null, "tint": null, "transfer": false, "statuses": [],
+      "flags": {
+        "exalted2e": {
+          "externalPenalty": { "value": 3, "type": "all" }
+        }
+      }
+    }
+  ]
 }

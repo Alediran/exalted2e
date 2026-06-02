@@ -33,5 +33,23 @@
   "ownership": {
     "default": 0
   },
-  "flags": {}
+  "flags": {},
+  "effects": [
+    {
+      "_id": "Jt5Oc8Qj2Yg3De9e",
+      "name": "Crystalline Shell (50L/50B soak)",
+      "img": "icons/magic/earth/crystal-prism-glowing-blue.webp",
+      "type": "base",
+      "system": {},
+      "changes": [
+        { "key": "system.bonuses.soakLethal", "value": "50", "mode": 2, "priority": null },
+        { "key": "system.bonuses.soakBashing", "value": "50", "mode": 2, "priority": null }
+      ],
+      "disabled": false,
+      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "description": "50L/50B soak. Only 1 health level — any damage that overcomes soak shatters the shell.",
+      "origin": null, "tint": null, "transfer": false, "statuses": [],
+      "flags": {}
+    }
+  ]
 }

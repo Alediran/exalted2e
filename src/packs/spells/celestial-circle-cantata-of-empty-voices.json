@@ -33,5 +33,24 @@
   "ownership": {
     "default": 0
   },
-  "flags": {}
+  "flags": {},
+  "effects": [
+    {
+      "_id": "Is4Nb7Pi1Xf2Cd8d",
+      "name": "Anguished Weeping (−2 all actions)",
+      "img": "icons/magic/sonic/note-effects-circle-blue.webp",
+      "type": "base",
+      "system": {},
+      "changes": [],
+      "disabled": false,
+      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "description": "−2 internal penalty to all actions from the crystalline grief.",
+      "origin": null, "tint": null, "transfer": false, "statuses": [],
+      "flags": {
+        "exalted2e": {
+          "internalPenalty": { "value": 2, "type": "all" }
+        }
+      }
+    }
+  ]
 }

@@ -334,7 +334,12 @@ export async function _createSpellEffectAe(actor, spell) {
         origin:   spell.uuid,
         transfer: false,
         disabled: false,
-        flags:    { exalted2e: { spellEffect: spellFlags } }
+        flags:    {
+          exalted2e: {
+            ...(ae.flags?.exalted2e ?? {}),
+            spellEffect: spellFlags
+          }
+        }
       }));
       await target.createEmbeddedDocuments("ActiveEffect", aeData);
       ui.notifications.info(

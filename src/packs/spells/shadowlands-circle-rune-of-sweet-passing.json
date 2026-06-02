@@ -33,5 +33,20 @@
   "ownership": {
     "default": 0
   },
-  "flags": {}
+  "flags": {},
+  "effects": [
+    {
+      "_id": "Lv7Qe0Sl4Ai5Fg1g",
+      "name": "Rune of Sweet Passing",
+      "img": "icons/magic/death/skull-mark-worn-brown.webp",
+      "type": "base",
+      "system": {},
+      "changes": [],
+      "disabled": false,
+      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "description": "On death this creature rises as a ghost regardless of normal conditions. Incompatible with Gentle Call of Lethe.",
+      "origin": null, "tint": null, "transfer": false, "statuses": [],
+      "flags": {}
+    }
+  ]
 }

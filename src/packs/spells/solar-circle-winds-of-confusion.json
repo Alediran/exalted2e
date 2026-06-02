@@ -33,5 +33,20 @@
   "ownership": {
     "default": 0
   },
-  "flags": {}
+  "flags": {},
+  "effects": [
+    {
+      "_id": "Mw8Rf1Tm5Bj6Gh2h",
+      "name": "Winds of Confusion (Intelligence & Willpower drain)",
+      "img": "icons/magic/air/wind-tornado-dark.webp",
+      "type": "base",
+      "system": {},
+      "changes": [],
+      "disabled": false,
+      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "description": "Each action: Int+Integrity vs caster Essence or lose 1 dot Intelligence and 1 dot Willpower. Recovery: 1 dot per hour.",
+      "origin": null, "tint": null, "transfer": false, "statuses": [],
+      "flags": {}
+    }
+  ]
 }

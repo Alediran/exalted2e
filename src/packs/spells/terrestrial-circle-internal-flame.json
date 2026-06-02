@@ -33,5 +33,24 @@
   "ownership": {
     "default": 0
   },
-  "flags": {}
+  "flags": {},
+  "effects": [
+    {
+      "_id": "Bl7Gu0Ib4Qy5vO1W",
+      "name": "Fiery Agony (−2 all actions)",
+      "img": "icons/magic/fire/flame-burning-orange-red.webp",
+      "type": "base",
+      "system": {},
+      "changes": [],
+      "disabled": false,
+      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "description": "−2 internal penalty to all actions for the rest of the scene.",
+      "origin": null, "tint": null, "transfer": false, "statuses": [],
+      "flags": {
+        "exalted2e": {
+          "internalPenalty": { "value": 2, "type": "all" }
+        }
+      }
+    }
+  ]
 }

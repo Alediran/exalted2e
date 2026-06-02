@@ -33,5 +33,24 @@
   "ownership": {
     "default": 0
   },
-  "flags": {}
+  "flags": {},
+  "effects": [
+    {
+      "_id": "Pq3Sm4Vo5Yl8ak6l",
+      "name": "Advanced Defense Array (+20L/+20B soak, +10 Hardness)",
+      "img": "icons/magic/earth/shield-stone-gray.webp",
+      "type": "base",
+      "system": {},
+      "changes": [
+        { "key": "system.bonuses.soakLethal", "value": "20", "mode": 2, "priority": null },
+        { "key": "system.bonuses.soakBashing", "value": "20", "mode": 2, "priority": null },
+        { "key": "system.bonuses.hardnessAdd", "value": "10", "mode": 2, "priority": null }
+      ],
+      "disabled": false,
+      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "description": "+20L/20B natural soak and +10L/10B non-stacking Hardness.",
+      "origin": null, "tint": null, "transfer": false, "statuses": [],
+      "flags": {}
+    }
+  ]
 }

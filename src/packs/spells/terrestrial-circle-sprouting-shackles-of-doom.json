@@ -33,5 +33,20 @@
   "ownership": {
     "default": 0
   },
-  "flags": {}
+  "flags": {},
+  "effects": [
+    {
+      "_id": "Gq2Lz5Ng9Vd0Ab6b",
+      "name": "Shackled (clinch grip)",
+      "img": "icons/magic/nature/plant-hand-stone-green.webp",
+      "type": "base",
+      "system": {},
+      "changes": [],
+      "disabled": false,
+      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "description": "Target seized in clinch by enchanted vines. Vines squeeze until Incapacitated.",
+      "origin": null, "tint": null, "transfer": false, "statuses": [],
+      "flags": {}
+    }
+  ]
 }

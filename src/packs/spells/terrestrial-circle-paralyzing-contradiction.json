@@ -33,5 +33,20 @@
   "ownership": {
     "default": 0
   },
-  "flags": {}
+  "flags": {},
+  "effects": [
+    {
+      "_id": "Hr3Ma6Oh0We1Bc7c",
+      "name": "Riddle Compulsion (Int+Lore to escape, diff=Essence)",
+      "img": "icons/magic/symbols/rune-circle-blue.webp",
+      "type": "base",
+      "system": {},
+      "changes": [],
+      "disabled": false,
+      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "description": "Target must solve extended Int+Lore roll (diff=Essence, successes=caster's Lore). Attacks free target.",
+      "origin": null, "tint": null, "transfer": false, "statuses": [],
+      "flags": {}
+    }
+  ]
 }

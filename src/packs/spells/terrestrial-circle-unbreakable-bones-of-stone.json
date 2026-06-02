@@ -33,5 +33,37 @@
   "ownership": {
     "default": 0
   },
-  "flags": {}
+  "flags": {},
+  "effects": [
+    {
+      "_id": "Qb4Dr7Fy1Nv2sL8T",
+      "name": "Strength Bonus (set value = caster's Essence)",
+      "img": "icons/magic/earth/stone-golem-brown.webp",
+      "type": "base",
+      "system": {},
+      "changes": [
+        { "key": "system.attributes.strength.value", "value": "0", "mode": 2, "priority": null }
+      ],
+      "disabled": false,
+      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "description": "Set value equal to the caster's permanent Essence rating.",
+      "origin": null, "tint": null, "transfer": false, "statuses": [],
+      "flags": {}
+    },
+    {
+      "_id": "Xj5Es8Gz2Ow3tM9U",
+      "name": "Stamina Bonus (set value = caster's Essence)",
+      "img": "icons/magic/earth/stone-golem-brown.webp",
+      "type": "base",
+      "system": {},
+      "changes": [
+        { "key": "system.attributes.stamina.value", "value": "0", "mode": 2, "priority": null }
+      ],
+      "disabled": false,
+      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "description": "Set value equal to the caster's permanent Essence rating.",
+      "origin": null, "tint": null, "transfer": false, "statuses": [],
+      "flags": {}
+    }
+  ]
 }

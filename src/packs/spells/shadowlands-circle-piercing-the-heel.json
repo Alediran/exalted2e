@@ -33,5 +33,20 @@
   "ownership": {
     "default": 0
   },
-  "flags": {}
+  "flags": {},
+  "effects": [
+    {
+      "_id": "Nz0Pk5Qs9Wh3Yi4j",
+      "name": "Piercing the Heel (bound ghost)",
+      "img": "icons/magic/control/debuff-chains-shackle-blue-white.webp",
+      "type": "base",
+      "system": {},
+      "changes": [],
+      "disabled": false,
+      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "description": "Ghost cannot harm the necromancer. Any attempt causes the ghost to fall to the ground, immobile, until it abandons the intention.",
+      "origin": null, "tint": null, "transfer": false, "statuses": [],
+      "flags": {}
+    }
+  ]
 }

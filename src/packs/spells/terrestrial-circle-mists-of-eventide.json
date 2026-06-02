@@ -33,5 +33,24 @@
   "ownership": {
     "default": 0
   },
-  "flags": {}
+  "flags": {},
+  "effects": [
+    {
+      "_id": "Eo0Jx3Le7Tb8yR4Z",
+      "name": "Drugged Wakefulness (−3 all actions)",
+      "img": "icons/magic/control/sleep.webp",
+      "type": "base",
+      "system": {},
+      "changes": [],
+      "disabled": false,
+      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "description": "−3 internal penalty if forcibly awakened from the magical sleep.",
+      "origin": null, "tint": null, "transfer": false, "statuses": [],
+      "flags": {
+        "exalted2e": {
+          "internalPenalty": { "value": 3, "type": "all" }
+        }
+      }
+    }
+  ]
 }

@@ -33,5 +33,25 @@
   "ownership": {
     "default": 0
   },
-  "flags": {}
+  "flags": {},
+  "effects": [
+    {
+      "_id": "Ak6Ft9Ha3Px4uN0V",
+      "name": "Curtain of Quartz (−2 DV / −2 all rolls)",
+      "img": "icons/magic/air/wind-turbulence-smoke-blue.webp",
+      "type": "base",
+      "system": {},
+      "changes": [],
+      "disabled": false,
+      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "description": "−2 external penalty to DV and all rolls while within 3 yards of the caster.",
+      "origin": null, "tint": null, "transfer": false, "statuses": [],
+      "flags": {
+        "exalted2e": {
+          "dvPenalty": { "type": "both", "value": 2 },
+          "externalPenalty": { "value": 2, "type": "all" }
+        }
+      }
+    }
+  ]
 }

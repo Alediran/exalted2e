@@ -33,5 +33,24 @@
   "ownership": {
     "default": 0
   },
-  "flags": {}
+  "flags": {},
+  "effects": [
+    {
+      "_id": "Op2Rl3Un4Xk7Zj5k",
+      "name": "Defense Array (+10L/+10B soak, +5 Hardness)",
+      "img": "icons/magic/earth/shield-stone-gray.webp",
+      "type": "base",
+      "system": {},
+      "changes": [
+        { "key": "system.bonuses.soakLethal", "value": "10", "mode": 2, "priority": null },
+        { "key": "system.bonuses.soakBashing", "value": "10", "mode": 2, "priority": null },
+        { "key": "system.bonuses.hardnessAdd", "value": "5", "mode": 2, "priority": null }
+      ],
+      "disabled": false,
+      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "description": "+10L/10B natural soak and +5L/5B non-stacking Hardness from whirling metallic spheres.",
+      "origin": null, "tint": null, "transfer": false, "statuses": [],
+      "flags": {}
+    }
+  ]
 }
