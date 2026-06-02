@@ -60,6 +60,26 @@ export class SpellData extends foundry.abstract.TypeDataModel {
       countermagicTradition: new fields.StringField({ initial: "", blank: true }),
       // "" = normal spell; "ghost-summoning" / "demon-summoning" = special cast flow
       spellSubtype:          new fields.StringField({ initial: "", blank: true, choices: ["", "ghost-summoning", "demon-summoning"] }),
+
+      // ── Spell Attack ──────────────────────────────────────────────────────
+      // Configuration for direct-damage spells (e.g. Death of Obsidian
+      // Butterflies). When enabled, a Roll Attack button appears in the header
+      // and the Effects tab shows the attack configuration panel.
+      spellAttack: new fields.SchemaField({
+        enabled:      new fields.BooleanField({ initial: false }),
+        pool:         new fields.StringField({ initial: "@wits + @occult", blank: false }),
+        accuracy:     new fields.NumberField({ initial: 0, integer: true }),
+        damage:       new fields.StringField({ initial: "@ess", blank: false }),
+        damageType:   new fields.StringField({ initial: "lethal", choices: ["bashing","lethal","aggravated"] }),
+        ignoresArmor: new fields.BooleanField({ initial: false }),
+        overwhelming: new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        tags:         new fields.ArrayField(new fields.StringField()),
+        area: new fields.SchemaField({
+          enabled: new fields.BooleanField({ initial: false }),
+          shape:   new fields.StringField({ initial: "circle", choices: ["circle","ring","emanation","cone","rect","ray"] }),
+          size:    new fields.StringField({ initial: "5", blank: false }),
+        })
+      }),
     };
   }
 }

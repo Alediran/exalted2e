@@ -1,15 +1,180 @@
 <div class="tab {{cssClass}} sheet-body spell-effects-body" data-tab="tabEffects" data-group="sheet">
 
-  <h2 class="section-header">{{localize "EX2E.SpellEffects"}}</h2>
+  {{!-- ── ATTACK PANEL ─────────────────────────────────────────────────── --}}
+  <div class="spell-attack-section effect-section">
+    <label class="effect-enable-row spell-attack-header">
+      <input type="checkbox" name="system.spellAttack.enabled"
+             {{#if system.spellAttack.enabled}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span class="spell-attack-label">{{localize "EX2E.SpellAttackEnabled"}}</span>
+    </label>
 
+    {{#if system.spellAttack.enabled}}
+    <div class="effect-body">
+
+      {{!-- Pool formula ────────────────────────────────────────────────── --}}
+      <div class="field-group">
+        <label>{{localize "EX2E.SpellAttackPool"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.spellAttack.pool"
+                 value="{{system.spellAttack.pool}}"
+                 placeholder="@wits + @occult"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.spellAttack.pool"
+                  data-label="{{localize 'EX2E.SpellAttackPool'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+
+      {{!-- Compact stats bar ─────────────────────────────────────────── --}}
+      <div class="spell-attack-stats-bar">
+        <div class="field-group spell-stat-field">
+          <label>{{localize "EX2E.SpellAttackAccuracy"}}</label>
+          <input type="number" name="system.spellAttack.accuracy"
+                 value="{{system.spellAttack.accuracy}}"
+                 {{#unless isEditable}}readonly{{/unless}}>
+        </div>
+        <div class="field-group spell-stat-field">
+          <label>{{localize "EX2E.SpellAttackDamageType"}}</label>
+          <select name="system.spellAttack.damageType" {{#unless isEditable}}disabled{{/unless}}>
+            {{#each damageTypes}}
+            <option value="{{this.value}}" {{#if (eq this.value ../system.spellAttack.damageType)}}selected{{/if}}>{{this.label}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <div class="field-group spell-stat-field">
+          <label>{{localize "EX2E.SpellAttackOverwhelming"}}</label>
+          <input type="number" name="system.spellAttack.overwhelming"
+                 value="{{system.spellAttack.overwhelming}}" min="0"
+                 {{#unless isEditable}}readonly{{/unless}}>
+        </div>
+        <div class="field-group spell-stat-field spell-attack-checkbox-cell">
+          <label class="checkbox-label">
+            <input type="checkbox" name="system.spellAttack.ignoresArmor"
+                   {{#if system.spellAttack.ignoresArmor}}checked{{/if}}
+                   {{#unless isEditable}}disabled{{/unless}}>
+            {{localize "EX2E.SpellAttackIgnoresArmor"}}
+          </label>
+        </div>
+      </div>
+
+      {{!-- Damage formula ─────────────────────────────────────────────── --}}
+      <div class="field-group">
+        <label>{{localize "EX2E.SpellAttackDamage"}}</label>
+        <div class="formula-field-row">
+          <input type="text" name="system.spellAttack.damage"
+                 value="{{system.spellAttack.damage}}"
+                 placeholder="@ess"
+                 data-tooltip="{{localize 'EX2E.SpellAttackSuccessesNote'}}"
+                 {{#unless isEditable}}readonly{{/unless}}>
+          {{#if isEditable}}
+          <button type="button" class="btn-fx" data-action="openFormula"
+                  data-path="system.spellAttack.damage"
+                  data-label="{{localize 'EX2E.SpellAttackDamage'}}"
+                  data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+            <i class="fa-solid fa-function"></i>
+          </button>
+          {{/if}}
+        </div>
+      </div>
+
+      {{!-- Tags ────────────────────────────────────────────────────────── --}}
+      <div class="tags-block spell-attack-tags">
+        <div class="tags-header">
+          <label>{{localize "EX2E.SpellAttackTags"}}</label>
+          {{#if isEditable}}
+          <button type="button" data-action="addAttackTag"><i class="fa-solid fa-plus"></i></button>
+          {{/if}}
+        </div>
+        <div class="tags-list">
+          {{#each spellAttackTags as |tg idx|}}
+          <span class="keyword-tag-edit">
+            <select name="system.spellAttack.tags.{{idx}}" {{#unless @root.isEditable}}disabled{{/unless}}>
+              {{#each @root.weaponTags as |opt|}}
+              <option value="{{opt}}" {{#if (eq opt tg)}}selected{{/if}}>{{opt}}</option>
+              {{/each}}
+            </select>
+            {{#if @root.isEditable}}
+            <button type="button" data-action="removeAttackTag" data-index="{{idx}}">✕</button>
+            {{/if}}
+          </span>
+          {{/each}}
+        </div>
+      </div>
+
+      {{!-- Area of Effect ──────────────────────────────────────────────── --}}
+      <div class="spell-aoe-section">
+        <label class="effect-enable-row spell-aoe-header">
+          <input type="checkbox" name="system.spellAttack.area.enabled"
+                 {{#if system.spellAttack.area.enabled}}checked{{/if}}
+                 {{#unless isEditable}}disabled{{/unless}}>
+          <span>{{localize "EX2E.SpellAttackAreaEnabled"}}</span>
+        </label>
+
+        {{#if system.spellAttack.area.enabled}}
+        <div class="spell-aoe-row">
+          <div class="field-group">
+            <label>{{localize "EX2E.SpellAttackAreaShape"}}</label>
+            <select name="system.spellAttack.area.shape" {{#unless isEditable}}disabled{{/unless}}>
+              {{#each areaShapes}}
+              <option value="{{this.value}}" {{#if (eq this.value ../system.spellAttack.area.shape)}}selected{{/if}}>{{this.label}}</option>
+              {{/each}}
+            </select>
+          </div>
+          <div class="field-group">
+            <label>{{localize "EX2E.SpellAttackAreaSize"}}</label>
+            <div class="spell-aoe-size-input">
+              <input type="text" name="system.spellAttack.area.size"
+                     value="{{system.spellAttack.area.size}}"
+                     placeholder="5"
+                     {{#unless isEditable}}readonly{{/unless}}>
+              {{#if isEditable}}
+              <button type="button" class="btn-fx" data-action="openFormula"
+                      data-path="system.spellAttack.area.size"
+                      data-label="{{localize 'EX2E.SpellAttackAreaSize'}}"
+                      data-tooltip="{{localize 'EX2E.FormulaBuilder'}}">
+                <i class="fa-solid fa-function"></i>
+              </button>
+              {{/if}}
+              <span class="spell-aoe-unit">{{localize "EX2E.SpellAttackAreaYards"}}</span>
+            </div>
+          </div>
+        </div>
+        {{/if}}
+      </div>
+
+    </div>
+    {{/if}}
+  </div>
+
+  {{!-- ── QUICK-ADD BUTTONS ───────────────────────────────────────────────── --}}
   {{#if isEditable}}
-  <button type="button" class="btn-add-row" data-action="createEffect">
-    <i class="fa-solid fa-plus"></i> {{localize "EX2E.NewEffect"}}
-  </button>
+  <div class="spell-quickadd-row">
+    <button type="button" class="btn-add-row spell-quickadd-btn" data-action="createSoakEffect">
+      <i class="fa-solid fa-shield-halved"></i> {{localize "EX2E.SpellQuickAddSoak"}}
+    </button>
+    <button type="button" class="btn-add-row spell-quickadd-btn" data-action="createPenaltyEffect">
+      <i class="fa-solid fa-triangle-exclamation"></i> {{localize "EX2E.SpellQuickAddPenalty"}}
+    </button>
+    <button type="button" class="btn-add-row spell-quickadd-btn" data-action="createAttrEffect">
+      <i class="fa-solid fa-arrow-up"></i> {{localize "EX2E.SpellQuickAddAttribute"}}
+    </button>
+    <button type="button" class="btn-add-row spell-quickadd-btn" data-action="createEffect">
+      <i class="fa-solid fa-plus"></i> {{localize "EX2E.SpellQuickAddCustom"}}
+    </button>
+  </div>
   {{/if}}
 
+  {{!-- ── ACTIVE EFFECT LIST ─────────────────────────────────────────────── --}}
+  <h2 class="section-header">{{localize "EX2E.SpellEffects"}}</h2>
+
   {{#if effects.length}}
-  <table class="purchase-log-table" style="margin-top:8px">
+  <table class="purchase-log-table">
     <thead>
       <tr>
         <th></th>
@@ -21,7 +186,7 @@
     <tbody>
       {{#each effects as |eff|}}
       <tr>
-        <td><img src="{{eff.icon}}" style="width:24px;height:24px;border:none"></td>
+        <td><img src="{{eff.icon}}" class="spell-ae-icon"></td>
         <td>{{eff.name}}</td>
         <td>{{eff.changesCount}}</td>
         {{#if @root.isEditable}}

@@ -1,0 +1,68 @@
+<div class="ex2e-roll-card ex2e-spell-attack-card">
+  <div class="card-header">
+    <span class="roll-actor">{{actorName}}</span>
+    <span class="roll-flavor">{{localize "EX2E.SpellAttackRoll"}}</span>
+  </div>
+  <div class="spell-cast-summary">
+    <div class="spell-name-row">
+      <span class="spell-name">{{spellName}}</span>
+      {{#if areaLabel}}
+      <span class="spell-meta spell-aoe-badge">
+        <i class="fa-solid fa-burst"></i> {{areaLabel}}
+      </span>
+      {{/if}}
+    </div>
+    <div class="spell-cost-ledger">
+      <span><strong>{{localize "EX2E.Pool"}}:</strong> {{pool}}</span>
+      <span><strong>{{localize "EX2E.Successes"}}:</strong> {{successes}}</span>
+    </div>
+
+    {{!-- AoE: one row per target ────────────────────────────────── --}}
+    {{#if isAoe}}
+      {{#if targetResults.length}}
+      <table class="spell-attack-targets">
+        <thead>
+          <tr>
+            <th>{{localize "EX2E.Target"}}</th>
+            <th>{{localize "EX2E.DV"}}</th>
+            <th>{{localize "EX2E.Result"}}</th>
+            <th>{{localize "EX2E.Damage"}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each targetResults as |r|}}
+          <tr>
+            <td>{{r.targetName}}</td>
+            <td>{{r.hitDV}}</td>
+            <td>
+              {{#if r.hit}}<span class="result-success">{{localize "EX2E.Hit"}}</span>
+              {{else}}<span class="result-failure">{{localize "EX2E.Miss"}}</span>{{/if}}
+            </td>
+            <td>{{#if r.damageSuccesses}}{{r.damageSuccesses}}{{../damageTypeLabel}}{{/if}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      {{else}}
+      <p class="effect-section-label">{{localize "EX2E.SpellAttackNoTargets"}}</p>
+      {{/if}}
+
+    {{!-- Single-target result ────────────────────────────────── --}}
+    {{else}}
+      {{#if targetName}}
+      <div class="spell-cost-ledger">
+        <span class="spell-meta">→ {{targetName}}</span>
+        {{#if hit}}<span class="result-success">{{localize "EX2E.Hit"}} ({{localize "EX2E.DV"}} {{hitDV}})</span>
+        {{else}}<span class="result-failure">{{localize "EX2E.Miss"}} ({{localize "EX2E.DV"}} {{hitDV}})</span>{{/if}}
+        {{#if damageSuccesses}}
+        <span><strong>{{localize "EX2E.Damage"}}:</strong> {{damageSuccesses}}{{damageTypeLabel}}</span>
+        {{/if}}
+      </div>
+      {{/if}}
+    {{/if}}
+
+    {{#if ignoresArmor}}
+    <p class="effect-section-label">{{localize "EX2E.SpellAttackIgnoresArmorNote"}}</p>
+    {{/if}}
+  </div>
+</div>

@@ -49,6 +49,17 @@
       {{#if system.cost.xp}}+{{system.cost.xp}}xp{{/if}}
     </div>
 
+    <!-- Spell attack roll button -->
+    {{#if spellAttackVisible}}
+    <div class="spell-cast-row">
+      <button type="button" class="spell-cast-btn"
+              data-action="rollSpellAttack">
+        <i class="fa-solid fa-burst"></i>
+        {{localize "EX2E.SpellAttackRoll"}}
+      </button>
+    </div>
+    {{/if}}
+
     <!-- Cast button (state-aware) -->
     {{#if castButton.visible}}
     <div class="spell-cast-row">

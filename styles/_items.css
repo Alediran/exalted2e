@@ -10,6 +10,193 @@
 .exalted2e.sheet.item.spell .window-content { overflow: visible; }
 .exalted2e.sheet.item.spell             { overflow: visible; }
 
+/* ── Spell Effects Tab ──────────────────────────────────────────────────── */
+.exalted2e .tab.active.spell-effects-body {
+  padding: 6px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Attack panel section */
+.exalted2e .spell-attack-section {
+  background: var(--ex2e-bg-panel);
+  border: 1px solid var(--ex2e-gold-dark);
+  border-radius: 4px;
+}
+
+.exalted2e .spell-attack-header {
+  padding: 4px 6px;
+  background: var(--ex2e-bg-darkest);
+  border-radius: 3px 3px 0 0;
+  border-bottom: 1px solid var(--ex2e-gold-dark);
+  font-weight: bold;
+  letter-spacing: 0.04em;
+}
+
+.exalted2e .spell-attack-label {
+  color: var(--ex2e-gold-main);
+  font-size: var(--ex2e-font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Compact stats bar — lays out accuracy, type, overwhelming, ignores armor inline */
+.exalted2e .spell-attack-stats-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  align-items: flex-end;
+  margin-bottom: 2px;
+}
+
+/* Each field in the stats bar shrinks to content width */
+.exalted2e .spell-stat-field {
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.exalted2e .spell-stat-field input[type="number"],
+.exalted2e .spell-stat-field input[type="text"] {
+  width: 64px;
+}
+
+.exalted2e .spell-stat-field select {
+  width: auto;
+  min-width: 80px;
+}
+
+.exalted2e .spell-attack-checkbox-cell {
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 3px;
+}
+
+/* Tags strip in attack panel */
+.exalted2e .spell-attack-tags {
+  border-top: 1px solid var(--ex2e-gold-dark);
+  padding-top: 4px;
+  margin-top: 2px;
+}
+
+/* AoE sub-section */
+.exalted2e .spell-aoe-section {
+  border-top: 1px solid var(--ex2e-gold-dark);
+  margin-top: 4px;
+  padding-top: 2px;
+}
+
+.exalted2e .spell-aoe-header {
+  padding: 3px 6px;
+  font-size: var(--ex2e-font-size-sm);
+  color: var(--ex2e-text-secondary);
+}
+
+/* AoE config row: shape + size side-by-side */
+.exalted2e .spell-aoe-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 6px 12px;
+  padding: 4px 6px 2px;
+}
+
+.exalted2e .spell-aoe-row .field-group {
+  flex: 0 0 auto;
+  margin-bottom: 0;
+}
+
+.exalted2e .spell-aoe-row select {
+  width: auto;
+  min-width: 90px;
+}
+
+/* Size input inline with fx button + "yards" label */
+.exalted2e .spell-aoe-size-input {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.exalted2e .spell-aoe-size-input input {
+  width: 60px;
+  flex: 0 0 auto;
+}
+
+.exalted2e .spell-aoe-unit {
+  font-size: var(--ex2e-font-size-sm);
+  color: var(--ex2e-text-secondary);
+  white-space: nowrap;
+  padding-left: 2px;
+}
+
+/* Quick-add button row */
+.exalted2e .spell-quickadd-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.exalted2e .spell-quickadd-btn {
+  flex: none;
+  font-size: 0.78em;
+  padding: 2px 8px;
+  border: 1px solid var(--ex2e-gold-dark);
+  background: var(--ex2e-bg-dark);
+  border-radius: 3px;
+  color: var(--ex2e-text-secondary);
+  transition: background 0.12s, color 0.12s;
+}
+
+.exalted2e .spell-quickadd-btn:hover {
+  background: var(--ex2e-bg-panel);
+  color: var(--ex2e-gold-main);
+  border-color: var(--ex2e-gold-main);
+}
+
+/* AE list icon */
+.exalted2e .spell-ae-icon {
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 2px;
+}
+
+/* AoE badge on chat cards */
+.exalted2e .spell-aoe-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--ex2e-font-size-sm);
+  color: var(--ex2e-gold-light, #e8c75a);
+  background: rgba(201,162,39,0.08);
+  border: 1px solid var(--ex2e-gold-dark);
+  border-radius: 3px;
+  padding: 1px 5px;
+}
+
+/* Per-target results table in AoE chat cards */
+.exalted2e .spell-attack-targets {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 4px;
+  font-size: var(--ex2e-font-size-sm);
+}
+.exalted2e .spell-attack-targets th {
+  text-align: left;
+  color: var(--ex2e-text-secondary);
+  font-weight: normal;
+  border-bottom: 1px solid var(--ex2e-gold-dark);
+  padding: 2px 4px;
+}
+.exalted2e .spell-attack-targets td {
+  padding: 2px 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.exalted2e .spell-attack-targets tr:last-child td {
+  border-bottom: none;
+}
+
 .exalted2e.item.charm .charm-attack-tags .tags-list {
   display: flex;
   flex-wrap: wrap;

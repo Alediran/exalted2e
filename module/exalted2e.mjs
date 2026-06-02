@@ -617,6 +617,7 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/ui/ghost-contest.hbs",
     "systems/exalted2e/templates/chat/ghost-summon-result.hbs",
     "systems/exalted2e/templates/chat/demon-summon-result.hbs",
+    "systems/exalted2e/templates/chat/spell-attack-result.hbs",
   ];
   return foundry.applications.handlebars.loadTemplates(templatePaths);
 }
