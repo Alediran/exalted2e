@@ -103,6 +103,10 @@ export class CharmData extends foundry.abstract.TypeDataModel {
       // ── Excellency ───────────────────────────────────────────────────────
       // "" = not an Excellency, "first" | "second" | "third" = which tier
       excellency: new fields.StringField({ initial: "", blank: true }),
+      // When true, this charm is the (Ability) Essence Flow charm for its
+      // ability. Per Errata: stunts on that ability add the stunt rating to
+      // the bonus-dice cap from Charms on the same roll.
+      essenceFlow: new fields.BooleanField({ initial: false }),
 
       // "" = not a perfect defense; "dodge" | "parry" | "soak" = which type
       perfectDefenseType: new fields.StringField({ initial: "", blank: true }),

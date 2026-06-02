@@ -91,7 +91,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Attribute-keyed Excellencies for Lunar/Alchemical (charm.attribute field; activation routing)
 - [x] First/Second-vs-Third Excellency exclusivity enforcement per roll
 - [x] Infinite (Ability) Mastery discount tracking (committed motes reduce Excellency cost)
-- [ ] Essence Flow innate-powers mechanic — when character owns `(Ability) Essence Flow`, allow the three Excellencies of that ability to be used outside of Combos as innate powers (skip Combo requirement only; dice-pool cap still applies)
+- [x] Essence Flow innate-powers mechanic — `system.essenceFlow: true` on CharmData; when actor owns the Essence Flow charm for the rolled ability, stunt rating adds to firstExcMax in RollDialog dynamically (per Errata)
 - [x] Keyword-as-status-effect registry (systematic Compulsion/Emotion/Illusion/Servitude → AE mapping)
 - [x] Charm deactivation resolver (scene-end / combat-end) — `clearSceneCharms` sweeps oneScene + action-count AEs at scene/combat end; `decrementActionCharmsFor` counts down per combatant act; indefinite/permanent untouched
 - [x] Essence-tiered upgrade branches (Essence 3+/4+ conditional charm effects; gate conditions, passive/active tiers, per-tier effect sections, activation pipeline integration) — [charms-gap A2](docs/charms-gap.md)
@@ -248,7 +248,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] XP Cost Engine
 - [x] XP cost tables per exalt type (Terrestrial out-of-aspect surcharges, etc.)
 - [x] Purchase Mode support for NPC-typed actors — `purchaseLocked` field in NpcData; toggle button injected in NpcSheet._onRender; #onTogglePurchaseMode handler
-- [ ] Per-trait lock overrides
+- [x] Per-trait lock overrides — PurchaseConfirmDialog gains GM-only "Bypass XP" button; resolves with xpCost=0 so trait is applied without XP deduction
 - [x] Background-method setting — world setting `backgroundMethod` (xp/free); _priceBackground returns 0 when free
 
 ## Stunts & Drama
@@ -262,7 +262,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
   - [ ] Special buttons on the folder (party roll, XP award, rest-and-recover, etc.)
   - [x] Macro to manually re-create the folder if deleted
   - [x] Restoring defaults when an actor leaves The Circle
-  - [ ] NPC → character auto-conversion on move-in
+  - [x] NPC → character auto-conversion on move-in — `updateActor` hook; when NPC's folder changes to The Circle (or child), creates a blank Character with same name/img
 
 ## Compendium
 - [x] Effects compendium (`exalted2e.effects`) seeded at ready with Creature of Darkness

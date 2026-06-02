@@ -1,13 +1,20 @@
 {
-  "_id": "4b2d7f23c9b4e50f",
-  "_key": "!items!4b2d7f23c9b4e50f",
-  "_stats": {"coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null},
-  "name": "Performance Essence Flow",
+  "_id": "19bd262473880e4b",
+  "_key": "!items!19bd262473880e4b",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Martial Arts Essence Flow",
   "type": "charm",
   "img": "icons/magic/light/beam-rays-yellow.webp",
   "system": {
     "exaltType": "abyssal",
-    "ability": "performance",
+    "ability": "martialarts",
     "essence": 4,
     "minAbility": 5,
     "charmType": "permanent",
@@ -23,7 +30,7 @@
     "martialArtsTier": "",
     "martialArtsStyleName": "",
     "maidenAffiliation": "",
-    "mirrorId": "800bfcc134e01406",
+    "mirrorId": "25c491a00bb719bc",
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 1,
@@ -33,9 +40,9 @@
     "perfectDefenseType": "",
     "active": false,
     "prereqGroups": [{"alternatives": [{"type": "anyExcellency", "charmUid": "", "charmName": "", "abilityKey": "", "virtueKey": "valor", "virtueMin": 1}]}],
-    "charmUid": "4b2d7f23c9b4e50f"
+    "charmUid": "19bd262473880e4b"
   },
-  "folder": "b0b1b2b3b4b5f042",
+  "folder": "b0b1b2b3b4b5f03e",
   "sort": 0,
   "ownership": {"default": 0},
   "flags": {},

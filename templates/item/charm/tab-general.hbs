@@ -164,6 +164,16 @@
         {{/each}}
       </select>
     </div>
+    <!-- Essence Flow flag -->
+    <div class="field-group">
+      <label class="checkbox-label"
+             data-tooltip="{{localize 'EX2E.EssenceFlowTooltip'}}">
+        <input type="checkbox" name="system.essenceFlow"
+               {{#if system.essenceFlow}}checked{{/if}}
+               {{#unless isEditable}}disabled{{/unless}}>
+        {{localize "EX2E.EssenceFlow"}}
+      </label>
+    </div>
     {{!-- Countermagic section --}}
     <div class="field-group" style="grid-column:1/-1">
       <label class="checkbox-label">

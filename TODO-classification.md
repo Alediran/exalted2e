@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-06-01 (four sorcery TODOs closed — spell payloads, ghost summoning, binding spells, demon summoning; count 1 A / 17 B / 1 C / 19 total)
+Last updated: 2026-06-02 (Essence Flow + Per-trait lock bypass + NPC auto-conversion closed; count 1 A / 14 B / 1 C / 16 total)
 
 ---
 
@@ -23,9 +23,7 @@ Last updated: 2026-06-01 (four sorcery TODOs closed — spell payloads, ghost su
 | Shintai / Mantle form-type charms | Infernal | charm activation mode + transformation state AE |
 | Gremlin Syndrome / Dissonance | Alchemical | Clarity track → Dissonance consequences |
 | Resplendent Destiny payloads | Sidereal | extend item type: Ascendant/Descending mechanical effects |
-| Per-trait lock overrides | XP | per-field lock flag, purchase mode guard |
 | Circle special buttons (party roll, XP award, rest) | Circle | macro-buttons on folder widget |
-| NPC → character auto-conversion on move-in | Circle | hook + actor-type change |
 | Clarity mechanical effects | Alchemical | Clarity track consequences (Virtue suppression thresholds) |
 | Manse geomancy rules | Crafting | Oadenol's Codex power table, demesne pre-roll (unblocked by Manse item type) |
 | Background mechanical hooks | Other | Familiar actor link + Cult mote-regen/WP-recovery + 53-type optgroup registry done; Backing/Contacts/Resources mechanical automation still pending |
@@ -34,7 +32,6 @@ Last updated: 2026-06-01 (four sorcery TODOs closed — spell payloads, ghost su
 | Personal/Peripheral commitment split | QoL | artifact attunement choice UI |
 | Poison/Disease tracking | Other | per-interval AE *(needs Poison/Disease item types — Group A — first)* |
 | Headless tests for remaining paths | Testing | test authoring for charm prereqs, multi-tick, sorcery |
-| Essence Flow innate-powers mechanic | Charms | gate: does actor own `(Ability) Essence Flow` charm? If yes, skip Combo requirement for that ability's three Excellencies at activation time; dice-pool cap still applies |
 | Touch keyword mechanics | Charm Keywords | non-consenting target needs Dex+MA attack roll before touch-range charm resolves; extend attack dialog or add pre-activation roll step |
 
 ---
@@ -55,6 +52,6 @@ Last updated: 2026-06-01 (four sorcery TODOs closed — spell payloads, ghost su
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 17 |
+| B — Ready, Medium | 14 |
 | C — Ready, Complex | 1 |
-| **Total pending** | **19** |
+| **Total pending** | **16** |

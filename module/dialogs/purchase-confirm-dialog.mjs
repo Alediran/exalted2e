@@ -22,7 +22,8 @@ export class PurchaseConfirmDialog extends HandlebarsApplicationMixin(Applicatio
     position: { width: 420, height: "auto" },
     window:   { title: "EX2E.PurchaseConfirmTitle", resizable: false },
     actions:  {
-      confirmPurchase: PurchaseConfirmDialog.#onConfirm
+      confirmPurchase: PurchaseConfirmDialog.#onConfirm,
+      bypassPurchase:  PurchaseConfirmDialog.#onBypass,
     }
   };
 
@@ -55,7 +56,8 @@ export class PurchaseConfirmDialog extends HandlebarsApplicationMixin(Applicatio
       initialNote:  this._initialNote,
       stubHint:     this._stubHint,
       available,
-      isEdit:       this._isEdit
+      isEdit:       this._isEdit,
+      isGM:         game.user.isGM
     };
   }
 
@@ -75,6 +77,12 @@ export class PurchaseConfirmDialog extends HandlebarsApplicationMixin(Applicatio
     };
     xpInput.addEventListener("input", refresh);
     refresh();
+  }
+
+  static #onBypass(_event, _target) {
+    this._resolved = true;
+    this._resolve({ xpCost: 0, note: game.i18n.localize("EX2E.PurchaseBypassNote") });
+    this.close();
   }
 
   static #onConfirm(event, target) {

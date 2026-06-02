@@ -62,6 +62,9 @@ import { registerWillpowerVirtueLimit }    from "./combat/willpower-virtue-limit
 import { registerMentalInfluence }         from "./combat/mental-influence.mjs";
 import { registerCoordinationTests }       from "./combat/coordination.mjs";
 import { registerCountermagic }            from "./combat/countermagic.mjs";
+import { registerEssenceFlow,
+         registerPurchaseBypass,
+         registerNpcAutoConversion }       from "./combat/essence-flow-bypass.mjs";
 import { registerCrafting }               from "./crafting/crafting-roll.mjs";
 import { registerManse }                from "./manse/manse-item.mjs";
 import { registerMassCombat, registerMassCombatCCR, registerMassCombatHealth, registerMassCombatJoinWar, registerMassCombatHesitation, registerMassCombatHeroPhase3, registerMassCombatUnitVsHero, registerMassCombatPhase4Actions, registerMassCombatPhase4SplitMerge, registerMassCombatPhase5, registerMassCombatPhase6, registerMassCombatPhase7, registerMassCombatPhase8, registerMassCombatPhase9 } from "./combat/mass-combat.mjs";
@@ -144,6 +147,9 @@ Hooks.once("quenchReady", async quench => {
   quench.registerBatch("exalted2e.mental-influence",          registerMentalInfluence,             { displayName: "Mental influence keywords" });
   quench.registerBatch("exalted2e.coordination",              registerCoordinationTests,           { displayName: "Coordinated attack AE expiry" });
   quench.registerBatch("exalted2e.countermagic",              registerCountermagic,                { displayName: "Countermagic resolution" });
+  quench.registerBatch("exalted2e.essence-flow",             registerEssenceFlow,                 { displayName: "Essence Flow — RollDialog cap detection" });
+  quench.registerBatch("exalted2e.purchase-bypass",          registerPurchaseBypass,              { displayName: "Purchase mode — ST bypass button" });
+  quench.registerBatch("exalted2e.npc-auto-convert",         registerNpcAutoConversion,           { displayName: "NPC → Character auto-conversion (The Circle)" });
   quench.registerBatch("exalted2e.crafting",                  registerCrafting,                    { displayName: "Crafting roll resolver" });
   quench.registerBatch("exalted2e.manse",                     registerManse,                       { displayName: "Manse item — data layer" });
   quench.registerBatch("exalted2e.mass-combat",               registerMassCombat,                  { displayName: "Mass combat roll engine" });

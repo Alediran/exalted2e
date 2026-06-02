@@ -51,6 +51,10 @@ describe("CharmData schema gaps — field presence", () => {
   it("masteryCommitment field was removed from charm schema (commitment now lives in AE flags)", () => {
     expect(schema).not.toHaveProperty("masteryCommitment");
   });
+  it("essenceFlow exists and defaults false", () => {
+    expect(schema).toHaveProperty("essenceFlow");
+    expect(schema.essenceFlow.initial).toBe(false);
+  });
 });
 
 describe("areCharmPrereqsMet — virtue prerequisites (B7)", () => {

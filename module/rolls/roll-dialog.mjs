@@ -70,6 +70,7 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       firstExcCostPerDie:   options.firstExcCostPerDie   ?? 1,
       secondExcCostPerSucc: options.secondExcCostPerSucc ?? 2,
       mentalInfluenceEffects: options.mentalInfluenceEffects ?? [],
+      essenceFlowActive:    options.essenceFlowActive    ?? false,
     };
   }
 
@@ -126,6 +127,11 @@ export class RollDialog extends HandlebarsApplicationMixin(ApplicationV2) {
       const v = parseInt(stuntSelect?.value) || 0;
       if (motivationRow) motivationRow.style.display = v >= 1 ? "" : "none";
       if (rewardPrefRow) rewardPrefRow.style.display = v >= 2 ? "" : "none";
+      // Essence Flow (Solar Errata): stunt rating added to bonus-dice cap
+      if (this._data.essenceFlowActive) {
+        currentFirstExcMax = this._data.firstExcMax + v;
+        enforceExcCap();
+      }
     };
     stuntSelect?.addEventListener("change", updateStuntFields);
     updateStuntFields();

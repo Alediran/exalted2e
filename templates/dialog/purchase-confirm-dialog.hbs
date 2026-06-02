@@ -31,5 +31,11 @@
     <button type="button" class="btn-roll" data-action="confirmPurchase">
       <i class="fa-solid fa-check"></i> {{localize "EX2E.PurchaseConfirmButton"}}
     </button>
+    {{#if isGM}}
+    <button type="button" class="btn-roll purchase-bypass-btn" data-action="bypassPurchase"
+            data-tooltip="{{localize 'EX2E.PurchaseBypassTooltip'}}">
+      <i class="fa-solid fa-forward"></i> {{localize "EX2E.PurchaseBypassButton"}}
+    </button>
+    {{/if}}
   </footer>
 </form>

@@ -329,6 +329,12 @@ export class ExaltedRoll {
     const firstExcMax  = keyVal;
     const secondExcMax = Math.floor(keyVal / 2);
 
+    // Essence Flow (Solar Errata): when the actor owns the (Ability) Essence
+    // Flow charm for this ability, stunts add their rating to the bonus-dice
+    // cap. Detected per-roll; Lunar/Alchemical (attr-based) don't use this.
+    const essenceFlowActive = !isAttrBased
+      && allCharms.some(c => c.system.essenceFlow === true && c.system.ability === ability);
+
     const masteryDiscount = isAttrBased ? 0 : getMasteryDiscount(actor, ability);
 
     // Per-attribute max maps for dynamic dialog updates
@@ -359,6 +365,7 @@ export class ExaltedRoll {
       secondExcMax:        secondExcMax,
       firstExcMaxPerAttr:  firstExcMaxPerAttr,
       secondExcMaxPerAttr: secondExcMaxPerAttr,
+      essenceFlowActive:   essenceFlowActive,
       poolPenaltyByAttr:   poolPenaltyByAttr,
       clarityInfo: (sys.exaltType === "alchemical" && (_clarityMods.autochthonBonus ?? 0) > 0)
         ? { autochthonBonus: _clarityMods.autochthonBonus }
