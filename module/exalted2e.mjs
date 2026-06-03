@@ -618,6 +618,7 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/chat/ghost-summon-result.hbs",
     "systems/exalted2e/templates/chat/demon-summon-result.hbs",
     "systems/exalted2e/templates/chat/spell-attack-result.hbs",
+    "systems/exalted2e/templates/chat/gremlin-syndrome-alert.hbs",
   ];
   return foundry.applications.handlebars.loadTemplates(templatePaths);
 }
@@ -1742,6 +1743,41 @@ Hooks.on("updateActor", async (actor, changes, _options, userId) => {
     await _postLimitBreakCard(actor);
   } catch (err) {
     _limitBreakPending.delete(actor.id);
+    throw err;
+  }
+});
+
+// ── Gremlin Syndrome Detection (Alchemical) ────────────────────────────────
+// Mirrors the Limit-Break detection hook. At Dissonance 10 the Alchemical
+// succumbs: stamp the creatureOfVoid AE and whisper the GM an alert card.
+// Dropping below 10 clears the guard and removes the AE (GM-reversible).
+Hooks.on("updateActor", async (actor, changes, _options, userId) => {
+  if (game.user.id !== userId) return;
+  if (actor.type !== "character") return;
+  if (actor.system.exaltType !== "alchemical") return;
+
+  const newDis = foundry.utils.getProperty(changes, "system.splat.alchemical.dissonance");
+  if (newDis === undefined) return;
+
+  const { _gremlinPending, stampGremlinAE, removeGremlinAE, postGremlinAlert } =
+    await import("./combat/gremlin-syndrome.mjs");
+
+  if (newDis < 10) {
+    try {
+      await removeGremlinAE(actor);
+    } catch (err) {
+      console.error("exalted2e | Failed to remove Gremlin Syndrome AE:", err);
+    }
+    _gremlinPending.delete(actor.id);
+    return;
+  }
+  if (_gremlinPending.has(actor.id)) return;
+  _gremlinPending.add(actor.id);
+  try {
+    await stampGremlinAE(actor);
+    await postGremlinAlert(actor);
+  } catch (err) {
+    _gremlinPending.delete(actor.id);
     throw err;
   }
 });
@@ -3827,6 +3863,41 @@ Hooks.on("renderChatMessageHTML", (message, html) => {
       }
     }
   }
+});
+
+// ── Gremlin Syndrome — Convert to Antagonist button ────────────────────────
+Hooks.on("renderChatMessageHTML", (message, html) => {
+  const el  = html instanceof HTMLElement ? html : html[0] ?? html;
+  const btn = el?.querySelector?.("[data-action='gremlinConvert']");
+  if (!btn) return;
+  // Disable upfront for non-GMs and for already-resolved cards.
+  if (!game.user.isGM || message.flags?.exalted2e?.gremlinSyndrome?.resolved) {
+    btn.disabled = true;
+    return;
+  }
+  btn.addEventListener("click", async () => {
+    const actor = game.actors.get(btn.dataset.actorId);
+    if (!actor) {
+      console.warn("exalted2e | Gremlin Convert: actor not found", btn.dataset.actorId);
+      return;
+    }
+    btn.disabled = true;   // prevent double-fire during the async work
+    try {
+      for (const token of actor.getActiveTokens()) {
+        await token.document.update({ disposition: CONST.TOKEN_DISPOSITIONS.HOSTILE });
+      }
+      await message.setFlag("exalted2e", "gremlinSyndrome", {
+        ...(message.flags?.exalted2e?.gremlinSyndrome ?? {}), resolved: true
+      });
+      await ChatMessage.create({
+        content: game.i18n.format("EX2E.GremlinConverted", { name: actor.name }),
+        speaker: ChatMessage.getSpeaker({ actor })
+      });
+    } catch (err) {
+      console.error("exalted2e | Gremlin Convert failed:", err);
+      btn.disabled = false;   // re-enable so the GM can retry
+    }
+  });
 });
 
 // ── Auto-clear social-scene state on combat deletion ──────────────────────

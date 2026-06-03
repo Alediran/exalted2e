@@ -76,4 +76,55 @@ describe("ExaltedItem._preUpdate (artifact attunement)", () => {
     );
     expect(item.actor.update).not.toHaveBeenCalled();
   });
+
+  it("commits from the pool named by options.attunePool, bypassing the dialog", async () => {
+    // Both pools funded — without the bypass option this would open the
+    // interactive pool-choice dialog. The explicit option routes to personal
+    // and must never block.
+    const actor = {
+      type: "character",
+      system: { motes: {
+        peripheral: { value: 20, max: 20 },
+        personal:   { value: 13, max: 13 }
+      } },
+      update: vi.fn().mockResolvedValue(true)
+    };
+    const item = {
+      actor,
+      type: "weapon",
+      system: { artifact: true, attuned: false, attunementCost: 5 },
+      getFlag: () => undefined
+    };
+    await ExaltedItem.prototype._preUpdate.call(
+      item, { system: { attuned: true } }, { attunePool: "personal" }, "user-id"
+    );
+    expect(actor.update).toHaveBeenCalledWith({
+      "system.motes.personal.value": 8
+    });
+  });
+
+  it("does not prompt on a cost change to an already-attuned artifact (defaults peripheral)", async () => {
+    // oldAttuned === true → not a fresh attune → no dialog even with both pools.
+    const actor = {
+      type: "character",
+      system: { motes: {
+        peripheral: { value: 15, max: 20 },
+        personal:   { value: 13, max: 13 }
+      } },
+      update: vi.fn().mockResolvedValue(true)
+    };
+    const item = {
+      actor,
+      type: "weapon",
+      system: { artifact: true, attuned: true, attunementCost: 5 },
+      getFlag: () => undefined
+    };
+    await ExaltedItem.prototype._preUpdate.call(
+      item, { system: { attunementCost: 7 } }, {}, "user-id"
+    );
+    // delta +2 → peripheral drops 15 → 13
+    expect(actor.update).toHaveBeenCalledWith({
+      "system.motes.peripheral.value": 13
+    });
+  });
 });

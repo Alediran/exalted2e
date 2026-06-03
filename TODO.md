@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 214 / 265 complete** (10 out-of-scope / partial — last updated 2026-05-28 — added artifact ability prereq system + M20 charm effect)
+**Progress: 214 / 264 complete** (10 out-of-scope / partial — last updated 2026-05-28 — added artifact ability prereq system + M20 charm effect)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -203,7 +203,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] **Charm Slots** (4 General + 4 Dedicated; install/uninstall flow; committed-motes cost per slot)
 - [x] Submodules (slot-within-slot installations)
 - [x] Clarity track (0-10; Virtue-suppression & contact-deprivation triggers)
-- [ ] Gremlin Syndrome / Dissonance path
+- [x] Gremlin Syndrome / Dissonance path — `dissonance` 0-10 field + Main-tab nudge track; at 10 an updateActor hook stamps a `creatureOfVoid`/`gremlinSyndrome` AE + GM-whisper alert with Convert-to-Antagonist button; drops below 10 remove the AE
 - [x] Installed armor (subcutaneous / exoskeletal plating — different from equipped armor)
 - [x] Weaving protocols (Man-Machine / God-Machine as sorcery mirror)
 - [~] Adamant caste hidden-from-society rules
@@ -262,7 +262,6 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
   - [x] Special buttons on the folder (party roll, XP award, rest-and-recover) — `renderActorDirectory` hook injects Party Roll / Award XP / Rest buttons on The Circle folder header
   - [x] Macro to manually re-create the folder if deleted
   - [x] Restoring defaults when an actor leaves The Circle
-  - [x] NPC → character auto-conversion on move-in — `updateActor` hook; when NPC's folder changes to The Circle (or child), creates a blank Character with same name/img
 
 ## Compendium
 - [x] Effects compendium (`exalted2e.effects`) seeded at ready with Creature of Darkness
@@ -280,7 +279,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Anima flux (DB environmental damage + visual region ring following token; Abyssal Resonance effects shipped)
 - [x] Resonance track and eruptions (Abyssal) — see Abyssal splat
 - [x] Torment / Act of Villainy tracking (Infernal) — see Infernal splat
-- [ ] Clarity mechanical effects (Alchemical) — see Alchemical splat
+- [x] Clarity mechanical effects (Alchemical) — social/mental/autochthon already wired; Compassion penalty + auto-fail now surface as Main-tab display badges (GM-enforced per design)
 - [x] Paradox track (Sidereal) — see Sidereal splat
 - [ ] Poison / Disease tracking (item types + per-interval AE)
 - [x] Crippling injuries (4+ HL single hit; surgery Int+Medicine to heal)

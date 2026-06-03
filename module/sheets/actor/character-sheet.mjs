@@ -177,6 +177,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       endScene:             CharacterSheet.#onEndScene,
       morningRest:          CharacterSheet.#onMorningRest,
       rollVirtue:           CharacterSheet.#onRollVirtue,
+      dissonanceUp:        CharacterSheet.#onDissonanceUp,
+      dissonanceDown:      CharacterSheet.#onDissonanceDown,
       installCharm:        CharacterSheet.#onInstallCharm,
       uninstallCharm:      CharacterSheet.#onUninstallCharm,
       addDedicatedSlot:    CharacterSheet.#onAddDedicatedSlot,
@@ -984,6 +986,9 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       dbtActive,
       isGM: game.user.isGM,
       isEditable: this.isEditable,
+      gremlinSyndromeActive: this.document.effects.some(
+        e => !e.disabled && e.flags?.exalted2e?.gremlinSyndrome === true
+      ),
       useIntimacyIntensity: game.settings.get("exalted2e", "useIntimacyIntensity"),
       animaLabel,
       dbFluxInfo,
@@ -1870,6 +1875,16 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   static async #onMorningRest(_event, _target) {
     await this.document.rollMorningRest();
+  }
+
+  static async #onDissonanceUp(_event, _target) {
+    const cur = this.document.system.splat?.alchemical?.dissonance ?? 0;
+    await this.document.update({ "system.splat.alchemical.dissonance": Math.min(10, cur + 1) });
+  }
+
+  static async #onDissonanceDown(_event, _target) {
+    const cur = this.document.system.splat?.alchemical?.dissonance ?? 0;
+    await this.document.update({ "system.splat.alchemical.dissonance": Math.max(0, cur - 1) });
   }
 
   static async #onRollVirtue(_event, target) {

@@ -251,6 +251,7 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
             permanent: new fields.NumberField({ integer: true, min: 0, initial: 0 }),
             total:     new fields.NumberField({ integer: true, min: 0, initial: 0 })
           }),
+          dissonance:     new fields.NumberField({ integer: true, min: 0, max: 10, initial: 0 }),
           dedicatedSlots: new fields.NumberField({ integer: true, min: 0, initial: 4 }),
           generalSlots:   new fields.NumberField({ integer: true, min: 0, initial: 4 })
         })

@@ -2375,7 +2375,18 @@
     "Award": "Otorgar",
     "CircleRest": "Descansar",
     "CircleRestConfirm": "¿Restaurar motas y Voluntad al máximo para {n} personaje(s) del Círculo?",
-    "CircleRestComplete": "El Círculo ha descansado — motas y Voluntad restauradas."
+    "CircleRestComplete": "El Círculo ha descansado — motas y Voluntad restauradas.",
+    "Dissonance": "Disonancia",
+    "DissonanceUp": "Aumentar Disonancia",
+    "DissonanceDown": "Reducir Disonancia",
+    "ClarityCompassionPenalty": "Penalización de Compasión (Claridad alta)",
+    "ClarityCompassionSuppressed": "Compasión suprimida (Claridad 10)",
+    "GremlinSyndrome": "Síndrome Gremlin",
+    "GremlinSyndromeDesc": "Este Alquímico ha sucumbido al Vacío. Los ataques con la palabra clave Axiomática causan daño agravado.",
+    "GremlinSyndromeAlertHeader": "Síndrome Gremlin",
+    "GremlinSyndromeAlertBody": "{name} ha sucumbido al Síndrome Gremlin.",
+    "GremlinConvertButton": "Convertir en Antagonista",
+    "GremlinConverted": "{name} ahora es un Gremlin — disposición del token establecida como hostil."
   },
   "TYPES": {
     "Actor": {

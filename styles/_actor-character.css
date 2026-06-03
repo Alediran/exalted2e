@@ -921,3 +921,26 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
   margin-left:    6px;
   vertical-align: middle;
 }
+
+/* ── Alchemical Dissonance / Gremlin Syndrome ──────────────────────────── */
+.exalted2e .dissonance-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.exalted2e .clarity-compassion-penalty {
+  color: var(--ex2e-amber, #d9a441);
+}
+.exalted2e .clarity-compassion-suppressed {
+  color: var(--ex2e-danger, #c0392b);
+  font-weight: bold;
+}
+.exalted2e .gremlin-syndrome-warning {
+  background: rgba(120, 30, 140, 0.18);
+  border-color: #7a1e8c;
+}
+.ex2e-roll-card.gremlin-syndrome-card .gremlin-actions {
+  margin-top: 6px;
+  display: flex;
+  justify-content: center;
+}

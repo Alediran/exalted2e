@@ -82,7 +82,7 @@ export function registerResourceEconomySmoke(context) {
       await actor.sheet.render(true);
       await waitFor(() => actor.sheet.rendered === true);
 
-      await item.update({ "system.attuned": true });
+      await item.update({ "system.attuned": true }, { attunePool: "peripheral" });
       // Wait for the actor data to settle, then poll for the sheet's
       // re-rendered DOM to reflect the new value (re-render is async).
       await waitFor(() => actor.system.motes.peripheral.value === startMax - 5);

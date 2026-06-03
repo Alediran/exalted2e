@@ -33,7 +33,7 @@ export function registerAttunement(context) {
         artifact: true, attuned: false, attunementCost: 5
       });
 
-      await item.update({ "system.attuned": true });
+      await item.update({ "system.attuned": true }, { attunePool: "peripheral" });
 
       assert.equal(actor.system.motes.peripheral.value, startMax - 5);
       assert.equal(actor.system.motes.peripheral.artifactCommitted, 5);
@@ -107,8 +107,8 @@ export function registerAttunement(context) {
         name: "Q-Art-B", artifact: true, attuned: false, attunementCost: 5
       });
 
-      await a.update({ "system.attuned": true });
-      await b.update({ "system.attuned": true });
+      await a.update({ "system.attuned": true }, { attunePool: "peripheral" });
+      await b.update({ "system.attuned": true }, { attunePool: "peripheral" });
 
       assert.equal(actor.system.motes.peripheral.value, startMax - 8);
       assert.equal(actor.system.motes.peripheral.artifactCommitted, 8);

@@ -72,19 +72,31 @@ export class ExaltedItem extends Item {
     if (delta === 0) return;
 
     if (delta > 0) {
-      // Attuning — let player choose which pool to commit from
-      const peripheral = actor.system.motes.peripheral ?? { value: 0, max: 0 };
-      const personal   = actor.system.motes.personal   ?? { value: 0, max: 0 };
-      const periAvail  = peripheral.value ?? 0;
-      const persAvail  = personal.value  ?? 0;
+      // Resolve which pool to commit from. Priority:
+      //   1. options.attunePool — explicit choice from automation, tests, or the
+      //      Surging-Essence-Reactor path; skips the interactive dialog entirely.
+      //   2. existing attunePool flag — a cost increase on an already-attuned
+      //      artifact reuses the pool chosen when it was first attuned.
+      //   3. fresh interactive attune (`!oldAttuned && newAttuned`) — prompt when
+      //      both pools can pay; otherwise auto-pick the only funded pool.
+      //   4. fallback — peripheral.
+      // The dialog is gated on a fresh attune so programmatic attune flips
+      // (cost changes, SER, drag-in, automated tests) never block on it.
+      const isFreshAttune = !oldAttuned && newAttuned;
+      let chosenPool = options?.attunePool ?? this.getFlag?.("exalted2e", "attunePool") ?? null;
 
-      let chosenPool = "peripheral";
-      if (periAvail > 0 && persAvail > 0) {
-        const periLabel = `${game.i18n.localize("EX2E.MotesPeripheral")} (${periAvail} ${game.i18n.localize("EX2E.Available")})`;
-        const persLabel = `${game.i18n.localize("EX2E.MotesPersonal")}   (${persAvail} ${game.i18n.localize("EX2E.Available")})`;
-        const result = await foundry.applications.api.DialogV2.prompt({
-          window: { title: game.i18n.format("EX2E.AttunementPoolTitle", { name: this.name, cost: delta }) },
-          content: `
+      if (!chosenPool) {
+        const peripheral = actor.system.motes.peripheral ?? { value: 0, max: 0 };
+        const personal   = actor.system.motes.personal   ?? { value: 0, max: 0 };
+        const periAvail  = peripheral.value ?? 0;
+        const persAvail  = personal.value  ?? 0;
+
+        if (isFreshAttune && periAvail > 0 && persAvail > 0) {
+          const periLabel = `${game.i18n.localize("EX2E.MotesPeripheral")} (${periAvail} ${game.i18n.localize("EX2E.Available")})`;
+          const persLabel = `${game.i18n.localize("EX2E.MotesPersonal")} (${persAvail} ${game.i18n.localize("EX2E.Available")})`;
+          const result = await foundry.applications.api.DialogV2.prompt({
+            window: { title: game.i18n.format("EX2E.AttunementPoolTitle", { name: this.name, cost: delta }) },
+            content: `
 <p>${game.i18n.format("EX2E.AttunementPoolBody", { cost: delta })}</p>
 <div class="form-group">
   <label>${game.i18n.localize("EX2E.AttunementPoolChoose")}</label>
@@ -93,18 +105,21 @@ export class ExaltedItem extends Item {
     <option value="personal">${persLabel}</option>
   </select>
 </div>`,
-          ok: {
-            label: game.i18n.localize("EX2E.Attune"),
-            callback: (_ev, button) => button.form.elements.pool?.value ?? "peripheral"
-          }
-        });
-        if (!result) return false; // user cancelled
-        chosenPool = result;
-      } else if (persAvail > 0 && periAvail <= 0) {
-        chosenPool = "personal";
+            ok: {
+              label: game.i18n.localize("EX2E.Attune"),
+              callback: (_ev, button) => button.form.elements.pool?.value ?? "peripheral"
+            }
+          });
+          if (!result) return false; // user cancelled
+          chosenPool = result;
+        } else if (persAvail > 0 && periAvail <= 0) {
+          chosenPool = "personal";
+        } else {
+          chosenPool = "peripheral";
+        }
       }
 
-      const pool     = actor.system.motes[chosenPool];
+      const pool     = actor.system.motes[chosenPool] ?? actor.system.motes.peripheral;
       const newValue = Math.min(pool.max ?? 0, Math.max(0, (pool.value ?? 0) - delta));
       await actor.update({ [`system.motes.${chosenPool}.value`]: newValue });
       // Record which pool was used so un-attune can refund to the same pool

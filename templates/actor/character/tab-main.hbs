@@ -180,6 +180,33 @@
               <span>+{{system.clarityModifiers.mentalBonus}} {{localize "EX2E.ClarityMentalBonus"}}</span>
             </div>
             {{/if}}
+            {{#if system.clarityModifiers.compassionAutoFail}}
+            <div class="clarity-modifiers-block clarity-compassion-suppressed">
+              <span>{{localize "EX2E.ClarityCompassionSuppressed"}}</span>
+            </div>
+            {{else}}
+            {{#if (gt system.clarityModifiers.compassionPenalty 0)}}
+            <div class="clarity-modifiers-block clarity-compassion-penalty">
+              <span>−{{system.clarityModifiers.compassionPenalty}} {{localize "EX2E.ClarityCompassionPenalty"}}</span>
+            </div>
+            {{/if}}
+            {{/if}}
+            <div class="trait-row dissonance-row">
+              <label>{{localize "EX2E.Dissonance"}}</label>
+              {{#if isEditable}}
+              <button type="button" class="btn-sm" data-action="dissonanceDown" title="{{localize 'EX2E.DissonanceDown'}}">
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              {{/if}}
+              {{boxRating name="system.splat.alchemical.dissonance"
+                          value=system.splat.alchemical.dissonance
+                          max=10 min=0 total=10}}
+              {{#if isEditable}}
+              <button type="button" class="btn-sm" data-action="dissonanceUp" title="{{localize 'EX2E.DissonanceUp'}}">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+              {{/if}}
+            </div>
             {{/if}}
 
             {{#if (and (eq system.exaltType "abyssal") (eq system.limit 10))}}
@@ -189,6 +216,9 @@
 
             {{#if (and (includes (array "solar" "lunar" "terrestrial" "sidereal") system.exaltType) (eq system.limit 10))}}
             <div class="limit-break-warning">{{localize "EX2E.LimitBreak"}}</div>
+            {{/if}}
+            {{#if gremlinSyndromeActive}}
+            <div class="limit-break-warning gremlin-syndrome-warning">{{localize "EX2E.GremlinSyndrome"}}</div>
             {{/if}}
           </div>
 

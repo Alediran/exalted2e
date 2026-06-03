@@ -42,19 +42,20 @@ async function createMountedActor(name, {
   return actor;
 }
 
-/** Stamp the mountedOn flag on an actor's combatant. */
+/** Stamp the mountedOn flag on the ACTOR. Production stores mountedOn
+ *  actor-scoped (see exalted2e.mjs and the currentDodgeDV / currentParryDV
+ *  getters, which read `actor.flags.exalted2e.mountedOn`). The combatant is
+ *  still asserted so in-combat scenarios stay realistic. */
 async function mountActor(combat, actor, vehicleActorId = "fake-vehicle-id") {
   const combatant = combat.combatants.find(c => c.actorId === actor.id);
   if (!combatant) throw new Error(`mountActor: actor ${actor.name} has no combatant`);
-  await combatant.setFlag("exalted2e", "mountedOn", { vehicleActorId });
+  await actor.setFlag("exalted2e", "mountedOn", { vehicleActorId });
   return combatant;
 }
 
-/** Remove the mountedOn flag from an actor's combatant. */
+/** Remove the mountedOn flag from the ACTOR. */
 async function dismountActor(combat, actor) {
-  const combatant = combat.combatants.find(c => c.actorId === actor.id);
-  if (!combatant) return;
-  await combatant.unsetFlag("exalted2e", "mountedOn");
+  await actor.unsetFlag("exalted2e", "mountedOn");
 }
 
 export function registerMounted(context) {

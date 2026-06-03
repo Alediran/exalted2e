@@ -475,6 +475,15 @@ describe("CharacterData splat.sidereal.paradox", () => {
   });
 });
 
+describe("CharacterData splat.alchemical.dissonance", () => {
+  it("is a NumberField with initial 0, min 0, max 10, integer true", () => {
+    const schema = CharacterData.defineSchema();
+    const field  = schema.splat.config.alchemical.config.dissonance;
+    expect(field).toBeDefined();
+    expect(field.options).toMatchObject({ initial: 0, min: 0, max: 10, integer: true });
+  });
+});
+
 describe("CharacterData splat.sidereal.colleges", () => {
   it("colleges SchemaField exists with all 5 maiden sub-schemas", () => {
     const schema = CharacterData.defineSchema();

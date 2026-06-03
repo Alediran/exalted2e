@@ -1142,11 +1142,15 @@ export class ExaltedActor extends Actor {
     }
 
     const isNewAttunement = !item.system.attuned;
+    // attunePool: "peripheral" skips the interactive pool-choice dialog in
+    // ExaltedItem._preUpdate — this path covers the cost from the attunement-
+    // mote pool, so the peripheral deduction (offset by attunementMotesCover)
+    // must stay deterministic and never prompt.
     await item.update({
       "system.attuned":              true,
       "system.attunementMotesCover": cost,
       "system.attunedViaAttunement": isNewAttunement
-    });
+    }, { attunePool: "peripheral" });
     await this.update({ "system.attunementMotes": available - remaining });
     return true;
   }

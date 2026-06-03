@@ -160,5 +160,48 @@ export function registerClarity(context) {
       assert.equal(charm.system.installedSlotType, "");
       assert.equal(actor.system.generalSlotsUsed, 0);
     });
+
+    // ── Dissonance / Gremlin Syndrome ────────────────────────────────────
+
+    describe("Dissonance / Gremlin Syndrome", () => {
+      it("[137] Compassion derived values at Clarity 10", async () => {
+        const actor = await createTempCharacter({ name: "Q-Dissonance-Compassion" });
+        await actor.update({
+          "system.exaltType": "alchemical",
+          "system.limit": 10
+        });
+        assert.equal(actor.system.clarityModifiers.compassionAutoFail, true);
+        assert.equal(actor.system.clarityModifiers.compassionPenalty, 4);
+      });
+
+      it("[138] Gremlin AE stamped at dissonance 10", async () => {
+        const actor = await createTempCharacter({ name: "Q-Dissonance-Gremlin" });
+        await actor.update({ "system.exaltType": "alchemical" });
+
+        await actor.update({ "system.splat.alchemical.dissonance": 10 });
+
+        const effect = await waitFor(() =>
+          actor.effects.find(e => e.flags?.exalted2e?.gremlinSyndrome === true)
+        );
+        assert.ok(effect, "gremlin syndrome AE should be stamped");
+        assert.equal(effect.flags.exalted2e.creatureOfVoid, true);
+      });
+
+      it("[139] AE removed on recovery below dissonance 10", async () => {
+        const actor = await createTempCharacter({ name: "Q-Dissonance-Recovery" });
+        await actor.update({ "system.exaltType": "alchemical" });
+
+        await actor.update({ "system.splat.alchemical.dissonance": 10 });
+        await waitFor(() =>
+          actor.effects.find(e => e.flags?.exalted2e?.gremlinSyndrome === true)
+        );
+
+        await actor.update({ "system.splat.alchemical.dissonance": 9 });
+        const gone = await waitFor(() =>
+          !actor.effects.some(e => e.flags?.exalted2e?.gremlinSyndrome === true)
+        );
+        assert.ok(gone, "gremlin syndrome AE should be removed");
+      });
+    });
   });
 }

@@ -2375,7 +2375,18 @@
     "Award": "Award",
     "CircleRest": "Rest",
     "CircleRestConfirm": "Restore motes and WP to maximum for {n} Circle character(s)?",
-    "CircleRestComplete": "The Circle has rested — motes and WP restored."
+    "CircleRestComplete": "The Circle has rested — motes and WP restored.",
+    "Dissonance": "Dissonance",
+    "DissonanceUp": "Increase Dissonance",
+    "DissonanceDown": "Decrease Dissonance",
+    "ClarityCompassionPenalty": "Compassion penalty (high Clarity)",
+    "ClarityCompassionSuppressed": "Compassion suppressed (Clarity 10)",
+    "GremlinSyndrome": "Gremlin Syndrome",
+    "GremlinSyndromeDesc": "This Alchemical has succumbed to the Void. Axiomatic-keyword attacks deal aggravated damage.",
+    "GremlinSyndromeAlertHeader": "Gremlin Syndrome",
+    "GremlinSyndromeAlertBody": "{name} has succumbed to Gremlin Syndrome.",
+    "GremlinConvertButton": "Convert to Antagonist",
+    "GremlinConverted": "{name} is now a Gremlin — token disposition set to hostile."
   },
   "TYPES": {
     "Actor": {
