@@ -1,0 +1,20 @@
+{
+  "_id": "b1c2d3e4f5a60607",
+  "_key": "!items!b1c2d3e4f5a60607",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Harvest Ripe Wheat, Father Falling Hay",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_haywain",
+    "enduranceCost": 1,
+    "paradoxDice": 0,
+    "keyword": "",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>If the Sidereal stands in the reception area of a business, or visits its shop floor, she can instantly tell whether the business is \"wholly corrupt,\" \"mostly corrupt\" \"somewhat corrupt,\" \"mostly honest\" or \"totally honest.\" Only one answer is provided, and it pertains to the organization as a whole rather than any member or employee. Pondering some bureaucratic or criminal misdeed, she can know if the deed \"will not,\" \"may possibly\" or \"is certain to\" receive official scrutiny. Only one of these three answers is provided, and it pertains to the deed only if the Exalt commits it immediately after activating this Resplendency.</p>"
+  },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}

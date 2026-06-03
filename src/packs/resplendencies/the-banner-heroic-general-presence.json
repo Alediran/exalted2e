@@ -1,0 +1,20 @@
+{
+  "_id": "b1c2d3e4f5a60401",
+  "_key": "!items!b1c2d3e4f5a60401",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Heroic General Presence",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_banner",
+    "enduranceCost": 2,
+    "paradoxDice": 0,
+    "keyword": "",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>The Sidereal exhibits herself at the forefront of battle. The difficulties of all Valor checks for those under her direct command are reduced to 1.</p>"
+  },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}

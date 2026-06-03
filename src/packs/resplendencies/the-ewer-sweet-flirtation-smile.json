@@ -1,0 +1,20 @@
+{
+  "_id": "b1c2d3e4f5a60301",
+  "_key": "!items!b1c2d3e4f5a60301",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Sweet Flirtation Smile",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_ewer",
+    "enduranceCost": 1,
+    "paradoxDice": 0,
+    "keyword": "",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>The Sidereal's player adds dice equal to her character's Charisma to any Bureaucracy, Socialize or Presence roll, even if the roll is already based on Charisma.</p>"
+  },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}

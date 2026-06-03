@@ -1,0 +1,20 @@
+{
+  "_id": "b1c2d3e4f5a6060d",
+  "_key": "!items!b1c2d3e4f5a6060d",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Style-Discerning Eye",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_sword",
+    "enduranceCost": 1,
+    "paradoxDice": 1,
+    "keyword": "",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>The Sidereal no longer merely hopes to study under a particular tutor, but can realize that dream. Activating this effect reflexively whenever she observes clearly as another individual activates a Martial Arts Charm, the Sidereal may realize the Charm's trick. Thereafter, she may learn it without a tutor provided she possesses its prerequisites—normal experience point cost and doubled training time applies. If the Seer doesn't learn the Charm within a year and a day, the realization fades.</p>"
+  },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}

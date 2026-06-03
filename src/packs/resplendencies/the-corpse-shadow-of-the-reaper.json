@@ -1,0 +1,20 @@
+{
+  "_id": "b1c2d3e4f5a60602",
+  "_key": "!items!b1c2d3e4f5a60602",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Shadow of the Reaper",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_corpse",
+    "enduranceCost": 3,
+    "paradoxDice": 1,
+    "keyword": "",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>By making the Superior Sign of the Corpse, the character fills the target with intimations of mortality. The target loses all points of Willpower in excess of his Conviction.</p>"
+  },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}

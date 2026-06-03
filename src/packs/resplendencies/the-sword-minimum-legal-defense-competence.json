@@ -1,0 +1,20 @@
+{
+  "_id": "b1c2d3e4f5a6060e",
+  "_key": "!items!b1c2d3e4f5a6060e",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Minimum Legal Defense Competence",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_sword",
+    "enduranceCost": 1,
+    "paradoxDice": 0,
+    "keyword": "",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>The Sidereal may apply her full Defense Value to any incoming attack, ignoring all penalties, effects that set the Defense Value to zero and other negative effects, provided she uses no Charm, Virtue, Willpower or similar effect to enhance her defense further.</p>"
+  },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}

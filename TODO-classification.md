@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-06-03 (Resplendent Destiny Phase 2a — Resplendency machine + The Captain's 3 powers — done; remaining Phase 2b/3 stay in Group C; count 1 A / 8 B / 2 C / 11 total)
+Last updated: 2026-06-03 (Resplendent Destiny Phase 2a machine + Phase 2b content — all 75 Resplendencies authored — done; only Phase 3 Paradox triggers remain in Group C; count 1 A / 8 B / 2 C / 11 total)
 
 ---
 
@@ -36,7 +36,7 @@ Last updated: 2026-06-03 (Resplendent Destiny Phase 2a — Resplendency machine 
 | Item | TODO Section | Why complex |
 |------|-------------|-------------|
 | Migration pipeline | QoL | schema versioning, upgrade scripts, DataModel migration hooks |
-| Resplendent Destiny Phase 2b/3 | Sidereal | ~72 remaining Resplendency content items (24 colleges × 3) + Resplendent Paradox triggers; Phase 1 core + Phase 2a machine (item type, activation, The Captain's 3 powers) shipped |
+| Resplendent Destiny Phase 3 | Sidereal | Resplendent Paradox triggers (out-of-character acts, anima-level gain, multi-identity collisions per the Resplendent Paradox table); Phase 1 core + Phase 2a machine + Phase 2b content (all 75 Resplendencies) shipped |
 
 ---
 

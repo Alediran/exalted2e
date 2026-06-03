@@ -1,0 +1,20 @@
+{
+  "_id": "b1c2d3e4f5a60303",
+  "_key": "!items!b1c2d3e4f5a60303",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Frenzied Courtship Dodge",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_ewer",
+    "enduranceCost": 1,
+    "paradoxDice": 1,
+    "keyword": "",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>Within a day of wandering into any populated area, the character will find herself in the middle of an ongoing whirlwind affair or courtship. In cultures where marriage is strictly formal, the character will become embroiled in difficult marriage negotiations instead. The character will never marry while under the power of this effect, but the courtship will also never cease to be an all-consuming obsession.</p><p>So long as the character lives only for her beloved and their eventual blissful union, she avoids all legal, bureaucratic and official scrutiny. Those attempting to deliver summonses to her are powerless without supernatural tracking, and those attempting to find her must beat her player's Wits + Athletics roll with her Essence added as automatic successes. She must live only for love, and has just seven free hours per week.</p>"
+  },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}

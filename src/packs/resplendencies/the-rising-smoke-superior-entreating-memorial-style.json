@@ -1,0 +1,20 @@
+{
+  "_id": "b1c2d3e4f5a6060b",
+  "_key": "!items!b1c2d3e4f5a6060b",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Superior-Entreating Memorial Style",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_rising_smoke",
+    "enduranceCost": 1,
+    "paradoxDice": 0,
+    "keyword": "",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>The character burns a letter written on fine silk, addressed to one of her fellow Sidereals. The letter appears discreetly hidden against the recipient's skin and vibrates gently to announce the letter's presence. If the recipient is unclothed at the time of sending, the letter waits Elsewhere for a more appropriate moment and appears then. Bystanders must succeed at a difficulty 6 (Perception + Awareness) roll to notice the letter's arrival. Within three days, the recipient may respond in a similar fashion by writing his reply on the letter in emerald-colored ink and burning it. The Sidereal receives the reply in the same manner.</p>"
+  },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}

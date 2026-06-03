@@ -1,0 +1,20 @@
+{
+  "_id": "b1c2d3e4f5a60606",
+  "_key": "!items!b1c2d3e4f5a60606",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Feathered Cloak Trick",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_crow",
+    "enduranceCost": 3,
+    "paradoxDice": 3,
+    "keyword": "",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>The character makes the Superior Sign of the Crow and becomes a raven, crow or other corvid. In this form, her Strength and Stamina are reduced to 1, but her other traits are unaffected. She has 0L/1B soak and may fly at triple her normal Move or Dash rate. Her equipment, clothing and gear pass to Elsewhere and travel with her until she changes back.</p>"
+  },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}

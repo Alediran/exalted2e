@@ -1,0 +1,20 @@
+{
+  "_id": "b1c2d3e4f5a60302",
+  "_key": "!items!b1c2d3e4f5a60302",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Snappy Banter Approach",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_ewer",
+    "enduranceCost": 1,
+    "paradoxDice": 0,
+    "keyword": "",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>A character can use this Resplendency if she or her partner has just failed a social attack, or failed to defend against a social attack. The character's Wits must equal or exceed the Wits of her partner. The Snappy Banter Approach enables either of their players to apply the benefits of the Third Excellency (see Exalted, p. 185) to the social Ability just used at no mote cost. This is not considered a Charm activation. Neither character has to possess the Third Excellency for the relevant ability.</p>"
+  },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}

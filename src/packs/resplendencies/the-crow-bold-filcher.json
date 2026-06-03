@@ -1,0 +1,20 @@
+{
+  "_id": "b1c2d3e4f5a60605",
+  "_key": "!items!b1c2d3e4f5a60605",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Bold Filcher",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_crow",
+    "enduranceCost": 1,
+    "paradoxDice": 1,
+    "keyword": "",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>The character can take something from plain sight, and the players of those witnessing it must win opposed (Perception + Awareness) rolls against the character's (Dexterity + Larceny) to notice.</p>"
+  },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}

@@ -1,0 +1,20 @@
+{
+  "_id": "b1c2d3e4f5a6030d",
+  "_key": "!items!b1c2d3e4f5a6030d",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Comforting Matriarch Embrace",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_pillar",
+    "enduranceCost": 1,
+    "paradoxDice": 0,
+    "keyword": "",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>The character may hold and comfort another before putting him to sleep. When the target awakens, his player may roll the character's Conviction twice for him to regain Willpower.</p>"
+  },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}

@@ -1,0 +1,20 @@
+{
+  "_id": "b1c2d3e4f5a60507",
+  "_key": "!items!b1c2d3e4f5a60507",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Privacy-Enhancing Gesture",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_mask",
+    "enduranceCost": 1,
+    "paradoxDice": 0,
+    "keyword": "",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>The area within (Essence x10) yards of the character becomes proof against supernatural scrying, teleportation and other forms of intrusion. This includes observation using the Everywhere and Nowhere Technique.</p>"
+  },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}

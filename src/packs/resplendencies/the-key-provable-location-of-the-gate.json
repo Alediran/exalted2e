@@ -1,0 +1,20 @@
+{
+  "_id": "b1c2d3e4f5a60506",
+  "_key": "!items!b1c2d3e4f5a60506",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Provable Location of the Gate",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_key",
+    "enduranceCost": 1,
+    "paradoxDice": 3,
+    "keyword": "",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>The character proves through measurements and formula that the Calibration Gate should be present right at that moment in her current location, and so it is. There may be a slight delay if the gate is elsewhere. This supersedes the spell Summon the Heavenly Portal (see The White Treatise, p. 82).</p>"
+  },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}

@@ -1,0 +1,20 @@
+{
+  "_id": "b1c2d3e4f5a6040f",
+  "_key": "!items!b1c2d3e4f5a6040f",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Battle-Carrying Presence",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_spear",
+    "enduranceCost": 1,
+    "paradoxDice": 0,
+    "keyword": "",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>No one fighting under the Sidereal's immediate command can fail a Valor check unless the Sidereal fails such a check, or suffers a wound or Fatigue penalty greater than the Sidereal's wound or Fatigue penalty.</p>"
+  },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}

@@ -1,0 +1,20 @@
+{
+  "_id": "b1c2d3e4f5a6040e",
+  "_key": "!items!b1c2d3e4f5a6040e",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Hero-Supporting Performance",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_spear",
+    "enduranceCost": 1,
+    "paradoxDice": 0,
+    "keyword": "",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>If someone in the Sidereal's unit can do something, the Sidereal can, too. For the rest of the scene, the Sidereal can choose to accept the highest number of successes anyone going before her has rolled on a given Athletics-related roll. Likewise, she can carry her share, and has the (Strength + Athletics) total of the strongest person helping her lift.</p>"
+  },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}

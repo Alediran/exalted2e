@@ -1,0 +1,20 @@
+{
+  "_id": "b1c2d3e4f5a60402",
+  "_key": "!items!b1c2d3e4f5a60402",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Battle-Fellow Attitude",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_banner",
+    "enduranceCost": 1,
+    "paradoxDice": 0,
+    "keyword": "Servitude",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>By publicly posting that she is calling for troops, the character can draw back to her any soldier who has ever fought for her. Every week until this Resplendency lapses, the player of every soldier who has ever served in a unit she has directly commanded must resist the mental influence or come to serve beneath her banner again. This is a Servitude effect.</p>"
+  },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}

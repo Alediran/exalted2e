@@ -1,0 +1,20 @@
+{
+  "_id": "b1c2d3e4f5a60304",
+  "_key": "!items!b1c2d3e4f5a60304",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Handsome Boy Eyes",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_lovers",
+    "enduranceCost": 1,
+    "paradoxDice": 0,
+    "keyword": "",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>The Sidereal may make Presence-based social attacks with intent to seduce using nothing more than eye contact with her target. These are not Resplendency social attacks.</p>"
+  },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}

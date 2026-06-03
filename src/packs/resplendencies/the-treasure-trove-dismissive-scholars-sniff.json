@@ -1,0 +1,20 @@
+{
+  "_id": "b1c2d3e4f5a6050e",
+  "_key": "!items!b1c2d3e4f5a6050e",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Dismissive Scholar's Sniff",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_treasure_trove",
+    "enduranceCost": 1,
+    "paradoxDice": 0,
+    "keyword": "",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>The character may always appeal to an authority yet unread. She may add her Essence to a Lore or Bureaucracy roll, provided she is arguing with one whose Lore does not exceed her own.</p>"
+  },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}

@@ -1,0 +1,29 @@
+{
+  "_id": "b1c2d3e4f5a60201",
+  "_key": "!items!b1c2d3e4f5a60201",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Honest Face Spirit",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_gull",
+    "enduranceCost": 1,
+    "paradoxDice": 0,
+    "keyword": "Illusion",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>When a prospective employer of migrant labor evaluates whether the Sidereal is trustworthy for some menial job or insignificant responsibility, the employer will always find in the Sidereal's favor.</p>"
+  },
+  "folder": null,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

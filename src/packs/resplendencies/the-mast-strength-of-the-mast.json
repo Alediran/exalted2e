@@ -1,0 +1,29 @@
+{
+  "_id": "b1c2d3e4f5a60204",
+  "_key": "!items!b1c2d3e4f5a60204",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Strength of the Mast",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_mast",
+    "enduranceCost": 3,
+    "paradoxDice": 1,
+    "keyword": "",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>So long as she is the strongest person present, the Mast's strength is equal to any task. Multiply her (Strength + Athletics) by 10 to determine how much she can lift, provided she's not alone.</p>"
+  },
+  "folder": null,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

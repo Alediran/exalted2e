@@ -1,0 +1,20 @@
+{
+  "_id": "b1c2d3e4f5a6050c",
+  "_key": "!items!b1c2d3e4f5a6050c",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Seer",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_sorcerer",
+    "enduranceCost": 0,
+    "paradoxDice": 0,
+    "keyword": "",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>If the character takes part in astrology to determine or plan the future with another Sidereal, she may spend any amount of Endurance to give bonus dice to the attempt. This Resplendency's effect is a hallmark of major Sidereal gatherings.</p>"
+  },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}

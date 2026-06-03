@@ -1,0 +1,20 @@
+{
+  "_id": "b1c2d3e4f5a6060f",
+  "_key": "!items!b1c2d3e4f5a6060f",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Tears of the Blade",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_sword",
+    "enduranceCost": 3,
+    "paradoxDice": 1,
+    "keyword": "",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>The Sidereal makes the Superior Sign of the Sword at a target. If mortal, the target is slain instantly or dies horribly within five days (the Sidereal's choice). If Exalted, the target is irrevocably slain when next any form of damage reduces him to Incapacitated or below. For Terrestrial Exalted, this curse lasts until the end of their lives, but for Celestial Exalted, it lasts but a year and a day. This Resplendency has no effect on gods, elementals or those outside of fate.</p>"
+  },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}
