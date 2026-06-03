@@ -136,4 +136,111 @@ export function registerDestiny(context) {
       assert.equal(actor.system.splat.sidereal.paradox, 0, "Paradox should reset to 0 after Pattern Bite");
     });
   });
+
+  describe("Resplendent Destiny — Phase 1", () => {
+    before(() => assertTestWorld());
+    afterEach(async () => { await sweep(); });
+
+    async function makeResplendent(actor, { identity = "Bitter Fruit", college = "the_captain", endurance = 3 } = {}) {
+      const [item] = await actor.createEmbeddedDocuments("Item", [{
+        name: identity, type: "destiny",
+        system: {
+          destinyType: "resplendent", college, identity,
+          endurance: { value: endurance, max: endurance },
+        }
+      }]);
+      return item;
+    }
+
+    // Action handlers are static #private; drive them through the real action
+    // dispatch by clicking the rendered button.
+    async function clickAction(item, action) {
+      await item.sheet.render(true);
+      await waitFor(() => item.sheet.rendered === true && !!item.sheet.element);
+      const btn = await waitFor(() => item.sheet.element.querySelector(`[data-action='${action}']`));
+      btn.click();
+    }
+
+    it("[RD-1] donning stamps the identity AE, spends 1 WP, sets worn", async () => {
+      const actor = await makeSidereal("Q-RD-Don");
+      await actor.update({ "system.willpower.value": 5, "system.willpower.max": 5 });
+      const item  = await makeResplendent(actor);
+
+      await clickAction(item, "donDestiny");
+
+      const worn = await waitFor(() => item.system.worn === true);
+      assert.ok(worn, "destiny is worn");
+      const ae = await waitFor(() =>
+        actor.effects.find(e => e.flags?.exalted2e?.resplendentIdentity?.destinyId === item.id)
+      );
+      assert.ok(ae, "identity AE stamped");
+      assert.equal(actor.system.willpower.value, 4, "1 WP spent");
+    });
+
+    it("[RD-2] donning a second resplendent destiny shucks the first", async () => {
+      const actor = await makeSidereal("Q-RD-OneWorn");
+      await actor.update({ "system.willpower.value": 5 });
+      const a = await makeResplendent(actor, { identity: "Captain A", college: "the_captain" });
+      const b = await makeResplendent(actor, { identity: "Gull B",    college: "the_gull" });
+
+      await clickAction(a, "donDestiny");
+      await waitFor(() => a.system.worn === true);
+      await clickAction(b, "donDestiny");
+      await waitFor(() => b.system.worn === true);
+
+      const aWorn = await waitFor(() => a.system.worn === false);
+      assert.ok(aWorn, "first destiny shucked when second donned");
+      const aAEgone = await waitFor(() =>
+        !actor.effects.some(e => e.flags?.exalted2e?.resplendentIdentity?.destinyId === a.id)
+      );
+      assert.ok(aAEgone, "first destiny's identity AE removed");
+    });
+
+    it("[RD-3] shucking removes the AE and keeps ended false", async () => {
+      const actor = await makeSidereal("Q-RD-Shuck");
+      await actor.update({ "system.willpower.value": 5 });
+      const item  = await makeResplendent(actor);
+
+      await clickAction(item, "donDestiny");
+      await waitFor(() => item.system.worn === true);
+      await clickAction(item, "shuckDestiny");
+
+      const shucked = await waitFor(() => item.system.worn === false);
+      assert.ok(shucked, "destiny shucked");
+      assert.equal(item.system.ended, false, "shuck does not end the destiny");
+      const gone = await waitFor(() =>
+        !actor.effects.some(e => e.flags?.exalted2e?.resplendentIdentity?.destinyId === item.id)
+      );
+      assert.ok(gone, "identity AE removed on shuck");
+    });
+
+    it("[RD-4] endurance reaching 0 auto-ends the destiny and removes the AE", async () => {
+      const actor = await makeSidereal("Q-RD-End");
+      await actor.update({ "system.willpower.value": 5 });
+      const item  = await makeResplendent(actor, { endurance: 1 });
+
+      await clickAction(item, "donDestiny");
+      await waitFor(() => item.system.worn === true);
+
+      await item.update({ "system.endurance.value": 0 });
+
+      const ended = await waitFor(() => item.system.ended === true);
+      assert.ok(ended, "destiny ended at 0 Endurance");
+      assert.equal(item.system.worn, false, "ended destiny is no longer worn");
+      const gone = await waitFor(() =>
+        !actor.effects.some(e => e.flags?.exalted2e?.resplendentIdentity?.destinyId === item.id)
+      );
+      assert.ok(gone, "identity AE removed on auto-end");
+    });
+
+    it("[RD-5] restoring endurance above 0 clears ended", async () => {
+      const actor = await makeSidereal("Q-RD-Restore");
+      const item  = await makeResplendent(actor, { endurance: 1 });
+      await item.update({ "system.endurance.value": 0 });
+      await waitFor(() => item.system.ended === true);
+
+      await item.update({ "system.endurance.value": 1, "system.ended": false });
+      assert.equal(item.system.ended, false, "ended cleared when endurance restored");
+    });
+  });
 }

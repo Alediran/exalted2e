@@ -1,5 +1,15 @@
 <div class="sheet-body destiny-body">
 
+  <div class="destiny-trait-row">
+    <label class="destiny-trait-label">{{localize "EX2E.DestinyType"}}</label>
+    <select name="system.destinyType" {{#unless isEditable}}disabled{{/unless}}>
+      {{#each destinyTypes as |t|}}
+      <option value="{{t.value}}" {{#if (eq t.value ../system.destinyType)}}selected{{/if}}>{{t.label}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  {{#unless isResplendent}}
   {{!-- ── Effect Points Banner ── --}}
   <div class="destiny-ep-banner">
     <span class="ep-label">{{localize "EX2E.DestinyEffectPoints"}}</span>
@@ -118,6 +128,64 @@
     {{#if system.invitesCensure}}<span class="censure-warning"> · {{localize "EX2E.DestinyInvitesCensure"}}</span>{{/if}}
     {{#if system.finalized}}<span> · {{localize "EX2E.DestinyParadoxGained"}}: {{system.paradoxGained}}</span>{{/if}}
   </div>
+  {{/unless}}
+
+  {{#if isResplendent}}
+  <div class="resplendent-section">
+    <div class="destiny-trait-row">
+      <label class="destiny-trait-label">{{localize "EX2E.ResplendentCollege"}}</label>
+      <select name="system.college" {{#unless isEditable}}disabled{{/unless}}>
+        <option value="">—</option>
+        {{#each colleges as |c|}}
+        <option value="{{c.value}}" {{#if (eq c.value ../system.college)}}selected{{/if}}>{{c.label}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="destiny-trait-row">
+      <label class="destiny-trait-label">{{localize "EX2E.ResplendentIdentity"}}</label>
+      <input type="text" name="system.identity" value="{{system.identity}}"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+
+    <div class="destiny-trait-row resplendent-endurance-row">
+      <label class="destiny-trait-label">{{localize "EX2E.ResplendentEndurance"}}</label>
+      {{#if isEditable}}
+      <button type="button" class="btn-sm" data-action="spendEndurance" title="{{localize 'EX2E.ResplendentSpendEndurance'}}">
+        <i class="fa-solid fa-minus"></i>
+      </button>
+      {{/if}}
+      <span class="resplendent-endurance-value">{{system.endurance.value}} / {{system.endurance.max}}</span>
+      {{#if isEditable}}
+      <button type="button" class="btn-sm" data-action="restoreEndurance" title="{{localize 'EX2E.ResplendentRestoreEndurance'}}">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      <input type="number" name="system.endurance.max" value="{{system.endurance.max}}" min="0"
+             class="resplendent-endurance-max" title="{{localize 'EX2E.ResplendentEnduranceMax'}}">
+      {{/if}}
+    </div>
+
+    {{#if system.ended}}
+    <div class="limit-break-warning resplendent-ended">{{localize "EX2E.ResplendentEnded"}}</div>
+    {{else}}
+    <div class="resplendent-status-row">
+      <span class="resplendent-status-badge">
+        {{#if worn}}{{localize "EX2E.ResplendentWorn"}}{{else}}{{localize "EX2E.ResplendentCarried"}}{{/if}}
+      </span>
+      {{#if isEditable}}
+      {{#if worn}}
+      <button type="button" data-action="shuckDestiny">{{localize "EX2E.ResplendentShuck"}}</button>
+      {{else}}
+      <button type="button" data-action="donDestiny">{{localize "EX2E.ResplendentDon"}}</button>
+      {{/if}}
+      <button type="button" data-action="rollDisguise">
+        <i class="fa-solid fa-masks-theater"></i> {{localize "EX2E.ResplendentRollDisguise"}}
+      </button>
+      {{/if}}
+    </div>
+    <p class="resplendent-effect-note">{{localize "EX2E.ResplendentDisbelieveNote"}} · {{localize "EX2E.ResplendentDvPenaltyNote"}}</p>
+    {{/if}}
+  </div>
+  {{/if}}
 
   {{!-- ── Description ── --}}
   <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
@@ -132,6 +200,7 @@
     {{/if}}
   </div>
 
+  {{#unless isResplendent}}
   {{!-- ── Finalize button (draft only) ── --}}
   {{#unless system.finalized}}
   {{#if isEditable}}
@@ -142,6 +211,7 @@
     </button>
   </div>
   {{/if}}
+  {{/unless}}
   {{/unless}}
 
 </div>

@@ -1782,6 +1782,38 @@ Hooks.on("updateActor", async (actor, changes, _options, userId) => {
   }
 });
 
+// ── Resplendent Destiny — auto-end when Endurance reaches 0 ─────────────────
+// Mirrors the Gremlin / Limit-Break detection hooks. Dropping a worn
+// resplendent destiny's Endurance to 0 ends it: flag ended, shuck, remove the
+// identity AE, notify. Raising Endurance above 0 clears the guard.
+Hooks.on("updateItem", async (item, changes, _options, userId) => {
+  if (game.user.id !== userId) return;
+  if (item.type !== "destiny" || item.system.destinyType !== "resplendent") return;
+
+  const newEndurance = foundry.utils.getProperty(changes, "system.endurance.value");
+  if (newEndurance === undefined) return;
+
+  const { _resplendentEndPending, removeIdentityAE } =
+    await import("./combat/resplendent-destiny.mjs");
+
+  if (newEndurance > 0) { _resplendentEndPending.delete(item.id); return; }
+  if (item.system.ended) return;
+  if (_resplendentEndPending.has(item.id)) return;
+  _resplendentEndPending.add(item.id);
+  try {
+    const actor = item.parent;
+    await item.update({ "system.ended": true, "system.worn": false });
+    if (actor) await removeIdentityAE(actor, item.id);
+    await ChatMessage.create({
+      content: game.i18n.format("EX2E.ResplendentEndedChat", { identity: item.system.identity || item.name }),
+      speaker: actor ? ChatMessage.getSpeaker({ actor }) : undefined,
+    });
+  } catch (err) {
+    _resplendentEndPending.delete(item.id);
+    throw err;
+  }
+});
+
 // ── Pattern Bite Detection ─────────────────────────────────────────────────
 export const _patternBitePending = new Set();
 

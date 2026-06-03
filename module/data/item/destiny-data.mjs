@@ -20,10 +20,26 @@ export class DestinyData extends foundry.abstract.TypeDataModel {
       duration:    new fields.NumberField({ initial: 0, min: 0, max: 10, integer: true }),
       frequency:   new fields.NumberField({ initial: 1, min: 1, max: 4,  integer: true }),
       description: new fields.HTMLField({ initial: "" }),
+      // ── Resplendent Destiny (Phase 1) ──────────────────────────────────
+      identity:  new fields.StringField({ initial: "", blank: true }),
+      worn:      new fields.BooleanField({ initial: false }),
+      ended:     new fields.BooleanField({ initial: false }),
+      endurance: new fields.SchemaField({
+        value: new fields.NumberField({ initial: 0, min: 0, integer: true }),
+        max:   new fields.NumberField({ initial: 0, min: 0, integer: true }),
+      }),
     };
   }
 
   prepareDerivedData() {
+    this.isResplendent = this.destinyType === "resplendent";
+    if (this.isResplendent) {
+      // Resplendent destinies use College / Identity / Endurance, not the
+      // trigger/scope/duration/frequency paradox budget. Scope is fixed at
+      // 2 EP by the rules (sheet guidance, not enforced here).
+      this.paradoxDice = 0;
+      return;
+    }
     const EX = game.exalted2e.EX2E;
     const trigger  = EX.destinyTrigger[this.trigger]?.paradoxDice    ?? 0;
     const scope    = EX.destinyScope[this.scope]?.paradoxDice         ?? 0;

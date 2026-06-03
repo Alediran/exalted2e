@@ -107,3 +107,21 @@ describe("DestinyData.prepareDerivedData", () => {
     expect(d.invitesCensure).toBe(true);
   });
 });
+
+describe("DestinyData resplendent fields", () => {
+  it("identity is a blank-allowed StringField", () => {
+    const schema = DestinyData.defineSchema();
+    expect(schema.identity).toBeDefined();
+    expect(schema.identity.options).toMatchObject({ initial: "", blank: true });
+  });
+  it("worn and ended are BooleanFields defaulting false", () => {
+    const schema = DestinyData.defineSchema();
+    expect(schema.worn.options).toMatchObject({ initial: false });
+    expect(schema.ended.options).toMatchObject({ initial: false });
+  });
+  it("endurance is a SchemaField with value/max NumberFields", () => {
+    const schema = DestinyData.defineSchema();
+    expect(schema.endurance.config.value.options).toMatchObject({ initial: 0, min: 0, integer: true });
+    expect(schema.endurance.config.max.options).toMatchObject({ initial: 0, min: 0, integer: true });
+  });
+});

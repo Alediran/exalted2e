@@ -1233,3 +1233,20 @@ details.charm-group > summary.charm-group-header {
   background: rgba(200, 100, 0, 0.15);
   color: #c86400;
 }
+
+/* ── Resplendent Destiny ────────────────────────────────────────────────── */
+.exalted2e .resplendent-section { display: flex; flex-direction: column; gap: 6px; }
+.exalted2e .resplendent-endurance-row { display: flex; align-items: center; gap: 6px; }
+.exalted2e .resplendent-endurance-max { width: 4em; }
+.exalted2e .resplendent-status-row { display: flex; align-items: center; gap: 8px; }
+.exalted2e .resplendent-status-badge {
+  font-size: var(--ex2e-font-size-sm);
+  color: var(--ex2e-gold-main);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.exalted2e .resplendent-effect-note {
+  font-size: var(--ex2e-font-size-sm);
+  color: var(--ex2e-text-secondary);
+  margin: 2px 0 0;
+}

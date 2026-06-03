@@ -17,6 +17,11 @@ export class DestinySheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     actions:  {
       editImage:       editImageAction,
       finalizeDestiny: DestinySheet.#onFinalizeDestiny,
+      donDestiny:       DestinySheet.#onDonDestiny,
+      shuckDestiny:     DestinySheet.#onShuckDestiny,
+      spendEndurance:   DestinySheet.#onSpendEndurance,
+      restoreEndurance: DestinySheet.#onRestoreEndurance,
+      rollDisguise:     DestinySheet.#onRollDisguise,
     }
   };
 
@@ -66,6 +71,16 @@ export class DestinySheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       scopes,
       durations,
       frequencies,
+      isResplendent: sys.destinyType === "resplendent",
+      worn:          !!sys.worn,
+      colleges: Object.entries(EX.siderealColleges ?? {}).map(([k, v]) => ({
+        value: k, label: game.i18n.localize(v.labelKey)
+      })),
+      destinyTypes: [
+        { value: "ascending",   label: game.i18n.localize("EX2E.DestinyTypeAscending") },
+        { value: "descending",  label: game.i18n.localize("EX2E.DestinyTypeDescending") },
+        { value: "resplendent", label: game.i18n.localize("EX2E.DestinyTypeResplendent") },
+      ],
       collegeLabel,
       maidenLabel,
       providenceRequiresVirtue,
@@ -101,5 +116,82 @@ export class DestinySheet extends HandlebarsApplicationMixin(ItemSheetV2) {
 
     await actor.update({ "system.splat.sidereal.paradox": newParadox });
     await item.update({ "system.finalized": true, "system.paradoxGained": gained });
+  }
+
+  static async #onDonDestiny(_event, _target) {
+    const item  = this.document;
+    const actor = item.parent;
+    if (!actor) { ui.notifications.warn(game.i18n.localize("EX2E.ResplendentNoActor")); return; }
+    if (item.system.ended) { ui.notifications.warn(game.i18n.localize("EX2E.ResplendentAlreadyEnded")); return; }
+
+    const { stampIdentityAE, removeIdentityAE } = await import("../../combat/resplendent-destiny.mjs");
+
+    // One worn at a time: shuck any other worn resplendent destiny first.
+    for (const other of actor.items) {
+      if (other.id === item.id) continue;
+      if (other.type === "destiny" && other.system.destinyType === "resplendent" && other.system.worn) {
+        await other.update({ "system.worn": false });
+        await removeIdentityAE(actor, other.id);
+      }
+    }
+
+    // Donning costs 1 Willpower (Speed 3 — narrative).
+    const wp = actor.system.willpower?.value ?? 0;
+    await actor.update({ "system.willpower.value": Math.max(0, wp - 1) });
+
+    await item.update({ "system.worn": true });
+    await stampIdentityAE(item);
+
+    const collegeLabel = game.i18n.localize(
+      game.exalted2e.EX2E.siderealColleges?.[item.system.college]?.labelKey ?? item.system.college
+    );
+    await ChatMessage.create({
+      content: game.i18n.format("EX2E.ResplendentDonChat",
+        { actor: actor.name, identity: item.system.identity || item.name, college: collegeLabel }),
+      speaker: ChatMessage.getSpeaker({ actor }),
+    });
+  }
+
+  static async #onShuckDestiny(_event, _target) {
+    const item  = this.document;
+    const actor = item.parent;
+    if (!actor) return;
+    const { removeIdentityAE } = await import("../../combat/resplendent-destiny.mjs");
+    await item.update({ "system.worn": false });
+    await removeIdentityAE(actor, item.id);
+    await ChatMessage.create({
+      content: game.i18n.format("EX2E.ResplendentShuckChat",
+        { actor: actor.name, identity: item.system.identity || item.name }),
+      speaker: ChatMessage.getSpeaker({ actor }),
+    });
+  }
+
+  static async #onSpendEndurance(_event, _target) {
+    const cur = this.document.system.endurance?.value ?? 0;
+    await this.document.update({ "system.endurance.value": Math.max(0, cur - 1) });
+  }
+
+  static async #onRestoreEndurance(_event, _target) {
+    const sys  = this.document.system;
+    const cur  = sys.endurance?.value ?? 0;
+    const max  = sys.endurance?.max   ?? 0;
+    const next = Math.min(max, cur + 1);
+    const update = { "system.endurance.value": next };
+    if (next > 0 && sys.ended) update["system.ended"] = false;
+    await this.document.update(update);
+  }
+
+  static async #onRollDisguise(_event, _target) {
+    const item  = this.document;
+    const actor = item.parent;
+    if (!actor) { ui.notifications.warn(game.i18n.localize("EX2E.ResplendentNoActor")); return; }
+    const man = actor.system.attributes?.manipulation?.value ?? 0;
+    const lar = actor.system.abilities?.larceny?.value       ?? 0;
+    const roll = await new ExaltedRoll({
+      pool:      Math.max(1, man + lar + 3),
+      actorName: actor.name,
+      flavor:    game.i18n.format("EX2E.ResplendentDisguiseFlavor", { identity: item.system.identity || item.name }),
+    }).evaluate();
+    await roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor }) });
   }
 }

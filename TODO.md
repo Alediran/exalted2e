@@ -170,7 +170,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 ### Sidereal
 - [~] Arcane Fate trait — OUT OF SCOPE; purely narrative, ST-controlled, no mechanical implementation planned
 - [x] **Paradox** track (0-10; pattern bite at 10; −1 per 3 months; Wrapped Fly / Ritual of Expiation)
-- [~] Resplendent Destiny item type — base item type + sheet shipped; Ascendant/Descending Destiny mechanical payloads still pending
+- [~] Resplendent Destiny — Phase 1 (core) done: `resplendent` destinyType + College/Identity/Endurance fields; wear/carry with one-worn identity AE; don costs 1 WP; disguise roll (Man+Larceny+3); Endurance auto-end at 0 via updateItem hook. Phase 2 (75 Resplendency powers) + Phase 3 (Resplendent Paradox triggers) still pending. (Ascending/Descending destinies are a separate concept, already shipped.)
 - [x] Astrological Colleges trait (7 dots; ≥4 in own Maiden's 5)
 - [x] Greater Signs (Essence 4+, 10m; permanent Essence & Willpower cost; chat card reversal)
 - [x] Sidereal Martial Arts gating (see Martial Arts section)
