@@ -116,6 +116,13 @@
       "system": "exalted2e"
     },
     {
+      "name":   "resplendencies",
+      "label":  "Resplendencies",
+      "path":   "packs/resplendencies",
+      "type":   "Item",
+      "system": "exalted2e"
+    },
+    {
       "name":   "npcs",
       "label":  "NPCs",
       "path":   "packs/npcs",
@@ -158,7 +165,8 @@
       "command": {},
       "followers": {},
       "thaum-art": {},
-      "procedure": {}
+      "procedure": {},
+      "resplendency": {}
     }
   },
   "socket": false,

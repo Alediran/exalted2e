@@ -1,0 +1,29 @@
+{
+  "_id": "a1b2c3d4e5f60333",
+  "_key": "!items!a1b2c3d4e5f60333",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Iron Drill Exercise",
+  "type": "resplendency",
+  "img": "icons/svg/aura.svg",
+  "system": {
+    "college": "the_captain",
+    "enduranceCost": 1,
+    "paradoxDice": 0,
+    "keyword": "Training",
+    "isStatBonus": false,
+    "changes": [],
+    "description": "<p>For each week of drill, the followers gain 1 in an Ability, but cannot exceed the Sidereal's rating. The Sidereal can train up to (college rating × 10) individuals simultaneously; no individual learns more points than the Sidereal's Conviction. This is a Training effect.</p>"
+  },
+  "folder": null,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

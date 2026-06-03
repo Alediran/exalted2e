@@ -243,4 +243,134 @@ export function registerDestiny(context) {
       assert.equal(item.system.ended, false, "ended cleared when endurance restored");
     });
   });
+
+  describe("Resplendencies — Phase 2a", () => {
+    before(() => assertTestWorld());
+    afterEach(async () => { await sweep(); });
+
+    async function makeResplendentDestiny(actor, endurance = 5) {
+      const [d] = await actor.createEmbeddedDocuments("Item", [{
+        name: "Captain Cover", type: "destiny",
+        system: { destinyType: "resplendent", college: "the_captain", identity: "Captain",
+                  endurance: { value: endurance, max: endurance } }
+      }]);
+      return d;
+    }
+
+    async function makeResplendency(actor, destiny, opts = {}) {
+      const [r] = await actor.createEmbeddedDocuments("Item", [{
+        name: opts.name ?? "Test Power", type: "resplendency",
+        system: {
+          college: "the_captain",
+          enduranceCost: opts.enduranceCost ?? 1,
+          paradoxDice:   opts.paradoxDice   ?? 0,
+          keyword:       opts.keyword       ?? "",
+          isStatBonus:   opts.isStatBonus   ?? false,
+          changes:       opts.changes       ?? [],
+          description:   "<p>test</p>",
+        }
+      }]);
+      await r.setFlag("exalted2e", "parentDestinyId", destiny.id);
+      return r;
+    }
+
+    it("[RES-1] activate spends the destiny's Endurance", async () => {
+      const actor = await makeSidereal("Q-RES-Spend");
+      const d = await makeResplendentDestiny(actor, 5);
+      const r = await makeResplendency(actor, d, { enduranceCost: 2 });
+      const { activateResplendency } = await import("../../../module/combat/resplendency.mjs");
+
+      const ok = await activateResplendency(r, d);
+      assert.equal(ok, true, "activation succeeded");
+      assert.equal(d.system.endurance.value, 3, "Endurance 5 − 2 = 3");
+    });
+
+    it("[RES-2] insufficient Endurance aborts with no spend", async () => {
+      const actor = await makeSidereal("Q-RES-Short");
+      const d = await makeResplendentDestiny(actor, 1);
+      const r = await makeResplendency(actor, d, { enduranceCost: 3 });
+      const { activateResplendency } = await import("../../../module/combat/resplendency.mjs");
+
+      const ok = await activateResplendency(r, d);
+      assert.equal(ok, false, "activation aborted");
+      assert.equal(d.system.endurance.value, 1, "Endurance unchanged");
+    });
+
+    it("[RES-3] paradoxDice adds to the Sidereal Paradox track", async () => {
+      const actor = await makeSidereal("Q-RES-Paradox");
+      await actor.update({ "system.splat.sidereal.paradox": 0 });
+      const d = await makeResplendentDestiny(actor, 5);
+      const r = await makeResplendency(actor, d, { enduranceCost: 1, paradoxDice: 3 });
+      const { activateResplendency } = await import("../../../module/combat/resplendency.mjs");
+
+      await activateResplendency(r, d);
+      assert.ok(actor.system.splat.sidereal.paradox >= 0, "paradox track is a valid number >= 0");
+      assert.ok(actor.system.splat.sidereal.paradox <= 10, "paradox clamped <= 10");
+    });
+
+    it("[RES-4] isStatBonus stamps a tracked AE", async () => {
+      const actor = await makeSidereal("Q-RES-AE");
+      const d = await makeResplendentDestiny(actor, 5);
+      const r = await makeResplendency(actor, d, {
+        isStatBonus: true,
+        changes: [{ key: "system.bonuses.soakLethal", mode: 2, value: "2" }],
+      });
+      const { activateResplendency } = await import("../../../module/combat/resplendency.mjs");
+
+      await activateResplendency(r, d);
+      const ae = await waitFor(() =>
+        actor.effects.find(e => e.flags?.exalted2e?.resplendencyEffect?.resplendencyId === r.id)
+      );
+      assert.ok(ae, "stat-bonus AE stamped");
+    });
+
+    it("[RES-5] draining Endurance to 0 ends the destiny (Phase 1 hook)", async () => {
+      const actor = await makeSidereal("Q-RES-Drain");
+      const d = await makeResplendentDestiny(actor, 2);
+      const r = await makeResplendency(actor, d, { enduranceCost: 2 });
+      const { activateResplendency } = await import("../../../module/combat/resplendency.mjs");
+
+      await activateResplendency(r, d);
+      const ended = await waitFor(() => d.system.ended === true);
+      assert.ok(ended, "destiny ended when Endurance hit 0");
+    });
+
+    it("[RES-6] ending the destiny tears down stat-bonus AEs", async () => {
+      const actor = await makeSidereal("Q-RES-Teardown");
+      const d = await makeResplendentDestiny(actor, 2);
+      const r = await makeResplendency(actor, d, {
+        enduranceCost: 2,
+        isStatBonus: true,
+        changes: [{ key: "system.bonuses.soakLethal", mode: 2, value: "2" }],
+      });
+      const { activateResplendency } = await import("../../../module/combat/resplendency.mjs");
+
+      // Activation both stamps the AE and drains Endurance 2→0, ending the destiny.
+      await activateResplendency(r, d);
+      await waitFor(() => d.system.ended === true);
+      const gone = await waitFor(() =>
+        !actor.effects.some(e => e.flags?.exalted2e?.resplendencyEffect?.destinyId === d.id)
+      );
+      assert.ok(gone, "stat-bonus AE removed when the destiny ended");
+    });
+
+    it("[RES-7] removing a resplendency clears its stamped AE", async () => {
+      const actor = await makeSidereal("Q-RES-RemoveAE");
+      const d = await makeResplendentDestiny(actor, 5);
+      const r = await makeResplendency(actor, d, {
+        isStatBonus: true,
+        changes: [{ key: "system.bonuses.soakLethal", mode: 2, value: "2" }],
+      });
+      const { activateResplendency } = await import("../../../module/combat/resplendency.mjs");
+      const { removeResplendencyEffects } = await import("../../../module/combat/resplendent-destiny.mjs");
+
+      await activateResplendency(r, d);
+      await waitFor(() => actor.effects.some(e => e.flags?.exalted2e?.resplendencyEffect?.resplendencyId === r.id));
+      await removeResplendencyEffects(actor, { resplendencyId: r.id });
+      const gone = await waitFor(() =>
+        !actor.effects.some(e => e.flags?.exalted2e?.resplendencyEffect?.resplendencyId === r.id)
+      );
+      assert.ok(gone, "stat-bonus AE removed with the resplendency");
+    });
+  });
 }

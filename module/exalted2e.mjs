@@ -23,6 +23,7 @@ import { FormData }         from "./data/item/form-data.mjs";
 import { AnimaPowerData }   from "./data/item/anima-power-data.mjs";
 import { UrgeData }         from "./data/item/urge-data.mjs";
 import { DestinyData }      from "./data/item/destiny-data.mjs";
+import { ResplendencyData }  from "./data/item/resplendency-data.mjs";
 import { EquipmentData }    from "./data/item/equipment-data.mjs";
 import { HearthstoneData }          from "./data/item/hearthstone-data.mjs";
 import { MartialArtsStyleData }     from "./data/item/martial-arts-style-data.mjs";
@@ -59,6 +60,7 @@ import { ComboSheet }       from "./sheets/item/combo-sheet.mjs";
 import { FormSheet }        from "./sheets/item/form-sheet.mjs";
 import { AnimaPowerSheet }  from "./sheets/item/anima-power-sheet.mjs";
 import { DestinySheet }          from "./sheets/item/destiny-sheet.mjs";
+import { ResplendencySheet }     from "./sheets/item/resplendency-sheet.mjs";
 import { MartialArtsStyleSheet } from "./sheets/item/martial-arts-style-sheet.mjs";
 import { ThaummArtSheet }  from "./sheets/item/thaum-art-sheet.mjs";
 import { ProcedureSheet }  from "./sheets/item/procedure-sheet.mjs";
@@ -236,6 +238,7 @@ Hooks.once("init", function () {
     animapower: AnimaPowerData,
     urge:       UrgeData,
     destiny:    DestinyData,
+    resplendency: ResplendencyData,
     equipment:   EquipmentData,
     hearthstone:      HearthstoneData,
     martialartsstyle: MartialArtsStyleData,
@@ -341,6 +344,11 @@ Hooks.once("init", function () {
     types:       ["destiny"],
     makeDefault: true,
     label:       game.i18n.localize("EX2E.DestinySheet"),
+  });
+  foundry.documents.collections.Items.registerSheet("exalted2e", ResplendencySheet, {
+    types:       ["resplendency"],
+    makeDefault: true,
+    label:       "EX2E.SheetResplendency",
   });
   foundry.documents.collections.Items.registerSheet("exalted2e", MartialArtsStyleSheet, {
     types:       ["martialartsstyle"],
@@ -582,6 +590,8 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/item/virtueflaw/body.hbs",
     "systems/exalted2e/templates/item/form-sheet.hbs",
     "systems/exalted2e/templates/item/anima-power-sheet.hbs",
+    "systems/exalted2e/templates/item/resplendency/header.hbs",
+    "systems/exalted2e/templates/item/resplendency/body.hbs",
     // Chat / Dialogs
     "systems/exalted2e/templates/chat/roll-result.hbs",
     "systems/exalted2e/templates/chat/item-card.hbs",
@@ -619,6 +629,7 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/chat/demon-summon-result.hbs",
     "systems/exalted2e/templates/chat/spell-attack-result.hbs",
     "systems/exalted2e/templates/chat/gremlin-syndrome-alert.hbs",
+    "systems/exalted2e/templates/chat/resplendency-activation.hbs",
   ];
   return foundry.applications.handlebars.loadTemplates(templatePaths);
 }
@@ -1793,7 +1804,7 @@ Hooks.on("updateItem", async (item, changes, _options, userId) => {
   const newEndurance = foundry.utils.getProperty(changes, "system.endurance.value");
   if (newEndurance === undefined) return;
 
-  const { _resplendentEndPending, removeIdentityAE } =
+  const { _resplendentEndPending, removeIdentityAE, removeResplendencyEffects } =
     await import("./combat/resplendent-destiny.mjs");
 
   if (newEndurance > 0) { _resplendentEndPending.delete(item.id); return; }
@@ -1803,7 +1814,12 @@ Hooks.on("updateItem", async (item, changes, _options, userId) => {
   try {
     const actor = item.parent;
     await item.update({ "system.ended": true, "system.worn": false });
-    if (actor) await removeIdentityAE(actor, item.id);
+    if (actor) {
+      await removeIdentityAE(actor, item.id);
+      // Resplendency powers function only while the cover is worn — clear any
+      // stat-bonus AEs stamped by this destiny's resplendencies.
+      await removeResplendencyEffects(actor, { destinyId: item.id });
+    }
     await ChatMessage.create({
       content: game.i18n.format("EX2E.ResplendentEndedChat", { identity: item.system.identity || item.name }),
       speaker: actor ? ChatMessage.getSpeaker({ actor }) : undefined,

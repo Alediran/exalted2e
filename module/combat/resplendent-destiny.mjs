@@ -35,3 +35,21 @@ export async function removeIdentityAE(actor, destinyId = null) {
   });
   for (const ae of aes) await ae.delete();
 }
+
+/**
+ * Delete stat-bonus AEs stamped by Resplendency activation. Resplendency powers
+ * function only while the cover is worn, so these are torn down when the parent
+ * destiny ends or the resplendency item is removed. Match on either the parent
+ * destiny or the specific resplendency; both omitted clears all.
+ */
+export async function removeResplendencyEffects(actor, { destinyId = null, resplendencyId = null } = {}) {
+  if (!actor) return;
+  const aes = actor.effects.filter(e => {
+    const re = e.flags?.exalted2e?.resplendencyEffect;
+    if (!re) return false;
+    if (destinyId !== null && re.destinyId !== destinyId) return false;
+    if (resplendencyId !== null && re.resplendencyId !== resplendencyId) return false;
+    return true;
+  });
+  for (const ae of aes) await ae.delete();
+}

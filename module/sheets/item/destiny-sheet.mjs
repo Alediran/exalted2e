@@ -21,7 +21,9 @@ export class DestinySheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       shuckDestiny:     DestinySheet.#onShuckDestiny,
       spendEndurance:   DestinySheet.#onSpendEndurance,
       restoreEndurance: DestinySheet.#onRestoreEndurance,
-      rollDisguise:     DestinySheet.#onRollDisguise,
+      rollDisguise:         DestinySheet.#onRollDisguise,
+      activateResplendency: DestinySheet.#onActivateResplendency,
+      removeResplendency:   DestinySheet.#onRemoveResplendency,
     }
   };
 
@@ -81,6 +83,11 @@ export class DestinySheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         { value: "descending",  label: game.i18n.localize("EX2E.DestinyTypeDescending") },
         { value: "resplendent", label: game.i18n.localize("EX2E.DestinyTypeResplendent") },
       ],
+      resplendencies: (item.parent ? item.parent.items
+        .filter(i => i.type === "resplendency" && i.getFlag("exalted2e", "parentDestinyId") === item.id)
+        .map(i => ({ id: i.id, name: i.name, enduranceCost: i.system.enduranceCost,
+                     paradoxDice: i.system.paradoxDice, keyword: i.system.keyword }))
+        : []),
       collegeLabel,
       maidenLabel,
       providenceRequiresVirtue,
@@ -88,6 +95,40 @@ export class DestinySheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         sys.description, { secrets: item.isOwner, relativeTo: item }
       ),
     };
+  }
+
+  _onRender(context, options) {
+    super._onRender?.(context, options);
+    if (!this.isEditable) return;
+    const dd = new foundry.applications.ux.DragDrop({
+      dropSelector: ".destiny-body",
+      permissions:  { drop: () => this.isEditable },
+      callbacks:    { drop: this._onDrop.bind(this) }
+    });
+    dd.bind(this.element);
+  }
+
+  async _onDrop(event) {
+    event.preventDefault();
+    const raw = event.dataTransfer?.getData("text/plain");
+    if (!raw) return;
+    let data; try { data = JSON.parse(raw); } catch { return; }
+    if (data?.type !== "Item") return;
+
+    const dropped = await fromUuid(data.uuid);
+    if (!dropped || dropped.type !== "resplendency") return;
+
+    const actor = this.document.parent;
+    if (!actor) { ui.notifications.warn(game.i18n.localize("EX2E.ResplendentNoActor")); return; }
+
+    // If the dropped item already belongs to this actor, just (re)link it.
+    if (dropped.parent?.id === actor.id) {
+      await dropped.setFlag("exalted2e", "parentDestinyId", this.document.id);
+      return;
+    }
+    // Otherwise (compendium/world drop) create a copy on the actor and link it.
+    const [created] = await actor.createEmbeddedDocuments("Item", [dropped.toObject()]);
+    await created.setFlag("exalted2e", "parentDestinyId", this.document.id);
   }
 
   static async #onFinalizeDestiny(_event, _target) {
@@ -193,5 +234,23 @@ export class DestinySheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       flavor:    game.i18n.format("EX2E.ResplendentDisguiseFlavor", { identity: item.system.identity || item.name }),
     }).evaluate();
     await roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor }) });
+  }
+
+  static async #onActivateResplendency(_event, target) {
+    const actor = this.document.parent;
+    const resp  = actor?.items.get(target.dataset.respId);
+    if (!resp) return;
+    const { activateResplendency } = await import("../../combat/resplendency.mjs");
+    await activateResplendency(resp, this.document);
+  }
+
+  static async #onRemoveResplendency(_event, target) {
+    const actor = this.document.parent;
+    const resp  = actor?.items.get(target.dataset.respId);
+    if (!resp) return;
+    // Tear down any stat-bonus AE this power stamped before removing the item.
+    const { removeResplendencyEffects } = await import("../../combat/resplendent-destiny.mjs");
+    await removeResplendencyEffects(actor, { resplendencyId: resp.id });
+    await resp.delete();
   }
 }

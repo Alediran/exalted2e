@@ -245,6 +245,25 @@
     "ResplendentDvPenaltyNote": "−2 DV where appropriate",
     "ResplendentNoActor": "This destiny must be owned by a character to don it.",
     "ResplendentAlreadyEnded": "This resplendent destiny has ended and cannot be donned.",
+    "SheetResplendency": "Resplendency",
+    "ResplendencyCollege": "College",
+    "ResplendencyEnduranceCost": "Endurance Cost",
+    "ResplendencyParadoxDice": "Paradox Dice",
+    "ResplendencyKeyword": "Keyword",
+    "ResplendencyIsStatBonus": "Stat Bonus (stamps an effect)",
+    "ResplendencyChanges": "Effect Changes",
+    "ResplendencyAddChange": "Add Change",
+    "ResplendenciesHeader": "Resplendencies",
+    "ResplendencyActivate": "Activate",
+    "ResplendencyRemove": "Remove",
+    "ResplendencyActivateChat": "Resplendency Activated",
+    "ResplendencyParadoxFlavor": "Resplendent Paradox",
+    "ResplendencyParadoxGained": "Paradox gained",
+    "ResplendencyEnduranceSpent": "Endurance spent",
+    "ResplendencyEnduranceLeft": "Endurance remaining",
+    "ResplendencyNotEnoughEndurance": "Not enough Endurance: need {need}, have {have}.",
+    "ResplendencyNoParentDestiny": "This Resplendency is not linked to a resplendent destiny.",
+    "ResplendencyDestinyEnded": "That resplendent destiny has ended.",
     "DestinyFinalized": "Finalized",
     "DestinyDraft": "Draft",
     "DestinySheet": "Destiny Sheet",
@@ -2447,7 +2466,8 @@
       "familiar": "Familiar",
       "followers": "Followers",
       "command": "Command",
-      "cult": "Cult"
+      "cult": "Cult",
+      "resplendency": "Resplendency"
     }
   }
 }

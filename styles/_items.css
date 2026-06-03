@@ -1250,3 +1250,14 @@ details.charm-group > summary.charm-group-header {
   color: var(--ex2e-text-secondary);
   margin: 2px 0 0;
 }
+
+/* ── Resplendencies ─────────────────────────────────────────────────────── */
+.exalted2e .resplendency-list { display: flex; flex-direction: column; gap: 4px; margin-top: 4px; }
+.exalted2e .resplendency-row { display: flex; align-items: center; gap: 6px; }
+.exalted2e .resplendency-row .resplendency-name { flex: 1; }
+.exalted2e .resplendency-row .resplendency-cost {
+  font-size: var(--ex2e-font-size-sm);
+  color: var(--ex2e-text-secondary);
+  white-space: nowrap;
+}
+.exalted2e .resplendency-changes .sb-change-row { display: flex; gap: 4px; align-items: center; margin-bottom: 2px; }

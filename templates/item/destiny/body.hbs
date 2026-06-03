@@ -164,6 +164,20 @@
       {{/if}}
     </div>
 
+    <div class="resplendency-list">
+      <label class="destiny-trait-label">{{localize "EX2E.ResplendenciesHeader"}}</label>
+      {{#each resplendencies as |r|}}
+      <div class="resplendency-row">
+        <span class="resplendency-name">{{r.name}}</span>
+        <span class="resplendency-cost">{{r.enduranceCost}} End{{#if r.paradoxDice}} · {{r.paradoxDice}} ◈{{/if}}{{#if r.keyword}} · {{r.keyword}}{{/if}}</span>
+        {{#if @root.isEditable}}
+        <button type="button" class="btn-sm" data-action="activateResplendency" data-resp-id="{{r.id}}">{{localize "EX2E.ResplendencyActivate"}}</button>
+        <button type="button" class="btn-sm" data-action="removeResplendency" data-resp-id="{{r.id}}" title="{{localize 'EX2E.ResplendencyRemove'}}">✕</button>
+        {{/if}}
+      </div>
+      {{/each}}
+    </div>
+
     {{#if system.ended}}
     <div class="limit-break-warning resplendent-ended">{{localize "EX2E.ResplendentEnded"}}</div>
     {{else}}

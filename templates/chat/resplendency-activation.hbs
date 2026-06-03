@@ -1,0 +1,18 @@
+<div class="ex2e-roll-card resplendency-card">
+  <div class="card-header">
+    <span class="roll-actor">{{actorName}}</span>
+    <span class="roll-flavor">{{localize "EX2E.ResplendencyActivateChat"}}</span>
+  </div>
+  <div class="spell-cast-summary">
+    <div class="spell-name-row">
+      <span class="spell-name">{{name}}</span>
+      <span class="spell-meta">{{college}}{{#if keyword}} · {{keyword}}{{/if}}</span>
+    </div>
+    <div class="spell-cost-ledger">
+      <span><strong>{{localize "EX2E.ResplendencyEnduranceSpent"}}:</strong> {{enduranceSpent}}</span>
+      <span><strong>{{localize "EX2E.ResplendencyEnduranceLeft"}}:</strong> {{enduranceLeft}}</span>
+      {{#if paradoxGained}}<span><strong>{{localize "EX2E.ResplendencyParadoxGained"}}:</strong> {{paradoxGained}}</span>{{/if}}
+    </div>
+    {{#if description}}<div class="spell-description">{{{description}}}</div>{{/if}}
+  </div>
+</div>

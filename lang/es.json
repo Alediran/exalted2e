@@ -245,6 +245,25 @@
     "ResplendentDvPenaltyNote": "−2 VD cuando corresponda",
     "ResplendentNoActor": "Este destino debe pertenecer a un personaje para vestirlo.",
     "ResplendentAlreadyEnded": "Este destino resplandeciente ha terminado y no puede vestirse.",
+    "SheetResplendency": "Resplandecencia",
+    "ResplendencyCollege": "Colegio",
+    "ResplendencyEnduranceCost": "Coste de Resistencia",
+    "ResplendencyParadoxDice": "Dados de Paradoja",
+    "ResplendencyKeyword": "Palabra Clave",
+    "ResplendencyIsStatBonus": "Bonificación de Rasgo (genera un efecto)",
+    "ResplendencyChanges": "Cambios del Efecto",
+    "ResplendencyAddChange": "Añadir Cambio",
+    "ResplendenciesHeader": "Resplandecencias",
+    "ResplendencyActivate": "Activar",
+    "ResplendencyRemove": "Quitar",
+    "ResplendencyActivateChat": "Resplandecencia Activada",
+    "ResplendencyParadoxFlavor": "Paradoja Resplandeciente",
+    "ResplendencyParadoxGained": "Paradoja ganada",
+    "ResplendencyEnduranceSpent": "Resistencia gastada",
+    "ResplendencyEnduranceLeft": "Resistencia restante",
+    "ResplendencyNotEnoughEndurance": "Resistencia insuficiente: necesita {need}, tiene {have}.",
+    "ResplendencyNoParentDestiny": "Esta Resplandecencia no está vinculada a un destino resplandeciente.",
+    "ResplendencyDestinyEnded": "Ese destino resplandeciente ha terminado.",
     "DestinyFinalized": "Finalizado",
     "DestinyDraft": "Borrador",
     "DestinySheet": "Hoja de Destino",
@@ -2447,7 +2466,8 @@
       "familiar": "Familiar",
       "followers": "Seguidores",
       "command": "Comando",
-      "cult": "Culto"
+      "cult": "Culto",
+      "resplendency": "Resplandecencia"
     }
   }
 }

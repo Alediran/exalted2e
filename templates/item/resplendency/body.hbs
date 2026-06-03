@@ -1,0 +1,71 @@
+<div class="sheet-body resplendency-body">
+  <div class="charm-stats-grid">
+    <div class="field-group">
+      <label>{{localize "EX2E.ResplendencyCollege"}}</label>
+      <select name="system.college" {{#unless isEditable}}disabled{{/unless}}>
+        <option value="">—</option>
+        {{#each collegeChoices}}
+        <option value="{{value}}" {{#if (eq value ../system.college)}}selected{{/if}}>{{label}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.ResplendencyEnduranceCost"}}</label>
+      <input type="number" name="system.enduranceCost" value="{{system.enduranceCost}}" min="0"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.ResplendencyParadoxDice"}}</label>
+      <input type="number" name="system.paradoxDice" value="{{system.paradoxDice}}" min="0"
+             {{#unless isEditable}}readonly{{/unless}}>
+    </div>
+    <div class="field-group">
+      <label>{{localize "EX2E.ResplendencyKeyword"}}</label>
+      <select name="system.keyword" {{#unless isEditable}}disabled{{/unless}}>
+        {{#each keywordChoices}}
+        <option value="{{this}}" {{#if (eq this ../system.keyword)}}selected{{/if}}>{{#if this}}{{this}}{{else}}—{{/if}}</option>
+        {{/each}}
+      </select>
+    </div>
+  </div>
+
+  <label class="checkbox-label">
+    <input type="checkbox" name="system.isStatBonus" {{#if system.isStatBonus}}checked{{/if}}
+           {{#unless isEditable}}disabled{{/unless}}>
+    {{localize "EX2E.ResplendencyIsStatBonus"}}
+  </label>
+
+  {{#if system.isStatBonus}}
+  <div class="resplendency-changes">
+    <label>{{localize "EX2E.ResplendencyChanges"}}</label>
+    {{#each system.changes as |chg i|}}
+    <div class="sb-change-row">
+      <input type="text" name="system.changes.{{i}}.key" value="{{chg.key}}"
+             placeholder="system.bonuses.soakLethal" {{#unless @root.isEditable}}readonly{{/unless}}>
+      <input type="number" name="system.changes.{{i}}.mode" value="{{chg.mode}}" min="0" max="6" style="width:4em"
+             {{#unless @root.isEditable}}readonly{{/unless}}>
+      <input type="text" name="system.changes.{{i}}.value" value="{{chg.value}}" style="width:6em"
+             {{#unless @root.isEditable}}readonly{{/unless}}>
+      {{#if @root.isEditable}}
+      <button type="button" class="btn-remove" data-action="removeChange" data-index="{{i}}"><i class="fa-solid fa-times"></i></button>
+      {{/if}}
+    </div>
+    {{/each}}
+    {{#if isEditable}}
+    <button type="button" class="btn-add-row" data-action="addChange">+ {{localize "EX2E.ResplendencyAddChange"}}</button>
+    {{/if}}
+  </div>
+  {{/if}}
+
+  <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
+  <div class="editor-container">
+    {{#if isEditable}}
+    <prose-mirror name="system.description" data-document-uuid="{{item.uuid}}"
+                  value="{{system.description}}" collaborate="true" toggled="true">
+      {{{enrichedDescription}}}
+    </prose-mirror>
+    {{else}}
+    <div class="editor-content">{{{enrichedDescription}}}</div>
+    {{/if}}
+  </div>
+</div>
