@@ -1269,11 +1269,80 @@ details.charm-group > summary.charm-group-header {
 .craft-workshop-cell, .craft-assist-cell { white-space: nowrap; }
 
 /* ── Manse geomancy (Phase 1) ───────────────────────────────────────────── */
-.manse-geomancy-section .manse-geomancy-fields { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; margin: 4px 0; }
-.manse-geomancy-section .manse-geomancy-fields label { display: inline-flex; align-items: center; gap: 4px; }
-.manse-geomancy-section .manse-geomancy-fields input[type=number] { width: 3.5em; }
-.manse-cp-breakdown { font-size: var(--ex2e-font-size-sm); margin-top: 4px; }
-.manse-effective-hs { font-size: var(--ex2e-font-size-sm); margin-top: 2px; }
-.manse-cp-breakdown.budget-over, .manse-effective-hs.budget-over { color: var(--ex2e-dmg-lethal, #c0392b); font-weight: bold; }
-.manse-dbl-note { font-size: var(--ex2e-font-size-sm); color: var(--ex2e-text-secondary); margin: 2px 0 0; }
-.manse-powers-table tr.power-over-cap td { color: var(--ex2e-dmg-lethal, #c0392b); }
+.exalted2e.item.generic .manse-geomancy-section {
+  border:        1px solid var(--ex2e-border-color);
+  border-radius: var(--ex2e-border-radius);
+  background:    rgba(0, 0, 0, 0.05);
+  padding:       var(--ex2e-gap-sm);
+  margin-top:    var(--ex2e-gap-md);
+}
+.exalted2e.item.generic .manse-geomancy-section > strong {
+  display:        block;
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color:          var(--ex2e-gold-main);
+  margin-bottom:  var(--ex2e-gap-sm);
+}
+.exalted2e.item.generic .manse-geomancy-fields {
+  display:     flex;
+  flex-wrap:   wrap;
+  gap:         var(--ex2e-gap-sm) var(--ex2e-gap-md);
+  align-items: flex-end;
+}
+.exalted2e.item.generic .manse-geomancy-fields > label {
+  display:        flex;
+  flex-direction: column;
+  gap:            2px;
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color:          var(--ex2e-text-muted);
+}
+.exalted2e.item.generic .manse-geomancy-fields .dot-rating {
+  display: flex;
+  gap:     3px;
+}
+.exalted2e.item.generic .manse-geomancy-fields > label.manse-dbl-label {
+  flex-direction: row;
+  align-items:    center;
+  gap:            4px;
+  text-transform: none;
+  letter-spacing: normal;
+  font-size:      var(--ex2e-font-size-sm);
+  color:          var(--ex2e-text-primary);
+}
+.exalted2e.item.generic .manse-dbl-note {
+  font-style: italic;
+  font-size:  var(--ex2e-font-size-xs);
+  color:      var(--ex2e-text-muted);
+  margin:     var(--ex2e-gap-xs) 0 0;
+}
+.exalted2e.item.generic .manse-cp-breakdown {
+  margin-top:    var(--ex2e-gap-sm);
+  padding:       var(--ex2e-gap-xs) var(--ex2e-gap-sm);
+  background:    var(--ex2e-bg-darkest);
+  border:        1px solid var(--ex2e-gold-dark);
+  border-radius: var(--ex2e-border-radius-sm);
+  font-family:   var(--ex2e-font-ui);
+  font-size:     var(--ex2e-font-size-sm);
+  color:         var(--ex2e-text-secondary);
+}
+.exalted2e.item.generic .manse-effective-hs {
+  margin-top:     var(--ex2e-gap-xs);
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color:          var(--ex2e-text-muted);
+}
+.exalted2e.item.generic .manse-cp-breakdown.budget-over,
+.exalted2e.item.generic .manse-effective-hs.budget-over {
+  color:       var(--ex2e-dmg-lethal, #c0392b);
+  font-weight: bold;
+}
+.exalted2e.item.generic .manse-powers-table tr.power-over-cap td {
+  color: var(--ex2e-dmg-lethal, #c0392b);
+}

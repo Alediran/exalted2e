@@ -352,13 +352,13 @@
     <strong>{{localize "EX2E.ManseGeomancy"}}</strong>
     <div class="manse-geomancy-fields">
       <label>{{localize "EX2E.ManseMaintenance"}}
-        <input type="number" name="system.maintenance" value="{{system.maintenance}}" min="0" max="5" {{#unless isEditable}}readonly{{/unless}}></label>
+        {{#if isEditable}}{{dotRating name="system.maintenance" value=system.maintenance max=5 min=0}}{{else}}{{dotRating name="system.maintenance" value=system.maintenance max=5 min=0 readonly=true}}{{/if}}</label>
       <label>{{localize "EX2E.ManseFragility"}}
-        <input type="number" name="system.fragility" value="{{system.fragility}}" min="0" max="3" {{#unless isEditable}}readonly{{/unless}}></label>
+        {{#if isEditable}}{{dotRating name="system.fragility" value=system.fragility max=3 min=0}}{{else}}{{dotRating name="system.fragility" value=system.fragility max=3 min=0 readonly=true}}{{/if}}</label>
       <label>{{localize "EX2E.ManseHabitabilityReduction"}}
-        <input type="number" name="system.habitabilityReduction" value="{{system.habitabilityReduction}}" min="0" max="3" {{#unless isEditable}}readonly{{/unless}}></label>
+        {{#if isEditable}}{{dotRating name="system.habitabilityReduction" value=system.habitabilityReduction max=3 min=0}}{{else}}{{dotRating name="system.habitabilityReduction" value=system.habitabilityReduction max=3 min=0 readonly=true}}{{/if}}</label>
       <label>{{localize "EX2E.ManseHearthstoneReduction"}}
-        <input type="number" name="system.hearthstoneReduction" value="{{system.hearthstoneReduction}}" min="0" max="{{manseRating}}" {{#unless isEditable}}readonly{{/unless}}></label>
+        {{#if isEditable}}{{dotRating name="system.hearthstoneReduction" value=system.hearthstoneReduction max=manseRating min=0}}{{else}}{{dotRating name="system.hearthstoneReduction" value=system.hearthstoneReduction max=manseRating min=0 readonly=true}}{{/if}}</label>
       <label class="manse-dbl-label">
         <input type="checkbox" name="system.designBeyondLimit" {{#if system.designBeyondLimit}}checked{{/if}} {{#unless isEditable}}disabled{{/unless}}>
         {{localize "EX2E.ManseDesignBeyondLimit"}}
