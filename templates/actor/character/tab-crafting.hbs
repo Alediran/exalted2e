@@ -61,6 +61,8 @@
           <th>{{localize "EX2E.CraftingProjectSize"}}</th>
           <th>{{localize "EX2E.CraftingProjectDiff"}}</th>
           <th>{{localize "EX2E.CraftingProjectBonus"}}</th>
+          <th>{{localize "EX2E.CraftWorkshop"}}</th>
+          <th>{{localize "EX2E.CraftAssistants"}}</th>
           <th>{{localize "EX2E.CraftingProjectStatus"}}</th>
           <th></th>
         </tr>
@@ -75,6 +77,11 @@
           <td>{{p.sizeLabel}}</td>
           <td>{{p.difficulty}}</td>
           <td>{{#if (eq p.status "active")}}{{p.bonusDice}}{{else}}—{{/if}}</td>
+          <td class="craft-workshop-cell">
+            {{p.workshopLabel}} ({{#if (gte p.workshopMod 0)}}+{{/if}}{{p.workshopMod}})
+            {{#if p.wordsAsWorkshop}}<span class="craft-waiver-badge" title="{{p.waiverName}}">★</span>{{/if}}
+          </td>
+          <td class="craft-assist-cell">{{#if p.assistantBonus}}+{{p.assistantBonus}}{{else}}—{{/if}}</td>
           <td><span class="status-text">{{p.statusLabel}}</span></td>
           <td class="crafting-row-actions">
             {{#if (eq p.status "active")}}
@@ -120,6 +127,8 @@
           <th>{{localize "EX2E.ArtifactMaterial"}}</th>
           <th>{{localize "EX2E.ArtifactProgressShort"}}</th>
           <th>{{localize "EX2E.ArtifactSeasons"}}</th>
+          <th>{{localize "EX2E.CraftWorkshop"}}</th>
+          <th>{{localize "EX2E.CraftAssistants"}}</th>
           <th>{{localize "EX2E.CraftingProjectStatus"}}</th>
           <th></th>
         </tr>
@@ -141,6 +150,11 @@
           </td>
           <td class="artifact-progress">{{p.currentSuccesses}} / {{p.targetSuccesses}}</td>
           <td>{{p.seasonsElapsed}}</td>
+          <td class="craft-workshop-cell">
+            {{p.workshopLabel}} ({{#if (gte p.workshopMod 0)}}+{{/if}}{{p.workshopMod}})
+            {{#if p.wordsAsWorkshop}}<span class="craft-waiver-badge" title="{{p.waiverName}}">★</span>{{/if}}
+          </td>
+          <td class="craft-assist-cell">{{#if p.assistantBonus}}+{{p.assistantBonus}}{{else}}—{{/if}}</td>
           <td><span class="status-text">{{p.statusLabel}}</span></td>
           <td class="crafting-row-actions">
             {{#if (eq p.status "active")}}

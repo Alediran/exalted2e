@@ -303,7 +303,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Craft specializations (Fire, Water, Air, Earth, Wood, Magitech, etc.) — multiple named Craft variants with independent dot ratings, XP costs (inherits Caste/Favored), and roll integration with per-variant charm gating
 - [x] Mundane crafting roll resolver (Int/Per+Craft vs Resources diff; extended for large items)
 - [x] Artifact extended-roll builder (Rating cumulative successes; seasons interval; exotic ingredient tracker)
-- [ ] Workshop & material prerequisites UI
+- [x] Workshop & material prerequisites UI — workshop quality (5 tiers → −4..+4 dice) + assistants (mortal/lesser/greater/mighty → bonus successes) selectable in both crafting roll dialogs and persisted per project; Words-as-Workshop Method charm flag (`system.wordsAsWorkshop`) floors the workshop at Master's; artifact ingredients soft-warn before rolling; crafting-tab rows show workshop/assistant summaries. (Ability prereqs + charm reduction were already done.)
 - [ ] Manse geomancy rules (Oadenol's Codex) — manse power table, demesne pre-roll
 
 ## Quality of Life

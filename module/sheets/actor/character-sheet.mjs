@@ -15,7 +15,7 @@ import { sanctifyOathBinding } from "../../helpers/oath.mjs";
 import { CraftingRollDialog }     from "../../dialogs/crafting-roll-dialog.mjs";
 import { ArtifactCraftingDialog } from "../../dialogs/artifact-crafting-dialog.mjs";
 import { ResplendentParadoxDialog } from "../../dialogs/resplendent-paradox-dialog.mjs";
-import { exceedsCraftCap, artifactSuccessTarget, effectiveArtifactAbilityReqs, meetsArtifactAbilityReqs } from "../../helpers/crafting-helpers.mjs";
+import { exceedsCraftCap, artifactSuccessTarget, effectiveArtifactAbilityReqs, meetsArtifactAbilityReqs, workshopDiceMod, assistantBonusSuccesses, actorHasWordsAsWorkshop } from "../../helpers/crafting-helpers.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -881,16 +881,28 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       })),
     ];
 
+    const _craftWaiver = actorHasWordsAsWorkshop(actor);
+
     const craftingProjects = (sys.craftingProjects ?? []).map(p => ({
       ...p,
       difficulty:  p.targetResources + (p.isPerfect ? 5 : 0),
       sizeLabel:   game.i18n.localize(p.size === "small" ? "EX2E.CraftingSizeSmall" : "EX2E.CraftingSizeLarge"),
       statusLabel: game.i18n.localize(`EX2E.CraftingStatus${p.status.charAt(0).toUpperCase() + p.status.slice(1)}`),
+      workshopLabel:   game.i18n.localize("EX2E.CraftWorkshop_" + (p.workshop ?? "masters")),
+      workshopMod:     workshopDiceMod(p.workshop ?? "masters"),
+      assistantBonus:  assistantBonusSuccesses(p.assistants),
+      wordsAsWorkshop: !!_craftWaiver,
+      waiverName:      _craftWaiver?.name ?? "",
     }));
 
     const artifactProjects = (sys.artifactProjects ?? []).map(p => ({
       ...p,
       statusLabel: game.i18n.localize(`EX2E.ArtifactStatus${p.status.charAt(0).toUpperCase() + p.status.slice(1)}`),
+      workshopLabel:   game.i18n.localize("EX2E.CraftWorkshop_" + (p.workshop ?? "masters")),
+      workshopMod:     workshopDiceMod(p.workshop ?? "masters"),
+      assistantBonus:  assistantBonusSuccesses(p.assistants),
+      wordsAsWorkshop: !!_craftWaiver,
+      waiverName:      _craftWaiver?.name ?? "",
     }));
 
     // ── Clinch state ─────────────────────────────────────────────────────
@@ -2350,6 +2362,13 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const projectId = target.dataset.projectId;
     const project   = (actor.system.artifactProjects ?? []).find(p => p.id === projectId);
     if (!project || project.status !== "active") return;
+    if (!project.hasIngredients) {
+      const proceed = await foundry.applications.api.DialogV2.confirm({
+        window:  { title: game.i18n.localize("EX2E.ArtifactIngredientsWarnTitle") },
+        content: `<p>${game.i18n.localize("EX2E.ArtifactIngredientsWarnBody")}</p>`,
+      });
+      if (!proceed) return;
+    }
     await ArtifactCraftingDialog.open(project, actor);
   }
 

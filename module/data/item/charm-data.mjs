@@ -417,6 +417,10 @@ export class CharmData extends foundry.abstract.TypeDataModel {
         reduction: new fields.NumberField({ initial: 1, min: 1, max: 4, integer: true })
       }),
 
+      // Words-as-Workshop Method — treat any location as at least a Master's
+      // Workshop (floors the workshop dice modifier at 0 for the crafter).
+      wordsAsWorkshop: new fields.BooleanField({ initial: false }),
+
       // ── Multi-Purchase Fields ───────────────────────────────────────────
       // Maximum number of times this charm can be purchased.
       maxPurchases:  new fields.StringField({ initial: "1", blank: false }),

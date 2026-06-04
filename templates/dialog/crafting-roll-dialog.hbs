@@ -90,6 +90,28 @@
     </div>
   </div>
 
+  <div class="craft-modifiers-block">
+    <div class="field-group">
+      <label>{{localize "EX2E.CraftWorkshop"}}</label>
+      <select name="workshop">
+        {{#each workshopOptions as |o|}}
+        <option value="{{o.value}}" {{#if o.selected}}selected{{/if}}>{{o.label}}</option>
+        {{/each}}
+      </select>
+      {{#if wordsAsWorkshop}}
+      <span class="craft-waiver-badge" title="{{waiverName}}">{{localize "EX2E.CraftWordsAsWorkshopActive"}}</span>
+      {{/if}}
+    </div>
+    <fieldset class="craft-assistants">
+      <legend>{{localize "EX2E.CraftAssistants"}}</legend>
+      <label>{{localize "EX2E.CraftAssistMortal"}}  <input type="number" name="assist_mortalAides"     min="0" value="{{assistants.mortalAides}}"></label>
+      <label>{{localize "EX2E.CraftAssistLesser"}}  <input type="number" name="assist_lesserArtisans"  min="0" value="{{assistants.lesserArtisans}}"></label>
+      <label>{{localize "EX2E.CraftAssistGreater"}} <input type="number" name="assist_greaterArtisans" min="0" value="{{assistants.greaterArtisans}}"></label>
+      <label>{{localize "EX2E.CraftAssistMighty"}}  <input type="number" name="assist_mightyArtisans"  min="0" value="{{assistants.mightyArtisans}}"></label>
+      <span class="craft-assist-bonus">= +{{assistantBonus}} {{localize "EX2E.CraftSuccesses"}}</span>
+    </fieldset>
+  </div>
+
   <div class="crafting-dialog-footer">
     <button type="button" data-action="roll" class="btn-roll">
       {{localize "EX2E.Roll"}}

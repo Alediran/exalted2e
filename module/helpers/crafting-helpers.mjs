@@ -179,3 +179,61 @@ export function meetsArtifactAbilityReqs(actor, rating) {
       && (sys.abilities.lore.value   ?? 0) >= reqs.lore
       && (sys.abilities.occult.value ?? 0) >= reqs.occult;
 }
+
+/** Workshop quality → dice-pool modifier (Oadenol's Codex). */
+export const WORKSHOP_DICE_MOD = {
+  rudimentary: -4,
+  basic:       -2,
+  masters:      0,
+  flawless:     2,
+  ideal:        4,
+};
+
+/** Dice modifier for a workshop tier; unknown/blank → 0. */
+export function workshopDiceMod(level) {
+  return WORKSHOP_DICE_MOD[level] ?? 0;
+}
+
+/**
+ * Effective workshop dice modifier after the Words-as-Workshop Method waiver,
+ * which floors the workshop at Master's (0) but never lowers a real bonus.
+ */
+export function effectiveWorkshopMod(level, { wordsAsWorkshop = false } = {}) {
+  const mod = workshopDiceMod(level);
+  return wordsAsWorkshop ? Math.max(mod, 0) : mod;
+}
+
+/**
+ * Bonus successes contributed by crafting assistants (Oadenol's Codex).
+ *   mortalAides     +1 per 5
+ *   lesserArtisans  +1 per 2   (1st-circle demons, DB, Terrestrial gods, elementals, common Fair Folk)
+ *   greaterArtisans +4 each    (2nd-circle demons, Celestial Exalted/gods, Fair Folk nobles, Deathlords)
+ *   mightyArtisans  +6 each    (3rd-circle demon, Incarna, powerful hekatonkhire)
+ * @param {object} [a]
+ * @returns {number}
+ */
+export function assistantBonusSuccesses(a) {
+  if (!a) return 0;
+  return Math.floor((a.mortalAides ?? 0) / 5)
+       + Math.floor((a.lesserArtisans ?? 0) / 2)
+       + (a.greaterArtisans ?? 0) * 4
+       + (a.mightyArtisans ?? 0) * 6;
+}
+
+/**
+ * Returns the active/permanent charm granting Words-as-Workshop Method, or null.
+ * Mirrors the active/permanent detection used by _artifactAbilityReductionFrom.
+ * @param {ExaltedActor} actor
+ * @returns {Item|null}
+ */
+export function actorHasWordsAsWorkshop(actor) {
+  for (const item of (actor?.items ?? [])) {
+    if (item.type !== "charm") continue;
+    const dur    = item.system?.duration;
+    const type   = item.system?.charmType;
+    const active = item.system?.active;
+    if (dur !== "permanent" && type !== "permanent" && !active) continue;
+    if (item.system?.wordsAsWorkshop === true) return item;
+  }
+  return null;
+}

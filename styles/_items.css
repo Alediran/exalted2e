@@ -1261,3 +1261,12 @@ details.charm-group > summary.charm-group-header {
   white-space: nowrap;
 }
 .exalted2e .resplendency-changes .sb-change-row { display: flex; gap: 4px; align-items: center; margin-bottom: 2px; }
+
+/* ── Crafting: workshop & assistants ────────────────────────────────────── */
+.craft-modifiers-block { display: flex; flex-direction: column; gap: 6px; margin: 6px 0; }
+.craft-modifiers-block .craft-assistants { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; border: 1px solid var(--ex2e-gold-dark); padding: 4px 8px; }
+.craft-modifiers-block .craft-assistants label { display: inline-flex; align-items: center; gap: 4px; }
+.craft-modifiers-block .craft-assistants input[type=number] { width: 3.5em; }
+.craft-modifiers-block .craft-assist-bonus { font-weight: bold; margin-left: auto; }
+.craft-waiver-badge { color: var(--ex2e-gold); font-size: var(--ex2e-font-size-sm); margin-left: 4px; }
+.craft-workshop-cell, .craft-assist-cell { white-space: nowrap; }

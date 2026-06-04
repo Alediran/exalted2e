@@ -3,6 +3,12 @@ import { assertTestWorld }   from "../_helpers/world.mjs";
 import { createTempCharacter } from "../_helpers/actors.mjs";
 import { exceedsCraftCap }   from "../../../module/helpers/crafting-helpers.mjs";
 
+async function waitFor(predicate, { timeoutMs = 2000, intervalMs = 25 } = {}) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) { const ok = await predicate(); if (ok) return ok; await new Promise(r => setTimeout(r, intervalMs)); }
+  throw new Error("waitFor: timed out");
+}
+
 export function registerCrafting(context) {
   const { describe, it, assert, before, afterEach } = context;
 
@@ -98,6 +104,67 @@ export function registerCrafting(context) {
 
       assert.isTrue(exceedsCraftCap(actor, 4),  "cap exceeded when craft=2, targetResources=4");
       assert.isFalse(exceedsCraftCap(actor, 2), "cap not exceeded when craft=2, targetResources=2");
+    });
+  });
+
+  describe("Crafting workshop & assistants", () => {
+    before(() => assertTestWorld());
+    afterEach(async () => { await sweep(); });
+
+    it("[CW-1] workshop + assistants persist on a crafting project", async () => {
+      const actor = await createTempCharacter({ name: "Q-CW-Persist" });
+      await actor.update({ "system.craftingProjects": [{
+        id: "p1", name: "Sword", size: "small", targetResources: 2, status: "active",
+        workshop: "basic", assistants: { mortalAides: 10, lesserArtisans: 0, greaterArtisans: 0, mightyArtisans: 0 },
+      }]});
+      const p = actor.system.craftingProjects[0];
+      assert.equal(p.workshop, "basic", "workshop persisted");
+      assert.equal(p.assistants.mortalAides, 10, "assistants persisted");
+    });
+
+    it("[CW-2] actorHasWordsAsWorkshop detects an active charm, ignores an inactive one", async () => {
+      const actor = await createTempCharacter({ name: "Q-CW-Waiver" });
+      const { actorHasWordsAsWorkshop } = await import("../../../module/helpers/crafting-helpers.mjs");
+      await actor.createEmbeddedDocuments("Item", [{
+        name: "Dormant WaW", type: "charm",
+        system: { ability: "craft", duration: "instant", wordsAsWorkshop: true, active: false }
+      }]);
+      assert.equal(actorHasWordsAsWorkshop(actor), null, "inactive instant charm not detected");
+      const [perm] = await actor.createEmbeddedDocuments("Item", [{
+        name: "Words-as-Workshop Method", type: "charm",
+        system: { ability: "craft", duration: "permanent", wordsAsWorkshop: true }
+      }]);
+      const found = actorHasWordsAsWorkshop(actor);
+      assert.ok(found, "permanent WaW charm detected");
+      assert.equal(found.id, perm.id, "returns the permanent charm");
+    });
+
+    it("[CW-3] artifact ingredients soft-warn: declining aborts the roll", async () => {
+      const actor = await createTempCharacter({ name: "Q-CW-Warn" });
+      await actor.update({ "system.exaltType": "solar", "system.artifactProjects": [{
+        id: "a1", name: "Daiklave", rating: 2, hasIngredients: false,
+        targetSuccesses: 10, currentSuccesses: 0, status: "active",
+      }]});
+
+      const { ArtifactCraftingDialog } = await import("../../../module/dialogs/artifact-crafting-dialog.mjs");
+      const origOpen    = ArtifactCraftingDialog.open;
+      const origConfirm = foundry.applications.api.DialogV2.confirm;
+      let opened = false, confirmCalled = false;
+      ArtifactCraftingDialog.open = async () => { opened = true; };
+      foundry.applications.api.DialogV2.confirm = async () => { confirmCalled = true; return false; };
+      try {
+        await actor.sheet.render(true);
+        await waitFor(() => actor.sheet.rendered && !!actor.sheet.element);
+        const btn = await waitFor(() => actor.sheet.element.querySelector("[data-action='rollArtifactProject'][data-project-id='a1']"));
+        btn.click();
+        await waitFor(() => confirmCalled);
+        assert.ok(confirmCalled, "confirm shown for missing ingredients");
+        assert.equal(opened, false, "declining aborted before opening the craft dialog");
+      } finally {
+        ArtifactCraftingDialog.open = origOpen;
+        foundry.applications.api.DialogV2.confirm = origConfirm;
+        await actor.sheet.close();
+      }
     });
   });
 }

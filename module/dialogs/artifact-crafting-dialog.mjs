@@ -1,4 +1,4 @@
-import { artifactPool, resolveArtifactRoll } from "../helpers/crafting-helpers.mjs";
+import { artifactPool, resolveArtifactRoll, workshopDiceMod, effectiveWorkshopMod, assistantBonusSuccesses, actorHasWordsAsWorkshop } from "../helpers/crafting-helpers.mjs";
 import { ExaltedRoll } from "../rolls/exalted-roll.mjs";
 import { refreshPips } from "../helpers/pip-track.mjs";
 
@@ -34,6 +34,7 @@ export class ArtifactCraftingDialog extends HandlebarsApplicationMixin(Applicati
     this._resolved         = false;
     this._rollResult       = null;
     this._secondExcSucc    = 0;
+    this._assistantBonus = 0;
     this._firstExcMax      = 0;
     this._secondExcMax     = 0;
     this._attribute        = "dexterity";
@@ -49,9 +50,21 @@ export class ArtifactCraftingDialog extends HandlebarsApplicationMixin(Applicati
     const current = project.currentSuccesses ?? 0;
     const progressPct = Math.min(100, Math.round((current / target) * 100));
 
+    const waiverCharm     = actorHasWordsAsWorkshop(this._actor);
+    const wordsAsWorkshop = !!waiverCharm;
+    const wsLevel         = project.workshop ?? "masters";
+    const assistants      = project.assistants ?? { mortalAides:0, lesserArtisans:0, greaterArtisans:0, mightyArtisans:0 };
+    const assistantBonus  = assistantBonusSuccesses(assistants);
+    const workshopOptions = ["rudimentary","basic","masters","flawless","ideal"].map(v => ({
+      value: v,
+      selected: v === wsLevel,
+      label: `${game.i18n.localize("EX2E.CraftWorkshop_" + v)} (${workshopDiceMod(v) >= 0 ? "+" : ""}${workshopDiceMod(v)})`,
+    }));
+    const modifiersCtx = { workshopOptions, wordsAsWorkshop, waiverName: waiverCharm?.name ?? "", assistants, assistantBonus };
+
     if (this._rollResult) {
       const { successes: rawSuccesses, botch } = this._rollResult;
-      const successes = rawSuccesses + (this._secondExcSucc ?? 0);
+      const successes = rawSuccesses + (this._secondExcSucc ?? 0) + (this._assistantBonus ?? 0);
       const outcome = resolveArtifactRoll(successes, botch, project);
       const newPct  = Math.min(100, Math.round((outcome.newSuccesses / target) * 100));
       return {
@@ -62,6 +75,7 @@ export class ArtifactCraftingDialog extends HandlebarsApplicationMixin(Applicati
         outcome,
         target,
         progressPct: newPct,
+        assistantBonus,
         tierLabel: game.i18n.localize(
           `EX2E.ArtifactTier${outcome.tier.charAt(0).toUpperCase() + outcome.tier.slice(1)}`
         ),
@@ -103,6 +117,7 @@ export class ArtifactCraftingDialog extends HandlebarsApplicationMixin(Applicati
       thirdExcLabel:    thirdExcCharm?.name  ?? game.i18n.localize("EX2E.ThirdExcellency"),
       firstExcMax:      this._firstExcMax,
       secondExcMax:     this._secondExcMax,
+      ...modifiersCtx,
     };
   }
 
@@ -157,6 +172,16 @@ export class ArtifactCraftingDialog extends HandlebarsApplicationMixin(Applicati
       const secondExcSucc = parseInt(el.querySelector("[name=secondExcSucc]")?.value ?? "0", 10);
       this._secondExcSucc = secondExcSucc;
 
+      const workshop = el.querySelector("[name=workshop]")?.value ?? "masters";
+      const assistants = {
+        mortalAides:     parseInt(el.querySelector("[name=assist_mortalAides]")?.value     ?? "0", 10) || 0,
+        lesserArtisans:  parseInt(el.querySelector("[name=assist_lesserArtisans]")?.value  ?? "0", 10) || 0,
+        greaterArtisans: parseInt(el.querySelector("[name=assist_greaterArtisans]")?.value ?? "0", 10) || 0,
+        mightyArtisans:  parseInt(el.querySelector("[name=assist_mightyArtisans]")?.value  ?? "0", 10) || 0,
+      };
+      const wsMod = effectiveWorkshopMod(workshop, { wordsAsWorkshop: !!actorHasWordsAsWorkshop(this._actor) });
+      this._assistantBonus = assistantBonusSuccesses(assistants);
+
       // Activate excellency charms if used
       if (firstExcDice > 0) {
         const c = this._craftExcellencies.find(x => x.system.excellency === "first");
@@ -179,7 +204,7 @@ export class ArtifactCraftingDialog extends HandlebarsApplicationMixin(Applicati
         if (charm) await charm.activateCharm({});
       }
 
-      const pool = Math.max(1, artifactPool(this._actor, this._attribute) + charmDice + firstExcDice);
+      const pool = Math.max(1, artifactPool(this._actor, this._attribute) + charmDice + firstExcDice + wsMod);
 
       const roll = new ExaltedRoll({
         pool,
@@ -197,6 +222,8 @@ export class ArtifactCraftingDialog extends HandlebarsApplicationMixin(Applicati
       const idx = projects.findIndex(p => p.id === this._project.id);
       if (idx >= 0) {
         projects[idx].seasonsElapsed = (projects[idx].seasonsElapsed ?? 0) + 1;
+        projects[idx].workshop   = workshop;
+        projects[idx].assistants = assistants;
         await this._actor.update({ "system.artifactProjects": projects });
         this._project = projects[idx];
       }
@@ -210,7 +237,7 @@ export class ArtifactCraftingDialog extends HandlebarsApplicationMixin(Applicati
 
   static async #onSave(_event, _btn) {
     const { successes: rawSuccesses, botch } = this._rollResult;
-    const successes = rawSuccesses + (this._secondExcSucc ?? 0);
+    const successes = rawSuccesses + (this._secondExcSucc ?? 0) + (this._assistantBonus ?? 0);
     const outcome = resolveArtifactRoll(successes, botch, this._project);
 
     const projects = foundry.utils.deepClone(this._actor.system.artifactProjects ?? []);

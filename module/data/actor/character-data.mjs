@@ -297,6 +297,16 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
           choices: ["active", "completed", "botched"],
           initial: "active",
           blank:   false
+        }),
+        workshop:        new fields.StringField({
+          choices: ["rudimentary", "basic", "masters", "flawless", "ideal"],
+          initial: "masters", blank: false
+        }),
+        assistants:      new fields.SchemaField({
+          mortalAides:     new fields.NumberField({ integer: true, min: 0, initial: 0 }),
+          lesserArtisans:  new fields.NumberField({ integer: true, min: 0, initial: 0 }),
+          greaterArtisans: new fields.NumberField({ integer: true, min: 0, initial: 0 }),
+          mightyArtisans:  new fields.NumberField({ integer: true, min: 0, initial: 0 }),
         })
       })),
 
@@ -313,6 +323,16 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
           choices: ["active", "completed", "botched"],
           initial: "active",
           blank:   false
+        }),
+        workshop:        new fields.StringField({
+          choices: ["rudimentary", "basic", "masters", "flawless", "ideal"],
+          initial: "masters", blank: false
+        }),
+        assistants:      new fields.SchemaField({
+          mortalAides:     new fields.NumberField({ integer: true, min: 0, initial: 0 }),
+          lesserArtisans:  new fields.NumberField({ integer: true, min: 0, initial: 0 }),
+          greaterArtisans: new fields.NumberField({ integer: true, min: 0, initial: 0 }),
+          mightyArtisans:  new fields.NumberField({ integer: true, min: 0, initial: 0 }),
         })
       })),
 

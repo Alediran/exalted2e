@@ -1531,6 +1531,16 @@
     {{/if}}
   </div>
 
+  {{!-- Words-as-Workshop Method ───────────────────────────────────────────── --}}
+  <div class="effect-section">
+    <label class="effect-enable-row">
+      <input type="checkbox" name="system.wordsAsWorkshop"
+             {{#if system.wordsAsWorkshop}}checked{{/if}}
+             {{#unless isEditable}}disabled{{/unless}}>
+      <span>{{localize "EX2E.EffectWordsAsWorkshop"}}</span>
+    </label>
+  </div>
+
   {{!-- ── UPGRADE TIERS ────────────────────────────────────────────────────────── --}}
   <div class="upgrade-tiers-section">
     <div class="section-toolbar">
