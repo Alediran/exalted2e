@@ -1,0 +1,19 @@
+<form class="ex2e-resplendent-paradox-dialog" autocomplete="off">
+  <div class="dialog-content">
+    <p class="hint">{{localize "EX2E.RParadoxDialogHint"}}</p>
+    <div class="rparadox-trigger-list">
+      {{#each triggers as |t|}}
+      <label class="rparadox-trigger-row">
+        <input type="checkbox" name="{{t.key}}" {{#if t.checked}}checked{{/if}}>
+        <span class="rparadox-trigger-label">{{localize t.labelKey}}</span>
+        <span class="rparadox-trigger-dice">+{{t.dice}} ◈</span>
+      </label>
+      {{/each}}
+    </div>
+  </div>
+  <footer class="form-footer">
+    <button type="button" class="btn-roll" data-action="rollParadox">
+      <i class="fa-solid fa-dice"></i> {{localize "EX2E.RParadoxRollButton"}}
+    </button>
+  </footer>
+</form>

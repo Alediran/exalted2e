@@ -605,6 +605,7 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/dialog/virtueflaw-picker-dialog.hbs",
     "systems/exalted2e/templates/dialog/xp-costs-config-dialog.hbs",
     "systems/exalted2e/templates/dialog/shapeshift-dialog.hbs",
+    "systems/exalted2e/templates/dialog/resplendent-paradox-dialog.hbs",
     "systems/exalted2e/templates/chat/attack-result.hbs",
     "systems/exalted2e/templates/chat/flurry-declared.hbs",
     "systems/exalted2e/templates/chat/action-declared.hbs",
@@ -630,6 +631,7 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/chat/spell-attack-result.hbs",
     "systems/exalted2e/templates/chat/gremlin-syndrome-alert.hbs",
     "systems/exalted2e/templates/chat/resplendency-activation.hbs",
+    "systems/exalted2e/templates/chat/resplendent-paradox.hbs",
   ];
   return foundry.applications.handlebars.loadTemplates(templatePaths);
 }

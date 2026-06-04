@@ -1,6 +1,8 @@
 /**
  * Configuration constants for Exalted Second Edition
  */
+import { RESPLENDENT_PARADOX_TRIGGERS } from "./combat/resplendent-paradox.mjs";
+
 export const EX2E = {};
 
 EX2E.attributes = {
@@ -804,6 +806,8 @@ EX2E.siderealColleges = {
   the_rising_smoke:   { labelKey: "EX2E.CollegeTheRisingSmoke",   maiden: "endings"  },
   the_sword:          { labelKey: "EX2E.CollegeTheSword",         maiden: "endings"  },
 };
+
+EX2E.resplendentParadoxTriggers = RESPLENDENT_PARADOX_TRIGGERS;
 
 EX2E.siderealMaidens = {
   journeys: "EX2E.HouseOfJourneys",

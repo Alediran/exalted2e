@@ -373,4 +373,45 @@ export function registerDestiny(context) {
       assert.ok(gone, "stat-bonus AE removed with the resplendency");
     });
   });
+
+  describe("Resplendent Paradox — Phase 3", () => {
+    before(() => assertTestWorld());
+    afterEach(async () => { await sweep(); });
+
+    it("[RP-1] applyResplendentParadox adds rolled successes to the track", async () => {
+      const actor = await makeSidereal("Q-RP-Add");
+      await actor.update({ "system.splat.sidereal.paradox": 0 });
+      const { applyResplendentParadox } = await import("../../../module/combat/resplendency.mjs");
+
+      const gained = await applyResplendentParadox(actor, { dice: 5, triggerLabels: ["EX2E.RParadoxOutOfCharacter"] });
+      const track  = actor.system.splat.sidereal.paradox;
+      assert.ok(gained >= 0, "gained is a number ≥ 0");
+      assert.equal(track, Math.min(10, gained), "track equals clamped gained from 0");
+    });
+
+    it("[RP-2] reaching 10 fires Pattern Bite (reset + chat)", async () => {
+      const actor = await makeSidereal("Q-RP-Bite");
+      await actor.update({ "system.splat.sidereal.paradox": 9 });
+      const startCount = game.messages.size;
+      const { applyResplendentParadox } = await import("../../../module/combat/resplendency.mjs");
+
+      // 10 dice almost always yields ≥1 success, pushing 9→10.
+      await applyResplendentParadox(actor, { dice: 10, triggerLabels: ["EX2E.RParadoxConfusingOther"] });
+      await waitFor(() => game.messages.size > startCount);
+      const reset = await waitFor(() => actor.system.splat.sidereal.paradox === 0);
+      assert.ok(reset, "Pattern Bite reset the track to 0");
+    });
+
+    it("[RP-3] dice:0 is a no-op (no card, track unchanged)", async () => {
+      const actor = await makeSidereal("Q-RP-Zero");
+      await actor.update({ "system.splat.sidereal.paradox": 3 });
+      const startCount = game.messages.size;
+      const { applyResplendentParadox } = await import("../../../module/combat/resplendency.mjs");
+
+      const gained = await applyResplendentParadox(actor, { dice: 0 });
+      assert.equal(gained, 0, "returns 0");
+      assert.equal(actor.system.splat.sidereal.paradox, 3, "track unchanged");
+      assert.equal(game.messages.size, startCount, "no chat card emitted");
+    });
+  });
 }

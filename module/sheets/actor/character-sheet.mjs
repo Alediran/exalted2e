@@ -14,6 +14,7 @@ import { AnimaColorDialog } from "../../dialogs/anima-color-dialog.mjs";
 import { sanctifyOathBinding } from "../../helpers/oath.mjs";
 import { CraftingRollDialog }     from "../../dialogs/crafting-roll-dialog.mjs";
 import { ArtifactCraftingDialog } from "../../dialogs/artifact-crafting-dialog.mjs";
+import { ResplendentParadoxDialog } from "../../dialogs/resplendent-paradox-dialog.mjs";
 import { exceedsCraftCap, artifactSuccessTarget, effectiveArtifactAbilityReqs, meetsArtifactAbilityReqs } from "../../helpers/crafting-helpers.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -167,6 +168,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       createEffect:        CharacterSheet.#onCreateEffect,
       dispelSpellEffect:   CharacterSheet.#onDispelSpellEffect,
       abandonMotivationCampaign: CharacterSheet.#onAbandonMotivationCampaign,
+      rollResplendentParadox:    CharacterSheet.#onRollResplendentParadox,
       cycleAttributeFlag:  CharacterSheet.#onCycleAttributeFlag,
       createForm:          CharacterSheet.#onCreateForm,
       setActiveForm:       CharacterSheet.#onSetActiveForm,
@@ -1674,6 +1676,22 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     await defender.update({
       [`flags.exalted2e.motivationBreaks.${this.actor.id}.status`]: "abandoned"
     });
+  }
+
+  static async #onRollResplendentParadox(event, target) {
+    if (!game.user.isGM) {
+      ui.notifications.warn(game.i18n.localize("EX2E.NotGM"));
+      return;
+    }
+    const worn = this.actor.items.find(i => i.type === "destiny" && i.system.worn);
+    const identity = worn ? (worn.system.identity || worn.name) : "";
+    const result = await ResplendentParadoxDialog.prompt({
+      anima:           this.actor.system.anima,
+      wearingIdentity: !!worn,
+    });
+    if (!result) return;
+    const { applyResplendentParadox } = await import("../../combat/resplendency.mjs");
+    await applyResplendentParadox(this.actor, { ...result, identity });
   }
 
   static async #onSendItemToChat(event, target) {

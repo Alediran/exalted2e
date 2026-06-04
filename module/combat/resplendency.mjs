@@ -82,3 +82,49 @@ export async function activateResplendency(resplendency, destiny) {
   await ChatMessage.create({ content, speaker: ChatMessage.getSpeaker({ actor }) });
   return true;
 }
+
+/**
+ * Apply Resplendent Paradox from the table: roll the given dice, add raw
+ * successes to the Sidereal's Paradox track (clamped ≤10; the Pattern Bite
+ * updateActor hook fires the bite + reset at 10), and post a chat card.
+ * @param {Actor}    actor
+ * @param {object}   opts
+ * @param {number}   opts.dice           - dice to roll (0 → no-op)
+ * @param {string[]} [opts.triggerLabels]- localized trigger label i18n KEYS for the card
+ * @param {string}   [opts.identity]     - worn identity name, if any
+ * @returns {Promise<number>} Paradox points gained
+ */
+export async function applyResplendentParadox(actor, { dice, triggerLabels = [], identity = "" } = {}) {
+  if (!actor || !dice || dice <= 0) {
+    ui.notifications.warn(game.i18n.localize("EX2E.RParadoxNoTriggers"));
+    return 0;
+  }
+
+  const roll = await new ExaltedRoll({
+    pool: dice,
+    actorName: actor.name,
+    flavor: game.i18n.localize("EX2E.ResplendentParadoxFlavor")
+  }).evaluate();
+  await roll.toMessage({ speaker: ChatMessage.getSpeaker({ actor }) });
+
+  // Paradox counts raw successes (straight roll consequence; same as activation).
+  const gained = roll.rawSuccesses ?? roll.successes;
+  const cur    = actor.system.splat?.sidereal?.paradox ?? 0;
+  const total  = Math.min(10, cur + gained);
+  if (gained > 0) await actor.update({ "system.splat.sidereal.paradox": total });
+
+  const content = await foundry.applications.handlebars.renderTemplate(
+    "systems/exalted2e/templates/chat/resplendent-paradox.hbs",
+    {
+      actorName:  actor.name,
+      identity,
+      triggerLabels,
+      dice,
+      gained,
+      total,
+      patternBite: total >= 10,
+    }
+  );
+  await ChatMessage.create({ content, speaker: ChatMessage.getSpeaker({ actor }) });
+  return gained;
+}

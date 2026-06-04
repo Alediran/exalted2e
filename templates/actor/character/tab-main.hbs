@@ -233,6 +233,11 @@
             {{#if (eq system.splat.sidereal.paradox 10)}}
             <div class="limit-break-warning">{{localize "EX2E.PatternBite"}}</div>
             {{/if}}
+            {{#if isGM}}
+            <button type="button" class="btn-sm rparadox-roll-btn" data-action="rollResplendentParadox">
+              <i class="fa-solid fa-dice"></i> {{localize "EX2E.ResplendentParadoxRoll"}}
+            </button>
+            {{/if}}
           </div>
           {{/if}}
           {{/unless}}

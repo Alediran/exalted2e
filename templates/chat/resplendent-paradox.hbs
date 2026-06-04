@@ -1,0 +1,21 @@
+<div class="ex2e-roll-card resplendent-paradox-card">
+  <div class="card-header">
+    <span class="roll-actor">{{actorName}}</span>
+    <span class="roll-flavor">{{localize "EX2E.ResplendentParadoxFlavor"}}</span>
+  </div>
+  <div class="spell-cast-summary">
+    {{#if identity}}<div class="spell-name-row"><span class="spell-meta">{{localize "EX2E.RParadoxAsIdentity"}}: {{identity}}</span></div>{{/if}}
+    {{#if triggerLabels.length}}
+    <div class="rparadox-triggers">
+      <strong>{{localize "EX2E.RParadoxTriggers"}}:</strong>
+      <ul>{{#each triggerLabels}}<li>{{localize this}}</li>{{/each}}</ul>
+    </div>
+    {{/if}}
+    <div class="spell-cost-ledger">
+      <span><strong>{{localize "EX2E.RParadoxDiceRolled"}}:</strong> {{dice}}</span>
+      <span><strong>{{localize "EX2E.RParadoxGained"}}:</strong> {{gained}}</span>
+      <span><strong>{{localize "EX2E.Paradox"}}:</strong> {{total}}/10</span>
+    </div>
+    {{#if patternBite}}<div class="limit-break-warning">{{localize "EX2E.PatternBite"}}</div>{{/if}}
+  </div>
+</div>
