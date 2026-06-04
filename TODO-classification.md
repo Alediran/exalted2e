@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-06-03 (Workshop & material prerequisites UI shipped — workshop dice tiers + assistant successes + Words-as-Workshop waiver + ingredients soft-warn; count 1 A / 7 B / 1 C / 9 total)
+Last updated: 2026-06-04 (Background mechanical hooks parked — Backing/Contacts/Resources kept narrative-only by user decision; Familiar/Cult/Command/Followers already mechanized. count 1 A / 6 B / 1 C / 8 active)
 
 ---
 
@@ -22,7 +22,6 @@ Last updated: 2026-06-03 (Workshop & material prerequisites UI shipped — works
 | Limit Break scripted scene effects | Solar / Virtues | per-Virtue-Flaw AE templates (4 flaws × 2 break types) |
 | Shintai / Mantle form-type charms | Infernal | charm activation mode + transformation state AE |
 | Manse geomancy rules | Crafting | Oadenol's Codex power table, demesne pre-roll (unblocked by Manse item type) |
-| Background mechanical hooks | Other | Familiar actor link + Cult mote-regen/WP-recovery + 53-type optgroup registry done; Backing/Contacts/Resources mechanical automation still pending |
 | Multi-actor action helpers | QoL | Cooperative keyword done; Coordinate attacks + mass Guard still pending |
 | Poison/Disease tracking | Other | per-interval AE *(needs Poison/Disease item types — Group A — first)* |
 | Headless tests for remaining paths | Testing | test authoring for charm prereqs, multi-tick, sorcery |
@@ -38,6 +37,13 @@ Last updated: 2026-06-03 (Workshop & material prerequisites UI shipped — works
 
 ---
 
+## Parked (no actionable work)
+| Item | TODO Section | Note |
+|------|-------------|------|
+| Background mechanical hooks | Other | Mechanized types (Familiar/Cult/Command/Followers) done. Backing/Contacts/Resources kept narrative-only by user decision (2026-06-04). Re-open if specific automations are identified. |
+
+---
+
 ---
 
 ## Summary
@@ -45,6 +51,7 @@ Last updated: 2026-06-03 (Workshop & material prerequisites UI shipped — works
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 7 |
+| B — Ready, Medium | 6 |
 | C — Ready, Complex | 1 |
-| **Total pending** | **9** |
+| **Total active** | **8** |
+| (Parked) | 1 |

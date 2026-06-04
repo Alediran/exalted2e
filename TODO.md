@@ -295,7 +295,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] **Drug** item type (effect, duration, addiction; no mechanics yet)
 - [x] **Vehicle / Warstrider** actor type (First Age magitech)
 - [x] **Unit** actor type for mass combat
-- [~] Background mechanical hooks — Familiar (actor link, species, bond rating, linked actor creation into The Circle/Familiars) and Cult (mote regen / WP recovery from dot rating) done; 53-type registry with optgroup display; Backing / Contacts / Resources mechanical automation still pending
+- [~] Background mechanical hooks — Familiar (actor link, species, bond rating, linked actor creation into The Circle/Familiars), Cult (mote regen / WP recovery from dot rating), Command (war dice) and Followers (magnitude) done via dedicated item types + `_prepareXxxData` rating tables; 53-type registry with optgroup display. Backing / Contacts / Resources are intentionally **narrative-only** (ST-adjudicated) — no automation planned for now (decision 2026-06-04). Item parked pending the user identifying specific automations worth building.
 - [x] Willpower recovery on virtue channel success (no recovery per rules; WP spent is the cost)
 - [x] Scene-end reset (anima step-down done; Peripheral-spend counter, per-scene WP drain counters)
 
