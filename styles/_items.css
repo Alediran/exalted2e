@@ -1067,9 +1067,6 @@ details.charm-group > summary.charm-group-header {
   color:          var(--ex2e-text-muted);
   letter-spacing: 0.04em;
 }
-.exalted2e.item.generic .manse-budget.budget-over {
-  color: var(--ex2e-dmg-lethal, #c0392b);
-}
 
 .exalted2e.item.generic .manse-powers-table {
   width:           100%;
@@ -1270,3 +1267,13 @@ details.charm-group > summary.charm-group-header {
 .craft-modifiers-block .craft-assist-bonus { font-weight: bold; margin-left: auto; }
 .craft-waiver-badge { color: var(--ex2e-gold); font-size: var(--ex2e-font-size-sm); margin-left: 4px; }
 .craft-workshop-cell, .craft-assist-cell { white-space: nowrap; }
+
+/* ── Manse geomancy (Phase 1) ───────────────────────────────────────────── */
+.manse-geomancy-section .manse-geomancy-fields { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; margin: 4px 0; }
+.manse-geomancy-section .manse-geomancy-fields label { display: inline-flex; align-items: center; gap: 4px; }
+.manse-geomancy-section .manse-geomancy-fields input[type=number] { width: 3.5em; }
+.manse-cp-breakdown { font-size: var(--ex2e-font-size-sm); margin-top: 4px; }
+.manse-effective-hs { font-size: var(--ex2e-font-size-sm); margin-top: 2px; }
+.manse-cp-breakdown.budget-over, .manse-effective-hs.budget-over { color: var(--ex2e-dmg-lethal, #c0392b); font-weight: bold; }
+.manse-dbl-note { font-size: var(--ex2e-font-size-sm); color: var(--ex2e-text-secondary); margin: 2px 0 0; }
+.manse-powers-table tr.power-over-cap td { color: var(--ex2e-dmg-lethal, #c0392b); }

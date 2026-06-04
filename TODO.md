@@ -304,7 +304,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Mundane crafting roll resolver (Int/Per+Craft vs Resources diff; extended for large items)
 - [x] Artifact extended-roll builder (Rating cumulative successes; seasons interval; exotic ingredient tracker)
 - [x] Workshop & material prerequisites UI — workshop quality (5 tiers → −4..+4 dice) + assistants (mortal/lesser/greater/mighty → bonus successes) selectable in both crafting roll dialogs and persisted per project; Words-as-Workshop Method charm flag (`system.wordsAsWorkshop`) floors the workshop at Master's; artifact ingredients soft-warn before rolling; crafting-tab rows show workshop/assistant summaries. (Ability prereqs + charm reduction were already done.)
-- [ ] Manse geomancy rules (Oadenol's Codex) — manse power table, demesne pre-roll
+- [~] Manse geomancy rules (Oadenol's Codex) — Phase 1 (Creation Point economy) done: budget = rating×2 + drawbacks (Maintenance ×1 / Fragility ×2 / Habitability ×1) + hearthstone-level sacrifice (+1/level) + Design Beyond Limit (+10 at rating 5); `manseBudgetState` helper + sheet CP breakdown; power cost 0–5 with `isMaterial` overriding the value≤rating cap; hearthstone link gated by `rating − hearthstoneReduction`. **Phase 2** (powers catalog: ~50 named powers 0–5pt, aspect-favored/Only-aspect, ability reqs, multi-purchase, picker) and **Phase 3** (design rolls: capping roll, per-power design roll + prereqs, partial capping / Essence Vents, Power Failure) still pending. Source rules in docs/manse-design.md.
 
 ## Quality of Life
 - [x] Drag-and-drop items between sheets — move semantics for weapon/armor/background/meritflaw between actor sheets; non-transferable types (charm, spell, etc.) blocked with warning

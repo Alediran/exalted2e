@@ -1,6 +1,7 @@
 import { sweep }               from "../_helpers/cleanup.mjs";
 import { assertTestWorld }     from "../_helpers/world.mjs";
 import { createTempCharacter } from "../_helpers/actors.mjs";
+import { manseBudgetState }    from "../../../module/helpers/manse-geomancy.mjs";
 
 export function registerManse(context) {
   const { describe, it, assert, before, afterEach } = context;
@@ -85,6 +86,36 @@ export function registerManse(context) {
       }]);
       const rating = actor.items.get(manse.system.backgroundId)?.system.value ?? 0;
       assert.equal(rating, 3, "background item stores value 3 and backgroundId is correctly linked");
+    });
+  });
+
+  describe("Manse geomancy — Phase 1", () => {
+    before(() => assertTestWorld());
+    afterEach(async () => { await sweep(); });
+
+    it("[MG-1] geomancy fields, DBL, and power isMaterial persist", async () => {
+      const actor = await createTempCharacter({ name: "Q-MG-Persist" });
+      const [manse] = await actor.createEmbeddedDocuments("Item", [{
+        name: "Q Manse", type: "manse",
+        system: {
+          maintenance: 2, fragility: 1, habitabilityReduction: 1,
+          hearthstoneReduction: 1, designBeyondLimit: true,
+          powers: [{ name: "Fortress", cost: 3, isMaterial: true }],
+        }
+      }]);
+      assert.equal(manse.system.maintenance, 2, "maintenance persisted");
+      assert.equal(manse.system.fragility, 1, "fragility persisted");
+      assert.equal(manse.system.habitabilityReduction, 1, "habitability persisted");
+      assert.equal(manse.system.hearthstoneReduction, 1, "hearthstone reduction persisted");
+      assert.equal(manse.system.designBeyondLimit, true, "DBL persisted");
+      assert.equal(manse.system.powers[0].isMaterial, true, "isMaterial persisted");
+    });
+
+    it("[MG-2] manseBudgetState reflects rating x2 + drawback economy", async () => {
+      const s = manseBudgetState({ maintenance: 2, hearthstoneReduction: 1, powers: [{ cost: 2 }] }, 3);
+      assert.equal(s.total, 9, "total = base 6 + drawbacks 2 + sacrifice 1");
+      assert.equal(s.used, 2, "used = sum of costs");
+      assert.equal(s.over, false, "not over budget");
     });
   });
 }

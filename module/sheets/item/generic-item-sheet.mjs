@@ -1,5 +1,6 @@
 import { editImageAction } from "../_edit-image.mjs";
 import { EX2E } from "../../config.mjs";
+import { manseBudgetState } from "../../helpers/manse-geomancy.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -98,9 +99,7 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     let manseAspectLabel       = "";
     let manseBackgroundName    = "";
     let manseHearthstoneName   = "";
-    let manseUsedBudget        = 0;
-    let manseRemainingBudget   = 0;
-    let manseOverBudget        = false;
+    let manseBudget            = null;
     if (item.type === "manse") {
       const actor = item.parent;
       if (actor) {
@@ -118,9 +117,10 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         manseAspectLabel     = manseAspect ? (EX2E.hearthstoneTypes[manseAspect] ?? "") : "";
         manseHearthstoneName = linkedHs?.name ?? "";
       }
-      manseUsedBudget      = (sys.powers ?? []).reduce((sum, p) => sum + (p.cost ?? 0), 0);
-      manseRemainingBudget = manseRating - manseUsedBudget;
-      manseOverBudget      = manseUsedBudget > manseRating;
+      const linkedHsForCap = item.parent?.items.get(sys.hearthstoneId);
+      manseBudget = manseBudgetState(sys, manseRating, {
+        linkedHearthstoneRating: linkedHsForCap?.system.rating ?? 0
+      });
     }
 
     let familiarBackgroundName   = "";
@@ -189,7 +189,9 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       label: game.i18n.localize(v)
     }));
 
-    const mansePowers = item.type === "manse" ? [...(sys.powers ?? [])] : [];
+    const mansePowers = item.type === "manse"
+      ? (sys.powers ?? []).map((p, i) => ({ ...p, overCap: manseBudget?.violations?.includes(i) ?? false }))
+      : [];
 
     return { ...context, item, system: sys, typeChoices, isEditable: this.isEditable,
              enrichedDescription, useIntimacyIntensity,
@@ -197,7 +199,7 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
              socketedSlots: _buildSocketedSlots(this.document),
              manseBackgrounds, manseHearthstones, manseRating, manseAspect, manseAspectLabel,
              manseBackgroundName, manseHearthstoneName,
-             manseUsedBudget, manseRemainingBudget, manseOverBudget,
+             manseBudget,
              mansePowers,
              backgroundTypeLabel,
              familiarBackgroundName, familiarBackgroundRating, familiarLinkedActorName,
@@ -230,6 +232,16 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
           if (data.type !== "Item") return;
           const dropped = await fromUuid(data.uuid);
           if (!dropped || dropped.type !== zone.dataset.dropAccepts) return;
+          if (zone.dataset.dropField === "hearthstoneId") {
+            const bg        = this.document.parent?.items.get(this.document.system.backgroundId);
+            const rating    = bg?.system.value ?? 0;
+            const reduction = this.document.system.hearthstoneReduction ?? 0;
+            const cap       = Math.max(0, rating - reduction);
+            if ((dropped.system.rating ?? 0) > cap) {
+              ui.notifications.warn(game.i18n.format("EX2E.ManseHearthstoneTooHigh", { cap }));
+              return;
+            }
+          }
           await this.document.update({ [`system.${zone.dataset.dropField}`]: dropped.id });
         });
       }
@@ -277,9 +289,13 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     if (isNaN(idx) || !field) return;
     const powers = foundry.utils.deepClone(this.document.system.powers ?? []);
     if (!powers[idx]) return;
-    powers[idx][field] = field === "cost"
-      ? Math.max(0, Math.min(3, parseInt(input.value) || 0))
-      : input.value;
+    if (field === "cost") {
+      powers[idx].cost = Math.max(0, Math.min(5, parseInt(input.value) || 0));
+    } else if (field === "isMaterial") {
+      powers[idx].isMaterial = input.checked;
+    } else {
+      powers[idx][field] = input.value;
+    }
     this.document.update({ "system.powers": powers });
   }
 

@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-06-04 (Background mechanical hooks parked — Backing/Contacts/Resources kept narrative-only by user decision; Familiar/Cult/Command/Followers already mechanized. count 1 A / 6 B / 1 C / 8 active)
+Last updated: 2026-06-04 (Manse geomancy Phase 1 — Creation Point economy — shipped; Phase 2/3 remain as the Group B manse entry. count 1 A / 6 B / 1 C / 8 active)
 
 ---
 
@@ -21,7 +21,7 @@ Last updated: 2026-06-04 (Background mechanical hooks parked — Backing/Contact
 |------|-------------|-------------|
 | Limit Break scripted scene effects | Solar / Virtues | per-Virtue-Flaw AE templates (4 flaws × 2 break types) |
 | Shintai / Mantle form-type charms | Infernal | charm activation mode + transformation state AE |
-| Manse geomancy rules | Crafting | Oadenol's Codex power table, demesne pre-roll (unblocked by Manse item type) |
+| Manse geomancy rules — Phase 2/3 | Crafting | Phase 1 (Creation Point economy: rating×2 + drawbacks + hearthstone sacrifice + Design Beyond Limit, sheet breakdown, power cap/material, hearthstone-link gate) shipped. Phase 2 = powers catalog + picker (~50 powers); Phase 3 = design/geomancy rolls + Power Failure. Source: docs/manse-design.md |
 | Multi-actor action helpers | QoL | Cooperative keyword done; Coordinate attacks + mass Guard still pending |
 | Poison/Disease tracking | Other | per-interval AE *(needs Poison/Disease item types — Group A — first)* |
 | Headless tests for remaining paths | Testing | test authoring for charm prereqs, multi-tick, sorcery |
