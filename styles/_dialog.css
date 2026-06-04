@@ -1542,3 +1542,30 @@
 .ex2e-resplendent-paradox-dialog .rparadox-trigger-label { flex: 1; }
 .ex2e-resplendent-paradox-dialog .rparadox-trigger-dice { white-space: nowrap; opacity: 0.8; }
 .ex2e-roll-card.resplendent-paradox-card .rparadox-triggers ul { margin: 2px 0 0; padding-left: 1.2em; }
+
+/* ── Crafting dialogs: cap height + scroll, collapsible sections ─────────── */
+/* `:not(.application)` targets the template's content root, not the AppV2 frame. */
+.artifact-crafting-dialog:not(.application),
+.crafting-roll-dialog:not(.application) {
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+}
+.dialog-section {
+  border: 1px solid var(--ex2e-gold-dark);
+  border-radius: 3px;
+  margin: 4px 0;
+}
+.dialog-section > summary {
+  cursor: pointer;
+  padding: 4px 8px;
+  font-weight: bold;
+  list-style: none;
+}
+.dialog-section > summary::-webkit-details-marker { display: none; }
+.dialog-section > summary::before {
+  content: "\25b8";
+  display: inline-block;
+  width: 1em;
+}
+.dialog-section[open] > summary::before { content: "\25be"; }
+.dialog-section > .dialog-section-body { padding: 2px 8px 6px; }

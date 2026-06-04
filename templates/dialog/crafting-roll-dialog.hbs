@@ -54,30 +54,37 @@
     {{/if}}
   </div>
 
-  {{#if (or excellency.first (or excellency.second excellency.third))}}
-  <div class="crafting-charms-section crafting-excellency-section">
-    {{> "systems/exalted2e/templates/dialog/parts/excellency-pips.hbs"}}
-  </div>
-  {{/if}}
+  {{#if (or excellency.first (or excellency.second (or excellency.third craftCharms.length)))}}
+  <details class="dialog-section" open>
+    <summary>{{localize "EX2E.CraftDialogSectionCharms"}}</summary>
+    <div class="dialog-section-body">
+      {{#if (or excellency.first (or excellency.second excellency.third))}}
+      <div class="crafting-charms-section crafting-excellency-section">
+        {{> "systems/exalted2e/templates/dialog/parts/excellency-pips.hbs"}}
+      </div>
+      {{/if}}
 
-  {{#if craftCharms.length}}
-  <div class="crafting-charms-section">
-    <h4>{{localize "EX2E.CraftingCharms"}}</h4>
-    <ul class="crafting-charm-list">
-      {{#each craftCharms as |charm|}}
-      <li>
-        <label>
-          <input type="checkbox" name="selectedCharms" data-charm-id="{{charm.id}}">
-          {{charm.name}}
-        </label>
-      </li>
-      {{/each}}
-    </ul>
-    <div class="charm-dice-row">
-      <label for="charmDice">{{localize "EX2E.CraftingCharmDice"}}</label>
-      <input type="number" id="charmDice" name="charmDice" min="0" value="0">
+      {{#if craftCharms.length}}
+      <div class="crafting-charms-section">
+        <h4>{{localize "EX2E.CraftingCharms"}}</h4>
+        <ul class="crafting-charm-list">
+          {{#each craftCharms as |charm|}}
+          <li>
+            <label>
+              <input type="checkbox" name="selectedCharms" data-charm-id="{{charm.id}}">
+              {{charm.name}}
+            </label>
+          </li>
+          {{/each}}
+        </ul>
+        <div class="charm-dice-row">
+          <label for="charmDice">{{localize "EX2E.CraftingCharmDice"}}</label>
+          <input type="number" id="charmDice" name="charmDice" min="0" value="0">
+        </div>
+      </div>
+      {{/if}}
     </div>
-  </div>
+  </details>
   {{/if}}
 
   <div class="crafting-stunt-section">
@@ -90,27 +97,30 @@
     </div>
   </div>
 
-  <div class="craft-modifiers-block">
-    <div class="field-group">
-      <label>{{localize "EX2E.CraftWorkshop"}}</label>
-      <select name="workshop">
-        {{#each workshopOptions as |o|}}
-        <option value="{{o.value}}" {{#if o.selected}}selected{{/if}}>{{o.label}}</option>
-        {{/each}}
-      </select>
-      {{#if wordsAsWorkshop}}
-      <span class="craft-waiver-badge" title="{{waiverName}}">{{localize "EX2E.CraftWordsAsWorkshopActive"}}</span>
-      {{/if}}
+  <details class="dialog-section">
+    <summary>{{localize "EX2E.CraftDialogSectionWorkshop"}}</summary>
+    <div class="dialog-section-body craft-modifiers-block">
+      <div class="field-group">
+        <label>{{localize "EX2E.CraftWorkshop"}}</label>
+        <select name="workshop">
+          {{#each workshopOptions as |o|}}
+          <option value="{{o.value}}" {{#if o.selected}}selected{{/if}}>{{o.label}}</option>
+          {{/each}}
+        </select>
+        {{#if wordsAsWorkshop}}
+        <span class="craft-waiver-badge" title="{{waiverName}}">{{localize "EX2E.CraftWordsAsWorkshopActive"}}</span>
+        {{/if}}
+      </div>
+      <fieldset class="craft-assistants">
+        <legend>{{localize "EX2E.CraftAssistants"}}</legend>
+        <label>{{localize "EX2E.CraftAssistMortal"}}  <input type="number" name="assist_mortalAides"     min="0" value="{{assistants.mortalAides}}"></label>
+        <label>{{localize "EX2E.CraftAssistLesser"}}  <input type="number" name="assist_lesserArtisans"  min="0" value="{{assistants.lesserArtisans}}"></label>
+        <label>{{localize "EX2E.CraftAssistGreater"}} <input type="number" name="assist_greaterArtisans" min="0" value="{{assistants.greaterArtisans}}"></label>
+        <label>{{localize "EX2E.CraftAssistMighty"}}  <input type="number" name="assist_mightyArtisans"  min="0" value="{{assistants.mightyArtisans}}"></label>
+        <span class="craft-assist-bonus">= +{{assistantBonus}} {{localize "EX2E.CraftSuccesses"}}</span>
+      </fieldset>
     </div>
-    <fieldset class="craft-assistants">
-      <legend>{{localize "EX2E.CraftAssistants"}}</legend>
-      <label>{{localize "EX2E.CraftAssistMortal"}}  <input type="number" name="assist_mortalAides"     min="0" value="{{assistants.mortalAides}}"></label>
-      <label>{{localize "EX2E.CraftAssistLesser"}}  <input type="number" name="assist_lesserArtisans"  min="0" value="{{assistants.lesserArtisans}}"></label>
-      <label>{{localize "EX2E.CraftAssistGreater"}} <input type="number" name="assist_greaterArtisans" min="0" value="{{assistants.greaterArtisans}}"></label>
-      <label>{{localize "EX2E.CraftAssistMighty"}}  <input type="number" name="assist_mightyArtisans"  min="0" value="{{assistants.mightyArtisans}}"></label>
-      <span class="craft-assist-bonus">= +{{assistantBonus}} {{localize "EX2E.CraftSuccesses"}}</span>
-    </fieldset>
-  </div>
+  </details>
 
   <div class="crafting-dialog-footer">
     <button type="button" data-action="roll" class="btn-roll">
