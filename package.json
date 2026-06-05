@@ -18,7 +18,7 @@
     "pack:spells": "fvtt package pack -n spells --in src/packs/spells --out packs",
     "pack:thaumaturgy": "fvtt package pack -n thaumaturgy --in src/packs/thaumaturgy --out packs",
     "pack:resplendencies": "fvtt package pack -n resplendencies --in src/packs/resplendencies --out packs",
-    "pack:manse": "fvtt package pack -n manse-powers --in src/packs/resplendencies --out manse-powers"
+    "pack:manse": "fvtt package pack -n manse-powers --in src/packs/manse-powers --out packs"
   },
   "devDependencies": {
     "@foundryvtt/foundryvtt-cli": "^3.0.3",

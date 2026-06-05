@@ -1,0 +1,29 @@
+{
+  "_id": "d1e2f3a4b5c6c004",
+  "_key": "!items!d1e2f3a4b5c6c004",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Divine Observatory",
+  "type": "manse-power",
+  "img": "icons/svg/house.svg",
+  "system": {
+    "cost": 3,
+    "aspectFavored": ["sidereal"],
+    "onlyAspect": [],
+    "abilityReq": "Mastery of Sidereal Astrology",
+    "multiPurchase": false,
+    "isMaterial": false,
+    "description": "<p>Geomancy melds with astrology to track the movements of the Five Maidens, and altars give them worship. Quadrants, astrolabes and armillary spheres track every constellation, guided by starmetal ephemerides. These manses give their owners a nearly direct view of the Loom of Fate from Creation, and are coveted by Sidereals.</p><p>Most importantly, each Observatory's roof includes a downward-pointing lens, giving the pattern spiders a view of its residents. The spiders are less likely to ignore the immediate. For the purposes of Sidereal astrology rolls, a Divine Observatory reduces each difficulty by one. They also add (manse's rating) successes to astrological thaumaturgy performed by attuned characters inside.</p>"
+  },
+  "folder": null,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

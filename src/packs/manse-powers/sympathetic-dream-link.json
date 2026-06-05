@@ -1,0 +1,29 @@
+{
+  "_id": "d1e2f3a4b5c6b012",
+  "_key": "!items!d1e2f3a4b5c6b012",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Sympathetic Dream Link",
+  "type": "manse-power",
+  "img": "icons/svg/house.svg",
+  "system": {
+    "cost": 2,
+    "aspectFavored": [],
+    "onlyAspect": [],
+    "abilityReq": "",
+    "multiPurchase": false,
+    "isMaterial": false,
+    "description": "<p>So well-harmonized is the manse with its hearthstone bearer that, when she dreams, they \"communicate\" symbolically. The hearthstone bearer always knows the condition of the manse and if anyone has intruded—but only while dreaming.</p><p>This power doesn't provide a manse with any special intelligence or cognitive functions, but manses with such a sympathetic link have reacted to their owners' unconscious wishes. If the hearthstone bearer's temporary Willpower falls below 3, her manse may act on her secret desires without explicit orders.</p>"
+  },
+  "folder": null,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

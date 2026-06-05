@@ -1,0 +1,29 @@
+{
+  "_id": "d1e2f3a4b5c6c002",
+  "_key": "!items!d1e2f3a4b5c6c002",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Armored",
+  "type": "manse-power",
+  "img": "icons/svg/house.svg",
+  "system": {
+    "cost": 3,
+    "aspectFavored": [],
+    "onlyAspect": [],
+    "abilityReq": "",
+    "multiPurchase": true,
+    "isMaterial": false,
+    "description": "<p>A manse with this power was built from exceptionally strong material, further reinforced by Essence, giving the manse more soak than usual. This power is not lost in Power Failure, and can be bought multiple times. However, no one in Creation has been able to give a manse more than two increments of Armor since the Old Realm.</p>"
+  },
+  "folder": null,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

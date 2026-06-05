@@ -1,0 +1,31 @@
+{
+  "_id": "d1e2f3a4b5c6b004",
+  "_key": "!items!d1e2f3a4b5c6b004",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "The Eyeless Sight of Daana'd",
+  "type": "manse-power",
+  "img": "icons/svg/house.svg",
+  "system": {
+    "cost": 2,
+    "aspectFavored": [
+      "water"
+    ],
+    "onlyAspect": [],
+    "abilityReq": "",
+    "multiPurchase": false,
+    "isMaterial": false,
+    "description": "<p>The manse's delicate and sensitive Essence increases the difficulty of any roll to avoid its senses by 3. It also senses through mundane barriers up to an inch thick. Only Essence-created sensory barriers, such as Stealth Charms or certain spells, can block the manse's awareness. Treat the Eyeless Sight of Daana'd as Essence sight (see Wonders of the Lost Age, p. 85).</p>"
+  },
+  "folder": null,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,20 @@
+{
+  "_id": "d1e2f3a4b5c6c006",
+  "_key": "!items!d1e2f3a4b5c6c006",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Dragon's Will",
+  "type": "manse-power",
+  "img": "icons/svg/house.svg",
+  "system": {
+    "cost": 3,
+    "aspectFavored": [],
+    "onlyAspect": ["air", "earth", "fire", "water", "wood"],
+    "abilityReq": "",
+    "multiPurchase": false,
+    "isMaterial": false,
+    "description": "<p>Structures of jade-magnetite alloy in the walls let the manse control elemental Essence outside itself. In one five-tick span it can affect a volume of its element equal to its rating in yards, cubed (for Fire, square yards of surface area). Non-magical quantities of that element within that size restriction cannot harm the manse; against magical instances or amounts greater than it can control, all damage is reduced by (manse's rating x 2) dice. It can also move the element at three yards per tick.</p><p>During any five-tick span the manse can direct one instance of the element to act on a target within (manse's rating) yards, using a dice pool equal to (manse's rating x 2); any result it produces equals the manse's rating plus successes. Using this power the manse can issue a feat of strength equal to (rating x 2), or with a successful roll impose a penalty equal to its rating on a target's roll. The manse can cause diverse, imprecise effects so long as they do not create, destroy or fundamentally alter the element. More powerful manses perform more impressive feats.</p>"
+  },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}

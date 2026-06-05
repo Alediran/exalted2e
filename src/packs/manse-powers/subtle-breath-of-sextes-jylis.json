@@ -1,0 +1,31 @@
+{
+  "_id": "d1e2f3a4b5c6b011",
+  "_key": "!items!d1e2f3a4b5c6b011",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Subtle Breath of Sextes Jylis",
+  "type": "manse-power",
+  "img": "icons/svg/house.svg",
+  "system": {
+    "cost": 2,
+    "aspectFavored": [
+      "wood"
+    ],
+    "onlyAspect": [],
+    "abilityReq": "",
+    "multiPurchase": false,
+    "isMaterial": false,
+    "description": "<p>By mimicking the geomancy of a certain environment, the manse controls its indoor climate, manipulating temperature, humidity, light levels, scent, and similar factors, and eliminating small pests. This can keep the manse comfortable, such as Comfort Zone (Power 1)—or very unpleasant. Under no circumstances can the climate created by this power cause immediate damage. However, heat like a Southern desert at noon, or a moderate breeze at subzero temperatures, could both be dangerous.</p><p>This climate control is not completely effective. Lights uncontrolled by the manse still function in total darkness, a fire could be started on freezing indoor tundra, and the wind is never strong enough to knock anyone over. The Subtle Breath might be under the hearthstone bearer's control, directed from a Central Control, set by passwords, or be completely automatic—all approaches have their advantages and limitations.</p>"
+  },
+  "folder": null,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

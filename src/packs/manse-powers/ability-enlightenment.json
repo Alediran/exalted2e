@@ -1,0 +1,29 @@
+{
+  "_id": "d1e2f3a4b5c6d001",
+  "_key": "!items!d1e2f3a4b5c6d001",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ability Enlightenment",
+  "type": "manse-power",
+  "img": "icons/svg/house.svg",
+  "system": {
+    "cost": 4,
+    "aspectFavored": ["air", "solar"],
+    "onlyAspect": [],
+    "abilityReq": "",
+    "multiPurchase": true,
+    "isMaterial": false,
+    "description": "<p>The manse encodes knowledge in its structure, mystic arts have coaxed a hint of mind from its Essence, or perhaps a previous owner was so closely attuned to the manse that her knowledge passed to it. The manse \"understands\" orders beyond straightforward programming—but isn't sentient. Although it learns and remembers information, it can only grow so far, and has no consciousness or personality.</p><p>Effectively, the manse has four Abilities it can \"think\" about. Since the manse doesn't have Attributes, it receives an automatic four successes whenever a situation would call for a roll using those Abilities. The manse may need other powers to act on its Abilities, however.</p><p>Example: A manse is furnished in exact and courtly arrangements and lined with cultivated roses, whose colors are used to express a giver's intentions. Its geomancy expresses principles of empathy, etiquette and subterfuge. It effectively has Socialize 4. When the hearthstone bearer commands it to examine its residents' Motivations, it evaluates each person's facial movements, postures, words and reactions to the flowers and other cues. If one person displays her Motivation, the Storyteller applies an external penalty of that character's ([Manipulation + Socialize] ÷ 2) to the four-success reading Motivation roll for the manse. If any successes remain, the manse understands the character's Motivation and stores the information for future use.</p><p>Information a manse gains from its Ability Enlightenment can trigger other powers. Attunement can train characters in the manse's Abilities as if they had a teacher, up to the levels it possesses. Ability Enlightenment may be bought multiple times.</p>"
+  },
+  "folder": null,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

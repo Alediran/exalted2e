@@ -1,0 +1,20 @@
+{
+  "_id": "d1e2f3a4b5c6c014",
+  "_key": "!items!d1e2f3a4b5c6c014",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Ultra-Deadly Traps",
+  "type": "manse-power",
+  "img": "icons/svg/trap.svg",
+  "system": {
+    "cost": 3,
+    "aspectFavored": [],
+    "onlyAspect": [],
+    "abilityReq": "Various Crafts at 5, Larceny 5",
+    "multiPurchase": true,
+    "isMaterial": false,
+    "description": "<p>The manse has automatic defenses so powerful that escape, much less survival, is in doubt. Ultra-Deadly Traps are intended to kill or capture, and are cunning and powerful enough to defeat the Exalted. Each purchase of this power grants one Ultra-Deadly trap.</p><p>The Storyteller designs each trap's specific effect; they are far more dangerous than Dangerous Traps (Power 2), often combining inescapable confinement, lethal force, or the theft of life and soul.</p>"
+  },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}

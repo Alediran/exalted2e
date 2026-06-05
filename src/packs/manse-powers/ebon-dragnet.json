@@ -1,0 +1,29 @@
+{
+  "_id": "d1e2f3a4b5c6c005",
+  "_key": "!items!d1e2f3a4b5c6c005",
+  "_stats": {
+    "coreVersion": "13",
+    "systemId": "exalted2e",
+    "systemVersion": "1.0.0",
+    "createdTime": 0,
+    "modifiedTime": 0,
+    "lastModifiedBy": null
+  },
+  "name": "Ebon Dragnet",
+  "type": "manse-power",
+  "img": "icons/svg/house.svg",
+  "system": {
+    "cost": 3,
+    "aspectFavored": [],
+    "onlyAspect": ["abyssal"],
+    "abilityReq": "",
+    "multiPurchase": false,
+    "isMaterial": false,
+    "description": "<p>People who die in the manse don't escape its twisted Essence. Dying characters linger for one scene as the dragnet does its work. If the body's healed during that time, they can be saved. Failing powerful restorative Charms, however, the dead rise immediately as ghosts, and for the following scene, they're forced by the manse's dark geomancy to manifest on the premises. After that, they begin their \"normal\" ghostly existences.</p>"
+  },
+  "folder": null,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}
