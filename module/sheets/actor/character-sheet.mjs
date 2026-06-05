@@ -229,6 +229,9 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       clinchThrow:        CharacterSheet.#onClinchThrow,
       clinchRelease:      CharacterSheet.#onClinchRelease,
       performProcedure:   CharacterSheet.#onPerformProcedure,
+      advanceAffliction:  CharacterSheet.#onAdvanceAffliction,
+      treatAffliction:    CharacterSheet.#onTreatAffliction,
+      removeAffliction:   CharacterSheet.#onRemoveAffliction,
     }
   };
 
@@ -951,6 +954,14 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       i => i.type === "armor" && i.system.equipped && Math.abs(i.system.effectiveFatiguePenalty ?? 0) > 0
     );
 
+    // ── Afflictions ──────────────────────────────────────────────────────
+    const afflictions = this.document.effects
+      .filter(e => e.flags?.exalted2e?.affliction)
+      .map(e => {
+        const a = e.flags.exalted2e.affliction;
+        return { effectId: e.id, name: a.name, kind: a.kind, remainingIntervals: a.remainingIntervals, interval: a.interval };
+      });
+
     return {
       ...context,
       actor,
@@ -1031,6 +1042,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       canRollArmorFatigue,
       thaumaturgySections,
       orphanProcedures,
+      afflictions,
+      hasAfflictions: afflictions.length > 0,
     };
   }
 
@@ -2728,5 +2741,28 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     await item.delete();
     return created;
+  }
+
+  // ── Affliction actions ────────────────────────────────────────────────
+
+  static async #onAdvanceAffliction(_event, target) {
+    const effectId = target.dataset.effectId;
+    if (!effectId) return;
+    const { advanceAffliction } = await import("../../combat/affliction.mjs");
+    await advanceAffliction(this.document, effectId);
+  }
+
+  static async #onTreatAffliction(_event, target) {
+    const effectId = target.dataset.effectId;
+    if (!effectId) return;
+    const { treatAffliction } = await import("../../combat/affliction.mjs");
+    await treatAffliction(this.document, effectId);
+  }
+
+  static async #onRemoveAffliction(_event, target) {
+    const effectId = target.dataset.effectId;
+    if (!effectId) return;
+    const { removeAffliction } = await import("../../combat/affliction.mjs");
+    await removeAffliction(this.document, effectId);
   }
 }

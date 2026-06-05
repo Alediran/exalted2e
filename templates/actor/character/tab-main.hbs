@@ -295,6 +295,23 @@
             </div>
           </div>
           {{/if}}
+
+          {{#if hasAfflictions}}
+          <div class="afflictions-panel" style="grid-column: 1 / -1; margin-top: var(--ex2e-gap-sm);">
+            <h2 class="section-header">{{localize "EX2E.AfflictionsHeader"}}</h2>
+            {{#each afflictions as |aff|}}
+            <div class="affliction-row" data-effect-id="{{aff.effectId}}">
+              <span class="affliction-name">{{aff.name}}</span>
+              {{#if (eq aff.kind "poison")}}<span class="affliction-intervals">{{aff.remainingIntervals}} {{localize "EX2E.AfflictionIntervalsLeft"}}</span>{{/if}}
+              {{#if @root.isEditable}}
+              <button type="button" class="btn-sm" data-action="advanceAffliction" data-effect-id="{{aff.effectId}}">{{localize "EX2E.AfflictionAdvance"}}</button>
+              <button type="button" class="btn-sm" data-action="treatAffliction" data-effect-id="{{aff.effectId}}">{{localize "EX2E.AfflictionTreat"}}</button>
+              <button type="button" class="btn-sm" data-action="removeAffliction" data-effect-id="{{aff.effectId}}" title="{{localize 'EX2E.Delete'}}">✕</button>
+              {{/if}}
+            </div>
+            {{/each}}
+          </div>
+          {{/if}}
         </div>
       </section>
 

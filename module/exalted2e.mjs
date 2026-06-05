@@ -637,6 +637,7 @@ async function _preloadTemplates() {
     "systems/exalted2e/templates/chat/resplendent-paradox.hbs",
     "systems/exalted2e/templates/dialog/manse-power-picker-dialog.hbs",
     "systems/exalted2e/templates/chat/manse-construction-card.hbs",
+    "systems/exalted2e/templates/chat/affliction-card.hbs",
   ];
   return foundry.applications.handlebars.loadTemplates(templatePaths);
 }

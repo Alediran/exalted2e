@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-06-04 (Manse geomancy COMPLETE — Phases 1/2a/2b/3 all shipped; removed from Group B. count 1 A / 5 B / 1 C / 7 active)
+Last updated: 2026-06-04 (Poison/Disease tracking shipped — flagged-AE afflictions + advance/treat. count 1 A / 4 B / 1 C / 6 active)
 
 ---
 
@@ -22,7 +22,6 @@ Last updated: 2026-06-04 (Manse geomancy COMPLETE — Phases 1/2a/2b/3 all shipp
 | Limit Break scripted scene effects | Solar / Virtues | per-Virtue-Flaw AE templates (4 flaws × 2 break types) |
 | Shintai / Mantle form-type charms | Infernal | charm activation mode + transformation state AE |
 | Multi-actor action helpers | QoL | Cooperative keyword done; Coordinate attacks + mass Guard still pending |
-| Poison/Disease tracking | Other | per-interval AE *(needs Poison/Disease item types — Group A — first)* |
 | Headless tests for remaining paths | Testing | test authoring for charm prereqs, multi-tick, sorcery |
 
 ---
@@ -50,7 +49,7 @@ Last updated: 2026-06-04 (Manse geomancy COMPLETE — Phases 1/2a/2b/3 all shipp
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 5 |
+| B — Ready, Medium | 4 |
 | C — Ready, Complex | 1 |
-| **Total active** | **7** |
+| **Total active** | **6** |
 | (Parked) | 1 |

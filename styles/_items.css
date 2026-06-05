@@ -1357,3 +1357,10 @@ details.charm-group > summary.charm-group-header {
 .exalted2e.item.generic .mpw-status.pending  { color: var(--ex2e-text-muted); }
 .exalted2e.item.generic .manse-construction-section .manse-construction-row { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; margin: 4px 0; font-size: var(--ex2e-font-size-sm); }
 .exalted2e.item.generic .manse-construction-section .manse-construction-row input[type="number"] { background: var(--ex2e-bg-medium); border: 1px solid var(--ex2e-gold-dark); border-radius: var(--ex2e-border-radius-sm); color: var(--ex2e-text-primary); text-align: center; }
+
+/* ── Afflictions (poison/disease tracking) ──────────────────────────────── */
+.afflictions-panel .affliction-row { display: flex; align-items: center; gap: 8px; padding: 2px 0; font-size: var(--ex2e-font-size-sm); }
+.afflictions-panel .affliction-name { flex: 1; }
+.afflictions-panel .affliction-intervals { font-size: var(--ex2e-font-size-xs); color: var(--ex2e-text-muted); white-space: nowrap; }
+.exalted2e.item.generic .btn-afflict { display: inline-flex; align-items: center; gap: 4px; padding: 4px var(--ex2e-gap-sm); border: 1px solid var(--ex2e-gold-dark); border-radius: var(--ex2e-border-radius); background: var(--ex2e-bg-darkest); color: var(--ex2e-gold-bright); cursor: pointer; }
+.exalted2e.item.generic .btn-afflict:hover { background: var(--ex2e-bg-hover); border-color: var(--ex2e-gold-main); }

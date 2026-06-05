@@ -238,6 +238,11 @@
     <input type="text" name="system.vector" value="{{system.vector}}"
            style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
   </div>
+  {{#if @root.isEditable}}
+  <button type="button" class="btn-afflict" data-action="afflictTargets" style="margin-top:8px">
+    <i class="fa-solid fa-skull-crossbones"></i> {{localize "EX2E.AfflictTargets"}}
+  </button>
+  {{/if}}
   {{/if}}
 
   {{#if (eq item.type "disease")}}
@@ -261,6 +266,11 @@
     <input type="text" name="system.vector" value="{{system.vector}}"
            style="width:100%" {{#unless isEditable}}readonly{{/unless}}>
   </div>
+  {{#if @root.isEditable}}
+  <button type="button" class="btn-afflict" data-action="afflictTargets" style="margin-top:8px">
+    <i class="fa-solid fa-skull-crossbones"></i> {{localize "EX2E.AfflictTargets"}}
+  </button>
+  {{/if}}
   {{/if}}
 
   {{#if (eq item.type "drug")}}

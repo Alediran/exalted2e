@@ -1,0 +1,10 @@
+<div class="ex2e-roll-card affliction-card">
+  <div class="card-header">
+    <span class="roll-actor">{{actorName}}</span>
+    <span class="roll-flavor">{{title}}</span>
+  </div>
+  <div class="affliction-card-body">
+    {{#each lines}}<div>{{this}}</div>{{/each}}
+    {{#if warning}}<div class="limit-break-warning">{{warning}}</div>{{/if}}
+  </div>
+</div>

@@ -32,7 +32,8 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       createFamiliarActor:     GenericItemSheet.#onCreateFamiliarActor,
       clearCultBackground:      GenericItemSheet.#onClearCultBackground,
       clearCommandBackground:   GenericItemSheet.#onClearCommandBackground,
-      clearFollowersBackground: GenericItemSheet.#onClearFollowersBackground
+      clearFollowersBackground: GenericItemSheet.#onClearFollowersBackground,
+      afflictTargets:           GenericItemSheet.#onAfflictTargets
     }
   };
 
@@ -491,6 +492,30 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   static async #onRepairManse(_event, _target) {
     const { rollManseRepair } = await import("../../combat/manse-construction.mjs");
     await rollManseRepair(this.document);
+  }
+
+  static async #onAfflictTargets(_event, _target) {
+    const item = this.document;
+    let actors = [...(game.user.targets ?? [])].map(t => t.actor).filter(Boolean);
+    if (!actors.length) actors = (canvas.tokens?.controlled ?? []).map(t => t.actor).filter(Boolean);
+    if (!actors.length) { ui.notifications.warn(game.i18n.localize("EX2E.AfflictNoTargets")); return; }
+
+    let intervals = 1;
+    if (item.type === "poison") {
+      const parsed = parseInt(item.system.duration, 10);
+      const def = Number.isNaN(parsed) ? 1 : Math.max(1, parsed);
+      const result = await foundry.applications.api.DialogV2.prompt({
+        window:  { title: game.i18n.localize("EX2E.AfflictIntervalTitle") },
+        content: `<div class="form-group"><label>${game.i18n.localize("EX2E.AfflictIntervalLabel")}</label>
+                  <input type="number" name="intervals" value="${def}" min="1" autofocus></div>`,
+        ok: { label: game.i18n.localize("EX2E.Afflict"),
+              callback: (_ev, btn) => parseInt(btn.form.elements.intervals.value, 10) || def },
+      });
+      if (result == null) return;
+      intervals = Math.max(1, result);
+    }
+    const { afflictTargets } = await import("../../combat/affliction.mjs");
+    await afflictTargets(item, actors, { intervals });
   }
 }
 

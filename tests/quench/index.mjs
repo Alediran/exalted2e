@@ -69,8 +69,9 @@ import { registerManse }                from "./manse/manse-item.mjs";
 import { registerMassCombat, registerMassCombatCCR, registerMassCombatHealth, registerMassCombatJoinWar, registerMassCombatHesitation, registerMassCombatHeroPhase3, registerMassCombatUnitVsHero, registerMassCombatPhase4Actions, registerMassCombatPhase4SplitMerge, registerMassCombatPhase5, registerMassCombatPhase6, registerMassCombatPhase7, registerMassCombatPhase8, registerMassCombatPhase9 } from "./combat/mass-combat.mjs";
 import { registerCharmUpgradeTiersSchema, registerCharmUpgradeTiersPipeline } from "./combat/charm-upgrade-tiers.mjs";
 import { registerCharmTreeBuilder, registerCharmTreeDialogIntegration } from "./charm-tree-dialog.mjs";
-import { registerClinch }   from "./combat/clinch.mjs";
-import { registerMounted }  from "./combat/mounted.mjs";
+import { registerClinch }      from "./combat/clinch.mjs";
+import { registerMounted }     from "./combat/mounted.mjs";
+import { registerAffliction }  from "./combat/affliction.mjs";
 // NOTE: Anima Powers feature (_swapAnimaPower) relies on the animapowers compendium
 // and cannot be exercised via Quench. No batch registered for ex2e.anima-powers.
 
@@ -168,7 +169,8 @@ Hooks.once("quenchReady", async quench => {
   quench.registerBatch("exalted2e.charms.upgradetiers.pipeline", registerCharmUpgradeTiersPipeline, { displayName: "EX2E: Charm Upgrade Tiers — Activation Pipeline" });
   quench.registerBatch("exalted2e.charmTree.builder",               registerCharmTreeBuilder,             { displayName: "EX2E: Charm Tree Builder — unit tests" });
   quench.registerBatch("exalted2e.charmTree.dialog",                registerCharmTreeDialogIntegration,   { displayName: "EX2E: Charm Tree Dialog — integration" });
-  quench.registerBatch("exalted2e.clinch",     registerClinch,    { displayName: "Clinch / Grapple mechanics" });
-  quench.registerBatch("exalted2e.mounted",    registerMounted,   { displayName: "Mounted combat — Ride cap" });
+  quench.registerBatch("exalted2e.clinch",       registerClinch,       { displayName: "Clinch / Grapple mechanics" });
+  quench.registerBatch("exalted2e.mounted",      registerMounted,      { displayName: "Mounted combat — Ride cap" });
+  quench.registerBatch("exalted2e.affliction",   registerAffliction,   { displayName: "Poison/Disease afflictions" });
 
 });

@@ -281,7 +281,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Torment / Act of Villainy tracking (Infernal) — see Infernal splat
 - [x] Clarity mechanical effects (Alchemical) — social/mental/autochthon already wired; Compassion penalty + auto-fail now surface as Main-tab display badges (GM-enforced per design)
 - [x] Paradox track (Sidereal) — see Sidereal splat
-- [ ] Poison / Disease tracking (item types + per-interval AE)
+- [x] Poison / Disease tracking — affliction is a flagged AE on the victim (`flags.exalted2e.affliction` snapshot + poison `remainingIntervals`; carries the poisoned/diseased status). `module/combat/affliction.mjs`: `afflictTargets` (from the poison/disease item sheet's "Afflict targets" button → game.user.targets/selected; poison prompts for interval count), `advanceAffliction` (poison: roll Stamina+Resistance, apply net damage via applyDamage, decrement/expire; disease: resist-to-shake-off vs morbidity), `treatAffliction` (both kinds: Int+Medicine by a selected physician or self vs morbidity/damage → cure), `removeAffliction`. Managed from an Afflictions panel on the character sheet (Advance/Treat/Remove); all post a shared chat card. (Manual advance only — combat-tick auto-fire, drug effects, and free-text duration parsing beyond a leading integer are out of scope.)
 - [x] Crippling injuries (4+ HL single hit; surgery Int+Medicine to heal)
 - [x] Environmental hazards (Damage/interval, Trauma; generic Scene Region behavior with resistance rolls, terrain cost, and GM placement flow)
 - [x] Mass combat (unit actor type: Magnitude, Drill, Might, Endurance, Morale, formations, commander + relays + heroes; Guard DV bonus; unit DV pipeline; chokepoint informational system — Phases 1–9 complete)
