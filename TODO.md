@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 214 / 264 complete** (10 out-of-scope / partial — last updated 2026-05-28 — added artifact ability prereq system + M20 charm effect)
+**Progress: 257 / 268 complete** (6 partial / out-of-scope, 5 still pending — last updated 2026-06-04 — added Resplendent Destiny (all phases), crafting workshop/assistants, full Manse geomancy (Phases 1–3), Poison/Disease tracking, Shintai/Mantle audit)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
