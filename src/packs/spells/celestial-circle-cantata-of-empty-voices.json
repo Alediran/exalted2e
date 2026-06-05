@@ -43,14 +43,29 @@
       "system": {},
       "changes": [],
       "disabled": false,
-      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
       "description": "−2 internal penalty to all actions from the crystalline grief.",
-      "origin": null, "tint": null, "transfer": false, "statuses": [],
+      "origin": null,
+      "tint": null,
+      "transfer": false,
+      "statuses": [],
       "flags": {
         "exalted2e": {
-          "internalPenalty": { "value": 2, "type": "all" }
+          "internalPenalty": {
+            "value": 2,
+            "type": "all"
+          }
         }
-      }
+      },
+      "_key": "!items.effects!b6667565c76e56c8.Is4Nb7Pi1Xf2Cd8d"
     }
   ]
 }

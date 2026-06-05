@@ -42,14 +42,36 @@
       "type": "base",
       "system": {},
       "changes": [
-        { "key": "system.bonuses.soakLethal", "value": "1", "mode": 2, "priority": null },
-        { "key": "system.bonuses.soakBashing", "value": "2", "mode": 2, "priority": null }
+        {
+          "key": "system.bonuses.soakLethal",
+          "value": "1",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "system.bonuses.soakBashing",
+          "value": "2",
+          "mode": 2,
+          "priority": null
+        }
       ],
       "disabled": false,
-      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
       "description": "Natural soak while covered in the viridian mantle.",
-      "origin": null, "tint": null, "transfer": false, "statuses": [],
-      "flags": {}
+      "origin": null,
+      "tint": null,
+      "transfer": false,
+      "statuses": [],
+      "flags": {},
+      "_key": "!items.effects!eb1afeb24ddac329.Vl0Wk3Pk2Xa9mQ6R"
     }
   ]
 }

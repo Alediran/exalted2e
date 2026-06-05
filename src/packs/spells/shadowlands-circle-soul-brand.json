@@ -43,10 +43,22 @@
       "system": {},
       "changes": [],
       "disabled": false,
-      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
       "description": "Mindless undead ignore this creature. Removing the brand deals lethal damage = caster's Essence.",
-      "origin": null, "tint": null, "transfer": false, "statuses": [],
-      "flags": {}
+      "origin": null,
+      "tint": null,
+      "transfer": false,
+      "statuses": [],
+      "flags": {},
+      "_key": "!items.effects!88e4715c6ed0ac5b.Ku6Pd9Rk3Zh4Ef0f"
     }
   ]
 }

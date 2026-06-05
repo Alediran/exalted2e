@@ -42,15 +42,42 @@
       "type": "base",
       "system": {},
       "changes": [
-        { "key": "system.bonuses.soakLethal", "value": "20", "mode": 2, "priority": null },
-        { "key": "system.bonuses.soakBashing", "value": "20", "mode": 2, "priority": null },
-        { "key": "system.bonuses.hardnessAdd", "value": "10", "mode": 2, "priority": null }
+        {
+          "key": "system.bonuses.soakLethal",
+          "value": "20",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "system.bonuses.soakBashing",
+          "value": "20",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "system.bonuses.hardnessAdd",
+          "value": "10",
+          "mode": 2,
+          "priority": null
+        }
       ],
       "disabled": false,
-      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
       "description": "+20L/20B natural soak and +10L/10B non-stacking Hardness.",
-      "origin": null, "tint": null, "transfer": false, "statuses": [],
-      "flags": {}
+      "origin": null,
+      "tint": null,
+      "transfer": false,
+      "statuses": [],
+      "flags": {},
+      "_key": "!items.effects!1af384bfaeb5a54a.Pq3Sm4Vo5Yl8ak6l"
     }
   ]
 }

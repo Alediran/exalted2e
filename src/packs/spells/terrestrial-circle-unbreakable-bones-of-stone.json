@@ -42,13 +42,30 @@
       "type": "base",
       "system": {},
       "changes": [
-        { "key": "system.attributes.strength.value", "value": "0", "mode": 2, "priority": null }
+        {
+          "key": "system.attributes.strength.value",
+          "value": "0",
+          "mode": 2,
+          "priority": null
+        }
       ],
       "disabled": false,
-      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
       "description": "Set value equal to the caster's permanent Essence rating.",
-      "origin": null, "tint": null, "transfer": false, "statuses": [],
-      "flags": {}
+      "origin": null,
+      "tint": null,
+      "transfer": false,
+      "statuses": [],
+      "flags": {},
+      "_key": "!items.effects!96b7ec06f318c14d.Qb4Dr7Fy1Nv2sL8T"
     },
     {
       "_id": "Xj5Es8Gz2Ow3tM9U",
@@ -57,13 +74,30 @@
       "type": "base",
       "system": {},
       "changes": [
-        { "key": "system.attributes.stamina.value", "value": "0", "mode": 2, "priority": null }
+        {
+          "key": "system.attributes.stamina.value",
+          "value": "0",
+          "mode": 2,
+          "priority": null
+        }
       ],
       "disabled": false,
-      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
       "description": "Set value equal to the caster's permanent Essence rating.",
-      "origin": null, "tint": null, "transfer": false, "statuses": [],
-      "flags": {}
+      "origin": null,
+      "tint": null,
+      "transfer": false,
+      "statuses": [],
+      "flags": {},
+      "_key": "!items.effects!96b7ec06f318c14d.Xj5Es8Gz2Ow3tM9U"
     }
   ]
 }

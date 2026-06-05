@@ -43,10 +43,22 @@
       "system": {},
       "changes": [],
       "disabled": false,
-      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
       "description": "On death this creature rises as a ghost regardless of normal conditions. Incompatible with Gentle Call of Lethe.",
-      "origin": null, "tint": null, "transfer": false, "statuses": [],
-      "flags": {}
+      "origin": null,
+      "tint": null,
+      "transfer": false,
+      "statuses": [],
+      "flags": {},
+      "_key": "!items.effects!0c300cae3ad05bb5.Lv7Qe0Sl4Ai5Fg1g"
     }
   ]
 }

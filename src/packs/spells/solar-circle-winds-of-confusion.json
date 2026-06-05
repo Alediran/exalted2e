@@ -43,10 +43,22 @@
       "system": {},
       "changes": [],
       "disabled": false,
-      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
       "description": "Each action: Int+Integrity vs caster Essence or lose 1 dot Intelligence and 1 dot Willpower. Recovery: 1 dot per hour.",
-      "origin": null, "tint": null, "transfer": false, "statuses": [],
-      "flags": {}
+      "origin": null,
+      "tint": null,
+      "transfer": false,
+      "statuses": [],
+      "flags": {},
+      "_key": "!items.effects!0726949e04b04d45.Mw8Rf1Tm5Bj6Gh2h"
     }
   ]
 }

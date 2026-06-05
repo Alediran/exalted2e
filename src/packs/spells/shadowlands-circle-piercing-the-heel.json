@@ -43,10 +43,22 @@
       "system": {},
       "changes": [],
       "disabled": false,
-      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
       "description": "Ghost cannot harm the necromancer. Any attempt causes the ghost to fall to the ground, immobile, until it abandons the intention.",
-      "origin": null, "tint": null, "transfer": false, "statuses": [],
-      "flags": {}
+      "origin": null,
+      "tint": null,
+      "transfer": false,
+      "statuses": [],
+      "flags": {},
+      "_key": "!items.effects!4dc9276703ab89b2.Nz0Pk5Qs9Wh3Yi4j"
     }
   ]
 }

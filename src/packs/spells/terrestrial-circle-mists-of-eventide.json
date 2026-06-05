@@ -43,14 +43,29 @@
       "system": {},
       "changes": [],
       "disabled": false,
-      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
       "description": "−3 internal penalty if forcibly awakened from the magical sleep.",
-      "origin": null, "tint": null, "transfer": false, "statuses": [],
+      "origin": null,
+      "tint": null,
+      "transfer": false,
+      "statuses": [],
       "flags": {
         "exalted2e": {
-          "internalPenalty": { "value": 3, "type": "all" }
+          "internalPenalty": {
+            "value": 3,
+            "type": "all"
+          }
         }
-      }
+      },
+      "_key": "!items.effects!c1ba9f4ba9afe086.Eo0Jx3Le7Tb8yR4Z"
     }
   ]
 }

@@ -43,14 +43,29 @@
       "system": {},
       "changes": [],
       "disabled": false,
-      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
       "description": "−2 internal penalty to all actions for the rest of the scene.",
-      "origin": null, "tint": null, "transfer": false, "statuses": [],
+      "origin": null,
+      "tint": null,
+      "transfer": false,
+      "statuses": [],
       "flags": {
         "exalted2e": {
-          "internalPenalty": { "value": 2, "type": "all" }
+          "internalPenalty": {
+            "value": 2,
+            "type": "all"
+          }
         }
-      }
+      },
+      "_key": "!items.effects!89e5563d4842d400.Bl7Gu0Ib4Qy5vO1W"
     }
   ]
 }

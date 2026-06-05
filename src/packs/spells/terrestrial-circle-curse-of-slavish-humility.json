@@ -43,14 +43,29 @@
       "system": {},
       "changes": [],
       "disabled": false,
-      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
       "description": "−3 external penalty to all attacks and social actions against the target of devotion.",
-      "origin": null, "tint": null, "transfer": false, "statuses": [],
+      "origin": null,
+      "tint": null,
+      "transfer": false,
+      "statuses": [],
       "flags": {
         "exalted2e": {
-          "externalPenalty": { "value": 3, "type": "all" }
+          "externalPenalty": {
+            "value": 3,
+            "type": "all"
+          }
         }
-      }
+      },
+      "_key": "!items.effects!f0d369918fcad024.Dn9Iw2Kd6Sa7xQ3Y"
     }
   ]
 }

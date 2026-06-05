@@ -42,15 +42,42 @@
       "type": "base",
       "system": {},
       "changes": [
-        { "key": "system.bonuses.soakLethal", "value": "10", "mode": 2, "priority": null },
-        { "key": "system.bonuses.soakBashing", "value": "10", "mode": 2, "priority": null },
-        { "key": "system.bonuses.hardnessAdd", "value": "5", "mode": 2, "priority": null }
+        {
+          "key": "system.bonuses.soakLethal",
+          "value": "10",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "system.bonuses.soakBashing",
+          "value": "10",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "system.bonuses.hardnessAdd",
+          "value": "5",
+          "mode": 2,
+          "priority": null
+        }
       ],
       "disabled": false,
-      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
       "description": "+10L/10B natural soak and +5L/5B non-stacking Hardness from whirling metallic spheres.",
-      "origin": null, "tint": null, "transfer": false, "statuses": [],
-      "flags": {}
+      "origin": null,
+      "tint": null,
+      "transfer": false,
+      "statuses": [],
+      "flags": {},
+      "_key": "!items.effects!b1710527753dc472.Op2Rl3Un4Xk7Zj5k"
     }
   ]
 }

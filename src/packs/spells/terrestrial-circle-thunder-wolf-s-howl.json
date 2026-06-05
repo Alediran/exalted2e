@@ -43,14 +43,29 @@
       "system": {},
       "changes": [],
       "disabled": false,
-      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
       "description": "−2 internal penalty to all actions. Duration = 5 ticks per casting success.",
-      "origin": null, "tint": null, "transfer": false, "statuses": [],
+      "origin": null,
+      "tint": null,
+      "transfer": false,
+      "statuses": [],
       "flags": {
         "exalted2e": {
-          "internalPenalty": { "value": 2, "type": "all" }
+          "internalPenalty": {
+            "value": 2,
+            "type": "all"
+          }
         }
-      }
+      },
+      "_key": "!items.effects!b6e3f07877afc647.Cm8Hv1Jc5Rz6wP2X"
     }
   ]
 }

@@ -43,15 +43,33 @@
       "system": {},
       "changes": [],
       "disabled": false,
-      "duration": { "startTime": null, "seconds": null, "combat": null, "rounds": null, "turns": null, "startRound": null, "startTurn": null },
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
       "description": "−2 external penalty to DV and all rolls while within 3 yards of the caster.",
-      "origin": null, "tint": null, "transfer": false, "statuses": [],
+      "origin": null,
+      "tint": null,
+      "transfer": false,
+      "statuses": [],
       "flags": {
         "exalted2e": {
-          "dvPenalty": { "type": "both", "value": 2 },
-          "externalPenalty": { "value": 2, "type": "all" }
+          "dvPenalty": {
+            "type": "both",
+            "value": 2
+          },
+          "externalPenalty": {
+            "value": 2,
+            "type": "all"
+          }
         }
-      }
+      },
+      "_key": "!items.effects!a37df7cec4327f55.Ak6Ft9Ha3Px4uN0V"
     }
   ]
 }
