@@ -196,7 +196,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Act of Villainy counter
 - [x] Heretical charms gating (GSP-only; 9 XP)
 - [x] Fiend non-Infernal charm access (16 XP, +2m activation)
-- [ ] Shintai / Mantle form-type charms (Yozi-specific transformation state)
+- [x] Shintai / Mantle form-type charms (Yozi-specific transformation state) — handled by the existing generic Form-type machinery (`module/combat/form-charms.mjs`: a charm keyworded `Form-type` enforces one-form-at-a-time, stamps a transformation-state AE from its effect fields via `buildCharmSynthAEs`/`applyCharmAEs`, and reverts on toggle-off / `clearActorForms` at scene end). Audited the 7 Infernal shintai/mantle charms: the 4 self-transforms (All-Devouring-Depths, Tenebrous-Apotheosis, Devil-Tyrant-Avatar, Scarlet-Rapture) are tagged `Form-type` — **fixed Scarlet Rapture's broken `Form-Type` casing** that silently disabled it; Devil-Tyrant's +Essence soak is wired (`soakBonus @ess`). The non-transforms (Black-Mirror = instant cheating charm; Soul-Sand-Devil & Impervious-Primacy-Mantle = permanent passives) are correctly NOT Form-type. Remaining shintai effects (aggravated/mote-drain attacks, granted-charm bundles, mutations, conditional Str/movement, dematerialization) are bespoke and stay descriptive. **Note:** Scarlet Rapture's charm JSON has an empty description — it now registers as a form but needs its rules text + effect fields to do anything.
 
 ### Alchemical
 - [x] Castes (incl. Adamant)

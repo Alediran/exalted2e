@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-06-04 (Poison/Disease tracking shipped — flagged-AE afflictions + advance/treat. count 1 A / 4 B / 1 C / 6 active)
+Last updated: 2026-06-04 (Shintai/Mantle resolved — generic Form-type machinery already covers it; audited Infernal shintai, fixed Scarlet-Rapture keyword casing. count 1 A / 3 B / 1 C / 5 active)
 
 ---
 
@@ -20,7 +20,6 @@ Last updated: 2026-06-04 (Poison/Disease tracking shipped — flagged-AE afflict
 | Item | TODO Section | Key concern |
 |------|-------------|-------------|
 | Limit Break scripted scene effects | Solar / Virtues | per-Virtue-Flaw AE templates (4 flaws × 2 break types) |
-| Shintai / Mantle form-type charms | Infernal | charm activation mode + transformation state AE |
 | Multi-actor action helpers | QoL | Cooperative keyword done; Coordinate attacks + mass Guard still pending |
 | Headless tests for remaining paths | Testing | test authoring for charm prereqs, multi-tick, sorcery |
 
@@ -49,7 +48,7 @@ Last updated: 2026-06-04 (Poison/Disease tracking shipped — flagged-AE afflict
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 4 |
+| B — Ready, Medium | 3 |
 | C — Ready, Complex | 1 |
-| **Total active** | **6** |
+| **Total active** | **5** |
 | (Parked) | 1 |
