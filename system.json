@@ -123,6 +123,13 @@
       "system": "exalted2e"
     },
     {
+      "name":   "manse-powers",
+      "label":  "Manse Powers",
+      "path":   "packs/manse-powers",
+      "type":   "Item",
+      "system": "exalted2e"
+    },
+    {
       "name":   "npcs",
       "label":  "NPCs",
       "path":   "packs/npcs",
@@ -166,7 +173,8 @@
       "followers": {},
       "thaum-art": {},
       "procedure": {},
-      "resplendency": {}
+      "resplendency": {},
+      "manse-power": {}
     }
   },
   "socket": false,

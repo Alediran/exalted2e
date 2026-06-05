@@ -20,6 +20,7 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       socketHearthstone:   GenericItemSheet.#onSocketHearthstone,
       unsocketHearthstone: GenericItemSheet.#onUnsocketHearthstone,
       addMansePower:    GenericItemSheet.#onAddMansePower,
+      addMansePowerFromCatalog: GenericItemSheet.#onAddMansePowerFromCatalog,
       deleteMansePower: GenericItemSheet.#onDeleteMansePower,
       clearManseLink:          GenericItemSheet.#onClearManseLink,
       clearFamiliarBackground: GenericItemSheet.#onClearFamiliarBackground,
@@ -91,6 +92,16 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const backgroundTypeLabel = item.type === "background" && sys.backgroundType
       ? game.i18n.localize(EX2E.backgroundTypes[sys.backgroundType] ?? "")
       : "";
+
+    let mansePowerAspects = [];
+    if (item.type === "manse-power") {
+      mansePowerAspects = Object.entries(EX2E.hearthstoneTypes).map(([k, v]) => ({
+        value:   k,
+        label:   game.i18n.localize(v),
+        favored: (sys.aspectFavored ?? []).includes(k),
+        only:    (sys.onlyAspect ?? []).includes(k),
+      }));
+    }
 
     let manseBackgrounds       = [];
     let manseHearthstones      = [];
@@ -201,6 +212,7 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
              manseBackgroundName, manseHearthstoneName,
              manseBudget,
              mansePowers,
+             mansePowerAspects,
              backgroundTypeLabel,
              familiarBackgroundName, familiarBackgroundRating, familiarLinkedActorName,
              cultBackgroundName, cultBackgroundRating, cultMoteRegenDisplay, cultWpHoursDisplay,
@@ -401,6 +413,24 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const powers = foundry.utils.deepClone(this.document.system.powers ?? []);
     powers.push({ name: "", cost: 1 });
     await this.document.update({ "system.powers": powers });
+  }
+
+  static async #onAddMansePowerFromCatalog(_event, _target) {
+    const item        = this.document;
+    const actor       = item.parent;
+    const bg          = actor?.items.get(item.system.backgroundId);
+    const rating      = bg?.system.value ?? 0;
+    const linkedHs    = actor?.items.get(item.system.hearthstoneId);
+    const manseAspect = linkedHs?.system.hearthstoneType ?? "";
+    const powers      = item.system.powers ?? [];
+    const { MansePowerPickerDialog } = await import("../../dialogs/manse-power-picker-dialog.mjs");
+    const picked = await MansePowerPickerDialog.prompt({
+      rating, manseAspect, existingNames: powers.map(p => p.name)
+    });
+    if (!picked) return;
+    const next = foundry.utils.deepClone(powers);
+    next.push({ name: picked.name, cost: picked.cost, isMaterial: !!picked.isMaterial });
+    await item.update({ "system.powers": next });
   }
 
   static async #onDeleteMansePower(_event, target) {

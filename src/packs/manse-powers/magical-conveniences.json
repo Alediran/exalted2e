@@ -1,0 +1,12 @@
+{
+  "_id": "c1d2e3f4a5b60001",
+  "_key": "!items!c1d2e3f4a5b60001",
+  "_stats": { "coreVersion": "13", "systemId": "exalted2e", "systemVersion": "1.0.0", "createdTime": 0, "modifiedTime": 0, "lastModifiedBy": null },
+  "name": "Magical Conveniences",
+  "type": "manse-power",
+  "img": "icons/svg/house.svg",
+  "system": { "cost": 1, "aspectFavored": [], "onlyAspect": [], "abilityReq": "", "multiPurchase": false, "isMaterial": false, "description": "<p>The manse has a few pleasant conveniences beyond mundane artifice. Each purchase grants (manse rating) Magical Conveniences.</p>" },
+  "folder": null,
+  "ownership": { "default": 0 },
+  "flags": {}
+}

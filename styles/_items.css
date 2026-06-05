@@ -1346,3 +1346,16 @@ details.charm-group > summary.charm-group-header {
 .exalted2e.item.generic .manse-powers-table tr.power-over-cap td {
   color: var(--ex2e-dmg-lethal, #c0392b);
 }
+
+/* ── Manse-power picker (Phase 2a) ──────────────────────────────────────── */
+.manse-power-picker .manse-power-picker-body { display: flex; flex-direction: column; gap: 8px; max-height: calc(100vh - 220px); overflow-y: auto; }
+.manse-power-picker .mpp-group-header { font-family: var(--ex2e-font-ui); font-size: var(--ex2e-font-size-xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--ex2e-gold-main); border-bottom: 1px solid var(--ex2e-gold-dark); margin-bottom: 2px; }
+.manse-power-picker .mpp-row { display: flex; align-items: center; gap: 8px; padding: 2px 4px; }
+.manse-power-picker .mpp-row.mpp-ineligible { opacity: 0.5; }
+.manse-power-picker .mpp-pick { flex: 1; text-align: left; background: var(--ex2e-bg-darkest); border: 1px solid var(--ex2e-gold-dark); border-radius: var(--ex2e-border-radius-sm); color: var(--ex2e-text-primary); padding: 3px 6px; cursor: pointer; }
+.manse-power-picker .mpp-pick:hover { background: var(--ex2e-bg-hover); border-color: var(--ex2e-gold-main); }
+.manse-power-picker .mpp-name { flex: 1; }
+.manse-power-picker .mpp-cost { color: var(--ex2e-gold-bright); font-weight: bold; }
+.manse-power-picker .mpp-reason { font-size: var(--ex2e-font-size-xs); color: var(--ex2e-text-muted); font-style: italic; }
+.manse-power-picker .mpp-req { font-size: var(--ex2e-font-size-xs); color: var(--ex2e-text-secondary); }
+.exalted2e.item.generic .manse-power select[multiple] { min-height: 5em; width: 100%; }

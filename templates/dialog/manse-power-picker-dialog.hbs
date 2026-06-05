@@ -1,0 +1,25 @@
+<div class="manse-power-picker-body">
+  {{#each groups as |g|}}
+  <div class="mpp-group">
+    <div class="mpp-group-header">{{localize "EX2E.MansePowerPointGroup"}} {{g.cost}}</div>
+    {{#each g.rows as |r|}}
+    <div class="mpp-row{{#unless r.eligible}} mpp-ineligible{{/unless}}">
+      {{#if r.eligible}}
+      <button type="button" class="mpp-pick" data-action="pickPower" data-power-name="{{r.name}}">
+        {{r.name}} <span class="mpp-cost">{{r.effectiveCost}}{{#if r.discounted}} <em>(−1 {{localize "EX2E.MansePowerAspectBadge"}})</em>{{/if}}</span>
+      </button>
+      {{else}}
+      <span class="mpp-name">{{r.name}} <span class="mpp-cost">{{r.effectiveCost}}</span></span>
+      <span class="mpp-reason">
+        {{#if r.alreadyAdded}}{{localize "EX2E.MansePowerAlreadyAdded"}}{{/if}}
+        {{#each r.reasons}}{{#if (eq this "over-rating")}}{{localize "EX2E.MansePowerOverRating"}}{{/if}}{{#if (eq this "only-aspect")}}{{localize "EX2E.MansePowerOnlyAspectReason"}}{{/if}} {{/each}}
+      </span>
+      {{/if}}
+      {{#if r.abilityReq}}<span class="mpp-req">{{r.abilityReq}}</span>{{/if}}
+    </div>
+    {{/each}}
+  </div>
+  {{else}}
+  <p class="mpp-empty">{{localize "EX2E.MansePowerPickerEmpty"}}</p>
+  {{/each}}
+</div>

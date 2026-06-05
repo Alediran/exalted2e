@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { manseBudgetState } from "../../module/helpers/manse-geomancy.mjs";
+import { manseBudgetState, mansePowerEffectiveCost, mansePowerEligible } from "../../module/helpers/manse-geomancy.mjs";
 
 describe("manseBudgetState", () => {
   it("base = rating x 2 with no drawbacks", () => {
@@ -49,5 +49,36 @@ describe("manseBudgetState", () => {
     expect(hi.hearthstoneTooHigh).toBe(true);
     const ok = manseBudgetState({ hearthstoneReduction: 2 }, 5, { linkedHearthstoneRating: 3 });
     expect(ok.hearthstoneTooHigh).toBe(false);
+  });
+});
+
+describe("mansePowerEffectiveCost", () => {
+  it("applies the aspect-favored discount, floored at 0", () => {
+    expect(mansePowerEffectiveCost({ cost: 4, aspectFavored: ["earth"] }, "earth")).toBe(3);
+    expect(mansePowerEffectiveCost({ cost: 4, aspectFavored: ["earth"] }, "fire")).toBe(4);
+    expect(mansePowerEffectiveCost({ cost: 0, aspectFavored: ["earth"] }, "earth")).toBe(0);
+    expect(mansePowerEffectiveCost({ cost: 2 }, "earth")).toBe(2);
+  });
+});
+
+describe("mansePowerEligible", () => {
+  it("only-aspect mismatch is ineligible", () => {
+    const r = mansePowerEligible({ cost: 3, onlyAspect: ["fire"] }, { rating: 5, manseAspect: "water" });
+    expect(r.eligible).toBe(false);
+    expect(r.reasons).toContain("only-aspect");
+  });
+  it("over-rating is ineligible unless material", () => {
+    expect(mansePowerEligible({ cost: 4 }, { rating: 3, manseAspect: "" }).reasons).toContain("over-rating");
+    expect(mansePowerEligible({ cost: 4, isMaterial: true }, { rating: 3, manseAspect: "" }).eligible).toBe(true);
+  });
+  it("aspect discount can bring a power within the cap", () => {
+    const r = mansePowerEligible({ cost: 4, aspectFavored: ["earth"] }, { rating: 3, manseAspect: "earth" });
+    expect(r.effectiveCost).toBe(3);
+    expect(r.eligible).toBe(true);
+  });
+  it("clean power is eligible with no reasons", () => {
+    const r = mansePowerEligible({ cost: 2 }, { rating: 3, manseAspect: "earth" });
+    expect(r.eligible).toBe(true);
+    expect(r.reasons).toEqual([]);
   });
 });

@@ -424,10 +424,49 @@
     <p class="manse-no-powers">{{localize "EX2E.ManseNoPowers"}}</p>
     {{/if}}
     {{#if @root.isEditable}}
+    <button type="button" data-action="addMansePowerFromCatalog" class="btn-add-power">
+      <i class="fa-solid fa-book"></i> {{localize "EX2E.ManseAddPowerCatalog"}}
+    </button>
     <button type="button" data-action="addMansePower" class="btn-add-power">
-      <i class="fa-solid fa-plus"></i> {{localize "EX2E.ManseAddPower"}}
+      <i class="fa-solid fa-plus"></i> {{localize "EX2E.ManseAddPowerCustom"}}
     </button>
     {{/if}}
+  </div>
+  {{/if}}
+
+  {{!-- ── Manse Power ──────────────────────────────────────────────────── --}}
+  {{#if (eq item.type "manse-power")}}
+  <div class="field-group">
+    <label>{{localize "EX2E.MansePowerCost"}}</label>
+    <input type="number" name="system.cost" value="{{system.cost}}" min="0" max="5" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.MansePowerAspectFavored"}}</label>
+    <select name="system.aspectFavored" multiple {{#unless isEditable}}disabled{{/unless}}>
+      {{#each mansePowerAspects as |a|}}
+      <option value="{{a.value}}" {{#if a.favored}}selected{{/if}}>{{a.label}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.MansePowerOnlyAspect"}}</label>
+    <select name="system.onlyAspect" multiple {{#unless isEditable}}disabled{{/unless}}>
+      {{#each mansePowerAspects as |a|}}
+      <option value="{{a.value}}" {{#if a.only}}selected{{/if}}>{{a.label}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <div class="field-group" style="margin-top:6px">
+    <label>{{localize "EX2E.MansePowerAbilityReq"}}</label>
+    <input type="text" name="system.abilityReq" value="{{system.abilityReq}}" {{#unless isEditable}}readonly{{/unless}}>
+  </div>
+  <div class="field-group checkbox-field" style="margin-top:6px">
+    <label><input type="checkbox" name="system.multiPurchase" {{#if system.multiPurchase}}checked{{/if}} {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.MansePowerMultiPurchase"}}</label>
+  </div>
+  <div class="field-group checkbox-field">
+    <label><input type="checkbox" name="system.isMaterial" {{#if system.isMaterial}}checked{{/if}} {{#unless isEditable}}disabled{{/unless}}>
+      {{localize "EX2E.MansePowerMaterial"}}</label>
   </div>
   {{/if}}
 

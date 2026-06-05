@@ -3,6 +3,16 @@ import { assertTestWorld }     from "../_helpers/world.mjs";
 import { createTempCharacter } from "../_helpers/actors.mjs";
 import { manseBudgetState }    from "../../../module/helpers/manse-geomancy.mjs";
 
+async function waitFor(predicate, { timeoutMs = 2000, intervalMs = 25 } = {}) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    const result = await predicate();
+    if (result) return result;
+    await new Promise(r => setTimeout(r, intervalMs));
+  }
+  throw new Error("waitFor timed out");
+}
+
 export function registerManse(context) {
   const { describe, it, assert, before, afterEach } = context;
 
@@ -116,6 +126,48 @@ export function registerManse(context) {
       assert.equal(s.total, 9, "total = base 6 + drawbacks 2 + sacrifice 1");
       assert.equal(s.used, 2, "used = sum of costs");
       assert.equal(s.over, false, "not over budget");
+    });
+  });
+
+  describe("Manse powers — Phase 2a", () => {
+    before(() => assertTestWorld());
+    afterEach(async () => { await sweep(); });
+
+    it("[MP-1] manse-power item persists its fields", async () => {
+      const actor = await createTempCharacter({ name: "Q-MP-Persist" });
+      const [p] = await actor.createEmbeddedDocuments("Item", [{
+        name: "Fortress", type: "manse-power",
+        system: { cost: 3, aspectFavored: ["earth"], onlyAspect: [], abilityReq: "War 4", multiPurchase: true, isMaterial: false }
+      }]);
+      assert.equal(p.system.cost, 3, "cost persisted");
+      assert.deepEqual(p.system.aspectFavored, ["earth"], "aspectFavored persisted");
+      assert.equal(p.system.multiPurchase, true, "multiPurchase persisted");
+    });
+
+    it("[MP-2] picker snapshot pushes onto the manse's powers[] and budget counts it", async () => {
+      const actor = await createTempCharacter({ name: "Q-MP-Add" });
+      const [bg] = await actor.createEmbeddedDocuments("Item", [{ name: "Mountain Manse", type: "background", system: { value: 3, backgroundType: "manse" } }]);
+      const [manse] = await actor.createEmbeddedDocuments("Item", [{ name: "Q Manse", type: "manse", system: { backgroundId: bg.id, powers: [] } }]);
+
+      const { MansePowerPickerDialog } = await import("../../../module/dialogs/manse-power-picker-dialog.mjs");
+      const origPrompt = MansePowerPickerDialog.prompt;
+      MansePowerPickerDialog.prompt = async () => ({ name: "Fortress", cost: 2, isMaterial: false });
+      try {
+        await manse.sheet.render(true);
+        await waitFor(() => manse.sheet.rendered && !!manse.sheet.element);
+        const btn = await waitFor(() => manse.sheet.element.querySelector("[data-action='addMansePowerFromCatalog']"));
+        btn.click();
+        await waitFor(() => (manse.system.powers ?? []).some(p => p.name === "Fortress"));
+        const power = manse.system.powers.find(p => p.name === "Fortress");
+        assert.ok(power, "snapshot pushed onto powers[]");
+        assert.equal(power.cost, 2, "snapshot cost stored");
+
+        const s = manseBudgetState(manse.system, 3);
+        assert.equal(s.used, 2, "budget counts the added power");
+      } finally {
+        MansePowerPickerDialog.prompt = origPrompt;
+        await manse.sheet.close();
+      }
     });
   });
 }

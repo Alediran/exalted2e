@@ -41,3 +41,24 @@ export function manseBudgetState(sys = {}, rating = 0, { linkedHearthstoneRating
   return { base, drawbackPoints, sacrificePoints, dblPoints, total, used, remaining, over,
            effectiveHearthstone, hearthstoneTooHigh, violations };
 }
+
+/** Effective point cost after the aspect-favored discount (floored at 0). */
+export function mansePowerEffectiveCost(power, manseAspect) {
+  const cost = Math.max(0, parseInt(power?.cost) || 0);
+  const favored = Array.isArray(power?.aspectFavored) && !!manseAspect
+    && power.aspectFavored.includes(manseAspect);
+  return Math.max(0, cost - (favored ? 1 : 0));
+}
+
+/**
+ * Eligibility of a manse-power for a manse of the given rating/aspect.
+ * @returns {{ eligible:boolean, effectiveCost:number, reasons:string[] }}
+ */
+export function mansePowerEligible(power, { rating = 0, manseAspect = "" } = {}) {
+  const effectiveCost = mansePowerEffectiveCost(power, manseAspect);
+  const reasons = [];
+  const only = Array.isArray(power?.onlyAspect) ? power.onlyAspect : [];
+  if (only.length && !only.includes(manseAspect)) reasons.push("only-aspect");
+  if (effectiveCost > (parseInt(rating) || 0) && !power?.isMaterial) reasons.push("over-rating");
+  return { eligible: reasons.length === 0, effectiveCost, reasons };
+}
