@@ -293,6 +293,80 @@
   font-style: italic;
 }
 
+/* ── Manse-power picker ─────────────────────────────────────────────────── */
+.manse-power-picker .manse-power-picker-body {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--ex2e-gap-md);
+  padding:        var(--ex2e-gap-md) var(--ex2e-gap-lg);
+  max-height:     calc(100vh - 160px);
+  overflow-y:     auto;
+}
+/* Each point-value group is a collapsible <details class="dialog-section">. */
+.manse-power-picker details.dialog-section > summary {
+  font-family:    var(--ex2e-font-ui);
+  font-size:      var(--ex2e-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color:          var(--ex2e-gold-main);
+}
+.manse-power-picker .dialog-section-body {
+  display:        flex;
+  flex-direction: column;
+  gap:            3px;
+}
+.manse-power-picker .mpp-row {
+  display:        flex;
+  flex-direction: column;
+  align-items:    flex-start;
+  gap:            1px;
+  border:         1px solid var(--ex2e-border-color);
+  border-radius:  var(--ex2e-border-radius);
+  padding:        3px 8px;
+}
+.manse-power-picker .mpp-row.mpp-ineligible {
+  opacity:    0.55;
+  background: var(--ex2e-bg-darkest);
+}
+/* The whole eligible row is a pick button: name on top, requirement below. */
+.manse-power-picker .mpp-pick {
+  width:          100%;
+  display:        flex;
+  flex-direction: column;
+  align-items:    flex-start;
+  gap:            1px;
+  text-align:     left;
+  background:     transparent;
+  border:         none;
+  color:          var(--ex2e-text-primary);
+  cursor:         pointer;
+  padding:        0;
+  transition:     color var(--ex2e-transition-fast);
+}
+.manse-power-picker .mpp-pick:hover { color: var(--ex2e-gold-bright); }
+.manse-power-picker .mpp-discount {
+  font-style:  normal;
+  font-size:   var(--ex2e-font-size-xs);
+  color:       var(--ex2e-gold-main);
+}
+.manse-power-picker .mpp-reason {
+  font-size:  var(--ex2e-font-size-xs);
+  color:      var(--ex2e-text-muted);
+  font-style: italic;
+}
+.manse-power-picker .mpp-req {
+  font-size: var(--ex2e-font-size-xs);
+  color:     var(--ex2e-text-secondary);
+}
+.manse-power-picker .mpp-empty {
+  margin:     0;
+  padding:    var(--ex2e-gap-md) 0;
+  font-size:  var(--ex2e-font-size-sm);
+  color:      var(--ex2e-text-muted);
+  text-align: center;
+  font-style: italic;
+}
+
 /* ── Social Attack Dialog ───────────────────────────────────────────────── */
 
 /* The social-attack dialog has many sections (target, pool, intent, subject,

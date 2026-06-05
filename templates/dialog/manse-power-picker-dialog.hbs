@@ -1,24 +1,27 @@
 <div class="manse-power-picker-body">
   {{#each groups as |g|}}
-  <div class="mpp-group">
-    <div class="mpp-group-header">{{localize "EX2E.MansePowerPointGroup"}} {{g.cost}}</div>
-    {{#each g.rows as |r|}}
-    <div class="mpp-row{{#unless r.eligible}} mpp-ineligible{{/unless}}">
-      {{#if r.eligible}}
-      <button type="button" class="mpp-pick" data-action="pickPower" data-power-name="{{r.name}}">
-        {{r.name}} <span class="mpp-cost">{{r.effectiveCost}}{{#if r.discounted}} <em>(−1 {{localize "EX2E.MansePowerAspectBadge"}})</em>{{/if}}</span>
-      </button>
-      {{else}}
-      <span class="mpp-name">{{r.name}} <span class="mpp-cost">{{r.effectiveCost}}</span></span>
-      <span class="mpp-reason">
-        {{#if r.alreadyAdded}}{{localize "EX2E.MansePowerAlreadyAdded"}}{{/if}}
-        {{#each r.reasons}}{{#if (eq this "over-rating")}}{{localize "EX2E.MansePowerOverRating"}}{{/if}}{{#if (eq this "only-aspect")}}{{localize "EX2E.MansePowerOnlyAspectReason"}}{{/if}} {{/each}}
-      </span>
-      {{/if}}
-      {{#if r.abilityReq}}<span class="mpp-req">{{r.abilityReq}}</span>{{/if}}
+  <details class="mpp-group dialog-section" open>
+    <summary>{{localize "EX2E.MansePowerPointGroup"}} {{g.cost}}</summary>
+    <div class="dialog-section-body">
+      {{#each g.rows as |r|}}
+      <div class="mpp-row{{#unless r.eligible}} mpp-ineligible{{/unless}}">
+        {{#if r.eligible}}
+        <button type="button" class="mpp-pick" data-action="pickPower" data-power-name="{{r.name}}">
+          <span class="mpp-name">{{r.name}}{{#if r.discounted}} <em class="mpp-discount">(−1 {{localize "EX2E.MansePowerAspectBadge"}})</em>{{/if}}</span>
+          {{#if r.abilityReq}}<span class="mpp-req">{{r.abilityReq}}</span>{{/if}}
+        </button>
+        {{else}}
+        <span class="mpp-name">{{r.name}}</span>
+        {{#if r.abilityReq}}<span class="mpp-req">{{r.abilityReq}}</span>{{/if}}
+        <span class="mpp-reason">
+          {{#if r.alreadyAdded}}{{localize "EX2E.MansePowerAlreadyAdded"}}{{/if}}
+          {{#each r.reasons}}{{#if (eq this "over-rating")}}{{localize "EX2E.MansePowerOverRating"}}{{/if}}{{#if (eq this "only-aspect")}}{{localize "EX2E.MansePowerOnlyAspectReason"}}{{/if}} {{/each}}
+        </span>
+        {{/if}}
+      </div>
+      {{/each}}
     </div>
-    {{/each}}
-  </div>
+  </details>
   {{else}}
   <p class="mpp-empty">{{localize "EX2E.MansePowerPickerEmpty"}}</p>
   {{/each}}
