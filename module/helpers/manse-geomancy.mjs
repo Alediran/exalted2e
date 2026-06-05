@@ -62,3 +62,46 @@ export function mansePowerEligible(power, { rating = 0, manseAspect = "" } = {})
   if (effectiveCost > (parseInt(rating) || 0) && !power?.isMaterial) reasons.push("over-rating");
   return { eligible: reasons.length === 0, effectiveCost, reasons };
 }
+
+/** Ability prerequisite (Lore & Occult) and roll difficulty to design a power of this point cost. */
+export function mansePowerDesignReqs(cost) {
+  const c = Math.max(0, parseInt(cost) || 0);
+  return { prereq: c + 2, difficulty: c + 3 };
+}
+
+/** True when the builder's Lore AND Occult both meet the (cost+2) prerequisite. */
+export function canDesignPower({ lore = 0, occult = 0 } = {}, cost = 0) {
+  const p = (parseInt(cost) || 0) + 2;
+  return (parseInt(lore) || 0) >= p && (parseInt(occult) || 0) >= p;
+}
+
+/** Damage a manse can absorb before another Power Failure, scaled by Fragility. */
+export function manseDamageThreshold(effectiveRating, fragility = 0) {
+  const r = Math.max(0, parseInt(effectiveRating) || 0);
+  const f = Math.max(0, Math.min(3, parseInt(fragility) || 0));
+  if (f === 3) return 1;
+  return r * ({ 0: 20, 1: 10, 2: 5 }[f]);
+}
+
+/**
+ * Deterministically apply `amount` post-soak damage, cascading Power Failures.
+ * Pure — no dice (the Essence-buildup die is rolled by the Foundry caller).
+ * @returns {{ powerFailures:number, damage:number, failuresThisEvent:number, destroyed:boolean }}
+ */
+export function simulateManseDamage({ rating = 0, powerFailures = 0, damage = 0, fragility = 0 } = {}, amount = 0) {
+  const r = Math.max(0, parseInt(rating) || 0);
+  let pf  = Math.max(0, parseInt(powerFailures) || 0);
+  let dmg = Math.max(0, (parseInt(damage) || 0) + (parseInt(amount) || 0));
+  let failuresThisEvent = 0;
+  while (true) {
+    const eff = r - pf;
+    if (eff <= 0) break;
+    const th = manseDamageThreshold(eff, fragility);
+    if (th <= 0 || dmg < th) break;
+    dmg -= th;
+    pf  += 1;
+    failuresThisEvent += 1;
+  }
+  const destroyed = r > 0 && (r - pf) <= 0;
+  return { powerFailures: pf, damage: dmg, failuresThisEvent, destroyed };
+}

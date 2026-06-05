@@ -170,4 +170,32 @@ export function registerManse(context) {
       }
     });
   });
+
+  describe("Manse construction & Power Failure — Phase 3", () => {
+    before(() => assertTestWorld());
+    afterEach(async () => { await sweep(); });
+
+    it("[MC-1] applyManseDamage cascades Power Failures and destroys a low-rating manse", async () => {
+      const actor = await createTempCharacter({ name: "Q-MC-Dmg" });
+      const [bg] = await actor.createEmbeddedDocuments("Item", [{ name: "Wee Demesne", type: "background", system: { value: 1, backgroundType: "manse" } }]);
+      const [manse] = await actor.createEmbeddedDocuments("Item", [{ name: "Q Manse", type: "manse", system: { backgroundId: bg.id, fragility: 0, powers: [] } }]);
+      const { applyManseDamage } = await import("../../../module/combat/manse-construction.mjs");
+      // rating 1, fragility 0 -> threshold 20; 50 damage forces a failure to effective rating 0.
+      await applyManseDamage(manse, 50);
+      assert.equal(manse.system.powerFailures, 1, "one failure (rating 1 -> 0)");
+      assert.equal(Math.max(0, 1 - manse.system.powerFailures), 0, "effective rating 0 (destroyed)");
+    });
+
+    it("[MC-2] rollDesignPower respects the Lore/Occult prerequisite (no state change when unmet)", async () => {
+      const actor = await createTempCharacter({ name: "Q-MC-Prereq" });
+      await actor.update({ "system.abilities.lore.value": 1, "system.abilities.occult.value": 1 });
+      const [manse] = await actor.createEmbeddedDocuments("Item", [{
+        name: "Q Manse2", type: "manse",
+        system: { powers: [{ name: "Fortress", cost: 3, isMaterial: false, status: "pending" }] }
+      }]);
+      const { rollDesignPower } = await import("../../../module/combat/manse-construction.mjs");
+      await rollDesignPower(manse, 0);  // needs Lore & Occult 5; owner has 1 -> guarded, no roll
+      assert.equal(manse.system.powers[0].status, "pending", "status unchanged when prereq unmet");
+    });
+  });
 }

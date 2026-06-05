@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-06-04 (Manse geomancy Phase 2b — full 65-power Oadenol's catalog — shipped; only Phase 3 design/geomancy rolls remain as the Group B manse entry. count 1 A / 6 B / 1 C / 8 active)
+Last updated: 2026-06-04 (Manse geomancy COMPLETE — Phases 1/2a/2b/3 all shipped; removed from Group B. count 1 A / 5 B / 1 C / 7 active)
 
 ---
 
@@ -21,7 +21,6 @@ Last updated: 2026-06-04 (Manse geomancy Phase 2b — full 65-power Oadenol's ca
 |------|-------------|-------------|
 | Limit Break scripted scene effects | Solar / Virtues | per-Virtue-Flaw AE templates (4 flaws × 2 break types) |
 | Shintai / Mantle form-type charms | Infernal | charm activation mode + transformation state AE |
-| Manse geomancy rules — Phase 3 | Crafting | Phase 1 (CP economy) + Phase 2a (manse-power item type + picker) + Phase 2b (full 65-power Oadenol's catalog in src/packs/manse-powers/) shipped. Phase 3 = design/geomancy rolls (capping, per-power design roll + prereqs, partial capping / Essence Vents, Power Failure). Source: docs/manse-design.md |
 | Multi-actor action helpers | QoL | Cooperative keyword done; Coordinate attacks + mass Guard still pending |
 | Poison/Disease tracking | Other | per-interval AE *(needs Poison/Disease item types — Group A — first)* |
 | Headless tests for remaining paths | Testing | test authoring for charm prereqs, multi-tick, sorcery |
@@ -51,7 +50,7 @@ Last updated: 2026-06-04 (Manse geomancy Phase 2b — full 65-power Oadenol's ca
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 6 |
+| B — Ready, Medium | 5 |
 | C — Ready, Complex | 1 |
-| **Total active** | **8** |
+| **Total active** | **7** |
 | (Parked) | 1 |

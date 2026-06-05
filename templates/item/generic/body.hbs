@@ -388,6 +388,7 @@
           <th>{{localize "EX2E.MansePowerName"}}</th>
           <th>{{localize "EX2E.MansePowerCost"}}</th>
           <th>{{localize "EX2E.MansePowerMaterial"}}</th>
+          <th>{{localize "EX2E.MansePowerStatus"}}</th>
           {{#if @root.isEditable}}<th></th>{{/if}}
         </tr>
       </thead>
@@ -407,6 +408,19 @@
           <td>
             <input type="checkbox" data-power-index="{{@index}}" data-power-field="isMaterial"
                    {{#if power.isMaterial}}checked{{/if}} {{#unless @root.isEditable}}disabled{{/unless}}>
+          </td>
+          <td class="mpw-status-cell">
+            <span class="mpw-status {{power.status}}">
+              {{#if (eq power.status "designed")}}{{localize "EX2E.MansePowerStatus_designed"}}
+              {{else if (eq power.status "damaged")}}{{localize "EX2E.MansePowerStatus_damaged"}}
+              {{else}}{{localize "EX2E.MansePowerStatus_pending"}}{{/if}}
+            </span>
+            {{#if @root.isEditable}}
+            <button type="button" class="btn-sm" data-action="designMansePower" data-power-index="{{@index}}"
+              {{#unless power.canDesign}}disabled title="{{power.designReqText}}"{{/unless}}>
+              {{localize "EX2E.MansePowerDesign"}}
+            </button>
+            {{/if}}
           </td>
           {{#if @root.isEditable}}
           <td>
@@ -432,6 +446,32 @@
     </button>
     {{/if}}
   </div>
+  <details class="dialog-section manse-construction-section" style="margin-top:10px">
+    <summary>{{localize "EX2E.ManseConstruction"}}</summary>
+    <div class="dialog-section-body">
+      <div class="manse-construction-row">
+        <span>{{localize "EX2E.ManseCappingStatus"}}:
+          {{#if manseConstruction.capped}}{{localize "EX2E.ManseCapped"}}{{else}}{{localize "EX2E.ManseUncapped"}}{{/if}}</span>
+        {{#if @root.isEditable}}
+        <button type="button" class="btn-sm" data-action="rollManseCapping">{{localize "EX2E.ManseCappingRoll"}}</button>
+        {{/if}}
+      </div>
+      <div class="manse-construction-row">
+        <span>{{localize "EX2E.ManseEffectiveRating"}}: {{manseConstruction.effectiveRating}}</span>
+        <span>{{localize "EX2E.ManseDamage"}}: {{manseConstruction.damage}} / {{manseConstruction.threshold}}</span>
+        <span>{{localize "EX2E.MansePowerFailures"}}: {{manseConstruction.powerFailures}}</span>
+        <span>{{localize "EX2E.ManseSoak"}}: {{manseConstruction.soakRef}}</span>
+      </div>
+      {{#if @root.isEditable}}
+      <div class="manse-construction-row">
+        <label>{{localize "EX2E.ManseApplyDamage"}}
+          <input type="number" id="manse-damage-input" min="0" value="0" style="width:4em"></label>
+        <button type="button" class="btn-sm" data-action="applyManseDamage">{{localize "EX2E.ManseApplyDamage"}}</button>
+        <button type="button" class="btn-sm" data-action="repairManse">{{localize "EX2E.ManseRepair"}}</button>
+      </div>
+      {{/if}}
+    </div>
+  </details>
   {{/if}}
 
   {{!-- ── Manse Power ──────────────────────────────────────────────────── --}}

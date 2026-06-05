@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { manseBudgetState, mansePowerEffectiveCost, mansePowerEligible } from "../../module/helpers/manse-geomancy.mjs";
+import { manseBudgetState, mansePowerEffectiveCost, mansePowerEligible, mansePowerDesignReqs, canDesignPower, manseDamageThreshold, simulateManseDamage } from "../../module/helpers/manse-geomancy.mjs";
 
 describe("manseBudgetState", () => {
   it("base = rating x 2 with no drawbacks", () => {
@@ -80,5 +80,57 @@ describe("mansePowerEligible", () => {
     const r = mansePowerEligible({ cost: 2 }, { rating: 3, manseAspect: "earth" });
     expect(r.eligible).toBe(true);
     expect(r.reasons).toEqual([]);
+  });
+});
+
+describe("mansePowerDesignReqs", () => {
+  it("prereq = cost+2, difficulty = cost+3", () => {
+    expect(mansePowerDesignReqs(2)).toEqual({ prereq: 4, difficulty: 5 });
+    expect(mansePowerDesignReqs(0)).toEqual({ prereq: 2, difficulty: 3 });
+  });
+});
+
+describe("canDesignPower", () => {
+  it("requires both Lore and Occult >= cost+2", () => {
+    expect(canDesignPower({ lore: 4, occult: 4 }, 2)).toBe(true);
+    expect(canDesignPower({ lore: 3, occult: 4 }, 2)).toBe(false);
+    expect(canDesignPower({ lore: 4, occult: 3 }, 2)).toBe(false);
+    expect(canDesignPower({}, 0)).toBe(false);
+  });
+});
+
+describe("manseDamageThreshold", () => {
+  it("scales by fragility", () => {
+    expect(manseDamageThreshold(3, 0)).toBe(60);
+    expect(manseDamageThreshold(3, 1)).toBe(30);
+    expect(manseDamageThreshold(3, 2)).toBe(15);
+    expect(manseDamageThreshold(3, 3)).toBe(1);
+  });
+});
+
+describe("simulateManseDamage", () => {
+  it("accumulates below threshold without failing", () => {
+    const r = simulateManseDamage({ rating: 3, fragility: 0 }, 40);
+    expect(r.failuresThisEvent).toBe(0);
+    expect(r.damage).toBe(40);
+    expect(r.powerFailures).toBe(0);
+    expect(r.destroyed).toBe(false);
+  });
+  it("one crossed threshold = one failure, residual carries", () => {
+    const r = simulateManseDamage({ rating: 3, fragility: 0 }, 65);
+    expect(r.failuresThisEvent).toBe(1);
+    expect(r.powerFailures).toBe(1);
+    expect(r.damage).toBe(5);
+  });
+  it("a huge hit cascades to destruction", () => {
+    const r = simulateManseDamage({ rating: 3, fragility: 0 }, 200);
+    expect(r.powerFailures).toBe(3);
+    expect(r.destroyed).toBe(true);
+  });
+  it("starts from existing failures/damage", () => {
+    const r = simulateManseDamage({ rating: 5, powerFailures: 1, damage: 10, fragility: 0 }, 70);
+    expect(r.failuresThisEvent).toBe(1);
+    expect(r.powerFailures).toBe(2);
+    expect(r.damage).toBe(0);
   });
 });

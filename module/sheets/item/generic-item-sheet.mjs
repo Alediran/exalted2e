@@ -1,6 +1,6 @@
 import { editImageAction } from "../_edit-image.mjs";
 import { EX2E } from "../../config.mjs";
-import { manseBudgetState } from "../../helpers/manse-geomancy.mjs";
+import { manseBudgetState, manseDamageThreshold } from "../../helpers/manse-geomancy.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -22,6 +22,10 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       addMansePower:    GenericItemSheet.#onAddMansePower,
       addMansePowerFromCatalog: GenericItemSheet.#onAddMansePowerFromCatalog,
       deleteMansePower: GenericItemSheet.#onDeleteMansePower,
+      rollManseCapping:  GenericItemSheet.#onRollManseCapping,
+      designMansePower:  GenericItemSheet.#onDesignMansePower,
+      applyManseDamage:  GenericItemSheet.#onApplyManseDamage,
+      repairManse:       GenericItemSheet.#onRepairManse,
       clearManseLink:          GenericItemSheet.#onClearManseLink,
       clearFamiliarBackground: GenericItemSheet.#onClearFamiliarBackground,
       clearFamiliarActor:      GenericItemSheet.#onClearFamiliarActor,
@@ -111,6 +115,7 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     let manseBackgroundName    = "";
     let manseHearthstoneName   = "";
     let manseBudget            = null;
+    let manseConstruction      = null;
     if (item.type === "manse") {
       const actor = item.parent;
       if (actor) {
@@ -132,6 +137,17 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       manseBudget = manseBudgetState(sys, manseRating, {
         linkedHearthstoneRating: linkedHsForCap?.system.rating ?? 0
       });
+      const effectiveRating = Math.max(0, manseRating - (sys.powerFailures ?? 0));
+      manseConstruction = {
+        capped:        !!sys.capped,
+        effectiveRating,
+        powerFailures: sys.powerFailures ?? 0,
+        damage:        sys.damage ?? 0,
+        threshold:     manseDamageThreshold(effectiveRating, sys.fragility ?? 0),
+        soakRef:       ({ 0: "12L/18B", 1: "6L/9B", 2: "—", 3: "—" })[Math.max(0, Math.min(3, sys.fragility ?? 0))],
+        ownerLore:     item.parent?.system?.abilities?.lore?.value   ?? 0,
+        ownerOccult:   item.parent?.system?.abilities?.occult?.value ?? 0,
+      };
     }
 
     let familiarBackgroundName   = "";
@@ -201,7 +217,16 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     }));
 
     const mansePowers = item.type === "manse"
-      ? (sys.powers ?? []).map((p, i) => ({ ...p, overCap: manseBudget?.violations?.includes(i) ?? false }))
+      ? (sys.powers ?? []).map((p, i) => {
+          const reqAbility = (p.cost ?? 0) + 2;
+          return {
+            ...p,
+            overCap:       manseBudget?.violations?.includes(i) ?? false,
+            status:        p.status ?? "pending",
+            canDesign:     (manseConstruction?.ownerLore ?? 0) >= reqAbility && (manseConstruction?.ownerOccult ?? 0) >= reqAbility,
+            designReqText: game.i18n.format("EX2E.MansePowerDesignReq", { n: reqAbility }),
+          };
+        })
       : [];
 
     return { ...context, item, system: sys, typeChoices, isEditable: this.isEditable,
@@ -211,6 +236,7 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
              manseBackgrounds, manseHearthstones, manseRating, manseAspect, manseAspectLabel,
              manseBackgroundName, manseHearthstoneName,
              manseBudget,
+             manseConstruction,
              mansePowers,
              mansePowerAspects,
              backgroundTypeLabel,
@@ -439,6 +465,32 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const powers = foundry.utils.deepClone(this.document.system.powers ?? []);
     powers.splice(idx, 1);
     await this.document.update({ "system.powers": powers });
+  }
+
+  static async #onRollManseCapping(_event, _target) {
+    const { rollManseCapping } = await import("../../combat/manse-construction.mjs");
+    await rollManseCapping(this.document);
+  }
+
+  static async #onDesignMansePower(_event, target) {
+    const idx = parseInt(target.dataset.powerIndex);
+    if (isNaN(idx)) return;
+    const { rollDesignPower } = await import("../../combat/manse-construction.mjs");
+    await rollDesignPower(this.document, idx);
+  }
+
+  static async #onApplyManseDamage(_event, _target) {
+    const input = this.element.querySelector("#manse-damage-input");
+    const amount = Math.max(0, parseInt(input?.value) || 0);
+    if (amount <= 0) return;
+    const { applyManseDamage } = await import("../../combat/manse-construction.mjs");
+    await applyManseDamage(this.document, amount);
+    if (input) input.value = "";
+  }
+
+  static async #onRepairManse(_event, _target) {
+    const { rollManseRepair } = await import("../../combat/manse-construction.mjs");
+    await rollManseRepair(this.document);
   }
 }
 
