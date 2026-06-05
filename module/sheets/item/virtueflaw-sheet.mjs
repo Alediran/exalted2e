@@ -15,7 +15,9 @@ export class VirtueFlawSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     window: { resizable: true },
     form: { submitOnChange: true, closeOnSubmit: false },
     actions: {
-      editImage: editImageAction
+      editImage:    editImageAction,
+      addChange:    VirtueFlawSheet.#onAddChange,
+      removeChange: VirtueFlawSheet.#onRemoveChange,
     }
   };
 
@@ -49,5 +51,21 @@ export class VirtueFlawSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         secrets: this.document.isOwner, relativeTo: this.document
       })
     };
+  }
+
+  static async #onAddChange(_event, _target) {
+    const changes = foundry.utils.deepClone(this.document.system.changes ?? []);
+    changes.push({ key: "", mode: 2, value: "" });
+    await this.document.update({ "system.changes": changes });
+  }
+
+  static async #onRemoveChange(_event, target) {
+    const idx = parseInt(target.dataset.index);
+    const changes = foundry.utils.deepClone(this.document.system.changes ?? []);
+    changes.splice(idx, 1);
+    // ArrayField removal: null-then-set forces a full replacement (index-wise
+    // update is unreliable).
+    await this.document.update({ "system.changes": null });
+    await this.document.update({ "system.changes": changes });
   }
 }

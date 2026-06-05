@@ -18,6 +18,26 @@
     </select>
   </div>
 
+  <div class="virtueflaw-break-effect" style="margin-top:8px">
+    <label title="{{localize 'EX2E.LimitBreakEffectHint'}}">{{localize "EX2E.LimitBreakEffect"}}</label>
+    {{#each system.changes as |chg i|}}
+    <div class="sb-change-row">
+      <input type="text" name="system.changes.{{i}}.key" value="{{chg.key}}"
+             placeholder="system.dv.dodge" {{#unless @root.isEditable}}readonly{{/unless}}>
+      <input type="number" name="system.changes.{{i}}.mode" value="{{chg.mode}}" min="0" max="6" style="width:4em"
+             {{#unless @root.isEditable}}readonly{{/unless}}>
+      <input type="text" name="system.changes.{{i}}.value" value="{{chg.value}}" style="width:6em"
+             {{#unless @root.isEditable}}readonly{{/unless}}>
+      {{#if @root.isEditable}}
+      <button type="button" class="btn-remove" data-action="removeChange" data-index="{{i}}"><i class="fa-solid fa-times"></i></button>
+      {{/if}}
+    </div>
+    {{/each}}
+    {{#if isEditable}}
+    <button type="button" class="btn-add-row" data-action="addChange">+ {{localize "EX2E.LimitBreakAddChange"}}</button>
+    {{/if}}
+  </div>
+
   <h2 class="section-header">{{localize "EX2E.Description"}}</h2>
   <div class="editor-container">
     {{#if isEditable}}

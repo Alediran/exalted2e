@@ -95,6 +95,7 @@ import {
 import { aimHandler }     from "./combat/multi-tick-aim.mjs";
 import { sorceryHandler, interruptShaping } from "./combat/multi-tick-sorcery.mjs";
 import { resolveKnockbackChain, onKnockdownResistClick } from "./combat/knockback.mjs";
+import { buildLimitBreakEffectData } from "./combat/limit-break-effect.mjs";
 import { _seedAnimaPowersCompendium } from "./helpers/anima-power-seeds.mjs";
 import { canLearnCelestialMA, canLearnSiderealMA } from "./helpers/ma-validation.mjs";
 import { computeAttackOutcome } from "./rolls/attack-math.mjs";
@@ -2325,6 +2326,19 @@ export async function _resolveLimitBreak(message, choice) {
   const enrichedDescription = virtueFlaw
     ? await foundry.applications.ux.TextEditor.implementation.enrichHTML(virtueFlaw.system.description ?? "")
     : "";
+  const localizedVirtue = virtueFlaw
+    ? game.i18n.localize(EX2E.virtues[virtueFlaw.system.baseVirtue] ?? "")
+    : "";
+
+  // Stamp the scene-duration break effect. Dedup guard: never stamp twice
+  // (e.g. if the card is resolved more than once). The AE is flagged
+  // charmDuration: "oneScene" so clearSceneCharms removes it at scene end.
+  if (virtueFlaw && !actor.effects.some(e => e.flags?.exalted2e?.limitBreakEffect)) {
+    const aeName = game.i18n.format("EX2E.LimitBreakAEName", { virtue: localizedVirtue });
+    await actor.createEmbeddedDocuments("ActiveEffect", [
+      buildLimitBreakEffectData(virtueFlaw, aeName),
+    ]);
+  }
 
   const newContent = await foundry.applications.handlebars.renderTemplate(
     "systems/exalted2e/templates/chat/limit-break-card.hbs",
@@ -2335,9 +2349,7 @@ export async function _resolveLimitBreak(message, choice) {
       enrichedDescription,
       resolved:        true,
       choice,
-      localizedVirtue: virtueFlaw
-        ? game.i18n.localize(EX2E.virtues[virtueFlaw.system.baseVirtue] ?? "")
-        : "",
+      localizedVirtue,
     }
   );
 

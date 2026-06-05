@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-06-04 (Shintai/Mantle resolved — generic Form-type machinery already covers it; audited Infernal shintai, fixed Scarlet-Rapture keyword casing. count 1 A / 3 B / 1 C / 5 active)
+Last updated: 2026-06-05 (Limit Break scripted scene effects done — data-driven Virtue-Flaw break AE stamped on resolve, scene-swept. count 1 A / 2 B / 1 C / 4 active)
 
 ---
 
@@ -19,7 +19,6 @@ Last updated: 2026-06-04 (Shintai/Mantle resolved — generic Form-type machiner
 
 | Item | TODO Section | Key concern |
 |------|-------------|-------------|
-| Limit Break scripted scene effects | Solar / Virtues | per-Virtue-Flaw AE templates (4 flaws × 2 break types) |
 | Multi-actor action helpers | QoL | Cooperative keyword done; Coordinate attacks + mass Guard still pending |
 | Headless tests for remaining paths | Testing | test authoring for charm prereqs, multi-tick, sorcery |
 
@@ -48,7 +47,7 @@ Last updated: 2026-06-04 (Shintai/Mantle resolved — generic Form-type machiner
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 3 |
+| B — Ready, Medium | 2 |
 | C — Ready, Complex | 1 |
-| **Total active** | **5** |
+| **Total active** | **4** |
 | (Parked) | 1 |

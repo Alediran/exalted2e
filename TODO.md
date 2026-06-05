@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 257 / 268 complete** (6 partial / out-of-scope, 5 still pending — last updated 2026-06-04 — added Resplendent Destiny (all phases), crafting workshop/assistants, full Manse geomancy (Phases 1–3), Poison/Disease tracking, Shintai/Mantle audit)
+**Progress: 259 / 268 complete** (6 partial / out-of-scope, 4 active still pending — last updated 2026-06-05 — added Limit Break scripted scene effects (data-driven Virtue-Flaw break AE), Resplendent Destiny (all phases), crafting workshop/assistants, full Manse geomancy (Phases 1–3), Poison/Disease tracking, Shintai/Mantle audit)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -145,7 +145,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Eclipse non-Solar charm access (2× cost, +2m activation surcharge)
 - [x] Limit Break indicator (Solar/Lunar/Terrestrial/Sidereal) — red label at Limit 10 on sheet
 - [x] Limit Break chat card — Virtue Flaw name + description, Full/Partial choice, WP recovery, Limit reset
-- [ ] Limit Break scripted scene effects (per-Virtue-Flaw mechanical consequences beyond WP gain)
+- [x] Limit Break scripted scene effects (per-Virtue-Flaw mechanical consequences beyond WP gain) — data-driven `system.changes` on the VirtueFlaw item; on resolve stamps a scene-duration AE (`flags.exalted2e.limitBreakEffect`, `charmDuration:"oneScene"`, `gmOnlyRemoval`), swept by `clearSceneCharms`
 
 ### Lunar
 - [x] Heart's Blood forms roster (human/animal/spirit types with stats + mutation points)
@@ -240,7 +240,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Virtue channel action (spend 1 WP + Virtue, add Virtue dice, consumes per-story channel slot)
 - [x] Willpower recovery hooks (rest, stunt reward)
 - [x] Limit accumulation automation (Virtue suppression → Limit gain on primary virtue; UMI → +1 Limit already implemented)
-- [ ] Limit Break scripting at 10 (per-Virtue-Flaw scene template)
+- [x] Limit Break scripting at 10 (per-Virtue-Flaw scene template) — see Solar/Virtues section; data-driven break AE stamped on resolve, scene-swept
 
 ## Experience / Purchase Tracking
 - [x] Purchase Mode toggle + enforcement (block reductions, log XP on increases)

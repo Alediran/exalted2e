@@ -2,6 +2,7 @@ import { register, sweep }          from "../_helpers/cleanup.mjs";
 import { assertTestWorld }            from "../_helpers/world.mjs";
 import { createTempCharacter }        from "../_helpers/actors.mjs";
 import { _limitBreakPending, _resolveLimitBreak } from "../../../module/exalted2e.mjs";
+import { clearSceneCharms } from "../../../module/helpers/charm-deactivation.mjs";
 
 async function waitFor(predicate, { timeoutMs = 2000, intervalMs = 25 } = {}) {
   const t0 = Date.now();
@@ -55,6 +56,27 @@ export function registerLimitBreak(context) {
       _limitBreakPending.clear();
       await sweep();
     });
+
+    async function makeSolarWithBreakEffect(name) {
+      const actor = await createTempCharacter({ name });
+      await actor.update({
+        "system.exaltType":                "solar",
+        "system.virtues.compassion.value": 3,
+        "system.willpower.max":            10,
+        "system.willpower.value":          5,
+      });
+      const [flaw] = await actor.createEmbeddedDocuments("Item", [{
+        name:   "Q Break Effect",
+        type:   "virtueflaw",
+        system: {
+          baseVirtue: "compassion",
+          description: "Test flaw.",
+          changes: [{ key: "system.dv.dodge", mode: 2, value: "-2" }],
+        },
+      }]);
+      register(flaw);
+      return { actor, flaw };
+    }
 
     it("[148] posts a chat card when a classical exalt's Limit reaches 10", async () => {
       const { actor } = await makeSolarWithFlaw({ name: "Q-LB-Post" });
@@ -168,6 +190,47 @@ export function registerLimitBreak(context) {
         m => m.flags?.exalted2e?.limitBreak?.actorId === actor.id
       );
       assert.isUndefined(msg, "no Limit Break card for abyssal");
+    });
+
+    it("[158] resolving a break stamps a scene-duration limitBreakEffect AE with mapped changes", async () => {
+      const { actor } = await makeSolarWithBreakEffect("Q-LB-Effect");
+      await actor.update({ "system.limit": 10 });
+      const msg = await waitForLBCard(actor);
+      await _resolveLimitBreak(msg, "full");
+      await waitFor(() => actor.effects.some(e => e.flags?.exalted2e?.limitBreakEffect));
+      const ae = actor.effects.find(e => e.flags?.exalted2e?.limitBreakEffect);
+      assert.ok(ae, "limitBreakEffect AE created");
+      assert.equal(ae.flags.exalted2e.charmDuration, "oneScene", "tagged oneScene for the scene sweep");
+      assert.equal(ae.flags.exalted2e.gmOnlyRemoval, true, "gmOnlyRemoval set");
+      const chg = ae.changes.find(c => c.key === "system.dv.dodge");
+      assert.ok(chg, "mapped the dodge change");
+      assert.equal(String(chg.value), "-2", "change value preserved");
+    });
+
+    it("[159] resolving twice does not stamp a second break-effect AE", async () => {
+      const { actor } = await makeSolarWithBreakEffect("Q-LB-Effect-Dedup");
+      await actor.update({ "system.limit": 10 });
+      const msg = await waitForLBCard(actor);
+      await _resolveLimitBreak(msg, "full");
+      await waitFor(() => actor.effects.some(e => e.flags?.exalted2e?.limitBreakEffect));
+      await _resolveLimitBreak(msg, "full");
+      // The dedup guard is synchronous (it checks actor.effects before creating),
+      // so the count cannot grow after the second resolve. This short settle just
+      // lets any in-flight create reject before we count — it is padding, not a poll.
+      await new Promise(r => setTimeout(r, 100));
+      const count = actor.effects.filter(e => e.flags?.exalted2e?.limitBreakEffect).length;
+      assert.equal(count, 1, "exactly one break-effect AE after a second resolve");
+    });
+
+    it("[160] clearSceneCharms removes the break-effect AE at scene end", async () => {
+      const { actor } = await makeSolarWithBreakEffect("Q-LB-Effect-Sweep");
+      await actor.update({ "system.limit": 10 });
+      const msg = await waitForLBCard(actor);
+      await _resolveLimitBreak(msg, "full");
+      await waitFor(() => actor.effects.some(e => e.flags?.exalted2e?.limitBreakEffect));
+      await clearSceneCharms(actor);
+      const remaining = actor.effects.filter(e => e.flags?.exalted2e?.limitBreakEffect).length;
+      assert.equal(remaining, 0, "break-effect AE swept at scene end");
     });
   });
 }
