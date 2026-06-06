@@ -45,7 +45,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f8a693e5cfc5e07f",
+            "charmName": "Impersonal Personal Denature Sting",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "32f19111cc9bbf1c",
+            "charmName": "Kaleidoscopic Disrecognition Atemi",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "5f2a3f12bd9ddaa5"
   },
   "folder": "74e10a76522315aa",

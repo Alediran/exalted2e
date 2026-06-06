@@ -45,7 +45,32 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "08335abbd90b8fb1",
+            "charmName": "Birth of the Perfect Ego Juggernaut",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      },
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "f8a693e5cfc5e07f",
+            "charmName": "Impersonal Personal Denature Sting",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
     "charmUid": "90b5637d668687e5"
   },
   "folder": "74e10a76522315aa",
