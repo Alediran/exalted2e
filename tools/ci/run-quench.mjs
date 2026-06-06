@@ -117,6 +117,18 @@ async function main() {
       throw e;
     }
 
+    // Report how many batches registered. 0 means the system's Quench harness
+    // (module/exalted2e.mjs → tests/quench/index.mjs) failed to load — look for
+    // "Quench test harness failed to load" earlier in the log.
+    const batchInfo = await page.evaluate(() => {
+      const q = globalThis.quench || globalThis.game?.quench || globalThis.game?.modules?.get("quench")?.api;
+      const reg = q?._testBatches;
+      const keys = reg ? [...reg.keys()] : [];
+      return { count: keys.length, sample: keys.slice(0, 5) };
+    }).catch(() => ({ count: -1, sample: [] }));
+    console.log(`Quench batches registered: ${batchInfo.count}${batchInfo.sample.length ? " e.g. " + batchInfo.sample.join(", ") : ""}`);
+    if (batchInfo.count === 0) await dumpDiag(page, "no-batches");
+
     // Ensure an active scene exists (some batches place tokens on the active scene).
     await page.evaluate(async () => {
       if (!globalThis.game.scenes?.active) {
