@@ -13,7 +13,7 @@ Last updated: 2026-06-05 (Headless Quench runner in CI done — Group B cleared.
 | Monstrance of Celestial Portion | Abyssal | fields done; control/servitude mechanics (deathlord authority over deathknight) still pending |
 
 ---
- 
+  
 ## Group B — Ready, Medium
 *Multi-file, all dependencies present, needs some design.*
 
