@@ -110,6 +110,29 @@ jobs:
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
 
+      # felddy boots unlicensed (account auth is blocked from CI IPs), so sign
+      # the license via the /license page, then restart the container so it
+      # boots licensed and auto-launches FOUNDRY_WORLD.
+      - name: Sign license
+        env:
+          FOUNDRY_URL: "http://localhost:30000"
+          FOUNDRY_LICENSE_KEY: "${{ secrets.FOUNDRY_LICENSE_KEY }}"
+          DIAG_DIR: "diag"
+        run: |
+          mkdir -p diag
+          node tools/ci/sign-license.mjs
+
+      - name: Restart Foundry (now licensed)
+        run: docker restart foundry
+
+      - name: Wait for Foundry (post-restart)
+        run: |
+          for i in $(seq 1 60); do
+            if curl -sf http://localhost:30000 >/dev/null; then echo "Foundry is up"; exit 0; fi
+            sleep 3
+          done
+          echo "Foundry did not become ready in time"; docker logs foundry || true; exit 1
+
       - name: Run Quench
         env:
           FOUNDRY_URL: "http://localhost:30000"
