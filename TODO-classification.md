@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-06-05 (Headless Quench runner in CI done — Group B cleared. felddy+Playwright runs the Quench suite, V8 coverage report. count 1 A / 0 B / 1 C / 2 active)
+Last updated: 2026-06-06 (Coverage-raising initiative opened; SP1 quick-0%-wins done — hazard-math extract + region-behavior/_edit-image tests. count 1 A / 1 B / 1 C / 3 active)
 
 ---
 
@@ -17,7 +17,9 @@ Last updated: 2026-06-05 (Headless Quench runner in CI done — Group B cleared.
 ## Group B — Ready, Medium
 *Multi-file, all dependencies present, needs some design.*
 
-*(none — all Group B items complete)*
+| Item | TODO Section | Notes |
+|------|-------------|-------|
+| Coverage-raising initiative (SP2–SP5 + gate) | Testing | SP1 done. Next worst-first: SP2 `module/dialogs` (~3260 uncovered). Each sub-project = spec→plan→subagent-driven cycle; extract-pure + Quench-smoke pattern established in SP1. Regression-floor CI gate after baseline. |
 
 ---
 
@@ -44,7 +46,7 @@ Last updated: 2026-06-05 (Headless Quench runner in CI done — Group B cleared.
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 0 |
+| B — Ready, Medium | 1 |
 | C — Ready, Complex | 1 |
-| **Total active** | **2** |
+| **Total active** | **3** |
 | (Parked) | 1 |

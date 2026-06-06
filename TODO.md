@@ -322,6 +322,13 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Vitest suite (pure-logic helpers, math modules, prepareDerivedData)
 - [x] Quench integration tests (in-Foundry: attack pipeline, social combat, stunt rewards, purchase/attunement)
 - [x] Headless tests for remaining paths — implemented as a **headless Quench runner in CI**: GitHub Actions boots Foundry (felddy Docker) with a committed `exalted2e-test` world + Quench, Playwright runs all batches and gates CI, with a V8 coverage report over `module/**`. Pure parser/summarizer (`tools/ci/*.mjs`) unit-tested; infra validated by CI iteration (needs Foundry secrets). See `tools/ci/README.md`. (Charm-prereq/multi-tick/sorcery pure paths already had Vitest coverage.)
+- [~] **Coverage-raising initiative** — lift true combined (Vitest∪Quench) coverage from ~67% lines, worst-first per directory. Strategy: extract pure logic → Vitest + thin Quench happy-path smoke; per-directory floor ≥60% lines. Spec/plan under `docs/superpowers/{specs,plans}/2026-06-06-coverage-sp1-*`.
+  - [x] SP1 — quick 0% wins: `module/data/region-behaviors/*` + `module/sheets/_edit-image.mjs`. Extracted `hazard-math.mjs` (pure, Vitest); refactored `hazard-damage.mjs` onto it; removed obsolete `_onEditImage` Tokenizer hook + Vitest'd `editImageAction`; Quench batch `exalted2e.region-behaviors` (terrain schema + hazard apply-path smoke).
+  - [ ] SP2 — `module/dialogs` (~3260 uncovered, biggest gap)
+  - [ ] SP3 — `module/sheets/item` (~2115)
+  - [ ] SP4 — `module/sheets/actor`
+  - [ ] SP5 — `module/apps`
+  - [ ] Regression-floor gate on the CI `coverage` job (after SP1 baseline established)
 
 ## Documentation (internal)
 - [x] docs/sysref-index.md — catalog of every PDF + topic lookup
