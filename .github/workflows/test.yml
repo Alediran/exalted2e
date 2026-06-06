@@ -71,8 +71,19 @@ jobs:
           # -f makes curl exit non-zero on HTTP errors (so a bad URL fails the
           # step instead of writing an error-page stub). Tag is v-prefixed.
           curl -fL -o /tmp/quench.zip https://github.com/Ethaks/FVTT-Quench/releases/download/v0.10.0/module.zip
+          rm -rf /tmp/quench-extract && mkdir -p /tmp/quench-extract
+          unzip -o -q /tmp/quench.zip -d /tmp/quench-extract
+          # The release zip may put module.json at the root OR inside a subfolder
+          # (which would nest it as modules/quench/quench/module.json and hide it
+          # from Foundry). Locate module.json and install THAT directory.
+          modjson=$(find /tmp/quench-extract -name module.json | head -1)
+          if [ -z "$modjson" ]; then echo "::error::module.json not found in Quench zip"; ls -R /tmp/quench-extract; exit 1; fi
+          modroot=$(dirname "$modjson")
+          echo "Quench module root inside zip: $modroot"
+          rm -rf "${{ github.workspace }}/fvtt-data/Data/modules/quench"
           mkdir -p "${{ github.workspace }}/fvtt-data/Data/modules/quench"
-          unzip -o /tmp/quench.zip -d "${{ github.workspace }}/fvtt-data/Data/modules/quench"
+          cp -r "$modroot"/. "${{ github.workspace }}/fvtt-data/Data/modules/quench/"
+          echo "Installed Quench files:"; ls "${{ github.workspace }}/fvtt-data/Data/modules/quench"
 
       # Fail fast with a clear message if the required Foundry secrets are
       # missing/empty (otherwise felddy aborts later with a cryptic error).
