@@ -21,6 +21,7 @@ import { filterSystemCoverage, summarizeCoverage } from "./coverage-report.mjs";
 const FOUNDRY_URL  = process.env.FOUNDRY_URL  ?? "http://localhost:30000";
 const REPORT_PATH  = process.env.QUENCH_REPORT_PATH ?? "/data/Data/quench-report.json";
 const GM_NAME      = process.env.FOUNDRY_GM_NAME ?? "Gamemaster";
+const GM_PASSWORD  = process.env.FOUNDRY_GM_PASSWORD ?? "quench"; // matches the fixture user
 const DIAG_DIR     = process.env.DIAG_DIR ?? "diag";
 const COVERAGE_OUT = process.env.COVERAGE_OUT ?? "coverage/quench-coverage.json";
 const NAV_TIMEOUT  = 120_000;
@@ -70,8 +71,10 @@ async function main() {
       throw new Error(`Join page never showed select[name='userid']. We may be on a setup/EULA/error screen — see ${DIAG_DIR}/join-no-userid.{png,html}. (${e.message})`);
     }
 
-    // Select the GM by visible label; password left blank.
+    // Select the GM by visible label and provide its password.
     await page.selectOption("select[name='userid']", { label: GM_NAME });
+    const pwField = await page.$("input[name='password']");
+    if (pwField) await pwField.fill(GM_PASSWORD).catch(() => {});
     await page.click("button[name='join'], button[type='submit']");
     console.log(`Clicked join; now at ${page.url()}`);
 
