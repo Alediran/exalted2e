@@ -215,24 +215,45 @@ async function main() {
       const reports = q?.reports ?? {};
       let total = 0, passes = 0, failures = 0, pending = 0;
       const failedTests = [];
-      let sampleShape = null;
+
+      // A single test result object → classify and count it.
+      const collectTest = (t, batch) => {
+        if (!t || typeof t !== "object") return;
+        const hasErr = t.err && (t.err.message || t.err.stack || Object.keys(t.err).length > 0);
+        const state = t.state || (hasErr ? "failed" : (t.pending ? "pending" : "passed"));
+        total++;
+        if (state === "failed") {
+          failures++;
+          failedTests.push({ title: t.fullTitle || t.title || batch, error: (t.err && t.err.message) || "" });
+        } else if (state === "pending") pending++;
+        else passes++;
+      };
+
       for (const [batch, rep] of Object.entries(reports)) {
-        if (!sampleShape && rep) sampleShape = Object.keys(rep);
-        const st = rep && rep.stats ? rep.stats : rep;
-        if (st && typeof st === "object") {
-          total    += st.tests    ?? 0;
-          passes   += st.passes   ?? 0;
-          failures += st.failures ?? 0;
-          pending  += st.pending  ?? 0;
-        }
-        for (const f of (rep?.failures ?? [])) {
-          failedTests.push({ title: f.fullTitle || f.title || batch, error: (f.err && f.err.message) || f.message || "" });
+        if (Array.isArray(rep)) {
+          // reports entry is an array of test result objects.
+          for (const t of rep) collectTest(t, batch);
+        } else if (rep && rep.stats && typeof rep.stats === "object") {
+          // reports entry is a mocha-style { stats, failures } object.
+          total    += rep.stats.tests    ?? 0;
+          passes   += rep.stats.passes   ?? 0;
+          failures += rep.stats.failures ?? 0;
+          pending  += rep.stats.pending  ?? 0;
+          for (const f of (rep.failures ?? [])) {
+            failedTests.push({ title: f.fullTitle || f.title || batch, error: (f.err && f.err.message) || f.message || "" });
+          }
+        } else if (rep && typeof rep === "object") {
+          // reports entry is an object map of test results (numeric keys, etc.).
+          for (const t of Object.values(rep)) collectTest(t, batch);
         }
       }
-      return { total, passes, failures, pending, failedTests, batchCount: Object.keys(reports).length, sampleShape };
+      return { total, passes, failures, pending, failedTests, batchCount: Object.keys(reports).length };
     }).catch(() => null);
 
-    console.log(`Quench reports: ${JSON.stringify({ batchCount: agg?.batchCount, total: agg?.total, passes: agg?.passes, failures: agg?.failures, pending: agg?.pending, sampleShape: agg?.sampleShape })}`);
+    console.log(`Quench reports: ${JSON.stringify({ batchCount: agg?.batchCount, total: agg?.total, passes: agg?.passes, failures: agg?.failures, pending: agg?.pending })}`);
+    if (agg?.failedTests?.length) {
+      console.log("Failed tests:\n" + agg.failedTests.map(t => `  ✗ ${t.title}${t.error ? ` — ${t.error}` : ""}`).join("\n"));
+    }
 
     if (agg && agg.total > 0) {
       raw = {
