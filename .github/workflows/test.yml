@@ -140,13 +140,24 @@ jobs:
 
       - name: Restart Foundry (now licensed)
         run: |
-          # Graceful stop (longer grace so Foundry releases its data-dir lock
-          # cleanly instead of being SIGKILLed mid-write), clear any stale lock
-          # left behind, then start fresh. Avoids the "directory already locked"
-          # race seen with a plain `docker restart`.
-          docker stop -t 30 foundry || true
+          # Remove the container entirely (clears any in-container-fs lock and
+          # any lingering process), purge any lock left on the volume, then run a
+          # FRESH container against the same volume — which now holds the signed
+          # license and the cached Foundry zip. A plain stop/start can hit
+          # "directory already locked" because the lock lives in the container's
+          # own filesystem, which `docker start` reuses. No download secrets are
+          # needed here: the license is already signed and the build is cached.
+          docker rm -f foundry || true
           sudo find "${{ github.workspace }}/fvtt-data" -name '*.lock' -type f -delete 2>/dev/null || true
-          docker start foundry
+          sudo chmod -R 777 "${{ github.workspace }}/fvtt-data"
+          docker run -d --name foundry \
+            -p 30000:30000 \
+            -v "${{ github.workspace }}/fvtt-data:/data" \
+            -e FOUNDRY_LICENSE_KEY="${{ secrets.FOUNDRY_LICENSE_KEY }}" \
+            -e FOUNDRY_ADMIN_KEY="${{ secrets.FOUNDRY_ADMIN_KEY }}" \
+            -e FOUNDRY_VERSION="${{ env.FOUNDRY_VERSION }}" \
+            -e FOUNDRY_WORLD="exalted2e-test" \
+            felddy/foundryvtt:release
 
       - name: Wait for Foundry (post-restart)
         run: |
