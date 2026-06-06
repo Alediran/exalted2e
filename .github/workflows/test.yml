@@ -50,7 +50,9 @@ jobs:
       # Install pinned Quench into the data dir.
       - name: Install Quench
         run: |
-          curl -L -o /tmp/quench.zip https://github.com/Ethaks/FVTT-Quench/releases/download/0.10.0/module.zip
+          # -f makes curl exit non-zero on HTTP errors (so a bad URL fails the
+          # step instead of writing an error-page stub). Tag is v-prefixed.
+          curl -fL -o /tmp/quench.zip https://github.com/Ethaks/FVTT-Quench/releases/download/v0.10.0/module.zip
           mkdir -p "${{ github.workspace }}/fvtt-data/Data/modules/quench"
           unzip -o /tmp/quench.zip -d "${{ github.workspace }}/fvtt-data/Data/modules/quench"
 
