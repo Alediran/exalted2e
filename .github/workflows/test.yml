@@ -56,6 +56,25 @@ jobs:
           mkdir -p "${{ github.workspace }}/fvtt-data/Data/modules/quench"
           unzip -o /tmp/quench.zip -d "${{ github.workspace }}/fvtt-data/Data/modules/quench"
 
+      # Fail fast with a clear message if the required Foundry secrets are
+      # missing/empty (otherwise felddy aborts later with a cryptic error).
+      - name: Check Foundry secrets
+        env:
+          FOUNDRY_USERNAME: "${{ secrets.FOUNDRY_USERNAME }}"
+          FOUNDRY_PASSWORD: "${{ secrets.FOUNDRY_PASSWORD }}"
+          FOUNDRY_LICENSE_KEY: "${{ secrets.FOUNDRY_LICENSE_KEY }}"
+          FOUNDRY_ADMIN_KEY: "${{ secrets.FOUNDRY_ADMIN_KEY }}"
+        run: |
+          missing=0
+          for v in FOUNDRY_USERNAME FOUNDRY_PASSWORD FOUNDRY_LICENSE_KEY FOUNDRY_ADMIN_KEY; do
+            if [ -z "${!v}" ]; then echo "::error::Secret $v is missing or empty"; missing=1; fi
+          done
+          if [ "$missing" = "1" ]; then
+            echo "Add the secrets in repo Settings → Secrets and variables → Actions, then re-run.";
+            exit 1;
+          fi
+          echo "All required Foundry secrets are present."
+
       # Boot Foundry headlessly via felddy, auto-launching the world.
       - name: Start Foundry
         run: |
