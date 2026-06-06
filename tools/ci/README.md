@@ -11,15 +11,29 @@ coverage over `module/**`. (This file is the committed/tracked runbook —
 - `FOUNDRY_ADMIN_KEY` — admin access key for the running instance.
 
 ## Versions
-- **Foundry: v14.** `system.json` requires Foundry v14 (compatibility min/verified/max = "14"),
-  so the fixture world's `coreVersion` is `"14"` and the workflow uses the
-  `felddy/foundryvtt:release` image (latest stable, currently v14). To pin a
-  specific build, re-add `-e FOUNDRY_VERSION="14.xxx"` to the `Start Foundry`
-  docker step and set the same value as `coreVersion` in
-  `tools/ci/fixtures/test-world/{world.json, src/users/*, src/scenes/*}`.
-- **Quench: 0.10.0**, downloaded in the `Install Quench` step. This matches the
-  locally-used version. If a Quench/v14 incompatibility surfaces on the first
-  CI run, bump this to a v14-compatible Quench release (update the URL).
+- **Foundry: v14**, pinned via the workflow `env.FOUNDRY_VERSION` (currently
+  `14.363`). `system.json` requires Foundry v14 (compatibility min/verified/max
+  = "14"); the fixture world's `coreVersion` is `"14"` (lenient — migrates up).
+- **Quench: 0.10.0**, downloaded in the `Install Quench` step (matches the
+  locally-used version).
+
+## Foundry download caching (avoids re-supplying the release URL)
+`actions/cache` persists `fvtt-data/Data/container_cache` (felddy's
+`CONTAINER_CACHE`, which holds `foundryvtt-<FOUNDRY_VERSION>.zip`) across runs,
+keyed on `foundry-${FOUNDRY_VERSION}`.
+- **First run / version bump (cache miss):** felddy needs `FOUNDRY_RELEASE_URL`
+  (or working account auth) to download the build; it then preserves the zip and
+  the cache is saved post-job.
+- **Subsequent runs (cache hit):** felddy installs from the cached zip — no
+  download, no `FOUNDRY_RELEASE_URL`, no account auth needed.
+- **To move to a newer build:** bump `env.FOUNDRY_VERSION` in the workflow and
+  supply a fresh `FOUNDRY_RELEASE_URL` once; the new version repopulates the
+  cache under the new key.
+- GitHub evicts caches after ~7 days of no use (or LRU at 10 GB), so an idle repo
+  may occasionally need the release URL again.
+
+Note: the **license signature** is host-bound and is *not* cached — the
+`Sign license` + restart steps run every time regardless of the download cache.
 
 ## How it works
 1. `npm run pack` builds compendiums (`packs/` is gitignored).

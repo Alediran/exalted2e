@@ -92,6 +92,10 @@ async function main() {
   const browser = await chromium.launch();
   const page = await browser.newPage();
   page.setDefaultTimeout(NAV_TIMEOUT);
+  // Surface client-side logs/errors in the CI output — these reveal a system
+  // init/ready exception that would otherwise just look like a game.ready hang.
+  page.on("console", m => console.log(`[browser:${m.type()}] ${m.text()}`));
+  page.on("pageerror", e => console.error(`[pageerror] ${e.message}`));
   let raw = null;
 
   try {
@@ -113,9 +117,26 @@ async function main() {
     // Select the GM by visible label; password left blank.
     await page.selectOption("select[name='userid']", { label: GM_NAME });
     await page.click("button[name='join'], button[type='submit']");
+    console.log(`Clicked join; now at ${page.url()}`);
 
-    // Wait for the game to be fully ready and Quench to be registered.
-    await page.waitForFunction(() => globalThis.game?.ready === true, null, { timeout: READY_TIMEOUT });
+    // Wait for the game to be fully ready and Quench to be registered. On
+    // timeout, probe the in-page game state so we know whether we even entered
+    // the game (vs. stuck on /join) and whether ready/quench are present.
+    try {
+      await page.waitForFunction(() => globalThis.game?.ready === true, null, { timeout: READY_TIMEOUT });
+    } catch (e) {
+      const state = await page.evaluate(() => ({
+        url: location.href,
+        hasGame: typeof globalThis.game !== "undefined",
+        ready: globalThis.game?.ready ?? null,
+        world: globalThis.game?.world?.id ?? null,
+        user: globalThis.game?.user?.name ?? null,
+        hasQuench: !!globalThis.quench,
+      })).catch(() => null);
+      console.error("game.ready timed out; in-page state:", JSON.stringify(state));
+      await dumpDiag(page, "game-not-ready");
+      throw e;
+    }
     await page.waitForFunction(() => !!globalThis.quench, null, { timeout: READY_TIMEOUT });
 
     // Ensure an active scene exists (some batches place tokens on the active scene).

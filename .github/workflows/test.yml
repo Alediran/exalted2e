@@ -4,6 +4,12 @@ on:
   push:
   pull_request:
 
+env:
+  # Foundry build to install. Pinned so the felddy download is cacheable
+  # (the cached zip is foundryvtt-<FOUNDRY_VERSION>.zip). Bump this + supply a
+  # fresh FOUNDRY_RELEASE_URL when you want a newer build.
+  FOUNDRY_VERSION: "14.363"
+
 jobs:
   vitest:
     runs-on: ubuntu-latest
@@ -40,6 +46,15 @@ jobs:
           rsync -a --exclude=fvtt-data --exclude=.git --exclude=node_modules ./ "${{ github.workspace }}/fvtt-data/Data/systems/exalted2e/"
           # World manifest
           cp tools/ci/fixtures/test-world/world.json "${{ github.workspace }}/fvtt-data/Data/worlds/exalted2e-test/world.json"
+
+      # Cache the felddy download (foundryvtt-<version>.zip) so only the first
+      # run (or a FOUNDRY_VERSION bump) needs FOUNDRY_RELEASE_URL. felddy reads
+      # and writes this dir as CONTAINER_CACHE (mounted at /data/container_cache).
+      - name: Cache Foundry download
+        uses: actions/cache@v4
+        with:
+          path: fvtt-data/Data/container_cache
+          key: foundry-${{ env.FOUNDRY_VERSION }}
 
       # Pack the committed GM user + scene JSON into the world LevelDB.
       - name: Pack world data
@@ -96,6 +111,7 @@ jobs:
             -e FOUNDRY_RELEASE_URL="${{ secrets.FOUNDRY_RELEASE_URL }}" \
             -e FOUNDRY_LICENSE_KEY="${{ secrets.FOUNDRY_LICENSE_KEY }}" \
             -e FOUNDRY_ADMIN_KEY="${{ secrets.FOUNDRY_ADMIN_KEY }}" \
+            -e FOUNDRY_VERSION="${{ env.FOUNDRY_VERSION }}" \
             -e FOUNDRY_WORLD="exalted2e-test" \
             felddy/foundryvtt:release
 
