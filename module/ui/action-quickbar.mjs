@@ -96,6 +96,41 @@ export class ActionQuickbar {
   }
 
   refresh() {
+    this._renderForState();
+    this._appendMassGuardButton();
+  }
+
+  /**
+   * GM-only Mass Guard control. Independent of whose tick it is — shown
+   * whenever a GM has a running combat. Guards the actors of all currently
+   * controlled tokens via applyMassGuard.
+   */
+  _appendMassGuardButton() {
+    if (!(game.user.isGM && game.combat?.started)) return;
+    // Every _renderForState path replaceChildren()s the root before this runs,
+    // so the button is normally absent here. Remove defensively anyway so the
+    // single-button invariant holds even if a future render path skips that.
+    this._root.querySelector(".qb-mass-guard")?.remove();
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.classList.add("qb-btn", "qb-mass-guard");
+    btn.innerHTML = `<i class="fa-solid fa-shield"></i> ${game.i18n.localize("EX2E.MassGuardButton")}`;
+    btn.addEventListener("click", async () => {
+      const controlled = canvas.tokens?.controlled ?? [];
+      if (!controlled.length) {
+        ui.notifications.warn(game.i18n.localize("EX2E.MassGuardNoSelection"));
+        return;
+      }
+      const { applyMassGuard } = await import("../combat/mass-guard.mjs");
+      await applyMassGuard(game.combat, controlled);
+      // Repaint so the active combatant's pending-action indicator reflects a
+      // Guard we may have just stamped on them.
+      this.refresh();
+    });
+    this._root.appendChild(btn);
+  }
+
+  _renderForState() {
     // The bar is permanent — it stays visible even when there's no active
     // combatant so players can reference their action list out of combat
     // and so future social/mass-combat modes have a home. Only the bar's

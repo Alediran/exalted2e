@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-06-05 (Limit Break scripted scene effects done — data-driven Virtue-Flaw break AE stamped on resolve, scene-swept. count 1 A / 2 B / 1 C / 4 active)
+Last updated: 2026-06-05 (Multi-actor mass Guard done — GM HUD button guards all selected tokens' combatants, one combined card. count 1 A / 1 B / 1 C / 3 active)
 
 ---
 
@@ -19,7 +19,6 @@ Last updated: 2026-06-05 (Limit Break scripted scene effects done — data-drive
 
 | Item | TODO Section | Key concern |
 |------|-------------|-------------|
-| Multi-actor action helpers | QoL | Cooperative keyword done; Coordinate attacks + mass Guard still pending |
 | Headless tests for remaining paths | Testing | test authoring for charm prereqs, multi-tick, sorcery |
 
 ---
@@ -47,7 +46,7 @@ Last updated: 2026-06-05 (Limit Break scripted scene effects done — data-drive
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 2 |
+| B — Ready, Medium | 1 |
 | C — Ready, Complex | 1 |
-| **Total active** | **4** |
+| **Total active** | **3** |
 | (Parked) | 1 |

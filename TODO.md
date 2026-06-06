@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 259 / 268 complete** (6 partial / out-of-scope, 4 active still pending — last updated 2026-06-05 — added Limit Break scripted scene effects (data-driven Virtue-Flaw break AE), Resplendent Destiny (all phases), crafting workshop/assistants, full Manse geomancy (Phases 1–3), Poison/Disease tracking, Shintai/Mantle audit)
+**Progress: 260 / 268 complete** (6 partial / out-of-scope, 3 active still pending — last updated 2026-06-05 — added multi-actor mass Guard (GM HUD button), Limit Break scripted scene effects (data-driven Virtue-Flaw break AE), Resplendent Destiny (all phases), crafting workshop/assistants, full Manse geomancy (Phases 1–3), Poison/Disease tracking, Shintai/Mantle audit)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -315,7 +315,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 - [x] Effect-flag registry file documenting every `flags.exalted2e.*` semantic role
 - [ ] Migration pipeline for schema changes as system evolves
 - [x] Language-drift linter (en.json ↔ es.json key parity)
-- [ ] Multi-actor action helpers (Coordinate, Cooperative charms, mass Guard)
+- [x] Multi-actor action helpers (Coordinate, Cooperative charms, mass Guard) — mass Guard added: GM HUD button guards all selected canvas tokens' combatants at once (`module/combat/mass-guard.mjs`), one combined card, skips non-combatants with a warning
 - [x] Personal/Peripheral commitment split — DialogV2 in `_preUpdate` lets players choose pool when both have motes; chosen pool stored in `flags.exalted2e.attunePool`; un-attune/delete refunds to same pool
 
 ## Testing
