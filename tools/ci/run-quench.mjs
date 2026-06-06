@@ -171,8 +171,9 @@ async function main() {
     // timeout, so race a hung run against a hard cap.
     // A cap stops a hung run, but on timeout we still capture partial results
     // below rather than aborting to 0 — so a slow/failing suite is reported.
+    let runResult = null;
     try {
-      await Promise.race([
+      runResult = await Promise.race([
         page.evaluate(async (skip) => {
           const q = globalThis.quench || globalThis.game?.quench || globalThis.game?.modules?.get("quench")?.api;
           const keys = [...(q._testBatches?.keys() ?? [])].filter(k => !skip.includes(k));
@@ -205,6 +206,21 @@ async function main() {
           // awaiting completion — so we must wait for the runner's "end" event,
           // otherwise reports/coverage are read before any test executes.
           const runner = await q.runBatches(keys.length ? keys : "**", { json: true });
+
+          // Collect failures straight from the runner's "fail" events — these
+          // fire for BOTH tests and hooks (with titles + errors), so they name
+          // failures that never appear as a tests[]/failures[] entry (e.g. an
+          // "after each" hook). Attached synchronously here, before any test
+          // runs (mocha.run schedules tests on later ticks).
+          const failedTests = [];
+          runner?.on?.("fail", (r, err) => {
+            let title = "(unknown)";
+            try { title = typeof r?.fullTitle === "function" ? r.fullTitle() : (r?.title || title); } catch { /* ignore */ }
+            let error = "";
+            try { error = (err && err.message) || String(err ?? ""); } catch { /* ignore */ }
+            failedTests.push({ title, error });
+          });
+
           // runBatches builds per-batch sub-suites whose tests keep mocha's 2000ms
           // default — setting only the root suite's timeout does NOT propagate.
           // Walk the whole tree (built synchronously by runBatches, before any
@@ -225,6 +241,15 @@ async function main() {
             // Safety net in case the "end" event fired before we attached.
             const iv = setInterval(() => { if (runner.stats?.end) { clearInterval(iv); finish(); } }, 500);
           });
+
+          const s = runner?.stats ?? {};
+          return {
+            total:    s.tests    ?? 0,
+            passes:   s.passes   ?? 0,
+            failures: s.failures ?? failedTests.length,
+            pending:  s.pending  ?? 0,
+            failedTests,
+          };
         }, SKIP_BATCHES),
         new Promise((_, reject) =>
           setTimeout(() => reject(new Error(`Quench batches exceeded ${BATCH_TIMEOUT}ms`)), BATCH_TIMEOUT)),
@@ -244,65 +269,23 @@ async function main() {
       console.log("Uncovered (worst-first):\n" + covSummary.uncovered.slice(0, 20).map(u => `  ${u}`).join("\n"));
     }
 
-    // Capture results directly from quench.reports in-page (robust against the
-    // FilePicker.upload of quench-report.json failing in headless). Aggregate
-    // defensively across whatever shape each batch report has.
-    const agg = await page.evaluate(() => {
-      const q = globalThis.quench || globalThis.game?.quench || globalThis.game?.modules?.get("quench")?.api;
-      const reports = q?.reports ?? {};
-      let total = 0, passes = 0, failures = 0, pending = 0;
-      const failedTests = [];
-
-      // A single test result object → classify and count it.
-      const collectTest = (t, batch) => {
-        if (!t || typeof t !== "object") return;
-        const hasErr = t.err && (t.err.message || t.err.stack || Object.keys(t.err).length > 0);
-        const state = t.state || (hasErr ? "failed" : (t.pending ? "pending" : "passed"));
-        total++;
-        if (state === "failed") {
-          failures++;
-          failedTests.push({ title: t.fullTitle || t.title || batch, error: (t.err && t.err.message) || "" });
-        } else if (state === "pending") pending++;
-        else passes++;
-      };
-
-      for (const [batch, rep] of Object.entries(reports)) {
-        if (Array.isArray(rep)) {
-          // reports entry is an array of test result objects.
-          for (const t of rep) collectTest(t, batch);
-        } else if (rep && rep.stats && typeof rep.stats === "object") {
-          // reports entry is a mocha-style { stats, failures } object.
-          total    += rep.stats.tests    ?? 0;
-          passes   += rep.stats.passes   ?? 0;
-          failures += rep.stats.failures ?? 0;
-          pending  += rep.stats.pending  ?? 0;
-          for (const f of (rep.failures ?? [])) {
-            failedTests.push({ title: f.fullTitle || f.title || batch, error: (f.err && f.err.message) || f.message || "" });
-          }
-        } else if (rep && typeof rep === "object") {
-          // reports entry is an object map of test results (numeric keys, etc.).
-          for (const t of Object.values(rep)) collectTest(t, batch);
-        }
-      }
-      return { total, passes, failures, pending, failedTests, batchCount: Object.keys(reports).length };
-    }).catch(() => null);
-
-    console.log(`Quench reports: ${JSON.stringify({ batchCount: agg?.batchCount, total: agg?.total, passes: agg?.passes, failures: agg?.failures, pending: agg?.pending })}`);
-    if (agg?.failedTests?.length) {
-      console.log("Failed tests:\n" + agg.failedTests.map(t => `  ✗ ${t.title}${t.error ? ` — ${t.error}` : ""}`).join("\n"));
+    // Results come straight from the mocha runner (stats + "fail" events). This
+    // is authoritative and shape-independent — it names hook failures too.
+    console.log(`Quench results: ${JSON.stringify({ total: runResult?.total, passes: runResult?.passes, failures: runResult?.failures, pending: runResult?.pending })}`);
+    if (runResult?.failedTests?.length) {
+      console.log("Failed:\n" + runResult.failedTests.map(t => `  ✗ ${t.title}${t.error ? ` — ${t.error}` : ""}`).join("\n"));
     }
 
-    if (agg && agg.total > 0) {
+    if (runResult && runResult.total > 0) {
       raw = {
-        stats: { tests: agg.total, passes: agg.passes, failures: agg.failures, pending: agg.pending },
-        failures: agg.failedTests.map(t => ({ fullTitle: t.title, err: { message: t.error } })),
+        stats: { tests: runResult.total, passes: runResult.passes, failures: runResult.failures, pending: runResult.pending },
+        failures: (runResult.failedTests ?? []).map(t => ({ fullTitle: t.title, err: { message: t.error } })),
       };
     } else {
-      // Fall back to the server-written report file.
+      // Fall back to the server-written report file (e.g. if the run timed out).
       try { raw = JSON.parse(await readFile(REPORT_PATH, "utf8")); }
       catch (e) {
-        console.error(`Quench report unreadable at ${REPORT_PATH} (${e.message}) and quench.reports had no tests. ` +
-          `See the 'Quench reports' sampleShape above; Foundry/Quench may not have produced results.`);
+        console.error(`No runner stats and Quench report unreadable at ${REPORT_PATH} (${e.message}).`);
       }
     }
   } catch (err) {
