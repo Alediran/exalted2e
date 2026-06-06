@@ -137,16 +137,26 @@ async function main() {
       }
     });
 
+    // Render Quench's app first so its reporter has a DOM element (otherwise the
+    // run hits "Cannot read properties of undefined (reading 'querySelector')").
+    await page.evaluate(async () => {
+      const q = globalThis.quench || globalThis.game?.quench || globalThis.game?.modules?.get("quench")?.api;
+      try { if (q?.app?.render) await q.app.render(true); } catch { /* non-fatal */ }
+    }).catch(() => {});
+    await page.waitForTimeout(1000);
+
     // Collect V8 coverage across the batch run.
     await page.coverage.startJSCoverage({ resetOnNavigation: false });
 
-    // Run every batch; { json: true } writes Data/quench-report.json on the server.
-    // page.evaluate has no implicit timeout, so a hung batch would otherwise stall
-    // CI until the job-level timeout. Race it against a hard cap.
+    // Run every registered batch by explicit key — the "**" glob matched none of
+    // the dotted batch ids (e.g. "exalted2e.knockback.focused"). { json: true }
+    // writes Data/quench-report.json on the server. page.evaluate has no implicit
+    // timeout, so race a hung run against a hard cap.
     await Promise.race([
       page.evaluate(async () => {
         const q = globalThis.quench || globalThis.game?.quench || globalThis.game?.modules?.get("quench")?.api;
-        await q.runBatches("**", { json: true });
+        const keys = [...(q._testBatches?.keys() ?? [])];
+        await q.runBatches(keys.length ? keys : "**", { json: true });
       }),
       new Promise((_, reject) =>
         setTimeout(() => reject(new Error(`Quench batches exceeded ${BATCH_TIMEOUT}ms`)), BATCH_TIMEOUT)),
