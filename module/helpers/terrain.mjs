@@ -18,7 +18,7 @@ export function getTerrainBonuses(attackerActor, defenderActor) {
 
   for (const regionDoc of canvas.scene.regions) {
     const behavior = [...regionDoc.behaviors].find(
-      b => b.type === "ex2e.terrainModifier" && !b.disabled
+      b => b.type === "terrainModifier" && !b.disabled
     );
     if (!behavior) continue;
 

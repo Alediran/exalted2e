@@ -260,8 +260,8 @@ Hooks.once("init", function () {
   };
 
   // ── Region Behavior Types ────────────────────────────────────────────────
-  CONFIG.RegionBehavior.dataModels["ex2e.hazardDamage"]     = HazardDamageBehaviorType;
-  CONFIG.RegionBehavior.dataModels["ex2e.terrainModifier"] = TerrainModifierBehaviorType;
+  CONFIG.RegionBehavior.dataModels["hazardDamage"]     = HazardDamageBehaviorType;
+  CONFIG.RegionBehavior.dataModels["terrainModifier"] = TerrainModifierBehaviorType;
 
   // ── Sheet Registration ──────────────────────────────────────────────────
   foundry.documents.collections.Actors.unregisterSheet("core", foundry.appv1.sheets.ActorSheet);
@@ -4803,7 +4803,7 @@ Hooks.on("preCreateRegion", (regionDoc, _data, _options, _userId) => {
     _pendingHazard = null;
 
     const behaviors = [
-      { type: "ex2e.hazardDamage", system: {
+      { type: "hazardDamage", system: {
           damagePool:       config.damagePool,
           traumaType:       config.traumaType,
           resistDifficulty: config.resistDifficulty,
@@ -4826,7 +4826,7 @@ Hooks.on("preCreateRegion", (regionDoc, _data, _options, _userId) => {
       name:  config.label || game.i18n.localize("EX2E.TerrainModifier"),
       color: "#0066FF",
       behaviors: [
-        { type: "ex2e.terrainModifier", system: {
+        { type: "terrainModifier", system: {
             terrainType:   config.terrainType,
             label:         config.label,
             accuracyBonus: config.accuracyBonus,
