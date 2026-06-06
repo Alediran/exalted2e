@@ -96,7 +96,26 @@ async function main() {
       await dumpDiag(page, "game-not-ready");
       throw e;
     }
-    await page.waitForFunction(() => !!globalThis.quench, null, { timeout: READY_TIMEOUT });
+    // Wait for Quench's API to be available. Resolve it from any of the places
+    // a module may expose it: a global, game.quench, or the module's `api`.
+    try {
+      await page.waitForFunction(() => {
+        const g = globalThis;
+        return !!(g.quench || g.game?.quench || g.game?.modules?.get("quench")?.api);
+      }, null, { timeout: READY_TIMEOUT });
+    } catch (e) {
+      const qstate = await page.evaluate(() => ({
+        moduleInstalled: !!globalThis.game?.modules?.get("quench"),
+        moduleActive:    globalThis.game?.modules?.get("quench")?.active ?? null,
+        hasGlobalQuench: typeof globalThis.quench !== "undefined",
+        hasGameQuench:   typeof globalThis.game?.quench !== "undefined",
+        hasModuleApi:    !!globalThis.game?.modules?.get("quench")?.api,
+        activeModules:   [...(globalThis.game?.modules ?? [])].filter(m => m.active).map(m => m.id),
+      })).catch(() => null);
+      console.error("quench API not found; state:", JSON.stringify(qstate));
+      await dumpDiag(page, "no-quench");
+      throw e;
+    }
 
     // Ensure an active scene exists (some batches place tokens on the active scene).
     await page.evaluate(async () => {
@@ -113,7 +132,10 @@ async function main() {
     // page.evaluate has no implicit timeout, so a hung batch would otherwise stall
     // CI until the job-level timeout. Race it against a hard cap.
     await Promise.race([
-      page.evaluate(async () => { await globalThis.quench.runBatches("**", { json: true }); }),
+      page.evaluate(async () => {
+        const q = globalThis.quench || globalThis.game?.quench || globalThis.game?.modules?.get("quench")?.api;
+        await q.runBatches("**", { json: true });
+      }),
       new Promise((_, reject) =>
         setTimeout(() => reject(new Error(`Quench batches exceeded ${BATCH_TIMEOUT}ms`)), BATCH_TIMEOUT)),
     ]);

@@ -59,8 +59,11 @@ jobs:
       # Pack the committed GM user + scene JSON into the world LevelDB.
       - name: Pack world data
         run: |
-          npx fvtt package pack -n users  --in tools/ci/fixtures/test-world/src/users  --out "${{ github.workspace }}/fvtt-data/Data/worlds/exalted2e-test/data"
-          npx fvtt package pack -n scenes --in tools/ci/fixtures/test-world/src/scenes --out "${{ github.workspace }}/fvtt-data/Data/worlds/exalted2e-test/data"
+          npx fvtt package pack -n users    --in tools/ci/fixtures/test-world/src/users    --out "${{ github.workspace }}/fvtt-data/Data/worlds/exalted2e-test/data"
+          npx fvtt package pack -n scenes   --in tools/ci/fixtures/test-world/src/scenes   --out "${{ github.workspace }}/fvtt-data/Data/worlds/exalted2e-test/data"
+          # Activate Quench via the core.moduleConfiguration world setting (the
+          # world.json modules array does not reliably enable modules in v14).
+          npx fvtt package pack -n settings --in tools/ci/fixtures/test-world/src/settings --out "${{ github.workspace }}/fvtt-data/Data/worlds/exalted2e-test/data"
 
       # Install pinned Quench into the data dir.
       - name: Install Quench
