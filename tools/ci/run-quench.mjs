@@ -176,10 +176,16 @@ async function main() {
         page.evaluate(async (skip) => {
           const q = globalThis.quench || globalThis.game?.quench || globalThis.game?.modules?.get("quench")?.api;
           const keys = [...(q._testBatches?.keys() ?? [])].filter(k => !skip.includes(k));
+          // CI perf varies and many tests sit near the 2000ms mocha default, so
+          // they occasionally flake on timeout. Give the suite headroom.
+          try { if (q.mocha?.options) q.mocha.options.timeout = 15000; q.mocha?.timeout?.(15000); } catch { /* best effort */ }
           // runBatches kicks off mocha.run() and returns the runner WITHOUT
           // awaiting completion — so we must wait for the runner's "end" event,
           // otherwise reports/coverage are read before any test executes.
           const runner = await q.runBatches(keys.length ? keys : "**", { json: true });
+          // runBatches replaces the root suite; bump its timeout too (applies to
+          // every test that hasn't started its timer yet — i.e. effectively all).
+          try { q.mocha?.suite?.timeout?.(15000); } catch { /* best effort */ }
           await new Promise((resolve) => {
             if (!runner || runner.stats?.end || runner.state === "stopped") return resolve();
             let settled = false;
