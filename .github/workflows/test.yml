@@ -148,12 +148,13 @@ jobs:
           # own filesystem, which `docker start` reuses. No download secrets are
           # needed here: the license is already signed and the build is cached.
           docker rm -f foundry || true
-          # The stale lock lives on the volume. Foundry/LevelDB lock files are
-          # typically named LOCK (uppercase) or .lock — match case-insensitively
-          # and print them first so we can see exactly what's being cleared.
-          echo "Lock-like files on the volume:"
-          sudo find "${{ github.workspace }}/fvtt-data" -iname '*lock*' -print 2>/dev/null || true
-          sudo find "${{ github.workspace }}/fvtt-data" -iname '*lock*' -type f -delete 2>/dev/null || true
+          # Clear stale locks left on the volume by the force-killed first boot.
+          # Foundry's options lock (proper-lockfile) is a DIRECTORY, so it needs
+          # rm -rf — a `find -type f` skips it (the bug that left it behind).
+          # LevelDB databases each leave a file named exactly LOCK.
+          echo "Clearing stale Foundry + LevelDB locks…"
+          sudo rm -rf "${{ github.workspace }}/fvtt-data/Config/options.json.lock"
+          sudo find "${{ github.workspace }}/fvtt-data" -name 'LOCK' -delete 2>/dev/null || true
           sudo chmod -R 777 "${{ github.workspace }}/fvtt-data"
           docker run -d --name foundry \
             -p 30000:30000 \
