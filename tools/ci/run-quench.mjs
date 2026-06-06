@@ -205,9 +205,18 @@ async function main() {
           // awaiting completion — so we must wait for the runner's "end" event,
           // otherwise reports/coverage are read before any test executes.
           const runner = await q.runBatches(keys.length ? keys : "**", { json: true });
-          // runBatches replaces the root suite; bump its timeout too (applies to
-          // every test that hasn't started its timer yet — i.e. effectively all).
-          try { q.mocha?.suite?.timeout?.(15000); } catch { /* best effort */ }
+          // runBatches builds per-batch sub-suites whose tests keep mocha's 2000ms
+          // default — setting only the root suite's timeout does NOT propagate.
+          // Walk the whole tree (built synchronously by runBatches, before any
+          // test executes) and force a generous timeout on every suite AND test.
+          try {
+            const bump = (s) => {
+              try { s.timeout?.(15000); } catch { /* ignore */ }
+              for (const t of (s.tests ?? [])) { try { t.timeout?.(15000); } catch { /* ignore */ } }
+              for (const c of (s.suites ?? [])) bump(c);
+            };
+            bump(q.mocha.suite);
+          } catch { /* best effort */ }
           await new Promise((resolve) => {
             if (!runner || runner.stats?.end || runner.state === "stopped") return resolve();
             let settled = false;
