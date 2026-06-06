@@ -173,11 +173,45 @@ async function main() {
       console.log("Uncovered (worst-first):\n" + covSummary.uncovered.slice(0, 20).map(u => `  ${u}`).join("\n"));
     }
 
-    // Read the server-written report from the mounted Data path.
-    try { raw = JSON.parse(await readFile(REPORT_PATH, "utf8")); }
-    catch (e) {
-      console.error(`CRITICAL: Quench report unreadable at ${REPORT_PATH} (${e.message}). ` +
-        `Foundry likely failed to write it — check container logs.`);
+    // Capture results directly from quench.reports in-page (robust against the
+    // FilePicker.upload of quench-report.json failing in headless). Aggregate
+    // defensively across whatever shape each batch report has.
+    const agg = await page.evaluate(() => {
+      const q = globalThis.quench || globalThis.game?.quench || globalThis.game?.modules?.get("quench")?.api;
+      const reports = q?.reports ?? {};
+      let total = 0, passes = 0, failures = 0, pending = 0;
+      const failedTests = [];
+      let sampleShape = null;
+      for (const [batch, rep] of Object.entries(reports)) {
+        if (!sampleShape && rep) sampleShape = Object.keys(rep);
+        const st = rep && rep.stats ? rep.stats : rep;
+        if (st && typeof st === "object") {
+          total    += st.tests    ?? 0;
+          passes   += st.passes   ?? 0;
+          failures += st.failures ?? 0;
+          pending  += st.pending  ?? 0;
+        }
+        for (const f of (rep?.failures ?? [])) {
+          failedTests.push({ title: f.fullTitle || f.title || batch, error: (f.err && f.err.message) || f.message || "" });
+        }
+      }
+      return { total, passes, failures, pending, failedTests, batchCount: Object.keys(reports).length, sampleShape };
+    }).catch(() => null);
+
+    console.log(`Quench reports: ${JSON.stringify({ batchCount: agg?.batchCount, total: agg?.total, passes: agg?.passes, failures: agg?.failures, pending: agg?.pending, sampleShape: agg?.sampleShape })}`);
+
+    if (agg && agg.total > 0) {
+      raw = {
+        stats: { tests: agg.total, passes: agg.passes, failures: agg.failures, pending: agg.pending },
+        failures: agg.failedTests.map(t => ({ fullTitle: t.title, err: { message: t.error } })),
+      };
+    } else {
+      // Fall back to the server-written report file.
+      try { raw = JSON.parse(await readFile(REPORT_PATH, "utf8")); }
+      catch (e) {
+        console.error(`Quench report unreadable at ${REPORT_PATH} (${e.message}) and quench.reports had no tests. ` +
+          `See the 'Quench reports' sampleShape above; Foundry/Quench may not have produced results.`);
+      }
     }
   } catch (err) {
     console.error(err);
