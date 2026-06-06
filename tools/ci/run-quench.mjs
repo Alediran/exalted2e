@@ -229,6 +229,11 @@ async function main() {
             const bump = (s) => {
               try { s.timeout?.(15000); } catch { /* ignore */ }
               for (const t of (s.tests ?? [])) { try { t.timeout?.(15000); } catch { /* ignore */ } }
+              // Hooks aren't in s.tests — they live in these arrays and keep the
+              // 2000ms default otherwise (an afterEach was the timeout culprit).
+              for (const arr of [s._beforeAll, s._afterAll, s._beforeEach, s._afterEach]) {
+                for (const h of (arr ?? [])) { try { h.timeout?.(15000); } catch { /* ignore */ } }
+              }
               for (const c of (s.suites ?? [])) bump(c);
             };
             bump(q.mocha.suite);

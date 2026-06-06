@@ -286,10 +286,8 @@ export function registerCharmTreeDialogIntegration(context) {
       assert.equal(groupSelect?.value, 'archery', 'group select has value "archery"');
     });
 
-    // TEMP (CI diagnostic): commented out to confirm whether this skipped test
-    // is the phantom "1 failed" in the headless runner. Restore after verifying.
-    // it('source toggle: requires world charm pack setup', async function () {
-    //   this.skip();
-    // });
+    it('source toggle: requires world charm pack setup', async function () {
+      this.skip();
+    });
   });
 }
