@@ -123,7 +123,14 @@ jobs:
           node tools/ci/sign-license.mjs
 
       - name: Restart Foundry (now licensed)
-        run: docker restart foundry
+        run: |
+          # Graceful stop (longer grace so Foundry releases its data-dir lock
+          # cleanly instead of being SIGKILLed mid-write), clear any stale lock
+          # left behind, then start fresh. Avoids the "directory already locked"
+          # race seen with a plain `docker restart`.
+          docker stop -t 30 foundry || true
+          sudo find "${{ github.workspace }}/fvtt-data" -name '*.lock' -type f -delete 2>/dev/null || true
+          docker start foundry
 
       - name: Wait for Foundry (post-restart)
         run: |
