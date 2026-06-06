@@ -1,0 +1,15 @@
+{
+  "_id": "ciQuenchScene0001",
+  "_key": "!scenes!ciQuenchScene0001",
+  "name": "Quench Fixture",
+  "active": true,
+  "navigation": true,
+  "width": 4000,
+  "height": 3000,
+  "grid": { "type": 1, "size": 100 },
+  "padding": 0.25,
+  "initial": null,
+  "backgroundColor": "#999999",
+  "flags": {},
+  "_stats": { "coreVersion": "14", "systemId": "exalted2e", "systemVersion": "1.0.0" }
+}

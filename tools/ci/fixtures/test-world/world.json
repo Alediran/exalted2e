@@ -1,0 +1,12 @@
+{
+  "id": "exalted2e-test",
+  "title": "Exalted 2e — Quench CI",
+  "system": "exalted2e",
+  "coreVersion": "14",
+  "systemVersion": "1.0.0",
+  "background": "",
+  "modules": [
+    { "id": "quench", "active": true }
+  ],
+  "description": "Headless CI world for running the Quench suite. Do not edit by hand."
+}

@@ -1,6 +1,6 @@
 # TODO — Exalted 2nd Edition Foundry VTT System
 
-**Progress: 260 / 268 complete** (6 partial / out-of-scope, 3 active still pending — last updated 2026-06-05 — added multi-actor mass Guard (GM HUD button), Limit Break scripted scene effects (data-driven Virtue-Flaw break AE), Resplendent Destiny (all phases), crafting workshop/assistants, full Manse geomancy (Phases 1–3), Poison/Disease tracking, Shintai/Mantle audit)
+**Progress: 261 / 268 complete** (6 partial / out-of-scope, 2 active still pending — last updated 2026-06-05 — added headless Quench runner in CI (Group B done), multi-actor mass Guard (GM HUD button), Limit Break scripted scene effects (data-driven Virtue-Flaw break AE), Resplendent Destiny (all phases), crafting workshop/assistants, full Manse geomancy (Phases 1–3), Poison/Disease tracking, Shintai/Mantle audit)
 
 Pending features based on Exalted 2nd Edition core rules + errata + Ink Monkeys + per-splat Manuals.
 See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targets and [docs/gap-analysis.md](docs/gap-analysis.md) for architectural notes.
@@ -321,7 +321,7 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
 ## Testing
 - [x] Vitest suite (pure-logic helpers, math modules, prepareDerivedData)
 - [x] Quench integration tests (in-Foundry: attack pipeline, social combat, stunt rewards, purchase/attunement)
-- [ ] Headless tests for remaining paths: charm prerequisite edge cases, multi-tick state machine, sorcery interruption
+- [x] Headless tests for remaining paths — implemented as a **headless Quench runner in CI**: GitHub Actions boots Foundry (felddy Docker) with a committed `exalted2e-test` world + Quench, Playwright runs all batches and gates CI, with a V8 coverage report over `module/**`. Pure parser/summarizer (`tools/ci/*.mjs`) unit-tested; infra validated by CI iteration (needs Foundry secrets). See `tools/ci/README.md`. (Charm-prereq/multi-tick/sorcery pure paths already had Vitest coverage.)
 
 ## Documentation (internal)
 - [x] docs/sysref-index.md — catalog of every PDF + topic lookup

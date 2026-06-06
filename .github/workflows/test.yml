@@ -1,0 +1,108 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  vitest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm ci
+      - run: npm test
+
+  quench:
+    runs-on: ubuntu-latest
+    needs: vitest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm ci
+
+      # Build system compendiums (packs/ is gitignored).
+      - run: npm run pack
+
+      # Pin the Foundry data dir used by both felddy and the runner.
+      - name: Prepare Foundry data dir
+        run: |
+          mkdir -p "${{ github.workspace }}/fvtt-data/Data/systems"
+          mkdir -p "${{ github.workspace }}/fvtt-data/Data/worlds/exalted2e-test"
+          mkdir -p "${{ github.workspace }}/fvtt-data/Data/modules"
+          # System (with freshly built packs). rsync excludes the data dir itself
+          # (it lives inside the workspace), plus VCS/build junk, to avoid a
+          # recursive self-copy.
+          rsync -a --exclude=fvtt-data --exclude=.git --exclude=node_modules ./ "${{ github.workspace }}/fvtt-data/Data/systems/exalted2e/"
+          # World manifest
+          cp tools/ci/fixtures/test-world/world.json "${{ github.workspace }}/fvtt-data/Data/worlds/exalted2e-test/world.json"
+
+      # Pack the committed GM user + scene JSON into the world LevelDB.
+      - name: Pack world data
+        run: |
+          npx fvtt package pack -n users  --in tools/ci/fixtures/test-world/src/users  --out "${{ github.workspace }}/fvtt-data/Data/worlds/exalted2e-test/data"
+          npx fvtt package pack -n scenes --in tools/ci/fixtures/test-world/src/scenes --out "${{ github.workspace }}/fvtt-data/Data/worlds/exalted2e-test/data"
+
+      # Install pinned Quench into the data dir.
+      - name: Install Quench
+        run: |
+          curl -L -o /tmp/quench.zip https://github.com/Ethaks/FVTT-Quench/releases/download/0.10.0/module.zip
+          mkdir -p "${{ github.workspace }}/fvtt-data/Data/modules/quench"
+          unzip -o /tmp/quench.zip -d "${{ github.workspace }}/fvtt-data/Data/modules/quench"
+
+      # Boot Foundry headlessly via felddy, auto-launching the world.
+      - name: Start Foundry
+        run: |
+          docker run -d --name foundry \
+            -p 30000:30000 \
+            -v "${{ github.workspace }}/fvtt-data:/data" \
+            -e FOUNDRY_USERNAME="${{ secrets.FOUNDRY_USERNAME }}" \
+            -e FOUNDRY_PASSWORD="${{ secrets.FOUNDRY_PASSWORD }}" \
+            -e FOUNDRY_LICENSE_KEY="${{ secrets.FOUNDRY_LICENSE_KEY }}" \
+            -e FOUNDRY_ADMIN_KEY="${{ secrets.FOUNDRY_ADMIN_KEY }}" \
+            -e FOUNDRY_WORLD="exalted2e-test" \
+            felddy/foundryvtt:release
+
+      - name: Wait for Foundry
+        run: |
+          for i in $(seq 1 60); do
+            if curl -sf http://localhost:30000 >/dev/null; then echo "Foundry is up"; exit 0; fi
+            sleep 3
+          done
+          echo "Foundry did not become ready in time"; docker logs foundry || true; exit 1
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run Quench
+        env:
+          FOUNDRY_URL: "http://localhost:30000"
+          QUENCH_REPORT_PATH: "${{ github.workspace }}/fvtt-data/Data/quench-report.json"
+          COVERAGE_OUT: "coverage/quench-coverage.json"
+        run: |
+          mkdir -p coverage
+          npm run test:quench
+
+      - name: Upload Quench report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quench-report
+          path: fvtt-data/Data/quench-report.json
+          if-no-files-found: ignore
+
+      - name: Upload coverage
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quench-coverage
+          path: coverage/quench-coverage.json
+          if-no-files-found: ignore
+
+      - name: Foundry logs (on failure)
+        if: failure()
+        run: docker logs foundry || true

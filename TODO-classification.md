@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-06-05 (Multi-actor mass Guard done — GM HUD button guards all selected tokens' combatants, one combined card. count 1 A / 1 B / 1 C / 3 active)
+Last updated: 2026-06-05 (Headless Quench runner in CI done — Group B cleared. felddy+Playwright runs the Quench suite, V8 coverage report. count 1 A / 0 B / 1 C / 2 active)
 
 ---
 
@@ -17,9 +17,7 @@ Last updated: 2026-06-05 (Multi-actor mass Guard done — GM HUD button guards a
 ## Group B — Ready, Medium
 *Multi-file, all dependencies present, needs some design.*
 
-| Item | TODO Section | Key concern |
-|------|-------------|-------------|
-| Headless tests for remaining paths | Testing | test authoring for charm prereqs, multi-tick, sorcery |
+*(none — all Group B items complete)*
 
 ---
 
@@ -46,7 +44,7 @@ Last updated: 2026-06-05 (Multi-actor mass Guard done — GM HUD button guards a
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 1 |
+| B — Ready, Medium | 0 |
 | C — Ready, Complex | 1 |
-| **Total active** | **3** |
+| **Total active** | **2** |
 | (Parked) | 1 |
