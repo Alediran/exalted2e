@@ -5,6 +5,7 @@
   "coreVersion": "14",
   "systemVersion": "1.0.0",
   "background": "",
+  "resetKeys": true,
   "modules": [
     { "id": "quench", "active": true }
   ],

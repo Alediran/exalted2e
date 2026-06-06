@@ -21,7 +21,7 @@ import { filterSystemCoverage, summarizeCoverage } from "./coverage-report.mjs";
 const FOUNDRY_URL  = process.env.FOUNDRY_URL  ?? "http://localhost:30000";
 const REPORT_PATH  = process.env.QUENCH_REPORT_PATH ?? "/data/Data/quench-report.json";
 const GM_NAME      = process.env.FOUNDRY_GM_NAME ?? "Gamemaster";
-const GM_PASSWORD  = process.env.FOUNDRY_GM_PASSWORD ?? "quench"; // matches the fixture user
+const GM_PASSWORD  = process.env.FOUNDRY_GM_PASSWORD ?? ""; // world.json resetKeys clears the GM password on launch
 const DIAG_DIR     = process.env.DIAG_DIR ?? "diag";
 const COVERAGE_OUT = process.env.COVERAGE_OUT ?? "coverage/quench-coverage.json";
 const NAV_TIMEOUT  = 120_000;
