@@ -148,7 +148,12 @@ jobs:
           # own filesystem, which `docker start` reuses. No download secrets are
           # needed here: the license is already signed and the build is cached.
           docker rm -f foundry || true
-          sudo find "${{ github.workspace }}/fvtt-data" -name '*.lock' -type f -delete 2>/dev/null || true
+          # The stale lock lives on the volume. Foundry/LevelDB lock files are
+          # typically named LOCK (uppercase) or .lock — match case-insensitively
+          # and print them first so we can see exactly what's being cleared.
+          echo "Lock-like files on the volume:"
+          sudo find "${{ github.workspace }}/fvtt-data" -iname '*lock*' -print 2>/dev/null || true
+          sudo find "${{ github.workspace }}/fvtt-data" -iname '*lock*' -type f -delete 2>/dev/null || true
           sudo chmod -R 777 "${{ github.workspace }}/fvtt-data"
           docker run -d --name foundry \
             -p 30000:30000 \
