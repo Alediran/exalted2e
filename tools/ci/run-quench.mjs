@@ -45,7 +45,18 @@ async function dumpDiag(page, tag) {
 
 async function main() {
   await mkdir(DIAG_DIR, { recursive: true }).catch(() => {});
-  const browser = await chromium.launch();
+  // Use SwiftShader for WebGL. Without it, headless Chromium falls back to a
+  // very slow software path that pegs the CPU rendering Foundry's PIXI canvas,
+  // starving the socket so document CRUD times out (every test hits the 2000ms
+  // mocha timeout). SwiftShader keeps the canvas cheap so tests run normally.
+  const browser = await chromium.launch({
+    args: [
+      "--use-gl=angle",
+      "--use-angle=swiftshader",
+      "--enable-unsafe-swiftshader",
+      "--no-sandbox",
+    ],
+  });
   // Foundry needs a viewport >= 1366x768 or it warns and disables features.
   const page = await browser.newPage({ viewport: { width: 1920, height: 1080 } });
   page.setDefaultTimeout(NAV_TIMEOUT);
@@ -152,28 +163,34 @@ async function main() {
     // the dotted batch ids (e.g. "exalted2e.knockback.focused"). { json: true }
     // writes Data/quench-report.json on the server. page.evaluate has no implicit
     // timeout, so race a hung run against a hard cap.
-    await Promise.race([
-      page.evaluate(async () => {
-        const q = globalThis.quench || globalThis.game?.quench || globalThis.game?.modules?.get("quench")?.api;
-        const keys = [...(q._testBatches?.keys() ?? [])];
-        // runBatches kicks off mocha.run() and returns the runner WITHOUT
-        // awaiting completion — so we must wait for the runner's "end" event,
-        // otherwise reports/coverage are read before any test executes.
-        const runner = await q.runBatches(keys.length ? keys : "**", { json: true });
-        await new Promise((resolve) => {
-          if (!runner || runner.stats?.end || runner.state === "stopped") return resolve();
-          let settled = false;
-          const finish = () => { if (!settled) { settled = true; resolve(); } };
-          runner.once?.("end", finish);
-          // Safety net in case the "end" event fired before we attached.
-          const iv = setInterval(() => { if (runner.stats?.end) { clearInterval(iv); finish(); } }, 500);
-        });
-      }),
-      new Promise((_, reject) =>
-        setTimeout(() => reject(new Error(`Quench batches exceeded ${BATCH_TIMEOUT}ms`)), BATCH_TIMEOUT)),
-    ]);
+    // A cap stops a hung run, but on timeout we still capture partial results
+    // below rather than aborting to 0 — so a slow/failing suite is reported.
+    try {
+      await Promise.race([
+        page.evaluate(async () => {
+          const q = globalThis.quench || globalThis.game?.quench || globalThis.game?.modules?.get("quench")?.api;
+          const keys = [...(q._testBatches?.keys() ?? [])];
+          // runBatches kicks off mocha.run() and returns the runner WITHOUT
+          // awaiting completion — so we must wait for the runner's "end" event,
+          // otherwise reports/coverage are read before any test executes.
+          const runner = await q.runBatches(keys.length ? keys : "**", { json: true });
+          await new Promise((resolve) => {
+            if (!runner || runner.stats?.end || runner.state === "stopped") return resolve();
+            let settled = false;
+            const finish = () => { if (!settled) { settled = true; resolve(); } };
+            runner.once?.("end", finish);
+            // Safety net in case the "end" event fired before we attached.
+            const iv = setInterval(() => { if (runner.stats?.end) { clearInterval(iv); finish(); } }, 500);
+          });
+        }),
+        new Promise((_, reject) =>
+          setTimeout(() => reject(new Error(`Quench batches exceeded ${BATCH_TIMEOUT}ms`)), BATCH_TIMEOUT)),
+      ]);
+    } catch (e) {
+      console.error(`Quench run did not finish cleanly: ${e.message} — capturing partial results.`);
+    }
 
-    const cov = await page.coverage.stopJSCoverage();
+    const cov = await page.coverage.stopJSCoverage().catch(() => []);
 
     // Summarize coverage over the system modules and write a JSON summary.
     const systemCov = filterSystemCoverage(cov);
