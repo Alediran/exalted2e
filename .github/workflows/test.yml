@@ -59,6 +59,9 @@ jobs:
       # Boot Foundry headlessly via felddy, auto-launching the world.
       - name: Start Foundry
         run: |
+          # felddy runs as uid:gid 1000:1000; the mounted dir is owned by the
+          # runner user, so make it writable by the container before booting.
+          sudo chmod -R 777 "${{ github.workspace }}/fvtt-data"
           docker run -d --name foundry \
             -p 30000:30000 \
             -v "${{ github.workspace }}/fvtt-data:/data" \
