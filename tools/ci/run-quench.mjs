@@ -156,7 +156,18 @@ async function main() {
       page.evaluate(async () => {
         const q = globalThis.quench || globalThis.game?.quench || globalThis.game?.modules?.get("quench")?.api;
         const keys = [...(q._testBatches?.keys() ?? [])];
-        await q.runBatches(keys.length ? keys : "**", { json: true });
+        // runBatches kicks off mocha.run() and returns the runner WITHOUT
+        // awaiting completion — so we must wait for the runner's "end" event,
+        // otherwise reports/coverage are read before any test executes.
+        const runner = await q.runBatches(keys.length ? keys : "**", { json: true });
+        await new Promise((resolve) => {
+          if (!runner || runner.stats?.end || runner.state === "stopped") return resolve();
+          let settled = false;
+          const finish = () => { if (!settled) { settled = true; resolve(); } };
+          runner.once?.("end", finish);
+          // Safety net in case the "end" event fired before we attached.
+          const iv = setInterval(() => { if (runner.stats?.end) { clearInterval(iv); finish(); } }, 500);
+        });
       }),
       new Promise((_, reject) =>
         setTimeout(() => reject(new Error(`Quench batches exceeded ${BATCH_TIMEOUT}ms`)), BATCH_TIMEOUT)),
