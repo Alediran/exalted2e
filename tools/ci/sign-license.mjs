@@ -26,30 +26,57 @@ async function dump(page, tag) {
 
 async function main() {
   await mkdir(DIAG_DIR, { recursive: true }).catch(() => {});
-  const browser = await chromium.launch();
-  const page = await browser.newPage();
+  // --no-sandbox is required in the rootless CI container.
+  const browser = await chromium.launch({ args: ["--no-sandbox"] });
+  // 1366×768 is Foundry's stated minimum; use 1920×1080 to avoid the
+  // resolution-too-small warning that appears at the default 1280×720.
+  const page = await browser.newPage({ viewport: { width: 1920, height: 1080 } });
   page.setDefaultTimeout(60_000);
   try {
-    await page.goto(`${FOUNDRY_URL}/license`, { waitUntil: "domcontentloaded" });
+    // Navigate to the root so Foundry shows whatever step is pending (EULA,
+    // license, setup) rather than hard-coding /license which may not be the
+    // first screen on a fresh boot.
+    await page.goto(`${FOUNDRY_URL}/`, { waitUntil: "domcontentloaded" });
+    // Give ApplicationV2 dialogs time to mount after DOMContentLoaded.
+    await page.waitForTimeout(2000);
     await dump(page, "sign-before");
 
-    if (LICENSE_KEY) {
-      const keyField = await page.$(
-        "input[name='licenseKey'], textarea[name='licenseKey'], input#license-key, input[name='license']"
-      );
-      if (keyField) await keyField.fill(LICENSE_KEY).catch(() => {});
+    // Step 1 — accept EULA if the agreement dialog is present.
+    // Foundry v14's ApplicationV2 dialog listens for pointer click events, NOT
+    // the synthetic "change" event — so we must use page.click() here, not a
+    // programmatic checkbox.checked = true assignment.
+    const eulaCheckbox = await page.$("input[type=checkbox]");
+    if (eulaCheckbox) {
+      console.log("EULA dialog present — clicking agreement checkbox.");
+      await page.click("input[type=checkbox]");
+      await page.waitForTimeout(300);
+      // AGREE is the leftmost button in the dialog. Prefer a text match; fall
+      // back to the first <button> if the label ever changes.
+      const agreed = await page.locator("button", { hasText: /agree/i }).first().click()
+        .then(() => true).catch(() => false);
+      if (!agreed) await page.locator("button").first().click().catch(() => {});
+      console.log("Clicked AGREE on EULA.");
+      await page.waitForLoadState("networkidle", { timeout: 15_000 }).catch(() => {});
+      await dump(page, "sign-after-eula");
     }
 
-    await page.evaluate(() => {
-      for (const c of document.querySelectorAll("input[type=checkbox]")) {
-        c.checked = true;
-        c.dispatchEvent(new Event("change", { bubbles: true }));
-      }
-    }).catch(() => {});
+    // Step 2 — fill in and submit the license page (if we land on it).
+    // This may already be gone when using FOUNDRY_RELEASE_URL + a pre-applied
+    // license, so the whole block is conditional.
+    const licenseField = await page.$(
+      "input[name='licenseKey'], textarea[name='licenseKey'], input#license-key, input[name='license']"
+    );
+    if (licenseField) {
+      console.log("License page present — entering key.");
+      if (LICENSE_KEY) await licenseField.fill(LICENSE_KEY).catch(() => {});
+      // Check EULA agreement box on the license form if it has one.
+      const licenseCheck = await page.$("input[type=checkbox]");
+      if (licenseCheck) await page.click("input[type=checkbox]").catch(() => {});
+      const submitBtn = await page.$("button[type='submit'], button[name='submit'], form button");
+      if (submitBtn) await submitBtn.click().catch(() => {});
+      await page.waitForLoadState("networkidle", { timeout: 30_000 }).catch(() => {});
+    }
 
-    const submit = await page.$("button[type='submit'], button[name='submit'], form button");
-    if (submit) await submit.click().catch(() => {});
-    await page.waitForLoadState("networkidle", { timeout: 30_000 }).catch(() => {});
     await dump(page, "sign-after");
     console.log(`License sign step finished at ${page.url()}`);
   } catch (err) {
