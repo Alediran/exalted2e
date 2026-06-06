@@ -62,18 +62,25 @@ jobs:
         env:
           FOUNDRY_USERNAME: "${{ secrets.FOUNDRY_USERNAME }}"
           FOUNDRY_PASSWORD: "${{ secrets.FOUNDRY_PASSWORD }}"
+          FOUNDRY_RELEASE_URL: "${{ secrets.FOUNDRY_RELEASE_URL }}"
           FOUNDRY_LICENSE_KEY: "${{ secrets.FOUNDRY_LICENSE_KEY }}"
           FOUNDRY_ADMIN_KEY: "${{ secrets.FOUNDRY_ADMIN_KEY }}"
         run: |
           missing=0
-          for v in FOUNDRY_USERNAME FOUNDRY_PASSWORD FOUNDRY_LICENSE_KEY FOUNDRY_ADMIN_KEY; do
+          # License + admin key are always required.
+          for v in FOUNDRY_LICENSE_KEY FOUNDRY_ADMIN_KEY; do
             if [ -z "${!v}" ]; then echo "::error::Secret $v is missing or empty"; missing=1; fi
           done
+          # Download method: either a release URL OR username + password.
+          if [ -z "$FOUNDRY_RELEASE_URL" ] && { [ -z "$FOUNDRY_USERNAME" ] || [ -z "$FOUNDRY_PASSWORD" ]; }; then
+            echo "::error::Provide FOUNDRY_RELEASE_URL, or both FOUNDRY_USERNAME and FOUNDRY_PASSWORD";
+            missing=1;
+          fi
           if [ "$missing" = "1" ]; then
-            echo "Add the secrets in repo Settings → Secrets and variables → Actions, then re-run.";
+            echo "Set the secrets in repo Settings → Secrets and variables → Actions, then re-run.";
             exit 1;
           fi
-          echo "All required Foundry secrets are present."
+          echo "Required Foundry secrets are present."
 
       # Boot Foundry headlessly via felddy, auto-launching the world.
       - name: Start Foundry
@@ -86,6 +93,7 @@ jobs:
             -v "${{ github.workspace }}/fvtt-data:/data" \
             -e FOUNDRY_USERNAME="${{ secrets.FOUNDRY_USERNAME }}" \
             -e FOUNDRY_PASSWORD="${{ secrets.FOUNDRY_PASSWORD }}" \
+            -e FOUNDRY_RELEASE_URL="${{ secrets.FOUNDRY_RELEASE_URL }}" \
             -e FOUNDRY_LICENSE_KEY="${{ secrets.FOUNDRY_LICENSE_KEY }}" \
             -e FOUNDRY_ADMIN_KEY="${{ secrets.FOUNDRY_ADMIN_KEY }}" \
             -e FOUNDRY_WORLD="exalted2e-test" \
