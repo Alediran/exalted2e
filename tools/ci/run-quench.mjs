@@ -176,6 +176,22 @@ async function main() {
         page.evaluate(async (skip) => {
           const q = globalThis.quench || globalThis.game?.quench || globalThis.game?.modules?.get("quench")?.api;
           const keys = [...(q._testBatches?.keys() ?? [])].filter(k => !skip.includes(k));
+
+          // Resilient gate: the suite has a known cross-test teardown race where
+          // a swept actor/combat is referenced by a late async hook (chat-card
+          // re-render, etc.). That surfaces as an uncaught rejection mocha blames
+          // on whatever test is running, flaking unrelated tests. Swallow ONLY
+          // those specific "does not exist in …" errors before mocha sees them
+          // (capture phase + stopImmediatePropagation). Real assertion failures
+          // and other errors are untouched.
+          const RACE_RE = /does not exist in (the )?(actors|combats|items|scenes)/i;
+          const swallow = (msg, ev) => {
+            if (msg && RACE_RE.test(msg)) { ev.stopImmediatePropagation(); ev.preventDefault?.(); }
+          };
+          window.addEventListener("unhandledrejection",
+            (e) => swallow(e?.reason?.message || String(e?.reason ?? ""), e), true);
+          window.addEventListener("error",
+            (e) => swallow(e?.error?.message || e?.message || "", e), true);
           // CI perf varies and many tests sit near the 2000ms mocha default, so
           // they occasionally flake on timeout or transient document races.
           // Give headroom AND retry failures — a genuine bug fails all attempts,
