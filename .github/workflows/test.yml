@@ -115,6 +115,16 @@ jobs:
 
       # Boot Foundry headlessly via felddy, auto-launching the world.
       - name: Start Foundry
+        env:
+          # Secrets are placed in the step env so Docker can receive them via
+          # bare -e VARNAME. This avoids shell expansion of values that contain
+          # special characters such as $ (e.g. a password starting with $foo
+          # would be silently zeroed by the shell when passed as -e VAR="$foo").
+          FOUNDRY_USERNAME: "${{ secrets.FOUNDRY_USERNAME }}"
+          FOUNDRY_PASSWORD: "${{ secrets.FOUNDRY_PASSWORD }}"
+          FOUNDRY_RELEASE_URL: "${{ secrets.FOUNDRY_RELEASE_URL }}"
+          FOUNDRY_LICENSE_KEY: "${{ secrets.FOUNDRY_LICENSE_KEY }}"
+          FOUNDRY_ADMIN_KEY: "${{ secrets.FOUNDRY_ADMIN_KEY }}"
         run: |
           # felddy runs as uid:gid 1000:1000; the mounted dir is owned by the
           # runner user, so make it writable by the container before booting.
@@ -122,11 +132,11 @@ jobs:
           docker run -d --name foundry \
             -p 30000:30000 \
             -v "${{ github.workspace }}/fvtt-data:/data" \
-            -e FOUNDRY_USERNAME="${{ secrets.FOUNDRY_USERNAME }}" \
-            -e FOUNDRY_PASSWORD="${{ secrets.FOUNDRY_PASSWORD }}" \
-            -e FOUNDRY_RELEASE_URL="${{ secrets.FOUNDRY_RELEASE_URL }}" \
-            -e FOUNDRY_LICENSE_KEY="${{ secrets.FOUNDRY_LICENSE_KEY }}" \
-            -e FOUNDRY_ADMIN_KEY="${{ secrets.FOUNDRY_ADMIN_KEY }}" \
+            -e FOUNDRY_USERNAME \
+            -e FOUNDRY_PASSWORD \
+            -e FOUNDRY_RELEASE_URL \
+            -e FOUNDRY_LICENSE_KEY \
+            -e FOUNDRY_ADMIN_KEY \
             -e FOUNDRY_VERSION="${{ env.FOUNDRY_VERSION }}" \
             -e FOUNDRY_WORLD="exalted2e-test" \
             felddy/foundryvtt:release
