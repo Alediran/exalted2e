@@ -140,30 +140,17 @@ jobs:
 
       - name: Restart Foundry (now licensed)
         run: |
-          # Remove the container entirely (clears any in-container-fs lock and
-          # any lingering process), purge any lock left on the volume, then run a
-          # FRESH container against the same volume — which now holds the signed
-          # license and the cached Foundry zip. A plain stop/start can hit
-          # "directory already locked" because the lock lives in the container's
-          # own filesystem, which `docker start` reuses. No download secrets are
-          # needed here: the license is already signed and the build is cached.
-          docker rm -f foundry || true
-          # Clear stale locks left on the volume by the force-killed first boot.
-          # Foundry's options lock (proper-lockfile) is a DIRECTORY, so it needs
-          # rm -rf — a `find -type f` skips it (the bug that left it behind).
-          # LevelDB databases each leave a file named exactly LOCK.
+          # Restart the SAME container so the license signature (stored in the
+          # container's Foundry install, not the volume) is retained — a fresh
+          # `docker run` would boot unlicensed. Stop, clear the stale locks the
+          # force-stopped process left on the volume, then start again.
+          # Foundry's options lock (proper-lockfile) is a DIRECTORY → rm -rf
+          # (a `find -type f` skipped it). LevelDB dirs leave a file named LOCK.
+          docker stop -t 30 foundry || true
           echo "Clearing stale Foundry + LevelDB locks…"
           sudo rm -rf "${{ github.workspace }}/fvtt-data/Config/options.json.lock"
           sudo find "${{ github.workspace }}/fvtt-data" -name 'LOCK' -delete 2>/dev/null || true
-          sudo chmod -R 777 "${{ github.workspace }}/fvtt-data"
-          docker run -d --name foundry \
-            -p 30000:30000 \
-            -v "${{ github.workspace }}/fvtt-data:/data" \
-            -e FOUNDRY_LICENSE_KEY="${{ secrets.FOUNDRY_LICENSE_KEY }}" \
-            -e FOUNDRY_ADMIN_KEY="${{ secrets.FOUNDRY_ADMIN_KEY }}" \
-            -e FOUNDRY_VERSION="${{ env.FOUNDRY_VERSION }}" \
-            -e FOUNDRY_WORLD="exalted2e-test" \
-            felddy/foundryvtt:release
+          docker start foundry
 
       - name: Wait for Foundry (post-restart)
         run: |
