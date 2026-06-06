@@ -21,6 +21,7 @@ import { filterSystemCoverage, summarizeCoverage } from "./coverage-report.mjs";
 const FOUNDRY_URL  = process.env.FOUNDRY_URL  ?? "http://localhost:30000";
 const REPORT_PATH  = process.env.QUENCH_REPORT_PATH ?? "/data/Data/quench-report.json";
 const GM_NAME      = process.env.FOUNDRY_GM_NAME ?? "Gamemaster";
+const LICENSE_KEY  = process.env.FOUNDRY_LICENSE_KEY ?? "";
 const DIAG_DIR     = process.env.DIAG_DIR ?? "diag";
 const COVERAGE_OUT = process.env.COVERAGE_OUT ?? "coverage/quench-coverage.json";
 const NAV_TIMEOUT  = 120_000;
@@ -39,6 +40,50 @@ async function dumpDiag(page, tag) {
   } catch { /* diagnostics must never mask the real error */ }
 }
 
+/**
+ * On a fresh CI data dir, felddy applies the license key but can't sign it
+ * (account auth is blocked from datacenter IPs), so Foundry sits unlicensed and
+ * never activates the world. Best-effort: if /join has no user picker, visit
+ * /license, fill the key, accept the EULA, and submit — Foundry signs via the
+ * license API (not Cloudflare-gated) and then auto-launches FOUNDRY_WORLD.
+ * Dumps the /license markup so selectors can be refined if this doesn't catch.
+ */
+async function acceptLicenseIfNeeded(page) {
+  await page.goto(`${FOUNDRY_URL}/join`, { waitUntil: "domcontentloaded" }).catch(() => {});
+  if (await page.$("select[name='userid']")) {
+    console.log("World already active — license already signed.");
+    return;
+  }
+
+  console.log("No active world — attempting license acceptance at /license …");
+  await page.goto(`${FOUNDRY_URL}/license`, { waitUntil: "domcontentloaded" }).catch(() => {});
+  await dumpDiag(page, "license-before");
+
+  // Fill the license key if an input/textarea for it exists and it's empty.
+  if (LICENSE_KEY) {
+    const keyField = await page.$(
+      "input[name='licenseKey'], textarea[name='licenseKey'], input#license-key, input[name='license']"
+    );
+    if (keyField) await keyField.fill(LICENSE_KEY).catch(() => {});
+  }
+
+  // Tick every checkbox (the EULA agreement) and submit the form.
+  await page.evaluate(() => {
+    for (const c of document.querySelectorAll("input[type=checkbox]")) {
+      c.checked = true;
+      c.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+  }).catch(() => {});
+
+  const submit = await page.$("button[type='submit'], button[name='submit'], form button");
+  if (submit) await submit.click().catch(() => {});
+  await page.waitForLoadState("networkidle", { timeout: 30_000 }).catch(() => {});
+  await dumpDiag(page, "license-after");
+
+  // Give Foundry a moment to auto-launch FOUNDRY_WORLD once licensed.
+  await page.waitForTimeout(4000);
+}
+
 async function main() {
   await mkdir(DIAG_DIR, { recursive: true }).catch(() => {});
   const browser = await chromium.launch();
@@ -47,6 +92,9 @@ async function main() {
   let raw = null;
 
   try {
+    // Ensure the license is signed and the world active before joining.
+    await acceptLicenseIfNeeded(page);
+
     await page.goto(`${FOUNDRY_URL}/join`, { waitUntil: "domcontentloaded" });
     console.log(`Loaded ${page.url()} — "${await page.title().catch(() => "?")}"`);
 
