@@ -51,4 +51,18 @@ describe("parseQuenchResults", () => {
     expect(r.failedTests).toEqual([{ title: "B t", error: "" }]);
     expect(r.exitCode).toBe(1);
   });
+
+  it("derives failedTests from tests[] when no failures[] array is present", () => {
+    const report = {
+      stats: { tests: 2, passes: 1, pending: 0, failures: 1 },
+      tests: [
+        { fullTitle: "Batch A passes", err: {} },
+        { fullTitle: "Batch A fails", err: { message: "boom" } },
+      ],
+    };
+    const r = parseQuenchResults(report);
+    expect(r.failures).toBe(1);
+    expect(r.failedTests).toEqual([{ title: "Batch A fails", error: "boom" }]);
+    expect(r.summary).toContain("Batch A fails");
+  });
 });

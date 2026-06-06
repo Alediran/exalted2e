@@ -193,20 +193,21 @@ async function main() {
           window.addEventListener("error",
             (e) => swallow(e?.error?.message || e?.message || "", e), true);
           // CI perf varies and many tests sit near the 2000ms mocha default, so
-          // they occasionally flake on timeout or transient document races.
-          // Give headroom AND retry failures — a genuine bug fails all attempts,
-          // a flaky timing race passes on retry.
+          // give the suite timeout headroom. NOT retries — mocha marks a
+          // this.skip() test as FAILED rather than pending when retries are on,
+          // and the cross-test races are already handled by the error suppression
+          // below, so retries aren't needed.
           try {
-            if (q.mocha?.options) { q.mocha.options.timeout = 15000; q.mocha.options.retries = 2; }
+            if (q.mocha?.options) q.mocha.options.timeout = 15000;
             q.mocha?.timeout?.(15000);
           } catch { /* best effort */ }
           // runBatches kicks off mocha.run() and returns the runner WITHOUT
           // awaiting completion — so we must wait for the runner's "end" event,
           // otherwise reports/coverage are read before any test executes.
           const runner = await q.runBatches(keys.length ? keys : "**", { json: true });
-          // runBatches replaces the root suite; bump its timeout + retries too
-          // (applies to every test that hasn't started yet — i.e. effectively all).
-          try { q.mocha?.suite?.timeout?.(15000); q.mocha?.suite?.retries?.(2); } catch { /* best effort */ }
+          // runBatches replaces the root suite; bump its timeout too (applies to
+          // every test that hasn't started its timer yet — i.e. effectively all).
+          try { q.mocha?.suite?.timeout?.(15000); } catch { /* best effort */ }
           await new Promise((resolve) => {
             if (!runner || runner.stats?.end || runner.state === "stopped") return resolve();
             let settled = false;
