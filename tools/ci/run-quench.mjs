@@ -25,6 +25,9 @@ const LICENSE_KEY  = process.env.FOUNDRY_LICENSE_KEY ?? "";
 const DIAG_DIR     = process.env.DIAG_DIR ?? "diag";
 const COVERAGE_OUT = process.env.COVERAGE_OUT ?? "coverage/quench-coverage.json";
 const NAV_TIMEOUT  = 120_000;
+// World launch migrates all compendium packs (thousands of items) on every
+// fresh CI boot, which can take several minutes before game.ready fires.
+const READY_TIMEOUT = Number(process.env.FOUNDRY_READY_TIMEOUT_MS ?? 600_000);
 const BATCH_TIMEOUT = Number(process.env.QUENCH_BATCH_TIMEOUT_MS ?? 600_000); // hard cap on the whole run
 
 /** Best-effort diagnostics dump — never throws. */
@@ -101,7 +104,7 @@ async function main() {
     // Wait for the join page's user selector. Loosened to just the select so a
     // changed form id doesn't break it. On timeout, dump the screen first.
     try {
-      await page.waitForSelector("select[name='userid']", { timeout: NAV_TIMEOUT });
+      await page.waitForSelector("select[name='userid']", { timeout: READY_TIMEOUT });
     } catch (e) {
       await dumpDiag(page, "join-no-userid");
       throw new Error(`Join page never showed select[name='userid']. We may be on a setup/EULA/error screen — see ${DIAG_DIR}/join-no-userid.{png,html}. (${e.message})`);
@@ -112,8 +115,8 @@ async function main() {
     await page.click("button[name='join'], button[type='submit']");
 
     // Wait for the game to be fully ready and Quench to be registered.
-    await page.waitForFunction(() => globalThis.game?.ready === true, null, { timeout: NAV_TIMEOUT });
-    await page.waitForFunction(() => !!globalThis.quench, null, { timeout: NAV_TIMEOUT });
+    await page.waitForFunction(() => globalThis.game?.ready === true, null, { timeout: READY_TIMEOUT });
+    await page.waitForFunction(() => !!globalThis.quench, null, { timeout: READY_TIMEOUT });
 
     // Ensure an active scene exists (some batches place tokens on the active scene).
     await page.evaluate(async () => {
