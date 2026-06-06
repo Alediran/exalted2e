@@ -17,6 +17,8 @@ import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { chromium } from "playwright";
 import { parseQuenchResults } from "./quench-results.mjs";
 import { filterSystemCoverage, summarizeCoverage } from "./coverage-report.mjs";
+import v8toIstanbul from "v8-to-istanbul";
+import { normalizeCoverageKey } from "./coverage-paths.mjs";
 
 const FOUNDRY_URL  = process.env.FOUNDRY_URL  ?? "http://localhost:30000";
 const REPORT_PATH  = process.env.QUENCH_REPORT_PATH ?? "/data/Data/quench-report.json";
@@ -273,6 +275,24 @@ async function main() {
     if (covSummary.uncovered.length) {
       console.log("Uncovered (worst-first):\n" + covSummary.uncovered.slice(0, 20).map(u => `  ${u}`).join("\n"));
     }
+
+    // Convert the system-module V8 coverage to an istanbul coverage map so it can
+    // be merged with the Vitest coverage. Keys are normalized to repo-relative
+    // module/... so both runtimes' entries line up.
+    const istanbul = {};
+    for (const entry of systemCov) {
+      try {
+        const key = normalizeCoverageKey(entry.url);
+        const converter = v8toIstanbul(key, 0, { source: entry.source ?? "" });
+        await converter.load();
+        converter.applyCoverage(entry.functions ?? []);
+        Object.assign(istanbul, converter.toIstanbul());
+      } catch (e) {
+        console.error(`(coverage) could not convert ${entry.url}: ${e.message}`);
+      }
+    }
+    await writeFile("coverage/quench-coverage-final.json", JSON.stringify(istanbul)).catch(() => {});
+    console.log(`Wrote istanbul coverage for ${Object.keys(istanbul).length} system module(s).`);
 
     // Results come straight from the mocha runner (stats + "fail" events). This
     // is authoritative and shape-independent — it names hook failures too.

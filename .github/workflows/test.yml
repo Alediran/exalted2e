@@ -19,7 +19,14 @@ jobs:
         with:
           node-version: "20"
       - run: npm ci
-      - run: npm test
+      - run: npm run test:coverage
+      - name: Upload Vitest coverage
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: vitest-coverage
+          path: coverage/vitest/coverage-final.json
+          if-no-files-found: warn
 
   quench:
     runs-on: ubuntu-latest
@@ -221,6 +228,46 @@ jobs:
           path: coverage/quench-coverage.json
           if-no-files-found: ignore
 
+      - name: Upload Quench istanbul coverage
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: quench-coverage-final
+          path: coverage/quench-coverage-final.json
+          if-no-files-found: warn
+
       - name: Foundry logs (on failure)
         if: failure()
         run: docker logs foundry || true
+
+  coverage:
+    runs-on: ubuntu-latest
+    needs: [vitest, quench]
+    if: always()
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "20"
+      - run: npm ci
+      - name: Download Vitest coverage
+        uses: actions/download-artifact@v5
+        with:
+          name: vitest-coverage
+          path: cov-vitest
+        continue-on-error: true
+      - name: Download Quench coverage
+        uses: actions/download-artifact@v5
+        with:
+          name: quench-coverage-final
+          path: cov-quench
+        continue-on-error: true
+      - name: Merge coverage
+        run: node tools/ci/merge-coverage.mjs cov-vitest/coverage-final.json cov-quench/quench-coverage-final.json
+      - name: Upload combined coverage
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: coverage-combined
+          path: coverage/combined
+          if-no-files-found: ignore

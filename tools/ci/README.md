@@ -46,9 +46,23 @@ Note: the **license signature** is host-bound and is *not* cached — the
    `Data/quench-report.json`), reads it from `QUENCH_REPORT_PATH`, and exits
    non-zero on any failure. The whole run is hard-capped by
    `QUENCH_BATCH_TIMEOUT_MS` (default 600000) so a hung batch can't stall CI.
-5. V8 coverage is collected during the run and written as a JSON summary
-   (per-file pct + worst-first uncovered list), uploaded as the `quench-coverage`
-   artifact. Full lcov export (via `v8-to-istanbul`) is a planned follow-up.
+5. V8 coverage is collected during the run and written both as a JSON summary
+   (`quench-coverage`) and as an istanbul `coverage-final.json`
+   (`quench-coverage-final`, via `v8-to-istanbul`) for merging — see below.
+
+## Combined coverage (Vitest + Quench)
+Quench V8 coverage alone undercounts — the pure logic layer is covered by the
+Vitest suite. A dedicated `coverage` CI job merges both:
+- `vitest` job → `vitest-coverage` artifact (`coverage/vitest/coverage-final.json`, istanbul, `all: true`).
+- `quench` job → `quench-coverage-final` artifact (V8→istanbul via `v8-to-istanbul`).
+- `coverage` job (`needs: [vitest, quench]`, `if: always()`) → `node tools/ci/merge-coverage.mjs`
+  normalizes file keys to repo-relative `module/...` (`tools/ci/coverage-paths.mjs`),
+  merges with `istanbul-lib-coverage`, prints a combined summary + worst-first
+  per-file table to the log, and uploads `coverage-combined` (lcov + html).
+
+Locally: `npm run test:coverage` gives the Vitest (pure-layer) coverage in
+`coverage/vitest/`. The full merge runs only in CI (it needs the Quench run).
+**Report-only — no threshold gate yet.**
 
 ## Running locally
 Point the runner at your own Foundry instance (already serving the test world):
