@@ -53,7 +53,9 @@ jobs:
       - name: Cache Foundry download
         uses: actions/cache@v5
         with:
-          path: fvtt-data/Data/container_cache
+          # felddy's CONTAINER_CACHE is /data/container_cache; host fvtt-data maps
+          # to container /data, so the zip lands here (NOT under Data/).
+          path: fvtt-data/container_cache
           key: foundry-${{ env.FOUNDRY_VERSION }}
 
       # Pack the committed GM user + scene JSON into the world LevelDB.

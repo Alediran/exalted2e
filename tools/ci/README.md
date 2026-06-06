@@ -18,7 +18,7 @@ coverage over `module/**`. (This file is the committed/tracked runbook —
   locally-used version).
 
 ## Foundry download caching (avoids re-supplying the release URL)
-`actions/cache` persists `fvtt-data/Data/container_cache` (felddy's
+`actions/cache` persists `fvtt-data/container_cache` (felddy's
 `CONTAINER_CACHE`, which holds `foundryvtt-<FOUNDRY_VERSION>.zip`) across runs,
 keyed on `foundry-${FOUNDRY_VERSION}`.
 - **First run / version bump (cache miss):** felddy needs `FOUNDRY_RELEASE_URL`
