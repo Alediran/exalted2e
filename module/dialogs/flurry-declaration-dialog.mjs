@@ -1,4 +1,6 @@
 import { EX2E } from "../config.mjs";
+import { computeFlurryPreview, normalizeFlurryActions, effectiveModeRate, isModeOptionEnabled }
+  from "../combat/flurry-math.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -124,17 +126,14 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
   _normalizeActions(drawnIds) {
     const fallbackKey = defaultFlurryActionKey();
     const fallbackCfg = EX2E.actions[fallbackKey] ?? { speed: 5, dvMod: 0 };
-    for (const a of this._actions) {
-      if (!a.actionKey?.startsWith("weapon:")) continue;
-      const [, wid] = a.actionKey.split(":");
-      const weapon  = this._actor?.items.get(wid);
-      const available = !!weapon && (weapon.system.equipped || drawnIds.has(wid));
-      if (available) continue;
-      a.actionKey = fallbackKey;
-      a.speed     = fallbackCfg.speed;
-      a.dvMod     = fallbackCfg.dvMod;
-      a.weaponId  = "";
+    const equipById = {};
+    for (const w of (this._actor?.items ?? [])) {
+      if (w.type === "weapon") equipById[w.id] = { equipped: w.system.equipped };
     }
+    this._actions = normalizeFlurryActions(
+      this._actions, drawnIds, equipById,
+      { key: fallbackKey, speed: fallbackCfg.speed, dvMod: fallbackCfg.dvMod }
+    );
   }
 
   /**
@@ -195,21 +194,7 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
    * resolves on tick 5 rather than tick 10.
    */
   _computePreview() {
-    const n = this._actions.length;
-    const drawWeaponId = this._actions.find(a => a.actionKey === "draw")?.weaponId ?? ''; //grabbing the weaponId to be sure Quick Draw uses it during the action flurry
-    const isQuickDraw = n === 2
-      && this._actions.every(a => a.actionKey === "draw" || a.actionKey?.startsWith(`weapon:${drawWeaponId}`));
-
-    const speed = isQuickDraw
-      ? this._actions.reduce((m, a) => Math.min(m, a.speed ?? 5), Infinity)
-      : this._actions.reduce((m, a) => Math.max(m, a.speed ?? 0), 0);
-    const maxDv = this._actions.reduce((m, a) => Math.max(m, a.dvMod ?? 0), 0);
-    return {
-      count:       n,
-      dicePenalty: Math.max(0, n - 1),
-      speed:       Number.isFinite(speed) ? speed : 0,
-      dvPenalty:   maxDv + Math.max(0, n - 1)
-    };
+    return computeFlurryPreview(this._actions);
   }
 
   /**
@@ -332,15 +317,13 @@ export class FlurryDeclarationDialog extends HandlebarsApplicationMixin(Applicat
         const weapon = this._actor?.items.get(wid);
         if (!weapon) return;
         const mode = weapon.system.modes?.[parseInt(modeIdxStr)];
-        const rate = Math.max(1, (mode?.effectiveRate ?? mode?.rate ?? 1) + charmRateBonus);
+        const rate = effectiveModeRate(mode?.effectiveRate ?? mode?.rate, charmRateBonus);
         const total     = usage.get(key) ?? 0;
         // Count uses OTHER than this select's own current pick — lets the
         // row keep rendering its existing selection even when the mode is
         // fully spent across the flurry.
         const otherUses = (selectValue === key) ? total - 1 : total;
-        const equipOk = weapon.system.equipped || drawnIds.has(wid);
-        const rateOk  = otherUses < rate;
-        opt.disabled = !(equipOk && rateOk);
+        opt.disabled = !isModeOptionEnabled(weapon.system.equipped, drawnIds.has(wid), otherUses, rate);
       });
 
       // 2) If the currently selected option is now disabled, reset the row.

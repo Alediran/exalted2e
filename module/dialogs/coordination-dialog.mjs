@@ -1,4 +1,5 @@
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
+import { coordinationPool, coordinationDifficulty } from "../rolls/coordination-math.mjs";
 
 export class CoordinationDialog extends HandlebarsApplicationMixin(ApplicationV2) {
 
@@ -35,10 +36,9 @@ export class CoordinationDialog extends HandlebarsApplicationMixin(ApplicationV2
   async _prepareContext(options) {
     const ctx = await super._prepareContext(options);
     const sys = this._coordinator?.system ?? {};
-    const pool = (sys.attributes?.charisma?.value ?? 0)
-               + (sys.abilities?.war?.value       ?? 0);
+    const pool = coordinationPool(sys);
     const participants = Math.max(2, this._participants);
-    const difficulty   = Math.floor(participants / 2);
+    const difficulty   = coordinationDifficulty(participants);
     return {
       ...ctx,
       coordinatorName: this._coordinator?.name ?? "—",
@@ -72,7 +72,7 @@ export class CoordinationDialog extends HandlebarsApplicationMixin(ApplicationV2
       target:       this._target,
       participants,
       pool:         parseInt(data.pool) || 0,
-      difficulty:   Math.floor(participants / 2),
+      difficulty:   coordinationDifficulty(participants),
     });
     this.close();
   }
@@ -84,7 +84,7 @@ export class CoordinationDialog extends HandlebarsApplicationMixin(ApplicationV2
     if (!participantsInput || !diffSpan) return;
     participantsInput.addEventListener("input", () => {
       const n = Math.max(2, parseInt(participantsInput.value) || 2);
-      diffSpan.textContent = Math.floor(n / 2);
+      diffSpan.textContent = coordinationDifficulty(n);
     });
   }
 

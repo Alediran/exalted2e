@@ -1,4 +1,5 @@
 import { moteCostString, charmVariableCostCtx, extractCharmActivations } from "../rolls/activation-ledger.mjs";
+import { computeExcellencyBudget } from "../rolls/excellency-math.mjs";
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
 /**
@@ -92,9 +93,9 @@ export class Step2DefenseDialog extends HandlebarsApplicationMixin(ApplicationV2
 
     const enforceExcCap = () => {
       const firstVal  = parseInt(firstExcInput?.value)  || 0;
-      const secondVal = (parseInt(secondExcInput?.value) || 0) * 2;
-      const secondAllowed = Math.min(secondExcMax, Math.floor((firstExcMax - firstVal) / 2));
-      const firstAllowed  = Math.min(firstExcMax, firstExcMax - secondVal);
+      const secondVal = parseInt(secondExcInput?.value) || 0;
+      const { firstAllowed, secondAllowed } =
+        computeExcellencyBudget(firstExcMax, secondExcMax, firstVal, secondVal);
       if (secondExcInput) secondExcInput.max = Math.max(0, secondAllowed);
       if (firstExcInput)  firstExcInput.max  = Math.max(0, firstAllowed);
       const firstMaxEl  = el.querySelector(".exc-first-max");

@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-06-06 (Coverage-raising initiative opened; SP1 quick-0%-wins done — hazard-math extract + region-behavior/_edit-image tests. count 1 A / 1 B / 1 C / 3 active)
+Last updated: 2026-06-06 (Coverage initiative SP2 done — 7 dialogs' pure logic extracted to tested helpers (+37 Vitest); also fixed a real bug: RegionBehavior subtypes were never registered in system.json. SP3 item-sheets next. count 1 A / 1 B / 1 C / 3 active)
 
 ---
 
@@ -19,7 +19,7 @@ Last updated: 2026-06-06 (Coverage-raising initiative opened; SP1 quick-0%-wins 
 
 | Item | TODO Section | Notes |
 |------|-------------|-------|
-| Coverage-raising initiative (SP2–SP5 + gate) | Testing | SP1 done. Next worst-first: SP2 `module/dialogs` (~3260 uncovered). Each sub-project = spec→plan→subagent-driven cycle; extract-pure + Quench-smoke pattern established in SP1. Regression-floor CI gate after baseline. |
+| Coverage-raising initiative (SP3–SP5 + SP2b + gate) | Testing | SP1, SP2 done. Next worst-first: SP3 `module/sheets/item` (~2115). Each sub-project = spec→plan→subagent-driven cycle; extract-pure + Quench-smoke pattern. SP2b (dialog-shell smokes) + regression-floor CI gate still pending. |
 
 ---
 

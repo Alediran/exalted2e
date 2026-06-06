@@ -1,7 +1,8 @@
-import { computeAttackExcellencyCaps } from "../rolls/excellency-math.mjs";
+import { computeAttackExcellencyCaps, computeExcellencyBudget } from "../rolls/excellency-math.mjs";
 import { findCampaign, validateNewCampaign } from "../rolls/motivation-break-math.mjs";
 import { moteCostString, charmVariableCostCtx, extractCharmActivations } from "../rolls/activation-ledger.mjs";
 import { refreshPips } from "../helpers/pip-track.mjs";
+import { filterSocialCharms, buildSocialCombos } from "../rolls/social-attack-math.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -82,17 +83,8 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
 
     // 3c-1: charm picker. Filter to social-ability supplemental/reflexive-step-1
     // charms keyed to the currently-selected ability, excluding Excellencies.
-    const SOCIAL_ABILITIES = ["presence", "performance", "investigation", "bureaucracy"];
     const allCharms = a?.items?.filter(i => i.type === "charm") ?? [];
-    const eligible = allCharms.filter(c => {
-      if (c.system.excellency) return false;
-      if (c.system.ability !== this._data.ability) return false;
-      if (!SOCIAL_ABILITIES.includes(c.system.ability)) return false;
-      const ct = c.system.charmType;
-      if (ct === "supplemental") return true;
-      if (ct === "reflexive" && (c.system.steps ?? []).includes(1)) return true;
-      return false;
-    });
+    const eligible = filterSocialCharms(allCharms, this._data.ability);
     const pickerCharms = eligible.map(c => {
       const cost = c.system?.cost ?? {};
       const parts = [];
@@ -113,18 +105,7 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
 
     // Eligible combos: actor combos with ≥1 social-ability supplemental/reflexive charm
     const combos = a?.items?.filter(i => i.type === "combo") ?? [];
-    const eligibleCombos = combos.map(combo => {
-      const charmUids = combo.system?.charmUids ?? [];
-      const socialCount = charmUids.filter(uid => {
-        const charm = a.items.find(c => c.type === "charm" && c.system?.charmUid === uid);
-        if (!charm) return false;
-        if (charm.system.ability !== this._data.ability) return false;
-        if (!SOCIAL_ABILITIES.includes(charm.system.ability)) return false;
-        const ct = charm.system.charmType;
-        return ct === "supplemental" || (ct === "reflexive" && (charm.system.steps ?? []).includes(1));
-      }).length;
-      return socialCount > 0 ? { id: combo.id, name: combo.name, charmCount: socialCount } : null;
-    }).filter(Boolean);
+    const eligibleCombos = buildSocialCombos(combos, allCharms, this._data.ability);
 
     // 3c-1: Excellency caps
     const { firstExcMax, secondExcMax } = a
@@ -202,9 +183,9 @@ export class SocialAttackDialog extends HandlebarsApplicationMixin(ApplicationV2
 
     const enforceExcCap = () => {
       const firstVal      = parseInt(firstHidden?.value)  || 0;
-      const secondVal     = (parseInt(secondHidden?.value) || 0) * 2;
-      const secondAllowed = Math.min(currentSecondExcMax, Math.floor((currentFirstExcMax - firstVal) / 2));
-      const firstAllowed  = Math.min(currentFirstExcMax,  currentFirstExcMax - secondVal);
+      const secondVal     = parseInt(secondHidden?.value) || 0;
+      const { firstAllowed, secondAllowed } =
+        computeExcellencyBudget(currentFirstExcMax, currentSecondExcMax, firstVal, secondVal);
       refreshPips(firstPipTrack,  firstHidden,  Math.max(0, firstAllowed));
       refreshPips(secondPipTrack, secondHidden, Math.max(0, secondAllowed));
       if (firstVal > firstAllowed && firstHidden)

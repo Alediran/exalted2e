@@ -1,4 +1,5 @@
 import { ExaltedRoll } from "../rolls/exalted-roll.mjs";
+import { prayerBonusDice, destinyEffectPool } from "../combat/sidereal-destiny-math.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -82,7 +83,7 @@ export class DestinyCreationDialog extends HandlebarsApplicationMixin(Applicatio
     if (!result) return;
 
     const successes  = result.successes ?? 0;
-    this._bonusDice  = Math.ceil(successes / 4);
+    this._bonusDice  = prayerBonusDice(successes);
     this._prayerDone = true;
     this.render();
   }
@@ -94,7 +95,7 @@ export class DestinyCreationDialog extends HandlebarsApplicationMixin(Applicatio
     const essenceVal = sys.essence?.value ?? 1;
     const maiden     = EX.siderealColleges[this._college]?.maiden ?? "";
     const dots       = sys.splat?.sidereal?.colleges?.[maiden]?.[this._college] ?? 0;
-    const pool       = essenceVal + dots + this._bonusDice;
+    const pool       = destinyEffectPool(essenceVal, dots, this._bonusDice);
 
     const roll   = new ExaltedRoll({ pool: Math.max(1, pool), flavor: game.i18n.localize("EX2E.EffectRoll"), actorName: actor.name });
     const result = await roll.evaluate();
