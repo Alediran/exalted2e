@@ -938,15 +938,19 @@ Hooks.once("ready", async function () {
     }
   });
 
-  // Run the versioned migration pipeline (GM-only to avoid write races).
+  // GM-only from here (compendium seeding + migration both write world data).
   if (!game.user.isGM) return;
-  await runMigrations();
 
   await _seedEffectsCompendium();
   await _seedAnimaPowersCompendium();
   await _seedTheCircleFolder();
 
   game.exalted2e._countermagicHelpers = await import("./helpers/countermagic-helpers.mjs");
+
+  // Run the versioned migration pipeline LAST: its backup-confirm dialog
+  // blocks until answered, so it must never sit upstream of the seeding
+  // above (an unanswered dialog would otherwise stall the rest of ready).
+  await runMigrations();
 });
 
 // ── Compendium footer button: Open Charm Tree ──────────────────────────────
