@@ -1,4 +1,5 @@
 import { editImageAction } from "../_edit-image.mjs";
+import { resolveNewDotValue } from "../../helpers/dot-rating.mjs";
 
 const { ActorSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -94,9 +95,7 @@ export class UnitSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const newValue = parseInt(pip.dataset.value);
     const min      = parseInt(track?.dataset.min ?? 0);
     const current  = parseInt(track?.dataset.current ?? 0);
-    const val      = (newValue === 1 && current === 1)
-      ? min
-      : Math.max(min, newValue);
+    const val      = resolveNewDotValue(newValue, current, min);
     if (!name) return;
     this.document.update({ [name]: val });
   }

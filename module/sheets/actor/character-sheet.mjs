@@ -5,7 +5,12 @@ import { evaluateCharmFormula } from "../../documents/item.mjs";
 import { ex2eCan }       from "../../helpers/permissions.mjs";
 import { canEquipToSlot } from "../../helpers/equip-slots.mjs";
 import { buildXpCostRows } from "../../helpers/xp-cost-table.mjs";
+import { spellInitiationStatus } from "../../helpers/spell-helpers.mjs";
+import { _greaterSignPrereqMet, dedupStackableCharms, animaPowerCost, buildPurchaseLogRows, buildEffectsData, buildAbilityGroups } from "../../helpers/character-sheet-helpers.mjs";
+import { buildComboPreviewRows } from "../../helpers/combo-display.mjs";
+import { resolveNewDotValue } from "../../helpers/dot-rating.mjs";
 import { computeSpellCastButtonState } from "../../ui/spell-cast-button.mjs";
+export { _greaterSignPrereqMet };
 import { resolveXpCosts }  from "../../helpers/xp-cost-defaults.mjs";
 import { priceAlchemicalCharmSlot } from "../../helpers/xp-costs.mjs";
 import { editImageAction } from "../_edit-image.mjs";
@@ -20,9 +25,6 @@ import { exceedsCraftCap, artifactSuccessTarget, effectiveArtifactAbilityReqs, m
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
 
-const _ANIMA_ORDER_SHEET = { none: 0, glowing: 1, burning: 2, bonfire: 3, totemic: 4 };
-function _animaLevelSheet(key) { return _ANIMA_ORDER_SHEET[key] ?? 0; }
-
 const _GREATER_SIGN_ICONS = {
   journeys: "fa-route",
   serenity: "fa-venus",
@@ -31,11 +33,8 @@ const _GREATER_SIGN_ICONS = {
   endings:  "fa-hourglass-end",
 };
 
-export function _greaterSignPrereqMet(actor, caste) {
-  if ((actor.system.essence?.value ?? 0) < 4) return false;
-  const colleges = actor.system.splat?.sidereal?.colleges?.[caste] ?? {};
-  return Object.values(colleges).reduce((s, v) => s + (v ?? 0), 0) >= 15;
-}
+// _greaterSignPrereqMet moved to module/helpers/character-sheet-helpers.mjs
+// (imported + re-exported above for Vitest + external-importer compatibility).
 
 export async function _activateGreaterSign(actor, item) {
   const conflict = actor.items.some(i =>
@@ -368,22 +367,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     // Collapse permanent stackable charms with the same name into one display row.
     // stackCounts: { representativeId → count } — only entries where count > 1.
     // stackHidden: set of non-representative ids to suppress from all group lists.
-    const stackCounts = {};
-    const stackHidden = new Set();
-    {
-      const seen = new Map(); // name → first id
-      for (const c of charms) {
-        if (c.system.duration !== "permanent") continue;
-        if (!(c.system.keywords ?? []).includes("Stackable")) continue;
-        if (seen.has(c.name)) {
-          const repId = seen.get(c.name);
-          stackCounts[repId] = (stackCounts[repId] ?? 1) + 1;
-          stackHidden.add(c.id);
-        } else {
-          seen.set(c.name, c.id);
-        }
-      }
-    }
+    const { stackCounts, stackHidden } = dedupStackableCharms(charms);
 
     const maStyleItems = actor.items
       .filter(i => i.type === "martialartsstyle")
@@ -530,21 +514,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     // used by the template to show a warning indicator next to the
     // spell name. The activate button itself uses the richer
     // spellCastButton state below.
-    const spellInitStatus = {};
-    for (const s of spells) {
-      let ok = false, required = 0, current = 0;
-      if (s.system?.tradition === "weaving") {
-        required = Math.max(1, Number(s.system?.circle) || 1);
-        current  = Number(sys.weaving?.initiation ?? 0);
-        ok       = current >= required;
-      } else {
-        const trad = s.system?.tradition === "necromancy" ? "necromancy" : "sorcery";
-        required   = Math.max(1, Number(s.system?.circle) || 1);
-        current    = Number(sys[trad]?.initiation ?? 0);
-        ok         = current >= required;
-      }
-      spellInitStatus[s.id] = { ok, required, current };
-    }
+    const spellInitStatus = spellInitiationStatus(spells, sys);
     // Per-spell activate-button state — shared with the spell-sheet's
     // Cast button via computeSpellCastButtonState. Gates the button
     // for: insufficient initiation, busy with another action, busy
@@ -665,43 +635,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       const uid = c.system?.charmUid;
       if (uid) byUid.set(uid, c);
     }
-    const comboRows = combos.map(combo => {
-      const uids      = combo.system?.charmUids ?? [];
-      const resolved  = [];
-      let missingCount = 0;
-      for (const uid of uids) {
-        const charm = byUid.get(uid);
-        if (charm) resolved.push(charm);
-        else       missingCount++;
-      }
-      const preview = { motes: 0, willpower: 0, bashing: 0, lethal: 0, aggravated: 0, xp: 0 };
-      for (const charm of resolved) {
-        const c = charm.system?.cost ?? {};
-        preview.motes      += Number(c.motes)            || 0;
-        preview.willpower  += Number(c.willpower)        || 0;
-        preview.bashing    += Number(c.bashingHealth)    || 0;
-        preview.lethal     += Number(c.lethalHealth)     || 0;
-        preview.aggravated += Number(c.aggravatedHealth) || 0;
-        preview.xp         += Number(c.xp)               || 0;
-      }
-      const bits = [];
-      if (preview.motes)      bits.push(`${preview.motes}m`);
-      if (preview.willpower)  bits.push(`${preview.willpower}wp`);
-      if (preview.bashing)    bits.push(`${preview.bashing}b`);
-      if (preview.lethal)     bits.push(`${preview.lethal}l`);
-      if (preview.aggravated) bits.push(`${preview.aggravated}a`);
-      if (preview.xp)         bits.push(`${preview.xp}xp`);
-      return {
-        id:           combo.id,
-        name:         combo.name,
-        img:          combo.img,
-        iconStrip:    resolved.slice(0, 6).map(c => ({ id: c.id, name: c.name, img: c.img })),
-        totalCount:   uids.length,
-        missingCount,
-        costPreview:  bits.join(" "),
-        canActivate:  resolved.length > 0
-      };
-    });
+    const comboRows = buildComboPreviewRows(combos, byUid);
 
     // Effects — split into temporal (durationed or turn-refreshable) and
     // permanent buckets. The DV-refresh machinery we ship flags its AEs
@@ -712,7 +646,6 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     // ── Purchase log (Experience tab) ─────────────────────────────────
     const rawLog = sys.purchaseLog ?? [];
     const totalEarned = Number(sys.experience?.total ?? 0);
-    let runningSum = 0;
     // ── Training ledger ─────────────────────────────────────────────────────
     const trainingEntries = (actor.system.trainingLedger ?? []).map((e, i) => ({
       ...e,
@@ -730,19 +663,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         .map(i => [i.id, true])
     );
 
-    const purchaseLogRows = rawLog.map((e, i) => {
-      runningSum += Number(e.xpCost) || 0;
-      return {
-        index:      i,
-        dateText:   new Date(e.timestamp || 0).toLocaleString(),
-        traitLabel: e.traitLabel,
-        oldValue:   e.oldValue,
-        newValue:   e.newValue,
-        xpCost:     e.xpCost,
-        note:       e.note,
-        overdraft:  runningSum > totalEarned
-      };
-    }).reverse();   // newest-first
+    const purchaseLogRows = buildPurchaseLogRows(rawLog, totalEarned);
     const canEditXp = ex2eCan("purchaseMode");
 
     // XP cost reference table (Experience tab) — rows built per-exalt from
@@ -1053,47 +974,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
    * `permanent` (everything else).
    */
   _buildEffectsData(actor) {
-    const temporal = [];
-    const permanent = [];
-    const stackGroups = new Map(); // name → { entry, count }
-    for (const eff of actor.effects) {
-      const refreshable      = !!eff.flags?.exalted2e?.dvRefreshable;
-      const charmDuration    = eff.flags?.exalted2e?.charmDuration;
-      const charmStackable   = !!eff.flags?.exalted2e?.charmStackable;
-      const durationLabelKey = charmDuration ? (EX2E.durations[charmDuration] ?? null) : null;
-      const isTemporal = refreshable || eff.isTemporary
-        || (charmDuration && charmDuration !== "permanent");
-
-      if (!isTemporal && charmStackable) {
-        if (stackGroups.has(eff.name)) {
-          stackGroups.get(eff.name).count++;
-          continue;
-        }
-        const entry = { id: eff.id, name: eff.name, img: eff.img || "icons/svg/aura.svg", disabled: eff.disabled, durationLabel: "", isSpellEffect: !!(eff.flags?.exalted2e?.spellEffect) };
-        stackGroups.set(eff.name, { entry, count: 1 });
-        permanent.push(entry);
-        continue;
-      }
-
-      const entry = {
-        id:           eff.id,
-        name:         eff.name,
-        img:          eff.img || "icons/svg/aura.svg",
-        disabled:     eff.disabled,
-        durationLabel: refreshable
-          ? game.i18n.localize("EX2E.EffectUntilNextTurn")
-          : (durationLabelKey ? game.i18n.localize(durationLabelKey) : (eff.duration?.label ?? "")),
-        isSpellEffect: !!(eff.flags?.exalted2e?.spellEffect),
-      };
-      (isTemporal ? temporal : permanent).push(entry);
-    }
-    for (const { entry, count } of stackGroups.values()) {
-      if (count > 1) entry.name = `${entry.name} x${count}`;
-    }
-    const byName = (a, b) => a.name.localeCompare(b.name);
-    temporal.sort(byName);
-    permanent.sort(byName);
-    return { temporal, permanent };
+    return buildEffectsData(actor.effects, EX2E.durations, k => game.i18n.localize(k));
   }
 
   /**
@@ -1101,46 +982,11 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
    * Each group: { key, label, abilities[], isCurrentCaste }
    */
   _buildAbilityGroups(sys) {
-    const mapAbilities = keys => keys.map(key => {
-      const ab = sys.abilities[key] ?? { value: 0, caste: false, favored: false, specialties: [] };
-      return {
-        key,
-        label:       game.i18n.localize(EX2E.abilityLabels[key] ?? key),
-        value:       ab.value,
-        caste:       ab.caste,
-        favored:     ab.favored,
-        specialties: ab.specialties ?? [],
-        fieldBase:   `system.abilities.${key}`
-      };
-    });
-
-    // ── Use predefined group definitions for all exalt types ───────────
-    // EX2E.abilityGroups.lunar (war/life/wisdom) and .alchemical
-    // (warfare/labor/learning) are DISPLAY column groupings for the four-
-    // column ability layout, NOT caste-keyed sets. The actual castes for
-    // attribute-based exalts live in EX2E.attributeGroups; ability-caste
-    // auto-assign skips Lunar/Alchemical entirely (in ExaltedActor._preUpdate).
-    const groupDefs = EX2E.abilityGroups[sys.exaltType] ?? EX2E.abilityGroups.mortal;
-    const groupedKeys = new Set(groupDefs.flatMap(g => g.abilities));
-    const ungrouped   = EX2E.abilities.filter(k => !groupedKeys.has(k));
-
-    const groups = groupDefs.map(g => ({
-      key:           g.key,
-      label:         game.i18n.localize(g.label),
-      abilities:     mapAbilities(g.abilities),
-      isCurrentCaste: sys.caste === g.key
-    }));
-
-    if (ungrouped.length) {
-      groups.push({
-        key:           "other",
-        label:         game.i18n.localize("EX2E.AbilityGroupOther"),
-        abilities:     mapAbilities(ungrouped),
-        isCurrentCaste: false
-      });
-    }
-
-    return groups;
+    return buildAbilityGroups(sys, {
+      abilityLabels: EX2E.abilityLabels,
+      abilities:     EX2E.abilities,
+      abilityGroups: EX2E.abilityGroups,
+    }, k => game.i18n.localize(k));
   }
 
   async _preparePartContext(partId, context, options) {
@@ -1266,9 +1112,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const current  = parseInt(track?.dataset.current ?? 0);
     // Only the first pip toggles to minimum; any other pip sets its own value,
     // clamped to the track's declared minimum.
-    const val      = (newValue === 1 && current === 1)
-      ? min
-      : Math.max(min, newValue);
+    const val      = resolveNewDotValue(newValue, current, min);
     if (!name) return;
 
     // Dot/box ratings inside an item row belong to the embedded item, not the actor
@@ -1965,19 +1809,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     }
 
     const anima = actor.system.anima;
-    let moteCost = sys.activationCost.motes;
-    let wpCost   = sys.activationCost.willpower;
-
-    if (sys.autoThreshold && _animaLevelSheet(anima) >= _animaLevelSheet(sys.autoThreshold)) {
-      moteCost = 0;
-      wpCost   = 0;
-    } else if (sys.totemicOverride.enabled && anima === "totemic") {
-      moteCost = sys.totemicOverride.motes;
-      wpCost   = 0;
-    } else if (sys.bonfireOverride.enabled && _animaLevelSheet(anima) >= _animaLevelSheet("bonfire")) {
-      moteCost = sys.bonfireOverride.motes;
-      wpCost   = 0;
-    }
+    const { motes: moteCost, willpower: wpCost } = animaPowerCost(sys, anima);
 
     const wpCurrent = actor.system.willpower?.value ?? 0;
     if (wpCost > 0 && wpCurrent < wpCost) {

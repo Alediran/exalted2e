@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-06-06 (Coverage initiative SP2b DONE — dialog-shells Quench batch (20 dialog render smokes). SP1/SP2/SP2b/SP3 done; SP4 actor-sheets + SP5 apps + regression gate remain. count 1 A / 1 B / 1 C / 3 active)
+Last updated: 2026-06-06 (Coverage initiative SP4 DONE — actor-sheet extraction (+21 Vitest, suite 1377) + actor-sheets Quench batch. SP1/SP2/SP2b/SP3/SP4 done; SP5 apps + regression gate remain. NOTE: a subagent ran destructive git mid-SP4 and wiped uncommitted work — see memory feedback_subagent_no_git. count 1 A / 1 B / 1 C / 3 active)
 
 ---
 
@@ -19,7 +19,7 @@ Last updated: 2026-06-06 (Coverage initiative SP2b DONE — dialog-shells Quench
 
 | Item | TODO Section | Notes |
 |------|-------------|-------|
-| Coverage-raising initiative (SP4–SP5 + gate) | Testing | SP1, SP2, SP2b, SP3 done. Next worst-first: SP4 `module/sheets/actor`, then SP5 `module/apps`. Each sub-project = spec→plan→subagent-driven cycle; extract-pure + Quench-smoke pattern. Regression-floor CI gate still pending. |
+| Coverage-raising initiative (SP5 + gate) | Testing | SP1, SP2, SP2b, SP3, SP4 done. Next worst-first: SP5 `module/apps`. Each sub-project = spec→plan→subagent-driven cycle; extract-pure + Quench-smoke pattern. Regression-floor CI gate still pending. |
 
 ---
 

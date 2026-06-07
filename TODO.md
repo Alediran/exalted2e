@@ -327,8 +327,8 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
   - [x] SP2 — `module/dialogs` pure-logic extraction (extraction-only): 7 dialogs' trapped math → tested helpers (`excellency-math` budget de-dup ×3, `coordination-math`, `sidereal-destiny-math`, `eruption-math`, `anima-fx-math`, `social-attack-math` filters, `flurry-math`). +37 Vitest cases. Dialog-shell Quench smokes deferred to SP2b.
   - [x] SP2b — Quench shell smokes for the dialog shells: `tests/quench/dialogs/dialog-shells.mjs` (batch `exalted2e.dialog-shells`) — one render smoke per the 20 uncovered dialogs (construct → render → assert element → close). CI-verified.
   - [x] SP3 — `module/sheets/item` (~2115). **Phase A (extraction)**: 8 helpers — dot-rating (×4 dup), socketed-slots (×3 dup), spell-circle (×2 dup), background-tables (×4 dup), manse soak-ref + reuse design-reqs, destiny option normalize, combo-helpers, charm-sheet-helpers. +34 Vitest. **Phase B (Quench shell smokes)**: `tests/quench/sheets/item-sheets.mjs` — render+name round-trip per Item subtype + 3 targeted action smokes (charm keyword, combo removeCharm, manse addMansePower). CI-verified.
-  - [ ] SP4 — `module/sheets/actor` — next
-  - [ ] SP5 — `module/apps`
+  - [x] SP4 — `module/sheets/actor`. **Phase A (focused extraction)**: character-sheet pure logic → `character-sheet-helpers.mjs` (greater-sign, stackable dedup, anima cost, purchase-log overdraft, effects, ability-groups), `combo-display.mjs`, `spell-helpers.spellInitiationStatus`; dot-rating de-dup (char+unit). npc left as-is (real divergence). +21 Vitest. **Phase B**: `tests/quench/sheets/actor-sheets.mjs` (batch `exalted2e.actor-sheets`) — render+name round-trip per actor type. CI-verified.
+  - [ ] SP5 — `module/apps` — next
   - [ ] Regression-floor gate on the CI `coverage` job (after SP1 baseline established)
 
 ## Documentation (internal)
