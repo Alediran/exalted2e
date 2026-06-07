@@ -929,10 +929,10 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
   gap: var(--ex2e-gap-sm);
 }
 .exalted2e .clarity-compassion-penalty {
-  color: var(--ex2e-amber, #d9a441);
+  color: #d9a441;
 }
 .exalted2e .clarity-compassion-suppressed {
-  color: var(--ex2e-danger, #c0392b);
+  color: var(--ex2e-dmg-lethal);
   font-weight: bold;
 }
 .exalted2e .gremlin-syndrome-warning {

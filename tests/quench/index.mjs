@@ -79,6 +79,7 @@ import { registerActorSheets }     from "./sheets/actor-sheets.mjs";
 import { registerDialogShells }    from "./dialogs/dialog-shells.mjs";
 import { registerAppShells }        from "./apps/app-shells.mjs";
 import { registerMigrationRunner }  from "./migration/runner.mjs";
+import { registerComputedStyles }   from "./styles/computed-styles.mjs";
 // NOTE: Anima Powers feature (_swapAnimaPower) relies on the animapowers compendium
 // and cannot be exercised via Quench. No batch registered for ex2e.anima-powers.
 
@@ -186,5 +187,6 @@ Hooks.once("quenchReady", async quench => {
   quench.registerBatch("exalted2e.dialog-shells",    registerDialogShells,    { displayName: "Dialog shells (render)" });
   quench.registerBatch("exalted2e.app-shells",       registerAppShells,       { displayName: "App shells (render)" });
   quench.registerBatch("exalted2e.migration.runner", registerMigrationRunner, { displayName: "Migration runner (smoke)" });
+  quench.registerBatch("exalted2e.styles.computed",  registerComputedStyles,  { displayName: "Computed styles (token resolution)" });
 
 });

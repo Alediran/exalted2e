@@ -168,7 +168,7 @@
   align-items: center;
   gap: 4px;
   font-size: var(--ex2e-font-size-sm);
-  color: var(--ex2e-gold-light, #e8c75a);
+  color: #e8c75a;
   background: rgba(201,162,39,0.08);
   border: 1px solid var(--ex2e-gold-dark);
   border-radius: 3px;
@@ -331,7 +331,7 @@
 
 
 /* ── Charm sheet: per-splat accent palette (dark mode) ─────────────────── */
-.exalted2e.item.charm[data-exalt-type="solar"]       { --ex2e-gold-bright: var(--ex2e-gold-bright); --ex2e-gold-main: var(--ex2e-gold-main); --ex2e-gold-mid: var(--ex2e-gold-mid); --ex2e-gold-dark: var(--ex2e-gold-dark); }
+.exalted2e.item.charm[data-exalt-type="solar"]       { --ex2e-gold-bright: #ffe066; --ex2e-gold-main: #c9a227; --ex2e-gold-mid: #a07820; --ex2e-gold-dark: #5c4510; }
 .exalted2e.item.charm[data-exalt-type="lunar"]       { --ex2e-gold-bright: #d8eaf8; --ex2e-gold-main: #8aaac8; --ex2e-gold-mid: #5a7a9a; --ex2e-gold-dark: #2a3a50; }
 .exalted2e.item.charm[data-exalt-type="terrestrial"] { --ex2e-gold-bright: #a8ddb8; --ex2e-gold-main: #4a9068; --ex2e-gold-mid: #327050; --ex2e-gold-dark: #1a3e28; }
 .exalted2e.item.charm[data-exalt-type="sidereal"]    { --ex2e-gold-bright: #e0e8f0; --ex2e-gold-main: #9090b0; --ex2e-gold-mid: #686890; --ex2e-gold-dark: #282840; }
@@ -1265,7 +1265,7 @@ details.charm-group > summary.charm-group-header {
 .craft-modifiers-block .craft-assistants label { display: inline-flex; align-items: center; gap: 4px; }
 .craft-modifiers-block .craft-assistants input[type=number] { width: 3.5em; }
 .craft-modifiers-block .craft-assist-bonus { font-weight: bold; margin-left: auto; }
-.craft-waiver-badge { color: var(--ex2e-gold); font-size: var(--ex2e-font-size-sm); margin-left: 4px; }
+.craft-waiver-badge { color: var(--ex2e-gold-main); font-size: var(--ex2e-font-size-sm); margin-left: 4px; }
 .craft-workshop-cell, .craft-assist-cell { white-space: nowrap; }
 
 /* ── Manse geomancy (Phase 1) ───────────────────────────────────────────── */
