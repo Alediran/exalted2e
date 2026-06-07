@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { computeAttackExcellencyCaps } from "../../module/rolls/excellency-math.mjs";
+import { computeExcellencyBudget } from "../../module/rolls/excellency-math.mjs";
 import { makeCharacterSystem } from "../_helpers/make-actor.mjs";
 
 describe("computeAttackExcellencyCaps", () => {
@@ -84,5 +85,27 @@ describe("computeAttackExcellencyCaps", () => {
     const mortal = { system: makeCharacterSystem({ exaltType: "mortal" }) };
     expect(computeAttackExcellencyCaps(mortal, "charisma", "presence"))
       .toEqual({ firstExcMax: 0, secondExcMax: 0 });
+  });
+});
+
+describe("computeExcellencyBudget", () => {
+  it("no spend yet: each allowed up to its own cap", () => {
+    expect(computeExcellencyBudget(9, 5, 0, 0))
+      .toEqual({ firstAllowed: 9, secondAllowed: 4, totalMotes: 0 }); // floor(9/2)=4
+  });
+  it("first dice spent reduces secondAllowed by floor((cap-first)/2)", () => {
+    expect(computeExcellencyBudget(9, 5, 6, 0))
+      .toEqual({ firstAllowed: 9, secondAllowed: 1, totalMotes: 6 }); // floor((9-6)/2)=1
+  });
+  it("second successes spent (doubled) reduce firstAllowed", () => {
+    expect(computeExcellencyBudget(9, 5, 0, 3))
+      .toEqual({ firstAllowed: 3, secondAllowed: 4, totalMotes: 6 }); // 9 - 3*2 = 3; totalMotes 0+3*2
+  });
+  it("secondAllowed is capped by secondExcMax, not just the floor term", () => {
+    expect(computeExcellencyBudget(20, 5, 0, 0))
+      .toEqual({ firstAllowed: 20, secondAllowed: 5, totalMotes: 0 }); // floor(20/2)=10 capped to 5
+  });
+  it("totalMotes weights second successes ×2", () => {
+    expect(computeExcellencyBudget(10, 5, 4, 2).totalMotes).toBe(8); // 4 + 2*2
   });
 });

@@ -1,4 +1,5 @@
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
+import { eruptionTotal, canIncrementCategory } from "../combat/eruption-math.mjs";
 
 const CATEGORIES = [
   { key: "blight",   labelKey: "EX2E.EruptionBlight"   },
@@ -58,12 +59,11 @@ export class EruptionAllocationDialog extends HandlebarsApplicationMixin(Applica
         const input   = this.element.querySelector(`.eruption-cat-input[data-category="${cat}"]`);
         const step    = parseInt(btn.dataset.step);
         const current = Math.max(0, parseInt(input.value) || 0);
-        const newVal  = current + step;
-        if (newVal < 0 || newVal > 5) return;
-        const total = [...this.element.querySelectorAll(".eruption-cat-input")]
-          .reduce((s, el) => s + Math.max(0, parseInt(el.value) || 0), 0);
-        if (step > 0 && total >= this.points) return;
-        input.value = newVal;
+        const total = eruptionTotal(
+          [...this.element.querySelectorAll(".eruption-cat-input")].map(el => parseInt(el.value))
+        );
+        if (!canIncrementCategory(current, step, total, this.points)) return;
+        input.value = current + step;
         this.#updateTotal();
       });
     });
@@ -71,7 +71,7 @@ export class EruptionAllocationDialog extends HandlebarsApplicationMixin(Applica
 
   #updateTotal() {
     const inputs = [...this.element.querySelectorAll(".eruption-cat-input")];
-    const total  = inputs.reduce((sum, el) => sum + Math.max(0, parseInt(el.value) || 0), 0);
+    const total  = eruptionTotal(inputs.map(el => parseInt(el.value)));
     const display = this.element.querySelector(".eruption-total-display");
     display.textContent = `${total} / ${this.points}`;
     display.classList.toggle("at-target", total === this.points);

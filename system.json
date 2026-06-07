@@ -2,7 +2,7 @@
   "id": "exalted2e",
   "title": "Exalted Second Edition",
   "description": "An unofficial Foundry VTT game system for Exalted 2nd Edition by White Wolf / Onyx Path Publishing.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "compatibility": {
     "minimum": "14",
     "verified": "14",
@@ -175,6 +175,10 @@
       "procedure": {},
       "resplendency": {},
       "manse-power": {}
+    },
+    "RegionBehavior": {
+      "hazardDamage":    {},
+      "terrainModifier": {}
     }
   },
   "socket": false,

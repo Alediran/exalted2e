@@ -34,7 +34,6 @@
     "martialArtsTier": "celestial",
     "martialArtsStyleName": "Celestial Monkey Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -42,8 +41,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "efb4be75a9b1962f"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "6c71cfc05d989f9b",
+            "charmName": "Four Halo Golden Monkey Realignment",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "efb4be75a9b1962f",
+    "grantsMastery": true
   },
   "folder": "67fad142ae9122e6",
   "sort": 0,

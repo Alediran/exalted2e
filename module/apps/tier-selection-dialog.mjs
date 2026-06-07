@@ -1,3 +1,5 @@
+import { parseTierSelection } from "../helpers/app-dialog-helpers.mjs";
+
 export class TierSelectionDialog {
   /**
    * Show a radio-group dialog for selecting an active tier or standard mode.
@@ -17,13 +19,8 @@ export class TierSelectionDialog {
       content,
       ok: {
         label: game.i18n.localize("EX2E.Confirm") ?? "Confirm",
-        callback: (_ev, button) => {
-          const val = button.form?.elements?.tierSelection?.value ?? "standard";
-          if (!val || val === "standard") return { standard: true };
-          const idx = parseInt(val.replace("tier_", ""), 10);
-          if (isNaN(idx) || idx < 0 || idx >= active.length) return { standard: true };
-          return { standard: false, tier: active[idx] };
-        }
+        callback: (_ev, button) =>
+          parseTierSelection(button.form?.elements?.tierSelection?.value ?? "standard", active),
       }
     });
   }

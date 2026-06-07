@@ -1,5 +1,6 @@
 import { evaluateCharmFormula } from "../../documents/item.mjs";
 import { checkHazardImmunity } from "../../helpers/hazard-immunity.mjs";
+import { hazardAction, hazardPoolSize } from "./hazard-math.mjs";
 
 export class HazardDamageBehaviorType extends foundry.data.regionBehaviors.RegionBehaviorType {
 
@@ -35,7 +36,13 @@ export class HazardDamageBehaviorType extends foundry.data.regionBehaviors.Regio
     const actor = tokenDoc?.actor;
     if (!actor) return;
 
-    if (checkHazardImmunity(actor, this.system.isSupernatural)) {
+    const action = hazardAction({
+      immune:           checkHazardImmunity(actor, this.system.isSupernatural),
+      hasPlayerOwner:   actor.hasPlayerOwner,
+      resistDifficulty: this.system.resistDifficulty,
+    });
+
+    if (action === "immune") {
       const hazardName = this.parent?.parent?.name ?? "Hazard";
       await ChatMessage.create({
         content: `<em>${actor.name} ${game.i18n.localize("EX2E.HazardImmune")} ${hazardName}.</em>`,
@@ -44,7 +51,7 @@ export class HazardDamageBehaviorType extends foundry.data.regionBehaviors.Regio
       return;
     }
 
-    if (actor.hasPlayerOwner && this.system.resistDifficulty > 0) {
+    if (action === "resist") {
       await HazardDamageBehaviorType.#postResistanceCard.call(this, actor);
     } else {
       await HazardDamageBehaviorType.#rollAndApply.call(this, actor);
@@ -55,7 +62,7 @@ export class HazardDamageBehaviorType extends foundry.data.regionBehaviors.Regio
     const { ExaltedRoll } = await import("../../rolls/exalted-roll.mjs");
     const hazardName = this.parent?.parent?.name ?? "Hazard";
     const rollData   = actor.getRollData?.() ?? {};
-    const poolSize   = Math.max(1, evaluateCharmFormula(this.system.damagePool, rollData, 5));
+    const poolSize   = hazardPoolSize(this.system.damagePool, rollData, evaluateCharmFormula);
     const roll       = new ExaltedRoll({
       pool:      poolSize,
       flavor:    hazardName,

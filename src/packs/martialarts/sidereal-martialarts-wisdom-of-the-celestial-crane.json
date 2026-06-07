@@ -56,7 +56,7 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "5b26798520335968",
+            "charmUid": "8226a94a53d59921",
             "charmName": "Kindly Sifu's Quill",
             "abilityKey": "",
             "virtueKey": "valor",
@@ -68,8 +68,8 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "0f2fb9fcbe71357b",
-            "charmName": "FeatherStirred Arrow Deflection",
+            "charmUid": "d2905884c7f51903",
+            "charmName": "Feather-Stirred Arrow Deflection",
             "abilityKey": "",
             "virtueKey": "valor",
             "virtueMin": 1
@@ -80,7 +80,7 @@
         "alternatives": [
           {
             "type": "charm",
-            "charmUid": "77182e29fb4f683c",
+            "charmUid": "2f21530b9a5d8d46",
             "charmName": "Wings Spread to Sky",
             "abilityKey": "",
             "virtueKey": "valor",
@@ -90,7 +90,7 @@
       }
     ],
     "charmUid": "ac1e94e3d1c9cf9e",
-    "grantsMastery": false
+    "grantsMastery": true
   },
   "folder": "c67a8c5f18d732b0",
   "sort": 0,

@@ -279,3 +279,36 @@ export function aggregateAttackerCharms(charms) {
 
   return { keywords, umiCostSum, charmIds, sourceByKeyword };
 }
+
+const SOCIAL_ABILITIES = ["presence", "performance", "investigation", "bureaucracy"];
+
+/** Is a charm a social-ability supplemental / reflexive-step-1, keyed to `ability`, non-excellency? */
+function isSocialAttackCharm(c, ability) {
+  if (!c || c.system?.excellency) return false;
+  if (c.system?.ability !== ability) return false;
+  if (!SOCIAL_ABILITIES.includes(c.system?.ability)) return false;
+  const ct = c.system?.charmType;
+  if (ct === "supplemental") return true;
+  if (ct === "reflexive" && (c.system?.steps ?? []).includes(1)) return true;
+  return false;
+}
+
+/** Charm items eligible for the social-attack picker, keyed to the selected ability. */
+export function filterSocialCharms(charms, ability) {
+  return (charms ?? []).filter(c => isSocialAttackCharm(c, ability));
+}
+
+/**
+ * For each combo, count its charmUids that resolve (via `charms`) to a
+ * social-eligible charm; return `{ id, name, charmCount }` for combos with ≥1.
+ */
+export function buildSocialCombos(combos, charms, ability) {
+  return (combos ?? []).map(combo => {
+    const uids = combo.system?.charmUids ?? [];
+    const charmCount = uids.filter(uid => {
+      const charm = (charms ?? []).find(c => c.type === "charm" && c.system?.charmUid === uid);
+      return isSocialAttackCharm(charm, ability);
+    }).length;
+    return charmCount > 0 ? { id: combo.id, name: combo.name, charmCount } : null;
+  }).filter(Boolean);
+}

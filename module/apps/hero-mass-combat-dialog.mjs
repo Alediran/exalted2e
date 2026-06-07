@@ -1,5 +1,6 @@
-import { rollHeroAttacksUnit } from "../rolls/mass-combat-roll.mjs";
-import { ExaltedRoll }          from "../rolls/exalted-roll.mjs";
+import { rollHeroAttacksUnit }       from "../rolls/mass-combat-roll.mjs";
+import { ExaltedRoll }               from "../rolls/exalted-roll.mjs";
+import { buildHeroWeaponRows }       from "../helpers/app-dialog-helpers.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -68,15 +69,7 @@ export class HeroMassCombatDialog extends HandlebarsApplicationMixin(Application
     const ranged      = selectedDef?.key === "ranged-attack";
 
     const weaponRows = isAttack
-      ? weapons
-          .filter(w => ranged ? w.system.ranged : !w.system.ranged)
-          .map(w => ({
-            id:       w.id,
-            name:     w.name,
-            ability:  w.system.ability ?? "melee",
-            damage:   w.system.damage  ?? 0,
-            selected: w.id === this._selectedWeapon?.id
-          }))
+      ? buildHeroWeaponRows(weapons, ranged, this._selectedWeapon?.id)
       : [];
 
     const canRoll    = isAttack && !!this._selectedWeapon && hasTarget;

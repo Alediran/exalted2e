@@ -1,5 +1,7 @@
 import { EX2E } from "../../config.mjs";
 import { editImageAction } from "../_edit-image.mjs";
+import { resolveNewDotValue } from "../../helpers/dot-rating.mjs";
+import { buildSocketedSlots } from "../../helpers/equip-slots.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -58,7 +60,7 @@ export class WeaponSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description, {
         secrets: this.document.isOwner, relativeTo: this.document
       }),
-      socketedSlots: _buildSocketedSlots(this.document)
+      socketedSlots: buildSocketedSlots(this.document)
     };
   }
 
@@ -156,7 +158,7 @@ export class WeaponSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const current  = parseInt(track.dataset.current ?? 0);
     const min      = parseInt(track.dataset.min ?? 0);
     // Only the first pip toggles to minimum; any other pip sets its own value.
-    const newVal   = (clicked === 1 && current === 1) ? min : clicked;
+    const newVal   = resolveNewDotValue(clicked, current, min);
 
     // ArrayField paths (system.modes.<i>.<field>) need clone-then-replace
     const modeMatch = name.match(/^system\.modes\.(\d+)\.(\w+)$/);
@@ -173,15 +175,4 @@ export class WeaponSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
 
     await this.document.update({ [name]: newVal });
   }
-}
-
-function _buildSocketedSlots(item) {
-  const count      = item.system?.hearthstoneSlots ?? 0;
-  const ids        = item.system?.hearthstones ?? [];
-  const actorItems = item.parent ? [...item.parent.items] : [];
-  return Array.from({ length: count }, (_, i) => {
-    const id    = ids[i] ?? "";
-    const stone = id ? actorItems.find(s => s.id === id && s.type === "hearthstone") : null;
-    return { index: i, filled: !!stone, stoneId: id, stoneName: stone?.name ?? "", stoneRating: stone?.system?.rating ?? 0 };
-  });
 }

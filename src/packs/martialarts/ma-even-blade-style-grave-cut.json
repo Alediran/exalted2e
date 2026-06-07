@@ -36,7 +36,6 @@
     "martialArtsTier": "terrestrial",
     "martialArtsStyleName": "Even Blade Style",
     "maidenAffiliation": "",
-    
     "durationFormula": "",
     "stackCount": 0,
     "umiCost": 0,
@@ -44,8 +43,22 @@
     "excellency": "",
     "perfectDefenseType": "",
     "active": false,
-    "prereqGroups": [],
-    "charmUid": "1330164faa5bd1ad"
+    "prereqGroups": [
+      {
+        "alternatives": [
+          {
+            "type": "charm",
+            "charmUid": "5913b1ac6d27140a",
+            "charmName": "The Variant of Master Lord Chaowin Registrophe, First of Heaven's Chosen Deep Cut",
+            "abilityKey": "",
+            "virtueKey": "",
+            "virtueMin": 0
+          }
+        ]
+      }
+    ],
+    "charmUid": "1330164faa5bd1ad",
+    "grantsMastery": true
   },
   "folder": "6ac2f15fc6fdff1c",
   "sort": 0,

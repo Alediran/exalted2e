@@ -1,5 +1,6 @@
 import { editImageAction } from "../_edit-image.mjs";
 import { ExaltedRoll } from "../../rolls/exalted-roll.mjs";
+import { normalizeDestinyOption, clampParadox } from "../../combat/sidereal-destiny-math.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -40,13 +41,7 @@ export class DestinySheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const sys     = item.system;
     const EX      = game.exalted2e.EX2E;
 
-    const toOption = (key, entry) => ({
-      key:            isNaN(key) ? key : Number(key),
-      label:          game.i18n.localize(entry.labelKey),
-      paradoxDice:    entry.paradoxDice ?? 0,
-      effectPoints:   entry.effectPoints ?? 0,
-      invitesCensure: !!entry.invitesCensure,
-    });
+    const toOption = (key, entry) => normalizeDestinyOption(key, entry, k => game.i18n.localize(k));
 
     const providences  = Object.entries(EX.destinyProvidence).map(([k, v]) => toOption(k, v));
     const triggers     = Object.entries(EX.destinyTrigger).map(([k, v]) => toOption(k, v));
@@ -153,7 +148,7 @@ export class DestinySheet extends HandlebarsApplicationMixin(ItemSheetV2) {
 
     const gained         = result.successes;
     const currentParadox = actor.system.splat?.sidereal?.paradox ?? 0;
-    const newParadox     = Math.min(10, currentParadox + gained);
+    const newParadox     = clampParadox(currentParadox, gained);
 
     await actor.update({ "system.splat.sidereal.paradox": newParadox });
     await item.update({ "system.finalized": true, "system.paradoxGained": gained });

@@ -1,4 +1,5 @@
 import { EX2E, getAnimaPalette } from "../config.mjs";
+import { scaleTmfxParams, makeFilterParamsKey } from "../helpers/anima-fx-math.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -191,15 +192,7 @@ export class AnimaColorDialog extends HandlebarsApplicationMixin(ApplicationV2) 
         const params = TokenMagic.getPreset(presetName);
         if (params) {
           const scalar = TIER_STRENGTH[tier] ?? 1.0;
-          const scaledParams = params.map(p => {
-            const out = { ...p };
-            if (p.outerStrength    !== undefined) out.outerStrength    = p.outerStrength    * scalar;
-            if (p.innerStrength    !== undefined) out.innerStrength    = p.innerStrength    * scalar;
-            if (p.auraIntensity    !== undefined) out.auraIntensity    = p.auraIntensity    * scalar;
-            if (p.subAuraIntensity !== undefined) out.subAuraIntensity = p.subAuraIntensity * scalar;
-            if (p.padding          !== undefined) out.padding          = Math.round(p.padding * scalar);
-            return out;
-          });
+          const scaledParams = scaleTmfxParams(params, scalar);
           await _addAnimaFilters(token, scaledParams);
         }
       }
@@ -224,11 +217,7 @@ export class AnimaColorDialog extends HandlebarsApplicationMixin(ApplicationV2) 
         f.tmFilters?.tmFilterId?.startsWith("exalted2e-anima") && f.tmFilters?.tmParams != null
       );
 
-      const makeParamsKey = (p) => JSON.stringify(
-        Object.entries(p)
-          .filter(([k]) => !TRANSIENT.has(k) && k !== "filterId")
-          .sort(([a], [b]) => a.localeCompare(b))
-      );
+      const makeParamsKey = (p) => makeFilterParamsKey(p, TRANSIENT);
       const seenKeys = new Set();
       const userFilters = allFilters.filter(f => {
         if (beforeIds.has(f.tmFilters?.tmFilterInternalId)) return false;

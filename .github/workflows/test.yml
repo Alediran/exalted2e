@@ -3,24 +3,43 @@ name: Tests
 on:
   push:
   pull_request:
+  workflow_call:
+    inputs:
+      disable_coverage_floor:
+        description: "When true, coverage runs report-only (no floor gate). Releases pass true."
+        type: boolean
+        default: false
+
+env:
+  # Foundry build to install. Pinned so the felddy download is cacheable
+  # (the cached zip is foundryvtt-<FOUNDRY_VERSION>.zip). Bump this + supply a
+  # fresh FOUNDRY_RELEASE_URL when you want a newer build.
+  FOUNDRY_VERSION: "14.363"
 
 jobs:
   vitest:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: "20"
       - run: npm ci
-      - run: npm test
+      - run: npm run test:coverage
+      - name: Upload Vitest coverage
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: vitest-coverage
+          path: coverage/vitest/coverage-final.json
+          if-no-files-found: warn
 
   quench:
     runs-on: ubuntu-latest
     needs: vitest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: "20"
       - run: npm ci
@@ -41,29 +60,97 @@ jobs:
           # World manifest
           cp tools/ci/fixtures/test-world/world.json "${{ github.workspace }}/fvtt-data/Data/worlds/exalted2e-test/world.json"
 
+      # Cache the felddy download (foundryvtt-<version>.zip) so only the first
+      # run (or a FOUNDRY_VERSION bump) needs FOUNDRY_RELEASE_URL. felddy reads
+      # and writes this dir as CONTAINER_CACHE (mounted at /data/container_cache).
+      - name: Cache Foundry download
+        uses: actions/cache@v5
+        with:
+          # felddy's CONTAINER_CACHE is /data/container_cache; host fvtt-data maps
+          # to container /data, so the zip lands here (NOT under Data/).
+          path: fvtt-data/container_cache
+          key: foundry-${{ env.FOUNDRY_VERSION }}
+
       # Pack the committed GM user + scene JSON into the world LevelDB.
       - name: Pack world data
         run: |
-          npx fvtt package pack -n users  --in tools/ci/fixtures/test-world/src/users  --out "${{ github.workspace }}/fvtt-data/Data/worlds/exalted2e-test/data"
-          npx fvtt package pack -n scenes --in tools/ci/fixtures/test-world/src/scenes --out "${{ github.workspace }}/fvtt-data/Data/worlds/exalted2e-test/data"
+          npx fvtt package pack -n users    --in tools/ci/fixtures/test-world/src/users    --out "${{ github.workspace }}/fvtt-data/Data/worlds/exalted2e-test/data"
+          npx fvtt package pack -n scenes   --in tools/ci/fixtures/test-world/src/scenes   --out "${{ github.workspace }}/fvtt-data/Data/worlds/exalted2e-test/data"
+          # Activate Quench via the core.moduleConfiguration world setting (the
+          # world.json modules array does not reliably enable modules in v14).
+          npx fvtt package pack -n settings --in tools/ci/fixtures/test-world/src/settings --out "${{ github.workspace }}/fvtt-data/Data/worlds/exalted2e-test/data"
 
       # Install pinned Quench into the data dir.
       - name: Install Quench
         run: |
-          curl -L -o /tmp/quench.zip https://github.com/Ethaks/FVTT-Quench/releases/download/0.10.0/module.zip
+          # -f makes curl exit non-zero on HTTP errors (so a bad URL fails the
+          # step instead of writing an error-page stub). Tag is v-prefixed.
+          curl -fL -o /tmp/quench.zip https://github.com/Ethaks/FVTT-Quench/releases/download/v0.10.0/module.zip
+          rm -rf /tmp/quench-extract && mkdir -p /tmp/quench-extract
+          unzip -o -q /tmp/quench.zip -d /tmp/quench-extract
+          # The release zip may put module.json at the root OR inside a subfolder
+          # (which would nest it as modules/quench/quench/module.json and hide it
+          # from Foundry). Locate module.json and install THAT directory.
+          modjson=$(find /tmp/quench-extract -name module.json | head -1)
+          if [ -z "$modjson" ]; then echo "::error::module.json not found in Quench zip"; ls -R /tmp/quench-extract; exit 1; fi
+          modroot=$(dirname "$modjson")
+          echo "Quench module root inside zip: $modroot"
+          rm -rf "${{ github.workspace }}/fvtt-data/Data/modules/quench"
           mkdir -p "${{ github.workspace }}/fvtt-data/Data/modules/quench"
-          unzip -o /tmp/quench.zip -d "${{ github.workspace }}/fvtt-data/Data/modules/quench"
+          cp -r "$modroot"/. "${{ github.workspace }}/fvtt-data/Data/modules/quench/"
+          echo "Installed Quench files:"; ls "${{ github.workspace }}/fvtt-data/Data/modules/quench"
+
+      # Fail fast with a clear message if the required Foundry secrets are
+      # missing/empty (otherwise felddy aborts later with a cryptic error).
+      - name: Check Foundry secrets
+        env:
+          FOUNDRY_USERNAME: "${{ secrets.FOUNDRY_USERNAME }}"
+          FOUNDRY_PASSWORD: "${{ secrets.FOUNDRY_PASSWORD }}"
+          FOUNDRY_RELEASE_URL: "${{ secrets.FOUNDRY_RELEASE_URL }}"
+          FOUNDRY_LICENSE_KEY: "${{ secrets.FOUNDRY_LICENSE_KEY }}"
+          FOUNDRY_ADMIN_KEY: "${{ secrets.FOUNDRY_ADMIN_KEY }}"
+        run: |
+          missing=0
+          # License + admin key are always required.
+          for v in FOUNDRY_LICENSE_KEY FOUNDRY_ADMIN_KEY; do
+            if [ -z "${!v}" ]; then echo "::error::Secret $v is missing or empty"; missing=1; fi
+          done
+          # Download method: either a release URL OR username + password.
+          if [ -z "$FOUNDRY_RELEASE_URL" ] && { [ -z "$FOUNDRY_USERNAME" ] || [ -z "$FOUNDRY_PASSWORD" ]; }; then
+            echo "::error::Provide FOUNDRY_RELEASE_URL, or both FOUNDRY_USERNAME and FOUNDRY_PASSWORD";
+            missing=1;
+          fi
+          if [ "$missing" = "1" ]; then
+            echo "Set the secrets in repo Settings → Secrets and variables → Actions, then re-run.";
+            exit 1;
+          fi
+          echo "Required Foundry secrets are present."
 
       # Boot Foundry headlessly via felddy, auto-launching the world.
       - name: Start Foundry
+        env:
+          # Secrets are placed in the step env so Docker can receive them via
+          # bare -e VARNAME. This avoids shell expansion of values that contain
+          # special characters such as $ (e.g. a password starting with $foo
+          # would be silently zeroed by the shell when passed as -e VAR="$foo").
+          FOUNDRY_USERNAME: "${{ secrets.FOUNDRY_USERNAME }}"
+          FOUNDRY_PASSWORD: "${{ secrets.FOUNDRY_PASSWORD }}"
+          FOUNDRY_RELEASE_URL: "${{ secrets.FOUNDRY_RELEASE_URL }}"
+          FOUNDRY_LICENSE_KEY: "${{ secrets.FOUNDRY_LICENSE_KEY }}"
+          FOUNDRY_ADMIN_KEY: "${{ secrets.FOUNDRY_ADMIN_KEY }}"
         run: |
+          # felddy runs as uid:gid 1000:1000; the mounted dir is owned by the
+          # runner user, so make it writable by the container before booting.
+          sudo chmod -R 777 "${{ github.workspace }}/fvtt-data"
           docker run -d --name foundry \
             -p 30000:30000 \
             -v "${{ github.workspace }}/fvtt-data:/data" \
-            -e FOUNDRY_USERNAME="${{ secrets.FOUNDRY_USERNAME }}" \
-            -e FOUNDRY_PASSWORD="${{ secrets.FOUNDRY_PASSWORD }}" \
-            -e FOUNDRY_LICENSE_KEY="${{ secrets.FOUNDRY_LICENSE_KEY }}" \
-            -e FOUNDRY_ADMIN_KEY="${{ secrets.FOUNDRY_ADMIN_KEY }}" \
+            -e FOUNDRY_USERNAME \
+            -e FOUNDRY_PASSWORD \
+            -e FOUNDRY_RELEASE_URL \
+            -e FOUNDRY_LICENSE_KEY \
+            -e FOUNDRY_ADMIN_KEY \
+            -e FOUNDRY_VERSION="${{ env.FOUNDRY_VERSION }}" \
             -e FOUNDRY_WORLD="exalted2e-test" \
             felddy/foundryvtt:release
 
@@ -78,31 +165,117 @@ jobs:
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
 
+      # felddy boots unlicensed (account auth is blocked from CI IPs), so sign
+      # the license via the /license page, then restart the container so it
+      # boots licensed and auto-launches FOUNDRY_WORLD.
+      - name: Sign license
+        env:
+          FOUNDRY_URL: "http://localhost:30000"
+          FOUNDRY_LICENSE_KEY: "${{ secrets.FOUNDRY_LICENSE_KEY }}"
+          DIAG_DIR: "diag"
+        run: |
+          mkdir -p diag
+          node tools/ci/sign-license.mjs
+
+      - name: Restart Foundry (now licensed)
+        run: |
+          # Restart the SAME container so the license signature (stored in the
+          # container's Foundry install, not the volume) is retained — a fresh
+          # `docker run` would boot unlicensed. Stop, clear the stale locks the
+          # force-stopped process left on the volume, then start again.
+          # Foundry's options lock (proper-lockfile) is a DIRECTORY → rm -rf
+          # (a `find -type f` skipped it). LevelDB dirs leave a file named LOCK.
+          docker stop -t 30 foundry || true
+          echo "Clearing stale Foundry + LevelDB locks…"
+          sudo rm -rf "${{ github.workspace }}/fvtt-data/Config/options.json.lock"
+          sudo find "${{ github.workspace }}/fvtt-data" -name 'LOCK' -delete 2>/dev/null || true
+          docker start foundry
+
+      - name: Wait for Foundry (post-restart)
+        run: |
+          for i in $(seq 1 60); do
+            if curl -sf http://localhost:30000 >/dev/null; then echo "Foundry is up"; exit 0; fi
+            sleep 3
+          done
+          echo "Foundry did not become ready in time"; docker logs foundry || true; exit 1
+
       - name: Run Quench
         env:
           FOUNDRY_URL: "http://localhost:30000"
+          FOUNDRY_LICENSE_KEY: "${{ secrets.FOUNDRY_LICENSE_KEY }}"
           QUENCH_REPORT_PATH: "${{ github.workspace }}/fvtt-data/Data/quench-report.json"
           COVERAGE_OUT: "coverage/quench-coverage.json"
+          DIAG_DIR: "diag"
         run: |
-          mkdir -p coverage
+          mkdir -p coverage diag
           npm run test:quench
 
       - name: Upload Quench report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: quench-report
           path: fvtt-data/Data/quench-report.json
           if-no-files-found: ignore
 
+      - name: Upload diagnostics
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: quench-diag
+          path: diag/
+          if-no-files-found: ignore
+
       - name: Upload coverage
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: quench-coverage
           path: coverage/quench-coverage.json
           if-no-files-found: ignore
 
+      - name: Upload Quench istanbul coverage
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: quench-coverage-final
+          path: coverage/quench-coverage-final.json
+          if-no-files-found: warn
+
       - name: Foundry logs (on failure)
         if: failure()
         run: docker logs foundry || true
+
+  coverage:
+    runs-on: ubuntu-latest
+    needs: [vitest, quench]
+    if: always()
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "20"
+      - run: npm ci
+      - name: Download Vitest coverage
+        uses: actions/download-artifact@v5
+        with:
+          name: vitest-coverage
+          path: cov-vitest
+        continue-on-error: true
+      - name: Download Quench coverage
+        uses: actions/download-artifact@v5
+        with:
+          name: quench-coverage-final
+          path: cov-quench
+        continue-on-error: true
+      - name: Merge coverage
+        env:
+          COVERAGE_MIN_LINES: ${{ inputs.disable_coverage_floor && 'none' || '80' }}
+        run: node tools/ci/merge-coverage.mjs cov-vitest/coverage-final.json cov-quench/quench-coverage-final.json
+      - name: Upload combined coverage
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: coverage-combined
+          path: coverage/combined
+          if-no-files-found: ignore

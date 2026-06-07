@@ -43,7 +43,7 @@ describe("getTerrainBonuses", () => {
   });
 
   it("returns zeros when no terrain modifier behaviors exist", () => {
-    const region = makeRegion([makeBehavior({ type: "ex2e.hazardDamage", system: {} })]);
+    const region = makeRegion([makeBehavior({ type: "hazardDamage", system: {} })]);
     const token  = makeToken([region]);
     const actor  = makeActor(token);
     globalThis.canvas = { scene: { regions: [region] } };
@@ -51,7 +51,7 @@ describe("getTerrainBonuses", () => {
   });
 
   it("skips disabled terrain behaviors", () => {
-    const region = makeRegion([makeBehavior({ type: "ex2e.terrainModifier", disabled: true, system: { accuracyBonus: 3, dvBonus: 1, soakBonus: 2 } })]);
+    const region = makeRegion([makeBehavior({ type: "terrainModifier", disabled: true, system: { accuracyBonus: 3, dvBonus: 1, soakBonus: 2 } })]);
     const token  = makeToken([region]);
     const actor  = makeActor(token);
     globalThis.canvas = { scene: { regions: [region] } };
@@ -59,7 +59,7 @@ describe("getTerrainBonuses", () => {
   });
 
   it("applies accuracyBonus when attacker token is in region", () => {
-    const region   = makeRegion([makeBehavior({ type: "ex2e.terrainModifier", system: { accuracyBonus: 2, dvBonus: 0, soakBonus: 0 } })]);
+    const region   = makeRegion([makeBehavior({ type: "terrainModifier", system: { accuracyBonus: 2, dvBonus: 0, soakBonus: 0 } })]);
     const atkToken = makeToken([region]);
     const defToken = makeToken([]);
     globalThis.canvas = { scene: { regions: [region] } };
@@ -70,7 +70,7 @@ describe("getTerrainBonuses", () => {
   });
 
   it("applies dvBonus and soakBonus when defender token is in region", () => {
-    const region   = makeRegion([makeBehavior({ type: "ex2e.terrainModifier", system: { accuracyBonus: 0, dvBonus: 1, soakBonus: 3 } })]);
+    const region   = makeRegion([makeBehavior({ type: "terrainModifier", system: { accuracyBonus: 0, dvBonus: 1, soakBonus: 3 } })]);
     const atkToken = makeToken([]);
     const defToken = makeToken([region]);
     globalThis.canvas = { scene: { regions: [region] } };
@@ -81,8 +81,8 @@ describe("getTerrainBonuses", () => {
   });
 
   it("accumulates bonuses from multiple terrain regions", () => {
-    const r1       = makeRegion([makeBehavior({ type: "ex2e.terrainModifier", system: { accuracyBonus: 2, dvBonus: 0, soakBonus: 0 } })]);
-    const r2       = makeRegion([makeBehavior({ type: "ex2e.terrainModifier", system: { accuracyBonus: 1, dvBonus: 0, soakBonus: 0 } })]);
+    const r1       = makeRegion([makeBehavior({ type: "terrainModifier", system: { accuracyBonus: 2, dvBonus: 0, soakBonus: 0 } })]);
+    const r2       = makeRegion([makeBehavior({ type: "terrainModifier", system: { accuracyBonus: 1, dvBonus: 0, soakBonus: 0 } })]);
     const atkToken = makeToken([r1, r2]);
     globalThis.canvas = { scene: { regions: [r1, r2] } };
     const result = getTerrainBonuses(makeActor(atkToken), makeActor(makeToken([])));
@@ -90,7 +90,7 @@ describe("getTerrainBonuses", () => {
   });
 
   it("handles null actors gracefully", () => {
-    const region = makeRegion([makeBehavior({ type: "ex2e.terrainModifier", system: { accuracyBonus: 2, dvBonus: 1, soakBonus: 1 } })]);
+    const region = makeRegion([makeBehavior({ type: "terrainModifier", system: { accuracyBonus: 2, dvBonus: 1, soakBonus: 1 } })]);
     globalThis.canvas = { scene: { regions: [region] } };
     expect(() => getTerrainBonuses(null, null)).not.toThrow();
     expect(getTerrainBonuses(null, null)).toEqual({ attackerDiceBonus: 0, defenderDVBonus: 0, defenderSoakBonus: 0 });

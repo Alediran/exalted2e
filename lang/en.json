@@ -1,5 +1,13 @@
 {
   "EX2E": {
+    "Migration": {
+      "BackupTitle": "World Data Migration",
+      "BackupBody": "This world needs a data migration for the new system version. Please back up your world before proceeding. Continue?",
+      "Running": "Migrating world data… do not close the world.",
+      "Complete": "World data migration complete.",
+      "Issues": "Migration finished with {count} issue(s) — see the console; it will retry on next reload.",
+      "Failed": "World data migration failed — see the console; it will retry on next reload."
+    },
     "ActorName": "Character Name",
     "ExaltType": "Exalt Type",
     "SplatType": "Splat Type",

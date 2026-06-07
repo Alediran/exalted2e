@@ -102,6 +102,8 @@ import { computeAttackOutcome } from "./rolls/attack-math.mjs";
 import { getTargetPenaltyChanges, collectStatusApplyCharms } from "./rolls/charm-event-math.mjs";
 import { ImportDialog } from "./apps/import-dialog.mjs";
 import { CharmTreeDialog } from "./apps/charm-tree-dialog.mjs";
+import { unarmedWeaponData } from "./migration/unarmed-weapon.mjs";
+import { runMigrations } from "./migration/runner.mjs";
 
 // ── Attack-success hook helper ─────────────────────────────────────────────
 function _tryFireAttackSuccess(newAttack) {
@@ -260,8 +262,8 @@ Hooks.once("init", function () {
   };
 
   // ── Region Behavior Types ────────────────────────────────────────────────
-  CONFIG.RegionBehavior.dataModels["ex2e.hazardDamage"]     = HazardDamageBehaviorType;
-  CONFIG.RegionBehavior.dataModels["ex2e.terrainModifier"] = TerrainModifierBehaviorType;
+  CONFIG.RegionBehavior.dataModels["hazardDamage"]     = HazardDamageBehaviorType;
+  CONFIG.RegionBehavior.dataModels["terrainModifier"] = TerrainModifierBehaviorType;
 
   // ── Sheet Registration ──────────────────────────────────────────────────
   foundry.documents.collections.Actors.unregisterSheet("core", foundry.appv1.sheets.ActorSheet);
@@ -379,6 +381,13 @@ Hooks.once("init", function () {
     type:    Boolean,
     default: false,
     requiresReload: true
+  });
+
+  game.settings.register("exalted2e", "systemMigrationVersion", {
+    scope:   "world",
+    config:  false,
+    type:    String,
+    default: ""
   });
 
   game.settings.register("exalted2e", "useIntimacyIntensity", {
@@ -647,40 +656,6 @@ async function _preloadTemplates() {
 // Every character carries an "Unarmed Attacks" weapon item with Clinch,
 // Kick, and Punch modes baked in. The item is flagged unarmed=true so it
 // can be recognised for deletion prevention and migration.
-function _unarmedWeaponData() {
-  return {
-    name: game.i18n.localize("EX2E.UnarmedAttacks"),
-    type: "weapon",
-    flags: { exalted2e: { unarmed: true } },
-    system: {
-      equipped: true,
-      artifact: false,
-      modes: [
-        {
-          name: game.i18n.localize("EX2E.UnarmedClinch"),
-          speed: 6, accuracy: 0, damage: 0, damageType: "bashing",
-          overwhelming: 1, defense: 0, rate: 1, range: 0,
-          minStrength: 1, minDexterity: 0, minMartialArts: 0,
-          tags: ["Clinch", "Natural", "Piercing"]
-        },
-        {
-          name: game.i18n.localize("EX2E.UnarmedKick"),
-          speed: 5, accuracy: 0, damage: 3, damageType: "bashing",
-          overwhelming: 1, defense: -2, rate: 2, range: 0,
-          minStrength: 1, minDexterity: 2, minMartialArts: 0,
-          tags: ["Natural"]
-        },
-        {
-          name: game.i18n.localize("EX2E.UnarmedPunch"),
-          speed: 5, accuracy: 1, damage: 0, damageType: "bashing",
-          overwhelming: 1, defense: 2, rate: 3, range: 0,
-          minStrength: 1, minDexterity: 0, minMartialArts: 0,
-          tags: ["Natural"]
-        }
-      ]
-    }
-  };
-}
 
 function _hasUnarmedWeapon(actor) {
   return actor.items.some(i =>
@@ -693,7 +668,7 @@ async function _ensureUnarmedWeapon(actor) {
   if (_hasUnarmedWeapon(actor)) return;
   if (actor._isBeingDeleted) return;
   try {
-    await actor.createEmbeddedDocuments("Item", [_unarmedWeaponData()]);
+    await actor.createEmbeddedDocuments("Item", [unarmedWeaponData()]);
   } catch (err) {
     // Silently ignore if the actor was deleted while createEmbeddedDocuments
     // was in-flight (guard check passed but deletion raced the server round-trip).
@@ -963,49 +938,19 @@ Hooks.once("ready", async function () {
     }
   });
 
-  // Migration: back-fill unarmed attacks onto existing characters that
-  // pre-date this feature. GM-only to avoid write races.
+  // GM-only from here (compendium seeding + migration both write world data).
   if (!game.user.isGM) return;
-  for (const actor of game.actors) {
-    if (actor.type !== "character") continue;
-    if (_hasUnarmedWeapon(actor)) continue;
-    await actor.createEmbeddedDocuments("Item", [_unarmedWeaponData()]);
-  }
-
-  // Migration: assign stable uids to any charms or spells that pre-date
-  // the field. Runs once per world load; the inner loops are no-ops once
-  // every item has a uid.
-  for (const actor of game.actors) {
-    const updates = [];
-    for (const item of actor.items) {
-      if (item.type === "charm" && !item.system.charmUid) {
-        updates.push({ _id: item.id, "system.charmUid": foundry.utils.randomID() });
-      } else if (item.type === "spell" && !item.system.spellUid) {
-        updates.push({ _id: item.id, "system.spellUid": foundry.utils.randomID() });
-      }
-    }
-    if (updates.length > 0) {
-      await actor.updateEmbeddedDocuments("Item", updates);
-    }
-  }
-  const worldCharms = game.items.filter(i => i.type === "charm" && !i.system.charmUid);
-  if (worldCharms.length > 0) {
-    await Item.updateDocuments(worldCharms.map(i => ({
-      _id: i.id, "system.charmUid": foundry.utils.randomID()
-    })));
-  }
-  const worldSpells = game.items.filter(i => i.type === "spell" && !i.system.spellUid);
-  if (worldSpells.length > 0) {
-    await Item.updateDocuments(worldSpells.map(i => ({
-      _id: i.id, "system.spellUid": foundry.utils.randomID()
-    })));
-  }
 
   await _seedEffectsCompendium();
   await _seedAnimaPowersCompendium();
   await _seedTheCircleFolder();
 
   game.exalted2e._countermagicHelpers = await import("./helpers/countermagic-helpers.mjs");
+
+  // Run the versioned migration pipeline LAST: its backup-confirm dialog
+  // blocks until answered, so it must never sit upstream of the seeding
+  // above (an unanswered dialog would otherwise stall the rest of ready).
+  await runMigrations();
 });
 
 // ── Compendium footer button: Open Charm Tree ──────────────────────────────
@@ -4803,7 +4748,7 @@ Hooks.on("preCreateRegion", (regionDoc, _data, _options, _userId) => {
     _pendingHazard = null;
 
     const behaviors = [
-      { type: "ex2e.hazardDamage", system: {
+      { type: "hazardDamage", system: {
           damagePool:       config.damagePool,
           traumaType:       config.traumaType,
           resistDifficulty: config.resistDifficulty,
@@ -4826,7 +4771,7 @@ Hooks.on("preCreateRegion", (regionDoc, _data, _options, _userId) => {
       name:  config.label || game.i18n.localize("EX2E.TerrainModifier"),
       color: "#0066FF",
       behaviors: [
-        { type: "ex2e.terrainModifier", system: {
+        { type: "terrainModifier", system: {
             terrainType:   config.terrainType,
             label:         config.label,
             accuracyBonus: config.accuracyBonus,

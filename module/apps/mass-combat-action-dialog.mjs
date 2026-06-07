@@ -19,6 +19,7 @@ import {
 } from "../rolls/mass-combat-math.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
+import { isNumbersEligible, buildFormationOptions } from "../helpers/app-dialog-helpers.mjs";
 
 const ACTIONS = [
   { key: "close-attack",       labelKey: "EX2E.ActionAttackClose",    speed: 5, dvMod: -2 },
@@ -36,21 +37,6 @@ const ACTIONS = [
   { key: "inactive",           labelKey: "EX2E.ActionInactive",       speed: 1, dvMod:  0},
   { key: "signal",             labelKey: "EX2E.ActionSignal",         speed: 3, dvMod:  0 },
 ];
-
-const FORMATION_MIN_DRILL = { none: 99, unordered: 1, skirmish: 2, relaxed: 2, close: 3 };
-
-function isNumbersEligible(rallyingUnit) {
-  if (!game.combat) return false;
-  const myMag = rallyingUnit.system.magnitude.value;
-  for (const combatant of game.combat.combatants) {
-    const actor = combatant.actor;
-    if (!actor || actor.id === rallyingUnit.id || actor.type !== "unit") continue;
-    const joinMag = combatant.flags?.exalted2e?.magnitudeAtJoinWar ?? null;
-    const curMag  = actor.system.magnitude.value;
-    if (joinMag !== null && joinMag > curMag && curMag > myMag) return true;
-  }
-  return false;
-}
 
 export class MassCombatActionDialog extends HandlebarsApplicationMixin(ApplicationV2) {
 
@@ -155,13 +141,7 @@ export class MassCombatActionDialog extends HandlebarsApplicationMixin(Applicati
       selectedFormula = `(Cha ${cha} + War ${war}) = ${selectedPool} dice, difficulty ${selectedDiff}`;
     }
 
-    const formationOptions = ["none","unordered","skirmish","relaxed","close"]
-      .filter(k => sys.drill >= (FORMATION_MIN_DRILL[k] ?? Infinity))
-      .map(k => ({
-        value:   k,
-        label:   game.i18n.localize(`EX2E.Formation${k.charAt(0).toUpperCase() + k.slice(1)}`),
-        current: k === unitSystem.formation
-      }));
+    const formationOptions = buildFormationOptions(sys.drill, unitSystem.formation, k => game.i18n.localize(k));
 
     const splitMaxMagnitude    = Math.max(1, sys.magnitude.value - 1);
     const mergeResultMagnitude = hasTarget
@@ -169,7 +149,7 @@ export class MassCombatActionDialog extends HandlebarsApplicationMixin(Applicati
       : 0;
 
     const showRallySubEffects = this._selectedAction === "rally";
-    const numbersEligible = showRallySubEffects && isNumbersEligible(this._unitActor);
+    const numbersEligible = showRallySubEffects && isNumbersEligible(this._unitActor.id, this._unitActor.system.magnitude.value, game.combat?.combatants ?? []);
     const rallySubEffects = showRallySubEffects ? [
       { key: "second-wind",  labelKey: "EX2E.RallySecondWind",  disabled: false, disabledReason: null },
       { key: "organisation", labelKey: "EX2E.RallyOrganisation", disabled: false, disabledReason: null },

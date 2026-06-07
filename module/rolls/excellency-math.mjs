@@ -55,3 +55,25 @@ export function computeAttackExcellencyCaps(actor, attribute, ability) {
 
   return { firstExcMax: cap, secondExcMax: Math.ceil(cap / 2) };
 }
+
+/**
+ * Joint First/Second Excellency budget for the roll dialogs. Inputs are RAW
+ * values (firstDice, secondSucc); the second's mote weight (×2) is applied here.
+ *
+ *   firstAllowed  = min(firstExcMax,  firstExcMax - secondSucc*2)
+ *   secondAllowed = min(secondExcMax, floor((firstExcMax - firstDice) / 2))
+ *   totalMotes    = firstDice + secondSucc*2
+ *
+ * (None are clamped to ≥0 here — callers already `Math.max(0, …)` at the DOM
+ * boundary; the raw values preserve the existing behavior exactly.)
+ *
+ * @returns {{ firstAllowed: number, secondAllowed: number, totalMotes: number }}
+ */
+export function computeExcellencyBudget(firstExcMax, secondExcMax, firstDice, secondSucc) {
+  const secondDoubled = secondSucc * 2;
+  return {
+    firstAllowed:  Math.min(firstExcMax,  firstExcMax - secondDoubled),
+    secondAllowed: Math.min(secondExcMax, Math.floor((firstExcMax - firstDice) / 2)),
+    totalMotes:    firstDice + secondDoubled,
+  };
+}

@@ -5,6 +5,13 @@ export default defineConfig({
     globals: true,
     setupFiles: ["./tests/_setup/foundry-mocks.mjs"],
     include: ["tests/**/*.test.mjs"],
-    environment: "node"
-  }
+    environment: "node",
+    coverage: {
+      provider: "v8",
+      reporter: ["json", "text"],
+      reportsDirectory: "coverage/vitest",
+      include: ["module/**"],
+      all: true,
+    },
+  },
 });

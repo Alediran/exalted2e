@@ -1,5 +1,6 @@
 import { ExaltedRoll } from "../rolls/exalted-roll.mjs";
 import { computeJoinWarPool } from "../rolls/mass-combat-math.mjs";
+import { parseManualTick } from "../helpers/app-dialog-helpers.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -78,12 +79,12 @@ export class JoinWarDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 
   static async #onConfirm(_event, _target) {
-    const raw       = this.element?.querySelector("input[name='manualTick']")?.value ?? "";
-    const hasManual = raw !== "" && !Number.isNaN(Number(raw));
+    const raw    = this.element?.querySelector("input[name='manualTick']")?.value ?? "";
+    const manual = parseManualTick(raw);
 
     let successes;
-    if (hasManual) {
-      successes = Math.max(0, Number(raw));
+    if (manual !== null) {
+      successes = manual;
     } else if (this._rollResult) {
       successes = this._rollResult.successes;
     } else {
