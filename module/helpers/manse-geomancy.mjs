@@ -105,3 +105,8 @@ export function simulateManseDamage({ rating = 0, powerFailures = 0, damage = 0,
   const destroyed = r > 0 && (r - pf) <= 0;
   return { powerFailures: pf, damage: dmg, failuresThisEvent, destroyed };
 }
+
+/** Soak reference string for a manse by Fragility (Oadenol's Codex). */
+export function manseSoakRef(fragility) {
+  return ({ 0: "12L/18B", 1: "6L/9B", 2: "—", 3: "—" })[Math.max(0, Math.min(3, parseInt(fragility) || 0))];
+}

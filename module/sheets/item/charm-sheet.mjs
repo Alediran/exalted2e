@@ -3,6 +3,7 @@ import { describeAllPrereqs } from "../../helpers/charm-prereqs.mjs";
 import { editImageAction } from "../_edit-image.mjs";
 import { parseCostFormula } from "../../rolls/activation-ledger.mjs";
 import { evaluateCharmFormula } from "../../documents/item.mjs";
+import { buildCharmCostPreview, buildCharmOptions, buildTraitOptions, buildStatBoostPaths } from "../../helpers/charm-sheet-helpers.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -90,72 +91,25 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     // exalt type keys to Abilities. Both use the same `system.ability`
     // field — only the dropdown contents and the field label change.
     const usesAttribute = ["lunar", "alchemical"].includes(sys.exaltType);
-    const attributeOptions = [];
-    for (const group of Object.values(EX2E.attributes)) {
-      for (const [key, labelKey] of Object.entries(group)) {
-        attributeOptions.push({ value: key, label: game.i18n.localize(labelKey) });
-      }
-    }
-    const abilityOptions = EX2E.abilities.map(k => ({
-      value: k, label: game.i18n.localize(EX2E.abilityLabels[k] ?? k)
-    }));
+    const { attributeOptions, abilityOptions } = buildTraitOptions(EX2E, k => game.i18n.localize(k));
 
     // Deduplicated charm list spanning actor items, world items, and all
     // compendium pack indices — so datalist autocomplete and display names
     // work even when the charm is opened directly from a compendium.
-    const allCharmOptions = (() => {
-      const seen = new Set();
-      const out = [];
-      for (const i of (item.actor?.items ?? [])) {
-        if (i.type !== "charm" || i.id === item.id) continue;
-        const uid = i.system?.charmUid ?? "";
-        if (!uid || seen.has(uid)) continue;
-        seen.add(uid);
-        out.push({ uid, name: i.name });
-      }
-      for (const i of (game.items?.filter(i => i.type === "charm") ?? [])) {
-        if (i.id === item.id) continue;
-        const uid = i.system?.charmUid ?? "";
-        if (!uid || seen.has(uid)) continue;
-        seen.add(uid);
-        out.push({ uid, name: i.name });
-      }
-      for (const pack of (game.packs ?? [])) {
-        if (pack.documentName !== "Item") continue;
-        for (const entry of pack.index) {
-          if (entry.type !== "charm" || seen.has(entry._id)) continue;
-          seen.add(entry._id);
-          out.push({ uid: entry._id, name: entry.name });
-        }
-      }
-      return out.sort((a, b) => a.name.localeCompare(b.name));
-    })();
+    const packEntries = [];
+    for (const pack of (game.packs ?? [])) {
+      if (pack.documentName !== "Item") continue;
+      for (const entry of pack.index) packEntries.push(entry);
+    }
+    const allCharmOptions = buildCharmOptions(item.actor?.items, game.items, packEntries, item.id);
     const charmByUid = new Map(allCharmOptions.map(o => [o.uid, o.name]));
 
     // Formula parse preview for the charm sheet cost field
     const _formulaParsed = parseCostFormula(sys.cost?.formula ?? "");
     let costFormulaPreview = "", costFormulaError = "";
     if (sys.cost?.formula) {
-      if (_formulaParsed === null) {
-        costFormulaError = game.i18n.localize("EX2E.CostFormulaError");
-      } else {
-        const parts = [];
-        if (_formulaParsed.motes > 0)           parts.push(`${_formulaParsed.motes}m base`);
-        if (_formulaParsed.moteVar?.type === "perUnit")
-          parts.push(`${_formulaParsed.moteVar.rate}m/${_formulaParsed.moteVar.unit}`);
-        if (_formulaParsed.moteVar?.type === "openEnded") parts.push("open-ended");
-        if (_formulaParsed.moteVar?.type === "tiered")
-          parts.push(`${_formulaParsed.moteVar.tiers.length} tiers`);
-        if (_formulaParsed.willpower > 0)        parts.push(`${_formulaParsed.willpower}wp`);
-        if (_formulaParsed.lethalHealth > 0)     parts.push(`${_formulaParsed.lethalHealth}lhl`);
-        if (_formulaParsed.bashingHealth > 0)    parts.push(`${_formulaParsed.bashingHealth}bhl`);
-        if (_formulaParsed.aggravatedHealth > 0) parts.push(`${_formulaParsed.aggravatedHealth}ahl`);
-        if (_formulaParsed.xp > 0)               parts.push(`${_formulaParsed.xp}xp`);
-        if (_formulaParsed.permanentEssence > 0) parts.push("perm ess");
-        if (_formulaParsed.permanentWillpower > 0) parts.push("perm wp");
-        if (_formulaParsed.surcharge?.length)    parts.push(`surcharge (${_formulaParsed.surcharge.length} opt)`);
-        costFormulaPreview = parts.join(" · ") || "✓";
-      }
+      if (_formulaParsed === null) costFormulaError = game.i18n.localize("EX2E.CostFormulaError");
+      else costFormulaPreview = buildCharmCostPreview(_formulaParsed);
     }
 
     return {
@@ -291,18 +245,7 @@ export class CharmSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         { value: "onAttackSuccess",  label: game.i18n.localize("EX2E.WillpowerEventOnHit")    },
         { value: "onKill",           label: game.i18n.localize("EX2E.WillpowerEventOnKill")   }
       ],
-      statBoostPaths: (() => {
-        const paths = [];
-        for (const group of Object.values(EX2E.attributes)) {
-          for (const [k, labelKey] of Object.entries(group)) {
-            paths.push({ value: `system.attributes.${k}.value`, label: game.i18n.localize(labelKey) });
-          }
-        }
-        for (const k of EX2E.abilities) {
-          paths.push({ value: `system.abilities.${k}.value`, label: game.i18n.localize(EX2E.abilityLabels[k] ?? k) });
-        }
-        return paths;
-      })()
+      statBoostPaths: buildStatBoostPaths(EX2E, k => game.i18n.localize(k))
     };
   }
 

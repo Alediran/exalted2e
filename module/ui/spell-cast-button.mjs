@@ -1,10 +1,5 @@
 import { EX2E } from "../config.mjs";
-
-const CIRCLE_KEY_BY_TRADITION = {
-  sorcery:    { 1: "EX2E.CircleTerrestrial", 2: "EX2E.CircleCelestial", 3: "EX2E.CircleSolar"   },
-  necromancy: { 1: "EX2E.CircleShadowlands", 2: "EX2E.CircleLabyrinth", 3: "EX2E.CircleVoid"    },
-  weaving:    { 1: "EX2E.CircleManMachine",  2: "EX2E.CircleGodMachine"                         }
-};
+import { CIRCLE_KEY_BY_TRADITION } from "../helpers/spell-helpers.mjs";
 
 /**
  * Compute the cast-button UI state for a given spell item, in the

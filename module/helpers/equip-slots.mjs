@@ -28,3 +28,19 @@ export function canEquipToSlot(actor, item, itemId) {
 
   return inUse + cost <= capacity;
 }
+
+/**
+ * Build the hearthstone-slot rows for a socketable item's sheet. Each row is
+ * `{ index, filled, stoneId, stoneName, stoneRating }`. A slot whose id has no
+ * matching hearthstone on the parent actor renders empty.
+ */
+export function buildSocketedSlots(item) {
+  const count      = item.system?.hearthstoneSlots ?? 0;
+  const ids        = item.system?.hearthstones ?? [];
+  const actorItems = item.parent ? [...item.parent.items] : [];
+  return Array.from({ length: count }, (_, i) => {
+    const id    = ids[i] ?? "";
+    const stone = id ? actorItems.find(s => s.id === id && s.type === "hearthstone") : null;
+    return { index: i, filled: !!stone, stoneId: id, stoneName: stone?.name ?? "", stoneRating: stone?.system?.rating ?? 0 };
+  });
+}

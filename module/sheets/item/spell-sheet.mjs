@@ -1,6 +1,7 @@
 import { EX2E } from "../../config.mjs";
 import { computeSpellCastButtonState } from "../../ui/spell-cast-button.mjs";
 import { editImageAction } from "../_edit-image.mjs";
+import { circleChoicesFor } from "../../helpers/spell-helpers.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -331,15 +332,7 @@ export class SpellSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   }
 
   _circleChoicesFor(tradition) {
-    const keys = tradition === "necromancy"
-      ? ["CircleShadowlands", "CircleLabyrinth", "CircleVoid"]
-      : tradition === "weaving"
-        ? ["CircleManMachine", "CircleGodMachine"]
-        : ["CircleTerrestrial", "CircleCelestial", "CircleSolar"];
-    return keys.map((k, i) => ({
-      value: i + 1,
-      label: game.i18n.localize(`EX2E.${k}`)
-    }));
+    return circleChoicesFor(tradition, k => game.i18n.localize(k));
   }
 
 }

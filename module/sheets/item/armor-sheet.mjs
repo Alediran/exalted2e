@@ -1,5 +1,7 @@
 import { EX2E } from "../../config.mjs";
 import { editImageAction } from "../_edit-image.mjs";
+import { resolveNewDotValue } from "../../helpers/dot-rating.mjs";
+import { buildSocketedSlots } from "../../helpers/equip-slots.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -48,7 +50,7 @@ export class ArmorSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       enrichedDescription: await foundry.applications.ux.TextEditor.implementation.enrichHTML(this.document.system.description, {
         secrets: this.document.isOwner, relativeTo: this.document
       }),
-      socketedSlots: _buildSocketedSlots(this.document)
+      socketedSlots: buildSocketedSlots(this.document)
     };
   }
 
@@ -123,18 +125,7 @@ export class ArmorSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const newValue = parseInt(pip.dataset.value);
     const min      = parseInt(track?.dataset.min ?? 0);
     const current  = parseInt(track?.dataset.current ?? 0);
-    const val      = (newValue === 1 && current === 1) ? min : Math.max(min, newValue);
+    const val      = resolveNewDotValue(newValue, current, min);
     await this.document.update({ [name]: val });
   }
-}
-
-function _buildSocketedSlots(item) {
-  const count      = item.system?.hearthstoneSlots ?? 0;
-  const ids        = item.system?.hearthstones ?? [];
-  const actorItems = item.parent ? [...item.parent.items] : [];
-  return Array.from({ length: count }, (_, i) => {
-    const id    = ids[i] ?? "";
-    const stone = id ? actorItems.find(s => s.id === id && s.type === "hearthstone") : null;
-    return { index: i, filled: !!stone, stoneId: id, stoneName: stone?.name ?? "", stoneRating: stone?.system?.rating ?? 0 };
-  });
 }

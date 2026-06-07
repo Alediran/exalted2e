@@ -74,6 +74,7 @@ import { registerMounted }     from "./combat/mounted.mjs";
 import { registerAffliction }  from "./combat/affliction.mjs";
 import { registerMassGuard }  from "./combat/mass-guard.mjs";
 import { registerRegionBehaviors } from "./data/region-behaviors.mjs";
+import { registerItemSheets }      from "./sheets/item-sheets.mjs";
 // NOTE: Anima Powers feature (_swapAnimaPower) relies on the animapowers compendium
 // and cannot be exercised via Quench. No batch registered for ex2e.anima-powers.
 
@@ -176,5 +177,6 @@ Hooks.once("quenchReady", async quench => {
   quench.registerBatch("exalted2e.affliction",   registerAffliction,   { displayName: "Poison/Disease afflictions" });
   quench.registerBatch("exalted2e.mass-guard",   registerMassGuard,   { displayName: "Mass Guard (multi-actor)" });
   quench.registerBatch("exalted2e.region-behaviors", registerRegionBehaviors, { displayName: "Region behaviors (hazard/terrain)" });
+  quench.registerBatch("exalted2e.item-sheets",      registerItemSheets,      { displayName: "Item sheets (render + round-trip)" });
 
 });

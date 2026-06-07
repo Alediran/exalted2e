@@ -1,5 +1,5 @@
 import { editImageAction } from "../_edit-image.mjs";
-import { moteCostString } from "../../rolls/activation-ledger.mjs";
+import { validateComboAdd, charmCostMetaString } from "../../helpers/combo-helpers.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -55,7 +55,7 @@ export class ComboSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         id:       charm?.id ?? "",
         name:     charm?.name ?? game.i18n.localize("EX2E.ComboBroken"),
         img:      charm?.img  ?? "icons/svg/hazard.svg",
-        costMeta: charm ? this._charmCostMeta(charm) : ""
+        costMeta: charm ? charmCostMetaString(charm.system?.cost ?? {}) : ""
       };
     });
 
@@ -72,19 +72,6 @@ export class ComboSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     };
   }
 
-  /** One-line cost preview like `5m 1wp` for a resolved charm row. */
-  _charmCostMeta(charm) {
-    const c = charm.system?.cost ?? {};
-    const parts = [];
-    const mStr = moteCostString(c); if (mStr) parts.push(mStr);
-    if (c.willpower)        parts.push(`+${c.willpower}wp`);
-    if (c.bashingHealth)    parts.push(`${c.bashingHealth}b`);
-    if (c.lethalHealth)     parts.push(`${c.lethalHealth}l`);
-    if (c.aggravatedHealth) parts.push(`${c.aggravatedHealth}a`);
-    if (c.xp)               parts.push(`${c.xp}xp`);
-    return parts.join(" ");
-  }
-
   _onRender(context, options) {
     super._onRender?.(context, options);
     if (!this.isEditable) return;
@@ -97,27 +84,6 @@ export class ComboSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       callbacks:    { drop: this._onDrop.bind(this) }
     });
     dd.bind(this.element);
-  }
-
-  // ── Combo-Basic / Form-type validation helpers ────────────────────────
-  static #isReflexiveForCombo(charm) {
-    return charm.system?.charmType === "reflexive" ||
-           (charm.system?.keywords ?? []).includes("Combo-Basic");
-  }
-
-  static #isComboBasic(charm) {
-    return (charm.system?.keywords ?? []).includes("Combo-Basic");
-  }
-
-  // Returns a localised error string, or null when the addition is legal.
-  static #validateAdd(incoming, existing) {
-    if (incoming.system?.charmType === "form" && existing.some(c => c.system?.charmType === "form"))
-      return game.i18n.localize("EX2E.ComboOneFormType");
-    if (ComboSheet.#isComboBasic(incoming) && existing.some(c => !ComboSheet.#isReflexiveForCombo(c)))
-      return game.i18n.localize("EX2E.ComboBasicOnlyWithReflexive");
-    if (!ComboSheet.#isReflexiveForCombo(incoming) && existing.some(c => ComboSheet.#isComboBasic(c)))
-      return game.i18n.localize("EX2E.ComboBasicOnlyWithReflexive");
-    return null;
   }
 
   // Resolve UIDs to charm items for validation.
@@ -150,8 +116,8 @@ export class ComboSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       return;
     }
 
-    const err = ComboSheet.#validateAdd(dropped, this.#existingCharms(actor));
-    if (err) { ui.notifications.warn(err); return; }
+    const errKey = validateComboAdd(dropped, this.#existingCharms(actor));
+    if (errKey) { ui.notifications.warn(game.i18n.localize(errKey)); return; }
 
     const uid = dropped.system?.charmUid;
     if (!uid) return;
@@ -176,7 +142,7 @@ export class ComboSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const existingItems = this.#existingCharms(actor);
     const candidates = actor.items
       .filter(i => i.type === "charm" && i.system?.charmUid && !existing.has(i.system.charmUid))
-      .filter(i => !ComboSheet.#validateAdd(i, existingItems))
+      .filter(i => !validateComboAdd(i, existingItems))
       .map(i => ({ uid: i.system.charmUid, name: i.name, img: i.img }))
       .sort((a, b) => a.name.localeCompare(b.name));
 

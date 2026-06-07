@@ -326,8 +326,8 @@ See [docs/mechanics-reference.md](docs/mechanics-reference.md) for the rule targ
   - [x] SP1 — quick 0% wins: `module/data/region-behaviors/*` + `module/sheets/_edit-image.mjs`. Extracted `hazard-math.mjs` (pure, Vitest); refactored `hazard-damage.mjs` onto it; removed obsolete `_onEditImage` Tokenizer hook + Vitest'd `editImageAction`; Quench batch `exalted2e.region-behaviors` (terrain schema + hazard apply-path smoke).
   - [x] SP2 — `module/dialogs` pure-logic extraction (extraction-only): 7 dialogs' trapped math → tested helpers (`excellency-math` budget de-dup ×3, `coordination-math`, `sidereal-destiny-math`, `eruption-math`, `anima-fx-math`, `social-attack-math` filters, `flurry-math`). +37 Vitest cases. Dialog-shell Quench smokes deferred to SP2b.
   - [ ] SP2b — Quench smokes for the dialog shells (chase the dialogs directory floor)
-  - [ ] SP3 — `module/sheets/item` (~2115) — next
-  - [ ] SP4 — `module/sheets/actor`
+  - [x] SP3 — `module/sheets/item` (~2115). **Phase A (extraction)**: 8 helpers — dot-rating (×4 dup), socketed-slots (×3 dup), spell-circle (×2 dup), background-tables (×4 dup), manse soak-ref + reuse design-reqs, destiny option normalize, combo-helpers, charm-sheet-helpers. +34 Vitest. **Phase B (Quench shell smokes)**: `tests/quench/sheets/item-sheets.mjs` — render+name round-trip per Item subtype + 3 targeted action smokes (charm keyword, combo removeCharm, manse addMansePower). CI-verified.
+  - [ ] SP4 — `module/sheets/actor` — next
   - [ ] SP5 — `module/apps`
   - [ ] Regression-floor gate on the CI `coverage` job (after SP1 baseline established)
 

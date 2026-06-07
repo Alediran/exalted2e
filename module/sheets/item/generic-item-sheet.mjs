@@ -1,6 +1,9 @@
 import { editImageAction } from "../_edit-image.mjs";
 import { EX2E } from "../../config.mjs";
-import { manseBudgetState, manseDamageThreshold } from "../../helpers/manse-geomancy.mjs";
+import { manseBudgetState, manseDamageThreshold, mansePowerDesignReqs, canDesignPower, manseSoakRef } from "../../helpers/manse-geomancy.mjs";
+import { resolveNewDotValue } from "../../helpers/dot-rating.mjs";
+import { buildSocketedSlots } from "../../helpers/equip-slots.mjs";
+import { clampBackgroundRating, lookupBackgroundTableValue } from "../../helpers/background-tables.mjs";
 
 const { ItemSheetV2, HandlebarsApplicationMixin } = (() => {
   const sheets = foundry.applications.sheets;
@@ -145,7 +148,7 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
         powerFailures: sys.powerFailures ?? 0,
         damage:        sys.damage ?? 0,
         threshold:     manseDamageThreshold(effectiveRating, sys.fragility ?? 0),
-        soakRef:       ({ 0: "12L/18B", 1: "6L/9B", 2: "—", 3: "—" })[Math.max(0, Math.min(3, sys.fragility ?? 0))],
+        soakRef:       manseSoakRef(sys.fragility ?? 0),
         ownerLore:     item.parent?.system?.abilities?.lore?.value   ?? 0,
         ownerOccult:   item.parent?.system?.abilities?.occult?.value ?? 0,
       };
@@ -174,10 +177,10 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       if (actor) {
         const linkedBg = actor.items.get(sys.backgroundId);
         cultBackgroundName   = linkedBg?.name ?? "";
-        cultBackgroundRating = Math.max(0, Math.min(5, linkedBg?.system.value ?? 0));
+        cultBackgroundRating = clampBackgroundRating(linkedBg?.system.value);
       }
-      cultMoteRegenDisplay = EX2E.cultMoteRegen[cultBackgroundRating] ?? 0;
-      cultWpHoursDisplay   = EX2E.cultWpHours[cultBackgroundRating]   ?? 0;
+      cultMoteRegenDisplay = lookupBackgroundTableValue(cultBackgroundRating, EX2E.cultMoteRegen);
+      cultWpHoursDisplay   = lookupBackgroundTableValue(cultBackgroundRating, EX2E.cultWpHours);
     }
 
     let commandBackgroundName   = "";
@@ -188,9 +191,9 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       if (actor) {
         const linkedBg = actor.items.get(sys.backgroundId);
         commandBackgroundName   = linkedBg?.name ?? "";
-        commandBackgroundRating = Math.max(0, Math.min(5, linkedBg?.system.value ?? 0));
+        commandBackgroundRating = clampBackgroundRating(linkedBg?.system.value);
       }
-      commandWarDice = EX2E.commandWarDice[commandBackgroundRating] ?? 0;
+      commandWarDice = lookupBackgroundTableValue(commandBackgroundRating, EX2E.commandWarDice);
     }
 
     let followersBackgroundName   = "";
@@ -201,9 +204,9 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       if (actor) {
         const linkedBg = actor.items.get(sys.backgroundId);
         followersBackgroundName   = linkedBg?.name ?? "";
-        followersBackgroundRating = Math.max(0, Math.min(5, linkedBg?.system.value ?? 0));
+        followersBackgroundRating = clampBackgroundRating(linkedBg?.system.value);
       }
-      followersMagnitude = EX2E.followersMagnitude[followersBackgroundRating] ?? 0;
+      followersMagnitude = lookupBackgroundTableValue(followersBackgroundRating, EX2E.followersMagnitude);
     }
 
     const enrichedDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(sys.description, {
@@ -219,12 +222,15 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
 
     const mansePowers = item.type === "manse"
       ? (sys.powers ?? []).map((p, i) => {
-          const reqAbility = (p.cost ?? 0) + 2;
+          const reqAbility = mansePowerDesignReqs(p.cost ?? 0).prereq;
           return {
             ...p,
             overCap:       manseBudget?.violations?.includes(i) ?? false,
             status:        p.status ?? "pending",
-            canDesign:     (manseConstruction?.ownerLore ?? 0) >= reqAbility && (manseConstruction?.ownerOccult ?? 0) >= reqAbility,
+            canDesign:     canDesignPower(
+              { lore: manseConstruction?.ownerLore ?? 0, occult: manseConstruction?.ownerOccult ?? 0 },
+              p.cost ?? 0
+            ),
             designReqText: game.i18n.format("EX2E.MansePowerDesignReq", { n: reqAbility }),
           };
         })
@@ -233,7 +239,7 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     return { ...context, item, system: sys, typeChoices, isEditable: this.isEditable,
              enrichedDescription, useIntimacyIntensity,
              isGM: game.user.isGM, magicalMaterials,
-             socketedSlots: _buildSocketedSlots(this.document),
+             socketedSlots: buildSocketedSlots(this.document),
              manseBackgrounds, manseHearthstones, manseRating, manseAspect, manseAspectLabel,
              manseBackgroundName, manseHearthstoneName,
              manseBudget,
@@ -345,7 +351,7 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const newValue = parseInt(pip.dataset.value);
     const min      = parseInt(track?.dataset.min ?? 0);
     const current  = parseInt(track?.dataset.current ?? 0);
-    const val      = (newValue === 1 && current === 1) ? min : Math.max(min, newValue);
+    const val      = resolveNewDotValue(newValue, current, min);
     if (!name) return;
     this.document.update({ [name]: val });
   }
@@ -517,15 +523,4 @@ export class GenericItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const { afflictTargets } = await import("../../combat/affliction.mjs");
     await afflictTargets(item, actors, { intervals });
   }
-}
-
-function _buildSocketedSlots(item) {
-  const count      = item.system?.hearthstoneSlots ?? 0;
-  const ids        = item.system?.hearthstones ?? [];
-  const actorItems = item.parent ? [...item.parent.items] : [];
-  return Array.from({ length: count }, (_, i) => {
-    const id    = ids[i] ?? "";
-    const stone = id ? actorItems.find(s => s.id === id && s.type === "hearthstone") : null;
-    return { index: i, filled: !!stone, stoneId: id, stoneName: stone?.name ?? "", stoneRating: stone?.system?.rating ?? 0 };
-  });
 }
