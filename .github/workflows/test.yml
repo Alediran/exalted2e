@@ -264,7 +264,7 @@ jobs:
         continue-on-error: true
       - name: Merge coverage
         env:
-          COVERAGE_MIN_LINES: "66"
+          COVERAGE_MIN_LINES: "80"
         run: node tools/ci/merge-coverage.mjs cov-vitest/coverage-final.json cov-quench/quench-coverage-final.json
       - name: Upload combined coverage
         if: always()
