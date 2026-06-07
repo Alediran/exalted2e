@@ -3,7 +3,7 @@
 /* ── DOT RATING ──────────────────────────────────────────────────────────── */
 .dot-rating {
   display: inline-flex;
-  gap: 3px;
+  gap: var(--ex2e-gap-xs);
   align-items: center;
 }
 
@@ -38,14 +38,14 @@
 /* ── BOX RATING (square boxes for temporal / resource tracks) ─────────────── */
 .box-rating {
   display:     inline-flex;
-  gap:         3px;
+  gap:         var(--ex2e-gap-xs);
   align-items: center;
 }
 
 .box-rating .box {
   width:       13px;
   height:      13px;
-  border-radius: 2px;
+  border-radius: var(--ex2e-border-radius-sm);
   border:      1.5px solid var(--ex2e-gold-dark);
   background:  var(--ex2e-bg-darkest);
   cursor:      pointer;
@@ -104,7 +104,7 @@
 .health-row-boxes {
   display:        flex;
   flex-direction: column;
-  gap:            3px;
+  gap:            var(--ex2e-gap-xs);
 }
 .health-row-line {
   display:         flex;
@@ -188,14 +188,14 @@
 /* ── WILLPOWER TRACK ─────────────────────────────────────────────────────── */
 .willpower-track {
   display:    inline-flex;
-  gap:        3px;
+  gap:        var(--ex2e-gap-xs);
   align-items: center;
 }
 
 .wp-pip {
   width:  12px;
   height: 12px;
-  border-radius: 2px;
+  border-radius: var(--ex2e-border-radius-sm);
   border:    1.5px solid var(--ex2e-gold-dark);
   background: var(--ex2e-bg-darkest);
   cursor:    pointer;
@@ -209,7 +209,7 @@
 /* ── LIMIT TRACK ─────────────────────────────────────────────────────────── */
 .limit-track {
   display:    inline-flex;
-  gap:        3px;
+  gap:        var(--ex2e-gap-xs);
   align-items: center;
 }
 
@@ -738,11 +738,11 @@
 }
 
 .ex2e-purchase-toggle:hover {
-  color: var(--ex2e-gold-bright, #ffe066);
+  color: var(--ex2e-gold-bright);
 }
 
 .ex2e-purchase-toggle.active {
-  color: var(--ex2e-gold-bright, #ffe066);
+  color: var(--ex2e-gold-bright);
   text-shadow: 0 0 4px var(--ex2e-gold-main, #d4af37);
 }
 
@@ -758,7 +758,7 @@
   display: block;
   margin-top: 2px;
   font-size: 11px;
-  color: var(--ex2e-text-secondary, #b8a88a);
+  color: var(--ex2e-text-secondary);
   font-style: italic;
 }
 
@@ -824,7 +824,7 @@
 }
 .ex2e-xp-costs-config-body .xp-costs-section {
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
+  border-radius: var(--ex2e-border-radius);
   padding: 8px 12px;
   margin-bottom: 10px;
   background: rgba(255, 255, 255, 0.04);
@@ -895,7 +895,7 @@
   padding: 8px 12px;
   margin: 6px 0;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
+  border-radius: var(--ex2e-border-radius);
   background: rgba(255, 255, 255, 0.04);
 }
 .ex2e-permissions-config-body .form-group label {

@@ -271,7 +271,7 @@
   overflow-y:     auto;
   display:        flex;
   flex-direction: column;
-  gap:            3px;
+  gap:            var(--ex2e-gap-xs);
 }
 
 .crafting-roll-dialog .crafting-charm-list li {
@@ -605,7 +605,7 @@
   overflow-y:     auto;
   display:        flex;
   flex-direction: column;
-  gap:            3px;
+  gap:            var(--ex2e-gap-xs);
 }
 
 .artifact-crafting-dialog .crafting-charm-list li {

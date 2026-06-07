@@ -383,7 +383,7 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
 .ability-stack {
   display: flex;
   flex-direction: column; /* Stacks its children vertically */
-  gap: 6px;
+  gap: var(--ex2e-gap-sm);
 }
 
 /* Individual column */
@@ -492,7 +492,7 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
 .specialty-row {
   display:     flex;
   align-items: center;
-  gap:         3px;
+  gap:         var(--ex2e-gap-xs);
 }
 
 .specialty-text {
@@ -644,7 +644,7 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
   font-size: 1.05em;
   font-weight: bold;
   padding: 2px 6px;
-  border-radius: 4px;
+  border-radius: var(--ex2e-border-radius);
   text-align: center;
   min-height: 1.4em;
 }
@@ -775,7 +775,7 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
 .exalted2e.actor.character .charm-group-header {
   display:     flex;
   align-items: center;
-  gap:         6px;
+  gap:         var(--ex2e-gap-sm);
   list-style:  none;
 }
 
@@ -926,7 +926,7 @@ body.ex2e-light-mode .exalted2e.actor.character[data-exalt-type="sidereal"] {
 .exalted2e .dissonance-row {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--ex2e-gap-sm);
 }
 .exalted2e .clarity-compassion-penalty {
   color: var(--ex2e-amber, #d9a441);

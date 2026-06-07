@@ -30,7 +30,7 @@
 .charm-tree-header__field {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: var(--ex2e-gap-xs);
 }
 
 .charm-tree-header__field label {
@@ -44,7 +44,7 @@
   background: #1a1a2a;
   color: #fff;
   border: 1px solid #555;
-  border-radius: 4px;
+  border-radius: var(--ex2e-border-radius);
   padding: 4px 8px;
   font-size: 12px;
 }
@@ -52,7 +52,7 @@
 .charm-tree-header__sources {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--ex2e-gap-md);
   font-size: 11px;
   margin-left: auto;
 }
@@ -91,7 +91,7 @@
 .charm-tree-branch-nav__btn {
   background: none;
   border: 1px solid #555;
-  border-radius: 4px;
+  border-radius: var(--ex2e-border-radius);
   color: #ccc;
   cursor: pointer;
   font-size: 16px;
@@ -176,7 +176,7 @@
 
 .charm-tree-learn-btn {
   padding: 4px 12px;
-  border-radius: 4px;
+  border-radius: var(--ex2e-border-radius);
   border: none;
   cursor: pointer;
   font-size: 12px;
@@ -230,14 +230,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 16px;
+  gap: var(--ex2e-gap-lg);
 }
 
 .charm-tree-cards-row {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 16px;
+  gap: var(--ex2e-gap-lg);
   min-height: 80px;
 }
 
