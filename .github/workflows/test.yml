@@ -3,6 +3,12 @@ name: Tests
 on:
   push:
   pull_request:
+  workflow_call:
+    inputs:
+      disable_coverage_floor:
+        description: "When true, coverage runs report-only (no floor gate). Releases pass true."
+        type: boolean
+        default: false
 
 env:
   # Foundry build to install. Pinned so the felddy download is cacheable
@@ -264,7 +270,7 @@ jobs:
         continue-on-error: true
       - name: Merge coverage
         env:
-          COVERAGE_MIN_LINES: "80"
+          COVERAGE_MIN_LINES: ${{ inputs.disable_coverage_floor && 'none' || '80' }}
         run: node tools/ci/merge-coverage.mjs cov-vitest/coverage-final.json cov-quench/quench-coverage-final.json
       - name: Upload combined coverage
         if: always()
