@@ -11,6 +11,7 @@ import libCoverage from "istanbul-lib-coverage";
 import libReport from "istanbul-lib-report";
 import reports from "istanbul-reports";
 import { normalizeCoverageKey } from "./coverage-paths.mjs";
+import { evaluateCoverageGate } from "./coverage-gate.mjs";
 
 const { createCoverageMap, createCoverageSummary } = libCoverage;
 const { createContext } = libReport;
@@ -30,9 +31,13 @@ function loadNormalized(path) {
 
 const [, , vitestPath, quenchPath] = process.argv;
 
+const vitestCov = loadNormalized(vitestPath);
+const quenchCov = loadNormalized(quenchPath);
+const complete  = Object.keys(vitestCov).length > 0 && Object.keys(quenchCov).length > 0;
+
 const map = createCoverageMap({});
-map.merge(createCoverageMap(loadNormalized(vitestPath)));
-map.merge(createCoverageMap(loadNormalized(quenchPath)));
+map.merge(createCoverageMap(vitestCov));
+map.merge(createCoverageMap(quenchCov));
 
 // Guard the all-empty case: istanbul reports 100% for a zero-total summary,
 // which would masquerade as full coverage if both inputs were missing.
@@ -65,4 +70,10 @@ try {
   console.error(`(coverage) report write failed: ${e.message}`);
 }
 
-process.exit(0);
+const gate = evaluateCoverageGate({
+  floor:    process.env.COVERAGE_MIN_LINES,
+  linesPct: total.lines.pct,
+  complete,
+});
+console.log(gate.message);
+process.exit(gate.exitCode);

@@ -1,7 +1,7 @@
 # TODO Classification — Exalted 2e Foundry VTT
 
 Companion to `TODO.md`. Classifies all pending `[ ]` / `[~]` items by implementation readiness, then complexity.
-Last updated: 2026-06-06 (Coverage initiative SP5 DONE — module/apps extraction (+13 Vitest, suite 1390) + app-shells Quench batch. ALL directory areas SP1–SP5 + SP2b done; only the regression-floor CI gate remains. count 1 A / 1 B / 1 C / 3 active)
+Last updated: 2026-06-06 (Coverage-raising initiative COMPLETE — SP1–SP5 + SP2b + regression-floor CI gate all done; Vitest suite 1394, 5 Quench render batches. count 1 A / 0 B / 1 C / 2 active)
 
 ---
 
@@ -17,9 +17,7 @@ Last updated: 2026-06-06 (Coverage initiative SP5 DONE — module/apps extractio
 ## Group B — Ready, Medium
 *Multi-file, all dependencies present, needs some design.*
 
-| Item | TODO Section | Notes |
-|------|-------------|-------|
-| Coverage-raising initiative — regression-floor CI gate | Testing | SP1–SP5 + SP2b all done (every directory area covered: region-behaviors, dialogs, item/actor sheets, apps). Only remaining piece: add a regression-floor threshold check to the CI `coverage` job so combined lines can't drop below the achieved baseline. |
+*(none — Coverage-raising initiative completed: SP1–SP5 + SP2b + regression-floor CI gate all done)*
 
 ---
 
@@ -46,7 +44,7 @@ Last updated: 2026-06-06 (Coverage initiative SP5 DONE — module/apps extractio
 | Group | Count |
 |-------|-------|
 | A — Ready, Simple | 1 |
-| B — Ready, Medium | 1 |
+| B — Ready, Medium | 0 |
 | C — Ready, Complex | 1 |
-| **Total active** | **3** |
+| **Total active** | **2** |
 | (Parked) | 1 |

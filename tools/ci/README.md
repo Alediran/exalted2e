@@ -84,3 +84,12 @@ the workflow).
 - The `/join` selectors in `run-quench.mjs` may need tuning for the exact v14 UI.
 - Verify Quench writes `quench-report.json` to the userdata `Data/` root (the
   highest-risk assumption); if it lands elsewhere, update `QUENCH_REPORT_PATH`.
+
+## Coverage gate
+
+The `coverage` CI job merges the Vitest + Quench coverage and enforces a **line-coverage floor** via `tools/ci/merge-coverage.mjs` + `tools/ci/coverage-gate.mjs`:
+
+- Set by `COVERAGE_MIN_LINES` (env on the "Merge coverage" step in `.github/workflows/test.yml`). Unset/non-numeric → gate is **off** (report-only).
+- The job **fails** (exit 1) when combined line coverage is below the floor — but only when BOTH coverage inputs are present. If a source job (e.g. Quench) produced no coverage artifact, the gate is **skipped** (exit 0) so a degraded run doesn't false-fail on a Vitest-only number.
+- Metric is **lines only** (branch/function coverage is noisier).
+- Every run prints `Combined coverage — lines X%`; ratchet the floor up to ~1 point below X after a green run to lock in gains. The combined html/lcov report still uploads as the `coverage-combined` artifact even on a gate failure.
