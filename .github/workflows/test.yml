@@ -12,8 +12,9 @@ on:
 
 env:
   # Foundry build to install. Pinned so the felddy download is cacheable
-  # (the cached zip is foundryvtt-<FOUNDRY_VERSION>.zip). Bump this + supply a
-  # fresh FOUNDRY_RELEASE_URL when you want a newer build.
+  # (the cached zip is foundryvtt-<FOUNDRY_VERSION>.zip). Bump this to install a
+  # newer build — felddy downloads it via the authenticated FOUNDRY_USERNAME /
+  # FOUNDRY_PASSWORD account (no presigned URL to refresh).
   FOUNDRY_VERSION: "14.363"
 
 jobs:
@@ -61,8 +62,8 @@ jobs:
           cp tools/ci/fixtures/test-world/world.json "${{ github.workspace }}/fvtt-data/Data/worlds/exalted2e-test/world.json"
 
       # Cache the felddy download (foundryvtt-<version>.zip) so only the first
-      # run (or a FOUNDRY_VERSION bump) needs FOUNDRY_RELEASE_URL. felddy reads
-      # and writes this dir as CONTAINER_CACHE (mounted at /data/container_cache).
+      # run (or a FOUNDRY_VERSION bump) has to download from the account. felddy
+      # reads/writes this dir as CONTAINER_CACHE (mounted at /data/container_cache).
       - name: Cache Foundry download
         uses: actions/cache@v5
         with:
@@ -106,20 +107,15 @@ jobs:
         env:
           FOUNDRY_USERNAME: "${{ secrets.FOUNDRY_USERNAME }}"
           FOUNDRY_PASSWORD: "${{ secrets.FOUNDRY_PASSWORD }}"
-          FOUNDRY_RELEASE_URL: "${{ secrets.FOUNDRY_RELEASE_URL }}"
           FOUNDRY_LICENSE_KEY: "${{ secrets.FOUNDRY_LICENSE_KEY }}"
           FOUNDRY_ADMIN_KEY: "${{ secrets.FOUNDRY_ADMIN_KEY }}"
         run: |
           missing=0
-          # License + admin key are always required.
-          for v in FOUNDRY_LICENSE_KEY FOUNDRY_ADMIN_KEY; do
+          # felddy downloads via the account (username + password) and licenses
+          # via the license/admin keys — all four are required.
+          for v in FOUNDRY_USERNAME FOUNDRY_PASSWORD FOUNDRY_LICENSE_KEY FOUNDRY_ADMIN_KEY; do
             if [ -z "${!v}" ]; then echo "::error::Secret $v is missing or empty"; missing=1; fi
           done
-          # Download method: either a release URL OR username + password.
-          if [ -z "$FOUNDRY_RELEASE_URL" ] && { [ -z "$FOUNDRY_USERNAME" ] || [ -z "$FOUNDRY_PASSWORD" ]; }; then
-            echo "::error::Provide FOUNDRY_RELEASE_URL, or both FOUNDRY_USERNAME and FOUNDRY_PASSWORD";
-            missing=1;
-          fi
           if [ "$missing" = "1" ]; then
             echo "Set the secrets in repo Settings → Secrets and variables → Actions, then re-run.";
             exit 1;
@@ -135,19 +131,20 @@ jobs:
           # would be silently zeroed by the shell when passed as -e VAR="$foo").
           FOUNDRY_USERNAME: "${{ secrets.FOUNDRY_USERNAME }}"
           FOUNDRY_PASSWORD: "${{ secrets.FOUNDRY_PASSWORD }}"
-          FOUNDRY_RELEASE_URL: "${{ secrets.FOUNDRY_RELEASE_URL }}"
           FOUNDRY_LICENSE_KEY: "${{ secrets.FOUNDRY_LICENSE_KEY }}"
           FOUNDRY_ADMIN_KEY: "${{ secrets.FOUNDRY_ADMIN_KEY }}"
         run: |
           # felddy runs as uid:gid 1000:1000; the mounted dir is owned by the
           # runner user, so make it writable by the container before booting.
+          # No FOUNDRY_RELEASE_URL: felddy logs in with FOUNDRY_USERNAME/PASSWORD
+          # and downloads FOUNDRY_VERSION via the account (a fresh URL each run),
+          # so there is no presigned URL to expire.
           sudo chmod -R 777 "${{ github.workspace }}/fvtt-data"
           docker run -d --name foundry \
             -p 30000:30000 \
             -v "${{ github.workspace }}/fvtt-data:/data" \
             -e FOUNDRY_USERNAME \
             -e FOUNDRY_PASSWORD \
-            -e FOUNDRY_RELEASE_URL \
             -e FOUNDRY_LICENSE_KEY \
             -e FOUNDRY_ADMIN_KEY \
             -e FOUNDRY_VERSION="${{ env.FOUNDRY_VERSION }}" \
